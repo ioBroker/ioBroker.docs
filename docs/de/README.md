@@ -1,7 +1,13 @@
 ---
-title:       "ioBroker Dokumentation"
-lastChanged: "07.01.2025"
+title:       "Was ist ioBroker?"
+lastChanged: "08.09.2026"
 ---
+# Was ist ioBroker?
+
+ioBroker ist eine Software, die Geräte und Dienste verschiedener Hersteller zu
+einem System verbindet. Werte ablesen, Geräte steuern, Abläufe automatisieren:
+alles an einer Stelle, unabhängig davon, von wem das einzelne Gerät stammt.
+
 ## Mach dein Leben einfacher: Smart Home
 
 Wäre es nicht praktisch, Temperaturen, Verbrauchswerte oder Schaltzustände von Geräten verschiedenster Hersteller zentral an einem Ort abzulesen?
@@ -18,7 +24,7 @@ Sie ermöglicht die Integration verschiedenster Smarthome-Systeme, die ohne ioBr
 **ioBroker** ist daher **die** Integrationsplattform für das Internet der Dinge (IoT) und ermöglicht die Einbindung von freien und kommerziellen Produkten
 aus fast allen Lebensbereichen sowie die Integration von selbst erstellten Lösungen.
 
-Das **ioBroker-System** ist modular aufgebaut und kann durch die Installation von einzelnen Plugins, bei uns Adaptern genannt, gemäß den individuellen Wünschen erweitert werden.
+Das **ioBroker-System** ist modular aufgebaut und kann durch die Installation von einzelnen Plugins, bei uns Adapter genannt, gemäß den individuellen Wünschen erweitert werden.
 
 Mit weit über 600 Adaptern ermöglicht ioBroker die Integration verschiedener Plattformen, Systeme und Geräte von A wie Alexa bis Z wie Zigbee und bietet viele weitere Möglichkeiten zur Automatisierung.
 
@@ -26,7 +32,7 @@ Mit weit über 600 Adaptern ermöglicht ioBroker die Integration verschiedener P
 
 **Adapter** sind in JavaScript für Node.js geschriebene **PlugIns** (Softwaremodule, kleine Programme), die speziell für bestimmte Geräte, Gerätetypen, Geräte bestimmter Hersteller oder andere Dienste, wie beispielsweise zur Abfrage von Webseiten, entwickelt wurden.
 
-Diese Adapter ermöglichen die Verbindung zwischen physischen Geräten (zum Beispiel steuerbare Steckdosen, Relais, Fernthermometer und ähnliche) und dem zentralen ioBroker-System. Sie sind in der Lage, die von den Geräten gemessenen Werte auszulesen und die Geräte zu steuern, was oft über WLAN im eigenen Heimnetz geschieht.
+Diese Adapter ermöglichen die Verbindung zwischen physischen Geräten (zum Beispiel steuerbare Steckdosen, Relais, Fernthermometer und ähnlichem) und dem zentralen ioBroker-System. Sie sind in der Lage, die von den Geräten gemessenen Werte auszulesen und die Geräte zu steuern, was oft über WLAN im eigenen Heimnetz geschieht.
 
 Andere Adapter sind darauf ausgelegt, Messwerte wie Temperatur, Leistung, Verbrauchswerte oder Schaltzustände grafisch in Diagrammen darzustellen.
 Visualisierungsadapter bieten zudem weitere Möglichkeiten, wie das Einbinden von Bildern (etwa von Überwachungskameras), Wetterdaten und vieles mehr.
@@ -39,11 +45,11 @@ Sollte ein Adapter fehlen, kann daher meistens schnell ein passender entwickelt 
 Die aktive **ioBroker-Entwickler-Community** unterstützt neue Entwickler dabei jederzeit gerne.
 
 **Tipp:**
- [Übersicht verfügbaren Adapter](https://www.iobroker.net/#de/adapters/adapters.md) 
+ [Übersicht verfügbarer Adapter](/adapters) 
 
 ### ioBroker verbindet unterschiedlichste Smarthome-Systeme
 
-![](media/iobroker-simple-overview.png)  
+![](media/iobroker-simple-overview.webp)  
 
 Diese Grafik veranschaulicht, wie ioBroker als zentrales System verschiedenste Smart-Home-Systeme und weitere Dienste, wie zum Beispiel Kalender,
 koordiniert und miteinander verbindet.
@@ -55,123 +61,147 @@ Auf diese Weise kann die ioBroker-Software Statusinformationen abrufen oder Steu
 
 In diesem Anwendungsbeispiel wird exemplarisch aufgezeigt, wie die beiden voneinander unabhängigen Smarthome-Systeme Philipps Hue und Homematic IP mittels ioBroker zusammengeführt werden, um eine Anwesenheitssimulation zu realisieren.
 
-Durch die Anbindung der beiden Smarthome-Systeme an die ioBroker Software, ist ioBroker in der Lage die Zustände der Hue Lampen (ein/aus) sowie die Rollläden (hoch/runter) zu verändern. Die Erkennung der Urlaubszeit erfolgt durch die Anbindung des Kalenders in ioBroker.
+Durch die Anbindung der beiden Smarthome-Systeme an die ioBroker Software ist ioBroker in der Lage, die Zustände der Hue Lampen (ein/aus) sowie die Rollläden (hoch/runter) zu verändern. Die Erkennung der Urlaubszeit erfolgt durch die Anbindung des Kalenders in ioBroker.
 
-Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann der Anwender nun mit wenigen Schritten dem folgenden Ablauf realisieren:
+Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann der Anwender nun mit wenigen Schritten den folgenden Ablauf realisieren:
 
-- Wenn im Kalender der Eintrag "Urlaub" eingetragen ist, werden um 18 Uhr Abends alle HUE Lampen eingeschaltet.
+- Wenn im Kalender der Eintrag "Urlaub" eingetragen ist, werden um 18 Uhr abends alle HUE-Lampen eingeschaltet.
 - Um 22:00 Uhr werden alle Rollläden geschlossen und alle Hue Lampen ausgeschaltet.
 - Um 08:00 Uhr morgens werden alle Rollläden wieder hochgefahren.
 
-Über die verfügbaren Visualisierungs-Adapter kann sich der Anwender individuelle Status und Steuerungsseiten für seine Hue Lampen und Rollläden bauen, auf die mit den mobilen Endgeräten von zu Hause oder aus dem Urlaub (z.B. mittels ioBroker Cloud Services oder VPN) zugegriffen werden kann.
+Über die verfügbaren Visualisierungs-Adapter kann sich der Anwender individuelle Status und Steuerungsseiten für seine Hue-Lampen und Rollläden bauen, auf die mit den mobilen Endgeräten von zu Hause oder aus dem Urlaub (z.B. mittels ioBroker Cloud Services oder VPN) zugegriffen werden kann.
 
 ## Stärken von ioBroker
 
-### Plattformunabhängig
+### Herstellerunabhängig und offen
 
-ioBroker kann auf fast allen Hardwareplattformen installiert werden, auf denen als **Betriebssystem Linux, OSX, Windows oder Docker** läuft. Möglich sind somit Einplatinencomputer (wie der Raspberry Pi), Server, NAS oder Server mit Virtualisierungsumgebungen (wie z.B. Proxmox, Desktopcomputer, o.ä.).
+ioBroker bindet Geräte, Protokolle und Onlinedienste über Adapter ein, und zwar
+unabhängig davon, von wem das einzelne Gerät stammt. Zigbee, Z-Wave, KNX, Modbus,
+MQTT, Hersteller-Clouds, Sprachassistenten: Was ein Adapter übersetzen kann, wird
+Teil desselben Systems. Du bist damit an keinen Hersteller gebunden und kannst
+Geräte austauschen, ohne deine Automatisierungen neu aufzubauen.
 
-Eine einfache Installationsroutine aus einer einzigen Zeile (one-line installer) ermöglicht unter Linux und OSX eine anwenderfreundliche Installation und somit einen schnellen Einstieg in ioBroker.
+### Modular aufgebaut
 
+ioBroker besteht aus einem schlanken Kern und Adaptern, die du einzeln
+installierst. Du holst dir also nur das ins System, was du wirklich brauchst.
+Jede Instanz eines Adapters läuft für sich; fällt eine aus, arbeitet der Rest
+weiter, und du kannst sie einzeln anhalten, neu starten oder anders einstellen.
 
-### Skalierbar
-Sollen im Laufe der Zeit weitere Smarthome-Systeme angebunden werden, können
-diese vom Anwender jederzeit über zusätzliche Adapter im laufendem Betrieb
-implementiert werden.
-Auch ioBroker selbst ist skalierbar: Mehrere ioBroker-Server können zu einem
-Mutihost-System verbunden werden. Dabei ist sogar die Mischung von
-Betriebssystemplattformen und die Kopplung von Einplatinencomputern mit
-großen Multicore-Servern möglich.
+### Läuft auf fast jeder Hardware
+
+ioBroker kann auf fast allen Hardwareplattformen installiert werden, auf denen als
+**Betriebssystem Linux, OSX, Windows oder Docker** läuft. Möglich sind somit
+Einplatinencomputer (wie der Raspberry Pi), Server, NAS oder Server mit
+Virtualisierungsumgebungen (wie z.B. Proxmox), Desktopcomputer, o.ä.
+
+Eine einfache Installationsroutine aus einer einzigen Zeile (one-line installer)
+ermöglicht unter Linux und OSX eine anwenderfreundliche Installation und somit einen
+schnellen Einstieg in ioBroker.
+
+### Alles über die Oberfläche
+
+Konfigurationsdateien musst du nicht bearbeiten. Adapter installieren, Instanzen
+einrichten, Objekte ansehen, Benutzer anlegen, Protokolle lesen: all das geschieht
+in der Admin-Oberfläche im Browser.
 
 ### Individuelle Programmierung von Abläufen
 
-Mit den Logikadaptern bietet ioBroker die Möglichkeit individuelle Abläufe und Skripte zu erstellen. 
-In einem Skript kann z.B. ein Wert von einem Adapter überwacht werden (Urlaub ist im Kalender am heutigen Tag eingetragen) und eine Aktion ausgelöst werden (Schalte um 18 Uhr alle Hue Lichter ein).
+Mit den Logikadaptern bietet ioBroker die Möglichkeit, individuelle Abläufe und
+Skripte zu erstellen. In einem Skript kann z.B. ein Wert von einem Adapter
+überwacht werden (Urlaub ist im Kalender am heutigen Tag eingetragen) und eine
+Aktion ausgelöst werden (Schalte um 18 Uhr alle Hue Lichter ein).
 
-In ioBroker können diese individuellen Abläufe durch Drag-and-Drop von Bausteinen (grafische Programmierung) in "Rules" oder "Blockly" realisiert werden oder in klassischer Form mit "Javascript" oder "Typescript" in Form von geschriebenem Quellcode implementiert werden. 
+Für einfache Abläufe genügen die grafischen Werkzeuge: der Regel-Assistent für
+"Wenn dies, dann das" und Blockly, wo du Bausteine zusammensetzt. Wer mehr möchte,
+schreibt JavaScript oder TypeScript, nutzt Node-RED oder bindet eigene
+Node.js-Module ein. Alle Wege führen auf dieselben Daten, und sie lassen sich
+nebeneinander verwenden.
 
-Weitere Erklärungen zu den Logikbausteinen sowie eine weitere Vorstellung von weiteren Logikbausteinen wie Node-Red oder der Szenen-Adapter werden in dieser Doku im Abschnitt "Logik und Automatisierung" erläutert.
+Weitere Erklärungen zu den Logikbausteinen sowie eine Vorstellung von Node-RED
+oder dem Szenen-Adapter stehen im Kapitel
+[Logik und Automatisierung](/docs/logic/README.md).
+
+### Der js-controller als Kern
+
+Der js-controller ist das Herz des Systems. Er verwaltet die Objekte und Zustände,
+startet und überwacht die Instanzen und hält die Verbindung zwischen allen Teilen.
+Adapter sprechen nicht miteinander, sondern über diesen Kern. Daraus folgt die
+Offenheit des Systems: Ein neuer Adapter muss nur die gemeinsame Sprache
+beherrschen, nicht jedes andere Gerät kennen.
+
+### Skalierbar bis zum Multi-Host-System
+
+Sollen im Laufe der Zeit weitere Smarthome-Systeme angebunden werden, können diese
+jederzeit über zusätzliche Adapter im laufenden Betrieb ergänzt werden.
+
+Auch ioBroker selbst ist skalierbar: Mehrere ioBroker-Server können zu einem
+Multi-Host-System verbunden werden. Dabei ist sogar die Mischung von
+Betriebssystemplattformen und die Kopplung von Einplatinencomputern mit großen
+Multicore-Servern möglich. Das entlastet den einzelnen Rechner und erhöht zugleich
+die Ausfallsicherheit.
+
+### Redis als optionale Datenbank
+
+In der Voreinstellung legt ioBroker Objekte und Zustände in Dateien ab. Für größere
+Anlagen lässt sich stattdessen Redis verwenden. Das beschleunigt die Zugriffe
+deutlich und ist der übliche Weg, wenn viele Zustände in kurzer Folge geschrieben
+werden.
+
+### Benutzer und Rechte
+
+Du legst Benutzer und Gruppen an und bestimmst, wer was sehen und bedienen darf. In
+einem Haushalt mit mehreren Personen oder in einer Anlage, die jemand anderes
+betreut, ist das der Unterschied zwischen "alle dürfen alles" und einer Oberfläche,
+die jedem genau das zeigt, was ihn angeht.
+
+### Deine Daten bleiben bei dir
+
+ioBroker läuft bei dir zu Hause. Werte, Verläufe und Regeln liegen auf deinem
+Rechner, nicht bei einem Anbieter. Ob ein einzelnes Gerät zusätzlich eine Cloud des
+Herstellers benötigt, hängt vom Gerät ab; das System selbst braucht keine. Für den
+Zugriff von unterwegs gibt es eigene Wege, die du bewusst einschaltest.
+
+### Visualisierung nach deinem Geschmack
+
+Für die Oberfläche, die du täglich bedienst, gibt es mehrere Wege: vis-2, webui,
+Lovelace, den Devices-Adapter und weitere. Der nächste Abschnitt stellt sie vor.
+
+### Open Source und eine starke Community
+
+ioBroker ist quelloffen und kostenlos. Die Entwicklung findet öffentlich statt, und
+ein großer Teil der Adapter stammt aus der Community. Im Forum, insbesondere im
+deutschsprachigen Raum, findest du Hilfe, Beispiele und Anleitungen, meist
+innerhalb weniger Stunden. Mehr dazu weiter unten im Abschnitt Community.
 
 ## Visualisierung
 
-Mehrere Visualisierungsadapter bieten dem Anwender die Möglichkeit Steuerungsoptionen, sowie Zustandsinformationen, grafisch zu realisieren.
-Diese individuellen Visualisierungen können dann auf einem Tablet, Smartphone oder Computer dargestellt und bedient werden.
+Am Ende soll jemand etwas bedienen: eine Seite im Browser, auf dem Tablet an der
+Wand oder auf dem Telefon, auf der Räume, Geräte und Messwerte zu sehen sind und
+geschaltet werden kann. ioBroker bringt diese Oberfläche nicht selbst mit, sie
+entsteht durch einen Adapter. Und davon gibt es viele, mit sehr
+unterschiedlichem Ansatz.
 
-Nachfolgend werden einige Visualisierungsadapter und deren Haupteigenschaften kurz vorgestellt.
+Die einen zeichnet man sich selbst, Element für Element, bis alles genau so
+aussieht, wie man es haben will:
 
-### VIS
+* **vis-2** und sein Vorgänger **vis**, die verbreitetsten
+* **webui**, ein eigenständiges System aus Web Components
 
-[Adapterseite vis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md)
+Die anderen bauen sich selbst auf, aus dem, was das System ohnehin über die
+Geräte weiß:
 
-ioBroker stellt mit dem Adapter VIS (Visualisierung) ein mächtiges Tool zur Erstellung von individuellen 
-Visualisierungen zur Verfügung. Aktuelle Werte von Sensoren können genauso wie 
-historische Verläufe grafisch aufbereitet dargestellt werden. Live-Bilder von 
-Überwachungskameras, die Implementierung einer Alarmanlage, Heizungssysteme und 
-Klimatechnik - fast alles, was vorstellbar ist, kann auch umgesetzt werden. 
+* der **Devices-Adapter**, der aus den angelegten Geräten eine fertige Ansicht
+  erzeugt
+* **Lovelace**, die Oberfläche von Home Assistant
 
-Mit dem Einsatz von VIS hat der Anwender bei der Realisierung maximale Gestaltungsfreiheiten. Vorgefertigte Bausteine zur 
-einfachen Verwendung helfen dem Anwender dabei beim Zusammenstellen der UI. Doch nicht nur die Anzeige von 
-Informationen ist möglich. Auch die Steuerung von Geräten ist über die 
-Visualisierungsoberfläche schnell umgesetzt. Die Bedienung der Oberfläche kann 
-dabei auf die unterschiedlichsten Endgeräte abgestimmt werden - vom Smartphone 
-über das Wandtablett mit Touch-Funktion bis hin zum PC - alles kann 
-durch einfaches Drag-and-Drop realisiert werden. 
+Dazu kommen Adapter für einzelne Aufgaben: **echarts** und **flexcharts** für
+Diagramme, **energiefluss** für den Weg des Stroms durch das Haus, und über
+sechzig weitere.
 
-![](media/iobroker-visualisation-vis.png)
-
-
-![VIS](media/vis2.png)  
-![](media/iobroker-visualisation-vis-wetter.png)
-
-### Material UI
-
-React und Material UI interface.
-
-[Adapterseite Material](https://www.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md)
-
-![](media/iobroker-visualisation-material.png)  
-
-### Jarvis
-
-[Adapterseite Jarvis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md)
-
-Jarvis ist eine Material Design Visualisierung, die auf Material UI basiert. Jarvis gibt eine Struktur und Module vor, die zur Visualisierung genutzt werden, aber sehr flexibel konfiguriert werden können.
-
-Jarvis ist responsive fähig und passt sich der Größe des Screens an und bietet ein standardisiertes Design, so dass in kurzer Zeit eine Visualisierung zusammengestellt werden kann.
-
-Das Layout ist flexibel konfigurierbar. Das Layout kann durch beliebig viele Tabs unterteilt werden. Jeder Tab kann daraufhin entweder im Vollbildmodus angezeigt werden oder durch einzele Spalten (columns) unterteilt werden.
-
-![](media/iobroker-visualisation-jarvis.png)
-![](media/iobroker-visualisation-jarvisDevices.png)
-
-### iQontrol
-
-Schnell ans Ziel - aber dennoch flexibel, das zeichnet iQontrol aus:
-- Die Vis einmal erstellen und überall nutzen: Vom PC, über Tablet zum Handy, iQontrol läuft auf allen Endgeräten - entweder im Browser oder als WebApp (lässt sich auf dem Homescreen speichern und fühlt sich dann an, wie eine App)
-- iQontrol passt sich dabei allen Auflösungen dynamisch an (responsive fähiges Design)
-- Superschnelle Ladezeit
-- Mit den Standard-Einstellungen kommt man schnell zum Ziel
-- Mit den erweiterten Einstellungen und Widgets hat man hingegen hohe Flexibilität und Anpassungsmöglichkeiten (bei manchen Installationen erkennt man gar nicht mehr, dass es eigentlich iQontrol ist)
-
-Video [iQontrol Demo Video][]
-
-<img src="media/iobroker-visualisation-iqontrol.png" width="200"> 
-<img src="media/iobroker-visualisation-iqontrol2.png" width="200">
-<img src="media/iobroker-visualisation-iqontrol3.png" width="200">
-<img src="media/iobroker-visualisation-iqontrol4.png" width="200">
-<img src="media/iobroker-visualisation-iqontrol5.png" width="200">
-
-### Lovelace
-
-[Adapterseite lovelace](https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md)
-
-Mit dem Lovelace Adapter kann die HomeAssistant UI Lovelace für ioBroker genutzt werden. Lovelace hat ein responsivefähiges Design und passt sich somit  automatisch an das Layout vom PC, Tablet oder Smartphone Bildschirm an. 
-
-In Lovelace stehen direkt die Geräte mit ihren Eigenschaften zur Ansicht / Ansteuerung bereit, welche in ioBroker hinterlegt sind (z.B. bei einer Lampe Ein/Aus, Helligkeit, Farbtemperatur).
-
-Der Lovelace Editor (WYSIWYG Prinzip - What you see is what you get Prinzip) ermöglicht die einfache Erstellung von modernen UIs mit wenigen Handgriffen. Für die Umsetzung von komplexere Anforderungen und Wünschen stehen custom cards und der YAML Editor zur Verfügung. Inspirationen für eine Lovelace UI können in der HomeAssistant Welt gesammelt und dann in ioBroker umgesetzt werden.
-
-![](media/iobroker-visualisation-lovelace.png)  
+Mehrere Oberflächen nebeneinander sind kein Problem, das ist beim Ausprobieren
+sogar praktisch. Welcher Weg zu wem passt und wie man anfängt, steht im Kapitel
+[Visualisierung](/docs/viz/README.md).
 
 ## Wer steckt hinter ioBroker?
 
@@ -184,8 +214,8 @@ ioBroker verfolgt einen dezentralen Ansatz, bei welchem jeder Adapter in einem e
 Hierbei trifft der jeweilige Adapter-Entwickler weitestgehend eigenständig die Entscheidungen zu seinem Adapter.
 Funktionalitäterweiterungs-Wünsche oder auch fremde Feature-Erweiterungen als "pull-Request" werden hierbei natürlich berücksichtigt.
 
-Einige Entwickler haben sich darüber hinaus in der ioBroker Adapter-Community zusammengeschlossen, um sicherzustellen das auch im Falle davon,
-dass einzelner Entwickler keine Zeit mehr für Ihre Adapter haben, diese weitergepflegt werden können.
+Einige Entwickler haben sich darüber hinaus in der ioBroker Adapter-Community zusammengeschlossen, um sicherzustellen dass auch im Falle davon,
+dass einzelne Entwickler keine Zeit mehr für Ihre Adapter haben, diese weitergepflegt werden können.
 
 Es gibt keinen vertraglich festgelegten Support aus der Open-Source Community, aber gemeinsam haben wir bisher jedes Problem gelöst bekommen!
 
@@ -232,97 +262,32 @@ Die ioBroker GmbH stellt für das Community-Projekt die Infrastruktur (z.B. den 
 
 Die ioBroker Free Cloud ist ebenfalls ein kostenfreier Dienst, der der Community durch die ioBroker GmbH zur Verfügung gestellt wird. Die Pro-Cloud und der iot-Service sind kommerzielle Angebote der ioBroker GmbH, wobei die Kosten gerade einmal die Betriebskosten decken.
 
-### Lizenzen und Kosten
+## Lizenzen
 
-Sehr viele ioBroker Projekte stehen mitsamt dem Quellcode auf [GitHub](https://github.com/ioBroker) zur Verfügung.
-In den allermeisten Fällen steht der Quellcode unter der MIT-Lizenz.
-Manchmal werden allerdings auch Lizenzen wie GPL, CC BY-NC oder andere genutzt, welche zu berücksichtigen sind, jedoch für End-Nutzer an sich keinen großen Unterschied darstellen!
-Der Entwickler eines Adapters legt für den jeweiligen Adapter die Lizenz selbst fest.
+Fast alles an ioBroker ist kostenfrei. Der Quellcode steht offen auf
+[GitHub](https://github.com/ioBroker), in den allermeisten Fällen unter der
+MIT-Lizenz. Geld kostet nur, was laufende Kosten verursacht: drei Adapter, die
+eine **Adapterlizenz** brauchen (vis-2, KNX, JägerDesign-Widgets), und die
+Dienste in der Cloud, für die es **Zugangslizenzen** gibt.
 
-In sehr seltenen Fällen (3 Adapter aktuell) wird eine Lizenz benötigt, um einen Adapter zu nutzen.
-Für den "VIS" Adapter stellt beispielsweise die ioBroker GmbH eine kostenfreie Lizenz für die private Nutzung zur Verfügung - für eine kommerzielle Nutzung ist allerdings eine kostenpflichtige Lizenz nötig.
-Ein Überblick und die Bestellung der Lizenz für diese Adapter erfolgt über diese Seite [iobrokerPreise](https://iobroker.net/www/pricing).
-Die Kosten für eine kommerzielle Nutzung dieser Adapter ist dort ebenfalls aufgeführt.
+Wie das im Einzelnen funktioniert, woran eine Lizenz gebunden ist und warum es
+dafür zwei Server gibt, steht im Kapitel
+[Lizenzen](/docs/licenses/README.md). Preise und Pakete stehen in der
+[Lizenzübersicht](/productoverview).
 
-### Unterstütze unser Projekt!
+## Unterstütze unser Projekt!
 
-Die Weiterentwicklung und Pflege von ioBroker wird zum Großteil durch freiwillige Arbeit getragen. Wenn dir ioBroker gefällt und du unsere Arbeit unterstützen möchtest, freuen wir uns über jede Hilfe:
-- Mit dem Kauf einer Lizenz unterstützt du direkt die Entwicklung und Infrastruktur.
-- Falls du keine Lizenz benötigst, freuen wir uns auch über eine freiwillige Spende: 
-[Jetzt spenden via PayPal](https://www.paypal.com/donate?campaign_id=MJBDJ9TGBQ7GN)
+Die Weiterentwicklung und Pflege von ioBroker wird zum Großteil durch
+freiwillige Arbeit getragen. Wenn dir ioBroker gefällt und du unsere Arbeit
+unterstützen möchtest, freuen wir uns über jede Hilfe:
+
+- Mit dem Kauf einer Lizenz unterstützt du direkt die Entwicklung und
+  Infrastruktur.
+- Falls du keine Lizenz benötigst, freuen wir uns auch über eine freiwillige
+  Spende: [Jetzt spenden via PayPal](https://www.paypal.com/donate?campaign_id=MJBDJ9TGBQ7GN)
 
 Vielen Dank für deinen Beitrag!
 
-## Lizenzarten im ioBroker-System
-
-### Adapterlizenzen
-
-Adapterlizenzen sind erforderlich, um bestimmte Adapter im ioBroker-System zu nutzen.  
-Diese werden über [ioBroker.net](https://iobroker.net) verwaltet und gelten für lokal installierte Adapter, z.B.:
-- ***vis-2***
-- ***KNX***
-- ***JägerDesign Widgets***
-
-Die Lizenz ist dabei an die Hardware-ID (UUID) des jeweiligen Systems gebunden.
-
-Die Adapterlizenzen können [hier](https://iobroker.net/www/pricing#commercial) erworben werden.
-
-### Zugangslizenzen
-Zugangslizenzen ermöglichen die Nutzung von Cloud-Diensten und sind in folgenden Varianten erhältlich:
-- ***Assistenten-Lizenz*** 
-- ***Fernzugriff-Lizenz***
-
-Die Zugangslizenzen können [hier](https://iobroker.pro/www/pricing#remote) erworben werden.
-
-## Cloud-Dienste und Zugangslizenzen
-
-Hier findest du einen Überblick über unsere beiden Zugangslizenzen, mit denen verschiedene ioBroker-Clouddienste genutzt werden können. Beide Lizenzen sind in einer kostenlosen Basisversion sowie einer erweiterten Pro-Version verfügbar.
-### Assistenten-Lizenz
-
-Diese Lizenz aktiviert die Nutzung von:
-- **Sprachsteuerung** *(Amazon Alexa, Google Home, Yandex Alisa)*
-    - Für Alexa stehen zwei Skills zur Verfügung: [**ioBroker.assistant Skill**](https://www.amazon.de/ioBroker-ioBroker-assistant/dp/B0FJHBXDZ4) für Standardanfragen und [**Custom Skill**](https://www.amazon.de/ioBroker-Custom/dp/B01MQL6Z1N) für individuelle Abfragen und Sprachbefehle
-- **Dienste** *(Geoposition (z.B. standortabhängige Automationen), Tasker-Integration, URL-Services (HTTP GET/POST))*
-- **Matter** *(Anbindung von matter-fähigen Geräten über die ioBroker-Matter-Bridge)*
-
-Die Assistenten-Lizenz ist in zwei Varianten verfügbar:
-
-#### Kostenlose Version:
-- Bis zu 50 Sprachbefehle oder Dienstaufrufe pro Tag
-- Matter: Integration von bis zu 5 ioBroker-Geräten über Bridge
-- Registrierung auf [ioBroker.pro](https://iobroker.pro) erforderlich
-- 7 Tage Testzeitraum mit vollem Funktionsumfang bei erstmaliger Registrierung
-
-#### Pro-Version:
-- 3000 Befehle oder Dienstaufrufe pro Tag
-- 35.000 Befehle oder Dienstaufrufe pro Monat
-- Matter: Unbegrenzte Anzahl ioBroker-Geräte integrierbar
-- Registrierung auf [ioBroker.pro](https://iobroker.pro) erforderlich
-
-**Hinweis:**
-Ein „Befehl“ ist nicht nur ein Sprachkommando, auch Statusabfragen zählen dazu.  
-Öffnest du z.B. die Alexa-App mit 100 Geräten, sendet Amazon sofort 100+ sogenannte „StatusReport“-Befehle.
-Auch im geöffneten Zustand fragt die App alle paar Sekunden den Status erneut ab.
-Dieses Verhalten kommt von Amazon (ab Alexa Smart Home API V3) und lässt sich nicht durch ioBroker beeinflussen.
-Dadurch kann das tägliche Limit selbst ohne Sprachkommandos schnell erreicht werden.
-
-### Fernzugriff-Lizenz
-
-Die Fernzugriff-Lizenz ermöglicht den Zugriff auf Visualisierungen und Konfigurationen der ioBroker-Installation aus der Ferne. Auch diese Lizenz ist in einer kostenlosen Basisversion und als Pro-Version verfügbar.
-
-#### Kostenlose Version:
-- Zugriff auf vis-2 (nur Anzeige, keine Bearbeitung)
-- Nur über Browser erreichbar (keine App-Unterstützung)
-- Registrierung auf [ioBroker.net](https://iobroker.net) erforderlich
-
-#### Pro-Version inkl. Assistenten-Lizenz:
-- Vollständiger Fernzugriff auf ioBroker:
-    - Zugriff auf Admin, JavaScript, Lovelace, e-chart u.v.m.
-    - Bearbeitung von vis-2 im Editor möglich
-    - Zugriff über Browser und App
-- Inklusive Assistenten-Lizenz
-    - Enthält alle Funktionen der Sprachsteuerung und Dienste
-- Registrierung auf [ioBroker.pro](https://iobroker.pro) erforderlich
 
 ## Community
 Seit 2014 hat sich ioBroker aufgrund seiner vielen Vorzüge eine breite 
@@ -337,11 +302,11 @@ Linksammlung der offiziellen ioBroker Communities:
 - Facebook-Gruppe "ioBroker and smart home international": [FacebookIoBrokerSmartHomeIoTInternational](https://www.facebook.com/groups/iobrokerinternational)
 
 ## ioBroker Statistiken
-Auf [ioBrokerStatistics](https://www.iobroker.net/#de/statistics) findet ihr eine Übersichtsseite mit ein paar interessanten ioBroker Statistiken. 
+Auf [ioBrokerStatistics](/statistics) findet ihr eine Übersichtsseite mit ein paar interessanten ioBroker Statistiken. 
 
-[Grundlagen]: https://www.iobroker.net/#de/documentation/basics/README.md
-[Adaptern]: https://www.iobroker.net/#de/adapters/adapters.md
-[hier zu finden]: https://www.iobroker.net/docu/
+[Grundlagen]: /docs/basics/README.md
+[Adaptern]: /adapters
+[hier zu finden]: /docs
 [im Forum]: https://forum.iobroker.net/category/186/dokumentations-support
 [GitHub]: https://github.com/ioBroker
 [Forum]: https://forum.iobroker.net
@@ -354,10 +319,5 @@ Auf [ioBrokerStatistics](https://www.iobroker.net/#de/statistics) findet ihr ein
 [Apollon77]: https://github.com/Apollon77
 [foxriver76]: https://github.com/foxriver76
 [AlCalzone]: https://github.com/AlCalzone
-[ioBrokerStatistics]: https://www.iobroker.net/#de/statistics
-[Adapterseite Material]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md
-[Adapterseite Jarvis]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md
-[Adapterseite vis]: https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md
-[Adapterseite lovelace]:https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md
-[iQontrol Demo Video]: https://www.youtube.com/watch?v=QHgmrzMmcX4&list=PL8epyNz8pGEv6-R8dnfXm-m5aBlZFKOBG&index=1
+[ioBrokerStatistics]: /statistics
 [ioBroker Developer]: https://forum.iobroker.net/groups/developer

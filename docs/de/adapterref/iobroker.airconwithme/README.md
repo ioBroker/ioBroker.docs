@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.airconwithme/README.md
 title: ioBroker.airconwithme
-hash: 8At/uj5Yzl9hmpuibkprJWHGXlAOxZ39o+m/yrb3x+M=
+hash: RbuL9e830jaRxRtP5AgWplLAiA+pp2rnbIXU9JOOjlA=
 ---
 ![Logo](../../../en/adapterref/iobroker.airconwithme/admin/airconwithme.png)
 
@@ -14,26 +14,28 @@ hash: 8At/uj5Yzl9hmpuibkprJWHGXlAOxZ39o+m/yrb3x+M=
 ![Abhängigkeitsstatus](https://img.shields.io/david/weggetor/iobroker.airconwithme.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/weggetor/ioBroker.airconwithme/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.airconwithme.png?downloads=true)
+![Test und Freigabe](https://github.com/weggetor/ioBroker.airconwithme/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.airconwithme
-**Tests:** ![Test und Freigabe](https://github.com/weggetor/ioBroker.airconwithme/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.airconwithme
 
-## Airconwithme Adapter für ioBroker
+## airconwithme-Adapter für ioBroker
+
 Adapter für Mitsubishi-Klimaanlagen mit WLAN-Adapter airconwithme
 
 ## Information
+
 In den Adaptereinstellungen muss die IP-Adresse Ihres WLAN-Adapters der Klimaanlage eingegeben werden. Benutzername und Passwort für den Intesis-Adapter lauten standardmäßig „admin“ + „admin“.
 
 Die meisten Datenpunkte sind schreibgeschützt, Sie können Folgendes einstellen:
 
-| Datenpunkt | Werte |
-|----------|----------|
-| ein | 0: Aus; 1: Ein |
-| Benutzermodus | 0: Auto; 1: Heizen; 2: Trocknen; 3: Lüfter; 4: Kühlen |
-| Lüftergeschwindigkeit | 1: Stufe 1; 2: Stufe 2; 3: Stufe 3; 4: Stufe 4 |
-| Position | 1: Position 1; 2: Position 2; 3: Position 3; 4: Position 4; 10: Schwung |
-| Benutzer-Sollwert | Temperatur (°C) |
-| remoteDisable | 0: Aktivieren; 1: Deaktivieren |
+| Datenpunkt          | Werte                                                                                  |
+| ------------------- | -------------------------------------------------------------------------------------- |
+| An                  | 0: Aus; 1: Ein                                                                         |
+| Benutzermodus       | 0: Automatik; 1: Heizen; 2: Trocknen; 3: Umluft; 4: Kühlen                             |
+| Lüfterdrehzahl      | 1: Geschwindigkeit 1; 2: Geschwindigkeit 2; 3: Geschwindigkeit 3; 4: Geschwindigkeit 4 |
+| Position            | 1: Position 1; 2: Position 2; 3: Position 3; 4: Position 4; 10: Schwung                |
+| Benutzer-Setpoint   | Temperatur (°C)                                                                        |
+| remoteDeaktivierbar | 0: Aktivieren; 1: Deaktivieren                                                         |
 
 ## Changelog
 ### 1.0.0 (2025-11-15)

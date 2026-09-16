@@ -11,12 +11,12 @@ Under this tab are all managed objects. For each instance, a folder is created h
 
 <span style="line-height: 1.5; text-align: justify;"></span>
 
-![iobroker_admin_objekte_inhalt00](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Inhalt00.jpg)
+![iobroker_admin_objekte_inhalt00](../img/tab-objects_Inhalt00.jpg)
 
 ## The title bar
 The title bar contains icons for the most important processes. There is a context help for each icon. Just keep the mouse on the icon for a while.
 
-![iobroker_admin_objekte_headline_icons](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Headline_Icons.jpg)
+![iobroker_admin_objekte_headline_icons](../img/tab-objects_Headline_Icons.jpg)
 
 ### **The icons in detail:**
 ### **1.) Update view**
@@ -39,14 +39,14 @@ After selecting this icon further objects can be added.
 If a folder is selected, it is taken over as _Parent_ in the object structure.
 A configuration window opens:
 
-![iobroker_admin_objekte_addobject](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_AddObject.jpg)
+![iobroker_admin_objekte_addobject](../img/tab-objects_AddObject.jpg)
 
 Here, the name for the new object must now be selected, whereby a device, a channel or a data point is available as a type according to the hierarchical structure.
 Data point types include logic value, switch, string, number, value list, field, object and mixed.
 
 As soon as you confirm the input window with ok another window opens:
 
-![iobroker_admin_objekte_addobjec02t](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_AddObjec02t.jpg)
+![iobroker_admin_objekte_addobjec02t](../img/tab-objects_AddObjec02t.jpg)
 
 Here you can enter some more data. So you can add a role and an icon to the object.
 
@@ -60,7 +60,7 @@ With this button, a complete object structure is uploaded to the ioBroker server
 With this button, the selected object structure is downloaded as a json file from the ioBroker server and can be saved.
 
 ## The page content
-![iobroker_admin_objekte_headline_columns](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Headline_Columns.jpg)
+![iobroker_admin_objekte_headline_columns](../img/tab-objects_Headline_Columns.jpg)
 
 On the page, the existing objects are tabulated.
 
@@ -76,7 +76,7 @@ This column specifies the name of the object. In addition, a preceding icon show
 
 The values of this column are editable.
 
-![iobroker_admin_objekte_structure01](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Structure01.jpg)
+![iobroker_admin_objekte_structure01](../img/tab-objects_Structure01.jpg)
 
 ### **3.) Type**
 The type in the hierarchy level, which was already visible in the column _Name_ by the preceding icon, is again explicitly mentioned here. Via the pull-down menu in the column header you can filter according to these types. only show all data points.
@@ -92,7 +92,7 @@ This also serves u.a. Filtering when searching for objects.
 The values of this column are editable. This way, the objects can still be assigned to rooms later.
 If you click on the field, a pop-up opens with the previously created rooms.
 
-![iobroker_admin_objekte_rooms](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_Rooms.jpg)
+![iobroker_admin_objekte_rooms](../img/tab-objects_Rooms.jpg)
 
 ### **6.) Function**
 This column contains the trade to which the corresponding object is assigned.
@@ -109,7 +109,7 @@ Here properties of the object can be changed. This feature should be used with e
 
 Clicking on the trashcan icon deletes this object and **all** underlying objects in the hierarchy as well. For safety, a window appears in which the deletion must be confirmed again.
 
-![iobroker_admin_objekte_delete](../../../../de/adapterref/iobroker.admin/admin/img/tab-objects_delete.jpg)
+![iobroker_admin_objekte_delete](../img/tab-objects_delete.jpg)
 
 The gear icon appears only if at least one history instance is installed (History, InfluxDB or SQL).
 Here you can configure the data point for logging the historical data. Further information can be found in the description of [History adapter](http://www.iobroker.net/?page_id=144&lang=de).

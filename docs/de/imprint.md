@@ -1,6 +1,6 @@
 ---
 title:       "Impressum"
-lastChanged: "02.11.2022"
+lastChanged: "10.09.2026"
 ---
 # Impressum
 
@@ -13,7 +13,7 @@ lastChanged: "02.11.2022"
 
 **Umsatzsteuer-Identifikationsnummer gem. § 27a UStG:** DE 352273606
 
-**Vertretungsberechtigte Geschäftsführer:** Haev Denis
+**Vertretungsberechtigter Geschäftsführer:** Haev Denis
 
 ## Kontakt
 **E-Mail:** 	info@iobroker.net

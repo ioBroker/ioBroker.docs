@@ -33,7 +33,6 @@ Der Adapter liest auch die Daten aus der App aus.
 
 **weishaupt-wem.0.20999.1-3.parameters** Hier findest du den aktuellen Status und kann via **NumericValue** oder **StringValue** geändert werden. Du findest dort auch die Min Max Werte und unter **EnumValues** findet man die Beschreibung für NumericValue
 
-
 ## Changelog
 
 ### 0.0.22

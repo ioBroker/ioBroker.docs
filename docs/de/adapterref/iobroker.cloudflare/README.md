@@ -3,79 +3,57 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cloudflare/README.md
 title: ioBroker.cloudflare
-hash: +2ChSkm7RMqz59/HLkjIzU1JHg9s/xoLM5riPjIkn1M=
+hash: SPqugwNAUPmGaLIFF15vT2o0c+hZIks+vtJCsdiafmo=
 ---
 ![Logo](../../../en/adapterref/iobroker.cloudflare/admin/cloudflare.png)
 
+![Ko-Fi-Unterstützung](https://img.shields.io/badge/support-me-ff5e5b?style=flat-square&logo=ko-fi)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.cloudflare.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.cloudflare.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/cloudflare-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/cloudflare-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.cloudflare.png?downloads=true)
+![Test und Freigabe](https://github.com/Marco15453/ioBroker.cloudflare/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.cloudflare
-**Tests:** ![Testen und freigeben](https://github.com/Marco15453/ioBroker.cloudflare/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.cloudflare
 
 ## Cloudflare-Adapter für ioBroker
-Aktualisiert den registrierten Domainnamen bei Cloudflare automatisch mit Ihrer öffentlichen IP-Adresse für Ihren ioBroker. Dynamisches DNS
+
+Aktualisiert automatisch den bei Cloudflare registrierten Domainnamen mit Ihrer öffentlichen IP-Adresse für Ihren ioBroker. Dynamisches DNS
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.1.1 (2022-11-16)
-* Updated Translations
+### 1.2.11 (2026-05-16)
+* Fixed #41
+* Update Node.js Version in test-and-release workflow
+* (copilot) Adapter requires node.js >= 22 now
 
-### 1.1.0 (2022-11-16)
-* Fixed some Axios
-* Fixed Error Handling
-* Removed Discord and Slack Logs
-* Updated Adapter Type
-* Updated Minimum Node to 14.x
+### 1.2.10 (2026-01-25)
 * Updated Workflows
+* Updated Packages
+* Updated Package Lock file
 
-### 1.0.11 (2022-10-22)
-* Updated Adapter Description
-* Updated Workflow
+### 1.2.9 (2025-12-31)
+* Fixed #33
+* Fixed #34
 
-### 1.0.10 (2022-10-22)
-* (Marco15453) Code Improvements and backup ip getter
+### 1.2.8 (2025-12-31)
+* Fixed #27
+* Fixed #28
 
-### 1.0.9 (2022-10-17)
-* (Marco15453) Updated Workflows
+### 1.2.7 (2025-05-29)
+* Fixed #23
+* Fixed #24
 
-### 1.0.8 (2022-10-17)
-* (Marco15453) Updated Workflows
-
-### 1.0.7 (2022-10-17)
-* (Marco15453) Changed Log Output from error to warn
-
-### 1.0.6 (2022-10-17)
-* (Marco15453) Removed this.disable() to prevent unexpected errors
-
-### 1.0.5 (2022-10-17)
-* (Marco15453) Updated Workflows
-
-### 1.0.4 (2022-10-17)
-* (Marco15453) Updated LICENSE and Adapter Configs
-
-### 1.0.3 (2022-10-17)
-* (Marco15453) Updated ReadMe
-
-### 1.0.2 (2022-10-17)
-* (Marco15453) Updated .eslintrc.json
-
-### 1.0.1 (2022-10-17)
-* (Marco15453) Updated cloudflare.png
-
-### 1.0.0 (2022-10-17)
-* (Marco15453) initial release
+[Older changelogs can be found there](https://github.com/Marco15453/ioBroker.cloudflare/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2022 Marco15453 <support@marco15453.xyz>
+Copyright (c) 2025-2026 Marco15453 <support@marco15453.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

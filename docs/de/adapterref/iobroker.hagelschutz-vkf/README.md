@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hagelschutz-vkf/README.md
 title: ioBroker.hagelschutz-vkf
-hash: GzVQrA8YaQgoXOqc0xbmtrcMGofuLZPiHzRLkHEQBaU=
+hash: nk7GOK3AQKxYJs35a7DfhnkBMQL+4TBs2/ytpM1k3iw=
 ---
 ![Logo](../../../en/adapterref/iobroker.hagelschutz-vkf/admin/hagelschutz-vkf.jpg)
 
@@ -12,14 +12,16 @@ hash: GzVQrA8YaQgoXOqc0xbmtrcMGofuLZPiHzRLkHEQBaU=
 ![Anzahl der Installationen](https://iobroker.live/badges/hagelschutz-vkf-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/hagelschutz-vkf-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.hagelschutz-vkf.png?downloads=true)
+![Test und Freigabe](https://github.com/UncleSamSwiss/ioBroker.hagelschutz-vkf/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.hagelschutz-vkf
-**Tests:** ![Test und Freigabe](https://github.com/UncleSamSwiss/ioBroker.hagelschutz-vkf/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.hagelschutz-vkf
 
 ## Hagelschutz VKF-Adapter für ioBroker
+
 Adapter für hagelschutz-einfach-automatisch.ch der kantonalen Gebäudeversicherungen.
 
-> [!WICHTIG] > Dieser Adapter funktioniert nur in der Schweiz.
+> \[!WICHTIG]\
+> &#x20;Dieser Adapter funktioniert nur in der Schweiz.
 
 ## Changelog
 

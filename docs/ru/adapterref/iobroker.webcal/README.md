@@ -1,53 +1,63 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.webcal/README.md":{"title":{"en":"ioBroker.webcal"},"content":"en/adapterref/iobroker.webcal/README.md"},"en/adapterref/iobroker.webcal/doc/google.md":{"title":{"en":"Google Calendar API"},"content":"en/adapterref/iobroker.webcal/doc/google.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.webcal/README.md
 title: ioBroker.webcal
-hash: 11ZkajCy0V3Jw/zyphm7tXRb5J4S+nfXg0D4rvVPDqU=
+hash: emme7sR9OQ8TpFkwGehz2loBzaVSkWKrKVHtyfq/qDg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.webcal/admin/webcal.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.webcal.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.webcal.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.webcal.svg)
 ![Количество установок](https://iobroker.live/badges/webcal-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/webcal-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/webcal-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.webcal.png?downloads=true)
+![Тестирование и выпуск](https://github.com/dirkhe/ioBroker.webcal/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.webcal
-**Тесты:** ![Тест и выпуск](https://github.com/dirkhe/ioBroker.webcal/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.webcal
 
-## Адаптер webcal для ioBroker
-с этим адаптером ioBroker вы можете
+## адаптер webcal для ioBroker
 
-- извлечение событий из WEBDAV, CALDAV, CARDDAV или Google Calendar.
-- добавлять новые элементы календаря на основе событий
+С помощью этого адаптера ioBroker вы можете
+
+- Получайте события из WEBDAV, CALDAV, CARDDAV или Google Calendar.
+- Добавить новые элементы календаря на основе событий.
 
 ### Календарные счета
-**Nextcloud** использует базовую аутентификацию и следующий URL (его можно получить по общей ссылке)
+
+**Nextcloud**\
+&#x20;Используйте базовую аутентификацию и следующий URL-адрес (его можно получить через общую ссылку).
 
 `https://<domain>/<optional basePath>/remote.php/dav/calendars/<username>/<optional displaName>`
 
-**Google** см. [с использованием API Google](doc/google.md)
+**Google**\
+&#x20;см. [использование API Google](/#/docs/adapterref/iobroker.webcal/doc/google.md)
 
-- Используйте следующие настройки в ioBroker
-- имя = внутреннее имя, если оно совпадает с именем google-calendar, оно будет использовано
-- Метод аутентификации = google
-- Секрет = Секрет клиента
-- токен обновления = который вы получаете сверху
-- идентификатор клиента = ваш идентификатор клиента
+- Используйте следующие настройки в ioBroker.
+  - имя = внутреннее имя; если оно совпадает с именем календаря Google, будет использовано это имя.
+  - auth Methold = google
+  - Секрет = Секрет клиента
+  - токен обновления = который вы получаете выше
+  - Идентификатор клиента = ваш идентификатор клиента
 
-**Загрузить iCal** вы можете загрузить календарь ical для календаря, который не поддерживает dav. Но это только для чтения, значит, элементы календаря не могут быть добавлены
+**Скачать iCal:** вы можете загрузить календарь iCal для календаря, который не поддерживает DAV. Но тогда он будет доступен только для чтения, то есть в него нельзя будет добавлять элементы календаря.
 
 ### Точки данных
+
 **добавить новое событие**
 
-Вы можете добавить новую запись календаря на основе события. Используйте следующий синтаксис:
+Вы можете добавить новую запись в календарь на основе события. Пожалуйста, используйте следующий синтаксис:
 
 `relDays[@calendar] | date|datetime[ - date|datetime][@calendar]`
 
-relDays - количество дней от сегодняшнего дня или дата/дата-время как анализируемая дата или дата-время @calendar - необязательное имя календаря, по умолчанию - первый определенный календарь
+```
+relDays - number of days from today
+or date/datetime as parsable date or datetime
+@calendar is optional the name of the calendar, default is first defined calendar
+```
 
-также возможно через скрипт:
+Также возможно с помощью скрипта:
 
 ```
 sendTo("webcal.0", "addEvents", {
@@ -68,16 +78,16 @@ sendTo("webcal.0", "addEvents", {
       }
     ]
   },function(events){
-    /* callback function
-	   object events will be repeat from input,
-	   with additional status or error field,
-	   also startDate and endDate are provided as Object data
+    /* callback function 
+	   object events will be repeat from input, 
+	   with additional status or error field, 
+	   also startDate and endDate are provided as Object data   
 	*/
-	log(events);
+	log(events);	
   })
 ```
 
-Вывод из журнала будет следующим:
+В результате из лога будет выведено следующее:
 
 ```
 [
@@ -124,11 +134,11 @@ sendTo("webcal.0", "addEvents", {
 ]
 ```
 
-если `calendar` не указан, будет использоваться defaultCalender
+если`calendar` Если не указано, будет использован defaultCalender.
 
-только поля `start` и ,`summary` являются обязательными
+только поля`start` и ,`summary` являются обязательными
 
-**обновление события** возможно через скрипт:
+**Обновление события** возможно с помощью скрипта:
 
 ```
 sendTo("webcal.0", "updateEvents", {
@@ -144,18 +154,18 @@ sendTo("webcal.0", "updateEvents", {
       }
     ]
   },function(events){
-    /* callback function
-	   object events will be repeat from input,
-	   with additional status or error field,
-	   also startDate and endDate are provided as Object data
+    /* callback function 
+	   object events will be repeat from input, 
+	   with additional status or error field, 
+	   also startDate and endDate are provided as Object data   
 	*/
-	log(events);
+	log(events);	
   })
 ```
 
-только поля `start` и ,`summary` являются обязательными
+только поля`start` и ,`summary` являются обязательными
 
-**удалить событие** можно с помощью скрипта:
+**Удаление события** возможно с помощью скрипта:
 
 ```
 sendTo("webcal.0", "deleteEvents", {
@@ -163,21 +173,21 @@ sendTo("webcal.0", "deleteEvents", {
     events: [
       {
         id: "e3fcbf3b-651c-470f-b307-9d20be5902eb"
-      },
+      },	  
       {
         id: "failed test"
       }
     ]
   },function(events){
-    /* callback function
-	   object events will be repeat from input,
-	   with additional status or error field,
+    /* callback function 
+	   object events will be repeat from input, 
+	   with additional status or error field,   
 	*/
-	log(events);
+	log(events);	
   })
 ```
 
-Вывод из журнала будет следующим:
+В результате из лога будет выведено следующее:
 
 ```
 [
@@ -193,14 +203,19 @@ sendTo("webcal.0", "deleteEvents", {
 ```
 
 ### Визуализация
-если вы хотите использовать скрипт iobroker [vis-material-design](https://github.com/Scrounger/ioBroker.vis-materialdesign#calendar), вы можете использовать [этот](doc/vis-material-design.js)
 
-### Известные ошибки
-нарушение (исключение) ряда событий будет проигнорировано
+Если вы хотите использовать iobroker [vis-material-design](https://github.com/Scrounger/ioBroker.vis-materialdesign#calendar) , вы можете воспользоваться [этим](https://github.com/dirkhe/ioBroker.webcal/blob/master/doc/vis-material-design.js) скриптом.
 
-### ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ В этом проекте используются следующие компоненты:
+### известные ошибки
+
+Нарушение (исключение) последовательности событий будет проигнорировано.
+
+### ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ
+
+В этом проекте используются следующие компоненты:
+
 - [tsDav](https://github.com/natelindev/tsdav)
-- [ical](https://github.com/kewisch/ical.js)
+- [икальский](https://github.com/kewisch/ical.js)
 - [dayJS](https://github.com/iamkun/dayjs)
 
 ## Changelog

@@ -24,6 +24,16 @@ Reference to a company or a product name does not imply approval or recommendati
 that company or product to the exclusion of others.
 
 ## Changelog
+### 1.0.2 (2026-09-13)
+- (disaster123) Hue changes now preserve the current saturation and brightness.
+- (disaster123) Corrected configuration defaults and improved handling of missing device states.
+- (disaster123) Replaced the UUID dependency with Node.js built-in UUID generation.
+- (disaster123) Updated development tools and made type checks and regression tests mandatory in CI.
+
+### 1.0.1 (2026-09-12)
+- (iobroker-bot) Adapter requires node.js >= 22 now.
+- (iobroker-bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 1.0.0 (2025-04-27)
 * signifylights is now stable
 * replaced the old device specific code with generic code
@@ -35,47 +45,10 @@ that company or product to the exclusion of others.
 ### 0.4.4 (2025-04-21)
 * fix minimum deps
 
-### 0.4.3 (2025-03-25)
-* added ESP25_MHORGB_01
-* added ESP24_SHRGB_01
-* fix hex color
-
-### 0.4.2 (2024-11-06)
-* implement responsive design in config page (thx simatec)
-
-### 0.4.1 (2024-11-02)
-* fix eslint 9.x
-* add ESP26_SHRGB_01: WIZ Wi-Fi BLE ST64 E27 822-65 RGB CL
-* add ESP25_SHRGB_01: added (WiZ Wi-Fi BLE 60W A60 E27 822-65 RGB)
-* various stuff from adapter check
-
-### 0.3.1 (2023-11-27)
-* fix scenes for ESP03_SHTWP_31, ESP24_SHRGBW_01, ESP06_SHTW1_01
-* retry to release v0.3.1
-
-### 0.3.0 (2023-10-27)
-* several translation fixes
-* replace logo
-* use adapter interval instead of timeout
-* new DEVICES: ESP24_SHRGBC_01 + ESP25_SHWRGB_01 + ESP15_SHRGB1S_01I
-* config: allow to run without udp mac and ip set
-
-### 0.2.0 (2023-05-02)
-* more setTimeout fixes
-
-### 0.1.1 (2023-05-01)
-* fix setTimeout calls in async functions
-
-### 0.1.0 (2023-05-01)
-* various fixes and changes to become an official adapter
-
-### 0.0.6 (2023-04-30)
-* first release under new name
-
 ## License
 MIT License
 
-Copyright (c) 2025 disaster123 <stefan-iobroker@prie.be>
+Copyright (c) 2025-2026 disaster123 <stefan-iobroker@prie.be>
 
 originally developed by Copyright (c) 2022 nxtstep <privat@konzeptplus.net>
 

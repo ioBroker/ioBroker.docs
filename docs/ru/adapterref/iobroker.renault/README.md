@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.renault/README.md
 title: ioBroker.renault
-hash: aXQPKLCE2XR/P6nxBntUGKsKjZWvkRgqrKV+VolMvhI=
+hash: 0XdQppg+vQ7cQ9byuDsvio8ihiUwMpszpU4qtNUEd/w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.renault/admin/renault.png)
 
@@ -11,35 +11,40 @@ hash: aXQPKLCE2XR/P6nxBntUGKsKjZWvkRgqrKV+VolMvhI=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.renault.svg)
 ![Количество установок](https://iobroker.live/badges/renault-installed.svg)
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/renault-stable.svg)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.renault/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.renault
-**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.renault/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.renault
 
-## Адаптер Renault / Dacia для ioBroker
-Этот адаптер подключает ioBroker к облаку My Renault / My Dacia и предоставляет данные о состоянии автомобиля (аккумулятор, зарядка, система кондиционирования, пробег и т. д.), а также команды дистанционного управления (запуск системы кондиционирования, запуск/остановка зарядки, принудительное обновление) для совместимых моделей Renault и Dacia, таких как Renault Zoe, Megane E-Tech, Kangoo E-Tech и Dacia Spring.
+## Адаптер Renault / Dacia / Alpine для ioBroker
+
+Этот адаптер подключает ioBroker к облаку My Renault / My Dacia / My Alpine и предоставляет данные о состоянии автомобиля (аккумулятор, зарядка, система кондиционирования, пробег и т. д.), а также команды дистанционного управления (запуск системы кондиционирования, запуск/остановка зарядки, принудительное обновление) для совместимых моделей Renault, Dacia и Alpine, таких как Renault Zoe, Megane E-Tech, Kangoo E-Tech, Dacia Spring и Alpine A290.
 
 ## Установка / Вход
+
 1. Установите адаптер через административный интерфейс ioBroker.
-2. Откройте настройки адаптера и введите учетные данные вашей учетной записи **My Renault** (или **My Dacia**): адрес электронной почты приложения и пароль приложения.
-3. Укажите **страну** в виде двухбуквенного кода страны, соответствующего вашей учетной записи (например, `de`, `fr`, `it`, `es`).
-4. При желании можно установить **интервал** опроса в минутах и **ключ API** (оставьте поле пустым для автоматического определения).
-5. Сохраните изменения, и экземпляр начнет опрос.
+2. Откройте настройки адаптера и введите учетные данные вашей учетной записи **My Renault** (или **My Dacia** / **My Alpine** ): адрес электронной почты приложения и пароль приложения.
+3. Выберите **бренд** , соответствующий вашему приложению:`Renault / Dacia` или`Alpine` (Они используют отдельные учетные записи и ключи API).
+4. Укажите **страну,** используя двухбуквенный код страны, соответствующий вашей учетной записи (например,`de` ,`fr` ,`it` ,`es` ).
+5. При желании можно установить **интервал** опроса в минутах и **ключ API** (оставьте поле пустым для автоматического определения).
+6. Сохраните изменения, и экземпляр начнет опрос.
 
 ## Пульт дистанционного управления
-Каждое транспортное средство создается как устройство с использованием его VIN-кода. Дистанционные команды отображаются в виде состояний в разделе `renault.0.<VIN>.remote.*`:
 
-| Состояние | Тип | Действие |
-| --------------------------- | ------- | ------ |
-| `actions/hvac-start` | логическое значение | `true` = запуск, `false` = остановка предварительной подготовки |
-| `actions/charging-start` | логическое значение | `true` = запуск, `false` = остановка зарядки |
-| `charge/pause-resume` | логическое значение | `true` = начало, `false` = пауза |
-| `charge/start` | логическое значение | `true` = запуск, `false` = остановка зарядки (устаревшая конечная точка) |
-| `refresh` | логическое значение | `true` = принудительное обновление данных автомобиля |
-| `refresh` | логическое значение | `true` = принудительное обновление данных автомобиля |
+Каждое транспортное средство создается как устройство на основе его VIN-кода. Дистанционные команды отображаются в виде состояний в разделе`renault.0.<VIN>.remote.*` :
 
-Установите соответствующее состояние на `true`, чтобы активировать команду.
+| Состояние                | Тип        | Действие                                                                      |
+| ------------------------ | ---------- | ----------------------------------------------------------------------------- |
+| `actions/hvac-start`     | логический | `true` = старт,`false` = прекратить предварительную подготовку                |
+| `hvac-temperature`       | число      | Целевая температура системы отопления, вентиляции и кондиционирования воздуха |
+| `actions/charging-start` | логический | `true` = старт,`false` = прекратить зарядку                                   |
+| `charge/pause-resume`    | логический | `true` = старт,`false` = пауза                                                |
+| `charge/start`           | логический | `true` = старт,`false` = прекратить зарядку (устаревшее конечное устройство)  |
+| `refresh`                | логический | `true` = принудительное обновление данных автомобиля                          |
+
+Установите соответствующее состояние на`true` для запуска команды.
 
 ## Обсуждение / вопросы
+
 Форум ioBroker: <https://forum.iobroker.net/topic/48074/test-adapter-renault-v0-0-x>
 
 ## Changelog
@@ -48,6 +53,10 @@ hash: aXQPKLCE2XR/P6nxBntUGKsKjZWvkRgqrKV+VolMvhI=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 0.0.24
+
+- (TA2k) add Alpine support: brand selection (Alpine accounts use the same Renault Gigya/Kamereon tenant, only product/account type MYALPINE differs)
 
 ### 0.0.23
 
@@ -60,8 +69,6 @@ hash: aXQPKLCE2XR/P6nxBntUGKsKjZWvkRgqrKV+VolMvhI=
 ### 0.0.7
 
 - (TA2k) initial release
-
-[Older changelogs can be found here](CHANGELOG_OLD.md)
 
 ## License
 

@@ -14,7 +14,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true
 Sollen nur Sendungen eines oder mehrerer bestimmter Sender angezeigt werden, sind diese Sendernamen in die Whitelist einzutragen. Enthält die Whitelist mindestens einen Eintrag, wird die Blacklist ignoriert.
 Es ist möglich mehrere Sender mit dem Platzhalter "\*" (Stern) abzudecken: *\*RTL*, *RTL\** findet also "*SuperRTL*" und "*RTL II*"
 
-
 ### Blacklist
 Sender, die nicht empfangbar sind oder nicht gelistet werden sollen, können in der Blacklist gespeichert und so bei der Ausgabe übersprungen werden. Die Blacklist wird nur berücksichtigt, wenn die Whitelist leer ist.
 
@@ -40,7 +39,6 @@ tvspielfilm.0.json.__jetzt__  (*JSON* Tabelle für VIS Widget *json,table*)
 
 tvspielfilm.0.json.__tipps__  (*JSON* Tabelle für VIS Widget *json,table*)
 
-
 Beispiel
 
 ```
@@ -49,7 +47,6 @@ Beispiel
 
 ## CSS Konfiguration
 Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen im VIS Editor zu verwenden.
-
 
 ```
 .tclass-th { /* Headerzeilen */
@@ -74,7 +71,6 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 .tclass-tr {
     color: red;
 }
-
 
 .tclass-tr:nth-child(odd) {
     background-color: darkgreen;
@@ -157,8 +153,6 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 
 ### 2.0.2 (2021-03-19)
 * (DutchmanNL) Now cron is initialized at adapter start
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

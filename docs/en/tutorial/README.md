@@ -1,30 +1,31 @@
 ---
-title: tutorial
-lastChanged: 13.09.2018
-template: true
+title: Tutorials
+lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/README.md
-hash: a6Tc6IhRx7WglNMTJXmxxIRsGBPGJX7+t29VPk0ZCq0=
+hash: OqlCuo3exWmuDHKCgfWhyKWa8fDyuzMvHmROrpTcjnI=
 ---
 # Tutorials
-?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
 
-@@@
+The chapters ["Basics](/docs/basics/README.md) ," ["Installation,](/docs/install/README.md) " and ["Admin Interface"](/docs/admin/README.md) describe what ioBroker is and where each function is located in the admin panel. They are intended as a reference.
 
-#### The idea is now to create a collection of self-contained short tutorials for specific subject areas, aimed at beginners (and advanced users). The tutorials here should build on each other.
-Tutorials possibly also as videos.
+The tutorials take a different approach. They take a task and guide you through it from beginning to end, with the steps performed in the order they occur. Each tutorial is self-contained and can be completed in one sitting. Read sequentially, they provide a path from a newly installed system to one that is fully functional.
 
-#### Idea was once
-Red thread through an example project tutorial here.
+A running installation is required. If you don't have one yet, start with the [installation](/docs/install/README.md) .
 
-After completing the tutorial, the user should have created a small example project that works everywhere and includes adapter installation, configuration, mini-scripting and mini-visualization as well as historization with diagram representation.
+## The way
 
-Always refer to the "Configuration" chapter for more details.
-@@@
+| Step                                                | What it's about                                              |
+| --------------------------------------------------- | ------------------------------------------------------------ |
+| 1. [The first steps](/docs/tutorial/setup.md)       | System settings, password, data backup, first adapter.       |
+| 2. [Tour of the surface](/docs/tutorial/admin.md)   | Which riders you need daily and which ones rarely.           |
+| 3. [Manage adapters](/docs/tutorial/adapter.md)     | Adapter and instance: install, update, downgrade.            |
+| 4. [The first automation](/docs/tutorial/logic.md)  | Turn values into action, with Blockly.                       |
+| 5. [The first visualization](/docs/tutorial/viz.md) | An interface for those who never want to see the admin.      |
+| 6. [Record values](/docs/tutorial/history.md)       | So that there will be a progression later.                   |
+| 7. [Diagrams](/docs/tutorial/flot.md)               | Make the process visible.                                    |
+| 8. [Install updates](/docs/tutorial/updates.md)     | What recurs regularly, and in what order.                    |
+| 9. [Restore](/docs/tutorial/restore.md)             | The worst-case scenario: restoring a backup to a new system. |
 
-<details><summary>further information</summary>
-
-+ markdown list 1 + nested list 1 + nested list 2 + markdown list 2
-
-</details>
+If you only read two of them: the first and the last. Setting up data backup and having tried restoring it once is the difference between a hobby and a nuisance.

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.life360ng/README.md":{"title":{"en":"ioBroker adapter for Life360 (next generation)"},"content":"en/adapterref/iobroker.life360ng/README.md"},"en/adapterref/iobroker.life360ng/docs/en/README.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.life360ng/docs/en/README.md"},"en/adapterref/iobroker.life360ng/docs/en/general.md":{"title":{"en":"Tab: General"},"content":"en/adapterref/iobroker.life360ng/docs/en/general.md"},"en/adapterref/iobroker.life360ng/docs/en/myplaces.md":{"title":{"en":"Tab: My Places"},"content":"en/adapterref/iobroker.life360ng/docs/en/myplaces.md"},"en/adapterref/iobroker.life360ng/docs/en/integration.md":{"title":{"en":"Tab: Integration"},"content":"en/adapterref/iobroker.life360ng/docs/en/integration.md"},"en/adapterref/iobroker.life360ng/docs/en/tracker.md":{"title":{"en":"Tab: Logbook"},"content":"en/adapterref/iobroker.life360ng/docs/en/tracker.md"},"en/adapterref/iobroker.life360ng/docs/en/mapdisplay.md":{"title":{"en":"Tab: Map Display"},"content":"en/adapterref/iobroker.life360ng/docs/en/mapdisplay.md"},"en/adapterref/iobroker.life360ng/docs/en/notifications.md":{"title":{"en":"Tab: Notifications"},"content":"en/adapterref/iobroker.life360ng/docs/en/notifications.md"},"en/adapterref/iobroker.life360ng/docs/en/advanced.md":{"title":{"en":"Tab: Advanced"},"content":"en/adapterref/iobroker.life360ng/docs/en/advanced.md"},"en/adapterref/iobroker.life360ng/docs/en/help.md":{"title":{"en":"Tab: Help"},"content":"en/adapterref/iobroker.life360ng/docs/en/help.md"}}}
+---
 ![Logo](admin/Life360ng.svg)
 
 # ioBroker adapter for Life360 (next generation)
@@ -27,7 +30,7 @@ This adapter connects to the [Life360](https://www.life360.com) cloud services t
 
 ## Documentation
 
-- 🇺🇸 [Documentation](https://github.com/inventwo/ioBroker.life360ng/blob/main/docs/en/README.md)
+- 🇺🇸 [Documentation](/#/docs/adapterref/iobroker.life360ng/docs/en/README.md)
 - 🇩🇪 [Dokumentation](https://github.com/inventwo/ioBroker.life360ng/blob/main/docs/de/README.md)
 
 ## Configuration
@@ -49,8 +52,6 @@ Life360 has disabled password-based login for EU users. Obtain a Bearer token ma
 >**Note:** Tokens are long-lived (typically months). When expired, the adapter log will show a connection error — repeat the steps above to get a new token.
 
 ![Token](img/readme_anonym.png)
-
-
 
 ### My Places
 
@@ -224,7 +225,6 @@ Open this URL in any browser. The map auto-refreshes at the configured polling i
 >
 > The generated HTML, CSS, and JS files are stored in the ioBroker file system and can be viewed under **Admin → Files → `life360ng.<instance>/tracker/`**.
 
-
 #### Map Features
 
 - **Interactive Leaflet map** — pan and zoom, based on OpenStreetMap
@@ -288,13 +288,12 @@ The map refreshes itself — no additional configuration needed.
 >- To manually clear a person's recorded route data, enable the **"Clear rec."** checkbox in the persons table and save the config. The person's `allTime.geojson` is reduced to the last known point. Since the family map is built from the individual person data, it is automatically updated as well. The monthly GeoJSON files (`currentYear.MM`) are never affected.
 >- Route colors per person are configured in the adapter settings (Tracker tab).
 
-
 ## Support
 
 If you like our work and would like to support us, we appreciate any donation.
 (This link leads to our PayPal account and is not affiliated with ioBroker.)
 
-[![Spende](img/support.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
+[![Spende](https://github.com/inventwo/ioBroker.life360ng/blob/main/img/support.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ## Credits
 
@@ -324,9 +323,6 @@ Note: The original [repository](https://github.com/MiGoller/ioBroker.life360) is
 ### 1.11.0 (2026-05-28)
 - (skvarel) Added "Enable datapoint notifications" checkbox in the Notifications tab; when enabled, the general notification settings panel is shown even without Telegram or Alexa configured
 - (skvarel) Updated geolocation-utils dependency from 1.2.5 to 1.2.6
-
-## Older changes
-- [CHANGELOG_OLD.md](https://github.com/inventwo/ioBroker.life360ng/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

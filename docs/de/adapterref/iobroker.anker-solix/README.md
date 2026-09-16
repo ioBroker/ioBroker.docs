@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.anker-solix/README.md":{"title":{"en":"ioBroker.anker-solix"},"content":"en/adapterref/iobroker.anker-solix/README.md"},"en/adapterref/iobroker.anker-solix/docs/docker-buanet.md":{"title":{"en":"Anker Solix im buanet/iobroker-Container"},"content":"en/adapterref/iobroker.anker-solix/docs/docker-buanet.md"},"en/adapterref/iobroker.anker-solix/CREDITS.md":{"title":{"en":"Credits & acknowledgments"},"content":"en/adapterref/iobroker.anker-solix/CREDITS.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.anker-solix/README.md
 title: ioBroker.anker-solix
-hash: i6gAsX9TYDWDa1IiFS7MSiyI/L6srpjTxy1mujZKOis=
+hash: caxr18UL2EqV79kpxvHMeALCnOt2przZ3fJTNw8tRqA=
 ---
 # IoBroker.anker-solix
 
@@ -15,12 +16,12 @@ ioBroker-Adapter für **Anker Solix**-Stromversorgungssysteme (Solarbank, Smart 
 
 > |----|--------|
 
-> | **Linux** | Primäres Produktionsziel – **CI-getestet** (Docker, NAS, Raspberry Pi, …)
+> | **Linux** | Primäres Produktionsziel - **CI-getestet** (Docker, NAS, Raspberry Pi, …)
 
 > | **Windows** | **Unterstützt und getestet** auf ioBroker für Windows (Python 3.12+)
 
 
-| **macOS** | **Nicht unterstützt** – automatische Python/venv-Installation wurde nicht verifiziert |
+| **macOS** | **Nicht unterstützt** - automatische Python/venv-Installation wurde nicht verifiziert |
 
 > > npm / `package.json` Kataloginstallation: **`linux`** und **`win32`** nur. Details: [Unterstützte Plattformen](#supported-platforms).
 
@@ -57,8 +58,8 @@ Der Adapter verwendet eine **inoffizielle** Python-Bibliothek zur Kommunikation 
 | Plattform | Status | Hinweise |
 |----------|--------|-------|
 | **Linux** (Debian, Ubuntu, Docker, Proxmox, NAS, RPi) | **Primär / CI-getestet** | Empfohlen für den Produktiveinsatz; Python 3.12+ venv (`python3-venv`, `python3-pip`) |
-| **macOS** | **Nicht unterstützt** | Theoretisch gleicher Unix-Codepfad wie Linux, aber automatisches Python/venv-Bootstrap wurde **nicht getestet** — keine npm-Katalogunterstützung (`package.json` hat kein `darwin`) |
-| **macOS** | **Nicht unterstützt** | Theoretisch gleicher Unix-Codepfad wie Linux, aber automatisches Python/venv-Bootstrap wurde **nicht getestet** — keine npm-Katalogunterstützung (`package.json` enthält kein `darwin`) |
+| **macOS** | **Nicht unterstützt** | Theoretisch gleicher Unix-Codepfad wie Linux, aber automatisches Python/venv-Bootstrap wurde **nicht getestet** - keine npm-Katalogunterstützung (`package.json` hat kein `darwin`) |
+| **macOS** | **Nicht unterstützt** | Theoretisch gleicher Unix-Codepfad wie Linux, aber automatisches Python/venv-Bootstrap wurde **nicht getestet** - keine npm-Katalogunterstützung (`package.json` enthält kein `darwin`) |
 
 **Linux** bleibt das Hauptziel für ioBroker-Implementierungen. **Windows** wird vollständig im Code unterstützt und manuell verifiziert; GitHub Actions führt Adaptertests auf **`ubuntu-latest`** und **`windows-latest`** durch. **macOS** wird bis zum Test der Python-Installation nicht unterstützt.
 
@@ -69,12 +70,12 @@ Der Adapter verwendet eine **inoffizielle** Python-Bibliothek zur Kommunikation 
 |-------|------|
 | **Node.js-Adapter** | Instanzkonfiguration, Zeitplanung, ioBroker-Zustände, Steuerung der Warteschlange |
 | **Python-Bridge** (`python/bridge.py`) | Langlebige Sitzung: API + optionales MQTT (HA-Stil) |
-| **Auth-Cache** | `iobroker-data/<instance>/authcache/<email>.json` — wird nach erfolgreicher API-Anmeldung wiederverwendet |
-| **authcache** | `iobroker-data/<instance>/authcache/<email>.json` — wird nach erfolgreicher API-Anmeldung wiederverwendet |
+| **Auth-Cache** | `iobroker-data/<instance>/authcache/<email>.json` - wird nach erfolgreicher API-Anmeldung wiederverwendet |
+| **Auth-Cache** | `iobroker-data/<instance>/authcache/<email>.json` - wird nach erfolgreicher API-Anmeldung wiederverwendet |
 
-Das Abfrageintervall sollte **60–180 s** betragen (gleiche Empfehlung wie bei HA). Die Standortliste wird in jedem Zyklus aktualisiert; Geräte-/Standortdetails und Energiedaten werden in einem langsameren Intervall abgerufen (`deviceDetailMultiplier`, standardmäßig bei jeder 10. Abfrage).
+Das Abfrageintervall sollte **60-180 s** betragen (gleiche Empfehlung wie bei HA). Die Standortliste wird in jedem Zyklus aktualisiert; Geräte-/Standortdetails und Energiedaten werden in einem langsameren Intervall abgerufen (`deviceDetailMultiplier`, standardmäßig bei jeder 10. Abfrage).
 
-**Wichtig:** Für Cloud-Geräte ist die Anker-API **obligatorisch** (MQTT allein reicht für vollständige Systemdaten nicht aus). Ausnahme: Der **Modbus-only**-Modus verwendet lokales TCP und benötigt keine Cloud-Zugangsdaten. Dieser Adapter ersetzt **keine** lokalen BLE-Integrationen – siehe [Zusätzliche Ressourcen](#credits--further-reading).
+**Wichtig:** Für Cloud-Geräte ist die Anker-API **obligatorisch** (MQTT allein reicht für vollständige Systemdaten nicht aus). Ausnahme: Der **Modbus-only**-Modus verwendet lokales TCP und benötigt keine Cloud-Zugangsdaten. Dieser Adapter ersetzt **keine** lokalen BLE-Integrationen - siehe [Zusätzliche Ressourcen](#credits--further-reading).
 
 ---
 
@@ -82,7 +83,7 @@ Das Abfrageintervall sollte **60–180 s** betragen (gleiche Empfehlung wie bei 
 - ioBroker **js-controller >= 6**, **admin >= 7.6**
 - **Node.js >= 22**
 - **Python 3.12+** auf dem ioBroker-Host (empfohlen / Upstream-Anforderung):
-- **Linux:** `python3-venv` + `python3-pip` (Debian/Ubuntu) — primäres Produktionsziel
+- **Linux:** `python3-venv` + `python3-pip` (Debian/Ubuntu) - primäres Produktionsziel
 - **Windows:** Python 3.12+ von python.org oder `py -3.12`; der Adapter-Installer kümmert sich um venv und **`tzdata`**
 - **macOS:** **nicht unterstützt** (automatische Python-Installation nicht verifiziert)
 **Ausnahme (nach bestem Bemühen):** Linux-Docker-Container basierend auf **Debian 12 Bookworm** (z. B. `buanet/iobroker:latest-v11`) verwenden möglicherweise System-Python 3.11, wenn 3.12 nicht über apt verfügbar ist. Bare-Metal-Bookworm, andere Distributionen und Nicht-Bookworm-Container benötigen weiterhin **3.12+**. Installieren Sie Python 3.12+ nach Möglichkeit in einem permanenten Pfad und setzen Sie **pythonPath** entsprechend.
@@ -132,11 +133,11 @@ iobroker restart anker-solix.0
 Kopieren Sie **`authcache/<email>.json`** aus einer funktionierenden Anker-Installation (z. B. ha-anker-solix) nach `iobroker-data/anker-solix.0/authcache/`, um das Captcha beim ersten Login zu vermeiden.
 
 ### Lokaler Modbus (optional)
-Neuere Anker-Geräte (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug Gen 2) können **lokal über Modbus TCP** (Port 502) abgefragt werden. Dies ist ein separater Kanal von der Cloud-Python-Bridge (Registerzuordnungen aus [ha-anker-solix-official](https://github.com/anker-charging/ha-anker-solix-official)).
+Neuere Anker-Geräte (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug Gen 2, **SOLIX X1 HES**, **V1 Smart EV Charger**) können **lokal über Modbus TCP** (Port 502) abgefragt werden. Die Registerzuordnungen folgen [Die offiziellen Modbus-Protokolle von Anker](https://support.ankersolix.com/) und die von der Community verifizierten X1-Mappings ([anker-x1-ha](https://github.com/afewyards/anker-x1-ha)).
 
-1. Aktivieren Sie **Modbus TCP** in der Anker-App (System / Drei-Parteien-Steuerung).
+1. Aktivieren Sie **Modbus TCP** in der Anker-App (Solarbank: System / Dreiparteiensteuerung; **X1**: Professional-App → Kommunikationseinstellungen; **V1 EV Charger**: Einstellungen → Integrationen).
 2. Adapter Admin → **Modbus (lokal)** → Kanal aktivieren, IP-Adressen der einzelnen Geräte hinzufügen.
-3. Optional: Aktivieren Sie **Nur Modbus (ohne Cloud)**, wenn Sie sich nicht über die Anker-Cloud anmelden möchten. In diesem Fall sind Python, Anmeldeinformationen und Nutzungsbedingungen nicht erforderlich; die Instanz ist **grün**, sobald mindestens ein Modbus-Gerät angeschlossen ist (ansonsten gelb).
+3. Optional: Aktivieren Sie **Nur Modbus (ohne Cloud)**, wenn Sie sich nicht über die Anker-Cloud anmelden möchten. In diesem Fall sind weder Python noch Anmeldeinformationen oder Nutzungsbedingungen erforderlich; die Instanz ist **grün**, sobald mindestens ein Modbus-Gerät angeschlossen ist (ansonsten gelb).
 4. Sensoren: `anker-solix.0.modbus.<name>.sensors.*` (SOC, PV, Netz, Batterie, SN, …).
 5. Steuerung: `anker-solix.0.modbus.<name>.control.*`
 - Solarbank: `operating_mode`, SOC-Grenzwerte, `backup_soc_enable`, `battery_power_direction` + `battery_power_setpoint` (Sollwert nur in **third_party_control**; Richtung zuerst festlegen; Ladung wird als negative Wattzahl geschrieben).
@@ -146,19 +147,19 @@ Neuere Anker-Geräte (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug 
 Ohne **nur Modbus** wird für ältere Geräte und MQTT weiterhin die Cloud-Anmeldung verwendet. Solarbank 3 ist **nicht** in Ankers offizieller Modbus-Liste enthalten. Wenn ein anderer Modbus-Client das Gerät gerade abgefragt hat, kann die erste Abfrage mit **Verbindung abgelehnt** werden, bis die Wartezeit dieses Clients abgelaufen ist; beim nächsten Abfrageintervall wird ein erneuter Versuch unternommen.
 
 ### Docker (`buanet/iobroker`)
-Das offizielle Image enthält **Python 3.11**. Ab Version **0.10.87** akzeptiert der Adapter dies auf Debian 12 Bookworm-Containern nach dem **bestmöglichen Aufwand** – ein benutzerdefiniertes Image ist nicht erforderlich. **3.12+** wird weiterhin empfohlen (Upstream) und ist auf Bare-Metal-Systemen und Nicht-Bookworm-Hosts weiterhin erforderlich. Anleitung: **[docs/docker-buanet.md](docs/docker-buanet.md)** (optionale 3.12-Dateien unter [`docs/docker/`](docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
+Das offizielle Image enthält **Python 3.11**. Ab Version **0.10.87** akzeptiert der Adapter dies auf Debian 12 Bookworm-Containern nach dem **bestmöglichen Aufwand** - ein benutzerdefiniertes Image ist nicht erforderlich. **3.12+** wird weiterhin empfohlen (Upstream) und ist auf Bare-Metal-Systemen und Nicht-Bookworm-Hosts weiterhin erforderlich. Anleitung: **[docs/docker-buanet.md](/#/docs/adapterref/iobroker.anker-solix/docs/docker-buanet.md)** (optionale Dateien 3.12 unter [`docs/docker/`](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
 
 ---
 
 ## Konfiguration
 1. Instanz erstellen: `iobroker add anker-solix`
-2. **Konto:** Anker-E-Mail-Adresse, Passwort, Ländervorwahl (z. B. „DE“) — **Nach Eingabe des Passworts speichern**
+2. **Konto:** Anker-E-Mail-Adresse, Passwort, Ländervorwahl (z. B. „DE“) - **Nach Eingabe des Passworts speichern**
 3. **Konto:** Nutzung der inoffiziellen API akzeptieren (Kontrollkästchen unten im Tab)
-4. **Optionen:** Abfrageintervall 60–180 s, **MQTT** falls erforderlich, `deviceDetailMultiplier` (HA-Standard: 10)
+4. **Optionen:** Abfrageintervall 60-180 s, **MQTT** falls erforderlich, `deviceDetailMultiplier` (HA-Standard: 10)
 5. **Geräte:** **Geräte laden**, optionaler Filter für Standort-ID/Geräte-SN.
 6. **Objekte** (v0.9.0+): Optionale Gruppen aktivieren; standardmäßig nur **Core** aktiviert → **Adapter nach Änderungen neu starten**.
 
-Verwenden Sie die Funktion „Anker-Anmeldecache leeren“ **nur**, wenn Sie sich absichtlich neu anmelden müssen (falsches Konto, beschädigte Datei). Das Leeren des Caches erzwingt eine erneute Anmeldung in der Cloud und löst häufig ein Captcha auf den Servern aus – siehe [Fehlerbehebung](#troubleshooting-login--poll).
+Verwenden Sie die Funktion „Anker-Anmeldecache leeren“ **nur**, wenn Sie sich absichtlich neu anmelden müssen (falsches Konto, beschädigte Datei). Das Leeren des Caches erzwingt eine erneute Anmeldung in der Cloud und löst häufig ein Captcha auf den Servern aus - siehe [Fehlerbehebung](#troubleshooting-login--poll).
 
 ---
 
@@ -173,18 +174,18 @@ Seit der Anker-App **3.10** (Mitte 2025) kann ein Konto häufig parallel auf **m
 
 **Gemeinsame Konten / Mitgliedskonten:** Ein familiengemeinsames Konto sieht möglicherweise weniger API-Details als das Konto des Eigentümers (dasselbe gilt für HA).
 
-Weitere Kontonotizen: [HA INFO.md – Konten](https://github.com/thomluther/ha-anker-solix/blob/main/INFO.md).
+Weitere Kontonotizen: [HA INFO.md - Konten](https://github.com/thomluther/ha-anker-solix/blob/main/INFO.md).
 
 ---
 
 ## Einschränkungen
-- **Inoffizielle API** — keine Dokumentation; Endpunkte können sich jederzeit ändern.
-- **EU vs. COM Cloud** – falsches **Land** in der Konfiguration → Anmeldung funktioniert, aber **keine Systeme/Geräte**. Wechseln Sie das Land nicht nach dem Koppeln der Geräte.
+- **Inoffizielle API** - keine Dokumentation; Endpunkte können sich jederzeit ändern.
+- **EU vs. COM Cloud** - falsches **Land** in der Konfiguration → Anmeldung funktioniert, aber **keine Systeme/Geräte**. Wechseln Sie das Land nicht nach dem Koppeln der Geräte.
 - **Veraltete Cloud-Daten**, wenn die WLAN-Verbindung des Geräts offline ist; verwenden Sie die Cloud-/MQTT-Verbindungsindikatoren, wenn diese aktiviert sind.
 - **MQTT**-Aktualisierungen hängen vom Veröffentlichungszyklus des Geräts ab; einige Werte nur mit **Echtzeit-Trigger** (hohes Datenaufkommen bei 24/7).
-- **Einzelgeräte** (PPS, Ladegerät, Kühler, die nicht in ein Stromnetz eingebunden sind) verfügen **über geringe oder keine API-Energiedaten** – MQTT kann erforderlich sein ([HA-Einschränkungen](https://github.com/thomluther/ha-anker-solix#limitations)).
+- **Einzelgeräte** (PPS, Ladegerät, Kühler, die nicht in ein Stromnetz eingebunden sind) verfügen **über geringe oder keine API-Energiedaten** - MQTT kann erforderlich sein ([HA-Einschränkungen](https://github.com/thomluther/ha-anker-solix#limitations)).
 - **Dynamischer Tarif** außerhalb von Nordpool: Prognose-/Preisdaten können fehlerhaft oder nur lesbar sein.
-- **Captcha (100032)** bei direkter API-Anmeldung von VPS/VPN/Rechenzentrum – siehe [Fehlerbehebung](#troubleshooting-login--poll). Kopieren Sie `authcache` aus HA oder einer anderen funktionierenden Umgebung, falls ioBroker sich nicht anmelden kann.
+- **Captcha (100032)** bei direkter API-Anmeldung von VPS/VPN/Rechenzentrum - siehe [Fehlerbehebung](#troubleshooting-login--poll). Kopieren Sie `authcache` aus HA oder einer anderen funktionierenden Umgebung, falls ioBroker sich nicht anmelden kann.
 
 Um das Hinzufügen von Geräten zu erleichtern: Exportieren Sie anonymisierte Daten über HA [export systems](https://github.com/thomluther/ha-anker-solix/blob/main/INFO.md#export-systems-action) oder [anker-solix-api export_system.py](https://github.com/thomluther/anker-solix-api#export_systempy).
 
@@ -195,18 +196,18 @@ Hersteller: [Anker SOLIX](https://www.anker.com/anker-solix) ([Support / Downloa
 
 | Gerätetyp | Beispiele | Cloud / MQTT | Lokaler Modbus |
 |-------------|----------|--------------|--------------|
-| **System / Site** | Stromversorgungssystem von der Anker App (= API „Site“) | ja | — |
+| **System / Site** | Stromversorgungssystem von der Anker App (= API „Site“) | ja | - |
 | **Solarbank** | E1600 (Gen1), SB2 Pro/Plus/AC, SB3 E2700, **SB4 E5000 Pro**, **Solarbank Max / Max AC** (XE) | API + MQTT | **SB4, Max, Max AC** (Port 502) |
-| **combiner_box** | Power Dock (Multisystem) — zusammengeführte Steuerelemente, falls zutreffend | ja | — |
+| **combiner_box** | Power Dock (Multisystem) - zusammengeführte Steuerelemente, falls zutreffend | ja | - |
 | **Smartmeter** | Anker 3-Phasen-US-Zähler, Shelly 3EM / 3EM Pro, **Smart Meter Gen 2** (AE1X0) | ja | **Gen 2** (nur lesbar) |
-| **Wechselrichter** | MI80 Standalone (virtueller Standort in der API) | ja | — |
+| **Wechselrichter** | MI80 Standalone (virtueller Standort in der API) | ja | - |
 | **Smartplug** | Smartplug 2500 W, **Smartplug Gen 2** | ja | **Gen 2** (`power_switch`) |
-| **pps** / **solarbank_pps** | Tragbare Stromstationen | hauptsächlich MQTT | — |
-| **EV-Ladegerät** | Intelligentes V1-Ladegerät | hauptsächlich MQTT | — |
-| **Fahrzeug** | Virtuelle Elektrofahrzeuge für Ladekonten | leseorientiert | — |
-| **Powerpanel** / **HES** | US Power Panel, X1 HES | eingeschränkte API | X1 verwendet eine andere Anker Modbus-Spezifikation (nicht dieser Adapter) |
-| **Ladegerät** | Prime / Ladestationen | MQTT | — |
-| **Heimsicherung** | E10, AX170 | sehr eingeschränkte API | — |
+| **pps** / **solarbank_pps** | Tragbare Stromstationen | hauptsächlich MQTT | - |
+| **EV-Ladegerät** | Intelligentes V1-Ladegerät | hauptsächlich MQTT | **Modbus TCP** (lokal) |
+| **Fahrzeug** | Virtuelle Elektrofahrzeuge für Ladekonten | leseorientiert | - |
+| **Powerpanel** / **HES** | US Power Panel, X1 HES | eingeschränkte API | **X1 Modbus TCP** (lokal) |
+| **Ladegerät** | Prime / Ladestationen | MQTT | - |
+| **Heimsicherung** | E10, AX170 | sehr eingeschränkte API | - |
 
 **Solarbank 3** verfügt über Cloud/MQTT in diesem Adapter, ist aber **nicht** in den offiziellen Modbus-Registerkarten von Anker enthalten.
 
@@ -217,26 +218,26 @@ Gerätehierarchie (wie HA Entitäten strukturiert): [Diskussion #239](https://gi
 ## Staatsstruktur und Entitätsgruppen
 Typische Pfade (Instanz `anker-solix.0`):
 
-- `anker-solix.0.solarbank.<deviceId>.sensors.*` — Leistung, SOC usw.
-- `anker-solix.0.solarbank.<deviceId>.control.*` — beschreibbare Steuerelemente, sofern unterstützt
-- `anker-solix.0.<device>.<id>.statistics.*` — täglicher kWh-Verbrauch (aktivieren Sie **Objekte** → Energiestatistik)
-- `…statistics.week.*` / `statistics.month.*` / `statistics.year.*` — Kalenderwochen-, Monats- und Jahressummen in kWh (separate Entitätsgruppen; Abfrage bei Detailaktualisierung, nicht in jedem Zyklus)
+- `anker-solix.0.solarbank.<deviceId>.sensors.*` - Leistung, SOC usw.
+- `anker-solix.0.solarbank.<deviceId>.control.*` - beschreibbare Steuerelemente, sofern unterstützt
+- `anker-solix.0.<device>.<id>.statistics.*` - täglicher kWh-Verbrauch (aktivieren Sie **Objekte** → Energiestatistik)
+- `…statistics.week.*` / `statistics.month.*` / `statistics.year.*` - Kalenderwochen-, Monats- und Jahressummen in kWh (separate Entitätsgruppen; Abfrage bei Detailaktualisierung, nicht in jedem Zyklus)
 - **Combiner-Site:** Statistiken nur unter `combiner_box.<id>.statistics.*` (nicht dupliziert auf `system.*` oder jeder `solarbank.*`). **Ohne Combiner:** pro `solarbank.*` (und `smartmeter.*` für Netzmetriken). API-Abfragen bleiben **einmal pro Site**.
 - `anker-solix.0.smartmeter.<deviceId>.sensors.*`
-- `anker-solix.0.services.*` — Exportieren, Planen, Aktualisieren (Schaltflächenzustände)
+- `anker-solix.0.services.*` - Exportieren, Planen, Aktualisieren (Schaltflächenzustände)
 - `anker-solix.0.info.connection`, `anker-solix.0.info.pythonReady`
 
-**Entitätsgruppen** (Admin → **Objekte**): Zuordnung zu HA-Funktionssätzen – Stromflüsse, Diagnose, PPS, EV-Ladegerät, HES, Standortpreis, Kontoinformationen usw. Deaktivierte Gruppen werden von API-Abfragen ausgeschlossen, um die Last zu reduzieren.
+**Entitätsgruppen** (Admin → **Objekte**): Zuordnung zu HA-Funktionssätzen - Stromflüsse, Diagnose, PPS, EV-Ladegerät, HES, Standortpreis, Kontoinformationen usw. Deaktivierte Gruppen werden von API-Abfragen ausgeschlossen, um die Last zu reduzieren.
 
 ---
 
 ## MQTT-verwaltete Geräte
 Aktivieren Sie **MQTT** in den **Optionen**, wenn Sie Live-Daten oder Steuerelemente benötigen, die die Cloud-API nicht bereitstellt (viele PPS/EV/Ladegerätefunktionen).
 
-- Zusätzliche Sensoren/Steuerungen stammen aus MQTT-Maps in solixapi (von der Community pro Modell dekodiert).
-- **Echtzeit-Trigger** und **Statusabfrage** verhalten sich wie HA-Tasten – deren Automatisierung rund um die Uhr erhöht den Datenverkehr und hält die Geräte aktiv ([HA MQTT-Abschnitt](https://github.com/thomluther/ha-anker-solix#mqtt-managed-devices)).
+- Zusätzliche Sensoren/Steuerungen stammen aus MQTT-Maps in solixapi (Community-decodiert pro Modell).
+- **Echtzeit-Trigger** und **Statusabfrage** verhalten sich wie HA-Tasten - deren Automatisierung rund um die Uhr erhöht den Datenverkehr und hält die Geräte aktiv ([HA MQTT-Abschnitt](https://github.com/thomluther/ha-anker-solix#mqtt-managed-devices)).
 - **Hybridsteuerungen** (Stations-SOC-Reserve, AC-Grenzwerte, Netzexport bei Mehrsystem) benötigen MQTT + API wie HA.
-- Geräte im **MQTT-Lokalmodus** (z. B. E10 hinter Power Dock) werden über das Hub-Gerät als Proxy verwendet — siehe [HA INFO – MQTT-Lokalmodus](https://github.com/thomluther/ha-anker-solix/blob/main/INFO.md#devices-in-mqtt-local-mode).
+- Geräte im **MQTT-Lokalmodus** (z. B. E10 hinter Power Dock) werden über das Hub-Gerät als Proxy verwendet - siehe [HA INFO - MQTT-Lokalmodus](https://github.com/thomluther/ha-anker-solix/blob/main/INFO.md#devices-in-mqtt-local-mode).
 
 Neue Modelle dekodieren: [MQTT-Richtlinien](https://github.com/thomluther/anker-solix-api/discussions/222), Tool `mqtt_monitor.py` in [anker-solix-api](https://github.com/thomluther/anker-solix-api).
 
@@ -246,9 +247,11 @@ Neue Modelle dekodieren: [MQTT-Richtlinien](https://github.com/thomluther/anker-
 Zusammenfassung aus [HA-Integrations-README](https://github.com/thomluther/ha-anker-solix); das Verhalten von Cloud/MQTT ist über die SolixAPI identisch. Hinweise zu lokalem Modbus sind adapterspezifisch.
 
 ### Solarbank 4 E5000 Pro / Solarbank Max / Max AC
-Cloud: Gleicher Abfragepfad wie bei anderen Solarbanken (API + optionales MQTT). **Lokales Modbus TCP** (offizielle Zuordnungen): Modbus in der Anker-App aktivieren (System / Drittanbietersteuerung), dann Admin → **Modbus (lokal)**. Typische Modellcodes sind z. B. AE103 (SB4). Zustände: `anker-solix.0.modbus.<name>.sensors.*` und `.control.*` (Betriebsmodus, SOC-Grenzwerte, Batteriesollwert in **Drittanbietersteuerung**). **Nur Modbus** umgeht Cloud/Python; die Instanz-LED leuchtet grün, sobald mindestens ein Modbus-Gerät angeschlossen ist.
+Cloud: Gleicher Abfragepfad wie bei anderen Solarbanken (API + optionales MQTT). **Tägliche kWh** (`statistics.daily_*`) werden bei **detaillierten Abfragen** (alle `deviceDetailMultiplier` Zyklen, Standard ~10) abgerufen, nicht minütlich - siehe Protokoll für `Daily kWh statistics updated`. **Mit Power Dock/Combiner:** Werte befinden sich nur unter `combiner_box.<SN>.statistics.*`, nicht unter jedem `solarbank.*`. Starten Sie den Adapter neu, nachdem Sie **Objekte → Tagesstatistiken** aktiviert haben. Wochen-/Monats-/Jahressummen werden abends berechnet (23:00 / 23:15 / 23:30 Uhr MEZ/Berlin).
 
-Wenn ein anderer Modbus-Client das Gerät gerade abgefragt hat, kann die erste Abfrage mit **Verbindung abgelehnt** werden, bis die Abklingzeit dieses Clients abgelaufen ist – beim nächsten Abfrageintervall wird ein erneuter Versuch unternommen.
+**Lokales Modbus TCP** (offizielle Zuordnungen): Aktivieren Sie Modbus in der Anker App (System / Drittanbietersteuerung) und anschließend Admin → **Modbus (lokal)**. Typische Modellcodes sind beispielsweise AE103 (SB4). Zustände: `anker-solix.0.modbus.<name>.sensors.*` und `.control.*` (Betriebsmodus, SOC-Grenzwerte, Batterie-Sollwert in **Drittanbietersteuerung**). **Nur Modbus** umgeht Cloud/Python; die Instanz-LED leuchtet grün, sobald mindestens ein Modbus-Gerät angeschlossen ist.
+
+Wenn ein anderer Modbus-Client das Gerät gerade abgefragt hat, kann die erste Abfrage mit **Verbindung abgelehnt** werden, bis die Abklingzeit dieses Clients abgelaufen ist - beim nächsten Abfrageintervall wird ein erneuter Versuch unternommen.
 
 ### Intelligenter Zähler Gen 2 / Intelligente Steckdose Gen 2
 Cloud-Entitäten wie bei anderen Zählern/Steckdosen. **Lokaler Modbus:** Der Gen 2-Zähler ist **nur lesbar** (Leistung/Spannung/Strom pro Phase). Smart Plug Gen 2 stellt `power_switch` bereit. Jedes Gerät benötigt eine eigene IP-Adresse (Port 502).
@@ -257,7 +260,7 @@ Cloud-Entitäten wie bei anderen Zählern/Steckdosen. **Lokaler Modbus:** Der Ge
 Es handelt sich nicht um eine vollständige App für das Stromversorgungssystem, aber die Cloud erfasst die Erträge. Die API erstellt einen **virtuellen Standort**. Der WLAN-Status des Wechselrichters in der API ist oft fehlerhaft; der Status der Cloud-Verbindung ist zuverlässiger. **Ändern Sie die** Wechselrichtergrenzen nicht dauerhaft (Hardware-Schreibzyklen).
 
 ### Solarbank 1 (E1600)
-Cloud-Aktualisierungen erfolgen während der Produktion/Entladung etwa alle **60 Sekunden**; im Standby-Modus etwa stündlich. **Planungsfehler:** Ein einzelner ganztägiger API-Slot kann die Exportleistung auf **0 W** setzen – verwenden Sie in der App mindestens 2 Slots, wenn Sie eine voreingestellte Ausgabeleistung nutzen. Die tägliche Entladestatistik seit Mitte 2024 beinhaltet umgangene PV-Anlagen (auch in der App fehlerhaft). MQTT-Überwachung/-Steuerung ab HA v3.4+/3.5+.
+Cloud-Aktualisierungen erfolgen während der Produktion/Entladung etwa alle **60 Sekunden**; im Standby-Modus etwa stündlich. **Planungsfehler:** Ein einzelner ganztägiger API-Slot kann die Exportleistung auf **0 W** setzen - verwenden Sie in der App mindestens 2 Slots, wenn Sie eine voreingestellte Ausgabeleistung nutzen. Die tägliche Entladestatistik seit Mitte 2024 beinhaltet umgangene PV-Anlagen (auch in der App fehlerhaft). MQTT-Überwachung/-Steuerung ab HA v3.4+/3.5+.
 
 ### Solarbank 2 + intelligente Zähler
 Das Cloud-Intervall beträgt üblicherweise **~5 Minuten**; Änderungen an der Steuerung können bis zu **~6 Minuten** dauern, bis sie in den Sensoren sichtbar sind. In der Vergangenheit gab es bei gemeinsam genutzten Konten Probleme mit nicht verfügbaren Entitäten (Anker-seitige Behebung). Einige API-Pfade mit **Ausgabelimit** sind noch unbekannt.
@@ -266,10 +269,10 @@ Das Cloud-Intervall beträgt üblicherweise **~5 Minuten**; Änderungen an der S
 Zeitabhängige Tarife werden über Steuerungsmöglichkeiten bereitgestellt, sofern dies unterstützt wird; Cloud-Updates können nach intensiver App-Nutzung ins Stocken geraten ([HA #211](https://github.com/thomluther/ha-anker-solix/issues/211)).
 
 ### Kombiniertes SB2 + kaskadiertes SB1
-Die Gesamtwerte/Statistiken in der Anker-Cloud beziehen sich **nur auf SB2**; SB1 ist teilweise intransparent. Bei manueller Steuerung von SB2 wird für SB1 ein minimaler Zeitplan erzwungen – einige ioBroker/HA-Steuerelemente werden absichtlich als **nicht verfügbar** angezeigt. Für die korrekte Lade-/Entladeenergie addieren Sie die Akkuleistung **pro Gerät**, nicht nur die System-Nettoleistung ([HA-Details](https://github.com/thomluther/ha-anker-solix#combined-solarbank-2-systems-containing-cascaded-solarbank-1-devices)).
+Die Gesamtwerte/Statistiken in der Anker-Cloud beziehen sich **nur auf SB2**; SB1 ist teilweise intransparent. Bei manueller Steuerung von SB2 wird für SB1 ein minimaler Zeitplan erzwungen - einige ioBroker/HA-Steuerelemente werden absichtlich als **nicht verfügbar** angezeigt. Für die korrekte Lade-/Entladeenergie addieren Sie die Akkuleistung **pro Gerät**, nicht nur die System-Nettoleistung ([HA-Details](https://github.com/thomluther/ha-anker-solix#combined-solarbank-2-systems-containing-cascaded-solarbank-1-devices)).
 
 ### Solarbank 3
-Smart-Modus, dynamische Preise, Zeitfenstermodi – oft **nur** per API umschaltbar (vorher in der App konfigurieren). Dynamische Preise, Mehrwertsteuer/Gebühren sind möglicherweise **nur im Cache** anpassbar. Nordpool-Vorhersagen sind am zuverlässigsten.
+Smart-Modus, dynamische Preise, Zeitfenstermodi - oft **nur** per API aktivierbar (vorher in der App konfigurieren). Dynamische Preise, Mehrwertsteuer/Gebühren sind möglicherweise **nur im Cache** anpassbar. Nordpool-Vorhersagen sind am zuverlässigsten.
 
 ### Multisystem mit Power Dock
 Bis zu 4 SB3-Einheiten; gemeinsame Stationseinstellungen (Nutzungsmodus, SOC-Reserve, Netzexport). Die Steuerung ist in der Integrationslogik auf dem **Combiner/Power Dock** konsolidiert. Cloud-Daten können in der Anfangsphase verzögert sein. Die **AC-Ausgangsgrenze** mehrerer Systeme ist möglicherweise nicht über die API änderbar.
@@ -281,13 +284,18 @@ SOC-Reserve, PV/AC-Grenzwerte und Netzeinspeisung erfordern häufig **API + MQTT
 Hausautomatisierungssystem mit Notstromversorgung in den USA; Steuerung hauptsächlich über MQTT.
 
 ### Ladegerät für Elektrofahrzeuge (V1)
-Die meisten Metriken/Steuerungen erfolgen über MQTT; Mitgliedskonten werden unterstützt. Betriebsmodi entsprechen einer HA-ähnlichen Zustandsmaschine – in ioBroker sollten Sie die verfügbaren Steuerungsoptionen vor der Skriptausführung prüfen. Sitzungsverlaufsstatistiken sind nicht implementiert (verwenden Sie den Zustandsverlauf).
+Die meisten Metriken/Steuerungen erfolgen über MQTT; Mitgliedskonten werden unterstützt. Betriebsmodi entsprechen einer HA-ähnlichen Zustandsmaschine - in ioBroker sollten Sie die verfügbaren Steuerungsoptionen vor der Skriptausführung prüfen. Sitzungsverlaufsstatistiken sind nicht implementiert (verwenden Sie den Zustandsverlauf).
 
 ### Fahrzeuge
-Virtuelle Geräte pro Konto EV; keine Erstellung über Adapter — erkannt beim Aktualisieren.
+Virtuelle Geräte pro Konto EV; keine Erstellung über Adapter - erkannt beim Aktualisieren.
 
 ### Stromverteiler und HES (X1)
-Begrenzte API-Leistung; als Workaround werden **~5-Minuten-Durchschnittswerte** aus den Energiestatistiken verwendet (**~80 MB/Tag** zusätzlicher Datenverkehr pro System, falls aktiviert). Deaktivieren Sie bei Bedarf ressourcenintensive Kategorien in den **Objekten**. Der lokale **Modbus** von X1 verwendet [separates Anker-Protokoll](https://support.ankersolix.com/de/s/download-preview?urlname=Anker-SOLIX-X1-Series-Modbus-Protocol) – **nicht** in diesem Adapter implementiert (nur offizielle Solarbank 4 / Max / Meter / Plug Gen 2-Zuordnungen).
+Begrenzte API-Leistung; als Workaround werden **~5-Minuten-Durchschnittswerte** aus den Energiestatistiken verwendet (**~80 MB/Tag** zusätzlicher Datenverkehr pro System, falls aktiviert). Deaktivieren Sie bei Bedarf ressourcenintensive Kategorien in den **Objekten**.
+
+**Lokales Modbus (X1):** Aktivieren Sie Modbus TCP in der **Anker Solix Professional**-App und wählen Sie dann Admin → **Modbus (lokal)** → Profil **SOLIX X1 HES** (oder automatische Erkennung). Die Einstellungen finden Sie unter `modbus.<name>.sensors.*`. Dort können Sie den Betriebsmodus und den Batteriesollwert (VPP-/Drittanbietermodus) festlegen. Der X1 akzeptiert **jeweils nur einen Modbus-TCP-Client**.
+
+### V1 Smart EV Charger (lokaler Modbus)
+Cloud-/MQTT-Entitäten bleiben bei Verwendung des Anker-Kontos verfügbar. Für die **lokale** Steuerung aktivieren Sie Modbus TCP unter **Integrationen** in der Anker-App und fügen Sie das Profil **V1 Smart EV Charger** hinzu. Steuerung: Ladevorgang starten/stoppen, maximaler Strom (6-32 A). Das Ladegerät unterstützt bis zu **zwei** simultane Modbus-Clients.
 
 ### Heim-Backup (E10, AX170)
 Nahezu keine Cloud-API für Systemenergie; E10 oft im lokalen MQTT-Modus über Dockingstation.
@@ -307,7 +315,7 @@ Anker blockiert einige Server-/VPN-API-Anmeldungen. Die Bibliothek kann Captchas
 1. Bestätigen Sie, dass sich die App im selben LAN befindet; das **Land** muss korrekt sein; auf dem ioBroker-Host darf kein VPN verwendet werden.
 2. **Löschen Sie den Anmeldecache nicht, um das Captcha zu „reparieren“.**
 3. Kopieren Sie `authcache` aus HA oder melden Sie sich erneut an, sobald die Cloud dies zulässt.
-4. Warten Sie nach mehreren erfolglosen Versuchen 15–30 Minuten.
+4. Warten Sie nach mehreren erfolglosen Versuchen 15-30 Minuten.
 5. Verwenden Sie einen Adapter **≥ 0.9.3**, damit ein gültiger Cache beim Neustart nicht verworfen wird.
 
 Das Protokoll zeigt den genauen Cache-Pfad ab **0.9.4+**.
@@ -341,22 +349,40 @@ Deutsche Anleitungen/Videos, die unter [HA README](https://github.com/thomluther
 ---
 
 ## Vermeidung von Einschränkungen (optional)
-Registerkarte **Abregelungsvermeidung** / **Abschaltvermeidung**: Erfordert [ioBroker.pvforecast](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md)-Adapter. (Bisher basierend auf [ioBroker.solarprognose](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md))](https://www.iobroker.net/#en/adapters/adapterref/iobroker.solarprognose/README.md) / solarprognose.de – deaktiviert, da **solarprognose.de eingestellt wird** und diese Datenquelle nicht mehr verfügbar ist.) Legen Sie den **Anlagenpfad** fest (z. B. `pvforecast.0.plants.pv`); die Leistungswerte werden von `{path}.power.hoursToday.*` gelesen. Die **Prognoseauflösung** (60 / 30 / 15 Minuten, Standard **60**) muss dem in pvforecast konfigurierten Intervall entsprechen. **Steuert nur:** **Manueller** Modus + **`ac_output_limit`** (AC-Ausgang / -Export). **Ändert nicht** die Basiseinstellungen der Station (Netzexportbegrenzung, `allow_grid_export`, Voreinstellung für die Eigenlast, AC-Ladebegrenzung). **Vorher:** `ac_output_limit` = Live-PV. **Aktiv:** `missing_charge_wh`, `max_charge_w` = `missing_charge_wh` ÷ `remaining_hours`, `export_w` = `live_pv_w` − `max_charge_w`, `ac_output_limit` = `export_w`. **Nachher:** Ausgewählten Modus wiederherstellen. Zustände: `curtailment.live_pv_w`, `missing_charge_wh`, `max_charge_w`, `export_w`, `remaining_hours`.
+Registerkarte **Abregelungsvermeidung** / **Abschaltvermeidung**: Erfordert [ioBroker.pvforecast](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md)-Adapter. (Bisher basierend auf [ioBroker.solarprognose](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md))](https://www.iobroker.net/#en/adapters/adapterref/iobroker.solarprognose/README.md) / solarprognose.de - deaktiviert, da **solarprognose.de eingestellt wird** und diese Datenquelle nicht mehr verfügbar ist.) Legen Sie den **Anlagenpfad** fest (z. B. `pvforecast.0.plants.pv`); die Leistungswerte werden von `{path}.power.hoursToday.*` gelesen. Die **Prognoseauflösung** (60 / 30 / 15 Minuten, Standard **60**) muss dem in pvforecast konfigurierten Intervall entsprechen. **Steuert nur:** **Manueller** Modus + **`ac_output_limit`** (AC-Ausgang / -Export). **Ändert nicht** die Basiseinstellungen der Station (Netzexportbegrenzung, `allow_grid_export`, Voreinstellung für die Eigenlast, AC-Ladebegrenzung). **Vorher:** `ac_output_limit` = Live-PV. **Aktiv:** `missing_charge_wh`, `max_charge_w` = `missing_charge_wh` ÷ `remaining_hours`, `export_w` = `live_pv_w` − `max_charge_w`, `ac_output_limit` = `export_w`. **Nachher:** Ausgewählten Modus wiederherstellen. Zustände: `curtailment.live_pv_w`, `missing_charge_wh`, `max_charge_w`, `export_w`, `remaining_hours`.
 
-**Admin:** Kontrollkästchen *Kombinator vorhanden* – ohne Kombinator: Geräte-ID + Solarbanktyp + Batteriekapazität (Wh); mit Kombinator: Kombinator-ID + bis zu **4** Solarbank-Steckplätze (jeder Steckplatz kann *kein* sein). **Kombinator:** Gesamt-AC-Grenzwert = **Summe** der Grenzwerte pro Einheit (SB2 **1000** W, SB3 Pro **1200** W, SB4 Pro **2500** W). **Standalone:** immer **800** W.
+**Admin:** Kontrollkästchen *Kombinator vorhanden* - ohne Kombinator: Geräte-ID + Solarbanktyp + Batteriekapazität (Wh); mit Kombinator: Kombinator-ID + bis zu **4** Solarbank-Steckplätze (jeder Steckplatz kann *kein* sein). **Kombinator:** Gesamt-AC-Grenzwert = **Summe** der Grenzwerte pro Einheit (SB2 **1000** W, SB3 Pro **1200** W, SB4 Pro **2500** W). **Standalone:** immer **800** W.
 
 ---
 
 ## VIS / VIS-2 Dashboard (Energy Home)
-Widget-Set **anker-solix** → **Energiehaus** (fotorealistischer Haushintergrund, Live-Überlagerungen für PV-Anlage, Haus, Stromnetz, Batterie und Elektrofahrzeuge). Alle Zustände werden manuell in den Widget-Einstellungen (Objektauswahl) festgelegt.
+Widget-Set **anker-solix** im VIS/VIS-2-Editor:
 
-**Wichtig:** Widgets werden nur mit **GitHub main / 0.10.100+** ausgeliefert. npm **0.10.90** enthält sie **nicht**. Nach der Installation oder Aktualisierung:
+| Widget | Zweck |
+|--------|---------|
+| **Energiehaus** | Fotorealistischer Haushintergrund, Live-PV / Haus / Netz / Batterie / Elektrofahrzeug (manuelle Zustandsbindungen) |
+| **HTML-Dashboard** | Beliebiger `dashboard.sites.*.html`-Status (Live, Energie, Einstellungen, …) |
+| **Übersicht über mehrere Standorte** | An `anker-solix.0.dashboard.overview.html` binden |
+| **Übersicht für mehrere Standorte** | An `anker-solix.0.dashboard.overview.html` binden |
+
+**Wichtig:** Widgets werden nur mit **GitHub main / 0.10.100+** ausgeliefert. npm **0.10.90** enthält sie **nicht**.
+
+Ab **0.10.104** kopiert der Adapter beim Start `widgets/` in den VIS/VIS-2-Dateispeicher und löst einen VIS-2-Neubau aus. Nach der Installation oder Aktualisierung:
+
+1. Starten Sie die **anker-solix**-Instanz neu (oder warten Sie auf die automatische Synchronisierungsprotokollzeile).
+2. Laden Sie den VIS/VIS-2-Editor neu (**F5**).
+3. Öffnen Sie im Widget-Picker das Set **anker-solix**.
+
+Falls die Widgets immer noch fehlen, führen Sie den Befehl auf dem ioBroker-Host aus:
 
 ```bash
-iobroker upload anker-solix
+iobroker upload vis widgets
+iobroker upload vis-2 widgets
+iobroker restart vis
+iobroker restart vis-2
 ```
 
-Starten Sie anschließend **vis** und/oder **vis-2** neu (oder laden Sie den Editor mit F5 neu). Suchen Sie in der Widget-Auswahl nach „anker-solix“ → „Energy Home“. Weisen Sie in den Widget-Einstellungen jedem Zustand Folgendes zu: **Zustandsbindungen** (PV, Zuhause, EV, Fußzeile), **Netzflüsse** (Netzimport, Netzexport), **Batterie** (SOC, Laden, Entladen).
+Laden Sie anschließend den Editor neu. Weisen Sie für **Energy Home** in den Widget-Einstellungen folgende Zustände zu: **Zustandsbindungen**, **Grid-Flows**, **Batterie**.
 
 Optionaler VIS-2-Ansichtsimport: `widgets/anker-solix/views/energy-home.vis2.json`.
 
@@ -364,21 +390,69 @@ Aktivieren Sie **Leistungsflüsse** und **Energiestatistiken** in Adapter-**Obje
 
 ---
 
-## Veröffentlichung (npm- und ioBroker-Katalog)
-**npm:** Veröffentlichung über Git-Tag (`v*`) und CI-Deployment nach [Der Adaptercheck (https://adaptercheck.iobroker.in/) ist erfolgreich. Die Veröffentlichung erfolgt über **npm Trusted Publishing** (OIDC von GitHub Actions – kein langlebiges npm-Token). Klassische Automatisierungstoken werden von npm ab **Januar 2027** nicht mehr unterstützt; dieser Adapter verwendet bereits Trusted Publishing. Registrieren Sie sich in [ioBroker.repositories].](https://github.com/ioBroker/ioBroker.repositories), sobald das Paket auf npm verfügbar ist.
+## HTML-Dashboards (Solix4-Stil)
+Inspiriert von **[ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4)** von **Michael Horn ([@michihorn64](https://github.com/michihorn64))** - vielen Dank für das ursprüngliche Dashboard-Konzept! Details: [CREDITS.md](/#/docs/adapterref/iobroker.anker-solix/CREDITS.md).
 
-**Vor jeder Veröffentlichung** (durchgesetzt durch `npm run test:package` → `test/io-package-policy.js`):
+Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HTML** (dunkles Design, Live-Energiefluss, Einstellungen, täglicher kWh-Wert, Diagnose, Geräteliste) in Zeichenkettenzustände mit der Rolle `html`:
+
+| Status | Inhalt |
+|-------|---------|
+| `anker-solix.0.dashboard.sites.<siteKey>.live.html` | Live-Stromfluss (Solar → Haus ↔ Netz, Batterie) |
+| `…energy.html` | Tägliche kWh-Kacheln + Autarkie / Eigenverbrauch |
+| `…settings.html` | Grenzwerte & Modi (schreibgeschützt) |
+| `…diagnosis.html` | Warnungen, MQTT, Gerätestatus |
+| `…devices.html` | Geräteinventar |
+| `anker-solix.0.dashboard.overview.html` | Vergleich mehrerer Standorte |
+| `anker-solix.0.dashboard.overview.html` | Vergleich mehrerer Standorte |
+
+`<siteKey>` sind die ersten 8 Zeichen der Anker-Site-ID (dasselbe Prinzip wie bei solix4).
+
+**VIS / VIS-2:** Fügen Sie das Widget **HTML Dashboard** hinzu (setzen Sie **anker-solix** ein) und binden Sie es z. B. an `anker-solix.0.dashboard.sites.<siteKey>.dashboard.html` oder verwenden Sie das generische VIS **HTML**-Widget. Passen Sie die Größe an Tablet-Größe (~900×700 px) an. Der HTML-Code wird bei jeder Adapterabfrage aktualisiert.
+
+**Objekte → Tagesstatistiken** für kWh-Kacheln aktivieren; Aktivieren Sie **Leistungsflüsse** für Live-Leistungswerte.
+
+---
+
+## Veröffentlichung (npm- und ioBroker-Katalog)
+**npm:** Veröffentlichung über Git-Tag (`v*`) und CI-Deployment nach [Der Adaptercheck (https://adaptercheck.iobroker.in/) ist erfolgreich. Die Veröffentlichung erfolgt über **npm Trusted Publishing** (OIDC von GitHub Actions - kein langlebiges npm-Token). Klassische Automatisierungstoken werden von npm ab **Januar 2027** nicht mehr unterstützt; dieser Adapter verwendet bereits Trusted Publishing. Registrieren Sie sich in [ioBroker.repositories].](https://github.com/ioBroker/ioBroker.repositories), sobald das Paket auf npm verfügbar ist.
+
+**Vor jeder Veröffentlichung** (erzwungen durch `npm run test:package` → `test/io-package-policy.js`; lokal über `npm run verify:ci` vor jedem Push ausführen):
 
 1. Erhöhen Sie die Versionsangabe in `package.json` und `io-package.json` (muss übereinstimmen).
 2. Fügen Sie diesem README-Changelog einen Abschnitt `### x.y.z` hinzu (E6006).
-3. Füge **einen** neuen `common.news`-Eintrag für diese Version hinzu; behalte **maximal 7** News-Schlüssel bei – nur Versionen, die bereits auf npm verfügbar sind (mit Ausnahme der Version, die du veröffentlichen möchtest). Verschiebe entfernten Text nach [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+3. Füge **nur beim Veröffentlichen auf npm** einen neuen Eintrag in `common.news` für diese Version hinzu (Tag `v*`). Behalte **maximal 7** News-Schlüssel - nur Versionen, die bereits auf npm verfügbar sind (plus die Version, die du veröffentlichen möchtest). GitHub-exklusive Zwischenversionen dürfen **nicht** in `common.news` erscheinen (E2004). Verschiebe entfernten Text in CHANGELOG_OLD.md. Dokumentiere alle Versionen im Changelog dieser README-Datei.
 4. Admin `jsonConfig.json`: Die Überschrift `size` muss **≤ 5** sein (verwenden Sie `5` für die kleinste Überschrift).
 5. Fügen Sie keine Root-Dateien zu npm `files` hinzu, es sei denn, dies ist erforderlich (`CHANGELOG_OLD.md` bleibt außerhalb des Pakets).
 6. Die Angabe `os` in `package.json` muss mit der Betriebssystemmatrix in `test-and-release.yml` übereinstimmen (E3027). Halten Sie die administrativen Dateien `i18n/*.json` mit `en.json` synchron (W5604/W5605).
+7. Fügen Sie **keinen** `prepare`-Skript hinzu (E0094). Führen Sie nach dem Klonen einmalig `npm run setup:githooks` aus, damit der Pre-Push-Hook `verify:ci` ausführt.
 
 ---
 
 ## Changelog
+
+### 0.10.105
+
+- **Repo checker (#9):** removed forbidden `prepare` script (E0094); `common.news` lists npm-published versions only (E2004); enable local hooks with `npm run setup:githooks`
+- **CI (#10):** adapter tests on Node.js **22 / 24 / 26**; `@iobroker/adapter-core` → 3.4.3; Modbus TCP read timeout uses `adapter.setTimeout` (S5005)
+- News translations expanded for remaining npm versions (W1145)
+
+### 0.10.104
+
+- **VIS / VIS-2:** widget set **anker-solix** is copied to VIS file storage on adapter start; VIS-2 catalog rebuild triggered automatically
+- **VIS widgets:** **HTML Dashboard**, **Site Dashboard (tablet)**, **Multi-site Overview** (bind `dashboard.*.html` states) plus existing **Energy Home**
+
+### 0.10.103
+
+- **HTML dashboards** (solix4-style): live flow, settings, daily kWh, diagnosis, devices, overview under `dashboard.sites.*.html` — inspired by [ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4) (Michael Horn / michihorn64); see [CREDITS.md](/#/docs/adapterref/iobroker.anker-solix/CREDITS.md)
+
+### 0.10.102
+
+- **Fix:** daily kWh statistics for SB4 / Power Dock — info/warn logs when cloud fetch runs or returns empty; recover poll state that could skip daily energy forever; fallback to `solarbank.*.statistics.*` when combiner site has no `combiner_box` object yet
+- **Admin:** hint under energy statistics (daily vs week/month/year schedule, combiner path)
+
+### 0.10.101
+
+- **Modbus (local):** profiles for **Anker SOLIX X1 HES** and **V1 Smart EV Charger** (official protocol register maps; X1 little-endian 32-bit and string decode; existing Solarbank/Gen2 profiles unchanged)
 
 ### 0.10.100
 
@@ -725,13 +799,13 @@ Aktivieren Sie **Leistungsflüsse** und **Energiestatistiken** in Adapter-**Obje
 
 ### 0.6.0
 
-- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see [CHANGELOG_OLD.md](CHANGELOG_OLD.md) for 0.6.1–0.6.5)
+- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see CHANGELOG_OLD.md for 0.6.1–0.6.5)
 
 ### 0.5.0
 
-- Python auto-install, device selection, staggered polling, repository rename (see [CHANGELOG_OLD.md](CHANGELOG_OLD.md) for 0.2.0–0.4.2)
+- Python auto-install, device selection, staggered polling, repository rename (see CHANGELOG_OLD.md for 0.2.0–0.4.2)
 
-Older release notes: [CHANGELOG_OLD.md](CHANGELOG_OLD.md) and git history.
+Older release notes: CHANGELOG_OLD.md and git history.
 
 ---
 
@@ -739,4 +813,4 @@ Older release notes: [CHANGELOG_OLD.md](CHANGELOG_OLD.md) and git history.
 
 Copyright (c) 2026 MatthiasUlrich1 info@my-smart-home-support.de
 
-MIT — see [LICENSE](LICENSE)
+MIT — see [LICENSE](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/LICENSE)

@@ -3,118 +3,127 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.moma/README.md
 title: kein Titel
-hash: kib0AXGWoomKdqx4mLxIEgJU6gVuZDaqYBslywZ/meE=
+hash: Ix3OpWeB2VypjxxdUXrFWxN+Ra/jToA8BhsRSe1OhwE=
 ---
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.moma.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.moma.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/moma-installed.svg)
-![stabile Version](http://iobroker.live/badges/moma-stable.svg)
+![Stabile Version](http://iobroker.live/badges/moma-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/AWhiteKnight/iobroker.moma.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/AWhiteKnight/ioBroker.moma/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/AWhiteKnight/ioBroker.moma/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.moma.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/AWhiteKnight/ioBroker.moma/master.svg)
 
-<h1><img src="admin/moma.png" width="64"/>ioBroker.moma</h1>
+<h1>
+	<img src="admin/moma.png" width="64"/>
+	ioBroker.moma
+</h1>
 
-## Moma Adapter für ioBroker
-** MoMa ** ist ein Adapter für ** Überwachung ** und ** Wartung einer ioBroker-basierten Hausautomationsinstallation.
-** MoMa ** zielt auf Installationen zu Hause (Automatisierung) ab, die etwas komplexer sind als eine einzelne Maschine, die alle auf einer oder einer kleinen Anzahl von Maschinen ausgeführt wird und einen grundlegenden Lastausgleich innerhalb eines Netzwerks ausführt.
+## MAMA-Adapter für ioBroker
 
-Es ist nicht als Ersatz für Verwaltungstools wie **Puppet** **Chef** **Salt** oder **Ansible** gedacht.
-Diese sind für große Umgebungen mit vielen Computern vorgesehen und können Pakete per Fernzugriff installieren. **MoMa** kann nur vorhandene Installationen remote aktualisieren, keine Remote-Installation und keine Remote-Konfiguration.
+**MoMa** ist ein Adapter zur **Überwachung** und **Wartung** von ioBroker-basierten Hausautomatisierungssystemen. **MoMa** ist für komplexere Hausautomatisierungssysteme konzipiert, die über einen einzelnen Rechner mit All-in-One-Funktionalität oder wenige Rechner mit einfacher Lastverteilung innerhalb eines Netzwerks hinausgehen.
 
-**Beachtung:**
+Es ist nicht als Ersatz für Administrationswerkzeuge wie **Puppet** , **Chef** , **Salt** oder **Ansible** gedacht. Diese sind für große Umgebungen mit vielen Computern konzipiert und ermöglichen die Ferninstallation von Paketen. **MoMa** kann lediglich bestehende Installationen per Fernzugriff aktualisieren, jedoch keine Ferninstallationen oder Fernkonfigurationen durchführen.
 
-Wenn Sie den JavaScript-Adapter verwenden, setzen Sie das Flag &quot;Nicht alle Zustände beim Start registrieren&quot; auf &quot;true&quot;, wenn der Fehler &quot;RangeError: Maximale Aufrufstapelgröße überschritten&quot; angezeigt wird.<br> Wenn Sie beim Start alle Status registrieren, generiert jedes Statusänderungsereignis auch ein Ereignis für den JavaScript-Adapter. Insbesondere für Windows kann diese größere Anzahl von Ereignissen zu einem Problem werden.<br> Eine andere Lösung besteht darin, den Zeitwert für Intervall 0 zu erhöhen.
+**Aufmerksamkeit:**
 
-MoMa verwendet die plattformunabhängige Bibliothek 'systeminformation' (https://github.com/sebhildebrandt/systeminformation), um Informationen über den Computer zu sammeln. Viele der Anrufe können in Timer-Intervallen verwendet werden - siehe Referenz unten.
+Wenn Sie den JavaScript-Adapter verwenden, setzen Sie das Flag "do not register all states on startup" auf true, wenn der Fehler "RangeError: Maximum call stack size exceeded" auftritt.<br> Wenn Sie alle Zustände beim Start registrieren, löst jede Zustandsänderung auch ein Ereignis im JavaScript-Adapter aus. Insbesondere unter Windows kann diese größere Anzahl an Ereignissen problematisch werden.<br> Eine weitere Lösung besteht darin, den Zeitwert für Intervall0 zu erhöhen.
 
-MoMa benötigt mindestens nodejs Version 10.
+MoMa verwendet die plattformunabhängige Bibliothek „systeminformation“ ( <https://github.com/sebhildebrandt/systeminformation> ), um Informationen über den Computer zu sammeln. Viele der Aufrufe können in Zeitintervallen ausgeführt werden – siehe untenstehende Referenz.
+
+MoMa benötigt mindestens Node.js Version 10.
 
 ## Installation
-Verfügbar im ioBroker-Repository 'neueste'
+
+Verfügbar im ioBroker-Repository „latest“
 
 Alternative:
 
-npm installiere iobroker.moma
+npm install iobroker.moma
 
-Funktioniert auch in Multihost-Umgebungen. Stellen Sie vor der Installation sicher, dass die richtige Instanz ausgewählt ist.
+Funktioniert auch in Multi-Host-Umgebungen – stellen Sie vor der Installation sicher, dass die richtige Instanz ausgewählt ist.
 
-** Achtung: ** Derzeit müssen Sie auf jedem Slave eine Instanz von Admin-Adapter installieren, um dieses Problem zu umgehen.
-Der Admin-Adapter muss nicht aktiv sein!
+**Achtung:** Derzeit müssen Sie als Workaround auf jedem Slave eine Instanz des Admin-Adapters installieren. Der Admin-Adapter muss nicht aktiv sein!
 
 ## Kernkonzept
-noch im Aufbau - Ideen, Vorschläge, Hinweise, ... sind willkommen!
 
-Forum: https://forum.iobroker.net/topic/22026/neuer-adapter-iobroker-moma
+Noch im Aufbau – Ideen, Vorschläge, Hinweise usw. sind willkommen!
 
-GitHub: https://github.com/AWhiteKnight/ioBroker.moma
+Forum: <https://forum.iobroker.net/topic/22026/neuer-adapter-iobroker-moma>
 
-Die Grundidee besteht darin, für jede Instanz + einen Baum (moma. \ <Instanz-id \>) zu haben, der alle Informationen des Computers enthält, auf dem die Instanz ausgeführt wird.
-+ ein gemeinsamer Baum (moma.meta), unter dem jede Instanz ein Gerät \ <Hostname> erstellt, das einen Verweis auf die Instanz und einige Überwachungsinformationen enthält.
-+ eine Admin-Registerkarte für die Wartung (Updates des Betriebssystems, des JS-Controllers, der Adapter)
+GitHub: <https://github.com/AWhiteKnight/ioBroker.moma>
+
+Die Grundidee ist, dass man
+
+- Für jede Instanz (moma.\<instance-id>) wird ein Baum erstellt, der alle Informationen über den Rechner enthält, auf dem die Instanz ausgeführt wird.
+- ein gemeinsamer Baum (moma.meta), unterhalb dessen jede Instanz ein Gerät \<hostname> erstellt, das einen Verweis auf die Instanz und einige Überwachungsinformationen enthält.
+- ein Admin-Tab für Wartungsarbeiten (Aktualisierungen des Betriebssystems, des JS-Controllers und der Adapter).
 
 ## Referenz
-Ein Administrator-TabMoMa ist verfügbar, um Updates zu starten oder bei Bedarf einen Neustart zu starten.
 
-Folgende Funktionen der Bibliothekssysteminformationen werden beim Start einmal aufgerufen:
+Über den Admin-TabMoMa können Sie Aktualisierungen starten oder, falls erforderlich, einen Neustart durchführen.
 
-* Baseboard - Informationen zum Motherboard des Computers
-* Gehäuse - Informationen zum Computergehäuse
-* BIOS - Informationen zum Computer-BIOS
-* System - Informationen zum Computerhersteller
-* cpu - Informationen zur CPU des Computers
-* cpuFlags - CPU-Flags verfügbar
-* memLayout - Informationen zu Speicherchips von Computern
-* diskLayout - Informationen zu Computerfestplatten
+Folgende Funktionen des Bibliothekssystems werden beim Start einmalig aufgerufen:
 
-Folgende Funktionen der Bibliothekssysteminformationen werden im Intervall 0 aufgerufen (Standard jede Sekunde):
+- Grundplatte – Informationen über das Motherboard von Computern
+- Chassis – Informationen über Computergehäuse
+- BIOS – Informationen über das Computer-BIOS
+- System – Informationen über den Computerhersteller
+- CPU – Informationen über die CPU von Computern
+- cpuFlags – Verfügbare CPU-Flags
+- memLayout – Informationen über Computerspeicherchips
+- diskLayout – Informationen über Computerfestplatten
 
-* Zeit - Tatsächliche Zeit, Zeitzone und Betriebszeit
-* cpuCurrentSpeed - Tatsächliche CPU- und Kernfrequenzen
-* networkConnections - Tatsächliche Netzwerkverbindungen
-* currentLoad - Tatsächliche CPU-Last
-* Prozesse - Prozessübersicht mit process.list als HTML-Tabelle
+Folgende Funktionen des Bibliothekssystems werden im Intervall 0 (standardmäßig jede Sekunde) aufgerufen:
 
-Die folgenden Funktionen der Bibliothekssysteminformationen werden in Intervall 1 aufgerufen (Standard alle 10 Sekunden):
+- Zeit – Tatsächliche Zeit, Zeitzone und Betriebszeit
+- Aktuelle CPU-Geschwindigkeit – Tatsächliche CPU- und Kernfrequenzen
+- Netzwerkverbindungen – Tatsächliche Netzwerkverbindungen
+- aktuelle Auslastung - Tatsächliche CPU-Auslastung
+- Prozesse – Prozessübersicht mit process.list als HTML-Tabelle
 
-* mem - Informationen zur Speichernutzung
-* CPU-Temperatur - Temperaturen von CPU und Kernen
-* networkStats - Netzwerkstatistik
-* fullLoad - Durchschnittliche Last seit dem letzten Start
+Folgende Funktionen des Bibliothekssystems werden im Intervall 1 aufgerufen (standardmäßig alle 10 Sekunden):
 
-Die folgenden Funktionen der Bibliothekssysteminformationen werden in Intervall 2 aufgerufen (Standard jede Minute):
+- mem – Informationen zur Speichernutzung
+- CPU-Temperatur - Temperaturen der CPU und ihrer Kerne
+- Netzwerkstatistik – Netzwerkstatistik
+- Volllast – Durchschnittliche Auslastung seit dem letzten Systemstart
 
-* Batterie - Ladezustand und Informationen zur Batterie
-* Benutzer - Aktuelle Benutzersitzungen
-* fsSize - Informationen zum Dateisystem des Computers
-* blockDevices - Verbundene Blockgeräte
-* fsStats - Dateizugriffsstatistiken - werden von Windows nicht unterstützt
-* disksIO - E / A-Statistiken von Blockgeräten - werden von Windows nicht unterstützt
+Folgende Funktionen des Bibliothekssystems werden im Intervall 2 aufgerufen (standardmäßig jede Minute):
 
-Die folgenden Funktionen der Bibliothekssysteminformationen werden in Intervall 3 aufgerufen (Standard jede Stunde):
+- Batterie – Ladezustand und Informationen zur Batterie
+- Benutzer - Aktuelle Benutzersitzungen
+- fsSize – Informationen über das Dateisystem von Computern
+- blockDevices - Verbundene Blockgeräte
+- fsStats – Dateizugriffsstatistik – wird unter Windows nicht unterstützt
+- disksIO – E/A-Statistiken von Blockgeräten – wird unter Windows nicht unterstützt
 
-* networkInterfaceDefault - Standardnetzwerkschnittstelle
-* networkInterfaces - Verfügbare Netzwerkschnittstellen
-* Grafik - Informationen zu Computergrafikkarten und angeschlossenen Monitoren
-* inetLatency - Überprüfen Sie die Internet-Latenz anhand von 8.8.8.8
-* dockerInfo - Allgemeine Informationen zu Docker - benötigt einen "Adduser Iobroker Docker" auf dem Computer, bevor er ordnungsgemäß funktioniert
-* dockerContainers - Liste aller Docker-Container - benötigt einen "Adduser Iobroker Docker" auf dem Computer, bevor er ordnungsgemäß funktioniert
+Folgende Funktionen des Bibliothekssystems werden im Intervall 3 aufgerufen (standardmäßig stündlich):
 
-Die folgenden Funktionen der Bibliothekssysteminformationen werden in Intervall 4 aufgerufen (Standard jeden Tag):
+- networkInterfaceDefault - Standard-Netzwerkschnittstelle
+- Netzwerkschnittstellen - Verfügbare Netzwerkschnittstellen
+- Grafik – Informationen über Computergrafikkarten und angeschlossene Monitore
+- inetLatency – Überprüfen Sie die Internetlatenz gegenüber 8.8.8.8.
+- dockerInfo – Allgemeine Informationen zu Docker – benötigt den Befehl „adduser iobroker docker“ auf dem Rechner, damit es ordnungsgemäß funktioniert.
+- dockerContainers – Liste aller Docker-Container – benötigt den Befehl „adduser iobroker docker“ auf dem Rechner, damit es ordnungsgemäß funktioniert.
 
-* osInfo - Informationen zum Betriebssystem des Computers
-* uuid - UUIDs der Installation
-* shell - Standardsystem-Shell - wird von Windows nicht unterstützt
-* Versionen - Versionen installierter Softwarepakete
+Folgende Funktionen des Bibliothekssystems werden im Intervall 4 (standardmäßig täglich) aufgerufen:
 
-Folgende Funktionen von **MoMa** werden in Intervall 4 aufgerufen (Standard jeden Tag):
+- osInfo – Informationen über das Betriebssystem von Computern
+- uuid - UUIDs der Installation
+- Shell – Standard-Systemshell – wird unter Windows nicht unterstützt
+- Versionen – Versionen der installierten Softwarepakete
 
-* Updates - sucht nach ausstehenden Updates und zeigt die Anzahl der Updates in moma.meta. \ <Hostname \>. Updates (derzeit nur Ubuntu, Debian, openSUSE, RedHat)
-* checkIob - Überprüft alle Adapter und den js-Controller auf verfügbare Updates
-* checkBatteries - prüft Batteriezustandsvariablen (aktuell implementierte Zustandsnamen: LOWBAT, LOW_BAT)
+Folgende Funktionen von **MoMa** werden im Intervall 4 aufgerufen (standardmäßig täglich):
+
+- Updates – prüft auf ausstehende Updates und zeigt die Anzahl der Updates in moma.meta.\<Hostname>.updates an (derzeit nur Ubuntu, Debian, openSUSE, RedHat)
+- checkIob – prüft alle Adapter und den JS-Controller auf verfügbare Updates
+- checkBatteries - prüft Batteriestatusvariablen (derzeit implementierte Statusnamen: LOWBAT, LOW\_BAT)
 
 ## Changelog
+
+### 1.2.9 (2021-08-17)
+* (AWhiteKnight) issue2 #53-55, upgrade to systeminformation lib 5.8.0, update all dependencies
 
 ### 1.2.8 (2021-03-26)
 * (AWhiteKnight) eliminate warning messages (issue #52), upgrade to systeminformation lib 5.6.8
@@ -182,4 +191,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2020 AWhiteKnight
+Copyright (c) 2021 AWhiteKnight

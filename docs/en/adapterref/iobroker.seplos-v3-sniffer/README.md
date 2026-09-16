@@ -135,8 +135,6 @@ active_protections
 ### 0.0.1 (2025-01-11)
 * (DpunktS) initial release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

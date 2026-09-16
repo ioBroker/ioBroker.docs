@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meater/README.md
 title: ioBroker.meater
-hash: 4ywg8L04c0K1aEpLqGWc3YiAkBJeMg0owCIxMMyhVMM=
+hash: 0QY2CYMGDCchaoxExOHPm2dTsUJt0NIzyfz3F8LshT0=
 ---
 ![Logo](../../../en/adapterref/iobroker.meater/admin/meater.png)
 
@@ -12,38 +12,42 @@ hash: 4ywg8L04c0K1aEpLqGWc3YiAkBJeMg0owCIxMMyhVMM=
 ![Anzahl der Installationen](https://iobroker.live/badges/meater-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/meater-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.meater.png?downloads=true)
+![Test und Freigabe](https://github.com/Standarduser/ioBroker.meater/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.meater
-**Tests:** ![Testen und freigeben](https://github.com/Standarduser/ioBroker.meater/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.meater
 
 ## Meater-Adapter für ioBroker
-Dieser Adapter bringt Ihr MEATER Wireless Fleischthermometer in ioBroker.
 
-Es ruft die Daten von Ihrer Sonde über die MEATER Cloud API ab. Sie können 2 Intervalle konfigurieren:
+Dieser Adapter ermöglicht die Integration Ihres MEATER Wireless-Fleischthermometers in ioBroker.
+
+Es ruft die Daten von Ihrer Sonde über die MEATER Cloud-API ab. Sie können 2 Intervalle konfigurieren:
 
 1. Aktualisierungsintervall, wenn alle Sonden im Leerlauf sind (nicht kochen)
-2. Aktualisierungsintervall, wenn mindestens 1 Garvorgang gestartet wird
+2. Aktualisierungsintervall, wenn mindestens eine Kochsitzung gestartet wurde
 
 ## Voraussetzungen
-Sie müssen ein MEATER Cloud-Konto einrichten (über die Smartphone-App) und MEATER Link aktivieren.
 
-## Aufbau
-- „Benutzername für MEATER Cloud“: Ihre registrierte E-Mail-Adresse
-- „Passwort für MEATER Cloud“: das Passwort, das Sie für den Cloud-Zugriff verwendet haben
-- `Sprache`: Einige (nicht alle!) Werte werden übersetzt, z.B. der Name des Fleisches
-- `Aktualisierungsintervall im Leerlauf`: Zeit in Sekunden, wie oft Daten aus der Cloud geholt werden sollen
-- `Aktualisierungsintervall Koch`: Zeit in Sekunden, wie oft Daten aus der Cloud abgerufen werden sollen, wenn eine Kochfunktion aktiv ist
-- „Temperatureinheit“: Wird verwendet, um Einheiten in ioBroker-Zuständen zu erstellen. Stellen Sie hier dieselbe Einheit ein, die Sie in der App verwenden. Wenn die Einheit nach dem Erstellen von Zuständen geändert wird, löschen Sie alle Sondenzustände und starten Sie den Adapter neu
-- „Clear old values“: Die MEATER-Cloud-API sendet nur Werte für aktive Sonden/laufende Kochsitzungen. Wenn eine Sitzung beendet ist, erhalten Sie keine Temperatur- und Statusaktualisierungen. Aktivieren Sie dieses Kontrollkästchen, um alte Werte zu löschen, die nicht aktualisiert wurden, um Missverständnisse zu vermeiden.
+Sie müssen ein MEATER-Cloud-Konto einrichten (verwenden Sie dazu die Smartphone-App) und MEATER Link aktivieren.
+
+## Konfiguration
+
+- `Username for MEATER cloud` Ihre registrierte E-Mail-Adresse
+- `Password for MEATER cloud` : das Passwort, das Sie für den Cloud-Zugriff verwendet haben
+- `Language` Einige (nicht alle!) Werte werden übersetzt, z. B. die Bezeichnung von Fleischsorten.
+- `Update interval idle` Zeit in Sekunden, wie oft Daten aus der Cloud abgerufen werden sollen
+- `Update interval cook` : Zeitangabe in Sekunden, die angibt, wie oft Daten aus der Cloud abgerufen werden sollen, wenn eine Kochsensation aktiv ist.
+- `Temperature unit` Wird verwendet, um Einheiten in ioBroker-Zuständen zu erstellen. Stellen Sie hier dieselbe Einheit ein, die Sie in der App verwenden. Wenn die Einheit nach der Zustandserstellung geändert wird, löschen Sie alle Prüfzustände und starten Sie den Adapter neu.
+- `Clear old values` Die MEATER Cloud-API sendet nur Werte für aktive Sonden/laufende Kochvorgänge. Nach Beendigung eines Vorgangs werden keine Temperatur- und Statusaktualisierungen mehr empfangen. Aktivieren Sie dieses Kontrollkästchen, um alte, nicht aktualisierte Werte zu löschen und Missverständnisse zu vermeiden.
 
 ## Verwenden Sie den Adapter
-Nach der Einrichtung des Adapters meldet er sich automatisch bei der MEATER Cloud an und ruft seine Daten ab.
 
-Wenn Sie keine Sonde und/oder Werte sehen, starten Sie einen Kochvorgang und warten Sie einen Moment. Möglicherweise müssen Sie die Sonde erwärmen, um Werte zu erhalten (heißes Wasser funktioniert zum Testen gut).
+Nach der Einrichtung des Adapters meldet er sich automatisch in der MEATER-Cloud an und ruft seine Daten ab.
+
+Wenn keine Messwerte angezeigt werden, starten Sie den Kochvorgang und warten Sie einen Moment. Möglicherweise müssen Sie die Sonde erwärmen, um Messwerte zu erhalten (heißes Wasser eignet sich gut zum Testen).
 
 ## HAFTUNGSAUSSCHLUSS
-MEATER® ist eine Marke von Apption Labs™ Limited.
-Dieser Adapter verwendet die [öffentliche API](https://github.com/apption-labs/meater-cloud-public-rest-api)
+
+MEATER® ist eine Marke von Apption Labs™ Limited. Dieser Adapter nutzt die [öffentliche API.](https://github.com/apption-labs/meater-cloud-public-rest-api)
 
 ## Changelog
 
@@ -51,34 +55,36 @@ Dieser Adapter verwendet die [öffentliche API](https://github.com/apption-labs/
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.2.1 (2023-01-14)
+### 1.1.2 (2026-01-02)
 
--   (Standarduser): improved: error handling if websever sent no response
+-   Fixed issues of Adapter checker
+-   updated depencies and devDepencies
 
-### 0.2.0 (2022-12-15)
+### 1.1.1 (2024-07-08)
 
--   (Standarduser) added: State for manually trigger an update
--   (Standarduser) improved: description of errors
--   (Standarduser) fixed: Adapter stopped working if got an error from MEATER Cloud server (not API)
+-   Fixed some messages of Adapter checker
+-   Updated depencies
+-   Detailed error message
 
-### 0.1.2 (2022-12-05)
+### 1.1.0 (2024-04-25)
 
--   (Standarduser) Improved error handling for fetch
+-   Tried to fix restart loop at the end of cooking
+-   Dropped node v16 support
 
-### 0.1.0 (2022-12-04)
+### 1.0.2 (2023-09-08)
 
--   (Standarduser) Save password encrypted => please reenter password in adapter config
--   (Standarduser) Some minor improvements
+-   Updated depencies
+-   Dropped node v14 support
 
-### 0.1.0-alpha.0 (2022-11-21)
+### 1.0.0 (2023-05-12)
 
--   (Standarduser) First test release
+-   First stable release
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 Standarduser
+Copyright (c) 2024-2026 Standarduser
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.enigma2/README.md":{"title":{"en":"ioBroker enigma2"},"content":"en/adapterref/iobroker.enigma2/README.md"},"en/adapterref/iobroker.enigma2/admin/Blockly_Import.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.enigma2/admin/Blockly_Import.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.enigma2/README.md
 title: ioBroker enigma2
-hash: teRzjARBlwSRw3sMfaN5ubviI/pLHk0inOiRsQ7vdkk=
+hash: ODJlCHKuO/pGoTJbVYUDgBSql9/5F7Wzzjx/BVgZWx8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.enigma2/admin/enigma2.png)
 
@@ -11,116 +12,129 @@ hash: teRzjARBlwSRw3sMfaN5ubviI/pLHk0inOiRsQ7vdkk=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.enigma2.svg)
 ![НПМ](https://nodei.co/npm/iobroker.enigma2.png?downloads=true)
 
-----
+---
 
-# IoBroker enigma2
+# ioBroker enigma2
+
 - Адаптер для ioBroker, позволяющий получать информацию от приемника enigma2 и отправлять команды.
-— (Адаптер работает только на одном хосте! При установке на клиентском компьютере пока сохраняются проблемы.)
+- (Адаптер работает только на одном хосте! При установке на клиентском компьютере пока сохраняются проблемы.)
 
-----
+---
 
 ### Функции
-- BOX_IP
+
+- BOX\_IP
 - СЕТЬ
-- СПРАВОЧНИК ПО СЕРВИСАМ КАНАЛА
-- CHANNEL_SERVICEREFERENCE_NAME
+- CHANNEL\_SERVICEREFERENCE
+- НАЗВАНИЕ\_КАНАЛА\_СЕРВИСА
 - КАНАЛ
 - ОПИСАНИЕ СОБЫТИЯ
 - ПРОДОЛЖИТЕЛЬНОСТЬ СОБЫТИЯ
-- ПРОДОЛЖИТЕЛЬНОСТЬ_СОБЫТИЯ_МИН
-- EVENTREMAINING
-- EVENTREMAINING_MIN
-- ПРОЦЕНТ ВЫПОЛНЕНИЯ СОБЫТИЯ
-- EVENT_TIME_START
-- EVENT_TIME_END
-- EVENT_TIME_PASSED
+- ПРОДОЛЖИТЕЛЬНОСТЬ\_СОБЫТИЯ\_МИН
+- СОБЫТИЕ ПРОДОЛЖАЕТСЯ
+- EVENTREMAINING\_MIN
+- ПРОЦЕНТ\_ПРОГРЕССА\_СОБЫТИЯ
+- EVENT\_TIME\_START
+- EVENT\_TIME\_END
+- EVENT\_TIME\_PASSED
 - Емкость жесткого диска
-- HDD_FREE
-- ОТВЕТ_СООБЩЕНИЯ
+- HDD\_FREE
+- ОТВЕТ\_СООБЩЕНИЕ
 - МОДЕЛЬ
-- ОТКЛЮЧЕНО
+- ПРИГЛУШЕННЫЙ
 - ПРОГРАММА
-- PROGRAMM_INFO
-- PROGRAMM_AFTER
-- PROGRAMM_AFTER_INFO
+- ИНФОРМАЦИЯ О ПРОГРАММЕ
+- ПРОГРАММА\_ПОСЛЕ
+- PROGRAMM\_AFTER\_INFO
 - ПОДДЕРЖИВАТЬ
 - ОБЪЕМ
-- WEB_IF_VERSION
+- WEB\_IF\_VERSION
 - isRecording
-- Таймер_установлен
-- MOVIE_LIST (только openwebif)
-- TIMER_LIST
-- CHANNEL_PICON (Путь к иконке - только для OpenWebIF)
+- Таймер\_установлен
+- MOVIE\_LIST (только openwebif)
+- TIMER\_LIST
+- CHANNEL\_PICON (Путь к иконке - только для OpenWebIF)
 
-----
+---
 
-### Основной
+### основной
+
 - enigma2-CONNECTION
 
-----
+---
 
-### Команда
-- command.CHANNEL_DOWN
-- command.CHANNEL_UP
+### Командование
+
+- command.CHANNEL\_DOWN
+- команда.CHANNEL\_UP
 - команда.ВНИЗ
 - команда.UP
-- команда.EPG
+- команда.ЭПГ
 - команда.ВЫХОД
 - команда.ЛЕВАЯ
 - команда.МЕНЮ
-- command.MUTE_TOGGLE
+- команда.MUTE\_TOGGLE
 - команда.ОК
-- command.PAUSE
-- команда.PLAY
+- команда.ПАУЗА
+- команда.ВОСПРОИЗВЕДЕНИЕ
 - команда.РАДИО
-- command.REC
+- команда.REC
 - команда.ДИСТАНЦИОННОЕ УПРАВЛЕНИЕ
 - команда.ПРАВО
-- command.SET_VOLUME
-- command.STANDBY_TOGGLE
+- команда.SET\_VOLUME
+- command.STANDBY\_TOGGLE
 - команда.СТОП
-- command.TV
+- команда.Т
 - команда.UP
-- команда.VOLUME_DOWN
-- команда.VOLUME_UP
+- команда.УМЕНЬШЕНИЕ\_ГРОМКОСТИ
+- команда.VOLUME\_UP
 - command.ZAP = отправить недействительную ссылку на сервис
 
-----
+---
 
-### Главная команда
-- main_command.DEEP_STANDBY = Deepstandby
-- main_command.REBOOT = Перезагрузка
-- main_command.RESTART_GUI = Перезапустить Enigma2 (GUI)
-- main_command.STANDBY = Standby
-- main_command.WAKEUP_FROM_STANDBY = Пробуждение из режима ожидания
+### Главное командование
 
-----
+- main\_command.DEEP\_STANDBY = Deepstandby
+- main\_command.REBOOT = Перезагрузка
+- main\_command.RESTART\_GUI = Перезапустить Enigma2 (GUI)
+- main\_command.STANDBY = Standby
+- main\_command.WAKEUP\_FROM\_STANDBY = Пробуждение из режима ожидания
+
+---
 
 ### Сообщение
+
 - Message.Text = Текст сообщения (Enter -> Send)
 - Message.Type = Число от 0 до 3 (0 = Да/Нет; 1 = Информация; 2 = Сообщение; 3 = Внимание)
 - Message.Timeout = время ожидания сообщения в секундах. Может быть пустым значением или числом секунд, через которое сообщение должно исчезнуть.
 
-----
+---
 
-### Alexa_Command
-- Alexa_Command.Mute = Команда Alexa
-- Alexa_Command.Standby = Команда Alexa
+### Alexa\_Command
 
-----
+- Alexa\_Command.Mute = Команда Alexa
+- Alexa\_Command.Standby = Команда Alexa
 
-### SendTo
-#### В Blockly
+---
+
+### sendTo
+
+#### в Блокли
+
 - сообщение = Текст сообщения
 - msgType = Число от 0 до 3 (0 = Да/Нет; 1 = Информация; 2 = Сообщение; 3 = Внимание)
 - timeout = время ожидания сообщения в секундах. Может быть пустым значением или числом секунд, через которое сообщение должно исчезнуть.
 
 ![Текст с изображением](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message2.png)
 
-### Или ![Текст с изображением](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message.png)
-[> Импорт Blockly <](admin/Blockly_Import.md)
+### или
 
-#### На JavaScript
+![Текст с изображением](../../../en/adapterref/iobroker.enigma2/admin/enigma2_message.png)
+
+[> Импорт Blockly <](/#/docs/adapterref/iobroker.enigma2/admin/Blockly_Import.md)
+
+#### на JavaScript
+
 ```js
 sendTo('enigma2.0', 'send', {
     message: 'Test Messaget', /* Text of Message */
@@ -134,6 +148,9 @@ sendTo('enigma2.0', 'send', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 2.3.0 (2026-03-05)
 - (mcm1957) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -156,6 +173,8 @@ sendTo('enigma2.0', 'send', {
 
 ### 2.1.1 (2024-06-09)
 * (klein0r) Updated Blockly definitions
+
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.enigma2/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -3,31 +3,34 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.victron-cerbo/README.md
 title: ioBroker Victron Cerbo
-hash: 8lGajSv+FK+1M5bIPQWcSTn8vbnGvLbpVix9DTk4ZpI=
+hash: sZZrgXsAcuaKETNNrCl7v2rUAfmj94VcDZqhFlLe1WM=
 ---
 ![Logo](../../../en/adapterref/iobroker.victron-cerbo/admin/victron-cerbo.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/victron-cerbo-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.victron-cerbo.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.victron-cerbo/workflows/Test%20and%20Release/badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.victron-cerbo.svg)
 
-# IoBroker Victron Cerbo
-![Test und Freigabe](https://github.com/ioBroker/ioBroker.victron-cerbo/workflows/Test%20and%20Release/badge.svg)
+# ioBroker Victron Cerbo
 
 ## Beschreibung
+
 Dieser Adapter verbindet Victron Cerbo GX-Geräte über MQTT mit ioBroker.
 
 Der Victron Cerbo GX ist eine fortschrittliche Überwachungs- und Steuerungszentrale für Victron Energy-Systeme, einschließlich Solarladegeräte, Batteriemonitore, Wechselrichter und andere Energiekomponenten.
 
 ## Konfiguration
-- **IP**: IP-Adresse des MQTT-Brokers
-- **Port**: MQTT-Broker-Port (Standard: 1883)
-- **Benutzername/Passwort**: MQTT-Authentifizierungsdaten
-- **Client-Timeout**: Timeout in Sekunden für MQTT-Clientverbindungen
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+- **IP** : IP-Adresse des MQTT-Brokers
+- **Port** : MQTT-Broker-Port (Standard: 1883)
+- **Benutzername/Passwort** : MQTT-Authentifizierungsdaten
+- **Client-Timeout** : Timeout in Sekunden für MQTT-Clientverbindungen
 
-### **IN BEARBEITUNG** -->
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
 ### 0.2.1 (2026-04-12)

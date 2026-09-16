@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.webuntis/README.md":{"title":{"en":"ioBroker.webuntis"},"content":"en/adapterref/iobroker.webuntis/README.md"},"en/adapterref/iobroker.webuntis/readme/readme.de.md":{"title":{"en":"ioBroker.webuntis"},"content":"en/adapterref/iobroker.webuntis/readme/readme.de.md"}}}
+---
 ![Logo](https://github.com/Newan/ioBroker.webuntis/admin/webuntis.png)
 # ioBroker.webuntis
 
@@ -13,7 +16,6 @@
 
 ## webuntis adapter for ioBroker
 
-
 Dieser Adapter bezieht Daten aus Webuntis. Für eine deutsche Anleitung
 
 This Adapter get data from WebUntis. For english-tutorial ![click here](https://github.com/Newan/ioBroker.webuntis/readme.md)
@@ -27,7 +29,6 @@ Im Suchfeld auf der Seite gibt man den gewünschten Schulnamen ein.
 Daraufhin öffnet sich eine Webseite. In der Adresszeile des Browsers stehen nun die gewünschten Daten.
 
 ![webuntis_start](img/webuntis_start.png)
-
 
 Wir benötigen folgende Strings aus der Adresszeile
 
@@ -55,4 +56,3 @@ Speichern und nun erhält man alle Daten die der Adapter abrufen kann.
 
 Wer Anregungen zur Verbesserung des Adapters hat, kann gerne einen hier oder im Iobroker-Forum an uns weiterleiten:
 https://forum.iobroker.net/topic/51690/tester-neuer-adapter-webuntis
-

@@ -1,50 +1,55 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.lightcontrol/README.md":{"title":{"en":"ioBroker.lightcontrol"},"content":"en/adapterref/iobroker.lightcontrol/README.md"},"en/adapterref/iobroker.lightcontrol/docs/en/lightcontrol.md":{"title":{"en":"LightControl"},"content":"en/adapterref/iobroker.lightcontrol/docs/en/lightcontrol.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lightcontrol/README.md
-title: ioBroker.Lichtsteuerung
-hash: m3NWqQj1pYY8F65fMOr+iFCErlFj3TL6bgzpWhoQFJI=
+title: ioBroker.lightcontrol
+hash: PtvLO7i25PYBYLh9NfwreHrT5jVeF6es9LMllQRKAlc=
 ---
 ![Logo](../../../en/adapterref/iobroker.lightcontrol/admin/lightcontrol.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.lightcontrol.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.lightcontrol.svg)
-![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.lightcontrol?style=flat-square)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.lightcontrol?style=flat-square)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/lightcontrol/svg-badge.svg)
 ![GitHub](https://img.shields.io/github/license/schmakus/iobroker.lightcontrol?style=flat-square)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
-![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
+![Test und Freigabe](https://github.com/Schmakus/ioBroker.lightcontrol/workflows/Test%20and%20Release/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.lightcontrol.png?downloads=true)
 ![Beta](https://img.shields.io/npm/v/iobroker.lightcontrol.svg?color=red&label=beta)
 ![Stabil](http://iobroker.live/badges/lightcontrol-stable.svg)
 ![Installiert](http://iobroker.live/badges/lightcontrol-installed.svg)
-![Paypal-Spende](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-blue.svg)
+![PayPal-Spende](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-blue.svg)
 
-# IoBroker.lightcontrol
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/lightcontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-![Testen und Freigeben](https://github.com/Schmakus/ioBroker.lightcontrol/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.lightcontrol
 
 ## Versionen
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Wenn Ihnen meine Arbeit gefällt:
+
 ## Installation
-Bitte verwenden Sie die Adapterliste und das stabile Repository in ioBroker, um eine Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
+
+Bitte verwenden Sie die „Adapterliste“ und das stabile Repository in ioBroker, um eine Version dieses Adapters zu installieren. Alternativ können Sie den Adapter auch über die Befehlszeilenschnittstelle (CLI) installieren.
 
 ```
 iobroker add lightcontrol
 ```
 
 ## Dokumentation
-[🇺🇸 Dokumentation](https://github.com/Schmakus/ioBroker.lightcontrol/blob/2dc2cb6784338c4e13758f4a7d3e4b16578d8db2/docs/en/lightcontrol.md)
 
-[🇩🇪 Dokumentation](https://github.com/Schmakus/ioBroker.lightcontrol/blob/2dc2cb6784338c4e13758f4a7d3e4b16578d8db2/docs/de/lightcontrol.md)
+[🇺🇸 Dokumentation](/#/docs/adapterref/iobroker.lightcontrol/docs/en/lightcontrol.md)
+
+[🇩🇪 Dokumentation](https://github.com/Schmakus/ioBroker.lightcontrol/blob/main/docs/de/lightcontrol.md)
 
 ## Aufgaben
-- Mehr als eine Lichtgruppe für eine Objekt-ID auswählen (Fehler mit jsonCustom Select multible)
-- Verfügbarkeit für Hinweise mit geringerer Helligkeit und definierten Sekunden vor AutoOff
+
+- Wählen Sie mehrere LightGroups für eine Objekt-ID aus (Fehler bei jsonCustom Select multible)
+- Verfügbarkeit für Benachrichtigungen mit geringerer Helligkeit und definierten Sekunden vor der automatischen Abschaltung
 
 ## Changelog
 
@@ -54,6 +59,7 @@ iobroker add lightcontrol
 -->
 
 ### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.
 
 -   (Schmakus) fix responsive issues
 
@@ -86,7 +92,7 @@ iobroker add lightcontrol
 
 MIT License
 
-Copyright (c) 2025 Schmakus <schmakus@gmail.com>
+Copyright (c) 2025-2026 Schmakus <schmakus@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

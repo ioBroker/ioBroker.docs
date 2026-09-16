@@ -4,12 +4,13 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.lg-thinq.svg
 BADGE-Number of Installations (latest): https://iobroker.live/badges/lg-thinq-installed.svg
 BADGE-Number of Installations (stable): https://iobroker.live/badges/lg-thinq-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.lg-thinq.svg
+BADGE-Test and Release: https://github.com/TA2k/ioBroker.lg-thinq/workflows/Test%20and%20Release/badge.svg
 ---
 ![Logo](../../admin/lg-thinq.png)
 
 # ioBroker.lg-thinq
 
-[Zurück zur README](/README.md)
+[Zurück zur README](https://github.com/TA2k/ioBroker.lg-thinq/blob/master/README.md)
 
 # Einleitung
 
@@ -759,6 +760,7 @@ lg-thinq.0.xxx.area muss gefüllt sein!
     ![weather.png](img/weather.png)
 
 ## Changelog
+
 ### 1.2.2 (2026-08-22)
 
 - (Lucky-ESA) Added default header for login
@@ -781,8 +783,6 @@ lg-thinq.0.xxx.area muss gefüllt sein!
 
 - (Lucky-ESA) Fixed adapter crash (thinq1 only)
 - (Lucky-ESA) Fixed: Address Root-CA certificate has changed
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

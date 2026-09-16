@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.grohe-smarthome/README.md":{"title":{"en":"ioBroker.grohe-smarthome"},"content":"en/adapterref/iobroker.grohe-smarthome/README.md"},"en/adapterref/iobroker.grohe-smarthome/docs/en/README.md":{"title":{"en":"ioBroker Grohe Smarthome Adapter"},"content":"en/adapterref/iobroker.grohe-smarthome/docs/en/README.md"}}}
+---
 # ioBroker.grohe-smarthome
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.grohe-smarthome.svg)](https://www.npmjs.com/package/iobroker.grohe-smarthome)
@@ -32,9 +35,9 @@ Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome*
 
 ## Documentation
 
-[🇺🇸 Documentation](./docs/en/README.md)
+[🇺🇸 Documentation](/#/docs/adapterref/iobroker.grohe-smarthome/docs/en/README.md)
 
-[🇩🇪 Dokumentation](./docs/de/README.md)
+[🇩🇪 Dokumentation](https://github.com/patricknitsch/ioBroker.grohe-smarthome/blob/main/docs/de/README.md)
 
 ---
 
@@ -43,6 +46,10 @@ Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome*
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (patricknitsch) Add Node.js 26 in test-and-release.yml
+
 ### 0.7.0 (2026-08-05)
 * (patricknitsch) Isolate per-appliance errors during polling so one broken device doesn't abort the whole poll cycle
 * (patricknitsch) Add app-matching remaining filter sensor for Grohe Blue (`remainingFilterApp`)
@@ -67,7 +74,7 @@ Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome*
 * (patricknitsch) Add Icon and Online State on each Device
 * (patricknitsch) Update Readme and Doc
 
-**Older entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
+**Older entries can be found in CHANGELOG_OLD.md.**
 
 ## License
 MIT License

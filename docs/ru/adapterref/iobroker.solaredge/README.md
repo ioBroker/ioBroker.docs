@@ -2,48 +2,66 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solaredge/README.md
-title: ioBroker.solaredge
-hash: Uv/BNDX4bW4701AQMXPQLGoV5zYgoXQHED+G7shQuY0=
+title: ioBroker.solardge
+hash: dNkc+63yZjGYGNeDnfd3YA4g6AoqX2O9HARX+BN3KCo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solaredge/admin/solaredge.png)
 
 ![Лицензия GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.solaredge)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.solaredge.svg)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.solaredge)
-![Активность коммита GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.solaredge)
-![Коммиты GitHub с момента последнего релиза (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.solaredge/latest)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.solaredge)
-![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.solaredge)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.solaredge.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/solaredge-stable.svg)
+![размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.solaredge)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/solaredge/svg-badge.svg)
+![активность коммитов на GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.solaredge)
+![Количество коммитов на GitHub с момента последнего релиза (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.solaredge/latest)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.solaredge)
+![Проблемы на GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.solaredge)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.solaredge.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/solaredge-stable.svg)
 ![Количество установок](https://iobroker.live/badges/solaredge-installed.svg)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/codeql.yml/badge.svg)
 
-# IoBroker.solaredge
-[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/solaredge/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.solaredge/actions/workflows/codeql.yml)
+# ioBroker.solardge
+
+</br>
+**Version:** </br>
+</br>
+**Tests:** </br>
 
 <!--
-
-## Sentry **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 -->
+
 ## Адаптер Solaredge для ioBroker
-Получите данные с портала мониторинга solaredge.
-В настоящее время для получения текущих показаний мощности и энергии за день/месяц/год/в течение жизни используется только точка данных /overview.
 
-Вы также можете включить Modbus на вашем устройстве Solaredge, если оно новое, и считывать данные напрямую.
+Получайте данные с портала мониторинга SolarEdge. В настоящее время для получения текущих значений мощности и показаний потребления энергии за день/месяц/год/весь период используется только точка данных /overview.
 
-Вам нужен ваш идентификатор сайта и ключ API для использования этого адаптера. Чтобы получить их, перейдите на https://monitoring.solaredge.com
+Если ваше устройство SolarEdge более новой модели, вы также можете включить Modbus и считывать данные напрямую.
 
-- идентификатор сайта: войдите в систему, идентификатор сайта — это «ID» справа, например, 12345.
-- ключ API: войдите в систему, перейдите в настройки администратора и включите доступ API там. Если вы не видите настройки администратора, отправьте письмо на solaredge, чтобы включить администратора для вашей учетной записи.
+Для использования этого адаптера вам потребуется идентификатор вашего сайта и ключ API. Чтобы получить их, перейдите по ссылке <https://monitoring.solaredge.com>
+
+- Идентификатор сайта: для входа в систему идентификатор сайта — это "ID" справа, например, 12345.
+- Ключ API: войдите в систему, перейдите в настройки администратора и включите там доступ к API. Если вы не видите настройки администратора, отправьте письмо в Solaredge, чтобы включить доступ к администратору для вашей учетной записи.
 
 ## Кредиты
-Этот адаптер был бы невозможен без огромной работы @92lleo (https://github.com/92lleo), который написал код для начальных версий и опубликовал его в ioborker-community-adapters.
+
+Этот адаптер не был бы возможен без замечательной работы @92lleo ( <https://github.com/92lleo> ), который написал код для первых версий и опубликовал его в сообществе ioborker-community-adapters.
 
 <!--
-
-### **РАБОТА В ХОДЕ** -->
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
 ### 1.4.1 (2024-04-28)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
@@ -91,10 +109,12 @@ hash: Uv/BNDX4bW4701AQMXPQLGoV5zYgoXQHED+G7shQuY0=
 ### 0.0.1
 * (92lleo) initial release
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.solaredge/blob/master/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2019-2023 Leonhard Kuenzler <leonhard@kuenzler.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

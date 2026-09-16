@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.anker-solix/README.md":{"title":{"en":"ioBroker.anker-solix"},"content":"en/adapterref/iobroker.anker-solix/README.md"},"en/adapterref/iobroker.anker-solix/docs/docker-buanet.md":{"title":{"en":"Anker Solix im buanet/iobroker-Container"},"content":"en/adapterref/iobroker.anker-solix/docs/docker-buanet.md"},"en/adapterref/iobroker.anker-solix/CREDITS.md":{"title":{"en":"Credits & acknowledgments"},"content":"en/adapterref/iobroker.anker-solix/CREDITS.md"}}}
+---
 # ioBroker.anker-solix
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.anker-solix.svg)](https://www.npmjs.com/package/iobroker.anker-solix)
@@ -129,9 +132,9 @@ Copy **`authcache/<email>.json`** from a working Anker setup (e.g. ha-anker-soli
 
 ### Local Modbus (optional)
 
-Newer Anker devices (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug Gen 2) can be polled **locally via Modbus TCP** (port 502). This is a separate channel from the cloud Python bridge (register maps from [ha-anker-solix-official](https://github.com/anker-charging/ha-anker-solix-official)).
+Newer Anker devices (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug Gen 2, **SOLIX X1 HES**, **V1 Smart EV Charger**) can be polled **locally via Modbus TCP** (port 502). Register maps follow [Anker’s official Modbus protocols](https://support.ankersolix.com/) and community-verified X1 mappings ([anker-x1-ha](https://github.com/afewyards/anker-x1-ha)).
 
-1. Enable **Modbus TCP** in the Anker app (system / Three-Party Control).
+1. Enable **Modbus TCP** in the Anker app (Solarbank: system / Three-Party Control; **X1**: Professional app → Communication Settings; **V1 EV Charger**: Settings → Integrations).
 2. Adapter Admin → **Modbus (local)** → enable the channel, add each device IP.
 3. Optional: enable **Modbus only (no cloud)** if you do not want Anker cloud login. Then Python, credentials and usage terms are not required; the instance is **green** when at least one Modbus device is connected (otherwise yellow).
 4. Sensors: `anker-solix.0.modbus.<name>.sensors.*` (SOC, PV, grid, battery, SN, …).
@@ -144,7 +147,7 @@ Without **Modbus only**, cloud login is still used for older devices and MQTT. S
 
 ### Docker (`buanet/iobroker`)
 
-The official image ships **Python 3.11**. From **0.10.87** the adapter accepts that as **best-effort** on Debian 12 Bookworm containers — no custom image required. **3.12+** remains recommended (upstream) and is still required on bare metal and non-Bookworm hosts. Guide: **[docs/docker-buanet.md](docs/docker-buanet.md)** (optional 3.12 files under [`docs/docker/`](docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
+The official image ships **Python 3.11**. From **0.10.87** the adapter accepts that as **best-effort** on Debian 12 Bookworm containers — no custom image required. **3.12+** remains recommended (upstream) and is still required on bare metal and non-Bookworm hosts. Guide: **[docs/docker-buanet.md](/#/docs/adapterref/iobroker.anker-solix/docs/docker-buanet.md)** (optional 3.12 files under [`docs/docker/`](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
 
 ---
 
@@ -204,9 +207,9 @@ Manufacturer: [Anker SOLIX](https://www.anker.com/anker-solix) ([support / downl
 | **inverter** | MI80 standalone (virtual site in API) | yes | — |
 | **smartplug** | Smart Plug 2500 W, **Smart Plug Gen 2** | yes | **Gen 2** (`power_switch`) |
 | **pps** / **solarbank_pps** | Portable power stations | mostly MQTT | — |
-| **ev_charger** | V1 Smart EV Charger | mostly MQTT | — |
+| **ev_charger** | V1 Smart EV Charger | mostly MQTT | **Modbus TCP** (local) |
 | **vehicle** | Virtual EVs for charger accounts | read-oriented | — |
-| **powerpanel** / **hes** | US Power Panel, X1 HES | limited API | X1 uses a different Anker Modbus spec (not this adapter) |
+| **powerpanel** / **hes** | US Power Panel, X1 HES | limited API | **X1 Modbus TCP** (local) |
 | **charger** | Prime / charging stations | MQTT | — |
 | **home_backup** | E10, AX170 | very limited API | — |
 
@@ -252,7 +255,9 @@ Condensed from the [HA integration README](https://github.com/thomluther/ha-anke
 
 ### Solarbank 4 E5000 Pro / Solarbank Max / Max AC
 
-Cloud: same poll path as other solarbanks (API + optional MQTT). **Local Modbus TCP** (official maps): enable Modbus in the Anker app (system / Three-Party Control), then Admin → **Modbus (local)**. Typical model codes include AE103 (SB4). States: `anker-solix.0.modbus.<name>.sensors.*` and `.control.*` (operating mode, SOC limits, battery setpoint in **third_party_control**). **Modbus only** skips cloud/Python; the instance LED is green when at least one Modbus device is connected.
+Cloud: same poll path as other solarbanks (API + optional MQTT). **Daily kWh** (`statistics.daily_*`) is fetched on **detail polls** (every `deviceDetailMultiplier` cycles, default ~10), not every minute — check the log for `Daily kWh statistics updated`. **With Power Dock/combiner:** values are only under `combiner_box.<SN>.statistics.*`, not under each `solarbank.*`. Restart the adapter after enabling **Objects → Tagesstatistiken**. Week/month/year totals run on the evening schedule (23:00 / 23:15 / 23:30 Europe/Berlin).
+
+**Local Modbus TCP** (official maps): enable Modbus in the Anker app (system / Three-Party Control), then Admin → **Modbus (local)**. Typical model codes include AE103 (SB4). States: `anker-solix.0.modbus.<name>.sensors.*` and `.control.*` (operating mode, SOC limits, battery setpoint in **third_party_control**). **Modbus only** skips cloud/Python; the instance LED is green when at least one Modbus device is connected.
 
 If another Modbus client just queried the device, the first poll may get **connection refused** until that client’s cooldown expires — the next poll interval retries.
 
@@ -306,7 +311,13 @@ Virtual devices per account EV; no creation via adapter — discovered on refres
 
 ### Power Panel & HES (X1)
 
-Limited API power; workaround uses **~5 min averages** from energy stats (**~80 MB/day** extra traffic per system if enabled). Disable heavy categories in **Objects** if needed. X1 local **Modbus** uses a [separate Anker protocol](https://support.ankersolix.com/de/s/download-preview?urlname=Anker-SOLIX-X1-Series-Modbus-Protocol) — **not** implemented in this adapter (only official Solarbank 4 / Max / meter / plug Gen 2 maps).
+Limited API power; workaround uses **~5 min averages** from energy stats (**~80 MB/day** extra traffic per system if enabled). Disable heavy categories in **Objects** if needed.
+
+**Local Modbus (X1):** enable Modbus TCP in the **Anker Solix Professional** app, then Admin → **Modbus (local)** → profile **SOLIX X1 HES** (or auto-detect). States under `modbus.<name>.sensors.*` and controls for work mode / battery setpoint (VPP / third-party mode). The X1 accepts **only one Modbus TCP client** at a time.
+
+### V1 Smart EV Charger (local Modbus)
+
+Cloud/MQTT entities remain available when using the Anker account. For **local-only** control, enable Modbus TCP under **Integrations** in the Anker app and add profile **V1 Smart EV Charger**. Controls: start/stop charging, max current (6–32 A). Up to **two** simultaneous Modbus clients are supported on the charger.
 
 ### Home Backup (E10, AX170)
 
@@ -377,15 +388,33 @@ Tab **Abregelungsvermeidung** / **Curtailment avoidance**: requires the [ioBroke
 
 ## VIS / VIS-2 dashboard (Energy Home)
 
-Widget set **anker-solix** → **Energy Home** (photoreal house background, live PV / home / grid / battery / EV overlays). All states are bound manually in the widget settings (object picker).
+Widget set **anker-solix** in the VIS/VIS-2 editor:
 
-**Important:** Widgets ship with **GitHub main / 0.10.100+** only. npm **0.10.90** does **not** include them. After install or update:
+| Widget | Purpose |
+|--------|---------|
+| **Energy Home** | Photoreal house background, live PV / home / grid / battery / EV (manual state bindings) |
+| **HTML Dashboard** | Any `dashboard.sites.*.html` state (live, energy, settings, …) |
+| **Site Dashboard (tablet)** | Same as HTML Dashboard, sized for ~900×700 px |
+| **Multi-site Overview** | Bind to `anker-solix.0.dashboard.overview.html` |
+
+**Important:** Widgets ship with **GitHub main / 0.10.100+** only. npm **0.10.90** does **not** include them.
+
+From **0.10.104** the adapter copies `widgets/` into VIS/VIS-2 file storage on start and triggers a VIS-2 rebuild. After install or update:
+
+1. Restart the **anker-solix** instance (or wait for the automatic sync log line).
+2. Reload the VIS/VIS-2 editor (**F5**).
+3. In the widget picker, open set **anker-solix**.
+
+If widgets are still missing, run on the ioBroker host:
 
 ```bash
-iobroker upload anker-solix
+iobroker upload vis widgets
+iobroker upload vis-2 widgets
+iobroker restart vis
+iobroker restart vis-2
 ```
 
-Then restart **vis** and/or **vis-2** (or reload the editor with F5). In the widget picker, search for set **anker-solix** → **Energy Home**. In widget settings, assign each state: **State bindings** (PV, home, EV, footer), **Grid flows** (grid import, grid export), **Battery** (SOC, charge, discharge).
+Then reload the editor again. For **Energy Home**, assign states in widget settings: **State bindings**, **Grid flows**, **Battery**.
 
 Optional VIS-2 view import: `widgets/anker-solix/views/energy-home.vis2.json`.
 
@@ -393,7 +422,55 @@ Enable **Power flows** and **Energy statistics** in adapter **Objects** for foot
 
 ---
 
+## HTML dashboards (solix4-style)
+
+Inspired by **[ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4)** by **Michael Horn ([@michihorn64](https://github.com/michihorn64))** — thank you for the original dashboard concept! Details: [CREDITS.md](/#/docs/adapterref/iobroker.anker-solix/CREDITS.md).
+
+After each successful poll the adapter writes **self-contained HTML** (dark theme, live energy flow, settings, daily kWh, diagnosis, device list) to string states with role `html`:
+
+| State | Content |
+|-------|---------|
+| `anker-solix.0.dashboard.sites.<siteKey>.live.html` | Live power flow (Solar → Home ↔ Grid, battery) |
+| `…dashboard.html` | Live + settings combined (tablet layout) |
+| `…energy.html` | Daily kWh tiles + autarky / self-consumption |
+| `…settings.html` | Limits & modes (read-only) |
+| `…diagnosis.html` | Warnings, MQTT, device health |
+| `…devices.html` | Device inventory |
+| `anker-solix.0.dashboard.overview.html` | Multi-site comparison |
+
+`<siteKey>` is the first 8 characters of the Anker site ID (same idea as solix4).
+
+**VIS / VIS-2:** add widget **HTML Dashboard** (set **anker-solix**) and bind it to e.g. `anker-solix.0.dashboard.sites.<siteKey>.dashboard.html`, or use the generic VIS **HTML** widget. Resize to tablet size (~900×700 px). The HTML refreshes on each adapter poll.
+
+Enable **Objects → Tagesstatistiken** for kWh tiles; enable **Leistungsflüsse** for live power values.
+
+---
+
 ## Changelog
+
+### 0.10.105
+
+- **Repo checker (#9):** removed forbidden `prepare` script (E0094); `common.news` lists npm-published versions only (E2004); enable local hooks with `npm run setup:githooks`
+- **CI (#10):** adapter tests on Node.js **22 / 24 / 26**; `@iobroker/adapter-core` → 3.4.3; Modbus TCP read timeout uses `adapter.setTimeout` (S5005)
+- News translations expanded for remaining npm versions (W1145)
+
+### 0.10.104
+
+- **VIS / VIS-2:** widget set **anker-solix** is copied to VIS file storage on adapter start; VIS-2 catalog rebuild triggered automatically
+- **VIS widgets:** **HTML Dashboard**, **Site Dashboard (tablet)**, **Multi-site Overview** (bind `dashboard.*.html` states) plus existing **Energy Home**
+
+### 0.10.103
+
+- **HTML dashboards** (solix4-style): live flow, settings, daily kWh, diagnosis, devices, overview under `dashboard.sites.*.html` — inspired by [ioBroker.solix4](https://github.com/michihorn64/ioBroker.solix4) (Michael Horn / michihorn64); see [CREDITS.md](/#/docs/adapterref/iobroker.anker-solix/CREDITS.md)
+
+### 0.10.102
+
+- **Fix:** daily kWh statistics for SB4 / Power Dock — info/warn logs when cloud fetch runs or returns empty; recover poll state that could skip daily energy forever; fallback to `solarbank.*.statistics.*` when combiner site has no `combiner_box` object yet
+- **Admin:** hint under energy statistics (daily vs week/month/year schedule, combiner path)
+
+### 0.10.101
+
+- **Modbus (local):** profiles for **Anker SOLIX X1 HES** and **V1 Smart EV Charger** (official protocol register maps; X1 little-endian 32-bit and string decode; existing Solarbank/Gen2 profiles unchanged)
 
 ### 0.10.100
 
@@ -740,13 +817,13 @@ Enable **Power flows** and **Energy statistics** in adapter **Objects** for foot
 
 ### 0.6.0
 
-- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see [CHANGELOG_OLD.md](CHANGELOG_OLD.md) for 0.6.1–0.6.5)
+- Persistent bridge daemon, HA-aligned poll, multisystem controls, rate-limit fixes (see CHANGELOG_OLD.md for 0.6.1–0.6.5)
 
 ### 0.5.0
 
-- Python auto-install, device selection, staggered polling, repository rename (see [CHANGELOG_OLD.md](CHANGELOG_OLD.md) for 0.2.0–0.4.2)
+- Python auto-install, device selection, staggered polling, repository rename (see CHANGELOG_OLD.md for 0.2.0–0.4.2)
 
-Older release notes: [CHANGELOG_OLD.md](CHANGELOG_OLD.md) and git history.
+Older release notes: CHANGELOG_OLD.md and git history.
 
 ---
 
@@ -754,14 +831,15 @@ Older release notes: [CHANGELOG_OLD.md](CHANGELOG_OLD.md) and git history.
 
 **npm:** Release via git tag (`v*`) and CI deploy after [adapter check](https://adaptercheck.iobroker.in/) is green. Publishing uses **npm trusted publishing** (OIDC from GitHub Actions — no long-lived npm token). Classic automation tokens are deprecated by npm from **January 2027**; this adapter is already on trusted publishing. Register in [ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories) once the package is on npm.
 
-**Before each release** (enforced by `npm run test:package` → `test/io-package-policy.js`):
+**Before each release** (enforced by `npm run test:package` → `test/io-package-policy.js`; run locally via `npm run verify:ci` before every push):
 
 1. Bump `version` in `package.json` and `io-package.json` (must match).
 2. Add a `### x.y.z` section to this README changelog (E6006).
-3. Add **one** new `common.news` entry for that version; keep **at most 7** news keys — only versions already on npm (except the version you are about to publish). Move removed text to [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+3. Add **one** new `common.news` entry for that version **only when publishing to npm** (tag `v*`); keep **at most 7** news keys — only versions already on npm (plus the version you are about to publish). GitHub-only interim versions must **not** appear in `common.news` (E2004). Move removed text to CHANGELOG_OLD.md. Document all versions in this README changelog.
 4. Admin `jsonConfig.json`: header `size` must be **≤ 5** (use `5` for smallest heading).
 5. Do not add root files to npm `files` unless needed (`CHANGELOG_OLD.md` stays out of the package).
 6. `package.json` `os` must match the OS matrix in `test-and-release.yml` (E3027). Keep admin `i18n/*.json` in sync with `en.json` (W5604/W5605).
+7. Do **not** add a `prepare` script (E0094). After clone, run `npm run setup:githooks` once so the pre-push hook runs `verify:ci`.
 
 ---
 
@@ -769,4 +847,4 @@ Older release notes: [CHANGELOG_OLD.md](CHANGELOG_OLD.md) and git history.
 
 Copyright (c) 2026 MatthiasUlrich1 info@my-smart-home-support.de
 
-MIT — see [LICENSE](LICENSE)
+MIT — see [LICENSE](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/LICENSE)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wlanthermo-nano/README.md
 title: ioBroker.wlanthermo-nano
-hash: gJy3Z+rgb/y/LqQmb0n4KdAw1EUKTL/gj6rhMy9D3+I=
+hash: mcrEQaWLnscpdF6XAwzQVWcMBUPlhm9Aa2Ns4tJn7Kk=
 ---
 ![Logo](../../../en/adapterref/iobroker.wlanthermo-nano/admin/wlanthermo-nano.png)
 
@@ -13,29 +13,36 @@ hash: gJy3Z+rgb/y/LqQmb0n4KdAw1EUKTL/gj6rhMy9D3+I=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/wlanthermo-nano-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/DrozmotiX/iobroker.wlanthermo-nano.svg)
 ![NPM](https://nodei.co/npm/iobroker.wlanthermo-nano.png?downloads=true)
+![Test und Freigabe](https://github.com/DrozmotiX/iobroker.wlanthermo-nano/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.wlanthermo-nano
-**Tests:** ![Test und Freigabe](https://github.com/DrozmotiX/iobroker.wlanthermo-nano/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.wlanthermo-nano
 
-## Wlanthermo-nano Adapter für ioBroker
-[WLANThermo Nano](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano"), der digitale Vorteil für Ihren Grillsport
+## wlanthermo-nano Adapter für ioBroker
 
-## Wächter
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+[WLANThermo Nano](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano") , der digitale Vorteil für Ihren Grillsport
+
+## Posten
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Konfiguration
-Der Adapter kann über die Administrationsoberfläche installiert und konfiguriert werden.
-Bitte geben Sie IP-Adresse, Benutzername und Passwort in der Instanzkonfiguration ein.
 
-## Aufgaben
-* [ ] Automatische Geräteerkennung implementieren
-* [ ] Pitmaster-Einstellungen optimieren, Zustände nur im zugehörigen Modus beschreibbar machen, ansonsten schreibgeschützt
+Der Adapter kann über die Administrationsoberfläche installiert und konfiguriert werden. Bitte geben Sie IP-Adresse, Benutzername und Passwort in der Instanzkonfiguration ein.
+
+## Aufgabenliste
+
+- [ ] Automatische Geräteerkennung implementieren
+- [ ] Pitmaster-Einstellungen optimieren, Zustände nur im entsprechenden Modus beschreibbar machen, ansonsten schreibgeschützt
 
 ## Tritt dem Discord-Server bei, um alles über die ioBroker-WlanThermo-Integration zu diskutieren!
+
 <a href="https://discord.gg/cNAeGjJ"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
 ## Unterstützt mich
-Wenn Ihnen meine Arbeit gefällt, freue ich mich über eine persönliche Spende (dies ist ein persönlicher Spendenlink für DutchmanNL, er steht in keiner Verbindung zum ioBroker-Projekt!). [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
+
+Wenn Ihnen meine Arbeit gefällt, freue ich mich über eine persönliche Spende.\
+&#x20;(Dies ist ein persönlicher Spendenlink für DutchmanNL und steht in keiner Verbindung zum ioBroker-Projekt!)\
+[![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Changelog
 

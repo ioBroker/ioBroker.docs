@@ -3,53 +3,61 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ta-blnet/README.md
 title: ioBroker.ta-blnet
-hash: toqB4XA2zoRCMjH4AFYkafT1vyKsl+cT7eN9urhOvf4=
+hash: ffx3dlMVpfvKuz+//EBB6sR8o/aAByZJWiWLFQcr1As=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.ta-blnet.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ta-blnet.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/ta-blnet-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/ta-blnet-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.ta-blnet.png?downloads=true)
+![Test und Freigabe](https://github.com/weberk/ioBroker.ta-blnet/workflows/Test%20and%20Release/badge.svg)
 
 <img src="admin/ta-blnet.png" alt="Logo" style="width:20%;" />
 
-# IoBroker.ta-blnet
-**Tests:** ![Testen und Freigeben](https://github.com/weberk/ioBroker.ta-blnet/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.ta-blnet
 
-## Ta-blnet-Adapter für ioBroker
-Ein ioBroker-Adapter zum Lesen von Daten von einem oder bis zu acht Klimareglern per [Technische Alternative](http://www.ta.co.at) über BL-NET. Oder eine unbegrenzte Anzahl an Klimareglern, die an CMI angeschlossen sind.
+## ta-blnet-Adapter für ioBroker
+
+Ein ioBroker-Adapter von [Technische Alternative](http://www.ta.co.at) zum Auslesen von Daten von einem oder bis zu acht Klimareglern mittels BL-NET. Alternativ kann eine unbegrenzte Anzahl von Klimareglern an CMI angeschlossen werden.
 
 Nach der Installation müssen Sie eine Instanz erstellen und benutzerdefinierte Werte konfigurieren, z. B. für die IP-Adresse, die Portnummer und das Aktualisierungsintervall, das die Instanz verwenden soll.
 
-Bitte stellen Sie sicher, dass Sie das BL-NET-Gerät oder das neuere CMI-Produkt besitzen.
+Bitte vergewissern Sie sich, dass Sie das BL-NET-Gerät oder das neuere CMI-Produkt besitzen.
 
-Das BL-NET-Gerät sieht so aus: ![BL-NET](../../../en/adapterref/iobroker.ta-blnet/doc/BL-NET.png) Das Handbuch zum BL-NET finden Sie hier: https://www.ta.co.at/fileadmin/Downloads/Betriebsanleitungen/00_Auslauftypen/BL-NET/Manual_BL-Net_V2.19-2_EN.pdf
+Ein BL-NET-Gerät sieht folgendermaßen aus:![BL-NET](../../../en/adapterref/iobroker.ta-blnet/doc/BL-NET.png) Das Handbuch für BL-NET finden Sie hier: <https://www.ta.co.at/fileadmin/Downloads/Betriebsanleitungen/00_Auslauftypen/BL-NET/Manual_BL-Net_V2.19-2_EN.pdf>
 
-Das CMI-Gerät sieht so aus: ![BL-NET](doc/CMI.png) Das Handbuch zum CMI finden Sie hier: [https://www.ta.co.at/download/datei/805](https://www.ta.co.at/download/datei/805)
+Ein CMI-Gerät sieht folgendermaßen aus:![BL-NET](../../../en/adapterref/iobroker.ta-blnet/doc/CMI.png) Das Handbuch zu CMI finden Sie hier: <https://www.ta.co.at/download/datei/805>
 
 ## Adapterbeschreibung
-Der Adapter liest regelmäßig die aktuellen Daten Ihrer Heizungssteuerung aus. Er stellt über Ethernet Kontakt her zu:
 
-- dem BL-NET Bootloader oder
+Der Adapter liest regelmäßig die aktuellen Daten von Ihrem Heizungssteuerungssystem aus. Er stellt über Ethernet eine Verbindung her mit:
+
+- der BL-NET Bootloader oder
 - die CMI-Steuerungs- und Überwachungsschnittstelle.
 
-BL-NET und CMI sind Produkte der Firma Technische Alternative und ermöglichen das Auslesen und Zwischenspeichern der Daten verschiedenster Heizungssteuerungen per CAN-Bus bzw. Dataline-Bus.
+BL-NET und CMI sind Produkte der Firma 'Technische Alternative' und ermöglichen das Auslesen und Zwischenspeichern der Daten verschiedener Heizungssteuerungen über den CAN-Bus oder den Datenleitungsbus.
 
 ## Installation
-Die Installation kann erfolgen über:
 
-- **ioBroker GUI**: Gehen Sie in den Expertenmodus > Adapter > Von URL installieren und geben Sie „https://github.com/weberk/ioBroker.ta-blnet“ ein.
-- **CLI**: Führen Sie den folgenden Befehl aus:
+Die Installation kann wie folgt erfolgen:
 
-```sh
-iobroker url iobroker.ta-blnet@latest
-```
+- **ioBroker GUI** : Gehen Sie zu Expertenmodus > Adapter > Von URL installieren und geben Sie Folgendes ein:`https://github.com/weberk/ioBroker.ta-blnet`
+- **CLI** : Führen Sie folgenden Befehl aus:
+  ```sh
+  iobroker url iobroker.ta-blnet@latest
+  ```
 
 ## Changelog
 
 <!--
 Placeholder for next version:  ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- [W034] @iobroker/adapter-core 3.2.2 specified. 3.2.3 is recommended. Dependency updated
+- merge dependabot pull requests on several libs
+
 ### 1.0.36 (2025-01-04)
 
 - added CMI support to adapters summary description

@@ -1,83 +1,101 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.shrdzm/README.md":{"title":{"en":"ioBroker.shrdzm"},"content":"en/adapterref/iobroker.shrdzm/README.md"},"en/adapterref/iobroker.shrdzm/doc/en/DOCUMENTATION_en.md":{"title":{"en":"SHRDZM Adapter Documentation"},"content":"en/adapterref/iobroker.shrdzm/doc/en/DOCUMENTATION_en.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.shrdzm/README.md
 title: ioBroker.shrdzm
-hash: l+9nKDVCDAgPwp6Es7/uxGbZ1qDsHJ+bzgJNB4u824k=
+hash: iRWCqOWvS2jbUtjPgJM4btr3XrbJGmNELnLc+GkFVRY=
 ---
 ![Logo](../../../en/adapterref/iobroker.shrdzm/admin/shrdzm.png)
 
 ![GitHub-Lizenz](https://img.shields.io/github/license/mcm4iob/ioBroker.shrdzm)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.shrdzm.svg)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.shrdzm)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.shrdzm)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/shrdzm/svg-badge.svg)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/mcm4iob/ioBroker.shrdzm)
 ![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.shrdzm/latest)
-![Letzter GitHub-Commit](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.shrdzm)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.shrdzm)
 ![GitHub-Probleme](https://img.shields.io/github/issues/mcm4iob/ioBroker.shrdzm)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.shrdzm.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/shrdzm-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/shrdzm-installed.svg)
+![Test und Freigabe](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/github-code-scanning/codeql/badge.svg)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
-# IoBroker.shrdzm
-**Allgemeine Informationen:**<br> [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/shrdzm/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br></br> **Version:**</br></br> **Tests:**</br> [![Testen und Freigeben](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/mcm4iob/ioBroker.shrdzm/actions/workflows/github-code-scanning/codeql)<br> **Spende:**</br>
+# ioBroker.shrdzm
 
-**************************************************************************************************************
+**Allgemeine Informationen:**<br></br> **Version:**</br></br> **Tests:**</br><br> **Spende:**</br>
 
-## Sentry **Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
-**************************************************************************************************************
+---
 
-## Shrdzm-Adapter für ioBroker
-Dieser Adapter integriert die SHRDZM Smartmeter-Schnittstelle des Anbieters *SHRDZM IT Services e.U.* in den ioBroker. Eine Beschreibung der Schnittstelle finden Sie unter [Hier](https://cms.shrdzm.com/produkt/smartmeter-modul/).
+## Posten
 
-Beachten Sie, dass dieser Adapter in keiner Weise mit dem oben genannten Unternehmen verbunden ist und keinerlei Geschäftsbeziehung besteht.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+---
+
+## shrdzm-Adapter für ioBroker
+
+Dieser Adapter integriert die von _SHRDZM IT Services eU_ bereitgestellte SHRDZM-Smartmeter-Schnittstelle in ioBroker. Eine Beschreibung der Schnittstelle finden Sie [hier](https://cms.shrdzm.com/produkt/smartmeter-modul/) .
+
+Bitte beachten Sie, dass dieser Adapter in keiner Weise mit dem oben genannten Unternehmen in Verbindung steht und dass keinerlei Geschäftsbeziehung besteht.
 
 ## Dokumentation
+
 Eine ausführliche Dokumentation ist in mehreren Sprachen verfügbar:
 
-- **Englisch**: [doc/en/DOCUMENTATION_en.md](doc/en/DOCUMENTATION_en.md)
-- **Deutsch**: [doc/de/DOCUMENTATION_de.md](doc/de/DOCUMENTATION_de.md)
+- **Englisch** : [doc/en/DOCUMENTATION\_en.md](/#/docs/adapterref/iobroker.shrdzm/doc/en/DOCUMENTATION_en.md)
+- **Deutsch** : [doc/de/DOCUMENTATION\_de.md](https://github.com/mcm4iob/ioBroker.shrdzm/blob/main/doc/de/DOCUMENTATION_de.md)
 
-**************************************************************************************************************
+---
 
 ## Haftungsausschluss
-**Alle Produkt- und Firmennamen sowie Logos sind Warenzeichen™ oder eingetragene Warenzeichen® ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch diese oder verbundene Tochterunternehmen! Dieses persönliche Projekt wird in der Freizeit gepflegt und verfolgt kein Geschäftsziel.**
 
-**************************************************************************************************************
+**Alle Produkt- und Firmennamen sowie Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Ihre Verwendung impliziert weder eine Zugehörigkeit zu noch eine Unterstützung durch diese oder verbundene Tochtergesellschaften! Dieses private Projekt wird in der Freizeit betrieben und verfolgt keine geschäftlichen Ziele.**
+
+---
 
 ## Konfiguration
-Installieren und richten Sie Ihre SHRZDM-Schnittstelle gemäß der Herstellerdokumentation ein. Der Adapter verbindet sich über eine UDP-Verbindung (IPv4) mit der Schnittstelle. Zur Inbetriebnahme sind folgende Schritte erforderlich:
 
-- Installieren Sie den iobroker-Adapter wie gewohnt
-- Öffnen Sie die ioBroker-AdminUI-Schnittstelle, um den Adapter zu konfigurieren
-- Wählen Sie in der AdminUI einen freien Port aus. Der Standardwert ist Port 9000, es kann jedoch jeder freie Port verwendet werden.
+Installieren und konfigurieren Sie Ihre SHRZDM-Schnittstelle gemäß der Dokumentation des Herstellers. Dieser Adapter stellt die Verbindung zur Schnittstelle über eine UDP-Verbindung (IPv4) her. Für die Inbetriebnahme sind folgende Schritte erforderlich:
 
-- Öffnen Sie die SHRZDM-Konfigurationsoberfläche (mithilfe eines Webbrowsers)
+- Installieren Sie den ioBroker-Adapter auf dem üblichen Weg.
 
-![Alternativtext](../../../en/adapterref/iobroker.shrdzm/doc/shrzdm-cloud.pgn)
+- Öffnen Sie die ioBroker-AdminUI-Oberfläche, um den Adapter zu konfigurieren.
+
+- Wählen Sie in der Admin-Oberfläche einen freien Port aus. Standardmäßig ist Port 9000 eingestellt, es kann aber jeder freie Port verwendet werden.
+
+- SHRZDM-Konfigurationsoberfläche öffnen (über einen Webbrowser)![Alternativtext](../../../en/adapterref/iobroker.shrdzm/doc/shrzdm-cloud.pgn)
 
 - Cloud-Konfiguration auswählen
+
 - Geben Sie die IP-Adresse (nur IPv4) Ihres ioBroker-Hosts und die ausgewählte Portnummer in das Feld „Server“ ein.
+
 - 'UDP senden' aktivieren
+
 - Cloud-Einstellungen speichern
 
-Das SHRDZM-Gerät sollte sofort mit der Datenübertragung in dem auf der Seite „Einstellungen“ konfigurierten Intervall beginnen.
+Das SHRDZM-Gerät sollte sofort mit dem Senden von Daten in dem auf der Seite „Einstellungen“ konfigurierten Intervall beginnen.
 
 ## Betrieb
-Der Adapter erstellt Status für alle von allen Geräten empfangenen OBO-Daten. Wenn Sie mehrere SHRZDM-Geräte installiert haben und die Anzahl der akzeptierten Geräte einschränken möchten, können Sie in der Konfiguration des Adapters eine Liste der zulässigen Geräte angeben. Wenn keine Geräte konfiguriert sind, werden Daten von allen Absendern akzeptiert.
+
+Der Adapter erstellt Zustände für alle von allen Geräten empfangenen obos-Daten. Wenn Sie mehrere SHRZDM-Geräte installiert haben und die zulässigen Geräte einschränken möchten, können Sie in der Adapterkonfiguration eine Liste der zulässigen Geräte eingeben. Sind keine Geräte konfiguriert, werden Daten von allen Sendern akzeptiert.
 
 ## Häufig gestellte Fragen
-#### Updates erfolgen zu oft
-Aktualisierungen der Live-Daten werden durchgeführt, sobald neue Daten vom SHRDZM-Gerät empfangen werden. Um die vom Gerät gesendete Datenmenge zu reduzieren, passen Sie den Intervallparameter auf der Seite „Einstellungen“ des Geräts an.
 
-**************************************************************************************************************
+#### Aktualisierungen erfolgen zu häufig
 
-**Wenn Ihnen dieser Adapter gefällt, denken Sie bitte über eine Spende nach:**
+Die Live-Daten werden aktualisiert, sobald neue Daten vom SHRDZM-Gerät empfangen werden. Um die vom Gerät gesendete Datenmenge zu reduzieren, passen Sie den Intervallparameter auf der Einstellungsseite des Geräts an.
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
+---
 
-**************************************************************************************************************
+**Wenn Ihnen dieser Adapter gefällt, erwägen Sie bitte eine Spende:**
+
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mcm1957atIoBroker)
+
+---
 
 ## Changelog
 <!--

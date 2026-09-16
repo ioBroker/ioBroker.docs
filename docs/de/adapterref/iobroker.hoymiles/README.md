@@ -1,132 +1,148 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.hoymiles/README.md":{"title":{"en":"ioBroker.hoymiles"},"content":"en/adapterref/iobroker.hoymiles/README.md"},"en/adapterref/iobroker.hoymiles/docs/en/README.md":{"title":{"en":"ioBroker.hoymiles — Hoymiles HMS-xxxW-xT / HMS-xxx-xWB"},"content":"en/adapterref/iobroker.hoymiles/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hoymiles/README.md
 title: ioBroker.hymiles
-hash: FtJh55Z2gjr0Hh112SdEK6wS2PH9dp+pYzWggw2Pq8s=
+hash: 3/00a3Nl/r46QPXTvSHWyaX/Tp+g2LoVkE5Lu2MDcAI=
 ---
 ![Logo](../../../en/adapterref/iobroker.hoymiles/admin/hoymiles.png)
 
 ![Anzahl der Installationen](https://iobroker.live/badges/hoymiles-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/hoymiles-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.hoymiles.svg)
+![Test und Freigabe](https://github.com/Eistee82/ioBroker.hoymiles/actions/workflows/test-and-release.yml/badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hoymiles.svg)
 ![Lizenz](https://img.shields.io/github/license/Eistee82/ioBroker.hoymiles)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 
-# IoBroker.hoymiles
-[![Test und Release](https://github.com/Eistee82/ioBroker.hoymiles/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Eistee82/ioBroker.hoymiles/actions/workflows/test-and-release.yml)
+# ioBroker.hymiles
 
-**Wenn Ihnen dieser Adapter gefällt, würden wir uns über eine Spende freuen:**
+**Wenn Ihnen dieser Adapter gefällt, erwägen Sie bitte eine Spende:**
 
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/eistee)
+[![PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/eistee)
 
 ## Haftungsausschluss
-Alle Produkt- und Firmennamen sowie Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Ihre Verwendung impliziert weder eine Zugehörigkeit zu noch eine Unterstützung durch diese oder verbundene Tochtergesellschaften! Dieses private Projekt wird in der Freizeit betrieben und verfolgt keine geschäftlichen Ziele.
 
-**DIE SOFTWARE WIRD OHNE JEGLICHE GEWÄHRLEISTUNG BEREITGESTELLT.** Die Nutzung erfolgt auf eigene Gefahr. Die Autoren haften nicht für Schäden an Ihrem Wechselrichter, Ihrer DTU oder anderen Geräten. Dieser Adapter kommuniziert direkt mit Ihrer Hardware – eine falsche Verwendung der Befehle (Leistungsbegrenzung, Neustart, Ein-/Ausschalten) kann Ihre Solaranlage beeinträchtigen.
+**Alle Produkt- und Firmennamen sowie Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Ihre Verwendung impliziert weder eine Zugehörigkeit zu noch eine Unterstützung durch diese oder verbundene Tochtergesellschaften! Dieses private Projekt wird in der Freizeit betrieben und verfolgt keine geschäftlichen Ziele.**
+
+**Die Software wird ohne jegliche Gewährleistung bereitgestellt.** Die Nutzung erfolgt auf eigene Gefahr. Die Autoren haften nicht für Schäden an Ihrem Wechselrichter, Ihrer DTU oder anderen Geräten. Dieser Adapter kommuniziert direkt mit Ihrer Hardware – eine falsche Verwendung der Befehle (Leistungsbegrenzung, Neustart, Ein-/Ausschalten) kann Ihre Solaranlage beeinträchtigen.
 
 Dieser Adapter steht in keiner Verbindung zu Hoymiles Power Electronics Inc., wird von diesem Unternehmen weder unterstützt noch empfohlen und ist in keiner Weise mit diesem verbunden.
 
 ## Beschreibung
+
 ioBroker-Adapter für [**Hoymiles**](https://www.hoymiles.com/) **HMS-xxxW-xT** und **HMS-xxx-xWB** Mikro-Wechselrichter mit integriertem WiFi/Bluetooth DTU (DTUBI).
 
 Zwei Verbindungsmodi (unabhängig konfigurierbar):
 
 - **Lokal:** Direkte TCP/Protobuf-Kommunikation über Port 10081 – keine Cloud, kein Gateway erforderlich
-- **Cloud:** Hoymiles S-Miles Cloud API – monatliche/jährliche Energie-, CO2-Einsparungen und Einkommensberechnung
+- **Cloud:** Hoymiles S-Miles Cloud API – monatliche/jährliche Energie-, CO2-Einsparungen, Einkommensberechnung
 
 ## Dokumentation
-- 🇺🇸 [Englische Dokumentation](docs/en/README.md)
-- 🇩🇪 [Deutsche Dokumentation](docs/de/README.md)
+
+- 🇺🇸 [Englische Dokumentation](/#/docs/adapterref/iobroker.hoymiles/docs/en/README.md)
+- 🇩🇪 [Deutsche Dokumentation](https://github.com/Eistee82/ioBroker.hoymiles/blob/main/docs/de/README.md)
 
 ## Merkmale
-- Dualmodus: lokales TCP/Protobuf und/oder S-Miles Cloud-API
+
+- Dualmodus: Lokales TCP/Protobuf und/oder S-Miles Cloud-API
 - Permanente TCP-Verbindung mit Protobuf-Heartbeat (automatische Keepalive-Funktion im Leerlauf alle 20 Sekunden)
-- Konfigurierbares Datenintervall (0 = schnellstmöglich, ~1 Sekunde pro Zyklus)
+- Konfigurierbares Datenintervall (0 = schnellstmöglich, \~1 Sekunde pro Zyklus)
 - Cloud Relay: Leitet Wechselrichterdaten im Auftrag der DTU an die Hoymiles Cloud weiter, sodass die lokale Verbindung Cloud-Uploads nicht mehr blockiert.
 - Automatische Cloud-Abfragezeit, abgeleitet von der sendTime-Konfiguration der DTU
-- Sequenznummern in Protokollrahmen (0-60000 fortlaufend, entsprechend der Originalanwendung)
+- Sequenznummern im Protokollrahmen (0-60000 fortlaufend, entsprechend der Originalanwendung)
 - Unterstützung für AES-128-CBC-Verschlüsselung für neuere DTU-Firmware (SHA-256-Schlüsselableitung aus encRand)
 - Echtzeitdaten: Leistung, Spannung, Stromstärke, Frequenz, Energie, Temperatur
 - Überwachung pro Panel (PV0/PV1) – lokal und Cloud
-- Cloud-Daten pro Wechselrichter: Leistung, Spannung, Frequenz, Temperatur (Protobuf Chart API)
+- Daten pro Wechselrichter in der Cloud: Leistung, Spannung, Frequenz, Temperatur (Protobuf Chart API)
 - Energieaggregate: täglich, monatlich, jährlich, gesamt (kWh)
 - Einkommensberechnung auf Basis des Strompreises (Cloud)
 - CO2-Einsparungsverfolgung (Cloud)
 - Befehle: Leistungsbegrenzung (2–100 %), Wechselrichter ein/aus/neu starten, DTU-Neustart, Leistungsfaktorbegrenzung, Blindleistungsbegrenzung, Warnungen bereinigen, Erdschluss beheben, Wechselrichter sperren/entsperren
 - Alarm- und Warnüberwachung (223 Codes, lokalisiert in allen 11 Sprachen)
-- Statusqualität (`q`): Markiert Daten bei Verbindungsabbruch als veraltet, dient als Ersatz für Cloud-Fallback und wird bei Wiederherstellung der Verbindung automatisch zurückgesetzt.
+- Staatsqualität (`q` ): Markiert Daten bei Verbindungsabbruch als veraltet, dient als Ersatz für Cloud-Fallback und wird bei erneuter Verbindung automatisch zurückgesetzt.
 - 5-minütige Leerlaufzeitüberschreitung mit automatischer Wiederverbindung
 - Netzwerkerkennungsmodul für ioBroker.discovery
 - TypeScript, ESLint, Prettier, GitHub CI/CD
 - Vollständiger i18n: en, de, ru, pt, nl, fr, it, es, pl, uk, zh-cn
 
 ## Konfiguration
+
 Öffnen Sie die Adapterkonfiguration in der ioBroker-Admin-Oberfläche.
 
 ### Lokale Verbindung (TCP)
-| Einstellung | Standard | Beschreibung |
-|---------|---------|-------------|
-| **Lokale Verbindung aktivieren** | ein | Direkte TCP/Protobuf-Verbindung aktivieren |
-| **DTU-Geräte** | (leer) | Tabelle der DTU-IP-Adressen/Hostnamen. Fügen Sie pro DTU eine Zeile hinzu. |
-| **Datenabfrageintervall** | 5 s | Sekunden zwischen Datenanfragen (0-300). 0 für schnellstmögliche Abfrage (keine Verzögerung zwischen den Anfragen). |
-| **Abfragefaktor für Konfiguration/Alarme** | 6 | Konfiguration und Alarme werden in jedem N-ten Datenzyklus abgefragt. |
-| **Cloud Relay** | ein | Leitet Echtzeitdaten im Auftrag der DTU an die Hoymiles Cloud weiter. Verhindert, dass die lokale Verbindung Cloud-Uploads blockiert. |
+
+| Einstellung                            | Standard | Beschreibung                                                                                                                               |
+| -------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Lokal aktivieren**                   | An       | Direkte TCP/Protobuf-Verbindung aktivieren                                                                                                 |
+| **DTU-Geräte**                         | (leer)   | Tabelle der DTU-IP-Adressen/Hostnamen. Fügen Sie pro DTU eine Zeile hinzu.                                                                 |
+| **Datenabfrageintervall**              | 5s       | Sekunden zwischen Datenanfragen (0-300). Stellen Sie 0 für die schnellstmögliche Verbindung ein (keine Verzögerung zwischen den Anfragen). |
+| **Konfigurations-/Alarmabfragefaktor** | 6        | Konfiguration und Alarme werden in jedem N-ten Datenzyklus abgefragt.                                                                      |
+| **Cloud Relay**                        | An       | Leitet im Auftrag der DTU Echtzeitdaten an die Hoymiles Cloud weiter. Verhindert, dass die lokale Verbindung Cloud-Uploads blockiert.      |
 
 ### Cloud-Verbindung (S-Miles)
-| Einstellung | Standard | Beschreibung |
-|---------|---------|-------------|
-| **Cloud aktivieren** | Aus | Hoymiles S-Miles Cloud API aktivieren |
-| **S-Miles-E-Mail** | — | Die E-Mail-Adresse Ihres S-Miles-Kontos |
-| **S-Miles-Passwort** | — | Ihr S-Miles-Kontopasswort (verschlüsselt gespeichert) |
+
+| Einstellung          | Standard | Beschreibung                                          |
+| -------------------- | -------- | ----------------------------------------------------- |
+| **Cloud aktivieren** | aus      | Hoymiles S-Miles Cloud-API aktivieren                 |
+| **S-Miles-E-Mail**   | —        | Ihre S-Miles-Konto-E-Mail                             |
+| **S-Miles-Passwort** | —        | Ihr S-Miles-Kontopasswort (verschlüsselt gespeichert) |
 
 Alle Wechselrichter in Ihrem Cloud-Konto werden automatisch erkannt. Eine manuelle Konfiguration der Seriennummern ist nicht erforderlich.
 
 Beide Verbindungen können gleichzeitig aktiviert werden. Lokale Daten haben Priorität – Cloud-Daten werden verwendet, wenn die DTU offline ist (z. B. nachts).
 
 ## Unterstützte Wechselrichter
+
 Dieser Adapter ist für **Hoymiles HMS Mikro-Wechselrichter mit integriertem WiFi (oder WiFi + Bluetooth) DTU** (DTUBI) konzipiert.
 
-**Lokal** = direkte TCP/Protobuf-Verbindung über Port 10081. **Cloud** = S-Miles Cloud API — automatische Erkennung, Echtzeitdaten (schneller Burst-Kanal ~1,5–3 s), Energieaggregate, Netzprofil, Wechselrichter ein/aus + Neustart, DTU-Neustart.
+**Lokal** = direkte TCP/Protobuf-Verbindung über Port 10081. **Cloud** = S-Miles Cloud API — automatische Erkennung, Echtzeitdaten (schneller Burst-Kanal \~1,5–3 s), Energieaggregate, Netzprofil, Wechselrichter ein/aus + Neustart, DTU-Neustart.
 
-| Modell | Zeichenketten | Lokal (TCP) | Cloud | Status |
-|-------|:---:|:---:|:---:|--------|
-| HMS-300W-1T | 1 | ✅ | ✅ | Ungetestet |
-| HMS-350W-1T | 1 | ✅ | ✅ | Ungetestet |
-| HMS-400W-1T | 1 | ✅ | ✅ | Ungetestet |
-| HMS-450W-1T | 1 | ✅ | ✅ | Ungetestet |
-| HMS-500W-1T | 1 | ✅ | ✅ | Ungetestet |
-| HMS-600W-2T | 2 | ✅ | ✅ | Ungetestet |
-| HMS-700W-2T | 2 | ✅ | ✅ | Ungetestet |
-| HMS-800W-2T | 2 | ✅ | ✅ | **Getestet** (Lokal + Cloud) |
-| HMS-900W-2T | 2 | ✅ | ✅ | Ungetestet |
-| HMS-1000W-2T | 2 | ✅ | ✅ | **Geprüft** (Lokal) |
-| HMS-1600DW-4T | 4 | ✅ | ✅ | Ungetestet |
-| HMS-1800DW-4T | 4 | ✅ | ✅ | Ungetestet |
-| HMS-2000DW-4T | 4 | ✅ | ✅ | Ungetestet |
-| HMS-600-2WB | 2 | ❌¹ | ✅ | Ungetestet |
-| HMS-700-2WB | 2 | ❌¹ | ✅ | Ungetestet |
-| HMS-800-2WB | 2 | ❌¹ | ✅ | **Getestet** (Cloud: Echtzeit-Burst, Grid-Profil, Ein/Aus + Neustart, DTU-Neustart) |
-| HMS-900-2WB | 2 | ❌¹ | ✅ | Ungetestet |
-| HMS-1000-2WB | 2 | ❌¹ | ✅ | Ungetestet |
-| HMS-1600-4WB | 4 | ❌¹ | ✅ | Ungetestet |
-| HMS-1800-4WB | 4 | ❌¹ | ✅ | Ungetestet |
-| HMS-2000-4WB | 4 | ❌¹ | ✅ | Ungetestet |
+| Modell        | Saiten | Lokal (TCP) | Wolke | Status                                                                              |
+| ------------- | :----: | :---------: | :---: | ----------------------------------------------------------------------------------- |
+| HMS-300W-1T   |    1   |      ✅      |   ✅   | Ungetestet                                                                          |
+| HMS-350W-1T   |    1   |      ✅      |   ✅   | Ungetestet                                                                          |
+| HMS-400W-1T   |    1   |      ✅      |   ✅   | Ungetestet                                                                          |
+| HMS-450W-1T   |    1   |      ✅      |   ✅   | Ungetestet                                                                          |
+| HMS-500W-1T   |    1   |      ✅      |   ✅   | Ungetestet                                                                          |
+| HMS-600W-2T   |    2   |      ✅      |   ✅   | Ungetestet                                                                          |
+| HMS-700W-2T   |    2   |      ✅      |   ✅   | Ungetestet                                                                          |
+| HMS-800W-2T   |    2   |      ✅      |   ✅   | **Getestet** (lokal + Cloud)                                                        |
+| HMS-900W-2T   |    2   |      ✅      |   ✅   | Ungetestet                                                                          |
+| HMS-1000W-2T  |    2   |      ✅      |   ✅   | **Getestet** (lokal)                                                                |
+| HMS-1600DW-4T |    4   |      ✅      |   ✅   | Ungetestet                                                                          |
+| HMS-1800DW-4T |    4   |      ✅      |   ✅   | Ungetestet                                                                          |
+| HMS-2000DW-4T |    4   |      ✅      |   ✅   | Ungetestet                                                                          |
+| HMS-600-2WB   |    2   |      ❌¹     |   ✅   | Ungetestet                                                                          |
+| HMS-700-2WB   |    2   |      ❌¹     |   ✅   | Ungetestet                                                                          |
+| HMS-800-2WB   |    2   |      ❌¹     |   ✅   | **Getestet** (Cloud: Echtzeit-Burst, Grid-Profil, Ein/Aus + Neustart, DTU-Neustart) |
+| HMS-900-2WB   |    2   |      ❌¹     |   ✅   | Ungetestet                                                                          |
+| HMS-1000-2WB  |    2   |      ❌¹     |   ✅   | Ungetestet                                                                          |
+| HMS-1600-4WB  |    4   |      ❌¹     |   ✅   | Ungetestet                                                                          |
+| HMS-1800-4WB  |    4   |      ❌¹     |   ✅   | Ungetestet                                                                          |
+| HMS-2000-4WB  |    4   |      ❌¹     |   ✅   | Ungetestet                                                                          |
 
-¹ Die **WB-Serie** (verkauft als **"HiFlow Pro"**) verfügt über keinen lokalen TCP-Port – ihr einziger lokaler Kanal ist Bluetooth LE, und alle Daten werden an die Hoymiles-Cloud übertragen. Diese Wechselrichter funktionieren daher **ausschließlich über die Cloud**: Nach Aktivierung der Cloud-Verbindung liest der Adapter die Daten über die S-Miles-API (Echtzeit-Burst, Energie, Netzprofil) und kann Befehle zum Ein-/Ausschalten, Neustarten und Neustarten des DTU senden. Alle WB-Modelle basieren auf derselben Plattform; bisher wurde nur das Modell HMS-800-2WB getestet.
+¹ Die **WB-Serie** (verkauft als **„HiFlow Pro“** ) verfügt über keinen lokalen TCP-Port – ihr einziger lokaler Kanal ist Bluetooth LE, und alle Daten werden an die Hoymiles-Cloud übertragen. Diese Wechselrichter funktionieren daher **ausschließlich cloudbasiert** : Nach Aktivierung der Cloud-Verbindung liest der Adapter die Daten über die S-Miles-API (Echtzeit-Burst, Energie, Netzprofil) und kann Befehle zum Ein-/Ausschalten, Neustarten und Neustarten des DTU senden. Alle WB-Modelle basieren auf derselben Plattform; bisher wurde nur das Modell HMS-800-2WB getestet.
 
-**Nur-Cloud-Betrieb:** Jeder unterstützte Wechselrichter in Ihrem S-Miles-Konto funktioniert auch ohne lokale Verbindung. Der Adapter erkennt ihn automatisch und stellt Echtzeit-Leistungsdaten (Burst-Kanal), Energieaggregate, Netzprofil sowie Befehle zum Ein-/Ausschalten und Neustarten des Wechselrichters und der DTU über die Cloud bereit. Die übrigen Befehle (Leistungsbegrenzung, Sperren, Warnungen löschen usw.) erfordern die lokale TCP-Verbindung.
+**Betrieb ausschließlich über die Cloud:** Jeder unterstützte Wechselrichter in Ihrem S-Miles-Konto funktioniert auch ohne lokale Verbindung. Der Adapter erkennt ihn automatisch und stellt Echtzeit-Leistungsdaten (Burst-Kanal), Energieaggregate, Netzprofil sowie Befehle zum Ein-/Ausschalten und Neustarten des Wechselrichters und der DTU über die Cloud bereit. Die übrigen Befehle (Leistungsbegrenzung, Sperren, Warnungen löschen usw.) erfordern die lokale TCP-Verbindung.
 
-**Wichtig:** Dieser Adapter funktioniert **nur** mit HMS-Modellen, die über **integriertes WLAN** verfügen. Er funktioniert **NICHT** mit: > - HMS-1600/1800/2000-4T **ohne** „DW“ (diese verwenden Sub-1G-Funk und benötigen eine externe DTU) > - HM-Serie (kein WLAN, nur Funk) > - MI-Serie (kein WLAN, nur Funk) > - HMS/HMT mit externen DTU-Pro- oder DTU-WLite-Sticks > - HMT-Drehstrommodelle
+> **Wichtig:** Dieser Adapter funktioniert **nur** mit HMS-Modellen, die über **integriertes WLAN** verfügen. Er funktioniert **NICHT** mit:
+>
+> - HMS-1600/1800/2000-4T **ohne** "DW" (diese verwenden Sub-1G RF und benötigen eine externe DTU)
+> - HM-Serie (kein WLAN, nur Funk)
+> - MI-Serie (ohne WLAN, nur Funk)
+> - HMS/HMT mit externen DTU-Pro- oder DTU-WLite-Sticks
+> - HMT-Dreiphasenmodelle
 
 ## Mehrere Wechselrichter
+
 Dieser Adapter unterstützt mehrere Wechselrichter in einer einzigen Instanz:
 
-- **Lokal:** Fügen Sie mehrere DTU-IP-Adressen in der Gerätetabelle hinzu.
+- **Lokal:** Mehrere DTU-IP-Adressen in der Gerätetabelle hinzufügen
 - **Cloud:** Alle Wechselrichter und Stationen in Ihrem Konto werden automatisch erkannt
 
-Jede DTU erstellt einen Geräteknoten anhand ihrer Seriennummer als ID (z. B. `hoymiles.0.4143A01CEDE4.*`). Cloud-Stationen erstellen aggregierte Geräteknoten (z. B. `hoymiles.0.station-12345.*`).
+Jede DTU erstellt einen Geräteknoten, indem sie ihre Seriennummer als ID verwendet (z. B.`hoymiles.0.4143A01CEDE4.*` Cloud-Stationen erstellen aggregierte Geräteknoten (z. B.`hoymiles.0.station-12345.*` ).
 
 ## Changelog
 
@@ -168,7 +184,7 @@ Jede DTU erstellt einen Geräteknoten anhand ihrer Seriennummer als ID (z. B. `h
 ### 0.3.3 (2026-04-08)
 - (@Eistee82) Fix jsonConfig schema warnings: button color, remove unsupported table properties
 
-Older entries: see [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries: see [CHANGELOG_OLD.md](https://github.com/Eistee82/ioBroker.hoymiles/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

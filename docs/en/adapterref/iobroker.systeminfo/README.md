@@ -33,7 +33,7 @@ It handles text, HTML, json and XML data types wizh special query mechanisms.
 ## Configuration
 
 -   Configure in adapter config (enlarge the page)
--   I stored a picture of an example config [here](./admin/Systeminfo.Config.jpg)
+-   I stored a picture of an example config [here](https://github.com/iobroker-community-adapters/ioBroker.systeminfo/blob/master/admin/Systeminfo.Config.jpg)
     -   The first item is a command list which will be executed (line by line) on startup of adapter. It can be used to setup GPIO ports used.
     -   Lines starting with '`#`' are not executed
     -   If the first text is '`debug!`' it sets the adapter to debug-mode which displays a lot more information what he tries to pull and receives.
@@ -139,12 +139,9 @@ It handles text, HTML, json and XML data types wizh special query mechanisms.
 
 -   Added save and load config in admin screen
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 The MIT License (MIT)
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2019, frankjoke <frankjoke@hotmail.com>

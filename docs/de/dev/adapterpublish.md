@@ -1,6 +1,6 @@
 ---
 title:       "Veröffentlichen"
-lastChanged: "21.01.2020"
+lastChanged: "08.09.2026"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/adapterpublish.md"
 ---
 
@@ -36,42 +36,98 @@ Sollte der Adapter auf einer bestimmten Versionsnummer stabil laufen, darf diese
    ```
 6. Das `www` Verzeichnis sowie das `widget` Verzeichnis sollen bei Nichtnutzung gelöscht werden.
 
-7. In der io-package.json sollte ein `type` Attribut unter common erstellt werden. Hierzu soll aus dieser [Liste](#Adapterkategorien) die best passende Kategorie angegeben werden.
+7. In der io-package.json sollte ein `type` Attribut unter common erstellt werden. Hierzu soll aus dieser [Liste](#adapterkategorien) die best passende Kategorie angegeben werden.
 
-8. In der io-package.json sollten die `connectionType` und `dataSource` Attributen unter common erstellt werden. Hierzu soll aus dieser [Liste](#Adapter-Verbindungstyp) die best passende Verbindungs-Kategorie angegeben werden.
+8. In der io-package.json sollten die `connectionType` und `dataSource` Attributen unter common erstellt werden. Hierzu soll aus dieser [Liste](#adapter-verbindungstyp) die best passende Verbindungs-Kategorie angegeben werden.
 
-9. Die durch den Adapter erstellten States, sollten valide Angaben für ihre [Rollen](https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md#state-roles) `role` unter common haben.
+9. Die durch den Adapter erstellten States, sollten valide Angaben für ihre [Rollen](/docs/dev/stateroles.md) `role` unter common haben.
 Das Nutzen der Rolle `state` sollte vermieden werden.
 
-10. Der Adapter sollte sowohl das im Template vorgegebene Testing nutzen. Hierzu kann das Github Konto mit Appveyor (Windows Tests) sowie Travis CI (Linux und Mac OS Tests) verknüpft und das entsprechende Repository für das Testing angemeldet werden.
-Diese beiden Continuous Integration Tools, haben sich für das ioBroker Projekt als geeignet erwiesen und sind für öffentliche Github Repositories kostenfrei.
+10. Der Adapter muss die Tests aus dem Gerüst über **GitHub Actions** laufen lassen, mindestens Paket- und Integrationstest, also Installieren und Starten. Die Arbeitsabläufe dafür bringt der [Adapter Creator](https://adapter-creator.iobroker.in/) bereits mit, sie liegen im Ordner `.github/workflows`. Weiteres unter [Adaptertests](/docs/dev/adaptertesting.md).
 
-Gerne kann der Testumfang durch den Entwickler erweitert werden.
+   Gerne kann der Testumfang durch den Entwickler erweitert werden.
 
 11. In der io-package.json muss mindestens eine Angabe unter common für das Attribut `authors` gemacht werden. 
 Ebenfalls muss das Attribut `author` in der package.json ausgefüllt sein. 
 Optional können auch für npm mehrere Autoren hinterlegt werden, indem in der package.json das Attribut `contributors` genutzt wird.
 
-12. Der Adapter muss als npm Package verfügbar sein. Mehr Informationen können [hier](https://github.com/ioBroker/ioBroker.repositories#how-to-publish-on-npm) gefunden werden.
+12. Der Adapter muss als Paket auf [npmjs.com](https://www.npmjs.com/) veröffentlicht sein. Wie das geht, steht im nächsten Abschnitt.
 
-13. Die ioBroker Organisation muss auf npm hinzugefügt werden. Dies ist nötig um eine langfristige Wartung des Paketes zu ermöglichen, selbst wenn der Entwickler aus zeitlichen oder anderen Gründen das Paket nicht mehr warten kann. 
-Nähere Informationen können [hier](https://github.com/ioBroker/ioBroker.repositories#add-owner-to-packet) gefunden werden.
+13. Die **ioBroker-Organisation muss Mitbesitzer des npm-Pakets** sein:
+
+    ```bash
+    npm owner add bluefox iobroker.<adaptername>
+    ```
+
+    Das ist keine Formsache. Es sorgt dafür, dass das Paket weitergepflegt werden kann, wenn der Entwickler dazu keine Zeit mehr hat. Ohne diesen Eintrag wird der Adapter nicht aufgenommen.
 
 ## Anforderungen für das Stable Repository
 1. Der Adapter wurde erfolgreich in das Latest Repository aufgenommen
-2. Es gibt einen [Forum Test Thread](https://forum.iobroker.net/viewforum.php?f=36) für den Adapter, in welchem bereits Nutzerfeedback gegeben wurde.
+2. Es gibt einen [Forum Test Thread](https://forum.iobroker.net/category/91/tester) für den Adapter, in welchem bereits Nutzerfeedback gegeben wurde.
 3. Eine Discovery Funktion sollte implementiert werden. Hierbei handelt es sich um eine Funktion im [Discovery Adapter](https://github.com/ioBroker/ioBroker.discovery),
    um automatisch zu erkennen, ob der Nutzer eine Instanz des Adapters gebrauchen kann. 
    Hierzu ist ein Pull Request auf dem Repository des [Discovery Adapters](https://github.com/ioBroker/ioBroker.discovery) zu stellen.
 
+## Auf npm veröffentlichen
+
+Bevor ein Adapter ins ioBroker-Repository kann, muss er auf npm liegen. Von dort
+holt ihn der Admin bei der Installation, nicht von GitHub.
+
+Das Gerüst des Adapter Creators bringt dafür das **release-script** mit:
+
+```bash
+npm run release patch     # Fehlerbehebungen
+npm run release minor     # neue Funktionen, abwärtskompatibel
+npm run release major     # Änderungen, die Bestehendes brechen
+```
+
+Der Befehl erledigt in einem Zug, was sonst gern auseinanderläuft: er erhöht die
+Version in **beiden** Dateien, `package.json` und `io-package.json`, trägt die
+Änderungen aus dem Changelog in `common.news` ein, prüft die Lizenz, setzt ein
+Git-Tag und schiebt alles zu GitHub.
+
+Der Arbeitsablauf in `.github/workflows` veröffentlicht daraufhin auf npm,
+sobald ein Tag ankommt. Von Hand geht es auch:
+
+```bash
+npm publish
+```
+
+?> Für die Veröffentlichung aus GitHub Actions heraus braucht es kein
+npm-Token mehr im Repository. npm unterstützt inzwischen **Trusted Publishing**:
+Das Paket wird auf npm mit dem GitHub-Repository verknüpft, und der Arbeitsablauf
+weist sich über OpenID Connect aus. Damit liegt kein dauerhaft gültiges
+Geheimnis mehr in den Repository-Einstellungen.
+
+!> Nach dem Veröffentlichen ist die Version endgültig. Eine Version auf npm
+lässt sich nicht überschreiben, und ein `npm unpublish` ist nur in den ersten 72
+Stunden möglich und macht die Versionsnummer trotzdem unbrauchbar. Lieber eine
+Version mehr als eine kaputte im Umlauf.
+
 ## Hinzufügen des Adapters zum offiziellen Repository
-1. Das [offizielle Github Repository](https://github.com/ioBroker/ioBroker.repositories) sollte aufgesucht werden und ein Pull Request mit folgendem Inhalt, je nach  Repository, gestellt werden.
 
-2. Bitte den Adapter alphabetisch korrekt, zwischen den bestehenden Adaptern, anordnen.
+Die Listen liegen im Repository
+[ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories). Die
+Dateien werden **nicht** von Hand bearbeitet, dafür gibt es Skripte, die den
+Eintrag an die richtige Stelle setzen und gleich prüfen.
 
-3. Bei der Aufnahme in das Stable Repository muss eine Versionsnummer deklariert werden. Diese ist bei Weiterentwicklung des Adapters zu aktualisieren.
+1. Das Repository abzweigen (*fork*) und örtlich klonen.
 
-4. Der Adapter sollte in der io-package.json ein Listenattribut `docs` festlegen, unter der Angabe wo eine Anleitung in der jeweiligen Sprache zu finden ist. 
+2. Den Eintrag erzeugen lassen:
+
+   ```bash
+   npm run addToLatest -- --name <adaptername> --type <kategorie>
+   npm run addToStable -- --name <adaptername> --version <version>
+   ```
+
+   Die Kategorie ist eine aus der [Liste weiter unten](#adapterkategorien), die
+   Version bei *stable* die Versionsnummer, die stabil laufen soll.
+
+3. Die geänderte Datei einchecken und einen Pull Request stellen.
+
+4. Bei der Aufnahme in das Stable Repository muss eine Versionsnummer deklariert werden. Diese ist bei Weiterentwicklung des Adapters zu aktualisieren.
+
+5. Der Adapter sollte in der io-package.json ein Listenattribut `docs` festlegen, unter der Angabe wo eine Anleitung in der jeweiligen Sprache zu finden ist. 
    Als Key wird die Sprache angegeben und als Value der Pfad zur Markdown Datei.
    Eine englische Anleitung ist Pflicht (im Notfall kann auf die Standard README verwiesen werden). Ebenfalls ist eine deutsche 
    Anleitung wünschenswert, da ein Großteil der Nutzer Deutsch spricht, jedoch ist dies optional. 

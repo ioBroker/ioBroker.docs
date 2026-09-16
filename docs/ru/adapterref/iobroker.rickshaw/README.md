@@ -1,25 +1,26 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rickshaw/README.md
 title: без названия
-hash: Ez/Lkulz+xrUY+5AhrRzaNn1T7EFlUq8kjVJRmOmlrc=
+hash: rvc58LT6zefW022GxKC4sAN5UczgVEwxIml1TkesGbg=
 ---
-![логотип](../../../en/adapterref/iobroker.rickshaw/admin/rickshaw.png) ioBroker.rickshaw =================
+# ![Логотип](../../../en/adapterref/iobroker.rickshaw/admin/rickshaw.png)ioBroker.rickshaw
 
 ![Количество установок](http://iobroker.live/badges/rickshaw-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.rickshaw.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rickshaw.svg)
-![NPM](https://nodei.co/npm/iobroker.rickshaw.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.rickshaw.png?downloads=true)
 
-Нарисуйте диаграммы с помощью [рикша](https://shutterstock.github.io/rickshaw/examples/).
+Рисуйте диаграммы с помощью [рикши](https://shutterstock.github.io/rickshaw/examples/) .
 
-## Как пользоваться
-- установить "socketio" -adapter и создать один экземпляр
-- установить "web" -адаптер и создать один экземпляр.
-- Выберите в настройках «web» -адаптера экземпляр установленного экземпляра «socket.io».
-- установить "рикшу" -адаптер и вызвать
-- Перейдите по адресу http:// ip: 8082 / rickshaw / edit.html.
+## Как использовать
+
+- Установите адаптер "socketio" и создайте один экземпляр.
+- Установите веб-адаптер и создайте один экземпляр.
+- В настройках веб-адаптера выберите установленный экземпляр "socket.io".
+- установите адаптер "рикша" и вызовите
+- Перейдите по ссылке <http://ip:8082/rickshaw/edit.html>
 
 ## Changelog
 ### 1.0.0 (2018-10-21)

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.pondpump/README.md":{"title":{"en":"ioBroker.pondpump"},"content":"en/adapterref/iobroker.pondpump/README.md"},"en/adapterref/iobroker.pondpump/doc/research/wassertemperaturen-im-koiteich.md":{"title":{"en":"Wassertemperaturen im Koiteich"},"content":"en/adapterref/iobroker.pondpump/doc/research/wassertemperaturen-im-koiteich.md"},"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md":{"title":{"en":"ioBroker.pondpump — User Manual"},"content":"en/adapterref/iobroker.pondpump/doc/handbook/en/manual.md"}}}
+---
 ![Logo](admin/pondpump.png)
 # ioBroker.pondpump
 
@@ -77,6 +80,99 @@ All settings are available in the Admin UI (JSON config):
     ### **WORK IN PROGRESS**
 -->
 
+### 0.12.4 (2026-09-11)
+
+- (ssbingo) **Actuator value fields are now a dropdown (bugfix).** The **on-value** and **off-value** of an actuator schedule window — and the value of the **"Set actuator"** weather rule — are no longer a free-text field. That field re-parsed on every keystroke and fell back to `true` for any partial input, so **typing `false` snapped back to `true`**. They are now a clear **dropdown**: `true` / `false` / `number` (with an inline number field), and the off-value additionally offers **"leave untouched"**. The handbook (10.2) now also clarifies that the `on` field in the `schedule.actuators` status datapoint is the **live window status**, not the on/off value
+
+### 0.12.3 (2026-09-10)
+
+- (ssbingo) **Koi-biology water-temperature colour scale.** The thermometer (PumpVisual) and the temperature readout (PumpScheduler) are no longer a neutral cold→warm gradient. They now follow the koi temperature bands from the research: strong **green at the growth optimum 23–26 °C**, teal/blue when colder, amber/red when hotter — and the cold **8–13 °C "Aeromonas window"** is deliberately **amber (caution)**, because pathogens are active there while the koi immune system is not. Both extremes go red
+- (ssbingo) **Per-actuator wheel colours.** The Scheduler widget's "Actuators" settings now offer an **on** and **off** colour picker **for each actuator individually** (stored per actuator), replacing the single global pair
+- (ssbingo) **Research + handbook appendices.** Added the full koi-temperature research as [doc/research/wassertemperaturen-im-koiteich.md](/#/docs/adapterref/iobroker.pondpump/doc/research/wassertemperaturen-im-koiteich.md); the German handbook now carries both research papers as **Anhang 1 & Anhang 2** (appended at build time — single source of truth in `doc/research/`)
+
+### 0.12.2 (2026-09-10)
+
+- (ssbingo) **Configurable actuator wheel colours.** The Scheduler widget's actuator status impeller now has two colour pickers in the widget settings — one for the **on** state and one for **off** — each with its darker gradient shade derived automatically. Defaults reproduce the previous look (light green on, muted green-grey off)
+
+### 0.12.1 (2026-09-10)
+
+- (ssbingo) **Per-actuator visibility in the Scheduler widget.** A new **"Actuators"** section in the widget settings lists the selected pump's actuators (read from its schedule) with a checkbox each, so you can **show or hide every actuator individually** in that widget. Hidden actuators are stored per widget (`hiddenActuators`); all are shown by default
+
+### 0.12.0 (2026-09-10)
+
+- (ssbingo) **Named actuators with icons.** An **"Actuator"** schedule window can now be given a **name** (default "Actuator N") and a **selectable icon** (waterfall, stream/creek, aerator/oxygen pump, air, spray, UV, light, feeder, plant filter, heater, chiller, …) in the per-pump scheduler editor. The **Scheduler status** widget now lists every actuator **above the telemetry**, one row each in the order **icon — name — status wheel**: a small **light-green impeller** that **spins while the actuator is on** and stands still (dimmed) while off. Backed by a new read-only `pumps.<n>.schedule.actuators` JSON state (`[{name, icon, target, on}]`) the scheduler keeps up to date; the pure core gained `describeActuators()` (unit-tested). Fixed a latent SVG gradient-id collision so multiple impellers on one card keep their own colour
+
+### 0.11.1 (2026-09-10)
+
+- (ssbingo) **Widget refinements (feedback).** PumpVisual's water thermometer is now **smaller and more modern** (a slim, colour-coded design instead of the oversized one). The **Scheduler status** widget now always shows the **water temperature** next to power/speed and a **small, optionally-animated impeller** in the hero, and — importantly — reads its live values **robustly**: it fetches each state's current value first and subscribes per state, so a pump whose newer `schedule.*` states don't exist yet (older backend) no longer leaves the whole widget blank. Shared the impeller/thermometer graphics between both widgets (`graphics.tsx`)
+
+### 0.11.0 (2026-09-10)
+
+- (ssbingo) **New "Scheduler status" vis-2 widget (`PumpScheduler`).** Select a pump and the widget shows, at a glance, what the built-in scheduler is doing with it: the current output and **target power**, a status badge (active / manual / fail-safe), **reason chips** (temperature curve, time window, base power, night protection, weather boost, frost hold, fail-safe), the **active window**, the **next change** time and the pump's **sunrise/sunset** and **water temperature** — plus live power/rpm and a control bar with on/off, quick power and SFC. Fed by new read-only `pumps.<n>.schedule.*` status states the scheduler publishes each tick (`controlled`, `targetPower`, `sfc`, `source`, `raised`, `nightProtection`, `hold`, `failSafe`, `window`, `nextChangeTs`)
+- (ssbingo) **PumpVisual now shows the water temperature.** When `telemetry.waterTemperature` has a value, the animated impeller shifts left and a **filled, colour-coded thermometer** (cold blue → warm amber) with the reading appears on the right; without a value the widget is unchanged
+- (ssbingo) The pure decision core now also reports its base **source** and the **raised / nightProtected / hold** flags (covered by unit tests), used both by the status states and the widget
+
+### 0.10.1 (2026-09-10)
+
+- (ssbingo) **Fix: `telemetry.waterTemperature` reflects the effective curve source.** When the temperature curve reads an **external** object (e.g. a Homematic water sensor picked via the magnifying glass), that value is now mirrored into `telemetry.waterTemperature` — previously the state stayed empty because only the pump's on-device sensor was mirrored. The scheduler now writes the state from the actual curve source (external OIDs included); the on-device sensor picker remains the fallback when no curve source is configured. A debug line is logged when the source has no finite value
+
+### 0.10.0 (2026-09-10)
+
+- (ssbingo) **Most detailed scheduler debug logging.** With the instance log level on `debug`, every scheduler evaluation now logs the **complete decision chain per pump** — the inputs (raw/smoothed/mapped water temperature, all source states, sunrise/sunset, day/night), each decision step (base from curve/window, the Q_min floor, night protection, every matching weather rule, the actuator windows and the Q_max ceiling) down to the final power/SFC, plus the ramp/hold state and the next re-evaluation time. Location resolution and address geocoding are logged as well. Secrets (passwords/tokens) are never logged. The pure decision core gained an optional decision-trace output for this (covered by unit tests)
+
+### 0.9.1 (2026-09-10)
+
+- (ssbingo) UI robustness: the location map now shows a **clear hint when its map tiles fail to load** (e.g. the admin CSP blocking the external tile host) — the location stays fully settable by clicking/dragging the marker or via the coordinate fields and address search
+
+### 0.9.0 (2026-09-09)
+
+- (ssbingo) **Phase 13 — actuator schedule windows.** A window's mode can now be **"Actuator"**: it drives an external state (waterfall, UVC, aerator, …) to an **on-value** while active and an **off-value** while outside (blank off-value → left untouched). Combine it with the **astro** (sunrise/sunset) bounds for e.g. a waterfall from 09:00 to sunset. Actuator windows may overlap and don't affect the pump's power/SFC. This completes the four astro building blocks (astro windows, night protection, PV-boost via the raise-only weather rules, and now actuator windows)
+
+### 0.8.0 (2026-09-09)
+
+- (ssbingo) **Phase 13 — night protection.** New per-pump option: during the **astronomical night**, if the curve's water temperature is at/above a threshold, the flow is **not reduced below a floor** (default 100 %). Implements the research finding that the oxygen minimum is at night, so a warm-night flow reduction is harmful. Needs a location (for sunrise/sunset); with no curve source it protects unconditionally. Applied before the weather rules and still capped by `maxPower`
+
+### 0.7.1 (2026-09-09)
+
+- (ssbingo) UI: the **location map** is now capped at **50 % of the panel width** (with a sensible minimum) instead of spanning the full width
+
+### 0.7.0 (2026-09-09)
+
+- (ssbingo) **Phase 13 — astronomical schedule windows + location.** A schedule window's start and end can now be a fixed clock time **or** **sunrise/sunset ± an offset** in minutes; a `sunset → sunrise` night window correctly wraps past midnight. New per-pump **astro states** (`astro.sunrise/sunset/sunriseTs/sunsetTs/isDay`), recomputed daily
+- (ssbingo) **Location is configurable** (`suncalc`): use the **ioBroker system location** (default), **one shared location**, or **one per pump** — set it on an **interactive map** (Leaflet/OpenStreetMap, click or drag the marker), by **address search** (geocoded in the backend), or by latitude/longitude. Backend `messagebox` enabled for the geocoder
+- (ssbingo) Based on the extended research (`doc/research/…`, now with chapter 7): a **summer night-time flow reduction is counter-productive** (the oxygen minimum is at night) — astro fits best as a protection window and for side actuators. Handbook chapter 10.4 (DE + EN) added; PDFs regenerated
+
+### 0.6.0 (2026-09-09)
+
+- (ssbingo) **Maximum power % per pump.** A new hard ceiling in the scheduler's fine-tuning: the applied power never exceeds it — it is capped **last**, so it also limits the temperature curve, weather-rule raises/`boostMax` and the missing-source fail-safe. For pumps that only run up to e.g. 90 %
+
+### 0.5.1 (2026-09-09)
+
+- (ssbingo) Fix: the new **water temperature sensor** dropdown rendered as an empty, flat field (empty value, no visible control) — rebuilt as a proper labelled `Select` (with `displayEmpty`/notched label) so the field, its value and the dropdown show correctly
+- (ssbingo) Fix: on startup the scheduler evaluated the temperature curve **before** subscribing to its source states, so the curve briefly hit the missing-source **fail-safe (100 %)** even though the water sensor had a value — it now subscribes to the sources first, then evaluates
+
+### 0.5.0 (2026-09-09)
+
+- (ssbingo) **Water-temperature sensor picker + clearer scheduler UI.** Each pump's temperature/weather section gains a **"Water temperature sensor"** dropdown: it lists the pump's own device temperature sensors **with their live value**, so you pick which one actually reads the water. The choice feeds a new read-only state **`telemetry.waterTemperature`** and **pre-fills the curve source** (external sensors are still selectable via the object picker)
+- (ssbingo) **Every scheduler field is now self-explanatory** — full labels, a **suggested value** (placeholder) and a **help text** on each: minimum power (Q_min), temperature smoothing, hysteresis, max change per hour, the curve-vs-windows priority and the curve source
+- (ssbingo) Handbook chapter 11 (DE + EN) updated for the sensor picker and the fine-tuning suggestions; PDFs regenerated
+
+### 0.4.0 (2026-09-09)
+
+- (ssbingo) **Phase 12 — water-temperature control model.** Reworked the temperature/weather scheduler around the pond-flow research (`doc/research/teichpumpe-durchfluss-temperatur-wetter.md`): the **water-temperature curve** now sets the base flow — with a **default Q10 curve** preset — and **weather rules only ever raise** it. New effect set: **Raise to power %**, **Boost to 100 %**, **Hold (frost)**, **SFC on/off**, and a generic **Set actuator** effect that writes any external state (aeration, waterfall, …). New per-pump limits: **minimum power (Q_min)**, temperature **smoothing** (EMA, hours), **hysteresis (K)** and a **max ramp (% per hour)**. If the temperature source is lost the pump **fails safe to 100 %**, and a warning fires when the curve regulates power while the pump's **native SFC** is on
+- (ssbingo) The curve/rule **source is no longer defaulted to the pump's telemetry** — that value is the pump's *device* temperature, not the water. Pick a real water sensor via the new **object picker**
+- (ssbingo) ⚠️ The weather-rule model changed: rules configured under 0.3.0 (effects *Power %/SFC/Off*) become inert — reconfigure them with the new effects
+
+### 0.3.0 (2026-09-09)
+
+- (ssbingo) **Phase 11 — temperature-/weather-dependent scheduler parameters.** Each pump's scheduler tab gains a **Conditions** section: a **temperature→power curve** (interpolation points; the source defaults to the pump's own water temperature) plus **threshold rules** — any state OID (the pump's temperature or an external weather adapter) compared to a threshold, applying a **power %**, **SFC on/off** or **Off**. A per-pump toggle decides whether conditions **override** the active time window or apply **only outside** the windows. The backend subscribes to the source states and re-evaluates the moment they change
+
+### 0.2.2 (2026-09-09)
+
+- (ssbingo) Set the minimum ioBroker **admin to 8.0.11** — the per-pump scheduler is a React 19 / MUI 9 (admin 8) component, so admin 8.0.11+ keeps it loading reliably
+- (ssbingo) Maintenance: processed the open Dependabot updates — `@iobroker/gui-components` 10.2.3, `@iobroker/json-config` 9.1.2, `@mui/material` + `@mui/icons-material` 9.4.0, `@module-federation/vite` 1.21.x, `@iobroker/types-vis-2` 2.20.1, `@tsconfig/node22` 22.0.6 (admin and widget bundles rebuilt to match)
+- (ssbingo) Fixed the CI type-check: `@tsconfig/node22` 22.0.6 pins `types` to `["node"]`, which dropped the mocha globals in the test files — restored via `types: ["node", "mocha"]` + a declared `@types/mocha`
+
 ### 0.2.1 (2026-08-14)
 
 - (ssbingo) Maintenance: synced the auto-merged repository updates — Dependabot bumps (`@iobroker/json-config` 9.0.18, `@iobroker/gui-components` 10.1.0, `@module-federation/vite` 1.20.4) with the admin and widget bundles rebuilt to match, plus ioBroker template updates (`node:` import prefixes, `CHANGELOG_OLD.md`, Dependabot/CI tuning)
@@ -131,27 +227,25 @@ All settings are available in the Admin UI (JSON config):
 - (ssbingo) Pumps are named after their controller name; new stylized adapter icon (own illustration, not the product photo)
 - (ssbingo) Extensive, component-tagged logging so any failure can be pinpointed from the logs, with secrets never logged
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## Documentation
 
-📖 **Beginner's handbook:** [English](doc/handbook/en/manual.md) ([PDF](doc/handbook/en/manual.pdf)) ·
-[Deutsch](doc/handbook/de/manual.md) ([PDF](doc/handbook/de/manual.pdf))
+📖 **Beginner's handbook:** [English](/#/docs/adapterref/iobroker.pondpump/doc/handbook/en/manual.md) ([PDF](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/handbook/en/manual.pdf)) ·
+[Deutsch](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/handbook/de/manual.md) ([PDF](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/handbook/de/manual.pdf))
 
 Translated documentation:
 
-- 🇩🇪 [Deutsche Dokumentation](doc/de/README.md)
-- 🇷🇺 [Документация на русском](doc/ru/README.md)
-- 🇳🇱 [Nederlandse documentatie](doc/nl/README.md)
-- 🇫🇷 [Documentation française](doc/fr/README.md)
-- 🇮🇹 [Documentazione italiana](doc/it/README.md)
-- 🇪🇸 [Documentación en español](doc/es/README.md)
-- 🇵🇱 [Dokumentacja polska](doc/pl/README.md)
-- 🇵🇹 [Documentação portuguesa](doc/pt/README.md)
-- 🇺🇦 [Документація українською](doc/uk/README.md)
-- 🇨🇳 [简体中文文档](doc/zh-cn/README.md)
+- 🇩🇪 [Deutsche Dokumentation](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/de/README.md)
+- 🇷🇺 [Документация на русском](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/ru/README.md)
+- 🇳🇱 [Nederlandse documentatie](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/nl/README.md)
+- 🇫🇷 [Documentation française](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/fr/README.md)
+- 🇮🇹 [Documentazione italiana](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/it/README.md)
+- 🇪🇸 [Documentación en español](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/es/README.md)
+- 🇵🇱 [Dokumentacja polska](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/pl/README.md)
+- 🇵🇹 [Documentação portuguesa](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/pt/README.md)
+- 🇺🇦 [Документація українською](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/uk/README.md)
+- 🇨🇳 [简体中文文档](https://github.com/ssbingo/ioBroker.pondpump/blob/main/doc/zh-cn/README.md)
 
-Older changelogs can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelogs can be found in CHANGELOG_OLD.md.
 
 ## License
 MIT License

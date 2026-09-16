@@ -1,60 +1,70 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.comfoair/README.md
 title: ioBroker.comfoair
-hash: 6p3kCLVVzilY/rhsudJNUVqqhuVsPsXcjbbzJWX0n+Q=
+hash: emLTIXM6cI4M6yUZOJdK/gDE1605fka1uUkRiM0dmNk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.comfoair/admin/comfoair.png)
 
 ![Количество установок](http://iobroker.live/badges/comfoair-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.comfoair.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.comfoair.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.comfoair.svg)
 ![НПМ](https://nodei.co/npm/iobroker.comfoair.png?downloads=true)
 
-# IoBroker.comfoair
-## Часовой
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+# ioBroker.comfoair
 
-##адаптер ioBroker для Zehnder Comfoair
-Это адаптер ioBroker для систем вентиляции Zehnder Comfoair CA (т. е. ComfoAir CA350, НЕ ComfoAir Q350...).
+## Часовой
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
+
+## Адаптер ioBroker для Zehnder Comfoair
+
+Это адаптер ioBroker для вентиляционных систем Zehnder Comfoair 'CA' (то есть ComfoAir CA350, а НЕ ComfoAir Q350...).
 
 ## Связь
-### По IP/LAN
-Используйте преобразователь RS232 в LAN или WiFi для подключения ioBroker к вашему Zehnder Comfoair.
-Установите оборудование для TCP – подключения к comfoair: т.е. адаптер RS232-LAN к последовательному интерфейсу comfoair. Подключите только контакты 2, 3 и 5 (должны работать также с TX, RX и GND – контакты подключения cc-Ease тоже).
 
-### ПОСЛЕДОВАТЕЛЬНОЕ СОЕДИНЕНИЕ
-Подключите последовательный интерфейс вашего comfoair к последовательному интерфейсу устройства, на котором работает ioBroker. То есть используйте кабель RS232toUSB или адаптер RS232toTTL для подключения к контактам UART Raspberry Pis.
+### По IP/LAN
+
+Используйте преобразователь RS232 в LAN или WiFi для подключения ioBroker к вашему Zehnder Comfoair. Установите оборудование для TCP-соединения с Comfoair: то есть адаптер RS232 в LAN к последовательному интерфейсу Comfoair. Подключите только контакты 2, 3 и 5 (должно работать также с контактами TX, RX и GND разъема cc-Ease).
+
+### Последовательное соединение
+
+Подключите последовательный интерфейс вашего Comfoair к последовательному интерфейсу устройства, на котором работает ioBroker. Например, используйте кабель RS232toUSB или адаптер RS232toTTL для подключения к контактам UART Raspberry Pi.
 
 ## Конфигурация
-Выберите предпочитаемый режим подключения (IP или последовательный), установите comfoair — IP-адрес и порт или укажите последовательное устройство, определите режим подключения comfoair (RS232) (см. «Адаптер и CC Ease») и определите опрос — интервальный.
 
-## Адаптер и CC Ease
-В общем, не рекомендуется отправлять данные с двух передатчиков на один приемник при последовательном соединении RS232. Параллельное использование CCEase и адаптера может привести к ошибкам или, в худшем случае, к повреждению вашего устройства управления comfoair! Поэтому при запуске адаптера ComfoAir ваш CC Ease должен отключиться или будет выключен.
-Сам comfoair знает 4 различных rs232-режима: CCEaseonly, PConly, PCMaster, PCLogmode. В PConly и PCMaster CC-Ease отключен.
-В конфигурации экземпляра вы можете выбрать один из следующих режимов подключения. Пожалуйста, отметьте только один из них! Как только адаптер работает только в адаптере или в параллельном режиме, вы можете переключить режим rs232 comfoair (что не рекомендуется, поскольку для определенного режима подключения требуется определенный режим rs232!).
+Выберите предпочтительный режим подключения (IP или последовательный), задайте IP-адрес и порт comfoair или укажите ваше последовательное устройство, определите режим подключения comfoair (RS232) (см. «Адаптер и CC Ease») и задайте интервал опроса.
+
+## Адаптер и удобство использования CC
+
+В целом, не рекомендуется передавать данные с двух передатчиков на один приемник по последовательному интерфейсу RS232. Параллельное использование CCEase и адаптера может привести к ошибкам или, в худшем случае, к повреждению вашего контроллера Comfoair! Поэтому при запуске адаптера ComfoAir ваш CC Ease должен быть отключен или выключен. Сам Comfoair поддерживает 4 различных режима RS232: CCEaseonly, PConly, PCMaster, PCLogmode. В режимах PConly и PCMaster CC-Ease отключен. В конфигурации экземпляра вы можете выбрать один из следующих режимов подключения. Пожалуйста, отметьте только один из них! После того, как адаптер будет работать только в режиме адаптера или в параллельном режиме, вы сможете переключать режим RS232 Comfoair (что не рекомендуется, поскольку для определенного режима подключения требуется определенный режим RS232!).
 
 ### Только адаптер
-CC Ease отключается (рекомендуется) или выключается при запуске адаптера. Управлять comfoair можно только с помощью ioBroker (режим rs232 — PCMaster). Этот режим является стандартным и рекомендуется.
+
+CC Ease отключен (рекомендуется) или будет выключен при запуске адаптера; вы можете управлять Comfoair только через ioBroker (режим RS232 — PCMaster). Этот режим является режимом по умолчанию и рекомендуется.
 
 ### Только прослушивание
-Адаптер перехватывает данные, отправленные с comfoair или CC Ease. CC Ease запущен, с адаптера не могут быть отправлены команды. В этом режиме вы получаете только базовый набор значений (температура, состояние вентиляции). В этом режиме также отсутствует риск ошибок/повреждений связи, поскольку отсутствует связь между адаптером и системой comfoair.
+
+Адаптер принимает данные, отправляемые с Comfoair или CC Ease. CC Ease работает, команды с адаптера отправляться не могут. В этом режиме вы получаете только базовый набор значений (температура, состояние вентиляции). В этом режиме также отсутствует риск ошибок связи/повреждений, поскольку связь между адаптером и Comfoair отсутствует.
 
 ### Параллельный режим
-CC Ease и адаптер работают. Для comfoiar rs232mode установлено значение «PCLogmode». Адаптер «прослушивает» основные значения (температуру, уровень вентиляции) и опрашивает другие (ошибки, таймер фильтра). Установите увеличенный интервал опроса, чтобы снизить риск ошибок связи. Вы можете управлять своим ComfoAir с помощью ioBroker и устройства CC Ease. Перед отправкой команды (включая опрос) режим rs232 переключается на PC Master. При каждой отправке команды также выполняется опрос. Тесты показали безошибочность — параллельная работа в течение более длительного периода времени. Но: Вы запускаете этот режим на свой страх и риск.
 
-### Параллельный режим в режиме постоянного журнала ПК
-Некоторые пользователи получили положительный опыт постоянной работы comfoair в режиме журнала ПК. Этот режим имеет те же функции, что и режим «Только адаптер», но с работающим CC Ease. Но: Вы запускаете этот режим на свой страх и риск.
+CC Ease и адаптер запущены. Для ComfoAir установлен режим rs232mode 'PCLogmode'. Адаптер «прослушивает» основные значения (температуру, уровень вентиляции) и опрашивает другие (ошибки, таймер фильтра). Установите увеличенный интервал опроса, чтобы снизить риск ошибок связи. Вы можете управлять ComfoAir с помощью ioBroker и блока CC Ease. Перед отправкой команды (включая опрос) режим rs232 переключается в режим PC Master. При каждой отправленной команде также выполняется опрос. Тесты показали отсутствие ошибок — параллельная работа в течение длительного периода времени. Но: вы используете этот режим на свой страх и риск.
 
-## Использование адаптера
-Значения вашего комфорта должны быть видны в каналах «статус» и «температура». Пожалуйста, обновите объекты - просмотр после изменения режима подключения.
+### Параллельный режим в постоянном режиме PC-logmode
 
-Устанавливая/изменяя значения в канале «управление», вы управляете вентиляцией comfoair. Все значения в канале «control» должны быть установлены с ACK=false, чтобы они распознавались как команды для адаптера.
+Некоторые пользователи положительно отзывались о постоянной работе Comfoair в режиме PC-Logmode. Этот режим имеет те же функции, что и режим «Только адаптер», но с работающей программой CC Ease. Однако: вы используете этот режим на свой страх и риск.
 
-Boostmode: установите время повышения и запустите. Вентиляция вернется на предыдущий уровень после ускорения. Возврат отменяется, если уровень вентиляции изменяется во время режима ускорения.
+## Используя адаптер
 
-Протестировано на comfoair CA350.
+Значения параметров вашего устройства Comfoair должны отображаться в каналах «Статус» и «Температуры». После изменения режима подключения обновите представление объектов.
+
+Установив/изменяя значения в канале «управление», вы управляете вентиляцией Comfoair. Для того чтобы все значения в канале «управление» были распознаны как команды для адаптера, их необходимо установить со значением ACK=false.
+
+Режим ускорения: установите время ускорения и запустите игру. После завершения ускорения уровень вентиляции вернется к предыдущему значению. Возврат к предыдущему уровню будет отменен, если уровень вентиляции изменится во время ускорения.
+
+Протестировано на Comfoair CA350.
 
 ## Changelog
 
@@ -62,6 +72,21 @@ Boostmode: установите время повышения и запусти�
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 1.3.0 (2026-02-23)
+- (mcm1957) Adapter requires node.js >=20 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (mcm1957) Dependencies have been updated
+- (copilot) **CI/CD**: Migrated to ESLint 9 and @iobroker/eslint-config
+
+### 1.2.2 (2024-04-24)
+
+* (mcm1957) The dependency requirements have been corrected
+* (mcm1957) Some dependencies have been updated
+
 ### 1.2.0 (2024-04-14)
 
 * (mcm1957) Adapter requires node.js 18 and js-controller >= 5 now
@@ -76,111 +101,12 @@ Boostmode: установите время повышения и запусти�
 
 -   boost-error fixed (sentry)
 
-### 1.1.7
-
--   dependencies updated, serialport 10.x - update
-
-### 1.1.6
-
--   boostmode enhanced, dependencies updated
-
-### 1.1.5
-
--   Bugfix (js-controller update)
-
-### 1.1.3
-
--   boostmode added
-
-### 1.1.2
-
--   adapter - internal filter-h counter added
-
-### 1.1.1
-
--   Periodical self-test with restart in case of fail added
-
-### 1.1.0
-
--   displays now working hours of different ventilation levels, preheating, bypass and frost-protection.
-
-### 1.0.0
-
--   offers now the possibility of a direct serial connection besides the connection over IP/LAN.
-
-### 0.3.2
-
--   Bypass - error bug fixed.
-
-### 0.3.1
-
--   new connection mode: parallel in constant PC-Logmode.
-
-### 0.3.0
-
--   new connection modes, i.e. 'listening only', selftest-function and setting filter-timer added.
-
-### 0.2.1
-
--   smaller bugfixes.
-
-### 0.2.0
-
--   New rs232 - Modes, reading enthalpie-values, handling connection-errors.
-
-### 0.1.4
-
--   README-Update 'NO PARALLEL USE', discard 'Safe-Mode'.
-
-### 0.1.3
-
--   RS - 232 interface: manual- or safe - mode possible.
-
-### 0.1.2
-
--   ReadME updated, minor bugfixes.
-
-### 0.1.1
-
--   bugfix ventlevels, reading errors
-
-### 0.1.0
-
--   ReadME Update
-
-### 0.0.7
-
--   Core Files/Testing Update and introduce adapter-core
-
-### 0.0.6
-
--   Filter - change - indicator.
-
-### 0.0.5
-
--   bugfix set vent levels.
-
-### 0.0.4
-
--   gets & sets vent levels, gets filter-timer.
-
-### 0.0.3
-
--   minor bugfixes, sets comfort-temperature and resets filter-hours.
-
-### 0.0.2
-
--   First running Version. Gets temp, vent, bypass and filter states, sets fan level.
-
-### 0.0.1
-
--   In development stage, contributions welcome
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 forelleblau marceladam@gmx.ch
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023-2025 forelleblau marceladam@gmx.ch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

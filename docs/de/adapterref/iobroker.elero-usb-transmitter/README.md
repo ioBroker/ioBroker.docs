@@ -3,10 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.elero-usb-transmitter/README.md
 title: ioBroker.elero-usb-transmitter
-hash: nf5snk6oEC95XZM7T0xavw7ntsOBYC+aaH5kk8xqxT4=
+hash: dbtCfAzLwhx75Bh5Qzq9vqCcnyHahwTpKweS8O/cphM=
 ---
-# IoBroker.elero-usb-transmitter
-![Logo](../../../en/adapterref/iobroker.elero-usb-transmitter/admin/elero-usb-transmitter.png)
+# ioBroker.elero-usb-transmitter
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.elero-usb-transmitter.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.elero-usb-transmitter.svg)
@@ -15,67 +14,76 @@ hash: nf5snk6oEC95XZM7T0xavw7ntsOBYC+aaH5kk8xqxT4=
 ![Bekannte Schwachstellen](https://snyk.io/test/github/marc2016/ioBroker.elero-usb-transmitter/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.elero-usb-transmitter.png?downloads=true)
 
-## Elero-usb-Transmitter-Adapter für ioBroker
-Adapter zur Steuerung von Elero-Geräten mit dem Elero USB-Transmitter-Stick.
-Sie benötigen den USB-Transmitter-Stick und müssen die vorhandenen Rollladenmotoren daran anschließen. Der Adapter erkennt automatisch die aktiven Kanäle und fügt die Geräte hinzu. In den Einstellungen können Sie die Gerätenamen und das Aktualisierungsintervall festlegen.
+![Logo](../../../en/adapterref/iobroker.elero-usb-transmitter/admin/elero-usb-transmitter.png)
+
+## elero-usb-transmitter-Adapter für ioBroker
+
+Adapter zur Steuerung von Elero-Geräten mit dem Elero USB-Transmitter-Stick. Sie benötigen den USB-Transmitter-Stick und müssen die vorhandenen Rollladenmotoren daran anschließen. Der Adapter erkennt automatisch die aktiven Kanäle und fügt die Geräte hinzu. In den Einstellungen können Sie die Gerätenamen und das Aktualisierungsintervall festlegen.
 
 ## Konfiguration
-1. **USB-Stick-Gerätepfad**: Pfad zu Ihrem USB-Senderstick (z. B. `/dev/ttyUSB0` oder `COM3`).
-2. **Aktualisierungsintervall**: Zeit in Minuten, um den Gerätestatus zu aktualisieren.
-3. **Gerätekonfigurationen**: Sie können in den Adaptereinstellungen Kanalnummern benutzerdefinierten Namen zuordnen.
+
+1. **USB-Stick-Gerätepfad** : Pfad zu Ihrem USB-Transmitter-Stick (z. B.`/dev/ttyUSB0` oder`COM3` ).
+2. **Aktualisierungsintervall** : Zeit in Minuten, um den Gerätestatus zu aktualisieren.
+3. **Gerätekonfigurationen** : In den Adaptereinstellungen können Sie Kanalnummern benutzerdefinierten Namen zuordnen.
 
 ## Verwendung
+
 Der Adapter erstellt für jeden aktiven Kanal des Sticks ein Gerät. Jedes Gerät enthält die folgenden Zustände:
 
-| Bundesland | Rolle | Beschreibung |
-| :--- | :--- | :--- |
-| `channel` | text | Die Kanalnummer des Geräts. |
-| `open` | Schalter | Hauptsteuerung. Auf `true` stellen zum Öffnen (oben), auf `false` zum Schließen (unten). |
-| `controlCommand` | Status | Bestimmte Befehle direkt senden. |
-| `controlCommand` | Status | Bestimmte Befehle direkt senden. |
+| Zustand          | Rolle    | Beschreibung                                                                           |
+| :--------------- | :------- | :------------------------------------------------------------------------------------- |
+| `channel`        | Text     | Die Kanalnummer des Geräts.                                                            |
+| `info`           | Text     | Aktuelle Statusinformationen, die vom Stick zurückgegeben werden.                      |
+| `open`           | schalten | Hauptsteuerung. Einstellen auf`true` zum ÖFFNEN,`false` zum SCHLIESSEN (ABSCHLIESSEN). |
+| `controlCommand` | Zustand  | Sende spezifische Befehle direkt.                                                      |
 
 ### Steuerbefehle
-Sie können die folgenden Werte in den Zustand `controlCommand` schreiben:
 
-* `16`: STOP
-* `32`: UP
-* `36`: Belüftung/Neigung
-* `64`: UNTEN
-* `68`: Zwischenposition
+Sie können die folgenden Werte in die`controlCommand` Zustand:
+
+- `16` : STOPPEN
+- `32` : HOCH
+- `36` Belüftung/Neigung
+- `64` : RUNTER
+- `68` Zwischenposition
 
 ### Einfache Befehle
-* `74`: EASY_CHECK
-* `75`: EASY_CONFIRM
-* `76`: EASY_SEND
-* `77`: EASY_ACK
-* `78`: EASY_INFO
+
+- `74` : EASY\_CHECK
+- `75` : EASY\_CONFIRM
+- `76` : EASY\_SEND
+- `77` : EASY\_ACK
+- `78` : EASY\_INFO
 
 ### Statuswerte
-Der Zustand `info` zeigt den aktuellen Status des Geräts an. Gängige Werte sind:
 
-| Wert | Beschreibung |
-| :--- | :--- |
-| `INFO_UNKNOWN` | Unbekannter Status (-1). |
-| `INFO_TOP_POSITION_STOP` | An der obersten Position (1) angehalten. |
-| `INFO_BOTTOM_POSITION_STOP` | An der unteren Position (2) angehalten. |
-| `INFO_INTERMEDIATE_POSITION_STOP` | An Zwischenposition (3) angehalten. |
-| `INFO_TILT_VENTILATION_POS_STOP` | Angehalten in Kipp-/Beatmungsposition (4). |
-| `INFO_BLOCKING` | Blockierung erkannt (5). |
-| `INFO_OVERHEATED` | Motor obenliegend (6). |
-| `INFO_TIMEOUT` | Zeitüberschreitung (7). |
-| `INFO_START_TO_MOVE_UP` | Beginnt, sich nach oben zu bewegen (8). |
-| `INFO_START_TO_MOVE_DOWN` | Beginn der Abwärtsbewegung (9). |
-| `INFO_MOVING_UP` | Aufwärtsbewegung (10). |
-| `INFO_MOVING_DOWN` | Abwärtsbewegung (11). |
-| `INFO_STOPPED_IN_UNDEFINED_POSITION` | Angehalten an undefinierter Position (13). |
-| `INFO_TOP_POS_STOP_WICH_TILT_POS` | Anschlag in oberer Position mit Neigungsposition (14). |
-| `INFO_BOTTOM_POS_STOP_WICH_INT_POS` | Untere Position mit Zwischenposition (15). |
-| `INFO_SWITCHING_DEVICE_SWITCHED_OFF` | Gerät ausschalten (16). |
-| `INFO_SWITCHING_DEVICE_SWITCHED_ON` | Gerät einschalten (17). |
-| `INFO_SWITCHING_DEVICE_SWITCHED_ON` | Gerät wird eingeschaltet (17). |
+Der`info` Der Status zeigt den aktuellen Status des Geräts an. Gängige Werte sind:
+
+| Wert                                 | Beschreibung                                           |
+| :----------------------------------- | :----------------------------------------------------- |
+| `INFO_UNKNOWN`                       | Unbekannter Status (-1).                               |
+| `INFO_NO_INFORMATION`                | Keine Informationen verfügbar (0).                     |
+| `INFO_TOP_POSITION_STOP`             | Auf dem ersten Platz (1) gestoppt.                     |
+| `INFO_BOTTOM_POSITION_STOP`          | An der unteren Position (2) angehalten.                |
+| `INFO_INTERMEDIATE_POSITION_STOP`    | An der Zwischenposition (3) angehalten.                |
+| `INFO_TILT_VENTILATION_POS_STOP`     | Angehalten in der Kipp-/Belüftungsposition (4).        |
+| `INFO_BLOCKING`                      | Blockierung erkannt (5).                               |
+| `INFO_OVERHEATED`                    | Motor obenliegend (6).                                 |
+| `INFO_TIMEOUT`                       | Zeitüberschreitung (7).                                |
+| `INFO_START_TO_MOVE_UP`              | Beginnt nach oben (8).                                 |
+| `INFO_START_TO_MOVE_DOWN`            | Beginnt, sich nach unten zu bewegen (9).               |
+| `INFO_MOVING_UP`                     | Aufstieg (10).                                         |
+| `INFO_MOVING_DOWN`                   | Abwärtsbewegung (11).                                  |
+| `INFO_STOPPED_IN_UNDEFINED_POSITION` | An einer undefinierten Position angehalten (13).       |
+| `INFO_TOP_POS_STOP_WICH_TILT_POS`    | Anschlag in oberer Position mit Neigungsposition (14). |
+| `INFO_BOTTOM_POS_STOP_WICH_INT_POS`  | Untere Position mit Zwischenstellung (15).             |
+| `INFO_SWITCHING_DEVICE_SWITCHED_OFF` | Gerät ausschalten (16).                                |
+| `INFO_SWITCHING_DEVICE_SWITCHED_ON`  | Gerät einschalten (17).                                |
 
 ## Beispiele
-### Javascript / Blockly
+
+### JavaScript / Blockly
+
 Zum Öffnen eines Rollladens (Kanal 1):
 
 ```javascript
@@ -89,6 +97,17 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 ```
 
 ## Changelog
+### 1.0.7 (2026-07-25)
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
+### 1.0.6 (2026-05-24)
+
+- Serialize USB access (`runExclusive`) for `getInfo` and control commands
+- Retry control commands and reconnect the stick on failure; update `info.connection`
+- Adjust burst polling after commands (10s interval, 6 runs)
+- Update dependencies
+>>>>>>> origin/main
+
 ### 1.0.5 (2025-12-31)
 
 -   Fixed reliability issue with fast polling (burst mode)
@@ -105,65 +124,7 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 - Improvement: Connection retry logic implemented
 - Improvement: All tests converted to TypeScript
 
-### 1.0.2 (2025-12-24)
-
-- Replaced deprecated createState/createDevice methods with setObjectNotExistsAsync
-
-### 1.0.1 (2025-12-24)
-
-- Dependencies updated
-
-### 1.0.0 (2025-12-23)
-
-- Refactor main.ts (split into smaller modules)
-- Cleanup unused code (src/lib/tools.ts)
-- Admin UI migrated to jsonConfig
-- Dependencies updated
-- ESLint migrated to v9
-- Tests validation improved
-- Bug fix: Async iteration in device refresh
-- TypeScript configuration updated
-
-### 0.5.2
-
-- Missing translation for title and description added
-
-### 0.5.1
-
-- Translation added
-
-### 0.5.0
-
-- Translations added
-- Ignore state changes with ack=true in onStateChanged handler
-- messages handler removed
-- node-scheduler package removed
-
-### 0.4.0
-
-- Added channel for connection info.
-
-### 0.3.0
-
-- Use only open state to controle devices.
-
-### 0.1.0
-
-- Transmission time removed and code clean up.
-
-### 0.0.3"
-
-- Log messages added.
-
-### 0.0.2
-
-- bug fixes
-
-### 0.0.1
-
-- initial release
-
-## License
+Older changelogs can be found there## License
 
 MIT License
 

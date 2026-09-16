@@ -9,7 +9,7 @@ hash: Yi2E6W9RHhmNwuCEDkiJSk2tvvns8JKWVvLyrnyoMmo=
 # The Events tab
 In this tab, the current states of all data points are displayed. The values can also be changed.
 
-![iobroker_admin_states_columns](../../../../de/adapterref/iobroker.admin/admin/img/tab-events_States_columns.jpg)
+![iobroker_admin_states_columns](../img/tab-events_States_columns.jpg)
 
 ## The page content
 On the page, the existing objects are tabulated. The columns can be sorted alphabetically in ascending or descending order by clicking on the column headers according to the contents of the corresponding columns (toggle function). The fields underneath are used to filter the data points according to their own criteria.
@@ -45,7 +45,7 @@ This is the timestamp to which the value of the datapoint last changed.
 ## The page footer
 In the page footer, there is still a little information
 
-![iobroker_admin_states_footer](../../../../de/adapterref/iobroker.admin/admin/img/tab-events_States_footer.jpg)
+![iobroker_admin_states_footer](../img/tab-events_States_footer.jpg)
 
 ### **1.) Reload**
 This icon can be clicked to bring the table up to date.

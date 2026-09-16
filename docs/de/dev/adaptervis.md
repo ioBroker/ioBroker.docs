@@ -1,50 +1,89 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adaptervis.md
-title: VIS-Widget debuggen
-hash: KIzieMx/A0IHa34738atYrTR1bLyDI4IzfnpJXXujh8=
+title: VIS-Widgets debuggen
+lastChanged: "09.09.2026"
 ---
-# Debuggen von VIS-Widgets
-Um mit dem Debuggen von ioBroker.vis zu beginnen, müssen Sie Folgendes tun:
 
-- Deaktivieren Sie den Cache im ioBroker.js-Controller
+# VIS-Widgets debuggen
 
- Öffnen Sie die Datei /opt/iobroker/iobroker-data/iobroker.json und ändern Sie das Attribut **noFileCache** in _true_.
+Ein Widget läuft im Browser, nicht in Node.js. Der Debugger ist also der des
+Browsers, nicht der von [Debugging](/docs/dev/adapterdebug.md). Der Weg dorthin
+hängt davon ab, ob das Widget für **vis-2** oder für das ältere **vis 1**
+gebaut ist.
 
-```
-{
-  "network": {
-    "IPv4": true,
-    "IPv6": true,
-    "bindAddress": null,
-    "useSystemNpm": true
-  },
-  "objects": {
-    "type": "file",
-    "typeComment": "Possible values: 'file' - [port 9001], redis - [port 6379], couch - [port 5984].",
-    "host": "127.0.0.1",
-    "port": 9001,
-    "user": "",
-    "pass": "",
-    "noFileCache": true
-  },
-...
+## vis-2
+
+Widgets für vis-2 sind React-Komponenten und werden in einem eigenen Paket
+entwickelt. Als Ausgangspunkt dient die Vorlage
+[ioBroker.vis-2-widgets-react-template](https://github.com/ioBroker/ioBroker.vis-2-widgets-react-template).
+
+### Ohne laufenden ioBroker
+
+Für die Arbeit am Aussehen und an der Logik genügt der eigene
+Entwicklungsserver. Im Quellverzeichnis der Widgets:
+
+```bash
+npm run start
 ```
 
-- Deaktivieren Sie den Cache in ioBroker.web
+Danach liegt das Widget unter `http://localhost:4173`. Es wird in einer
+Demo-Umgebung angezeigt, Änderungen erscheinen sofort, und die
+Entwicklerwerkzeuge des Browsers zeigen den ungebauten Quelltext mit
+Haltepunkten und lesbaren Namen.
 
-  Öffnen Sie die Konfiguration der Adapter "web" -Instanz und stellen Sie sicher, dass "Cache" deaktiviert ist. Es ist standardmäßig deaktiviert.
+### Mit laufendem ioBroker
 
-- starte den ioBroker mit "iobroker restart" neu
+Sobald das Widget echte Zustände braucht, kommt der
+[dev-server](/docs/dev/devserver.md) dazu:
 
-- Ersetzen Sie index.html und edit.html
+1. `dev-server watch --noStart` im Adapterverzeichnis starten.
+2. `npm run start` im Quellverzeichnis der Widgets starten.
+3. Im Objekt `system.adapter.<adaptername>.0` das Feld
+   `common.visWidgets.<widgetname>.url` auf
+   `http://localhost:4173/customWidgets.js` setzen.
+4. `dev-server upload` aufrufen.
+5. Den vis-2-Editor im Browser neu laden.
 
-Ersetzen Sie Dateien in _ / opt / iobroker / iobroker-data / files / vis / index.html_ und _edit.html_ durch Dateien aus _ / opt / iobroker / node_modules / iobroker.vis / www / index.html.original_ und _edit.html .Original_.
-Ändern Sie die Datei /opt/iobroker/iobroker-data/files/vis/cache.manifest. Egal was, nur ein Symbol, um den Browser zum erneuten Laden von Dateien zu veranlassen. Die Dateien müssen kleiner als 200 KB sein. Wenn Sie falsche Dateien haben, sind sie definitiv größer als 400k.
+vis-2 lädt die Widgets dann vom Entwicklungsserver statt aus dem installierten
+Adapter. Ein Neuladen der Seite genügt nach jeder Änderung.
 
-Wenn Sie nun die Dateien ändern (z. B. /opt/iobroker/iobroker-data/files/vis/widgets/metro.html), werden die Änderungen nach dem erneuten Laden von vis angezeigt.
+!> Den geänderten Wert von `common.visWidgets…url` vor der Veröffentlichung
+wieder zurücksetzen. Sonst sucht die Installation beim Benutzer nach
+`localhost:4173`.
 
-- Das Problem ist, dass alle Widgets dynamisch verknüpft sind und Sie nicht in Browser-Quellen zur Datei metro.html wechseln und einen Haltepunkt setzen können.
+?> Hilfsklassen und die Migration älterer Widgets beschreibt das Paket
+[@iobroker/vis-2-widgets-react-dev](https://www.npmjs.com/package/@iobroker/vis-2-widgets-react-dev).
 
-  Es gibt jedoch einen Trick: Wenn Sie eine Konsole.log-Ausgabe machen (oder [Debugger;](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/debugger)), können Sie diese Ausgabe in der Browser-JS-Konsole erkennen und durch Klicken auf die Stelle wechseln (in Chrome arbeiten).
+## vis 1
+
+Widgets für vis 1 sind HTML-Dateien mit jQuery. Sie liegen im Datenspeicher
+unter `vis/widgets/` und werden von dort ausgeliefert, nicht aus dem
+Adapterverzeichnis. Deshalb reicht es nicht, die Datei im Paket zu ändern.
+
+Der Weg:
+
+1. Im Adapter `web` in der Instanzkonfiguration den Cache abschalten. Er ist
+   von Haus aus aus.
+2. In `iobroker-data/iobroker.json` unter `objects` das Attribut
+   `noFileCache` auf `true` setzen und ioBroker mit `iobroker restart` neu
+   starten.
+3. Die geänderte Widget-Datei mit `iobroker upload vis` in den Datenspeicher
+   schieben.
+4. Die Seite im Browser mit gedrückter Umschalttaste neu laden.
+
+Widgets werden dynamisch nachgeladen, deshalb taucht die Datei in den
+Browser-Quellen zunächst nicht auf. Ein `console.log` oder eine
+[`debugger`-Anweisung](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/debugger)
+im Widget hilft: Über die Ausgabe in der Konsole springt man in die Datei und
+kann dort Haltepunkte setzen.
+
+!> Anleitungen, die das Ersetzen von `index.html` durch `index.html.original`
+und das Ändern von `vis/cache.manifest` beschreiben, sind überholt. Der
+dahinterliegende Browser-Zwischenspeicher (Application Cache) wurde 2021 aus
+allen Browsern entfernt.
+
+## Weiterführend
+
+* [vis](/docs/viz/vis.md) und [Widgets](/docs/viz/widgets.md) aus Sicht der Benutzer
+* [dev-server](/docs/dev/devserver.md)
+* [Debugging](/docs/dev/adapterdebug.md) für den Node.js-Teil eines Adapters

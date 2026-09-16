@@ -1,106 +1,97 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.govee-smart/README.md
-title: <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.govee-smart@main/admin/govee-smart.svg" width="48" align="top" /> ioBroker.govee-smart
-hash: MmAk/+FsnENpdUXKDHJwMHjEWCcEPZ5LfKNvlaSWMh8=
+BADGE-npm version: https://img.shields.io/npm/v/iobroker.govee-smart
+BADGE-stable: https://iobroker.live/badges/govee-smart-stable.svg
+BADGE-Installations: https://iobroker.live/badges/govee-smart-installed.svg
+BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.govee-smart
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.govee-smart/actions/workflows/test-and-release.yml/badge.svg
+BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
+BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
+BADGE-License: https://img.shields.io/badge/license-MIT-green
+BADGE-Sentry: https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white
+BADGE-Ko-fi: https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi
+BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge
 ---
-# <img src="https://cdn.jsdelivr.net/gh/krobipd/ioBroker.govee-smart@main/admin/govee-smart.svg" width="48" align="top" /> ioBroker.govee-smart
+# Govee Smart
 
-![npm-Version](https://img.shields.io/npm/v/iobroker.govee-smart)
-![stabil](https://iobroker.live/badges/govee-smart-stable.svg)
-![Installationen](https://iobroker.live/badges/govee-smart-installed.svg)
-![npm-Downloads](https://img.shields.io/npm/dt/iobroker.govee-smart)
-![Knoten](https://img.shields.io/badge/node-%3E%3D22-brightgreen)
-![Typoskript](https://img.shields.io/badge/TypeScript-strict-blue)
-![Lizenz](https://img.shields.io/badge/license-MIT-green)
-![Posten](https://img.shields.io/badge/error%20reporting-Sentry-362d59?logo=sentry&logoColor=white)
-![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-ff5e5b?style=for-the-badge&logo=ko-fi)
-![PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-badge)
+Steuert Govee-WLAN-Geräte aus ioBroker: LED-Streifen, Lampen und Panels, Thermo- und Hygrometer,
+Luftgüte-Monitore, Steckdosen, Batterie-Taster und Fernbedienungen sowie Geräte wie Heizer,
+Luftbefeuchter, Duftspender, Wasserkocher, Eiswürfelbereiter, Ventilatoren und Luftreiniger.
 
-Steuern Sie alle WLAN-Produkte ([Govee](https://www.govee.com/)) über ioBroker – Lampen, Sensoren und Haushaltsgeräte. Geräte, die ausschließlich über Bluetooth funktionieren, werden nicht unterstützt.
+Der Adapter spricht mit deinen Geräten **lokal, wann immer es geht**. Eine Lampe mit aktivierter
+lokaler Schnittstelle antwortet im eigenen Netz in Millisekunden, und die Cloud darf niemals
+überschreiben, was das Gerät gerade lokal gemeldet hat. Die Cloud liefert nur, was sie allein
+weiß — Gerätenamen, Fähigkeiten, Szenen und Snapshots — und übernimmt die Steuerung für Geräte
+ohne lokale Schnittstelle.
 
-Der Adapter nutzt alle verfügbaren Govee-Kanäle (LAN, Cloud REST, AWS IoT MQTT, OpenAPI MQTT, App API) und wählt für jedes Gerät denjenigen aus, der die schnellste Antwort liefert. Details finden Sie in **[Wiki](https://github.com/krobipd/ioBroker.govee-smart/wiki)**.
+## Was du bekommst, je nachdem was du einträgst
 
----
+Alles außer der ersten Zeile ist freiwillig. Je mehr du einträgst, desto mehr steht zur Verfügung;
+trägst du nichts ein, funktioniert die lokale Steuerung trotzdem.
 
-## Dokumentation
-Die vollständige Benutzerdokumentation befindet sich im **[Wiki](https://github.com/krobipd/ioBroker.govee-smart/wiki)**.
+| Was du einträgst                    | Was der Adapter kann                                                                           |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Nichts                              | Lampen im eigenen Netz finden und schalten: Ein/Aus, Helligkeit, Farbe, Farbtemperatur, Status |
+| + Govee-API-Schlüssel               | Gerätenamen, Fähigkeiten, Szenen, Snapshots und Segmente                                       |
+| + Govee-Konto (E-Mail und Passwort) | Echtzeit-Statusmeldungen von Govee: Änderungen aus der App oder am Gerät erscheinen sofort     |
 
-| Thema | Englisch | Deutsch |
-| --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Landingpage | [Startseite](https://github.com/krobipd/ioBroker.govee-smart/wiki/Home) | [Startseite](https://github.com/krobipd/ioBroker.govee-smart/wiki/Startseite) |
-| Unterstützte Modelle, Statusbedeutungen, eigene hinzufügen | [Geräte](https://github.com/krobipd/ioBroker.govee-smart/wiki/Devices) | [Geräte](https://github.com/krobipd/ioBroker.govee-smart/wiki/Geraete) |
-| Jeder Datenpunkt, wo er landet, was er bewirkt | [Zustandsbaum](https://github.com/krobipd/ioBroker.govee-smart/wiki/State-Tree) | [Datenpunkte](https://github.com/krobipd/ioBroker.govee-smart/wiki/Datenpunkte) |
-| Thermometer, Heizgeräte, Wasserkocher usw. — Zustandsbaum, Aktualisierungen, Fehlerbehebung | [Sensoren und Geräte](https://github.com/krobipd/ioBroker.govee-smart/wiki/Sensors-and-Appliances) | [Sensoren und Geräte](https://github.com/krobipd/ioBroker.govee-smart/wiki/Sensoren-und-Appliances) |
-| Lichter — Segmentanzahl, Assistent, Streifen schneiden, Stapelverarbeitung | [Segmente](https://github.com/krobipd/ioBroker.govee-smart/wiki/Segments) | [Segmente](https://github.com/krobipd/ioBroker.govee-smart/wiki/Segmente) |
-| Lichter – Szenenbibliothek, Geschwindigkeitsregler, Cloud- vs. lokale Schnappschüsse | [Szenen und Schnappschüsse](https://github.com/krobipd/ioBroker.govee-smart/wiki/Scenes-and-Snapshots) | [Szenen und Schnappschüsse](https://github.com/krobipd/ioBroker.govee-smart/wiki/Szenen-und-Snapshots) |
-| Lichter — Gruppenverzweigung, Fähigkeitsüberschneidung | [Gruppen](https://github.com/krobipd/ioBroker.govee-smart/wiki/Groups) | [Gruppen](https://github.com/krobipd/ioBroker.govee-smart/wiki/Gruppen) |
-| Ordnerbenennung, Start, Diagnose, Fehlerbehebung | [Verhalten](https://github.com/krobipd/ioBroker.govee-smart/wiki/Behavior) | [Verhalten](https://github.com/krobipd/ioBroker.govee-smart/wiki/Verhalten) |
-| Ordnerbenennung, Start, Diagnose, Fehlerbehebung | [Verhalten](https://github.com/krobipd/ioBroker.govee-smart/wiki/Behavior) | [Verhalten](https://github.com/krobipd/ioBroker.govee-smart/wiki/Verhalten) |
+Der API-Schlüssel ist kostenlos und kommt aus der Govee-Home-App. Die Konto-Anmeldung ist dieselbe,
+die die App benutzt; der Adapter hört darüber nur zu und schickt keine Befehle darüber.
 
----
+**Die lokale Schnittstelle muss je Gerät in der Govee-Home-App eingeschaltet werden**
+(Geräte-Einstellungen → LAN Control). Ohne sie läuft das Gerät über die Cloud — das funktioniert,
+dauert aber einige Sekunden je Befehl und ist von Govee mengenmäßig begrenzt.
 
-## Merkmale
-- **Funktionsbasiert** – Die Zustände werden anhand der von der Govee-API für jedes Gerät gemeldeten Daten generiert. Keine fest codierten Artikelnummern, keine manuell gepflegte Geräteliste, die veraltet sein könnte.
-- **LAN-Priorität für Beleuchtung** – UDP-Multicast-Erkennung, Befehle unter 50 ms, Statusaktualisierungen über AWS IoT MQTT
-- **Cloud + MQTT-Push für Sensoren und Geräte** – Messwerte über die App-API, Ereignisse über den OpenAPI MQTT-Broker
-- **Farbe und Helligkeit pro Segment** für LED-Streifen mit den entsprechenden Funktionen, einschließlich Stapelverarbeitungsbefehlen und einem visuellen Segmenterkennungsassistenten (mit einer in Echtzeit korrigierbaren Streifenkarte) für zugeschnittene Streifen
-- **Szenen, DIY-Szenen, Musikmodus, Farbverlauf-Umschaltung** – lokal über BLE-over-LAN aktiviert, falls möglich, ansonsten Cloud-Fallback
-- **Cloud- und lokale Snapshots** – Govee-App-Snapshots und ioBroker-seitige Snapshots nebeneinander
-- **Gruppen** – Verbindung von Govee-Gruppen mit ioBroker durch Überschneidung der Fähigkeiten der Mitglieder
-- **Diagnose-Export-Schaltfläche pro Gerät** – JSON-Dump mit einem Klick für Fehlerberichte
-- **Funktioniert ohne Anmeldeinformationen** – Standardmäßig nur im LAN nutzbar, jede Anmeldeinformationsstufe schaltet weitere Funktionen frei.
-- **Nutzungsbegrenzte Cloud-Nutzung** – Tages- und Minutenbudgets, die an das Govee-Kontingent angepasst sind
+## Einrichten
 
----
+1. Adapter installieren und eine Instanz anlegen.
+2. Die Instanz-Einstellungen öffnen. Die Karte **Verbindung** führt durch die drei Stufen oben und
+   sagt, was läuft und was nicht — samt Anmelde-Test, der sich wirklich anmeldet und nicht nur das
+   Formular prüft.
+3. Verlangt Govee einen Bestätigungscode (das tut es bei einem neuen Client), fragt die Karte
+   danach. Mehr ist nicht nötig: der Adapter merkt sich die Anmeldung über Neustarts hinweg, es
+   werden also keine weiteren Codes verschickt.
+4. Geräte erscheinen unter `devices.<modell>_<kennung>`. In der Govee-App angelegte Gruppen
+   erscheinen unter `groups.`.
 
-## Wächter / Fehlerberichterstattung
-Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Die Meldung erfolgt nur, wenn Sie die Fehlerberichterstattung in den ioBroker-Diagnoseeinstellungen aktiviert haben (Systemeinstellungen → Diagnose und Fehlerberichterstattung). Es wird lediglich eine anonyme Installations-ID übermittelt – kein Name, keine E-Mail-Adresse und keine IP-Adresse.
+## Ein Problem melden
 
-Einzelheiten und Hinweise zur Deaktivierung finden Sie in Abschnitt [Dokumentation des Sentry-Plugins](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Für die Fehlerberichterstattung ist js-controller 3.0 oder neuer erforderlich.
+Im Reiter **Experte** des Adapters auf **Diagnose** drücken, Gerät wählen und den Knopf drücken:
+Der Adapter erstellt einen Bericht, und der Browser legt ihn als Datei ab. Diese Datei an ein
+GitHub-Issue anhängen — die Issue-Formulare fragen genau nach dieser Datei.
 
----
+Die Geräteliste zeigt alle Geräte, erreichbar oder nicht — ein Bericht wird gerade dann gebraucht,
+wenn etwas klemmt. Der Datenpunkt `diag.lastExport` je Gerät hält fest, wann der letzte Bericht
+erzeugt wurde.
 
-## Anforderungen
-- Node.js >= 22
-- ioBroker js-controller >= 7.2.2
-- ioBroker Admin >= 8.0.1
-- Ein Govee-Konto und mindestens ein Govee-WLAN-Gerät. Für die LAN-Steuerung wird eine Lampe benötigt, bei der der LAN-Modus in der Govee Home App aktiviert ist – siehe die [Liste der LAN-kompatiblen Geräte](https://app-h5.govee.com/user-manual/wlan-guide) von Govee.
+Der Bericht ist **anonymisiert**: Adressen, E-Mail-Adressen und Gerätenamen werden durch
+gleichbleibende Marken ersetzt, Gerätekennungen gekürzt, und Zugangsdaten tauchen gar nicht erst
+auf. Derselbe echte Wert bekommt innerhalb einer Datei immer dieselbe Marke — der Bericht bleibt
+also nachvollziehbar, ohne etwas über dein Zuhause preiszugeben. Die Datei erklärt das in ihrem
+eigenen Kopf.
 
----
+Ein Bericht ist das, was ein Gerät einpflegen oder einen Fehler finden lässt, ohne dass jemand
+deine Hardware braucht. Reicht er dafür nicht, liegt das am Bericht und nicht an dir — bitte sag es
+im Issue.
 
-## Erste Schritte
-Der Adapter funktioniert ohne Zugangsdaten ausschließlich im LAN. Durch Hinzufügen eines API-Schlüssels werden Szenen, Segmente und die Gerätesteuerung freigeschaltet. Mit Ihrer Govee-E-Mail-Adresse und Ihrem Passwort erhalten Sie Sensormesswerte (Temperatur/Luftfeuchtigkeit über die App-API), Statusbenachrichtigungen in Echtzeit und die vollständige Gruppensteuerung. Informationen zu den Zugangsdaten, zum Erhalt eines API-Schlüssels und zu den Netzwerkvoraussetzungen finden Sie in Abschnitt [Einrichtungsseite](https://github.com/krobipd/ioBroker.govee-smart/wiki/Setup).
+## Wo mehr steht
 
----
+Das Wiki hat die Tiefe, auf Deutsch und Englisch:
 
-## Geräteunterstützung
-Unter `diag.tier` wird der Teststatus jedes Geräts angezeigt. Unter [Geräteseite](https://github.com/krobipd/ioBroker.govee-smart/wiki/Devices) sind alle unterstützten Modelle und deren Status aufgeführt.
+- **Einrichtung** — die drei Stufen, die lokale Schnittstelle, Bestätigungscodes, was tun, wenn ein Kanal aus bleibt
+- **Verhalten** — welcher Kanal was macht, wie Erreichbarkeit entschieden wird, was bei Cloud-Ausfall passiert
+- **Datenpunkte** — jeder Datenpunkt, wer ihn schreibt und was du selbst schreiben darfst
+- **Szenen und Snapshots** — Szenen, DIY-Szenen, Cloud-Snapshots und lokal gespeicherte Snapshots
+- **Segmente** — Segmentsteuerung, der Erkennungs-Assistent, gekürzte Streifen und manuelle Segmentlisten
+- **Gruppen** — wie sich Govee-App-Gruppen hier verhalten
+- **Sensoren und Geräte** — Messwerte, Ereignisse und was die Cloud-Grenzen bedeuten
+- **Geräte** — jedes unterstützte Modell, erzeugt aus dem Katalog des Adapters
 
----
+→ <https://github.com/krobipd/ioBroker.govee-smart/wiki>
 
-## Fehlerbehebung
-Häufige Probleme (keine Geräte gefunden, leere Szenenauswahl, Segmentfarben ändern sich nicht, eingeschränkte Gruppenbefehle, verzögerte Statusaktualisierungen) werden auf der Wiki-Seite [Verhalten](https://github.com/krobipd/ioBroker.govee-smart/wiki/Behavior) / [Verhalten](https://github.com/krobipd/ioBroker.govee-smart/wiki/Verhalten) behandelt.
+## Gerät nicht dabei?
 
-Für alle anderen Fälle setzen Sie **`diag.export`** auf `true` auf dem betroffenen Gerät, kopieren Sie das JSON aus `diag.result` und öffnen Sie eine [GitHub-Problem](https://github.com/krobipd/ioBroker.govee-smart/issues).
-
----
-
-## Danksagungen
-Die Implementierung des MQTT-Authentifizierungs- und BLE-over-LAN-Protokolls (ptReal) dieses Adapters basiert auf den Forschungsergebnissen von Wez Furlong (siehe [govee2mqtt](https://github.com/wez/govee2mqtt)). Deren Reverse-Engineering des Govee AWS IoT MQTT-Protokolls und der undokumentierten API-Endpunkte war von unschätzbarem Wert.
-
----
-
-## Unterstützung
-- [Wiki](https://github.com/krobipd/ioBroker.govee-smart/wiki) — Benutzerdokumentation (EN / DE)
-- [GitHub Issues](https://github.com/krobipd/ioBroker.govee-smart/issues) — Fehlerberichte, Funktionsanfragen
-- [ioBroker Forum](https://forum.iobroker.net/) — Allgemeine Fragen
-
-### Unterstützung der Entwicklungsabteilung
-Dieser Adapter ist kostenlos und Open Source. Wenn er Ihnen nützlich ist, würde ich mich über eine kleine Spende freuen:
-
----
+Schick einen Diagnosebericht, dann kommt das Modell dazu. Genau dafür gibt es ihn — der Katalog
+wächst aus Nutzer-Meldungen, und niemand muss Hardware verschicken.
 
 ## Changelog
 
@@ -108,29 +99,40 @@ Dieser Adapter ist kostenlos und Open Source. Wenn er Ihnen nützlich ist, würd
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 2.24.0 (2026-08-04)
 
-- This version needs ioBroker Admin 8. The segment detection wizard is built for Admin 8 and no longer runs on Admin 7, so this update is not offered there.
+### 2.37.1 (2026-09-15)
 
-### 2.23.1 (2026-08-04)
+- Fixed: The instance settings open on the Configuration tab again also when the admin keeps its settings on the server — 2.37.0 handled the browser storage only, so every open still landed on Expert
 
-- Test release during the move to ioBroker Admin 8.
+### 2.37.0 (2026-09-15)
 
-### 2.23.0 (2026-08-04)
+- Changed: The two folders "snapshots" and "diagnostics" at the top of the object tree are gone — a saved local snapshot is kept with its device, and no diagnostics report is stored any more
+- Changed: A diagnostics report is generated and downloaded from the Expert tab only — the adapter keeps no copy in the instance, and the copies left by earlier versions are removed at the first start
+- Changed: Local snapshots saved by earlier versions are carried over into their device objects at the first start, so nothing you saved is lost when the folder disappears
+- Fixed: The instance settings open on the Configuration tab again — the admin remembered the last tab you used, and once you had visited the Expert tab every later visit started there
+- Fixed: The device icons in the object tree are visible on the dark themes again — they were drawn in plain black, invisible on a dark background, and now take the row's text colour
+- Fixed: A group's "membersUnreachable" datapoint is created together with the group — it used to appear only with the first reachability check, up to 20 seconds after the rest of the group
+- Changed: The admin warns when another adapter on the same host takes the LAN port 4002 — the port shows as a fixed field in the adapter settings next to the network interface
 
-- Test release during the move to ioBroker Admin 8.
+### 2.36.0 (2026-09-14)
 
-### 2.22.0 (2026-07-23)
+- Fixed: A command the adapter could not send is no longer confirmed — no cloud connection, or a light reachable on neither channel — the datapoint used to claim the device had taken the value
+- Fixed: Music sensitivity and auto-colour are no longer confirmed on a light or group that cannot apply them — the datapoint keeps the old value and the log says why, instead of claiming success
+- Fixed: The segment wizard restores the brightness the strip had before it ran — it turns the strip to full while measuring, and a dimmed strip stayed bright afterwards
+- Fixed: The segment wizard no longer stays locked for five minutes when the strip cannot be reached at start — it stops with the reason, and can be started again right away
+- Fixed: Sensor values update again on an installation that removed its API key but kept the Govee account — they had frozen at the last reading, and the adapter took a minute to report ready
+- Changed: A sensor reading that has not changed is no longer written again every two minutes — the datapoint keeps its timestamp until the value itself changes
+- Changed: The three summary datapoints under `info` exist right after the start instead of appearing twenty seconds later
+- New: Seven datapoints real devices report now carry a translated name — main light, background light, fan, fan speed, reverse airflow, pillar light and base light
+- New: Explanations where the name alone does not say it — reverse airflow, pillar and base light, warm mist, the preset-scene dropdown and the unreachable members of a group
 
-- A Govee app device group of the "same mode" type no longer appears as a phantom, uncontrollable device in the object tree.
-- Seven more Govee models join the catalog, from Edison bulbs to a ceiling fan. They start as experimental — enable them in the adapter settings to try them.
-- Sensors that reach the cloud through a Govee gateway now show which gateway they are connected through, instead of an empty IP field.
+### 2.35.2 (2026-09-11)
 
-### 2.21.0 (2026-07-12) — stable
+- Fixed: A light that is unplugged no longer shows as switched on after a start — Govee's answer for a device it cannot reach carries the values of the last contact, and those are no longer written
 
-- The segment-detection wizard for cut LED strips now has a visual admin interface: a live map of the strip that fills in as you measure each segment and can be corrected before you apply it.
+### 2.35.1 (2026-09-11)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+- Fixed: The values Govee reports for a device at start no longer wait behind the loading of the scene libraries — on an installation with a dozen lights they arrived seven minutes after the start
 
 ## License
 

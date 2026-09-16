@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homenet/README.md
 title: ioBroker.homenet
-hash: 7Duldj6x3zdWkWaxpInmQmC3v/cEo7KjIjpuAHsB0To=
+hash: SFabyoHb8p7lt6KwPj5yoH2w1Eq5IoEksHrWgJk8Vi8=
 ---
 ![Logo](../../../en/adapterref/iobroker.homenet/admin/homenet.png)
 
@@ -12,20 +12,24 @@ hash: 7Duldj6x3zdWkWaxpInmQmC3v/cEo7KjIjpuAHsB0To=
 ![Anzahl der Installationen](https://iobroker.live/badges/homenet-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/homenet-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.homenet.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.homenet/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.homenet
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.homenet/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.homenet
 
-## Heimnetzadapter für ioBroker
-Adapter für Bauknecht Heimnetz
+## Heimnetzwerkadapter für ioBroker
+
+Adapter für Bauknecht Home Net
 
 ## Anmeldeablauf
-Die Homenet Mail und Passwort eingeben.
+
+Die Home-Net-Mail und das Passwort eingeben.
 
 ## Steuern
+
 Werte können direkt unter homenet.0.id.status.xxx.value gesetzt werden
 
-##Diskussion und Fragen
+## Diskussion und Fragen
+
 <https://forum.iobroker.net/topic/59365/test-adapter-bauknecht-home-net>
 
 ## Changelog

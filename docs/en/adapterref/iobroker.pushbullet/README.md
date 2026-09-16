@@ -64,7 +64,6 @@ sendTo("pushbullet", {
 - (mcm1957) Dependencies have been updated
 
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

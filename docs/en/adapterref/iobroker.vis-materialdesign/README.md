@@ -13,7 +13,6 @@
 # Material Design Widgets for IoBroker VIS
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VWAXSTS634G88&source=url)
 
-
 ioBroker Material Design Widgets are based on [Google's material design guidelines](https://material.io/design/)
 
 <br>
@@ -253,7 +252,6 @@ If you would like to change the using of others colors that are defined for othe
 ![Logo](doc/en/media/settings_binding.gif)
 
 In the adapter settings you can copy the binding command to the clipboard by clicking on the button with iobroker icon. This binding can then be used by copy and paste even for non Material Design Widgets. For example a color binding looks like `{mode:vis-materialdesign.0.colors.darkTheme;light:vis-materialdesign.0.colors.light.card.background;dark:vis-materialdesign.0.colors.dark.card.background; mode === "true" ? dark : light}`
-
 
 # Widgets
 
@@ -2261,7 +2259,6 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 
 </details>
 
-
 ### Multi State
 
 #### Editor Settings
@@ -3030,7 +3027,6 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 ```
 
 </details>
-
 
 ## Icon Buttons
 
@@ -4365,7 +4361,6 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 
 </details>
 
-
 ## Switch
 
 ![Logo](doc/en/media/switch.gif)
@@ -4642,7 +4637,6 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 
 </details>
 
-
 ## Value
 
 ![Logo](doc/en/media/value.gif)
@@ -4715,8 +4709,6 @@ Settings that are not listed in the table below are self-explanatory.
         </tr>					
     </tbody>
 </table>
-
-
 
 ### HTML Properties
 
@@ -5494,7 +5486,6 @@ JSON string must be an array of objects with the following properties:
 ]
 </code></pre>
 </details>
-
 
 ## Progress
 ![Logo](doc/en/media/progress.gif)
@@ -6650,8 +6641,6 @@ Settings that are not listed in the table below are self-explanatory.
     </tbody>
 </table>
 
-
-
 #### HTML Properties
 
 The following properties can be used as [HTML Widgets](#html-widgets).
@@ -7162,7 +7151,6 @@ Settings that are not listed in the table below are self-explanatory.
 ```
 
 </details>
-
 
 #### HTML Properties
 
@@ -8047,7 +8035,6 @@ Settings that are not listed in the table below are self-explanatory.
 
 </details>
 
-
 #### HTML Properties
 
 The following properties can be used as [HTML Widgets](#html-widgets).
@@ -8772,7 +8759,6 @@ The following properties can be used as [HTML Widgets](#html-widgets).
 
 </details>
 
-
 ## Top App Bar
 
 Top App Bar with Navigation Drawer can be combined with the <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">view in widget 8</a>.
@@ -9120,7 +9106,6 @@ submenus must be defined by a JSON string:
 </code></pre>
 </details>
 
-
 ## Charts
 
 ### Bar Chart
@@ -9392,13 +9377,11 @@ JSON string must be an array of objects with the following properties:
 </pre></code>
 </details>
 
-
 ### Line History Chart:
 
 > Required Adapter: [SQL](https://github.com/ioBroker/ioBroker.sql), [History](https://github.com/ioBroker/ioBroker.history) or [InfluxDb](https://github.com/ioBroker/ioBroker.influxdb)!
 
 ![Logo](doc/en/media/line_history_chart.gif)
-
 
 #### Editor Settings
 
@@ -10439,7 +10422,6 @@ Working Widget Example can be found
 * [here](https://forum.iobroker.net/topic/26199/test-adapter-material-design-widgets-v0-1-x/113)
 * [ical Adapter](https://forum.iobroker.net/topic/29658/material-design-widgets-table-widget/2)
 
-
 ### Control Elements using HTML Widgets
 
 ![Logo](doc/en/media/table_html_widget_example.gif)
@@ -11026,10 +11008,8 @@ To generate a control element (button, checkbox, etc.) in cell of the table you 
 
 ![Logo](doc/en/media/table_control_example.gif)
 
-
 ## Responsive Layout
 There are two widgets - Masonry Views and Grid Views - with which it is possible to create a repsonsive layout (a layout for desktop, tablet and mobile). Both Widgets has multiple `view in widget` integrated.
-
 
 ### Masonry Views
 
@@ -11037,7 +11017,6 @@ There are two widgets - Masonry Views and Grid Views - with which it is possible
 
 Masonry Views has multiple `view in widget` integrated, that will be ordered automatically depending of the width of the widget. With this widget it is possible to create a responsive layout (one layout for desktop, tablet and mobil).
 Masonry views are especially useful if the views included have different heights.
-
 
 <b>Take a look at the [Material Design Widgets example project](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project)</b> to understand how it works.
 
@@ -11242,7 +11221,6 @@ The script must put into global scripts. Then it is possible to send message wit
 
 ```
 
-
 var materialDesignWidgets = {};
 materialDesignWidgets.sendTo = function (id, text, backgroundColor = '', borderColor = '', icon = '', iconColor = '', fontColor = '') {
     let json = getState(id).val;
@@ -11320,7 +11298,6 @@ Settings that are not listed in the table below are self-explanatory.
         </tr>		        
     </tbody>
 </table>
-
 
 ### Datapoint JSON Properties
 
@@ -11528,7 +11505,6 @@ Settings that are not listed in the table below are self-explanatory.
     </tbody>
 </table>
 
-
 ## HTML Widgets
 
 Create a html widget from the supported Material Design widgets to use it in any other widget that supports html.
@@ -11540,7 +11516,6 @@ Or use it in scripts to generate dynamically Widgets.
 > * double quotes `"` used in attributes must be escaped like `\"`
 > 
 > compare this with the shown examples of the diffrent widgets
-
 
 ![Logo](doc/en/media/html-elements.gif)
 
@@ -13115,7 +13090,6 @@ The adapter uses the following libraries:
 * [chartjs](https://www.chartjs.org/)
 * [round-slider from thomasloven](https://github.com/thomasloven/round-slider)
 * [Material Design Icons](https://materialdesignicons.com/)
-
 
 ## Changelog
 

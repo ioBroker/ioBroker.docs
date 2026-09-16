@@ -8,7 +8,7 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterr
 title: ioBroker.pushover
 hash: TPAyzEDw5p3Prh33C7Gu/sfALjyHt59qWdA0psxUAFY=
 ---
-![Логотип](../../../en/adapterref/iobroker.pushover/../../admin/pushover.png)
+![Логотип](./admin/pushover.png)
 
 # IoBroker.pushover
 ## Конфигурация

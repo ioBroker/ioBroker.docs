@@ -77,10 +77,8 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
-- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
 
 ### __WORK IN PROGRESS__
 
@@ -534,8 +532,6 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 * (hobbyquaker) first release
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## Roadmap/Todo
 
 * Automatic bridge discovery
@@ -544,7 +540,6 @@ __ATTENTION: Remove all objects once, ids have changed__
 ## License
 
 Apache 2.0
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2025 Bluefox <dogafox@gmail.com>  

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.semp/README.md":{"title":{"en":"ioBroker.semp"},"content":"en/adapterref/iobroker.semp/README.md"},"en/adapterref/iobroker.semp/docu/docu_en.md":{"title":{"en":"Documentation for iobroker.semp"},"content":"en/adapterref/iobroker.semp/docu/docu_en.md"}}}
+---
 ![Logo](admin/semp.png)
 # ioBroker.semp
 
@@ -13,7 +16,6 @@
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.semp?style=flat-square)
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.semp?label=npm%20dependencies&style=flat-square)
 
-
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.semp?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
@@ -27,7 +29,6 @@ For more details and for information how to disable the error reporting see [Sen
                                                                           
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC) 
 
-
 ## SMA SEMP adapter for ioBroker
 
 Interface to SMA SunnyPortal via SunnyHomeManager and SEMP
@@ -40,10 +41,9 @@ but you are not dependent on the few devices supported in SunnyPortal. With the 
 be integrated into the SunnyPortal.
 It is not even necessary for the consumption of a single device to be measured. Even estimated values are sufficient.
 
-
 ## user documentation
 
-see [docu](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/docu_en.md)
+see [docu](/#/docs/adapterref/iobroker.semp/docu/docu_en.md)
 
 For details about protocol and usage check [SMA docu](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
 
@@ -55,7 +55,6 @@ An description about general usage of energy requests see [SMA docu](https://git
 * let SunnyPortal control these devices (switch on when there is enough PV power and switch off when there is not enough solar energy)
 
 ## Requirements
-
 
 ## Dishwasher Mode: Functionality of the Adapter
 
@@ -71,8 +70,6 @@ The adapter allows you to control a dishwasher or other devices that consume sta
 
 ![Flowchart](https://github.com/rg-engineering/ioBroker.semp/blob/master/docu/settings/semp_dishwasher_sequence.png)
 
-
-
 ## known issues
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.semp/issues) if you find bugs or whish new features
 
@@ -80,9 +77,14 @@ The adapter allows you to control a dishwasher or other devices that consume sta
 
 <!--
   Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-+ (René) added some additional verification checks for DeviceId and others 
+### 2.1.1 (2026-09-12)
+* (René) dependencies updated
+
+### 2.1.0 (2026-09-08)
+* (René) semp protocol verifaction added
+* (René) added some additional verification checks for DeviceId and others 
 * (copilot) Adapter requires node.js >= 22 now
 * (René) dependencies updated
 
@@ -94,15 +96,6 @@ The adapter allows you to control a dishwasher or other devices that consume sta
 
 ### 2.0.9 (2026-04-13)
 * (René) bug fix in admin, see issue #442: time settings in energy request corrected
-
-### 2.0.8 (2026-04-12)
-* (René) bug fix in admin, see issue #442: time settings in energy request corrected
-
-### 2.0.7 (2026-04-06)
-* (René) github workflow with node@24
-* (René) see issue #433: make sure this.device.WallboxOID is defined before using it
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

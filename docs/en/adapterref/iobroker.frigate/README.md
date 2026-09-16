@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.frigate/README.md":{"title":{"en":"ioBroker.frigate"},"content":"en/adapterref/iobroker.frigate/README.md"},"en/adapterref/iobroker.frigate/docs/en/README.md":{"title":{"en":"ioBroker.frigate — Documentation"},"content":"en/adapterref/iobroker.frigate/docs/en/README.md"}}}
+---
 ![Logo](admin/frigate.png)
 
 # ioBroker.frigate
@@ -19,9 +22,9 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
 
 ## Documentation
 
-[🇺🇸 Documentation](./docs/en/README.md)
+[🇺🇸 Documentation](/#/docs/adapterref/iobroker.frigate/docs/en/README.md)
 
-[🇩🇪 Dokumentation](./docs/de/README.md)
+[🇩🇪 Dokumentation](https://github.com/iobroker-community-adapters/ioBroker.frigate/blob/main/docs/de/README.md)
 
 ## Discussion and questions
 
@@ -33,6 +36,17 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
     Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.4 (2026-09-14)
+- (@GermanBluefox) The live widget for `ioBroker.devices` switches to single pictures over the socket by itself when the page is opened through the ioBroker cloud (iobroker.pro / iobroker.net): the cloud cannot relay the MJPEG stream, and the address of the web instance is not reachable from outside anyway
+
+### 3.1.3 (2026-09-09)
+- (@GermanBluefox) The camera name in the device manager tile moved below the picture: at the top of the tile the drag handle and the favourite star of the widget manager were drawn over it
+- (@GermanBluefox) The build helper is written in TypeScriptpes itself now.
+
+### 3.1.2 (2026-08-28)
+- (@GermanBluefox) The Frigate directory can no longer be left empty by accident: the validator complained but did not stop the dialog from being saved. With an empty directory the plugin mounts named volumes instead of the chosen directory, while the adapter writes `config.yml` into the ioBroker data directory - Frigate then starts without its configuration
+- (@GermanBluefox) Removed the `iobBackup=frigate_data` label: no volume of that name exists, so it never marked anything. The label works for named volumes only, and everything worth keeping lives in the bind-mounted Frigate directory - `config.yml` is generated from the instance settings, which an ioBroker backup contains anyway, and recordings and clips are far too large for one
+
 ### 3.1.1 (2026-08-24)
 - (@GermanBluefox) Fixed the clip download failing with `Request failed with status code 400`: Frigate answers that while the recording segments of the event are not written yet, so the download is now retried with a growing delay and the message Frigate sent is written to the log instead of only the status code. The default wait time after the event end was raised from 5 to 10 seconds
 - (@GermanBluefox) Added the missing translations for the LPR settings, the go2rtc restream column and the event history header, and corrected translations where the product name `Frigate`, state IDs and the `{{source}}`/`{{type}}` placeholders had been translated as words
@@ -43,20 +57,7 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
 - (Eistee82) Fixed zone object counters (e.g. `<zone>.person`) staying at their last value after the object left the zone. Per-zone object counts are now sourced solely from the Frigate MQTT occupancy topics, and the zone aggregator resets its active/stationary states to 0 and uses `current_zones` instead of the cumulative `entered_zones`.
 
 ### 3.0.3 (2026-06-09)
-- (@GermanBluefox) Added button to re-create the docker container
-
-### 3.0.2 (2026-05-30)
-- (@GermanBluefox) Replaced the track of objects with drop down menu
-
-### 3.0.0 (2026-05-16)
-- (copilot) Adapter requires node.js >= 22 now
-- (copilot) Added re-streaming support for live video feeds (experimental)
-- (copilot) Added support for license plate recognition events from Frigate
-
-### 2.3.2 (2026-04-14)
-- (@GermanBluefox) Added support of shm_size
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+- (@GermanBluefox) Added a button to re-create the docker container
 
 ## License
 

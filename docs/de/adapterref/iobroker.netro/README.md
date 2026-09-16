@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.netro/README.md
 title: ioBroker.netro
-hash: 1wkhMBj8FKt8GKYrPMI0lZvGlPyi9C7twjw49mvDgMk=
+hash: XnaCmxktr+1HUHJLSiWU50KDYkVdhJPIxailWK3E6YQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.netro/admin/netro.png)
 
@@ -13,12 +13,13 @@ hash: 1wkhMBj8FKt8GKYrPMI0lZvGlPyi9C7twjw49mvDgMk=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/netro-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/realhawker/iobroker.netro.svg)
 ![NPM](https://nodei.co/npm/iobroker.netro.png?downloads=true)
+![Test und Freigabe](https://github.com/realhawker/ioBroker.netro/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.netro
-**Tests:** ![Testen und freigeben](https://github.com/realhawker/ioBroker.netro/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.netro
 
-## Netzadapter für ioBroker
-Adapter für Netro (https://www.netrohome.com/) Komponenten
+## netro-Adapter für ioBroker
+
+Adapter für Netro-Komponenten ( <https://www.netrohome.com/> )
 
 ## Changelog
 

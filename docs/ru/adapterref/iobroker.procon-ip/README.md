@@ -3,67 +3,58 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: 4iqN3AF7oKF/D1R7sZG4oIHpqApYO7HiS2XzbVmJ5oQ=
+hash: 9Wm8uxHQAVM7IEhOJIgp4cZzErE893WdLHEHho8FUVU=
 ---
 ![Логотип](https://github.com/ylabonte/ioBroker.procon-ip/blob/master/admin/procon-ip.png?raw=true)
 
 ![Количество установок](http://iobroker.live/badges/procon-ip-installed.svg)
 ![Текущая стабильная версия](http://iobroker.live/badges/procon-ip-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.procon-ip.svg)
+![Тестирование и выпуск](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)
 ![Известные уязвимости](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip/badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
 
-# IoBroker.procon-ip
-[![Тестирование и выпуск](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
+# ioBroker.procon-ip
 
-Адаптер ioBroker для контроллера бассейна Pool Digital ProCon.IP.
-Он предназначен для интеграции с вашей системой домашней автоматизации ioBroker, например,
-для создания логики, включающей другие устройства, или для сопряжения с вашими любимыми голосовыми помощниками:
+Адаптер ioBroker для контроллера бассейна Pool Digital ProCon.IP. Он предназначен для интеграции с вашей системой домашней автоматизации ioBroker, например, для создания логики, включающей другие устройства, или для сопряжения с вашими любимыми голосовыми помощниками.
 
-— Вы можете использовать [_cloud_](https://github.com/ioBroker/ioBroker.cloud) или
+- Вы можете использовать [_облачный_](https://github.com/ioBroker/ioBroker.cloud) или [_IoT-_](https://github.com/ioBroker/ioBroker.iot) адаптер для Alexa (а также, кажется, для Google Home) и
+- Адаптер [_Yahka_](https://github.com/jensweigele/ioBroker.yahka) в качестве моста для подключения к Apple HomeKit, чтобы им могла пользоваться Siri.
+- Используйте [_JavaScript-_](https://github.com/ioBroker/ioBroker.javascript) адаптер для создания собственной пользовательской логики.
 
-[Интернет вещей](https://github.com/ioBroker/ioBroker.iot) адаптер для Alexa (а также, кажется, для Google Home) и
+Более подробную информацию можно найти в [вики](https://github.com/ylabonte/ioBroker.procon-ip/wiki) .
 
-- [_yahka_](https://github.com/jensweigele/ioBroker.yahka) адаптер в качестве моста к
+## Что представляет собой контроллер пула ProCon.IP?
 
-Apple HomeKit, доступный для Siri или
-
-- используйте [_javascript_](https://github.com/ioBroker/ioBroker.javascript)
-
-адаптер для создания собственной пользовательской логики.
-
-Дополнительную информацию см. в [вики](https://github.com/ylabonte/ioBroker.procon-ip/wiki).
-
-## Что такое контроллер пула ProCon.IP?
-Блок управления бассейном ProCon.IP — это недорогой сетевой блок управления для домашних бассейнов. Благодаря программно управляемым реле, он может управлять несколькими насосами (для фильтра бассейна и различных режимов дозирования) либо по расписанию, либо в зависимости от показаний/значений с одного из многочисленных входных каналов для измерений (например, датчики расхода, термометры Dallas 1-Wire, редокс- и pH-электроды). По крайней мере, есть также возможность переключать эти реле по требованию, что делает их применимыми для включения/выключения освещения (или чего-либо еще по вашему желанию).
-Не вся его функциональность доступна через API. Фактически, существует один документированный API для чтения (опроса) значений в формате CSV (`/GetState.csv`). Насколько я помню, был еще один для включения/выключения реле и включения по таймеру. Но я больше не могу найти второй. Так что, хотя и не очень красивый, но функциональный: ProCon.IP имеет два собственных веб-интерфейса, которые можно проанализировать, чтобы своего рода реверс-инжиниринг заданной функциональности (например, переключения реле).
+Блок управления ProCon.IP — это недорогой сетевой блок управления для домашних бассейнов. Благодаря программно управляемым реле, он может управлять несколькими насосами (для фильтра бассейна и различных режимов дозирования) либо по расписанию, либо в зависимости от показаний/значений с одного из многочисленных входных каналов для измерений (например, датчики расхода, термометры Dallas 1-Wire, редокс- и pH-электроды). По крайней мере, есть также возможность переключать эти реле по требованию, что делает их пригодными для включения/выключения освещения (или чего-либо еще по вашему желанию). Не все его функции доступны через API. Фактически, существует один документированный API для чтения (опроса) значений в формате CSV (`/GetState.csv` По моим воспоминаниям, был ещё один, для включения/выключения реле и включения по таймеру. Но я больше не могу найти второй. Так что он не очень красивый, но функциональный: у ProCon.IP есть два собственных веб-интерфейса, которые можно проанализировать, чтобы своего рода реконструировать заданную функциональность (например, переключение реле).
 
 Для получения более подробной информации перейдите по следующей ссылке (к сожалению, она только на немецком языке; пока не удалось найти документацию/информацию на английском языке):
 
-- [интернет-магазинpooldigital.de](https://pooldigital.de/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
-- [форумpooldigital.de](https://www.poolsteuerung.de/)
+- [интернет-магазин pooldigital.de](https://pooldigital.de/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
+- [форум pooldigital.de](https://www.poolsteuerung.de/)
 
-**Чтобы было ясно: я не имею никакого отношения к разработке, продажам, маркетингу или поддержке блока управления бассейном. Я лишь разработал решение для его интеграции с ioBroker, чтобы сделать дом моих родителей немного умнее.**
+**Чтобы было понятно: я не имею никакого отношения к разработке, продажам, маркетингу или поддержке блока управления бассейном. Я просто разработал решение для его интеграции с ioBroker, чтобы сделать дом моих родителей немного умнее.**
 
 ## Подробная информация об адаптере
-Адаптер использует API `/GetState.csv` модуля ProCon.IP для опроса его значений, а также другой — недокументированный — API, работающий с побитовыми командами для переключения реле. Второй API также используется оригинальными веб-интерфейсами ProCon.IP. Поэтому в будущем могут появиться обновления прошивки, которые нарушат совместимость с этим адаптером или, по крайней мере, его функциональность по переключению реле.
+
+Адаптер использует`/GetState.csv` Существует API адаптера ProCon.IP для опроса его значений, а также другой — недокументированный — API, работающий с побитовыми командами для переключения реле. Второй API также используется оригинальными веб-интерфейсами ProCon.IP. Поэтому в будущем могут появиться обновления прошивки, которые нарушат совместимость с этим адаптером или, по крайней мере, его функциональность переключения реле.
 
 ### Совместимость
-На данный момент адаптер протестирован и разработан в сочетании с прошивкой ProCon.IP **версия 1.7.6.a**. Однако он должен работать с любой более новой/будущей версией прошивки.
+
+На данный момент адаптер протестирован и разработан в сочетании с прошивкой ProCon.IP **версии 1.7.6.a.** Однако он должен работать с любой более новой/будущей версией прошивки.
 
 ## Развитие и участие
+
 Если вы хотите принять участие в разработке, переводе или документировании этого адаптера, пожалуйста, свяжитесь со мной.
 
 Полезные ссылки для данного подхода будут следующими:
 
-- [шаблон адаптера TypeScript](https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript)
-
-Я начал с и
-
-- [руководство для разработчиков адаптеров](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md).
+- [шаблон адаптера TypeScript,](https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript) с которого я начал, и
+- [Руководство для разработчиков адаптеров](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md) .
 
 ### Локальное тестирование с использованием dev-сервера
-Для практического тестирования на реальном контроллере ProCon.IP используйте [`@iobroker/dev-server`](https://github.com/ioBroker/dev-server). Он запускает временный локальный экземпляр ioBroker (js-контроллер + административный интерфейс) и запускает этот адаптер из вашей локальной сборки:
+
+Для практического тестирования на реальном контроллере ProCon.IP используйте[`@iobroker/dev-server`](https://github.com/ioBroker/dev-server) Он запускает временный локальный экземпляр ioBroker (js-контроллер + административный интерфейс) и запускает этот адаптер из вашей локальной сборки:
 
 ```bash
 npm i -g @iobroker/dev-server   # once, globally
@@ -71,12 +62,13 @@ npm run dev:setup               # creates the local .dev-server/ profile (git-ig
 npm run dev                     # builds, runs, admin UI at http://localhost:8081
 ```
 
-Настройте экземпляр, указав URL-адрес вашего контроллера в административном интерфейсе. `npm run dev` перестраивает и перезагружает адаптер при изменении исходного кода.
+Настройте экземпляр, указав URL-адрес вашего контроллера, в административном интерфейсе.`npm run dev` Пересобирает и перезагружает адаптер при изменении исходного кода.
 
 ## Пожертвование
+
 Если вы хотите поддержать этот адаптер или выразить благодарность, вы можете:
 
-[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Купи мне кофе" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
+[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
 
 ## Changelog
 ### 1.9.0 (2026-08-23)
@@ -119,7 +111,7 @@ npm run dev                     # builds, runs, admin UI at http://localhost:808
     - Raise minimum required node version to 20.
 - Dependency updates.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ylabonte/ioBroker.procon-ip/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

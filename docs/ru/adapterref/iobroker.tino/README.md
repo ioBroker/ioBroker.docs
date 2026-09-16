@@ -1,9 +1,9 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tino/README.md
 title: ioBroker.tino
-hash: z+wiZ/y+sdVnU+uJ+GMOYAsNHn8nfPUr4zCLYb0CAA4=
+hash: gTPH6uBr1SNiO4F9GdLsMhPk3tBQbBnAxJZLF3xTLhk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tino/admin/tino.png)
 
@@ -12,125 +12,121 @@ hash: z+wiZ/y+sdVnU+uJ+GMOYAsNHn8nfPUr4zCLYb0CAA4=
 ![Статус зависимости](https://img.shields.io/david/bowao/iobroker.tino.svg)
 ![Известные уязвимости](https://snyk.io/test/github/bowao/ioBroker.tino/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tino.png?downloads=true)
-![Трэвис-Си](https://img.shields.io/travis/com/bowao/ioBroker.tino/master)
+![Трэвис-CI](https://img.shields.io/travis/com/bowao/ioBroker.tino/master)
 
-# IoBroker.tino
-## Адаптер TiNo для ioBroker
-(Немецкую версию см. Ниже)
-
-Чтение беспроводных датчиков, полученных по протоколу TiNo версии 1.01 и протоколу TiNo версии 2.2.
-Соответствующая версия протокола определяется автоматически на основе полученных данных.
-
-Беспроводной приемопередатчик и приемник TiNo были разработаны Nurazur.
-
-Страница проекта: https://nurazur.wordpress.com/
-
-Github: https://github.com/nurazur/TiNo
-
-«** TI ** ny ** NO ** de»: беспроводной датчик с батарейным питанием или беспроводной актер. Целью проекта является разработка небольших недорогих беспроводных датчиков с батарейным питанием. Датчики связываются со шлюзами, как Raspberry Pi. Цели:
-
-* низкая стоимость (ВОМ до 5 евро)
-* очень маленький размер (спичечный коробок)
-* сверхнизкий ток сна
-* длительный срок службы батареи: 5 лет и более на элементе CR2032
-* большой диапазон (что бы это ни значило :-), но на самом деле долго)
-* простой в сборке
-* безопасность связи
-* Прошивка Plug & Play
-
-Датчики могут быть практически любыми, такими как температура, относительная влажность, давление воздуха, высотомер, интенсивность света, УФ-индекс, датчики движения, герконы и т. Д.
-
-В конфигурации адаптера можно установить последовательный интерфейс и соответствующую скорость передачи данных.
-Когда режим обучения активирован, датчики автоматически создаются с их идентификатором узла и всеми распознанными точками данных после получения первого сообщения.
-Режим обучения автоматически завершается через 10 минут и может быть повторно активирован еще на 10 минут в разделе «Информация» через точку данных «LearningMode».
-Соответствующие точки данных смещения создаются в «config», так что значения датчика могут быть скорректированы при необходимости.
-Абсолютная влажность и точка росы рассчитанных точек данных создаются в разделе «Расчет», но только если датчик выдает значения температуры и относительной влажности.
-
-Следующие точки данных будут созданы для протокола приемника версии 1.01:
-
-* NodeId
-* RSSI
-* Напряжение батареи
-* Счетчик сообщений
-* Температура
-* Влажность
-* Heartbeat (только в версии протокола 1.01)
-* Interupt 1, 2 и 3
-* Индикатор ошибки частоты (только в версии протокола 1.01)
-* Температура RFM69 (только в версии протокола 1.01)
-* Битовые ошибки
-
-Кроме того, для версии протокола приемника 2.2 (при наличии) создаются следующие точки данных.
-
-* Прерывание с 4 по 8
-* синхронизировано
-* Индикатор качества ссылки
-* Смещение частоты
-* Расстояние (только с установленным датчиком расстояния)
-* Высота (только с установленным датчиком высоты)
-* Давление воздуха (только с установленным датчиком давления воздуха)
-* Контакт (только с установленным герконом)
-* Температура 1
-* Температура 2
-
--------------------------------------------------------------------------------------------
+# ioBroker.tino
 
 ## Адаптер TiNo для ioBroker
-Einlesen der vom TiNo Version 1.01 и TiNo Version 2.2 empfangenen Funksensordaten.
-Die entsprechende Protokoll-Version wird automatisch anhand der empfangen Daten erkannt.
+
+(Немецкая версия см. ниже)
+
+Считывание данных с беспроводных датчиков, полученных по протоколам TiNo версии 1.01 и TiNo версии 2.2. Соответствующая версия протокола определяется автоматически на основе полученных данных.
+
+Беспроводной приемопередатчик и приемник TiNo были разработаны компанией nurazur.
+
+Страница проекта: <https://nurazur.wordpress.com/>
+
+Гитхаб: <https://github.com/nurazur/TiNo>
+
+" **TI** ny **NO** de": беспроводной датчик или беспроводной исполнитель с питанием от батареи. Цель проекта — разработка малогабаритных и экономичных беспроводных датчиков с питанием от батарей. Датчики взаимодействуют с шлюзами, такими как Raspberry Pi. Цели проекта:
+
+- Низкая стоимость (спецификация материалов менее 5 евро)
+- очень маленький размер (спичечный коробок)
+- сверхнизкий ток сна
+- Длительный срок службы батареи: 5 лет и более от батарейки CR2032.
+- большая дальность (что бы это ни значило :-), но она действительно очень большая)
+- просто построить
+- безопасность связи
+- Прошивка Plug\&Play
+
+В качестве датчиков могут использоваться практически любые, например, датчики температуры, относительной влажности, атмосферного давления, высотомеры, датчики интенсивности света, УФ-индекса, датчики движения, герконовые переключатели и т. д.
+
+В конфигурации адаптера можно задать последовательный интерфейс и соответствующую скорость передачи данных. После активации режима обучения датчики автоматически создаются с их идентификатором узла и всеми распознанными точками данных после получения первого сообщения. Режим обучения автоматически завершается через 10 минут и может быть повторно активирован на 10 минут в разделе «info» через точку данных «learningMode». Соответствующие точки смещения данных создаются в разделе «config», чтобы при необходимости можно было скорректировать значения датчиков. Расчетные точки данных «абсолютная влажность» и «точка росы» создаются в разделе «calculated», но только если датчик предоставляет значения температуры и относительной влажности.
+
+Для протокола приемника версии 1.01 будут созданы следующие точки данных:
+
+- NodeId
+- РССИ
+- Напряжение батареи
+- Счетчик сообщений
+- Температура
+- Влажность
+- Сердцебиение (только в версии протокола 1.01)
+- Прерывания 1, 2 и 3
+- Индикатор ошибки частоты (только в версии протокола 1.01)
+- Температура RFM69 (только в версии протокола 1.01)
+- Битовые ошибки
+
+Кроме того, для версии протокола приемника 2.2 (если она доступна) создаются следующие точки данных.
+
+- Прерывание 4–8
+- синхронизированный
+- Индикатор качества связи
+- Смещение частоты
+- Расстояние (только при установленном датчике расстояния)
+- Высота (только при установленном датчике высоты)
+- Давление воздуха (только при установленном датчике давления воздуха)
+- Контакт (только при установленном герконовом контакте)
+- Температура 1
+- Температура 2
+
+---
+
+## Адаптер TiNo для ioBroker
+
+Einlesen der vom TiNo версии 1.01 и TiNo версии 2.2 empfangenen Funksensordaten. Die entsprechende Protokoll-Version автоматически включается в работу.
 
 Der Funksender und -empfänger TiNo wurden von nurazur entwickelt.
 
-Projekt-Seite: https://nurazur.wordpress.com/
+Сайт проекта: <https://nurazur.wordpress.com/>
 
-Github: https://github.com/nurazur/TiNo
+Гитхаб: <https://github.com/nurazur/TiNo>
 
-"** TI ** ny ** NO ** de": Batteriebetriebener Funksensor или Funk-Aktor. Ziel dieses Projekts ist die Entwicklung schnurloser Funk Sensoren, die über Batterien versorgt werden und z.B. mit dem Raspberry Pi kommunizieren. Die Entwicklung hat zum Ziel:
+« **TI** ny **NO** de»: Batteriebetriebener Funksensor или Funk-Aktor. Ziel dieses Projekts — это Entwicklung Schnurloser Funk Sensoren, Die über Batterien versorgt werden und zB mit dem Raspberry Pi коммунитарный. Die Entwicklung Hat zum Ziel:
 
-* Minimale Kosten (Stückkosten unter 5 EUR)
-* minimale Grösse (Streichholzschachtel)
-* минималер Stromverbrauch
-* maximale Batterielebensdauer (5 Jahre oder mehr)
-* maximale Reichweite
-* максимальный einfach nachzubauen
-* Прошивка Plug & Play
+- минимальная стоимость (Stückkosten до 5 евро)
+- минимальный Грёссе (Streichholzschachtel)
+- минималистское стромвербраух
+- Максимальный Batterielebensdauer (5 лет или больше)
+- maximale Reichweite
+- maximal einfach nachzubauen
+- Прошивка Plug\&Play
 
-Als Sensor kann man so ziemlich alles verwenden, ob Temperatur, Luftfeuchtigkeit, Luftdruck, Höhenmesser, Lichtintensität, UV Index, Anwesenheitssensoren, Magnetschalter, Erschütterungs-Sensoren, Feuchtig Sensorewicks также им.
+Датчик может быть установлен таким образом, чтобы он мог работать со всеми температурами, датчиками температуры, датчиками освещенности, датчиками освещенности, датчиками температуры, освещенности, УФ-индексом, датчиками температуры, магнитными датчиками, датчиками срабатывания, датчиками температуры, а также с принципом работы всех датчиков.
 
-In der Adapter Konfiguration lässt sich die Serielle Schnittstelle und die zugehörige Baudrate einstellen.
-Wenn der Anlermodus aktiviert ist, werden die Sensoren nach dem ersten Nachrichten-Empfang automatisch mit ihrer Node-Id und allen erkannten Datenpunkten angelegt.
-Der Anlernmodus wird nach 10min. Automatisch wasdet und kann unter "info" über den Datenpunkt "LearningMode" für weitere 10min. erneut aktiviert werden.
-Unter "config" werden die zugehörigen offset Datenpunkte erstellt, damit die Sensorwerte bei Bedarf korrigiert werden können.
-Unter "вычислил" werden die erechneten Datenpunkte Feuchte absolut und Taupunkt angelegt, jedoch nur wenn der Sensor die Werte Temperatur und родственник Feuchte liefert.
+В конфигурации адаптера указана серийная шпиндельная и дополнительная скорость передачи данных. Когда активируется модус Anlermodus, датчики автоматически активируются с идентификатором узла и всеми соответствующими датами. Der Anlernmodus продлится около 10 минут. автоматически включается и может перейти в «информацию» к «режиму обучения» в течение 10 минут. всегда активен. Если в параметре «config» указано смещение даты, необходимо, чтобы датчик был корректно установлен. При «расчетном» использовании эрехнетен Datenpunkte Feuchte абсолютного и Taupunkt angelegt, необходимо, чтобы датчик был Werte Temperatur и относительный Feuchte Lifert.
 
-Folgende Datenpunkte werden für das Empfänger-Protokoll Version 1.01 angelegt:
+Folgende Datenpunkte werden für das Empfänger-Protokoll версии 1.01:
 
-* NodeId
-* Signalstärke (RSSI)
-* Batteriespannung
-* Nachrichtenzähler
-* Температур
-* Feuchte
-* Сердцебиение (Нур в Protokoll версии 1.01)
-* Прерывания с 1 по 3
-* Индикатор Frequenzfehler (Нур в Protokoll версии 1.01)
-* RFM69 Temperatur (Нур в Protokoll версии 1.01)
-* Bitfehler
+- NodeId
+- Signalstärke (RSSI)
+- Batteriespannung
+- Nachrichtenzähler
+- Температура
+- Фойхте
+- Сердцебиение (Нур в Протоколе версии 1.01)
+- Прерывания 1–3
+- Индикатор Frequenzfehler (Нур в протоколе версии 1.01)
+- RFM69 Temperatur (Нур в протоколе версии 1.01)
+- Битфелер
 
 zusätzlich werden für das Empfänger-Protokoll Version 2.2 folgende Datenpunkte angelegt (wenn vorhanden).
 
-* Прерывание с 4 по 8
-* Синхронизация
-* Kanalgüte
-* Frequenzversatz
-* Entfernung (Nur bei installiertem Entfernungssensor)
-* Höhe (Nur bei installiertem Höhensensor)
-* Luftdruck (Nur bei installiertem Luftdrucksensor)
-* Рид-Контакт (Nur bei installiertem Reed-Kontakt)
-* Температур 1
-* Температур 2
+- Прерывание 4–8
+- Синхронизация
+- Каналгюте
+- Frequenzversatz
+- Включение (Nur bei installiertem Entfernungssensor)
+- Höhe (Nur bei installiertem Höhensensor)
+- Luftdruck (Nur bei installiertem Luftdrucksensor)
+- Рид-Контакт (Nur bei installiertem Reed-Kontakt)
+- Температура 1
+- Температура 2
 
 ## Changelog
+### 1.1.1
+- Optimization for js-controller 3.3
+
 ### 1.1.0
 - Add TiNo Protocol V2.2 support
 - (Add Datapoints temperature 1 and Temperatur 2)

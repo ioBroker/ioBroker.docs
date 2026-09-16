@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.synology/README.md":{"title":{"en":"ioBroker Synology adapter"},"content":"en/adapterref/iobroker.synology/README.md"},"en/adapterref/iobroker.synology/docs/en/template.md":{"title":{"en":"2FA"},"content":"en/adapterref/iobroker.synology/docs/en/template.md"}}}
+---
 ![Logo](admin/synology.png)
 # ioBroker Synology adapter
 
@@ -11,13 +14,12 @@
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-
 ## Description
 The driver allows you to receive data and manage your Synology NAS server.
 
 ### 2FA Settings
 
-If you use 2FA in DSM6/7 see instructions [here](docs/en/template.md)
+If you use 2FA in DSM6/7 see instructions [here](/#/docs/adapterref/iobroker.synology/docs/en/template.md)
 
 ### Important note for Windows Installations
 
@@ -27,7 +29,6 @@ This adapter requires git to be installed at the hist system. Installation media
 The adapter will do this via SSH since v2.1.4, so please set the SSH port in the adapter setttings. You can see it in the Synology settings:
 ![grafik](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png)
 ![grafik](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png)
-
 
 ### sendMethod
 
@@ -263,7 +264,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ### 0.0.3 (2018-01-03)
 * (instalator) initial
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.synology/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

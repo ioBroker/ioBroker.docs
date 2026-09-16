@@ -3,52 +3,70 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.onkyo/README.md
 title: ioBroker.onkyo
-hash: D2kaOQbC/ENX3OEQpT2QiPgW2tvZkW5i8JEEapw2dEU=
+hash: d/9zDVFdSixQcSqAGhJOgOTmeqPpXzomWrg1Dpy8MDg=
 ---
 ![Logo](../../../en/adapterref/iobroker.onkyo/admin/onkyo.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/onkyo-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.onkyo.svg)
+![Test und Freigabe](https://github.com/ioBroker/iobroker.onkyo/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/onkyo/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.onkyo.svg)
 
-# IoBroker.onkyo
-![Testen und freigeben](https://github.com/ioBroker/iobroker.onkyo/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/onkyo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.onkyo
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ### 2.0 Großes Update!
-Ab 2.0 gibt es Strukturänderungen! Wenn Sie auf diese Version aktualisieren, müssen Sie die Variablen in jedem anderen Adapter wie VIS oder Javascript ändern! Die neue Version unterstützt Materialien und Cover-Arts. Die Medienobjekte unterstützen Player-Widgets wie Sonos oder Winamp.
-![VIS](../../../en/adapterref/iobroker.onkyo/admin/player.png)
 
-Dieser Adapter ermöglicht die Steuerung von Onkyo- und Pioneer-AVRs über das EISCP-Protokoll.
+Ab Version 2.0 gibt es Strukturänderungen!\
+&#x20;Wenn Sie auf diese Version aktualisieren, müssen Sie die Variablen in allen anderen Adaptern wie VIS oder JavaScript ändern!\
+&#x20;Die neue Version unterstützt Materialien und Coverbilder. Die Medienobjekte unterstützen Player-Widgets wie Sonos oder Winamp.![VIS](../../../en/adapterref/iobroker.onkyo/admin/player.png)
 
-Es verwendet node-eiscp: https://github.com/tillbaks/node-eiscp
+Dieser Adapter ermöglicht die Steuerung von Onkyo- und Pioneer-AV-Receivern über das EISCP-Protokoll.
 
-Für das Senden von Befehlen gibt es einen Sonderzustand "RAW". Schreibvorgänge in diesen Zustand lösen nur RAW-Befehle wie die bekannten EISCP-Excel-Dateien aus. Als Beispiel für einen EISCP-RAW-Befehl in Form von "PWR01".
+Es verwendet node-eiscp: <https://github.com/tillbaks/node-eiscp>
 
-Ein weiterer Sonderzustand, der vom Adapter verwaltet wird, ist "verbunden". Es ist ein boolescher Wert, der anzeigt, ob node-eiscp derzeit mit einem Empfänger verbunden ist.
+Für das Senden von Befehlen gibt es einen speziellen Zustand „RAW“. Schreibvorgänge in diesem Zustand lösen nur RAW-Befehle aus, wie beispielsweise die bekannten EISCP-Excel-Dateien. Ein Beispiel für einen EISCP-RAW-Befehl ist „PWR01“.
 
-Beispiel einer VIS-Ansicht ![VIS](../../../en/adapterref/iobroker.onkyo/admin/onkyo-vis.png)
+Ein weiterer spezieller Zustand, der vom Adapter verwaltet wird, ist „verbunden“. Es handelt sich um einen booleschen Wert, der angibt, ob node-eiscp aktuell mit einem Empfänger verbunden ist.
+
+Beispiel einer VIS-Ansicht![VIS](../../../en/adapterref/iobroker.onkyo/admin/onkyo-vis.png)
 
 ## Getestete Empfänger
-###Onkyo
-* TX-NR 525
-* TX-NR 626
-* TX-NR 727
+
+### Onkyo
+
+- TX-NR 525
+- TX-NR 626
+- TX-NR 727
 
 ### Pionier
-* VXS-S520D
-* VSX-1131
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+- VXS-S520D
+- VSX-1131
 
-### __ARBEITEN IN PROGRESS__ -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
+### 2.1.2 (2022-03-11)
+* (Diginix/Apollon77) set object defaults with correct data type
+
+### 2.1.1 (2021-11-18)
+* (Apollon77) Fix some crash cases reported by Sentry
+
+### 2.1.0 (2021-07-05)
 * (Apollon77) Add reconnection and device offline detection
-* (Apollon77) Add crash reporting using sentry in js.controller 3+
+* (Apollon77) Optimize packet parsing
+* (Apollon77) Fix Image handling
+* (Apollon77) Add crash reporting using sentry in js-controller 3+
 
 ### 2.0.6 (2021-05-28)
 * (Diginix) fixed data types
@@ -58,22 +76,22 @@ Beispiel einer VIS-Ansicht ![VIS](../../../en/adapterref/iobroker.onkyo/admin/on
 * (bluefox) Added the support of compact mode
 
 ### 2.0.3   
-* (Eisbaeeer) now support zone3   
+* (Eisbaeeer) now support zone3
 
 ### 2.0.2
-* (Eisbaeeer) fix double .js 
+* (Eisbaeeer) fix double .js
 
 ### 2.0.0
 * (Eisbaeeer) Major update iobroker.onkyo
 
 ### 1.1.5
-* (Eisbaeeer) Zones will be powered if tune preset selected   
+* (Eisbaeeer) Zones will be powered if tune preset selected
 
 ### 1.1.4  
 * (Eisbaeeer) Added direct tuning in zones (issue #2)
 
 ### 1.1.3
-* (Eisbaeeer) Adding Navigation Items   
+* (Eisbaeeer) Adding Navigation Items
 
 ### 1.1.2
 * (Eisbaeeer) Adding CoverArt
@@ -156,7 +174,9 @@ Beispiel einer VIS-Ansicht ![VIS](../../../en/adapterref/iobroker.onkyo/admin/on
 ### 0.0.1
 * (owagner) initial version
 
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.onkyo/blob/master/CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
-Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>,
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>,
               2014-2015 Oliver Wagner <owagner@tellerulam.com>

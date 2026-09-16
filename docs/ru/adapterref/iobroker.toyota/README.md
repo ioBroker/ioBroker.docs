@@ -1,32 +1,36 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.toyota/README.md
 title: ioBroker.toyota
-hash: UFyNQCDOKEJ/jK45EnXcW+x82eN1Zg6WlE2S+Bp4cvM=
+hash: aMbCWZdd1T2bAJSuxNMatC6gSw3ugvDmF9veU8LYx6A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.toyota/admin/toyota.png)
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.toyota.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.toyota.svg)
 ![Количество установок](https://iobroker.live/badges/toyota-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/toyota-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/toyota-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.toyota.svg)
 ![НПМ](https://nodei.co/npm/iobroker.toyota.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.toyota/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.toyota
-** Испытания: ** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.toyota/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.toyota
 
-## Адаптер toyota для ioBroker
+## Адаптер Toyota для ioBroker
+
 Адаптер для приложения myT Toyota
 
-## Loginablauf
-Die myT Mail und Passwort eingeben.
+## Логинаблауф
 
-## Steuern
-toyota.0.vin.remote на true setzen steuert den jeweiligen Befehl
+Введите myT Mail и пароль.
 
-## Diskussion und Fragen
+## Стойерн
+
+toyota.0.vin.remote auf true setzen steuert den jeweiligen Befehl
+
+## Discussion und Fragen
+
 <https://forum.iobroker.net/topic/49034/test-adapter-toyota-v-0-0-x>
 
 ## Changelog

@@ -2,93 +2,100 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-airpurifier/README.md
-title: ioBroker.mihome-Luftreiniger
-hash: i0mj+g03C3agZOqTW6P5zlf0jkyXuwJEv1qcqWOz16I=
----
-![Anzahl der Installationen](http://iobroker.live/badges/mihome-airpurifier-stable.svg)
-![Build-Status](https://travis-ci.org/JoJ123/ioBroker.mihome-airpurifier.svg?branch=master)
-
----
+title: ioBroker.mihome-airpurifier
+hash: 4uMjO/WzuRTqVw/uD6M5oYdl2WLzyNuzeD/wo68DmJ0=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-airpurifier/admin/mihome-airpurifier.png)
 
-# IoBroker.mihome-Luftreiniger
-## Wie bekomme ich den Token?
-Sie müssen das miio-Befehlszeilentool `npm install -g miio` installieren
+![Anzahl der Installationen](http://iobroker.live/badges/mihome-airpurifier-stable.svg)
+![Build-Status](https://travis-ci.org/JoJ123/ioBroker.mihome-airpurifier.svg?branch=master)
 
-Jetzt haben Sie zwei Möglichkeiten:
+# ioBroker.mihome-airpurifier
 
-1. Mit Mi Home App:
+## Wie erhalte ich das Token?
 
-    Sie verbinden den Luftreiniger mit der MI Home App mit Ihrem WLAN-Netzwerk und führen dann den folgenden Befehl aus:
+Sie müssen das miio-Befehlszeilentool installieren.`npm install -g miio`
 
-    `miio discover`
+Nun haben Sie zwei Möglichkeiten:
 
-    Sie sollten die folgende Ausgabe erhalten und können das Token speichern.
+1. Mit der Mi Home App:
 
-```
-Device ID: 48765421
-Model info: zhimi.airpurifier.m1
-Address: 192.168.100.9
-Token: token-as-hex-here via auto-token
-Support: At least basic
-```
+   Verbinden Sie den Luftreiniger mit der MI Home App mit Ihrem WLAN-Netzwerk und führen Sie dann folgenden Befehl aus:
 
-2. Ohne Mi Home App:
+   `miio discover`
 
-    Sie setzen die WIFI-Einstellungen des Luftreinigers zurück. Anschließend verbinden Sie Ihr Netzwerk mit dem WIFI des Luftreinigers und führen den folgenden Befehl aus:
+   Sie sollten die folgende Ausgabe erhalten und können das Token speichern.
 
-    `miio discover`
+   ```
+   Device ID: 48765421
+   Model info: zhimi.airpurifier.m1
+   Address: 192.168.100.9
+   Token: token-as-hex-here via auto-token
+   Support: At least basic
+   ```
 
-    Sie sollten dieselbe Ausgabe wie oben erhalten und können jetzt die Verbindung zu Ihrem Netzwerk mit dem folgenden Befehl konfigurieren:
+2. Ohne die Mi Home App:
 
-    `miio configure id-or-address --ssid ssid-of-network --passwd password-of-network`
+   Sie setzen die WLAN-Einstellungen des Luftreinigers zurück. Anschließend verbinden Sie Ihr Netzwerk mit dem WLAN des Luftreinigers und führen folgenden Befehl aus:
 
-    Jetzt ist der Luftreiniger mit Ihrem Netzwerk verbunden.
+   `miio discover`
+
+   Sie sollten die gleiche Ausgabe wie oben erhalten und können nun die Verbindung zu Ihrem Netzwerk mit folgendem Befehl konfigurieren:
+
+   `miio configure id-or-address --ssid ssid-of-network --passwd password-of-network`
+
+   Der Luftreiniger ist nun mit Ihrem Netzwerk verbunden.
 
 ## Cloud-Verbindung
-Um den Luftreiniger mit dem Cloud-Adapter zu steuern, fügen Sie Ihrem Cloud-Adapter einfach den Status "manuallevel" hinzu. Danach können Sie f.e. die folgenden Befehle über Alexa:
 
-* Alexa, schalte den Luftreiniger ein *,
+Um den Luftreiniger mit dem Cloud-Adapter zu steuern, fügen Sie einfach den Status „manuallevel“ zu Ihrem Cloud-Adapter hinzu. Danach können Sie die folgenden Befehle über Alexa senden:
 
-* Alexa, stelle den Luftreiniger auf 50% ein *,
+_Alexa, schalte den Luftreiniger ein_ .
 
-*Alexa, schalte den Luftreiniger aus*
+_Alexa, stelle den Luftreiniger auf 50 % ein_ .
 
-Wenn Sie im Cloud-Adapter "On Value" auf "Last active value" setzen, wird das Gerät immer mit der neuesten aktiven Leistungsstufe gestartet.
+_Alexa, schalte den Luftreiniger aus._
 
-## Kontrollzustände
+Wenn Sie im Cloud-Adapter den "Ein-Wert" auf "Letzter aktiver Wert" einstellen, startet das Gerät immer mit dem zuletzt aktiven Leistungspegel.
+
+## Kontrollstaaten
+
 Zur Steuerung Ihres Luftreinigers können folgende Objekte geschrieben werden:
 
-| Staat | Beschreibung |
-| :---           | :---        |
-| `power` | Gerät ein- / ausschalten |
-| `silent` | Aktivieren Sie den Silent-Modus des Geräts. |
-| `manual` | Aktivieren Sie den manuellen Modus des Geräts. |
-| `manuallevel` | Steuern Sie die Leistung des manuellen Modus im Bereich von 0-100%. Dadurch wird das Gerät bei Bedarf auch ein- und ausgeschaltet |
-| `led` | Schalten Sie die automatische LED ein / aus |
-| `buzzer` | Schalten Sie den Summer ein / aus |
-| `Summer` | Schalten Sie den Summer ein / aus |
+| Zustand       | Beschreibung                                                                                                                              |
+| :------------ | :---------------------------------------------------------------------------------------------------------------------------------------- |
+| `power`       | Gerät ein-/ausschalten                                                                                                                    |
+| `auto`        | Aktivieren Sie den Automatikmodus des Geräts.                                                                                             |
+| `silent`      | Aktivieren Sie den Stummmodus des Geräts.                                                                                                 |
+| `manual`      | Aktivieren Sie den manuellen Modus des Geräts.                                                                                            |
+| `manuallevel` | Die Leistung im manuellen Modus lässt sich im Bereich von 0-100 % regeln. Dadurch wird das Gerät bei Bedarf auch ein- bzw. ausgeschaltet. |
+| `led`         | Automatische LED ein-/ausschalten                                                                                                         |
+| `buzzer`      | Summer ein-/ausschalten                                                                                                                   |
 
-## Info Staaten
-Die folgenden Informationen werden von Ihrem Luftreiniger erfasst (schreibgeschützt):
+## Info-Staaten
+
+Folgende Informationen werden von Ihrem Luftreiniger erfasst (schreibgeschützter Zustand):
 
 ### Geräteinformationen
-| Staat | Beschreibung |
-| :---        | :---        |
-| `mode` | Der tatsächliche Gerätemodus ist nur gültig, wenn das Gerät eingeschaltet ist. |
-| `humidity` | Die gemessene relative Luftfeuchtigkeit in% des Geräts. |
-| `pm25` | Die Luftverschmutzung in PM2.5. |
-| `filterLifeRemaining` | Die verbleibende Filterlebensdauer in Stunden. |
-| `filterHoursUsed` | Die verwendeten Stunden des Filters. |
-| `filterHoursUsed` | Die verwendeten Stunden des Filters. |
+
+| Zustand               | Beschreibung                                                               |
+| :-------------------- | :------------------------------------------------------------------------- |
+| `mode`                | Der aktuelle Gerätemodus ist nur gültig, wenn das Gerät eingeschaltet ist. |
+| `temperature`         | Die gemessene Temperatur des Geräts in °C.                                 |
+| `humidity`            | Die gemessene relative Luftfeuchtigkeit des Geräts in %.                   |
+| `pm25`                | Die Luftverschmutzung in PM2,5.                                            |
+| `filterLifeRemaining` | Die verbleibende Filterlebensdauer in Stunden.                             |
+| `filterHoursUsed`     | Die Betriebsstunden des Filters.                                           |
 
 ## Changelog
+### 0.1.8 (02.05.2020)
+* (JoJ123) bug: npm install
+
 ### 0.1.7 (01.05.2020)
-* (JoJ123) add new parameter
+* (JoJ123) bug: interval load data
 
 ### 0.1.6 (01.05.2020)
-* (JoJ123) add new parameter
+* (JoJ123) support for 'zhimi.airpurifier.mc1'
 
 ### 0.1.5 (01.05.2020)
 * (JoJ123) add new parameter

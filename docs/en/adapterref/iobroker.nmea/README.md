@@ -32,7 +32,7 @@ Because of the high requirements of Raspberry Pi to power supply, we suggest pow
 Power over NMEA2000 and over USB could function in parallel without a problem.
 
 ### Installation
-See chapter 3 in [PiCAN-M User Guide](img/pican-m_UGB_10.pdf) for more details, but here is a short summary:
+See chapter 3 in [PiCAN-M User Guide](https://github.com/ioBroker/ioBroker.nmea/blob/master/img/pican-m_UGB_10.pdf) for more details, but here is a short summary:
 
 Edit file `/boot/config.txt` (with `sudo nano /boot/config.txt`) and add the following lines to the end of the file:
 ```
@@ -111,6 +111,9 @@ Use `windDatumDisplay` for visualization and `windDatum` for calculations/automa
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Migrated widgets to React 19
+
 ### 2.0.0 (2026-08-04)
 - (bluefox) Migrated to devices V3
 
@@ -130,8 +133,6 @@ Use `windDatumDisplay` for visualization and `windDatum` for calculations/automa
 
 ### 0.4.2 (2026-01-05)
 * (bluefox) Updated packages
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

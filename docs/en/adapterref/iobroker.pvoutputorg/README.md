@@ -13,7 +13,6 @@
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.pvoutputorg?style=flat-square)
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.pvoutputorg?label=npm%20dependencies&style=flat-square)
 
-
 ![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.pvoutputorg?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.pvoutputorg?logo=github&style=flat-square)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.pvoutputorg?logo=github&style=flat-square)
@@ -22,7 +21,6 @@
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
-
 
 **If you like it, please consider a donation:**
                                                                           
@@ -113,6 +111,9 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.1 (2026-09-12)
+* (René) update dependencies
+
 ### 2.0.0 (2026-06-30)
 * (René) rewritten in typescript
 * (René) support of new version of DasWetter adapter
@@ -127,11 +128,6 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
 
 ### 1.9.5 (2025-10-21)
 * (René) update dependencies + changes based on adapter checker
-
-### 1.9.4 (2025-10-04)
-* (René) update dependencies + changes based on adapter checker
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

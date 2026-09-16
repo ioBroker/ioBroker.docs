@@ -1,46 +1,55 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.tagesschau/README.md":{"title":{"en":"ioBroker.tagesschau"},"content":"en/adapterref/iobroker.tagesschau/README.md"},"en/adapterref/iobroker.tagesschau/README-GER.md":{"title":{"en":"ioBroker.tagesschau"},"content":"en/adapterref/iobroker.tagesschau/README-GER.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tagesschau/README.md
 title: ioBroker.tagesschau
-hash: 5ZK9t/CEIsWKNemo9oQJdxMkeuNf3SHfJeOLXZ6z25g=
+hash: antdA9C2zyfFAJ+2wR2zuGpUpmiyL6zBWKLUfQA9qkE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tagesschau/admin/tagesschau.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.tagesschau.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.tagesschau.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tagesschau.svg)
 ![Количество установок](https://iobroker.live/badges/tagesschau-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/tagesschau-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/tagesschau-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tagesschau.png?downloads=true)
+![Тестирование и выпуск](https://github.com/ticaki/ioBroker.tagesschau/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.tagesschau
-**Тесты:** ![Тест и выпуск](https://github.com/ticaki/ioBroker.tagesschau/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.tagesschau
 
-## Адаптер tagesschau для ioBroker
-[Deutsche Anleitung (актюллер)](README-GER.md)
+## адаптер tagesschau для ioBroker
 
-Получает ссылки на новости и видео с Tagesschau.
+[Deutsche Anleitung (актюллер)](/#/docs/adapterref/iobroker.tagesschau/README-GER.md)
+
+Получает ссылки на новости и видео с сайта Tagesschau.
 
 Контент доступен только на немецком языке.
 
-Установить - задать нужные настройки в админке - готово.
+Установка - задайте необходимые параметры в административной панели - готово.
 
-**Согласно API Tagesschau, 60 запросов в час — это нормально. Каждая тема и видео — это 1 запрос. 30 минут на обновление всегда влезает. Понятия не имею, как именно они это принимают.**
+**Согласно API Tagesschau, 60 запросов в час — это нормально. Каждая тема и каждое видео — это один запрос. 30 минут на обновление всегда вписываются в график. Непонятно, как именно они это рассчитывают.**
 
 Пожалуйста, обрати внимание:
 
-1. если не выбраны параметры «Включить сообщения» или «Включить видеосообщения», адаптер приостанавливает работу
-2. Если выбрана опция «Активировать сообщения», адаптер запускается только в том случае, если в конфигурации выбраны 1 тема и 1 федеральная земля.
-3. ключевые слова извлекаются из сообщений и доступны только после первого запуска. Со временем их будет все больше и больше! Они применяются только к сообщениям.
+1. Если не выбраны параметры «Включить сообщения» или «Включить видеосообщения», работа адаптера приостанавливается.
+2. Если выбран параметр «Активировать сообщения», адаптер будет работать только в том случае, если в конфигурации выбраны 1 тема и 1 федеральный штат.
+3. Ключевые слова извлекаются из сообщений и становятся доступны только после первого запуска. Со временем их будет становиться всё больше! Это относится только к сообщениям.
 
 ## Отказ от ответственности
-**Все названия продуктов и компаний или логотипы являются товарными знаками™ или зарегистрированными® товарными знаками их соответствующих владельцев. Их использование не подразумевает какой-либо связи или одобрения ими или любыми связанными дочерними компаниями! Этот личный проект поддерживается в свободное время и не имеет деловой цели.** **Tagesschau является товарным знаком ARD-aktuell.** https://www.tagesschau.de/impressum
+
+**Все названия продуктов и компаний, а также логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Использование этих товарных знаков не подразумевает какой-либо связи с ними или их дочерними компаниями, а также одобрения с их стороны! Этот личный проект ведется в свободное время и не преследует коммерческих целей.** **Tagesschau является товарным знаком ARD-aktuell.** <https://www.tagesschau.de/impressum>
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 0.6.0 (2025-09-18)
+- (ticaki) Breaking News are now also retrieved from the Tagesschau homepage API and polled every 5 minutes
+
 ### 0.5.0 (2025-01-27)
 * (ticaki) States added for browsing.
 * (ticaki) Another attempt to constantly sort the videos in the same way.
@@ -104,10 +113,12 @@ hash: 5ZK9t/CEIsWKNemo9oQJdxMkeuNf3SHfJeOLXZ6z25g=
 ### 0.1.0 (2025-01-04)
 * (ticaki) initial release
 
+[Older changelogs can be found there](https://github.com/ticaki/ioBroker.tagesschau/blob/main/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2025 ticaki <github@renopoint.de>
+Copyright (c) 2025-2026 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

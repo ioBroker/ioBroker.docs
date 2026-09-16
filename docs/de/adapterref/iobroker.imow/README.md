@@ -3,31 +3,35 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.imow/README.md
 title: ioBroker.imow
-hash: akO17AN3D+zzSp8F4VGvR6jc/ezOl8VHDCS6vMUJ+TU=
+hash: 635M4jrL9BMDdW37Wio9w83vppFPyL9m0QXyDV2Q5cY=
 ---
 ![Logo](../../../en/adapterref/iobroker.imow/admin/imow.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.imow.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.imow.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/imow-installed.svg)
-![Anzahl Installationen (stabil)](https://iobroker.live/badges/imow-stable.svg)
+![Anzahl der Installationen (stabil)](https://iobroker.live/badges/imow-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.imow.svg)
 ![NPM](https://nodei.co/npm/iobroker.imow.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.imow/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.imow
-**Tests:** ![Testen und Freigeben](https://github.com/TA2k/ioBroker.imow/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.imow
 
-## Imow-Adapter für ioBroker
+## imow-Adapter für ioBroker
+
 Adapter für Stihl Viking iMow
 
-## Loginablauf
-Geben Sie die iMow-Mail und das Passwort ein.
+## Anmeldeablauf
+
+Die iMow Mail und das Passwort eingeben.
 
 ## Steuern
-imow.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
+
+imow\.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
 ## Diskussion und Fragen
-<https://forum.iobroker.net/topic/55747/testadapter-stihl-viking-imow>
+
+<https://forum.iobroker.net/topic/55747/test-adapter-stihl-viking-imow>
 
 ## Changelog
 

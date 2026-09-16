@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gree-hvac/README.md
 title: iobroker.gree-hvac
-hash: nbnCeatkP5YX4f21mweyh2a/mosv3Qal1E5BFx02vvI=
+hash: 7pMQEVnxYSIVU/o0jQUH/0IJVyuLaz1iBs0xGKFp5gg=
 ---
 ![Logo](../../../en/adapterref/iobroker.gree-hvac/admin/air-conditioner.png)
 
@@ -11,51 +11,69 @@ hash: nbnCeatkP5YX4f21mweyh2a/mosv3Qal1E5BFx02vvI=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.gree-hvac.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/template-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/gree-hvac-stable.svg)
+![Test und Freigabe](https://github.com/xhunter74/ioBroker.gree-hvac/actions/workflows/test-and-release.yml/badge.svg)
 
-# Iobroker.gree-hvac
-**Tests:** [![Testen und Freigeben](https://github.com/xhunter74/ioBroker.gree-hvac/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/xhunter74/ioBroker.gree-hvac/actions/workflows/test-and-release.yml)
+# iobroker.gree-hvac
 
-Adapter für Klimaanlagen von Gree und C&H
+Adapter für Gree- und C\&H-Wasserfilter
 
 ## Unterstützte Geräte
-Alle Geräte, die über die EWPE Smart App gesteuert werden können, sollten unterstützt werden, darunter:
+
+Alle Geräte, die über die EWPE Smart App gesteuert werden können, sollten unterstützt werden, einschließlich:
 
 - Gree Smart-Serie
-- Cooper&Hunter: Supreme, Vip Inverter, ICY II, Arctic, Alpha, Alpha NG, Veritas, Veritas NG-Serie
+- Cooper\&Hunter: Supreme, VIP Inverter, ICY II, Arctic, Alpha, Alpha NG, Veritas, Veritas NG-Serie
 - EcoAir X-Serie
 - ProKlima
 
-**Bitte beachten Sie, dass neue und möglicherweise auch alte Klimaanlagen ohne Internetzugang nicht funktionieren. Sie reagieren einfach nicht mehr auf Adapteranfragen.**
+**Bitte beachten Sie, dass neue Klimaanlagen und möglicherweise auch ältere Modelle ohne Internetanschluss nicht funktionieren. Sie reagieren dann einfach nicht mehr auf Adapteranfragen.**
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Danksagungen
+
 - [tomikaa87](https://github.com/tomikaa87) für das Reverse Engineering des Gree-Protokolls
-- [stas-demydiuk](https://github.com/stas-demydiuk) für den Code von DeviceManager
-- Sizenko Alexander für Digital-7-Schriftarten
-- [cont1nuity] zum Hinzufügen der AES-GCM-Verschlüsselung
+- [stas-demydiuk](https://github.com/stas-demydiuk) für den Code des DeviceManagers
+- Sizenko Alexander für Digital-7 Schriftarten
+- \[cont1nuity] zum Hinzufügen der AES-GCM-Verschlüsselung
 
 ## Changelog
-### 1.1.2 (2024-10-16)
- - Updated dependencies
- - Adjusted admin layout
-### 1.1.0 (2024-08-13)
- - Added the AES-GCM encryption which is needed for some devices with newer firmware versions (e.g. gree model 32776, v1.23)
-### 1.0.7 (2024-07-03)
- - Host Google icons locally. Updated dependencies.
-### 1.0.6 (2024-06-14)
- - Added button titles and translation.
-### 1.0.5 (2024-06-12)
- - Added time field.
-### 1.0.4 (2024-06-12)
- - Code optimization. Bug fixes.
-### 1.0.3 (2024-06-12)
- - Added refresh devices button on tab page.
+### 4.0.0 (2026-08-28)
+ - Migrated the admin tab from jQuery/Materialize to React (MUI 6 / @iobroker/adapter-react-v5)
+ - The admin tab is now translated into all 11 adapter languages
+ - Errors reported by the adapter are shown in the tab instead of only in the browser console
+ - The admin tab now detects the running adapter instance instead of always using instance 0
+ - The admin tab now follows the light/dark theme of the admin UI
+
+### 3.0.3 (2026-06-01)
+ - Fixed adapter runtime dependencies and updated CI workflow
+
+### 3.0.2 (2026-05-28)
+ - Filtered network-related errors from Sentry reporting
+
+### 3.0.1 (2026-05-28)
+ - Fixed i18n translation files
+
+### 3.0.0 (2026-05-25)
+ - Migrated adapter source code to TypeScript
+ - Updated build pipeline to use `build-adapter ts` (esbuild + tsc)
+ - Updated CI/CD workflow to run on all branches with explicit build steps
+
+### 2.0.9 (2026-05-21)
+ - Adapter requires node.js >= 22 now
+ - Fixed connection status indicator incorrectly showing connected when no devices are bound
+ - Fixed fan speed cycling button skipping the maximum speed level
+ - Fixed memory leak: UDP event listener not removed on request timeout
+ - Fixed maintain-room-temperature (StHt) state never being polled from the device
+ - Fixed potential null reference errors when reading adapter states
+ - Closed UDP sockets on adapter shutdown
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License
 
-Copyright (c) 2024 Serhiy Krasovskyy xhunter74@gmail.com
+Copyright (c) 2025-2026 Serhiy Krasovskyy xhunter74@gmail.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

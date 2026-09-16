@@ -1,15 +1,17 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.tractive-gps/README.md":{"title":{"en":"ioBroker.tractive-gps"},"content":"en/adapterref/iobroker.tractive-gps/README.md"},"en/adapterref/iobroker.tractive-gps/README_DE.md":{"title":{"en":"ioBroker.tractive-gps"},"content":"en/adapterref/iobroker.tractive-gps/README_DE.md"},"en/adapterref/iobroker.tractive-gps/docs/DEVELOPMENT.md":{"title":{"en":"Developer documentation for ioBroker.tractive-gps"},"content":"en/adapterref/iobroker.tractive-gps/docs/DEVELOPMENT.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tractive-gps/README.md
 title: ioBroker.tractive-gps
-hash: g8VrbNDoLmYPA1H3vfwazDDbJcw04EbwgBpnmQO0HsA=
+hash: bTTmA7oeSySy3XjvEFaVMS8Siwxzc1SWE8Nq/SKoQ0k=
 ---
 ![Logo](../../../en/adapterref/iobroker.tractive-gps/admin/tractive-gps.png)
 
 ![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.tractive-gps)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tractive-gps.svg)
 ![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.tractive-gps)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tractive-gps/svg-badge.svg)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.tractive-gps)
 ![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.tractive-gps/latest)
 ![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.tractive-gps)
@@ -18,25 +20,28 @@ hash: g8VrbNDoLmYPA1H3vfwazDDbJcw04EbwgBpnmQO0HsA=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/tractive-gps-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/tractive-gps-installed.svg)
 
-# IoBroker.tractive-gps
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tractive-gps/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
+# ioBroker.tractive-gps
 
 **Version:**
 
 ## Haftungsausschluss
+
 Alle in diesem Projekt erwähnten Produkt- und Firmennamen, Logos und Marken gehören ihren jeweiligen Eigentümern. Tractive und die zugehörigen Namen, Logos und Marken sind Eigentum der Tractive GmbH oder ihrer jeweiligen Eigentümer. Ihre Verwendung dient ausschließlich der Identifizierung und impliziert keine Zugehörigkeit zu, Unterstützung durch oder Empfehlung seitens der Tractive GmbH oder ihrer verbundenen Unternehmen. Dies ist ein privates, nicht-kommerzielles Projekt, das zu Freizeitzwecken entwickelt wurde.
 
-## Wächter
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Verwendung der Sentry-Berichterstattung beginnt mit js-controller 3.0.
+## Posten
+
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Anweisungen zum Deaktivieren der Fehlerberichterstattung finden Sie in der [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 unterstützt.
 
 ## Beschreibung
+
 Der Adapter verbindet ioBroker mit einem Tractive-Konto und stellt aktuelle Informationen zu Haustieren und GPS-Trackern als ioBroker-Status bereit. Dadurch können Standorte, Akkustände, Verbindungsstatus, Haustierinformationen und unterstützte Tracker-Funktionen in Automatisierungen und Visualisierungen genutzt werden.
 
 Der Adapter nutzt eine inoffizielle Schnittstelle zum Tractive-Dienst. Ein funktionierendes Tractive-Konto und ein aktives Abonnement für die Tracker sind erforderlich. Dieser Community-Adapter steht in keiner Verbindung zu Tractive und wird von Tractive weder unterstützt noch gefördert.
 
-> [Deutsche Dokumentation](README_DE.md)
+> [Deutsche Dokumentation](/#/docs/adapterref/iobroker.tractive-gps/README_DE.md)
 
 ## Anforderungen
+
 - Node.js 22.13 oder neuer
 - js-controller 7.2.2 oder neuer
 - Admin 7.8.23 oder neuer
@@ -44,40 +49,44 @@ Der Adapter nutzt eine inoffizielle Schnittstelle zum Tractive-Dienst. Ein funkt
 - Ein Tractive-Konto mit mindestens einem zugehörigen Tracker
 
 ## Merkmale
+
 - Ruft die tatsächlichen Namen und Details der mit dem Konto verknüpften Haustiere ab.
 - Liefert die aktuellen GPS-Koordinaten, die Höhe, die Geschwindigkeit, die Positionsgenauigkeit, die Entfernung vom konfigurierten ioBroker-Standort und den Zeitpunkt der letzten Aktualisierung.
 - Löst optional Koordinaten in eine lesbare Adresse auf.
-- Zeigt den Akkustand, den Ladezustand, die verwendete Positionsquelle (`KNOWN_WIFI`/`GPS`), den Status "Zuhause/Abwesend", den Online-Status und den Energiesparstatus an.
-- Liefert Modell, Firmware, Hardwareversion, Funktionen, Geschlecht, Geburtsdatum, Größe, Gewicht und weitere verfügbare Informationen.
-- Unterstützt Live-Tracking, LED- und Summerbefehle, wenn der Tracker die entsprechende Fähigkeit meldet.
+- Liefert Informationen zum Akkustand, Ladezustand, verwendeter Position und Quelle (`KNOWN_WIFI` /`GPS` ), Heim-/Abwesenheitsstatus, Online-Status und Energiesparstatus.
+- Bietet Informationen zu Modell, Firmware, Hardwareversion, Funktionen, Geschlecht, Geburtsdatum, Größe, Gewicht und weiteren verfügbaren Daten.
+- Unterstützt Live-Tracking, LED- und Summer-Befehle, wenn der Tracker die entsprechende Fähigkeit meldet.
 - Speichert alle abgerufenen Konto-, Abonnement-, Anteils-, Haustier-, Tracker-, Positions- und Hardwaredaten als logischen lokalen Zustandsbaum und als einen vollständigen JSON-Snapshot.
-- Enthält responsive Karten für VIS 1 und VIS 2 mit einem Haustierbild, einer interaktiven Karte, einer Reichweitenanzeige, dem Tracker-Status und Bedienelementen.
+- Beinhaltet responsive Karten für VIS 1 und VIS 2 mit einem Haustierbild, einer interaktiven Karte, einer Reichweitenanzeige, dem Tracker-Status und Bedienelementen.
 - Unterstützt ein von Tractive bereitgestelltes Bild oder ein benutzerdefiniertes Bild, das auf ioBroker hochgeladen wurde.
 - Erkennt fehlende oder veraltete Trackerdaten, ohne vorhandene Objekte automatisch zu löschen.
 
 ## Konfiguration
+
 Öffnen Sie die Adapterinstanz und konfigurieren Sie die folgenden Einstellungen:
 
-| Schauplatz | Beschreibung |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| E-Mail | E-Mail-Adresse des Tractive-Kontos. |
-| Passwort | Passwort des Tractive-Kontos. Es wird im standardmäßigen verschlüsselten Konfigurationsformat von ioBroker gespeichert. |
-| Aktualisierungsintervall | Zeit zwischen regelmäßigen Positionsaktualisierungen. Werte zwischen 2 und 60 Minuten sind verfügbar. |
+| Einstellung                          | Beschreibung                                                                                                                    |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| E-Mail                               | E-Mail-Adresse des Tractive-Kontos.                                                                                             |
+| Passwort                             | Passwort des Tractive-Kontos. Es wird im standardmäßigen verschlüsselten Konfigurationsformat von ioBroker gespeichert.         |
+| Aktualisierungsintervall             | Zeitintervall zwischen regelmäßigen Positionsaktualisierungen. Werte zwischen 2 und 60 Minuten sind verfügbar.                  |
 | Koordinaten in eine Adresse auflösen | Fordert eine lesbare Adresse für die aktuellen Koordinaten an. Deaktivieren Sie diese Option, wenn keine Adresse benötigt wird. |
 
-Verwenden Sie **Verbindung testen**, um die eingegebenen Anmeldeinformationen zu überprüfen. Speichern Sie alle Einstellungen mit der üblichen ioBroker-Schaltfläche **Speichern** am unteren Rand der Konfigurationsseite.
+Verwenden Sie **die Testverbindung** , um die eingegebenen Anmeldeinformationen zu überprüfen. Speichern Sie alle Einstellungen mit der üblichen ioBroker- **Speichern-** Schaltfläche am unteren Rand der Konfigurationsseite.
 
 Das Passwort bleibt unverändert, wenn das Passwortfeld nach dem Speichern der Konfiguration leer gelassen wird. Vorhandene Passwörter, die das ältere ioBroker-Verschlüsselungsformat verwenden, werden beim nächsten Speichern der Konfiguration in das aktuelle AES-Format konvertiert.
 
 ### Datenaktualisierungsplan
-Die Positionen werden gemäß dem konfigurierten Aktualisierungsintervall aktualisiert.
-- Informationen zu Akku und Hardware werden alle 15 Minuten aktualisiert.
+
+- Die Positionen werden gemäß dem konfigurierten Aktualisierungsintervall aktualisiert.
+- Akku- und Hardwareinformationen werden alle 15 Minuten aktualisiert.
 - Haustierprofile, Bilder und andere statische Details werden bei der täglichen vollständigen Synchronisierung aktualisiert.
 - Nach dem Start des Adapters wird außerdem eine vollständige Synchronisierung durchgeführt.
 
-Tractive kann Anfragen vorübergehend mit HTTP 429 einschränken. Der Adapter speichert Anfragen in Pausen, pausiert alle Anfragen, sobald eine solche Einschränkung gemeldet wird, und versucht es automatisch erneut. Eine erfolgreiche Aktualisierung wird in `info.lastSuccessfulSync` und `info.dataFresh` angezeigt.
+Tractive kann Anfragen vorübergehend mit dem HTTP-Statuscode 429 einschränken. Der Adapter verteilt die Anfragen, pausiert alle Anfragen, sobald eine solche Einschränkung gemeldet wird, und versucht es automatisch erneut. Eine erfolgreiche Aktualisierung wird angezeigt in`info.lastSuccessfulSync` Und`info.dataFresh` Die
 
 ## Objekte und Zustände
+
 Die wichtigsten Objekte sind wie folgt gruppiert:
 
 ```text
@@ -105,56 +114,63 @@ tractive-gps.0
 ```
 
 ### Adapterinformationen
-- `info.connection`: Gibt an, ob die letzte Synchronisierung erfolgreich war.
-- `info.dataFresh`: Gibt an, ob aktuell nutzbare Daten verfügbar sind.
-- `info.lastSync`: Zeitpunkt des letzten Synchronisierungsversuchs.
-- `info.lastSuccessfulSync`: Zeitpunkt der letzten erfolgreichen Synchronisierung.
-- `info.refresh`: Schaltfläche zum manuellen Starten einer vollständigen Synchronisierung.
-- `info.status`: Aktueller Adapterstatus.
-- `info.currentApi`: Vollständiger JSON-Snapshot der aktuell verfügbaren Tractive-Daten.
+
+- `info.connection` : Zeigt an, ob die letzte Synchronisierung erfolgreich war.
+- `info.dataFresh` : Gibt an, ob aktuell nutzbare Daten verfügbar sind.
+- `info.lastSync` Zeitpunkt des letzten Synchronisationsversuchs.
+- `info.lastSuccessfulSync` Zeitpunkt der letzten erfolgreichen Synchronisierung.
+- `info.refresh` Schaltfläche zum manuellen Starten einer vollständigen Synchronisierung.
+- `info.status` Aktueller Adapterstatus.
+- `info.currentApi` : Vollständiger JSON-Snapshot der aktuell verfügbaren Tractive-Daten.
 
 ### Haustiere
-Die folgenden Zustände (`pets.<pet-id>.*`) enthalten nützliche Profilinformationen zum Haustier, die Tracker-Zuordnung, Aktivitätsziele und das Profilbild. Leere Felder und interne API-Felder werden nicht angezeigt.
+
+Die folgenden Staaten`pets.<pet-id>.*` Enthält nützliche Informationen zum Haustierprofil, die Tracker-Zuordnung, Aktivitätsziele und das Profilbild. Leere Felder und interne API-Felder werden ausgelassen.
 
 ### Tracker
-Die folgenden Zustände (`trackers.<tracker-id>.*`) enthalten die Tracker-Identifikation, den Betriebs- und Online-Status, die Position, die Positionsquelle, die Entfernung zum ioBroker-Systemstandort, die Adresse, Batterieinformationen und unterstützte Befehle. `location.sensorUsed` enthält die Tractive-Positionsquelle. `status.home` wird von `KNOWN_WIFI` oder `GPS` abgeleitet. Der Zustand `connectionType` ist nicht vorhanden. Die geografische Breite und Länge des ioBrokers werden in den Systemeinstellungen konfiguriert.
+
+Die folgenden Staaten`trackers.<tracker-id>.*` enthalten Tracker-Identifikation, Betriebs- und Online-Status, Position, Positionsquelle, Entfernung vom ioBroker-Systemstandort, Adresse, Batterieinformationen und unterstützte Befehle.`location.sensorUsed` enthält die Traktionspositionsquelle.`status.home` wird abgeleitet von`KNOWN_WIFI` oder`GPS` Es gibt kein Duplikat.`connectionType` Status. Die Breiten- und Längengradangaben des ioBrokers werden in den Systemeinstellungen konfiguriert.
 
 ### Vollständige API-Daten
-Nur für Skripte, Automatisierungen und Visualisierungen relevante Werte werden als separate Zustände angelegt. Leere Werte, API-Metadaten, interne Versionsfelder und doppelte Darstellungen werden entfernt. Die vollständige, unveränderte kombinierte Antwort bleibt als ein einziger JSON-Wert in `info.currentApi` verfügbar. Anmeldekennwörter und Zugriffstoken werden ihr niemals hinzugefügt.
+
+Nur für Skripte, Automatisierungen und Visualisierungen relevante Werte werden als einzelne Zustände erstellt. Leere Werte, API-Metadaten, interne Versionsfelder und doppelte Darstellungen werden ausgelassen. Die vollständige, unveränderte kombinierte Antwort bleibt als ein einziger JSON-Wert verfügbar.`info.currentApi` Anmeldekennwörter und Zugriffstoken werden dort niemals hinzugefügt.
 
 ## Tracker-Befehle
+
 Die folgenden beschreibbaren Zustände werden nur dann erstellt, wenn sie vom ausgewählten Tracker unterstützt werden:
 
 - `trackers.<tracker-id>.commands.liveTracking`
 - `trackers.<tracker-id>.commands.led`
 - `trackers.<tracker-id>.commands.buzzer`
 
-Setzen Sie den gewünschten Zustand auf `true` oder `false`. Der Zustand wird bestätigt, nachdem Tractive den Befehl angenommen hat.
+Stellen Sie den gewünschten Zustand ein auf`true` oder`false` Der Zustand wird bestätigt, nachdem Tractive den Befehl angenommen hat.
 
 ## VIS-Widgets
-Der Adapter enthält ein klassisches `PetTrackerCard` für VIS 1 und ein natives React `PetTrackerCard` für VIS 2. Fügen Sie für jedes Haustier oder jeden Tracker ein Widget hinzu und weisen Sie die gewünschten Zustände in den Widget-Einstellungen zu.
+
+Der Adapter beinhaltet einen klassischen`PetTrackerCard` für VIS 1 und ein natives React`PetTrackerCard` Für VIS 2. Fügen Sie für jedes Haustier oder jeden Tracker ein Widget hinzu und weisen Sie in den Widget-Einstellungen die gewünschten Zustände zu.
 
 Die Karte kann Folgendes anzeigen:
 
 - Name, Art, Geschlecht, Alter und Gewicht des Haustiers
 - Name des Trackers und Online-Status,
-- Haustierbild aus dem lokalen `media.localProfilePictureUrl`-Zustand,
+- Haustierbild aus der Gegend`media.localProfilePictureUrl` Zustand,
 - interaktive Leaflet/OpenStreetMap-Karte,
-- gemeldeter oder manuell konfigurierter Positionsradius,
+- gemeldeter oder manuell konfigurierter Positionsradius
 - Akkustand, Positionsquelle, Anwesenheits-/Abwesenheitsstatus und Entfernung von ioBroker,
-- letzte Aktualisierung, Adresse, Energiesparmodus, Ladestatus, Geschwindigkeit, Höhe und Positionsgenauigkeit,
+- Letzte Aktualisierung, Adresse, Energiesparmodus, Ladestatus, Geschwindigkeit, Höhe und Positionsgenauigkeit
 - Schalter für Summer, LED und Live-Tracking bei unterstützten Trackern.
 
-Wählen Sie für das Tractive-Bild `pets.<pet-id>.media.localProfilePictureUrl` als Bildstatus aus. Dieser enthält die URL der im lokalen ioBroker-Dateispeicher abgelegten Kopie. Falls kein Bild zurückgegeben wird oder es nicht geladen werden kann, wählen Sie im Abschnitt **Darstellung** des Widgets ein benutzerdefiniertes Bild aus oder laden Sie es hoch.
+Wählen Sie für das Tractive-Bild Folgendes aus`pets.<pet-id>.media.localProfilePictureUrl` Der Bildstatus enthält die URL der im lokalen ioBroker-Dateispeicher abgelegten Kopie. Falls kein Bild zurückgegeben wird oder es nicht geladen werden kann, wählen Sie im Bereich **„Darstellung** “ des Widgets ein benutzerdefiniertes Bild aus oder laden Sie es hoch.
 
 Die Karte kann automatisch den gesamten Genauigkeits- oder Entfernungsbereich ausfüllen. Minimaler und maximaler Zoomfaktor, Interaktionsmöglichkeiten, Entfernungsmessquelle und ein manueller Radius lassen sich im Widget konfigurieren. Zum Anzeigen der Karte werden Kartenkacheln von OpenStreetMap heruntergeladen.
 
-Um die Befehlsschalter zu verwenden, weisen Sie ihnen die entsprechenden Zustände `trackers.<tracker-id>.commands.*` im Abschnitt **Befehle** des Widgets zu. Befehle sind während der Bearbeitung der VIS-Ansicht deaktiviert und werden im Laufzeitmodus aktiviert.
+Um die Befehlsschalter zu verwenden, weisen Sie ihnen die entsprechenden Parameter zu.`trackers.<tracker-id>.commands.*` Zustände im **Befehlsbereich** des Widgets. Befehle sind während der Bearbeitung der VIS-Ansicht deaktiviert und werden im Laufzeitmodus aktiviert.
 
 ## Datenschutz und Sicherheit
+
 - Das Passwort wird mithilfe des verschlüsselten Konfigurationsmechanismus von ioBroker gespeichert.
 - Zugriffstoken werden im Speicher gehalten und automatisch aktualisiert.
-Ausgewählte Konto- und Abonnementinformationen werden im logischen Objektbaum gespeichert. Die vollständigen abgerufenen API-Daten werden lokal in `info.currentApi` gespeichert. Schützen Sie den Zugriff auf den ioBroker-Objektbaum entsprechend.
+- Ausgewählte Konto- und Abonnementinformationen werden im logischen Objektbaum gespeichert. Die vollständig abgerufenen API-Daten werden lokal gespeichert.`info.currentApi` . Schützen Sie den Zugriff auf den ioBroker-Objektbaum entsprechend.
 - Passwörter und Zugriffstoken werden niemals dem API-Statusbaum hinzugefügt und bleiben durch die verschlüsselte Konfiguration oder im Speicher geschützt.
 - Genaue Positionen werden lokal in ioBroker-Zuständen gespeichert, da sie für den Zweck des Adapters erforderlich sind.
 - Die umgekehrte Geokodierung ist optional und sendet, falls aktiviert, Koordinaten an den Adressdienst von Tractive.
@@ -162,19 +178,22 @@ Ausgewählte Konto- und Abonnementinformationen werden im logischen Objektbaum g
 - Die API-Antworttexte und der vollständige lokale Snapshot werden nicht in das Adapterprotokoll geschrieben oder explizit an Sentry übermittelt.
 
 ## Fehlerbehebung
+
 - **Verbindungstest fehlgeschlagen:** Überprüfen Sie die E-Mail-Adresse, das Passwort, die Internetverbindung und den ausgehenden HTTPS-Zugriff.
 - **Es werden keine Haustiere oder Tracker angezeigt:** Überprüfen Sie, ob die Tracker dem konfigurierten Tractive-Konto zugewiesen sind, und starten Sie dann die Adapterinstanz neu.
-- **Daten wurden nicht aktualisiert:** Überprüfen Sie `info.status`, `info.dataFresh` und `info.lastSuccessfulSync`.
-- **HTTP-Fehler 429 wird gemeldet:** Lassen Sie die Instanz aktiv. Der Adapter pausiert Anfragen und wiederholt sie automatisch, sobald das Transaktionslimit abgelaufen ist.
+- **Daten sind nicht aktualisiert:** Prüfen`info.status` ,`info.dataFresh` , Und`info.lastSuccessfulSync` Die
+- **Es wird der HTTP-Fehler 429 gemeldet:** Lassen Sie die Instanz aktiv. Der Adapter pausiert Anfragen und versucht es nach Ablauf des Transaktionslimits automatisch erneut.
 - **Es wird keine Adresse angezeigt:** Aktivieren Sie die umgekehrte Geokodierung in der Adapterkonfiguration.
 - **Ein Befehl fehlt:** Der Tracker hat die erforderliche Fähigkeit nicht gemeldet.
-- **Das Haustierbild fehlt:** Weisen Sie dem Widget `localProfilePictureUrl` zu oder wählen Sie ein benutzerdefiniertes Bild aus.
+- **Das Haustierbild fehlt:** Zuweisen`localProfilePictureUrl` zum Widget oder wählen Sie ein benutzerdefiniertes Bild aus.
 
 ## Entwicklerdokumentation
-Informationen für Mitwirkende finden Sie in [Entwicklerdokumentation](docs/DEVELOPMENT.md).
+
+Informationen für Mitwirkende finden Sie in [der Entwicklerdokumentation](/#/docs/adapterref/iobroker.tractive-gps/docs/DEVELOPMENT.md) .
 
 ## Credits
-Ursprünglich erstellt von [xXBJXx](https://github.com/xXBJXx) und gepflegt von der ioBroker Community Adapters Organisation.
+
+Ursprünglich erstellt von [xXBJXx](https://github.com/xXBJXx) und betreut von der ioBroker Community Adapters Organisation.
 
 ## Changelog
 ### 3.1.0 (2026-08-25)
@@ -234,11 +253,11 @@ Ursprünglich erstellt von [xXBJXx](https://github.com/xXBJXx) und gepflegt von 
 - (bluefox) Removed old code and rewrote the GUI.
 - (bluefox) Updated dependencies.
 
-Earlier changes are documented in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Earlier changes are documented in [CHANGELOG_OLD.md](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/CHANGELOG_OLD.md).
 
 ## License
 
 Copyright (c) 2023-2026 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2023 xXBJXx <issi.dev.iobroker@gmail.com>
 
-MIT License. See [LICENSE](LICENSE).
+MIT License. See [LICENSE](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/LICENSE).

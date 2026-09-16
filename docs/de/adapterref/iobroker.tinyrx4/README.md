@@ -3,111 +3,127 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tinyrx4/README.md
 title: ioBroker.tinyrx4
-hash: WCXvCw2USMZuNPV7OuAYAc/BhULhccxu9wUup20j7Hw=
+hash: lESU9ROYHiQK2IvFY+++YaU/v4dI41q8iTeTCCdeZPM=
 ---
 ![Logo](../../../en/adapterref/iobroker.tinyrx4/admin/tinyRX4.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tinyrx4.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tinyrx4.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/bowao/iobroker.tinyrx4.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/bowao/ioBroker.tinyrx4/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/bowao/ioBroker.tinyrx4/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.tinyrx4.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/bowao/ioBroker.tinyrx4/master.svg)
 
-# IoBroker.tinyrx4
-## TinyRX4 Adapter für ioBroker
+# ioBroker.tinyrx4
+
+## TinyRX4-Adapter für ioBroker
+
 (Deutsche Version siehe unten)
 
-Liest drahtlose Sensordaten, die über TinyRX4 empfangen wurden
+Über TinyRX4 empfangene drahtlose Sensordaten lesen
 
-Der kabellose Transceiver TinyTX4 und der Empfänger TinyRX4 wurden von meigrafd im deutschen Raspberry Pi Forum entwickelt.
+Der drahtlose Transceiver TinyTX4 und der Empfänger TinyRX4 wurden von meigrafd im deutschen Raspberry Pi Forum entwickelt.
 
-Projektseite: https://forum-raspberrypi.de/forum/thread/7472-batteriebetriebene-funk-sensoren/
+Projektseite: <https://forum-raspberrypi.de/forum/thread/7472-batteriebetriebene-funk-sensoren/>
 
-Github:
+GitHub:
 
-* Transceiver: https://github.com/meigrafd/TinyTX4
-* Empfänger: https://github.com/meigrafd/TinyRX4
+- Transceiver: <https://github.com/meigrafd/TinyTX4>
+- Empfänger: <https://github.com/meigrafd/TinyRX4>
 
-Ziel des Projektes ist es, batteriebetriebene Funksensoren zu betreiben und die Daten mit dem RaspberryPI zu empfangen und auszuwerten.
+Ziel des Projekts ist der Betrieb drahtloser, batteriebetriebener Sensoren sowie der Empfang und die Auswertung der Daten mit dem Raspberry Pi.
 
-Grundsätzlich können Sie alle Arten von Sensoren als Sensor verwenden, z. Temperatur, Luftfeuchtigkeit, Luftdruck, Höhenmesser, Anwesenheitssensoren, Magnetschalter, Vibrationssensoren, Feuchtigkeitsmesser usw.
+Prinzipiell können alle Arten von Sensoren als Sensoren verwendet werden, z. B. Temperatur-, Feuchtigkeits-, Luftdruck-, Höhenmesser, Präsenzsensoren, Magnetschalter, Vibrationssensoren, Hygrometer usw.
 
-Dieser ioBroker-Adapter unterstützt alle auf https://github.com/meigrafd/TinyTX4 veröffentlichten Sensorskizzen
+Dieser ioBroker-Adapter unterstützt alle auf <https://github.com/meigrafd/TinyTX4> veröffentlichten Sensorskizzen.
 
-* BMP085 (Druck- / Temperatursensor)
-* DHT22 (Temperatur- / Feuchtigkeitssensor)
-* DS18B20 (Temperatursensor)
-* HCSR04 (Ultraschallsensor)
-* ReedSwitch (Tür- / Fensterkontakt)
+- BMP085 (Druck-/Temperatursensor)
+- DHT22 (Temperatur-/Feuchtigkeitssensor)
+- DS18B20 (Temperatursensor)
+- HCSR04 (Ultraschallsensor)
+- Reed-Schalter (Tür-/Fensterkontakt)
 
 Weitere unterstützte Skizzen:
 
-* BME280 (Druck- / Temperatur- / Feuchtigkeitssensor) https://github.com/bowao/tinytx4_bme280
+- BME280 (Druck-/Temperatur-/Feuchtigkeitssensor) <https://github.com/bowao/tinytx4_bme280>
 
-In der Adapterkonfiguration kann die serielle Schnittstelle und die zugehörige Baudrate eingestellt werden. Außerdem ist es möglich, in bereits erstellten Sensoren nach neuen oder versehentlich gelöschten Datenpunkten zu suchen, ohne den gesamten Sensor neu erstellen zu müssen.
+In der Adapterkonfiguration lassen sich die serielle Schnittstelle und die zugehörige Baudrate einstellen. Außerdem ist es möglich, in bereits erstellten Sensoren nach neuen oder versehentlich gelöschten Datenpunkten zu suchen, ohne den gesamten Sensor neu erstellen zu müssen.
 
-Die Sensoren werden nach dem ersten Nachrichtenempfang automatisch mit ihrer Node-ID angelegt. Es werden nur die Datenpunkte erzeugt, die über die msg-Variablen erkannt werden. Zusätzlich werden die zugehörigen Offsetdatenpunkte unter "config" angelegt, damit die Sensorwerte bei Bedarf korrigiert werden können. Die berechneten Datenpunkte Feuchte absolut und Taupunkt werden unter "berechnet" erstellt, jedoch nur, wenn der Sensor die Werte Temperatur und relative Feuchte liefert.
+Die Sensoren werden nach dem Empfang der ersten Nachricht automatisch mit ihrer Knoten-ID angelegt. Es werden nur die Datenpunkte erstellt, die über die Nachrichtenvariablen erfasst werden. Zusätzlich werden unter „Konfiguration“ die zugehörigen Offset-Datenpunkte angelegt, um die Sensorwerte bei Bedarf korrigieren zu können. Die berechneten Datenpunkte für absolute Luftfeuchtigkeit und Taupunkt werden unter „berechnet“ angelegt, jedoch nur, wenn der Sensor die Werte für Temperatur und relative Luftfeuchtigkeit liefert.
 
-Wenn Sie andere Sensoren mit angepassten msg-Variablen verwenden, kann ich dies im Adapter implementieren oder Sie stellen eine Pull-Anfrage. Die msg-Variablen müssen sich von den bereits verwendeten unterscheiden.
+Falls Sie andere Sensoren mit benutzerdefinierten msg-Variablen verwenden, kann ich dies im Adapter implementieren oder Sie erstellen einen Pull-Request. Die msg-Variablen müssen sich von den bereits verwendeten unterscheiden.
 
 Bereits verwendete msg-Variablen
 
-* d = Entfernung
-* h = Luftfeuchtigkeit
-* er = Höhe
-* p = Luftdruck
-* r = Reed-Kontakt
-* t = Temperatur
-* v = Batteriespannung
+- d = Entfernung
+- h = Luftfeuchtigkeit
+- er = Größe
+- p = Luftdruck
+- r = Reed-Kontakt
+- t = Temperatur
+- v = Batteriespannung
 
--------------------------------------------------------------------------------------------
+---
 
-## TinyRX4 Adapter für ioBroker
+## TinyRX4-Adapter für ioBroker
+
 Einlesen der vom TinyRX4 empfangenen Funksensordaten
 
 Der Funksender TinyTX4 und der Funkempfänger TinyRX4 wurden von meigrafd im deutschen Raspberry Pi Forum entwickelt.
 
-Projekt-Seite: https://forum-raspberrypi.de/forum/thread/7472-batteriebetriebene-funk-sensoren/
+Projekt-Seite: <https://forum-raspberrypi.de/forum/thread/7472-batteriebetriebene-funk-sensoren/>
 
-Github:
+GitHub:
 
-* Absender: https://github.com/meigrafd/TinyTX4
-* Empfänger: https://github.com/meigrafd/TinyRX4
+- Absender: <https://github.com/meigrafd/TinyTX4>
+- Empfänger: <https://github.com/meigrafd/TinyRX4>
 
-Ziel des Projekts ist es, schnurlose Funk-Sensoren, die über Batterien versorgt werden, zu betreiben und mit dem RaspberryPI die Daten zu empfangen sowie auszuwerten.
+Ziel des Projekts ist es, schnurlose Funk Sensoren, die über Batterien mit Strom versorgt werden, zu betreiben und mit dem RaspberryPI die Daten zu empfangen sowie auszuwerten.
 
-Als Sensor kann man im Prinzip alle Arten von Sensoren verwenden, Temperatur, Luftfeuchtigkeit, Luftdruck, Höhenmesser, Anwesenheitssensoren, Magnetschalter, Erschütterungs-Sensoren, Feuchtigkeitsmesser usw.
+Als Sensor kann man im Prinzip alle Arten von Sensoren verwenden, zB Temperatur, Luftfeuchtigkeit, Luftdruck, Höhenmesser, Anwesenheitssensoren, Magnetschalter, Erschütterungs-Sensoren, Feuchtigkeitsmesser usw.
 
-Dieser ioBroker-Adapter unterstützt alle unter https://github.com/meigrafd/TinyTX4 hinterlegten Sensorsketche:
+Dieser IoBroker-Adapter unterstützt alle unter <https://github.com/meigrafd/TinyTX4> hinterlegten Sensorsketche:
 
-* BMP085 (Druck- / Temperatursensor)
-* DHT22 (Temperatur- / Feuchtesensor)
-* DS18B20 (Temperatursensor)
-* HCSR04 (Ultraschallsensor)
-* ReedSwitch (Tür- / Fensterkontakt)
+- BMP085 (Druck-/Temperatursensor)
+- DHT22 (Temperatur-/Feuchtesensor)
+- DS18B20 (Temperatursensor)
+- HCSR04 (Ultraschallsensor)
+- ReedSwitch (Tür-/Fensterkontakt)
 
 Weitere unterstützte Sketche:
 
-* BME280 (Druck- / Temperatur- / Feuchtesensor) https://github.com/bowao/tinytx4_bme280
+- BME280 (Druck-/Temperatur-/Feuchtesensor) <https://github.com/bowao/tinytx4_bme280>
 
-In der Adapterkonfiguration können Sie die serielle Schnittstelle und die zugehörige Baudrate einstellen. Außerdem besteht die Möglichkeit für bereits erstellte Sensoren nach neuen oder versehentlich gelöschten Datenpunkten zu suchen, ohne dass der komplette Sensor neu angelegt werden muss.
+In der Adapterkonfiguration lässt sich die serielle Schnittstelle und die zugehörige Baudrate einstellen. Außerdem besteht die Möglichkeit, bereits erstellte Sensoren nach neuen oder versehentlich gelöschten Datenpunkten zu suchen, ohne dass der komplette Sensor neu angelegt werden muss.
 
-Die Sensoren werden nach dem ersten Nachrichten-Empfang automatisch mit ihrer Node-Id angelegt. Es werden jeweils nur die Datenpunkte angelegt, die über die msg-Variablen erkannt wurden. Zusätzlich werden unter "config" die zugehörigen Offset-Datenpunkte erstellt, damit die Sensorwerte bei Bedarf korrigiert werden können. Unter "berechnet" werden die errechneten Datenpunkte absolut und taupunktmäßig angelegt, jedoch nur, wenn der Sensor die Werte Temperatur und relative Feuchte liefert.
+Die Sensoren werden nach dem ersten Nachrichten-Empfang automatisch mit ihrer Node-Id angelegt. Es werden jeweils nur die Datenpunkte angelegt, die über die msg-Variablen erkannt wurden. Zusätzlich werden unter „config“ die entsprechenden Offset-Datenpunkte erstellt, damit die Sensorwerte bei Bedarf korrigiert werden können. Unter „berechnet“ werden die ermittelten Datenpunkte Feuchte absolut und Taupunkt angelegt, jedoch nur wenn der Sensor die Werte Temperatur und relative Feuchte liefert.
 
-Falls ihr andere Sensoren mit angepassten msg-Variablen verwendet, kann ich gerne im Adapter umsetzen oder ihr macht einen Pull-Request. Die msg-Variablen müssen von den bereits benutzten unterscheiden.
+Falls ihr andere Sensoren mit angepassten msg-Variablen verwendet, kann ich dies gerne im Adapter umsetzen oder ihr macht einen Pull-Request. Die msg-Variablen müssen sich von den bereits benutzten unterscheiden.
 
-Bereits benutzte msg-Variablen:
+Bereits verwendete msg-Variablen:
 
-* d = Entfernung
-* h = Luftfeuchte
-* he = Höhe
-* p = Luftdruck
-* r = Reed-Kontakt
-* t = Temperatur
-* v = Batteriespannung
+- d = Entfernung
+- h = Luftfeuchte
+- er = Höhe
+- p = Luftdruck
+- r = Schilf-Kontakt
+- t = Temperatur
+- v = Batteriespannung
 
 ## Changelog
+### 1.0.1
+- Optimization for js-controller 3.3
+- Fix for negative temperature values
+- Update travis.yml
+
+### 1.0.0
+- Update dependencies
+- BREAKING CHANGE: Drop node 8 support, requires node 10 or above
+- BREAKING CHANGE: js-controller v2.4.0 or above required
+
+### 0.1.5
+- Update travis.yml, License, Readme
+
 ### 0.1.4
 - (bowao) fix typo
 
@@ -138,7 +154,7 @@ Bereits benutzte msg-Variablen:
 ## License
 MIT License
 
-Copyright (c) 2019 bowao
+Copyright (c) 2021 bowao <cryolab@web.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

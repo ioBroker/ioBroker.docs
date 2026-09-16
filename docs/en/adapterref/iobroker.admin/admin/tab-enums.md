@@ -3,78 +3,85 @@ chapters: {"pages":{"de/adapterref/iobroker.admin/README.md":{"title":{"de":"no 
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/adapterref/iobroker.admin/admin/tab-enums.md
-title: The tab Enumerations
-hash: rqPVvVeC50Hm4dxcQ7zBoNm0VTUa7zS5Txki6arYBmc=
+title: The list of items on the rider
+hash: ZfJOk6TGlxMzkk+VijJM++zSiyrxngYXDuIZ2G/dGeI=
 ---
-# The tab Enumerations
-Here the favorites, trades and rooms from the Homematic CCU are listed.
-You can also create your own lists, which then can be used in scripts.
+# The list tab
 
-![iobroker_adapter_admin_enums_01](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_01.jpg)
+This section lists favorites, trades, and rooms from the Homematic CCU. You can also create your own lists, which can then be used in scripts, for example.
 
-## The title bar
-The title bar contains icons for the most important processes.
-There is a context help for each icon. Just keep the mouse on the icon for a while.
+![iobroker\_adapter\_admin\_enums\_01](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_01.jpg)
 
-![iobroker_adapter_admin_enums_headers_01](../../../../de/adapterref/iobroker.admin/admin/img/ioBroker_Adapter_admin_Enums_Headers_01.jpg)
+## The title line
+
+The title bar contains icons for the most important functions. Each icon has context-sensitive help; simply hover your mouse over the icon for a few moments.
+
+![iobroker\_adapter\_admin\_enums\_headers\_01](../../../../de/adapterref/iobroker.admin/admin/img/ioBroker_Adapter_admin_Enums_Headers_01.jpg)
 
 ### **The icons in detail:**
+
 ### **1.) Update view**
-If newly created lists are not visible, clicking this icon will help to update the state of the page.
+
+If newly created lists are not visible, clicking this icon will help update the page.
 
 ### **2.) Change sorting**
-This button changes the sorting of objects on this page.
 
-If the button is active, all objects are sorted alphabetically.
-If this button is not active, the objects are displayed hierarchically according to enumerations in tree structure.
+This button changes the sorting of the objects on this page.
 
-Then the next two icons are visible.
+When the button is active, all objects are sorted alphabetically. If this button is not active, the objects are displayed hierarchically in a tree structure according to lists.
+
+Then the next two icons will also be visible.
 
 ### **3.) Close all subfolders**
+
 ### **4.) Expand all subfolders**
-### **5.) Add**
-After selecting this icon further enumerations in the basic structure can be added.
-Elements within the folder structure are created via the (+) icon on the right (# 10).
-A configuration window opens:
 
-![iobroker_adapter_admin_enums_new](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_new.jpg)
+### **5.) add**
 
-Now you have to select the name for the new enumeration, the generated id will be adjusted automatically.
+After selecting this icon, further lists can be added to the basic structure. Elements within the folder structure are created using the (+) icon on the right (#10). A configuration window will open:
+
+![iobroker\_adapter\_admin\_enums\_new](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_new.jpg)
+
+Here you must now select the name for the new list; the generated ID will be adjusted automatically.
 
 ### The page content
-![iobroker_adapter_admin_enums_headers_03](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_Headers_03.jpg)
 
-On the page, the existing lists and their members are tabulated.
+![iobroker\_adapter\_admin\_enums\_headers\_03](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_Headers_03.jpg)
 
-The table consists of the following columns (The fields under column headers 6, 7 and 8 serve as filter criteria). The table in the picture is ordered by hierarchy and all sub-nodes have been expanded:
+The page displays the existing lists and their members in tabular form.
+
+The table consists of the following columns (the fields under column headers 6, 7, and 8 serve as filter criteria). The table in the image is ordered hierarchically, and all sub-items (nodes) have been expanded:
 
 ### **6.) ID**
-Here all members of the enumerations are listed with their IDs. This designation can be changed by double-clicking or clicking on the associated pencil icon (# 9).
-The full ID of Subordinate Structures also includes the parent levels in each case.
+
+Here, all members of the lists are listed with their IDs. This label can be changed by double-clicking or clicking the corresponding pencil icon (#9). The complete ID of subordinate structures also includes the parent levels as a prefix.
 
 ### **7.) Name**
-This column displays the name of the member. This name can be changed by double-clicking or clicking on the associated pencil icon (# 9).
+
+This column displays the member's name. This name can be changed by double-clicking or clicking the corresponding pencil icon (#9).
 
 ### **8.) Members**
-In this column, the members of a list, in too many only the number is displayed.
-If you move the mouse over the field, all members will be displayed in a bubble info.
-For more information, see the info icon on the far right (# 12)
 
-### **9.) Edit names**
-After clicking on this icon you can edit the names in the column ID and name.
-An ok button in the form of a check mark and a cancel icon in the form of a (x) appear at this point.
+This column displays the members of a list; if there are too many members, only the count is shown. Hovering the mouse over the field displays all members in a bubble info window. Further information is available via the info icon on the far right (#12).
 
-### **10.) Add structure element**
-After clicking on this icon, a dialog box opens in which a new member can be created within the respective structure.
+### **9.) Edit labels**
 
-![iobroker_adapter_admin_enums_new_member](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_new_Member.jpg)
+After clicking this icon, you can edit the labels in the ID and Name columns. An OK button (checkmark) and a Cancel icon (x) will appear at this point.
 
-Again, the name can be chosen individually. The associated ID is generated automatically according to the structure and the selected name.
+### **10.) Add structural element**
 
-### **11.) Delete item**
-The trashcan icon deletes the element in this line
+Clicking this icon opens a dialog box in which a new member can be created within the respective structure.
+
+![iobroker\_adapter\_admin\_enums\_new\_member](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_new_Member.jpg)
+
+Here too, the name can be chosen individually. The corresponding ID is automatically generated according to the structure and the chosen name.
+
+### **11.) Delete element**
+
+The trash can icon deletes the element in this line.
 
 ### **12.) Information**
-After clicking this icon, another window with extended information about the selected element is displayed.
 
-![iobroker_adapter_admin_enums_info](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_Info.jpg)
+Clicking this icon will display another window with more detailed information about the selected element.
+
+![iobroker\_adapter\_admin\_enums\_info](../../../../de/adapterref/iobroker.admin/admin/img/tab-enums_Enums_Info.jpg)

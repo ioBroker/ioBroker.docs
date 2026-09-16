@@ -1,0 +1,261 @@
+import { Accordion, AccordionDetails, AccordionSummary, Box, useMediaQuery } from '@mui/material';
+import type React from 'react';
+import { useEffect, useMemo, useState, type Dispatch, type SetStateAction } from 'react';
+import type { Docs } from '../DocsItem/DocsItem';
+import { useDocsMenuStyles } from './DocsMenu.styles';
+import { Link, useLocation } from 'react-router-dom';
+import openedFolder from '../../assets/img/docsIcons/opened_folder.svg';
+import closedFolder from '../../assets/img/docsIcons/closed_folder.svg';
+import DocsFileIcon from '../icons/DocsFileIcon';
+import whiteArrowUp from '../../assets/img/docsIcons/whiteArrowUp.svg';
+import whiteArrowDown from '../../assets/img/docsIcons/whiteArrowDown.svg';
+import whiteCross from '../../assets/img/docsIcons/whiteCross.svg';
+import { MenuArrowsToggle } from '../../components/MenuArrowsToggle/MenuArrowsToggle';
+import { useDocsContent } from '../../api/hooks/useDocsContent';
+import { I18n } from '../../utils/i18n';
+import { filterPages, getChildrenPaddingLeft, normalizeSearch } from './DocsMenu.utils';
+
+interface DocsMenuProps {
+    expandAllSignal?: number;
+    collapseAllSignal?: number;
+    onAllExpandedChange?: (isAllExpanded: boolean) => void;
+    onExpandAll?: () => void;
+    onCollapseAll?: () => void;
+    setIsMenuClosed?: Dispatch<SetStateAction<boolean>>;
+    search?: string;
+}
+
+export const DocsMenu = ({
+    expandAllSignal,
+    collapseAllSignal,
+    onAllExpandedChange,
+    setIsMenuClosed,
+    onExpandAll,
+    onCollapseAll,
+    search = '',
+}: DocsMenuProps): React.ReactNode => {
+    const { classes } = useDocsMenuStyles();
+    const { pathname } = useLocation();
+    const isMobile = useMediaQuery('(max-width:768px)');
+    const [language, setLanguage] = useState(I18n.getLanguage());
+    useEffect(() => I18n.subscribe(setLanguage), []);
+    const { data: fetchedDocs } = useDocsContent();
+    const data: Docs = fetchedDocs ?? { pages: {} };
+    const searchTerm = normalizeSearch(search);
+    const filteredPages = useMemo(
+        () => filterPages(data.pages, searchTerm, language),
+        [data.pages, searchTerm, language],
+    );
+    const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+    const expandableKeys = useMemo(() => {
+        const keys: string[] = [];
+        const walk = (pages: Docs['pages'], parentKey: string): void => {
+            Object.keys(pages).forEach(key => {
+                const item = pages[key];
+                const fullKey = parentKey ? `${parentKey}/${key}` : key;
+                if (item.pages && Object.keys(item.pages).length > 0) {
+                    keys.push(fullKey);
+                    walk(item.pages, fullKey);
+                }
+            });
+        };
+        walk(filteredPages, '');
+        return keys;
+    }, [filteredPages]);
+    const hasHits = Object.keys(filteredPages).length > 0;
+    const totalSections = expandableKeys.length;
+    const isAllExpanded = totalSections > 0 && expandedSections.size === totalSections;
+
+    useEffect(() => {
+        if (!expandAllSignal) {
+            return;
+        }
+        const allKeys = new Set(expandableKeys);
+        setExpandedSections(allKeys);
+    }, [expandAllSignal, expandableKeys]);
+
+    useEffect(() => {
+        if (!collapseAllSignal) {
+            return;
+        }
+        setExpandedSections(new Set());
+    }, [collapseAllSignal]);
+
+    useEffect(() => {
+        if (!searchTerm) {
+            return;
+        }
+        setExpandedSections(new Set(expandableKeys));
+    }, [searchTerm, expandableKeys]);
+
+    useEffect(() => {
+        onAllExpandedChange?.(isAllExpanded);
+    }, [isAllExpanded, onAllExpandedChange]);
+
+    const handleSectionToggle = (key: string): void => {
+        const newExpanded = new Set(expandedSections);
+        if (newExpanded.has(key)) {
+            newExpanded.delete(key);
+        } else {
+            newExpanded.add(key);
+        }
+        setExpandedSections(newExpanded);
+    };
+
+    const firstKeyOriginal = Object.keys(data.pages)[0];
+
+    const renderPages = (pages: Docs['pages'], level: number, parentKey: string): React.ReactNode => {
+        return Object.keys(pages).map(key => {
+            if (!parentKey && key === firstKeyOriginal) {
+                return null;
+            }
+            const page = pages[key];
+            const fullKey = parentKey ? `${parentKey}/${key}` : key;
+            const isExpanded = expandedSections.has(fullKey);
+            const hasChildren = !!page.pages && Object.keys(page.pages).length > 0;
+
+            if (hasChildren) {
+                return (
+                    <Accordion
+                        key={fullKey}
+                        expanded={isExpanded}
+                        onChange={() => handleSectionToggle(fullKey)}
+                        classes={{ root: classes.mainLevel }}
+                    >
+                        <AccordionSummary>
+                            <Box className={classes.sectionTitle}>
+                                <Box className={classes.sectionIcon}>
+                                    <img
+                                        src={isExpanded ? openedFolder : closedFolder}
+                                        alt={isExpanded ? 'Opened folder' : 'Closed folder'}
+                                    />
+                                </Box>
+                                {page.title[language] ?? page.title.en ?? key}
+                                <Box className={classes.arrowIcon}>
+                                    <img
+                                        src={isExpanded ? whiteArrowUp : whiteArrowDown}
+                                        alt={isExpanded ? 'Collapse' : 'Expand'}
+                                    />
+                                </Box>
+                            </Box>
+                        </AccordionSummary>
+                        <AccordionDetails
+                            className={classes.childrenLevel}
+                            sx={{ paddingLeft: getChildrenPaddingLeft(level) }}
+                        >
+                            {renderPages(page.pages!, level + 1, fullKey)}
+                        </AccordionDetails>
+                    </Accordion>
+                );
+            }
+
+            const target = `/docs/${page.content ?? ''}`;
+            const isCurrent = decodeURIComponent(pathname) === target;
+
+            /*
+             * A page on the top level is a document, not a point in a list. It gets the
+             * same row as the tree's first entry, file icon and all (Denis, 08.09.2026:
+             * "sonst steht er allein mit einem Punkt da"). The bullet belongs to a page
+             * inside a chapter, where it marks the indent.
+             */
+            if (!parentKey) {
+                return (
+                    <Box
+                        key={fullKey}
+                        className={`${classes.header} ${isCurrent ? classes.headerActive : ''}`}
+                    >
+                        <Box className={classes.headerIcon}>
+                            <DocsFileIcon />
+                        </Box>
+                        <Link
+                            to={target}
+                            onClick={() => setIsMenuClosed?.(true)}
+                        >
+                            {page.title[language] ?? page.title.en ?? key}
+                        </Link>
+                    </Box>
+                );
+            }
+
+            return (
+                <Box
+                    key={fullKey}
+                    className={`${classes.leaf} ${isCurrent ? classes.activeLink : ''}`}
+                >
+                    {/* Picking a page closes the tree - on a phone it is an overlay over the
+                        article the user just asked for. `setIsMenuClosed` is only handed to
+                        that overlay, so the tree beside the text on a wide screen stays open. */}
+                    <Link
+                        to={target}
+                        onClick={() => setIsMenuClosed?.(true)}
+                    >
+                        {page.title[language] ?? page.title.en ?? key}
+                    </Link>
+                </Box>
+            );
+        });
+    };
+
+    const rootContent = firstKeyOriginal ? (data.pages[firstKeyOriginal].content ?? '') : '';
+    const rootTarget = `/docs/${rootContent}`;
+    const currentPath = decodeURIComponent(pathname).replace(/\/$/, '');
+    const isRootCurrent = currentPath === rootTarget.replace(/\/$/, '') || currentPath === '/docs';
+
+    const headerTitle = firstKeyOriginal
+        ? (data.pages[firstKeyOriginal].title[language] ?? data.pages[firstKeyOriginal].title.en ?? firstKeyOriginal)
+        : 'Documentation';
+
+    return (
+        <Box className={classes.container}>
+            {isMobile && (
+                <Box className={classes.menuTopBar}>
+                    <MenuArrowsToggle
+                        sx={{ width: '62px', height: '30px' }}
+                        value={isAllExpanded ? 'expand' : 'collapse'}
+                        onExpandAll={onExpandAll}
+                        onCollapseAll={onCollapseAll}
+                    />
+                    <img
+                        onClick={() => {
+                            setIsMenuClosed?.(true);
+                        }}
+                        src={whiteCross}
+                        alt="close"
+                    />
+                </Box>
+            )}
+            <Box className={classes.menuInner}>
+                <Box className={`${classes.header} ${isRootCurrent ? classes.headerActive : ''}`}>
+                    <Box className={classes.headerIcon}>
+                        <DocsFileIcon />
+                    </Box>
+                    {firstKeyOriginal ? (
+                        <Link
+                            to={rootTarget}
+                            onClick={() => setIsMenuClosed?.(true)}
+                        >
+                            {headerTitle}
+                        </Link>
+                    ) : (
+                        headerTitle
+                    )}
+                </Box>
+
+                {renderPages(filteredPages, 0, '')}
+
+                {/* Das Feld oben filtert nur das Verzeichnis, also die Titel der Kapitel.
+                    Wer nach einem Begriff sucht, der nur im Text vorkommt, landet sonst vor
+                    einer leeren Liste und haelt die Doku fuer luckenhaft. Deshalb fuehrt von
+                    hier ein Weg in die Volltextsuche. */}
+                {searchTerm.length >= 2 && (
+                    <Box className={classes.searchHint}>
+                        {!hasHits && <Box component="span">{I18n.t('docs.menu.no_title_match')}</Box>}
+                        <Link to={`/search?q=${encodeURIComponent(search.trim())}`}>
+                            {I18n.t('docs.menu.full_text_search')}
+                        </Link>
+                    </Box>
+                )}
+            </Box>
+        </Box>
+    );
+};

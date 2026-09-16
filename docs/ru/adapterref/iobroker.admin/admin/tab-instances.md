@@ -11,13 +11,13 @@ hash: wBKP7K139TehQSv9mxy6iGcoIz/dj9X8D7lacF88tpw=
 
 <span style="line-height: 1.5;"></span>
 
-![iobroker_admin_instanzen_inhalt00](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Inhalt00.jpg)
+![iobroker_admin_instanzen_inhalt00](../img/tab-instances_Inhalt00.jpg)
 
 ## Строка заголовка
 Строка заголовка содержит значки для наиболее важных процессов. Для каждой иконки есть контекстная помощь.
 Просто держите мышь на значке некоторое время. Также есть информация о загрузке сервера
 
-![iobroker_admin_instanzen_headline_icons](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Icons-e1476803621402.jpg)
+![iobroker_admin_instanzen_headline_icons](../img/tab-instances_Icons-e1476803621402.jpg)
 
 ### **Значки в деталях:**
 ### **1.) Включите режим администратора**
@@ -33,7 +33,7 @@ hash: wBKP7K139TehQSv9mxy6iGcoIz/dj9X8D7lacF88tpw=
 Первые числа обозначают память, использованную экземплярами, и оставшуюся свободную память в МБ. За этим свободная память в%. Квадратные скобки содержат имя сервера ioBroker и количество запущенных процессов.
 
 ## Содержание страницы
-![iobroker_admin_instanzen_headline_columns](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Headline_Columns.jpg)
+![iobroker_admin_instanzen_headline_columns](../img/tab-instances_Headline_Columns.jpg)
 
 На странице установленные экземпляры адаптеров представлены в виде таблицы.
 
@@ -42,7 +42,7 @@ hash: wBKP7K139TehQSv9mxy6iGcoIz/dj9X8D7lacF88tpw=
 ### **1.) Состояние**
 Здесь состояние экземпляра отображается на светофоре. Дальнейшая информация получается при наведении мышкой на сигнал.
 
-![iobroker_admin_instanzen_status](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Instanzen_Status.jpg)
+![iobroker_admin_instanzen_status](../img/tab-instances_Instanzen_Status.jpg)
 
 Не во всех случаях есть этот светофор. Это не повод для паники. Это либо синхронизированные экземпляры, которые подключаются к контроллеру только на короткое время, а затем немедленно отключаются, либо выключаются, например. продолжать работать в фоновом режиме.
 
@@ -77,7 +77,7 @@ hash: wBKP7K139TehQSv9mxy6iGcoIz/dj9X8D7lacF88tpw=
 Это расписание представлено в формате [cronjobs](https://de.wikipedia.org/wiki/Cron#Beispiele).
 Для изменения нажмите на кнопку с тремя точками. Он открывает окно ввода с большим количеством дополнительной информации и помощи.
 
-![iobroker_admin_instanzen_cronjob](../../../../de/adapterref/iobroker.admin/admin/img/tab-instances_Cronjob.jpg)
+![iobroker_admin_instanzen_cronjob](../img/tab-instances_Cronjob.jpg)
 
 ### **11.) Перезагрузка**
 Если этот флажок установлен, здесь также можно создать расписание, когда этот экземпляр должен быть перезапущен.

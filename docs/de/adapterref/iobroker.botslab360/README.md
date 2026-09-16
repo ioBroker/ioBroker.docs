@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.botslab360/README.md
 title: ioBroker.botslab360
-hash: gEa7wMXpbYiLkX6JGB8B/sp0SzHFXeO9c3hCMoVWY/0=
+hash: 4gEa9kTUqXFGkaThtOsUcUXyLtyYkccBgHR9XA8zog8=
 ---
 ![Logo](../../../en/adapterref/iobroker.botslab360/admin/botslab360.png)
 
@@ -12,20 +12,24 @@ hash: gEa7wMXpbYiLkX6JGB8B/sp0SzHFXeO9c3hCMoVWY/0=
 ![Anzahl der Installationen](https://iobroker.live/badges/botslab360-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/botslab360-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.botslab360.png?downloads=true)
+![Test und Freigabe](https://github.com/TA2k/ioBroker.botslab360/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.botslab360
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.botslab360/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.botslab360
 
-## Botslab360-Adapter für ioBroker
+## botslab360-Adapter für ioBroker
+
 Adapter für Botslab 360 Vakuum
 
 ## Steuern
-Unter Remote können Befehle gesendet werden.
 
-##Status
+Unter remote können Befehle gesendet werden.
+
+## Status
+
 Statusabruf für Verbrauchsgüter und Karte muss manuell getriggert werden
 
 ## Fragen und Diskussion
+
 <https://forum.iobroker.net/topic/60046/test-adapter-360-staubsauger-botslab>
 
 ## Changelog

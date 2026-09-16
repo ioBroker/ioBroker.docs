@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.milight/README.md
 title: ioBroker.milight
-hash: qErBHu72dxLHQ4Qw9RqTJzzOvk+r3FR4JZKRKiDV7+k=
+hash: gH5MmGu2CA0Hmsc6WrFnc9b5uy994z34NNheypNY4oA=
 ---
 ![Logo](../../../en/adapterref/iobroker.milight/admin/easybulb_logo.png)
 
@@ -13,96 +13,107 @@ hash: qErBHu72dxLHQ4Qw9RqTJzzOvk+r3FR4JZKRKiDV7+k=
 ![Build-Status](https://travis-ci.org/foxthefox/ioBroker.milight.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.milight.png?downloads=true)
 
-# IoBroker.milight
-Adapter für ioBroker für LED-Lampen wie Milight, Easybulb, Limitless
+# ioBroker.milight
+
+Adapter für ioBroker für LED-Lampen wie milight, easybulb, limitless
 
 ## Allgemeine Einstellungen:
+
 auf der Admin-Seite
 
-* IP-Adresse-> IP der Bridge
-* Port -> Hafen der Brücke
-* delaybetweenPackages -> ms Verzögerung zwischen UDP-Paketen (100 ms für v5)
-* repeatPackage -> Anzahl der Wiederholungen (1 für v5)
-* Version des Milight-Protokolls v5 oder v6 -> setzt automatisch den entsprechenden Port
-* Einstellung der vollen Helligkeit beim Wechsel in den Weißmodus
+- IP-Adresse -> IP-Adresse der Brücke
+- Port -> Port der Brücke
+- delaybetweenPackages -> ms Verzögerung zwischen UDP-Paketen (100 ms für v5)
+- repeatPackage -> Anzahl der Wiederholungen (1 für v5)
+- Version des MiLight-Protokolls v5 oder v6 -> legt automatisch den entsprechenden Port fest
+- Volle Helligkeit einstellen, wenn in den Weißmodus gewechselt wird
 
-## Art der Glühbirnen in den Zonen:
+## Lampentypen in den Zonen:
+
 auf der Admin-Seite
 
-* Basic = Bridge NUR für Zone 1 und v6
-* RGBWW = Vollfarbbirne mit weißer LED und Farbtemperaturanpassung (höhere Farbtemperatur bedeutet kühlere Farbe), NUR in v6
-* RGB = reine Farbbirne ohne Weiß NUR für Zone 1
-* RGBW = Farbbirne mit weißer LED
-* Weiß = WW/CW-Weißbirne mit Farbtemperaturanpassung (höhere Farbtemperatur bedeutet kühlere Farbe)
+- Basic = Bridge NUR für Zone 1 und V6
+- RGBWW = Vollfarblampe mit weißer LED und Farbtemperatureinstellung (höhere Farbtemperatur bedeutet kühlere Farben), NUR in Version 6
+- RGB = reine Farblampe ohne Weiß, NUR für Zone 1
+- RGBW = Farblampe mit weißer LED
+- Weiß = WW/CW-Weißlichtlampe mit Farbtemperaturanpassung (höhere Farbtemperatur bedeutet kühlere Farbwiedergabe)
 
-Über Zone0 oder ZoneAll können Befehle an alle 4 Zonen gegeben werden, der Adapter ist in v6 mit Basis-/Bridge-Befehlen und in v5 mit RGBW-Befehlen konfiguriert.
+Mit Zone0 oder ZoneAll können Befehle an alle 4 Zonen gesendet werden. Der Adapter wird in Version 6 mit Basis-/Brückenbefehlen und in Version 5 mit RGBW-Befehlen konfiguriert.
 
-## Zustände in Version 6
-| verfügbarer Status | Basic/Bridge | Weiß | RGB | RGBW | RGBWW |
-|:-------------------------------------------:|:--------------------------------:|:------------------------------:|:------------------------------:|:-------------------------------------:|:--------------------------------------:|
-| EIN/AUS als Schalter | Zustand(Zone1), Funktion | Zustand(Zone), Funktion | Zustand(Zone1), Funktion | Zustand(Zone), Funktion | Zustand(Zone), Funktion | Zustand(Zone), Funktion |
-| EIN als Schaltfläche | Ein(Zone1), nativ | Ein(Zone), nativ | Ein(Zone1), nativ | Ein(Zone), nativ | Ein(Zone), nativ | Ein(Zone), nativ |
-| AUS als Schaltfläche | Aus(Zone1), nativ | Aus(Zone), nativ | Aus(Zone1), nativ | Aus(Zone), nativ | Aus(Zone), nativ | Aus(Zone), nativ |
-| Farbmodus als boolescher Status | | | | Farbmodus (0=Nachtmodus, 1=Weißmodus) | Farbmodus (0=Nachtmodus, 1=Weißmodus) |
-| maxWhite als Schaltfläche | | maxBright(Zone), nativ | | | |
-| whiteMode als Schaltfläche | whiteMode(Zone1), nativ | | | whiteMode(Zone), nativ | whiteMode(Zone), nativ |
-| Nachtmodus als Schaltfläche | | Nachtmodus(Zone), nativ | | Nachtmodus(Zone), nativ | Nachtmodus(Zone), nativ |
-| Helligkeit als Wert (0–100 %) | Helligkeit (Zone), nativ | | | Helligkeit (Zone), nativ | Helligkeit (Zone), nativ |
-| Farbe als 3 Hex-Werte | Farbe(Zone), nativ | | Farbe(Zone), nativ | Farbe(Zone), nativ | Farbe(Zone), nativ | Farbe(Zone), nativ |
-| rgb als kombinierter Wert (#000000 - #FFFFFF) | rgb(Zone), nativ | | rgb(Zone), nativ | rgb(Zone), nativ | rgb(Zone), nativ | rgb(Zone), nativ |
-| Modus als Wert | Modus(Zone), nativ | | | Modus(Zone), nativ | Modus(Zone), nativ |
-| modeSpeedUp als Schaltfläche | | modeSpeedUp(Zone), nativ | | modeSpeedUp (Zone), nativ | modeSpeedUp (Zone), nativ |
-| modeSpeedDown als Schaltfläche | | modeSpeedDown (Zone), nativ | | modeSpeedDown(Zone), nativ | modeSpeedDown(Zone), nativ |
-| Link als Schaltfläche | | | | Link(Zone), nativ | Link(Zone), nativ |
-| Verknüpfung als Schaltfläche aufheben | | | | Verknüpfung (Zone), nativ | Verknüpfung (Zone), nativ |
-| Sättigung als Wert (0-100%) | | | | | Sättigung (Zone), nativ |
-| colorTemp als Wert (0-100 entspricht 2700 K bis 6500 K) | | | | | colorTemp (Zone), nativ |
-| HelligkeitErhöhen als Schaltfläche | HelligkeitErhöhen (Zone), Funktion | HelligkeitErhöhen (Zone), nativ | HelligkeitErhöhen (Zone), nativ | HelligkeitErhöhen (Zone), Funktion | HelligkeitErhöhen (Zone), Funktion |
-| HelligkeitNachunten als Schaltfläche | HelligkeitNachunten (Zone), Funktion | HelligkeitNachunten (Zone), nativ | HelligkeitNachunten (Zone), nativ | HelligkeitNachunten (Zone), Funktion | HelligkeitNachunten (Zone), Funktion |
-| colorUp als Schaltfläche | colorUp(Zone), Funktion | | | colorUp(Zone), Funktion | colorUp(Zone), Funktion |
-| Farbe Ab als Schaltfläche | Farbe Ab (Zone), Funktion | | Farbe Ab (Zone), Funktion | Farbe Ab (Zone), Funktion | |
-| saturationUp als Schaltfläche | | | | | saturationUp (Zone), Funktion |
-| saturationDown als Schaltfläche | | | | | saturationDown (Zone), Funktion |
-| colorTempUp als Schaltfläche | | colorTempUp (Zone), nativ | | | colorTempUp (Zone), Funktion |
-| colorTempDown als Schaltfläche | | colorTempDown (Zone), nativ | | | colorTempDown (Zone), Funktion |
-| Farbton als Wert (0-360) | | | | Farbton (Zone), Funktion | Farbton (Zone), Funktion |
+## Staaten in Version 6
 
-## Zustände in Version 5/ Version 4
-| verfügbarer Status | RGB | Weiß | RGBW |
-|:---------------------------------------------:|:-----------------------:|:-----------------------:|:----------------------------------------:|
-| EIN/AUS als Schalter | Zustand(Zone), Funktion | Zustand(Zone), Funktion | Zustand(Zone), Funktion |
-| EIN als Schaltfläche | Ein(Zone), nativ | Ein(Zone), nativ | Ein(Zone), nativ |
-| AUS als Schaltfläche | Aus(Zone), nativ | Aus(Zone), nativ | Aus(Zone), nativ |
-| Farbmodus als boolescher Status | | | Farbmodus (0/hs=Weißmodus, 1/ct=Farbe(Farbton=55)) |
-| maxWhite als Schaltfläche | | maxBright(Zone), nativ | |
-| whiteMode als Schaltfläche | | | whiteMode(Zone), nativ |
-| Nachtmodus als Schaltfläche | | | Nachtmodus(Zone), nativ |
-| Farbe als Farbtonwert (0-255) | | | Farbton, nativ |
-| rgb als kombinierter Wert (#000000 - #FFFFFF) | | | rgb, nativ |
-| colorTempUp als Schaltfläche | | wärmer, nativ | |
-| colorTempDown als Schaltfläche | | kühler, nativ | |
-| Helligkeit als Wert (0-100%) | | | Helligkeit, nativ |
-| Helligkeit als Wert (0-100%), erweiterter Bereich | | | |
-| effectModeNext als Schaltfläche | | | effectModeNext, nativ |
-| SpeedUp als Schaltfläche | SpeedUp, nativ | | EffectSpeedUp, nativ |
-| speedDown als Schaltfläche | speedDown, nativ | | effectSpeedDown, nativ |
-| brightUp als Schaltfläche | brightUp, nativ | brightUp, nativ | |
-| brightDown als Schaltfläche | brightDown, nativ | brightDown, nativ | |
-| effectModeNext als Schaltfläche | effectSpeedUp, nativ | | |
-| effectModePrev als Schaltfläche | effectSpeedDown, nativ | | |
+|                     verfügbarer Zustand                    |         Grund-/Brückenprogramm         |                 Weiß                 |                  RGB                 |                  RGBW                  |                  RGBWW                 |
+| :--------------------------------------------------------: | :------------------------------------: | :----------------------------------: | :----------------------------------: | :------------------------------------: | :------------------------------------: |
+|                    EIN/AUS als Schalter                    |        Zustand(Zone1), Funktion        |        Zustand(Zone), Funktion       |       Zustand(Zone1), Funktion       |         Zustand(Zone), Funktion        |         Zustand(Zone), Funktion        |
+|                        EIN als Taste                       |            on(zone1), native           |           on(zone), native           |           on(zone1), native          |            on(zone), native            |            on(zone), native            |
+|                        AUS als Taste                       |           aus (Zone 1), nativ          |           aus(Zone), nativ           |          aus (Zone 1), nativ         |            aus(Zone), nativ            |            aus(Zone), nativ            |
+|              Farbmodus als boolescher Zustand              |                                        |                                      |                                      |  Farbmodus (0=Nachtmodus, 1=Weißmodus) |  Farbmodus (0=Nachtmodus, 1=Weißmodus) |
+|                  maxWhite als Schaltfläche                 |                                        |        maxBright(zone), native       |                                      |                                        |                                        |
+|                 Weißmodus als Schaltfläche                 |        whiteMode(zone1), native        |                                      |                                      |         whiteMode(zone), native        |         whiteMode(zone), native        |
+|                    Nachtmodus als Taste                    |                                        |        Nachtmodus(Zone), nativ       |                                      |         Nachtmodus(Zone), nativ        |         Nachtmodus(Zone), nativ        |
+|                Helligkeit als Wert (0-100%)                |        Helligkeit (Zone), nativ        |                                      |                                      |        Helligkeit (Zone), nativ        |        Helligkeit (Zone), nativ        |
+|                Farbe als 3 Hexadezimalwerte                |           Farbe(Zone), nativ           |                                      |          Farbe(Zone), nativ          |           Farbe(Zone), nativ           |           Farbe(Zone), nativ           |
+|        RGB als kombinierter Wert (#000000 - #FFFFFF)       |            rgb(Zone), nativ            |                                      |           rgb(Zone), nativ           |            rgb(Zone), nativ            |            rgb(Zone), nativ            |
+|                       Modus als Wert                       |           Modus(Zone), nativ           |                                      |                                      |           Modus(Zone), nativ           |           Modus(Zone), nativ           |
+|                modeSpeedUp als Schaltfläche                |                                        |       modeSpeedUp(zone), native      |                                      |       modeSpeedUp (zone), native       |       modeSpeedUp (zone), native       |
+|                   modeSpeedDown als Taste                  |                                        |      modeSpeedDown (Zone), nativ     |                                      |       modeSpeedDown(zone), native      |       modeSpeedDown(zone), native      |
+|                    Link als Schaltfläche                   |                                        |                                      |                                      |            Link(Zone), nativ           |            Link(Zone), nativ           |
+|      Als Schaltfläche „Verknüpfung aufheben“ entfernen     |                                        |                                      |                                      |          unlink(zone), native          |          unlink(zone), native          |
+|                   Sättigungswert (0-100%)                  |                                        |                                      |                                      |                                        |         Sättigung (Zone), nativ        |
+| Farbtemperatur als Wert (0-100 entspricht 2700K bis 6500K) |                                        |                                      |                                      |                                        |      Farbtemperatur (Zone), nativ      |
+|                Helligkeit erhöhen als Taste                |   Helligkeit erhöhen (Zone), Funktion  |   Helligkeitserhöhung (Zone), nativ  |   Helligkeitserhöhung (Zone), nativ  |   Helligkeit erhöhen (Zone), Funktion  |   Helligkeit erhöhen (Zone), Funktion  |
+|               Helligkeit verringern als Taste              | Helligkeit verringern (Zone), Funktion | Helligkeitsreduzierung (Zone), nativ | Helligkeitsreduzierung (Zone), nativ | Helligkeit verringern (Zone), Funktion | Helligkeit verringern (Zone), Funktion |
+|              Farbe nach oben als Schaltfläche              |         colorUp(zone), Funktion        |                                      |                                      |         colorUp(zone), Funktion        |         colorUp(zone), Funktion        |
+|              Farbe nach unten als Schaltfläche             |     Farbe Abwärts (Zone), Funktion     |                                      |    Farbe Abwärts (Zone), Funktion    |     Farbe Abwärts (Zone), Funktion     |                                        |
+|            Sättigung erhöhen (als Schaltfläche)            |                                        |                                      |                                      |                                        |   Sättigung erhöhen (Zone), Funktion   |
+|           Sättigung verringern (als Schaltfläche)          |                                        |                                      |                                      |                                        |  Sättigung reduzieren (Zone), Funktion |
+|                colorTempUp als Schaltfläche                |                                        |       colorTempUp (Zone), nativ      |                                      |                                        |      colorTempUp (Zone), Funktion      |
+|               colorTempDown als Schaltfläche               |                                        |      colorTempDown (Zone), nativ     |                                      |                                        |     colorTempDown (Zone), Funktion     |
+|                  Farbton als Wert (0-360)                  |                                        |                                      |                                      |        Farbton (Zone), Funktion        |        Farbton (Zone), Funktion        |
 
-effectSpeedUp/Down hat unterschiedliche Bedeutung (bei RGB ändert sich der Modus, bei RGBW ändert es die Geschwindigkeit)!
+## Staaten in Version 5/ Version 4
+
+|                verfügbarer Zustand                |                   RGB                  |           Weiß          |                      RGBW                      |
+| :-----------------------------------------------: | :------------------------------------: | :---------------------: | :--------------------------------------------: |
+|                EIN/AUS als Schalter               |         Zustand(Zone), Funktion        | Zustand(Zone), Funktion |             Zustand(Zone), Funktion            |
+|                   EIN als Taste                   |            on(zone), native            |     on(zone), native    |                on(zone), native                |
+|                   AUS als Taste                   |            aus(Zone), nativ            |     aus(Zone), nativ    |                aus(Zone), nativ                |
+|          Farbmodus als boolescher Zustand         |                                        |                         | colorMode (0/hs=whiteMode, 1/ct=color(hue=55)) |
+|             maxWhite als Schaltfläche             |                                        | maxBright(zone), native |                                                |
+|             Weißmodus als Schaltfläche            |                                        |                         |             whiteMode(zone), native            |
+|                Nachtmodus als Taste               |                                        |                         |             Nachtmodus(Zone), nativ            |
+|           Farbe als Farbtonwert (0-255)           |                                        |                         |              Farbton, einheimisch              |
+|   RGB als kombinierter Wert (#000000 - #FFFFFF)   |                                        |                         |                   RGB, nativ                   |
+|            colorTempUp als Schaltfläche           |                                        |   wärmer, einheimische  |                                                |
+|           colorTempDown als Schaltfläche          |                                        |   kühler, einheimische  |                                                |
+|            Helligkeit als Wert (0-100%)           |                                        |                         |                Helligkeit, nativ               |
+| Helligkeit als Wert (0-100%), erweiterter Bereich |                                        |                         |                                                |
+|          effectModeNext als Schaltfläche          |                                        |                         |             effectModeNext, native             |
+|           Als Schaltfläche beschleunigen          |             speedUp, native            |                         |              effectSpeedUp, native             |
+|        Geschwindigkeit verringern als Taste       |            speedDown, native           |                         |     EffektGeschwindigkeitVerringern, nativ     |
+|            als Schaltfläche „Aufhellen“           |            brightUp, native            |     brightUp, native    |                                                |
+|              als Taste hell herunter              |           brightDown, native           |    brightDown, native   |                                                |
+|          effectModeNext als Schaltfläche          |          effectSpeedUp, native         |                         |                                                |
+|          effectModePrev als Schaltfläche          | EffektGeschwindigkeitVerringern, nativ |                         |                                                |
+
+effectSpeedUp/Down hat unterschiedliche Bedeutungen (bei RGB ändert es den Modus, bei RGBW ändert es die Geschwindigkeit)!
 
 ## Konfiguration:
-in der Admin-Seite des Adapters Version 5 auch für v4-Lampen verwendbar
 
-## ZU TUN:
-* ??
+auf der Admin-Seite der Adapterversion 5, die auch für Lampen der Version 4 verwendet werden kann.
+
+## TODO:
+
+- ??
 
 ## Bekannte Probleme:
-* ??
+
+- ??
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 20 now.:
 ### 0.4.0
 * compact mode
 ### 0.3.6
@@ -161,4 +172,4 @@ in der Admin-Seite des Adapters Version 5 auch für v4-Lampen verwendbar
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2020 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018-2026 foxthefox <foxthefox@wysiwis.net>

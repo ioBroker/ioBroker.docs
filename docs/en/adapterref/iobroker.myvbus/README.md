@@ -57,6 +57,12 @@ A derived version of this adapter supporting control of VBus devices is availabl
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.7.0 (2026-09-10) - 2026H2 maintenance release
+
+* (copilot) Adapter requires node.js >= 22 now
+* (pdbjjens) Fixed: i18n directory migrated to short format
+* (pdbjjens) Fixed: dependency updates and minor bugfixes
+
 ### 0.6.1 (2026-03-03) - 2026H1 maintenance release
 
 * (copilot) Adapter requires admin >= 7.7.22 now
@@ -77,14 +83,6 @@ A derived version of this adapter supporting control of VBus devices is availabl
 
 * (pdbjjens) Fix: Removed attribute "contributor" from package.json (#718)
 
-### 0.5.0 (2025-01-30) - 2025H1 maintenance release
-
-* (pdbjjens) New: Accept serial port paths /dev/serial/by-id/usb-xxxxxxxxxxxxxxxxxxx or /dev/serial/by-path/platform-xxxxxxxxxxxxxxxxxxx
-* (pdbjjens) Change: Migration to ESLint 9
-* (simatec) Responsive Design added
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## Legal Notices
 
 RESOL, VBus, VBus.net, DeltaSol and others are trademarks or registered trademarks of RESOL - Elektronische Regelungen GmbH
@@ -101,7 +99,6 @@ The authors are in no way endorsed by or affiliated with RESOL GmbH, or any asso
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2025 Jens-Peter Jensen <jjensen@t-online.de>

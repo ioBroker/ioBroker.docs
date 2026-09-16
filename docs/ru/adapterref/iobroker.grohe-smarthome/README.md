@@ -1,11 +1,12 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.grohe-smarthome/README.md":{"title":{"en":"ioBroker.grohe-smarthome"},"content":"en/adapterref/iobroker.grohe-smarthome/README.md"},"en/adapterref/iobroker.grohe-smarthome/docs/en/README.md":{"title":{"en":"ioBroker Grohe Smarthome Adapter"},"content":"en/adapterref/iobroker.grohe-smarthome/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.grohe-smarthome/README.md
 title: ioBroker.grohe-smarthome
-hash: 0HlGhp5vKgDCgdFipMrJ6VvTbGRDn2/IYeZPP4+Hfyg=
+hash: eapKFteOzsC0JwWn9RVeIvW9//e6+tPUvZV/wOa/12Q=
 ---
-# IoBroker.grohe-smarthome
+# ioBroker.grohe-smarthome
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.grohe-smarthome.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.grohe-smarthome.svg)
@@ -15,29 +16,31 @@ hash: 0HlGhp5vKgDCgdFipMrJ6VvTbGRDn2/IYeZPP4+Hfyg=
 ![ioBroker](https://img.shields.io/badge/ioBroker-Adapter-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22-green)
 ![Лицензия](https://img.shields.io/badge/License-MIT-lightgrey)
+![Тестирование и выпуск](https://github.com/patricknitsch/ioBroker.grohe-smarthome/workflows/Test%20and%20Release/badge.svg)
 
-**Тесты:** ![Тестирование и выпуск](https://github.com/patricknitsch/ioBroker.grohe-smarthome/workflows/Test%20and%20Release/badge.svg)
+## Адаптер ioBroker Grohe для умного дома
 
-## IoBroker Адаптер Grohe для умного дома
-<img align="left" src="admin/grohe-smarthome.png" alt="изображение" width="200"/>Этот адаптер подключает ioBroker к облаку <strong>Grohe Smarthome / Ondus</strong> и предоставляет доступ к устройствам Grohe в виде состояний (и некоторых элементов управления) внутри ioBroker.
+<img align="left" src="admin/grohe-smarthome.png" alt="image" width="200"/>
+This adapter connects ioBroker to the <strong>Grohe Smarthome / Ondus</strong> cloud and exposes Grohe devices as states (and some controls) inside ioBroker.
 
 Он поддерживает:
 
-- **Grohe Sense** (тип `101`)
-- **Защита Грохе** (тип `103`)
-- **Дом Grohe Blue** (тип `104`)
-- **Grohe Blue Professional** (тип `105`)
+- **Grohe Sense** (тип)`101` )
+- **Grohe Sense Guard** (тип)`103` )
+- **Дом Grohe Blue** (тип)`104` )
+- **Grohe Blue Professional** (тип)`105` )
 
-Адаптер выполняет вход через поток OIDC/Keycloak от Grohe, сохраняет **зашифрованный токен обновления** в определенном состоянии и опрашивает облачный API Grohe с настраиваемым интервалом.
+Адаптер выполняет вход через поток OIDC/Keycloak от Grohe, сохраняет **токен обновления, зашифрованный** в определенном состоянии, и опрашивает облачный API Grohe с настраиваемым интервалом.
 
-Идеи и концепция были заимствованы из интеграции Home Assistant **ha-grohe_smarthome**. Особая благодарность **Flo-Schilli**.
+Идеи и концепция взяты из проекта интеграции Home-Assistant **ha-grohe\_smarthome** . Особая благодарность **Flo-Schilli** .
 
 ---
 
 ## Документация
-[🇺🇸 Документация](./docs/en/README.md)
 
-[🇩🇪 Документация](./docs/de/README.md)
+[🇺🇸 Документация](/#/docs/adapterref/iobroker.grohe-smarthome/docs/en/README.md)
+
+[🇩🇪 Документация](https://github.com/patricknitsch/ioBroker.grohe-smarthome/blob/main/docs/de/README.md)
 
 ---
 
@@ -46,6 +49,10 @@ hash: 0HlGhp5vKgDCgdFipMrJ6VvTbGRDn2/IYeZPP4+Hfyg=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.0 (2026-08-05)
+* (patricknitsch) Isolate per-appliance errors during polling so one broken device doesn't abort the whole poll cycle
+* (patricknitsch) Add app-matching remaining filter sensor for Grohe Blue (`remainingFilterApp`)
+
 ### 0.6.0 (2026-06-05)
 * (copilot) Fixes Repo Checker
 * (copilot) Change Raw-States to Bump Funktion for Debugging(see Doc.)
@@ -66,11 +73,7 @@ hash: 0HlGhp5vKgDCgdFipMrJ6VvTbGRDn2/IYeZPP4+Hfyg=
 * (patricknitsch) Add Icon and Online State on each Device
 * (patricknitsch) Update Readme and Doc
 
-### 0.5.1 (2026-05-09)
-* (patricknitsch) Update Admin Dependency >= 7.6.23 for Device Manager
-* Important Note: From 0.4.0 to 0.5.X the Sensor Overview is removed but visible. Thats a Bug from js-controller and should be fixed with 7.1.3
-
-**Older entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).**
+**Older entries can be found in [CHANGELOG_OLD.md](https://github.com/patricknitsch/ioBroker.grohe-smarthome/blob/main/CHANGELOG_OLD.md).**
 
 ## License
 MIT License

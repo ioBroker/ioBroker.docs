@@ -1,47 +1,46 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.amazon-dash/README.md
 title: ioBroker.amazon-dash (только для Linux!)
-hash: sGzxItEtI3Jqdb9z3uu0NdbFH9wL1sCN4sBS+ACF/2c=
+hash: 7wPN7i5z+TNqw3EsGcAXoWBEo+lNXSGf55/S/GX9Y7M=
 ---
 ![Логотип](../../../en/adapterref/iobroker.amazon-dash/admin/amazon-dash.png)
 
 ![Количество установок](http://iobroker.live/badges/amazon-dash-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.amazon-dash.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.amazon-dash.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.amazon-dash.svg)
 ![НПМ](https://nodei.co/npm/iobroker.amazon-dash.png?downloads=true)
 
-# IoBroker.amazon-dash (только для Linux!)
-Адаптер для обнаружения нажатий на кнопки Amazon Dash в ioBroker.
+# ioBroker.amazon-dash (только для Linux!)
 
-Этот адаптер не работает под Windows!
+Адаптер для обнаружения нажатий кнопок Amazon Dash в ioBroker.
+
+Этот адаптер не работает под управлением Windows!
 
 ## Шаги
-1. Установите `libpcap-dev`:
+
+1. Установить`libpcap-dev` :
 
 `sudo apt-get install libpcap-dev`
 
-2. Соедините свой Dash-адаптер в приложении Amazon, но не выбирайте продукт!
+2. Подключите адаптер Dash-Adapter к приложению Amazon, но не выбирайте товар! Просто прервите процедуру установки на вкладке выбора товара. В противном случае вы будете каждый раз заказывать новый товар ;) [Инструкция на немецком языке](https://www.amazon.de/gp/help/customer/display.html?nodeId=201746340) .
 
-Просто выйдите из процедуры установки на вкладке выбора продукта.
-Иначе будете каждый раз заказывать товар ;) [Немецкие инструкции](https://www.amazon.de/gp/help/customer/display.html?nodeId=201746340).
+3. Нажмите кнопку тире (сначала она должна загореться белым цветом, затем замигать красным).
 
-3. Нажмите кнопку тире (сначала она должна быть белой, а затем мигать красной)
+4. Внутри объектов адаптера должна появиться новая кнопка «тире», которую можно использовать для запуска сцен или внутри самого JS-адаптера.
 
-4. В объектах адаптера должна появиться новая кнопка, которую вы можете использовать для запуска сцен или в адаптере JS.
-
-5. Иногда требуется дать права доступа к сети узлу:
+5. Иногда требуется предоставить узлу права доступа к сети:
 
 `sudo setcap 'cap_net_raw,cap_net_admin+eip' $(readlink -f $(which node))`
 
 ## ТРЕБУЕТСЯ ПОМОЩЬ!
-Так как этот проект разрабатывается в свободное время.
-Я активно ищу помощь в обслуживании и расширении этого адаптера! Если вы готовы помочь, напишите мне!
+
+Поскольку этот проект разрабатывается в свободное время, я активно ищу помощников для поддержки и расширения функционала этого адаптера! Если вы готовы помочь, напишите мне!
 
 <!--
-
-### **В РАБОТЕ** -->
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
 ### 1.2.0 (2023-02-10)

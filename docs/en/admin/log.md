@@ -1,69 +1,62 @@
 ---
-title: log
-lastChanged: 10.05.2021
+title: Protocols
+lastChanged: 07.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/log.md
-hash: 66gpVVstVxHlQUyyBYv8juocwLyP/pXvD9q5MXSJDlE=
+hash: xH/geZboM6o9w3K2ruzyQtOmiVmD4zKGP5i0hJPM18Y=
 ---
-The system's messages are continuously displayed here. The most recent message is at the top.
+# Tab Protocols
 
-![The log page](../../de/admin/media/ADMIN_Log_numbers.png)
+This is where system messages are displayed. The newest one is at the top. If something isn't working, this is the first place to check.
 
-## The title line
-In the title bar there are icons for the most important processes. There is context help for each icon. Simply hold the mouse over the icon for a while.
+If the **"Logs"** menu item appears red, there is an error. The number next to it indicates the number of logs.
 
-### 1 - Update log
-This button updates the list.
+## The toolbar
 
-### 2 - Pause update
-Clicking this button stops the constant updating of the list.
-Instead of the pause icon, the number of new, not displayed messages now appears.
+<img src="media/admin_protokolle_leiste.png" alt="Die Werkzeugleiste des Reiters Protokolle" width="900" />
 
-### 3 - Delete list
-Clicking on this icon will only delete the list on the screen
+| No. | function                                                                                                                                                  |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Update log.**                                                                                                                                           |
+| 2   | **Pause output.** Instead of the symbol, the number of new, undisplayed messages will appear. Useful if you want to read a specific line at your leisure. |
+| 3   | **Clear log** : only clears the display in the browser.                                                                                                   |
+| 4   | **Permanently delete from disk** : deletes the log file on the host.                                                                                      |
+| 5   | **Show/hide process ID.**                                                                                                                                 |
+| 6   | **Show/hide colors** : highlights errors in red and warnings in yellow.                                                                                   |
+| 7   | **Reverse output direction** : newest message at the top or bottom.                                                                                       |
+| 8   | **Show only errors.** The number next to it indicates the number of errors present.                                                                       |
+| 9   | **Display errors and warnings.**                                                                                                                          |
+| 10  | **Download log** : downloads the complete daily file`/opt/iobroker/log` .                                                                                 |
+| 11  | The **size** of the current log file.                                                                                                                     |
 
-### 4 - Clear log on host
-Clicking on this icon will permanently delete the entire log on the host.
+The host is located to the right of this. In a [multi-host system](/docs/config/multihost.md) , this is where you switch between hosts. Only the messages from the selected host are displayed.
 
-### 5 - Download log
-With this button you can download a complete daily log of the last few days from the directory /opt/iobroker/logs:
+## The list
 
-![log download](../../de/admin/media/ADMIN_Log_download.png)
+<img src="media/admin_protokolle_liste.png" alt="Die Protokollliste mit Quelle, Zeit, Stufe und Nachricht" width="900" />
 
-This will give you the following screen: ![complete log](../../de/admin/media/ADMIN_Log_download02.png)
+The columns are **source** (the instance or host), **time** , **log level** , and **message** . The fields in the header allow filtering: by source, by minimum log level, and by text within the message.
 
-Since lines are often cut off in the list in the log window, it is important to check here to see if there is more information.
+Log levels from most detailed to most concise:
 
-### 6 - Host list
-Only messages that come from the host specified here are displayed in the log. In multi-host environments, you can specify the host to be logged here.
+| Level                                     | For what                                                      |
+| ----------------------------------------- | ------------------------------------------------------------- |
+| `silly` (in the dialogue **Everything** ) | Absolutely every single report. Only if`debug` is not enough. |
+| `debug`                                   | Internal processes too. For troubleshooting, then reset.      |
+| `info`                                    | The normal procedure: Start, Stop, Connections.               |
+| `warn`                                    | Something is unusual, but it continues.                       |
+| `error`                                   | Something went wrong.                                         |
 
-![The hosts](../../de/admin/media/ADMIN_Log_hosts.png)
+The level is set for each instance in the [Instances](/docs/admin/instances.md) tab, and the default for new instances is set in the [system settings](/docs/admin/settings.md) .
 
-## The page content
-![The hosts](../../de/admin/media/ADMIN_Log_numbers02.png)
+Long lines are truncated in the list. Anyone who wants to get to the bottom of a message should download the log file and look there. Often the actual cause is in the lines preceding it.
 
-The existing objects are displayed in tabular form on the page.
+## If there is an error in the log
 
-Column headers 1 and 3 contain pull-down menus that serve as filter criteria, in column 4 a filter criterion can be freely entered
+Two things almost always help:
 
-### 1 - Source
-This pull-down menu can be used to filter the messages according to the logging instance. The menu only shows the instances for which there are entries on the page.
+1. **Look for the first error message, not the last.** One error often leads to further errors; the beginning of the chain is what's interesting.
+2. **The log level of the affected instance is at`debug` Try** restarting the instance and reviewing the messages again.
 
-### 2 - Time
-The timestamp of the message is listed here. This column cannot be filtered.
-
-### 3 - displayed log level
-This menu can be used to set the severity of the message that should be displayed. However, this is only a filter of the existing list.
-To set logging at a certain level for an instance, this must be set on the instance page.
-
-Errors are shown in red:
-
-![Error](../../de/admin/media/ADMIN_Log02_error.png)
-
-If there is an error on any host, the label ***Log*** appears in the menu bar in red.
-
-### 4 - Message
-The respective message is displayed in this column as long as it fits in the column.
-The rest is cut off. You can still see the entire message by mouse-over.
-To post in the forum, please download the log and copy the message from there.
+If that doesn't help, the [forum](https://forum.iobroker.net/) can help. The relevant post should be an excerpt from the downloaded log file, not a screenshot of the list.

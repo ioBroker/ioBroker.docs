@@ -5,8 +5,6 @@ chapters: {"pages":{"de/adapterref/iobroker.admin/README.md":{"title":{"de":"no 
 
 Hier können Benutzer angelegt werden. Dazu links unten auf das (+) klicken. Der Administrator ist standardmäßig bereits angelegt.
 
-
-
 ![iobroker_adapter_admin_user_01](img/tab-user_01-1.jpg)
 
 ## Der Seiteninhalt

@@ -1,0 +1,149 @@
+import type React from 'react';
+import { memo } from 'react';
+import type { AdapterItem, Lang } from '../AdapterItem/AdapterItem';
+import { Box, Table, TableBody, TableCell, TableHead, TableRow, Tooltip } from '@mui/material';
+import { I18n } from '../../utils/i18n';
+import { Link } from 'react-router-dom';
+import { useStyles } from './AdapterTable.styles';
+import { buildIoBrokerUrl } from '../../config/api';
+
+const stripEmails = (value: string): string => {
+    return value
+        .replace(/\s*<[^>]*>/g, '')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+};
+import StackIcon from '../../assets/img/whiteStack.svg';
+import StarIcon from '../../assets/img/whiteStar.svg';
+import DownloadIcon from '../../assets/img/whiteDownloadIcon.svg';
+
+const AdapterTableRow = memo(({ adapter, language }: { adapter: AdapterItem; language: string }) => {
+    const classes = useStyles().classes;
+    const lang = language as keyof Lang;
+    const title = adapter.title?.[lang] || adapter.title?.en || adapter.title?.de || adapter.title?.ru || '';
+    const slug = adapter.title?.en || title;
+    const description =
+        adapter.description?.[lang] ||
+        adapter.description?.en ||
+        adapter.description?.de ||
+        adapter.description?.ru ||
+        '';
+    return (
+        <TableRow
+            className={classes.tableRow}
+            key={slug}
+        >
+            <TableCell className={classes.nameCell}>
+                <Link
+                    to={`/adapters/${slug}`}
+                    className={classes.nameContent}
+                >
+                    <Box className={classes.adapterIcon}>
+                        {adapter.icon ? (
+                            <img
+                                // The logo is served beside the app. Hard-wiring www.iobroker.net here made
+                                // every instance show the icons of production: the test cloud on :543 asked
+                                // :443, and the dev server never showed its own. `en/` is not a language
+                                // choice - the pipeline keeps one copy per language, and this is the one
+                                // they all point at.
+                                //
+                                // A few adapters have no logo the pipeline could get hold of. Without the
+                                // guard the src read `en/undefined` and the browser drew a broken image.
+                                src={buildIoBrokerUrl(`en/${adapter.icon}`)}
+                                alt={title}
+                            />
+                        ) : null}
+                    </Box>
+                    <Box className={classes.adapterName}>{title}</Box>
+                </Link>
+            </TableCell>
+            <TableCell className={classes.descriptionCell}>
+                <Link
+                    to={`/adapters/${slug}`}
+                    className={classes.nameContent}
+                >
+                    {description}
+                </Link>
+            </TableCell>
+            <TableCell className={classes.authorCell}>
+                <Link
+                    to={`/adapters/${slug}`}
+                    className={classes.nameContent}
+                >
+                    {stripEmails(adapter.authors || '')}
+                </Link>
+            </TableCell>
+            <TableCell className={classes.statsCell}>
+                <Link to={`/adapters/${slug}`}>{adapter.installs}</Link>
+            </TableCell>
+            <TableCell className={classes.statsCell}>
+                <Link to={`/adapters/${slug}`}>{adapter.version}</Link>
+            </TableCell>
+            <TableCell className={`${classes.statsCell} ${classes.lastCell}`}>
+                <Link to={`/adapters/${slug}`}>{adapter.stars}</Link>
+            </TableCell>
+        </TableRow>
+    );
+});
+
+AdapterTableRow.displayName = 'AdapterTableRow';
+
+export const AdapterTable = memo((props: { adapters: AdapterItem[] }): React.ReactNode => {
+    const { classes } = useStyles();
+    const language = I18n.getLanguage();
+
+    return (
+        <Box className={classes.tableContainer}>
+            <Table className={classes.table}>
+                <TableHead className={classes.tableHead}>
+                    <TableRow>
+                        <TableCell className={classes.nameCell}>Name</TableCell>
+                        <TableCell className={classes.descriptionCell}>Beschreibung</TableCell>
+                        <TableCell className={classes.authorCell}>Entwickler</TableCell>
+                        <TableCell className={classes.statsCell}>
+                            <Tooltip title={I18n.t('adapters.tooltip.installs')}>
+                                <Box className={classes.headerIcon}>
+                                    <img
+                                        src={DownloadIcon}
+                                        alt="Downloads"
+                                    />
+                                </Box>
+                            </Tooltip>
+                        </TableCell>
+                        <TableCell className={classes.statsCell}>
+                            <Tooltip title={I18n.t('adapters.tooltip.version')}>
+                                <Box className={classes.headerIcon}>
+                                    <img
+                                        src={StackIcon}
+                                        alt="Version"
+                                    />
+                                </Box>
+                            </Tooltip>
+                        </TableCell>
+                        <TableCell className={`${classes.statsCell} ${classes.lastCell}`}>
+                            <Tooltip title={I18n.t('adapters.tooltip.stars')}>
+                                <Box className={classes.headerIcon}>
+                                    <img
+                                        src={StarIcon}
+                                        alt="Stars"
+                                    />
+                                </Box>
+                            </Tooltip>
+                        </TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {props.adapters.map(adapter => (
+                        <AdapterTableRow
+                            key={adapter.content}
+                            adapter={adapter}
+                            language={language}
+                        />
+                    ))}
+                </TableBody>
+            </Table>
+        </Box>
+    );
+});
+
+AdapterTable.displayName = 'AdapterTable';

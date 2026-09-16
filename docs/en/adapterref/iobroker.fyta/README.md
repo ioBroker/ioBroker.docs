@@ -44,8 +44,6 @@ Sensors can be purchased an the [FYTA Shop](https://fyta.de/collections/all)
 -   Added retrieval of raw values
 -	Added use of internal notifications
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 MIT License
 

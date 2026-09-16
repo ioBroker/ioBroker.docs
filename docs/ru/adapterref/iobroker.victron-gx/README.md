@@ -1,11 +1,12 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.victron-gx/README.md":{"title":{"en":"ioBroker Victron GX Adapter"},"content":"en/adapterref/iobroker.victron-gx/README.md"},"en/adapterref/iobroker.victron-gx/docs/README_de.md":{"title":{"en":"ioBroker Victron GX Adapter"},"content":"en/adapterref/iobroker.victron-gx/docs/README_de.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.victron-gx/README.md
 title: ioBroker Victron GX Adapter
-hash: ZorZ0inPZcPuRq5wrvs3VsENRaPumg1NqMa4PgrBtTc=
+hash: DwvNl2P9BI+snAPG4/qHtfZRJ/Yp+T3Ui7xJDxBd/JI=
 ---
-# IoBroker Victron GX Adapter
+# ioBroker Victron GX Adapter
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.victron-gx.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.victron-gx.svg)
@@ -15,32 +16,34 @@ hash: ZorZ0inPZcPuRq5wrvs3VsENRaPumg1NqMa4PgrBtTc=
 
 <img src="admin/victron-gx.png" width="100" align="right">
 
-Этот адаптер подключает ioBroker **напрямую и локально** к [Victron Energy (https://www.victronenergy.com/) устройства GX ([Cerbo GX, Venus GX, Ekrano GX])](https://www.victronenergy.com/communication-centres)) – без каких-либо обходных путей через Home Assistant или облако VRM.
+Этот адаптер обеспечивает **прямое и локальное** подключение ioBroker к устройствам [Victron Energy](https://www.victronenergy.com/) GX ( [Cerbo GX, Venus GX, Ekrano GX](https://www.victronenergy.com/communication-centres) ) — без каких-либо обходных путей через Home Assistant или облако VRM.
 
-[![[ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/sefinads)
+[![ко-фи](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/sefinads)
 
-🇩🇪 [Deutsche Anleitung](docs/README_de.md)
+🇩🇪 [Deutsche Anleitung](/#/docs/adapterref/iobroker.victron-gx/docs/README_de.md)
 
 ---
 
 ## Для чего нужен этот адаптер?
+
 Обеспечивает прямое и локальное подключение ioBroker к устройствам Victron GX через локальный протокол MQTT. Поддерживает чтение всех данных устройства и полное управление системами накопления энергии/инверторами через Modbus TCP.
 
-- Все данные устройства **обнаруживаются автоматически** и создаются как состояния ioBroker.
-- Записываемые точки данных находятся непосредственно в каталоге `devices.*` – `common.write` показывает, включен ли в данный момент соответствующий переключатель управления (Modbus / MQTT).
-- Работает с однофазными и трехфазными системами
+- Все данные с устройства **обнаруживаются автоматически** и создаются как состояния ioBroker.
+- Записываемые точки данных располагаются непосредственно под`devices.*` –`common.write` Отражает, включен ли в данный момент переключатель управления соответствием (Modbus / MQTT).
+- Работает с однофазными и трехфазными системами.
 - Автоматическое определение идентификатора устройства Modbus
-- **Низкое потребление оперативной памяти**: стабильно работает при объеме ~130 МБ.
-— Виртуальные устройства через Node-RED (`dbus-victron-virtual`) полностью поддерживаются.
+- **Низкий расход оперативной памяти** : стабильно работает при \~130 МБ.
+- Виртуальные устройства через Node-RED (`dbus-victron-virtual` ) полностью поддерживаются
 
 ---
 
 ## Требования
+
 **На устройстве GX:**
 
-- Включить MQTT: `Настройки → Интеграции → Доступ к MQTT → Вкл.`
-- Для управления по протоколу Modbus: `Настройки → Интеграции → Сервер Modbus TCP → Включено`
-- Доступ на запись: `Уровень доступа → Разрешен доступ на запись`
+- Включить MQTT:`Settings → Integrations → MQTT access → On`
+- Для управления по протоколу Modbus:`Settings → Integrations → Modbus TCP Server → Enabled`
+- Доступ на запись:`Access level → Write access allowed`
 
 **В ioBroker:**
 
@@ -50,62 +53,68 @@ hash: ZorZ0inPZcPuRq5wrvs3VsENRaPumg1NqMa4PgrBtTc=
 ---
 
 ## Установка
+
 ### Через административную панель ioBroker (рекомендуется)
+
 Поскольку этот адаптер ещё не включен в официальный репозиторий ioBroker, установите его через вкладку npm в административном интерфейсе:
 
 1. Откройте административную панель ioBroker.
-2. Перейдите в раздел **Адаптеры**.
-3. Нажмите на значок **GitHub/Cat** (в правом верхнем углу).
-4. Выберите вкладку **npm**.
-5. Введите `iobroker.victron-gx` и нажмите **Установить**.
+2. Перейти к **адаптерам**
+3. Нажмите на **значок GitHub/Cat** (в правом верхнем углу).
+4. Выберите вкладку **npm**
+5. Входить`iobroker.victron-gx` и нажмите **«Установить»**
 
 ### После установки
-1. Настройте экземпляр:
-- Введите **IP-адрес** устройства GX
-- Порт MQTT: `1883` (по умолчанию)
-- Дополнительно: **Управление по протоколу Modbus** (регистры ESS/инвертора становятся доступными для записи через Modbus TCP)
-- Дополнительно: **управление по протоколу MQTT** (переключатели, зарядное устройство для электромобилей, заданные значения температуры становятся доступными для записи через MQTT)
 
-> **Примечание:** Требуется Node.js версии 22 и выше. Если ваш ioBroker работает на Node.js версии 20, пожалуйста, сначала обновите его.
+1. Настройте экземпляр:
+   - Введите **IP-адрес** устройства GX
+   - Порт MQTT:`1883` (по умолчанию)
+   - Дополнительно: **управление по протоколу Modbus** (регистры ESS/инвертора становятся доступными для записи через Modbus TCP).
+   - Дополнительно: **управление по протоколу MQTT** (переключатели, зарядное устройство для электромобилей, заданные значения температуры становятся доступными для записи через MQTT).
+
+> **Примечание:** Требуется Node.js версии не ниже 22. Если ваш ioBroker работает на Node.js версии 20, пожалуйста, сначала обновите его.
 
 ---
 
 ## Конфигурация
+
 ![Конфигурация](../../../en/adapterref/iobroker.victron-gx/docs/img/victron-gx-einstellungen.png)
 
-| Поле | Описание |
-|-------|-------------|
-| IP-адрес устройства GX | Локальный IP-адрес Cerbo/Venus/Ekrano GX |
-| Порт MQTT | По умолчанию: 1883 |
-| Имя пользователя/пароль MQTT | Только если аутентификация MQTT настроена на GX |
-| Управление по Modbus | Обеспечивает возможность записи данных ESS/инвертора (vebus, system) через Modbus TCP |
-| Порт Modbus | По умолчанию: 502 |
-| Управление по протоколу MQTT | Позволяет записывать параметры переключателей, зарядного устройства для электромобилей и заданные значения температуры через протокол MQTT |
+| Поле                         | Описание                                                                                                                           |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| IP-адрес устройства GX       | Локальный IP Cerbo/Venus/Ekrano GX                                                                                                 |
+| порт MQTT                    | По умолчанию: 1883                                                                                                                 |
+| Имя пользователя/пароль MQTT | Только если на GX настроена аутентификация MQTT.                                                                                   |
+| Управление Modbus            | Обеспечивает возможность записи данных ESS/инвертора (vebus, system) через Modbus TCP.                                             |
+| порт Modbus                  | По умолчанию: 502                                                                                                                  |
+| Управление MQTT              | Позволяет записывать параметры переключателей, зарядного устройства для электромобилей и заданные значения температуры через MQTT. |
 
 ---
 
 ## Поддерживаемые устройства
+
 Адаптер автоматически обнаруживает все устройства, подключенные к устройству GX:
 
 ![Устройства GX](../../../en/adapterref/iobroker.victron-gx/docs/img/victron-gx-GX-Geräte.png)
 
-| Тип устройства | Описание |
-|-------------|-------------|
-| `battery` | Системы батарей (например, SerialBattery/LLT/JBD) |
-| `grid` | Сетевые счетчики (например, Shelly 3EM, Carlo Gavazzi) |
-| `pvinverter` | Фотоэлектрические инверторы |
-| `acload` | Нагрузки переменного тока (включая Shelly 1PM с переключаемым выходом) |
-| `switch` | Переключаемые выходы (виртуальные переключатели Node-RED, Shelly Pro3/Pro4/1PM, внутреннее реле GX) |
-| `evcharger` | Зарядные устройства для электромобилей (чтение + управление) |
-| `temperature` | Датчики температуры |
-| `meteo` | Метеостанции |
-| `tank` | Датчики уровня в резервуаре |
-| `system` | Обзор системы |
-| `система` | Обзор системы |
+| Тип устройства | Описание                                                                                            |
+| -------------- | --------------------------------------------------------------------------------------------------- |
+| `battery`      | Системы на основе батарей (например, SerialBattery/LLT/JBD)                                         |
+| `vebus`        | Инверторы MultiPlus/Quattro                                                                         |
+| `grid`         | Сетевые счетчики (например, Shelly 3EM, Carlo Gavazzi)                                              |
+| `pvinverter`   | фотоэлектрические инверторы                                                                         |
+| `acload`       | Нагрузки переменного тока (включая Shelly 1PM с переключаемым выходом)                              |
+| `switch`       | Переключаемые выходы (виртуальные переключатели Node-RED, Shelly Pro3/Pro4/1PM, внутреннее реле GX) |
+| `evcharger`    | Зарядные устройства для электромобилей (чтение + управление)                                        |
+| `temperature`  | Датчики температуры                                                                                 |
+| `meteo`        | Метеостанции                                                                                        |
+| `tank`         | датчики уровня в резервуаре                                                                         |
+| `system`       | Обзор системы                                                                                       |
 
 ---
 
 ## Структура объекта
+
 ![Структура объекта](../../../en/adapterref/iobroker.victron-gx/docs/img/victron-gx-Objektstruktur.png)
 
 ```
@@ -136,94 +145,98 @@ victron-gx.0
 └── info.*             → Connection status
 ```
 
-`<Group>` — это необязательная промежуточная папка, присутствующая только в том случае, если для данного канала/устройства задано имя группы. Подробности см. в [Интеграция с Shelly и многоканальная поддержка](#shelly-integration--multi-channel-support) ниже.
+`<Group>` Это необязательная промежуточная папка, которая присутствует только в том случае, если для данного канала/устройства задано имя группы. Подробнее см. раздел [«Интеграция с Shelly и поддержка многоканального доступа»](#shelly-integration--multi-channel-support) ниже.
 
 ---
 
 ## Список устройств (администратор)
+
 ![белый список устройств](../../../en/adapterref/iobroker.victron-gx/docs/img/victron-gx-Geräte.png)
 
-На вкладке **Устройства** отображаются все обнаруженные устройства с указанием типа, серийного номера, названия и количества точек данных. Список можно загрузить в виде файла JSON — это полезно для запросов в службу поддержки.
+На вкладке **«Устройства»** отображаются все обнаруженные устройства с указанием типа, серийного номера, имени и количества точек данных. Список можно загрузить в виде файла JSON — это полезно для запросов в службу поддержки.
 
 ---
 
 ## Каталог тем (Администратор)
+
 ![Все темы](../../../en/adapterref/iobroker.victron-gx/docs/img/victron-gx-AlleTopics.png)
 
-На вкладке **Все темы** отображаются все темы MQTT, отправленные устройством GX с момента последнего запуска адаптера. Темы, обработанные адаптером, отмечены знаком ✓. Каталог можно загрузить в виде файла JSON.
+На вкладке **«Все темы»** отображаются все темы MQTT, отправленные устройством GX с момента последнего запуска адаптера. Темы, обработанные адаптером, отмечены знаком ✓. Каталог можно загрузить в виде файла JSON.
 
 ---
 
 ## Записываемые точки данных
-Начиная с версии **0.10.0**, отдельного дерева `control.*` больше нет. Каждая доступная для записи точка данных находится непосредственно под `devices.*`, рядом со своими соседними точками, доступными только для чтения – `common.write` на самом объекте сообщает вам (и административному интерфейсу / VIS), доступен ли он в данный момент для записи. Это регулируется двумя независимыми переключателями конфигурации:
 
-- **Управление Modbus** – Регистры ESS/инвертора на `devices.vebus.*` и `devices.system.*`
-- **Управление MQTT** – переключатели (`devices.switch.*`/`devices.acload.*`/`devices.system.*` выходы),
+Начиная с **версии 0.10.0** , отдельного модуля нет.`control.*` Дерево больше не существует. Каждая записываемая точка данных находится непосредственно под деревом.`devices.*` , прямо рядом со своими аналогами, доступными только для чтения –`common.write` Информация о самом объекте (а также в административном интерфейсе/визуализации) показывает, доступен ли он в данный момент для записи. Два независимых переключателя конфигурации регулируют этот параметр:
 
-зарядное устройство для электромобилей и заданные значения калибровки датчика температуры.
+- **Управление по протоколу Modbus** – регистры ESS/инвертора включены.`devices.vebus.*` и`devices.system.*`
+- **Управление по протоколу MQTT** – переключатели (`devices.switch.*` /`devices.acload.*` /`devices.system.*` выходы), зарядное устройство для электромобилей и заданные значения калибровки датчика температуры
 
-Если переключатель выключен, точка данных по-прежнему существует (поэтому привязки истории/визуализации и скрипты продолжают работать), но `common.write` становится `false`, и операции записи игнорируются с предупреждением в журнале — больше никаких незаметных операций записи в точку данных, которая выглядела доступной для записи, но на самом деле таковой не являлась.
+Если переключатель выключен, точка данных все равно существует (поэтому привязки истории/визуализации и скрипты продолжают работать), но`common.write` является`false` А операции записи игнорируются с предупреждением в журнале — больше никаких незаметных операций записи в точку данных, которая выглядела доступной для записи, но на самом деле таковой не являлась.
 
 ### До → после (обновление с версии 0.9.x)
-| Старый (control.\*, удален в версии 0.10.0) | Новый (devices.\*) |
-|---|---|
-| `control.inverter.Mode` | `devices.vebus.<Serial>.Mode` |
-| `control.inverter.AcIn1CurrentLimit` | `devices.vebus.<Serial>.Ac.In1.CurrentLimit` |
-| `control.inverter.DisableCharge` | `devices.vebus.<Serial>.Hub4.DisableCharge` |
-| `control.inverter.DisableFeedIn` | `devices.vebus.<Serial>.Hub4.DisableFeedIn` |
-| `control.system.GridSetpoint` | `devices.system.<Serial>.GridSetpoint` |
-| `control.system.EssMode` | `devices.system.<Serial>.EssMode` |
-| `control.system.MinimumSoc` | `devices.system.<Serial>.MinimumSoc` |
-| `control.system.BatteryLifeState` | `devices.system.<Serial>.BatteryLifeState` |
-| `control.system.MaxFeedInPower` | `devices.system.<Serial>.MaxFeedInPower` |
-| `control.system.AcFeedInEnabled` | `devices.system.<Serial>.AcFeedInEnabled` |
-| `control.system.DcFeedInEnabled` | `devices.system.<Serial>.DcFeedInEnabled` |
-| `control.system.DvccMaxChargeCurrent` | `devices.system.<Serial>.DvccMaxChargeCurrent` |
-| `control.system.MaxDischargePower` | `devices.system.<Serial>.MaxDischargePower` |
-| `control.evcharger.<Instance>.SetCurrent` | `devices.evcharger.<Serial>.SetCurrent` |
-| `control.evcharger.<Instance>.StartStop` | `devices.evcharger.<Serial>.StartStop` |
-| `control.evcharger.<Instance>.Mode` | `devices.evcharger.<Serial>.Mode` |
-| `control.evcharger.<Instance>.Mode` | `devices.evcharger.<Serial>.Mode` |
 
-**Что нужно сделать:** обновите все скрипты, виджеты Vis или правила Blockly, которые напрямую ссылаются на `control.*`, и убедитесь, что соответствующий переключатель (управление Modbus / управление MQTT) включен в настройках экземпляра, если вы используете запись в любой из этих источников. Адаптер автоматически переименовывает ключ конфигурации `controlEnabled` в `modbusControlEnabled` при первом запуске версии 0.10.0 (ваша настройка сохраняется) – `mqttControlEnabled` остается без изменений. Однократная очистка удаляет все оставшиеся объекты `control.*`, и при каждом запуске в версиях 0.10.x/0.11.x регистрируется предупреждение в качестве напоминания (удалено в версии 0.12.0).
+| Старая версия (control.\*, удалена в версии 0.10.0) | Новые (устройства.\*)                            |
+| --------------------------------------------------- | ------------------------------------------------ |
+| `control.inverter.Mode`                             | `devices.vebus.<Serial>.Mode`                    |
+| `control.inverter.AcPowerSetpoint`                  | `devices.vebus.<Serial>.Hub4.L1.AcPowerSetpoint` |
+| `control.inverter.AcIn1CurrentLimit`                | `devices.vebus.<Serial>.Ac.In1.CurrentLimit`     |
+| `control.inverter.DisableCharge`                    | `devices.vebus.<Serial>.Hub4.DisableCharge`      |
+| `control.inverter.DisableFeedIn`                    | `devices.vebus.<Serial>.Hub4.DisableFeedIn`      |
+| `control.system.GridSetpoint`                       | `devices.system.<Serial>.GridSetpoint`           |
+| `control.system.EssMode`                            | `devices.system.<Serial>.EssMode`                |
+| `control.system.MinimumSoc`                         | `devices.system.<Serial>.MinimumSoc`             |
+| `control.system.BatteryLifeState`                   | `devices.system.<Serial>.BatteryLifeState`       |
+| `control.system.MaxFeedInPower`                     | `devices.system.<Serial>.MaxFeedInPower`         |
+| `control.system.AcFeedInEnabled`                    | `devices.system.<Serial>.AcFeedInEnabled`        |
+| `control.system.DcFeedInEnabled`                    | `devices.system.<Serial>.DcFeedInEnabled`        |
+| `control.system.DvccMaxChargeCurrent`               | `devices.system.<Serial>.DvccMaxChargeCurrent`   |
+| `control.system.MaxDischargePower`                  | `devices.system.<Serial>.MaxDischargePower`      |
+| `control.evcharger.<Instance>.SetCurrent`           | `devices.evcharger.<Serial>.SetCurrent`          |
+| `control.evcharger.<Instance>.StartStop`            | `devices.evcharger.<Serial>.StartStop`           |
+| `control.evcharger.<Instance>.Mode`                 | `devices.evcharger.<Serial>.Mode`                |
 
-**Теперь переключатели также имеют функцию блокировки:** `outputs.<N>.State` ранее был доступен для безусловной записи; теперь для его работы требуется **управление по протоколу MQTT**, как и для всего остального, что находится под этим переключателем.
+**Что делать:** обновите все скрипты, виджеты Vis или правила Blockly, которые ссылаются на...`control.*` Напрямую, и убедитесь, что соответствующий переключатель (управление Modbus / управление MQTT) включен в настройках экземпляра, если вы используете запись в любой из этих каналов. Адаптер переименовывает ключ конфигурации.`controlEnabled` к`modbusControlEnabled` автоматически при первом запуске версии 0.10.0 (ваши настройки сохраняются) –`mqttControlEnabled` Остаток не изменился. Однократная очистка удаляет все остатки.`control.*` объектов, и при каждом запуске в версиях 0.10.x/0.11.x в качестве напоминания записывалось предупреждение (удалено в версии 0.12.0).
+
+**Теперь переключатели тоже имеют шлюзы:**`outputs.<N>.State` Раньше запись была доступна без каких-либо условий; теперь для этого требуется включить **управление MQTT** , как и для всего остального, что находится в этом переключателе.
 
 ### Примеры
-**Уставка в сетке ESS** (простейший подход) – записать `devices.system.<Serial>.GridSetpoint` [W]:
 
-- `0` → нулевая подача электроэнергии (алгоритм Victron ESS поддерживает мощность сети на уровне 0 Вт)
+**Уставка ESS Grid Setpoint** (простейший подход) – запись`devices.system.<Serial>.GridSetpoint` \[В]:
+
+- `0` → нулевая подача электроэнергии в сеть (алгоритм Victron ESS поддерживает мощность сети на уровне 0 Вт)
 - `-3000` → подача 3000 Вт в сеть (разряд батареи)
-- `+500` → потребление 500 Вт от сети (зарядка аккумулятора)
+- `+500` → Потребляет 500 Вт от сети (зарядка аккумулятора)
 
 Поддержание соединения не требуется — значение сохраняется постоянно.
 
-**ESS Live Setpoint** (прямое управление) – запись `devices.vebus.<Serial>.Hub4.L1.AcPowerSetpoint` [W]:
+**ESS Live Setpoint** (прямое управление) – запись`devices.vebus.<Serial>.Hub4.L1.AcPowerSetpoint` \[В]:
 
-- Требуется `devices.system.<Serial>.EssMode = 3` (Внешнее управление)
-- Адаптер повторно отправляет значение каждые 800 мс, пока оно не равно 0 (сторожевой таймер Victron).
-— Установите значение «0», чтобы вернуть управление алгоритму Victron ESS.
+- Требует`devices.system.<Serial>.EssMode = 3` (Внешний контроль)
+- Адаптер повторно отправляет значение каждые 800 мс, пока оно равно ≠ 0 (сторожевой таймер Victron).
+- Установить на`0` вернуть управление алгоритму Victron ESS.
 
 **Отключить зарядку/подачу электроэнергии:**
 
-- `devices.vebus.<Serial>.Hub4.DisableCharge = 1` → батарея не будет заряжаться
-- `devices.vebus.<Serial>.Hub4.DisableFeedIn = 1` → инвертор не будет подавать электроэнергию в сеть
+- `devices.vebus.<Serial>.Hub4.DisableCharge = 1` → батарея не заряжается
+- `devices.vebus.<Serial>.Hub4.DisableFeedIn = 1` → Инвертор не будет подавать сигнал в сеть
 
 **Ограничения DVCC** (требуется включение DVCC на GX):
 
-- `devices.system.<Serial>.DvccMaxChargeCurrent` [A]: общесистемное ограничение тока зарядки (-1 = отключено)
-- `devices.system.<Serial>.MaxDischargePower` [Вт]: ограничение мощности разряда
+- `devices.system.<Serial>.DvccMaxChargeCurrent` \[A]: общесистемное ограничение тока заряда (-1 = отключено)
+- `devices.system.<Serial>.MaxDischargePower` \[Вт]: предел мощности разряда
 
-**Виртуальные переключатели** (Node-RED) – установить `outputs.<N>.State` в `true`/`false` → запись в MQTT → GX → Node-RED → реле
+**Виртуальные коммутаторы** (Node-RED) – настройка`outputs.<N>.State` к`true` /`false` → Запись в MQTT → GX → Node-RED → ретранслятор
 
-**Зарядное устройство для электромобилей** – запись `devices.evcharger.<Serial>.SetCurrent` [A] / `StartStop` [bool] / `Mode` (0=Ручной режим, 1=Автоматический режим, 2=Запланированный режим)
+**Зарядное устройство для электромобилей** – написать`devices.evcharger.<Serial>.SetCurrent` \[А] /`StartStop` \[логическое значение] /`Mode` (0=Вручную, 1=Автоматически, 2=По расписанию)
 
-**Калибровка датчика температуры** – запись `devices.temperature.<Serial>.Offset` [°C] / `Scale` / `FilterLength`
+**Калибровка датчика температуры** – запись`devices.temperature.<Serial>.Offset` \[°C] /`Scale` /`FilterLength`
 
 ---
 
 ## Виртуальные устройства (Node-RED)
-Адаптер полностью поддерживает виртуальные устройства, созданные через Node-RED с помощью пакета `dbus-victron-virtual`:
+
+Адаптер полностью поддерживает виртуальные устройства, созданные через Node-RED.`dbus-victron-virtual` упаковка:
 
 - Виртуальные фотоэлектрические инверторы
 - Виртуальные нагрузки переменного тока
@@ -235,11 +248,12 @@ victron-gx.0
 ---
 
 ## Интеграция с Shelly и многоканальная поддержка
+
 Теперь устройства Shelly, подключенные к интеграции GX (Cerbo/Venus/Ekrano), полностью поддерживаются, наряду с виртуальными коммутаторами Node-RED:
 
-- **Shelly Pro3 / Pro4**: каждое физическое устройство сообщает о своих каналах как об отдельных экземплярах MQTT-устройств, имеющих один и тот же серийный номер. Адаптер автоматически объединяет их в единое дерево объектов (`devices.switch.<Group>.<Serial>.outputs.<0..3>.*`).
-- **Shelly 1PM**: значения измерений (`Ac.*`) и переключаемый выход (`outputs.0.*`) находятся в одном дереве устройств в разделе `devices.acload.<Group>.<Serial>`.
-- **Внутреннее реле GX**: реле, встроенное в само устройство GX (`system/0`), можно переключать в разделе `devices.system.<Serial>.outputs.0.State` после включения **управления MQTT** (см. [Записываемые точки данных](#writable-data-points)).
+- **Shelly Pro3 / Pro4** : каждое физическое устройство сообщает о своих каналах как об отдельных экземплярах MQTT-устройств, имеющих один и тот же серийный номер. Адаптер автоматически объединяет их в единое дерево объектов.`devices.switch.<Group>.<Serial>.outputs.<0..3>.*` ).
+- **Шелли 1PM** : значения измерений (`Ac.*` ) и переключаемый выход (`outputs.0.*` ) находятся в том же дереве устройств, что и`devices.acload.<Group>.<Serial>` .
+- **Внутреннее реле GX** : реле, встроенное в само устройство GX.`system/0` ) переключается при`devices.system.<Serial>.outputs.0.State` После включения **управления MQTT** (см. [Записываемые точки данных](#writable-data-points) ).
 
 Все переключаемые выходы — независимо от типа устройства — имеют одинаковую подструктуру, поэтому селекторы с подстановочными знаками работают по всей вашей системе:
 
@@ -252,11 +266,12 @@ victron-gx.0
 ```
 
 ### ⚠️ Критическое изменение (v0.9.x)
-Выходы коммутатора ранее располагались непосредственно под каналом устройства; теперь они находятся под подканалом `outputs.<N>`. `output_1` в Node-RED нормализован до `outputs.1`:
 
-| Старая версия (v0.8.x) | Новая версия (v0.9.x) |
-|---|---|
-| `devices.switch.<Group>.<Serial>.State` | `devices.switch.<Group>.<Serial>.outputs.1.State` |
+Выходы коммутатора раньше располагались непосредственно под каналом устройства; теперь они находятся под другим каналом.`outputs.<N>` подканал. Node-RED`output_1` нормализовано к`outputs.1` :
+
+| Старая версия (v0.8.x)                   | Новая версия (v0.9.x)                              |
+| ---------------------------------------- | -------------------------------------------------- |
+| `devices.switch.<Group>.<Serial>.State`  | `devices.switch.<Group>.<Serial>.outputs.1.State`  |
 | `devices.switch.<Group>.<Serial>.Status` | `devices.switch.<Group>.<Serial>.outputs.1.Status` |
 
 Обновите все скрипты, виджеты Vis или правила Blockly, которые напрямую ссылаются на старые пути.
@@ -269,11 +284,12 @@ iobroker object list | grep -oP 'victron-gx\.0\.devices\.switch\.[^.]+\.[^.]+\.(
 ```
 
 ### Автоматическая очистка "осиротевших" каналов (опционально)
-Если вы переместите канал в другую группу, отключите канал Shelly или удалите переключатель Node-RED, его тема MQTT исчезнет, но объекты ioBroker останутся. Включите параметр **Удалять "осиротевшие" каналы при запуске** (вкладка "Основные настройки", по умолчанию отключен), чтобы адаптер удалял их автоматически:
+
+Если вы переместите канал в другую группу, отключите канал Shelly или удалите переключатель Node-RED, его тема MQTT исчезнет, но объекты ioBroker останутся. Включите параметр **«Удалять осиротевшие каналы при запуске»** (вкладка «Основные настройки», по умолчанию отключено), чтобы адаптер удалял их автоматически:
 
 - Запускается один раз при каждом запуске адаптера, только примерно через 30 секунд после обнаружения нового канала (поэтому многоканальные устройства, такие как Shelly Pro3, экземпляры которых сообщают о состоянии канала в несколько разное время, не затрагиваются в процессе запуска).
-- Затрагивает только каналы `outputs.<N>`. Метаданные на уровне устройства, измерения `Ac.*` и `overview.*` никогда не удаляются.
-- Оставьте его отключенным, если ваши устройства часто находятся в автономном режиме – канал, который еще не отправил данные к моменту запуска проверки, выглядит заброшенным и будет удален.
+- Только прикосновения`outputs.<N>` каналы. Метаданные на уровне устройства,`Ac.*` измерения и`overview.*` Таким образом, они никогда не удаляются.
+- Отключите эту функцию, если ваши устройства часто находятся в автономном режиме — канал, который еще не предоставил данные к моменту запуска проверки, выглядит заброшенным и будет удален.
 
 ---
 
@@ -393,9 +409,9 @@ iobroker object list | grep -oP 'victron-gx\.0\.devices\.switch\.[^.]+\.[^.]+\.(
 
 ---
 
-[Older changelogs](CHANGELOG_OLD.md)
+[Older changelogs](https://github.com/Sefina-DS/ioBroker.victron-gx/blob/main/CHANGELOG_OLD.md)
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/Sefina-DS/ioBroker.victron-gx/blob/main/CHANGELOG_OLD.md)
 
 ## License
 

@@ -9,7 +9,7 @@ hash: w81xH774XQVxqMAhQ70BdlBiKKarcO5bWiTNR7Zbfvc=
 # The tab Groups
 Here you can create user groups with different rights by clicking on the (+) on the lower left of the screen.
 
-![iobroker_adapter_admin_user_02](../../../../de/adapterref/iobroker.admin/admin/img/tab-groups_admin_User_02.jpg)
+![iobroker_adapter_admin_user_02](../img/tab-groups_admin_User_02.jpg)
 
 ## The page content
 On the page the existing groups are tabulated. The fields in the column headers are used to filter the table according to your own criteria.
@@ -31,7 +31,7 @@ The users created in the tab **_ User _** are displayed here and can be assigned
 ### **5.) Adjust rights**
 Clicking on the pencil symbol opens another window in which the rights of this group can be adjusted.
 
-![iobroker_adapter_admin_user_rechte_01](../../../../de/adapterref/iobroker.admin/admin/img/tab-groups_User_Rechte_01.jpg)
+![iobroker_adapter_admin_user_rechte_01](../img/tab-groups_User_Rechte_01.jpg)
 
 ### **6.) Create a new group**
 This icon can be used to create a new group that is configured using the previous points.

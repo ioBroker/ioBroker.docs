@@ -1,31 +1,36 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bydbatt/README.md
 title: ioBroker.bydbatt HV
-hash: PQZjjKoL5XkBqZeRMry3vzljPXavpxCi3xM4yi3LNzQ=
+hash: j+6BD4n7QnEnJTS5z+iYbL/6kFLkACF42jtoTtgeQXE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bydbatt/admin/byd-batterybox.png)
 
 ![Количество установок](http://iobroker.live/badges/bydbatt-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.bydbatt.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.bydbatt.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bydbatt.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bydbatt.png?downloads=true)
 
-# IoBroker.bydbatt HV
-=================
+# ioBroker.bydbatt HV
 
-byd Battery получить информацию от BYD Battery Box (солнечные батареи) ---------------------------------------------------- -----------------------------------------
+\=================
 
-<b>NodeJs &gt;&gt; 10.xx</b>
+## Получайте информацию из аккумуляторного блока BYD (для солнечных батарей).
 
-требуется пароль. вы можете установить его в настройках BYD Manager
+<b> NodeJs >> 10.xx</b>
 
-<!-- Заполнитель для следующей версии (в начале строки):
+Требуется пароль. Вы можете установить его в настройках BYD Manager.
 
-### **В РАБОТЕ** -->
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### 1.1.0 (2023-10-27)
+* switch to intervall
+
 ### 1.0.8 (2022-10-09)
 * io-package corr
 
@@ -44,7 +49,7 @@ byd Battery получить информацию от BYD Battery Box (солн
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Arthur Rupp arteck@outlook.com
+Copyright (c) 2018-2023 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

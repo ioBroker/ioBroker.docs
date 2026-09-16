@@ -2,17 +2,14 @@
 chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en":"ioBroker.javascript"},"content":"en/adapterref/iobroker.javascript/README.md"},"en/adapterref/iobroker.javascript/blockly.md":{"title":{"en":"Contents"},"content":"en/adapterref/iobroker.javascript/blockly.md"},"en/adapterref/iobroker.javascript/javascript.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.javascript/javascript.md"},"en/adapterref/iobroker.javascript/upgrade-guide.md":{"title":{"en":"Upgrade guide"},"content":"en/adapterref/iobroker.javascript/upgrade-guide.md"}}}
 ---
 ## Content
-- [Note](#note)
 - [Global functions](#global-functions)
     - [Best practice](#best-practice)
 
-- [Functions](#following-functions-can-be-used-in-scripts)
     - [require - load some module](#require---load-some-module)
     - [console - Gives out the message into log](#console---gives-out-the-message-into-log)
     - [exec - execute some OS command, like "cp file1 file2"](#exec---execute-some-os-command-like-cp-file1-file2)
     - [on - Subscribe on changes or updates of some state](#on---subscribe-on-changes-or-updates-of-some-state)
     - [once](#once)
-    - [subscribe - same as on](#subscribe---same-as-on)
     - [unsubscribe](#unsubscribe)
     - [getSubscriptions](#getsubscriptions)
     - [getFileSubscriptions](#getfilesubscriptions)
@@ -93,7 +90,6 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [registerNotification](#registerNotification)
 
 - [Scripts activity](#scripts-activity)
-- [Changelog](#changelog)
 
 ## Global functions
 You can define the global scripts in the `global` folder.
@@ -635,6 +631,17 @@ let sch = schedule('*/2 * * * *', () => { /* ... */ });
 clearSchedule(sch);
 ```
 
+`clearSchedule` accepts everything `schedule` returns (a CRON job object or the ID of a schedule of the time wizard)
+and also the entries of [getSchedules](#getschedules):
+
+```js
+// Clear all schedules of this script
+getSchedules().forEach(sch => clearSchedule(sch));
+```
+
+It returns `true` if the schedule was found and cleared, otherwise `false`.
+Schedules created with the astro option cannot be cleared this way.
+
 ### getAttr
 ```js
 getAttr({ attr1: { attr2: 5 } }, 'attr1.attr2');
@@ -647,7 +654,7 @@ If the first attribute is string, the function will try to parse the string as J
 ```js
 getAstroDate(pattern, date, offsetMinutes);
 ```
-Returns a javascript Date object for the specified astro-name (e.g. `"sunrise"` or `"sunriseEnd"`). For valid values, see the list of allowed values in the [Astro](#astro--function) section in the *schedule* function.
+Returns a javascript Date object for the specified astro-name (e.g. `"sunrise"` or `"sunriseEnd"`). For valid values, see the list of allowed values in the Astro section in the *schedule* function.
 
 The returned Date object is calculated for the passed *date*. If no date is provided, the current day is used.
 
@@ -693,7 +700,7 @@ Time can be Date object or Date with time or just time.
 
 You can use astro-names for the time definition. All 3 parameters can be set as astro time.
 Following values are possible: `sunrise`, `sunset`, `sunriseEnd`, `sunsetStart`, `dawn`, `dusk`, `nauticalDawn`, `nauticalDusk`, `nightEnd`, `night`, `goldenHourEnd`, `goldenHour`.
-See [Astro](#astro--function) for detail.
+See Astro for detail.
 
 ```js
 log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
@@ -913,7 +920,6 @@ existsObject(id)
 the function returns in this case true or false.
 
 Check if an object exists.
-
 
 ### extendObject
 ```js
@@ -1363,7 +1369,6 @@ Format is optional:
  - ',.': 1234.567 => 1,234.56
  - ' .': 1234.567 => 1 234.56
 
-
 ### adapterSubscribe
 ```js
 adapterSubscribe(id);
@@ -1394,7 +1399,7 @@ $(selector).getStateAsync(); // get all states - returns a promise
 
 Format of selector:
 ```js
-"name[commonAttr=something1](enumName=something2){nativeName=something3}[id=idfilter][state.id=idfilter]"
+"name[commonAttr=something1](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/enumName=something2){nativeName=something3}[id=idfilter][state.id=idfilter]"
 ```
 
 name can be: state, channel, device or schedule
@@ -1413,7 +1418,7 @@ Prefixes ***(not implemented - should be discussed)*** :
 - `$('channel(rooms=Living room)')` - all states in room "Living room"
 - `$('channel{TYPE=BLIND}[state.id=*.LEVEL]')` - Get all shutters of Homematic
 - `$('channel[role=switch](rooms=Living room)[state.id=*.STATE]').setState(false)` - Switch all states with .STATE of channels with role "switch" in "Living room" to false
-- `$('channel[state.id=*.STATE](functions=Windows)').each(function (id, i) {log(id);});` - print all states of enum "windows" in log
+- `$('channel[state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/functions=Windows)').each(function (id, i) {log(id);});` - print all states of enum "windows" in log
 - `$('schedule[id=*65]').each(function (id, i) {log(id);});` - print all schedules with 65 at the end
 - `$('.switch §"Living room")` - Take states with all switches in 'Living room' ***(not implemented - should be discussed)***
 - `$('channel .switch §"Living room")` - Take states with all switches in 'Living room' ***(not implemented - should be discussed)***
@@ -1421,7 +1426,7 @@ Prefixes ***(not implemented - should be discussed)*** :
 ***Explanation***
 Lets take a look at:
 ```js
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(obj => {
+$('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').on(obj => {
    log('New state ' + obj.id + ' = ' + obj.state.val);
 });
 ```
@@ -1435,13 +1440,13 @@ Following functions are possible, setState, getState (only from first), on, each
 
 ```js
 // Switch on all switches in "Wohnzimmer"
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').setState(true);
+$('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').setState(true);
 ```
 
 You can interrupt the "each" loop by returning the false value, like:
 ```js
 // print two first IDs of on all switches in "Wohnzimmer"
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').each((id, i) => {
+$('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').each((id, i) => {
     log(id);
     if (i == 1) {
         return false;
@@ -1451,7 +1456,7 @@ $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').each((id, i) => {
 Or you can get a an usual array of ids and process it your own way:
 ```js
 // get some state and filter only which has an `true` value
-const enabled = $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').toArray().filter((id) => getState(id)?.val === true);
+const enabled = $('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/rooms=Wohnzimmer)').toArray().filter((id) => getState(id)?.val === true);
 ```
 
 ### readFile
@@ -2132,7 +2137,7 @@ log(JSON.stringify(Object.keys(SECRETS.MyMailAccount))); // ["login","password"]
 ```
 
 Blockly has a **credential** block for the same purpose - see the
-[Blockly documentation](blockly.md#credential).
+[Blockly documentation](/#/docs/adapterref/iobroker.javascript/blockly.md#credential).
 
 The access can be switched off with the instance option **Allow scripts to read the credentials**.
 `SECRETS` is then empty and a warning is written to the log.

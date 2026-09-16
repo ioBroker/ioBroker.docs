@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.asterisk/README.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/README.md"},"en/adapterref/iobroker.asterisk/README_DE.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/README_DE.md"},"en/adapterref/iobroker.asterisk/docs/SIP_FRITZBOX.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/SIP_FRITZBOX.md"},"en/adapterref/iobroker.asterisk/docs/PJSIP_FRITZBOX.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/PJSIP_FRITZBOX.md"},"en/adapterref/iobroker.asterisk/docs/PJSIP_TELEKOM.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/PJSIP_TELEKOM.md"},"en/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE.md"},"en/adapterref/iobroker.asterisk/docs/SIP_FRITZBOX_DE.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/SIP_FRITZBOX_DE.md"},"en/adapterref/iobroker.asterisk/docs/PJSIP_FRITZBOX_DE.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/PJSIP_FRITZBOX_DE.md"},"en/adapterref/iobroker.asterisk/docs/PJSIP_TELEKOM_DE.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/PJSIP_TELEKOM_DE.md"},"en/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE_DE.md":{"title":{"en":"ioBroker Asterisk VoIP Adapter"},"content":"en/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE_DE.md"}}}
+---
 ![Logo](admin/asterisk.png)
 
 # ioBroker Asterisk VoIP Adapter
@@ -9,7 +12,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.asterisk.png?downloads=true)](https://nodei.co/npm/iobroker.asterisk/)
 
-[German manual / Deutsche Anleitung](README_DE.md)
+[German manual / Deutsche Anleitung](/#/docs/adapterref/iobroker.asterisk/README_DE.md)
 
 The Asterisk adapter converts text messages to audio files and calls then over Asterisk by VoIP any telephone number you want and plays the audio message.
 
@@ -132,10 +135,10 @@ sudo asterisk -rvv
 
 The following documents describe detailed how to configure asterisk.
 
-- Configuration [Asterisk via SIP with the FritzBox](docs/SIP_FRITZBOX.md) (the easiest way)
-- Configuration [Asterisk via PJSIP with the FriztBox](docs/PJSIP_FRITZBOX.md) (pjsip is more modern as sip)
-- Configuration [Asterisk via PJSIP with Telekom as provider](docs/PJSIP_TELEKOM.md)
-- Configuration [Asterisk via PJSIP with Sipgate as provider](docs/PJSIP_SIPGATE.md)
+- Configuration [Asterisk via SIP with the FritzBox](/#/docs/adapterref/iobroker.asterisk/docs/SIP_FRITZBOX.md) (the easiest way)
+- Configuration [Asterisk via PJSIP with the FriztBox](/#/docs/adapterref/iobroker.asterisk/docs/PJSIP_FRITZBOX.md) (pjsip is more modern as sip)
+- Configuration [Asterisk via PJSIP with Telekom as provider](/#/docs/adapterref/iobroker.asterisk/docs/PJSIP_TELEKOM.md)
+- Configuration [Asterisk via PJSIP with Sipgate as provider](/#/docs/adapterref/iobroker.asterisk/docs/PJSIP_SIPGATE.md)
 
 ### Configuration using SSH
 

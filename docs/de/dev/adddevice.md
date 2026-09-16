@@ -1,48 +1,80 @@
 ---
 title:       "Gerät zu Sprachassistenten hinzufügen"
-lastChanged: "30.10.2022"
+lastChanged: "08.09.2026"
 ---
 
-Um ein Gerät zu Alexa/Google Home/Yandex hinzuzufügen, sind 4 Schritte notwendig:
+# Ein Gerät zu den Sprachassistenten hinzufügen
 
-- die Statusrollen bei Bedarf um die erforderlichen neuen Rollen erweitern.
-- den Typdetektor mit einem neuen Gerät erweitern
-- Gerät zu iobroker.devices hinzufügen, um es simulieren zu können.
-- Gerät zu alexa/google und co hinzufügen
+Damit Alexa, Google Home oder Yandex einen neuen Gerätetyp verstehen, reicht es
+nicht, ihn in einem Adapter anzulegen. Der Typ muss an vier Stellen bekannt
+sein, und die Reihenfolge ist wichtig:
 
-## Neue Rollen
-Diese Quellen müssen überprüft werden, bevor ein neues Gerät hinzugefügt wird:
+1. Die **Rollen** ergänzen, falls die vorhandenen nicht ausreichen.
+2. Den **Typdetektor** um das Gerät erweitern.
+3. Das Gerät in **iobroker.devices** aufnehmen, damit es sich dort anlegen und
+   ausprobieren lässt.
+4. Das Gerät im **iot-Adapter** an Alexa, Google und Co. weiterreichen.
 
-- Alexa-Smarthome-API: https://developer.amazon.com/de-DE/docs/alexa/device-apis/alexa-brightnesscontroller.html
-- Yandex-API: https://yandex.ru/dev/dialogs/alice/doc/smart-home/concepts/device-types-docpage/
-- Google-API: https://developers.google.com/assistant/smarthome/guides
+## 1. Rollen
 
-Zusätzlich kann es nützlich sein, das vorhandene Gerät in einem Adapter zu überprüfen.
+Vor dem Anlegen eines neuen Gerätetyps gehören drei Quellen geprüft, denn was
+die Assistenten nicht kennen, lässt sich auch nicht steuern:
 
-Nehmen wir als Beispiel die Klimaanlage. Wir haben:
+* [Alexa Smart Home API](https://developer.amazon.com/de-DE/docs/alexa/device-apis/alexa-brightnesscontroller.html)
+* [Google Smart Home](https://developers.google.com/assistant/smarthome/guides)
+* [Yandex Dialogs](https://yandex.ru/dev/dialogs/alice/doc/smart-home/concepts/device-types-docpage/)
 
-- https://yandex.ru/dev/dialogs/alice/doc/smart-home/concepts/device-type-thermostat-ac-docpage/
-- https://developer.amazon.com/de-DE/docs/alexa/device-apis/alexa-thermostatcontroller.html
-- https://developers.google.com/assistant/smarthome/guides/aircooler
+Nützlich ist außerdem der Blick auf ein bestehendes Gerät in einem Adapter, der
+dasselbe schon abbildet.
 
-Yandex hat das umfassendste Bild der States, daher wäre es vernünftig, es als Grundlage zu nehmen.
-Wir konnten sehen, dass es für den Thermostatmodus und für die Schwenkposition keine Rollen in der Dokumentation gibt.
+**Beispiel Klimaanlage.** Die drei Anbieter beschreiben sie unterschiedlich
+ausführlich:
 
-Also werden wir es hier hinzufügen: https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/stateroles.md#air-condition-or-thermostat
+* [Yandex: Thermostat und Klimaanlage](https://yandex.ru/dev/dialogs/alice/doc/smart-home/concepts/device-type-thermostat-ac-docpage/)
+* [Alexa: ThermostatController](https://developer.amazon.com/de-DE/docs/alexa/device-apis/alexa-thermostatcontroller.html)
+* [Google: Air cooler](https://developers.google.com/assistant/smarthome/guides/aircooler)
 
-Alle anderen Zustände (Leistung, eingestellte Temperatur) sind noch vorhanden.
+Yandex hat davon das vollständigste Bild der Zustände, deshalb ist es die
+sinnvollste Grundlage. Beim Vergleich fiel auf, dass für den Thermostatmodus und
+für die Schwenkposition noch keine Rollen dokumentiert waren; sie stehen heute
+unter
+[Zustandsrollen](/docs/dev/stateroles.md#klimaanlage-oder-thermostat). Die
+übrigen Zustände, etwa Leistung und Solltemperatur, gab es bereits.
 
-## Typdetektor
-Nachdem alle erforderlichen Rollen hinzugefügt oder gefunden wurden, muss der Typdetektor erweitert werden.
-Neuen Gerätetyp zur globalen Liste hinzufügen: https://github.com/ioBroker/ioBroker.type-detector/blob/master/index.js#L29. Nehmen Sie ein Gerät als Basis und kopieren Sie das in die `patterns` von die Klasse `ChannelDetector`.
-Der Typdetektor muss irgendwie zwischen Geräten unterscheiden, daher muss Ihr Gerät einen eindeutigen Satz von Rollen haben.
-Wir nehmen `level.temperature` und `level.mode.thermostat` als spezifische Muster für Klimaanlagen und markieren diese beiden Zustände als `required`.
-Die komplexesten Geräte müssen ganz oben in der Liste stehen, damit sie zuerst erkannt werden und am Ende immer mehr einfache Geräte kommen.
+## 2. Typdetektor
 
-Sie müssen eine neue Version des `iobroker.type-detector` npm-Pakets erstellen.
+Steht die Rolle fest, kommt der
+[Typdetektor](https://github.com/ioBroker/ioBroker.type-detector) an die Reihe.
+Der neue Gerätetyp wird in die globale Liste aufgenommen und bekommt in den
+`patterns` der Klasse `ChannelDetector` einen Eintrag; am einfachsten geht das,
+indem man ein ähnliches Gerät als Vorlage nimmt.
 
-## iobroker.devices
-Gehen Sie zu https://github.com/ioBroker/ioBroker.devices/blob/master/src/package.json und aktualisieren Sie dort Ihre Version.
-Erweitern Sie danach die Liste der Symbole: https://github.com/ioBroker/ioBroker.devices/blob/master/src/src/Components/TypeIcon.js
+Zwei Punkte entscheiden darüber, ob die Erkennung funktioniert:
 
-Und auch eine neue Version erstellen.
+* **Der Satz von Rollen muss eindeutig sein.** Bei der Klimaanlage sind das
+  `level.temperature` und `level.mode.thermostat`, beide als `required`
+  markiert. An diesem Paar erkennt der Detektor sie.
+* **Die Reihenfolge zählt.** Die komplexesten Geräte stehen oben in der Liste
+  und werden zuerst geprüft, die einfachen am Ende. Sonst schnappt ein
+  allgemeineres Muster zu, bevor das genauere an die Reihe kommt.
+
+Danach wird eine neue Version des npm-Pakets `iobroker.type-detector`
+veröffentlicht.
+
+## 3. iobroker.devices
+
+Im Adapter [devices](/adapters/devices) wird die Version des Typdetektors
+angehoben und die Liste der Symbole um den neuen Typ ergänzt. Auch davon braucht
+es eine neue Version.
+
+Damit lässt sich das Gerät im Adapter *Geräte verwalten* anlegen und
+ausprobieren, ohne dass echte Hardware vorhanden sein muss.
+
+## 4. Beim Assistenten
+
+Zuletzt muss der [iot-Adapter](/adapters/iot) den neuen Typ an Alexa, Google
+oder Yandex weiterreichen. Erst dann taucht das Gerät beim Assistenten auf.
+
+?> Die Reihenfolge lässt sich nicht abkürzen. Ein Gerät, das der Typdetektor
+nicht erkennt, kommt bei den Assistenten nicht an, auch wenn alle Zustände
+vorhanden sind.

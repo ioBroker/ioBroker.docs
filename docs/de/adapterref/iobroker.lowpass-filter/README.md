@@ -3,28 +3,86 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lowpass-filter/README.md
 title: ioBroker.lowpass-filter
-hash: T5f5x6wPgKQP7lkpwQKUjJ04xmlsHLNOFTdU82ZNRCo=
+hash: XvGcaI57hx4cGDoX75hRGtCJyGmUbztWnuUlIj3PC/Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.lowpass-filter/admin/lowpass-filter.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.lowpass-filter.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.lowpass-filter.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/lowpass-filter-installed.svg)
+![Test und Freigabe](https://github.com/BenAhrdt/ioBroker.lowpass-filter/workflows/Test%20and%20Release/badge.svg)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![NPM](https://nodei.co/npm/iobroker.lowpass-filter.png?downloads=true)
 
-# IoBroker.lowpass-filter
-![Testen und freigeben](https://github.com/BenAhrdt/ioBroker.lowpass-filter/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.lowpass-filter
 
-## Tiefpassfilteradapter für ioBroker
-Sie können Zustände vom Typ Zahl nach dem Filteralgorithmus eines Tiefpassfilters erster Ordnung filtern.
-z.B. Sie können Leistungswerte filtern, um Leistungsspitzen abzuschneiden.
+## Tiefpassfilter-Adapter für ioBroker
+
+Sie können Zustände vom Typ Zahl gemäß dem Filteralgorithmus eines Tiefpassfilters erster Ordnung filtern. Beispielsweise können Sie Leistungswerte filtern, um Leistungsspitzen zu unterdrücken.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
+### 2.6.1 (2026-02-28)
+* (BenAhrdt) update dependencies
+
+### 2.6.0 (2025-10-19)
+* (BenAhrdt) update Authentication NPM
+* (BenAhrdt) update defDependencie eslint
+* (BenAhrdt) update dependencie core
+* (BenAhrdt) update dependencie to node >= 20
+* (BenAhrdt) update testing to 24.x
+
+### 2.5.0 (2025-02-18)
+* (BenAhrdt) update dependency from admin and js-controller
+
+### 2.4.1 (2025-01-05)
+* (BenAhrdt) copyrigth changed to 2025
+
+### 2.4.0 (2024-12-04)
+* (BenAhrdt) Changed ESLint
+
+### 2.3.1 (2024-11-26)
+* (BenAhrdt) Changed Schema and responsive tags
+
+### 2.3.0 (2024-08-13)
+* (BenAhrdt) Update Dependencies: "js-controller": ">=5.0.19"
+  Check your System before installing new Version
+
+### 2.2.5 (2024-08-09)
+* (BenAhrdt) correct changes for check and service bot
+
+### 2.2.4 (2024-08-09)
+* (BenAhrdt) changes for check and service bot
+
+### 2.2.3 (2023-11-12)
+* (BenAhrdt) input check for node => 16
+
+### 2.2.2 (2023-11-02)
+* (BenAhrdt) correction in jsonconfig schema
+
+### 2.2.1 (2023-04-26)
+* (BenAhrdt) ukrain language added
+
+### 2.2.0 (2023-04-13)
+* (BenAhrdt) added some filtertimes (1s-9s)
+
+### 2.1.0 (2023-04-06)
+* (BenAhrdt) updated to actual dependencies
+
+### 2.0.8 (2023-02-16)
+* (BenAhrdt) limit of decimal places reduced to 8
+
+### 2.0.7 (2023-02-16)
+* (BenAhrdt) limit of decimal places implemented
+
+### 2.0.6 (2023-01-20)
+* (BenAhrdt) inplement the unit of the filtered falue
 
 ### 2.0.5 (2022-06-17) - readme changed
 * (BenAhrdt) change some wrong links in readme file
@@ -50,10 +108,12 @@ z.B. Sie können Leistungswerte filtern, um Leistungsspitzen abzuschneiden.
 ### 1.14.8
 * (BenAhrdt) implements translation
 
+[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.lowpass-filter/blob/main/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2022 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2025-2026 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

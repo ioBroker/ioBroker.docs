@@ -1,27 +1,28 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.lovelace/README.md":{"title":{"en":"ioBroker.lovelace"},"content":"en/adapterref/iobroker.lovelace/README.md"},"en/adapterref/iobroker.lovelace/docs/en/README.md":{"title":{"en":"ioBroker.lovelace — Documentation"},"content":"en/adapterref/iobroker.lovelace/docs/en/README.md"},"en/adapterref/iobroker.lovelace/docs/en/entities.md":{"title":{"en":"Entities"},"content":"en/adapterref/iobroker.lovelace/docs/en/entities.md"},"en/adapterref/iobroker.lovelace/docs/en/cards_and_ui.md":{"title":{"en":"Custom cards, themes & UI tips"},"content":"en/adapterref/iobroker.lovelace/docs/en/cards_and_ui.md"},"en/adapterref/iobroker.lovelace/docs/en/features.md":{"title":{"en":"Features"},"content":"en/adapterref/iobroker.lovelace/docs/en/features.md"},"en/adapterref/iobroker.lovelace/docs/en/theme_migration.md":{"title":{"en":"Migrating themes (2026 frontend update)"},"content":"en/adapterref/iobroker.lovelace/docs/en/theme_migration.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: 4G4upW+1HwUgzb8VJT9mbK15u5J0x90mW5PcDJEzVQs=
+hash: EO9cuJNYuYhGtpkqPzs1wp8nO+IqMqv+/1dMMVu4GZM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
 ![Количество установок](http://iobroker.live/badges/lovelace-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.lovelace.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/iobroker.lovelace/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/lovelace/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.lovelace.svg)
 
 # IoBroker.lovelace
-![Тестирование и выпуск](https://github.com/ioBroker/iobroker.lovelace/workflows/Test%20and%20Release/badge.svg) [![[Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/lovelace/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
 ## Адаптер Lovelace для ioBroker
 С помощью этого адаптера вы можете создавать визуализации для ioBroker с использованием пользовательского интерфейса Home Assistant Lovelace.
 
 ## Документация
-* 📘 [Документация на английском языке](docs/en/README.md)
-* 📗 [Немецкая документация](docs/de/README.md)
+* 📘 [Документация на английском языке](/#/docs/adapterref/iobroker.lovelace/docs/en/README.md)
+* 📗 [Немецкая документация](https://github.com/ioBroker/ioBroker.lovelace/blob/master/docs/de/README.md)
 
-Документация охватывает настройку (автоматические/ручные параметры), панели и специальные элементы (будильник, таймер, погода, карта, видео и т. д.), пользовательские карточки, темы оформления, значки, уведомления, голосовое управление и устранение неполадок.
+В документации рассматриваются вопросы настройки (автоматические/ручные параметры), панели и специальные элементы (будильник, таймер, погода, карта, видео и т. д.), пользовательские карточки, темы оформления, значки, уведомления, голосовое управление и устранение неполадок.
 
 ## Разработка
 ### Оригинальные источники для Лавлейс
@@ -63,13 +64,13 @@ hash: 4G4upW+1HwUgzb8VJT9mbK15u5J0x90mW5PcDJEzVQs=
 - `src/panels/config/lovelace/dashboards/ha-config-lovelace-dashboards.ts` - отображать фиксированные панели (включая browser-mod) в списке встроенных панелей мониторинга.
 - `src/panels/profile/ha-panel-profile.ts` - скрыть вкладку безопасности в профиле пользователя.
 - `src/util/documentation-url.ts` - ссылка на справку iobroker вместо Home Assistant.
-- `src/html/index.html.template` - удалить баннер приложения Safari Smart (метафайл apple-itunes-app) для приложения HA iOS (#418).
+- `src/html/index.html.template` - удалить интеллектуальный баннер приложения Safari (метаданные apple-itunes-app) для приложения HA iOS (#418).
 - `.husky/pre-commit` - удалить хуки для коммитов Git.
 
 После этого загрузите модифицированную версию в папку `./build`. Затем.
 
 1. Перейдите в каталог ./build.
-2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` — это форк https://github.com/home-assistant/frontend.git, но некоторые вещи в нём изменены (см. список файлов выше).
+2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` - это форк https://github.com/home-assistant/frontend.git, но некоторые вещи в нём изменены (см. список файлов выше).
 3. `cd home-assistant-polymer`
 4. `git checkout master`
 5. `yarn install`
@@ -86,10 +87,19 @@ hash: 4G4upW+1HwUgzb8VJT9mbK15u5J0x90mW5PcDJEzVQs=
     ### for next frontend update, update of auto entities card will be necessary!
 -->
 ### **WORK IN PROGRESS**
+* (Garfonso/Claude) Fixed custom cards that fetch history directly (e.g. the windrose card) crashing with "TypeError: t.callback is not a function": a one-shot history request was answered like a subscription. (#722)
+
+### 6.1.3 (2026-09-01)
+* (Garfonso/Claude) Fixed auto-generated entity_ids growing longer and longer within a single start for devices sharing a generated display name and having no own readable state (e.g. several buttons named the same): they no longer collapse onto the same internal registry key and overwrite each other's name.
+* (Garfonso/Claude) Fixed the energy dashboard's power graph showing "no data" for the whole day on some history backends: the "5minute" statistics period used a 30-second bucket step instead of 5 minutes, requesting 10x more buckets than needed.
+* (Garfonso/Claude) Fixed the current power missing in the energy dashboard ("Stromquellen" on the summary tab and the "Jetzt" tab) while all other cards showed it: the power sensor picked for a grid/battery source was not passed on to those cards. Existing configurations are fixed automatically on start.
+* (Garfonso/Claude) Devices that report a battery level (`value.battery`) now get a battery sensor entity, so the charge level is visible and can be graphed - previously only the low-battery warning was used. This also removes the "Unknown state BATTERY" log message. (#718)
+
+### 6.1.2 (2026-07-20)
 * (Garfonso/Claude) History and logbook no longer show duplicate adjacent entries when the history backend re-logs unchanged values (e.g. InfluxDB "still record the same values"). (#711)
-* (Garfonso/Claude) Docs: added a complete near-default theme example that removes the bell. (#705)
-* (Garfonso/Claude) Energy/statistics graphs no longer draw a phantom line into the future when the requested range ends after now (e.g. InfluxDB carrying the last value forward).
-* (Garfonso/Claude) Use the adapter's own timers (auto-cleaned on stop) and added the missing Russian translation for one setting. (#712)
+* (Garfonso/Claude) Energy/statistics graphs no longer draw a phantom line into the future when the requested range ends after now (e.g. History carrying the last value forward).
+* (Garfonso/Claude) A browser with a broken browser_mod id (e.g. `[object Object]` in its localStorage) no longer spams "Used invalid characters" warnings: the id is sanitized, the client is asked to pick a fresh id, and leftover invalid instance objects are cleaned up on start.
+* (Garfonso/Claude) Fixed simple on/off lights with a separate read-only state (`ON_ACTUAL`): the real device state is subscribed again and pushed to the UI.
 
 ### 6.1.1 (2026-06-25)
 * (Garfonso/Claude) Fixed a crash (adapter restart loop) when a room enum has no name; the area list no longer brings the adapter down.
@@ -119,20 +129,7 @@ hash: 4G4upW+1HwUgzb8VJT9mbK15u5J0x90mW5PcDJEzVQs=
 * (Garfonso/Claude) Manual entities on `system.*`/`script.*` objects (e.g. a JavaScript adapter state) no longer disappear after a restart. (#709)
 * (Garfonso/Claude) Manual entities now honor the friendly name and icon set via the frontend's entity settings, and editing them no longer briefly reverts the change.
 
-### 6.0.3 (2026-06-18)
-* (Garfonso/Claude) Manually mapped objects outside `alias.0` no longer disappear after a restart when "only generate from alias" is active. (#704)
-* (Garfonso/Claude) Limit concurrent history requests to avoid overloading the states database connection.
-* (Garfonso/Claude) Fixed a crash in the map card caused by history updates without attributes.
-* (Garfonso/Claude) Removed the browser tab title setting; set the dashboard title instead.
-* (Garfonso/Claude) Calendar card no longer flickers/reloads in a loop when the calendar source updates frequently.
-
-### 6.0.2 (2026-06-17)
-* (Garfonso/Claude) Reduced object-database load (skip our own internal objects, yield during processing) and removed leftover debug logging.
-* (Garfonso/Claude) browser_mod re-applies its settings (e.g. hidden sidebar) after a browser registers, so it no longer needs an F5 (hopefully).
-* (Garfonso/Claude) Above ~50 referenced states the adapter subscribes to all states at once and filters itself, to reduce database load.
-* (Garfonso/Claude) Statistics history is fetched in pages, so a large energy/history request can no longer overload the states database.
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.lovelace/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

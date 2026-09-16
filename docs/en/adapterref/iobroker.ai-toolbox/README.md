@@ -1,5 +1,3 @@
-﻿
-
 ![Logo](admin/ai-toolbox.png)
 # ioBroker.ai-toolbox
 
@@ -268,7 +266,6 @@ Statistics are created for your created tools and also for the models so you can
 | **.request.raw**   | Raw JSON response from the model.                |
 
 ---
-
 
 ## Examples
 
@@ -575,7 +572,6 @@ For tools integrated into smart homes or scripts, configure the response format 
 ----------
 
 These best practices, combined with experimentation and iterative improvement, will ensure that your AI tools provide meaningful and reliable outcomes tailored to your smart home environment.
-
 
 ## Development
 

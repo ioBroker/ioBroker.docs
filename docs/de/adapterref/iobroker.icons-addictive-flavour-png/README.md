@@ -3,40 +3,41 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.icons-addictive-flavour-png/README.md
 title: kein Titel
-hash: ETVlNEm++NHp66/siYWkx0oirhoGsmljdG+VZWx5oPE=
+hash: AsSAQ0WhL1nXKyxRq9iB/yS1CGw+99lr/EwmBY8Z1/o=
 ---
-![Logo](admin/icons-addictive-flavour-png.png) ioBroker.icons-addictive-flavor-png ======================![prev_smashing_450.jpg](../../../en/adapterref/iobroker.icons-addictive-flavour-png/img/prev_smashing_450.jpg)
+# ![Logo](../../../en/adapterref/iobroker.icons-addictive-flavour-png/admin/icons-addictive-flavour-png.png)ioBroker.icons-addictive-flavour-png
 
 ![Anzahl der Installationen](http://iobroker.live/badges/icons-addictive-flavour-png-stable.svg)
 
-Symbolsatz für ioBroker.vis und ioBroker.mobile von Addictive Flavour Icon Set.
-http://www.smashingmagazine.com/2010/04/15/the-ultimate-free-web-designer-s-icon-set-750-icons-incl-psd-sources/
+![prev\_smashing\_450.jpg](../../../en/adapterref/iobroker.icons-addictive-flavour-png/img/prev_smashing_450.jpg)
 
-Sie können alle Symbole nach [Hier](ICONLIST.md) überprüfen.
+Icon-Set für ioBroker.vis und ioBroker.mobile aus dem Addictive Flavour Icon Set. <http://www.smashingmagazine.com/2010/04/15/the-ultimate-free-web-designer-s-icon-set-750-icons-incl-psd-sources/>
 
-Sie können das Set für alle Ihre Projekte kostenlos und ohne Einschränkungen verwenden. Sie können es sowohl für private als auch für kommerzielle Projekte, einschließlich Software, Online-Services, Vorlagen und Designs, frei verwenden. Das Set darf nicht weiterverkauft, unterlizenziert, vermietet, übertragen oder anderweitig zur Verfügung gestellt werden. Bitte verlinken Sie zu diesem Artikel, wenn Sie das Wort verbreiten möchten.
+[Hier](https://github.com/ioBroker/ioBroker.icons-addictive-flavour-png/blob/master/ICONLIST.md) können Sie alle Symbole überprüfen.
+
+Sie können dieses Set kostenlos und ohne Einschränkungen für all Ihre Projekte verwenden. Die Nutzung ist sowohl für private als auch für kommerzielle Projekte, einschließlich Software, Online-Dienste, Vorlagen und Designs, frei. Das Set darf nicht weiterverkauft, unterlizenziert, vermietet, übertragen oder anderweitig zur Verfügung gestellt werden. Bitte verlinken Sie diesen Artikel, wenn Sie das Set weiterempfehlen möchten.
 
 ## Zitat von Oliver Twardowski
-Motivation hinter dem Design -------------------------
 
-Im Januar 2009 habe ich mein erstes pixelbasiertes Iconset "Flavour" hier im Smashing Magazine veröffentlicht, und ein paar Monate später im Mai 2009 habe ich dieses Set erweitert und "Flavor Extended" veröffentlicht.
+## Motivation hinter dem Design
 
-Jetzt, über ein Jahr später, ist es Zeit, dieses Set zu beenden.
-"Addictive Flavour" ist der letzte Teil der Flavour-Serie. (Zumindest für den Moment denke ich, dass es ^ _ ^ sein wird)
+Im Januar 2009 veröffentlichte ich mein erstes pixelbasiertes Iconset „flavour“ hier im Smashing Magazine und ein paar Monate später, im Mai 2009, erweiterte ich dieses Set und veröffentlichte „flavour extended“.
 
-In meinen letzten Veröffentlichungen habe ich Sie nach Ihrem Feedback zum Iconset gefragt und dieses Feedback war überwältigend. Ich erhielt hunderte von E-Mails und las noch mehr Kommentare hier und auf Twitter (http://twitter.com/mywayhome).
+Nun, über ein Jahr später, ist es an der Zeit, diese Reihe abzuschließen. „Addictive Flavor“ wird der letzte Teil der Aromenserie sein. (Zumindest denke ich das vorerst. ^\_^)
 
-Mit 'süchtig machendem Geschmack' hoffe ich, Ihnen das Icon-Set zu geben, das Sie für Ihre Webentwicklungsprojekte brauchten und benötigen.
-Wenn jedoch ein bestimmtes Symbol im Set fehlt, das Sie für Ihr Projekt oder Ihre Website benötigen, wenden Sie sich bitte an mich unter twitter (http://twitter.com/mywayhome) oder per E-Mail (icons@addictedotocoffee.de). und wir werden sehen, was wir für Sie tun können!
+In meinen letzten Veröffentlichungen bat ich euch um Feedback zum Iconset, und die Resonanz war überwältigend. Ich erhielt Hunderte von E-Mails und las noch viel mehr Kommentare hier und auf Twitter ( <http://twitter.com/mywayhome> ).
 
-Ich danke Ihnen allen für Ihre großartige Unterstützung mit diesem riesigen Iconset. Ganz besonders möchte ich mich bei Magda, Lars, Martin LeBlanc, Bastian Allgeier, dem Team des Smashing Magazine und allen Betavern bedanken, die fantastische Arbeit geleistet haben, indem sie meine Arbeit überprüft und mir Feedback, Liebe und Inspiration gegeben haben!
+Mit „Addictive Flair“ möchte ich Ihnen das gewünschte und benötigte Icon-Set für Ihre Webentwicklungsprojekte bieten. Sollte ein bestimmtes Icon fehlen, das Sie für Ihr Projekt oder Ihre Website benötigen, kontaktieren Sie mich gerne auf Twitter ( <http://twitter.com/mywayhome> ) oder per E-Mail ( <icons@addictedotocoffee.de> ). Wir finden bestimmt eine Lösung!
 
-Weitere Informationen zu meinen Veröffentlichungen finden Sie hier im Smashing Magazine oder über meinen Twitter-Stream (http://twitter.com/mywayhome).
+Ich möchte mich bei euch allen für eure großartige Unterstützung bei diesem riesigen Iconset bedanken. Mein besonderer Dank gilt Magda, Lars, Martin LeBlanc, Bastian Allgeier, dem Team von Smashing Magazine und allen Beta-Testern, die meine Arbeit fantastisch geprüft und mir wertvolles Feedback, viel Zuspruch und Inspiration gegeben haben!
 
-Vielen Dank, Oliver
+Bleiben Sie dran für weitere Veröffentlichungen von mir hier im Smashing Magazine oder über meinen Twitter-Stream ( <http://twitter.com/mywayhome> ).
 
-### Wie benutzt man
-- Das Icon-Set "icons-addictive-flavor-png" (als Adapter) installieren und in ioBroker.vis im Dialogfeld "Bildauswahl" zu "/ icons-addictive-flavor-png /" navigieren.
+Vielen Dank, Oliver.
+
+### Anleitung zur Verwendung
+
+- Installieren Sie das Icon-Set "icons-addictive-flavour-png" (als Adapter) und navigieren Sie in ioBroker.vis im Bildauswahldialog zu "/icons-addictive-flavour-png/".
 
 ## Changelog
 ### 0.1.0 (2015-05-20)

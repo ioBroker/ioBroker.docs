@@ -18,7 +18,6 @@
 </a>
 </p>
 
-
 ## aWATTar adapter for ioBroker
 
 This adapter reads the hourly prices for the coming day of the electricity provider <a href="https://www.awattar.de/" target="_blank"> aWATTar </a>

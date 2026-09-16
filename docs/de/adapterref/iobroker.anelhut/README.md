@@ -3,68 +3,88 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.anelhut/README.md
 title: ioBroker.anelhut
-hash: /VmtWU7XAgQsJ0sAfuhMVh06Ou9jdZhL6ypEUXTC8IU=
+hash: Tt3XZOsTupdqnAYaTHo7nssjzMRY++Zk6YfQzQ/8Rq4=
 ---
 ![Logo](../../../en/adapterref/iobroker.anelhut/admin/anelhut.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.anelhut.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.anelhut.svg)
-![Anzahl der Installationen (neueste)](http://iobroker.live/badges/anelhut-installed.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/anelhut-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/anelhut-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/dan1-de/iobroker.anelhut.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/dan1-de/ioBroker.anelhut/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.anelhut.png?downloads=true)
+![Test und Freigabe](https://github.com/dan1-de/ioBroker.anelhut/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.anelhut
-**Tests:** ![Testen und freigeben](https://github.com/dan1-de/ioBroker.anelhut/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.anelhut
 
-## Anelhut-Adapter für ioBroker
-Adapter für die NET-PwrCrtl Geräte der ANEL Electronic AG.
-Hersteller: https://shop.anel.eu/
+## anelhut Adapter für ioBroker
 
-## Dieser Adapter funktioniert mit den folgenden Anel-Geräten:
-- NET-PwrCtrl-HUT
+Adapter für die NET-PwrCrtl-Geräte der ANEL Electronic AG. Hersteller: <https://shop.anel.eu/>
+
+## Dieser Adapter ist mit folgenden Anel-Geräten kompatibel:
+
+- NET-PwrCtrl HUT
 - NET-PwrCtrl IO
--   ZUHAUSE
--   PROFI
--   ENERGIE
+- HEIM
+- PRO
+- LEISTUNG
 - ADV
 
-## Verwendungszweck
-- Adapter einbauen
+## Verwendung
+
+- Adapter installieren
 
 - Geräte konfigurieren
 
-    - Aktivieren Sie die UDP-Kommunikation auf Ihrem Anel-Gerät
-    - Geben Sie die Eigenschaften Ihres Anel-Geräts ein
+  - Aktivieren Sie die UDP-Kommunikation auf Ihrem Anel-Gerät.
+  - Geben Sie die Eigenschaften Ihres Anel-Geräts ein.
 
-        - DeviceName: Benutzerdefinierter Name Ihres Geräts. Dieser Name wird verwendet, um das Gerät in der Objektliste anzuzeigen. Beispiel: anelhut.0.Gerätename
-        - DeviceIP: IP-Adresse Ihres Gerätes (bitte keinen Hostnamen verwenden)
-        - UDPSendPort: Geben Sie den Port ein, der im Webinterface Ihres Anel-Geräts angezeigt wird. Dies ist der Empfangsport aus Sicht des Endgerätes (Default: 75).
-        - UDPRecievePort: Geben Sie den Port ein, der im Webinterface Ihres Anel-Geräts angezeigt wird. Dies ist der Sendeport aus Sicht des anel Gerätes (Default: 77).
-        - XOR-Benutzer und -Passwort: Standardmäßig deaktiviert. Für mehr Sicherheit können Sie die XOR-Benutzer- und Passwortverschlüsselung aktivieren. Nicht jedes Anel-Gerät unterstützt XOR-Benutzer und -Passwort. Bitte überprüfen Sie vor der Aktivierung dieser Funktion, ob Ihr Gerät dies unterstützt. Sie können dies in der erstellten Objektstruktur überprüfen (Gerät -> Allgemein -> XOR_USER_Passwort). Wenn der Wert wahr ist, wird XOR User & Password von Ihrem Gerät unterstützt.
+    - Gerätename: Benutzerdefinierter Name Ihres Geräts. Dieser Name wird verwendet, um das Gerät in der Objektliste anzuzeigen. Beispiel: anelhut.0.Gerätename
+    - Geräte-IP: IP-Adresse Ihres Geräts (bitte keinen Hostnamen verwenden)
+    - UDPSendPort: Geben Sie den Port ein, der in der Weboberfläche Ihres Anel-Geräts angezeigt wird. Dies ist der Empfangsport aus Sicht des Anel-Geräts (Standard: 75).
+    - UDPRecievePort: Geben Sie den Port ein, der in der Weboberfläche Ihres Anel-Geräts angezeigt wird. Dies ist der Sendeport aus Sicht des Anel-Geräts (Standard: 77).
+    - XOR-Benutzer & Passwort: Standardmäßig deaktiviert. Für mehr Sicherheit können Sie die XOR-Verschlüsselung von Benutzername und Passwort aktivieren. Nicht alle Anel-Geräte unterstützen XOR-Benutzer & Passwort. Bitte prüfen Sie vor der Aktivierung dieser Funktion, ob Ihr Gerät diese Funktion unterstützt. Sie können dies in der erstellten Objektstruktur überprüfen (Gerät -> Allgemein -> XOR\_USER\_Password). Wenn der Wert „true“ lautet, wird XOR-Benutzer & Passwort von Ihrem Gerät unterstützt.
 
-Wichtiger Hinweis: Wenn Sie mehrere Geräte steuern möchten, verwenden Sie bitte für jedes Gerät einen anderen Empfangsport.
-Sie können beispielsweise Port 77 für das erste Gerät und 78 für das zweite und 79 für das dritte usw. verwenden.
-Wenn Sie nur ein Gerät verwenden, können Sie den Standardport 77 verwenden.
-Als Sendeport kann für alle Geräte der Standardport 75 verwendet werden.
-Sie können die Ports auf der Weboberfläche des Geräts ändern.
+    Wichtiger Hinweis: Wenn Sie mehrere Geräte steuern möchten, verwenden Sie bitte für jedes Gerät einen anderen Empfangsport. Sie können beispielsweise Port 77 für das erste Gerät, Port 78 für das zweite, Port 79 für das dritte usw. verwenden. Wenn Sie nur ein Gerät verwenden, können Sie den Standardport 77 nutzen. Als Sendeport kann für alle Geräte der Standardport 75 verwendet werden. Sie können die Ports in der Weboberfläche des Geräts ändern.
 
 - Docker
-    - Vergessen Sie nicht die Portweiterleitung, wenn Sie diesen Adapter mit einer Docker-Umgebung verwenden möchten:
-        - 77:77/udp #port forwarding first anel device
-        - 78:78/udp #port forwarding second anel device
-    - In diesem Repository finden Sie ein funktionierendes Docker-Compose-Beispiel als Referenz (examples/docker-compose.yml).
+  - Vergessen Sie nicht die Portweiterleitung, wenn Sie diesen Adapter in einer Docker-Umgebung verwenden möchten:
+    - 77:77/udp #Portweiterleitung erstes analoges Gerät
+    - 78:78/udp #Portweiterleitung zweites analoges Gerät
+  - Ein funktionierendes docker-compose-Beispiel finden Sie in diesem Repository (examples/docker-compose.yml).
 
 ## Notiz
-Dieser Adapter wurde mit allen Anel-Geräten getestet. Danke an den anel-Entwickler :).
-Bitte melden Sie alle Probleme.
+
+Dieser Adapter wurde mit allen Anel-Geräten getestet. Vielen Dank an den Anel-Entwickler! Bitte melden Sie alle auftretenden Probleme.
 
 ## Bekannte Probleme
+
 ### NET-PwrCtrl PRO
-Bitte verwenden Sie die neuste Firmware (4.2). Sie können es unter https://de.anel.eu/index.htm?src=support/hut/hut.htm herunterladen
+
+Bitte verwenden Sie die neueste Firmware (4.2). Sie können sie unter <https://de.anel.eu/index.htm?src=support/hut/hut.htm> herunterladen.
 
 ## Changelog
+
+### 1.0.15
+
+-   (dan1-de) Bugfix for new jscontroller 5
+
+### 1.0.14
+
+-   (dan1-de) Added new Logs messages for Relais Switch Command in Debug Mode
+
+### 1.0.13
+
+-   (dan1-de) Improved error message for user/password missing. Added new Testcase for Message decode of NET-PWRCTRL_07.1
+
+### 1.0.12
+
+-   (dan1-de) Cosmetic change in index_m.html
+
+### 1.0.11
+
+-   (dan1-de) Implemented fix for Relais Status "You are assigning a number to the state which expects a boolean" Github issue/26
 
 ### 1.0.10
 
@@ -102,7 +122,7 @@ Bitte verwenden Sie die neuste Firmware (4.2). Sie können es unter https://de.a
 
 MIT License
 
-Copyright (c) 2021 dan1-de <dan1-de@gmx.de>
+Copyright (c) 2023 dan1-de dan1-de@gmx.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

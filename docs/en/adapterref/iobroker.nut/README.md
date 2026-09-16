@@ -68,7 +68,6 @@ logger -t nut-notify "Notify iobroker $UPSNAME -> $NOTIFYTYPE"
 
 ```
 
-
 ## Troubleshooting
 If you have problems and the adapter do not deliver the data you can use the two scripts in directory "test"
 of the adapter installation (so normally in node_modules/iobroker.nut/test relative to your iobroker installation

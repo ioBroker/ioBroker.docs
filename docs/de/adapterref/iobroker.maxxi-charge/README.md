@@ -7,6 +7,7 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/blabond/iobroker
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/blabond/iobroker.maxxi-charge?logo=github&style=flat-square
+BADGE-Test and Release: https://github.com/blabond/ioBroker.maxxi-charge/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Donation: https://img.shields.io/badge/Paypal-Donate-blue?style=flat
 ---
 # ioBroker.Maxxi-Charge
@@ -179,7 +180,7 @@ Der Adapter erstellt dynamisch Datenpunkte basierend auf den von der CCU zurück
     - Configurable with start and end dates.
 - **Cloud API query interval**: CCU polling in cloud mode is fixed at 5 seconds.
 
-Older changelogs can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelogs can be found in CHANGELOG_OLD.md.
 
 ## License
 

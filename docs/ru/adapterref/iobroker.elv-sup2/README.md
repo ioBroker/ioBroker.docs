@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.elv-sup2/README.md
 title: ioBroker.elv-sup2
-hash: D1tL/XdUlmLnXmWIUr1eJW1S1CvM+IyKPgH5LT/yYBA=
+hash: SUnpGn57JvnZ+nystLSiRJ83xr6adn6sV0ZeKFOq4VI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.elv-sup2/admin/elv-sup2.png)
 
@@ -11,29 +11,33 @@ hash: D1tL/XdUlmLnXmWIUr1eJW1S1CvM+IyKPgH5LT/yYBA=
 ![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/elv-sup2-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.elv-sup2.svg)
 ![Количество установок](https://iobroker.live/badges/elv-sup2-installed.svg)
+![Тестирование и выпуск](https://github.com/pdbjjens/ioBroker.elv-sup2/workflows/Test%20and%20Release/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.elv-sup2.png?data=d,s)
 
-# IoBroker.elv-sup2
-![Тестирование и выпуск](https://github.com/pdbjjens/ioBroker.elv-sup2/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.elv-sup2
 
-## Адаптер elv-sup2 для ioBroker
+## адаптер elv-sup2 для ioBroker
+
 Этот адаптер подключает ELV HQ-Stereo-FM-Testgenerator SUP2 к ioBroker через последовательный USB-порт. Он позволяет получать и устанавливать определенные параметры конфигурации тестгенератора, в том числе текст RDS, имя и тип программы RDS. Обновление SUP2 не поддерживается. Для этой цели используйте программу для Windows, предоставленную ELV.
 
 ## Конфигурация
-Единственным параметром конфигурации является идентификатор последовательного порта, к которому подключен SUP2.
-Формат должен быть, например, следующим: /dev/ttyUSBx в Linux или COMx в Windows-версиях ioBroker.
+
+Единственным параметром конфигурации является идентификатор последовательного порта, к которому подключен SUP2. Формат должен быть, например, /dev/ttyUSBx в Linux или COMx в Windows-версиях ioBroker.
 
 ## Юридические уведомления
+
 ELV и другие являются товарными знаками или зарегистрированными товарными знаками компании ELV Elektronik AG, D-26787 Леер, Германия - <https://de.elv.com/>
 
-Все остальные товарные знаки являются собственностью их соответствующих владельцев.
-Авторы никоим образом не поддерживают компанию ELV Elektronik AG и не связаны с ней, а также с какими-либо ее дочерними компаниями, логотипами или товарными знаками.
+Все остальные товарные знаки являются собственностью их соответствующих владельцев. Авторы никоим образом не поддерживают компанию ELV Elektronik AG и не связаны с ней, а также с какими-либо ее дочерними компаниями, логотипами или товарными знаками.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.2.3 (2026-03-04) - 2026H1 maintenance release
 
 * (pdbjjens) **Changed**: node>=20, js-controller>=7.0.7 and admin>=7.7.22 required
@@ -58,6 +62,8 @@ ELV и другие являются товарными знаками или з
 * (pdbjjens) New: Tested with node.js 22
 * (pdbjjens) Fix: Responsive Design tweaks
 * (pdbjjens) New: Updated dependencies
+
+[Older changelogs can be found there](https://github.com/pdbjjens/ioBroker.elv-sup2/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -9,7 +9,7 @@ hash: Dn5CtO5okGfvvxL112X2km8W/OB3HqarZ13QntOJiLU=
 # Системные настройки
 Это устанавливает основные параметры для ioBroker.
 
-![Настройки системы администратора](../../../../de/adapterref/iobroker.admin/admin/img/tab-system_Systemeinstellungen.jpg)
+![Настройки системы администратора](../img/tab-system_Systemeinstellungen.jpg)
 
 ## Основные настройки
 ### Системный язык
@@ -31,7 +31,7 @@ hash: Dn5CtO5okGfvvxL112X2km8W/OB3HqarZ13QntOJiLU=
 Этот экземпляр адаптера SQL / History / InfluxDB по умолчанию используется для flot и рикши (диаграммы)
 
 ## Репозитории или репозитории
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-system_Verwahrungsorte2.jpg)
+![](../img/tab-system_Verwahrungsorte2.jpg)
 
 ioBroker может получить список адаптеров из разных источников. Следующие источники перечислены во время установки:
 
@@ -46,12 +46,12 @@ ioBroker может получить список адаптеров из раз
 * **sources - conf / sources-dist.json** - также генерируется автоматически и занимает много времени, но ссылки могут быть устаревшими (некоторые адаптеры могут отсутствовать)
 
 ## Сертификаты
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-system_2017-01-19-09_33_54-ioBroker.jpg)
+![](../img/tab-system_2017-01-19-09_33_54-ioBroker.jpg)
 
 Вот центральное место для сертификатов, используемых для связи SSL / HTTPS. Сертификаты используются admin, web, simple-api, socketio. По умолчанию стандартные сертификаты установлены. Вы не можете ничего проверить с этим. Они только для связи SSL. Поскольку сертификаты открыты, вы должны использовать свои собственные (самозаверяющие) сертификаты, купить нужные сертификаты или переключиться на Let's Encrypt. Связь с сертификатами по умолчанию не защищена, и если кто-то хочет прочитать трафик, это можно сделать. Обязательно установите свои собственные сертификаты. например согласно [линукс](http://guides.intertech.de/ssl_certificate_self.html).
 
 ## Давайте зашифруем
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-system_2017-01-19-09_40_07-ioBroker.jpg)
+![](../img/tab-system_2017-01-19-09_40_07-ioBroker.jpg)
 
 Let's Encrypt - это бесплатный, автоматизированный и открытый исходный сертификат для независимой исследовательской группы по безопасности в Интернете (ISRG).
 
@@ -89,7 +89,7 @@ Let's Encrypt - это бесплатный, автоматизированны�
 ** Let's Encrypt работает только с версией node.js> = 4.5 **
 
 ## Статистика
-![](../../../../de/adapterref/iobroker.admin/admin/img/tab-system_2017-01-19-09_48_46-ioBroker.jpg)
+![](../img/tab-system_2017-01-19-09_48_46-ioBroker.jpg)
 
 Администратор ioBroker отправляет следующую информацию на download.iobroker.net:
 

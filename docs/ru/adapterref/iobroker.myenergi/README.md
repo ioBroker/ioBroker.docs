@@ -1,34 +1,44 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.myenergi/README.md
 title: ioBroker.myenergi
-hash: cuUZOBForRr44VEP//YhaCKgKf+r3OU7TLrQV6kS1u0=
+hash: bFc/5LRkACLjwbAu7odqd7SInsGVXAUqZde8QWeEMSc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.myenergi/admin/myenergi.png)
 
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.myenergi.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.myenergi.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.myenergi.svg)
 ![Количество установок](https://iobroker.live/badges/myenergi-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/myenergi-stable.svg)
+![Текущая версия находится в стабильном репозитории.](https://iobroker.live/badges/myenergi-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.myenergi.png?downloads=true)
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.myenergi/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.myenergi
-**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.myenergi/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.myenergi
 
-##адаптер myenergi для ioBroker
+## Адаптер myenergi для ioBroker
+
 Адаптер для устройств Myenergi
 
 ## Авторизоваться:
-Введите серийный номер Myenergie Hub и ключ API. Серийные номера можно найти на странице https://myaccount.myenergi.com/ на вкладке «Продукты myenergi».
-Там же необходимо сгенерировать API-ключ для хаба.
-Для этого нажмите «Дополнительно» и сгенерируйте ключ.
 
-## Вопросы и обсуждения
+Введите серийный номер и API-ключ Myenergie Hub. Серийные номера можно найти на [сайте https://myaccount.myenergi.com/](https://myaccount.myenergi.com/) во вкладке «Продукты Myenergi». Там же необходимо сгенерировать API-ключ для хаба. Для этого нажмите «Дополнительно» и сгенерируйте ключ.
+
+## Вопросы и дискуссии
+
 <https://forum.iobroker.net/topic/60175/test-myenergi-adapter>
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (copilot) Adapter requires admin >= 7.7.22 now
+- (copilot) Adapter requires js-controller >= 6.0.11 now
+- (copilot) Adapter requires admin >= 7.6.17 now
+
+- (mcm1957) Adapter requires nodejs >=18 now.
+  
 ### 0.0.3
 
 add zappi unlock
@@ -37,10 +47,14 @@ add zappi unlock
 
 - (TA2k) initial release
 
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.myenergi/blob/main/CHANGELOG_OLD.md)
+
 ## License
 
 MIT License
 
+
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2022 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

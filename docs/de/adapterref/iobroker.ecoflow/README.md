@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecoflow/README.md
 title: ioBroker.ecoflow
-hash: MBW4kHVB0APS0U2B3te4vILD5vAvw6L1ZbKBSRuleOg=
+hash: filW3Ol8Z55zeF7Y6R1QDY1GyyK2f12AHjxFEiV12q8=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecoflow/admin/ecoflow.png)
 
@@ -12,15 +12,17 @@ hash: MBW4kHVB0APS0U2B3te4vILD5vAvw6L1ZbKBSRuleOg=
 ![Anzahl der Installationen](https://iobroker.live/badges/ecoflow-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/ecoflow-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.ecoflow.png?downloads=true)
+![Test und Freigabe](https://github.com/Newan/ioBroker.ecoflow/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.ecoflow
-**Tests:** ![Testen und freigeben](https://github.com/Newan/ioBroker.ecoflow/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.ecoflow
 
 ## Ecoflow-Adapter für ioBroker
-ecoflow Kraftwerk
+
+Ecoflow-Kraftwerk
 
 ## Adapterhandbuch
-API-Schlüssel und geheimer Schlüssel sind für den Betrieb erforderlich. Diese Daten sind individuell und müssen über den ecoflow Support angefordert werden.
+
+Für den Betrieb werden API-Schlüssel und geheimer Schlüssel benötigt. Diese Daten sind individuell und müssen über den ecoflow-Support angefordert werden.
 
 ## Changelog
 <!--

@@ -3,16 +3,17 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.opensmartcity/README.md
 title: ioBroker.OpenSmartCity
-hash: Bxei64a+xHGUo0cBWIrIg5SHMmLdYkQbz8LhhqGx7V8=
+hash: /qZ68OHrXOPr/VNjoEY90k1FtfEma5Qy2dGlq/3et5g=
 ---
 ![Logo](../../../en/adapterref/iobroker.opensmartcity/admin/opensmartcity.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/opensmartcity-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.opensmartcity.svg)
+![Test und Freigabe](https://github.com/iobroker/iobroker.opensmartcity/workflows/Test%20and%20Release/badge.svg)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/opensmartcity/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.opensmartcity.svg)
 
-# IoBroker.OpenSmartCity
-![Test und Freigabe](https://github.com/iobroker/iobroker.opensmartcity/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/opensmartcity/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# ioBroker.OpenSmartCity
 
 ## Changelog
 <!--

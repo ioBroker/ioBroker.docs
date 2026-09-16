@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.artnet-recorder/README.md
 title: ioBroker.artnet-recorder
-hash: IVN89sZAHrOrE2Bb/tN/BDBrOWsBhHCcsKMgefS2HhU=
+hash: /RaT7f9KZMyk1Moh+maC1Y0c+h2Ske1ke4TsHeAqSSs=
 ---
 ![Logo](../../../en/adapterref/iobroker.artnet-recorder/admin/artnet-recorder.png)
 
@@ -11,20 +11,19 @@ hash: IVN89sZAHrOrE2Bb/tN/BDBrOWsBhHCcsKMgefS2HhU=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.artnet-recorder.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/artnet-recorder-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/artnet-recorder-stable.svg)
+![Test und Freigabe](https://github.com/bannsaenger/iobroker.artnet-recorder/workflows/Test%20and%20Release/badge.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/Bannsaenger/ioBroker.artnet-recorder/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.artnet-recorder.png?downloads=true)
 
-# IoBroker.artnet-recorder
-![Test und Freigabe](https://github.com/bannsaenger/iobroker.artnet-recorder/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.artnet-recorder
 
 ## Artnet-Recorder-Adapter für ioBroker
+
 Art-Net-Daten in einer Datei speichern, um sie später wiederzugeben
 
 ## Zweck
-Einfacher Adapter zur Aufzeichnung von Art-Net-Daten, die per Broadcast an eine JSON-Datei im Benutzerdatenverzeichnis gesendet werden.
-Aufgezeichnet werden nur die Änderungen der DMX-Werte.
-Die Wiedergabe sendet die Daten unverändert mit den in der JSON-Datei gespeicherten Zeitangaben.
-Im Merge-Modus LTP oder HTP empfängt der Server alle über das Netzwerk gesendeten ArtDMX-Pakete und versucht, ein aktuelles DMX-Datenbild zu erstellen, um die gespeicherten Werte hinzuzufügen. Das Sendeintervall bzw. die Schrittweite der Datenübertragung wird über die Konfiguration festgelegt.
+
+Einfacher Adapter zur Aufzeichnung von Art-Net-Daten, die per Broadcast in eine JSON-Datei im Benutzerverzeichnis gesendet werden. Es werden nur die Änderungen der DMX-Werte aufgezeichnet. Die Wiedergabe sendet die Daten unverändert mit den in der JSON-Datei gespeicherten Zeitangaben. Im Merge-Modus LTP oder HTP empfängt der Server alle über das Netzwerk gesendeten ArtDMX-Pakete und versucht, ein aktuelles DMX-Datenbild zu erstellen, um die gespeicherten Werte hinzuzufügen. Das Sendeintervall bzw. die Schrittweite der Datenübertragung wird über die Konfiguration festgelegt.
 
 ## Changelog
 
@@ -33,6 +32,7 @@ Im Merge-Modus LTP oder HTP empfängt der Server alle über das Netzwerk gesende
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
 * (Bannsaenger) updated dependencies and issues from repository checker
 
 ### 0.1.5 (2025-10-24)
@@ -50,6 +50,8 @@ Im Merge-Modus LTP oder HTP empfängt der Server alle über das Netzwerk gesende
 
 ### 0.1.1 (2025-01-21)
 * (Bannsaenger) removed script build on deploy
+
+[Older changelogs can be found there](https://github.com/Bannsaenger/ioBroker.artnet-recorder/blob/master/CHANGELOG_OLD.md)
 
 ## License
 MIT License

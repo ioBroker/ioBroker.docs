@@ -3,35 +3,38 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.serial-gps/README.md
 title: GPS-адаптер ioBroker (последовательный/USB)
-hash: c17hLNS45q06fOYPhB0AM8X/5VTf5WRC8vyNVIAt7rY=
+hash: LCNCrKrTTdp4K+sDsK5DCFNxrGo95d9ELJTPQ67bNhU=
 ---
 ![Количество установок](http://iobroker.live/badges/serial-gps-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.serial-gps.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.serial-gps/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/serial-gps/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.serial-gps.svg)
 
 <img src="admin/serial-gps.svg" style="width: 100px;"/>
 
-# IoBroker GPS (последовательный/USB) адаптер
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.serial-gps/workflows/Test%20and%20Release/badge.svg) [![[Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/serial-gps/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# GPS-адаптер ioBroker (последовательный/USB)
 
 Этот адаптер считывает данные GPS с последовательного или USB-устройства GPS и делает их доступными в ioBroker.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отправка сообщений Sentry используется начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Начиная
-Вставьте USB- или последовательный GPS-приемник в вашу систему ioBroker. Убедитесь, что устройство распознается операционной системой, и запишите назначенный последовательный порт (например, COM3 в Windows или /dev/ttyUSB0 в Linux).
-Перейдите на страницу конфигурации адаптера и выберите последовательный порт и другие параметры, если необходимо (скорость передачи по умолчанию обычно составляет 4800 или 9600 бод). Сохраните изменения и запустите адаптер. Через некоторое время данные GPS должны появиться в точках данных адаптера.
+
+Вставьте USB- или последовательный GPS-приемник в вашу систему ioBroker. Убедитесь, что устройство распознается операционной системой, и запишите назначенный последовательный порт (например, COM3 в Windows или /dev/ttyUSB0 в Linux). Перейдите на страницу конфигурации адаптера и выберите последовательный порт и другие параметры, если необходимо (скорость передачи по умолчанию обычно составляет 4800 или 9600 бод). Сохраните изменения и запустите адаптер. Через некоторое время данные GPS должны появиться в точках данных адаптера.
 
 ## Протестированные устройства
+
 Как правило, все устройства, передающие данные NMEA через последовательный порт или USB, должны работать. Вот некоторые из протестированных устройств:
 
 - USB-GNSS-приемник GlobalSat BU-353N5
 - VK-162 G-Mouse USB GPS
 - G72 G-Mouse USB
 
-<!-- Заполнитель для следующей версии (в начале строки):
-
-### **РАБОТА В ПРОЦЕССЕ** -->
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
 ### 1.0.0 (2026-05-29)

@@ -1,314 +1,252 @@
 ---
-lastChanged: 20.07.2018
-local: true
+translatedFrom: en
+translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.harmony/README.md
+title: ioBroker.harmony
+hash: Icl1F6peKW51uwhYKAdA5qdghRDGZaAd6LxPWJyryP0=
 ---
-![Harmony](media/harmony.png)
-# Logitech Harmony
+![Logo](../../../en/adapterref/iobroker.harmony/admin/harmony.png)
 
-Der Logitech Harmony-Adapter ermöglicht die einfache Einbindung eines oder 
-auch mehrerer Logitech Harmony Hubs in ein ioBroker-System. 
+![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.harmony)
+![Downloads](https://img.shields.io/npm/dm/iobroker.harmony.svg)
+![GitHub-Repository-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.harmony)
+![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/harmony/svg-badge.svg)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.harmony)
+![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.harmony/latest)
+![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.harmony)
+![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.harmony)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.harmony.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/harmony-stable.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/harmony-installed.svg)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.harmony/actions/workflows/test-and-release.yml/badge.svg)
+![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.harmony/actions/workflows/codeql.yml/badge.svg)
 
-Mit Hilfe des Logitech Harmony Hubs können eine Vielzahl von Unterhaltungs- und
-Smart Home-Geräten gesteuert werden. Mit dem ioBroker lassen sich über den Hub 
-Aktivitäten starten und beenden, der Status von Aktivitäten abfragen sowie 
-Geräte durch virtuelle Tastendrücke fernsteuern.
+# ioBroker.harmony
 
-![Harmony Hub](media/harmony_850.jpg "Logitech Harmony Hub mit Harmony Elite Fernbedienung")
+**Version:**
+
+**Tests:**
+
+<!--
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+-->
+
+## ioBroker Logitech Harmony Adapter
+
+Der Logitech Harmony Adapter integriert einen oder mehrere Logitech Harmony Hubs in ein ioBroker-System.
+
+Ein Logitech Harmony Hub kann eine Vielzahl von Unterhaltungselektronik- und Smart-Home-Geräten steuern. Über den Hub kann ioBroker Aktivitäten starten und stoppen, den Status einer Aktivität auslesen und Geräte durch virtuelle Tastendrücke fernsteuern.
+
+![Harmony Hub](../../../en/adapterref/iobroker.harmony/media/harmony_850.jpg "Logitech Harmony Hub mit der Harmony Elite Fernbedienung")
 
 ## Überblick
 
 ### Logitech Harmony
-Logitech Harmony ist kompatibel mit mehr als 270.000 Entertainment- und Smart 
-Home-Geräten. Dazu gehören Fernseher und Kabelboxen, Disc-Player und Spielkonsolen 
-bis hin zu AV-Receivern und Streaming-Media-Playern sowie intelligente Beleuchtung,
-Schlösser, Thermostate und vieles mehr.
 
-Mit Logitech Harmony kann man Programme wechseln, die Lautstärke regulieren, 
-Favoriten festlegen sowie Beleuchtung und anderer Smart-Geräte steuern. Das Highlight
-des Systems ist das Erstellen von Aktionen zur Steuerung von mehreren Geräten mit nur
-einem Tastendruck.
+Logitech Harmony ist mit über 270.000 Unterhaltungs- und Smart-Home-Geräten kompatibel. Dazu gehören Fernseher und Kabelreceiver, Disc-Player und Spielekonsolen bis hin zu AV-Receivern und Streaming-Media-Playern sowie intelligenter Beleuchtung, Türschlössern, Thermostaten und vielem mehr.
 
-1. Der Logitech Harmony Hub verbindet sich mit dem Heimnetzwerk über WLAN. 
-2. Harmony Hubs haben keinen Ethernet-Anschluss.
-3. Der Hub unterstützt nur das WLAN 2,4 GHz-Frequenzband. Das 5 GHz-Frequenzband wird 
-   nicht unterstützt.
+Mit Logitech Harmony können Sie Programme wechseln, die Lautstärke anpassen, Favoriten definieren und Beleuchtung sowie andere Smart-Geräte steuern. Das Highlight des Systems ist die Möglichkeit, Aktionen zu erstellen, die mehrere Geräte mit einem einzigen Tastendruck steuern.
+
+1. Der Logitech Harmony Hub verbindet sich über WLAN mit dem Heimnetzwerk.
+2. Harmony-Hubs besitzen keinen Ethernet-Anschluss.
+3. Der Hub unterstützt ausschließlich das 2,4-GHz-WLAN-Band. Das 5-GHz-Band wird nicht unterstützt.
 4. Es sollte ein 802.11 g/n-Router verwendet werden. 802.11 a/b wird nicht unterstützt.
-5. Als Verschlüsselung für das WLAN wird vom Hub WEP 64/128, WPA Personal und 
-   WPA2-AES unterstützt.
-6. UPnP muss für Harmony nicht aktiviert sein, damit die Harmony-App den 
-   Hub erkennen und mit ihm kommunizieren kann. Hingegen muss es aktiviert sein,
-   damit der Hub andere Geräte im Netzwerk erkennt und mit ihnen zusammenarbeitet.
-   Das betrifft zum Beispiel Geräte wie Philips hue, Sonos, Nest, Roku oder Smart TVs.
-7. Die maximale Geräteanzahl pro Hub beträgt 8 Geräte. 15 Geräte sind möglich, wenn als
-   Fernbedienung mindestens ein Harmony Touch oder Ultimate one am Hub registriert ist.
-8. Die maximale Anzahl an bevorzugten Kanälen sind 50 pro mobilem Gerät.
+5. Als Wi-Fi-Verschlüsselung unterstützt der Hub WEP 64/128, WPA Personal und WPA2-AES.
+6. UPnP muss nicht aktiviert sein, damit die Harmony-App den Hub findet und mit ihm kommuniziert. Es muss jedoch aktiviert sein, damit der Hub selbst andere Geräte im Netzwerk finden und mit ihnen zusammenarbeiten kann – dies betrifft Geräte wie Philips Hue, Sonos, Nest, Roku oder Smart-TVs.
+7. Die maximale Anzahl an Geräten pro Hub beträgt 8. Bis zu 15 Geräte sind möglich, wenn mindestens ein Harmony Touch oder Ultimate One als Fernbedienung am Hub registriert ist.
+8. Die maximale Anzahl an Lieblingskanälen pro Mobilgerät beträgt 50.
 
-### Logitech Harmony-Adapter
-Der Logitech Harmony-Adapter findet automatisch alle Logitech Harmony-Hubs, die sich 
-über eine WLAN-Verbindung zuammen mit dem ioBroker-Server im gleichen Netzwerksubnetz
-befinden.
+### Der Logitech Harmony Adapter
 
-Objekte zur Auslösung von Funktionen und Aktivitäten (=Befehlsmakros) werden vom
-Adapter automatisch im ioBroker angelegt. Auch der aktuelle Status des Hubs steht
-zur Verfügung. Durch geziehltes Beschreiben oder Lesen der angelegten Objekten 
-kann deren Status geändert und damit Aktionen ausgelöst oder auch abgefragt werden.
+Der Logitech Harmony Adapter findet automatisch jeden Logitech Harmony Hub, der sich über eine Wi-Fi-Verbindung im selben Netzwerk-Subnetz wie der ioBroker-Server befindet.
+
+Die Objekte zum Auslösen von Gerätefunktionen und -aktivitäten (Befehlsmakros) werden vom Adapter automatisch in ioBroker erstellt. Der aktuelle Status des Hubs ist ebenfalls verfügbar. Durch Schreiben oder Lesen der erstellten Objekte kann deren Status geändert und somit Aktionen ausgelöst oder abgefragt werden.
 
 ## Voraussetzungen vor der Installation
-Über den ioBroker Adapter für das Logitech Harmony-System lassen sich keine Geräte oder
-Aktivitäten neu anlegen oder verändern. Deshalb ist es erforderlich, dass vor der Nutzung 
-des Adapters das Fernbedienungssystem, wie in der Anleitung von Logitech beschrieben, 
-eingerichtet ist und mit den gesteuerten Geräten zusammen funktioniert.
+
+Geräte und Aktivitäten können weder über den ioBroker-Adapter für das Logitech Harmony-System erstellt noch geändert werden. Bevor der Adapter verwendet wird, muss das Fernsteuerungssystem daher gemäß der Logitech-Anleitung eingerichtet werden und mit den gesteuerten Geräten kompatibel sein.
 
 ## Installation
-Eine Instanz des Adapters wird über die ioBroker Admin-Oberfläche installiert. Die 
-ausführliche Anleitung für die dazu notwendigen Installatonschritte kann **hier** gefunden werden.
 
-Nach Abschluss der Installation einer Adapterinstanz öffnet sich automatisch 
-ein Konfigurationsfenster.
+Eine Instanz des Adapters wird über die ioBroker-Administrationsoberfläche installiert. Eine detaillierte Beschreibung der erforderlichen Installationsschritte finden Sie **[hier](https://www.iobroker.net/#en/documentation/admin/adapter.md)** .
 
-##  Konfiguration
-Der Adapter findet automatisch alle Harmony Hubs, die sich im Subnetz des 
-ioBroker-Servers befinden.
+Nach Abschluss der Installation einer Adapterinstanz öffnet sich automatisch ein Konfigurationsfenster.
 
-### Fenster "Logitech Harmony adapter settings"
-![Admin](media/a_harmony_admin_settings.png "Admin Oberfläche")
+## Konfiguration
 
-| Feld         | Beschreibung |                                                                       
-|:-------------|:-------------|
-|**Hub User**|Für den Fall, dass der Zugang zur Harmony Hub-Konfiguration mit einem Benutzer und einem Kennwort versehen ist, muss hier der Benutzername angegeben werden. Dabei ist auf die Groß- und Kleinschreibung zu achten.|
-|**Hub Passwort**|Für den Fall, dass der Zugang zur Harmony Hub-Konfiguration mit einem Benutzer und einem Kennwort versehen ist, muss hier das Kennwort eingegeben werden. Hierbei ist auf die Groß- und Kleinschreibung zu achten.|
+Der Adapter findet selbstständig alle Harmony-Hubs im Subnetz des ioBroker-Servers. In den meisten Installationen ist keinerlei Konfiguration erforderlich.
 
-Die beiden Felder brauchen nur dann ausgefüllt werden, wenn der Hub mit einem Benutzernamen
-und einem Passwort gesichert ist.
+### Das Fenster "Logitech Harmony Adaptereinstellungen"
 
-Nach Abschluss der Konfiguration wird der Konfigurationsdialog mit `SPEICHERN UND SCHLIEßEN`
-verlassen. Dadurch efolgt im Anschluß ein Neustart des Adapters.
+| Feld                      | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Netzwerkschnittstelle** | Die Schnittstelle, auf der der Adapter sucht. Auf Hosts mit mehreren Netzwerken (mehrere Netzwerkkarten, Docker, VPN) wählen Sie die richtige Schnittstelle aus, damit sowohl Broadcast als auch Antwort des Hubs diese verwenden. Die Broadcast-Adresse wird von dieser Schnittstelle abgeleitet, daher funktionieren auch andere Subnetzmasken als /24 (#331). Lassen Sie das Feld leer, um auf allen Schnittstellen zu suchen – dies ist die empfohlene Einstellung für die meisten Installationen. |
+| **Entdeckungsintervall**  | Wie oft eine Erkennungsnachricht gesendet wird. Der Standardwert beträgt 2000 ms, der kleinste zulässige Wert ist 500 ms.                                                                                                                                                                                                                                                                                                                                                                              |
+| **Manuelle Hub-IPs**      | Eine optionale Liste von Hub-Adressen. Sobald diese Liste mindestens einen Eintrag enthält, kontaktiert der Adapter genau diese Adressen und überspringt den Broadcast vollständig. Verwenden Sie diese Liste, wenn sich ein Hub in einem anderen Subnetz als ioBroker befindet oder wenn Broadcast-Verkehr in Ihrem Netzwerk blockiert ist (#147).                                                                                                                                                    |
 
-##  Instanzen
-Die Installation des Adapters hat im Bereich `Objekte` eine aktive Instanz des 
-Logitech Harmony-Hub-Adapters angelegt.
+Nach Abschluss der Konfiguration wird im Konfigurationsdialog Folgendes angezeigt:`SAVE AND CLOSE` Der Adapter wird anschließend neu gestartet.
 
-![Instanz](media/a_harmony_instanz.png "Erste Instanz")
+Bei Instanzen, die von Version 2.1.0 oder älter aktualisiert wurden, wird die entfernte Einstellung _„Discovery-Subnets“_ beim ersten Start automatisch migriert: Eine Adresse, die die Broadcast-Adresse einer Ihrer Schnittstellen ist, wählt diese Schnittstelle aus; jede andere Adresse wird zu einer manuellen Hub-IP-Adresse. Der Adapter protokolliert die Konvertierungen.
 
-Auf einem ioBroker Server lässt sich immer nur eine Instanz des Logitech 
-Harmony-Adapters installieren.
+## Instanzen
 
-Ob der Adapter aktiviert oder mit dem Logitech Harmony Hub verbunden ist, wird 
-mit der Farbe des Status-Feldes der Instanz verdeutlicht. Zeigt der Mauszeiger
-auf das Symbol, werden weitere Detailinformationen dargestellt. 
+Durch die Installation des Adapters wurde eine aktive Instanz des Logitech Harmony Hub-Adapters erstellt.`Instances` Abschnitt.
+
+![Beispiel](../../../en/adapterref/iobroker.harmony/media/a_harmony_instanz.png "Erstes Vorkommen")
+
+Auf einem ioBroker-Server kann nur eine Instanz des Logitech Harmony-Adapters installiert werden.
+
+Ob der Adapter aktiviert und mit dem Logitech Harmony Hub verbunden ist, wird durch die Farbe des Statusfelds der Instanz angezeigt. Wenn der Mauszeiger über das Symbol bewegt wird, werden weitere Details angezeigt.
 
 ## Objekte des Adapters
 
-Im Bereich `Objekte` werden in einer Baumstruktur alle vom Adapter im Hub 
-erkannten Geräte und Aktivitäten aufgelistet. Zusätzlich wird auch noch 
-darüber informiert, ob die Kommunikation mit dem Hub reibungslos erfolgt. 
+Im`Objects` In diesem Abschnitt werden alle Geräte und Aktivitäten, die der Adapter im Hub gefunden hat, baumartig aufgelistet. Zusätzlich geben die Objekte Auskunft darüber, ob die Kommunikation mit dem Hub reibungslos funktioniert.
 
-![Objekte](media/a_harmony_objekte.png "Objekte des Harmony-Adapters")
- 
-Jeder Datenpunkt ist mit seinem zugehörigen Datentyp sowie seinen Berechtigungen aufgehführt. 
-Berechtigungen können lesend (R) sowie schreibend (W) sein. Jeder Datenpunkt kann mindestens gelesen (R) werden, während
-andere ebenfalls beschrieben werden können. Zum auffinden eines bestimmten Datenpunkts empfiehlt sich die Suche mittels 
-der Tastenkombination "STRG + F".
+![Objekte](../../../en/adapterref/iobroker.harmony/media/a_harmony_objekte.png "Objekte des Harmony-Adapters")
 
-| Objekt | Zugriff | Bescheibung| 
-|------|-------|-----------|
-|**harmony.0** | R | Name der ersten *Instanz* des Logitech Harmony-Adapters|
-|&emsp;**Harmony Hub**| R | Name des *Hubs*|
-|&emsp;&emsp;**Apple TV Generation 3**| R | Name eines *Geräts*, enthält Gerätefunktionen| 
-|&emsp;&emsp;**Denon AV-Empfänger**| R | Name eines *Geräts*, enthält Gerätefunktionen| 
-|&emsp;&emsp;**:**| R | Weitere *Geräte*|
-|&emsp;&emsp;**activities**| R | Liste mit allen im Harmony Hub programmierten *Aktivitäten*| 
-|&emsp;&emsp;***hubBlocked***| R | Zeigt an, ob der Hub gerade beschäftigt ist|
-|&emsp;&emsp;***hubConnected***| R | Status der Verbindung zwischen Adapter und Hub|
+Jeder Zustand wird zusammen mit seinem Datentyp und seinen Berechtigungen aufgelistet. Berechtigungen können Lese- (R) oder Schreibberechtigungen (W) sein. Jeder Zustand ist mindestens lesbar (R), einige auch beschreibbar. Um einen bestimmten Zustand zu finden, empfiehlt sich die Suche mit der Tastenkombination „Strg + F“.
+
+| Objekt                      | Zugang | Beschreibung                                                                                                       |
+| --------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
+| **Harmonie.0**              | R      | Name des ersten _Exemplars_ des Logitech Harmony-Adapters                                                          |
+|  **Harmony Hub**            | R      | Name des _Hubs_                                                                                                    |
+|   **Apple TV Generation 3** | R      | Name eines _Geräts_ , enthält die Gerätefunktionen                                                                 |
+|   **Denon AV-Empfänger**    | R      | Name eines _Geräts_ , enthält die Gerätefunktionen                                                                 |
+|   **:**                     | R      | Weitere _Geräte_                                                                                                   |
+|   **Aktivitäten**           | R      | Liste aller im Harmony-Hub programmierten _Aktivitäten_                                                            |
+|   _**Hub blockiert**_       | R      | Zeigt an, ob der Hub momentan ausgelastet ist, d. h. eine Aktivität startet oder beendet oder einen Befehl sendet. |
+|   _**Hub verbunden**_       | R      | Status der Verbindung zwischen Adapter und Hub                                                                     |
+
+`hubBlocked` Und`hubConnected` Sie sind schreibgeschützt, das Schreiben in sie hat keine Auswirkung.
 
 ### Gerätefunktionen
-Öffnet man ein Gerät, so erhält man eine Liste mit allen zum Gerät gehörenden
-Funktionalitäten. Diese Gerätefunktionen sind gerätespezifisch und unterscheiden sich 
-deshalb bei Geräten unterschiedlichen Typs.
 
-![Gerät](media/a_harmony_geraet.png "Gerätefunktionen")
+Wird ein Gerät geöffnet, wird eine Liste mit allen zugehörigen Funktionen angezeigt. Diese Gerätefunktionen sind gerätespezifisch und unterscheiden sich daher zwischen verschiedenen Gerätetypen.
+
+![Gerät](../../../en/adapterref/iobroker.harmony/media/a_harmony_geraet.png "Gerätefunktionen")
 
 #### Auslösen einer Gerätefunktion
-Jede Gerätefunktion `{Instanz}.{Hub Name}.{Gerät}.{Gerätefunktion}` löst eine 
-entsprechende Reaktion des angesprochenen Geräts aus. Die Werte von Gerätefunktionen 
-können gelesen und beschrieben werden. Die Auslösung kann man testen, in dem 
-man mit dem Mauszeiger die Glocke rechts der Funktion betätigt. Alternativ kann man 
-mit dem Stiftsymbol dort auch einen Wert eintragen. 
-Werte haben die Einheit `Millisekunden`. Wird ein Wert zwischen 1 und 250ms
-eingegeben, wird vom Harmony Hub meist ein einfacher Tastendruck in der 
-vorgegeben Länge ausgegeben. Größere Werte als 250ms können zur 
-Mehrfachbetätigung der Gerätefunktion führen.
-Nach dem Auslösen der Gerätefunktion ändert sich der Wert wieder auf 0.
+
+Jede Gerätefunktion`{instance}.{hub name}.{device}.{device function}` Löst die entsprechende Reaktion des angesprochenen Geräts aus. Die Werte der Gerätefunktionen können gelesen und geschrieben werden. Die Auslösung kann durch Klicken auf das Glockensymbol rechts neben der Funktion mit dem Mauszeiger getestet werden. Alternativ kann dort mit dem Stiftsymbol ein Wert eingegeben werden.
+
+Die Werte haben die Einheit`milliseconds` Wird ein Wert zwischen 1 und 250 ms eingegeben, sendet der Harmony-Hub üblicherweise einen einzelnen Tastendruck der angegebenen Länge. Werte über 250 ms können dazu führen, dass die Gerätefunktion mehrmals ausgelöst wird.
+
+Nachdem die Gerätefunktion ausgelöst wurde, ändert sich der Wert wieder auf 0.
 
 ### Aktivitäten
-Unterhalb von `activities`werden alle am Harmony Hub programmierten Aktivitäten
-aufgelistet.
 
-![Aktivitäten](media/a_harmony_activities.png "Aktivitäten")
+Alle im Harmony Hub angebotenen Aktivitäten sind unten aufgeführt.`activities` Die
 
-#### Starten einer Aktivität
-Aktivitäten werden gestartet, wenn man bei einer Aktivität 
-`{Instanz}.{Hub Name}.activities.{Aktivität}` eine Zahl größer als 0 einträgt. 
-Während der Ausführung der Aktivität ändert sich dieser Wert zuerst 
-nach 1 (=startend) und dann nach 2 (=aktiv).
+![Aktivitäten](../../../en/adapterref/iobroker.harmony/media/a_harmony_activities.png "Aktivitäten")
 
-#### Beenden einer Aktivität
-Laufende Aktivitäten können gestoppt werden, in dem man ihren Wert auf 0 setzt.
-Alternativ kann man zum Beenden einer Aktivität im Objekt 
-`{Instanz}.{Hub Name}.activities.currentStatus` eine beliebige Zahl eintragen. 
-Während des Beendens der Aktivität ändert sich 
-`{Instanz}.{Hub Name}.activities.currentStatus` von 3 (=beendend) auf 0 (=inaktiv).
+#### Eine Aktivität starten
+
+Eine Aktivität wird gestartet, indem bei der Aktivität eine Zahl größer als 0 eingegeben wird.`{instance}.{hub name}.activities.{activity}` Während die Aktivität ausgeführt wird, ändert sich dieser Wert zuerst auf 1 (= Start) und dann auf 2 (= aktiv).
+
+#### Eine Aktivität beenden
+
+Laufende Aktivitäten werden gestoppt, indem ihr Wert auf 0 gesetzt wird. Alternativ kann im Objekt eine beliebige Zahl eingegeben werden.`{instance}.{hub name}.activities.currentStatus` Die laufende Aktivität wird gestoppt. Während die Aktivität gestoppt wird,`{instance}.{hub name}.activities.currentStatus` Änderungen von 3 (= Stopp) auf 0 (= inaktiv).
 
 #### Weitere Statuswerte
-`{Instanz}.{Hub Name}.activities.currentActivity` liefert die aktuell ausgeführte
-Aktivität als Zeichenfolge.
 
-`{Instanz}.{Hub Name}.activities.currentStatus` zeigt den Status des Harmony Hubs 
-an. Dabei bedeuten die Werte
+`{instance}.{hub name}.activities.currentActivity` Gibt die aktuell laufende Aktivität als Zeichenkette zurück.
+
+`{instance}.{hub name}.activities.currentStatus` Zeigt den Status des Harmony-Hubs an. Die Werte bedeuten Folgendes:
+
 - 0 = inaktiv
-- 1 = startend
+- 1 = Start
 - 2 = aktiv
-- 3 = beendend
+- 3 = Stopp
 
-`{Instanz}.{Hub Name}.activities.{Aktivität}` zeigt den Status einer Aktivität an.
-Die Bedeutung der Werte ist analog zu 
-`{Instanz}.{Hub Name}.activities.currentStatus`.
+`{instance}.{hub name}.activities.{activity}` zeigt den Status einer einzelnen Aktivität an. Die Bedeutung der Werte ist dieselbe wie für`{instance}.{hub name}.activities.currentStatus` Die
 
 ## Deinstallation
-> T: Ich bin der Meinung, dass eine Standarddeinstallation eines Adapters in einem 
-  zentralen Artikel ausführlich dokumentiert wird. Beim Adapter wird (immer) 
-  auf diesen zentralen Artikel verwiesen. Nur Abweichungen vom Standardverfahren 
-  werden hier dokumentiert.
 
-sollte die Instanz wieder entfernt werden sollen wird diese über das zugeordnete Mülleimer-Icon 
-in der Rubrik Instanzen entfernt
+Soll die Instanz erneut entfernt werden, wird sie mit dem ihr zugewiesenen Papierkorbsymbol gelöscht.`Instances` Abschnitt.
 
-![Delete](media/adapter_harmony_delete_01.png)
+![Löschen](../../../en/adapterref/iobroker.harmony/media/adapter_harmony_delete_01.png)
 
-Es erscheint eine Sicherheitsabfrage, die mit ***OK*** bestätigt werden muss
+Es erscheint eine Bestätigungsaufforderung, die mit _**OK**_ bestätigt werden muss.
 
-![Delete2](media/adapter_harmony_delete_02.png)
+![Delete2](../../../en/adapterref/iobroker.harmony/media/adapter_harmony_delete_02.png)
 
-Anschließend erscheint wieder ein Fenster, dass die Abarbeitung der Deinstallationsbefehle zeigt
+Anschließend erscheint erneut ein Fenster, das den Ablauf der Deinstallationsbefehle anzeigt.
 
-![Delete3](media/adapter_harmony_delete_03.png)
+![Löschen3](../../../en/adapterref/iobroker.harmony/media/adapter_harmony_delete_03.png)
 
-Bei dieser Deinstallation werden alle zu der Instanz gehörenden Objekte vollständig entfernt.
+Durch diese Deinstallation werden alle zur Instanz gehörenden Objekte vollständig entfernt.
 
-Sollten die Installationsdateien vollständig von dem Host gelöscht werden, muss dies über das Mülleimer-Icon 
-in der Kachel des Harmony-Adapters in der Rubrik Adapter geschehen.
+Sollen die Installationsdateien vollständig vom Host gelöscht werden, muss dies über das Papierkorbsymbol in der Kachel des Harmony-Adapters erfolgen.`Adapters` Abschnitt.
 
-## Besonderheiten
+## Häufig gestellte Fragen
 
-Backup
+1. **Die Verbindung zum Hub wird immer wieder unterbrochen.**
 
-Multihost  
+   Der Harmony-Hub benötigt eine stabile Funkverbindung zur Kommunikation mit dem Adapter. Die Verwendung eines WLAN-Zugangspunkts in unmittelbarer Nähe des Hubs wird empfohlen.
 
-History  
+2. **Wie lässt sich am einfachsten ein „Alles aus“-Schalter über ioBroker implementieren?**
 
-Performance
+   Satz`{instance}.{hub name}.activities.currentStatus` auf 0.
 
-## FAQ
-!> Im Forum nach häufig auftretenden Fragen suchen und hier Referenzantwort geben
+3. **Unter Windows wird die Meldung angezeigt`ERR! code ENOGIT` Während der Installation des Adapters tritt ein Fehler auf, und der Adapter funktioniert nicht.**
 
-1. **Die Verbindung zum Hub wird immer wieder unterbrochen.**  
+   Laden Sie GIT von der Website <https://git-scm.com/download/win> herunter und installieren Sie es, bevor Sie den Harmony-Adapter installieren.
 
-   Der Harmony-Hub benötigt für die Kommunikation mit dem Adapter eine ausgezeichnete
-   Funkverbindung. Die Verwendung eines WLAN-Accesspoints in unmittelbarer räumlicher
-   Nähe des Hubs wird empfohlen. 
+4. **Unter Linux wird die Meldung angezeigt`ERR! code ENOGIT` Während der Installation des Adapters tritt ein Fehler auf, und der Adapter funktioniert nicht.**
 
-2. **Wie kann man am einfachsten den Knopf "alles aus" via ioBroker implementieren?**  
+   Installieren Sie GIT über die Befehlszeile mit`sudo apt install git` vor der Installation des Harmony-Adapters.
 
-   Setze `{Instanz}.{Hub Name}.activities.currentStatus` auf 0.  
+5. **Skripte funktionieren nicht mehr mit neueren Versionen des Adapters.**
 
-3. **Unter Windows erscheint bei der Installation des Adapters die Meldung 
-   `ERR! code ENOGIT` und der Adapter funktioniert nicht.**  
-   
-   Vor der Installation des Harmony-Adapters GIT von der Webseite 
-   https://git-scm.com/download/win laden und installieren.
+   Ab Version 0.9.1 des Adapters werden Objekte anders benannt.`harmony.0.Harmony_Hub` wurde`harmony.0.Harmony Hub` Beispielsweise sollten Sie die Objekte überprüfen und die darauf aufbauenden Komponenten, wie etwa Skripte, entsprechend anpassen.
 
-4. **Unter Linux erscheint bei der Installation des Adapters die Meldung 
-   `ERR! code ENOGIT` und der Adapter funktioniert nicht.**
-   
-   Vor der Installation des Harmony-Adapters GIT mittels Kommandozeile und 
-   `sudo apt install git` installieren.
+   Ab Version 3.0.0 wird jeder Punkt in Hub-, Aktivitäts-, Geräte- und Befehlsnamen durch einen Punkt ersetzt.`_` Nicht nur der erste. Staaten, deren Name einen Punkt enthielt, werden unter der neuen ID neu erstellt, daher müssen auch Skripte, VIS-Ansichten und Aliase, die auf solche Staaten verweisen, angepasst werden.
 
-6. **Skripte funktionieren mit neueren Versionen des Adapters nicht mehr.**
+6. **Das WLAN schaltet sich nachts automatisch ab. Nach dem erneuten Einschalten des WLANs verbindet sich der Adapter nicht automatisch wieder mit dem Hub.**
 
-   Ab Version 0.9.1 dees Adapters werden Objekte anders benannt. Aus alt 
-   `harmony.0.Harmony_Hub` wurde z.B. neu `harmony.0.Harmony Hub`. Bitte
-   die Objekte prüfen und darauf aufsetzende Komponenten wie z.B. Skripte 
-   anpassen.
+   Fügen Sie einen automatischen Neustart der Harmony-Instanz (Expertenmodus) etwa 5-10 Minuten nach dem Start des WLAN-Routers hinzu.
 
-7. **Das WLAN wird nachts automatisch deaktiviert. Der Adapter stellt nach dem
-   Wiedereinschalten des WLANs die Verbindung zum HUB nicht mehr automatisch her.**
+7. **Der Hub wurde nicht gefunden.**
 
-   Füge einen automatischen Restart der harmony-Instanz (Expertenmodus) etwa 
-   5-10 Minuten nach dem WLAN-Routerstart ein.
+   Prüfen Sie, ob sich der Hub tatsächlich im selben Netzwerk-Subnetz und VLAN wie der ioBroker-Server befindet. Sind Multicast-Übertragungen erlaubt oder werden sie vom Router gefiltert? Leuchtet die Status-LED am Hub grün? Ist der Hub über die Logitech-App erreichbar? Befolgen Sie die Anweisungen von Logitech, um Verbindungsprobleme zu beheben.
 
-8. **Der HUB wird nicht gefunden.**
+   Befindet sich der Hub in einem anderen Subnetz oder ist der Broadcast-Verkehr in Ihrem Netzwerk blockiert, geben Sie seine Adresse unter **„Manuelle Hub-IPs“** in den Instanzeinstellungen ein.
 
-   Prüfe nach, ob der Hub sich wirklich um gleichen Netzwerksubnetz und VLAN
-   wie der ioBroker-Server befindet. Sind Multicasts erlaubt oder werden diese 
-   vom Router gefiltert? Leuchtet die Status-LED am Hub grün?
-   Ist der Hub über die Logitech App zu erreichen? Gehe nach der Anleitung 
-   von Logitech vor, um Konnektivitätsprobleme zu lösen.
+8. **Es kann nur eine Instanz des Adapters installiert werden.**
 
-9. **Es lässt sich nur eine Instanz des Adapters installieren.**
-    
-   Auf einem ioBroker Server lässt sich immer nur eine Instanz des Logitech 
-   Harmony-Adapters installieren.
+   Auf einem ioBroker-Server kann nur eine Instanz des Logitech Harmony-Adapters installiert werden.
 
 ## Beispiele
 
 ### JavaScript
-Auslösen von Gerätefunktionen. Hier wird der Denon AV-Empfänger ein- oder ausgeschaltet,
-wenn sich der Wert eines anderen Datenpunktes verändert.
 
-```
+Auslösende Gerätefunktionen. Hier wird der Denon AV-Receiver ein- oder ausgeschaltet, wenn sich der Wert eines anderen Zustands ändert.
+
+```javascript
 if (getState("hm-rpc.0.MEQ01234567.2.STATE").val == true) {
   setState("harmony.0.Harmony Hub.Denon AV-Empfänger.PowerOn"/*Denon AV-Empfänger:PowerOn*/, '1', true);
-  // Bei Kontrolle Schalter == AN keine Verzögerung Schalter
+  // control switch == ON: switch without delay
 } else if (getState("hm-rpc.0.MEQ01234567.2.STATE").val == false) {
-  // Bei Kontrolle Schalter == AUS schalte mit Verzögerung
+  // control switch == OFF: switch with a delay
   var timeout = setTimeout(function () {
-    setState("harmony.0.Harmony Hub.Denon AV-Empfänger.PowerOn"/*Denon AV-Empfängerr:PowerOn*/, '1', true);
+    setState("harmony.0.Harmony Hub.Denon AV-Empfänger.PowerOn"/*Denon AV-Empfänger:PowerOn*/, '1', true);
   }, 1000);
 }
 ```
 
 ### Blockly
-Auslösen von Gerätefunktionen. Hier wird der Denon AV-Empfänger ein- oder ausgeschaltet,
-wenn sich der Wert eines anderen Datenpunktes verändert.
 
-![Blockly](media/a_hamony_simple_blockly.jpg "Blockly")
+Auslösende Gerätefunktionen. Hier wird der Denon AV-Receiver ein- oder ausgeschaltet, wenn sich der Wert eines anderen Zustands ändert.
 
-[Quelltext](media/a_harmony_blockly.xml)
+![Blockly](../../../en/adapterref/iobroker.harmony/media/a_hamony_simple_blockly.jpg "Blockly")
 
-### Node-Red
-> zugehörige node-red-Elemente
-
-> Beispiele
-
-> Exporte zum Weiterverwenden
-
-### vis
-> zugehörige vis-Elemente
-
->  Beispiele
-
->  Exporte zum Weiterverwenden
-
->  Code-Fragmente
+[Quellcode](https://github.com/iobroker-community-adapters/ioBroker.harmony/blob/master/media/a_harmony_blockly.xml)
 
 ## Links
-> Referenzen auf andere Dokumente im ioBroker-Portal
 
-> Weblinks z.B. zum Hersteller
-
-> GitHub-Links
-
-* Herstellerseite [https://www.logitech.com/de-de/product/harmony-hub](https://www.logitech.com/de-de/product/harmony-hub)
+- Herstellerseite <https://www.logitech.com/de-de/product/harmony-hub>
 
 ## Changelog
 <!--
@@ -365,4 +303,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.harmony/blob/master/CHANGELOG_OLD.md)

@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.ankersolix2/README.md":{"title":{"en":"ioBroker.ankersolix2"},"content":"en/adapterref/iobroker.ankersolix2/README.md"},"en/adapterref/iobroker.ankersolix2/docs/en/README.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.ankersolix2/docs/en/README.md"}}}
+---
 ![Logo](admin/ankersolix2.png)
 
 # ioBroker.ankersolix2
@@ -60,8 +63,8 @@ If you have erros again and cant login, stop the adapter and delete the session.
 
 ## Doku
 
-- de: [zur Dokumentation](docs/de/README.md)
-- en: [for documentation](docs/en/README.md)
+- de: [zur Dokumentation](https://github.com/ronny130286/ioBroker.ankersolix2/blob/main/docs/de/README.md)
+- en: [for documentation](/#/docs/adapterref/iobroker.ankersolix2/docs/en/README.md)
 
 ## You want to support me?
 

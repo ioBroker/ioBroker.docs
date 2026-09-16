@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: sYc1FFNyG/KdRyiwudb7H9czCrpySLFq6D5lDISBLTQ=
+hash: mcEmDQ0s/9BZ3VaZjOahnA7rgtNjzFJKeNQRAh6bex0=
 ---
 ![Logo](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -17,21 +17,20 @@ hash: sYc1FFNyG/KdRyiwudb7H9czCrpySLFq6D5lDISBLTQ=
 ![Letzter Commit auf GitHub](https://img.shields.io/github/last-commit/hombach/iobroker.kostal-piko-ba?logo=github&style=flat-square)
 ![GitHub-Probleme](https://img.shields.io/github/issues/hombach/iobroker.kostal-piko-ba?logo=github&style=flat-square)
 ![GitHub-Workflow-Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.kostal-piko-ba/test-and-release.yml?branch=main&logo=github&style=flat-square)
+![CodeQL](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml/badge.svg)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.kostal-piko-ba?branch=master&svg=true)
 ![Beta](https://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg?color=red&label=beta)
 ![Stabil](https://iobroker.live/badges/kostal-piko-ba-stable.svg)
 ![Installiert](https://iobroker.live/badges/kostal-piko-ba-installed.svg)
 ![NPM](https://nodei.co/npm/iobroker.kostal-piko-ba.png?downloads=true)
 
-# IoBroker.kostal-piko-ba
-[![CodeQL](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml)
+# ioBroker.kostal-piko-ba
 
 ## Versionen
-## Adapter zum Auslesen von Kostal Piko- und Piko BA-Daten für iOBroker
-Dieser Adapter ermöglicht das Auslesen von Daten von Kostal Piko, Piko BA und PIKO MP plus Wechselrichtern.
 
-Er erstellt und aktualisiert nacheinander mehrere Zustände, sodass stets die aktuellsten Informationen verfügbar sind.
-Der Adapter ist speziell für die Kostal Piko Wechselrichter BA, 6.0BA, 8.0BA und 10BA konzipiert, unterstützt aber auch eine Vielzahl weiterer Modelle, darunter:
+## Adapter zum Auslesen von Kostal Piko- und Piko BA-Daten für iOBroker
+
+Dieser Adapter ermöglicht das Auslesen von Daten von Kostal Piko, Piko BA und PIKO MP plus Wechselrichtern. Er erstellt und aktualisiert nacheinander mehrere Zustände, um sicherzustellen, dass stets die aktuellsten Informationen verfügbar sind. Der Adapter ist speziell für die Kostal Piko BA, 6.0BA, 8.0BA und 10BA Wechselrichter konzipiert, unterstützt aber auch eine Vielzahl weiterer Modelle, darunter:
 
 - Kostal Piko: 3,0, 4,2, 4,6, 5,5, 7,0, 8,5, 10, 12, 15, 17, 20 und 36.
 - Kostal PIKO MP: 1,5, 3,0, 3,6.
@@ -40,16 +39,17 @@ Der Adapter ist speziell für die Kostal Piko Wechselrichter BA, 6.0BA, 8.0BA un
 Wir freuen uns über jedes Feedback zur Funktionalität mit anderen Wechselrichtern. Bitte informieren Sie uns, wenn Sie das Gerät mit weiteren Modellen testen.
 
 ## Konfiguration
-Stellen Sie sicher, dass Ihr Piko- oder Piko-BA-Wechselrichter auf Kostal UI Version 6.11 oder höher aktualisiert ist.
-Um eine Verbindung zum Kostal Piko (BA/MP plus) Wechselrichter herzustellen, müssen Sie dessen IP-Adresse in den Einstellungen konfigurieren.
-Optional können Sie die Aktualisierungsfrequenzen für Live-Daten, Tagesstatistiken und Gesamtstatistiken anpassen.
-Sofern Ihre Hardware dies unterstützt, können Sie auch die Anzeige der vier Analogwerte aktivieren.
 
-## Wächter
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in <a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry">der Sentry-Plugin-Dokumentation</a> !
+Stellen Sie sicher, dass Ihr Piko- oder Piko-BA-Wechselrichter auf Kostal UI Version 6.11 oder höher aktualisiert ist. Um eine Verbindung zum Kostal Piko (BA/MP plus) Wechselrichter herzustellen, müssen Sie dessen IP-Adresse in den Einstellungen konfigurieren. Optional können Sie die Aktualisierungsfrequenzen für Live-Daten, Tagesstatistiken und Gesamtstatistiken anpassen. Sofern Ihre Hardware dies unterstützt, können Sie auch die Anzeige der vier Analogwerte aktivieren.
+
+## Posten
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie unter \[Link einfügen].<a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry"> Sentry-Plugin-Dokumentation</a> !
 
 ## Spenden
-<a href="https://www.paypal.com/donate/?hosted_button_id=XFFBB332R4RCQ"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Wenn dir dieses Projekt gefallen hat – oder du einfach nur großzügig sein möchtest –, spendiere mir doch ein Bier. Prost! 😉
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=XFFBB332R4RCQ"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a>\
+&#x20;Wenn dir dieses Projekt gefallen hat – oder du einfach nur großzügig sein möchtest –, spendiere mir doch ein Bier. Prost! 😉
 
 ## Changelog
 
@@ -57,6 +57,18 @@ Sofern Ihre Hardware dies unterstützt, können Sie auch die Anzeige der vier An
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (HombachC) fixed vulnerability
+- (HombachC) updated dependencies
+
+### 7.0.6 (2026-07-27)
+
+- (HombachC) fixed misleading HTTP error 200 log message caused by network interruption during response body reading
+- (HombachC) improved connection error handling: added ECONNRESET + ECONNABORTED cases and default fallback for unknown error codes
+- (HombachC) updated dependencies
+
 ### 7.0.5 (2026-07-05)
 
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now
@@ -78,13 +90,7 @@ Sofern Ihre Hardware dies unterstützt, können Sie auch die Anzeige der vier An
 
 - (HombachC) fix tsconfig
 
-### 7.0.1 (2026-05-16)
-
-- (HombachC) update typescript from 5.9.3 to 6.0.3
-- (HombachC) fix vulnerability in axios
-- (HombachC) update dependencies
-
-### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
+### Old Changes see [CHANGELOG OLD](https://github.com/Hombach/ioBroker.kostal-piko-ba/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

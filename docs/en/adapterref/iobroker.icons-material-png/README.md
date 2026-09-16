@@ -10,5 +10,3 @@ Icon set for ioBroker.vis and ioBroker.mobile from [Material Design Icons](https
 ## Changelog
 ### 0.1.0 (2015-05-20)
 * (bluefox) initial commit
-
-

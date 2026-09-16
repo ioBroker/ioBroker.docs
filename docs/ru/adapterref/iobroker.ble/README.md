@@ -1,57 +1,57 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ble/README.md
-title: без заголовка
-hash: VtCLTJIplbiAg5M+6VZox5WGQ1SG/s4ZYMNxZNe4Euw=
+title: без названия
+hash: ZsjsFFVPqZRjXaY7G62PHdi6Tg8/7nk2qml410R0syM=
 ---
-![Количество установок](http://iobroker.live/badges/ble-stable.svg?break_cache=1)
-
-<img src="admin/ble.png" height="48" />ioBroker.ble
-
-=================
+# <img src="admin/ble.png" height="48" />ioBroker.ble
 
 ![Статус сборки](https://action-badges.now.sh/AlCalzone/ioBroker.tradfri)
+![Количество установок](http://iobroker.live/badges/ble-stable.svg?break_cache=1)
 
-Контролируйте маяки Bluetooth Low Energy (BLE) и записывайте их информацию.
-В настоящее время поддерживается только запись *рекламируемых* служебных данных. Вы можете отслеживать, какие услуги рекламируются, с помощью приложения nRF Connect (UUID данных службы).
-Характеристики службы подключения и чтения/записи будут поддерживаться в будущих версиях.
+Отслеживайте маяки Bluetooth Low Energy (BLE) и записывайте информацию о них. В настоящее время поддерживается только запись данных _о рекламируемых_ сервисах. Вы можете отслеживать, какие сервисы рекламируются, используя приложение nRF Connect (UUID данных сервисов). Подключение и чтение/запись характеристик сервисов будут поддерживаться в будущей версии.
 
-## Монтаж
-Для компиляции этого адаптера требуются дополнительные библиотеки. Подробные инструкции см. на https://github.com/sandeepmistry/noble#preреквизиты.
-На Raspberry Pi и подобных устройствах это должно сработать: `sudo apt-get install bluetooth bluez libbluetooth-dev libudev-dev libcap2-bin`.
+## Установка
 
-Если адаптер запускается, но не подключается к вашему оборудованию Bluetooth, проверьте состояние `info.driverState` в ioBroker. Если это `unauthorized`, вам необходимо предоставить `node` дополнительные разрешения. Для Linux это так же просто, как
+Для компиляции этого адаптера требуются дополнительные библиотеки. Подробные инструкции см. на <https://github.com/sandeepmistry/noble#prerequisites> . На Raspberry Pi и аналогичных устройствах это должно сработать:`sudo apt-get install bluetooth bluez libbluetooth-dev libudev-dev libcap2-bin`
+
+Если адаптер запускается, но не подключается к вашему Bluetooth-устройству, пожалуйста, проверьте следующее:`info.driverState` Состояние в ioBroker. Если оно такое:`unauthorized` , вам нужно дать`node` дополнительные разрешения. Для Linux это делается очень просто:
 
 ```bash
 sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
 ```
 
-для которого требуется установка `libcap2-bin`.
+что требует`libcap2-bin` подлежит установке.
 
 ## Конфигурация
-Если в вашей системе несколько устройств Bluetooth, выберите из раскрывающегося списка то, которое вы хотите использовать.
-В текстовое поле ниже введите все UUID рекламируемых услуг, которые вы хотите записать (как указано в приложении nRF Connect).
+
+Если в вашей системе несколько устройств Bluetooth, выберите нужное из выпадающего списка. В текстовом поле ниже введите все UUID рекламируемых служб, которые вы хотите записать (как указано в приложении nRF Connect).
 
 ## Система плагинов
-Адаптер поддерживает расширение через плагины. Они определяют, какие рекламируемые услуги следует прослушивать и как транслировать данные. Структура плагина определена в https://github.com/AlCalzone/ioBroker.ble/blob/master/src/plugins/plugin.ts, а пример рабочего плагина определен здесь https://github.com/AlCalzone. /ioBroker.ble/blob/master/src/plugins/_default.ts
 
-Если у вас есть какое-либо устройство, передающее специально закодированную информацию через рекламу, смело создайте для него PR с новым плагином.
+Адаптер поддерживает расширение с помощью плагинов. Они определяют, какие рекламируемые сервисы следует прослушивать и как преобразовывать данные. Структура плагинов описана в <https://github.com/AlCalzone/ioBroker.ble/blob/master/src/plugins/plugin.ts> , а пример работающего плагина приведен здесь: <https://github.com/AlCalzone/ioBroker.ble/blob/master/src/plugins/_default.ts>
+
+Если у вас есть устройство, передающее специально закодированную информацию посредством рекламы, смело создавайте запрос на добавление нового плагина для этого.
 
 ### Поддерживаемые плагины
-* `"xiaomi"`: все датчики Bluetooth xiaomi, включая
-  * [Датчик растений для ухода за цветами](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-huahuacaocao-flower-care-smart-monitor/)
-  * [Датчик температуры и влажности Mijia](https://www.banggood.com/Xiaomi-Mijia-Bluetooth-Thermometer-Hygrometer-with-LCD-Screen-Magnetic-Suction-Wall-Stickers-p-1232396.html?cur_warehouse = США)
-  * [Репеллент от комаров] (https://www.aliexpress.com/item/32883859984.html)
-* `"mi-flora"`: оригинальный плагин для датчика растений для ухода за цветами, теперь имеющий псевдоним `"xiaomi"`
-* `"ruuvi-tag"`: [Ruuvi Tag](https://tag.ruuvi.com/) мультисенсор с версиями прошивки v1 и v2. **Непроверено, оставьте отзыв!**
-* `"bthome"`: датчики, использующие протокол [BTHome](https://bthome.io). На данный момент это ограничено версией протокола v2 и не поддерживает зашифрованные пакеты.
+
+- `"xiaomi"` Все датчики Bluetooth Xiaomi, включая
+  - [Датчик для ухода за цветами](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-huahuacaocao-flower-care-smart-monitor/)
+  - [Датчик температуры и влажности Mijia](https://www.banggood.com/Xiaomi-Mijia-Bluetooth-Thermometer-Hygrometer-with-LCD-Screen-Magnetic-Suction-Wall-Stickers-p-1232396.html?cur_warehouse=USA)
+  - [Средство от комаров](https://www.aliexpress.com/item/32883859984.html)
+- `"mi-flora"` Оригинальный плагин для датчика ухода за цветами, теперь имеет псевдоним для`"xiaomi"`
+- `"ruuvi-tag"` Мультисенсорный модуль [Ruuvi Tag](https://tag.ruuvi.com/) с версиями прошивки v1 и v2. **Не тестировался, пожалуйста, оставьте отзыв!**
+- `"bthome"` Датчики, использующие протокол [BTHome](https://bthome.io) . На данный момент это ограничено следующими устройствами:`v2` Протокол был пересмотрен и не поддерживает зашифрованные пакеты.
 
 ## Changelog
 <!--
 	Placeholder for next release:
 	### __WORK IN PROGRESS__
 -->
+### 0.14.1 (2025-02-09)
+* Fixed compatibility issues with newer OS and Node.js versions (#874)
+
 ### 0.14.0 (2023-12-11)
 * **BREAKING:** Dropped support for Node.js 16 and below
 * Add support for the BTHome v2 protocol (unencrypted packets only)
@@ -219,7 +219,7 @@ sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2023 AlCalzone <d.griesel@gmx.net>
+Copyright (c) 2017-2025 AlCalzone <d.griesel@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

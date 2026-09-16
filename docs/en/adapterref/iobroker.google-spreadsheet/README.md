@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.google-spreadsheet/README.md":{"title":{"en":"ioBroker.google-spreadsheet"},"content":"en/adapterref/iobroker.google-spreadsheet/README.md"},"en/adapterref/iobroker.google-spreadsheet/docs/sendTo-API.md":{"title":{"en":"sendTo API for ioBroker.google-spreadsheet"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/sendTo-API.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/append.md":{"title":{"en":"Append"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/append.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-rows.md":{"title":{"en":"Delete Rows"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-rows.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/create-sheet.md":{"title":{"en":"Create-Sheet"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/create-sheet.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheet.md":{"title":{"en":"Delete Sheet"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheet.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheets.md":{"title":{"en":"Delete multiple sheets"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheets.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/duplicate-sheet.md":{"title":{"en":"Duplicate Sheet"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/duplicate-sheet.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/read-cell.md":{"title":{"en":"Read Cell"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/read-cell.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/write-cell.md":{"title":{"en":"Write Cell"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/write-cell.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/write-cells.md":{"title":{"en":"Write multiple cells"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/write-cells.md"}}}
+---
 ![Logo](admin/google-spreadsheet.png)
 # ioBroker.google-spreadsheet
 
@@ -23,20 +26,19 @@ This adapter can be used to automatically interact with google sheets.
 
 ## API
 
-* [sendTo API documentation](docs/sendTo-API.md)
+* [sendTo API documentation](/#/docs/adapterref/iobroker.google-spreadsheet/docs/sendTo-API.md)
 
 ## Features
 
-* [Append data to spreadsheet](docs/features/append.md)
-* [Delete rows from a spreadsheet](docs/features/delete-rows.md)
-* [Create sheets](docs/features/create-sheet.md)
-* [Delete sheet](docs/features/delete-sheet.md)
-* [Delete sheets](docs/features/delete-sheets.md)
-* [Duplicate sheets](docs/features/duplicate-sheet.md)
-* [Read cell](docs/features/read-cell.md)
-* [Write cell](docs/features/write-cell.md)
-* [Write cells](docs/features/write-cells.md)
-
+* [Append data to spreadsheet](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/append.md)
+* [Delete rows from a spreadsheet](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/delete-rows.md)
+* [Create sheets](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/create-sheet.md)
+* [Delete sheet](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheet.md)
+* [Delete sheets](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheets.md)
+* [Duplicate sheets](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/duplicate-sheet.md)
+* [Read cell](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/read-cell.md)
+* [Write cell](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/write-cell.md)
+* [Write cells](/#/docs/adapterref/iobroker.google-spreadsheet/docs/features/write-cells.md)
 
 ## Usage
 
@@ -98,7 +100,6 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 ```
 2. The "SPREADSHEET_ID" is the long string of characters and numbers between the "/d/" and "/edit" parts of the URL.
 
-
 ### Blockly
 
 Use the available blocks to automatically interact with your spreadsheet.
@@ -112,7 +113,6 @@ When copying the private key into the configuration, make sure there are no \n. 
 
 ### Error while sending data to Google Sheets:Error: The caller does not have permission
 Make sure the Service Account has adequate permissions to write to the spreadsheet. Refer to the "Grant Access to the Spreadsheet" section above.
-
 
 ## Changelog
 <!--
@@ -144,8 +144,6 @@ Make sure the Service Account has adequate permissions to write to the spreadshe
 ### 0.4.0
 * (Thomas Pohl) The privateKey is saved now encrypted
 * (Thomas Pohl) Support for node.js 22
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

@@ -1,23 +1,24 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.heizoel/README.md
 title: ioBroker.heizoel
-hash: y6xEvSd7NYkRVNDAkYOLsnthAJQaLq4MKmBpdwQCfaw=
+hash: XTFZkRRs/VBWgIdHX0FtImHeSWFIJ/BDjUg2FWe378A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.heizoel/admin/heizoel.png)
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.heizoel.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.heizoel.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/heizoel-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/heizoel-stable.svg)
+![Количество установок (последние)](https://iobroker.live/badges/heizoel-installed.svg)
+![Количество установок (стабильных)](https://iobroker.live/badges/heizoel-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.heizoel.svg)
 ![НПМ](https://nodei.co/npm/iobroker.heizoel.png?downloads=true)
+![Тестирование и выпуск](https://github.com/TA2k/ioBroker.heizoel/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.heizoel
-** Тесты: ** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.heizoel/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.heizoel
 
-## Адаптер heizoel для ioBroker
+## адаптер heizoel для ioBroker
+
 Адаптер для Heizöl
 
 Адаптер fragt regelmässig die Heizölpreise ab

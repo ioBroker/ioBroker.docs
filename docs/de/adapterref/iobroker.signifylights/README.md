@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.signifylights/README.md
 title: ioBroker.signifylights
-hash: jpUQ+tfhgmQ6g52wkjjx1e1umiIRldRNMrcgAASm6Tc=
+hash: AAPv0ouEg+x/UJt9X/gThpZ8S/+ytwHIpuFoJ6Cw6l0=
 ---
 ![Logo](../../../en/adapterref/iobroker.signifylights/admin/signifylights.png)
 
@@ -12,20 +12,50 @@ hash: jpUQ+tfhgmQ6g52wkjjx1e1umiIRldRNMrcgAASm6Tc=
 ![Anzahl der Installationen](https://iobroker.live/badges/signifylights-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/signifylights-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.signifylights.png?downloads=true)
+![Test und Freigabe](https://github.com/disaster123/ioBroker.signifylights/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.signifylights
-**Tests:** ![Test und Freigabe](https://github.com/disaster123/ioBroker.signifylights/workflows/Test%20and%20Release/badge.svg)
+# ioBroker.signifylights
 
 ## Signifylights-Adapter für ioBroker
-Signify Lights-Adapter für alle Arten von Signify WLAN-Leuchten wie WIZ, Philips WLAN und viele mehr ...
 
-Fragen und Diskussion hier: https://forum.iobroker.net/topic/69656/test-adapter-signifylights
+Signify Lights Adapter für alle Arten von Signify WLAN-Leuchten wie WIZ, Philips WLAN und viele mehr...
+
+Fragen und Diskussionen dazu finden Sie hier: <https://forum.iobroker.net/topic/69656/test-adapter-signifylights>
 
 ### HAFTUNGSAUSSCHLUSS
-Dieses Projekt ist NICHT mit WIZ, Signify oder Philips verbunden, wird nicht finanziert oder steht in irgendeiner Weise mit diesen in Verbindung. Alle Marken- und Produktnamen sind Warenzeichen oder eingetragene Warenzeichen ihrer jeweiligen Inhaber.
-Der Verweis auf einen Firmen- oder Produktnamen stellt keine Billigung oder Empfehlung dieses Unternehmens oder Produkts unter Ausschluss anderer dar.
+
+Dieses Projekt steht in keiner Verbindung zu WIZ, Signify oder Philips und wird weder von diesen Unternehmen finanziert noch ist es in irgendeiner Weise mit ihnen verbunden. Alle Marken- und Produktnamen sind Marken oder eingetragene Marken ihrer jeweiligen Inhaber. Die Nennung eines Unternehmens- oder Produktnamens stellt keine Empfehlung oder Befürwortung dieses Unternehmens oder Produkts unter Ausschluss anderer dar.
 
 ## Changelog
+### 1.0.0 (2025-04-27)
+* signifylights is now stable
+* replaced the old device specific code with generic code
+  to automatically support new devices without the need to get added
+
+### 0.4.5 (2025-04-21)
+* fix minimum deps
+
+### 0.4.4 (2025-04-21)
+* fix minimum deps
+
+### 0.4.3 (2025-03-25)
+* added ESP25_MHORGB_01
+* added ESP24_SHRGB_01
+* fix hex color
+
+### 0.4.2 (2024-11-06)
+* implement responsive design in config page (thx simatec)
+
+### 0.4.1 (2024-11-02)
+* fix eslint 9.x
+* add ESP26_SHRGB_01: WIZ Wi-Fi BLE ST64 E27 822-65 RGB CL
+* add ESP25_SHRGB_01: added (WiZ Wi-Fi BLE 60W A60 E27 822-65 RGB)
+* various stuff from adapter check
+
+### 0.3.1 (2023-11-27)
+* fix scenes for ESP03_SHTWP_31, ESP24_SHRGBW_01, ESP06_SHTW1_01
+* retry to release v0.3.1
+
 ### 0.3.0 (2023-10-27)
 * several translation fixes
 * replace logo
@@ -48,7 +78,7 @@ Der Verweis auf einen Firmen- oder Produktnamen stellt keine Billigung oder Empf
 ## License
 MIT License
 
-Copyright (c) 2023 disaster123 <stefan-iobroker@prie.be>
+Copyright (c) 2025 disaster123 <stefan-iobroker@prie.be>
 
 originally developed by Copyright (c) 2022 nxtstep <privat@konzeptplus.net>
 

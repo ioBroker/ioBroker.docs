@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Spezielle Jaeger Design-Widgets für ioBroker.vis 2.0
-hash: ww2pwFXi5G9qk35KbU8FU+RCGd8leK5XMwH7ajEJbwQ=
+hash: M00aUPBA9p1oK9WSaR83lylIGINU7dz5H8EdWPpS/fo=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -12,71 +12,90 @@ hash: ww2pwFXi5G9qk35KbU8FU+RCGd8leK5XMwH7ajEJbwQ=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-jaeger-design.svg)
 
 # Spezielle Jaeger Design-Widgets für ioBroker.vis 2.0
+
 ![YouTube](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/youtube.jpg)
 
-Hier finden Sie Videos zur Verwendung der Widgets [Hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) (auf Deutsch).
+[Hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden Sie Videos (auf Deutsch), die Ihnen die Verwendung der Widgets erklären.
 
-Videos wie die Widgets benutzt werden können, kann man [hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden.
+Videos wie die Widgets verwendet werden können, kann man [hier](https://www.youtube.com/playlist?list=PLddhldeLVrtl5Bhj6AAbkLabuIuyV0bVe) finden.
 
-Für die deutsche Version siehe [hier](docs/README_de.md)
+Die englische Version finden Sie [hier](https://github.com/ioBroker/ioBroker.vis-2-widgets-jaeger-design/blob/master/docs/README_de.md)
 
 ## Kommerzielle Nutzung
-Bitte beachten Sie, dass es keine kostenlose Version dieses Adapters gibt. Für die Nutzung dieser Widgets ist eine Lizenz erforderlich (aktueller Preis: 50 € inkl. MwSt.).
-Sie können die Widgets jedoch kostenlos installieren und im Editor ausprobieren.
 
-## Übersicht zur Erstellung einer Smart Home Schnittstelle mit dem „VIS-2 JAEGER Design Adapter“
+Bitte beachten Sie, dass es für diesen Adapter keine kostenlose Version gibt. Zum Verwenden dieser Widgets muss eine Lizenz erworben werden (aktueller Preis: 50 € inkl. MwSt.).\
+&#x20;Sie können sie jedoch kostenlos installieren und im Editor ausprobieren.
+
+## Überblick über die Erstellung einer Smart-Home-Schnittstelle mit dem „VIS-2 JAEGER Design Adapter“
+
 ### Anforderungen
+
 - Ein ioBroker-System
 - Der JAEGER Design Adapter (ca. 50 €)
 - Grundkenntnisse in der Verwendung von ioBroker
 
 ### Einführung
-Der JAEGER Design Adapter basiert auf dem vis-2 Adapter und ermöglicht die Erstellung einer Oberfläche per Click & Drop. Verschiedene Widgets lassen sich hinzufügen und individuell anpassen, um Smart-Home-Geräte zu steuern.
+
+Der JAEGER Design Adapter basiert auf dem vis-2 Adapter und ermöglicht die Erstellung von Benutzeroberflächen per Drag & Drop. Verschiedene Widgets können hinzugefügt und individuell angepasst werden, um Smart-Home-Geräte zu steuern.
 
 ### Grundstruktur der Schnittstelle
-Die Schnittstelle besteht aus mehreren Bereichen:
 
-- **Hauptmenü**: Auf der linken Seite befindet sich eine Spalte mit Hauptmenüpunkten, die einfach erstellt werden können.
-- **Statusleiste**: Oben können Sie verschiedene wichtige Statusanzeigen hinzufügen.
-- **Mittlerer Bereich**: Hier können Szenen, Aktionen und Benachrichtigungen angezeigt werden. Die rechte Seite ist frei konfigurierbar und kann Informationen wie Sicherheit, Wetter, Haushaltsgeräte und Energieverbrauch anzeigen.
+Die Benutzeroberfläche besteht aus mehreren Bereichen:
 
-  ![iobroker Schnittstellen1](https://github.com/user-attachments/assets/d0323e58-ba6e-455c-8a06-81f9acda9ef9)
+- **Hauptmenü** : Auf der linken Seite befindet sich eine Spalte mit Hauptmenüpunkten, die sich leicht erstellen lassen.
+- **Statusleiste** : Oben können Sie verschiedene wichtige Statusanzeigen hinzufügen.
+- **Mittlerer Bereich** : Hier können Szenen, Aktionen und Benachrichtigungen angezeigt werden. Die rechte Seite ist frei konfigurierbar und kann Informationen wie Sicherheit, Wetter, Haushaltsgeräte und Energieverbrauch anzeigen.![iobroker Schnittstellen1](https://github.com/user-attachments/assets/d0323e58-ba6e-455c-8a06-81f9acda9ef9)
 
 ### Beleuchtung
-Im Hauptmenü können verschiedene Etagen ausgewählt werden. Der Grundriss des Erdgeschosses zeigt alle Leuchten durch Symbole dargestellt. Einige Symbole lassen sich nur ein- oder ausschalten, andere sind dimmbar. Durch Drücken und Halten eines Symbols öffnet sich ein Popup-Fenster mit einem Schieberegler zur Helligkeitsanpassung.
 
-![iobroker-jaeger-design-beleuchtung](https://github.com/user-attachments/assets/7e4a4ee9-b1b4-4ab1-88cb-eddf0a1fc707) Auf der rechten Seite sind Lichtszenen leicht zugänglich und Lichteinstellungen können gespeichert werden: ![iobroker-jaeger-design-beleuchtung_szenen_speichern](https://github.com/user-attachments/assets/d9099048-0d26-4cfb-9b74-04a36b07131b)
+Im Hauptmenü können verschiedene Etagen ausgewählt werden. Der Grundriss des Erdgeschosses zeigt alle Leuchten, dargestellt durch Symbole. Einige Symbole lassen sich nur ein- oder ausschalten, andere sind dimmbar. Durch langes Drücken auf ein Symbol öffnet sich ein Fenster mit einem Schieberegler zur Helligkeitsanpassung.![iobroker-jaeger-design-beleuchtung](https://github.com/user-attachments/assets/7e4a4ee9-b1b4-4ab1-88cb-eddf0a1fc707) Die Lichtszenen auf der rechten Seite sind leicht zugänglich, und die Lichteinstellungen können auch gespeichert werden:![iobroker-jaeger-design-beleuchtung\_szenen\_speichern](https://github.com/user-attachments/assets/d9099048-0d26-4cfb-9b74-04a36b07131b)
 
-### Jalousien
-Im Menü „Jalousie“ können Sie den Beschattungsstatus einsehen. Symbole zeigen die Position der Jalousie an. Ein Klick auf ein Symbol öffnet ein Popup-Fenster zur Anpassung von Höhe und Lamellenwinkel.
-![Beschattung-iobroker-smarthome](https://github.com/user-attachments/assets/a808b0c2-0e84-4586-b482-3d63b49e4706)
+### Jalousie
+
+Im Menü „Jalousien“ wird der Beschattungsstatus angezeigt. Symbole zeigen die Position der Jalousien an. Durch Klicken auf ein Symbol öffnet sich ein Fenster, in dem Sie Höhe und Lamellenwinkel anpassen können.![Beschattung-iobroker-smarthome](https://github.com/user-attachments/assets/a808b0c2-0e84-4586-b482-3d63b49e4706)
 
 ### Energie
-Im Menü „Energie“ können Sie die Raumtemperaturen in jedem Raum einsehen. Symbole zeigen die Ist- und Solltemperaturen sowie den Status von Heizung und Fenstern an. Durch Klicken auf ein Symbol öffnet sich ein Popup-Fenster, in dem Sie die Solltemperaturen ändern und weitere Aktionen wie Klimaanlagen oder Warmluftsysteme steuern können.
-![iobroker-jaeger-design-raumtemperatur_ueberblick](https://github.com/user-attachments/assets/b34ab5bb-e05a-438f-b0d6-649a34d1dfde)
+
+Im Menü „Energie“ sehen Sie die Raumtemperaturen der einzelnen Räume. Symbole zeigen die Ist- und Solltemperaturen sowie den Status von Heizung und Fenstern an. Durch Klicken auf ein Symbol öffnet sich ein Fenster, in dem Sie die Solltemperaturen ändern und weitere Funktionen wie Klimaanlage oder Warmluftheizung steuern können.![iobroker-jaeger-design-raumtemperatur\_ueberblick](https://github.com/user-attachments/assets/b34ab5bb-e05a-438f-b0d6-649a34d1dfde)
 
 ![iobroker-jaeger-design-raumtemperatur](https://github.com/user-attachments/assets/282f5f01-827c-4976-8cbc-78084f076ac1)
 
 ### Sicherheit
-Im Menü „Sicherheit“ kann der Status der Fenster eingesehen werden. Geöffnete Fenster werden rot angezeigt.
-![iobroker-jaeger-design-sicherheit](https://github.com/user-attachments/assets/9e0234ac-aa0a-4811-b971-ac33237502f5)
+
+Im Menü „Sicherheit“ kann der Status der Fenster angezeigt werden. Geöffnete Fenster werden rot dargestellt.![iobroker-jaeger-design-sicherheit](https://github.com/user-attachments/assets/9e0234ac-aa0a-4811-b971-ac33237502f5)
 
 ### Zusätzliche Funktionen
-Sie können auch frei definierte Schnittstellen erstellen, wie z. B. die Verbrauchsanzeige des Verbrauchsadapters oder die Anzeige von Nightscout für Diabetes. Im Menü „Einstellungen“ können verschiedene Einstellungen vorgenommen werden.
-![iobroker-jaeger-design-energieüberwachung](https://github.com/user-attachments/assets/92e09c5f-88d9-48b3-b97f-0401a8839946)
+
+Sie können auch frei definierbare Benutzeroberflächen erstellen, beispielsweise die Verbrauchsanzeige des „Verbrauchs“-Adapters oder die Anzeige von Nightscout für Diabetiker. Im Menü „Einstellungen“ lassen sich verschiedene Einstellungen vornehmen.![iobroker-jaeger-design-energieüberwachung](https://github.com/user-attachments/assets/92e09c5f-88d9-48b3-b97f-0401a8839946)
 
 ![iobroker-jaeger-design-diabetes](https://github.com/user-attachments/assets/39d0a043-6025-4f9d-96f4-e8c9bd2245bd)
 
 ![iobroker-jaeger-design-einstellungen](https://github.com/user-attachments/assets/bff91b52-c04e-4482-9dd8-e17a9a7c762c)
 
 ### YouTube-Tutorials
-Für eine ausführliche Anleitung und weitere Informationen empfiehlt es sich, die verlinkten YouTube-Tutorials anzuschauen.
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+Für detaillierte Anweisungen und weitere Informationen wird empfohlen, die verlinkten YouTube-Tutorials anzusehen.
 
-### **IN ARBEIT** -->
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### 1.4.16 (2026-01-17)
+* (bluefox) Added ON/OFF object ID for dimmer
+
+### 1.4.15 (2025-12-16)
+* (bluefox) Corrected case if the floor was not found
+
+### 1.4.9 (2025-10-16)
+* (bluefox) Corrected the icon selection dialog
+* (bluefox) Corrected actions selection
+
+### 1.4.7 (2025-07-01)
+* (bluefox) Corrected the editing of scenes
+* (bluefox) Added the right padding for the time
+
 ### 1.4.3 (2025-05-31)
 * (bluefox) Implemented the full-screen mode for cameras
 * (bluefox) Added the possibility of disabling "swipe to open the menu" in the mobile view
@@ -272,5 +291,5 @@ Für eine ausführliche Anleitung und weitere Informationen empfiehlt es sich, d
 * (bluefox) initial commit
 
 ## License
-Copyright (c) 2022-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2026 bluefox <dogafox@gmail.com>
 All rights reserved.

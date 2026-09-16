@@ -3,33 +3,35 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.warp/README.md
 title: ioBroker.warp
-hash: bjZV7O1KguMrIRaApQK0vOCRtJJDiSdsIvHmdliORNk=
+hash: pPRgv8LU5hfr/h1wYxMwQr/CVU6rE2/A4m/OcPxiZLM=
 ---
-# IoBroker.warp
+# ioBroker.warp
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.warp.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.warp.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/warp-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/warp-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.warp.png?downloads=true)
+![Test und Freigabe](https://github.com/pottio/ioBroker.warp/workflows/Test%20and%20Release/badge.svg)
 
-**Tests:** ![Testen und freigeben](https://github.com/pottio/ioBroker.warp/workflows/Test%20and%20Release/badge.svg)
+## WARP-Ladeadapter für ioBroker
 
-## WARP Ladeadapter für ioBroker
 Dieser Adapter überwacht und steuert eine Wallbox [(WARP-Ladegerät)](https://www.warp-charger.com/) von [Tinkerforge](https://www.tinkerforge.com/de/) über ioBroker. Die Verbindung wird über WebSockets hergestellt.
 
-#### Ab Adapterversion 1.0.0 werden nur WARP-Firmwareversionen >= 2.0.0 unterstützt
-Warum diesen Adapter verwenden - es ist auch möglich, die Wallbox über MQTT mit ioBroker zu verbinden?!
+#### Ab Adapterversion 1.0.0 werden nur noch WARP-Firmwareversionen >= 2.0.0 unterstützt.
 
-Über MQTT werden jedoch keine einzelnen Zustände gesendet, sondern komplexe JSON-Objekte. Der Warp-Adapter löst die komplexen JSON-Objekte in einzelne Zustände auf. Dadurch kann einfacher auf Wertänderungen eines einzelnen Zustands reagiert werden. Außerdem ist jeder Zustand mit der entsprechenden Beschreibung, Einheit und weiteren Informationen versehen, die in den [offizielle API-Dokumentation](https://www.warp-charger.com/api.html) zu finden sind. Um das Ganze abzurunden, sind einige Befehle wie das Starten/Stoppen des Ladevorgangs, das Festlegen von Obergrenzen des zulässigen Ladestroms, das Zurücksetzen von Zählerständen, das Scannen von WLAN-Netzwerken in der Nähe und das Anpassen des Anzeigenamens möglich. Die Änderung aller Systemparameter wie Netzwerkkonfiguration, MQTT-Einstellungen, Benutzerverwaltung oder Lastmanager sind aus Sicherheitsgründen nur über das Webinterface möglich.
+Warum diesen Adapter verwenden – ist es nicht auch möglich, die Wallbox über MQTT mit ioBroker zu verbinden?
+
+Es werden jedoch keine einzelnen Zustände über MQTT gesendet, sondern komplexe JSON-Objekte. Der Warp-Adapter löst diese komplexen JSON-Objekte in einzelne Zustände auf. Dadurch lässt sich leichter auf Wertänderungen eines einzelnen Zustands reagieren. Zusätzlich ist jeder Zustand mit einer entsprechenden Beschreibung, Einheit und weiteren Informationen versehen, die in der [offiziellen API-Dokumentation](https://www.warp-charger.com/api.html) zu finden sind. Darüber hinaus sind Befehle wie das Starten/Stoppen des Ladevorgangs, das Festlegen von Obergrenzen für den zulässigen Ladestrom, das Zurücksetzen von Zählerständen, das Scannen von WLAN-Netzwerken in der Nähe und das Anpassen des Anzeigenamens möglich. Aus Sicherheitsgründen können alle Systemparameter, wie Netzwerkkonfiguration, MQTT-Einstellungen, Benutzerverwaltung oder Lastmanager, ausschließlich über die Weboberfläche geändert werden.
 
 ### Unterstützte WARP-Ladegeräte
+
 - [WARP-Ladegerät](https://www.warp-charger.com/index_warp1.html)
-  - Clever
-  - Profi
+  - Schlau
+  - Pro
 - [WARP2-Ladegerät](https://www.warp-charger.com/index.html)
-  - Clever
-  - Profi
+  - Schlau
+  - Pro
 
 ## Changelog
 <!--

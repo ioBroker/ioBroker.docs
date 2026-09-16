@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.zeptrion/README.md":{"title":{"en":"ioBroker.zeptrion"},"content":"en/adapterref/iobroker.zeptrion/README.md"},"en/adapterref/iobroker.zeptrion/README_de.md":{"title":{"en":"ioBroker.zeptrion"},"content":"en/adapterref/iobroker.zeptrion/README_de.md"}}}
+---
 # ioBroker.zeptrion
 
 ![Logo](admin/zeptrion.png)
@@ -13,7 +16,7 @@ Adapter for [Feller](https://www.feller.ch/) **[zeptrion / zApp](https://www.fel
 WLAN Zwischenmodul 2K = zApp booster) for light and shutter/blind control, based on the
 zrap web service API (Feller document 10.ZEPAPI-E.1612 / version 1.0, firmware from 01.08.18).
 
-_(Eine deutsche Version dieser README ist verfügbar unter [README_de.md](README_de.md).)_
+_(Eine deutsche Version dieser README ist verfügbar unter [README_de.md](/#/docs/adapterref/iobroker.zeptrion/README_de.md).)_
 
 ## Feature overview
 
@@ -176,6 +179,18 @@ npm run test:integration   # starts a real js-controller (takes longer)
 
 ## Changelog
 
+### 1.0.16 (2026-09-13)
+
+- Docs only: changed the contact email in the copyright lines from a personal address to iobroker@mailcarrier.ch. No functional changes.
+
+### 1.0.15 (2026-09-13)
+
+- Fix: the v1.0.14 changelog entry itself repeated the exact same mistake it was fixing - translations were a condensed summary instead of a proper full translation. Caught by running the official repochecker locally against the live repository. Expanded to proper, complete translations. Also confirmed via the same repochecker run that the E4048, W0034, and S5026 findings from v1.0.14 are now resolved. No functional code changes.
+
+### 1.0.14 (2026-09-13)
+
+- Docs/metadata only, no code changes: added a contact email to the copyright lines in README.md, LICENSE, and package.json's author field. Expanded the common.news translations for versions 1.0.7-1.0.13 in all 8 languages that were significantly shorter than the English original. Bumped a few devDependencies to their current recommended versions and added the release-script-plugin-manual-review plugin.
+
 ### 1.0.13 (2026-08-11)
 
 - Fix E5606 (untranslated i18n entries): testDeviceOk was never actually translated for de/es/it/nl/pl/pt (silently kept the English copy). Also fixed the identical issue in fr, missed by the checker's exact-match heuristic due to a spacing difference. Verified with a full sweep of all 11 i18n files against the English source - no other matches found.
@@ -192,24 +207,15 @@ npm run test:integration   # starts a real js-controller (takes longer)
 
 - Fix all remaining findings from the follow-up review: translated 18 German error messages in validateDeviceRow(), the 5 error-code-to-message translations in handleDeviceError(), 9 German strings in thrown Error objects, and the bonjour-service install-hint rejection message. Per explicit maintainer direction, all UI-facing result text in onMessage (CSV import report, device test results, discovery summary) is now English as well, superseding the earlier decision to keep it German for the target audience. No migration needed - none of these fixes touch persisted object common properties.
 
-### 1.0.9 (2026-08-08)
-- Fix: the common.name i18n conversion from 1.0.8 only applied to newly created objects (setObjectNotExistsAsync/ensureState never update existing ones) - any installation upgrading from <=1.0.7 kept the old plain-German name strings forever. migrateObjectRoles() now also force-corrects these on every startup via a value-based lookup table generated from the same translations already used in the object-creation code, plus dedicated regex rules for the two dynamic cases (scene button names, tilt pulse duration). Also fixes two translation gaps that were missed in 1.0.8 (network info fields and the shutter position estimate/move descriptions) which the extraction script used to build the migration table happened to catch. Verified against a live object dump (409 objects, 4 devices): corrects exactly the 385 affected objects, 0 false positives on user-configured device/room names.
+### 1.0.9 and older
 
-### 1.0.8 (2026-08-08)
-- Fix all findings from the manual maintainer review (PR #6327): removed the manual npm installation section from README.md/README_de.md (E6012, prohibited regardless of stated intent); added a verified link to the Feller product page; translated all 40+ German log messages to English (UI-facing result text for CSV import/discovery, shown in the admin config dialog, is intentionally kept German and decoupled from the log call); converted all 50 German common.name strings (incl. the CH_BUTTONS constant and dynamic channel/scene names) to full 11-language i18n objects; completed io-package.json instanceObjects translations for 'info' and 'control' (info.connection already had all 11 languages).
-
-### 1.0.7 (2026-07-22)
-- Enable global i18n support (jsonConfig i18n: true) with translation files under admin/i18n/ for all 11 supported languages, resolving the checker's i18n warnings the correct way (validatorErrorText stays a plain string per schema; ioBroker resolves the translation via the files, falling back to the English text if no entry is found). Added @iobroker/adapter-dev and @alcalzone/release-script as devDependencies with translate/release npm scripts. (Migrating to @iobroker/eslint-config was evaluated but reverted: its eslint-plugin-import dependency does not yet support eslint 10.x, which broke npm install.)
-
-### 1.0.6 and older
-
-Older changelog entries can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changelog entries can be found in CHANGELOG_OLD.md.
 
 ## License
 
 MIT License
 
-Copyright (c) 2026 Stefan Bühler
+Copyright (c) 2026 Stefan Bühler <iobroker@mailcarrier.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

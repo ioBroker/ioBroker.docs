@@ -696,6 +696,34 @@ translations should be submitted as PRs against the respective
 ---
 
 ## Changelog
+
+### 0.4.10 (2026-09-12)
+- Fix: axios bumped to 1.20.0 for upstream security fixes; Node.js built-in requires now use the node: prefix (lib/haDecode.js, lib/mapMerge.js)
+
+### 0.4.9 (2026-09-12)
+- Fix: map.cover type-mismatch log flood during cleaning runs (#141)
+
+### 0.4.8 (2026-09-12)
+- Fix Issue #119 for Dreame L40s / X40 Ultra (r9419*): SIID 4 PIID 6 is remapped to reflect mop-pad presence 1:1, same as r6001a in v0.4.7, based on an isolated pad-remove/reinstall test on an r9419h device in this development cycle. Generalize the mop-in-station / mop-pad-installed fixes from v0.4.7 across all vacuum models: the permanently-0 mop-in-station property is now removed from every vacuum device's object tree at spec load time, and mop-pad-installed is renamed to mop-handling-pulse since it only emits ~1s pulses during mechanical mop handling (state id unchanged so existing user scripts keep working). The frischwasser widget's Mopp-montiert indicator now uses the mop-pad-presence state on models where the REMAP is active — visible after the first cloud poll cycle following the update. Also completes missing UI translations (Issue #122). Thanks to @SilentM1978 and @ralfheitz for confirming the pulse behavior on their devices.
+
+### 0.4.7 (2026-09-06)
+- New tap-to-sequence widget for custom cleaning order directly on the map with room badges, plus a fresh-water/detergent widget for L20 Ultra. Fix Issue #126: clean-water-tank-status bit-mask handling and derived Boolean states for r2253* (L20 Ultra) models. Fix Issue #119: correct mop-pad status on Dreame X60 Pro Ultra Complete (r6001a) via a new model-override layer — removes the dead mop-in-station property, renames the mop-handling pulse, and remaps SIID 4 PIID 6 to actual mop-pad presence on r6001*. Adds status codes 116/117/121/122 (Installing mop, Removing mop, Entering dock, Exiting dock) globally for all vacuum models. Thanks to @SilentM1978 for the detailed live traces that made the r6001a fix possible.
+
+### 0.4.6 (2026-08-29)
+- Attempted fix for issue #124 layer 4 (missing pixel raster on r2253c/r2253w): map background, walls, and room fills were not rendered even though overlays and metadata came through correctly. Adds a fallback to combined_pixel_type when the base pixel raster is empty (matching Home Assistant's renderer), and introduces permanent [MERGE-DEBUG] info-level logging (dimensions, pixel counts, wall/segment counts) so this failure mode is instantly diagnosable if it returns. Models whose base raster is already populated (e.g. r9419h) are unchanged. Thanks to luckyheiko for the pinpoint analysis.
+
+### 0.4.5 (2026-08-28)
+- Fix for issue #124 (Layer 3): map rendering could crash on the frontend when the device reported detected carpets with an invalid polygon field (null or malformed). Adds a filter in lib/mapMerge.js so invalid carpets never reach the frontend, a defensive guard in the carpet drawing routine in www/js/karte/merger.js, and a generic try/catch around overlay drawing so a single bad overlay never breaks the whole map rendering. The unreferenced legacy widget page www/legacy.html, which carried the same bug, is removed. Combined with 0.4.3 (comma-truncation) and 0.4.4 (AES decryption), this closes the full end-to-end map path for r2253c/r2253w. Thanks to luckyheiko for identifying the root cause and proposing the fix approach.
+
+### 0.4.4 (2026-08-28)
+- Fix for issue #124 (Layer 2): map payload for r2253c, r2253w and similar newer Dreame models is AES-256-CBC encrypted; the adapter now derives the AES key from the object_name comma suffix (SHA256, first 32 hex chars as UTF-8), uses a model-specific IV, and decrypts the payload before zlib inflation. Combined with the 0.4.3 comma-truncation fix, this closes the full end-to-end map download path for r2253 models. Also fixes a long-standing bug in lib/dreame.js where the persistent MAP_LIST path used an empty IV instead of the model-specific one. Models without a comma suffix in the object_name (e.g. r9419h/L40s) are unchanged. Thanks to luckyheiko and ralfheitz for the diagnostic logs.
+
+### 0.4.3 (2026-08-28)
+- Fix for issue #124 (HTTP 404 on map download for r2253c, r2253w and similar newer Dreame models where the Dreame backend returns an object_name with a comma suffix that the OSS storage does not resolve): the adapter now transparently retries with the object_name truncated at the first comma. Models without a comma in the object_name (e.g. r9419h/L40s) are unchanged. Diagnostic [MAP-DIAG] logging from 0.4.2 remains but only fires when the fallback also fails; new [MAP-DIAG-2] captures the retry outcome for future analysis.
+
+### 0.4.2 (2026-08-27)
+- Diagnostic release for issue #124 (HTTP 404 on r2253c/L20 Ultra map download): adds temporary [MAP-DIAG] logging on HTTP errors during fresh map downloads (model, did, object_name, download_url, HTTP status, timing, content-type, response body head) to distinguish race, region and object-name-format hypotheses. No functional changes; fallback to persistent MAP_LIST map unchanged. Diagnostic will be reverted in 0.4.3 together with the actual fix.
+
 ### 0.4.1 (2026-08-03)
 - Added Schedules: schedules created in the Dreame app are now parsed into `schedule.<id>.*` states (time, weekdays, type, enabled toggle, per-room or whole-floor settings with translated room names and enum values, linked shortcut for shortcut-type schedules). See [Schedules](#schedules).
 - Widget: added a Schedules panel/button showing all schedules in a table with an on/off switch each; schedules pointing at a deleted shortcut show a locked switch instead of silently failing.
@@ -727,8 +755,6 @@ translations should be submitted as PRs against the respective
 
 ### 0.3.24 (2026-07-01)
 - Fixed custom room cleaning bug where switching active-map without touching a checkbox left customCommand holding room IDs from the previously selected map, causing the robot to clean the wrong room (room segment IDs are not unique across maps). customCommand is now rebuilt automatically whenever active-map changes, and is recomputed fresh from the active map's checkboxes immediately before every start as a final safeguard. Start is now aborted with a warning if no room is selected for the active map.
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## Credits
 

@@ -1,48 +1,57 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.vis-homekittiles/README.md":{"title":{"en":"ioBroker.vis-homekittiles"},"content":"en/adapterref/iobroker.vis-homekittiles/README.md"},"en/adapterref/iobroker.vis-homekittiles/doc/homekittiles-de.md":{"title":{"en":"ioBroker.vis-homekittiles"},"content":"en/adapterref/iobroker.vis-homekittiles/doc/homekittiles-de.md"},"en/adapterref/iobroker.vis-homekittiles/doc/homekittiles-en.md":{"title":{"en":"ioBroker.vis-homekittiles"},"content":"en/adapterref/iobroker.vis-homekittiles/doc/homekittiles-en.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: BjT9FQxITbDD3xY9orHVvbnqrpt7q4Gp/EVxos9Mz6w=
+hash: LmeZvuB7fJt9rlTVoFCSXVO/CePDLhBE4rM9jtnYJlc=
 ---
-# IoBroker.vis-homekittiles
+# ioBroker.vis-homekittiles
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.vis-homekittiles.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-homekittiles.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/vis-homekittiles-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/vis-homekittiles-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-homekittiles.png?downloads=true)
+![Test und Freigabe](https://github.com/Standarduser/ioBroker.vis-homekittiles/workflows/Test%20and%20Release/badge.svg)
 
 <img src="doc/img/title-pic_hkt-on-ipad.png" />
 
-**Tests:** ![Testen und Freigeben](https://github.com/Standarduser/ioBroker.vis-homekittiles/workflows/Test%20and%20Release/badge.svg)
+## HomeKit-Tiles für ioBroker-VIS
 
-## HomeKit-Kacheln für ioBroker-VIS
-Homekit Tiles ist ein Widget-Set, das auf dem Design von Apple HomeKit basiert.
-Die Besonderheit der Widgets besteht darin, dass sie keine festen Stilelemente enthalten, sondern alles per CSS formatiert ist. Daher gibt es im VIS-Editor keine separaten Einstellungen für Position und/oder Größe der Icons, Labels etc. Das Design wird durch Änderung des CSS-Codes angepasst. Hierfür kann der CSS-Code aus der Datei `/widgets/homekittiles/css/style.css` als Vorlage verwendet werden. Der Code wird im VIS-Editor im Reiter „CSS“ eingefügt und kann beliebig angepasst werden. Es ist auch möglich, über den VIS-Editor im Bereich „Allgemein“ der Widgets eigene CSS-Klassen hinzuzufügen.
+HomeKit Tiles ist ein Widget-Set, das auf dem Design von Apple HomeKit basiert. Die Besonderheit der Widgets besteht darin, dass sie keine festen Stilelemente enthalten, sondern alles über CSS formatiert wird. Daher gibt es im VIS-Editor keine separaten Einstellungen für die Position und/oder Größe von Symbolen, Beschriftungen usw. Das Design wird durch Ändern des CSS-Codes angepasst. Zu diesem Zweck wird der CSS-Code aus der Datei verwendet.`/widgets/homekittiles/css/style.css` Kann als Vorlage verwendet werden. Der Code wird im CSS-Tab des VIS-Editors eingefügt und kann nach Belieben angepasst werden. Es ist auch möglich, eigene CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets hinzuzufügen.
 
 Die Widgets sind für VIS 1.x konzipiert.
 
-**Hinweis:** Aus Lizenzgründen sind in diesem Adapter keine Icons enthalten. Sehr gute Quellen für Icons sind:
+**Hinweis:** Aus Lizenzgründen sind in diesem Adapter keine Symbole enthalten. Sehr gute Symbolquellen sind:
 
-* [https://www.flaticon.com](https://www.flaticon.com)
-* [https://icons8.com](https://icons8.com)
+- <https://www.flaticon.com>
+- <https://icons8.com>
 
-[🇩🇪 Dokumentation](doc/homekittiles-de.md) [🇺🇸 Dokumentation](doc/homekittiles-en.md)
+[🇩🇪 Dokumentation](/#/docs/adapterref/iobroker.vis-homekittiles/doc/homekittiles-de.md) [🇺🇸 Dokumentation](/#/docs/adapterref/iobroker.vis-homekittiles/doc/homekittiles-en.md)
 
-## Dinge zu tun
-* Mini-Mediaplayer erstellen
-* Select-Kachel erstellen
-* Kontrollkästchen für Sonos-Gruppe erstellen
-* Datumsauswahl: dynamische Tag-/Monatssymbole
-* Kacheln: Schaltfläche für Dialog hinzufügen
-* Funktion „infoText“ optimieren
+## Aktivitäten
+
+- Mini-Mediaplayer erstellen
+- Select-Tile erstellen
+- Kontrollkästchen für Sonos-Gruppe erstellen
+- Datumsauswahl: Dynamische Tages-/Monatssymbole
+- Kacheln: Schaltfläche für Dialog hinzufügen
+- Funktion 'infoText' optimieren
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.8 (2026-01-02)
+
+* Fixed issues from adapter checker
+
+### 0.4.7 (2025-12-29)
+
+* Depencies updated
+
 ### 0.4.6 (2025-03-04)
 
 * Depencies updated
@@ -195,7 +204,7 @@ Die Widgets sind für VIS 1.x konzipiert.
 
 MIT License
 
-Copyright (c) 2025 Standarduser
+Copyright (c) 2025-2026 Standarduser
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

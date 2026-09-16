@@ -7,6 +7,7 @@ BADGE-COMMUNITY: https://img.shields.io/badge/community%20-ioBroker%20|%20forum-
 BADGE-MAINTAINER: https://img.shields.io/badge/maintainer-skvarel%20@%20inventwo-yellowgreen.svg
 BADGE-AI: https://img.shields.io/badge/ai%20assisted-cursor-blue.svg
 BADGE-Paypal Donation: https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg
+chapters: {"pages":{"de/adapterref/iobroker.motioneye/README.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.motioneye/README.md"},"de/adapterref/iobroker.motioneye/settings.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.motioneye/settings.md"},"de/adapterref/iobroker.motioneye/cameras.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.motioneye/cameras.md"},"de/adapterref/iobroker.motioneye/modes.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.motioneye/modes.md"},"de/adapterref/iobroker.motioneye/alert-level.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.motioneye/alert-level.md"},"de/adapterref/iobroker.motioneye/datapoints.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.motioneye/datapoints.md"},"de/adapterref/iobroker.motioneye/vis-stream.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.motioneye/vis-stream.md"},"de/adapterref/iobroker.motioneye/faq.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.motioneye/faq.md"}}}
 ---
 ![Logo](../../admin/motioneye.png)
 
@@ -14,13 +15,13 @@ BADGE-Paypal Donation: https://img.shields.io/badge/paypal-donate%20|%20spenden-
 
 ## Dokumentation
 
-- [Einstellungen](settings.md)
-- [Kameras](cameras.md)
-- [Kameramodi](modes.md)
-- [Schutzstufe (VIS)](alert-level.md)
-- [Datenpunkte](datapoints.md)
-- [Livestream in VIS](vis-stream.md)
-- [Hilfe & FAQ](faq.md)
+- [Einstellungen](/#/docs/adapterref/iobroker.motioneye/settings.md)
+- [Kameras](/#/docs/adapterref/iobroker.motioneye/cameras.md)
+- [Kameramodi](/#/docs/adapterref/iobroker.motioneye/modes.md)
+- [Schutzstufe (VIS)](/#/docs/adapterref/iobroker.motioneye/alert-level.md)
+- [Datenpunkte](/#/docs/adapterref/iobroker.motioneye/datapoints.md)
+- [Livestream in VIS](/#/docs/adapterref/iobroker.motioneye/vis-stream.md)
+- [Hilfe & FAQ](/#/docs/adapterref/iobroker.motioneye/faq.md)
 
 #### ioBroker-Voraussetzungen
 
@@ -31,7 +32,7 @@ BADGE-Paypal Donation: https://img.shields.io/badge/paypal-donate%20|%20spenden-
 #### MotionEye-Voraussetzungen
 
 1. MotionEye mit Config-API auf Port **8765** (Standard)
-2. **MotionEye 0.44+:** Adapter **0.5.0** oder neuer (Session-Login) — siehe [FAQ](faq.md#motioneye-044-adapter-050)
+2. **MotionEye 0.44+:** Adapter **0.5.0** oder neuer (Session-Login) — siehe [FAQ](/#/docs/adapterref/iobroker.motioneye/faq.md#motioneye-044-adapter-050)
 
 ## Schnellstart
 
@@ -39,7 +40,7 @@ BADGE-Paypal Donation: https://img.shields.io/badge/paypal-donate%20|%20spenden-
 - Unter **Einstellungen**: MotionEye-Host, Zugangsdaten und **Webhook-Host** setzen (ioBroker-IP, von MotionEye aus erreichbar).
 - Unter **Kameras**: Kameras eintragen oder **Kameras aus MotionEye laden**, speichern und Instanz neu starten.
 - `motioneye.<Instanz>._info.connection` prüfen — sollte `true` sein, wenn MotionEye erreichbar ist.
-- Livebild in VIS: HTML-Widget mit Binding auf `<kamera>.streamUrl` (siehe [Livestream in VIS](vis-stream.md)).
+- Livebild in VIS: HTML-Widget mit Binding auf `<kamera>.streamUrl` (siehe [Livestream in VIS](/#/docs/adapterref/iobroker.motioneye/vis-stream.md)).
 
 ## Changelog
 

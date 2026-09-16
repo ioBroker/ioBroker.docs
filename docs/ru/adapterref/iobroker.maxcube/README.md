@@ -1,30 +1,33 @@
 ---
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.maxcube/README.md
 title: ioBroker.maxcube
-hash: MpkrEy9ZuJa1izqwLyLwRZ+vzSRMcw2ofpiX+aml4wU=
+hash: QHOIZ10wpa1+8vkJ/NuVAfODNeN1o6wQrzoHrHMwPkE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.maxcube/admin/maxcube.png)
 
 ![Количество установок](http://iobroker.live/badges/maxcube-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.maxcube.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.maxcube/workflows/Test%20and%20Release/badge.svg)
+![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/maxcube/svg-badge.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.maxcube.svg)
 
-# IoBroker.maxcube
-==================================
+# ioBroker.maxcube
 
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.maxcube/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/maxcube/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+\==================================
 
-Адаптер ioBroker для управления Max! через куб
+Адаптер ioBroker для управления Max! через Cube
 
 ## Поддерживаемые устройства
-- термостат
-- Датчик двери / окна
-- Нажимная кнопка (только состояние батареи)
 
-## Применение
-Перед использованием необходимо сначала подключить все устройства к MAX! Куб через MAX! Прошивка.
+- Термостат
+- Датчик двери/окна
+- Кнопка (только индикатор заряда батареи)
+
+## Использование
+
+Перед использованием необходимо сначала подключить все устройства к MAX! Cube через прошивку MAX!.
 
 ## Changelog
 

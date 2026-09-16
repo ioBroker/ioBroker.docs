@@ -277,8 +277,6 @@ The following objects are currently implemented:
 
 - changed algorithm for developer support
 
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## 1.0.0 BREAKING CHANGES
 
 - the deviceId was previously the systemId, which is not unique. Now the deviceId is used, this is changing the object tree

@@ -1,24 +1,25 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.vis-mapwidgets/README.md":{"title":{"en":"ioBroker.mapwidgets"},"content":"en/adapterref/iobroker.vis-mapwidgets/README.md"},"en/adapterref/iobroker.vis-mapwidgets/example/example.md":{"title":{"en":"Examples for mapwidgets"},"content":"en/adapterref/iobroker.vis-mapwidgets/example/example.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-mapwidgets/README.md
 title: ioBroker.mapwidgets
-hash: RIhavMcA2pv6ER/MXw8Xoui90+vgMlusoFOzBMBPwEU=
+hash: VouHFWGUKV6ZV4NnQoC0NkMeECQ0yHrju9vFfukmSkc=
 ---
-# IoBroker.mapwidgets
-![Logo](../../../en/adapterref/iobroker.vis-mapwidgets/admin/mapwidgets-small.svg)
+# ioBroker.mapwidgets
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.vis-mapwidgets.svg)
 ![Downloads](https://img.shields.io/npm/dm/ioBroker.vis-mapwidgets.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/vis-mapwidgets-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/vis-mapwidgets-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-mapwidgets.png?downloads=true)
+![Test und Freigabe](https://github.com/oweitman/ioBroker.vis-mapwidgets/workflows/Test%20and%20Release/badge.svg)
 
-**Tests:** ![Test und Freigabe](https://github.com/oweitman/ioBroker.vis-mapwidgets/workflows/Test%20and%20Release/badge.svg)
+![Logo](../../../en/adapterref/iobroker.vis-mapwidgets/admin/mapwidgets-small.svg)
 
-## Mapwidgets-Adapter für ioBroker
-Mit diesem Adapter können Sie mithilfe des Leaflet-Widgets verschiedene Elemente auf einer Karte anzeigen.
-Diese Elemente lassen sich über eine JSON-Datenstruktur konfigurieren.
+## MapWidgets-Adapter für ioBroker
+
+Mit diesem Adapter können Sie mithilfe des Leaflet-Widgets verschiedene Elemente auf einer Karte anzeigen. Diese Elemente lassen sich über eine JSON-Datenstruktur konfigurieren.
 
 ![Vollständiges Testbild](../../../en/adapterref/iobroker.vis-mapwidgets/example/ExampleCompleteTest/ExampleCompleteTest.png) **Beispiel aus dem vollständigen Testbeispiel**
 
@@ -33,41 +34,46 @@ Aktuell werden folgende Elemente unterstützt:
 
 Für fortgeschrittene Anwendungsfälle kann auf das Kartenobjekt über eine spezielle Variable zugegriffen und es mit JavaScript manipuliert werden.
 
-Anwendungsbeispiele finden Sie in [Beispiele](./example/example.md)
+Anwendungsbeispiele finden Sie in den [Beispielen.](/#/docs/adapterref/iobroker.vis-mapwidgets/example/example.md)
 
 Zusätzliche Funktionen können auf Anfrage je nach Relevanz und Machbarkeit hinzugefügt werden.
 
 ## Konfiguration
+
 Der Adapter selbst verfügt über keine Konfigurationsoptionen.
 
 Die Konfiguration des Widgets wird im Folgenden beschrieben.
 
-## Vis und Widgets
+## vis und Widgets
+
 Folgende Widgets existieren tatsächlich
 
-- [`Map Leaflet`](#map-leaflet) - Zeigt Kartendaten mithilfe der Leaflet-Bibliothek <https://leafletjs.com/> an.
+- [`Map Leaflet`](#map-leaflet) - Zeigt Kartendaten mithilfe der Leaflet-Bibliothek [https://leafletjs.com/ an](https://leafletjs.com/) .
 
 ### Kartenblatt
+
 Darstellung verschiedener Elemente auf einer Karte.
 
 #### Widget-Konfiguration
-| Name | Beschreibung |
-| -------------------------------- | ----------------------------------------------------------------------- |
-| `mapwidgets_oid` | Datenpunkt, der die Elementkonfiguration enthält |
-| `mapwidgets_lon` | Längengrad des Kartenmittelpunkts |
-| `mapwidgets_zoom` | Anfangszoomstufe |
-| `mapwidgets_expose` | Das Kartenobjekt unter `window.iobroker.mapwidgets.<widgetID>.map` anzeigen |
-| `mapwidgets_maptheme` | Farbschema der Karte: automatisch, hell oder dunkel (Standard: automatisch) |
-| `mapwidgets_daynightenabled` | Tag-/Nachtmodus aktivieren |
-| `mapwidgets_daynightcolor` | Rahmenfarbe für die Tag-/Nachtzone |
-| `mapwidgets_daynightopacity` | Deckkraft für die Tag-/Nachtzone |
-| `mapwidgets_daynightfillcolor` | Füllfarbe für die Tag-/Nachtzone |
-| `mapwidgets_daynightfillopacity` | Deckkraft für die Tag-/Nachtzone füllen |
-| `mapwidgets_daynightfillopacity` | Deckkraft für die Tag-/Nachtzone anpassen |
 
-Das Farbschema der Karte ändert nur die Darstellung der OpenStreetMap-Kacheln. `auto` richtet sich nach der Browsereinstellung `prefers-color-scheme` und wird bei deren Änderung aktualisiert. `light` zeigt die Originalkacheln an, während `dark` einen Dunkelfilter anwendet. Markierungen, Pfade, Polygone und andere Leaflet-Overlays werden nicht gefiltert.
+| Name                             | Beschreibung                                                                   |
+| -------------------------------- | ------------------------------------------------------------------------------ |
+| `mapwidgets_oid`                 | Datenpunkt, der die Elementkonfiguration enthält                               |
+| `mapwidgets_lat`                 | Breitengrad des Kartenmittelpunkts                                             |
+| `mapwidgets_lon`                 | Längengrad des Kartenmittelpunkts                                              |
+| `mapwidgets_zoom`                | Anfangszoomstufe                                                               |
+| `mapwidgets_expose`              | Stellen Sie das Kartenobjekt unter `window.iobroker.mapwidgets.<widgetID>.map` |
+| `mapwidgets_maptheme`            | Farbschema der Karte: automatisch, hell oder dunkel (Standard: automatisch)    |
+| `mapwidgets_daynightenabled`     | Tag-/Nachtmodus aktivieren                                                     |
+| `mapwidgets_daynightcolor`       | Rahmenfarbe für die Tag-/Nachtzone                                             |
+| `mapwidgets_daynightopacity`     | Deckkraft für die Tag-/Nachtzone                                               |
+| `mapwidgets_daynightfillcolor`   | Füllfarbe für die Tag-/Nachtzone                                               |
+| `mapwidgets_daynightfillopacity` | Deckkraft für die Tag-/Nachtzone                                               |
+
+Das Farbschema der Karte ändert nur die Darstellung der OpenStreetMap-Kacheln.`auto` folgt dem Browser`prefers-color-scheme` Einstellungen und Aktualisierungen, wenn sich diese Einstellungen ändern.`light` zeigt die Originalfliesen an, während`dark` Wendet einen Dark-Map-Filter an. Markierungen, Pfade, Polygone und andere Leaflet-Overlays werden nicht gefiltert.
 
 #### Kartenkonfiguration
+
 Das Kartenobjekt besteht aus mehreren Hauptkomponenten, die alle unabhängig voneinander konfiguriert werden können:
 
 ```json
@@ -81,12 +87,11 @@ Das Kartenobjekt besteht aus mehreren Hauptkomponenten, die alle unabhängig von
 }
 ```
 
-Für weitere Testinhalte siehe auch [Beispiel\example.md](example/example.md).
+Weitere Testinhalte finden Sie in [der Datei example\example.md](/#/docs/adapterref/iobroker.vis-mapwidgets/example/example.md) .
 
 Bei allen Konfigurationen gilt der Grundsatz, dass nur die unbedingt notwendige Informationsmenge zur Anzeige eines Elements benötigt wird.
 
-Die Kartendaten werden im Bearbeitungsmodus geprüft. Eventuelle Fehler können über die Schaltfläche mit dem roten Ausrufezeichen eingesehen und überprüft werden.
-Diese Schaltfläche ist nur sichtbar, wenn Fehler vorliegen.
+Die Kartendaten werden im Bearbeitungsmodus geprüft. Eventuelle Fehler können über die Schaltfläche mit dem roten Ausrufezeichen eingesehen und überprüft werden. Diese Schaltfläche ist nur sichtbar, wenn Fehler vorliegen.
 
 In vis lässt sich der Dialog wie gewohnt mit einem Klick öffnen. In vis-2 verwenden Sie 2 x SHIFT + Klick.
 
@@ -101,6 +106,7 @@ Dialog
 Die Zuordnung der einzelnen Attribute wird im Folgenden beschrieben:
 
 ##### Marker
+
 Dies enthält ein Array von einzelnen Markerinformationsobjekten.
 
 ```json
@@ -125,18 +131,18 @@ Dies enthält ein Array von einzelnen Markerinformationsobjekten.
 ]
 ```
 
-Breitengrad und Längengrad sind Pflicht; alle anderen Parameter sind optional.
-Es gibt zwei alternative Schreibweisen für Breitengrad und Längengrad; siehe Beispiel oben.
+Breitengrad und Längengrad sind Pflicht; alle anderen Parameter sind optional. Es gibt zwei alternative Schreibweisen für Breitengrad und Längengrad; siehe Beispiel oben.
 
-Bei einem benutzerdefinierten Symbol wird die eindeutige ID des Symbols als Zeichenkette angegeben (siehe die Konfiguration `icons`).
+Bei einem benutzerdefinierten Symbol wird die eindeutige ID des Symbols als Zeichenfolge angegeben (siehe …).`icons` Konfiguration).
 
-Für Tooltip und Popup siehe [Tooltip](#tooltip) und [Popup](#popup).
+Für Tooltips und Popups siehe [Tooltips](#tooltip) und [Popups](#popup) .
 
 Detaillierte Beschreibungen der Parameter finden Sie hier:
 
 <https://leafletjs.com/reference.html#marker>
 
 ##### Symbol
+
 Dies enthält ein Array von Objekten mit Informationen zu einzelnen Symbolen.
 
 ```json
@@ -164,17 +170,17 @@ Dies enthält ein Array von Objekten mit Informationen zu einzelnen Symbolen.
 
 `iconURL` ist obligatorisch; alle anderen Parameter sind optional.
 
-Der Schlüsselname des Symbols (im Beispiel `greenleaf`) ist case-sensitiv, muss innerhalb der Symbolgruppe eindeutig sein und wird in Markierungen als Referenz verwendet.
+Der Schlüsselname des Symbols (im Beispiel,`greenleaf` ) ist case-sensitiv, muss innerhalb der Symbolgruppe eindeutig sein und dient als Referenz in Markierungen.
 
-Zulässige Zeichen: `a–z, 0–9, _, -.`
+Zulässige Zeichen:`a–z, 0–9, _, -.`
 
 Detaillierte Beschreibungen der Parameter finden Sie hier:
 
 <https://leafletjs.com/reference.html#icon>
 
 ##### Polylinie / Polygon / Rechteck / Kreis
-Dieses Array enthält Informationen zu einzelnen Polylinien, Polygonen, Rechtecken und Kreisen.
-Das Schema ist für alle Typen identisch. Unterschiede sind unten aufgeführt.
+
+Dieses Array enthält Informationen zu einzelnen Polylinien, Polygonen, Rechtecken und Kreisen. Das Schema ist für alle Typen identisch. Unterschiede werden im Folgenden erläutert.
 
 **Polylinie:**
 
@@ -256,20 +262,20 @@ Das Schema ist für alle Typen identisch. Unterschiede sind unten aufgeführt.
 ```
 
 ###### `latlng`
+
 Das Vorhandensein dieses Parameters ist für alle Typen obligatorisch.
 
-Breitengrad und Längengrad sind immer ein Array mit 2 Elementen [Breitengrad, Längengrad], die im Folgenden als Koordinaten bezeichnet werden (Koordinate oben links und Koordinate unten rechts).
+Breitengrad und Längengrad sind immer ein Array mit 2 Elementen \[Breitengrad, Längengrad], die im Folgenden als Koordinaten bezeichnet werden (Koordinate oben links und Koordinate unten rechts).
 
-Polylinie, Polygon und Rechteck sind Koordinatenarrays. Ein Kreis besteht nur aus einer einzigen Koordinate.
+Polylinie, Polygon und Rechteck sind ein Koordinatenarray. Ein Kreis besteht nur aus einer einzigen Koordinate.
 
 Eine Polylinie muss aus mindestens 2 Elementen, ein Polygon aus mindestens 3 Elementen und ein Rechteck aus genau 2 Elementen bestehen.
 
 ###### `options`
-Mit Ausnahme des Circle-Objekts ist der Parameter „options“ immer optional.
-Für das Circle-Objekt ist der Parameter „radius“ obligatorisch.
-Die Möglichkeit, einen separaten „radius“-Parameter auf der Ebene von Latt und Koordinaten sowie auf der Options-Ebene zu verwenden, wie in der Leaflet-Dokumentation beschrieben, ist hier nicht verfügbar.
 
-Für Tooltip und Popup siehe [Tooltip](#tooltip) und [Popup](#popup).
+Mit Ausnahme des Circle-Objekts ist der Parameter „options“ immer optional. Für das Circle-Objekt ist der Parameter „radius“ obligatorisch. Die in der Leaflet-Dokumentation beschriebene Möglichkeit, einen separaten „radius“-Parameter auf den Ebenen „latlng“ und „options“ zu verwenden, ist hier nicht verfügbar.
+
+Für Tooltips und Popups siehe [Tooltips](#tooltip) und [Popups](#popup) .
 
 Detaillierte Beschreibungen der Parameter finden Sie hier:
 
@@ -282,6 +288,7 @@ Detaillierte Beschreibungen der Parameter finden Sie hier:
 <https://leafletjs.com/reference.html#circle>
 
 ##### Tooltip
+
 Tooltip für Marker, Polygon, Rechteck, Kreis.
 
 ```json
@@ -321,6 +328,7 @@ Detaillierte Beschreibungen der Parameter finden Sie hier:
 <https://leafletjs.com/reference.html#tooltip>
 
 ##### Popup
+
 Popup für Marker, Polygon, Rechteck, Kreis.
 
 ```json
@@ -357,12 +365,12 @@ Detaillierte Beschreibungen der Parameter finden Sie hier:
 
 <https://leafletjs.com/reference.html#popup>
 
-##### Spezielle iobroker-Optionen
-Spezielle Optionen, die nur von der Leaflet-Version in ioBroker unterstützt werden, werden mithilfe des zusätzlichen Optionsobjekts „iobOptions“ implementiert.
+##### spezielle iobroker-Optionen
 
-Dieses Objekt ist nicht für alle Objekttypen gültig. Welche Optionen für welchen Objekttyp gültig sind, wird im jeweiligen Abschnitt beschrieben.
+Spezielle Optionen, die nur von der Leaflet-Version in ioBroker unterstützt werden, werden mithilfe des zusätzlichen Optionsobjekts „iobOptions“ implementiert. Dieses Objekt ist nicht für alle Objekttypen gültig. Welche Optionen für welchen Objekttyp gültig sind, wird im jeweiligen Abschnitt beschrieben.
 
-###### FitBounds
+###### fitBounds
+
 Dies gilt für die folgenden Objekttypen: Marker, Polygon, Polylinie, Rechteck, Kreis.
 
 Das System erfasst alle Punkte der Objekte, bestimmt einen minimalen/maximalen Begrenzungsrahmen um sie herum, berechnet den passenden Zoomfaktor und zentriert und zoomt die Ansicht so, dass alle ausgewählten Objekte sichtbar sind.
@@ -427,7 +435,8 @@ Das System erfasst alle Punkte der Objekte, bestimmt einen minimalen/maximalen B
 ```
 
 ### Zeitleiste des Standorts
-Das **Standort-Timeline**-Widget zeigt den täglichen Standortverlauf von bis zu fünf Personen an. Sein Layout ist von der Karten- und Zeitleisteninteraktion mobiler Kartenanwendungen inspiriert, ohne jedoch ein bestimmtes Anwendungsdesign zu kopieren.
+
+Das Widget **„Standort-Timeline“** zeigt den täglichen Standortverlauf von bis zu fünf Personen an. Sein Layout ist von der Karten- und Zeitleisteninteraktion mobiler Kartenanwendungen inspiriert, ohne jedoch ein bestimmtes Anwendungsdesign zu kopieren.
 
 Jeder konfigurierte Tracking-Datenpunkt muss eine kombinierte WGS84-Position enthalten:
 
@@ -435,28 +444,20 @@ Jeder konfigurierte Tracking-Datenpunkt muss eine kombinierte WGS84-Position ent
 50.11552,8.68417
 ```
 
-Kopieren Sie zum Testen [`example/LocationTimeline/create-example-track.js`](example/LocationTimeline/create-example-track.js) in ein JavaScript-Adapterskript. Dadurch wird ein konfigurierbarer Beispieltag erstellt und die Rohpositionen in `history.0` bis `storeState` gespeichert.
+Zum Testen kopieren[`example/LocationTimeline/create-example-track.js`](https://github.com/oweitman/ioBroker.vis-mapwidgets/blob/main/example/LocationTimeline/create-example-track.js) in ein JavaScript-Adapterskript. Es erstellt einen konfigurierbaren Beispieltag und speichert die Rohpositionen in`history.0` durch`storeState` Die
 
-Für den ausgewählten Tag im lokalen Kalender fordert das Widget nicht aggregierte Werte aus `history.0` an. Tagesgrenzen und Sommerzeitumstellungen richten sich nach der Zeitzone des Browsers. Falls für den heutigen Tag kein Verlauf verfügbar ist, wird der aktuelle Status als einzelne Markierung angezeigt. Vergangene Tage ohne Verlauf bleiben leer.
+Für den ausgewählten lokalen Kalendertag fordert das Widget nicht aggregierte Werte an von`history.0` Tagesgrenzen und Sommerzeitumstellungen richten sich nach der Zeitzone des Browsers. Falls für den heutigen Tag kein Verlauf verfügbar ist, wird der aktuelle Status als einzelne Markierung angezeigt. Vergangene Tage ohne Verlauf bleiben leer.
 
 Das Widget entfernt einzelne, unplausible GPS-Sprünge und gruppiert nahe beieinander liegende Messwerte zu Aufenthalten. Die folgenden Optionen steuern diese Verarbeitung:
 
-- **Zeitleistenlayout**: automatisch, neben der Karte oder unterhalb der Karte
-- **Farbschema** (`timeline_theme`): automatisch, hell oder dunkel für die
+- **Zeitleistenlayout** : automatisch, neben der Karte oder unterhalb der Karte
+- **Farbschema** (`timeline_theme` ): automatisch, hell oder dunkel für die Steuerelemente der Zeitleiste, die Liste und die Dialogfelder
+- **Farbschema der Karte** (`mapwidgets_maptheme` ): automatisch, hell oder dunkel (nur für die OpenStreetMap-Kacheln)
+- **Aufenthaltsradius** : Maximale Entfernung von Proben, die zu einem Aufenthalt gehören (Standardwert 75 m)
+- **Mindestaufenthaltsdauer** : Mindestdauer eines Aufenthalts (standardmäßig 10 Minuten)
+- **Maximale sinnvolle Geschwindigkeit** : Schwellenwert für isolierte GPS-Sprünge (Standard 300 km/h);`0` (deaktiviert den Filter)
 
-Zeitleisten-Steuerelemente, Listen und Dialogfelder
-
-- **Kartenfarbschema** (`mapwidgets_maptheme`): automatisch, hell oder dunkel für
-
-nur die OpenStreetMap-Kacheln
-
-- **Aufenthaltsradius**: Maximale Entfernung der zu einem Aufenthalt gehörenden Proben (Standardwert 75 m)
-- **Mindestaufenthalt**: Mindestdauer eines Aufenthalts (standardmäßig 10 Minuten)
-- **Maximal sinnvolle Geschwindigkeit**: Schwellenwert für isolierte GPS-Sprünge
-
-(Standardwert 300 km/h; `0` deaktiviert den Filter)
-
-Beide Farbschema-Optionen verwenden standardmäßig `auto` und folgen der Browsereinstellung `prefers-color-scheme`. Sie können unabhängig voneinander ausgewählt werden, beispielsweise um eine dunkle Zeitleistenoberfläche mit hellen Kartenkacheln zu kombinieren. Das Kartendesign filtert weder Routenlinien noch Markierungen oder andere Leaflet-Overlays.
+Beide Farbschemaoptionen sind standardmäßig auf`auto` und folgen Sie den Anweisungen des Browsers.`prefers-color-scheme` Die Einstellungen können unabhängig voneinander ausgewählt werden, beispielsweise um eine dunkle Zeitleistenoberfläche mit hellen Kartenkacheln zu kombinieren. Das Kartenthema filtert weder Routenlinien noch Markierungen oder andere Leaflet-Overlays.
 
 Bekannte Orte und Ergebnisse der umgekehrten Geokodierung werden in diesen Zuständen gespeichert, die während der Adapterinstallation erstellt werden:
 
@@ -469,10 +470,11 @@ IndexedDB dient als schneller lokaler Cache. Statusänderungen werden im Hinterg
 
 Aufgelöste Orte werden als Name und eine kleinere Adresszeile angezeigt. Routenpfeile zeigen die Fahrtrichtung an, und sowohl Haltepunkte als auch Routenabschnitte wählen beim Anklicken den entsprechenden Zeitleisteneintrag aus.
 
-Externes Reverse-Geocoding ist standardmäßig deaktiviert. Bei Aktivierung wird standardmäßig die öffentliche Nominatim Reverse-API verwendet. Anfragen werden dedupliziert und serialisiert, wobei zwischen den Aufrufen mindestens 1,1 Sekunden liegen. Konfigurieren Sie eine Kontakt-E-Mail-Adresse und beachten Sie die Meldung „[Nominatim-Nutzungsrichtlinie](https://operations.osmfoundation.org/policies/nominatim/)“. Die Standortkoordinaten werden an den konfigurierten externen Dienst gesendet.
+Externes Reverse-Geocoding ist standardmäßig deaktiviert. Ist es aktiviert, wird standardmäßig die öffentliche Nominatim Reverse-API verwendet. Anfragen werden dedupliziert und serialisiert, wobei zwischen den Aufrufen mindestens 1,1 Sekunden vergehen. Konfigurieren Sie eine Kontakt-E-Mail-Adresse und beachten Sie die [Nominatim-Nutzungsrichtlinien](https://operations.osmfoundation.org/policies/nominatim/) . Die Standortkoordinaten werden an den konfigurierten externen Dienst gesendet.
 
 ### Dokumentation der Hilfsfunktionen
-Unter `window.iobroker.mapwidgets` stehen folgende Funktionen zur Verfügung. Zum Beispiel:
+
+Folgende Funktionen stehen zur Verfügung unter`window.iobroker.mapwidgets` . Zum Beispiel:
 
 ```js
 window.iobroker.mapwidgets.waitForGlobal(...)
@@ -480,38 +482,33 @@ window.iobroker.mapwidgets.loadScript(...)
 window.iobroker.mapwidgets.loadCSS(...)
 ```
 
-`loadScript` und `loadCSS` können verwendet werden, um JavaScript-Dateien und CSS-Stylesheets dynamisch zu laden, was für die Verwendung der Karten-Widgets erforderlich sein kann.
+`loadScript` Und`loadCSS` Kann verwendet werden, um JavaScript-Dateien und CSS-Stylesheets dynamisch zu laden, was für die Verwendung der Karten-Widgets erforderlich sein kann.
 
-`waitForGlobal` kann verwendet werden, um auf eine globale Variable unter `window.` zu warten.
-
-Dies ist notwendig, da die Kartenvariable erst verfügbar ist, nachdem das Karten-Widget von vis.js initialisiert wurde.
+`waitForGlobal` kann verwendet werden, um auf eine globale Variable zu warten.`window.` Dies ist notwendig, da die Kartenvariable erst verfügbar ist, nachdem das Karten-Widget von vis.js initialisiert wurde.
 
 #### `loadScript(src, { attrs = {}, timeout = 15000 } = {})`
+
 Lädt dynamisch eine externe JavaScript-Datei in das aktuelle Dokument.
 
 ##### Parameter loadScript
-- **src** (`string`)
 
-Die URL der zu ladenden JavaScript-Datei.
-
-- **attrs** (`object`, optional)
-
-Zusätzliche Attribute für das Element `<script>`. Unterstützte Schlüssel:
-
-- `type`: z.B. `"module"`, um es als ES-Modul zu laden.
-- `integrity`: Subresource Integrity (SRI)-Hash.
-- `crossOrigin`: Cross-Origin-Einstellung (`"anonymous"` oder `"use-credentials"`).
-- **Timeout** (`Zahl`, optional, Standardwert: `15000`)
-
-Maximale Zeit in Millisekunden, bevor der Ladevorgang fehlschlägt.
+- **src** (`string` )\
+  &#x20;Die URL der zu ladenden JavaScript-Datei.
+- **attrs** (`object` (optional)\
+  &#x20;Zusätzliche Attribute für die`<script>` Element. Unterstützte Schlüssel:
+  - `type` z.B.`"module"` Als ES-Modul laden.
+  - `integrity` : Subresource Integrity (SRI)-Hash.
+  - `crossOrigin` : Cross-Origin-Einstellung (`"anonymous"` oder`"use-credentials"` ).
+- **Zeitüberschreitung** (`number` optional, Standardwert:`15000` )\
+  &#x20;Maximale Zeit in Millisekunden, bevor der Ladevorgang fehlschlägt.
 
 ##### Gibt loadScript zurück
-- **Versprechen**
 
-Wird aufgelöst, wenn das Skript erfolgreich geladen wurde; bei Fehlern oder Zeitüberschreitung wird eine Fehlermeldung ausgegeben.
-Wenn das Skript bereits im Dokument vorhanden ist, wird `"already-loaded"` zurückgegeben.
+- **Versprechen**\
+  &#x20;Wird erfolgreich aufgelöst, wenn das Skript geladen wurde; bei Fehlern oder Zeitüberschreitungen wird eine Fehlermeldung ausgegeben. Wenn das Skript bereits im Dokument vorhanden ist, wird es mit einem Fehlercode aufgelöst.`"already-loaded"` Die
 
 ##### Beispiel-Ladeskript
+
 ```js
 loadScript('https://cdn.example.com/lib.min.js')
     .then(() => {
@@ -521,61 +518,53 @@ loadScript('https://cdn.example.com/lib.min.js')
 ```
 
 #### `loadCSS(href, { attrs = {}, timeout = 15000 } = {})`
+
 Lädt dynamisch ein externes CSS-Stylesheet in das aktuelle Dokument.
 
 ##### Parameter loadCSS
-- **href** (`string`)
 
-Die URL der zu ladenden CSS-Datei.
-
-- **attrs** (`object`, optional)
-
-Zusätzliche Attribute für das Element `<link>`. Unterstützte Schlüssel:
-
-- `integrity`: Subresource Integrity (SRI)-Hash.
-- `crossOrigin`: Cross-Origin-Einstellung.
-- `media`: Medienabfrage für bedingtes Laden
-
-      (z. B. `"print"`, `"(min-width: 768px)"`).
-
-- **Timeout** (`Zahl`, optional, Standardwert: `15000`)
-
-Maximale Zeit in Millisekunden, bevor der Ladevorgang fehlschlägt.
+- **href** (`string` )\
+  &#x20;Die URL der zu ladenden CSS-Datei.
+- **attrs** (`object` (optional)\
+  &#x20;Zusätzliche Attribute für die`<link>` Element. Unterstützte Schlüssel:
+  - `integrity` : Subresource Integrity (SRI)-Hash.
+  - `crossOrigin` : Cross-Origin-Einstellung.
+  - `media` : Medienabfrage für bedingtes Laden (z. B.`"print"` ,`"(min-width: 768px)"` ).
+- **Zeitüberschreitung** (`number` optional, Standardwert:`15000` )\
+  &#x20;Maximale Zeit in Millisekunden, bevor der Ladevorgang fehlschlägt.
 
 ##### Gibt loadCSS zurück
-- **Versprechen**
 
-Wird aufgelöst, wenn das Stylesheet erfolgreich geladen wurde; bei Fehlern oder Zeitüberschreitung wird eine Fehlermeldung ausgegeben.
-Wenn das Stylesheet bereits im Dokument vorhanden ist, wird `"already-loaded"` zurückgegeben.
+- **Versprechen**\
+  &#x20;Wird aufgelöst, wenn das Stylesheet erfolgreich geladen wurde, andernfalls wird ein Fehler oder eine Zeitüberschreitung zurückgegeben. Wenn das Stylesheet bereits im Dokument vorhanden ist, wird es mit einem Fehlercode aufgelöst.`"already-loaded"` Die
 
 ##### Beispiel loadCSS
+
 ```js
 loadCSS('https://cdn.example.com/theme.css').catch(console.error);
 ```
 
 #### `waitForGlobal(path, interval = 100, timeout = 0)`
-Wartet darauf, dass eine globale Variable (oder eine verschachtelte Eigenschaft von `window`) verfügbar wird.
 
-##### Parameter waitForGlobal
-- **Pfad** (`string`)
+Wartet auf eine globale Variable (oder eine verschachtelte Eigenschaft von`window` ) verfügbar zu werden.
 
-Durch Punkte getrennter Pfad zur globalen Variable (z. B. `"jQuery"`, `"MyLib.utils.helper"`).
+##### Parameters waitForGlobal
 
-- **Intervall** (`Zahl`, optional, Standardwert: `100`)
-
-Intervall in Millisekunden, in dem die Variable überprüft werden soll.
-
-- **Timeout** (`Zahl`, optional, Standardwert: `0`)
-
-Maximale Wartezeit in Millisekunden. `0` bedeutet unbegrenztes Warten.
+- **Weg** (`string` )\
+  &#x20;Durch Punkte getrennter Pfad zur globalen Variable (z. B.`"jQuery"` ,`"MyLib.utils.helper"` ).
+- **Intervall** (`number` optional, Standardwert:`100` )\
+  &#x20;Intervall in Millisekunden, in dem die Variable überprüft werden soll.
+- **Zeitüberschreitung** (`number` optional, Standardwert:`0` )\
+  &#x20;Maximale Wartezeit in Millisekunden.`0` bedeutet, unbestimmt zu warten.
 
 ##### Gibt waitForGlobal zurück
-- **Versprechen**
 
-Wird mit dem gefundenen Objekt aufgelöst, sobald dieses verfügbar ist.
-Wird abgelehnt, wenn das Timeout erreicht wird, bevor das Objekt gefunden wurde.
+- **Versprechen**\
+  &#x20;Wird mit dem gefundenen Objekt aufgelöst, sobald dieses verfügbar ist.\
+  &#x20;Wird abgelehnt, wenn das Zeitlimit erreicht wird, bevor das Objekt gefunden wurde.
 
 ##### Beispiel waitForGlobal
+
 ```html
 <script>
     waitForGlobal('iobroker.mapwidgets.w00001.map', 200, 5000)
@@ -587,7 +576,8 @@ Wird abgelehnt, wenn das Timeout erreicht wird, bevor das Objekt gefunden wurde.
 ```
 
 ## Todo
-- noch zu definieren
+
+- wird noch definiert
 
 ## Changelog
 
@@ -616,7 +606,7 @@ Wird abgelehnt, wenn das Timeout erreicht wird, bevor das Objekt gefunden wurde.
 
 - The dark theme has been adjusted to make the dialog easier to read.
 
-Older entries are in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older entries are in [CHANGELOG_OLD.md](https://github.com/oweitman/ioBroker.vis-mapwidgets/blob/main/CHANGELOG_OLD.md).
 
 ## License
 

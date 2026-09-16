@@ -18,7 +18,6 @@ This adapter integrates your Apple iCloud account with ioBroker. It gives you ac
 
 [![English documentation](https://img.shields.io/badge/docs-English-blue?logo=readme)](README_ENGLISH.md)
 
-
 ---
 
 ## Credits
@@ -31,7 +30,6 @@ This adapter would not have been possible without the following open-source proj
 
 A big thank you to all contributors of these projects!
 
-
 ## Disclaimer
 
 This adapter is an independent, community-developed open-source project. It is **not affiliated with, endorsed by, or in any way officially connected to Apple Inc.**
@@ -40,37 +38,34 @@ This adapter is an independent, community-developed open-source project. It is *
 
 The adapter accesses Apple's iCloud services using the same APIs that are used by Apple's own clients. Use of those APIs is subject to Apple's Terms of Service. By using this adapter, you agree to comply with all applicable Apple terms and conditions. The author accepts no liability for any misuse of the adapter or any violations of Apple's Terms of Service.
 
-
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 2.0.0 (2026-08-24)
-* (ticaki) **BREAKING**: admin >= 8.0.1 is now required — the custom config components were migrated to `@iobroker/gui-components` 10, `@iobroker/json-config` 9, MUI 9 and React 19
+### 2.1.2 (2026-09-15)
+* (ticaki) fixed: when Apple requires the account holder to accept updated iCloud terms and conditions (`termsUpdateNeeded`; Find My answers `HTTP 450` although the session is valid), the adapter stops with a clear error message — accept the terms at icloud.com or on an Apple device and start the instance again — instead of re-authenticating in an endless loop
+* (ticaki) fixed: a session recovery now performs a real re-login — session token and cookies are dropped, the trust token is kept so no new MFA is required — and backs off (10 s, 1 min, 5 min, 15 min, 30 min) when it keeps failing, instead of re-validating the same session token every 10 s
+* (ticaki) new: option "Accept updated iCloud terms automatically" (off by default) — when Apple flags the account with `termsUpdateNeeded`, the adapter fetches the current terms version via `/getTerms`, confirms it via `/repairDone` and re-runs `accountLogin`, the way pyicloud's `accept_terms` does; enabling it means agreeing to Apple's terms without reading them
+* (ticaki) fixed: a failed refresh during startup no longer reports "iCloud connection established"
 
-### 1.0.2 (2026-08-23)
-* (ticaki) fixed: a valid 2FA code was rejected with Apple error -21669 — the code is now always tried on both verification endpoints (trusted device *and* SMS), because a code that belongs to the other channel is reported exactly like a wrong one
-* (ticaki) fixed: the refreshed session data (scnt / session id) returned by the auth-options, device-push and SMS requests is now applied to the following requests
-* (ticaki) changed: a rejected 2FA code now produces a readable message instead of Apple's raw JSON (the internal error code -21669 looked like a mangled version of the entered code)
+### 2.1.1 (2026-09-15)
+* (ticaki) fixed: the adapter crashed with `UNCAUGHT_EXCEPTION` (unhandled promise rejection `HTTP 450`) when Find My rejected the session — the Find My service started a second, unmonitored `refresh()` in its constructor in parallel to the adapter's own call; the adapter's error handling and session recovery now apply
+* (ticaki) fixed: reminders text containing U+2028/U+2029 line separators or control characters is normalised before being stored
 
-### 1.0.1 (2026-08-22)
-* (ticaki) fixed: a valid 2FA code could be rejected with error 409 — the code is now retried on the other channel (trusted device / SMS)
-* (ticaki) fixed: the session data returned by Apple's code verification is now used for the following requests
-* (ticaki) fixed: the build scripts pointed at a non-existent file, which broke `npm run build` and the CI
+### 2.1.0 (2026-09-10)
+* (ticaki) new: `calendar.agenda` — every event of a configurable window (days back / days ahead, selectable calendars) as one JSON object keyed by local day, with calendar title and colour and absolute alarm times; rebuilt on every refresh and shortly after midnight, written only when it changes
+* (ticaki) fixed: an event that started before today and is still running (e.g. a multi-day all-day event) no longer disappears from the calendar slots
+* (ticaki) changed: the calendar refresh and `queryCalendarEvents` share one month-by-month fetch
 
-### 1.0.0 (2026-06-28)
-* (ticaki) **New: FIDO2 / security-key MFA** — sign in with a hardware security key (passkey) straight from the admin panel; the full sign-in ceremony runs in the background with a live, localized status (MFA panel translated into 11 languages)
-* (ticaki) Admin: the security-key button now shows a live "running" state while the background ceremony is in progress
-* (ticaki) fixed: object writes in `syncMap` now use read-merge-write (`getObject` + `setObject`) so existing ACLs and custom settings are preserved instead of being overwritten
-* (ticaki) changed: internal waits (security-key polling, PCS consent, geocoder rate-throttle) now use the cancellable adapter timer, so pending timers are cleared cleanly when the adapter unloads
-* (ticaki) changed: geocoder HTTP requests now use `AbortSignal.timeout` with improved timeout detection
-* (ticaki) fixed: addressed ioBroker repochecker findings for the latest-repo listing
+### 2.0.6 (2026-09-10)
+* (ticaki) fixed: an MFA code requested via SMS was rejected with Apple error -21669 ("incorrect verification code") on accounts whose trusted phone number Apple reports with `pushMode: "voice"` — the code was submitted with `mode: "voice"` although Apple had confirmed SMS delivery for the request; the verification now repeats the channel and the phone payload that Apple accepted for the code request
 
-### 0.7.7 (2026-05-11)
-- (ticaki) Extends an ioBroker object only when the provided partial object has actually changed
+### 2.0.5 (2026-09-06)
+* (ticaki) new: when Apple refuses `/ca/startup`, the titles, colours and flags of the reconstructed calendars are now fetched separately via `/ca/collections` — such calendars only appeared under their guid before, and a list answer also brings back calendars that have no event in the queried range
+* (ticaki) changed: the warning about a reconstructed calendar list now states how many calendars could be completed with their real metadata, and a title delivered by Apple is no longer overwritten by the one stored from an earlier refresh
 
-Older changes are listed in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
+Older changes are listed in CHANGELOG_OLD.md.
 
 ## License
 MIT License

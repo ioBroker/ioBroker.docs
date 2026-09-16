@@ -32,7 +32,6 @@ As this project is developed during my spare time.
 I`m actively looking for help to maintain and extend this adapter!
 If you're willing to help, drop me a line!
 
-
 <!--
 	### **WORK IN PROGRESS**
 -->
