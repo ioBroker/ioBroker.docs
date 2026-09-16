@@ -1,6 +1,7 @@
 import path from 'node:path';
 
 import type { LanguageCode } from './types.mts';
+import { linkDestination } from './utils.mts';
 
 /**
  * Collecting the documentation of an adapter from its repository.
@@ -175,7 +176,7 @@ export async function crawlDocuments(
 function markdownTargets(body: string, fromPath: string, repo: RepoLocation, lang: LanguageCode): string[] {
     const targets: string[] = [];
     for (const match of body.matchAll(/(^|[^!])\[[^\]]*]\(([^)\s]+)\)/g)) {
-        const href = match[2];
+        const href = linkDestination(match[2]);
         if (href.startsWith('#')) {
             continue;
         }

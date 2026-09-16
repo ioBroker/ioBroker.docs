@@ -5,7 +5,7 @@ chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":
 
 # ioBroker.birthdays
 
-## Beispiel (Blockly)
+## Example (Blockly)
 
 ![Blockly example](./img/blockly-example.png)
 
@@ -22,7 +22,7 @@ chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":
     <comment pinned="false" h="80" w="160">Beschreibe diese Funktion …</comment>
     <statement name="STACK">
       <block type="comment" id="/|AnoBF{dDY`~SsIfzH|">
-        <field name="COMMENT">Eigene Logik (pushover, telegram, ...)</field>
+        <field name="COMMENT">Own logic (pushover, telegram, ...)</field>
       </block>
     </statement>
   </block>
@@ -57,7 +57,7 @@ chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":
                 <mutation items="2"></mutation>
                 <value name="ADD0">
                   <block type="text" id="h770a|!zX%7)X[Vk.2,[">
-                    <field name="TEXT">Geburtstage heute: </field>
+                    <field name="TEXT">Birthdays today: </field>
                   </block>
                 </value>
                 <value name="ADD1">
@@ -96,7 +96,7 @@ chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":
                         <mutation items="2"></mutation>
                         <value name="ADD0">
                           <block type="text" id="ba}815_R_35-Y~GG*}/R">
-                            <field name="TEXT">Geburtstage morgen: </field>
+                            <field name="TEXT">Birthdays tomorrow: </field>
                           </block>
                         </value>
                         <value name="ADD1">
@@ -139,7 +139,7 @@ chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":
                 <mutation items="2"></mutation>
                 <value name="ADD0">
                   <block type="text" id="{ofc`NkX8NjN`:`DEIH*">
-                    <field name="TEXT">Geburtstage morgen: </field>
+                    <field name="TEXT">Birthdays tomorrow: </field>
                   </block>
                 </value>
                 <value name="ADD1">

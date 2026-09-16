@@ -5,20 +5,20 @@ chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":
 
 # ioBroker.birthdays
 
-Allgemeine Funktion um Nachrichten zu versenden
+Common function to send messages / notifications
 
 ```javascript
 function sendText(text) {
-    // Eigene Logik (pushover, telegram, ...)
+    // Own logic (pushover, telegram, ...)
     sendTo('pushover', 'send', {
         message: text,
         sound: '',
-        title: 'Geburtstags-Kalender'
+        title: 'Birthday calendar'
     });
 }
 ```
 
-## Erinnerung 1 Tag vor Geburtstag
+## Notify 1 day before birthday
 
 ```javascript
 schedule('0 7 * * *', async () => {
@@ -28,33 +28,33 @@ schedule('0 7 * * *', async () => {
     const nextAfterDaysLeft = getState('birthdays.0.nextAfter.daysLeft').val;
     const nextAfterText = getState('birthdays.0.nextAfter.text').val;
 
-    // Geburtstag heute
+    // Birthday today
     if (nextDaysLeft == 0) {
-        sendText(`Geburtstage heute: ${nextText}`);
+        sendText(`Birthdays today: ${nextText}`);
 
-        // Falls morgen auch noch ein Geburtstag ansteht
+        // If tomorrow is also a birthday
         if (nextAfterDaysLeft == 1) {
-            sendText(`Geburtstage morgen: ${nextAfterText}`);
+            sendText(`Birthdays tomorrow: ${nextAfterText}`);
         }
     } else if (nextDaysLeft == 1) {
-        sendText(`Geburtstage morgen: ${nextText}`);
+        sendText(`Birthdays tomorrow: ${nextText}`);
     }
 });
 ```
 
-## Erinnerung an Geburtstag in der kommenden Woche
+## Reminder of birthdays in the upcoming week
 
 ```javascript
-// Geburtstagserinnerung Anfang der Woche
+// Run script at the beginning of the week
 schedule('0 7 * * 1', async () => {
     const summaryObj = JSON.parse(getState('birthdays.0.summary.json').val);
 
     const nextBirthdays = summaryObj
         .filter(b => b.daysLeft < 7)
-        .map(b => `${b.name} wird am ${formatDate(new Date(b._nextBirthday), 'WW')} ${b.age}`);
+        .map(b => `${b.name} turns ${b.age} on ${formatDate(new Date(b._nextBirthday), 'WW')}`);
 
     if (nextBirthdays.length > 0) {
-        sendText(`Geburtstage diese Woche: ${nextBirthdays.join(', ')}`);
+        sendText(`Birthdays this week: ${nextBirthdays.join(', ')}`);
     }
 });
 ```

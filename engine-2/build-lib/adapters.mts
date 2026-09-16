@@ -41,6 +41,33 @@ const RETRY_DELAY_MS = 500;
 /** No single request may hang longer than this (ms) */
 const DOWNLOAD_TIMEOUT_MS = 30_000;
 
+/**
+ * The name a collected document gets below the adapter's directory.
+ *
+ * Normally that is its path relative to the first document: the readmes of one adapter lie in one
+ * folder, and `relative` is that folder. A crawl may leave it though - the German readme of
+ * ioBroker.birthdays links into `docs/en/`, so `relative` (`.../docs/de/`) is no prefix of the
+ * link at all. The plain `replace` then changed nothing, the whole `https://...` became part of
+ * the local path, and `mkdir` cannot make a directory called `https:`: both documents were lost,
+ * while the readme went on linking to them. Their place inside the repository is the name then -
+ * still a path, and still unique among the documents of one adapter.
+ *
+ * @param data the document, with the address it was fetched from
+ * @param data.link the address the document was fetched from
+ * @param data.relative the folder the first document of this adapter lies in
+ */
+function readmeName(data: { link?: string; relative?: string }): string {
+    if (!data.link) {
+        return 'README.md';
+    }
+    if (data.relative && data.link.startsWith(data.relative)) {
+        return data.link.substring(data.relative.length);
+    }
+    // "https:", "", "raw.githubusercontent.com", owner, repo, branch, and from there the document
+    const parts = data.link.split('/');
+    return parts.length > 6 ? parts.slice(6).join('/') : parts[parts.length - 1];
+}
+
 function fixImages(
     lang: LanguageCode,
     adapter: string,
@@ -93,14 +120,17 @@ async function downloadImagesForReadme(
              * reach the logo beside the code as `../../admin/logo.svg`. `URL` follows those steps
              * the way a browser does; joining the two strings did not, and the request went out
              * with the `../` still in it. A link starting with "/" means the root of the
-             * repository, which is the first seven segments of the address of the document.
+             * repository, which is the first six segments of the address of the document.
              */
             let url: string;
             if (!data.link) {
                 url = remote;
             } else if (remote.startsWith('/')) {
-                // https:, "", "", raw.githubusercontent.com, owner, repo, branch, ...
-                url = `${data.link.split('/').slice(0, 7).join('/')}${remote}`;
+                // "https:", "", "raw.githubusercontent.com", owner, repo, branch, and from there the
+                // document. Six, not seven: `split` leaves one empty string between the two slashes
+                // of "https://", not two, so the seventh segment was already part of the path and
+                // the request went to ".../master/README.md/admin/logo.png".
+                url = `${data.link.split('/').slice(0, 6).join('/')}${remote}`;
             } else {
                 try {
                     url = new URL(remote, data.link).toString();
@@ -128,7 +158,7 @@ async function downloadImagesForReadme(
     const withoutDeadLinks = utils.removeDeadLinks(body, true);
     const cleaned = Object.keys(header).length ? utils.addHeader(withoutDeadLinks, header) : withoutDeadLinks;
 
-    return { body: cleaned, name: data.link ? data.link.replace(data.relative!, '') : 'README.md' };
+    return { body: cleaned, name: readmeName(data) };
 }
 
 /** Add the system information from the repository to the header of a README */
@@ -236,7 +266,7 @@ function prepareAdapterReadme(
 
     return {
         body: utils.addHeader(cleaned, header),
-        name: data.link ? data.link.replace(data.relative!, '') : 'README.md',
+        name: readmeName(data),
         logo: header.logo,
     };
 }
@@ -661,12 +691,7 @@ async function processAdapterLang(
                     const chapters: { pages: Record<string, { title: Translated; content: string }> } = { pages: {} };
                     // add title to every file
                     results.forEach(item => {
-                        const name = `${lang}/adapterref/iobroker.${adapter}/${item.link!.replace(item.relative!, '')}`;
-                        if (name.includes('://')) {
-                            console.error(`Cannot replace in LINK: ${name}`);
-                            console.error(`LINK    : ${item.link}`);
-                            console.error(`RELATIVE: ${item.relative}`);
-                        }
+                        const name = `${lang}/adapterref/iobroker.${adapter}/${readmeName(item)}`;
                         const title = utils.getTitle(item.body);
                         chapters.pages[name] = { title: { [lang]: title }, content: name };
                     });
@@ -754,9 +779,57 @@ async function resolveReadme(repo: RepoAdapter): Promise<void> {
     }
 }
 
+/**
+ * The logo derived from `meta`: the path `extIcon` names, on the repository the entry was read from.
+ *
+ * @param repo the adapter as the repository describes it
+ */
+function metaIconUrl(repo: RepoAdapter): string {
+    if (!repo.meta || !repo.extIcon) {
+        return '';
+    }
+    // "https:", "", "raw.githubusercontent.com", owner, repo, branch - see the note in `_download`
+    const base = repo.meta.split('/').slice(0, 6).join('/');
+    const parts = rawGithubUrl(repo.extIcon).split('/');
+    return parts.length > 6 ? `${base}/${parts.slice(6).join('/')}` : '';
+}
+
+/**
+ * Take the logo from the repository the entry was read from, where the declared one is gone.
+ *
+ * `extIcon` is written by hand into the adapter's own io-package.json and travels into the
+ * repository list with the *published* version, so it keeps whatever it said back then: when
+ * ioBroker.vis-players was handed over to iobroker-community-adapters, the released 0.1.6 went on
+ * naming `instalator`, whose repository no longer exists. The adapter had no logo on the site, and
+ * no pull request could have helped - the repository itself is long since right.
+ *
+ * `meta` is the io-package.json the entry was read from, so it names the repository that is alive
+ * now. Putting the path of `extIcon` on it repairs exactly the case where the owner or the branch
+ * moved and the file stayed where it was. Same shape as {@link resolveReadme}, and it costs a
+ * request only for an adapter whose logo is missing anyway.
+ *
+ * @param repo the adapter as the repository describes it
+ */
+async function resolveIcon(repo: RepoAdapter): Promise<void> {
+    const fromMeta = metaIconUrl(repo);
+    const declared = repo.extIcon ? rawGithubUrl(repo.extIcon) : '';
+    if (!fromMeta || !declared || declared === fromMeta) {
+        return;
+    }
+
+    if (await getUrl(declared, true)) {
+        return;
+    }
+
+    if (await getUrl(fromMeta, true)) {
+        console.warn(`Adapter ${repo.name}: ${repo.extIcon} is not there - using ${fromMeta} instead`);
+        repo.extIcon = fromMeta;
+    }
+}
+
 /** Call processAdapterLang for the given adapter and for every language */
 async function processAdapter(adapter: string, repo: RepoAdapter, content: AdapterContent): Promise<void> {
-    await resolveReadme(repo);
+    await Promise.all([resolveReadme(repo), resolveIcon(repo)]);
     await Promise.all(consts.LANGUAGES.map(lang => processAdapterLang(adapter, repo, lang, content)));
 }
 

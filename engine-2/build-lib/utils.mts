@@ -112,6 +112,127 @@ const UNPUBLISHED_DOCUMENT = /(?:^|\/)CHANGELOG(?:_OLD)?\.md(?:#|$)/i;
 const MARKDOWN_LINK = /\[([^\]]*)]\(([^)\s]*)(?:\s+"[^"]*")?\)/g;
 
 /**
+ * The address out of a markdown destination.
+ *
+ * Markdown lets the target stand in angle brackets - that is how a path holding a space is
+ * written, and some readmes use it for paths that need nothing of the kind. The brackets are
+ * punctuation and not part of the address. Left in place they travelled into the request:
+ * `![object strcture](<../pictures/object_structure.png>)` in the readme of ioBroker.proxmox was
+ * asked for as `<../pictures/object_structure.png>` and answered with 404, and the picture is
+ * missing on the site.
+ *
+ * @param destination whatever stood between the parentheses
+ */
+export function linkDestination(destination: string): string {
+    const trimmed = destination.trim();
+    return trimmed.startsWith('<') && trimmed.endsWith('>') ? trimmed.substring(1, trimmed.length - 1).trim() : trimmed;
+}
+
+/**
+ * The stretches of one line that are a code span.
+ *
+ * A span opens and closes with runs of backticks of the same length, so a run of one closes on the
+ * next run of one, and a run of two on the next run of two. A run that never finds its partner is no
+ * span at all and is left where it is.
+ *
+ * @param line one line of the document
+ */
+function inlineCodeRanges(line: string): [number, number][] {
+    const runs: { start: number; length: number }[] = [];
+    for (let i = 0; i < line.length;) {
+        if (line[i] === '`') {
+            let end = i;
+            while (end < line.length && line[end] === '`') {
+                end++;
+            }
+            runs.push({ start: i, length: end - i });
+            i = end;
+        } else {
+            i++;
+        }
+    }
+
+    const ranges: [number, number][] = [];
+    const taken = new Set<number>();
+    runs.forEach((open, a) => {
+        if (taken.has(a)) {
+            return;
+        }
+        const b = runs.findIndex((close, i) => i > a && !taken.has(i) && close.length === open.length);
+        if (b > a) {
+            taken.add(a);
+            taken.add(b);
+            ranges.push([open.start, runs[b].start + runs[b].length]);
+        }
+    });
+    return ranges;
+}
+
+/**
+ * The document with everything written as code blanked out, character for character.
+ *
+ * The positions stay what they were, so whatever is found in the copy can be replaced in the
+ * original. Fenced blocks go whole, code spans go by the stretch they cover. The fence markers go
+ * with their block: a line that opens or closes a fence is never content itself.
+ *
+ * The markers are paired up first, and one that never finds its partner is no fence at all. Simply
+ * flipping a flag on every marker would hand the rest of the document to the first unclosed one:
+ * the readmes of ioBroker.rpi2 and ioBroker.shuttercontrol each carry an odd marker somewhere in
+ * the middle, and every picture below it - real pictures, in ordinary prose - would have been left
+ * where it stood and never fetched.
+ *
+ * @param body the document
+ */
+function withoutCode(body: string): string {
+    const lines = body.split('\n');
+    const inFence = new Array<boolean>(lines.length).fill(false);
+
+    let openedAt = -1;
+    let openedWith = '';
+    lines.forEach((line, index) => {
+        const marker = line.match(/^\s*(`{3,}|~{3,})/);
+        if (!marker) {
+            return;
+        }
+        const character = marker[1][0];
+        /*
+         * What follows a backtick fence on its line is the info string, and that one may hold no
+         * backtick - so a line like "```iobroker ALL=(ALL) NOPASSWD: ...```" is not a fence at all
+         * but a paragraph with a code span, three backticks where one was meant. ioBroker.rpi2 has
+         * exactly that, and reading it as a fence swallowed the fourteen lines below it, picture
+         * and all, which is not what any reader of that readme sees.
+         */
+        if (character === '`' && line.substring(line.indexOf('`') + marker[1].length).includes('`')) {
+            return;
+        }
+        if (openedAt < 0) {
+            openedAt = index;
+            openedWith = character;
+        } else if (character === openedWith) {
+            // a "~~~" does not close a "```"
+            for (let i = openedAt; i <= index; i++) {
+                inFence[i] = true;
+            }
+            openedAt = -1;
+            openedWith = '';
+        }
+    });
+
+    return lines
+        .map((line, index) => {
+            if (inFence[index]) {
+                return ' '.repeat(line.length);
+            }
+            let masked = line;
+            inlineCodeRanges(line).forEach(([from, to]) => {
+                masked = masked.substring(0, from) + ' '.repeat(to - from) + masked.substring(to);
+            });
+            return masked;
+        })
+        .join('\n');
+}
+
+/**
  * Every anchor a document offers to link to.
  *
  * Headings are the usual ones, but readmes also set targets by hand - `<a id="change" />` inside a
@@ -207,7 +328,8 @@ export function removeDeadLinks(body: string, ignoreLeadingTitle = false): strin
         }
 
         const dead: string[] = [];
-        const rewritten = line.replace(MARKDOWN_LINK, (whole, text: string, target: string) => {
+        const rewritten = line.replace(MARKDOWN_LINK, (whole, text: string, rawTarget: string) => {
+            const target = linkDestination(rawTarget);
             const isDeadAnchor = target.startsWith('#') && !anchors.has(target.substring(1).toLowerCase());
             if (!isDeadAnchor && !UNPUBLISHED_DOCUMENT.test(target)) {
                 return whole;
@@ -703,51 +825,62 @@ export function replaceImages(
         }
     };
 
+    /*
+     * Pictures are looked for in this copy, where everything written as code is blanked out, and
+     * rewritten in the real one at the positions found there. Two things come of that.
+     *
+     * A readme showing what to type is not showing a picture: `<img src="{onvif.0.IP_PORT.snapshot}">`
+     * in a fenced block of ioBroker.onvif, and `` `<img src="...">` `` in a sentence of
+     * ioBroker.cameras, were both fetched as if they were logos and answered with 404. The reader is
+     * meant to see those lines as they stand, not to have them rewritten.
+     *
+     * And every occurrence is now rewritten where it stands. `body.replace(image, ...)` replaced the
+     * first one in the document, so the second use of the same picture took the place of the first.
+     */
+    const masked = withoutCode(body);
+    const edits: { start: number; end: number; text: string }[] = [];
+
     // replace all images like "mediaDir/blabla.png" with "LN/adapterref/iobroker.adapterName/mediaDir/blabla.png"
-    let images = body.match(/!\[[^\]]*]\([^)]*\)/g);
-    if (images) {
-        images.forEach(image => {
-            const m = image.match(/!\[([^\]]*)]\(([^)]*)\)/);
-            if (m && m.length === 3) {
-                const alt = m[1];
-                const link = m[2];
-                if (!link.toLowerCase().match(/^https?:\/\//)) {
-                    const local = localOf(link);
-                    remember(link, local);
-                    body = body.replace(image, `![${alt}](${prefix + local})`);
-                } else if (!noBadges && isBadge(link)) {
-                    badges[alt] = link;
-                    body = body.replace(image, '--delete--');
-                }
-            }
-        });
-
-        // remove delete lines from array
-        const lines = body.split('\n');
-        for (let i = lines.length - 1; i >= 0; i--) {
-            if (lines[i].includes('--delete--')) {
-                lines.splice(i, 1);
-            }
+    for (const m of masked.matchAll(/!\[([^\]]*)]\(([^)]*)\)/g)) {
+        const alt = m[1];
+        const link = linkDestination(m[2]);
+        if (!link.toLowerCase().match(/^https?:\/\//)) {
+            const local = localOf(link);
+            remember(link, local);
+            edits.push({ start: m.index, end: m.index + m[0].length, text: `![${alt}](${prefix + local})` });
+        } else if (!noBadges && isBadge(link)) {
+            badges[alt] = link;
+            edits.push({ start: m.index, end: m.index + m[0].length, text: '--delete--' });
         }
-
-        body = lines.join('\n');
     }
 
     // replace all images like "<img src="src/img/rooms/006-double-bed.svg" height="48" />" with "<img src="LN/adapterref/iobroker.adapterName/src/img/rooms/006-double-bed.svg" height="48" />"
-    images = body.match(/<img [^>]+>/g);
-    if (images) {
-        images.forEach(image => {
-            const m = image.match(/src="([^"]*)"/);
-            if (m && m.length === 2) {
-                const link = m[1];
-                if (!link.toLowerCase().match(/^https?:\/\//)) {
-                    const local = localOf(link);
-                    const newImage = image.replace(link, prefix + local);
-                    remember(link, local);
-                    body = body.replace(image, newImage);
-                }
+    for (const m of masked.matchAll(/<img [^>]+>/g)) {
+        const src = m[0].match(/src="([^"]*)"/);
+        if (src) {
+            const link = src[1];
+            if (!link.toLowerCase().match(/^https?:\/\//)) {
+                const local = localOf(link);
+                remember(link, local);
+                edits.push({
+                    start: m.index,
+                    end: m.index + m[0].length,
+                    text: m[0].replace(link, prefix + local),
+                });
             }
-        });
+        }
+    }
+
+    // from the back, so that one replacement does not move the position of the next
+    edits.sort((a, b) => b.start - a.start);
+    edits.forEach(e => (body = body.substring(0, e.start) + e.text + body.substring(e.end)));
+
+    if (Object.keys(badges).length) {
+        // a line that held nothing but a badge goes with it
+        body = body
+            .split('\n')
+            .filter(line => !line.includes('--delete--'))
+            .join('\n');
     }
 
     return { body, doDownload, badges };
