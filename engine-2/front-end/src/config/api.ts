@@ -110,8 +110,9 @@ export const DOCS_LINK = '/docs';
 export const LICENSES_LINK = '/productoverview';
 
 /**
- * The two product catalogues. iobroker.net carries the adapter licenses, iobroker.pro the access
- * licenses.
+ * The two product catalogues: the adapter licenses and the access licenses. The names say net and
+ * pro, but the split is by endpoint, not by host - `public/products` and `public/accessProducts`,
+ * and both servers answer both alike (see the note in src/lib/web.ts).
  *
  * Neither host sends a CORS header, so the browser cannot ask them - not in development and not in
  * production either, where this used to call them directly and the catalogue simply stayed empty.

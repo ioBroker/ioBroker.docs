@@ -25,10 +25,11 @@ export default defineConfig({
                 changeOrigin: true,
                 rewrite: (): string => '/api/v1/public/products',
             },
+            // the access licenses are an endpoint of their own - see the note in src/lib/web.ts
             '/api/products/pro': {
                 target: 'https://iobroker.pro:3001',
                 changeOrigin: true,
-                rewrite: (): string => '/api/v1/public/products',
+                rewrite: (): string => '/api/v1/public/accessProducts',
             },
         },
     },

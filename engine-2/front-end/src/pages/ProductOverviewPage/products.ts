@@ -15,9 +15,9 @@ export interface ApiProduct {
 
 /**
  * Prices, running times, data-point tiers and above all *availability* come from
- * the two public catalogues - iobroker.net serves the adapter licenses,
- * iobroker.pro the access licenses. Nothing on this page invents a price: a
- * product the API does not return is not shown at all.
+ * the two public catalogues - `public/products` with the adapter licenses and
+ * `public/accessProducts` with the access licenses. Nothing on this page invents
+ * a price: a product the API does not return is not shown at all.
  */
 export async function fetchProducts(): Promise<ApiProduct[]> {
     const results = await Promise.all(

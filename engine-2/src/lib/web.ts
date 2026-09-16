@@ -388,13 +388,19 @@ export default function init(config: AppConfig): {
 
     // The front-end asks these three of its own server, always - the hosts behind them send no
     // CORS header, so a browser cannot reach them directly.
-    app.app.get(
-        '/api/products/net',
-        cachedProxy('https://iobroker.net:3001/api/v1/public/products', PRODUCTS_CACHE_MS),
-    );
+    app.app.get('/api/products/net', cachedProxy('https://iobroker.net/api/v1/public/products', PRODUCTS_CACHE_MS));
+    /*
+     * The two catalogues are two endpoints, not two hosts. `public/products` holds the adapter
+     * licenses and `public/accessProducts` the access licenses (remote access, assistants), and both
+     * servers answer both of them with the same bytes. This used to ask `public/products` of
+     * iobroker.pro as well, on the assumption that the pro server would answer it with its own
+     * catalogue - so the page got the adapter licenses twice and remote access and the assistants
+     * not at all. The profile app on iobroker.pro asks for `public/accessProducts`, which is what
+     * settles which name is right.
+     */
     app.app.get(
         '/api/products/pro',
-        cachedProxy('https://iobroker.pro:3001/api/v1/public/products', PRODUCTS_CACHE_MS),
+        cachedProxy('https://iobroker.pro/api/v1/public/accessProducts', PRODUCTS_CACHE_MS),
     );
     app.app.get('/api/iobroker/forum.json', cachedProxy('https://www.iobroker.net/data/forum.json', FORUM_CACHE_MS));
     app.app.use(bodyParser.json({ limit: 50000000, type: 'application/json' }));
