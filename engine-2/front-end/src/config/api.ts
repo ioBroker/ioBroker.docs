@@ -1,3 +1,6 @@
+import { withConsent } from '../utils/consent';
+import { CLOUD_HOSTS, readCloud, withCloud } from '../utils/cloud';
+
 /*
  * Whether the app runs under the vite dev server, which is a different thing from the port it is
  * reached on. This used to be `port > 4000`, and the backend answers on 5001: a production build
@@ -148,10 +151,26 @@ export function getLink(link: string): string {
         return `http://localhost:${window.location.port}${link}`;
     }
     if (PROFILE_LINKS.includes(link)) {
-        return `https://${window.location.hostname.replace('www.', '')}:${window.location.port}${link}/`;
+        /*
+         * Whoever came over from the other cloud is signed in there and nowhere else. Built from
+         * the host of this page, the link sent a visitor of iobroker.pro who had opened the
+         * documentation to the sign-in of iobroker.net - for an account that is not the one they
+         * are logged into. `readCloud()` knows where they came from (see utils/cloud.ts); without
+         * that knowledge the link stays on the host of this page, which is what it always did.
+         */
+        const cloud = readCloud();
+        const host = cloud ? CLOUD_HOSTS[cloud] : window.location.hostname.replace('www.', '');
+        return withConsent(`https://${host}:${window.location.port}${link}/`);
     }
     if (DOCS_LINKS.includes(link)) {
-        return `https://www.iobroker.net:${window.location.port}${link}`;
+        /*
+         * The documentation lies on iobroker.net alone, so from the other cloud this link crosses
+         * over: it takes the origin along, so that the profile link over there leads back, and the
+         * cookie decision, so that the banner does not ask a second time for what was just
+         * answered. Both helpers hand back an address that stays on this cloud untouched, so on
+         * iobroker.net itself nothing about this changes.
+         */
+        return withConsent(withCloud(`https://www.iobroker.net:${window.location.port}${link}`));
     }
     return link;
 }

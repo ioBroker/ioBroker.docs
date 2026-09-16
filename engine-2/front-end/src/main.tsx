@@ -5,11 +5,18 @@ import './index.css';
 import App from './App.tsx';
 import { normalizeEntryUrl } from './utils/routes';
 import { consumeConsentFromUrl } from './utils/consent';
+import { consumeCloudFromUrl } from './utils/cloud';
 
 // A visitor coming over from iobroker.pro brings the cookie decision along on the address. It is
 // read and kept before anything else, so that the banner does not ask about it a second time - and
 // before `normalizeEntryUrl`, which rewrites the rest of the address.
 consumeConsentFromUrl();
+
+// On the same address they bring which cloud they came from, so that the profile link leads back
+// to the session they already have instead of asking them to sign in here a second time. Same
+// reason to stand here: the header is built from it, and the parameter has to be gone before
+// `normalizeEntryUrl` writes the address the visitor gets to keep.
+consumeCloudFromUrl();
 
 // Old addresses still arrive as hashes - "/#/adapters" from the app's own former spelling,
 // "#de/adapters/..." from the site before it. Both become the plain path before the router reads

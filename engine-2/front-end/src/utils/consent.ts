@@ -34,9 +34,12 @@ const MAX_AGE = 365 * 24 * 60 * 60;
  * `iobroker.net` for `www.iobroker.net`. Empty where an explicit domain would only get the cookie
  * thrown away - on a developer machine and behind a bare IP address.
  *
+ * Exported, because `cloud.ts` draws the same line: what counts as "the other cloud" is exactly
+ * what this function answers differently for.
+ *
  * @param hostname the host to ask about, usually the one of the current page
  */
-function registrableDomain(hostname: string): string {
+export function registrableDomain(hostname: string): string {
     if (!hostname.includes('.') || /^\d{1,3}(\.\d{1,3}){3}$/.test(hostname)) {
         return '';
     }
