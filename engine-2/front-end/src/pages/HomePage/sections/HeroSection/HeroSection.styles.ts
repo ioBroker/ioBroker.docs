@@ -219,8 +219,13 @@ export const useStyles = makeStyles()(theme => ({
             marginTop: 0,
             maxWidth: '330px',
         },
+        /*
+         * On a phone the mark stood at two thirds of the column and looked lost above the
+         * picture. At 85 percent it is about as wide as the claim below it, so the two
+         * read as one block (Denis, 16.09.2026).
+         */
         [theme.breakpoints.down('sm')]: {
-            maxWidth: '66%',
+            maxWidth: '85%',
         },
     },
     // the claim sets the width, the button below picks it up exactly
@@ -492,6 +497,10 @@ export const useStyles = makeStyles()(theme => ({
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '12px',
+            // the column distributes what is left over, and on a narrow screen that left
+            // the line of evidence sitting on the donation buttons: this is the smallest
+            // distance the two keep from each other (Denis, 16.09.2026)
+            marginTop: '18px',
         },
     },
     supportIconsWrapper: {

@@ -89,6 +89,16 @@ export const useStyles = makeStyles()(theme => ({
         // in the brand colour, like the label "// ADAPTER" in the section below
         color: theme.palette.primary.main,
         marginBottom: '20px',
+        /*
+         * On a phone the heading is only 24 to 26 pixels, and a caption set across the
+         * whole width in capitals and in the brand colour weighed as much as it: the two
+         * no longer read as label and heading. Below 600 pixels the caption steps back
+         * (Denis, 16.09.2026: "no contrast in the typography").
+         */
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '10px',
+            letterSpacing: '0.06em',
+        },
     },
     /** the brand motif in front of the line, like the evidence items in the banner */
     labelSlashes: {
