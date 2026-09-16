@@ -139,7 +139,7 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.rssi`            - received signal strength of a radio device (unit: dBm)
 * `value.time`            - getTime() of Date() object
 * `value.timer`           - duration in s (or another common time unit) (r/o equivalent to `level.timer`)
-* `value.interval`    (common.unit='sec' or 'min' or 'hours' or 's' or 'm' or 'h' or ...) - Interval in seconds (or another common time unit) (can be 0.1 or less)
+* `value.interval`    (common.unit='s', 'm', 'h', 'ms' or 'd') - Interval in seconds (or another common time unit) (can be 0.1 or less)
 * ~~value.date        (common.type=string) - Date in form 2015.01.01 (without time)~~
 * ~~value.datetime    (common.type=string) - Date and time in system format~~
 * `value.gps.longitude`   - gps longitude coordinates
@@ -562,7 +562,7 @@ Role of an image (device type `image`):
 * `url.audio`              - URL for an audio file
 * `text.phone`             - phone number
 * `time.span`              - time difference in ms (or other common time unit) (common.type=number), i.e., time since last update, duration of operation, time until next try, ...
-* `time.interval`          - intervall value in ms (or other common time unit) (common.type=number), i.e. some polling interval
+* `time.interval`          - interval value in ms (or other common time unit) (common.type=number), i.e. some polling interval
 * `time.timeout`           - timeout value in ms (common.type=number), i.e. timeouts for communication requests
 * `chart`                  - JSON array with chart data, like `[{ts: 1678575600000, val: 1}, {ts: 1678579200000, val: 2}]`
 
