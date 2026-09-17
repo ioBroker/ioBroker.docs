@@ -7,8 +7,14 @@ export default defineConfig({
     server: {
         host: '0.0.0.0',
         proxy: {
+            /*
+             * The documents, indexes and icons of the live site. It used to be the old backend on
+             * `www.iobroker.net:3001`, which no longer answers since the move: the request for a
+             * readme stayed pending and every adapter page came up with an empty body in
+             * development (17.09.2026).
+             */
             '/api/iobroker': {
-                target: 'https://www.iobroker.net:3001',
+                target: 'https://www.iobroker.com',
                 changeOrigin: true,
                 rewrite: (path: string): string => path.replace(/^\/api\/iobroker/, ''),
             },

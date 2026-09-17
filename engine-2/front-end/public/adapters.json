@@ -3116,7 +3116,6 @@
             "ru": "schlueter-thermostat"
           },
           "content": "adapterref/iobroker.schlueter-thermostat/README.md",
-          "icon": "adapterref/iobroker.schlueter-thermostat/schlueter-thermostat.png",
           "keywords": "ditra heat, climate-control, cloud",
           "authors": "patricknitsch <patricknitsch@web.de>",
           "license": "MIT",

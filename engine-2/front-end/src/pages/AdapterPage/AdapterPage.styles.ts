@@ -347,40 +347,40 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.custom.textMuted,
     },
 
+    /*
+     * The block is as high as its content. It used to ask for 274 pixels, so three lines of code
+     * stood in a field with two thirds of it empty, and a readme with a dozen examples turned into
+     * a page of boxes (OliverIO in the forum, 17.09.2026: the code tags take up a lot of room).
+     */
     codeBlockContainer: {
         backgroundColor: theme.custom.surfaces.surface,
         width: '100%',
-        minHeight: '274px',
         borderRadius: `${theme.custom.radius.card}px`,
         boxShadow: `inset 0 0 0 1px ${theme.custom.hairline}`,
         overflow: 'hidden',
-        marginBottom: '24px',
-        paddingBottom: '16px',
+        marginBottom: '20px',
         display: 'flex',
         flexDirection: 'column',
-        [theme.breakpoints.down('lg')]: {
-            minHeight: 'unset',
-        },
     },
+    /** the strip above the code names the language: a caption, not a heading */
     codeBlockHeader: {
         backgroundColor: theme.custom.surfaces.raised,
-        color: theme.palette.text.primary,
+        color: theme.custom.textSubtle,
         lineHeight: 1,
         borderBottom: `1px solid ${theme.custom.hairline}`,
-        padding: '14px 16px 12px 16px',
+        padding: '7px 14px',
         position: 'relative',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'end',
-        fontWeight: 700,
-        fontSize: '18px',
+        alignItems: 'center',
+        fontWeight: 500,
+        fontSize: '12px',
+        textTransform: 'uppercase',
+        letterSpacing: '0.06em',
         flexShrink: 0,
-        [theme.breakpoints.down('md')]: {
-            fontSize: '18px',
-        },
     },
     codeBlockContent: {
-        padding: '10px 16px 10px 16px',
+        padding: '12px 14px',
         margin: 0,
         fontFamily: 'monospace',
         fontSize: '15px',
@@ -390,6 +390,17 @@ export const useStyles = makeStyles()(theme => ({
         overflowX: 'auto',
         overflowY: 'hidden',
         whiteSpace: 'pre',
+        /*
+         * On a phone a long line breaks instead of being pushed sideways: a command like
+         * `iobroker ALL=(ALL) NOPASSWD: /bin/ping` is otherwise hidden behind a bar that has to be
+         * found first. On the wide screen the line stays whole, there the indentation of a script
+         * is worth more than the saved bar (Denis, 17.09.2026).
+         */
+        [theme.breakpoints.down(768)]: {
+            whiteSpace: 'pre-wrap',
+            overflowWrap: 'anywhere',
+            overflowX: 'hidden',
+        },
         '& .key': { color: theme.palette.primary.main },
         '& .value': { color: theme.palette.text.primary },
         '& .comment': { color: theme.custom.textSubtle },

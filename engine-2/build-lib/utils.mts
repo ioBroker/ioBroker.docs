@@ -795,7 +795,7 @@ export interface ImageToDownload {
  * becomes `de/adapterref/de/img/icon.png` when joined, which looks like a path of this site and is
  * none: that picture belongs beside the adapter and is fetched there.
  */
-const SITE_PATH = /^[a-z]{2}(-[a-z]{2})?\/adapterref\/(?![a-z]{2}(-[a-z]{2})?\/)/i;
+const SITE_PATH = /^([a-z]{2}(?:-[a-z]{2})?)\/(adapterref\/(?![a-z]{2}(?:-[a-z]{2})?\/).*)$/i;
 
 function withoutClimb(link: string): string {
     // The steps do not have to stand at the front: imap writes `img/../../de/img/icon.png`, which
@@ -839,9 +839,17 @@ export function replaceImages(
     const localOf = (link: string): { local: string; prefixed: boolean } => {
         if (prefixIsRoot) {
             if (link.includes('../')) {
-                const joined = path.posix.normalize(prefix + link);
-                if (SITE_PATH.test(joined)) {
-                    return { local: joined, prefixed: false };
+                const onSite = SITE_PATH.exec(path.posix.normalize(prefix + link));
+                if (onSite) {
+                    /*
+                     * A translated document names the picture in the English copy. Every language
+                     * folder holds its own copy of it, so the one beside this document is taken:
+                     * the reader stays in the folder of the page they are on.
+                     */
+                    const here = prefix.replace(/^[a-z]{2}(?:-[a-z]{2})?\//i, '');
+                    const language = /^([a-z]{2}(?:-[a-z]{2})?)\//i.exec(prefix)?.[1];
+                    const local = language && onSite[2].startsWith(here) ? `${language}/${onSite[2]}` : onSite[0];
+                    return { local, prefixed: false };
                 }
             }
             return { local: withoutClimb(link), prefixed: true };
