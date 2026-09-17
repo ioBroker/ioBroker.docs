@@ -91,8 +91,14 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
         menuItemActive: {
             background: theme.custom.surfaces.raised,
             color: theme.palette.primary.main,
-            '& img': {
+            /*
+             * Doubled class on purpose. `menuIcon` sets a filter on the same image and stands
+             * further down in this file, so with equal weight it won the cascade and the icon of
+             * the chosen entry stayed grey while its label was already blue (Denis, 17.09.2026).
+             */
+            '&& img': {
                 filter: ACTIVE_ICON_FILTER,
+                opacity: 1,
             },
         },
         menuIcon: {
