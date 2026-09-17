@@ -1,6 +1,6 @@
 ---
 title:       "Adapterlizenzen"
-lastChanged: "16.09.2026"
+lastChanged: "17.09.2026"
 ---
 
 # Adapterlizenzen
@@ -14,8 +14,15 @@ laufen:
 | **KNX** | Die Anbindung von KNX-Anlagen |
 | **JägerDesign Widgets** | Ein Widgetsatz für die Visualisierung |
 
-Alle anderen Adapter sind kostenfrei. Eine Adapterlizenz gilt für den Adapter
-auf dem eigenen Server; mit der Cloud hat sie nichts zu tun.
+Alle weiteren Adapter, die über ioBroker lizenziert werden, sind kostenfrei.
+Eine Adapterlizenz gilt für den Adapter auf dem eigenen Server; mit der Cloud hat
+sie nichts zu tun.
+
+?> Davon unberührt sind Adapter, die ihr Entwickler zu eigenen Bedingungen
+anbietet. Einzelne Adapter aus der Community sind kostenpflichtig oder nur
+eingeschränkt nutzbar. Solche Lizenzen laufen nicht über ioBroker, sondern direkt
+beim jeweiligen Entwickler. Was für einen Adapter gilt, steht in seiner
+Beschreibung.
 
 ## Gebunden an die Seriennummer
 

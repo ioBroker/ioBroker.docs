@@ -128,7 +128,8 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
             fontWeight: 400,
         },
         // "Gesamtanzahl" is the summary row, it carries a little more weight
-        firstItemText: {
+        /** the summary row above the list: a heading, not an entry */
+        totalText: {
             fontWeight: 700,
             fontSize: '16px',
             color: theme.palette.text.primary,
@@ -142,10 +143,11 @@ export const useStyles = makeStyles<{ isCollapsed: boolean }>()((theme, { isColl
             color: theme.custom.textSubtle,
             fontVariantNumeric: 'tabular-nums',
         },
-        firstItemCount: {
+        totalCount: {
             fontSize: '15px',
             fontWeight: 700,
             color: theme.palette.text.primary,
+            fontVariantNumeric: 'tabular-nums',
         },
         activeCount: {
             color: theme.palette.primary.main,

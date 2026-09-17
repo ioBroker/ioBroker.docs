@@ -2,7 +2,6 @@ import { Box, Tooltip } from '@mui/material';
 import { useMemo } from 'react';
 import { useStyles } from './AdapterMenu.styles';
 import type { AdapterItem } from '../AdapterItem/AdapterItem';
-import GesamtanzahlIcon from '../../assets/img/adaptersMenuIcons/Gesamtanzahl.svg';
 import BeliebteIcon from '../../assets/img/adaptersMenuIcons/Beliebte.svg';
 import AlarmIcon from '../../assets/img/adaptersMenuIcons/Alarm.svg';
 import KlimaIcon from '../../assets/img/adaptersMenuIcons/Klima.svg';
@@ -220,28 +219,31 @@ export const AdapterMenu = ({
                     placement="right"
                 >
                     <Box className={`${classes.menuItem} ${classes.totalItem}`}>
-                        <Box className={classes.menuIcon}>
-                            <img
-                                src={GesamtanzahlIcon}
-                                alt={I18n.t('adapters.total')}
-                            />
-                        </Box>
-                        {!isCollapsed && (
+                        {isCollapsed ? (
+                            <Box className={classes.totalCount}>{totalAdapters}</Box>
+                        ) : (
                             <>
-                                <Box className={`${classes.menuText} ${classes.firstItemText}`}>
+                                <Box className={`${classes.menuText} ${classes.totalText}`}>
                                     {I18n.t('adapters.total')}
                                 </Box>
-                                <Box className={`${classes.menuCount} ${classes.firstItemCount}`}>{totalAdapters}</Box>
+                                <Box className={`${classes.menuCount} ${classes.totalCount}`}>{totalAdapters}</Box>
                             </>
                         )}
                     </Box>
                 </Tooltip>
 
                 {menuItems.map((item, index) => {
-                    const isFirstItem = index === 0;
-                    const isActive =
-                        !isFirstItem &&
-                        (selectedCategoryKeyProp ? item.key === selectedCategoryKeyProp : item.label === selectedItem);
+                    /*
+                     * "Popular" is an entry like any other: it can be chosen, and when it is, it
+                     * carries the same mark as the categories below it. Without a choice it is
+                     * what the page shows, so it starts out as the marked one (mcm1957 in the
+                     * forum, 17.09.2026: choosing it was not recognisable).
+                     */
+                    const isActive = selectedCategoryKeyProp
+                        ? item.key === selectedCategoryKeyProp
+                        : selectedItem
+                          ? item.label === selectedItem
+                          : item.key === 'overview';
 
                     return (
                         // collapsed the label is gone - the tooltip carries the category name
@@ -263,12 +265,12 @@ export const AdapterMenu = ({
                                 {!isCollapsed && (
                                     <>
                                         <Box
-                                            className={`${classes.menuText} ${isFirstItem ? classes.firstItemText : ''} ${isActive ? classes.activeText : ''}`}
+                                            className={`${classes.menuText} ${isActive ? classes.activeText : ''}`}
                                         >
                                             {item.label}
                                         </Box>
                                         <Box
-                                            className={`${classes.menuCount} ${isFirstItem ? classes.firstItemCount : ''} ${isActive ? classes.activeCount : ''}`}
+                                            className={`${classes.menuCount} ${isActive ? classes.activeCount : ''}`}
                                         >
                                             {item.count}
                                         </Box>

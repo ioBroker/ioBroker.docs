@@ -16,7 +16,9 @@ Of the more than 800 adapters, **three** currently require a license to even fun
 | **KNX**                 | The integration of KNX systems     |
 | **JägerDesign Widgets** | A set of widgets for visualization |
 
-All other adapters are free. An adapter license applies to the adapter on your own server; it has nothing to do with the cloud.
+All further adapters licensed through ioBroker are free. An adapter license applies to the adapter on your own server; it has nothing to do with the cloud.
+
+?> This does not cover adapters that their developer offers under their own terms. Individual community adapters are paid or limited in use. Such licenses do not run through ioBroker but directly with the developer in question. What applies to an adapter is stated in its description.
 
 ## Linked to the serial number
 
