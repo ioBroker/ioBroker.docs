@@ -101,7 +101,7 @@ Die Wiedergabe kann wiederholt werden und akzeptiert folgende Werte:
 
 ### Shuffle:
 
-Die Titel in der Wiedergabeliste werden für die zufällige Wiedergabe gemischt. Akzeptiert Werte`true` Und`false`
+Die Titel in der Wiedergabeliste werden für die zufällige Wiedergabe gemischt. Akzeptiert Werte `true` Und `false`
 
 ### Spielen:
 

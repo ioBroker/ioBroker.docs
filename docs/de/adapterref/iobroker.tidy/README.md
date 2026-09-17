@@ -26,7 +26,7 @@ Der **Tidy-** Adapter hilft Ihnen, ungenutzte Objekte und Zustände zu finden un
 
 ## Merkmale
 
-- **📊 Pfadbasiertes Scannen** : Konfigurieren Sie mehrere Pfade, die über die Objektauswahl durchsucht werden sollen (z. B.`0_userdata.0` ,`alias.0` )
+- **📊 Pfadbasiertes Scannen** : Konfigurieren Sie mehrere Pfade, die über die Objektauswahl durchsucht werden sollen (z. B. `0_userdata.0`, `alias.0`)
 - **🚫 Ausnahmen** : Absichtlich statische Datenpunkte, ganze Ordner oder Platzhaltermuster von den Scanergebnissen ausschließen
 - **🔍 Intelligente Erkennung** : Identifiziert verschiedene Arten problematischer Datenpunkte:
   - **Veraltet** : Nie aktualisiert oder extrem alt (konfigurierbarer Schwellenwert, Standard: 365 Tage)
@@ -48,7 +48,7 @@ Der **Tidy-** Adapter hilft Ihnen, ungenutzte Objekte und Zustände zu finden un
 ### Allgemeine Einstellungen
 
 - **Automatische Scans aktivieren** : Wenn diese Option aktiviert ist, werden alle konfigurierten Pfade automatisch gescannt.
-- **Alle Objekte scannen (vollständig)** : Wenn diese Option aktiviert ist, scannt der Adapter den gesamten Objektbaum und speichert die Ergebnisse in einer separaten Datei.`complete` Kanal (siehe unten)
+- **Alle Objekte scannen (vollständig)** : Wenn diese Option aktiviert ist, scannt der Adapter den gesamten Objektbaum und speichert die Ergebnisse in einer separaten Datei. `complete` Kanal (siehe unten)
 - **Scanintervall** : Wie oft automatische Scans ausgeführt werden sollen (in Stunden, mindestens 1)
 - **Tage bis zur „Veraltung“** : Datenpunkte, die seit so vielen Tagen nicht aktualisiert wurden, werden als veraltet markiert (Warnung).
 - **Tage bis zum Status „tot“** : Datenpunkte, die über diese Anzahl von Tagen nicht aktualisiert wurden, werden als tot (kritisch) markiert.
@@ -58,51 +58,51 @@ Der **Tidy-** Adapter hilft Ihnen, ungenutzte Objekte und Zustände zu finden un
 Konfigurieren Sie einen oder mehrere zu überwachende Pfade:
 
 - **Aktiviert** : Diesen Scanpfad aktivieren/deaktivieren
-- **Scanpfad** : Wählen Sie einen Ordner aus der Objektstruktur aus oder geben Sie einen Pfad manuell ein (z. B.`0_userdata.0` ,`alias.0` ,`javascript.0` Das Feld bleibt nach der Auswahl bearbeitbar.
-- **Alle Adapterinstanzen** : Entfernen Sie die Instanznummer, um jede Instanz zu scannen – z. B.`alias` anstatt`alias.0` Spiele`alias.0` ,`alias.1` , und so weiter
+- **Scanpfad** : Wählen Sie einen Ordner aus der Objektstruktur aus oder geben Sie einen Pfad manuell ein (z. B. `0_userdata.0`, `alias.0`, `javascript.0` Das Feld bleibt nach der Auswahl bearbeitbar.
+- **Alle Adapterinstanzen** : Entfernen Sie die Instanznummer, um jede Instanz zu scannen – z. B. `alias` anstatt `alias.0` Spiele `alias.0`, `alias.1`, und so weiter
 - **Name** : Ein aussagekräftiger Name für diesen Pfad (wird zur Benennung des Ergebniszustands verwendet)
-- **Alias-Ziele prüfen** : Für`alias.*` Pfade, prüfen, ob Zieldatenpunkte noch vorhanden sind (Geistererkennung)
+- **Alias-Ziele prüfen** : Für `alias.*` Pfade, prüfen, ob Zieldatenpunkte noch vorhanden sind (Geistererkennung)
 
 ### Ausnahmen
 
 Datenpunkte ausschließen, die nicht in den Scan-Ergebnissen oder Statistiken erscheinen sollen:
 
-- **Objekt** : Wählen Sie einen einzelnen Status oder einen Ordner/Kanal aus, um einen gesamten Unterbaum auszuschließen. Platzhalter werden unterstützt:`*` passt zu jedem Suffix,`?` entspricht einem einzelnen Zeichen (z. B.`0_userdata.0.rollo.trigger*` )
+- **Objekt** : Wählen Sie einen einzelnen Status oder einen Ordner/Kanal aus, um einen gesamten Unterbaum auszuschließen. Platzhalter werden unterstützt: `*` passt zu jedem Suffix, `?` entspricht einem einzelnen Zeichen (z. B. `0_userdata.0.rollo.trigger*`)
 - **Kommentar** : Optionale Anmerkung (z. B. warum dieser Datenpunkt ausgeschlossen wurde)
 
 Verwenden Sie dies für Konfigurationswerte, die sich selten ändern (z. B. eine gespeicherte Radiostation für ein Alarmskript), damit sie nicht als ungültig oder veraltet gekennzeichnet werden.
 
-Ausnahmen gelten für pfadbasierte Scans und den vollständigen Scan. Jeder Scankanal liefer&#x74;**`exceptionCount`** — die Anzahl der Datenpunkte, die beim letzten Scan ausgeschlossen wurden (0, falls keine vorhanden sind).
+Ausnahmen gelten für pfadbasierte Scans und den vollständigen Scan. Jeder Scankanal liefer&#x74;** `exceptionCount` ** — die Anzahl der Datenpunkte, die beim letzten Scan ausgeschlossen wurden (0, falls keine vorhanden sind).
 
 ## Datenpunkte
 
 Für jeden konfigurierten Pfad (z. B. „userdata“) erstellt der Adapter Folgendes:
 
-- **`tidy.0.userdata.trigger`** (Schaltfläche): Klicken Sie hier, um einen Scan manuell zu starten.
-- **`tidy.0.userdata.result`** (json): Vollständige Scan-Ergebnisse als JSON-Tabelle
-- **`tidy.0.userdata.lastScan`** (Zeitstempel): Wann wurde der letzte Scan durchgeführt?
-- **`tidy.0.userdata.count`** (Anzahl): Insgesamt gefundene Datenpunkte
-- **`tidy.0.userdata.deadCount`** (Zahl): Anzahl der ausgefallenen Datenpunkte
-- **`tidy.0.userdata.staleCount`** (Zahl): Anzahl der veralteten Datenpunkte
-- **`tidy.0.userdata.orphanedCount`** (Zahl): Anzahl der verwaisten Aliase
-- **`tidy.0.userdata.exceptionCount`** (Zahl): Anzahl der von der Ausnahmeliste ausgeschlossenen Datenpunkte
+- ** `tidy.0.userdata.trigger` ** (Schaltfläche): Klicken Sie hier, um einen Scan manuell zu starten.
+- ** `tidy.0.userdata.result` ** (json): Vollständige Scan-Ergebnisse als JSON-Tabelle
+- ** `tidy.0.userdata.lastScan` ** (Zeitstempel): Wann wurde der letzte Scan durchgeführt?
+- ** `tidy.0.userdata.count` ** (Anzahl): Insgesamt gefundene Datenpunkte
+- ** `tidy.0.userdata.deadCount` ** (Zahl): Anzahl der ausgefallenen Datenpunkte
+- ** `tidy.0.userdata.staleCount` ** (Zahl): Anzahl der veralteten Datenpunkte
+- ** `tidy.0.userdata.orphanedCount` ** (Zahl): Anzahl der verwaisten Aliase
+- ** `tidy.0.userdata.exceptionCount` ** (Zahl): Anzahl der von der Ausnahmeliste ausgeschlossenen Datenpunkte
 
 Wenn in den allgemeinen Einstellungen **die Option „Alle Objekte scannen (vollständig)“** aktiviert ist, erstellt der Adapter zusätzlich Folgendes:
 
-- **`tidy.0.complete.trigger`** (Schaltfläche): Klicken Sie hier, um einen vollständigen Scan manuell zu starten.
-- **`tidy.0.complete.result`** (JSON): Scan-Ergebnisse für alle Zustände im System
-- **`tidy.0.complete.lastScan`** (Zeitstempel): Wann der letzte vollständige Scan durchgeführt wurde
-- **`tidy.0.complete.count`** (Anzahl): Insgesamt gefundene Datenpunkte
-- **`tidy.0.complete.deadCount`** (Zahl): Anzahl der ausgefallenen Datenpunkte
-- **`tidy.0.complete.staleCount`** (Zahl): Anzahl der veralteten Datenpunkte
-- **`tidy.0.complete.orphanedCount`** (Zahl): Anzahl der verwaisten Aliase
-- **`tidy.0.complete.exceptionCount`** (Zahl): Anzahl der von der Ausnahmeliste ausgeschlossenen Datenpunkte
+- ** `tidy.0.complete.trigger` ** (Schaltfläche): Klicken Sie hier, um einen vollständigen Scan manuell zu starten.
+- ** `tidy.0.complete.result` ** (JSON): Scan-Ergebnisse für alle Zustände im System
+- ** `tidy.0.complete.lastScan` ** (Zeitstempel): Wann der letzte vollständige Scan durchgeführt wurde
+- ** `tidy.0.complete.count` ** (Anzahl): Insgesamt gefundene Datenpunkte
+- ** `tidy.0.complete.deadCount` ** (Zahl): Anzahl der ausgefallenen Datenpunkte
+- ** `tidy.0.complete.staleCount` ** (Zahl): Anzahl der veralteten Datenpunkte
+- ** `tidy.0.complete.orphanedCount` ** (Zahl): Anzahl der verwaisten Aliase
+- ** `tidy.0.complete.exceptionCount` ** (Zahl): Anzahl der von der Ausnahmeliste ausgeschlossenen Datenpunkte
 
 Der vollständige Scan verwendet dieselbe JSON-Ergebnisstruktur wie pfadbasierte Scans. Automatische Scans beinhalten den vollständigen Scan, wenn diese Option aktiviert ist.
 
 ### JSON-Ergebnisstruktur
 
-Der`result` Der Zustand enthält ein JSON-Array mit den folgenden Feldern für jeden Datenpunkt:
+Der `result` Der Zustand enthält ein JSON-Array mit den folgenden Feldern für jeden Datenpunkt:
 
 ```json
 [
@@ -138,10 +138,10 @@ Der`result` Der Zustand enthält ein JSON-Array mit den folgenden Feldern für j
 | `last_ts`     | Unix-Zeitstempel (ms) oder null                           | Sortierung im Hintergrund      |
 | `last_ts_iso` | ISO 8601 Datumszeichenfolge                               | In Tabelle anzeigen            |
 | `value`       | Aktueller Datenpunktwert                                  | Letzte Prüfung vor dem Löschen |
-| `status`      | `active` ,`dead` ,`stale` ,`undefined` ,`orphaned`        | Klassifizierung (Englisch)     |
-| `status_de`   | `aktiv` ,`inaktiv` ,`veraltet` ,`undefiniert` ,`verwaist` | Klassifizierung (Deutsch)      |
-| `issue`       | `dead` ,`stale` ,`orphaned_alias` , oder`null`            | Filterkriterium (null = OK)    |
-| `issue_de`    | `inaktiv` ,`veraltet` ,`verwaistes Alias` , oder`null`    | Filterkriterium (Deutsch)      |
+| `status`      | `active`, `dead`, `stale`, `undefined`, `orphaned`        | Klassifizierung (Englisch)     |
+| `status_de`   | `aktiv`, `inaktiv`, `veraltet`, `undefiniert`, `verwaist` | Klassifizierung (Deutsch)      |
+| `issue`       | `dead`, `stale`, `orphaned_alias`, oder `null`            | Filterkriterium (null = OK)    |
+| `issue_de`    | `inaktiv`, `veraltet`, `verwaistes Alias`, oder `null`    | Filterkriterium (Deutsch)      |
 | `size`        | `JSON.stringify(val).length`                              | Findet "Lagerfresser"          |
 
 ## Anwendungsbeispiele
@@ -149,18 +149,18 @@ Der`result` Der Zustand enthält ein JSON-Array mit den folgenden Feldern für j
 ### Grundlegende Einrichtung
 
 1. Installieren und konfigurieren Sie den Adapter
-2. Fügen Sie mithilfe der Objektauswahl einen zu scannenden Pfad hinzu (z. B.`0_userdata.0` oder geben Sie es manuell ein
+2. Fügen Sie mithilfe der Objektauswahl einen zu scannenden Pfad hinzu (z. B. `0_userdata.0` oder geben Sie es manuell ein
 3. Geben Sie ihm einen Namen (z. B. „Benutzerdaten“).
 4. Konfiguration speichern
 5. Der Adapter führt sofort einen ersten Scan durch.
-6. Ergebnisse anzeigen in`tidy.0.userdata.result`
+6. Ergebnisse anzeigen in `tidy.0.userdata.result`
 
 ### Multi-Instance Scan Paths
 
 Um alle Instanzen eines Adapters zu scannen, entfernen Sie die Instanznummer aus dem Pfad, nachdem Sie Folgendes ausgewählt haben:
 
 - `alias.0` → Nur die erste Aliasinstanz scannen
-- `alias` → scan`alias.0` ,`alias.1` und alle anderen Aliasinstanzen
+- `alias` → scan `alias.0`, `alias.1` und alle anderen Aliasinstanzen
 
 Das Pfadfeld bleibt auch nach Verwendung der Objektauswahl vollständig bearbeitbar.
 
@@ -168,7 +168,7 @@ Das Pfadfeld bleibt auch nach Verwendung der Objektauswahl vollständig bearbeit
 
 1. Öffnen Sie die Registerkarte **„Ausnahmen“** in der Adapterkonfiguration.
 2. Fügen Sie Datenpunkte hinzu, die ignoriert werden sollen (z. B. selten aktualisierte Konfigurationswerte).
-3. Wählen Sie einen einzelnen Zustand für einen Datenpunkt, einen Ordner, um einen ganzen Unterbaum auszuschließen, oder geben Sie ein Platzhaltermuster ein (z. B.`0_userdata.0.rollo.trigger*` )
+3. Wählen Sie einen einzelnen Zustand für einen Datenpunkt, einen Ordner, um einen ganzen Unterbaum auszuschließen, oder geben Sie ein Platzhaltermuster ein (z. B. `0_userdata.0.rollo.trigger*`)
 4. Konfiguration speichern – ausgeschlossene Datenpunkte werden nicht mehr in den Scanergebnissen oder Zählungen angezeigt.
 
 ### VIS-Integration
@@ -176,27 +176,27 @@ Das Pfadfeld bleibt auch nach Verwendung der Objektauswahl vollständig bearbeit
 Nutzen Sie das JSON-Ergebnis mit einem Tabellen-Widget, um Ihre Datenpunkte anzuzeigen und zu sortieren:
 
 1. Erstellen Sie ein Tabellen-Widget in VIS (z. B. inventwo Table Widget).
-2. Binde es an`tidy.0.userdata.result`
+2. Binde es an `tidy.0.userdata.result`
 3. Spalten konfigurieren:
-   - Für **deutsche** Tabellen:`id` ,`name` ,`last_ts_iso` ,`status_de` ,`issue_de`
-   - Für **englische** Tabellen:`id` ,`name` ,`last_ts_iso` ,`status` ,`issue`
-4. Sortieren nach`last_ts` (älteste zuerst), um die „totsten“ Datenpunkte zu finden
-5. Filtern nach`issue != null` nur problematische Datenpunkte anzeigen
+   - Für **deutsche** Tabellen: `id`, `name`, `last_ts_iso`, `status_de`, `issue_de`
+   - Für **englische** Tabellen: `id`, `name`, `last_ts_iso`, `status`, `issue`
+4. Sortieren nach `last_ts` (älteste zuerst), um die „totsten“ Datenpunkte zu finden
+5. Filtern nach `issue != null` nur problematische Datenpunkte anzeigen
 
 ### Vollständiger Scan
 
 1. Aktivieren Sie in den allgemeinen Einstellungen die Option **„Alle Objekte scannen (vollständig)“.**
 2. Konfiguration speichern – der Adapter führt einen ersten vollständigen Scan durch
-3. Ergebnisse anzeigen in`tidy.0.complete.result`
-4. Verwenden`tidy.0.complete.trigger` für manuelle Neuscans jederzeit
+3. Ergebnisse anzeigen in `tidy.0.complete.result`
+4. Verwenden `tidy.0.complete.trigger` für manuelle Neuscans jederzeit
 
-Nutzen Sie den vollständigen Scan, um einen Überblick über alle Zustände Ihrer Instanz zu erhalten. Für eine gezielte Bereinigung eignen sich pfadbasierte Scans (z. B.`0_userdata.0` ,`alias.0` ) sind in der Regel praktischer.
+Nutzen Sie den vollständigen Scan, um einen Überblick über alle Zustände Ihrer Instanz zu erhalten. Für eine gezielte Bereinigung eignen sich pfadbasierte Scans (z. B. `0_userdata.0`, `alias.0`) sind in der Regel praktischer.
 
 ### Automatische Wartung
 
 1. Aktivieren Sie die Option „Automatische Scans“ in den Einstellungen.
 2. Stellen Sie das Intervall auf 24 Stunden ein (einmal täglich).
-3. Monitor`deadCount` Und`staleCount` Statistiken
+3. Monitor `deadCount` Und `staleCount` Statistiken
 4. Überprüfen Sie die Ergebnisse wöchentlich, um Sanierungskandidaten zu identifizieren.
 
 ## Unterstützung

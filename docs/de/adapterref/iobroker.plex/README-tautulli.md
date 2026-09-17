@@ -14,7 +14,7 @@ hash: 3El1fuTFnd15MqnqP2Dqux53bLA73HTIZlJkG/TzeD0=
 
 ### Wiedergabe starten / stoppen / pausieren / fortsetzen
 
-**Hinweis:** Wie bereits erwähnt, sind die JSON-Daten hochgradig anpassbar und können beliebig geändert werden. **Bitte beachten Sie** , dass die Benachrichtigungstypen für`Playback Start` ,`Stop` ,`Resume` Und`Pause` **erfordern mindestens**`{"Player": {"title": "{player}", "uuid": "{machine_id}"}` (um den Spieler zu identifizieren), damit es richtig funktioniert.
+**Hinweis:** Wie bereits erwähnt, sind die JSON-Daten hochgradig anpassbar und können beliebig geändert werden. **Bitte beachten Sie** , dass die Benachrichtigungstypen für `Playback Start`, `Stop`, `Resume` Und `Pause` **erfordern mindestens** `{"Player": {"title": "{player}", "uuid": "{machine_id}"}` (um den Spieler zu identifizieren), damit es richtig funktioniert.
 
 Sie können das folgende Beispiel in Tautulli kopieren, um eine vollständige und detaillierte Nutzlast zu erhalten.![Tautulli-Benachrichtigung](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-notification.png)
 

@@ -60,7 +60,7 @@ Steuern Sie [iiyama ProLite](https://iiyama.com/gl_en/products/) Professional-Di
 
 #### Serielle Verbindung
 
-- **Serielle Schnittstelle** : Pfad zum seriellen Gerät (z. B.`/dev/ttyUSB0` auf Linux oder`COM1` (unter Windows)
+- **Serielle Schnittstelle** : Pfad zum seriellen Gerät (z. B. `/dev/ttyUSB0` auf Linux oder `COM1` (unter Windows)
 - **Baudrate** :
   - 9600 für die meisten Modelle
   - 115200 nur für die Serie LHxx42UHS-B1
@@ -86,7 +86,7 @@ Steuern Sie [iiyama ProLite](https://iiyama.com/gl_en/products/) Professional-Di
     - Der Adapter sendet ein WOL-Magic-Packet, anschließend den Einschaltbefehl.
     - Kann auch automatisch aufwachen, wenn ein HDMI-Quellsignal erkannt wird.
 - **MAC-Adresse** (erforderlich für Modus 3 und Modus 4): Die MAC-Adresse der Netzwerkschnittstelle des Displays, die für Wake-on-LAN verwendet wird.
-- **WOL-Broadcast-Adresse** (optional): Subnetz-Broadcast-Adresse für das WOL-Paket. Falls leer, wird sie von der Host-IP abgeleitet (z. B.`192.168.1.100` →`192.168.1.255` ).
+- **WOL-Broadcast-Adresse** (optional): Subnetz-Broadcast-Adresse für das WOL-Paket. Falls leer, wird sie von der Host-IP abgeleitet (z. B. `192.168.1.100` →`192.168.1.255`).
 
 ## Verwendung
 
@@ -136,7 +136,7 @@ Steuern Sie [iiyama ProLite](https://iiyama.com/gl_en/products/) Professional-Di
 
 #### Befehle
 
-- `commands.autoAdjust` - VGA-Autoanpassung auslösen (Schreiben`true` )
+- `commands.autoAdjust` - VGA-Autoanpassung auslösen (Schreiben `true`)
 
 ### Beispielhafte Verwendung in Blockly/JavaScript
 
@@ -181,7 +181,7 @@ Dieser Adapter implementiert das iiyama RS232-Seriell-Schnittstellenkommunikatio
 3. **Monitor-ID prüfen** : Muss mit der auf dem Display konfigurierten ID übereinstimmen.
 4. **Probleme mit der seriellen Verbindung** :
    - Überprüfen Sie die Baudrate (9600 oder 115200 für die B1-Serie).
-   - Überprüfung der Berechtigungen für den seriellen Port unter Linux:`sudo usermod -a -G dialout iobroker`
+   - Überprüfung der Berechtigungen für den seriellen Port unter Linux: `sudo usermod -a -G dialout iobroker`
 5. **TCP-Verbindungsprobleme** :
    - Zur Steuerung der Netzwerkstromversorgung konfigurieren Sie das Display auf Energiesparmodus 3 oder Modus 4.
    - Modus 1 oder 2: Die TCP-Verbindung bricht ab, wenn der Bildschirm ausgeschaltet ist – Aufwecken über das Netzwerk nicht möglich.

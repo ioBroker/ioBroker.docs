@@ -86,13 +86,13 @@ Der Adapter findet selbstständig alle Harmony-Hubs im Subnetz des ioBroker-Serv
 | **Entdeckungsintervall**  | Wie oft eine Erkennungsnachricht gesendet wird. Der Standardwert beträgt 2000 ms, der kleinste zulässige Wert ist 500 ms.                                                                                                                                                                                                                                                                                                                                                                              |
 | **Manuelle Hub-IPs**      | Eine optionale Liste von Hub-Adressen. Sobald diese Liste mindestens einen Eintrag enthält, kontaktiert der Adapter genau diese Adressen und überspringt den Broadcast vollständig. Verwenden Sie diese Liste, wenn sich ein Hub in einem anderen Subnetz als ioBroker befindet oder wenn Broadcast-Verkehr in Ihrem Netzwerk blockiert ist (#147).                                                                                                                                                    |
 
-Nach Abschluss der Konfiguration wird im Konfigurationsdialog Folgendes angezeigt:`SAVE AND CLOSE` Der Adapter wird anschließend neu gestartet.
+Nach Abschluss der Konfiguration wird im Konfigurationsdialog Folgendes angezeigt: `SAVE AND CLOSE` Der Adapter wird anschließend neu gestartet.
 
 Bei Instanzen, die von Version 2.1.0 oder älter aktualisiert wurden, wird die entfernte Einstellung _„Discovery-Subnets“_ beim ersten Start automatisch migriert: Eine Adresse, die die Broadcast-Adresse einer Ihrer Schnittstellen ist, wählt diese Schnittstelle aus; jede andere Adresse wird zu einer manuellen Hub-IP-Adresse. Der Adapter protokolliert die Konvertierungen.
 
 ## Instanzen
 
-Durch die Installation des Adapters wurde eine aktive Instanz des Logitech Harmony Hub-Adapters erstellt.`Instances` Abschnitt.
+Durch die Installation des Adapters wurde eine aktive Instanz des Logitech Harmony Hub-Adapters erstellt. `Instances` Abschnitt.
 
 ![Beispiel](../../../en/adapterref/iobroker.harmony/media/a_harmony_instanz.png "Erstes Vorkommen")
 
@@ -102,7 +102,7 @@ Ob der Adapter aktiviert und mit dem Logitech Harmony Hub verbunden ist, wird du
 
 ## Objekte des Adapters
 
-Im`Objects` In diesem Abschnitt werden alle Geräte und Aktivitäten, die der Adapter im Hub gefunden hat, baumartig aufgelistet. Zusätzlich geben die Objekte Auskunft darüber, ob die Kommunikation mit dem Hub reibungslos funktioniert.
+Im `Objects` In diesem Abschnitt werden alle Geräte und Aktivitäten, die der Adapter im Hub gefunden hat, baumartig aufgelistet. Zusätzlich geben die Objekte Auskunft darüber, ob die Kommunikation mit dem Hub reibungslos funktioniert.
 
 ![Objekte](../../../en/adapterref/iobroker.harmony/media/a_harmony_objekte.png "Objekte des Harmony-Adapters")
 
@@ -119,7 +119,7 @@ Jeder Zustand wird zusammen mit seinem Datentyp und seinen Berechtigungen aufgel
 |   _**Hub blockiert**_       | R      | Zeigt an, ob der Hub momentan ausgelastet ist, d. h. eine Aktivität startet oder beendet oder einen Befehl sendet. |
 |   _**Hub verbunden**_       | R      | Status der Verbindung zwischen Adapter und Hub                                                                     |
 
-`hubBlocked` Und`hubConnected` Sie sind schreibgeschützt, das Schreiben in sie hat keine Auswirkung.
+`hubBlocked` Und `hubConnected` Sie sind schreibgeschützt, das Schreiben in sie hat keine Auswirkung.
 
 ### Gerätefunktionen
 
@@ -129,25 +129,25 @@ Wird ein Gerät geöffnet, wird eine Liste mit allen zugehörigen Funktionen ang
 
 #### Auslösen einer Gerätefunktion
 
-Jede Gerätefunktion`{instance}.{hub name}.{device}.{device function}` Löst die entsprechende Reaktion des angesprochenen Geräts aus. Die Werte der Gerätefunktionen können gelesen und geschrieben werden. Die Auslösung kann durch Klicken auf das Glockensymbol rechts neben der Funktion mit dem Mauszeiger getestet werden. Alternativ kann dort mit dem Stiftsymbol ein Wert eingegeben werden.
+Jede Gerätefunktion `{instance}.{hub name}.{device}.{device function}` Löst die entsprechende Reaktion des angesprochenen Geräts aus. Die Werte der Gerätefunktionen können gelesen und geschrieben werden. Die Auslösung kann durch Klicken auf das Glockensymbol rechts neben der Funktion mit dem Mauszeiger getestet werden. Alternativ kann dort mit dem Stiftsymbol ein Wert eingegeben werden.
 
-Die Werte haben die Einheit`milliseconds` Wird ein Wert zwischen 1 und 250 ms eingegeben, sendet der Harmony-Hub üblicherweise einen einzelnen Tastendruck der angegebenen Länge. Werte über 250 ms können dazu führen, dass die Gerätefunktion mehrmals ausgelöst wird.
+Die Werte haben die Einheit `milliseconds` Wird ein Wert zwischen 1 und 250 ms eingegeben, sendet der Harmony-Hub üblicherweise einen einzelnen Tastendruck der angegebenen Länge. Werte über 250 ms können dazu führen, dass die Gerätefunktion mehrmals ausgelöst wird.
 
 Nachdem die Gerätefunktion ausgelöst wurde, ändert sich der Wert wieder auf 0.
 
 ### Aktivitäten
 
-Alle im Harmony Hub angebotenen Aktivitäten sind unten aufgeführt.`activities` Die
+Alle im Harmony Hub angebotenen Aktivitäten sind unten aufgeführt. `activities` Die
 
 ![Aktivitäten](../../../en/adapterref/iobroker.harmony/media/a_harmony_activities.png "Aktivitäten")
 
 #### Eine Aktivität starten
 
-Eine Aktivität wird gestartet, indem bei der Aktivität eine Zahl größer als 0 eingegeben wird.`{instance}.{hub name}.activities.{activity}` Während die Aktivität ausgeführt wird, ändert sich dieser Wert zuerst auf 1 (= Start) und dann auf 2 (= aktiv).
+Eine Aktivität wird gestartet, indem bei der Aktivität eine Zahl größer als 0 eingegeben wird. `{instance}.{hub name}.activities.{activity}` Während die Aktivität ausgeführt wird, ändert sich dieser Wert zuerst auf 1 (= Start) und dann auf 2 (= aktiv).
 
 #### Eine Aktivität beenden
 
-Laufende Aktivitäten werden gestoppt, indem ihr Wert auf 0 gesetzt wird. Alternativ kann im Objekt eine beliebige Zahl eingegeben werden.`{instance}.{hub name}.activities.currentStatus` Die laufende Aktivität wird gestoppt. Während die Aktivität gestoppt wird,`{instance}.{hub name}.activities.currentStatus` Änderungen von 3 (= Stopp) auf 0 (= inaktiv).
+Laufende Aktivitäten werden gestoppt, indem ihr Wert auf 0 gesetzt wird. Alternativ kann im Objekt eine beliebige Zahl eingegeben werden. `{instance}.{hub name}.activities.currentStatus` Die laufende Aktivität wird gestoppt. Während die Aktivität gestoppt wird, `{instance}.{hub name}.activities.currentStatus` Änderungen von 3 (= Stopp) auf 0 (= inaktiv).
 
 #### Weitere Statuswerte
 
@@ -160,11 +160,11 @@ Laufende Aktivitäten werden gestoppt, indem ihr Wert auf 0 gesetzt wird. Altern
 - 2 = aktiv
 - 3 = Stopp
 
-`{instance}.{hub name}.activities.{activity}` zeigt den Status einer einzelnen Aktivität an. Die Bedeutung der Werte ist dieselbe wie für`{instance}.{hub name}.activities.currentStatus` Die
+`{instance}.{hub name}.activities.{activity}` zeigt den Status einer einzelnen Aktivität an. Die Bedeutung der Werte ist dieselbe wie für `{instance}.{hub name}.activities.currentStatus` Die
 
 ## Deinstallation
 
-Soll die Instanz erneut entfernt werden, wird sie mit dem ihr zugewiesenen Papierkorbsymbol gelöscht.`Instances` Abschnitt.
+Soll die Instanz erneut entfernt werden, wird sie mit dem ihr zugewiesenen Papierkorbsymbol gelöscht. `Instances` Abschnitt.
 
 ![Löschen](../../../en/adapterref/iobroker.harmony/media/adapter_harmony_delete_01.png)
 
@@ -178,7 +178,7 @@ Anschließend erscheint erneut ein Fenster, das den Ablauf der Deinstallationsbe
 
 Durch diese Deinstallation werden alle zur Instanz gehörenden Objekte vollständig entfernt.
 
-Sollen die Installationsdateien vollständig vom Host gelöscht werden, muss dies über das Papierkorbsymbol in der Kachel des Harmony-Adapters erfolgen.`Adapters` Abschnitt.
+Sollen die Installationsdateien vollständig vom Host gelöscht werden, muss dies über das Papierkorbsymbol in der Kachel des Harmony-Adapters erfolgen. `Adapters` Abschnitt.
 
 ## Häufig gestellte Fragen
 
@@ -188,21 +188,21 @@ Sollen die Installationsdateien vollständig vom Host gelöscht werden, muss die
 
 2. **Wie lässt sich am einfachsten ein „Alles aus“-Schalter über ioBroker implementieren?**
 
-   Satz`{instance}.{hub name}.activities.currentStatus` auf 0.
+   Satz `{instance}.{hub name}.activities.currentStatus` auf 0.
 
-3. **Unter Windows wird die Meldung angezeigt`ERR! code ENOGIT` Während der Installation des Adapters tritt ein Fehler auf, und der Adapter funktioniert nicht.**
+3. **Unter Windows wird die Meldung angezeigt `ERR! code ENOGIT` Während der Installation des Adapters tritt ein Fehler auf, und der Adapter funktioniert nicht.**
 
    Laden Sie GIT von der Website <https://git-scm.com/download/win> herunter und installieren Sie es, bevor Sie den Harmony-Adapter installieren.
 
-4. **Unter Linux wird die Meldung angezeigt`ERR! code ENOGIT` Während der Installation des Adapters tritt ein Fehler auf, und der Adapter funktioniert nicht.**
+4. **Unter Linux wird die Meldung angezeigt `ERR! code ENOGIT` Während der Installation des Adapters tritt ein Fehler auf, und der Adapter funktioniert nicht.**
 
-   Installieren Sie GIT über die Befehlszeile mit`sudo apt install git` vor der Installation des Harmony-Adapters.
+   Installieren Sie GIT über die Befehlszeile mit `sudo apt install git` vor der Installation des Harmony-Adapters.
 
 5. **Skripte funktionieren nicht mehr mit neueren Versionen des Adapters.**
 
-   Ab Version 0.9.1 des Adapters werden Objekte anders benannt.`harmony.0.Harmony_Hub` wurde`harmony.0.Harmony Hub` Beispielsweise sollten Sie die Objekte überprüfen und die darauf aufbauenden Komponenten, wie etwa Skripte, entsprechend anpassen.
+   Ab Version 0.9.1 des Adapters werden Objekte anders benannt. `harmony.0.Harmony_Hub` wurde `harmony.0.Harmony Hub` Beispielsweise sollten Sie die Objekte überprüfen und die darauf aufbauenden Komponenten, wie etwa Skripte, entsprechend anpassen.
 
-   Ab Version 3.0.0 wird jeder Punkt in Hub-, Aktivitäts-, Geräte- und Befehlsnamen durch einen Punkt ersetzt.`_` Nicht nur der erste. Staaten, deren Name einen Punkt enthielt, werden unter der neuen ID neu erstellt, daher müssen auch Skripte, VIS-Ansichten und Aliase, die auf solche Staaten verweisen, angepasst werden.
+   Ab Version 3.0.0 wird jeder Punkt in Hub-, Aktivitäts-, Geräte- und Befehlsnamen durch einen Punkt ersetzt. `_` Nicht nur der erste. Staaten, deren Name einen Punkt enthielt, werden unter der neuen ID neu erstellt, daher müssen auch Skripte, VIS-Ansichten und Aliase, die auf solche Staaten verweisen, angepasst werden.
 
 6. **Das WLAN schaltet sich nachts automatisch ab. Nach dem erneuten Einschalten des WLANs verbindet sich der Adapter nicht automatisch wieder mit dem Hub.**
 

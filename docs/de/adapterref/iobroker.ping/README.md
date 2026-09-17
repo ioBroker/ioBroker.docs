@@ -19,7 +19,7 @@ hash: f1oBwZlw077cGSMI9Js2FmSXCNkDcpI9SRK6JkzGKnM=
 
 Pings an festgelegte IP-Adressen in einem definierten Intervall und Überwachung der Ergebnisse.
 
-Sie können TCP-Ports auch überwachen, indem Sie die Portnummer nach der IP-Adresse mit einem Doppelpunkt angeben (z. B. 1234).`192.168.1.1:80` oder`google.com:443` Hierbei wird geprüft, ob der Port erreichbar ist, anstatt einen ICMP-Ping zu verwenden.
+Sie können TCP-Ports auch überwachen, indem Sie die Portnummer nach der IP-Adresse mit einem Doppelpunkt angeben (z. B. 1234). `192.168.1.1:80` oder `google.com:443` Hierbei wird geprüft, ob der Port erreichbar ist, anstatt einen ICMP-Ping zu verwenden.
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
@@ -43,21 +43,21 @@ sendTo('ping.0', 'ping', '192.168.1.1:80', res => {
 
 ## Bekannte Probleme
 
-- Falls Ihr Linux-Client nicht anpingbar ist, überprüfen Sie Folgendes:`iputils-ping` ist korrekt auf einem Client installiert.
+- Falls Ihr Linux-Client nicht anpingbar ist, überprüfen Sie Folgendes: `iputils-ping` ist korrekt auf einem Client installiert.
 
 - `ping` Dieser Befehl unter Linux erfordert Root-Berechtigungen.
 
-Sie können dem Adapter die Berechtigung zur Ausführung des folgenden Befehls erteilen:`ping` Befehl als Root ausführen.
+Sie können dem Adapter die Berechtigung zur Ausführung des folgenden Befehls erteilen: `ping` Befehl als Root ausführen.
 
-Dazu müssen Sie die folgende Zeile hinzufügen:`/etc/sudoers` Datei mit`sudo visudo` Befehl:`iobroker ALL=(ALL) NOPASSWD: /bin/ping` Die
+Dazu müssen Sie die folgende Zeile hinzufügen: `/etc/sudoers` Datei mit `sudo visudo` Befehl: `iobroker ALL=(ALL) NOPASSWD: /bin/ping` Die
 
-Oder Sie können die Ping-Ausführung zulassen durch`sudo setcap cap_net_raw+ep /bin/ping` Befehl.
+Oder Sie können die Ping-Ausführung zulassen durch `sudo setcap cap_net_raw+ep /bin/ping` Befehl.
 
-Sie müssen installieren`setcap` mit`sudo apt-get install libcap2-bin` vorher wenn`setcup` Nicht gefunden.
+Sie müssen installieren `setcap` mit `sudo apt-get install libcap2-bin` vorher wenn `setcup` Nicht gefunden.
 
 ## hping3-Unterstützung für Geräte im Ruhemodus (z. B. iPhones)
 
-Manche Geräte, insbesondere iPhones im Tiefschlafmodus, reagieren nicht auf Standard-ICMP-Pings. Um solche Geräte zuverlässig zu erkennen, kann der Adapter Folgendes verwenden:`hping3` Um einen Burst von UDP-Paketen an Port 5353 (mDNS) zu senden, der das Gerät aufweckt, gefolgt von einem regulären Ping, um die Erreichbarkeit zu bestätigen.
+Manche Geräte, insbesondere iPhones im Tiefschlafmodus, reagieren nicht auf Standard-ICMP-Pings. Um solche Geräte zuverlässig zu erkennen, kann der Adapter Folgendes verwenden: `hping3` Um einen Burst von UDP-Paketen an Port 5353 (mDNS) zu senden, der das Gerät aufweckt, gefolgt von einem regulären Ping, um die Erreichbarkeit zu bestätigen.
 
 Aktivieren Sie **„hping3 verwenden“** für einzelne Geräte in der Gerätetabelle. Der Adapter läuft wie folgt:
 
@@ -67,7 +67,7 @@ hping3 -2 -c 10 -p 5353 -i u1 -q <IP>
 
 …führt dann sofort einen regulären ICMP-Ping durch. Wenn hping3 nicht installiert ist, greift der Adapter automatisch auf den regulären Ping zurück.
 
-**Installation (nur Linux):** Aktivieren Sie in den Haupteinstellungen **die Option „hping3 installieren, falls nicht verfügbar“** . Der Adapter wird dann ausgeführt.`sudo apt-get install -y hping3` Beim Systemstart, falls hping3 noch nicht vorhanden ist. Alternativ kann es manuell installiert werden:
+**Installation (nur Linux):** Aktivieren Sie in den Haupteinstellungen **die Option „hping3 installieren, falls nicht verfügbar“** . Der Adapter wird dann ausgeführt. `sudo apt-get install -y hping3` Beim Systemstart, falls hping3 noch nicht vorhanden ist. Alternativ kann es manuell installiert werden:
 
 ```bash
 sudo apt-get install hping3
@@ -75,7 +75,7 @@ sudo apt-get install hping3
 
 ## TCP-Portprüfung
 
-Ab Version 1.8.0 können Sie auch TCP-Ports überprüfen, indem Sie die Portnummer nach der IP-Adresse mit einem Doppelpunkt angeben (z. B. 1234).`192.168.1.1:80` ).
+Ab Version 1.8.0 können Sie auch TCP-Ports überprüfen, indem Sie die Portnummer nach der IP-Adresse mit einem Doppelpunkt angeben (z. B. 1234). `192.168.1.1:80`).
 
 Der Adapter prüft, ob der TCP-Port erreichbar ist, anstatt ICMP-Ping zu verwenden.
 
@@ -99,8 +99,8 @@ sendTo('ping.0', 'wakeOnLan', { mac: '01:23:45:67:89:AB', ip: '192.168.1.255' },
 
 Jeder Gerätezustand ist beschreibbar und reagiert auf nicht bestätigte Schreibvorgänge:
 
-- **Schreiben`false`** — löst einen sofortigen Ping an dieses Gerät aus, außerhalb des normalen Abfrageintervalls.
-- **Schreiben`true`** — sendet ein [Wake-on-LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) Magic Packet, um das Gerät aufzuwecken.
+- **Schreiben `false` ** — löst einen sofortigen Ping an dieses Gerät aus, außerhalb des normalen Abfrageintervalls.
+- **Schreiben `true` ** — sendet ein [Wake-on-LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) Magic Packet, um das Gerät aufzuwecken.
 
 ### Wake-on-LAN
 

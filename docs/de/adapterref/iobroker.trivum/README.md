@@ -19,7 +19,7 @@ Deutsche Dokumentation: [READMEde.md](/#/docs/adapterref/iobroker.trivum/READMEd
 
 ## Konfiguration
 
-Geben Sie die IPv4-Adresse des trivum MusicCenter ein. Zonen und Bedienelemente werden automatisch erkannt. Das Abfrageintervall und das HTTP-Timeout sind konfigurierbar; bestehende Installationen behalten die bisherigen Einstellungen bei.`adresse` Und`option3` Konfigurationsschlüssel.
+Geben Sie die IPv4-Adresse des trivum MusicCenter ein. Zonen und Bedienelemente werden automatisch erkannt. Das Abfrageintervall und das HTTP-Timeout sind konfigurierbar; bestehende Installationen behalten die bisherigen Einstellungen bei. `adresse` Und `option3` Konfigurationsschlüssel.
 
 `Number of paging presets` Erstellt globale Paging-Buttons, beginnend bei ID 0.
 
@@ -27,20 +27,20 @@ Geben Sie die IPv4-Adresse des trivum MusicCenter ein. Zonen und Bedienelemente 
 
 Globale Steuerung:
 
-- `Global.ALLOFF` : Alle Zonen ausschalten
-- `Global.Aktive_zonen` : von Trivum gemeldete aktive Zonen
-- `Global.PagingN` : Start der Paging-Voreinstellung N
+- `Global.ALLOFF`: Alle Zonen ausschalten
+- `Global.Aktive_zonen`: von Trivum gemeldete aktive Zonen
+- `Global.PagingN`: Start der Paging-Voreinstellung N
 
 Jede erkannte Zone liefert:
 
-- `Muten` : stummschalten/Stummschaltung aufheben
-- `DEFAULT_STREAMING` : Starte den Standardstream
-- `ZONECMD_DEFAULT_TUNER` : Starte den Standardtuner
+- `Muten`: stummschalten/Stummschaltung aufheben
+- `DEFAULT_STREAMING`: Starte den Standardstream
+- `ZONECMD_DEFAULT_TUNER`: Starte den Standardtuner
 - `VOLUME` Lautstärke von 0 bis 100 Prozent ablesen oder einstellen
-- `ZONECMD_POWER_OFF` : Schalten Sie die Zone aus
-- `Status` : aktueller Zonenstatus
+- `ZONECMD_POWER_OFF`: Schalten Sie die Zone aus
+- `Status`: aktueller Zonenstatus
 
-Die Tastenzustände werden nach einer erfolgreichen Anfrage automatisch zurückgesetzt.`info.connection` wird erst nach einer erfolgreichen Trivum-Antwort wahr, während`info.lastError` speichert den letzten Kommunikationsfehler.
+Die Tastenzustände werden nach einer erfolgreichen Anfrage automatisch zurückgesetzt. `info.connection` wird erst nach einer erfolgreichen Trivum-Antwort wahr, während `info.lastError` speichert den letzten Kommunikationsfehler.
 
 ## Changelog
 

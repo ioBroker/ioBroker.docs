@@ -41,7 +41,7 @@ Fügen Sie in den Adaptereinstellungen einen oder mehrere Endpunkte hinzu. Jede 
 
 Sie können außerdem das Abfrageintervall, das Timeout für Anfragen und optional die Protokollierung von Statusänderungen konfigurieren.
 
-Technische Server-IDs (`server1` ,`server2` , ...) werden intern verwaltet und werden nicht in der Admin-Benutzeroberfläche angezeigt.
+Technische Server-IDs (`server1`, `server2`, ...) werden intern verwaltet und werden nicht in der Admin-Benutzeroberfläche angezeigt.
 
 ## Objektstruktur
 
@@ -76,7 +76,7 @@ xtream-monitor.0
 - Der Adapter kontaktiert nur Endpunkte, die vom Benutzer explizit konfiguriert wurden.
 - Anmeldeinformationen werden niemals absichtlich in das ioBroker-Protokoll geschrieben.
 - In der Admin-Tabelle sind die Spalten für Passwörter für die verschlüsselte Speicherung konfiguriert.
-- Die vollständige Serverkonfiguration ist durch folgende Maßnahmen vor dem Zugriff durch andere Adapter geschützt:`protectedNative` Die
+- Die vollständige Serverkonfiguration ist durch folgende Maßnahmen vor dem Zugriff durch andere Adapter geschützt: `protectedNative` Die
 - Es werden keine Medieninhalte zur Überwachung abgerufen; der Adapter fragt Konto-/Statusmetadaten über den kompatiblen API-Endpunkt ab.
 
 ## Entwicklung

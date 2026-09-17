@@ -134,9 +134,9 @@ Die Ausgabe des Logs lautet:
 ]
 ```
 
-Wenn`calendar` Wenn kein Kalender angegeben wird, wird der Standardkalender verwendet.
+Wenn `calendar` Wenn kein Kalender angegeben wird, wird der Standardkalender verwendet.
 
-nur Felder`start` Und ,`summary` sind obligatorisch
+nur Felder `start` Und , `summary` sind obligatorisch
 
 **Ereignisaktualisierung** per Skript möglich:
 
@@ -163,7 +163,7 @@ sendTo("webcal.0", "updateEvents", {
   })
 ```
 
-nur Felder`start` Und ,`summary` sind obligatorisch
+nur Felder `start` Und , `summary` sind obligatorisch
 
 **Ereignis per Skript löschen** möglich:
 

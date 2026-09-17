@@ -25,7 +25,7 @@ Fragt die Zwift-API nach Live-Trainingsdaten ab und stellt diese als ioBroker-Zu
 - Live-Fahrerdaten werden alle 5 Sekunden aktualisiert (konfigurierbar).
 - Leistungszonenberechnung in Echtzeit (Coggan 6-Zonen-Modell, FTP wird automatisch aus Ihrem Zwift-Profil ausgelesen)
 - Umfassende Zwift-Profildaten: Identität, Radsportstatistiken, Laufstatistiken, Trikots, Drops, Serien
-- Verbindungsstatusanzeige (`info.connection` )
+- Verbindungsstatusanzeige (`info.connection`)
 - Automatische Token-Aktualisierung mit erneuter Authentifizierung als Fallback
 - Verschlüsselte Speicherung von Anmeldeinformationen
 - Metadatenaktualisierungen werden beim Neustart des Adapters automatisch angewendet (Einheitenkorrekturen, neue Felder).
@@ -60,7 +60,7 @@ Fragt die Zwift-API nach Live-Trainingsdaten ab und stellt diese als ioBroker-Zu
 | `progress`        | —       | Streckenfortschritt (Rohwert von Zwift)                         |
 | `sport`           | —       | Sportart (0 = Radfahren)                                        |
 | `groupId`         | —       | Gruppen-/Ereignis-ID (0 = keine Gruppe)                         |
-| `x` ,`y`          | —       | Weltpositionskoordinaten                                        |
+| `x`, `y`          | —       | Weltpositionskoordinaten                                        |
 | `heading`         | —       | Fahrtrichtung                                                   |
 | `lean`            | —       | Schräglage                                                      |
 | `watchingRiderId` | —       | ID des beobachteten Fahrers                                     |
@@ -70,7 +70,7 @@ Fragt die Zwift-API nach Live-Trainingsdaten ab und stellt diese als ioBroker-Zu
 
 #### Stromzonen
 
-Der`powerZone` Der Leistungsstatus basiert auf dem Coggan-6-Zonen-Modell und wird automatisch anhand Ihrer aktuellen Leistung und Ihres FTP-Wertes berechnet. Der FTP-Wert wird aus Ihrem Zwift-Profil ausgelesen – eine manuelle Konfiguration ist nicht erforderlich.
+Der `powerZone` Der Leistungsstatus basiert auf dem Coggan-6-Zonen-Modell und wird automatisch anhand Ihrer aktuellen Leistung und Ihres FTP-Wertes berechnet. Der FTP-Wert wird aus Ihrem Zwift-Profil ausgelesen – eine manuelle Konfiguration ist nicht erforderlich.
 
 | Zone | Name               | % der FTP |
 | ---- | ------------------ | --------- |
@@ -81,7 +81,7 @@ Der`powerZone` Der Leistungsstatus basiert auf dem Coggan-6-Zonen-Modell und wir
 | 5    | VO2 Max            | 106-120%  |
 | 6    | Anaerobe Kapazität | > 120%    |
 
-Wenn in Ihrem Zwift-Profil kein FTP-Server eingestellt ist,`powerZone` Der Status wird nicht aktualisiert.
+Wenn in Ihrem Zwift-Profil kein FTP-Server eingestellt ist, `powerZone` Der Status wird nicht aktualisiert.
 
 #### Profildaten (werden einmalig beim Verbindungsaufbau abgerufen)
 
@@ -123,11 +123,11 @@ Wenn in Ihrem Zwift-Profil kein FTP-Server eingestellt ist,`powerZone` Der Statu
 
 Der Adapter authentifiziert sich bei der Zwift-API über denselben Endpunkt wie die Zwift Companion-App (`client_id=Zwift_Mobile_Link` Beim Start ruft es Ihr Zwift-Profil (einschließlich FTP) ab und fragt dann den Fahrerstatus über den Spiel-Relay-Server ab, dekodiert die Protobuf-Antwort, wandelt Rohwerte in für Menschen lesbare Einheiten um und aktualisiert den ioBroker-Zustandsbaum.
 
-Wenn in Ihrem Profil ein FTP-Wert festgelegt ist, berechnet der Adapter einen Live-Wert.`powerZone` (1–6) bei jedem Abfragezyklus unter Verwendung des Coggan-Leistungszonenmodells. Eine manuelle FTP-Konfiguration ist nicht erforderlich.
+Wenn in Ihrem Profil ein FTP-Wert festgelegt ist, berechnet der Adapter einen Live-Wert. `powerZone` (1–6) bei jedem Abfragezyklus unter Verwendung des Coggan-Leistungszonenmodells. Eine manuelle FTP-Konfiguration ist nicht erforderlich.
 
-Wenn Sie nicht aktiv in Zwift fahren, werden die Adaptersets`isRiding` Zu`false` und setzt die Abfrage fehlerfrei fort.
+Wenn Sie nicht aktiv in Zwift fahren, werden die Adaptersets `isRiding` Zu `false` und setzt die Abfrage fehlerfrei fort.
 
-**Technischer Hinweis:** Statusobjekte werden erstellt mit`extendObjectAsync` statt`setObjectNotExistsAsync` Das bedeutet, dass Metadatenänderungen (korrigierte Einheiten, umbenannte Zustände, neue Felder) bei jedem Neustart des Adapters automatisch angewendet werden. Objekte müssen nach einem Update nicht gelöscht und neu erstellt werden.
+**Technischer Hinweis:** Statusobjekte werden erstellt mit `extendObjectAsync` statt `setObjectNotExistsAsync` Das bedeutet, dass Metadatenänderungen (korrigierte Einheiten, umbenannte Zustände, neue Felder) bei jedem Neustart des Adapters automatisch angewendet werden. Objekte müssen nach einem Update nicht gelöscht und neu erstellt werden.
 
 ### Smart-Home-Ideen
 
@@ -136,7 +136,7 @@ Da Ihre Zwift-Daten laut ioBroker verfügbar sind, können Sie Automatisierungen
 **Immersive Beleuchtung**
 
 - Passen Sie Ihre LED-Streifen oder Hue-Lampen an die Herzfrequenzzonen an – blau für Erholung, grün für Ausdauer, gelb für Tempo, rot für Schwellentraining, blinkend rot für VO2max.
-- Verwenden Sie die`powerZone` Zustand (1-6) zur direkten Steuerung von Farbschemata – keine Skripterstellung zur Zonenberechnung erforderlich
+- Verwenden Sie die `powerZone` Zustand (1-6) zur direkten Steuerung von Farbschemata – keine Skripterstellung zur Zonenberechnung erforderlich
 - Die Lichtfarbe ändert sich mit der Leistungsaufnahme – je stärker die Leistung, desto intensiver das Leuchten.
 - Höhe durch Lichthelligkeit simulieren – beim Aufstieg dimmen, beim Abstieg aufhellen.
 - Lass die Zimmerbeleuchtung blinken, wenn du ein Ride On erhältst.
@@ -167,13 +167,13 @@ Da Ihre Zwift-Daten laut ioBroker verfügbar sind, können Sie Automatisierungen
 **Motivation und Gamifizierung**
 
 - Lass eine Konfettimaschine oder Partylichter zünden, wenn du eine Fahrt beendest oder eine persönliche Bestleistung erreichst.
-- Sende dir selbst eine Telegram- oder Pushover-Benachrichtigung mit deiner Fahrtzusammenfassung, wenn`isRiding` wechselt zu`false`
+- Sende dir selbst eine Telegram- oder Pushover-Benachrichtigung mit deiner Fahrtzusammenfassung, wenn `isRiding` wechselt zu `false`
 - Verfolgen Sie Ihre wöchentliche Distanz auf einer Sieben-Segment-Anzeige oder einem E-Ink-Bildschirm im Flur.
 - Ein Fortschrittsbalken (LED-Streifen) zeigt den prozentualen Fortschritt Ihrer Route an.
 
 **Familie und Haushalt**
 
-- Bringen Sie eine „Bitte nicht stören“-Anzeigeleuchte außerhalb Ihres Zimmers an, wann immer`isRiding` Ist`true`
+- Bringen Sie eine „Bitte nicht stören“-Anzeigeleuchte außerhalb Ihres Zimmers an, wann immer `isRiding` Ist `true`
 - Schalte deine Türklingel während einer Zwift-Session automatisch stumm.
 - Sende eine Nachricht an den Smart Speaker deiner Familie: „Papa fährt Zwift, voraussichtliche Ankunftszeit: X Minuten“
 

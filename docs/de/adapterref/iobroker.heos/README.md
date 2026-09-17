@@ -29,13 +29,13 @@ Die verwendete HEOS-API ist hier dokumentiert: <https://rn.dmglobal.com/euheos/H
 
 ## Netzwerkanforderungen
 
-Das SSDP-Protokoll dient der Spielersuche. UPnP benötigt Multicast-Zugriff auf die IP-Adresse 239.255.255.250:1900 sowie die entsprechenden IGMP-Nachrichten. Der Quellport für den Empfang von SSDP-Nachrichten kann in den Adaptereinstellungen konfiguriert werden (Standardeinstellung: ).`0` (Das bedeutet, dass der Port automatisch ausgewählt wird.) Weitere Details: <https://support.denon.com/app/answers/detail/a_id/4717/~/network-requirements-for-heos> Für den API-Zugriff auf die HEOS Player verwendet der Adapter den Port`1255` Die
+Das SSDP-Protokoll dient der Spielersuche. UPnP benötigt Multicast-Zugriff auf die IP-Adresse 239.255.255.250:1900 sowie die entsprechenden IGMP-Nachrichten. Der Quellport für den Empfang von SSDP-Nachrichten kann in den Adaptereinstellungen konfiguriert werden (Standardeinstellung: ). `0` (Das bedeutet, dass der Port automatisch ausgewählt wird.) Weitere Details: <https://support.denon.com/app/answers/detail/a_id/4717/~/network-requirements-for-heos> Für den API-Zugriff auf die HEOS Player verwendet der Adapter den Port `1255` Die
 
 ## Konfiguration
 
-- **AutoPlay** : Spielt Musik automatisch ab, sobald der Player verbunden ist oder die Stummschaltung aufgehoben wird. Kann global in den Einstellungen konfiguriert werden. Wenn die Funktion global aktiviert ist, kann sie für einen bestimmten Player deaktiviert werden.`auto_play` Die
-- **Befehlsbereich** : Definiert, für welche Spieler der Befehl gilt.`scope/[cmd]` Der Befehlsstatus wird gesendet an: Alle Spieler, alle führenden Spieler oder alle Spieler-IDs (PIDs) im durch Kommas getrennten Status.`heos.0.command_scope_pid`
-- **Stummschaltung per Regex** : In den Einstellungen können Sie eine Funktion aktivieren, die den Player basierend auf einem Regex-Treffer in den Songinformationen stummschaltet. Dies kann verwendet werden, um Werbung automatisch stummzuschalten. Für Spotify können Sie beispielsweise folgenden Regex verwenden:`spotify:ad:|Advertisement` Die
+- **AutoPlay** : Spielt Musik automatisch ab, sobald der Player verbunden ist oder die Stummschaltung aufgehoben wird. Kann global in den Einstellungen konfiguriert werden. Wenn die Funktion global aktiviert ist, kann sie für einen bestimmten Player deaktiviert werden. `auto_play` Die
+- **Befehlsbereich** : Definiert, für welche Spieler der Befehl gilt. `scope/[cmd]` Der Befehlsstatus wird gesendet an: Alle Spieler, alle führenden Spieler oder alle Spieler-IDs (PIDs) im durch Kommas getrennten Status. `heos.0.command_scope_pid`
+- **Stummschaltung per Regex** : In den Einstellungen können Sie eine Funktion aktivieren, die den Player basierend auf einem Regex-Treffer in den Songinformationen stummschaltet. Dies kann verwendet werden, um Werbung automatisch stummzuschalten. Für Spotify können Sie beispielsweise folgenden Regex verwenden: `spotify:ad:|Advertisement` Die
 - **ignore\_broadcast\_cmd** : Dieser Player-Status konfiguriert, ob der Player Befehle an alle Player ignorieren soll, z. B. player/set\_mute\&state=on oder das Drücken der Wiedergabetaste für Voreinstellungen/Wiedergabelisten.
 
 ## Staaten und ihre Bedeutungen
@@ -46,15 +46,15 @@ Der HEOS-Player lässt sich über verschiedene Player-Zustände steuern. Für ei
 
 #### HEOS-Befehlsstatus (heos.0.command)
 
-- `system/connect` : Versuchen Sie, eine Verbindung zu HEOS herzustellen
-- `system/disconnect` : Verbindung zu HEOS trennen
-- `system/reconnect` : Trennen und Verbinden
-- `system/load_sources` : Quellen neu laden
-- `system/reboot` : Verbundenen Spieler neu starten
-- `system/reboot_all` : Alle Spieler neu starten
-- `group/set_group?pid=<pid1>,<pid2>,...` : Gruppe mit der Liste der Spieler-IDs festlegen, z. B.`group/set_group?pid=12345678,12345679` Die
-- `group/set_group?pid=<pid1>` : Vorhandene Gruppe löschen, z. B. "group/set\_group?pid=12345678"
-- `group/ungroup_all` : Alle Gruppen löschen
+- `system/connect`: Versuchen Sie, eine Verbindung zu HEOS herzustellen
+- `system/disconnect`: Verbindung zu HEOS trennen
+- `system/reconnect`: Trennen und Verbinden
+- `system/load_sources`: Quellen neu laden
+- `system/reboot`: Verbundenen Spieler neu starten
+- `system/reboot_all`: Alle Spieler neu starten
+- `group/set_group?pid=<pid1>,<pid2>,...`: Gruppe mit der Liste der Spieler-IDs festlegen, z. B. `group/set_group?pid=12345678,12345679` Die
+- `group/set_group?pid=<pid1>`: Vorhandene Gruppe löschen, z. B. "group/set\_group?pid=12345678"
+- `group/ungroup_all`: Alle Gruppen löschen
 - `group/group_all` Alle Spieler in einer Gruppe zusammenfassen
 - `player/[cmd]` Sende den Befehl an alle Spieler. Beispiel: player/set\_mute\&state=on
 - `leader/[cmd]` Sende den Befehl an alle führenden Spieler. Beispiel: leader/set\_mute\&state=on
@@ -65,24 +65,24 @@ Der HEOS-Player lässt sich über verschiedene Player-Zustände steuern. Für ei
 
 Hinweis: Mehrere Befehle sind möglich, wenn sie durch einen senkrechten Strich getrennt werden, z. B. set\_volume\&level=20|play\_preset\&preset=1
 
-- `set_volume?level=0|1|..|100` : Stellen Sie die Lautstärke des Players ein.
+- `set_volume?level=0|1|..|100`: Stellen Sie die Lautstärke des Players ein.
 - `set_play_state?state=play|pause|stop` Spielerstatus festlegen
-- `set_play_mode?repeat=on_all|on_one|off&shuffle=on|off` : Wiederholungs- und Zufallswiedergabemodus einstellen
-- `set_mute?state=on|off` : Spieler stumm schalten
+- `set_play_mode?repeat=on_all|on_one|off&shuffle=on|off`: Wiederholungs- und Zufallswiedergabemodus einstellen
+- `set_mute?state=on|off`: Spieler stumm schalten
 - `volume_down?step=1..10` Geringere Lautstärke
 - `volume_up?step=1..10` Lautstärke erhöhen
 - `play_next` Nächstes Spiel abspielen
-- `play_previous` : Vorheriges Spiel abspielen
-- `play_preset?preset=1|2|..|n` : Voreinstellung n abspielen
-- `play_stream?url=url_path` : URL-Stream abspielen
+- `play_previous`: Vorheriges Spiel abspielen
+- `play_preset?preset=1|2|..|n`: Voreinstellung n abspielen
+- `play_stream?url=url_path`: URL-Stream abspielen
 - `add_to_queue?sid=1025&aid=4&cid=[CID]` Wiedergabeliste mit \[CID] auf dem Player abspielen (Hilfe: 1 – Jetzt abspielen; 2 – Nächstes abspielen; 3 – Am Ende hinzufügen; 4 – Ersetzen und abspielen)
 
 ### Voreinstellungen & Wiedergabelisten
 
 Jede Quelle, z. B. Voreinstellung/Favorit oder Wiedergabelisten, befindet sich im Ordner „Quellenstatus“ (`heos.0.sources` Ihre Voreinstellungen/Favoriten finden Sie im Unterordner mit der ID 1028 und die Wiedergabelisten im Unterordner mit der ID 1025. Der Adapter erstellt Ihre individuellen Voreinstellungen und Wiedergabelisten zunächst nicht, da Sie ein Update auslösen müssen, indem Sie die folgenden Zustände auf „true“ setzen:
 
-- Voreinstellungen/Favoriten:`heos.0.sources.1028.browse`
-- Wiedergabelisten:`heos.0.sources.1025.browse` Anschließend erstellt der Adapter die Zustände für die Voreinstellungen oder Wiedergabelisten, sodass Sie die Voreinstellung problemlos auf allen Playern abspielen können.
+- Voreinstellungen/Favoriten: `heos.0.sources.1028.browse`
+- Wiedergabelisten: `heos.0.sources.1025.browse` Anschließend erstellt der Adapter die Zustände für die Voreinstellungen oder Wiedergabelisten, sodass Sie die Voreinstellung problemlos auf allen Playern abspielen können.
 
 ### Bildfarbenextraktion
 
@@ -127,7 +127,7 @@ Die Suchfunktion funktioniert nicht bei allen Anbietern. Spotify und Amazon Musi
 
 ### Voreinstellungen
 
-- Klicken Sie auf die Schaltfläche`heos.0.sources.1028.browse` Voreinstellungen laden
+- Klicken Sie auf die Schaltfläche `heos.0.sources.1028.browse` Voreinstellungen laden
 - Öffnen Sie die Datei: [presets\_view.json](https://github.com/withstu/ioBroker.heos/blob/main/docs/vis/views/presets_view.json)
 - Ansicht in VIS importieren
 

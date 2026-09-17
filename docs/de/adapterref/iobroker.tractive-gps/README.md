@@ -53,7 +53,7 @@ Der Adapter nutzt eine inoffizielle Schnittstelle zum Tractive-Dienst. Ein funkt
 - Ruft die tatsächlichen Namen und Details der mit dem Konto verknüpften Haustiere ab.
 - Liefert die aktuellen GPS-Koordinaten, die Höhe, die Geschwindigkeit, die Positionsgenauigkeit, die Entfernung vom konfigurierten ioBroker-Standort und den Zeitpunkt der letzten Aktualisierung.
 - Löst optional Koordinaten in eine lesbare Adresse auf.
-- Liefert Informationen zum Akkustand, Ladezustand, verwendeter Position und Quelle (`KNOWN_WIFI` /`GPS` ), Heim-/Abwesenheitsstatus, Online-Status und Energiesparstatus.
+- Liefert Informationen zum Akkustand, Ladezustand, verwendeter Position und Quelle (`KNOWN_WIFI` /`GPS`), Heim-/Abwesenheitsstatus, Online-Status und Energiesparstatus.
 - Bietet Informationen zu Modell, Firmware, Hardwareversion, Funktionen, Geschlecht, Geburtsdatum, Größe, Gewicht und weiteren verfügbaren Daten.
 - Unterstützt Live-Tracking, LED- und Summer-Befehle, wenn der Tracker die entsprechende Fähigkeit meldet.
 - Speichert alle abgerufenen Konto-, Abonnement-, Anteils-, Haustier-, Tracker-, Positions- und Hardwaredaten als logischen lokalen Zustandsbaum und als einen vollständigen JSON-Snapshot.
@@ -83,7 +83,7 @@ Das Passwort bleibt unverändert, wenn das Passwortfeld nach dem Speichern der K
 - Haustierprofile, Bilder und andere statische Details werden bei der täglichen vollständigen Synchronisierung aktualisiert.
 - Nach dem Start des Adapters wird außerdem eine vollständige Synchronisierung durchgeführt.
 
-Tractive kann Anfragen vorübergehend mit dem HTTP-Statuscode 429 einschränken. Der Adapter verteilt die Anfragen, pausiert alle Anfragen, sobald eine solche Einschränkung gemeldet wird, und versucht es automatisch erneut. Eine erfolgreiche Aktualisierung wird angezeigt in`info.lastSuccessfulSync` Und`info.dataFresh` Die
+Tractive kann Anfragen vorübergehend mit dem HTTP-Statuscode 429 einschränken. Der Adapter verteilt die Anfragen, pausiert alle Anfragen, sobald eine solche Einschränkung gemeldet wird, und versucht es automatisch erneut. Eine erfolgreiche Aktualisierung wird angezeigt in `info.lastSuccessfulSync` Und `info.dataFresh` Die
 
 ## Objekte und Zustände
 
@@ -115,25 +115,25 @@ tractive-gps.0
 
 ### Adapterinformationen
 
-- `info.connection` : Zeigt an, ob die letzte Synchronisierung erfolgreich war.
-- `info.dataFresh` : Gibt an, ob aktuell nutzbare Daten verfügbar sind.
+- `info.connection`: Zeigt an, ob die letzte Synchronisierung erfolgreich war.
+- `info.dataFresh`: Gibt an, ob aktuell nutzbare Daten verfügbar sind.
 - `info.lastSync` Zeitpunkt des letzten Synchronisationsversuchs.
 - `info.lastSuccessfulSync` Zeitpunkt der letzten erfolgreichen Synchronisierung.
 - `info.refresh` Schaltfläche zum manuellen Starten einer vollständigen Synchronisierung.
 - `info.status` Aktueller Adapterstatus.
-- `info.currentApi` : Vollständiger JSON-Snapshot der aktuell verfügbaren Tractive-Daten.
+- `info.currentApi`: Vollständiger JSON-Snapshot der aktuell verfügbaren Tractive-Daten.
 
 ### Haustiere
 
-Die folgenden Staaten`pets.<pet-id>.*` Enthält nützliche Informationen zum Haustierprofil, die Tracker-Zuordnung, Aktivitätsziele und das Profilbild. Leere Felder und interne API-Felder werden ausgelassen.
+Die folgenden Staaten `pets.<pet-id>.*` Enthält nützliche Informationen zum Haustierprofil, die Tracker-Zuordnung, Aktivitätsziele und das Profilbild. Leere Felder und interne API-Felder werden ausgelassen.
 
 ### Tracker
 
-Die folgenden Staaten`trackers.<tracker-id>.*` enthalten Tracker-Identifikation, Betriebs- und Online-Status, Position, Positionsquelle, Entfernung vom ioBroker-Systemstandort, Adresse, Batterieinformationen und unterstützte Befehle.`location.sensorUsed` enthält die Traktionspositionsquelle.`status.home` wird abgeleitet von`KNOWN_WIFI` oder`GPS` Es gibt kein Duplikat.`connectionType` Status. Die Breiten- und Längengradangaben des ioBrokers werden in den Systemeinstellungen konfiguriert.
+Die folgenden Staaten `trackers.<tracker-id>.*` enthalten Tracker-Identifikation, Betriebs- und Online-Status, Position, Positionsquelle, Entfernung vom ioBroker-Systemstandort, Adresse, Batterieinformationen und unterstützte Befehle. `location.sensorUsed` enthält die Traktionspositionsquelle. `status.home` wird abgeleitet von `KNOWN_WIFI` oder `GPS` Es gibt kein Duplikat. `connectionType` Status. Die Breiten- und Längengradangaben des ioBrokers werden in den Systemeinstellungen konfiguriert.
 
 ### Vollständige API-Daten
 
-Nur für Skripte, Automatisierungen und Visualisierungen relevante Werte werden als einzelne Zustände erstellt. Leere Werte, API-Metadaten, interne Versionsfelder und doppelte Darstellungen werden ausgelassen. Die vollständige, unveränderte kombinierte Antwort bleibt als ein einziger JSON-Wert verfügbar.`info.currentApi` Anmeldekennwörter und Zugriffstoken werden dort niemals hinzugefügt.
+Nur für Skripte, Automatisierungen und Visualisierungen relevante Werte werden als einzelne Zustände erstellt. Leere Werte, API-Metadaten, interne Versionsfelder und doppelte Darstellungen werden ausgelassen. Die vollständige, unveränderte kombinierte Antwort bleibt als ein einziger JSON-Wert verfügbar. `info.currentApi` Anmeldekennwörter und Zugriffstoken werden dort niemals hinzugefügt.
 
 ## Tracker-Befehle
 
@@ -143,34 +143,34 @@ Die folgenden beschreibbaren Zustände werden nur dann erstellt, wenn sie vom au
 - `trackers.<tracker-id>.commands.led`
 - `trackers.<tracker-id>.commands.buzzer`
 
-Stellen Sie den gewünschten Zustand ein auf`true` oder`false` Der Zustand wird bestätigt, nachdem Tractive den Befehl angenommen hat.
+Stellen Sie den gewünschten Zustand ein auf `true` oder `false` Der Zustand wird bestätigt, nachdem Tractive den Befehl angenommen hat.
 
 ## VIS-Widgets
 
-Der Adapter beinhaltet einen klassischen`PetTrackerCard` für VIS 1 und ein natives React`PetTrackerCard` Für VIS 2. Fügen Sie für jedes Haustier oder jeden Tracker ein Widget hinzu und weisen Sie in den Widget-Einstellungen die gewünschten Zustände zu.
+Der Adapter beinhaltet einen klassischen `PetTrackerCard` für VIS 1 und ein natives React `PetTrackerCard` Für VIS 2. Fügen Sie für jedes Haustier oder jeden Tracker ein Widget hinzu und weisen Sie in den Widget-Einstellungen die gewünschten Zustände zu.
 
 Die Karte kann Folgendes anzeigen:
 
 - Name, Art, Geschlecht, Alter und Gewicht des Haustiers
 - Name des Trackers und Online-Status,
-- Haustierbild aus der Gegend`media.localProfilePictureUrl` Zustand,
+- Haustierbild aus der Gegend `media.localProfilePictureUrl` Zustand,
 - interaktive Leaflet/OpenStreetMap-Karte,
 - gemeldeter oder manuell konfigurierter Positionsradius
 - Akkustand, Positionsquelle, Anwesenheits-/Abwesenheitsstatus und Entfernung von ioBroker,
 - Letzte Aktualisierung, Adresse, Energiesparmodus, Ladestatus, Geschwindigkeit, Höhe und Positionsgenauigkeit
 - Schalter für Summer, LED und Live-Tracking bei unterstützten Trackern.
 
-Wählen Sie für das Tractive-Bild Folgendes aus`pets.<pet-id>.media.localProfilePictureUrl` Der Bildstatus enthält die URL der im lokalen ioBroker-Dateispeicher abgelegten Kopie. Falls kein Bild zurückgegeben wird oder es nicht geladen werden kann, wählen Sie im Bereich **„Darstellung** “ des Widgets ein benutzerdefiniertes Bild aus oder laden Sie es hoch.
+Wählen Sie für das Tractive-Bild Folgendes aus `pets.<pet-id>.media.localProfilePictureUrl` Der Bildstatus enthält die URL der im lokalen ioBroker-Dateispeicher abgelegten Kopie. Falls kein Bild zurückgegeben wird oder es nicht geladen werden kann, wählen Sie im Bereich **„Darstellung** “ des Widgets ein benutzerdefiniertes Bild aus oder laden Sie es hoch.
 
 Die Karte kann automatisch den gesamten Genauigkeits- oder Entfernungsbereich ausfüllen. Minimaler und maximaler Zoomfaktor, Interaktionsmöglichkeiten, Entfernungsmessquelle und ein manueller Radius lassen sich im Widget konfigurieren. Zum Anzeigen der Karte werden Kartenkacheln von OpenStreetMap heruntergeladen.
 
-Um die Befehlsschalter zu verwenden, weisen Sie ihnen die entsprechenden Parameter zu.`trackers.<tracker-id>.commands.*` Zustände im **Befehlsbereich** des Widgets. Befehle sind während der Bearbeitung der VIS-Ansicht deaktiviert und werden im Laufzeitmodus aktiviert.
+Um die Befehlsschalter zu verwenden, weisen Sie ihnen die entsprechenden Parameter zu. `trackers.<tracker-id>.commands.*` Zustände im **Befehlsbereich** des Widgets. Befehle sind während der Bearbeitung der VIS-Ansicht deaktiviert und werden im Laufzeitmodus aktiviert.
 
 ## Datenschutz und Sicherheit
 
 - Das Passwort wird mithilfe des verschlüsselten Konfigurationsmechanismus von ioBroker gespeichert.
 - Zugriffstoken werden im Speicher gehalten und automatisch aktualisiert.
-- Ausgewählte Konto- und Abonnementinformationen werden im logischen Objektbaum gespeichert. Die vollständig abgerufenen API-Daten werden lokal gespeichert.`info.currentApi` . Schützen Sie den Zugriff auf den ioBroker-Objektbaum entsprechend.
+- Ausgewählte Konto- und Abonnementinformationen werden im logischen Objektbaum gespeichert. Die vollständig abgerufenen API-Daten werden lokal gespeichert. `info.currentApi`. Schützen Sie den Zugriff auf den ioBroker-Objektbaum entsprechend.
 - Passwörter und Zugriffstoken werden niemals dem API-Statusbaum hinzugefügt und bleiben durch die verschlüsselte Konfiguration oder im Speicher geschützt.
 - Genaue Positionen werden lokal in ioBroker-Zuständen gespeichert, da sie für den Zweck des Adapters erforderlich sind.
 - Die umgekehrte Geokodierung ist optional und sendet, falls aktiviert, Koordinaten an den Adressdienst von Tractive.
@@ -181,11 +181,11 @@ Um die Befehlsschalter zu verwenden, weisen Sie ihnen die entsprechenden Paramet
 
 - **Verbindungstest fehlgeschlagen:** Überprüfen Sie die E-Mail-Adresse, das Passwort, die Internetverbindung und den ausgehenden HTTPS-Zugriff.
 - **Es werden keine Haustiere oder Tracker angezeigt:** Überprüfen Sie, ob die Tracker dem konfigurierten Tractive-Konto zugewiesen sind, und starten Sie dann die Adapterinstanz neu.
-- **Daten sind nicht aktualisiert:** Prüfen`info.status` ,`info.dataFresh` , Und`info.lastSuccessfulSync` Die
+- **Daten sind nicht aktualisiert:** Prüfen `info.status`, `info.dataFresh`, Und `info.lastSuccessfulSync` Die
 - **Es wird der HTTP-Fehler 429 gemeldet:** Lassen Sie die Instanz aktiv. Der Adapter pausiert Anfragen und versucht es nach Ablauf des Transaktionslimits automatisch erneut.
 - **Es wird keine Adresse angezeigt:** Aktivieren Sie die umgekehrte Geokodierung in der Adapterkonfiguration.
 - **Ein Befehl fehlt:** Der Tracker hat die erforderliche Fähigkeit nicht gemeldet.
-- **Das Haustierbild fehlt:** Zuweisen`localProfilePictureUrl` zum Widget oder wählen Sie ein benutzerdefiniertes Bild aus.
+- **Das Haustierbild fehlt:** Zuweisen `localProfilePictureUrl` zum Widget oder wählen Sie ein benutzerdefiniertes Bild aus.
 
 ## Entwicklerdokumentation
 

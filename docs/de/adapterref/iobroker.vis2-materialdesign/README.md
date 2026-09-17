@@ -40,12 +40,12 @@ Material 3 ändert lediglich die Darstellung. Komponenten-IDs, Optionsnamen, Obj
 
 ### Umstellung eines bestehenden Projekts
 
-1. Wählen Sie ein Widget aus, öffnen Sie **Allgemein → Designstil** und wählen Sie`Material 3` Die
+1. Wählen Sie ein Widget aus, öffnen Sie **Allgemein → Designstil** und wählen Sie `Material 3` Die
 2. Alle explizit konfigurierten Farben, Schriftarten und Größen bleiben erhalten – Material 3 füllt nur die leeren Felder aus. Damit ein Widget die Material-3-Farbpalette verwendet, leeren Sie diese Felder.
-3. Wechseln Sie die Widgets einzeln und überprüfen Sie das Ergebnis, oder legen Sie den Standardstil im Design-Tab des Adapters fest und lassen Sie die Widgets aktiviert.`Project default` Ein gespeichertes Projekt wird niemals implizit konvertiert.
-4. Den Stil wieder auf den vorherigen Stand zurücksetzen`Classic` Stellt das alte Aussehen exakt wieder her.
+3. Wechseln Sie die Widgets einzeln und überprüfen Sie das Ergebnis, oder legen Sie den Standardstil im Design-Tab des Adapters fest und lassen Sie die Widgets aktiviert. `Project default` Ein gespeichertes Projekt wird niemals implizit konvertiert.
+4. Den Stil wieder auf den vorherigen Stand zurücksetzen `Classic` Stellt das alte Aussehen exakt wieder her.
 
-Der Dunkelmodus verhält sich genauso.`vis2-materialdesign.0.colors.darkTheme` Geben Sie an, welche klassischen Widgets bereits verwendet werden:`auto` entnimmt es dem eigenen Thema von VIS 2,`light` Und`dark` Erzwingen Sie eine. Die Registerkarte „Design“ des Adapters verwendet **eine Ausgangsfarbe** und leitet daraus das vollständige Material-3-Farbschema ab – alle 18 Rollen, hell und dunkel, mit jeder`on-*` Paar — in`vis2-materialdesign.0.colors.md3Scheme` Die Widgets lesen diese Werte aus. Lässt man das Feld leer, erhält man Googles kontrastgeprüfte Material-3-Basisfarbpalette.
+Der Dunkelmodus verhält sich genauso. `vis2-materialdesign.0.colors.darkTheme` Geben Sie an, welche klassischen Widgets bereits verwendet werden: `auto` entnimmt es dem eigenen Thema von VIS 2, `light` Und `dark` Erzwingen Sie eine. Die Registerkarte „Design“ des Adapters verwendet **eine Ausgangsfarbe** und leitet daraus das vollständige Material-3-Farbschema ab – alle 18 Rollen, hell und dunkel, mit jeder `on-*` Paar — in `vis2-materialdesign.0.colors.md3Scheme` Die Widgets lesen diese Werte aus. Lässt man das Feld leer, erhält man Googles kontrastgeprüfte Material-3-Basisfarbpalette.
 
 ## Anforderungen
 
@@ -58,7 +58,7 @@ Das Vibrationsfeedback ist vom Browser und Gerät abhängig. Siehe die [Browserk
 
 ## Installation
 
-Installieren Sie **Material Design Widgets** (`vis2-materialdesign` ) aus der ioBroker-Admin-Adapterliste. Für die Widget-Bereitstellung ist kein separater Adapterprozess erforderlich.
+Installieren Sie **Material Design Widgets** (`vis2-materialdesign`) aus der ioBroker-Admin-Adapterliste. Für die Widget-Bereitstellung ist kein separater Adapterprozess erforderlich.
 
 ## Schnellstart
 

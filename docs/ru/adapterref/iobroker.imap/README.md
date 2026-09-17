@@ -72,7 +72,7 @@ hash: U069k89eSLgDF19iBTv70qg1Qa+LBdp6c5LRNLFn98Y=
  ⚠ Die Instanz muss aktiviert sein!!!!
 ```
 
-- `Aktiv` : Включить IMAP-соединение
+- `Aktiv`: Включить IMAP-соединение
 
 - `Host` например, imap.gmail.com
 
@@ -109,18 +109,18 @@ UNFLAGGED - ungekennzeichnet – Nachrichten, für die das Flag „Markiert“ n
 UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht gesetzt ist.
 ```
 
-- `Symbol auswählen` Значок папки (под вкладкой TAB)`Symbole erstellen` (загрузить)
+- `Symbol auswählen` Значок папки (под вкладкой TAB) `Symbole erstellen` (загрузить)
 
 ![imap\_create\_icon.png](../../../de/adapterref/iobroker.imap/img/imap_create_icon.png)
 
 - `tls-Option` По умолчанию установлено значение {"rejectUnauthorized": false}
-- `Auto-TLS` Возможные варианты:`always` ,`required` и`never` Стандарт никогда не соблюдается. **Для получения дополнительной информации, пожалуйста, прочтите [здесь](https://www.npmjs.com/package/node-imap) .**
+- `Auto-TLS` Возможные варианты: `always`, `required` и `never` Стандарт никогда не соблюдается. **Для получения дополнительной информации, пожалуйста, прочтите [здесь](https://www.npmjs.com/package/node-imap) .**
 
 ![imap\_create\_2.png](../../../de/adapterref/iobroker.imap/img/imap_create_2.png)
 
-- `Att.` Для заполнения поля HTML необходимо также загрузить вложения. Это потребляет много оперативной памяти! Поэтому используйте настройки по умолчанию.`false`
-- `Mailparser-Option` Опция анализа почты (только на вкладке TAB)`MAILPARSER-OPTIONEN` создавать)
-- `Token` : [Сначала создайте токены здесь.](#instanz-konfiguration-tab-oauth2-erstellen)
+- `Att.` Для заполнения поля HTML необходимо также загрузить вложения. Это потребляет много оперативной памяти! Поэтому используйте настройки по умолчанию. `false`
+- `Mailparser-Option` Опция анализа почты (только на вкладке TAB) `MAILPARSER-OPTIONEN` создавать)
+- `Token`: [Сначала создайте токены здесь.](#instanz-konfiguration-tab-oauth2-erstellen)
 
 ![imap\_create\_3.png](../../../de/adapterref/iobroker.imap/img/imap_create_3.png)
 
@@ -129,11 +129,11 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap\_create\_restart.png](../../../de/adapterref/iobroker.imap/img/imap_create_restart.png)
 
-- `Objekt-ID:` Если будет достигнут лимит MEMRSS, выбранная точка данных будет...`true` Настройка выполнена. Необходимо выполнить сброс вручную. Однако проверка производится только каждые 24 часа.
+- `Objekt-ID:` Если будет достигнут лимит MEMRSS, выбранная точка данных будет... `true` Настройка выполнена. Необходимо выполнить сброс вручную. Однако проверка производится только каждые 24 часа.
 
 ![imap\_create\_datapoint.png](../../../de/adapterref/iobroker.imap/img/imap_create_datapoint.png)
 
-- `Senden:` Сообщение отправляется при достижении лимита MEMRSS. Затем оно будет обновляться при каждом последующем обновлении.`MEMRSS` Сообщение было отправлено.
+- `Senden:` Сообщение отправляется при достижении лимита MEMRSS. Затем оно будет обновляться при каждом последующем обновлении. `MEMRSS` Сообщение было отправлено.
   - `Instanzen:` Пример: telegram.0, telegram.1, pushover.0
   - `Instanzen Benutzer:` Пример: Питер, Олаф, Томас
 
@@ -165,8 +165,8 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 - `Name:` Имя парсера почты. Пожалуйста, не используйте повторяющиеся имена. В противном случае при запуске адаптера в журнале будет зафиксирована ошибка. Подробное описание можно найти [здесь](https://nodemailer.com/extras/mailparser/) .
 - `HTML in Text überspringen:` Не генерирует обычный текст из HTML.
-- `Maximale HTML-Länge zum Parsen:`Максимальный объем HTML-кода для анализа в байтах. Если этот лимит превышен, будут сгенерированы только данные заголовка.
-- `Bildlinks überspringen:` Пропускает преобразование вложений CID в изображения по URL-адресу данных. Изображения не преобразуются в base64.`enormen RAM Verbrauch` сохраняет.
+- `Maximale HTML-Länge zum Parsen:` Максимальный объем HTML-кода для анализа в байтах. Если этот лимит превышен, будут сгенерированы только данные заголовка.
+- `Bildlinks überspringen:` Пропускает преобразование вложений CID в изображения по URL-адресу данных. Изображения не преобразуются в base64. `enormen RAM Verbrauch` сохраняет.
 - `Text in HTML überspringen:` Не генерирует HTML из сообщений в обычном текстовом формате.
 - `Textlinks überspringen:` Не включайте ссылки в текстовый контент.
 
@@ -174,7 +174,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 # Состояния (объекты)
 
-### Условия`imap.0`
+### Условия `imap.0`
 
 [Краткое содержание](#zusammenfassung)
 
@@ -187,7 +187,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap\_total\_overview.png](../../../de/adapterref/iobroker.imap/img/imap_total_overview.png)
 
-### Условия`imap.0.benutzername`
+### Условия `imap.0.benutzername`
 
 [Краткое содержание](#zusammenfassung)
 
@@ -208,7 +208,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap\_overview\_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_1.png)
 
-### Условия`imap.0.benutzername.email.email_xx`
+### Условия `imap.0.benutzername.email.email_xx`
 
 [Краткое содержание](#zusammenfassung)
 
@@ -229,7 +229,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap\_overview\_email\_single.png](img/imap_overview_email_single.png)![imap\_overview\_email.png](../../../de/adapterref/iobroker.imap/img/imap_overview_email.png)
 
-### Условия`imap.0.benutzername.infos`
+### Условия `imap.0.benutzername.infos`
 
 [Краткое содержание](#zusammenfassung)
 
@@ -259,7 +259,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap\_overview\_capability.png](img/imap_overview_capability.png)![imap\_overview\_capability\_1.png](../../../de/adapterref/iobroker.imap/img/imap_overview_capability_1.png)
 
-### Условия`imap.0.benutzername.remote`
+### Условия `imap.0.benutzername.remote`
 
 [Краткое содержание](#zusammenfassung)
 
@@ -282,7 +282,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 Старые названия папок можно просмотреть в объекте imap.0.xxx.remote.change\_folder.
 
-### Условия`imap.0.benutzername.remote.copy`
+### Условия `imap.0.benutzername.remote.copy`
 
 [Краткое содержание](#zusammenfassung)
 
@@ -294,7 +294,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap\_overview\_remote\_copy.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_copy.png)
 
-### Условия`imap.0.benutzername.remote.flag`
+### Условия `imap.0.benutzername.remote.flag`
 
 [Краткое содержание](#zusammenfassung)
 
@@ -307,7 +307,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap\_overview\_remote\_flag.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_flag.png)
 
-### Условия`imap.0.benutzername.remote.html`
+### Условия `imap.0.benutzername.remote.html`
 
 [Краткое содержание](#zusammenfassung)
 
@@ -421,7 +421,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 
 ![imap\_overview\_remote\_html\_7.png](../../../de/adapterref/iobroker.imap/img/imap_overview_remote_html_7.png)
 
-### Условия`imap.0.benutzername.remote.move`
+### Условия `imap.0.benutzername.remote.move`
 
 [Краткое содержание](#zusammenfassung)
 
@@ -453,7 +453,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 - ВНИМАНИЕ! Сюда будут отправляться все данные, такие как вложения. Этот запрос может довести вашу оперативную память или процессор до предела. Создание некорректного критерия может привести к сбою ioBroker!!!
 - Затем данные передаются в формате JSON.
 - В результате ведения журнала создается очень большой файл. Поэтому записи в журнале следует удалять позже.
-- Должна существовать переменная с именем`result` быть сотворённым.
+- Должна существовать переменная с именем `result` быть сотворённым.
 - Допускается максимум 100 электронных писем.
 - [Примеры](/#/docs/adapterref/iobroker.imap/EXAMPLE.md)
 
@@ -467,7 +467,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 - ВНИМАНИЕ! Высокое потребление оперативной памяти.
 - Затем данные передаются в формате JSON.
 - В результате ведения журнала создается очень большой файл. Поэтому записи в журнале следует удалять позже.
-- Должна существовать переменная с именем`result` быть сотворённым.
+- Должна существовать переменная с именем `result` быть сотворённым.
 - [Примеры](/#/docs/adapterref/iobroker.imap/EXAMPLE.md)
 
 ![blockly\_imap\_current.png](../../../de/adapterref/iobroker.imap/img/blockly_imap_current.png)

@@ -20,7 +20,7 @@ Dieser Adapter funktioniert nicht unter Windows!
 
 ## Schritte
 
-1. Installieren`libpcap-dev` :
+1. Installieren `libpcap-dev`:
 
 `sudo apt-get install libpcap-dev`
 

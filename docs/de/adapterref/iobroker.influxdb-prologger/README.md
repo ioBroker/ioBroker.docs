@@ -20,7 +20,7 @@ hash: trsk3f4ZjQ11CaeZQF/KwoSSg6UXeF63ZxhBwN3jrGM=
 
 Flexibler InfluxDB v2 Datenlogger mit konfigurierbaren Protokollierungsgruppen, mehreren Buckets, Cron-basierten und Änderungs-Triggern.
 
-> **Wichtig:** Dieser Adapter ist ein **reiner Schreibdatenlogger** . Er sendet ioBroker-Statuswerte _an_ InfluxDB v2 – er liest **keine** historischen Daten zurück in ioBroker und implementiert nicht die Standardschnittstelle des ioBroker-History-Adapters. Wenn Sie gespeicherte Verlaufsdaten innerhalb von ioBroker abfragen müssen (z. B. für Charts oder Skripte), verwenden Sie einen anderen Adapter.`getHistory` ), verwenden Sie stattdessen den offiziellen [ioBroker InfluxDB-Adapter](https://github.com/ioBroker/ioBroker.influxdb) .
+> **Wichtig:** Dieser Adapter ist ein **reiner Schreibdatenlogger** . Er sendet ioBroker-Statuswerte _an_ InfluxDB v2 – er liest **keine** historischen Daten zurück in ioBroker und implementiert nicht die Standardschnittstelle des ioBroker-History-Adapters. Wenn Sie gespeicherte Verlaufsdaten innerhalb von ioBroker abfragen müssen (z. B. für Charts oder Skripte), verwenden Sie einen anderen Adapter. `getHistory`), verwenden Sie stattdessen den offiziellen [ioBroker InfluxDB-Adapter](https://github.com/ioBroker/ioBroker.influxdb) .
 >
 > Ziel dieses Adapters ist es, Ihnen mehr Flexibilität bei der Art und Weise zu geben _, wie_ Daten in InfluxDB geschrieben werden: Sie können mehrere Protokollierungsgruppen mit unterschiedlichen Buckets, Triggertypen (cron oder on-change), benutzerdefinierten Messnamen, Feldschlüsseln und Tags definieren – unabhängig vom integrierten Verlaufsystem von ioBroker.
 
@@ -52,8 +52,8 @@ Konfigurieren Sie Ihre InfluxDB v2-Verbindung:
 | Einstellung  | Beschreibung                                                           |
 | ------------ | ---------------------------------------------------------------------- |
 | Protokoll    | HTTP oder HTTPS                                                        |
-| Gastgeber    | Hostname oder IP-Adresse des InfluxDB-Servers (z. B.`192.168.10.191` ) |
-| Hafen        | InfluxDB-Server-Port (Standard:`8086` )                                |
+| Gastgeber    | Hostname oder IP-Adresse des InfluxDB-Servers (z. B. `192.168.10.191`) |
+| Hafen        | InfluxDB-Server-Port (Standard: `8086`)                                |
 | Organisation | Ihr InfluxDB-Organisationsname                                         |
 | API-Token    | InfluxDB-API-Token (verschlüsselt gespeichert)                         |
 
@@ -68,8 +68,8 @@ Definieren Sie eine oder mehrere Protokollierungsgruppen. Jede Gruppe enthält:
 | Ermöglicht    | Diese Gruppe aktivieren/deaktivieren                                      |
 | Gruppenname   | Eindeutiger Name für diese Gruppe (auf den sich die Datenpunkte beziehen) |
 | Eimer         | InfluxDB-Bucket, in den geschrieben werden soll                           |
-| Auslösertyp   | `Cron (periodic)` oder`On Change`                                         |
-| Cron-Ausdruck | Cron-Zeitplan (nur für Cron-Gruppen), z. B.`*/15 * * * *`                 |
+| Auslösertyp   | `Cron (periodic)` oder `On Change`                                         |
+| Cron-Ausdruck | Cron-Zeitplan (nur für Cron-Gruppen), z. B. `*/15 * * * *`                 |
 | Charge        | Stapelverarbeitung aktivieren (für Cron-Gruppen)                          |
 
 **Beispielgruppen:**
@@ -90,7 +90,7 @@ Konfigurieren Sie, welche ioBroker-Zustände protokolliert werden sollen. Jeder 
 | Objekt-ID   | ioBroker-Status zum Lesen (verwenden Sie den Objektbrowser)                                |
 | Messung     | InfluxDB-Messname                                                                          |
 | Feld        | InfluxDB-Feldname                                                                          |
-| Tags        | InfluxDB-Tags in`key=value` Format (z.B.`area=kitchen,floor=eg` )                          |
+| Tags        | InfluxDB-Tags in `key=value` Format (z.B. `area=kitchen,floor=eg`)                          |
 
 **Beispieldatenpunkte:**
 
@@ -144,20 +144,20 @@ Wenn Sie derzeit ioBroker JavaScript-Skripte für die InfluxDB-Protokollierung v
 1. Installieren Sie den Adapter
 2. Konfigurieren Sie Ihre InfluxDB-Verbindung (gleicher Host, Port, Organisation, Token).
 3. Erstellen Sie Protokollierungsgruppen, die Ihrer Skriptkonfiguration entsprechen:
-   - Skripte, die`on({ id: ..., val: true })` mit einem Triggerstatus -> **Cron-** Gruppe erstellen
-   - Skripte, die`on({ id: objectId })` für jeden Status -> Erstellen Sie eine Gruppe " **Bei Änderung"**
-4. Fügen Sie alle Datenpunkte aus Ihrem hinzu.`loggingTemplate` Arrays
+   - Skripte, die `on({ id: ..., val: true })` mit einem Triggerstatus -> **Cron-** Gruppe erstellen
+   - Skripte, die `on({ id: objectId })` für jeden Status -> Erstellen Sie eine Gruppe " **Bei Änderung"**
+4. Fügen Sie alle Datenpunkte aus Ihrem hinzu. `loggingTemplate` Arrays
 5. Deaktivieren Sie Ihre alten Skripte.
 6. Überprüfen Sie, ob Daten in InfluxDB fließen.
 
-## Skripte in`package.json`
+## Skripte in `package.json`
 
 | Skriptname     | Beschreibung                                                                                   |
 | -------------- | ---------------------------------------------------------------------------------------------- |
 | `build`        | Kompilieren Sie die TypeScript-Quellen                                                         |
 | `watch`        | Kompilieren Sie die TypeScript-Quellen und achten Sie auf Änderungen.                          |
-| `test:ts`      | Führen Sie die in definierten Tests aus`*.test.ts` Dateien                                     |
-| `test:package` | Sicherstellen`package.json` Und`io-package.json` sind gültig                                   |
+| `test:ts`      | Führen Sie die in definierten Tests aus `*.test.ts` Dateien                                     |
+| `test:package` | Sicherstellen `package.json` Und `io-package.json` sind gültig                                   |
 | `test`         | Führen Sie einen minimalen Testlauf für die Paketdateien und Ihre Tests durch.                 |
 | `check`        | Führe eine Typüberprüfung deines Codes durch (ohne ihn zu kompilieren).                        |
 | `lint`         | Führen Sie ESLint aus, um den Code auf Formatierungsfehler und potenzielle Bugs zu überprüfen. |

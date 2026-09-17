@@ -4,6 +4,7 @@ import { v2 } from '@google-cloud/translate';
 
 import type { MarkdownCode, MarkdownLink, MarkdownPart, MarkdownPartType, TranslatedMarkdown } from './types.mts';
 import { translateMarkdown } from './markdownTranslate.mts';
+import * as utils from './utils.mts';
 
 // Your Google Cloud Platform project ID
 const projectId = 'web-site-1377';
@@ -681,12 +682,12 @@ export async function translateDocument(
     fileName?: string,
 ): Promise<string> {
     try {
-        return await translateMarkdownDocument(fromLang, text, toLang);
+        return utils.restoreSpacesAroundInlineCode(await translateMarkdownDocument(fromLang, text, toLang));
     } catch (error) {
         console.error(`!!!! ${fileName || 'document'}: ${String(error)}`);
         console.error(`     translated the old way instead`);
         const result = await translateMD(fromLang, text, toLang, translatedText, true, fileName);
-        return result.result;
+        return utils.restoreSpacesAroundInlineCode(result.result);
     }
 }
 

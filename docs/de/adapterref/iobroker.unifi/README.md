@@ -53,7 +53,7 @@ Durch Ändern des Aktivierungsstatus eines WLAN-Netzwerks kann dieses aktiviert 
 
 ### Gutscheinerstellung
 
-Verwendung der`vouchers.create_vouchers` Über diese Schaltfläche können vordefinierte Gutscheine erstellt werden. Es ist möglich, die Anzahl der zu erstellenden Gutscheine, deren Gültigkeitsdauer sowie Upload- und Downloadlimits festzulegen.
+Verwendung der `vouchers.create_vouchers` Über diese Schaltfläche können vordefinierte Gutscheine erstellt werden. Es ist möglich, die Anzahl der zu erstellenden Gutscheine, deren Gültigkeitsdauer sowie Upload- und Downloadlimits festzulegen.
 
 ## Fehlende Datenpunkte
 

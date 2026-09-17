@@ -41,8 +41,8 @@ Für die volle Funktionalität werden folgende Adapter benötigt:
 
 | Einstellung      | Beschreibung                                                                  |
 | ---------------- | ----------------------------------------------------------------------------- |
-| Telegram-Instanz | Z.B`telegram.0`                                                               |
-| Telegram-Nutzer  | Kommagetrennte Liste von Namen oder IDs, z. B.`User1, User2` oder`-123456789` |
+| Telegram-Instanz | Z.B `telegram.0`                                                               |
+| Telegram-Nutzer  | Kommagetrennte Liste von Namen oder IDs, z. B. `User1, User2` oder `-123456789` |
 
 **Hinweis:** Sie können Telegram-Benutzer sowohl über **ihren Benutzernamen** (ohne @) als auch über **ihre Telegram-ID** hinzufügen (negativ für Gruppen/Kanäle).
 
@@ -74,7 +74,7 @@ Für die volle Funktionalität werden folgende Adapter benötigt:
 | Wetter morgen           | Wetterbeschreibung für morgen | `daswetter.0.Day1.forecast.currentSymbol` | `openweathermap.0.forecast.1.text` |
 | Temperatur morgen (°C)  | Temperatur morgen             | `daswetter.0.Day1.forecast.maxTemp`       | `openweathermap.0.forecast.1.temp` |
 
-**Hinweis:** Die Felder`Weather Today` Und`Weather Tomorrow` Kann alternativ verwendet werden, wenn der Wetteradapter verschiedene Formate unterstützt. Für optimale Kompatibilität empfehlen wir die Verwendung von`Weather Text` Felder.
+**Hinweis:** Die Felder `Weather Today` Und `Weather Tomorrow` Kann alternativ verwendet werden, wenn der Wetteradapter verschiedene Formate unterstützt. Für optimale Kompatibilität empfehlen wir die Verwendung von `Weather Text` Felder.
 
 ### Batterie
 
@@ -167,7 +167,7 @@ Für die volle Funktionalität werden folgende Adapter benötigt:
 
 ## Staaten
 
-Der Adapter erzeugt unter folgenden Bedingungen die folgenden Zustände:`pv-notifications.0` :
+Der Adapter erzeugt unter folgenden Bedingungen die folgenden Zustände: `pv-notifications.0`:
 
 ### Aktuelle Statistiken
 
@@ -212,14 +212,14 @@ Der Adapter erzeugt unter folgenden Bedingungen die folgenden Zustände:`pv-noti
 
 - Die monatlichen Statistiken werden am **konfigurierten Tag** versendet (Standard: 1. des Monats).
 - Der Adapter **speichert automatisch** die aktuellen Monatsdaten, bevor die Statistiken zurückgesetzt werden.
-- Statistiken verwenden **gespeicherte Daten** von`statistics.lastMonth*` Staaten
+- Statistiken verwenden **gespeicherte Daten** von `statistics.lastMonth*` Staaten
 - **Konfiguration:** Stellen Sie sicher, dass die monatlichen Statistiken **nach dem letzten Tag des Monats** versendet werden (z. B. am 1. um 09:00 Uhr).
 
 ### Wöchentliche Statistiken
 
 - Die wöchentlichen Statistiken werden am **konfigurierten Wochentag** versendet (Standard: Montag).
 - Der Adapter **speichert automatisch** die aktuellen Wochendaten, bevor die Statistiken zurückgesetzt werden.
-- Statistiken verwenden **gespeicherte Daten** von`statistics.lastWeek*` Staaten
+- Statistiken verwenden **gespeicherte Daten** von `statistics.lastWeek*` Staaten
 - **Konfiguration:** Wochentag einstellen (0=Mo, 1=Di, ..., 6=So)
 
 ## Konfigurationsbeispiel (openweathermap)

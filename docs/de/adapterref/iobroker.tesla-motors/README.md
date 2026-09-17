@@ -39,15 +39,15 @@ Die Admin-Benutzeroberfläche des Adapters führt Sie durch 4 Schritte:
 #### Schritt 1: Schlüsselpaar generieren
 
 1. Klicken Sie in den Adaptereinstellungen **auf „Schlüsselpaar generieren“** , um ein EC-Schlüsselpaar zu erstellen (prime256v1).
-2. Klicken Sie auf **„Öffentlichen Schlüssel kopieren“** und gehen Sie zu [fleetkey.net](https://fleetkey.net) . Fügen Sie den Schlüssel unter „Host Public Key“ ein und erstellen Sie eine Subdomain (z. B. ).`abc123.fleetkey.net` )
+2. Klicken Sie auf **„Öffentlichen Schlüssel kopieren“** und gehen Sie zu [fleetkey.net](https://fleetkey.net) . Fügen Sie den Schlüssel unter „Host Public Key“ ein und erstellen Sie eine Subdomain (z. B. ). `abc123.fleetkey.net`)
 3. Nach dem Speichern wird Ihr öffentlicher Schlüssel auf FleetKey.net gespeichert. Tesla lädt den Schlüssel während der Registrierung von dort herunter.
 
 #### Schritt 2: Tesla-Entwickler-App
 
 1. Erstellen Sie eine Fleet-API-Anwendung auf [developer.tesla.com](https://developer.tesla.com/request)
-2. Legen Sie **Origin** auf Ihre vollständige FleetKey-Subdomain fest (z. B.`https://abc123.fleetkey.net` )
-3. **Weiterleitungs-URL** festlegen auf`https://auth.tesla.com/void/callback`
-4. Kopieren Sie **die Client-ID** und **das Client-Geheimnis** aus der erstellten App und geben Sie diese zusammen mit Ihrer FleetKey-Domäne (z. B.) unten ein.`abc123.fleetkey.net` )
+2. Legen Sie **Origin** auf Ihre vollständige FleetKey-Subdomain fest (z. B. `https://abc123.fleetkey.net`)
+3. **Weiterleitungs-URL** festlegen auf `https://auth.tesla.com/void/callback`
+4. Kopieren Sie **die Client-ID** und **das Client-Geheimnis** aus der erstellten App und geben Sie diese zusammen mit Ihrer FleetKey-Domäne (z. B.) unten ein. `abc123.fleetkey.net`)
 
 #### Schritt 3: Authentifizierung (OAuth2)
 
@@ -79,20 +79,20 @@ Der virtuelle Schlüssel wird benötigt, um Befehle an Ihr Fahrzeug zu senden (V
 
 ### Fernbefehle
 
-Fernbefehle sind verfügbar unter`tesla-motors.0.<VIN>.remote` Die
+Fernbefehle sind verfügbar unter `tesla-motors.0.<VIN>.remote` Die
 
 Unterstützte Befehle umfassen:
 
-- **Sperren/Entsperren** :`door_lock` ,`door_unlock`
-- **Klima** :`auto_conditioning_start` ,`auto_conditioning_stop` ,`set_temps` ,`set_preconditioning_max` ,`remote_seat_heater_request` ,`remote_auto_seat_climate_request` ,`remote_steering_wheel_heater_request`
-- **Aufladen** :`charge_start` ,`charge_stop` ,`set_charge_limit` ,`set_charging_amps` ,`charge_port_door_open` ,`charge_port_door_close` ,`set_scheduled_charging`
-- **Stamm** :`actuate_trunk` (vorne/hinten)
-- **Windows** :`window_control` (Lüftung/Schließen)
-- **Sicherheit** :`set_sentry_mode` ,`remote_start_drive`
-- **Medien** :`media_toggle_playback` ,`media_next_track` ,`media_prev_track`
-- **Andere** :`flash_lights` ,`honk_horn` ,`trigger_homelink` ,`schedule_software_update`
+- **Sperren/Entsperren** : `door_lock`, `door_unlock`
+- **Klima** : `auto_conditioning_start`, `auto_conditioning_stop`, `set_temps`, `set_preconditioning_max`, `remote_seat_heater_request`, `remote_auto_seat_climate_request`, `remote_steering_wheel_heater_request`
+- **Aufladen** : `charge_start`, `charge_stop`, `set_charge_limit`, `set_charging_amps`, `charge_port_door_open`, `charge_port_door_close`, `set_scheduled_charging`
+- **Stamm** : `actuate_trunk` (vorne/hinten)
+- **Windows** : `window_control` (Lüftung/Schließen)
+- **Sicherheit** : `set_sentry_mode`, `remote_start_drive`
+- **Medien** : `media_toggle_playback`, `media_next_track`, `media_prev_track`
+- **Andere** : `flash_lights`, `honk_horn`, `trigger_homelink`, `schedule_software_update`
 
-Klimaabhängige Sitz- und Lenkradbedienelemente, einschließlich`remote_auto_seat_climate_request` , erfordern eine aktive Vorkonditionierung oder den Climate Keeper. Klimatisieren Sie zuerst mit`auto_conditioning_start` (oder aktivieren Sie Climate Keeper), bevor Sie diese Befehle senden. Wenn Climate Keeper deaktiviert ist, lehnt Tesla den Befehl ab.`cabin comfort remote settings not enabled` Die
+Klimaabhängige Sitz- und Lenkradbedienelemente, einschließlich `remote_auto_seat_climate_request`, erfordern eine aktive Vorkonditionierung oder den Climate Keeper. Klimatisieren Sie zuerst mit `auto_conditioning_start` (oder aktivieren Sie Climate Keeper), bevor Sie diese Befehle senden. Wenn Climate Keeper deaktiviert ist, lehnt Tesla den Befehl ab. `cabin comfort remote settings not enabled` Die
 
 ### Feldbeschreibung
 
@@ -113,13 +113,13 @@ Klimaabhängige Sitz- und Lenkradbedienelemente, einschließlich`remote_auto_sea
 
 ### Admin-Benutzeroberfläche und Migrationshinweise
 
-Die Adaptereinstellungen verwenden ioBroker's`jsonConfig` Admin-UI. Bestehende Adapterinstanzen behalten ihre gespeicherte Konfiguration, aber die Einstellungsseite wurde neu organisiert, um die Einrichtung der Fleet API, die Fleet Telemetry Bridge und die Feldauswahl einfacher zu gestalten.
+Die Adaptereinstellungen verwenden ioBroker's `jsonConfig` Admin-UI. Bestehende Adapterinstanzen behalten ihre gespeicherte Konfiguration, aber die Einstellungsseite wurde neu organisiert, um die Einrichtung der Fleet API, die Fleet Telemetry Bridge und die Feldauswahl einfacher zu gestalten.
 
 Wenn Sie von einer älteren Version 2.x aktualisieren, öffnen Sie bitte einmal die Adaptereinstellungen und überprüfen Sie die Fleet-API-Zugangsdaten, die virtuelle Schlüsseldomäne und die optionalen Fleet-Telemetrie-Einstellungen, bevor Sie eine neue Fleet-Telemetrie-Konfiguration starten.
 
 ### Optionaler Flotten-Telemetrie-Modus (MQTT-Bridge)
 
-Beginnend mit der Migration der Fleet API kann der Adapter auch zusammen mit Teslas **Fleet Telemetry-** Dienst verwendet werden, um zu reduzieren`vehicle_data` Die Abfragekosten werden berechnet. Die Flottentelemetrie ist optional. Wenn sie deaktiviert ist, behält der Adapter das bestehende Abfrageverhalten unverändert bei.
+Beginnend mit der Migration der Fleet API kann der Adapter auch zusammen mit Teslas **Fleet Telemetry-** Dienst verwendet werden, um zu reduzieren `vehicle_data` Die Abfragekosten werden berechnet. Die Flottentelemetrie ist optional. Wenn sie deaktiviert ist, behält der Adapter das bestehende Abfrageverhalten unverändert bei.
 
 Die erste Implementierung verwendet eine **MQTT-Brücke** und hält den Fleet Telemetry-Empfänger bewusst außerhalb des Adapters:
 
@@ -127,13 +127,13 @@ Die erste Implementierung verwendet eine **MQTT-Brücke** und hält den Fleet Te
 2. Der Server veröffentlicht ausgewählte Fahrzeugdaten über MQTT.
 3. Der Adapter abonniert die MQTT-Themen und schreibt die Daten zurück in den bestehenden Tesla-Zustandsbaum.
 
-Dadurch bleiben bestehende Skripte und Aliase funktionsfähig, während gleichzeitig der regelmäßige Aufwand reduziert wird.`vehicle_data` Anfragen.
+Dadurch bleiben bestehende Skripte und Aliase funktionsfähig, während gleichzeitig der regelmäßige Aufwand reduziert wird. `vehicle_data` Anfragen.
 
 Eine praktische, anfängerfreundliche Anleitung zur Einrichtung mit Docker Compose, Zertifikaten, TCP-Passthrough, Adaptereinstellungen und Fehlerbehebung finden Sie unter [docs/fleet-telemetry-setup.md](/#/docs/adapterref/iobroker.tesla-motors/docs/fleet-telemetry-setup.md) .
 
 #### Anforderungen
 
-- Ein erreichbarer Tesla Fleet Telemetry-Server mit`transmit_decoded_records=true` Die
+- Ein erreichbarer Tesla Fleet Telemetry-Server mit `transmit_decoded_records=true` Die
 - Ein MQTT-Broker, der vom ioBroker-Host aus erreichbar ist.
 - Ein lokaler [Fahrzeugbefehls-](https://github.com/teslamotors/vehicle-command) Proxy für Flottentelemetrie-Konfigurationsaufrufe.
 - Eine Serverzertifikats-/CA-Kette für den öffentlichen Fleet Telemetry-Endpunkt.
@@ -144,20 +144,20 @@ Der Flotten-Telemetrie-Server muss vom Fahrzeug über den konfigurierten öffent
 Zusätzliche Adaptereinstellungen sind verfügbar für:
 
 - Telemetriemodus aktivieren
-- der lokale`vehicle-command` Proxy-URL zur Konfiguration der Telemetrie im Fahrzeug
+- der lokale `vehicle-command` Proxy-URL zur Konfiguration der Telemetrie im Fahrzeug
 - Hostname / Port / Zertifikatskette des Telemetrieservers
 - MQTT-Broker, Themenbasis und Zugangsdaten
-- die Auswahl des Flottentelemetriefelds und pro Feld`interval_seconds` / optional`minimum_delta`
+- die Auswahl des Flottentelemetriefelds und pro Feld `interval_seconds` / optional `minimum_delta`
 - eine optionale periodische Fleet-API-Synchronisierung für Daten, die nicht von der Telemetrie abgedeckt werden.
 
 #### Adapterkonfiguration
 
 1. Starten und aktivieren Sie den Fleet Telemetry-Server.
 2. Konfigurieren Sie den MQTT-Datenspeicher so, dass er dekodierte Datensätze an Ihren MQTT-Broker sendet.
-3. Führe die`vehicle-command` Proxy im selben vertrauenswürdigen Netzwerk wie ioBroker.
+3. Führe die `vehicle-command` Proxy im selben vertrauenswürdigen Netzwerk wie ioBroker.
 4. Konfigurieren Sie die Adaptereinstellungen:
    - **Flottentelemetrie-Modus** aktivieren
-   - geben Sie ein`vehicle-command` Proxy-URL
+   - geben Sie ein `vehicle-command` Proxy-URL
    - Geben Sie den öffentlichen Hostnamen, Port und CA/fullchain PEM der Flottentelemetrie ein.
    - Geben Sie den MQTT-Broker, optionale Anmeldeinformationen und die Themenbasis ein.
 5. Wählen Sie auf der Registerkarte **„Flottentelemetriefelder“** die gewünschten Felder, Intervalle und optionalen Mindestdeltas aus.
@@ -176,15 +176,15 @@ Der Adapter abonniert das in der Admin-Oberfläche konfigurierte MQTT-Topic „b
 - `tesla-telemetry/<VIN>/errors/<Type>` für Telemetriefehler
 - `tesla-telemetry/<VIN>/alerts/<Type>/current` für aktuelle Warnmeldungen
 
-Die Admin-Oberfläche enthält einen separaten Tab **für Flottentelemetriefelder** . Der Tesla-Feldkatalog ist in ausklappbare Kategorien unterteilt, sodass die Admin-Seite jeweils nur kleinere Abschnitte rendern/öffnen muss. Dort können Sie einzelne Tesla-Telemetriefelder aktivieren/deaktivieren und das Aktualisierungsintervall pro Feld in Sekunden festlegen. Optional`minimum_delta` Für numerische Felder, die von Tesla unterstützt werden, können Werte konfiguriert werden. Wenn das Feld leer bleibt und die Admin-Benutzeroberfläche einen Platzhalter anzeigt, verwendet der Adapter diesen Standardwert beim Erstellen der Fahrzeugkonfiguration.`Location` ,`OriginLocation` Und`DestinationLocation` Tesla interpretiert`minimum_delta` in Metern, also der Standardwert`100 m` entspricht in etwa`0.001°` Breiten- und Längengrad werden ermittelt und minimale GPS-Schwankungen vermieden. Weitere nützliche Standardwerte werden für gängige Felder wie Prozentwert, Reichweite, Geschwindigkeit, Temperatur, Stromstärke, Spannung, Leistung und Energie bereitgestellt. Felder, die bereits vom Adapter zugeordnet sind, werden in den bestehenden Tesla-Zustandsbaum zurückgeschrieben. Andere ausgewählte Felder werden als Rohwerte gespeichert.`<VIN>.telemetry.fields.<FieldName>` Skripte können sie also weiterhin verwenden.
+Die Admin-Oberfläche enthält einen separaten Tab **für Flottentelemetriefelder** . Der Tesla-Feldkatalog ist in ausklappbare Kategorien unterteilt, sodass die Admin-Seite jeweils nur kleinere Abschnitte rendern/öffnen muss. Dort können Sie einzelne Tesla-Telemetriefelder aktivieren/deaktivieren und das Aktualisierungsintervall pro Feld in Sekunden festlegen. Optional `minimum_delta` Für numerische Felder, die von Tesla unterstützt werden, können Werte konfiguriert werden. Wenn das Feld leer bleibt und die Admin-Benutzeroberfläche einen Platzhalter anzeigt, verwendet der Adapter diesen Standardwert beim Erstellen der Fahrzeugkonfiguration. `Location`, `OriginLocation` Und `DestinationLocation` Tesla interpretiert `minimum_delta` in Metern, also der Standardwert `100 m` entspricht in etwa `0.001°` Breiten- und Längengrad werden ermittelt und minimale GPS-Schwankungen vermieden. Weitere nützliche Standardwerte werden für gängige Felder wie Prozentwert, Reichweite, Geschwindigkeit, Temperatur, Stromstärke, Spannung, Leistung und Energie bereitgestellt. Felder, die bereits vom Adapter zugeordnet sind, werden in den bestehenden Tesla-Zustandsbaum zurückgeschrieben. Andere ausgewählte Felder werden als Rohwerte gespeichert. `<VIN>.telemetry.fields.<FieldName>` Skripte können sie also weiterhin verwenden.
 
 Die zugeordneten Felder umfassen derzeit die am häufigsten verwendeten Lade-, Batterie-, Positions- und Verriegelungszustände:
 
 - `Soc` ->`charge_state.battery_level`
 - `ChargeState` ->`charge_state.telemetry_charge_state`
-- `DetailedChargeState` ->`charge_state.charging_state` Und`charge_state.detailed_charge_state`
+- `DetailedChargeState` ->`charge_state.charging_state` Und `charge_state.detailed_charge_state`
 - `ChargeLimitSoc` ->`charge_state.charge_limit_soc`
-- `ChargeAmps` ->`charge_state.charge_amps` Und`charge_state.charger_actual_current`
+- `ChargeAmps` ->`charge_state.charge_amps` Und `charge_state.charger_actual_current`
 - `ChargeCurrentRequest`->`charge_state.charge_current_request`
 - `ChargeCurrentRequestMax` ->`charge_state.charge_current_request_max`
 - `ChargingCableType` ->`charge_state.conn_charge_cable`
@@ -192,7 +192,7 @@ Die zugeordneten Felder umfassen derzeit die am häufigsten verwendeten Lade-, B
 - `EstBatteryRange` ->`charge_state.est_battery_range`
 - `VehicleSpeed` ->`drive_state.speed`
 - `Gear` ->`drive_state.shift_state`
-- `Location` ->`drive_state.latitude` Und`drive_state.longitude`
+- `Location` ->`drive_state.latitude` Und `drive_state.longitude`
 - `Locked` ->`vehicle_state.locked`
 - `Odometer` ->`vehicle_state.odometer`
 - `VehicleName` ->`vehicle_state.vehicle_name`
@@ -210,11 +210,11 @@ Intern wird die Auswahl aus Gründen der Abwärtskompatibilität mit älteren Ad
 }
 ```
 
-Die Flottentelemetrie basiert auf Änderungen: Ein Feld wird erst ausgegeben, nachdem es`interval_seconds` Zeit verstrichen **und** der Wert hat sich geändert. Sofern konfiguriert,`minimum_delta` Zusätzlich werden kleinere numerische Wertänderungen unterdrückt, bevor sie gesendet werden. Die Standardeinstellung verwendet daher`Soc` mit`interval_seconds=1` Und`minimum_delta=1` Aktualisierungen des Akkuladestands werden daher schnell gemeldet, jedoch erst, nachdem sich mindestens ein Prozentpunkt geändert hat. Ein Feld wird auf`false` wird bei der Fahrzeugkonfiguration nicht berücksichtigt.
+Die Flottentelemetrie basiert auf Änderungen: Ein Feld wird erst ausgegeben, nachdem es `interval_seconds` Zeit verstrichen **und** der Wert hat sich geändert. Sofern konfiguriert, `minimum_delta` Zusätzlich werden kleinere numerische Wertänderungen unterdrückt, bevor sie gesendet werden. Die Standardeinstellung verwendet daher `Soc` mit `interval_seconds=1` Und `minimum_delta=1` Aktualisierungen des Akkuladestands werden daher schnell gemeldet, jedoch erst, nachdem sich mindestens ein Prozentpunkt geändert hat. Ein Feld wird auf `false` wird bei der Fahrzeugkonfiguration nicht berücksichtigt.
 
-Wenn der Telemetriemodus aktiviert ist, wird Fleet Telemetry als primäre Live-Datenquelle verwendet. Die optionale periodische Fleet-API-Synchronisierung fragt weiterhin die normale Datenquelle ab.`vehicle_data` Endpunkte im konfigurierten **normalen Aktualisierungsintervall,** sodass Zustände, die nicht von den ausgewählten Telemetriefeldern abgedeckt werden, weiterhin aktualisiert werden. Legen Sie das normale Aktualisierungsintervall fest auf`0` Um diese geplante Fleet-API-Synchronisierung vollständig zu deaktivieren. Die durch Kommas getrennte Ausschlussliste gilt auch für periodische API-Synchronisierungsabfragen und kann Folgendes enthalten:`vehicle_data` Endpunkte wie z. B.`charge_state` ,`climate_state` ,`drive_state` ,`vehicle_state` ,`vehicle_config` ,`location_data` und dedizierte Endpunkte wie`charge_history` Die
+Wenn der Telemetriemodus aktiviert ist, wird Fleet Telemetry als primäre Live-Datenquelle verwendet. Die optionale periodische Fleet-API-Synchronisierung fragt weiterhin die normale Datenquelle ab. `vehicle_data` Endpunkte im konfigurierten **normalen Aktualisierungsintervall,** sodass Zustände, die nicht von den ausgewählten Telemetriefeldern abgedeckt werden, weiterhin aktualisiert werden. Legen Sie das normale Aktualisierungsintervall fest auf `0` Um diese geplante Fleet-API-Synchronisierung vollständig zu deaktivieren. Die durch Kommas getrennte Ausschlussliste gilt auch für periodische API-Synchronisierungsabfragen und kann Folgendes enthalten: `vehicle_data` Endpunkte wie z. B. `charge_state`, `climate_state`, `drive_state`, `vehicle_state`, `vehicle_config`, `location_data` und dedizierte Endpunkte wie `charge_history` Die
 
-Diagnostische Zustände sind verfügbar unter`tesla-motors.0.info.*` :
+Diagnostische Zustände sind verfügbar unter `tesla-motors.0.info.*`:
 
 - `telemetryConnected`
 - `telemetryConfigured`

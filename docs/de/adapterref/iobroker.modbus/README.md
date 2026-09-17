@@ -57,7 +57,7 @@ Slave (Server) oder Master (Client).
 
 Bei seriellen Verbindungen können Sie die Adressierungsmethode für das Gerät auswählen:
 
-- **Serielle Schnittstelle** : Wählen Sie einen festen Portpfad (z. B.`COM3` oder`/dev/ttyUSB0` ).
+- **Serielle Schnittstelle** : Wählen Sie einen festen Portpfad (z. B. `COM3` oder `/dev/ttyUSB0`).
 - **USB-Geräte-ID** : Wählen Sie das Gerät anhand seiner festen USB-Kennung (Hersteller-ID/Produkt-ID/Seriennummer) aus. Der tatsächliche Port wird beim Start ermittelt, sodass die Verbindung auch dann funktioniert, wenn das Betriebssystem einen anderen Portnamen zuweist (z. B. nach einem Neustart oder erneutem Anschließen).
 
 ### Verwenden Sie Aliase als Adresse
@@ -73,7 +73,7 @@ Jeder Alias wird intern einer Adresse zugeordnet, z. B. wird 30011 dem Eingangsr
 
 ### Direkte Adressen
 
-Wird für Binäreingänge und Spulen verwendet. Ohne dieses Flag werden die Bits wie folgt adressiert:`0 => 15, 1 => 14, 2 => 13, ..., 15 => 0` Wenn dieses Flag aktiviert ist, werden die Bits wie folgt adressiert:`0 => 0, 1 => 1, 2 => 2, ..., 15 => 15` Die
+Wird für Binäreingänge und Spulen verwendet. Ohne dieses Flag werden die Bits wie folgt adressiert: `0 => 15, 1 => 14, 2 => 13, ..., 15 => 0` Wenn dieses Flag aktiviert ist, werden die Bits wie folgt adressiert: `0 => 0, 1 => 1, 2 => 2, ..., 15 => 15` Die
 
 ### Adressen nicht an 16 Bit (Wort) ausrichten.
 
@@ -117,7 +117,7 @@ Maximale Länge des Befehls READ\_MULTIPLE\_REGISTERS: Anzahl der zu lesenden Re
 
 Manche Systeme erfordern, dass zunächst eine Schreibanforderung ausgeführt wird, bevor die Daten bei einer Leseanforderung bereitgestellt werden. Sie können diesen Modus erzwingen, indem Sie die „Maximale Leseanforderungslänge“ auf 1 setzen.
 
-**Hinweis:** Einige USB-Modbus-Lösungen (z. B. basierend auf`socat` ) können Schwierigkeiten bei der Zusammenarbeit haben`serialport` npm-Modul.
+**Hinweis:** Einige USB-Modbus-Lösungen (z. B. basierend auf `socat`) können Schwierigkeiten bei der Zusammenarbeit haben `serialport` npm-Modul.
 
 Es gibt ein Software-Gateway [**Modbus RTU <-> Modbus RTU über TCP**](http://mbus.sourceforge.net/index.html) , um die Verwendung des seriellen RTU-über-TCP-Protokolls zu ermöglichen.
 
@@ -151,17 +151,17 @@ Wenn diese Option aktiviert ist, können Sie die Bereinigungsoptionen pro Regist
 Ungültige Werte erkannt:
 
 - `NaN` (Keine Zahl)
-- `Infinity` oder`-Infinity`
+- `Infinity` oder `-Infinity`
 - Extremwerte von Gleitkommazahlen (≥3,4e38 oder ≤-3,4e38) - typische Modbus-Fehlerwerte
 - Werte außerhalb des konfigurierten Minimal-/Maximalbereichs
 
 ### Adressen dürfen nicht in die ID aufgenommen werden.
 
-Fügen Sie keine Adresse in die generierte ioBroker-ID ein.`10_Input10` vs`_Input10` Die
+Fügen Sie keine Adresse in die generierte ioBroker-ID ein. `10_Input10` vs `_Input10` Die
 
 ### Punkte in ID beibehalten
 
-Mit dieser Flagge wird der Name lauten`Inputs.Input10` Ohne =>`Inputs_Input10` Die
+Mit dieser Flagge wird der Name lauten `Inputs.Input10` Ohne =>`Inputs_Input10` Die
 
 ## Parameter für eine einzelne Adressleitung in der Konfiguration
 
@@ -195,23 +195,23 @@ Länge des Parameters. Bei den meisten Parametern wird diese anhand des Datentyp
 
 ### Faktor
 
-Dieser Faktor wird verwendet, um den vom Bus gelesenen Wert für die statische Skalierung zu multiplizieren. Die Berechnung sieht also wie folgt aus:`val = x * Factor + Offset` Die
+Dieser Faktor wird verwendet, um den vom Bus gelesenen Wert für die statische Skalierung zu multiplizieren. Die Berechnung sieht also wie folgt aus: `val = x * Factor + Offset` Die
 
 ### Offset
 
-Dieser Offset wird nach der obigen Multiplikation zum gelesenen Wert addiert. Die Berechnung sieht also wie folgt aus:`val = x * Factor + Offset` Die
+Dieser Offset wird nach der obigen Multiplikation zum gelesenen Wert addiert. Die Berechnung sieht also wie folgt aus: `val = x * Factor + Offset` Die
 
 ### Formel
 
 Dieses Feld kann für erweiterte Berechnungen verwendet werden, falls Faktor und Offset nicht ausreichen. **Ist dieses Feld gesetzt, werden Faktor und Offset ignoriert.** Die Formel wird von der Funktion \`eval()\` ausgeführt. Daher werden alle gängigen Funktionen unterstützt, insbesondere mathematische Funktionen. Die Formel muss der JavaScript-Syntax entsprechen und daher Groß- und Kleinschreibung beachten.
 
-In der Formel muss „x“ für den von Modbus gelesenen Wert verwendet werden. Z. B.`x * Math.pow(10, sf['40065'])`
+In der Formel muss „x“ für den von Modbus gelesenen Wert verwendet werden. Z. B. `x * Math.pow(10, sf['40065'])`
 
 Mithilfe des "sf"-Arrays (siehe obiges Beispiel) können Sie auf andere gelesene Modbus-Werte zugreifen, wenn diese in der Konfiguration als "Skalierungsfaktor" gekennzeichnet sind (siehe unten Informationen zum "SF"-Flag).
 
 Kann die Formel zur Laufzeit nicht ausgewertet werden, schreibt der Adapter eine Warnmeldung in das Protokoll.
 
-Ein weiterer Anwendungsfall für Formeln könnte auch darin bestehen, unplausible Daten mithilfe einer Formel wie einer solchen zu verhindern.`x > 2000000 ? null : x`
+Ein weiterer Anwendungsfall für Formeln könnte auch darin bestehen, unplausible Daten mithilfe einer Formel wie einer solchen zu verhindern. `x > 2000000 ? null : x`
 
 ### Rolle
 
@@ -235,7 +235,7 @@ Zyklisch schreiben
 
 ### SF
 
-Verwenden Sie den Wert als Skalierungsfaktor. Dies ist erforderlich für dynamische Skalierungsfaktoren, die auf einigen Systemen über Schnittstellenwerte bereitgestellt werden. Wenn ein Wert mit diesem Flag markiert ist, wird er in einer Variablen mit folgender Namenskonvention gespeichert:`sf['Modbus_address']` Diese Variable kann dann später in beliebigen Formeln für andere Parameter verwendet werden. Beispielsweise kann die folgende Formel Folgendes festlegen:`(x * sf['40065']) + 50;`
+Verwenden Sie den Wert als Skalierungsfaktor. Dies ist erforderlich für dynamische Skalierungsfaktoren, die auf einigen Systemen über Schnittstellenwerte bereitgestellt werden. Wenn ein Wert mit diesem Flag markiert ist, wird er in einer Variablen mit folgender Namenskonvention gespeichert: `sf['Modbus_address']` Diese Variable kann dann später in beliebigen Formeln für andere Parameter verwendet werden. Beispielsweise kann die folgende Formel Folgendes festlegen: `(x * sf['40065']) + 50;`
 
 ### Desinfizieren (Expertenmodus)
 
@@ -298,7 +298,7 @@ Beispielsweise sieht die Zahl 123/456,00 gemäß der IEEE-754-Norm für 32-Bit-G
 
 ![Bild 1](../../../en/adapterref/iobroker.modbus/img/img1.png)
 
-Die Auswirkungen unterschiedlicher Byte-Reihenfolgen sind erheblich. Beispielsweise kann die Reihenfolge der 4 Datenbytes, die 123456,00 darstellen, in einem`B A D C` Diese Sequenz wird als „Byte-Swap“ bezeichnet. Bei der Interpretation als IEEE-744-Gleitkommadatentyp ergibt sich jedoch ein ganz anderes Ergebnis:
+Die Auswirkungen unterschiedlicher Byte-Reihenfolgen sind erheblich. Beispielsweise kann die Reihenfolge der 4 Datenbytes, die 123456,00 darstellen, in einem `B A D C` Diese Sequenz wird als „Byte-Swap“ bezeichnet. Bei der Interpretation als IEEE-744-Gleitkommadatentyp ergibt sich jedoch ein ganz anderes Ergebnis:
 
 ![Bild 2](../../../en/adapterref/iobroker.modbus/img/img2.png)
 
@@ -306,7 +306,7 @@ Die Anordnung gleicher Bytes in einer „CDAB“-Sequenz wird als „Worttausch�
 
 ![Bild 3](../../../en/adapterref/iobroker.modbus/img/img3.png)
 
-Darüber hinaus beides`byte swap` und ein`word swap` würde im Wesentlichen die Reihenfolge der Bytes komplett umkehren, um ein weiteres Ergebnis zu erzielen:
+Darüber hinaus beides `byte swap` und ein `word swap` würde im Wesentlichen die Reihenfolge der Bytes komplett umkehren, um ein weiteres Ergebnis zu erzielen:
 
 ![Bild 4](../../../en/adapterref/iobroker.modbus/img/img4.png)
 
@@ -380,7 +380,7 @@ Sie können Ihre Schemas mit anderen Benutzern in [modbus-templates](https://git
 
 ## Prüfen
 
-Im Ordner befinden sich einige Programme.`test` zum Testen der TCP-Kommunikation:
+Im Ordner befinden sich einige Programme. `test` zum Testen der TCP-Kommunikation:
 
 - Ananas32/64 ist ein Slave-Simulator (nur Register und Eingänge, keine Spulen und digitale Eingänge).
 - RMMS ist ein Master-Simulator

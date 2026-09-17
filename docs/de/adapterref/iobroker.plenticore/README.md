@@ -43,13 +43,13 @@ Der Adapter sollte einige Objekte im Objektbaum von plenticore.X befüllen. Eini
 
 ## Objekte
 
-Nachfolgend ein Auszug der wichtigsten Objekte, die von diesem Adapter verwendet und befüllt werden. Alle Einstellungen sind mit einem Sternchen (\*) gekennzeichnet.`[**]` Sie sollten editierbar sein, aber nicht alle wurden getestet und es könnten Fehler enthalten sein.
+Nachfolgend ein Auszug der wichtigsten Objekte, die von diesem Adapter verwendet und befüllt werden. Alle Einstellungen sind mit einem Sternchen (\*) gekennzeichnet. `[**]` Sie sollten editierbar sein, aber nicht alle wurden getestet und es könnten Fehler enthalten sein.
 
 ### plenticore.X.devices.local
 
 Der Verzeichnisbaum devices.local enthält Informationen über den Wechselrichter und gegebenenfalls angeschlossene intelligente Stromzähler und/oder Batterien.
 
-`plenticore.X.devices.local.Dc_P` - die aktuelle Gleichstromleistung einschließlich der Eigenleistung des Wechselrichters. Dieser Wert sollte nahe am Wert von liegen.`plenticore.X.devices.local.ac.P` (ca. +30-40W)\
+`plenticore.X.devices.local.Dc_P` - die aktuelle Gleichstromleistung einschließlich der Eigenleistung des Wechselrichters. Dieser Wert sollte nahe am Wert von liegen. `plenticore.X.devices.local.ac.P` (ca. +30-40W)\
 `plenticore.X.devices.local.Pv_P` - die aktuell erzeugte PV-Leistung. Dieser Wert wird vom Adapter durch Summierung der pvx.P-Werte berechnet.\
 `plenticore.X.devices.local.Home_P` - der aktuelle Gesamtstromverbrauch des Haushalts\
 `plenticore.X.devices.local.HomeBat_P` - die derzeit vom Akku bereitgestellte Haushaltsleistung\
@@ -71,7 +71,7 @@ Dieser Kanal enthält Informationen zur Wechselstromseite des Wechselrichters. D
 #### plenticore.X.devices.local.battery
 
 `plenticore.X.devices.local.battery.Cycles`- die Lebensdauer der Batteriezyklen bis jetzt\
-`[**] plenticore.X.devices.local.battery.DynamicSoc` - wahr, wenn dynamisches SoC aktiviert ist (nur wenn`SmartBatteryControl` (Das ist auch richtig.)\
+`[**] plenticore.X.devices.local.battery.DynamicSoc` - wahr, wenn dynamisches SoC aktiviert ist (nur wenn `SmartBatteryControl` (Das ist auch richtig.)\
 `[**] plenticore.X.devices.local.battery.MinHomeConsumption` - der minimale Stromverbrauch im Haushalt, der für die Nutzung der Batterie erforderlich ist\
 `[**] plenticore.X.devices.local.battery.MinSoc` - der gewünschte minimale Ladezustand (SoC) der Batterie. Der tatsächliche Ladezustand kann darunter liegen, wenn nicht genügend Sonnenenergie zur Verfügung steht.\
 `plenticore.X.devices.local.battery.MinSocDummy` Dieser Wert wird vom Adapter festgelegt, wenn die MinSoC-Verwaltung in der Konfiguration deaktiviert ist. Er zeigt an, auf welchen Wert der MinSoC eingestellt würde.\
@@ -79,7 +79,7 @@ Dieser Kanal enthält Informationen zur Wechselstromseite des Wechselrichters. D
 `plenticore.X.devices.local.battery.Charge_P` - die aktuelle Batterieladeleistung (0 im Entladezustand)\
 `plenticore.X.devices.local.battery.Discharge_P` - die aktuelle Entladeleistung der Batterie (0 beim Laden)\
 `[**] plenticore.X.devices.local.battery.SmartBatteryControl` Das trifft zu, wenn das intelligente Batteriemanagement aktiviert ist. Laut Handbuch sollte dieses jedoch nur aktiviert werden, wenn keine weitere Wechselstromquelle wie beispielsweise ein zweiter Wechselrichter angeschlossen ist.\
-`[**] plenticore.X.devices.local.battery.ExternControl` Die Konfiguration ist nur über die Weboberfläche als Installateur möglich. Zur Steuerung über ioBroker verwenden Sie die Zustände ExternControl\_DcPowerAbs und ExternControl\_MaxChargePowerAbs, während ExternControl auf 2 (Modbus TCP) eingestellt ist.`[**] plenticore.X.devices.local.battery.ExternControl_DcPowerAbs` - GEFAHR: Verwenden Sie dieses Gerät nur, wenn Sie genau wissen, was Sie tun. Falsche Anwendung kann Ihren Akku beschädigen! WICHTIG: Der Wert muss alle 3 Minuten aktualisiert werden. Andernfalls schaltet der Plenticore auf interne Steuerung um, bis ein neuer Wert empfangen wird. Dieser Zustand ist nur verfügbar, wenn ExternControl auf 2 (Modbus TCP) eingestellt ist. Der Wert wird in Watt angegeben und kann zwischen -10000 und 10000 eingestellt werden. Ein negativer Wert bedeutet, dass sich der Akku entlädt, ein positiver Wert bedeutet, dass er geladen wird.`[**] plenticore.X.devices.local.battery.ExternControl_MaxChargePowerAbs` - GEFAHR: Verwenden Sie diese Funktion nur, wenn Sie genau wissen, was Sie tun. Falsche Anwendung kann Ihren Akku beschädigen! WICHTIG: Der Wert muss alle 3 Minuten aktualisiert werden. Andernfalls schaltet der Plenticore auf interne Steuerung um, bis ein neuer Wert empfangen wird. Dieser Zustand ist nur verfügbar, wenn ExternControl auf 2 (Modbus TCP) eingestellt ist.`plenticore.X.devices.local.battery.SoC` - der aktuelle Ladezustand der Batterie
+`[**] plenticore.X.devices.local.battery.ExternControl` Die Konfiguration ist nur über die Weboberfläche als Installateur möglich. Zur Steuerung über ioBroker verwenden Sie die Zustände ExternControl\_DcPowerAbs und ExternControl\_MaxChargePowerAbs, während ExternControl auf 2 (Modbus TCP) eingestellt ist. `[**] plenticore.X.devices.local.battery.ExternControl_DcPowerAbs` - GEFAHR: Verwenden Sie dieses Gerät nur, wenn Sie genau wissen, was Sie tun. Falsche Anwendung kann Ihren Akku beschädigen! WICHTIG: Der Wert muss alle 3 Minuten aktualisiert werden. Andernfalls schaltet der Plenticore auf interne Steuerung um, bis ein neuer Wert empfangen wird. Dieser Zustand ist nur verfügbar, wenn ExternControl auf 2 (Modbus TCP) eingestellt ist. Der Wert wird in Watt angegeben und kann zwischen -10000 und 10000 eingestellt werden. Ein negativer Wert bedeutet, dass sich der Akku entlädt, ein positiver Wert bedeutet, dass er geladen wird. `[**] plenticore.X.devices.local.battery.ExternControl_MaxChargePowerAbs` - GEFAHR: Verwenden Sie diese Funktion nur, wenn Sie genau wissen, was Sie tun. Falsche Anwendung kann Ihren Akku beschädigen! WICHTIG: Der Wert muss alle 3 Minuten aktualisiert werden. Andernfalls schaltet der Plenticore auf interne Steuerung um, bis ein neuer Wert empfangen wird. Dieser Zustand ist nur verfügbar, wenn ExternControl auf 2 (Modbus TCP) eingestellt ist. `plenticore.X.devices.local.battery.SoC` - der aktuelle Ladezustand der Batterie
 
 #### plenticore.X.devices.local.inverter
 
@@ -103,7 +103,7 @@ Dieser Kanal enthält Informationen und Einstellungen des Geräts selbst.
 `[**] plenticore.X.scb.network.Hostname` - der aktuelle Hostname des Wechselrichters\
 `[**] plenticore.X.scb.network.IPv4Auto` - Verwenden Sie DHCP, um die IP-Adresseinstellungen für den Wechselrichter bereitzustellen.\
 `[**] plenticore.X.scb.network.IPv4Address` - die aktuelle IP-Adresse des Wechselrichters\
-`[**] plenticore.X.scb.network.IPv4DNS1` Und`plenticore.X.scb.network.IPv4DNS2` - die aktuell verwendeten DNS-Server\
+`[**] plenticore.X.scb.network.IPv4DNS1` Und `plenticore.X.scb.network.IPv4DNS2` - die aktuell verwendeten DNS-Server\
 `[**] plenticore.X.scb.network.IPv4Gateway` - das aktuell verwendete Netzwerk-Gateway\
 `[**] plenticore.X.scb.network.IPv4Subnetmask` - die Netzwerk-Subnetzmaske
 
@@ -115,7 +115,7 @@ Dieser Kanal enthält Informationen und Einstellungen des Geräts selbst.
 
 ### plenticore.X.scb.statistic.EnergyFlow
 
-Die Datenpunkte in diesem Abschnitt enthalten die Statistiken, die in der Plenticore-Weboberfläche sichtbar sind. Folgen Sie einfach den`Day` Es werden Datenpunkte erwähnt, aber jeder von ihnen ist auch verfügbar für`Month` ,`Year` Und`Total` Die
+Die Datenpunkte in diesem Abschnitt enthalten die Statistiken, die in der Plenticore-Weboberfläche sichtbar sind. Folgen Sie einfach den `Day` Es werden Datenpunkte erwähnt, aber jeder von ihnen ist auch verfügbar für `Month`, `Year` Und `Total` Die
 
 `plenticore.0.scb.statistic.EnergyFlow.AutarkyDay`- die Autarkie in Prozent für den heutigen Tag\
 `plenticore.0.scb.statistic.EnergyFlow.CO2SavingDay` - die geschätzte CO2-Einsparung in kg für den heutigen Tag\
@@ -169,7 +169,7 @@ Die prognostizierten Werte können dann verwendet werden, um den MinSoC der Batt
 `plenticore.0.forecast.day1.power.remaining` - Restleistung der für den Tag prognostizierten Gesamtleistung, basierend auf der Vorhersage für die verbleibenden Sonnenstunden\
 `plenticore.0.forecast.day1.power.Xh.power` - geschätzte Gesamtleistung des Kraftwerks in der Sonnenstunde X des prognostizierten Tages, wobei 1h die Stunde des Sonnenaufgangs ist.\
 `plenticore.0.forecast.day1.power.Xh.power_high` - geschätzte Gesamtleistung des Kraftwerks in der Sonnenstunde X des Vorhersagetages, jedoch ohne Berücksichtigung der Sichtweite oder der Regendaten\
-`plenticore.0.forecast.day1.power.Xh.time` - die Zeit, die die Sonne zur Stunde für`plenticore.0.forecast.power.Xh.power` beginnt\
+`plenticore.0.forecast.day1.power.Xh.time` - die Zeit, die die Sonne zur Stunde für `plenticore.0.forecast.power.Xh.power` beginnt\
 `plenticore.0.forecast.day1.sun.sunrise` - Sonnenaufgangszeit des Vorhersagedatums\
 `plenticore.0.forecast.day1.sun.sunset` - Sonnenuntergangszeit des Vorhersagedatums
 

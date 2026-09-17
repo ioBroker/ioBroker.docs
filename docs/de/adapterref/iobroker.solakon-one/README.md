@@ -46,7 +46,7 @@ Installation über die ioBroker-Admin-Oberfläche: **Adapter** → Suche nach **
 
 ## Datenpunkte
 
-Alle Datenpunkte werden erstellt unter`solakon-one.<instance>.*` (z.B`solakon-one.0.*` für die Standardinstanznummer 0; mehrere Instanzen sind möglich).
+Alle Datenpunkte werden erstellt unter `solakon-one.<instance>.*` (z.B `solakon-one.0.*` für die Standardinstanznummer 0; mehrere Instanzen sind möglich).
 
 ### Verbindungsstatus
 
@@ -54,7 +54,7 @@ Alle Datenpunkte werden erstellt unter`solakon-one.<instance>.*` (z.B`solakon-on
 | ----------------- | ---------------- | --------------- |
 | `info.connection` | Verbindung aktiv | Boolescher Wert |
 
-### Geräteinformationen (`device.*` )
+### Geräteinformationen (`device.*`)
 
 | AUSWEIS            | Beschreibung              |
 | ------------------ | ------------------------- |
@@ -63,7 +63,7 @@ Alle Datenpunkte werden erstellt unter`solakon-one.<instance>.*` (z.B`solakon-on
 | `device.fw_master` | Firmware-Version (Master) |
 | `device.fw_slave`  | Firmware-Version (Slave)  |
 
-### Photovoltaik (`pv.*` )
+### Photovoltaik (`pv.*`)
 
 | AUSWEIS                         | Beschreibung       | Einheit |
 | ------------------------------- | ------------------ | ------- |
@@ -73,7 +73,7 @@ Alle Datenpunkte werden erstellt unter`solakon-one.<instance>.*` (z.B`solakon-on
 | `pv.pv1_current` …`pv4_current` | String current     | A       |
 | `pv.pv1_power` …`pv4_power`     | Saitenkraft        | W       |
 
-### Batterie (`battery.*` )
+### Batterie (`battery.*`)
 
 | AUSWEIS                   | Beschreibung                     | Einheit |
 | ------------------------- | -------------------------------- | ------- |
@@ -90,7 +90,7 @@ Alle Datenpunkte werden erstellt unter`solakon-one.<instance>.*` (z.B`solakon-on
 | `battery.max_temp`        | Maximale Temperatur              | °C      |
 | `battery.min_temp`        | Mindesttemperatur                | °C      |
 
-### Netz (`grid.*` )
+### Netz (`grid.*`)
 
 | AUSWEIS               | Beschreibung                              | Einheit         |
 | --------------------- | ----------------------------------------- | --------------- |
@@ -106,7 +106,7 @@ Alle Datenpunkte werden erstellt unter`solakon-one.<instance>.*` (z.B`solakon-on
 | `grid.total_import`   | Gesamt gekaufte Energie                   | kWh             |
 | `grid.standard`       | Rasterstandard (6=VDE0126, 7=VDE4105\_DE) | –               |
 
-### Wechselrichter (`inverter.*` )
+### Wechselrichter (`inverter.*`)
 
 | AUSWEIS                   | Beschreibung     | Einheit |
 | ------------------------- | ---------------- | ------- |
@@ -117,7 +117,7 @@ Alle Datenpunkte werden erstellt unter`solakon-one.<instance>.*` (z.B`solakon-on
 | `inverter.operating_mode` | Betriebsart      | –       |
 | `inverter.network_status` | Netzwerkstatus   | –       |
 
-### Notstrom / EPS (`eps.*` )
+### Notstrom / EPS (`eps.*`)
 
 | AUSWEIS       | Beschreibung         | Einheit |
 | ------------- | -------------------- | ------- |
@@ -125,14 +125,14 @@ Alle Datenpunkte werden erstellt unter`solakon-one.<instance>.*` (z.B`solakon-on
 | `eps.current` | EPS-Ausgangsstrom    | A       |
 | `eps.power`   | EPS-Ausgangsleistung | W       |
 
-### Status (`status.*` )
+### Status (`status.*`)
 
 | AUSWEIS                   | Beschreibung                        |
 | ------------------------- | ----------------------------------- |
 | `status.remote_control`   | Aktiver Fernbedienungsmodus         |
 | `status.remote_countdown` | Verbleibende Zeit Fernbedienung(en) |
 
-### Kontrolle (`control.*` ) — beschreibbar
+### Kontrolle (`control.*`) — beschreibbar
 
 | AUSWEIS                         | Beschreibung                     | Reichweite           |
 | ------------------------------- | -------------------------------- | -------------------- |
@@ -148,7 +148,7 @@ Alle Datenpunkte werden erstellt unter`solakon-one.<instance>.*` (z.B`solakon-on
 | `control.max_discharge_current` | Maximaler Entladestrom           | 0–40 A               |
 | `control.operating_mode`        | Betriebsart                      | 0–7                  |
 
-#### Betriebsarten (`operating_mode` )
+#### Betriebsarten (`operating_mode`)
 
 | Wert | Beschreibung       |
 | ---- | ------------------ |
@@ -160,7 +160,7 @@ Alle Datenpunkte werden erstellt unter`solakon-one.<instance>.*` (z.B`solakon-on
 | 6    | Zwangsladung       |
 | 7    | Kraftentladung     |
 
-#### Fernbedienungsmodi (`remote_control_mode` )
+#### Fernbedienungsmodi (`remote_control_mode`)
 
 | Wert | Beschreibung                          |
 | ---- | ------------------------------------- |

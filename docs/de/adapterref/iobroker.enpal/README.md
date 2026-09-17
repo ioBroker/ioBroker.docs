@@ -36,9 +36,9 @@ Liest Energiedaten von der lokalen InfluxDB 2.x-Instanz, die von Enpal Solar Sys
 Der Adapter verbindet sich direkt mit der **lokalen InfluxDB** , in die die Enpal-Box schreibt – ein Cloud-Konto oder Internetzugang ist nicht erforderlich.
 
 - Automatische Erkennung aller in Ihrem InfluxDB-Bucket gespeicherten Messungen, Geräte und Felder
-- Dynamische Zustandserzeugung unter`enpal.0.<measurement>.<device>.<field>`
+- Dynamische Zustandserzeugung unter `enpal.0.<measurement>.<device>.<field>`
 - Konfigurierbares Abfrageintervall (Standard: 60 Sekunden)
-- Verbindungsstatus über`info.connection` — Die Adapterinstanz wird rot, wenn die Datenbank nicht erreichbar ist.
+- Verbindungsstatus über `info.connection` — Die Adapterinstanz wird rot, wenn die Datenbank nicht erreichbar ist.
 - Optionale **Steuerung der Wallbox** (Lademodus, Start/Stopp) über die Enpal Box Blazor Weboberfläche – verwendet denselben Host wie die InfluxDB URL (Port 80).
 
 ## Datenpunkte
@@ -59,7 +59,7 @@ Typische Beispiele (abhängig von Ihrem Wechselrichter und Ihrer Enpal-Konfigura
 
 > Die tatsächlichen Feldnamen hängen von Ihrer Enpal-Systemversion und Hardwarekonfiguration ab.
 
-### Wallbox-Steuerung (`wallbox_control` )
+### Wallbox-Steuerung (`wallbox_control`)
 
 Wenn **die Wallbox-Steuerung** in der Adapterkonfiguration aktiviert ist, wird ein fester Kanal erstellt (unabhängig von der automatischen InfluxDB-Erkennung):
 
@@ -69,21 +69,21 @@ enpal.0.wallbox_control.<state>
 
 | Zustand                 | Typ   | Lesen | Schreiben | Beschreibung                                                                                                                                                    |
 | ----------------------- | ----- | ----- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `start`                 | Taste | NEIN  | Ja        | Ladevorgang starten (einstellen auf`true` (auslösen)                                                                                                            |
-| `stop`                  | Taste | NEIN  | Ja        | Ladevorgang stoppen (eingestellt auf`true` (auslösen)                                                                                                           |
-| `mode`                  | Wert  | Ja    | Ja        | Lademodussteuerung:`eco` ,`solar` ,`full` , oder`smart` Die Daten werden auch von der Wanddose synchronisiert, wenn der Modus über die Enpal-App geändert wird. |
-| `currentMode`           | Text  | Ja    | NEIN      | Aktueller Lademodus, der von der Wallbox gemeldet wird (z. B.`Eco` ,`Solar` ,`Full` )                                                                           |
+| `start`                 | Taste | NEIN  | Ja        | Ladevorgang starten (einstellen auf `true` (auslösen)                                                                                                            |
+| `stop`                  | Taste | NEIN  | Ja        | Ladevorgang stoppen (eingestellt auf `true` (auslösen)                                                                                                           |
+| `mode`                  | Wert  | Ja    | Ja        | Lademodussteuerung: `eco`, `solar`, `full`, oder `smart` Die Daten werden auch von der Wanddose synchronisiert, wenn der Modus über die Enpal-App geändert wird. |
+| `currentMode`           | Text  | Ja    | NEIN      | Aktueller Lademodus, der von der Wallbox gemeldet wird (z. B. `Eco`, `Solar`, `Full`)                                                                           |
 | `connectorStatus`       | Text  | Ja    | NEIN      | OCPP-Anschlussstatus von der Wanddose (siehe [Anschlussstatuswerte](#connector-status-values) )                                                                 |
 | `automaticChargeStatus` | Text  | Ja    | NEIN      | Automatisches Laden beim Einstecken (`On` /`Off` (Schreibgeschützt, Änderungen über die Enpal-App möglich)                                                      |
 
 **So funktioniert es**
 
-- **Steuerung** (Modus, Start, Stopp): Der Adapter wird angeschlossen an`http://<enpal-box>/wallbox` via Blazor SignalR (gleicher Ansatz wie bei der [Home Assistant Enpal-Integration](https://github.com/derolli1976/enpal) ) und simuliert Tastendrücke.
-- **Status** (`currentMode` ,`connectorStatus` ,`automaticChargeStatus` ): Lesen Sie von der Enpal Box-Seite`http://<enpal-box>/deviceMessages` (`Mode.Charge.Connector.1` ,`Status.Wallbox.Connector.1` ,`Wallbox.Settings.AutomaticChargeStatus.Connector.1` Wird bei jedem Synchronisierungsintervall und nach Steuerungsaktionen aktualisiert. Das beschreibbare`mode` Der Status wird ebenfalls aktualisiert (mit`ack: true` ) damit die VIS-Dropdown-Menüs synchronisiert bleiben, wenn der Modus außerhalb von ioBroker geändert wird.
+- **Steuerung** (Modus, Start, Stopp): Der Adapter wird angeschlossen an `http://<enpal-box>/wallbox` via Blazor SignalR (gleicher Ansatz wie bei der [Home Assistant Enpal-Integration](https://github.com/derolli1976/enpal) ) und simuliert Tastendrücke.
+- **Status** (`currentMode`, `connectorStatus`, `automaticChargeStatus`): Lesen Sie von der Enpal Box-Seite `http://<enpal-box>/deviceMessages` (`Mode.Charge.Connector.1`, `Status.Wallbox.Connector.1`, `Wallbox.Settings.AutomaticChargeStatus.Connector.1` Wird bei jedem Synchronisierungsintervall und nach Steuerungsaktionen aktualisiert. Das beschreibbare `mode` Der Status wird ebenfalls aktualisiert (mit `ack: true`) damit die VIS-Dropdown-Menüs synchronisiert bleiben, wenn der Modus außerhalb von ioBroker geändert wird.
 
 #### Verbindungsstatuswerte
 
-`connectorStatus` Meldet den [OCPP-](https://www.openchargealliance.org/) Anschlussstatus der Enpal/StarCharge-Wanddose. Die Werte werden auf die kanonische Schreibweise normalisiert (z. B. 0x0 ...`SuspendedEV` , nicht`Suspendedev` ).
+`connectorStatus` Meldet den [OCPP-](https://www.openchargealliance.org/) Anschlussstatus der Enpal/StarCharge-Wanddose. Die Werte werden auf die kanonische Schreibweise normalisiert (z. B. 0x0 ... `SuspendedEV`, nicht `Suspendedev`).
 
 | Wert            | Bedeutung                                                                                                        |
 | --------------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -98,7 +98,7 @@ enpal.0.wallbox_control.<state>
 | `Faulted`       | Fehler, der von der Wallbox gemeldet wurde                                                                       |
 | `Connected`     | Fahrzeug verbunden (Enpal-spezifisch; kann anstelle oder vor anderen Zuständen erscheinen)                       |
 
-> **Hinweis:** Nach vollständiger Aufladung werden Sie häufig sehen`SuspendedEV` — Das ist normal. Das Auto hat aufgehört, Strom zu ziehen; trennen Sie es gegebenenfalls vom Stromnetz oder starten Sie den Ladevorgang neu.
+> **Hinweis:** Nach vollständiger Aufladung werden Sie häufig sehen `SuspendedEV` — Das ist normal. Das Auto hat aufgehört, Strom zu ziehen; trennen Sie es gegebenenfalls vom Stromnetz oder starten Sie den Ladevorgang neu.
 
 **Anforderungen**
 
@@ -115,18 +115,18 @@ enpal.0.wallbox_control.<state>
 1. Installieren Sie den Adapter über die ioBroker-Administrationsoberfläche.
 2. Erstellen Sie eine neue Instanz
 3. Konfigurieren Sie die folgenden Einstellungen (Registerkarte „ **Einstellungen“** ):
-   - **InfluxDB-URL** : Adresse Ihrer lokalen InfluxDB (z. B.`http://192.168.1.100:8086` )
+   - **InfluxDB-URL** : Adresse Ihrer lokalen InfluxDB (z. B. `http://192.168.1.100:8086`)
    - **API-Token** : Ihr InfluxDB-API-Token (Lesezugriff genügt)
    - **Organisations-ID** : Ihre InfluxDB-Organisation
-   - **Bucket** : Der Bucket, in den Enpal schreibt (typischerweise`enpal` oder ähnliches)
-   - **Aktualisierungsintervall** : Datenaktualisierungsintervall in Sekunden (Standard:`60` )
-   - **Wallbox-Steuerung** (optional): Aktivieren, um zu erstellen`wallbox_control` Status und Lademodus/Start/Stopp über die Enpal Box-Weboberfläche ermöglichen (keine zusätzliche URL – der Host wird von der InfluxDB-URL übernommen). Ist diese Option aktiviert, erläutert die **Hilfe-Registerkarte der Wallbox** Datenpunkte, Lademodi und Verbindungsstatuswerte.
+   - **Bucket** : Der Bucket, in den Enpal schreibt (typischerweise `enpal` oder ähnliches)
+   - **Aktualisierungsintervall** : Datenaktualisierungsintervall in Sekunden (Standard: `60`)
+   - **Wallbox-Steuerung** (optional): Aktivieren, um zu erstellen `wallbox_control` Status und Lademodus/Start/Stopp über die Enpal Box-Weboberfläche ermöglichen (keine zusätzliche URL – der Host wird von der InfluxDB-URL übernommen). Ist diese Option aktiviert, erläutert die **Hilfe-Registerkarte der Wallbox** Datenpunkte, Lademodi und Verbindungsstatuswerte.
 4. Speichern und Instanz starten
 
 ### So finden Sie Ihre InfluxDB-Zugangsdaten
 
 1. Melden Sie sich an der Weboberfläche Ihrer Enpal-Box an oder stellen Sie eine Verbindung über SSH her.
-2. Öffnen Sie die InfluxDB-Benutzeroberfläche unter`http://<enpal-box-ip>:8086`
+2. Öffnen Sie die InfluxDB-Benutzeroberfläche unter `http://<enpal-box-ip>:8086`
 3. Gehen Sie zu **Daten → API-Tokens** und erstellen Sie ein schreibgeschütztes Token.
 4. Notieren Sie sich den Organisationsnamen und den Bucket unter **Daten → Buckets**
 

@@ -76,7 +76,7 @@ Der Adapter nutzt mehrere Datenquellen mit automatischem Fallback:
 
 ## Verwendung
 
-Nach der Installation und dem Start stellt der Adapter die ioBroker-Zustände unter dem Objektpfad bereit.`f1.0` :
+Nach der Installation und dem Start stellt der Adapter die ioBroker-Zustände unter dem Objektpfad bereit. `f1.0`:
 
 ```
 f1.0

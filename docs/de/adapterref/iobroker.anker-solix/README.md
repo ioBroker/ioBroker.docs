@@ -23,7 +23,7 @@ ioBroker-Adapter für **Anker Solix**-Stromversorgungssysteme (Solarbank, Smart 
 
 | **macOS** | **Nicht unterstützt** - automatische Python/venv-Installation wurde nicht verifiziert |
 
-> > npm / `package.json` Kataloginstallation: **`linux`** und **`win32`** nur. Details: [Unterstützte Plattformen](#supported-platforms).
+> > npm / `package.json` Kataloginstallation: ** `linux` ** und ** `win32` ** nur. Details: [Unterstützte Plattformen](#supported-platforms).
 
 Eine kleine **Python-Bridge** (ein persistenter Daemon, ähnlich wie Home Assistant) fragt die Anker-Cloud und optional MQTT ab und stellt die Werte als ioBroker-Zustände bereit. Optionale Entitätsgruppen (seit Version 0.9.0) spiegeln den Umfang von Home Assistant wider: Standardmäßig ist nur **Core** aktiviert, um die API-Last zu begrenzen.
 
@@ -61,7 +61,7 @@ Der Adapter verwendet eine **inoffizielle** Python-Bibliothek zur Kommunikation 
 | **macOS** | **Nicht unterstützt** | Theoretisch gleicher Unix-Codepfad wie Linux, aber automatisches Python/venv-Bootstrap wurde **nicht getestet** - keine npm-Katalogunterstützung (`package.json` hat kein `darwin`) |
 | **macOS** | **Nicht unterstützt** | Theoretisch gleicher Unix-Codepfad wie Linux, aber automatisches Python/venv-Bootstrap wurde **nicht getestet** - keine npm-Katalogunterstützung (`package.json` enthält kein `darwin`) |
 
-**Linux** bleibt das Hauptziel für ioBroker-Implementierungen. **Windows** wird vollständig im Code unterstützt und manuell verifiziert; GitHub Actions führt Adaptertests auf **`ubuntu-latest`** und **`windows-latest`** durch. **macOS** wird bis zum Test der Python-Installation nicht unterstützt.
+**Linux** bleibt das Hauptziel für ioBroker-Implementierungen. **Windows** wird vollständig im Code unterstützt und manuell verifiziert; GitHub Actions führt Adaptertests auf ** `ubuntu-latest` ** und ** `windows-latest` ** durch. **macOS** wird bis zum Test der Python-Installation nicht unterstützt.
 
 ---
 
@@ -84,7 +84,7 @@ Das Abfrageintervall sollte **60-180 s** betragen (gleiche Empfehlung wie bei HA
 - **Node.js >= 22**
 - **Python 3.12+** auf dem ioBroker-Host (empfohlen / Upstream-Anforderung):
 - **Linux:** `python3-venv` + `python3-pip` (Debian/Ubuntu) - primäres Produktionsziel
-- **Windows:** Python 3.12+ von python.org oder `py -3.12`; der Adapter-Installer kümmert sich um venv und **`tzdata`**
+- **Windows:** Python 3.12+ von python.org oder `py -3.12`; der Adapter-Installer kümmert sich um venv und ** `tzdata` **
 - **macOS:** **nicht unterstützt** (automatische Python-Installation nicht verifiziert)
 **Ausnahme (nach bestem Bemühen):** Linux-Docker-Container basierend auf **Debian 12 Bookworm** (z. B. `buanet/iobroker:latest-v11`) verwenden möglicherweise System-Python 3.11, wenn 3.12 nicht über apt verfügbar ist. Bare-Metal-Bookworm, andere Distributionen und Nicht-Bookworm-Container benötigen weiterhin **3.12+**. Installieren Sie Python 3.12+ nach Möglichkeit in einem permanenten Pfad und setzen Sie **pythonPath** entsprechend.
 
@@ -114,7 +114,7 @@ python3 -m venv python/.venv && python/.venv/bin/pip install -r python/requireme
 ```
 
 ### Home Assistant (ioBroker-Add-on)
-Die offizielle **ioBroker**-App für Home Assistant OS enthält oft `python3`, aber **kein `pip`** und **kein `python3-venv`**. Installieren oder aktualisieren Sie den Adapter über den ioBroker-Katalog/npm (`iobroker install anker-solix`). Ab **Version 0.10.72** erkennt das Installationsprogramm dieses Profil und versucht Folgendes:
+Die offizielle **ioBroker**-App für Home Assistant OS enthält oft `python3`, aber **kein `pip` ** und **kein `python3-venv` **. Installieren oder aktualisieren Sie den Adapter über den ioBroker-Katalog/npm (`iobroker install anker-solix`). Ab **Version 0.10.72** erkennt das Installationsprogramm dieses Profil und versucht Folgendes:
 
 1. virtualenv in `python/.venv` (oder `--without-pip` + pip innerhalb von venv)
 2. `get-pip.py` mit `--break-system-packages`, wenn das System-Python PEP 668 ist
@@ -130,7 +130,7 @@ node tools/install-python.js
 iobroker restart anker-solix.0
 ```
 
-Kopieren Sie **`authcache/<email>.json`** aus einer funktionierenden Anker-Installation (z. B. ha-anker-solix) nach `iobroker-data/anker-solix.0/authcache/`, um das Captcha beim ersten Login zu vermeiden.
+Kopieren Sie ** `authcache/<email>.json` ** aus einer funktionierenden Anker-Installation (z. B. ha-anker-solix) nach `iobroker-data/anker-solix.0/authcache/`, um das Captcha beim ersten Login zu vermeiden.
 
 ### Lokaler Modbus (optional)
 Neuere Anker-Geräte (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug Gen 2, **SOLIX X1 HES**, **V1 Smart EV Charger**) können **lokal über Modbus TCP** (Port 502) abgefragt werden. Die Registerzuordnungen folgen [Die offiziellen Modbus-Protokolle von Anker](https://support.ankersolix.com/) und die von der Community verifizierten X1-Mappings ([anker-x1-ha](https://github.com/afewyards/anker-x1-ha)).
@@ -349,7 +349,7 @@ Deutsche Anleitungen/Videos, die unter [HA README](https://github.com/thomluther
 ---
 
 ## Vermeidung von Einschränkungen (optional)
-Registerkarte **Abregelungsvermeidung** / **Abschaltvermeidung**: Erfordert [ioBroker.pvforecast](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md)-Adapter. (Bisher basierend auf [ioBroker.solarprognose](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md))](https://www.iobroker.net/#en/adapters/adapterref/iobroker.solarprognose/README.md) / solarprognose.de - deaktiviert, da **solarprognose.de eingestellt wird** und diese Datenquelle nicht mehr verfügbar ist.) Legen Sie den **Anlagenpfad** fest (z. B. `pvforecast.0.plants.pv`); die Leistungswerte werden von `{path}.power.hoursToday.*` gelesen. Die **Prognoseauflösung** (60 / 30 / 15 Minuten, Standard **60**) muss dem in pvforecast konfigurierten Intervall entsprechen. **Steuert nur:** **Manueller** Modus + **`ac_output_limit`** (AC-Ausgang / -Export). **Ändert nicht** die Basiseinstellungen der Station (Netzexportbegrenzung, `allow_grid_export`, Voreinstellung für die Eigenlast, AC-Ladebegrenzung). **Vorher:** `ac_output_limit` = Live-PV. **Aktiv:** `missing_charge_wh`, `max_charge_w` = `missing_charge_wh` ÷ `remaining_hours`, `export_w` = `live_pv_w` − `max_charge_w`, `ac_output_limit` = `export_w`. **Nachher:** Ausgewählten Modus wiederherstellen. Zustände: `curtailment.live_pv_w`, `missing_charge_wh`, `max_charge_w`, `export_w`, `remaining_hours`.
+Registerkarte **Abregelungsvermeidung** / **Abschaltvermeidung**: Erfordert [ioBroker.pvforecast](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md)-Adapter. (Bisher basierend auf [ioBroker.solarprognose](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md))](https://www.iobroker.net/#en/adapters/adapterref/iobroker.solarprognose/README.md) / solarprognose.de - deaktiviert, da **solarprognose.de eingestellt wird** und diese Datenquelle nicht mehr verfügbar ist.) Legen Sie den **Anlagenpfad** fest (z. B. `pvforecast.0.plants.pv`); die Leistungswerte werden von `{path}.power.hoursToday.*` gelesen. Die **Prognoseauflösung** (60 / 30 / 15 Minuten, Standard **60**) muss dem in pvforecast konfigurierten Intervall entsprechen. **Steuert nur:** **Manueller** Modus + ** `ac_output_limit` ** (AC-Ausgang / -Export). **Ändert nicht** die Basiseinstellungen der Station (Netzexportbegrenzung, `allow_grid_export`, Voreinstellung für die Eigenlast, AC-Ladebegrenzung). **Vorher:** `ac_output_limit` = Live-PV. **Aktiv:** `missing_charge_wh`, `max_charge_w` = `missing_charge_wh` ÷ `remaining_hours`, `export_w` = `live_pv_w` − `max_charge_w`, `ac_output_limit` = `export_w`. **Nachher:** Ausgewählten Modus wiederherstellen. Zustände: `curtailment.live_pv_w`, `missing_charge_wh`, `max_charge_w`, `export_w`, `remaining_hours`.
 
 **Admin:** Kontrollkästchen *Kombinator vorhanden* - ohne Kombinator: Geräte-ID + Solarbanktyp + Batteriekapazität (Wh); mit Kombinator: Kombinator-ID + bis zu **4** Solarbank-Steckplätze (jeder Steckplatz kann *kein* sein). **Kombinator:** Gesamt-AC-Grenzwert = **Summe** der Grenzwerte pro Einheit (SB2 **1000** W, SB3 Pro **1200** W, SB4 Pro **2500** W). **Standalone:** immer **800** W.
 
@@ -535,7 +535,7 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 ### 0.10.81
 
-- **Repository review (mcm1957):** restore standard `test-and-release` workflow — adapter tests on every push/tag (Linux + Windows matrix), deploy only after all jobs succeed (no `always()` / no skipped-tests workaround); declare **`linux` + `win32`** in `package.json`; README: Windows supported & tested, **macOS not supported**
+- **Repository review (mcm1957):** restore standard `test-and-release` workflow — adapter tests on every push/tag (Linux + Windows matrix), deploy only after all jobs succeed (no `always()` / no skipped-tests workaround); declare ** `linux` + `win32` ** in `package.json`; README: Windows supported & tested, **macOS not supported**
 
 ### 0.10.80
 
@@ -582,7 +582,7 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 - **Python install:** detects host profile (Linux server, **Home Assistant** ioBroker add-on, **Windows**, container)
 - **HA:** venv-first, `get-pip.py` with `--break-system-packages` / `PIP_BREAK_SYSTEM_PACKAGES` for PEP 668
-- **Windows:** tries `py -3.13`, `py -3.12`, Program Files paths; parses `--version` (no broken shell `-c` check); adds **`tzdata`** for `Europe/Berlin`
+- **Windows:** tries `py -3.13`, `py -3.12`, Program Files paths; parses `--version` (no broken shell `-c` check); adds ** `tzdata` ** for `Europe/Berlin`
 - **Bridge:** uses resolved Python spawn spec (`py -3.12` args) consistently in daemon and one-shot mode
 - Deps check: `aiohttp` + `ZoneInfo("Europe/Berlin")` before skipping install
 
@@ -680,26 +680,26 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 ### 0.10.16
 
-- Combiner sensor **`total_state_of_charge`**: cloud total or capacity-weighted average of all site solarbanks (poll + ioBroker state)
+- Combiner sensor ** `total_state_of_charge` **: cloud total or capacity-weighted average of all site solarbanks (poll + ioBroker state)
 - Curtailment uses total SOC for `missing_charge_wh`, `max_charge_w`, and `soc_percent`
 
 ### 0.10.15
 
-- Curtailment: **`ac_output_limit` via API only** (no MQTT) to avoid station side effects
+- Curtailment: ** `ac_output_limit` via API only** (no MQTT) to avoid station side effects
 - Fix SOC handling when combiner had no SOC (`max_charge_w` wrong); ensure `missing_charge_wh` state exists on upgrade
 
 ### 0.10.14
 
-- Curtailment: **only** manual mode + **`ac_output_limit`** (no `grid_export_limit`, `allow_grid_export`, home load preset, AC charge limit)
+- Curtailment: **only** manual mode + ** `ac_output_limit` ** (no `grid_export_limit`, `allow_grid_export`, home load preset, AC charge limit)
 - New state `curtailment.missing_charge_wh`; active phase: export = live PV − calculated max charge
 
 ### 0.10.12
 
-- Curtailment combiner: export via **`ac_output_limit`** (`max_load`); home load preset 0 W (superseded by 0.10.14+)
+- Curtailment combiner: export via ** `ac_output_limit` ** (`max_load`); home load preset 0 W (superseded by 0.10.14+)
 
 ### 0.10.11
 
-- Curtailment: prefer **`system.{siteId}.sensors.total_pv_power`** for live PV
+- Curtailment: prefer ** `system.{siteId}.sensors.total_pv_power` ** for live PV
 
 ### 0.10.10
 

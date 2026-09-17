@@ -48,7 +48,7 @@ GoodWe предлагает официальные API-интерфейсы (н�
 - **API для мониторинга данных в реальном времени** – для проверки, разрешения и включения белого списка.
 - **Интерфейс пакетного дистанционного управления** – Kafka-basiert, nur Fernsteuerung.
 
-Для **обычного** SEMS-Portal-Konto (Wie es die meisten Privatanwender haben) это очень важно. Dieser Adaptor spricht stattdessen Diesel **может быть недокументирован по HTTPS-API** , а также в официальном приложении SEMS/на веб-сайте (вход через`CrossLogin` /`SEMS+ cross-login` , Datenabfrage via`GetMonitorDetailByPowerstationId` ). Diese Endpunkte wurden nicht von GoodWe für Drittnutzung freigegeben или dokumentiert; Базовая реализация проекта.
+Для **обычного** SEMS-Portal-Konto (Wie es die meisten Privatanwender haben) это очень важно. Dieser Adaptor spricht stattdessen Diesel **может быть недокументирован по HTTPS-API** , а также в официальном приложении SEMS/на веб-сайте (вход через `CrossLogin` /`SEMS+ cross-login`, Datenabfrage via `GetMonitorDetailByPowerstationId`). Diese Endpunkte wurden nicht von GoodWe für Drittnutzung freigegeben или dokumentiert; Базовая реализация проекта.
 
 - [pygoodwe](https://github.com/yaleman/pygoodwe) (MIT)
 - [goodwe-sems-home-assistant](https://github.com/TimSoethout/goodwe-sems-home-assistant)
@@ -57,11 +57,11 @@ GoodWe предлагает официальные API-интерфейсы (н�
 **Konsequenzen:**
 
 - Хорошо, мы можем использовать API без использования адаптера (временно).
-- Es gibt **kein dokumentiertes Echtzeit-/Push-Verfahren** (Websocket/SignalR) для Drittanbieter. Эйн`msgSocketAdr` -После ввода ответа на вход в систему, вы получите ответ на вопрос о созданном референс-проекте, который будет создан - es wäre reines Reverse-Engineering ohne belastbare Dokumentation und ein deutlich höheres Risiko (Kontosperrung, instabile). Вербиндунг). У адаптера есть лучший опрос по HTTPS в настройках интервала (по умолчанию 5 минут), который не проверяется при использовании Websocket-Verbindung vorzutäuschen.
-- Это **код ограничения скорости (`GY0429` )** beobachtet (ua в документации Home-Assistant-Integration). Адаптер включает код и автоматически приостанавливает работу (по умолчанию 5-минутное охлаждение), чтобы получить информацию о том, как отключить адаптер.
+- Es gibt **kein dokumentiertes Echtzeit-/Push-Verfahren** (Websocket/SignalR) для Drittanbieter. Эйн `msgSocketAdr` -После ввода ответа на вход в систему, вы получите ответ на вопрос о созданном референс-проекте, который будет создан - es wäre reines Reverse-Engineering ohne belastbare Dokumentation und ein deutlich höheres Risiko (Kontosperrung, instabile). Вербиндунг). У адаптера есть лучший опрос по HTTPS в настройках интервала (по умолчанию 5 минут), который не проверяется при использовании Websocket-Verbindung vorzutäuschen.
+- Это **код ограничения скорости (`GY0429`)** beobachtet (ua в документации Home-Assistant-Integration). Адаптер включает код и автоматически приостанавливает работу (по умолчанию 5-минутное охлаждение), чтобы получить информацию о том, как отключить адаптер.
 - Nutzung erfolgt auf eigenes Risiko, siehe [LICENSE](https://github.com/bueste/ioBroker.goodwe-sems/blob/main/LICENSE) (MIT, ohne Gewährleistung).
 
-**Конечный пункт не будет установлен на место:** gegen eine echte Tages-Antwort verifiziert, Lifert die von diesem Adaptor genutzte`GetMonitorDetailByPowerstationId` -Gateway-Antwort weder einen Stations-Zeitstempel (`info.time` ) noch Monats-Erzeugungs-/Einkommens-/Währungsfelder (`kpi.month_generation` ,`kpi.day_income` ,`kpi.total_income` ,`kpi.currency` ). Die entsprechenden States (`Station.PortalTimestamp` ,`KPI.MonthGeneration` ,`KPI.TodayIncome` ,`KPI.TotalIncome` ,`KPI.Currency` ) мы даем вам свой Конто и не нажимаем на кнопку Tageszeit erzeugt - это ваш ключ к выбору шлюза-API, который вам нужен, когда вы используете его.`Battery.*` - унд`PowerFlow.*` -States werden nur erzeugt, wenn das Portal tatsächlich Batterie-/Leistungsfluss-Daten für die Anlage Liefert (z. B. fehlt der`powerflow` - Schlussel komplett bei Anlagen ohne Batterie).
+**Конечный пункт не будет установлен на место:** gegen eine echte Tages-Antwort verifiziert, Lifert die von diesem Adaptor genutzte `GetMonitorDetailByPowerstationId` -Gateway-Antwort weder einen Stations-Zeitstempel (`info.time`) noch Monats-Erzeugungs-/Einkommens-/Währungsfelder (`kpi.month_generation`, `kpi.day_income`, `kpi.total_income`, `kpi.currency`). Die entsprechenden States (`Station.PortalTimestamp`, `KPI.MonthGeneration`, `KPI.TodayIncome`, `KPI.TotalIncome`, `KPI.Currency`) мы даем вам свой Конто и не нажимаем на кнопку Tageszeit erzeugt - это ваш ключ к выбору шлюза-API, который вам нужен, когда вы используете его. `Battery.*` - унд `PowerFlow.*` -States werden nur erzeugt, wenn das Portal tatsächlich Batterie-/Leistungsfluss-Daten für die Anlage Liefert (z. B. fehlt der `powerflow` - Schlussel komplett bei Anlagen ohne Batterie).
 
 ## Установка
 
@@ -78,7 +78,7 @@ iobroker url iobroker.goodwe-sems
 | Поле                       | Описание                                                                                                                                                                                  |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SEMS-Konto / Passworth     | Dieselben Zugangsdaten на сайте semsportal.com. Пароль от ioBroker не указан.                                                                                                             |
-| Anlagen-ID (необязательно) | Leer lassen für autotische Erkennung (`GetPowerStationIdByOwner` ). Bei mehreren Anlagen pro Konto: ID manuell aus der Portal-URL übernehmen (`.../powerstation/powerstatussnmin/<ID>` ). |
+| Anlagen-ID (необязательно) | Leer lassen für autotische Erkennung (`GetPowerStationIdByOwner`). Bei mehreren Anlagen pro Konto: ID manuell aus der Portal-URL übernehmen (`.../powerstation/powerstatussnmin/<ID>`). |
 | Интервал опроса            | По умолчанию 300 с. Адаптер работает минимум 60 с, независимо от конфигурации.                                                                                                            |
 | Слабак                     | Зие [Пушовер-Бенахрихтигунген](#pushover-benachrichtigungen) .                                                                                                                            |
 
@@ -106,15 +106,15 @@ goodwe-sems.0.Inverters.<Seriennummer>.AC_L1..3.Voltage / .Current / .Frequency
 goodwe-sems.0.Inverters.<Seriennummer>.Battery.SOC / .Voltage / .Current
 ```
 
-Bei zwei Wechselrichtern (wie in der ursprünglichen Anforderung) entstehen autotisch zwei`Inverters.<SN>.*` -Zweige - die Anzahl ist nicht fest codiert, sondern richtet sich nach dem, был порталом для драгоценностей, хранящихся в магазине.
+Bei zwei Wechselrichtern (wie in der ursprünglichen Anforderung) entstehen autotisch zwei `Inverters.<SN>.*` -Zweige - die Anzahl ist nicht fest codiert, sondern richtet sich nach dem, был порталом для драгоценностей, хранящихся в магазине.
 
-Если вы используете портал, а также адаптер (ноч) не имеет значения, он не может быть установлен: с включенной опцией отладки вы получите полную версию Rohantwort в`info.rawResponse` (JSON), это вдохновляет и помогает пиару, если вы хотите его использовать.
+Если вы используете портал, а также адаптер (ноч) не имеет значения, он не может быть установлен: с включенной опцией отладки вы получите полную версию Rohantwort в `info.rawResponse` (JSON), это вдохновляет и помогает пиару, если вы хотите его использовать.
 
 ## Управление изменениями, отсрочка и ограничения ставок
 
 - Джедер Полл-Цюклус ist vollständig try/catch-abgesichert; ein einzelner Fehler kann die Polling-Schleife nicht dauerhaft stoppen.
-- Класс ошибок (`SemsAuthError` ,`SemsRateLimitError` ,`SemsNetworkError` ,`SemsProtocolError` ) steuern das Verhalten gezielt:
-  - **Ограничение скорости (`GY0429` )** → мягкая пауза (по умолчанию 300 с),`info.rateLimited = true` .
+- Класс ошибок (`SemsAuthError`, `SemsRateLimitError`, `SemsNetworkError`, `SemsProtocolError`) steuern das Verhalten gezielt:
+  - **Ограничение скорости (`GY0429`)** → мягкая пауза (по умолчанию 300 с), `info.rateLimited = true`.
   - **Вход в систему-Фелер** → экспонента Отсрочка (до 1 часа), чтобы получить ложную информацию о том, что данные не указаны.
   - **Netzwerk-/Protokollfehler** → модерирует Backoff.
 - В каждом конфигурационном блоке вы можете использовать следующие настройки (по умолчанию 3) и включить режим «оффлайн» и активный режим — eine Pushover-Meldung ausgelöst.
@@ -124,7 +124,7 @@ Bei zwei Wechselrichtern (wie in der ursprünglichen Anforderung) entstehen auto
 
 Konfigurierbar in drei Modi:
 
-1. **Über eine bestehende`ioBroker.pushover` -Инстанц** (`sendTo` ) - empfohlen, keine doppelte Zugangsdatenverwaltung.
+1. **Über eine bestehende `ioBroker.pushover` -Инстанц** (`sendTo`) - empfohlen, keine doppelte Zugangsdatenverwaltung.
 2. **Прямой доступ к Pushover-API** (собственный пользовательский ключ + API-/App-Token, расширенный доступ) — функция, работающая также в отдельных Pushover-Instanz.
 3. **Beides gleichzeitig.**
 
@@ -132,11 +132,11 @@ Konfigurierbar in drei Modi:
 
 ## Безопасность и защита данных
 
-- SEMS-пароль и Pushover-API-токен в Wurzel фон`io-package.json` алс`encryptedNative` /`protectedNative` markiert und werden von ioBroker verschlüsselt abgelegt, nicht im Klartext geologgt (Kontoname wird в Log-Meldungen Maskiert, z. B.`st***@gmail.com` ).
-- Der Adaptor führt **ausschließlich lesende** Zugriffe aus (`GetMonitorDetailByPowerstationId` ,`GetPowerStationIdByOwner` ). Es gibt bewusst **keine** Fernsteuerungs-/Schreibfunktion (`SaveRemoteControlInverter` ) - das wäre ein deutlich größeres Sicherheits- und Haftungsrisiko und war nicht Teil der Anforderung.
-- Keine Drittanbieter-Abhängigkeiten für den HTTP-Zugriff: Es wird das in Node.js ≥22 eingebaute`fetch` verwendet statt einer zusätzlichen HTTP-Bibliothek - kleinere Angriffsfläche, weniger Supply-Chain-Risiko.
+- SEMS-пароль и Pushover-API-токен в Wurzel фон `io-package.json` алс `encryptedNative` /`protectedNative` markiert und werden von ioBroker verschlüsselt abgelegt, nicht im Klartext geologgt (Kontoname wird в Log-Meldungen Maskiert, z. B. `st***@gmail.com`).
+- Der Adaptor führt **ausschließlich lesende** Zugriffe aus (`GetMonitorDetailByPowerstationId`, `GetPowerStationIdByOwner`). Es gibt bewusst **keine** Fernsteuerungs-/Schreibfunktion (`SaveRemoteControlInverter`) - das wäre ein deutlich größeres Sicherheits- und Haftungsrisiko und war nicht Teil der Anforderung.
+- Keine Drittanbieter-Abhängigkeiten für den HTTP-Zugriff: Es wird das in Node.js ≥22 eingebaute `fetch` verwendet statt einer zusätzlichen HTTP-Bibliothek - kleinere Angriffsfläche, weniger Supply-Chain-Risiko.
 - Если ваш сервер входа в систему использует действительный API-базис-URL (кроме HTTPS на собственных доменах GoodWe), он может быть использован в качестве ключевого слова для входа в систему — ответ на вход в систему не может быть добавлен для сеансового токена и не может быть удален от хоста.
-- Alle Netzwerkfehler werden typisiert abgefangen; es werden keine ungeprüften Daten aus der API-Antwort ausgeführt (`eval` ,`Function` , о. ä. werden nirgends verwendet).
+- Alle Netzwerkfehler werden typisiert abgefangen; es werden keine ungeprüften Daten aus der API-Antwort ausgeführt (`eval`, `Function`, о. ä. werden nirgends verwendet).
 
 ## Entwicklung
 
@@ -152,7 +152,7 @@ npm test          # Unit-Tests (lib/mapping.js, lib/semsApi.js, lib/notify.js) +
 npx @iobroker/repochecker@latest .
 ```
 
-Запросы на извлечение будут направлены на то, чтобы узнать больше о портале и получить доступ к нему (siehe`info.rawResponse` с активатором Debug-Option) или Übersetzungen zu verbessern.
+Запросы на извлечение будут направлены на то, чтобы узнать больше о портале и получить доступ к нему (siehe `info.rawResponse` с активатором Debug-Option) или Übersetzungen zu verbessern.
 
 ## Лицензия
 

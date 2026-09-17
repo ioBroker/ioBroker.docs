@@ -18,14 +18,14 @@ hash: uSbXDXAOrDGh4Te3wIrEVbAIgbKG3hu9kanabEvyYQo=
 
 # ioBroker Logitech/Lyrion Squeezebox Adapter über JSON/RPC-Protokoll
 
-Dies ist ein alternativer Adapter, der Folgendes verwendet:`JSON/RPC` -Protokoll zum Abrufen von Daten und Senden von Befehlen an den Logitech Media Server/Lyrion Media Server ( [LMS](https://de.wikipedia.org/wiki/Lyrion_Music_Server) ) zur Steuerung angeschlossener Geräte wie
+Dies ist ein alternativer Adapter, der Folgendes verwendet: `JSON/RPC` -Protokoll zum Abrufen von Daten und Senden von Befehlen an den Logitech Media Server/Lyrion Media Server ( [LMS](https://de.wikipedia.org/wiki/Lyrion_Music_Server) ) zur Steuerung angeschlossener Geräte wie
 
 - native [squeezebox](https://de.wikipedia.org/wiki/Squeezebox) ,
 - Raspberry Pi mit zusätzlichem Audiomodul und kleinen Linux-basierten Firmwares wie [Picoreplayer](https://picoreplayer.org/) oder [Max2Play](https://www.max2play.com) .
 - WiiM Multiroom-Audio ( [kann mit einem LMS/Lyrion-Server kommunizieren](https://faq.wiimhome.com/en/support/solutions/articles/72000610226-how-to-stream-music-from-lms-to-your-wiim-device-with-squeezelite) )
-- mit Chromecast-, AirPlay- oder Plugins`UPnP/DLNA` -Geräte
+- mit Chromecast-, AirPlay- oder Plugins `UPnP/DLNA` -Geräte
 
-Der`LMS` -Der Server kann sehr große Musiksammlungen auf Festplatten verwalten/bereitstellen oder`NAS` , Verbindung zu verschiedenen Streaming-Anbietern herstellen wie`Spotify` ,`Deezer` ,`Soundcloud` ,`shoutcast` ,`tunein` ,`napster` ,`pandora` ,`tidal` und mehr
+Der `LMS` -Der Server kann sehr große Musiksammlungen auf Festplatten verwalten/bereitstellen oder `NAS`, Verbindung zu verschiedenen Streaming-Anbietern herstellen wie `Spotify`, `Deezer`, `Soundcloud`, `shoutcast`, `tunein`, `napster`, `pandora`, `tidal` und mehr
 
 ## Inhaltsverzeichnis
 
@@ -48,7 +48,7 @@ Der`LMS` -Der Server kann sehr große Musiksammlungen auf Festplatten verwalten/
 
 ## Merkmale
 
-- die meisten [Daten](#server) , die die`LMS` Der Dienst ist im Adapter verfügbar.
+- die meisten [Daten](#server) , die die `LMS` Der Dienst ist im Adapter verfügbar.
 - Detaillierte [Informationen](#players) zum Abspielstatus, Songtitel, Interpret, Album, Cover und zur Playlist
 - [viele Steuerungsfunktionen](#provided-states) zum Abspielen, Pausieren, Stoppen, Vorspulen,\
   &#x20;Zurückspulen, Wiederholen, Zufallswiedergabe, Favoriten abspielen, zu einer bestimmten Zeit springen\
@@ -74,12 +74,12 @@ Der`LMS` -Der Server kann sehr große Musiksammlungen auf Festplatten verwalten/
 | LMS-Server      | `0.0.0.0`  | Hostname oder IP-Adresse des Logitech/Lyrion Medienservers. Ein automatisch erkannter Server kann ausgewählt werden. |
 | LMS-Port        | `9000`     | Der HTTP-Port, der von JSON-RPC oder dem experimentellen WebSocket-Plugin verwendet wird.                            |
 | Verbindungstyp  | `JSON-RPC` | Verwendet stabiles HTTP JSON-RPC oder das experimentelle LMS WebSocket-Plugin.                                       |
-| WebSocket-URL   | leer       | Optionale, unabhängige Plugin-Webserver-URL, zum Beispiel`http://192.168.1.87/` Die                                  |
+| WebSocket-URL   | leer       | Optionale, unabhängige Plugin-Webserver-URL, zum Beispiel `http://192.168.1.87/` Die                                  |
 | LMS Telnet-Port | `9090`     | CLI/Telnet-Port. Wird nur bei JSON-RPC verwendet, wenn die Telnet-Signalisierung aktiviert ist.                      |
 | Benutzername    | leer       | Optionaler LMS-Benutzername.                                                                                         |
 | Passwort        | leer       | Optionales LMS-Passwort.                                                                                             |
 
-Der WebSocket-Modus erfordert das experimentelle [LMS-WebSocket-Plugin](https://github.com/LMS-Community/slimserver/tree/d1d0a683d8301c04e64be0425e0aec51fc4e8397/Slim/Plugin/WebSocket) . Er überträgt Befehle und Benachrichtigungen über dieselbe Verbindung, daher werden die Telnet-Einstellungen in diesem Modus ignoriert. Die reguläre Player-Abfrage bleibt als Fallback für fehlende oder unvollständige Benachrichtigungen aktiviert. HTTP(S)-WebSocket-URLs werden in WS(S)-URLs konvertiert.`/ws` wird automatisch hinzugefügt, wenn nur eine Stamm-URL konfiguriert ist.
+Der WebSocket-Modus erfordert das experimentelle [LMS-WebSocket-Plugin](https://github.com/LMS-Community/slimserver/tree/d1d0a683d8301c04e64be0425e0aec51fc4e8397/Slim/Plugin/WebSocket) . Er überträgt Befehle und Benachrichtigungen über dieselbe Verbindung, daher werden die Telnet-Einstellungen in diesem Modus ignoriert. Die reguläre Player-Abfrage bleibt als Fallback für fehlende oder unvollständige Benachrichtigungen aktiviert. HTTP(S)-WebSocket-URLs werden in WS(S)-URLs konvertiert. `/ws` wird automatisch hinzugefügt, wenn nur eine Stamm-URL konfiguriert ist.
 
 ### Timer-Einstellungen
 
@@ -96,7 +96,7 @@ Kurze Aktualisierungsintervalle erhöhen die Anzahl der an das LMS gesendeten An
 
 | Option                               | Standard    | Beschreibung                                                                                         |
 | ------------------------------------ | ----------- | ---------------------------------------------------------------------------------------------------- |
-| Playlist-Informationen bereitstellen | ermöglicht  | Erstellt und aktualisiert die`Playlist` JSON-Status für jeden Spieler.                               |
+| Playlist-Informationen bereitstellen | ermöglicht  | Erstellt und aktualisiert die `Playlist` JSON-Status für jeden Spieler.                               |
 | Suche nach anderen LMS-Servern       | ermöglicht  | Ermöglicht die Erkennung anderer LMS-Server im lokalen Netzwerk.                                     |
 | Telnet-Signalisierung verwenden      | deaktiviert | Mit JSON-RPC wird LMS CLI/Telnet für zusätzliche Spielerverbindungs- und Trennungssignale verwendet. |
 | Favoriten anfordern                  | ermöglicht  | Ruft regelmäßig den Favoritenbaum vom LMS ab.                                                        |
@@ -107,11 +107,11 @@ Deaktivieren Sie nicht benötigte Informationen, um die LMS-Anfragen und die Ada
 
 | Option                  | Standard    | Beschreibung                                                                                                                             |
 | ----------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| ioBroker Web-Basis-URL  | leer        | Basis-URL einer ioBroker-Webinstanz, zum Beispiel`http://192.168.1.10:8082` Nur erforderlich für Benachrichtigungen aus lokalen Dateien. |
+| ioBroker Web-Basis-URL  | leer        | Basis-URL einer ioBroker-Webinstanz, zum Beispiel `http://192.168.1.10:8082` Nur erforderlich für Benachrichtigungen aus lokalen Dateien. |
 | Ankündigungsvolumen     | `50`        | Lautstärke während der Wiedergabe der Ansage. Gültiger Bereich: 0 bis 100.                                                               |
 | Verwenden Sie FadeTools | deaktiviert | Verwendet das optionale [LMS FadeTools-Plugin](https://github.com/oweitman/LMS-FadeTools) vor und nach den Ankündigungen.                |
-| Ausblenddauer           | `2` S       | Ganze Sekunden wurden übergeben an`fadeout stop` Gültiger Bereich: 1 bis 60 Sekunden.                                                    |
-| Einblenddauer           | `2` S       | Ganze Sekunden wurden übergeben an`fadein play` Gültiger Bereich: 1 bis 60 Sekunden.                                                     |
+| Ausblenddauer           | `2` S       | Ganze Sekunden wurden übergeben an `fadeout stop` Gültiger Bereich: 1 bis 60 Sekunden.                                                    |
+| Einblenddauer           | `2` S       | Ganze Sekunden wurden übergeben an `fadein play` Gültiger Bereich: 1 bis 60 Sekunden.                                                     |
 
 Für lokale Ansagedateien muss das LMS die konfigurierte ioBroker-Web-URL erreichen können. HTTP(S)-Ansage-URLs werden direkt an das LMS übermittelt und benötigen diese Einstellung nicht. FadeTools-Befehle werden nur gesendet, wenn die Option aktiviert ist. Ohne FadeTools werden alle Lautstärkewerte direkt festgelegt und mit dem LMS abgeglichen.
 
@@ -157,7 +157,7 @@ Es wurde berichtet, dass ältere SLIMP3-Player möglicherweise keine Verbindung 
 | `SyncGroups`       | Vorhandene Synchronisierungsgruppen |
 | `Version`          | Version von `LMS`                   |
 | `mac`              | MAC-Adresse des Servers             |
-| `uuid`             | UUID des`LMS` -Beispiel             |
+| `uuid`             | UUID des `LMS` -Beispiel             |
 
 zusätzlich eine definierte Schaltfläche zum Aktualisieren der Favoriten
 
@@ -190,7 +190,7 @@ Für jeden Spieler zeigt der Modus an, ob der Wert geändert werden kann. Die du
 | ---------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Alarms`               | R/-   | Alle für diesen Player registrierten Alarme im JSON-Format                                                                                                                                                                                               |
 | `Album`                | R/-   | Name des aktuellen Albums                                                                                                                                                                                                                                |
-| `Announce`             | -/W   | Spielen Sie eine Audiodatei von einem absoluten Pfad oder einer HTTP(S)-URL ab und stellen Sie anschließend Wiedergabe und Lautstärke wieder her. Lokale Dateien benötigen die konfigurierte ioBroker-Web-URL (zum Beispiel`http://192.168.1.10:8082` ). |
+| `Announce`             | -/W   | Spielen Sie eine Audiodatei von einem absoluten Pfad oder einer HTTP(S)-URL ab und stellen Sie anschließend Wiedergabe und Lautstärke wieder her. Lokale Dateien benötigen die konfigurierte ioBroker-Web-URL (zum Beispiel `http://192.168.1.10:8082`). |
 | `Artist`               | R/-   | Name des Künstlers                                                                                                                                                                                                                                       |
 | `ArtworkUrl`           | R/-   | URL zum Kunstwerk                                                                                                                                                                                                                                        |
 | `Bitrate`              | R/-   | Bitrate des Titels                                                                                                                                                                                                                                       |
@@ -218,7 +218,7 @@ Für jeden Spieler zeigt der Modus an, ob der Wert geändert werden kann. Die du
 | `Volume`               | R/W   | Lautstärke des Players abrufen/einstellen (0-100)                                                                                                                                                                                                        |
 | `state`                | R/W   | Wiedergabestatus abrufen/setzen: Pause (0), Wiedergabe (1), Stopp (2)                                                                                                                                                                                    |
 
-Die Wiedergabeliste bietet, sofern verfügbar, die folgenden Attribute:`LMS` Einige Attribute hängen vom Typ der Songs ab (Stream/Datei/...). Alle Attribute sind schreibgeschützt.
+Die Wiedergabeliste bietet, sofern verfügbar, die folgenden Attribute: `LMS` Einige Attribute hängen vom Typ der Songs ab (Stream/Datei/...). Alle Attribute sind schreibgeschützt.
 
 | Attribut     | Beschreibung                            |
 | ------------ | --------------------------------------- |
@@ -247,7 +247,7 @@ zusätzlich definierte Schaltflächen:
 | `cmdPlayUrl`      | Eine URL abspielen. Beispiel: " <http://50.7.77.114:8101/> "                                                                                                                                                 |
 | `cmdGoTime`       | Springen Sie zu einer absoluten Position, indem Sie eine Anzahl von Sekunden angeben, oder zu einer relativen Position, indem Sie ein + oder - am Anfang der Sekundenangabe verwenden. Beispiel: 100,-50,+50 |
 
-Die Ansageeinstellungen definieren die Lautstärke und die optionale Integration mit dem [LMS FadeTools-Plugin](https://github.com/oweitman/LMS-FadeTools) . Wenn diese Option aktiviert ist, sendet der Adapter …`fadeout stop` wartet die konfigurierte Ausblenddauer ab und setzt die Wiedergabe später fort.`fadein play` Wenn diese Option deaktiviert ist, werden die vorherigen und die Ankündigungsvolumes direkt festgelegt. Für lokale Dateien müssen Sie die Basis-URL einer ioBroker-Webinstanz konfigurieren (z. B.`http://192.168.1.10:8082` Der LMS-Host muss diese URL erreichen können. Remote-Streams werden ohne Suchfunktion wiederhergestellt, da sie in der Regel keine Wiedergabeposition unterstützen.
+Die Ansageeinstellungen definieren die Lautstärke und die optionale Integration mit dem [LMS FadeTools-Plugin](https://github.com/oweitman/LMS-FadeTools) . Wenn diese Option aktiviert ist, sendet der Adapter …`fadeout stop` wartet die konfigurierte Ausblenddauer ab und setzt die Wiedergabe später fort. `fadein play` Wenn diese Option deaktiviert ist, werden die vorherigen und die Ankündigungsvolumes direkt festgelegt. Für lokale Dateien müssen Sie die Basis-URL einer ioBroker-Webinstanz konfigurieren (z. B. `http://192.168.1.10:8082` Der LMS-Host muss diese URL erreichen können. Remote-Streams werden ohne Suchfunktion wiederhergestellt, da sie in der Regel keine Wiedergabeposition unterstützen.
 
 #### Anmerkungen zu Datenpunkten in Abhängigkeit von der Einstellung TPE2 im LMS
 
@@ -285,7 +285,7 @@ Beide Widget-Sets verwenden ein **Player-** Widget als zentrale Auswahlquelle. K
 ![Spieler-Schaltflächenleiste](../../../en/adapterref/iobroker.squeezeboxrpc/widgets/squeezeboxrpc/img/players.png)
 
 Alle in Ihren Logitech/Lyrion Media Server integrierten Player können ausgewählt werden.\
-&#x20;mit diesem Widget. Nach der Auswahl eines`squeezerpc.?` Instanz, die verfügbaren\
+&#x20;mit diesem Widget. Nach der Auswahl eines `squeezerpc.?` Instanz, die verfügbaren\
 &#x20;Die Spieler werden im Widget angezeigt.
 
 #### Attribute
@@ -640,7 +640,7 @@ Falls Tester auf Fehler/Probleme oder fehlende Implementierungen stoßen, geben 
 
 ### Spielernamen abrufen
 
-Gibt die Namen aller aktuell im Adapter registrierten Spieler zurück. Die zurückgegebenen Namen sind die unten verwendeten, bereinigten Namen.`squeezeboxrpc.<instance>.Players` Die
+Gibt die Namen aller aktuell im Adapter registrierten Spieler zurück. Die zurückgegebenen Namen sind die unten verwendeten, bereinigten Namen. `squeezeboxrpc.<instance>.Players` Die
 
 ```js
 async function main() {
@@ -698,9 +698,9 @@ Weitere Optionen und detaillierte Beschreibungen der Parameter finden Sie in der
 
 ### vis-1
 
-- start dev-server mit`dev-server watch --noStart`
+- start dev-server mit `dev-server watch --noStart`
 - Adapter mit Startkonfiguration "default Launch ioBroker Adapter" starten
-- Starte das Überwachungsskript im Widget-Verzeichnis mit`npm run watch`
+- Starte das Überwachungsskript im Widget-Verzeichnis mit `npm run watch`
 - Vis-1-Editor oder Laufzeitumgebung öffnen
 - Wenn Sie im vis-1-Widget etwas ändern, warten Sie einige Sekunden, bis die Änderungen auf den Entwicklungsserver hochgeladen sind.
 - in vis-1 die Seite vis-1 neu laden
@@ -711,28 +711,28 @@ Weitere Optionen und detaillierte Beschreibungen der Parameter finden Sie in der
 - Zum Debuggen des vis-2-Widgets müssen Sie vis-2 in einem zweiten vis-2-Fenster ausführen.
 - Zur Installation und Ausführung folgen Sie den Anweisungen unter <https://github.com/ioBroker/ioBroker.vis-2#development-and-debugging>
 - Adapter mit Startkonfiguration "default Launch ioBroker Adapter" starten
-- Starten Sie den Vite-Entwicklungsserver im Verzeichnis src-widgets mit`npm run start`
-- Im iobroker-Adminbereich/Registerkarte „Objekte“ bearbeiten Sie im Expertenmodus das Objekt von`system.adapter.squeezeboxrpc.0`
+- Starten Sie den Vite-Entwicklungsserver im Verzeichnis src-widgets mit `npm run start`
+- Im iobroker-Adminbereich/Registerkarte „Objekte“ bearbeiten Sie im Expertenmodus das Objekt von `system.adapter.squeezeboxrpc.0`
 - Ändern Sie common.visWidgets.vis2vis-squeezeboxrpc.url von vis2squeezeboxrpc/customWidgets.js in [http://localhost:4173/customWidgets.js.](http://localhost:4173/customWidgets.js) Dies ist die Adresse des Vite-Definitionsservers.
 - Öffnen Sie vis im Bearbeitungs- oder Laufzeitmodus mit der Startkonfiguration "vis2 edit 3000" oder "vis2 runtime 3000".
 - Wenn Sie etwas im Code des Vis-2-Widgets ändern, wird ein automatisches Neuladen ausgelöst, oder Sie drücken F5 im Browser.
 
 ### abschließender Laufzeittest
 
-- stoppen`dev-server` und Ihr Adapter in VS Code
-- Erstelle einen Produktions-Build und lade ihn mit dem Build auf den Entwicklungsserver hoch.`dev-server upload`
-- iobroker starten mit`npm run start`
+- stoppen `dev-server` und Ihr Adapter in VS Code
+- Erstelle einen Produktions-Build und lade ihn mit dem Build auf den Entwicklungsserver hoch. `dev-server upload`
+- iobroker starten mit `npm run start`
 - Die Änderung in system.adapter.squeezeboxrpc.0 wird auf den ursprünglichen Wert zurückgesetzt.
 - Öffnen Sie vis-1 oder vis-2 im Bearbeitungs- oder Laufzeitmodus.
 
 ### zusätzlicher Test auf einem echten iobroker-Server
 
-- Erstellen Sie im Stammverzeichnis eine npm-Paketdatei mit`npm pack`
+- Erstellen Sie im Stammverzeichnis eine npm-Paketdatei mit `npm pack`
 - Drücken Sie in iobroker auf der Registerkarte „Admin/Adapter“ im Expertenmodus die Schaltfläche „Katze“.
-- Wählen Sie im Dialogfeld die Registerkarte aus.`from file`
+- Wählen Sie im Dialogfeld die Registerkarte aus. `from file`
 - Wählen Sie die erstellte Paketdatei aus.
 - Installationsanleitung drücken
-- Wenn etwas nicht funktioniert, beim Start der Shell`iobroker upload all`
+- Wenn etwas nicht funktioniert, beim Start der Shell `iobroker upload all`
 
 ## Todo
 
@@ -741,7 +741,7 @@ Weitere Optionen und detaillierte Beschreibungen der Parameter finden Sie in der
 - ~~mehr Tests/Fehlerbehebungen~~
 - ~~Mehr Konfigurationsmöglichkeiten zum optionalen Ein-/Ausschalten von Funktionen zur Verbesserung von Speicher und Leistung~~
 - ~~Playlist-Widget hinzufügen~~
-- ~~Widget zum Durchsuchen hinzufügen`LMS` -Speisekarte~~
+- ~~Widget zum Durchsuchen hinzufügen `LMS` -Speisekarte~~
 - ~~Abhängigkeiten zu anderen Paketen reduzieren (squeezenode)~~
 - ~~cmdGeneral für Server.~~
 - ~~Fügen Sie eine Telnet-Kommunikation hinzu, um Push-Ereignisse vom Server zu erhalten und so~~ ~~das Polling zu optimieren.~~

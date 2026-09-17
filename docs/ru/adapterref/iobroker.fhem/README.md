@@ -19,39 +19,39 @@ hash: igYtZ/NfgmW0L1x8SIbwzI2ozrPkyAjQXaQBcR7yeN0=
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
-Для установления соединения необходимо включить Telnet в FHEM. Чтобы включить его (по умолчанию включен), проверьте следующие настройки в`fhem.cfg` :
+Для установления соединения необходимо включить Telnet в FHEM. Чтобы включить его (по умолчанию включен), проверьте следующие настройки в `fhem.cfg`:
 
 `define telnetPort telnet 7072 global`
 
 Для настроек адаптера следует использовать тот же самый порт и IP-адрес хоста FHEM (или localhost, если FHEM и ioBroker работают на одном ПК).
 
-ioBroker отправляет данные в начале процесса.`jsonlist2` команда для получения всех`Readings` из списка.
+ioBroker отправляет данные в начале процесса. `jsonlist2` команда для получения всех `Readings` из списка.
 
 ## Поддерживаемые устройства
 
 Обычно поддерживаются все устройства. Но некоторые из них интегрированы лучше.
 
-Проблемы возникают, в частности, при управлении состояниями. Поскольку отсутствует четкая структура атрибутов, ioBroker пытается угадать, какие именно состояния используются.`PossibleSets` Можно использовать поля. Фактически поддерживаются только следующие атрибуты:
+Проблемы возникают, в частности, при управлении состояниями. Поскольку отсутствует четкая структура атрибутов, ioBroker пытается угадать, какие именно состояния используются. `PossibleSets` Можно использовать поля. Фактически поддерживаются только следующие атрибуты:
 
-- RGB: Если RGB существует в`PossibleSets` и в`Readings` Оно будет объединено в одно состояние, которое можно читать и записывать. Значения, такие как`#234567` будет автоматически преобразовано в`234567` .
-- Состояние «вкл/выкл»: Если`on` и`off` существуют в`PossibleSets` и`state` в`Readings` оно будет объединено в один штат под названием`state` . Управление осуществляется с помощью значений true и false, и команды будут изменены.`set DEVICE on` и`set DEVICE off` .
+- RGB: Если RGB существует в `PossibleSets` и в `Readings` Оно будет объединено в одно состояние, которое можно читать и записывать. Значения, такие как `#234567` будет автоматически преобразовано в `234567`.
+- Состояние «вкл/выкл»: Если `on` и `off` существуют в `PossibleSets` и `state` в `Readings` оно будет объединено в один штат под названием `state`. Управление осуществляется с помощью значений true и false, и команды будут изменены. `set DEVICE on` и `set DEVICE off`.
 
 ## Функции и использование
 
 - Если в FHEM существует комната "ioBroker", синхронизироваться будут только эти объекты.
 - После синхронизации неиспользуемые объекты FHEM будут автоматически удалены.
-- Внутренние компоненты, такие как`TYPE` ,`NAME` ,`PORT` ,`manufacturername` ,`modelid` ,`swversion` будет синхронизировано (`role=value.xxx` )
-- Такие атрибуты, как`room` ,`alias` ,`disable` ,`comment` Будет выполнена синхронизация, и появится возможность редактировать атрибуты в ioBroker.`role=state.xxx` )
+- Внутренние компоненты, такие как `TYPE`, `NAME`, `PORT`, `manufacturername`, `modelid`, `swversion` будет синхронизировано (`role=value.xxx`)
+- Такие атрибуты, как `room`, `alias`, `disable`, `comment` Будет выполнена синхронизация, и появится возможность редактировать атрибуты в ioBroker. `role=state.xxx`)
 - Настройка роли и других параметров во время синхронизации.
-  - `Readings xxx` с любым`PossibleSets` будет установлен`role=state.xxx`
-  - `Readings xxx` Без PossibleSets будут установлены`role=value.xxx`
-  - `Readings xxx` При использовании PossibleSets будет установлен параметр "noArg".`role=button.xxx`
-  - `Readings xxx` При использовании PossibleSets будет установлен ползунок.`role=level.xxx, min=slider(min), max=slider(max)`
-  - `Readings "desired-temp"` будет установлен`role=level.temperature, min=5, max=35, unit=°C` .
-  - `Readings "pct, brightness,dim"` будет установлен`role=level.dimmer, min=0, max=100, unit=%`
-  - `Readings "Volume, volume, GroupVolume"` будет установлен`role=level.volume, min=0, max=100, unit=%`
-  - `Readings "GroupVolume"` будет установлен`role=level.volume.group` ,`min=0` ,`max=100` ,`unit=%`
-- `SmartName` Для облачного адаптера он будет автоматически настроен с псевдонимом или именем (только).`fhem.0` и объекты с`role = level.temperature, level.dim, level.volume` )
+  - `Readings xxx` с любым `PossibleSets` будет установлен `role=state.xxx`
+  - `Readings xxx` Без PossibleSets будут установлены `role=value.xxx`
+  - `Readings xxx` При использовании PossibleSets будет установлен параметр "noArg". `role=button.xxx`
+  - `Readings xxx` При использовании PossibleSets будет установлен ползунок. `role=level.xxx, min=slider(min), max=slider(max)`
+  - `Readings "desired-temp"` будет установлен `role=level.temperature, min=5, max=35, unit=°C`.
+  - `Readings "pct, brightness,dim"` будет установлен `role=level.dimmer, min=0, max=100, unit=%`
+  - `Readings "Volume, volume, GroupVolume"` будет установлен `role=level.volume, min=0, max=100, unit=%`
+  - `Readings "GroupVolume"` будет установлен `role=level.volume.group`, `min=0`, `max=100`, `unit=%`
+- `SmartName` Для облачного адаптера он будет автоматически настроен с псевдонимом или именем (только). `fhem.0` и объекты с `role = level.temperature, level.dim, level.volume`)
 
 <!--
 	Placeholder for the next version (at the beginning of the line):

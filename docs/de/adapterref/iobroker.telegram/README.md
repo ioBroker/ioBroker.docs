@@ -24,7 +24,7 @@ hash: 9mTX9zkdPtB1mIqP3xgS+1iSybr5vhzedy/Z5k2I3Ik=
 
 ## Konfiguration
 
-Bitten Sie [@BotFather](https://telegram.me/botfather) , einen neuen Bot zu erstellen.`/newbot` Die
+Bitten Sie [@BotFather](https://telegram.me/botfather) , einen neuen Bot zu erstellen. `/newbot` Die
 
 Sie werden aufgefordert, den Namen des Bots und anschließend den Benutzernamen einzugeben. Danach erhalten Sie das Token.
 
@@ -32,13 +32,13 @@ Sie werden aufgefordert, den Namen des Bots und anschließend den Benutzernamen 
 
 Sie sollten das Kommunikationspasswort im Konfigurationsdialog festlegen. Starten Sie anschließend den Adapter.
 
-Um eine Konversation mit Ihrem Bot zu starten, müssen Sie den Benutzer authentifizieren mit`/password phrase` , W&#x6F;**`phrase`** Das ist Ihr konfiguriertes Passwort. Öffnen Sie also eine neue Konversation mit Ihrem generierten Bot in Telegram und geben Sie dann das Passwort als ersten Befehl ein.
+Um eine Konversation mit Ihrem Bot zu starten, müssen Sie den Benutzer authentifizieren mit `/password phrase`, W&#x6F;** `phrase` ** Das ist Ihr konfiguriertes Passwort. Öffnen Sie also eine neue Konversation mit Ihrem generierten Bot in Telegram und geben Sie dann das Passwort als ersten Befehl ein.
 
-**Hinweis:** Sie können die Kurzform verwenden.`/p phrase` Die
+**Hinweis:** Sie können die Kurzform verwenden. `/p phrase` Die
 
-Um ein schönes Avatarbild hinzuzufügen, geben Sie Folgendes ein:`/setuserpic` Im **BotFather** -Chat kannst du ihm das gewünschte Bild (512x512 Pixel) hochladen, zum Beispiel dieses [Logo](https://github.com/iobroker-community-adapters/ioBroker.telegram/blob/master/docs/en/img/logo.png) .
+Um ein schönes Avatarbild hinzuzufügen, geben Sie Folgendes ein: `/setuserpic` Im **BotFather** -Chat kannst du ihm das gewünschte Bild (512x512 Pixel) hochladen, zum Beispiel dieses [Logo](https://github.com/iobroker-community-adapters/ioBroker.telegram/blob/master/docs/en/img/logo.png) .
 
-Sie können die Nachricht über MessageBox an alle authentifizierten Benutzer senden.`sendTo('telegram', 'Test message')` oder an einen bestimmten Benutzer`sendTo('telegram', '@userName Test message')` Der Benutzer muss zuvor authentifiziert werden.
+Sie können die Nachricht über MessageBox an alle authentifizierten Benutzer senden. `sendTo('telegram', 'Test message')` oder an einen bestimmten Benutzer `sendTo('telegram', '@userName Test message')` Der Benutzer muss zuvor authentifiziert werden.
 
 Sie können einen Benutzer auch auf diese Weise angeben:
 
@@ -71,7 +71,7 @@ Die JSON-Syntax ermöglicht außerdem das Hinzufügen von Optionen aus der [Tele
 }
 ```
 
-Sie können die`parse_mode` auch im Text:
+Sie können die `parse_mode` auch im Text:
 
 ```
 sendTo('telegram', {user: 'UserName', text: '<MarkdownV2>Test message, but with *bold*</MarkdownV2>'}, function (res) {
@@ -85,15 +85,15 @@ oder
 setState('telegram.0.communicate.response', '<MarkdownV2>Test message, but with *bold*</MarkdownV2>');
 ```
 
-Um Nachrichten an Gruppen zu senden, müssen Sie den Bot zu der Gruppe einladen, in der er posten soll.`chat_id` Mit der JSON-Nachrichtennutzlast können Sie tatsächlich Nachrichten an diese Gruppen senden.
+Um Nachrichten an Gruppen zu senden, müssen Sie den Bot zu der Gruppe einladen, in der er posten soll. `chat_id` Mit der JSON-Nachrichtennutzlast können Sie tatsächlich Nachrichten an diese Gruppen senden.
 
-Um das herauszufinden`chat_id` Sie müssen den Protokollierungsgrad des Adapters auf Folgendes einstellen:`debug` Anschließend können Sie Ihren Bot einfach in den Gruppen anpingen, an die er Nachrichten senden soll. Stellen Sie sicher, dass Sie ein`/` Um die Nachricht für den Bot sichtbar zu machen ( [sofern die Bot-Privatsphäre aktiviert ist](#How-to-receive-messages-in-group-chats-using-telegram-adapter) ), muss ein Platzhalter vor der Nachricht eingefügt werden. Anschließend wird die Chat-ID im iobroker-Protokoll angezeigt.
+Um das herauszufinden `chat_id` Sie müssen den Protokollierungsgrad des Adapters auf Folgendes einstellen: `debug` Anschließend können Sie Ihren Bot einfach in den Gruppen anpingen, an die er Nachrichten senden soll. Stellen Sie sicher, dass Sie ein `/` Um die Nachricht für den Bot sichtbar zu machen ( [sofern die Bot-Privatsphäre aktiviert ist](#How-to-receive-messages-in-group-chats-using-telegram-adapter) ), muss ein Platzhalter vor der Nachricht eingefügt werden. Anschließend wird die Chat-ID im iobroker-Protokoll angezeigt.
 
 ## Verwendung
 
 Sie können Telegram mit [dem Text2Command-](https://github.com/ioBroker/ioBroker.text2command) Adapter verwenden. Es gibt ein vordefiniertes Kommunikationsschema, und Sie können Befehle in Textform an Ihr Zuhause senden.
 
-Um ein Foto zu senden, senden Sie einfach den Dateipfad anstelle von Text oder einer URL:`sendTo('telegram', 'absolute/path/file.png')` oder`sendTo('telegram', 'https://telegram.org/img/t_logo.png')` Die
+Um ein Foto zu senden, senden Sie einfach den Dateipfad anstelle von Text oder einer URL: `sendTo('telegram', 'absolute/path/file.png')` oder `sendTo('telegram', 'https://telegram.org/img/t_logo.png')` Die
 
 Beispiel, wie man einen Screenshot von der Webcam an Telegram sendet:
 
@@ -198,13 +198,13 @@ sendTo('telegram.0', 'send', {
 
 ### Senden von Dateien aus dem ioBroker-Dateispeicher oder aus Zuständen (iob://-URIs)
 
-Neben einem lokalen Dateipfad oder einer Web-URL,`text` Es kann sich um eine **ioBroker-URI** handeln. Der Adapter löst die URI auf, liest den Inhalt und sendet ihn mit dem automatisch erkannten Medientyp (Foto, Video, Audio, Dokument usw.). Dies ist besonders nützlich, wenn die Datei im ioBroker-Dateispeicher hinter Redis/jsonl abgelegt ist und somit **nicht** im lokalen Dateisystem existiert, da ein einfacher Pfad in diesem Fall nicht funktionieren würde.
+Neben einem lokalen Dateipfad oder einer Web-URL, `text` Es kann sich um eine **ioBroker-URI** handeln. Der Adapter löst die URI auf, liest den Inhalt und sendet ihn mit dem automatisch erkannten Medientyp (Foto, Video, Audio, Dokument usw.). Dies ist besonders nützlich, wenn die Datei im ioBroker-Dateispeicher hinter Redis/jsonl abgelegt ist und somit **nicht** im lokalen Dateisystem existiert, da ein einfacher Pfad in diesem Fall nicht funktionieren würde.
 
 Folgende Programme werden unterstützt:
 
 - `iobfile://<adapter.instance>/<path>`— eine Datei aus dem ioBroker-Dateispeicher.
 - `iobstate://<state.id>` — der Wert eines Zustands (siehe unten, wie der Wert interpretiert wird).
-- `iobobject://<object.id>/<path>` — ein Wert, der in einem ioBroker-Objekt verschachtelt ist (dem`path` navigiert in das Objekt durch`/` ).
+- `iobobject://<object.id>/<path>` — ein Wert, der in einem ioBroker-Objekt verschachtelt ist (dem `path` navigiert in das Objekt durch `/`).
 
 ```javascript
 // send a snapshot that another adapter has written into the file storage
@@ -225,12 +225,12 @@ sendTo('telegram.0', 'send', {
 });
 ```
 
-Der Medientyp wird aus der Dateierweiterung abgeleitet (`.jpg` /`.png` → Foto,`.mp4` → Video,`.mp3` /`.ogg` /`.wav` → Audio,`.gif` → Animation,`.webp` → Aufkleber,`.pdf` /`.csv` /`.docx` /... → Dokument). Ist die Dateiendung unbekannt, wird der Typ aus dem gespeicherten MIME-Typ übernommen; andernfalls wird der Inhalt als Dokument gesendet. Sie können dies weiterhin explizit mit dem`type` Option.
+Der Medientyp wird aus der Dateierweiterung abgeleitet (`.jpg` /`.png` → Foto, `.mp4` → Video, `.mp3` /`.ogg` /`.wav` → Audio, `.gif` → Animation, `.webp` → Aufkleber, `.pdf` /`.csv` /`.docx` /... → Dokument). Ist die Dateiendung unbekannt, wird der Typ aus dem gespeicherten MIME-Typ übernommen; andernfalls wird der Inhalt als Dokument gesendet. Sie können dies weiterhin explizit mit dem `type` Option.
 
-**Wie ein Zustands-/Objektwert interpretiert wird** (`iobstate://` Und`iobobject://` ):
+**Wie ein Zustands-/Objektwert interpretiert wird** (`iobstate://` Und `iobobject://`):
 
-- eine **Daten-URL** (`data:image/png;base64,...` ) wird dekodiert und als der entsprechende Medientyp gesendet;
-- ein Wert, der selbst ein`iob*://` URI oder ein`http(s)://` Die URL wird weiter aufgelöst (bis zu 5 Verschachtelungsebenen);
+- eine **Daten-URL** (`data:image/png;base64,...`) wird dekodiert und als der entsprechende Medientyp gesendet;
+- ein Wert, der selbst ein `iob*://` URI oder ein `http(s)://` Die URL wird weiter aufgelöst (bis zu 5 Verschachtelungsebenen);
 - Jede andere Zeichenkette wird als Dateipfad / URL behandelt;
 - Zahlen, boolesche Werte und Objekte werden als Text gesendet (Objekte werden in JSON-Strings umgewandelt).
 
@@ -293,7 +293,7 @@ Mehr dazu können Sie [hier](https://core.telegram.org/bots/api#answercallbackqu
 
 ### Frage
 
-Sie können die Nachricht per Telegram senden, und die nächste Antwort wird über eine Callback-Funktion zurückgegeben. Das Antwort-Timeout kann in der Instanzkonfiguration festgelegt werden (Standardwert: 60 Sekunden). Wenn der Benutzer nicht rechtzeitig antwortet, wird die Callback-Funktion mit der **Zeichenkette** aufgerufen.`'__timeout__'` (Also`msg.data` Ist`undefined` ).
+Sie können die Nachricht per Telegram senden, und die nächste Antwort wird über eine Callback-Funktion zurückgegeben. Das Antwort-Timeout kann in der Instanzkonfiguration festgelegt werden (Standardwert: 60 Sekunden). Wenn der Benutzer nicht rechtzeitig antwortet, wird die Callback-Funktion mit der **Zeichenkette** aufgerufen. `'__timeout__'` (Also `msg.data` Ist `undefined`).
 
 ```javascript
 sendTo('telegram.0', 'ask', {
@@ -317,7 +317,7 @@ sendTo('telegram.0', 'ask', {
 });
 ```
 
-**Wichtig – der Anrufer hat seine eigene`sendTo` Timeout:** der Adapter, der das sendet`ask` (z. B. der JavaScript-Adapter) wendet sein **eigenes** Timeout auf die`sendTo` Der Callback ist im JavaScript-Adapter standardmäßig auf etwa **20 Sekunden** eingestellt. Ist das konfigurierte Antwort-Timeout länger, wird der Callback vom _Aufrufer_ vorzeitig mit einem Timeout-Ergebnis ausgelöst – was so aussieht, als hätte der Benutzer mit „Nein“ geantwortet. Erhöhen Sie das Timeout des Aufrufers, sodass es **größer** als das Antwort-Timeout ist, z. B. im JavaScript-Adapter, indem Sie es als letztes Argument übergeben.
+**Wichtig – der Anrufer hat seine eigene `sendTo` Timeout:** der Adapter, der das sendet `ask` (z. B. der JavaScript-Adapter) wendet sein **eigenes** Timeout auf die `sendTo` Der Callback ist im JavaScript-Adapter standardmäßig auf etwa **20 Sekunden** eingestellt. Ist das konfigurierte Antwort-Timeout länger, wird der Callback vom _Aufrufer_ vorzeitig mit einem Timeout-Ergebnis ausgelöst – was so aussieht, als hätte der Benutzer mit „Nein“ geantwortet. Erhöhen Sie das Timeout des Aufrufers, sodass es **größer** als das Antwort-Timeout ist, z. B. im JavaScript-Adapter, indem Sie es als letztes Argument übergeben.
 
 ```javascript
 sendTo('telegram.0', 'ask', {
@@ -353,7 +353,7 @@ sendTo('telegram.0', 'send', {
 
 ## Empfang eines Standorts
 
-Wenn ein Nutzer seinen Standort mit dem Bot teilt (Büroklammer → Standort) oder einen Veranstaltungsort sendet, werden die Koordinaten im Zustand gespeichert.`telegram.INSTANCE.communicate.requestLocation` als`latitude;longitude` Zeichenkette (Rolle`value.gps` Die Metadaten geben an (`requestChatId` ,`requestMessageId` ,`requestUserId` ) werden ebenfalls aktualisiert, sodass Sie wissen, wer es gesendet hat.
+Wenn ein Nutzer seinen Standort mit dem Bot teilt (Büroklammer → Standort) oder einen Veranstaltungsort sendet, werden die Koordinaten im Zustand gespeichert. `telegram.INSTANCE.communicate.requestLocation` als `latitude;longitude` Zeichenkette (Rolle `value.gps` Die Metadaten geben an (`requestChatId`, `requestMessageId`, `requestUserId`) werden ebenfalls aktualisiert, sodass Sie wissen, wer es gesendet hat.
 
 ```javascript
 on({ id: 'telegram.0.communicate.requestLocation', change: 'any' }, obj => {
@@ -364,11 +364,11 @@ on({ id: 'telegram.0.communicate.requestLocation', change: 'any' }, obj => {
 });
 ```
 
-Live-Standorte (Büroklammer → Standort → „Meinen Live-Standort teilen“) werden ebenfalls unterstützt: Telegram übermittelt jede Positionsaktualisierung und`requestLocation` wird jedes Mal aktualisiert. Drei weitere Statusangaben beschreiben den zuletzt empfangenen Standort:
+Live-Standorte (Büroklammer → Standort → „Meinen Live-Standort teilen“) werden ebenfalls unterstützt: Telegram übermittelt jede Positionsaktualisierung und `requestLocation` wird jedes Mal aktualisiert. Drei weitere Statusangaben beschreiben den zuletzt empfangenen Standort:
 
-- `communicate.requestLocationLive` -`true` Der Standort ist also ein Live-Standort, der noch geteilt wird. Telegram sendet ein letztes Update ohne das Live-Flag, sobald die Freigabe beendet wird oder abläuft, sodass der Status auf „Live“ zurückgesetzt wird.`false` Zu diesem Zeitpunkt. Für einen normalen (statischen) Standort oder einen Veranstaltungsort gilt Folgendes:`false` Die
-- `communicate.requestLocationHeading` - Bewegungsrichtung in Grad (1-360). Nur für aktive Live-Standorte verfügbar und nur, wenn das Gerät diese meldet, andernfalls`null` Die
-- `communicate.requestLocationAccuracy` - Unsicherheitsradius der Position in Metern (0-1500), falls angegeben, andernfalls`null` Die
+- `communicate.requestLocationLive` -`true` Der Standort ist also ein Live-Standort, der noch geteilt wird. Telegram sendet ein letztes Update ohne das Live-Flag, sobald die Freigabe beendet wird oder abläuft, sodass der Status auf „Live“ zurückgesetzt wird. `false` Zu diesem Zeitpunkt. Für einen normalen (statischen) Standort oder einen Veranstaltungsort gilt Folgendes: `false` Die
+- `communicate.requestLocationHeading` - Bewegungsrichtung in Grad (1-360). Nur für aktive Live-Standorte verfügbar und nur, wenn das Gerät diese meldet, andernfalls `null` Die
+- `communicate.requestLocationAccuracy` - Unsicherheitsradius der Position in Metern (0-1500), falls angegeben, andernfalls `null` Die
 
 ```javascript
 on({ id: 'telegram.0.communicate.requestLocationLive', change: 'ne' }, obj => {
@@ -380,11 +380,11 @@ on({ id: 'telegram.0.communicate.requestLocationLive', change: 'ne' }, obj => {
 
 ## Beiträge im Empfangskanal
 
-Wenn der Bot Administrator eines Kanals ist, werden auch die in diesem Kanal veröffentlichten Beiträge empfangen und in die Adresszeile geschrieben.`telegram.INSTANCE.communicate.request` in der Form`[channel title]text` (zusammen mit`communicate.requestChatId` Und`communicate.requestMessageId` Kanalbeiträge sind anonym (sie haben keinen Absender), daher gelten die Authentifizierungs- und Befehlsverarbeitungsmechanismen nicht für sie – sie werden lediglich als Anfrage übermittelt. Angehängte Medien werden wie bei normalen Nachrichten gespeichert, und der Kanal wird hinzugefügt.`communicate.chats` Die
+Wenn der Bot Administrator eines Kanals ist, werden auch die in diesem Kanal veröffentlichten Beiträge empfangen und in die Adresszeile geschrieben. `telegram.INSTANCE.communicate.request` in der Form `[channel title]text` (zusammen mit `communicate.requestChatId` Und `communicate.requestMessageId` Kanalbeiträge sind anonym (sie haben keinen Absender), daher gelten die Authentifizierungs- und Befehlsverarbeitungsmechanismen nicht für sie – sie werden lediglich als Anfrage übermittelt. Angehängte Medien werden wie bei normalen Nachrichten gespeichert, und der Kanal wird hinzugefügt. `communicate.chats` Die
 
 ## Bekannte Chats und Gruppen
 
-Jeder Chat oder jede Gruppe, von der der Bot eine Nachricht erhält, wird im Zustand gespeichert.`telegram.INSTANCE.communicate.chats` als JSON-Objekt`id => { title, type }` (Wo`type` ist eines von`private` ,`group` ,`supergroup` oder`channel` Dies ist praktisch, um die Chat-ID einer Gruppe zu ermitteln (z. B. damit ein anderer Adapter eine Gruppe zum Senden auswählen kann). Fügen Sie den Bot der Gruppe hinzu und senden Sie eine Nachricht, damit die Gruppe angezeigt wird.
+Jeder Chat oder jede Gruppe, von der der Bot eine Nachricht erhält, wird im Zustand gespeichert. `telegram.INSTANCE.communicate.chats` als JSON-Objekt `id => { title, type }` (Wo `type` ist eines von `private`, `group`, `supergroup` oder `channel` Dies ist praktisch, um die Chat-ID einer Gruppe zu ermitteln (z. B. damit ein anderer Adapter eine Gruppe zum Senden auswählen kann). Fügen Sie den Bot der Gruppe hinzu und senden Sie eine Nachricht, damit die Gruppe angezeigt wird.
 
 ```json
 {
@@ -393,7 +393,7 @@ Jeder Chat oder jede Gruppe, von der der Bot eine Nachricht erhält, wird im Zus
 }
 ```
 
-Die Liste wird gespeichert und bleibt daher auch nach einem Neustart des Adapters erhalten. Verwenden Sie die Chat-ID als`chatId` beim Senden:
+Die Liste wird gespeichert und bleibt daher auch nach einem Neustart des Adapters erhalten. Verwenden Sie die Chat-ID als `chatId` beim Senden:
 
 ```javascript
 sendTo('telegram.0', 'send', { text: 'Hello group', chatId: '-1001234567890' });
@@ -487,7 +487,7 @@ if (command === '1_2') {
 }
 ```
 
-Folgende Medientypen werden unterstützt:`photo` ,`animation` ,`audio` ,`document` ,`video` Die
+Folgende Medientypen werden unterstützt: `photo`, `animation`, `audio`, `document`, `video` Die
 
 Mehr dazu können Sie [hier](https://core.telegram.org/bots/api#editmessagemedia) lesen.
 
@@ -542,7 +542,7 @@ Mehr dazu können Sie [hier](https://core.telegram.org/bots/api#deletemessage) l
 
 ## Auf Nutzerantworten/Nachrichten reagieren
 
-Angenommen, Sie verwenden ausschließlich JavaScript ohne`text2command` Sie haben Ihrem Benutzer bereits eine Nachricht/Frage gesendet.`sendTo()` Wie oben beschrieben, antwortet der Benutzer darauf durch Drücken einer Schaltfläche oder durch Verfassen einer Nachricht. Sie können den Befehl extrahieren und dem Benutzer Feedback geben, Befehle ausführen oder Zustände in iobroker ändern.
+Angenommen, Sie verwenden ausschließlich JavaScript ohne `text2command` Sie haben Ihrem Benutzer bereits eine Nachricht/Frage gesendet. `sendTo()` Wie oben beschrieben, antwortet der Benutzer darauf durch Drücken einer Schaltfläche oder durch Verfassen einer Nachricht. Sie können den Befehl extrahieren und dem Benutzer Feedback geben, Befehle ausführen oder Zustände in iobroker ändern.
 
 - telegram.0 ist Ihre iobroker Telegram-Instanz, die Sie verwenden möchten.
 - Der Benutzer ist derjenige, der bei Ihrem TelegramBot registriert ist und die Nachricht gesendet hat.
@@ -589,13 +589,13 @@ Sie können den Wert des Status festlegen, wenn Sie die ID kennen:
 
 ## Proxy
 
-Kann der ioBroker-Host die Telegram-Server nicht direkt erreichen, aktivieren Sie in den Haupteinstellungen **die Option „Proxy verwenden“** und geben Sie den Proxy-Typ (HTTP(S) oder SOCKS5), Host, Port und – falls der Proxy eine Authentifizierung erfordert – Benutzername und Passwort an. Alle Anfragen an Telegram (API-Aufrufe und Mediendownloads) werden über den Proxy geleitet. Ein HTTPS-Proxy kann durch Angabe des Hosts mit seinem Schema adressiert werden, z. B. 192.168.1 ...`https://proxy.example.com` Beachten Sie, dass die SOCKS5-Unterstützung des zugrunde liegenden HTTP-Clients (undici) noch als experimentell gekennzeichnet ist; Node.js gibt beim Start eine entsprechende Warnung aus.
+Kann der ioBroker-Host die Telegram-Server nicht direkt erreichen, aktivieren Sie in den Haupteinstellungen **die Option „Proxy verwenden“** und geben Sie den Proxy-Typ (HTTP(S) oder SOCKS5), Host, Port und – falls der Proxy eine Authentifizierung erfordert – Benutzername und Passwort an. Alle Anfragen an Telegram (API-Aufrufe und Mediendownloads) werden über den Proxy geleitet. Ein HTTPS-Proxy kann durch Angabe des Hosts mit seinem Schema adressiert werden, z. B. 192.168.1 ... `https://proxy.example.com` Beachten Sie, dass die SOCKS5-Unterstützung des zugrunde liegenden HTTP-Clients (undici) noch als experimentell gekennzeichnet ist; Node.js gibt beim Start eine entsprechende Warnung aus.
 
 ## Abfrage- oder Servermodus
 
 Im Polling-Modus hält der Adapter eine Long-Polling-Anfrage an den Telegram-Server offen (bis zu 30 Sekunden pro Anfrage, danach wird sie erneuert). Aktualisierungen werden sofort zugestellt, und es entsteht praktisch kein Datenverkehr, solange nichts passiert. Daher muss kein Polling-Intervall konfiguriert werden. Polling funktioniert auch hinter NAT/Firewalls ohne Portweiterleitung.
 
-Um den Servermodus zu verwenden, muss Ihre ioBroker-Instanz aus dem Internet erreichbar sein (z. B. über HTTPS).`noip.com` dynamischer DNS-Dienst).
+Um den Servermodus zu verwenden, muss Ihre ioBroker-Instanz aus dem Internet erreichbar sein (z. B. über HTTPS). `noip.com` dynamischer DNS-Dienst).
 
 Telegram funktioniert nur mit HTTPS-Servern, aber Sie können **Let's Encrypt-** Zertifikate verwenden.
 
@@ -613,7 +613,7 @@ Für den Servermodus müssen folgende Einstellungen vorgenommen werden:
 
 Die Benutzerauthentifizierung könnte deaktiviert werden. Daher kann sich niemand mehr authentifizieren.
 
-Um eine Liste vertrauenswürdiger Benutzer zu erstellen, deaktivieren Sie zunächst die Option „Neue Benutzer nicht authentifizieren“ und authentifizieren Sie anschließend alle Benutzer, die in der Liste der vertrauenswürdigen Benutzer enthalten sein sollen, indem Sie die E-Mail senden.`/password <PASSWORD>` Nachricht.
+Um eine Liste vertrauenswürdiger Benutzer zu erstellen, deaktivieren Sie zunächst die Option „Neue Benutzer nicht authentifizieren“ und authentifizieren Sie anschließend alle Benutzer, die in der Liste der vertrauenswürdigen Benutzer enthalten sein sollen, indem Sie die E-Mail senden. `/password <PASSWORD>` Nachricht.
 
 Die Benutzer, die ein gültiges Passwort gesendet haben, werden in der Liste der vertrauenswürdigen Benutzer gespeichert.
 
@@ -765,7 +765,7 @@ Für jeden Bundesstaat konnten die zusätzlichen Einstellungen aktiviert werden:
 
 ![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings.png)
 
-Durch Eingabe`/cmds` Folgende Tastatur wird in Telegram angezeigt:
+Durch Eingabe `/cmds` Folgende Tastatur wird in Telegram angezeigt:
 
 ![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings1.png)
 
@@ -781,15 +781,15 @@ Als erstes muss die Konfiguration aktiviert werden.
 
 Name des Geräts. Ist das Feld leer, wird der Name eines Objekts übernommen. Bei Eingabe von „Türlampe“ wird das folgende Menü für den booleschen Status angezeigt.![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings2.png)
 
-Sie können das Gerät ein- oder ausschalten oder den Status abfragen. Wenn Sie klicken`Door lamp ?` Sie werden erhalten`Door lamp  => switched off` Die
+Sie können das Gerät ein- oder ausschalten oder den Status abfragen. Wenn Sie klicken `Door lamp ?` Sie werden erhalten `Door lamp  => switched off` Die
 
 ### Nur lesbar
 
-Wenn diese Option aktiviert ist, werden die Ein-/Ausschalter nicht angezeigt, sondern nur ein`Door lamp ?` Die
+Wenn diese Option aktiviert ist, werden die Ein-/Ausschalter nicht angezeigt, sondern nur ein `Door lamp ?` Die
 
 ### Änderungen melden
 
-Wenn sich der Status des Geräts ändert (z. B. wenn jemand die Lampe manuell eingeschaltet hat), wird der neue Status an Telegram übermittelt.`Door lamp  => switched on` Die
+Wenn sich der Status des Geräts ändert (z. B. wenn jemand die Lampe manuell eingeschaltet hat), wird der neue Status an Telegram übermittelt. `Door lamp  => switched on` Die
 
 ### Knöpfe in einer Reihe
 
@@ -803,13 +803,13 @@ Falls aktiviert, wird die Statusabfrage (`Door lamp ?` Die Schaltfläche ) wird 
 
 ### EIN Befehl
 
-Welcher Text wird angezeigt auf`ON` Schaltfläche. Wie hier:![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings5.png)
+Welcher Text wird angezeigt auf `ON` Schaltfläche. Wie hier:![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings5.png)
 
 Erzeugt die folgende Tastatur:![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings6.png)
 
 ### Text einschalten
 
-Der Text, der im staatlichen Bericht angezeigt wird. Z.B.`Door lamp => activated` Wenn sich der Status des Geräts auf „wahr“ ändert und der **Text „EIN“** angezeigt wird`activated`
+Der Text, der im staatlichen Bericht angezeigt wird. Z.B. `Door lamp => activated` Wenn sich der Status des Geräts auf „wahr“ ändert und der **Text „EIN“** angezeigt wird `activated`
 
 Die EIN/AUS-Texte werden nur angezeigt, wenn **die Option „Änderungen melden“** aktiviert ist.
 
@@ -819,7 +819,7 @@ Gleiches gilt für **den Befehl EIN** , jedoch für AUS.
 
 ### Text ausschalten
 
-Dasselbe wie bei **EIN-Text** , aber für AUS. Z. B.`Door lamp => deactivated` Wenn sich der Gerätestatus auf „false“ ändert und der **Text „AUS“** angezeigt wird`deactivated`
+Dasselbe wie bei **EIN-Text** , aber für AUS. Z. B. `Door lamp => deactivated` Wenn sich der Gerätestatus auf „false“ ändert und der **Text „AUS“** angezeigt wird `deactivated`
 
 ### Nur wahr
 
@@ -829,7 +829,7 @@ Beispielsweise haben Schaltflächen keinen AUS-Zustand. In diesem Fall wird die 
 
 ## Wie man mit dem Telegram-Adapter Nachrichten in Gruppenchats empfängt
 
-Wenn der Telegram-Bot Nachrichten von Nutzern in privaten Chats empfängt, aber keine Nachrichten aus Gruppenchats, müssen Sie sich an den Support wenden.`@botfather` und den Datenschutzmodus deaktivieren.
+Wenn der Telegram-Bot Nachrichten von Nutzern in privaten Chats empfängt, aber keine Nachrichten aus Gruppenchats, müssen Sie sich an den Support wenden. `@botfather` und den Datenschutzmodus deaktivieren.
 
 BotFather-Chat:
 
@@ -853,7 +853,7 @@ BotFather: Success! The new status is: DISABLED. /help
 
 ## Wie man Nachrichten über Node-RED versendet
 
-Für einfache Textnachrichten an alle Benutzer fügen Sie einfach den Text in die Nutzdaten der Nachricht ein und senden Sie diese an den ioBroker-Zustand.`telegram.INSTANCE.communicate.response` Die
+Für einfache Textnachrichten an alle Benutzer fügen Sie einfach den Text in die Nutzdaten der Nachricht ein und senden Sie diese an den ioBroker-Zustand. `telegram.INSTANCE.communicate.response` Die
 
 Wenn Sie zusätzliche Optionen festlegen möchten, füllen Sie die Nutzdaten mit einem JSON-Objekt, zum Beispiel:
 
@@ -868,7 +868,7 @@ msg.payload = {
 }
 ```
 
-Bevor Sie es senden an`telegram.INSTANCE.communicate.responseJson you need to stringify the object!`
+Bevor Sie es senden an `telegram.INSTANCE.communicate.responseJson you need to stringify the object!`
 
 ## Changelog
 <!--

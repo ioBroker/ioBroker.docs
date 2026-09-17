@@ -172,15 +172,15 @@ Der Statusbaum zeigt pm25, tvoc, hcho, filter1Life und filter2Life als schreibge
 Der Statusbaum stellt currentHumidity, currentTemperature und tank als schreibgeschützte Sensorwerte zur Verfügung.
 
 ## Fehlerbehebung
-- **`LAN-Erkennung hat 0 Geräte gefunden`** — Ihr ioBroker-Host befindet sich nicht im Netzwerk
+- ** `LAN-Erkennung hat 0 Geräte gefunden` ** — Ihr ioBroker-Host befindet sich nicht im Netzwerk
 
 Die Broadcast-Domäne muss mit der des Geräts übereinstimmen, oder UDP 6445 ist durch eine Firewall geschützt.
 
-- **`Token/Schlüssel konnte nicht abgerufen werden für …`** — Das Gerät ist offline in der Cloud
+- ** `Token/Schlüssel konnte nicht abgerufen werden für …` ** — Das Gerät ist offline in der Cloud
 
 Das Konto oder die Anmeldeinformationen in der Adapterkonfiguration sind falsch.
 
-- **`LanClient: timeout`** — Der AC ist über UDP erreichbar, aber TCP/6444 wird nicht unterstützt.
+- ** `LanClient: timeout` ** — Der AC ist über UDP erreichbar, aber TCP/6444 wird nicht unterstützt.
 
 Die Verbindung ist blockiert, oder ein anderer LAN-Client (z. B. die Smartphone-App) ist bereits verbunden.
 Es ist jeweils nur eine TCP-Steuerungssitzung zulässig.

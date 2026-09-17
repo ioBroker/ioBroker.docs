@@ -49,16 +49,16 @@ Um Daten von mehreren Stationen gleichzeitig und konfliktfrei zu lesen, können 
 1. **Erstellen Sie separate Cloud-Konten:** Registrieren Sie für **jede** Ihrer Wetterstationen ein eigenes, kostenloses Konto in der WeatherSense-Mobil-App (z. B. _E-Mail A_ für Station 1 und _E-Mail B_ für Station 2).
 2. **Eine Station pro Konto verknüpfen:** Verknüpfen Sie Ihre erste Station ausschließlich mit Konto A und Ihre zweite Station ausschließlich mit Konto B.
 3. **Mehrere Instanzen in ioBroker hinzufügen:**
-   - Gehe zu`Instances` Öffnen Sie den Tab in ioBroker und fügen Sie eine zweite Instanz des WeatherSense-Adapters hinzu (dadurch wird erstellt`weathersense.0` Und`weathersense.1` ).
+   - Gehe zu `Instances` Öffnen Sie den Tab in ioBroker und fügen Sie eine zweite Instanz des WeatherSense-Adapters hinzu (dadurch wird erstellt `weathersense.0` Und `weathersense.1`).
 4. **Konfigurieren Sie die Instanzen:**
-   - Öffnen Sie die Konfiguration fü&#x72;**`weathersense.0`** und geben Sie die Anmeldeinformationen für **Konto A** ein. Legen Sie fest, dass`Sensor ID` Zu`1` Die
-   - Öffnen Sie die Konfiguration fü&#x72;**`weathersense.1`** und geben Sie die Anmeldeinformationen für **Konto B** ein. Legen Sie fest, dass`Sensor ID` Zu`2` Die
+   - Öffnen Sie die Konfiguration fü&#x72;** `weathersense.0` ** und geben Sie die Anmeldeinformationen für **Konto A** ein. Legen Sie fest, dass `Sensor ID` Zu `1` Die
+   - Öffnen Sie die Konfiguration fü&#x72;** `weathersense.1` ** und geben Sie die Anmeldeinformationen für **Konto B** ein. Legen Sie fest, dass `Sensor ID` Zu `2` Die
 
 ### Vorteile dieser Konfiguration:
 
 - **Keine Datenkonflikte:** ioBroker startet zwei völlig getrennte Prozesse.
-- **Getrennte Objekte:** Ihre Datenpunkte sind übersichtlich getrennt in`weathersense.0.*` Und`weathersense.1.*` Die
-- **Sauberes MQTT-Routing:** Wenn Sie die integrierte MQTT-Funktion verwenden, werden Ihre Themen anhand der Sensor-ID (z. B. Sensor-ID) sauber getrennt.`weathersense/1/...` Und`weathersense/2/...` ), um zu verhindern, dass Daten auf Ihrem Broker überschrieben werden.
+- **Getrennte Objekte:** Ihre Datenpunkte sind übersichtlich getrennt in `weathersense.0.*` Und `weathersense.1.*` Die
+- **Sauberes MQTT-Routing:** Wenn Sie die integrierte MQTT-Funktion verwenden, werden Ihre Themen anhand der Sensor-ID (z. B. Sensor-ID) sauber getrennt. `weathersense/1/...` Und `weathersense/2/...`), um zu verhindern, dass Daten auf Ihrem Broker überschrieben werden.
 
 ## Changelog
 ### 5.2.3 (2026-07-26)

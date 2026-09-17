@@ -58,7 +58,7 @@ Die meisten dieser Werte können in den Instanzeinstellungen vordefiniert werden
 
 ### MS-SQL:
 
-Verwenden`localhost\instance` Prüfen Sie auf dem Host, ob TCP/IP-Verbindungen aktiviert sind. <https://msdn.microsoft.com/en-us/library/bb909712(v=vs.90).aspx>
+Verwenden `localhost\instance` Prüfen Sie auf dem Host, ob TCP/IP-Verbindungen aktiviert sind. <https://msdn.microsoft.com/en-us/library/bb909712(v=vs.90).aspx>
 
 ### SQLite:
 
@@ -99,13 +99,13 @@ Bearbeiten Sie gegebenenfalls _die Datei /etc/mysql/my.cnf_ , um die Bindung an 
 
 Unter Windows kann es einfach über den Installer installiert werden: <https://dev.mysql.com/downloads/installer/> .
 
-Beachten Sie die Authentifizierungsmethode. Der neue Verschlüsselungsalgorithmus in MySQL 8.0 wird noch nicht unterstützt.`node.js` und Sie müssen die Legacy-Authentifizierungsmethode auswählen.
+Beachten Sie die Authentifizierungsmethode. Der neue Verschlüsselungsalgorithmus in MySQL 8.0 wird noch nicht unterstützt. `node.js` und Sie müssen die Legacy-Authentifizierungsmethode auswählen.
 
 ![Windows](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
 
 ## Struktur der Datenbanken
 
-Der Standarddatenbankname lautet:`iobroker` Das kann aber in der Konfiguration geändert werden.
+Der Standarddatenbankname lautet: `iobroker` Das kann aber in der Konfiguration geändert werden.
 
 ### Quellen
 
@@ -172,7 +172,7 @@ Struktur:
 
 _Hinweis:_ MS-SQL verwendet BIT, andere SQL-Server verwenden BOOLEAN. SQLite verwendet für ts INTEGER und für alle anderen Datentypen BIGINT.
 
-Der Benutzer kann zusätzliche Angaben zum Typ definieren.`number` die Funktionalität von`counters` Zu diesem Zweck wird die folgende Tabelle erstellt:
+Der Benutzer kann zusätzliche Angaben zum Typ definieren. `number` die Funktionalität von `counters` Zu diesem Zweck wird die folgende Tabelle erstellt:
 
 | DB         | Name in der Abfrage      |
 | ---------- | ------------------------ |
@@ -193,7 +193,7 @@ Diese Tabelle speichert die Werte, wenn der Zähler ausgetauscht wurde und der W
 
 ### Saiten
 
-Werte für Zustände vom Typ`string` Die
+Werte für Zustände vom Typ `string` Die
 
 | DB         | Name in der Abfrage     |
 | ---------- | ----------------------- |
@@ -217,7 +217,7 @@ _Hinweis:_ MS-SQL verwendet BIT, andere SQL-Server verwenden BOOLEAN. SQLite ver
 
 ### Boolesche Werte
 
-Werte für Zustände vom Typ`boolean` Die
+Werte für Zustände vom Typ `boolean` Die
 
 | DB         | Name in der Abfrage   |
 | ---------- | --------------------- |
@@ -283,7 +283,7 @@ sendTo('sql.0', 'getHistory', {
 Mögliche Optionen:
 
 - **Start** - (optional) Zeit in ms - _Date.now()_
-- **Ende** - (optional) Zeit in ms - _Date.now()_ , standardmäßig ist`(now + 5000 seconds)`
+- **Ende** - (optional) Zeit in ms - _Date.now()_ , standardmäßig ist `(now + 5000 seconds)`
 - **Schritt** - (optional) wird in aggregierten Werten (Maximum, Minimum, Durchschnitt, Gesamt, ...) verwendet. Schrittweite in Millisekunden der Intervalle.
 - **Anzahl** – Anzahl der Werte, wenn die Aggregation auf „onchange“ eingestellt ist, oder Anzahl der Intervalle bei anderen Aggregationsmethoden. Die Anzahl wird ignoriert, wenn eine Schrittweite festgelegt ist; andernfalls ist der Standardwert 500.
 - **Von** - falls das Feld " _Von_ " in die Antwort aufgenommen werden soll
@@ -295,15 +295,15 @@ Mögliche Optionen:
 - **ignoreNull** - Gibt an, ob Nullwerte eingeschlossen (false), durch den letzten nicht-nullen Wert ersetzt (true) oder durch 0 (0) ersetzt werden sollen.
 - **removeBorderValues** – Standardmäßig werden zusätzliche Rahmenwerte zurückgegeben, um die Diagrammdarstellung zu optimieren. Setzen Sie diese Option auf „true“, wenn dies nicht gewünscht ist (z. B. bei der Skriptdatenverarbeitung).
 - **returnNewestEntries** – Die zurückgegebenen Daten sind immer aufsteigend nach Zeitstempel sortiert. Bei Verwendung von „none“ für die Aggregation und gleichzeitiger Angabe von „count“ oder „limit“ werden normalerweise die ältesten Einträge zurückgegeben (sofern keine Startdaten angegeben sind). Setzen Sie diese Option auf „true“, um stattdessen die neuesten Einträge zu erhalten.
-- **Aggregation** - Aggregationsmethode (Standard:`average` ):
+- **Aggregation** - Aggregationsmethode (Standard: `average`):
   - _minmax_ – verwendet einen speziellen Algorithmus. Der gesamte Zeitbereich wird in kleine Intervalle unterteilt, und für jedes Intervall werden Maximal-, Minimal-, Start- und Endwerte ermittelt.
   - _max_ - Teile den gesamten Zeitbereich in kleine Intervalle auf und ermittle für jedes Intervall den Maximalwert, der dann für dieses Intervall verwendet wird (Nullwerte werden ignoriert).
   - _min_ - Gleiches gilt wie max, jedoch mit dem Minimalwert.
   - _Durchschnitt_ - Dasselbe wie Maximum, nur dass der Durchschnittswert verwendet wird.
   - _total_ - Gleiches gilt für max, aber es wird der Gesamtwert berechnet.
   - _count_ - Gleiches wie max, aber Anzahl der Werte wird berechnet (Nullwerte werden mitgezählt).
-  - _Perzentil_ - Berechne das n-te Perzentil (n ist gegeben in`options.percentile` (oder standardmäßig 50, falls nicht angegeben).
-  - _Quantil_ - Berechne das n-Quantil (n ist gegeben in`options.quantile` (oder standardmäßig 0,5, falls nicht angegeben).
+  - _Perzentil_ - Berechne das n-te Perzentil (n ist gegeben in `options.percentile` (oder standardmäßig 50, falls nicht angegeben).
+  - _Quantil_ - Berechne das n-Quantil (n ist gegeben in `options.quantile` (oder standardmäßig 0,5, falls nicht angegeben).
   - _Integral_ - Integral berechnen (weitere Parameter siehe unten).
   - _keine_ – Es erfolgt keinerlei Aggregation. Nur Rohwerte in einem bestimmten Zeitraum.
 - **Perzentil** - (optional) Bei Verwendung der Aggregationsmethode definiert "Perzentil" die Perzentilebene (0..100) (Standardwert: 50)
@@ -313,7 +313,7 @@ Mögliche Optionen:
   - _lineare_ - lineare Interpolation
   - _keine_ - keine/schrittweise Interpolation
 
-Bei Aggregationen werden der erste und der letzte Punkt berechnet, außer bei der Aggregation`none` Wenn Sie manuell eine Aggregation anfordern, sollten Sie den ersten und letzten Wert ignorieren, da diese aus Werten außerhalb eines Zeitraums berechnet werden.
+Bei Aggregationen werden der erste und der letzte Punkt berechnet, außer bei der Aggregation `none` Wenn Sie manuell eine Aggregation anfordern, sollten Sie den ersten und letzten Wert ignorieren, da diese aus Werten außerhalb eines Zeitraums berechnet werden.
 
 ## Zähler abrufen
 
@@ -383,7 +383,7 @@ Beispiel, wenn Ihre Datenbank den Namen „iobroker“ trägt:
 
 Die Instanzeinstellungen enthalten den Tab **„Datenbrowser“** : Links werden alle Datenpunkte angezeigt, die Daten in der Datenbank enthalten, rechts die gespeicherten Werte des ausgewählten Datenpunkts. Die Werte können durchgeblättert, bearbeitet, gelöscht und durch neue ergänzt werden. Für diesen Tab ist eine laufende Instanz erforderlich.
 
-Die Komponente ist eine JSON-Konfiguration`custom` Komponente. Ihre Quellen befinden sich in`src-admin` , das integrierte Paket in`admin/custom` ist verpflichtet:
+Die Komponente ist eine JSON-Konfiguration `custom` Komponente. Ihre Quellen befinden sich in `src-admin`, das integrierte Paket in `admin/custom` ist verpflichtet:
 
 ```bash
 npm run npm:admin      # install the dependencies of the component (only once)
@@ -400,7 +400,7 @@ sendTo('sql.0', 'getDatapoints', {}, result => {
 });
 ```
 
-Es gibt jeden Datenpunkt zurück`datapoints` Tabelle – einschließlich derer, deren Protokollierung deaktiviert ist – sortiert nach ID. Im Gegensatz zu`getDpOverview` Es ermittelt nicht den ersten Zeitstempel jedes Datenpunkts und antwortet sofort.
+Es gibt jeden Datenpunkt zurück `datapoints` Tabelle – einschließlich derer, deren Protokollierung deaktiviert ist – sortiert nach ID. Im Gegensatz zu `getDpOverview` Es ermittelt nicht den ersten Zeitstempel jedes Datenpunkts und antwortet sofort.
 
 ## Rohwerte lesen
 
@@ -431,15 +431,15 @@ sendTo(
 );
 ```
 
-Die Antwort enthält außerdem`id` ,`index` (die ID in der`datapoints` Tisch),`type` (`Number` ,`String` oder`Boolean` ),`table` (`ts_number` ,`ts_string` oder`ts_bool` und die verwendeten`limit` ,`offset` Und`sort` Die
+Die Antwort enthält außerdem `id`, `index` (die ID in der `datapoints` Tisch), `type` (`Number`, `String` oder `Boolean`), `table` (`ts_number`, `ts_string` oder `ts_bool` und die verwendeten `limit`, `offset` Und `sort` Die
 
-Die Werte werden **unverändert** aus der Datenbank zurückgegeben:`ack` und boolesche Werte sind`0` /`1` in den meisten Datenbanken, und`val` Ein String-Datenpunkt ist die gespeicherte Zeichenkette.`from` Ist`null` falls keine Quelle gespeichert wurde.
+Die Werte werden **unverändert** aus der Datenbank zurückgegeben: `ack` und boolesche Werte sind `0` /`1` in den meisten Datenbanken, und `val` Ein String-Datenpunkt ist die gespeicherte Zeichenkette. `from` Ist `null` falls keine Quelle gespeichert wurde.
 
-Wie`update` ,`delete` Und`storeState` Dies funktioniert auch für Datenpunkte, deren Protokollierung deaktiviert ist, solange noch Einträge in der Datenbank vorhanden sind. Wenn der Datenpunkt unbekannt ist, enthält die Antwort einen`error` Die
+Wie `update`, `delete` Und `storeState` Dies funktioniert auch für Datenpunkte, deren Protokollierung deaktiviert ist, solange noch Einträge in der Datenbank vorhanden sind. Wenn der Datenpunkt unbekannt ist, enthält die Antwort einen `error` Die
 
 ## storeState
 
-Wenn Sie andere Daten in die SQL-Datenbank schreiben möchten, können Sie die integrierte Systemfunktion \` **storeState\`** verwenden. Diese Funktion kann auch verwendet werden, um Daten aus anderen History-Adaptern wie InfluxDB oder SQL zu konvertieren.
+Wenn Sie andere Daten in die SQL-Datenbank schreiben möchten, können Sie die integrierte Systemfunktion \` **storeState\` ** verwenden. Diese Funktion kann auch verwendet werden, um Daten aus anderen History-Adaptern wie InfluxDB oder SQL zu konvertieren.
 
 Eine erfolgreiche Antwort bedeutet nicht, dass die Daten tatsächlich auf die Festplatte geschrieben wurden. Es bedeutet lediglich, dass sie verarbeitet wurden!
 
@@ -505,7 +505,7 @@ sendTo('sql.0', 'storeState', [
 ], result => console.log('added'));
 ```
 
-Zusätzlich können Sie Attribute hinzufügen.`rules: true` in einer Nachricht zur Aktivierung aller Regeln, wie`counter` ,`changesOnly` ,`de-bounce` und so weiter.
+Zusätzlich können Sie Attribute hinzufügen. `rules: true` in einer Nachricht zur Aktivierung aller Regeln, wie `counter`, `changesOnly`, `de-bounce` und so weiter.
 
 Im Fehlerfall wird ein Array mit allen einzelnen Fehlermeldungen sowie eine Erfolgsanzahl zurückgegeben, um zu sehen, wie viele Einträge erfolgreich gespeichert wurden.
 
@@ -540,9 +540,9 @@ sendTo('sql.0', 'deleteRange', [
 
 Die Zeitangabe kann in Millisekunden seit der Unix-Epoche oder als Zeichenkette vorliegen, die mithilfe eines JavaScript-Date-Objekts konvertiert werden kann.
 
-Werte einschließlich definierter Grenzwerte werden gelöscht.`ts >= start AND ts <= end`
+Werte einschließlich definierter Grenzwerte werden gelöscht. `ts >= start AND ts <= end`
 
-Alle drei Befehle akzeptieren auch einen einzelnen Datenpunkt als Objekt, z. B.`sendTo('sql.0', 'deleteAll', {id: 'mbus.0.counter.xxx'}, result => ...)` In diesem Fall wird die Antwort nach der Ausführung des Löschvorgangs gesendet und lautet entweder`{success: true}` oder`{error: "..."}` Bei einem Array wird die Antwort sofort gesendet und gibt keine Auskunft über die einzelnen Löschvorgänge.
+Alle drei Befehle akzeptieren auch einen einzelnen Datenpunkt als Objekt, z. B. `sendTo('sql.0', 'deleteAll', {id: 'mbus.0.counter.xxx'}, result => ...)` In diesem Fall wird die Antwort nach der Ausführung des Löschvorgangs gesendet und lautet entweder `{success: true}` oder `{error: "..."}` Bei einem Array wird die Antwort sofort gesendet und gibt keine Auskunft über die einzelnen Löschvorgänge.
 
 ## Zustand ändern
 
@@ -557,7 +557,7 @@ sendTo('sql.0', 'update', [
 
 `ts` ist obligatorisch. Mindestens ein weiteres Flag muss in einem Zustandsobjekt enthalten sein.
 
-Sei vorsichtig mit`counters` . Der`counters` Die Datenbank wird nicht zurückgesetzt, Sie müssen dies selbst handhaben.
+Sei vorsichtig mit `counters`. Der `counters` Die Datenbank wird nicht zurückgesetzt, Sie müssen dies selbst handhaben.
 
 ## Verlaufsprotokollierung über Javascript
 

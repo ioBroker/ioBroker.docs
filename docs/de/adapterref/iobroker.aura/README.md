@@ -29,15 +29,15 @@ Nach der Installation muss eine neue **Aura-** Instanz erstellt werden (falls di
 
 ### Schritt 3 – Konfigurieren Sie die Instanz
 
-Aura betreibt einen **eigenen Webserver** (Frontend + integrierter iFrame-Proxy) und verbindet sich mit einem bestehenden`iobroker.web` Diese Instanz dient ausschließlich der Socket.IO-Datenverbindung. Öffnen Sie die **Aura** -Instanzeinstellungen:
+Aura betreibt einen **eigenen Webserver** (Frontend + integrierter iFrame-Proxy) und verbindet sich mit einem bestehenden `iobroker.web` Diese Instanz dient ausschließlich der Socket.IO-Datenverbindung. Öffnen Sie die **Aura** -Instanzeinstellungen:
 
 | Einstellung                         | Standard | Bedeutung                                                                  |
 | ----------------------------------- | -------- | -------------------------------------------------------------------------- |
 | **Hafen**                           | `8095`   | Portierung des HTTP-Servers von Aura (Frontend + iFrame-Proxy)             |
-| **ioBroker-Socket-Port**            | `8082`   | Hafen von`iobroker.web` Instanz, die die Socket.IO-Verbindung bereitstellt |
+| **ioBroker-Socket-Port**            | `8082`   | Hafen von `iobroker.web` Instanz, die die Socket.IO-Verbindung bereitstellt |
 | **Der Webadapter verwendet HTTPS.** | aus      | Aktivieren Sie diese Option, wenn die Webinstanz HTTPS verwendet.          |
 
-> **Voraussetzung:** Ein laufender Computer`iobroker.web` (oder`iobroker.socketio` Die Socket.IO-Instanz muss auf dem konfigurierten Socket-Port funktionieren.`web.0` Mit **socket.io = integrated** wird dies auf Port bereitgestellt`8082` (Standardeinstellung). Aura erkennt die passende Instanz automatisch und leitet die Verbindung intern weiter, daher keine`/aura/` Ein Pfad oder eine Web-Erweiterung ist nicht mehr erforderlich.
+> **Voraussetzung:** Ein laufender Computer `iobroker.web` (oder `iobroker.socketio` Die Socket.IO-Instanz muss auf dem konfigurierten Socket-Port funktionieren. `web.0` Mit **socket.io = integrated** wird dies auf Port bereitgestellt `8082` (Standardeinstellung). Aura erkennt die passende Instanz automatisch und leitet die Verbindung intern weiter, daher keine `/aura/` Ein Pfad oder eine Web-Erweiterung ist nicht mehr erforderlich.
 
 ### Schritt 4 – Dashboard öffnen
 
@@ -61,7 +61,7 @@ Aura kann HTTPS auf zwei Arten bereitstellen.
 
 ### Option A – Integriertes TLS
 
-Aktivieren Sie **HTTPS** in den Aura-Instanzeinstellungen und wählen Sie die Zertifikate aus (geladen von ioBroker).`system.certificates` Auras eigener Server dient dann`https://<iobroker-ip>:8095/` Die
+Aktivieren Sie **HTTPS** in den Aura-Instanzeinstellungen und wählen Sie die Zertifikate aus (geladen von ioBroker). `system.certificates` Auras eigener Server dient dann `https://<iobroker-ip>:8095/` Die
 
 > Das standardmäßige selbstsignierte Zertifikat löst eine Browserwarnung aus. Für eine sichere Installation verwenden Sie gültige Zertifikate (z. B. Let's Encrypt) oder platzieren Sie Aura hinter einem Reverse-Proxy (Option B).
 
@@ -78,7 +78,7 @@ Richten Sie einen Reverse-Proxy (z. B. **nginx** , **Nginx Proxy Manager** , **C
 | Weiterleitungshafen           | `8095`          |
 | WebSockets-Unterstützung      | ermöglicht      |
 
-> **Alternative Topologie:** Wenn Sie stattdessen einen Proxy verwenden`/socket.io/` Und`/echarts/` direkt zum Webadapter-Port, legen Sie **die ioBroker-Socket-URL (Überschreiben)** in den Aura-Einstellungen auf Ihre öffentliche URL fest (z. B.`https://your-domain.com` ) sodass das Frontend socket.io mit dem richtigen Endpunkt verbindet.
+> **Alternative Topologie:** Wenn Sie stattdessen einen Proxy verwenden `/socket.io/` Und `/echarts/` direkt zum Webadapter-Port, legen Sie **die ioBroker-Socket-URL (Überschreiben)** in den Aura-Einstellungen auf Ihre öffentliche URL fest (z. B. `https://your-domain.com`) sodass das Frontend socket.io mit dem richtigen Endpunkt verbindet.
 
 ---
 
@@ -96,15 +96,15 @@ Aura verwendet ein einfaches Schema, sodass man stabile Versionen auf einen Blic
 
 | Version                             | Bedeutung                                                                                                                                                                  |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `0.10.2-next1` ,`0.10.2-next2` , …  | **Testversionen** für die kommende`0.10.2` Veröffentlichung. Vorabversionen, nur zu Testzwecken veröffentlicht.                                                            |
+| `0.10.2-next1`, `0.10.2-next2`, …  | **Testversionen** für die kommende `0.10.2` Veröffentlichung. Vorabversionen, nur zu Testzwecken veröffentlicht.                                                            |
 | `0.10.1` im **neuesten** Repository | Eine veröffentlichte Version im _neuesten_ Repository von ioBroker. Verfügbar für alle, aber noch in der Testphase – noch nicht als _stabile Version (Stable)_ eingestuft. |
 | `0.10.1` im **Stable-** Repository  | Dieselbe Version, nachdem sie sich im praktischen Einsatz als fehlerfrei erwiesen hat. Dies ist die wirklich stabile Version.                                              |
 
-- A **`-nextN`Das Suffix** kennzeichnet eine Vorabversion. Die Zahl gibt die Anzahl der Testversionen an, die zur nächsten regulären Version führen (`next1` ,`next2` , …). Vorabversionen werden in ioBroker **nicht** automatisch angeboten; Sie erhalten sie nur, wenn Sie diese Version explizit installieren.
-- Eine **einfache Zahl** (`0.10.1` ,`0.10.2` , …) wird zuerst im **Latest-** Repository von ioBroker veröffentlicht. Dadurch ist es allgemein verfügbar, aber _Latest_ dient als Testumgebung – ein Schritt vor der endgültigen Stabilität.
+- A ** `-nextN` Das Suffix** kennzeichnet eine Vorabversion. Die Zahl gibt die Anzahl der Testversionen an, die zur nächsten regulären Version führen (`next1`, `next2`, …). Vorabversionen werden in ioBroker **nicht** automatisch angeboten; Sie erhalten sie nur, wenn Sie diese Version explizit installieren.
+- Eine **einfache Zahl** (`0.10.1`, `0.10.2`, …) wird zuerst im **Latest-** Repository von ioBroker veröffentlicht. Dadurch ist es allgemein verfügbar, aber _Latest_ dient als Testumgebung – ein Schritt vor der endgültigen Stabilität.
 - Sobald eine _neueste_ Version lange genug ohne Fehler gelaufen ist, wird **sie** in das **Stable** -Repository aufgenommen. Erst dann gilt sie als vollständig stabil.
 
-Der Ablauf einer jeden Veröffentlichung ist also folgender:`-nextN` Testversion → **Neueste Version** (veröffentlicht, auf Probe) → **Stabile Version** (wird nach Bestätigung der Fehlerfreiheit freigegeben).
+Der Ablauf einer jeden Veröffentlichung ist also folgender: `-nextN` Testversion → **Neueste Version** (veröffentlicht, auf Probe) → **Stabile Version** (wird nach Bestätigung der Fehlerfreiheit freigegeben).
 
 ---
 

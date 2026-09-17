@@ -29,9 +29,9 @@ hash: RrR3153+sHSNaddmuJxncpHSDF1WMPRXJLzlJjOV+nU=
 
 ## ВАЖНО
 
-Внутри`SafeFloor Connect release` В числе прочего, была реализована новая функциональность для устройств SafeFlore Connect. В настоящее время можно добавить до 4 устройств. Чтобы считать данные с этого датчика с помощью текущей версии прошивки SafeFloor Sensor (версия 2.21), пожалуйста, внимательно ознакомьтесь с разделом **«Предупреждение/Отказ от ответственности»** ниже.
+Внутри `SafeFloor Connect release` В числе прочего, была реализована новая функциональность для устройств SafeFlore Connect. В настоящее время можно добавить до 4 устройств. Чтобы считать данные с этого датчика с помощью текущей версии прошивки SafeFloor Sensor (версия 2.21), пожалуйста, внимательно ознакомьтесь с разделом **«Предупреждение/Отказ от ответственности»** ниже.
 
-Для получения важной информации о более старых версиях, пожалуйста, ознакомьтесь с соответствующим разделом.`Importent release related information` в [Вики](https://github.com/smarthausleben/ioBroker.wamo/wiki/Importent-release-related-information) .
+Для получения важной информации о более старых версиях, пожалуйста, ознакомьтесь с соответствующим разделом. `Importent release related information` в [Вики](https://github.com/smarthausleben/ioBroker.wamo/wiki/Importent-release-related-information) .
 
 ### Предупреждение / Отказ от ответственности
 

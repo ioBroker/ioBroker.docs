@@ -54,7 +54,7 @@ Quelle: [wikimatic.de](http://www.wikimatic.de/wiki/Datei:Homematic_Aufbau.png)
 
 ## Funktionsweise des Adapters
 
-Eine Instanz des Adapters ist für genau ein Kommunikationsmodul zuständig (`rfd` ,`hs485d` usw.). Wenn Sie mehrere Module gleichzeitig verwenden möchten, müssen Sie für jedes Modul eine separate Instanz erstellen.
+Eine Instanz des Adapters ist für genau ein Kommunikationsmodul zuständig (`rfd`, `hs485d` usw.). Wenn Sie mehrere Module gleichzeitig verwenden möchten, müssen Sie für jedes Modul eine separate Instanz erstellen.
 
 Der Adapter kommuniziert mit dem Modul entweder über BIN-RPC oder über XML-RPC. Die Kommunikation erfolgt über eine Ereignisschnittstelle, daher sind die korrekten Adressen wichtig. Die CCU sendet die Ereignisse automatisch an den Adapter; ein zyklisches Polling ist nicht erforderlich.
 
@@ -103,7 +103,7 @@ Eine CCU unterstützt verschiedene Gerätetypen (Funk, Kabel, Homematic IP, CUxD
 
 Für die Kommunikation stehen zwei Protokolle zur Verfügung: XML-RPC und BIN-RPC. BIN-RPC ist schneller, wird aber von einigen Geräten nicht oder nur fehlerhaft unterstützt. Wählen Sie in diesem Fall das XML-RPC-Protokoll.
 
-**Hinweis:** CUxD funktioniert nur mit BIN-RPC. Homematic IP und`rfd` Funktioniert nur mit XML-RPC.
+**Hinweis:** CUxD funktioniert nur mit BIN-RPC. Homematic IP und `rfd` Funktioniert nur mit XML-RPC.
 
 #### Objekte (einmalig) synchronisieren
 
@@ -161,7 +161,7 @@ Der Bereich _„Objekte“_ zeigt alle Werte und Informationen an, die die CCU a
 
 Welche Objekte und welche Werte angezeigt werden, hängt von den Geräten (Funktion und Kanälen) und der Struktur innerhalb der CCU ab.
 
-Die zentrale Einheit verwendet die ID`BidCoS-RF` Alle virtuellen Schaltflächen werden unter dieser ID aufgelistet. Geräte werden anhand ihrer Seriennummer erstellt, und Gruppen erhalten den Namen.`INT000000x` Die
+Die zentrale Einheit verwendet die ID `BidCoS-RF` Alle virtuellen Schaltflächen werden unter dieser ID aufgelistet. Geräte werden anhand ihrer Seriennummer erstellt, und Gruppen erhalten den Namen. `INT000000x` Die
 
 ### Kanal 0 (alle Geräte)
 
@@ -193,7 +193,7 @@ Diese Kanäle enthalten Messwerte, Steuerdaten und Statusdaten. Die angezeigten 
 
 Sie können benutzerdefinierte Befehle an den Adapter senden, beispielsweise um den MASTER-Bereich eines Geräts auszulesen und zu steuern. Im MASTER-Bereich können Sie unter anderem die wöchentlichen Heizprogramme konfigurieren.
 
-Senden Sie zu diesem Zweck eine Nachricht an den Adapter. Die Nachricht enthält die Methode als ersten Parameter, gefolgt von einem Objekt. Dieses Objekt muss Folgendes enthalten:`ID` des Zielgeräts. Optional enthält es die`paramType` , wodurch beispielsweise der MASTER-Bereich ausgewählt wird. Senden Sie zusätzliche Parameter in der`params` Objekt.
+Senden Sie zu diesem Zweck eine Nachricht an den Adapter. Die Nachricht enthält die Methode als ersten Parameter, gefolgt von einem Objekt. Dieses Objekt muss Folgendes enthalten: `ID` des Zielgeräts. Optional enthält es die `paramType`, wodurch beispielsweise der MASTER-Bereich ausgewählt wird. Senden Sie zusätzliche Parameter in der `params` Objekt.
 
 **Beispiele:**
 
@@ -221,7 +221,7 @@ sendTo('hm-rpc.0', 'listDevices', {}, res => {
 });
 ```
 
-Legen Sie einen Wert fest, so wie es der Adapter tut.`stateChange` :
+Legen Sie einen Wert fest, so wie es der Adapter tut. `stateChange`:
 
 ```javascript
 sendTo('hm-rpc.1', 'setValue', {ID: '000453D77B9EDF:1', paramType: 'SET_POINT_TEMPERATURE', params: 15}, res => {
@@ -229,7 +229,7 @@ sendTo('hm-rpc.1', 'setValue', {ID: '000453D77B9EDF:1', paramType: 'SET_POINT_TE
 });
 ```
 
-Lesen Sie die`paramsetDescription` eines Kanals eines Geräts:
+Lesen Sie die `paramsetDescription` eines Kanals eines Geräts:
 
 ```javascript
 sendTo('hm-rpc.1', 'getParamsetDescription', {ID: '000453D77B9EDF:1', paramType: 'VALUES'}, res => {

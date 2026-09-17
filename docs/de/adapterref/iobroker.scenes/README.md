@@ -27,7 +27,7 @@ Dieser Adapter kann drei Arten von Szenen erstellen:
 
 ## Szenen
 
-**Szenen** werden erstellt, wenn die Einstellung „set on false“ nicht verwendet wird. Jede Szene kann individuell konfiguriert werden, sodass Sie **Szenen** und **Gruppen** in einer Adapterinstanz haben können. Die **Szene** ist lediglich eine Liste von Zustands-IDs und -Werten, die diese Zustände bei Aktivierung der Szene aufweisen müssen. Beispiel: Wir haben die Szene erstellt.`scene.allLightInBath` :
+**Szenen** werden erstellt, wenn die Einstellung „set on false“ nicht verwendet wird. Jede Szene kann individuell konfiguriert werden, sodass Sie **Szenen** und **Gruppen** in einer Adapterinstanz haben können. Die **Szene** ist lediglich eine Liste von Zustands-IDs und -Werten, die diese Zustände bei Aktivierung der Szene aufweisen müssen. Beispiel: Wir haben die Szene erstellt. `scene.allLightInBath`:
 
 ```
   scene.allLightInBath
@@ -35,7 +35,7 @@ Dieser Adapter kann drei Arten von Szenen erstellen:
   +- hm-rpc.0.TOP_LIGHT.STATE     - true
 ```
 
-Um die Szene zu aktivieren, müssen wir Folgendes einstellen:`scene.allLightInBath` auf „true“ gesetzt (z. B. über ein Skript oder eine Visualisierung). Dann werden beide Zustände auf die gewünschten Werte gesetzt.`true` Der Wert von`scene.allLightInBath` wird sein`true` Auch wenn wir manuell auf das obere Licht umschalten, ändert sich der Wert von`scene.allLightInBath` wird gehen zu`false` Und wieder zu`true` wenn wir das Licht manuell einschalten.
+Um die Szene zu aktivieren, müssen wir Folgendes einstellen: `scene.allLightInBath` auf „true“ gesetzt (z. B. über ein Skript oder eine Visualisierung). Dann werden beide Zustände auf die gewünschten Werte gesetzt. `true` Der Wert von `scene.allLightInBath` wird sein `true` Auch wenn wir manuell auf das obere Licht umschalten, ändert sich der Wert von `scene.allLightInBath` wird gehen zu `false` Und wieder zu `true` wenn wir das Licht manuell einschalten.
 
 Fügen wir der **Szene** noch den Ventilator hinzu:
 
@@ -47,7 +47,7 @@ Fügen wir der **Szene** noch den Ventilator hinzu:
   |- hm-rpc.0.FAN.STATE          - false (delay 60000ms)
 ```
 
-In diesem Fall wird der Ventilator bei Aktivierung der **Szene** eingeschaltet und nach einer Minute wieder ausgeschaltet. Nachdem der Ventilator ausgeschaltet wurde, wird der Wert von`scene.allLightInBath` wird gehen zu`false` Da nicht alle Zustände den gewünschten Werten entsprechen, werden Zustände mit Verzögerung nicht in die Berechnungen einbezogen.
+In diesem Fall wird der Ventilator bei Aktivierung der **Szene** eingeschaltet und nach einer Minute wieder ausgeschaltet. Nachdem der Ventilator ausgeschaltet wurde, wird der Wert von `scene.allLightInBath` wird gehen zu `false` Da nicht alle Zustände den gewünschten Werten entsprechen, werden Zustände mit Verzögerung nicht in die Berechnungen einbezogen.
 
 Sie können die Szene mit einer „Wiedergabe“-Schaltfläche testen. Außerdem können Sie diese **Szene** direkt mit einer anderen Szenen-ID verknüpfen. Wenn Sie beispielsweise einen Sensor an der Tür haben, können Sie diesen als Auslöser auswählen:
 
@@ -84,11 +84,11 @@ Wenn Sie diese **Gruppe** mit dem Türsensor verknüpfen, etwa so:
     value:     false
 ```
 
-Jedes Mal, wenn Sie die Tür öffnen, werden alle Lichter im Badezimmer eingeschaltet. Der Wert des`scene.allLightInBath` wird auf **„wahr“** gesetzt. Wenn Sie die Tür schließen, werden die Lichter ausgeschaltet und der Wert von`scene.allLightInBath` wird auf **„false“** gesetzt.
+Jedes Mal, wenn Sie die Tür öffnen, werden alle Lichter im Badezimmer eingeschaltet. Der Wert des `scene.allLightInBath` wird auf **„wahr“** gesetzt. Wenn Sie die Tür schließen, werden die Lichter ausgeschaltet und der Wert von `scene.allLightInBath` wird auf **„false“** gesetzt.
 
 Es ist nutzlos, aber als Beispiel taugt es gut.
 
-Wenn Sie eine Lampe manuell einschalten, ändert sich der Wert von`scene.allLightInBath` wird **ungewiss** sein.
+Wenn Sie eine Lampe manuell einschalten, ändert sich der Wert von `scene.allLightInBath` wird **ungewiss** sein.
 
 Verzögerungen können auch innerhalb der **Gruppe** verwendet werden, jedoch werden die Zustände mit Verzögerung nicht in die Berechnung des aktuellen **Gruppenwerts** einbezogen.
 
@@ -100,7 +100,7 @@ Darüber hinaus können Sie festlegen, welches Verhalten für die Gruppe gelten 
 
 Sie können die folgenden Aggregationen angeben (nur im erweiterten Modus verfügbar):
 
-- `uncertain` - (Standard) - Der Wert der Gruppe enthält den Text`uncertain` Die
+- `uncertain` - (Standard) - Der Wert der Gruppe enthält den Text `uncertain` Die
 - `any` - erster Wert ungleich Null aller Zustände in einer Gruppe.
 - `min` - Minimalwert aller Zustände in einer Gruppe.
 - `max` - Maximalwert aller Zustände in einer Gruppe.

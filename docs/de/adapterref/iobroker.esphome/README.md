@@ -65,17 +65,17 @@ Die Dashboard-IP-Einstellung in der Adapterkonfiguration dient verschiedenen Zwe
 **Für den integrierten Dashboard-Tab in ioBroker Admin:**
 
 1. Geben Sie die IP-Adresse und den Port ein, unter dem Ihr ESPHome Dashboard läuft.
-2. **Integriertes Dashboard:** Verwenden Sie die IP-Adresse Ihres ioBroker-Hosts (z. B.`192.168.1.10:6052` )
-   - **Wichtig:** NICHT verwenden`127.0.0.1:6052` (noch`localhost:6052` Wenn Sie von anderen Geräten auf ioBroker zugreifen, versucht der iFrame, die Adresse 127.0.0.1 vom Browser des Clients aus zu erreichen, nicht vom ioBroker-Server.
-   - Nur verwenden`127.0.0.1:6052` wenn Sie NUR von demselben Rechner aus auf die ioBroker-Administration zugreifen, auf dem ioBroker ausgeführt wird.
-3. **Externes Dashboard:** Verwenden Sie die IP-Adresse und den Port Ihrer externen ESPHome-Installation (z. B.`192.168.1.100:6052` )
+2. **Integriertes Dashboard:** Verwenden Sie die IP-Adresse Ihres ioBroker-Hosts (z. B. `192.168.1.10:6052`)
+   - **Wichtig:** NICHT verwenden `127.0.0.1:6052` (noch `localhost:6052` Wenn Sie von anderen Geräten auf ioBroker zugreifen, versucht der iFrame, die Adresse 127.0.0.1 vom Browser des Clients aus zu erreichen, nicht vom ioBroker-Server.
+   - Nur verwenden `127.0.0.1:6052` wenn Sie NUR von demselben Rechner aus auf die ioBroker-Administration zugreifen, auf dem ioBroker ausgeführt wird.
+3. **Externes Dashboard:** Verwenden Sie die IP-Adresse und den Port Ihrer externen ESPHome-Installation (z. B. `192.168.1.100:6052`)
 4. **HTTPS-Einrichtung:** Ausführliche Informationen zur HTTPS-Konfiguration in HTTPS-Umgebungen finden Sie im folgenden Abschnitt.
 
 **Dashboard-IP-Beispiele:**
 
-- Integriert (Zugriff über das Netzwerk):`192.168.1.10:6052` (Ersetzen Sie dies durch die IP-Adresse Ihres ioBroker-Hosts)
-- Eingebaut (nur lokal):`127.0.0.1:6052` (nur wenn der Administrator auf demselben Rechner zugreift)
-- Externer Host:`esphome.local:6052` oder`192.168.1.100:6052`
+- Integriert (Zugriff über das Netzwerk): `192.168.1.10:6052` (Ersetzen Sie dies durch die IP-Adresse Ihres ioBroker-Hosts)
+- Eingebaut (nur lokal): `127.0.0.1:6052` (nur wenn der Administrator auf demselben Rechner zugreift)
+- Externer Host: `esphome.local:6052` oder `192.168.1.100:6052`
 - HTTPS-Proxy: `https://192.168.1.50:8082/proxy.0/esphome/`
 
 ![ESPHome Dashboard IP-Konfiguration](../../../en/adapterref/iobroker.esphome/admin/img/ESPhomeDashboardIP.png)
@@ -160,7 +160,7 @@ All our adapter documentation can be found at [The DrozmotiX Docu Page](https://
 
 ## Testen von Vorabversionen
 
-Vorabversionen werden auf npm unter dem Namen veröffentlicht.`next` Die dist-tag-Dateien werden **nicht** vom ioBroker-Repository bereitgestellt – sie müssen explizit installiert werden. Feedback zur Betaversion ist sehr willkommen; bitte melden Sie alle gefundenen Fehler im [Issue-Tracker](https://github.com/DrozmotiX/ioBroker.esphome/issues) .
+Vorabversionen werden auf npm unter dem Namen veröffentlicht. `next` Die dist-tag-Dateien werden **nicht** vom ioBroker-Repository bereitgestellt – sie müssen explizit installiert werden. Feedback zur Betaversion ist sehr willkommen; bitte melden Sie alle gefundenen Fehler im [Issue-Tracker](https://github.com/DrozmotiX/ioBroker.esphome/issues) .
 
 Installieren Sie die aktuelle Vorabversion vom ioBroker-Host:
 
@@ -191,13 +191,13 @@ Dieser Adapter ermöglicht optional die Integration des ESPHome-Dashboards in di
 - Aktivieren Sie in den Adaptereinstellungen die Option „Native Integration des ESPHome-Dashboards“.
 - Nutzt eine integrierte Python-Umgebung (keine externe Einrichtung erforderlich)
 - Das Dashboard läuft standardmäßig auf Port 6052.
-- Dashboard-IP festlegen`127.0.0.1:6052` für die Admin-Integration
+- Dashboard-IP festlegen `127.0.0.1:6052` für die Admin-Integration
 
 **Option 2: Externes Dashboard**
 
 - Verwenden Sie eine bestehende ESPHome-Installation (Docker, Standalone usw.).
 - Geben Sie die IP-Adresse und den Port des externen Dashboards in den Adaptereinstellungen ein.
-- Beispiel:`192.168.1.100:6052` für Docker-Container
+- Beispiel: `192.168.1.100:6052` für Docker-Container
 
 **Option 3: Keine Dashboard-Integration**
 
@@ -220,12 +220,12 @@ Die Nutzung des integrierten Dashboards erfordert derzeit einige zusätzliche Sc
 1. Installieren Sie – falls noch nicht geschehen – den Webadapter und konfigurieren Sie HTTPS. Weitere Informationen finden Sie in der Webdokumentation: [ioBroker.web](https://github.com/ioBroker/ioBroker.web)
 2. [Proxy-](https://github.com/ioBroker/ioBroker.proxy) Adapter installieren
 3. Konfigurieren Sie den Pfad in den Proxy-Adaptereinstellungen:
-   1. Kontext:`esphome/`
-   2. URL:`http://localhost:6052`![proxy.png](../../../en/adapterref/iobroker.esphome/admin/img/proxy.png)
+   1. Kontext: `esphome/`
+   2. URL: `http://localhost:6052`![proxy.png](../../../en/adapterref/iobroker.esphome/admin/img/proxy.png)
 4. Konfigurieren Sie die vollständige Dashboard-URL im erweiterten Abschnitt der ESPHome-Adaptereinstellungen – ESPHome-Dashboard:
-   1. wie:`https://<iobrokerIP>:<webAdapterPort>/proxy.0/esphome/`
-   2. Wo`<iobrokerIP>` ist die IP-Adresse des Hosts, auf dem Ihr iobroker ausgeführt wird (dieselbe wie oben).
-   3. Und`<webAdapterPort>` ist der Port des Webadapters (Standard ist 8082).
+   1. wie: `https://<iobrokerIP>:<webAdapterPort>/proxy.0/esphome/`
+   2. Wo `<iobrokerIP>` ist die IP-Adresse des Hosts, auf dem Ihr iobroker ausgeführt wird (dieselbe wie oben).
+   3. Und `<webAdapterPort>` ist der Port des Webadapters (Standard ist 8082).
    4. Es sollte ungefähr so aussehen:![ESPHomeDashboardUrl.png](../../../en/adapterref/iobroker.esphome/admin/img/ESPHomeDashboardUrl.png)
    5. Wenn Sie das Dashboard auf einem externen Host ausführen, können Sie hier auch die URL zu einer externen Dashboard-Instanz verwenden.
 
@@ -308,7 +308,7 @@ Der Adapter bietet eine komfortable Schnittstelle zur direkten Verwaltung von YA
    - Geben Sie den Dateinamen in das Feld „Datei auswählen“ ein.
    - Klicken Sie auf „Datei herunterladen“, um den Inhalt anzuzeigen, oder auf „Datei löschen“, um ihn zu entfernen.
 
-> \[!NOTE] Dateien werden im ESPHome-Verzeichnis gespeichert:`/opt/iobroker/iobroker-data/esphome.<instance>/`
+> \[!NOTE] Dateien werden im ESPHome-Verzeichnis gespeichert: `/opt/iobroker/iobroker-data/esphome.<instance>/`
 >
 > Dies ist dasselbe Verzeichnis, das auch vom ESPHome Dashboard verwendet wird, sodass über den Adapter hochgeladene Dateien sofort im Dashboard verfügbar sind und umgekehrt.
 
@@ -374,35 +374,35 @@ switch:
 
 ### RGB vs RGBW — Was ist der Unterschied?
 
-**RGB-Leuchten** nutzen drei Kanäle (Rot, Grün, Blau) zur Farberzeugung, einschließlich Weiß, indem alle drei maximal gemischt werden. **RGBW-Leuchten** fügen einen dedizierten vierten Weißkanal hinzu (`white` ) das ein saubereres, helleres Weiß liefert als die Mischung von RGB.
+**RGB-Leuchten** nutzen drei Kanäle (Rot, Grün, Blau) zur Farberzeugung, einschließlich Weiß, indem alle drei maximal gemischt werden. **RGBW-Leuchten** fügen einen dedizierten vierten Weißkanal hinzu (`white`) das ein saubereres, helleres Weiß liefert als die Mischung von RGB.
 
 ### Verfügbare Zustände für eine Lichtwesenheit
 
 | Zustand                | Beschreibung                                                                                                                                                                                                              |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `colorHEX`             | Schreibbarer Hexadezimalfarbstring, z.B.`#ff6600` Durch Schreiben an dieser Stelle werden die Rot-/Grün-/Blauwerte aktualisiert und der Befehl gesendet.                                                                  |
+| `colorHEX`             | Schreibbarer Hexadezimalfarbstring, z.B. `#ff6600` Durch Schreiben an dieser Stelle werden die Rot-/Grün-/Blauwerte aktualisiert und der Befehl gesendet.                                                                  |
 | `red` /`green` /`blue` | Einzelne Farbkanäle (0 – 255).                                                                                                                                                                                            |
 | `white`                | Dedizierter Weißkanal (0 – 255). Nur bei RGBW-fähigen Leuchten vorhanden.                                                                                                                                                 |
 | `brightness`           | Gesamthelligkeit (0 – 255).                                                                                                                                                                                               |
-| `config.rgbAutoWhite`  | **RGBW-Nur** — wenn eingestellt auf`true` , Schreiben`#ffffff` Zu`colorHEX` Aktiviert automatisch den Weißkanal und setzt RGB auf Null. Bei Eingabe einer anderen Farbe wird der Weißkanal deaktiviert und RGB verwendet. |
+| `config.rgbAutoWhite`  | **RGBW-Nur** — wenn eingestellt auf `true`, Schreiben `#ffffff` Zu `colorHEX` Aktiviert automatisch den Weißkanal und setzt RGB auf Null. Bei Eingabe einer anderen Farbe wird der Weißkanal deaktiviert und RGB verwendet. |
 
-### Automatische Weißkanalumschaltung (`rgbAutoWhite` )
+### Automatische Weißkanalumschaltung (`rgbAutoWhite`)
 
-Wenn eine RGBW-fähige Lichtquelle erkannt wird (d. h. sie belichtet ein`white` Der Adapter erstellt automatisch einen beschreibbaren Zustand (Zustand), der durch den Adapter automatisch einen beschreibbaren Zustand erzeugt wird.`config.rgbAutoWhite` Schaltet den Status dieser Entität um. Standardmäßig ist er aktiv.`false` (deaktiviert).
+Wenn eine RGBW-fähige Lichtquelle erkannt wird (d. h. sie belichtet ein `white` Der Adapter erstellt automatisch einen beschreibbaren Zustand (Zustand), der durch den Adapter automatisch einen beschreibbaren Zustand erzeugt wird. `config.rgbAutoWhite` Schaltet den Status dieser Entität um. Standardmäßig ist er aktiv. `false` (deaktiviert).
 
 **Zum Aktivieren:**
 
-1. Öffnen Sie die ioBroker **-Objektansicht** und navigieren Sie zu Ihrer Light-Entität, z. B.`esphome.0.MyLight.Light.1.config.rgbAutoWhite` Die
-2. Setzen Sie den Wert auf`true` Die
+1. Öffnen Sie die ioBroker **-Objektansicht** und navigieren Sie zu Ihrer Light-Entität, z. B. `esphome.0.MyLight.Light.1.config.rgbAutoWhite` Die
+2. Setzen Sie den Wert auf `true` Die
 
 **Verhalten bei Aktivierung:**
 
 | `colorHEX` Eingang | Ergebnis                                              |
 | ------------------ | ----------------------------------------------------- |
-| `#ffffff`          | `white` → 1 (vollständig),`red` /`green` /`blue` → 0  |
+| `#ffffff`          | `white` → 1 (vollständig), `red` /`green` /`blue` → 0  |
 | Jede andere Farbe  | `white` → 0, RGB-Kanäle auf die Farbwerte eingestellt |
 
-**Verhalten bei Deaktivierung (Standardeinstellung):** die`white` Der Kanal wird niemals automatisch bedient; er wird von den Benutzern unabhängig gesteuert.
+**Verhalten bei Deaktivierung (Standardeinstellung):** die `white` Der Kanal wird niemals automatisch bedient; er wird von den Benutzern unabhängig gesteuert.
 
 ## Tasmota / ESPEasy Migration
 

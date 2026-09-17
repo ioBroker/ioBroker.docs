@@ -26,8 +26,8 @@ Puppeteer ist ein Produkt von Google Inc. Die Entwickler dieses Moduls werden in
 
 ## Umgebungen ohne Kopf
 
-Bitte beachten Sie, dass Chromium/Chrome auf **Systemen ohne grafische Benutzeroberfläche** (wie Linux-Servern) bestimmte gemeinsam genutzte Bibliotheken benötigen. Der Adapter installiert viele fehlende Abhängigkeiten automatisch über`osDependencies` unter Linux, aber je nach Ihrer Distribution müssen Sie möglicherweise trotzdem einen Browser installieren (z. B.`chromium-browser` oder`google-chrome-stable` manuell und konfigurieren Sie es über die Option **"Externen Browser verwenden"** .\
-&#x20;Wenn ioBroker als Root ausgeführt wird (z. B. in einem Docker-Container), müssen Sie möglicherweise auch die folgenden Berechtigungen übergeben:`--no-sandbox` Und`--disable-setuid-sandbox` Argumente innerhalb der Adaptereinstellungen.
+Bitte beachten Sie, dass Chromium/Chrome auf **Systemen ohne grafische Benutzeroberfläche** (wie Linux-Servern) bestimmte gemeinsam genutzte Bibliotheken benötigen. Der Adapter installiert viele fehlende Abhängigkeiten automatisch über `osDependencies` unter Linux, aber je nach Ihrer Distribution müssen Sie möglicherweise trotzdem einen Browser installieren (z. B. `chromium-browser` oder `google-chrome-stable` manuell und konfigurieren Sie es über die Option **"Externen Browser verwenden"** .\
+&#x20;Wenn ioBroker als Root ausgeführt wird (z. B. in einem Docker-Container), müssen Sie möglicherweise auch die folgenden Berechtigungen übergeben: `--no-sandbox` Und `--disable-setuid-sandbox` Argumente innerhalb der Adaptereinstellungen.
 
 ```bash
 sudo apt update
@@ -36,11 +36,11 @@ which chromium # check the path to the browser executable, e.g. /usr/bin/chromiu
 chromium --version
 ```
 
-Konfigurieren Sie anschließend den Adapter so, dass er den installierten Browser verwendet, indem Sie die Option **„Externen Browser verwenden“** aktivieren und den Pfad zur Browser-Programmdatei angeben (z. B. ).`/usr/bin/chromium` ).
+Konfigurieren Sie anschließend den Adapter so, dass er den installierten Browser verwendet, indem Sie die Option **„Externen Browser verwenden“** aktivieren und den Pfad zur Browser-Programmdatei angeben (z. B. ). `/usr/bin/chromium`).
 
 ## Anleitung
 
-Der Adapter ist vollständig über Zustände konfigurierbar und bietet keine Einstellungen in der Administratoroberfläche. Die Zustände (außer`url` ) erhält vom Adapter kein ack-flag und ack-flags werden generell ignoriert.
+Der Adapter ist vollständig über Zustände konfigurierbar und bietet keine Einstellungen in der Administratoroberfläche. Die Zustände (außer `url`) erhält vom Adapter kein ack-flag und ack-flags werden generell ignoriert.
 
 ### Staaten
 
@@ -58,11 +58,11 @@ Wenn dieser Zustand als wahr ausgewertet wird, wird ein Screenshot der gesamten 
 
 #### Beschneiden links/oben/Höhe/Breite
 
-Konfigurieren Sie die Zuschnittoptionen in`px` Nur den gewünschten Seitenabschnitt als Screenshot aufnehmen. Wenn`fullPage` Wenn diese Einstellung auf „true“ gesetzt ist, wird kein Zuschneiden durchgeführt.
+Konfigurieren Sie die Zuschnittoptionen in `px` Nur den gewünschten Seitenabschnitt als Screenshot aufnehmen. Wenn `fullPage` Wenn diese Einstellung auf „true“ gesetzt ist, wird kein Zuschneiden durchgeführt.
 
 #### waitForSelector
 
-Der Screenshot wird aufgenommen, nachdem der Selektor auf der Seite sichtbar ist, z. B.`#time` . Wenn`waitForSelector` ist aktiv, andere Warteoperationen wie`renderTime` werden ignoriert.
+Der Screenshot wird aufgenommen, nachdem der Selektor auf der Seite sichtbar ist, z. B. `#time`. Wenn `waitForSelector` ist aktiv, andere Warteoperationen wie `renderTime` werden ignoriert.
 
 #### renderTime
 
@@ -70,7 +70,7 @@ Wartezeit in Millisekunden bis zum Rendern der Seite
 
 ### Nachrichten
 
-Alternativ können Sie Screenshots erstellen, indem Sie Nachrichten an den Adapter senden. Alle Optionen außer`url` Und`ioBrokerOptions` werden direkt an die Puppeteer-API übergeben. Die aktuell unterstützten Parameter finden Sie unten. Eine aktuellere Version finden Sie in der [API-Beschreibung](https://pptr.dev/api/puppeteer.screenshotoptions) . Zusätzlich können Sie definieren`waitOption` um eine bestimmte Zeit oder einen Selektor abzuwarten. Schließlich können Sie Folgendes verwenden:`ioBrokerOptions.storagePath` Option zum direkten Speichern von Screenshots im ioBroker-Speicher unter`0_userdata.0` diese können dann über Admin- und Visualisierungsadapter angezeigt werden.
+Alternativ können Sie Screenshots erstellen, indem Sie Nachrichten an den Adapter senden. Alle Optionen außer `url` Und `ioBrokerOptions` werden direkt an die Puppeteer-API übergeben. Die aktuell unterstützten Parameter finden Sie unten. Eine aktuellere Version finden Sie in der [API-Beschreibung](https://pptr.dev/api/puppeteer.screenshotoptions) . Zusätzlich können Sie definieren `waitOption` um eine bestimmte Zeit oder einen Selektor abzuwarten. Schließlich können Sie Folgendes verwenden: `ioBrokerOptions.storagePath` Option zum direkten Speichern von Screenshots im ioBroker-Speicher unter `0_userdata.0` diese können dann über Admin- und Visualisierungsadapter angezeigt werden.
 
 ```typescript
 sendTo('puppeteer.0', 'screenshot', { url: 'https://www.google.com',
@@ -170,7 +170,7 @@ sendTo('puppeteer.0', 'screenshot', { url: 'https://www.google.com',
 
 ## Antwort per GET/POST-Anfrage erhalten
 
-Sie können die`rest-api` Adapter zum Empfangen der Antwort für sendTo-Operationen via HTTP:
+Sie können die `rest-api` Adapter zum Empfangen der Antwort für sendTo-Operationen via HTTP:
 
 ```bash
 curl -X 'GET' \
@@ -180,18 +180,18 @@ curl -X 'GET' \
 
 ## Weberweiterung
 
-Der Adapter registriert sich als Web-Erweiterung des`web` Der Adapter ermöglicht das Erstellen von Screenshots durch einfaches Aufrufen eines Links. Es wird kein zusätzlicher Port geöffnet: Die Routen befinden sich auf der Webinstanz, die Sie in den Adaptereinstellungen auswählen, und teilen sich daher deren HTTP/HTTPS-Einstellungen und Authentifizierung.
+Der Adapter registriert sich als Web-Erweiterung des `web` Der Adapter ermöglicht das Erstellen von Screenshots durch einfaches Aufrufen eines Links. Es wird kein zusätzlicher Port geöffnet: Die Routen befinden sich auf der Webinstanz, die Sie in den Adaptereinstellungen auswählen, und teilen sich daher deren HTTP/HTTPS-Einstellungen und Authentifizierung.
 
 Einstellungen:
 
-- **Webinstanz** - welche`web` Die Instanz dient dem Link (`*` (alle von ihnen).
-- **URL-Pfad** – der Pfad, unter dem die Erweiterung eingebunden ist (Standardwert)`puppeteer` Es muss eindeutig sein, wenn mehrere Puppeteer-Instanzen dieselbe Webinstanz erweitern.
+- **Webinstanz** - welche `web` Die Instanz dient dem Link (`*` (alle von ihnen).
+- **URL-Pfad** – der Pfad, unter dem die Erweiterung eingebunden ist (Standardwert) `puppeteer` Es muss eindeutig sein, wenn mehrere Puppeteer-Instanzen dieselbe Webinstanz erweitern.
 
-Mit den Standardeinstellungen ist der Screenshot verfügbar unter`http://<web-ip>:8082/puppeteer/?url=<URL>` , wobei URL die Seite ist, die Sie erfassen möchten (absolut).`http://` oder`https://` Nur URLs). Sie können auch zusätzliche Parameter angeben:
+Mit den Standardeinstellungen ist der Screenshot verfügbar unter `http://<web-ip>:8082/puppeteer/?url=<URL>`, wobei URL die Seite ist, die Sie erfassen möchten (absolut). `http://` oder `https://` Nur URLs). Sie können auch zusätzliche Parameter angeben:
 
 - `fullPage=true` einen Screenshot der gesamten Seite erstellen
 - `waitForSelector=#testId` Warten, bis ein bestimmter Selektor erreicht ist, bevor der Screenshot erstellt wird
-- `waitForTimeout=5000` eine bestimmte Zeit in Millisekunden warten, bevor ein Screenshot erstellt wird (wird nur verwendet, wenn`waitForSelector` (ist nicht festgelegt)
+- `waitForTimeout=5000` eine bestimmte Zeit in Millisekunden warten, bevor ein Screenshot erstellt wird (wird nur verwendet, wenn `waitForSelector` (ist nicht festgelegt)
 - `width=800&height=600` die Ansichtsfenstergröße für den Screenshot festlegen
 - `clipLeft=0&clipTop=0&clipWidth=800&clipHeight=600` die Zuschneideoptionen für den Screenshot festlegen
 - `quality=80` um die Qualität des Screenshots festzulegen (nur für JPEG/WebP)
@@ -199,18 +199,18 @@ Mit den Standardeinstellungen ist der Screenshot verfügbar unter`http://<web-ip
 - `encoding=base64` um die Kodierung des Bildes festzulegen (Standard ist binär).
 - `captureBeyondViewport=true` um Screenshots zu ermöglichen, die größer als der Anzeigebereich sind (Standardeinstellung ist „true“).
 - `type=jpeg/png/webp` um den Typ des Screenshots festzulegen (Standard ist png).
-- `waitUntil=load|domcontentloaded|networkidle0|networkidle2` Steuert, wann die Navigation als abgeschlossen gilt (Standard:`networkidle2` Siehe unten **die Tipps für Live-Daten-Dashboards** .
-- `navigationTimeout=15000` maximale Zeit in ms für`page.goto()` und anschließende Wartezeiten (Standard:`30000` Niedrigere Werte führen dazu, dass Renderer-Prozesse schneller freigegeben werden, wenn eine Seite hängt.
+- `waitUntil=load|domcontentloaded|networkidle0|networkidle2` Steuert, wann die Navigation als abgeschlossen gilt (Standard: `networkidle2` Siehe unten **die Tipps für Live-Daten-Dashboards** .
+- `navigationTimeout=15000` maximale Zeit in ms für `page.goto()` und anschließende Wartezeiten (Standard: `30000` Niedrigere Werte führen dazu, dass Renderer-Prozesse schneller freigegeben werden, wenn eine Seite hängt.
 
-Die Antwort ist die Binärdarstellung des Bildes, die direkt im Browser angezeigt werden kann, oder eine Base64-Zeichenkette.`{ result: "base64" }` abhängig von der angegebenen Kodierung.
+Die Antwort ist die Binärdarstellung des Bildes, die direkt im Browser angezeigt werden kann, oder eine Base64-Zeichenkette. `{ result: "base64" }` abhängig von der angegebenen Kodierung.
 
 ### Tipps für Live-Daten-Dashboards (vis / vis-2 / Lovelace / Grafana)
 
-Standardeinstellung`waitUntil=networkidle2` Die Anwendung wartet, bis die Seite weniger als drei offene Netzwerkverbindungen für 500 ms aufweist. Dashboards mit einer permanenten WebSocket- oder Server-Sent-Events-Verbindung – darunter **ioBroker vis/vis-2** , **Home Assistant Lovelace** und **Grafana** – erreichen diesen Zustand nie, daher wird jeder Screenshot blockiert, bis die Verbindung wiederhergestellt ist.`navigationTimeout` (Standardmäßig 30 Sekunden) vergehen. Während die Seite nicht reagiert, verbraucht der Chromium-Renderer-Prozess weiterhin ca. 100–200 MB RSS-Daten.
+Standardeinstellung `waitUntil=networkidle2` Die Anwendung wartet, bis die Seite weniger als drei offene Netzwerkverbindungen für 500 ms aufweist. Dashboards mit einer permanenten WebSocket- oder Server-Sent-Events-Verbindung – darunter **ioBroker vis/vis-2** , **Home Assistant Lovelace** und **Grafana** – erreichen diesen Zustand nie, daher wird jeder Screenshot blockiert, bis die Verbindung wiederhergestellt ist. `navigationTimeout` (Standardmäßig 30 Sekunden) vergehen. Während die Seite nicht reagiert, verbraucht der Chromium-Renderer-Prozess weiterhin ca. 100–200 MB RSS-Daten.
 
 Verwenden Sie für diese Dashboards Folgendes:
 
-- `waitUntil=load` (oder`domcontentloaded` ) — wartet **nicht** darauf, dass WebSockets inaktiv werden, und
+- `waitUntil=load` (oder `domcontentloaded`) — wartet **nicht** darauf, dass WebSockets inaktiv werden, und
 - `waitForSelector=<a-selector-that-only-exists-once-the-data-is-rendered>` — um sicherzustellen, dass Sie tatsächlich gerenderte Inhalte erfassen und nicht nur ein leeres Gerüst.
 
 Empfohlene Auswahllisten:
@@ -219,10 +219,10 @@ Empfohlene Auswahllisten:
 | ----------------------- | ----------------------------------------------------------------------------------------- |
 | ioBroker vis 1          | `#vis_container .vis-view`                                                                |
 | ioBroker vis-2          | `#materialUI`                                                                             |
-| Home Assistant Lovelace | `home-assistant-main` (und optional`hui-view ha-card` sobald die Karten gerendert wurden) |
-| Grafana                 | `.panel-content` oder`.dashboard-container`                                               |
+| Home Assistant Lovelace | `home-assistant-main` (und optional `hui-view ha-card` sobald die Karten gerendert wurden) |
+| Grafana                 | `.panel-content` oder `.dashboard-container`                                               |
 
-Optional: ein kleines`waitForTimeout` (z.B`200` ) damit die Diagrammanimationen sich stabilisieren.
+Optional: ein kleines `waitForTimeout` (z.B `200`) damit die Diagrammanimationen sich stabilisieren.
 
 Beispiel:
 

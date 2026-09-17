@@ -14,15 +14,15 @@ hash: ZsjsFFVPqZRjXaY7G62PHdi6Tg8/7nk2qml410R0syM=
 
 ## Installation
 
-Dieser Adapter benötigt zusätzliche Bibliotheken zum Kompilieren. Ausführliche Anweisungen finden Sie unter <https://github.com/sandeepmistry/noble#prerequisites> . Auf Raspberry Pi und ähnlichen Geräten sollte dies funktionieren:`sudo apt-get install bluetooth bluez libbluetooth-dev libudev-dev libcap2-bin`
+Dieser Adapter benötigt zusätzliche Bibliotheken zum Kompilieren. Ausführliche Anweisungen finden Sie unter <https://github.com/sandeepmistry/noble#prerequisites> . Auf Raspberry Pi und ähnlichen Geräten sollte dies funktionieren: `sudo apt-get install bluetooth bluez libbluetooth-dev libudev-dev libcap2-bin`
 
-Wenn der Adapter startet, aber keine Verbindung zu Ihrem Bluetooth-Gerät herstellt, überprüfen Sie bitte Folgendes:`info.driverState` Status in ioBroker. Wenn es so ist`unauthorized` Du musst geben`node` zusätzliche Berechtigungen. Unter Linux ist dies ganz einfach wie
+Wenn der Adapter startet, aber keine Verbindung zu Ihrem Bluetooth-Gerät herstellt, überprüfen Sie bitte Folgendes: `info.driverState` Status in ioBroker. Wenn es so ist `unauthorized` Du musst geben `node` zusätzliche Berechtigungen. Unter Linux ist dies ganz einfach wie
 
 ```bash
 sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
 ```
 
-was erfordert`libcap2-bin` muss installiert werden.
+was erfordert `libcap2-bin` muss installiert werden.
 
 ## Konfiguration
 
@@ -40,9 +40,9 @@ Falls Sie ein Gerät besitzen, das speziell kodierte Informationen über Werbung
   - [Pflanzensensor für Flower Care](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-huahuacaocao-flower-care-smart-monitor/)
   - [Mijia Temperatur- und Feuchtigkeitssensor](https://www.banggood.com/Xiaomi-Mijia-Bluetooth-Thermometer-Hygrometer-with-LCD-Screen-Magnetic-Suction-Wall-Stickers-p-1232396.html?cur_warehouse=USA)
   - [Mückenschutzmittel](https://www.aliexpress.com/item/32883859984.html)
-- `"mi-flora"` Ursprüngliches Plugin für den Pflanzensensor zur Blumenpflege, jetzt unter folgendem Namen:`"xiaomi"`
+- `"mi-flora"` Ursprüngliches Plugin für den Pflanzensensor zur Blumenpflege, jetzt unter folgendem Namen: `"xiaomi"`
 - `"ruuvi-tag"` [Ruuvi Tag](https://tag.ruuvi.com/) Multisensor mit Firmware-Versionen v1 und v2. **Ungetestet, bitte geben Sie Feedback!**
-- `"bthome"` Sensoren, die das [BTHome](https://bthome.io) -Protokoll verwenden. Dies ist derzeit auf folgende Systeme beschränkt:`v2` Überarbeitung des Protokolls und unterstützt keine verschlüsselten Pakete.
+- `"bthome"` Sensoren, die das [BTHome](https://bthome.io) -Protokoll verwenden. Dies ist derzeit auf folgende Systeme beschränkt: `v2` Überarbeitung des Protokolls und unterstützt keine verschlüsselten Pakete.
 
 ## Changelog
 <!--

@@ -39,7 +39,7 @@ hash: N4nZPDqux1aaTLKTIv8v+WZfiKm4tsZ2/zW1aeLgCsk=
 ### Устройства 2-го поколения и старше (Plus и Pro)
 
 1. Откройте веб-интерфейс Shelly в браузере (не в приложении Shelly!).
-2. Перейти к`Settings -> Authentication`
+2. Перейти к `Settings -> Authentication`
 3. Активируйте функцию ввода пароля и введите только что настроенный пароль.
 4. Сохраните конфигурацию
 
@@ -48,7 +48,7 @@ hash: N4nZPDqux1aaTLKTIv8v+WZfiKm4tsZ2/zW1aeLgCsk=
 ### Устройства первого поколения
 
 1. Откройте веб-интерфейс Shelly в браузере (не в приложении Shelly!).
-2. Перейти к`Internet & Security settings -> Restricted Login`
+2. Перейти к `Internet & Security settings -> Restricted Login`
 3. Установите флажок для безопасного доступа и введите только что настроенные данные доступа.
 4. Сохраните конфигурацию — Shelly автоматически перезагрузится.
 5. Убедитесь, что на всех устройствах Shelly настроены одинаковые данные доступа.

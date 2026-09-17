@@ -95,7 +95,7 @@ Wenn das Polling aktiviert ist, liest der Adapter die ReGaHSS-Daten in regelmä�
 
 **Auslösen**
 
-Um die Anzahl der Anfragen von ioBroker an ReGaHSS zu reduzieren, kann die CCU die Daten auch bei Änderungen senden. Hierfür wird eine virtuelle Taste der CCU verwendet, die in einem CCU-Programm aktiviert wird. Standardmäßig ist dies die Taste`BidCosRF.50.PRESS_SHORT` (siehe das Beispielprogramm).
+Um die Anzahl der Anfragen von ioBroker an ReGaHSS zu reduzieren, kann die CCU die Daten auch bei Änderungen senden. Hierfür wird eine virtuelle Taste der CCU verwendet, die in einem CCU-Programm aktiviert wird. Standardmäßig ist dies die Taste `BidCosRF.50.PRESS_SHORT` (siehe das Beispielprogramm).
 
 ### Bereich "Synchronisieren"
 
@@ -145,11 +145,11 @@ Am Ende werden die im CCU erstellten Variablen aufgelistet.
 
 ### Welche Alarmzustände werden im Geräteobjekt erstellt?
 
-Staaten, die mit einem`_ALARM` werden vom ReGa-Adapter erstellt, um Servicemeldungen darzustellen. Der Alarm hat drei verschiedene Zustände.
+Staaten, die mit einem `_ALARM` werden vom ReGa-Adapter erstellt, um Servicemeldungen darzustellen. Der Alarm hat drei verschiedene Zustände.
 
-`_NO ALARM_`Das bedeutet, dass für diesen Zustand keine Servicemeldung vorliegt. Sobald eine Servicemeldung erscheint, ändert sich der Zustand.`_ALARM_` Der Zeitpunkt des Alarms auf der CCU wird im Zeitstempel „Zuletzt geändert“ des Status gespeichert (`state.lc` ).
+`_NO ALARM_` Das bedeutet, dass für diesen Zustand keine Servicemeldung vorliegt. Sobald eine Servicemeldung erscheint, ändert sich der Zustand. `_ALARM_` Der Zeitpunkt des Alarms auf der CCU wird im Zeitstempel „Zuletzt geändert“ des Status gespeichert (`state.lc`).
 
-Wenn Sie den Status in ioBroker ändern, wird der Alarm auf der CCU bestätigt und die Servicemeldung verschwindet. Der Alarmstatus in ioBroker ändert sich zu`_ACKNOWLEDGED_` Es enthält weiterhin den Zeitpunkt des Alarms im Zeitstempel „Zuletzt geändert“ und den Zeitpunkt der Bestätigung im Zeitstempel des Zustands (`state.ts` ).
+Wenn Sie den Status in ioBroker ändern, wird der Alarm auf der CCU bestätigt und die Servicemeldung verschwindet. Der Alarmstatus in ioBroker ändert sich zu `_ACKNOWLEDGED_` Es enthält weiterhin den Zeitpunkt des Alarms im Zeitstempel „Zuletzt geändert“ und den Zeitpunkt der Bestätigung im Zeitstempel des Zustands (`state.ts`).
 
 ### Ich besitze einen HomeMatic CCU2/CCU3. Wie kann ich ihn zu den Adaptereinstellungen hinzufügen?
 
@@ -167,11 +167,11 @@ Warten Sie etwa 10 bis 20 Sekunden und überprüfen Sie dann die Registerkarte �
 
 ### Wie kann ich die versteckten (unsichtbaren) Variablen, beispielsweise des HMIP-PSM, synchronisieren?
 
-Ab Version 2.4.0 können versteckte Variablen synchronisiert werden. Öffnen Sie die Einstellungen von hm-rega. Auf dem Tab „Synchronisieren“ finden Sie die entsprechende Option.`Invisible variables` wenn die Option`variables` ist aktiviert.
+Ab Version 2.4.0 können versteckte Variablen synchronisiert werden. Öffnen Sie die Einstellungen von hm-rega. Auf dem Tab „Synchronisieren“ finden Sie die entsprechende Option. `Invisible variables` wenn die Option `variables` ist aktiviert.
 
 ### Ich möchte meine eigenen Skripte auf der CCU von ioBroker aus ausführen. Ist das möglich?
 
-Seit Version 2.3.0 können Sie mit dem Befehl Ihre eigenen Skripte auf der CCU ausführen.`sendTo` Die
+Seit Version 2.3.0 können Sie mit dem Befehl Ihre eigenen Skripte auf der CCU ausführen. `sendTo` Die
 
 Beispielsweise können Sie die Betriebszeit Ihrer CCU mit diesem Skript auslesen:
 
@@ -189,19 +189,19 @@ sendTo('hm-rega.0', upTimeScript, res => {
 
 ### Die Weboberfläche meiner CCU verwendet einen anderen Port als die Standard-HTTP/HTTPS-Ports, und es kann keine Verbindung hergestellt werden. Wie kann ich einen anderen Port konfigurieren?
 
-Dies ist ein seltener Fall, daher wird die Einstellung nur im _Expertenmodus_ angezeigt. Aktivieren Sie den Expertenmodus in der Administration, um die Option zu finden.`Web interface port` auf der Registerkarte „Zusätzliche Einstellungen“. Sie können den Port auch in der Befehlszeile ändern:
+Dies ist ein seltener Fall, daher wird die Einstellung nur im _Expertenmodus_ angezeigt. Aktivieren Sie den Expertenmodus in der Administration, um die Option zu finden. `Web interface port` auf der Registerkarte „Zusätzliche Einstellungen“. Sie können den Port auch in der Befehlszeile ändern:
 
 ```bash
 iob set hm-rega.0 --webinterfacePort 8765
 ```
 
-Um wieder die Standardports zu verwenden, geben Sie Folgendes ein:`443` oder`80` gemäß Ihrem Protokoll oder geben Sie Folgendes ein:`0` zur automatischen Auswahl.
+Um wieder die Standardports zu verwenden, geben Sie Folgendes ein: `443` oder `80` gemäß Ihrem Protokoll oder geben Sie Folgendes ein: `0` zur automatischen Auswahl.
 
 ### Meine ReGa-API verwendet nicht Port 8181 (HTTPS: 48181). Kann ich den Adapter trotzdem verwenden?
 
-Ja. Aktivieren Sie den _Expertenmodus_ in der Administrationsoberfläche, dann können Sie die Option einstellen.`Rega port` auf der Registerkarte „Zusätzliche Einstellungen“.
+Ja. Aktivieren Sie den _Expertenmodus_ in der Administrationsoberfläche, dann können Sie die Option einstellen. `Rega port` auf der Registerkarte „Zusätzliche Einstellungen“.
 
-Sie können den Port auch in der Befehlszeile ändern:`iob set hm-rega.<instance> --homematicPort <port>`
+Sie können den Port auch in der Befehlszeile ändern: `iob set hm-rega.<instance> --homematicPort <port>`
 
 ## Changelog
 <!--

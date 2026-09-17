@@ -17,10 +17,10 @@ hash: l9vN/k83Zfh9akKokc1tcMMOrclUQ+qlFqKE//sCtFY=
 ## Beschreibung
 Dieser Adapter kann normale Sätze wie `Switch light in kitchen on` in spezifische Befehle umwandeln und den Zustand `adapter.0.device.kitchenLight` auf `true` setzen.
 
-Dieser Adapter ist nicht zur alleinigen Aktivierung geeignet. Er sollte zusammen mit anderen Adaptern wie Telegram oder der Android-App **`iobroker.vis`** verwendet werden.
+Dieser Adapter ist nicht zur alleinigen Aktivierung geeignet. Er sollte zusammen mit anderen Adaptern wie Telegram oder der Android-App ** `iobroker.vis` ** verwendet werden.
 
 ## Verwendung
-Um den Befehl auszuführen, schreiben Sie den Zustand **`text2command.<INSTANCE>.text`** mit dem Satz. Sie erhalten immer die Antwort in `text2command.<INSTANCE>.response`.
+Um den Befehl auszuführen, schreiben Sie den Zustand ** `text2command.<INSTANCE>.text` ** mit dem Satz. Sie erhalten immer die Antwort in `text2command.<INSTANCE>.response`.
 
 Wenn Sie **Antwort an ID** definieren, wird die Antwort ebenfalls in diese ID geschrieben. Dies ist beispielsweise erforderlich, um die Sprachbestätigung zu realisieren.
 
@@ -47,41 +47,41 @@ Die folgenden Funktionen werden interpretiert als
 
 `enum.functions`:
 
-**`enum.functions.light`** (Licht | Свет):
+** `enum.functions.light` ** (Licht | Свет):
 
 - Rollen - `level.dimmer`
 - Rollen - `switch.light`
 
-**`enum.functions.backlight`** (Beleuchtung | Beitrag):
+** `enum.functions.backlight` ** (Beleuchtung | Beitrag):
 
 - Rollen - `level.backlight`
 - Rollen - `switch.backlight`
 
-**`enum.functions.blinds/shutter`** (Rollladen | Жалюзи/окна)
+** `enum.functions.blinds/shutter` ** (Rollladen | Жалюзи/окна)
 
 - Rollen - `level.blind`
 - Rollen - `switch.blind`
 
-**`enum.functions.curtain`** (Vorhänge | Bilder)
+** `enum.functions.curtain` ** (Vorhänge | Bilder)
 
 - roles - `level.curtain`
 - Rollen - `switch.curtain`
 
-**`enum.functions.heating`** (Heizung | Отопление/Подогрев)
+** `enum.functions.heating` ** (Heizung | Отопление/Подогрев)
 
 - Rollen - `level.temperature`
 - Rollen - `switch.temperature`
 
-**`enum.functions.music`** (Musik | Musik)
+** `enum.functions.music` ** (Musik | Musik)
 
 - Rollen - `button.play`
 - Rollen - `button.stop` / `button.pause`
 
-**`enum.functions.alarm/security`** (Alarmanlage / Alarm | Übersicht)
+** `enum.functions.alarm/security` ** (Alarmanlage / Alarm | Übersicht)
 
 - Rollen - `switch.security`
 
-**`enum.functions.lock`** (Schloß / Schloss | Schloss)
+** `enum.functions.lock` ** (Schloß / Schloss | Schloss)
 
 - roles - `switch.open`
 - roles - `switch.lock`
@@ -132,11 +132,11 @@ Die Antwort ist anpassbar. Standard: `My name is Alpha`
 
 ### Wie hoch ist die Außentemperatur?
 Der Benutzer muss die Bundesstaats-ID angeben, aus der die Außentemperatur abgelesen werden soll.
-Die Antwort ist anpassbar. Standard: `Outside temperature is %s %u` **`%s`** wird durch die auf eine ganze Zahl gerundete Temperatur ersetzt. **`%u`** wird durch die Einheiten dieses Bundesstaates oder die Systemtemperatureinheiten ersetzt.
+Die Antwort ist anpassbar. Standard: `Outside temperature is %s %u` ** `%s` ** wird durch die auf eine ganze Zahl gerundete Temperatur ersetzt. ** `%u` ** wird durch die Einheiten dieses Bundesstaates oder die Systemtemperatureinheiten ersetzt.
 
 ### Wie hoch ist die Innentemperatur?
 Der Benutzer muss die Bundesstaats-ID angeben, in der die Innentemperatur ausgelesen werden soll.
-Die Antwort ist anpassbar. Standard: `Inside temperature is %s %u` **`%s`** wird durch die auf eine ganze Zahl gerundete Temperatur ersetzt. **`%u`** wird durch die Einheiten dieses Bundesstaates oder die Systemtemperatureinheiten ersetzt.
+Die Antwort ist anpassbar. Standard: `Inside temperature is %s %u` ** `%s` ** wird durch die auf eine ganze Zahl gerundete Temperatur ersetzt. ** `%u` ** wird durch die Einheiten dieses Bundesstaates oder die Systemtemperatureinheiten ersetzt.
 
 ### Ein-/Ausschalten per Funktion
 Dieser Befehl liest Informationen aus Enumerationen. Er verwendet `enum.functions`, um den Gerätetyp (z. B. Licht, Alarm, Musik) zu ermitteln, und `enum.rooms`, um den Raumnamen zu erkennen.
@@ -154,7 +154,7 @@ Der Befehl akzeptiert auch numerische Werte. Diese haben Priorität; beispielswe
 Sie können einen Standardraum in [] definieren. Z. B. `switch the light on[sleepingroom]`
 
 ### Jalousien öffnen/schließen
-Dieser Befehl liest Informationen aus Aufzählungen. Er verwendet **`enum.functions.blind`**, um den Typ (Jalousien oder Rollläden) zu ermitteln, und **`enum.rooms`**, um den Raumnamen zu erkennen.
+Dieser Befehl liest Informationen aus Aufzählungen. Er verwendet ** `enum.functions.blind` **, um den Typ (Jalousien oder Rollläden) zu ermitteln, und ** `enum.rooms` **, um den Raumnamen zu erkennen.
 
 Schlüsselwörter zum Hochfahren der Jalousien sind: *Jalousien hoch*, z. B. `set blinds up in sleeping room`
 
@@ -250,7 +250,7 @@ createState("textProcessor", '', function () {
 });
 ```
 
-Um dieses Beispiel auszuführen, muss in den Einstellungen für `text2command` **Prozessorstatus-ID** der Wert *`javascript.0.textProcessor`* festgelegt werden.
+Um dieses Beispiel auszuführen, muss in den Einstellungen für `text2command` **Prozessorstatus-ID** der Wert * `javascript.0.textProcessor` * festgelegt werden.
 
 Zunächst wird der Befehl mit Ihrem `javascript` verarbeitet. Wenn `javascript` mit '' antwortet oder nicht innerhalb der vordefinierten Zeit (standardmäßig 1 Sekunde) antwortet, wird der Befehl nach Regeln verarbeitet.
 

@@ -29,11 +29,11 @@ Bis zu 14 Tage Vorhersage, Tagesabschnitte, Stundenwerte, die aktuelle Stunde, W
 | **Tagesvorhersage**  | 1–14 Tage: Temperatur, Niederschlag, Wind, Bewölkung, Luftfeuchtigkeit, Sonnenscheindauer, Luftdruck      |
 | **Tagesabschnitte**  | Morgen, Nachmittag, Abend und Nacht pro Tag                                                               |
 | **Stundenwerte**     | Für einen oder mehrere Tage, berechnet in der Zeitzone des Vorhersageorts                                 |
-| **`current`Ordner**  | Die laufende Stunde, **stündlich aktualisiert ohne API-Aufruf**                                           |
+| ** `current` Ordner**  | Die laufende Stunde, **stündlich aktualisiert ohne API-Aufruf**                                           |
 | **Wetterwarnungen**  | Schweregrad (Gruppe, Text und numerisch, 0–4) – kein Zeichenkettenvergleich in Skripten erforderlich      |
 | **Sonne und Mond**   | Sonnenaufgang, Sonnenuntergang, Dämmerung, Tageslänge, Mondaufgang, Mondphase, Tierkreis                  |
 | **Schnee**           | Schneegrenze, Neuschnee, Schneewasseräquivalent                                                           |
-| **JSON-Aggregate**   | `forecast_json` Und`hourly_json` für VIS-, Jarvis- und Material-Widgets                                   |
+| **JSON-Aggregate**   | `forecast_json` Und `hourly_json` für VIS-, Jarvis- und Material-Widgets                                   |
 | **Budgetverwaltung** | Prioritätsstufen, die sich sanft verschlechtern, anstatt zu blockieren                                    |
 | **Korrekte Symbole** | Verwendet das von der API bereitgestellte Symbol, einschließlich der Varianten für Nacht, Sturm und Wind. |
 
@@ -62,7 +62,7 @@ Ein Schlüssel ist erforderlich und bei [Meteonomiqs](https://www.meteonomiqs.co
 
 ### Zeitplan
 
-Die Abrufzeiten sind in einer Tabelle dargestellt.`HH:MM` plus eine **Priorität** . Standardmäßig:
+Die Abrufzeiten sind in einer Tabelle dargestellt. `HH:MM` plus eine **Priorität** . Standardmäßig:
 
 | Zeit  | Priorität | Zweck                                                                                      |
 | ----- | --------- | ------------------------------------------------------------------------------------------ |
@@ -89,7 +89,7 @@ Bei Engpässen fällt die abendliche Apportierfunktion zuerst aus, dann die mitt
 | 40 Anrufe wurden bereits vergeudet | 99 / 100         | 31    | 28    | 0     |
 | 70 Anrufe wurden bereits vergeudet | 100 / 100        | 30    | 0     | 0     |
 
-Der Zähler ist eine **lokale Schätzung** – die API meldet kein verbleibendes Kontingent. Nur der HTTP-Statuscode 429 liefert verlässliche Daten.`info.reset_counter` Stellt den Wert bei Bedarf wieder auf Null zurück.
+Der Zähler ist eine **lokale Schätzung** – die API meldet kein verbleibendes Kontingent. Nur der HTTP-Statuscode 429 liefert verlässliche Daten. `info.reset_counter` Stellt den Wert bei Bedarf wieder auf Null zurück.
 
 ### Daten
 
@@ -135,21 +135,21 @@ meteonomiqs.0
 
 ### Zwei Dinge, die man über den Baum wissen sollte
 
-**`day_N.spaces.night`ist die Nacht _nach_ diesem Tag.** Ihr Minimum ergibt sich daher aus den frühen Morgenstunden.`day_N+1` . Lektüre`day_0.spaces.night.temp_min` Gibt den Tiefstwert von heute Abend an, nicht den von gestern Abend.
+** `day_N.spaces.night` ist die Nacht _nach_ diesem Tag.** Ihr Minimum ergibt sich daher aus den frühen Morgenstunden. `day_N+1`. Lektüre `day_0.spaces.night.temp_min` Gibt den Tiefstwert von heute Abend an, nicht den von gestern Abend.
 
-**`wind_significant`erklärt das Symbol.** Die API kennzeichnet starken Wind im Dateinamen des Symbols (`d_w_60.svg` anstatt`d_60.svg` ) unabhängig davon`warn_active` . An einem Tag kann es zu Windausbrüchen kommen, ohne dass eine offizielle Warnung ausgegeben wird; daher dürfen das Symbol und die Warnmeldung voneinander abweichen.
+** `wind_significant` erklärt das Symbol.** Die API kennzeichnet starken Wind im Dateinamen des Symbols (`d_w_60.svg` anstatt `d_60.svg`) unabhängig davon `warn_active`. An einem Tag kann es zu Windausbrüchen kommen, ohne dass eine offizielle Warnung ausgegeben wird; daher dürfen das Symbol und die Warnmeldung voneinander abweichen.
 
 ### `current` — wie es funktioniert
 
-`current` spiegelt das Muster des`daswetter` Und`open-meteo-weather` Adapter, mit zwei bewussten Auswahlmöglichkeiten:
+`current` spiegelt das Muster des `daswetter` Und `open-meteo-weather` Adapter, mit zwei bewussten Auswahlmöglichkeiten:
 
-**Wird stündlich aktualisiert, nicht nur beim Abruf.**`current` Ein Ordner, der nur bei API-Abfragen aktualisiert wird, wäre abends sieben Stunden alt. Ein separater stündlicher Timer kopiert die Werte stündlich – was keine Kosten verursacht, da die Stundendaten bereits im Objektbaum vorhanden sind.
+**Wird stündlich aktualisiert, nicht nur beim Abruf.** `current` Ein Ordner, der nur bei API-Abfragen aktualisiert wird, wäre abends sieben Stunden alt. Ein separater stündlicher Timer kopiert die Werte stündlich – was keine Kosten verursacht, da die Stundendaten bereits im Objektbaum vorhanden sind.
 
-**Lesen Sie aus den Zuständen, nicht aus einem Cache.** Das Lesen der zwischengespeicherten Nutzdaten würde dazu führen, dass`current` Nach jedem Neustart des Adapters wird die Leerstelle bis zum nächsten geplanten Abruf geleert.`day_N.hourly.HH.*` Funktioniert immer.
+**Lesen Sie aus den Zuständen, nicht aus einem Cache.** Das Lesen der zwischengespeicherten Nutzdaten würde dazu führen, dass `current` Nach jedem Neustart des Adapters wird die Leerstelle bis zum nächsten geplanten Abruf geleert. `day_N.hourly.HH.*` Funktioniert immer.
 
-Der Tag ist abgeschlossen durch`date_iso` statt eines festen Index. Zwischen Mitternacht und dem ersten Abruf des Tages existiert „heute“ noch in`day_1` — ein fest codierter`day_0` würden in diesem Zeitfenster jede Nacht die falschen Werte anzeigen.
+Der Tag ist abgeschlossen durch `date_iso` statt eines festen Index. Zwischen Mitternacht und dem ersten Abruf des Tages existiert „heute“ noch in `day_1` — ein fest codierter `day_0` würden in diesem Zeitfenster jede Nacht die falschen Werte anzeigen.
 
-`current` Es handelt sich um eine **Vorhersage** für die aktuelle Stunde, nicht um einen Messwert. Echtzeitwerte würden die`/nowcast` oder`/stations` Endpunkte, die einen Aufruf pro Abfrage kosten und nicht in einen 100-Aufruf-Plan passen.
+`current` Es handelt sich um eine **Vorhersage** für die aktuelle Stunde, nicht um einen Messwert. Echtzeitwerte würden die `/nowcast` oder `/stations` Endpunkte, die einen Aufruf pro Abfrage kosten und nicht in einen 100-Aufruf-Plan passen.
 
 ---
 

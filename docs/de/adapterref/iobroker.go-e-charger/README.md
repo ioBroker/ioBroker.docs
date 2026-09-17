@@ -72,11 +72,11 @@ Die Abfragezykluszeit legt fest, wie oft der Adapter Daten von den Ladegeräten 
 
 Jeder Wallbox kann optional ein eigener **minimaler** und **maximaler Ladestrom** \[A] zugewiesen werden. Diese Werte gelten **sowohl** für ChargeManager (PV-Überschuss) als auch für ChargeNOW, beispielsweise um ein einzelnes Ladegerät zu drosseln oder die Last zwischen mehreren Boxen an einer gemeinsamen Stromversorgung auszugleichen.
 
-- Ein Wert von`0` bedeutet „nicht eingestellt“: Der Minimalwert fällt auf den technischen Minimalwert von 6 A zurück, und der Maximalwert fällt aus den Standardeinstellungen auf den installationsweiten maximalen Ladestrom zurück.
+- Ein Wert von `0` bedeutet „nicht eingestellt“: Der Minimalwert fällt auf den technischen Minimalwert von 6 A zurück, und der Maximalwert fällt aus den Standardeinstellungen auf den installationsweiten maximalen Ladestrom zurück.
 - Ein Maximalwert pro Box kann die Anzahl der Ladegeräte nur unter das Installationslimit senken, niemals darüber hinaus anheben.
 - Wenn der konfigurierte Minimalwert höher als der Maximalwert ist, wird der Minimalwert auf den Maximalwert begrenzt und eine Warnung protokolliert.
 
-Der Adapter liest außerdem die von jedem Ladegerät gemeldeten Stromgrenzen – den absoluten Maximalstrom, die Kabelstrombegrenzung und (über API v2) den minimalen Ladestrom – und integriert diese in die effektiven Grenzwerte, sodass ein Ladegerät nie über die Grenzen seiner Hardware oder des angeschlossenen Kabels hinaus belastet wird. Die erfassten Grenzwerte werden veröffentlicht als`Wallbox_X.info.hardwareMaxChargeCurrent` Und`Wallbox_X.info.hardwareMinChargeCurrent` um Ihnen bei der Auswahl sinnvoller Preise pro Box zu helfen.
+Der Adapter liest außerdem die von jedem Ladegerät gemeldeten Stromgrenzen – den absoluten Maximalstrom, die Kabelstrombegrenzung und (über API v2) den minimalen Ladestrom – und integriert diese in die effektiven Grenzwerte, sodass ein Ladegerät nie über die Grenzen seiner Hardware oder des angeschlossenen Kabels hinaus belastet wird. Die erfassten Grenzwerte werden veröffentlicht als `Wallbox_X.info.hardwareMaxChargeCurrent` Und `Wallbox_X.info.hardwareMinChargeCurrent` um Ihnen bei der Auswahl sinnvoller Preise pro Box zu helfen.
 
 ### PV-Überschussladung mit ChargeManager
 
@@ -98,7 +98,7 @@ Konfigurieren Sie die Objekt-IDs der folgenden Zustände:
 
 Alle konfigurierten Zustände müssen numerische Werte enthalten. Leistungswerte in kW müssen vor der Auswahl in W umgerechnet werden. Ein Netzimport-/Netzexportzustand kann nicht direkt verwendet werden, da ChargeManager derzeit separate Erzeugungs- und Verbrauchswerte erwartet.
 
-Ist kein Heimspeicher installiert, stellen Sie den **Heimspeichermodus** auf _„Deaktiviert“_ (siehe unten). Es muss kein Ladezustand des Speichers konfiguriert werden, und ChargeManager lädt ausschließlich mit dem verfügbaren PV-Überschuss. Die frühere Problemumgehung mit dem Hilfszustand (ein konstanter Zustand, der auf … gesetzt ist) wird dadurch nicht mehr unterstützt.`Settings.Setpoint_HomeBatSoC` ) wird nicht mehr benötigt.
+Ist kein Heimspeicher installiert, stellen Sie den **Heimspeichermodus** auf _„Deaktiviert“_ (siehe unten). Es muss kein Ladezustand des Speichers konfiguriert werden, und ChargeManager lädt ausschließlich mit dem verfügbaren PV-Überschuss. Die frühere Problemumgehung mit dem Hilfszustand (ein konstanter Zustand, der auf … gesetzt ist) wird dadurch nicht mehr unterstützt. `Settings.Setpoint_HomeBatSoC`) wird nicht mehr benötigt.
 
 #### Wallbox-Verbrauch im Haushaltsverbrauchswert
 
@@ -125,19 +125,19 @@ Sechs Einstellungen auf der Konfigurationsseite von ChargeManager beeinflussen d
 
 - **Heimbatteriemodus** (Standardeinstellung: _Batteriepriorität_ ) – wie die Heimbatterie berücksichtigt wird:
   - _Deaktiviert_ – es wird keine Heimbatterie verwendet. Es muss kein SoC-Status konfiguriert werden, und dem Fahrzeug wird keine Batterieleistung zugewiesen.
-  - _Mindest-SOC_ – Das Laden von Elektrofahrzeugen ist unterhalb dieses Wertes blockiert.`Settings.Setpoint_HomeBatSoC` Die Batterie trägt jedoch niemals zur Stromversorgung des Autos bei.
+  - _Mindest-SOC_ – Das Laden von Elektrofahrzeugen ist unterhalb dieses Wertes blockiert. `Settings.Setpoint_HomeBatSoC` Die Batterie trägt jedoch niemals zur Stromversorgung des Autos bei.
   - _Batteriepriorität_ – wie oben, zuzüglich des unten beschriebenen Batteriebonus.
 - **SoC-Hysterese** \[%] (Standard 0) – wie weit der SoC unter den Mindestwert fallen darf, bevor ein _laufender_ Controller stoppt. Dadurch wird verhindert, dass ein Akku, der sich nahe seinem Mindestwert befindet, die Ladefreigabe in jedem Zyklus umschaltet; zum Starten ist weiterhin der volle Mindest-SoC erforderlich.
 - **Maximales Batterie-SoC-Alter** \[s] (Standard 0 = aus) – Die Überschusssteuerung stoppt, wenn der SoC-Zustand innerhalb dieser Zeit nicht aktualisiert wurde, sodass ein toter Hilfszustand das Auto nicht stillschweigend weiter aufladen kann.
-- **Netzreserveleistung** \[W] (Standard 100) – Leistung, die im Stromnetz freigehalten wird, anstatt dem Fahrzeug zugewiesen zu werden. Erhöhen Sie diesen Wert, um mehr Sicherheitsreserve zu gewährleisten; stellen Sie ihn auf ein.`0` den gesamten Überschuss dem Auto übergeben.
-- **Maximaler Batteriebonus** \[W] (Standardwert 2000) – wie viel zusätzliche Leistung über den reinen Solarstromüberschuss hinaus entnommen werden kann, solange sich der Hausspeicher über seinem Mindestladezustand befindet. Der Bonus beträgt`0` Wenn der Akku genau den minimalen Ladezustand (SoC) erreicht hat und dieser linear bis zum Maximum ansteigt, je näher der Akku 100 % kommt, ermöglicht ein vollerer Akku ein schnelleres Laden des Autos. Stellen Sie es so ein:`0` Das Fahrzeug wird ausschließlich mit dem gemessenen Solarstromüberschuss geladen, ohne dass die Heimbatterie jemals in das Auto entladen wird.
+- **Netzreserveleistung** \[W] (Standard 100) – Leistung, die im Stromnetz freigehalten wird, anstatt dem Fahrzeug zugewiesen zu werden. Erhöhen Sie diesen Wert, um mehr Sicherheitsreserve zu gewährleisten; stellen Sie ihn auf ein. `0` den gesamten Überschuss dem Auto übergeben.
+- **Maximaler Batteriebonus** \[W] (Standardwert 2000) – wie viel zusätzliche Leistung über den reinen Solarstromüberschuss hinaus entnommen werden kann, solange sich der Hausspeicher über seinem Mindestladezustand befindet. Der Bonus beträgt `0` Wenn der Akku genau den minimalen Ladezustand (SoC) erreicht hat und dieser linear bis zum Maximum ansteigt, je näher der Akku 100 % kommt, ermöglicht ein vollerer Akku ein schnelleres Laden des Autos. Stellen Sie es so ein: `0` Das Fahrzeug wird ausschließlich mit dem gemessenen Solarstromüberschuss geladen, ohne dass die Heimbatterie jemals in das Auto entladen wird.
 - **Minimaler Ladestrom des ChargeManagers** \[A] (Standardwert 6) – der Überschussladestrom, unterhalb dessen das Ladegerät nach kurzer Verzögerung abgeschaltet wird. Dies gilt nur für das Laden von PV-Überschussstrom.
 
 Der **maximale Ladestrom** \[A] (Standard 16, bis zu 32) wird auf der **Seite mit den Standardeinstellungen** konfiguriert, nicht hier: Es handelt sich um eine installationsweite Begrenzung der gemeinsamen Stromversorgung (Hauptsicherung/Schutzschalter) und nicht um einen im ChargeManager einstellbaren Wert. Er begrenzt den Strom, den der Adapter jemals an **eine** Wallbox abgibt, **sowohl** im ChargeManager (PV-Überschuss) **als auch** in ChargeNOW.
 
 > **⚠️ Stellen Sie den maximalen Ladestrom nicht höher ein, als es Ihr go-e Charger und Ihre Elektroinstallation zulassen.** go-e Charger-Modelle sind für unterschiedliche Maximalströme ausgelegt (z. B. 16 A oder 32 A), und die tatsächliche Grenze hängt auch von Ihrem Kabel, Stecker und der Verkabelung ab. Ein Wert über der zulässigen Belastbarkeit der Hardware/Installation kann Schutzvorrichtungen auslösen oder Geräte beschädigen. Im Zweifelsfall verwenden Sie den Standardwert von 16 A.
 
-In den batterieschonenden Modi ist das Laden von Elektrofahrzeugen unten deaktiviert.`Settings.Setpoint_HomeBatSoC` Die Heimbatterie hat somit Priorität. Der Ladevorgang beginnt, sobald der interne Zielwert 10 A erreicht (oder der Mindeststrom, falls dieser höher eingestellt ist). Der berechnete Strom ist auf den konfigurierten Maximalwert begrenzt, und der interne Zielwert ändert sich pro Abfragezyklus um maximal 1 A, um plötzliche Änderungen zu vermeiden.
+In den batterieschonenden Modi ist das Laden von Elektrofahrzeugen unten deaktiviert. `Settings.Setpoint_HomeBatSoC` Die Heimbatterie hat somit Priorität. Der Ladevorgang beginnt, sobald der interne Zielwert 10 A erreicht (oder der Mindeststrom, falls dieser höher eingestellt ist). Der berechnete Strom ist auf den konfigurierten Maximalwert begrenzt, und der interne Zielwert ändert sich pro Abfragezyklus um maximal 1 A, um plötzliche Änderungen zu vermeiden.
 
 #### Mehrere Wandkästen an einem PV-Überschuss
 
@@ -149,7 +149,7 @@ Die oben beschriebenen Strombegrenzungen pro Wanddose gelten weiterhin für jede
 
 #### ChargeManager aktivieren
 
-Nach dem Start des Adapters verwenden Sie die unten aufgeführten beschreibbaren Zustände. Instanz ersetzen`0` und Wandkastennummer`0` wo dies erforderlich ist.
+Nach dem Start des Adapters verwenden Sie die unten aufgeführten beschreibbaren Zustände. Instanz ersetzen `0` und Wandkastennummer `0` wo dies erforderlich ist.
 
 | Zustand                                           | Zweck                                                                             |
 | ------------------------------------------------- | --------------------------------------------------------------------------------- |
@@ -159,14 +159,14 @@ Nach dem Start des Adapters verwenden Sie die unten aufgeführten beschreibbaren
 | `go-e-charger.0.Wallbox_0.Settings.ChargeCurrent` | Stromverbrauch von ChargeNOW                                                      |
 | `go-e-charger.0.Wallbox_0.Settings.Charge3Phase`  | Wählt bei unterstützter Hardware zwischen einphasigem und dreiphasigem Laden aus. |
 
-Für Überschussladung einstellen`ChargeNOW` Zu`false` Und`ChargeManager` Zu`true` Wenn beide aktiviert sind, hat ChargeNOW Vorrang und verwendet die konfigurierte`ChargeCurrent` ohne Berücksichtigung des verfügbaren Überschusses.
+Für Überschussladung einstellen `ChargeNOW` Zu `false` Und `ChargeManager` Zu `true` Wenn beide aktiviert sind, hat ChargeNOW Vorrang und verwendet die konfigurierte `ChargeCurrent` ohne Berücksichtigung des verfügbaren Überschusses.
 
 #### Einphasen- und Dreiphasenladung
 
-Auf Hardware der 3. Generation und neuer,`Charge3Phase` wählt den Phasenmodus aus:
+Auf Hardware der 3. Generation und neuer, `Charge3Phase` wählt den Phasenmodus aus:
 
-- `false` : einphasige Ladung
-- `true` : dreiphasige Ladung
+- `false`: einphasige Ladung
+- `true`: dreiphasige Ladung
 
 Da die aktuelle Implementierung den Ladevorgang startet, sobald der interne Zielwert 9 A überschreitet, liegt der effektive Startpunkt bei 10 A. Dies erfordert nach Berücksichtigung der Reserve und der Batterieeinstellungen ca. 2,3 kW im Einphasenbetrieb bzw. 6,9 kW im Dreiphasenbetrieb. Der Einphasenbetrieb bietet daher einen größeren Betriebsbereich für kleinere PV-Anlagen oder bei wechselnden Wetterbedingungen.
 
@@ -178,7 +178,7 @@ Da die aktuelle Implementierung den Ladevorgang startet, sobald der interne Ziel
 - Sobald der Überschuss nicht mehr ausreicht, um das dreiphasige Minimum (\~4,1 kW bei 6 A) aufrechtzuerhalten, schaltet das System **auf einphasig um.** Dadurch wird der Ladevorgang bei schrumpfendem Überschuss einphasig fortgesetzt, anstatt zu stoppen.
 - Die Differenz zwischen diesen Schwellenwerten zuzüglich einer Verweilzeit verhindert ein schnelles Hin- und Herschalten, das den Ladevorgang jedes Mal unterbrechen würde.
 
-Wenn die Option aktiviert ist, steuert der Adapter die Einstellungen.`Charge3Phase` Bei der Wallbox sollte die Funktion deaktiviert bleiben, um den Lademodus weiterhin manuell auszuwählen. Da ein Schalter den Ladevorgang kurzzeitig unterbricht und nicht jedes Fahrzeug damit problemlos zurechtkommt, ist diese Funktion optional.
+Wenn die Option aktiviert ist, steuert der Adapter die Einstellungen. `Charge3Phase` Bei der Wallbox sollte die Funktion deaktiviert bleiben, um den Lademodus weiterhin manuell auszuwählen. Da ein Schalter den Ladevorgang kurzzeitig unterbricht und nicht jedes Fahrzeug damit problemlos zurechtkommt, ist diese Funktion optional.
 
 #### Betriebsarten
 
@@ -200,8 +200,8 @@ Bevor Sie sich auf die automatische Abrechnung verlassen, überprüfen Sie die a
 3. Der Ladezustand der Batterie bleibt zwischen 0 und 100.
 4. Alle Leistungswerte werden in Watt (W) anstatt in Kilowatt (kW) angegeben.
 5. Die Option „Wallbox-Verbrauch“ hängt davon ab, ob die Ladeleistung im gewählten Haushaltsverbrauchswert enthalten ist.
-6. `Wallbox_0.info.connection` Ist`true` Die
-7. `Wallbox_0.Power.Charge` ,`Wallbox_0.Power.GridPhases` und, auf unterstützter Hardware,`Wallbox_0.Power.EnabledPhases` enthalten plausible Werte.
+6. `Wallbox_0.info.connection` Ist `true` Die
+7. `Wallbox_0.Power.Charge`, `Wallbox_0.Power.GridPhases` und, auf unterstützter Hardware, `Wallbox_0.Power.EnabledPhases` enthalten plausible Werte.
 
 Der Ladevorgang kann mehrere Abfragezyklen benötigen, da der interne Zielwert pro Zyklus nur um 1 A ansteigt. Bei einem standardmäßigen Zyklus von 10 Sekunden und einem anfänglichen Zielwert von 0 A kann es etwa 100 Sekunden dauern, bis der standardmäßige Startwert von 10 A erreicht ist.
 

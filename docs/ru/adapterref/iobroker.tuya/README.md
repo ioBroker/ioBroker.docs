@@ -186,7 +186,7 @@ hash: +h2lzblNtCaJsmIO0aT58QkIMbodiFiABq6EAwdlKj4=
 
 - Остановите адаптер в административной панели.
 - Откройте командную оболочку на хосте ioBroker.
-- выполнять`DEBUG=@tuyapi/cloud* iobroker debug tuya`
+- выполнять `DEBUG=@tuyapi/cloud* iobroker debug tuya`
 - Получите лог из командной строки. Отправьте лог со ссылкой на созданную проблему на GitHub по адресу <iobroker@fischer-ka.de>
 
 ## Changelog

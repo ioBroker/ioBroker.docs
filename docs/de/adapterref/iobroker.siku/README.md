@@ -21,7 +21,7 @@ hash: FskwhJYi4W4+8s/rDdAZxJBvyQ3QUZwzy6F7xJnKeg0=
 
 Dieser Adapter integriert **SIKU RV V2-** Wohnraumlüftungsgeräte und kompatible Geräte der **Oxxify smart-** Serie in ioBroker. Dies schließt ausdrücklich Geräte ein, die unter den Bezeichnungen **Oxxify.smart 30** , **Oxxify.smart 50** und **Oxxify.smart 50 K** vermarktet werden.
 
-Der aktuelle Stand des Repositorys zielt auf eine funktionsreiche **öffentliche Betaversion** für den Betrieb im lokalen Netzwerk und den offiziellen ioBroker ab.`latest` Aufnahme.
+Der aktuelle Stand des Repositorys zielt auf eine funktionsreiche **öffentliche Betaversion** für den Betrieb im lokalen Netzwerk und den offiziellen ioBroker ab. `latest` Aufnahme.
 
 ## Merkmale
 
@@ -41,7 +41,7 @@ Der aktuelle Stand des Repositorys zielt auf eine funktionsreiche **öffentliche
 
 ## Unterstützte Kernfunktionen
 
-- Erkennung von Mastergeräten per Broadcast (`0x007C` ,`0x00B9` )
+- Erkennung von Mastergeräten per Broadcast (`0x007C`, `0x00B9`)
 - Verwaltung mehrerer Geräte über stabile Geräte-IDs
 - Abfrage von Status-, Sensor- und Diagnosewerten
 - Schreiben zentraler Parameter über Zustände, zum Beispiel:
@@ -57,7 +57,7 @@ Der aktuelle Stand des Repositorys zielt auf eine funktionsreiche **öffentliche
   - `schedule.monday.p1.speed`
   - `schedule.monday.p1.endHour`
   - `schedule.monday.p1.endMinute`
-  - ... bis zu`schedule.sunday.p4.*`
+  - ... bis zu `schedule.sunday.p4.*`
 - Diagnostische Werte wie zum Beispiel:
   - Filter-Countdown
   - Öffnungszeiten
@@ -99,7 +99,7 @@ Der Adapter wurde mit den offiziellen ioBroker-Tools generiert und in TypeScript
 - Dependabot Pull Requests führen vor dem automatischen Zusammenführen die vollständige Matrix der unterstützten Betriebssysteme/Node.js durch.
 - `main` Führt die für die Aufnahme in das ioBroker-Repository erforderliche, releaserelevante Linux/macOS/Windows-Matrix aus.
 - Für zusätzliche Prüfungen steht weiterhin ein separater, geplanter/manueller Windows-Regressionsworkflow zur Verfügung, da der Bootstrap des ioBroker-Controllers dort deutlich langsamer ist.
-- Änderungen zur Laufzeit können nach erfolgreicher Installation automatisch eine Patch-Version erhalten.`main` run; docs, tests, workflows und nur für die Entwicklung vorgesehene Abhängigkeitsaktualisierungen erzeugen keine leeren Releases.
+- Änderungen zur Laufzeit können nach erfolgreicher Installation automatisch eine Patch-Version erhalten. `main` run; docs, tests, workflows und nur für die Entwicklung vorgesehene Abhängigkeitsaktualisierungen erzeugen keine leeren Releases.
 - Getaggte Releases werden über Trusted Publishing direkt von GitHub Actions auf npm veröffentlicht.
 - GitHub-Releases werden automatisch mit generierten Versionshinweisen durch die Standard-Bereitstellungsaktion von ioBroker erstellt.
 
@@ -115,14 +115,14 @@ Eine kurze Checkliste für Releases und Repositories finden Sie in der [Datei RE
 
 ## Erweiterte Messagebox-API
 
-Der Adapter legt diese frei`sendTo` Befehle für Skripte und Integrationen:
+Der Adapter legt diese frei `sendTo` Befehle für Skripte und Integrationen:
 
-- `discover` Führt die UDP-Broadcast-Erkennung durch. Ohne explizites Passwort versucht der Adapter innerhalb eines Empfangsfensters von maximal 10 Sekunden das Standardpasswort und alle konfigurierten Gerätepasswörter (maximal 16). Konfigurationsaktualisierungen werden nur für Anrufe zurückgegeben und angewendet, die von einer ioBroker-Admin-Instanz geleitet werden; andere Anrufer erhalten`discoveryFoundNotSaved` Die
-- `syncTimeAll` : Führe eine manuelle RTC-Prüfung/Synchronisierung für alle konfigurierten Geräte durch.
-- `syncTimeDevice` : Führen Sie eine manuelle RTC-Prüfung/Synchronisierung für ein konfiguriertes Gerät durch`deviceId` Die
-- `readDevice` : Ausgewählte Rohprotokollparameter von einem explizit angegebenen IPv4/Geräte-ID-Ziel für Diagnosezwecke lesen.
+- `discover` Führt die UDP-Broadcast-Erkennung durch. Ohne explizites Passwort versucht der Adapter innerhalb eines Empfangsfensters von maximal 10 Sekunden das Standardpasswort und alle konfigurierten Gerätepasswörter (maximal 16). Konfigurationsaktualisierungen werden nur für Anrufe zurückgegeben und angewendet, die von einer ioBroker-Admin-Instanz geleitet werden; andere Anrufer erhalten `discoveryFoundNotSaved` Die
+- `syncTimeAll`: Führe eine manuelle RTC-Prüfung/Synchronisierung für alle konfigurierten Geräte durch.
+- `syncTimeDevice`: Führen Sie eine manuelle RTC-Prüfung/Synchronisierung für ein konfiguriertes Gerät durch `deviceId` Die
+- `readDevice`: Ausgewählte Rohprotokollparameter von einem explizit angegebenen IPv4/Geräte-ID-Ziel für Diagnosezwecke lesen.
 
-Die Diagnose`readDevice` Die Antwort serialisiert Paketmetadaten und zurückgegebene Parameterwerte als Hexadezimalzeichenketten. Gerätepasswörter werden niemals zurückgegeben; die Antwort enthält lediglich`passwordLength` Die
+Die Diagnose `readDevice` Die Antwort serialisiert Paketmetadaten und zurückgegebene Parameterwerte als Hexadezimalzeichenketten. Gerätepasswörter werden niemals zurückgegeben; die Antwort enthält lediglich `passwordLength` Die
 
 Das herstellereigene UDP-Protokoll überträgt sein kurzes Gerätepasswort unverschlüsselt, auch während der Erkennung. Betreiben Sie den Adapter nur in einem vertrauenswürdigen, isolierten lokalen Netzwerk. Die oben genannte Admin-Ursprungsprüfung dient der Nachrichtenweiterleitung für die Konfigurationsverarbeitung und stellt keine Sicherheitsbarriere gegen bereits in ioBroker ausgeführten Schadcode dar.
 

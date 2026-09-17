@@ -31,7 +31,7 @@ hash: 0Sib2rTzyeDA5rt89EwojuwAB0eMHJ89yQXpEOGet58=
 
 ## Beschreibung
 
-Dieser Adapter ermöglicht den Import von`knxproj` Dateien von ETS. Es generiert die Übersetzung zwischen KNX-Gruppenadressen und ioBroker und ordnet die Geräte Räumen zu (insbesondere für MobileUI).
+Dieser Adapter ermöglicht den Import von `knxproj` Dateien von ETS. Es generiert die Übersetzung zwischen KNX-Gruppenadressen und ioBroker und ordnet die Geräte Räumen zu (insbesondere für MobileUI).
 
 ru: [Installation und Installation eines Adapters](https://github.com/ioBroker/ioBroker.knx/blob/master/docs/ru/README.md)
 
@@ -61,7 +61,7 @@ Zusätzlich benötigen Sie eine Lizenz zur Nutzung des Adapters. Die verschieden
 
 ## Merkmale
 
-- Importieren`knxproj` Datei
+- Importieren `knxproj` Datei
 - Erzeugung einer ETS-ähnlichen Objektstruktur
 - Ermittlung und Kombination von Handlungs- und Zustandskanälen (Heuristik)
 - Alle Zustände werden beim Start aktualisiert
@@ -114,7 +114,7 @@ Das ist alles. Klicken Sie unten auf dieser Seite auf die Schaltfläche zum Spei
 5. lokale iobroker-IP: Wählen Sie die IP-Adresse/Schnittstelle aus, an die der Adapter gebunden werden soll.
 6. loglevel: Normalerweise ist der Wert "Info" eingestellt. Für Debugging-Zwecke erhöhen Sie den Wert.
 7. Nur neue Datenpunkte importieren: Diese Option ist standardmäßig aktiviert. Wenn sie deaktiviert wird, werden neue GAs generiert UND bestehende GAs neu erstellt.
-8. Schaltfläche „Datei hochladen“: Drag & Drop ist hier möglich, alternativ öffnet sich nach dem Klicken der Dateiauswahldialog. Hier können Sie Ihre ETS-Exportdatei hochladen.`knxproj` Format. Nach erfolgreichem Import wird in einem Dialogfeld die Anzahl der importierten Objekte angezeigt. Klicken Sie nun auf „Speichern & Schließen“. Der Adapter sollte nun starten. Beim Start liest der Adapter alle Gruppenadressen mit Lese- und Schreibflag. Dies kann einige Zeit dauern und die KNX-Buslast erhöhen. Die Werte in Ihrer Visualisierung werden jedoch nach dem Start aktualisiert. Das Hochladen passwortgeschützter Dateien ist derzeit nicht möglich.
+8. Schaltfläche „Datei hochladen“: Drag & Drop ist hier möglich, alternativ öffnet sich nach dem Klicken der Dateiauswahldialog. Hier können Sie Ihre ETS-Exportdatei hochladen. `knxproj` Format. Nach erfolgreichem Import wird in einem Dialogfeld die Anzahl der importierten Objekte angezeigt. Klicken Sie nun auf „Speichern & Schließen“. Der Adapter sollte nun starten. Beim Start liest der Adapter alle Gruppenadressen mit Lese- und Schreibflag. Dies kann einige Zeit dauern und die KNX-Buslast erhöhen. Die Werte in Ihrer Visualisierung werden jedoch nach dem Start aktualisiert. Das Hochladen passwortgeschützter Dateien ist derzeit nicht möglich.
 9. Host-ID: Dies ist eine spezielle ID des iobroker-Hosts. Diese ID ist für die Generierung und Validierung der Lizenz erforderlich.
 10. GA-Tools: Werkzeugkasten für sich schnell ändernde GAs
 

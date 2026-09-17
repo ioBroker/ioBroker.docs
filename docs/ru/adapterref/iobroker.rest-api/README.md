@@ -27,18 +27,18 @@ hash: EKkqBSppCx+47SOCO3BEkHos8uEg1b5WygRUZz039k4=
 
 ## Использование
 
-Вызов в браузере`http://ipaddress:8093/` а также использовать Swagger UI для запроса и изменения состояний и объектов.
+Вызов в браузере `http://ipaddress:8093/` а также использовать Swagger UI для запроса и изменения состояний и объектов.
 
 Примеры запросов:
 
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - чтение состояния в формате JSON
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - считывать состояние как строку (только значение)
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - Запись состояния с помощью GET-запроса (только для обратной совместимости с simple-api)
-- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - отправить сообщение`javascript.0` в сценарии`scriptName`
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - отправить сообщение `javascript.0` в сценарии `scriptName`
 
 ### Аутентификация
 
-Для включения аутентификации необходимо установить следующие параметры:`Authentication` параметр в диалоговом окне настроек.
+Для включения аутентификации необходимо установить следующие параметры: `Authentication` параметр в диалоговом окне настроек.
 
 Поддерживаются три типа аутентификации:
 
@@ -46,15 +46,15 @@ hash: EKkqBSppCx+47SOCO3BEkHos8uEg1b5WygRUZz039k4=
 - Базовая аутентификация
 - OAuth2 (Bearer)
 
-Для аутентификации в запросе необходимо установить`user` и`pass` в запросе следующего вида:
+Для аутентификации в запросе необходимо установить `user` и `pass` в запросе следующего вида:
 
 ```http
 http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin&pass=admin
 ```
 
-Для базовой аутентификации необходимо установить следующие параметры:`Authorization` заголовок со значением`Basic base64(user:pass)` .
+Для базовой аутентификации необходимо установить следующие параметры: `Authorization` заголовок со значением `Basic base64(user:pass)`.
 
-Для аутентификации OAuth2 необходимо установить следующие параметры:`Authorization` заголовок со значением`Bearer <AccessToken>` .
+Для аутентификации OAuth2 необходимо установить следующие параметры: `Authorization` заголовок со значением `Bearer <AccessToken>`.
 
 Токен доступа можно получить с помощью HTTP-запроса следующего вида:
 
@@ -90,7 +90,7 @@ http://ipaddress:8093/oauth/token?grant_type=password&username=<user>&password=<
 
 ## Веб-расширение
 
-Этот адаптер может работать как веб-расширение. В этом случае путь к нему доступен по адресу:`http://ipaddress:8082/rest-api/`
+Этот адаптер может работать как веб-расширение. В этом случае путь к нему доступен по адресу: `http://ipaddress:8082/rest-api/`
 
 ## Уведомление
 
@@ -106,9 +106,9 @@ http://ipaddress:8093/oauth/token?grant_type=password&username=<user>&password=<
 
 Например
 
-- `http://ipaddress:8093/v1/command/getState?id=system.adapter.admin.0.alive` - прочитать состояние`system.adapter.admin.0.alive`
-- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png` - прочитать файл`admin.admin/admin.png` в виде результата в формате JSON
-- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png?binary` - прочитать файл`admin.admin/admin.png` в виде файла
+- `http://ipaddress:8093/v1/command/getState?id=system.adapter.admin.0.alive` - прочитать состояние `system.adapter.admin.0.alive`
+- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png` - прочитать файл `admin.admin/admin.png` в виде результата в формате JSON
+- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png?binary` - прочитать файл `admin.admin/admin.png` в виде файла
 - `http://ipaddress:8093/v1/command/extendObject?id=system.adapter.admin.0?obj={"common":{"enabled":true}}` - перезапустить административную панель
 
 Вы также можете отправлять все команды методом POST. Тело запроса должно быть объектом с параметрами. Например:
@@ -132,7 +132,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getStates(pattern)` - Получить список состояний для заданного шаблона (например, для system.adapter.admin.0.\*). Визуализация результата в графическом интерфейсе может вызывать проблемы.
 - `getForeignStates(pattern)` - аналогично getStates
 - `getState(id)` - получить значение состояния по идентификатору
-- `setState(id, state)` - установить значение состояния с помощью объекта JSON (например)`{"val": 1, "ack": true}` )
+- `setState(id, state)` - установить значение состояния с помощью объекта JSON (например) `{"val": 1, "ack": true}`)
 - `getBinaryState(id)` - получить бинарное состояние по идентификатору
 - `setBinaryState(id, base64)` - установить двоичное состояние по идентификатору
 
@@ -141,7 +141,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getObject(id)` - получить объект по ID
 - `getObjects(list)` - Получить все состояния и комнаты. Графический интерфейс может испытывать проблемы с визуализацией результата.
 - `getObjectView(design, search, params)` - получить конкретные объекты, например, design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
-- `setObject(id, obj)` - установить объект с помощью JSON-объекта (например)`{"common": {"type": "boolean"}, "native": {}, "type": "state"}` )
+- `setObject(id, obj)` - установить объект с помощью JSON-объекта (например) `{"common": {"type": "boolean"}, "native": {}, "type": "state"}`)
 - `delObject(id, options)` - удалить объект по ID
 
 ### Файлы
@@ -184,7 +184,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `delGroup(group)` - удалить группу
 - `changePassword(user, pass)` - изменить пароль пользователя
 - `getAllObjects()` - Все объекты считываются как список. В графическом интерфейсе пользователя могут возникнуть проблемы с визуализацией результата.
-- `extendObject(id, obj)` - Изменить объект по ID с помощью JSON. (например,`{"common":{"enabled": true}}` )
+- `extendObject(id, obj)` - Изменить объект по ID с помощью JSON. (например, `{"common":{"enabled": true}}`)
 - `getForeignObjects(pattern, type)` - то же самое, что и getObjects
 - `delObjects(id, options)` - удаление объектов по шаблону
 

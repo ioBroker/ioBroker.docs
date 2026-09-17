@@ -21,7 +21,7 @@ hash: 1/BdBjV+kOxM6ivEgzwqK0bKJ78VpMtF9v88n3GBAMA=
 
 ## Installation
 
-1. Installieren Sie diesen Adapter über die iobroker-Admin-GUI oder über`npm install iobroker.tradfri --production`
+1. Installieren Sie diesen Adapter über die iobroker-Admin-GUI oder über `npm install iobroker.tradfri --production`
 2. Fügen Sie in der ioBroker-GUI eine Adapterinstanz hinzu.
 3. Konfigurieren Sie die Instanz, indem Sie die IP-Adresse/den Hostnamen Ihres Gateways und den Sicherheitscode eingeben, der sich auf dem Etikett an der Unterseite befindet.
 
@@ -46,7 +46,7 @@ Can't find Python executable "python", you can set the PYTHON env variable.
 Um das Problem zu beheben, öffnen Sie eine administrative Shell:
 
 1. Drücken Sie die<kbd> ⊞ Windows</kbd> Schlüssel
-2. Eingeben`cmd` , Presse<kbd> Strg</kbd> +<kbd> Schicht</kbd> +<kbd> Eingeben</kbd>
+2. Eingeben `cmd`, Presse<kbd> Strg</kbd> +<kbd> Schicht</kbd> +<kbd> Eingeben</kbd>
 3. Bestätigen Sie die Benutzerkontensteuerung (UAC) und führen Sie folgenden Befehl aus:
 
 ```
@@ -57,7 +57,7 @@ Dies kann eine Weile dauern... danach sollte die Installation erfolgreich sein.
 
 ## Senden benutzerdefinierter CoAP-Pakete
 
-Sie können benutzerdefinierte CoAP-Pakete von anderen Adaptern senden, indem Sie`sendTo` Beispiel aus JavaScript:
+Sie können benutzerdefinierte CoAP-Pakete von anderen Adaptern senden, indem Sie `sendTo` Beispiel aus JavaScript:
 
 ```js
 sendTo("tradfri.0", "request", options, (ret) => {
@@ -65,7 +65,7 @@ sendTo("tradfri.0", "request", options, (ret) => {
 });
 ```
 
-Der`options` Das Objekt sieht wie folgt aus:
+Der `options` Das Objekt sieht wie folgt aus:
 
 ```js
 {
@@ -75,7 +75,7 @@ Der`options` Das Objekt sieht wie folgt aus:
 }
 ```
 
-Das Ergebnisobjekt`ret` sieht folgendermaßen aus:
+Das Ergebnisobjekt `ret` sieht folgendermaßen aus:
 
 ```js
 {

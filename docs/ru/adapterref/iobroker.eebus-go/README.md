@@ -92,21 +92,21 @@ hash: dBMZviBWQSehpkjy+SH6GLyPSntdPEwjZcW/u16v7fg=
 - info.discoveredDevices: список обнаруженных устройств EEBUS
 - info.ski: SKI этого экземпляра адаптера
 
-Государства, связанные с LPC (в рамках`LPC/` ):
+Государства, связанные с LPC (в рамках `LPC/`):
 
 - LPC.state: состояние сценария использования LPC, см. спецификацию сценария использования EEBUS, упомянутую выше.
 - LPC.limit: текущий лимит потребления, отправляемый блоком управления, если функция ограничения активна.
 - LPC.limitDuration: продолжительность действия лимита активного потребления
 - LPC.limitMinutesToday: общая продолжительность снижения яркости освещения. По закону она не должна превышать 2 часа в день. Если она увеличивается, обратитесь к своему поставщику электроэнергии.
 
-Штаты, связанные с LPP (в рамках`LPP/` (только при включенном LPP):
+Штаты, связанные с LPP (в рамках `LPP/` (только при включенном LPP):
 
 - LPP.state: состояние варианта использования LPP (тот же конечный автомат, что и LPC).
 - LPP.limit: текущий лимит производства, отправляемый блоком управления, если функция ограничения активна.
 - LPP.limitDuration: длительность ограничения активного производства
 - LPP.limitMinutesToday: общая продолжительность сокращения производства
 
-Штаты, относящиеся ко всем энергетическим защитным механизмам (в рамках`LPC.EnergyGuards.Guard_{name}/` или`LPP.EnergyGuards.Guard_{name}/` ):
+Штаты, относящиеся ко всем энергетическим защитным механизмам (в рамках `LPC.EnergyGuards.Guard_{name}/` или `LPP.EnergyGuards.Guard_{name}/`):
 
 - процент: процент от лимита блока управления, который должен быть выделен этому устройству во время действия ограничения.
 - currentLimit: если не равно нулю, текущий активный лимит для этого устройства.
@@ -126,7 +126,7 @@ hash: dBMZviBWQSehpkjy+SH6GLyPSntdPEwjZcW/u16v7fg=
 
 Пример ручной защиты можно найти в папке doc.
 
-**Примечание:** При обновлении с версии без поддержки LPP существующие состояния LPC автоматически переносятся.`info.*` к`LPC.*` и объекты защиты энергии от`EnergyGuards.Guard_*` к`LPC.EnergyGuards.Guard_*` Пользовательские скрипты, ссылающиеся на старые пути, необходимо обновить.
+**Примечание:** При обновлении с версии без поддержки LPP существующие состояния LPC автоматически переносятся. `info.*` к `LPC.*` и объекты защиты энергии от `EnergyGuards.Guard_*` к `LPC.EnergyGuards.Guard_*` Пользовательские скрипты, ссылающиеся на старые пути, необходимо обновить.
 
 ### Поведение
 
@@ -881,7 +881,7 @@ notice like this when it starts in an interactive mode:
     This is free software, and you are welcome to redistribute it
     under certain conditions; type `show c' for details.
 
-The hypothetical commands `show w' and `show c' should show the appropriate
+The hypothetical commands `show w' and ` show c' should show the appropriate
 parts of the General Public License. Of course, your program's commands
 might be different; for a GUI interface, you would use an "about box".
 

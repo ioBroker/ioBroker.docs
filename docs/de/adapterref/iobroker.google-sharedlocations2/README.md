@@ -32,7 +32,7 @@ Wenn Sie Benutzername und Passwort nicht eingeben möchten, ist dies möglich. L
 
 ### Einen Cookie verwenden
 
-Manchmal treten Anmeldeprobleme auf. Da der Adapter lediglich einen Browser öffnet und versucht, sich anzumelden (da er aber mehr oder weniger „blind“ arbeitet und auf bereits vorhandene Informationen angewiesen ist), kann dies fehlschlagen, und ich kann nicht viel dagegen tun. Gelegentlich erhalten Sie eine Warnung bezüglich einer erneuten Anmeldung. Manchmal müssen Sie sich mit einem zweiten Faktor erneut anmelden. Sollten Sie auf ein solches Problem stoßen, kopieren Sie einen gültigen Cookie für google.com in den entsprechenden Zustand.`google-sharedlocations2.0.info.currentCookies` von einem echten Browser.
+Manchmal treten Anmeldeprobleme auf. Da der Adapter lediglich einen Browser öffnet und versucht, sich anzumelden (da er aber mehr oder weniger „blind“ arbeitet und auf bereits vorhandene Informationen angewiesen ist), kann dies fehlschlagen, und ich kann nicht viel dagegen tun. Gelegentlich erhalten Sie eine Warnung bezüglich einer erneuten Anmeldung. Manchmal müssen Sie sich mit einem zweiten Faktor erneut anmelden. Sollten Sie auf ein solches Problem stoßen, kopieren Sie einen gültigen Cookie für google.com in den entsprechenden Zustand. `google-sharedlocations2.0.info.currentCookies` von einem echten Browser.
 
 Sie können Benutzername und Passwort in der Konfiguration sogar leer lassen, und der Adapter wird dann versuchen, diesen Cookie so gut wie möglich aufrechtzuerhalten (ähnlich wie meine Abspaltung des alten google-sharedlocations-Adapters), ohne jemals zu versuchen, sich anzumelden (aber die gelegentliche Verwendung des Browsers zum Laden der gesamten Seite scheint zu helfen, angemeldet zu bleiben).
 

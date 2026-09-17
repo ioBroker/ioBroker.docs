@@ -34,13 +34,13 @@ Docker — это платформа с открытым исходным код
 ## Предварительные требования
 
 - Для корректной работы вам необходимо установить и запустить Docker в вашей системе.
-- Пользователь, запускающий процесс ioBroker, должен иметь разрешение на доступ к демону Docker. Обычно это делается путем добавления пользователя в список рассылки.`docker` группа. Или просто позвоните.`iob fix` установить права доступа.
+- Пользователь, запускающий процесс ioBroker, должен иметь разрешение на доступ к демону Docker. Обычно это делается путем добавления пользователя в список рассылки. `docker` группа. Или просто позвоните. `iob fix` установить права доступа.
 
 ## Как установить Docker
 
 - Инструкции по установке см. в официальной документации Docker: <https://docs.docker.com/get-docker/>
 - После установки Docker убедитесь, что служба Docker запущена. Проверить состояние службы Docker можно с помощью следующей команды:
-  - В Linux:`systemctl status docker`
+  - В Linux: `systemctl status docker`
   - В операционных системах Windows и macOS Docker Desktop должен быть запущен.
 
 ## Использование API Docker
@@ -53,13 +53,13 @@ Docker — это платформа с открытым исходным код
    - `/lib/systemd/system/docker.service`
    - `/etc/docker/daemon.json`
    - `/etc/systemd/system/docker.service`
-2. Если файл`/etc/docker/daemon.json` добавить или изменить`hosts` Запись, включающая TCP-сокет. Например:
+2. Если файл `/etc/docker/daemon.json` добавить или изменить `hosts` Запись, включающая TCP-сокет. Например:
    ```json
    {
        "hosts": ["unix:///var/run/docker.sock", "tcp://0.0.0.0:2375"]
    }
    ```
-   Если файл является файлом службы systemd (например,`/lib/systemd/system/docker.service` ), изменить`ExecStart` строка для включения`-H tcp://0.0.0.0:2375` вариант. Например:
+   Если файл является файлом службы systemd (например, `/lib/systemd/system/docker.service`), изменить `ExecStart` строка для включения `-H tcp://0.0.0.0:2375` вариант. Например:
    ```
    ExecStart=/usr/bin/dockerd -H fd:// -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375 --containerd=/run/containerd/containerd.sock 
    ```
@@ -76,9 +76,9 @@ Docker — это платформа с открытым исходным код
 
 ## Все
 
-- BackItUp должен поддерживать`/opt/iobroker/docker-volumes`
+- BackItUp должен поддерживать `/opt/iobroker/docker-volumes`
 - Подумайте о том, что js-контроллер удалит докеры, которые больше не используются, но имеют метку.
-- Установщик Docker:`iob docker <remove>`
+- Установщик Docker: `iob docker <remove>`
 - Индикатор выполнения: добавление/загрузка образа, создание контейнера
 
 <!--

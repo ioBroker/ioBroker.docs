@@ -41,9 +41,9 @@ Bitte erstellen Sie für nicht funktionierende HmIP-Geräte ein Ticket mit diese
 
 Danke schön!
 
-Wenn Sie wissen möchten, ob die Alarmanlage aktiviert ist, lesen Sie`homes.<homeId>.functionalHomes.securityAndAlarm.securityZonesArmedMode` Es meldet die bewaffneten Zonen in der Terminologie des Dashboards, das das Haus verwendet:`OFF` ,`PRESENCE` (nur Umfang) oder`ABSENCE` (abwesend) auf dem anfragebasierten Dashboard und`OFF` ,`INTERNAL` ,`EXTERNAL` oder`INTERNAL_AND_EXTERNAL` auf der klassischen Variante.`internalZoneArmed` Und`externalZoneArmed` Daneben befinden sich dieselben Informationen wie die klassischen booleschen Werte auf den jeweiligen Dashboards. Zum Aktivieren oder Deaktivieren schreiben Sie einen Modus an`activateSecurityZones` Die
+Wenn Sie wissen möchten, ob die Alarmanlage aktiviert ist, lesen Sie `homes.<homeId>.functionalHomes.securityAndAlarm.securityZonesArmedMode` Es meldet die bewaffneten Zonen in der Terminologie des Dashboards, das das Haus verwendet: `OFF`, `PRESENCE` (nur Umfang) oder `ABSENCE` (abwesend) auf dem anfragebasierten Dashboard und `OFF`, `INTERNAL`, `EXTERNAL` oder `INTERNAL_AND_EXTERNAL` auf der klassischen Variante. `internalZoneArmed` Und `externalZoneArmed` Daneben befinden sich dieselben Informationen wie die klassischen booleschen Werte auf den jeweiligen Dashboards. Zum Aktivieren oder Deaktivieren schreiben Sie einen Modus an `activateSecurityZones` Die
 
-Beachten Sie, dass`functionalHomes.securityAndAlarm.active` Es handelt sich nicht um einen bewaffneten Staat – es wird lediglich darüber berichtet, ob das Haus überhaupt über eine Sicherheitslösung verfügt.
+Beachten Sie, dass `functionalHomes.securityAndAlarm.active` Es handelt sich nicht um einen bewaffneten Staat – es wird lediglich darüber berichtet, ob das Haus überhaupt über eine Sicherheitslösung verfügt.
 
 ## Wichtige Informationen: Was ist mit diesem Adapter möglich?
 

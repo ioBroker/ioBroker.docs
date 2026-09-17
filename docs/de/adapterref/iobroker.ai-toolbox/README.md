@@ -130,17 +130,17 @@ Konfigurieren Sie jeden KI-Anbieter einzeln:
 
 ### Objektinteraktion
 
-Jedes Tool erscheint im ioBroker-Objektbaum. Verwenden Sie`Tools.$YourToolName.text_request` um Anfragen zu senden und`Tools.$YourToolName.text_response` um Antworten zu erhalten.
+Jedes Tool erscheint im ioBroker-Objektbaum. Verwenden Sie `Tools.$YourToolName.text_request` um Anfragen zu senden und `Tools.$YourToolName.text_response` um Antworten zu erhalten.
 
 #### Anfragen zu Bildmaterial
 
-Wenn Sie Bild-/Vision-Anfragen aktiviert haben, können Sie Folgendes verwenden:`Tools.$YourToolName.image_url` Um eine Bild-URL oder einen lokalen Dateipfad für die Analyse durch das Tool festzulegen, wird das Bild in die Anfrage aufgenommen, sobald Sie den Status des Tools festlegen.`Tools.$YourToolName.text_request` Datenpunkt.
+Wenn Sie Bild-/Vision-Anfragen aktiviert haben, können Sie Folgendes verwenden: `Tools.$YourToolName.image_url` Um eine Bild-URL oder einen lokalen Dateipfad für die Analyse durch das Tool festzulegen, wird das Bild in die Anfrage aufgenommen, sobald Sie den Status des Tools festlegen. `Tools.$YourToolName.text_request` Datenpunkt.
 
 Hinweis: Sie können eine lokale URL (z. B. in Ihrem lokalen Netzwerk <http://192.168.178.1/image.jpg> ) oder einen Dateipfad (wo ioBroker Leseberechtigung hat, z. B. /opt/iobroker/iobroker-data/telegram\_0/photo/image.jpg) verwenden. Der Adapter wandelt das Bild in einen Base64-String um und fügt ihn der Anfrage hinzu.
 
-## Skriptintegration (`sendTo` )
+## Skriptintegration (`sendTo`)
 
-Sie können programmatisch über die`sendTo` Funktion:
+Sie können programmatisch über die `sendTo` Funktion:
 
 #### Textanfragen
 
@@ -181,11 +181,11 @@ sendTo('ai-toolbox.0', 'tool_request', {
 
 ### Objektinteraktion
 
-Jedes definierte Modell erscheint auch im ioBroker-Objektbaum. Verwenden Sie`Models.$ModelName.text_request` um Anfragen zu senden und`Models.$ModelName.text_response` Um Antworten zu erhalten. Mit der Skriptintegration können Sie noch kreativere Integrationen erstellen, beispielsweise eine dynamische Systemabfrage.
+Jedes definierte Modell erscheint auch im ioBroker-Objektbaum. Verwenden Sie `Models.$ModelName.text_request` um Anfragen zu senden und `Models.$ModelName.text_response` Um Antworten zu erhalten. Mit der Skriptintegration können Sie noch kreativere Integrationen erstellen, beispielsweise eine dynamische Systemabfrage.
 
-## Skriptintegration (`sendTo` )
+## Skriptintegration (`sendTo`)
 
-Sie können programmatisch über die`sendTo` Funktion:
+Sie können programmatisch über die `sendTo` Funktion:
 
 #### Textanfragen
 
@@ -293,7 +293,7 @@ Die folgenden Beispiele veranschaulichen die Konfiguration und Verwendung benutz
 
 **Beschreibung:** Ein einfacher Chatbot, der auf Nutzernachrichten in einem lockeren und freundlichen Ton antwortet. Er eignet sich für ungezwungene Gespräche.
 
-- **Name:**`simple-chatbot`
+- **Name:** `simple-chatbot`
 
 - **Systemaufforderung:**\
   `"You are a friendly and conversational chatbot. Respond to user messages in an engaging and cheerful way. Keep your answers brief and focus on maintaining a pleasant tone."`
@@ -304,9 +304,9 @@ Die folgenden Beispiele veranschaulichen die Konfiguration und Verwendung benutz
 - **Beispielantwort:**\
   `"I'm doing great, thanks for asking! How about you?"`
 
-- **Nachrichtenverlauf:**`10` (Ermöglicht es dem Chatbot, sich den Kontext der letzten 10 Gesprächsrunden zu merken, um einen natürlicheren Gesprächsverlauf zu gewährleisten.)
+- **Nachrichtenverlauf:** `10` (Ermöglicht es dem Chatbot, sich den Kontext der letzten 10 Gesprächsrunden zu merken, um einen natürlicheren Gesprächsverlauf zu gewährleisten.)
 
-- **Temperatur:**`0.8` (Fördert die Kreativität und sorgt gleichzeitig für relevante und freundliche Antworten.)
+- **Temperatur:** `0.8` (Fördert die Kreativität und sorgt gleichzeitig für relevante und freundliche Antworten.)
 
 ---
 
@@ -322,7 +322,7 @@ Die folgenden Beispiele veranschaulichen die Konfiguration und Verwendung benutz
 
 ### Beispiel für die Skriptintegration
 
-Um dieses Tool programmatisch in ioBroker zu verwenden, können Sie es über die folgende Schnittstelle integrieren:`sendTo` Funktion:
+Um dieses Tool programmatisch in ioBroker zu verwenden, können Sie es über die folgende Schnittstelle integrieren: `sendTo` Funktion:
 
 ```javascript
 sendTo('ai-toolbox.0', 'tool_request', {
@@ -338,7 +338,7 @@ sendTo('ai-toolbox.0', 'tool_request', {
 
 **Beschreibung:** Ein multimodales Werkzeug zur Bildanalyse, das detaillierte Beschreibungen und Erkenntnisse auf Basis des visuellen Inhalts liefert. Es kann Objekte, Szenen und andere visuelle Elemente im Bild identifizieren.
 
-- **Name:**`vision-analyzer`
+- **Name:** `vision-analyzer`
 
 - **Systemaufforderung:**\
   `"You are a vision assistant. Analyze the provided image and generate a detailed description or insights based on the visual content. Your responses should be informative and engaging, focusing on key elements and context in the image."`
@@ -349,19 +349,19 @@ sendTo('ai-toolbox.0', 'tool_request', {
 - **Beispielantwort:**\
   `"This image shows a tall, columnar evergreen tree growing in a black nursery pot or container. It appears to be a cypress or juniper variety, with dense, dark green foliage that grows in a narrow, upright pyramidal shape. These types of trees are popular for landscaping, especially in formal gardens or as accent plants, and they can also be used to create natural privacy screens when planted in rows."`
 
-- **Nachrichtenverlauf:**`6` (Behält den Kontext für verwandte Bildanalysefragen bei.)
+- **Nachrichtenverlauf:** `6` (Behält den Kontext für verwandte Bildanalysefragen bei.)
 
-- **Temperatur:**`0.6` (Bietet ein ausgewogenes Verhältnis zwischen Kreativität und Relevanz für unterschiedliche Reaktionen.)
+- **Temperatur:** `0.6` (Bietet ein ausgewogenes Verhältnis zwischen Kreativität und Relevanz für unterschiedliche Reaktionen.)
 
-- **Bild-/Vision-Anfragen aktivieren**`true` (Ermöglicht es dem Tool, Bild-URLs zur Analyse zu akzeptieren.)
+- **Bild-/Vision-Anfragen aktivieren** `true` (Ermöglicht es dem Tool, Bild-URLs zur Analyse zu akzeptieren.)
 
-- **Sehanfragen in den Chatverlauf aufnehmen**`true` (Beinhaltet Bild-URLs im Chatverlauf, um den Kontext zu erhalten.)
+- **Sehanfragen in den Chatverlauf aufnehmen** `true` (Beinhaltet Bild-URLs im Chatverlauf, um den Kontext zu erhalten.)
 
 ---
 
 ### Beispiel für die Skriptintegration
 
-Um dieses Tool programmatisch in ioBroker zu verwenden, können Sie es über die folgende Schnittstelle integrieren:`sendTo` Funktion:
+Um dieses Tool programmatisch in ioBroker zu verwenden, können Sie es über die folgende Schnittstelle integrieren: `sendTo` Funktion:
 
 ```javascript
 sendTo('ai-toolbox.0', 'tool_request', {
@@ -378,7 +378,7 @@ sendTo('ai-toolbox.0', 'tool_request', {
 
 **Beschreibung:** Ein Chatbot, der personalisierte Wetterberichte auf Basis der eingegebenen Daten wie Standort, Temperatur und Wetterbedingungen erstellt. Die Antworten sind ansprechend und auf den Nutzer zugeschnitten.
 
-- **Name:**`weather-reporter`
+- **Name:** `weather-reporter`
 
 - **Systemaufforderung:**\
   `"You are a weather reporter chatbot. Based on the input data, generate a detailed and engaging weather report. Your response should include a friendly greeting, a brief overview of the current conditions, and a suggestion for the day. Keep your tone cheerful and informative."`
@@ -389,15 +389,15 @@ sendTo('ai-toolbox.0', 'tool_request', {
 - **Beispielantwort:**\
   `Hello there! 🌤️ Happy December 7th! As we step into the afternoon, the weather is quite cool at a temperature of 7°C. With a humidity level of 87%, it feels a bit damp out there, so don’t forget to grab your favorite cozy sweater if you’re heading outside! Cloud cover is fairly high today, sitting at 93%, which gives the sky a soft, overcast appearance. The air pressure is at 997 mbar, and while there’s a moderate wind blowing at 23 km/h, it might feel a tad brisk, so a light jacket would be a good call. The good news is that we haven’t seen any rain today, so if you’re planning to venture out, it’s a great time for a stroll or perhaps a warm drink at your favorite café! Stay warm and enjoy your day! ☕🌧️`
 
-- **Nachrichtenverlauf:**`5` (Ermöglicht die kurzfristige Beibehaltung des Kontextes für damit zusammenhängende Folgefragen.)
+- **Nachrichtenverlauf:** `5` (Ermöglicht die kurzfristige Beibehaltung des Kontextes für damit zusammenhängende Folgefragen.)
 
-- **Temperatur:**`0.7` (Gewährleistet eine Mischung aus Kreativität und Relevanz für abwechslungsreiche Berichte.)
+- **Temperatur:** `0.7` (Gewährleistet eine Mischung aus Kreativität und Relevanz für abwechslungsreiche Berichte.)
 
 ---
 
 ### Beispiel für die Skriptintegration
 
-Um dieses Tool programmatisch in ioBroker zu verwenden, können Sie es über die folgende Schnittstelle integrieren:`sendTo` Funktion:
+Um dieses Tool programmatisch in ioBroker zu verwenden, können Sie es über die folgende Schnittstelle integrieren: `sendTo` Funktion:
 
 ```javascript
 var day =  new  Date().toLocaleString();
@@ -423,15 +423,15 @@ sendTo('ai-toolbox.0',  'tool_request',  {
 
 **Beschreibung:** Empfiehlt Musik-Playlists basierend auf dem aktuellen Wetter und der Tageszeit. Kann mit Smart Speakern wie Alexa oder Google Home verwendet werden.
 
-- **Name:**`music-recommender`
+- **Name:** `music-recommender`
 - **Systemaufforderung:**\
   `"You are a music assistant. Based on the current weather and time of day, suggest a playlist or genre that matches the mood. Use concise and creative recommendations. You answer only with your suggestion and nothing else."`
 - **Beispielanfrage:**\
   `"Current Time 24th December 2024 17:30. Outside Temperature: 10°C."`
 - **Beispielantwort:**\
   `"Christmas Music"`
-- **Nachrichtenverlauf:**`7` (Wir verwenden den Wert 7, da wir dieses Beispieltool einmal täglich ausführen und nicht möchten, dass es seine Antworten wiederholt. Mit dieser Einstellung berücksichtigt es die Vorschläge der letzten 7 Antworten auf unsere Anfragen.)
-- **Temperatur:**`0.7` (Gleicht Kreativität und Relevanz aus)
+- **Nachrichtenverlauf:** `7` (Wir verwenden den Wert 7, da wir dieses Beispieltool einmal täglich ausführen und nicht möchten, dass es seine Antworten wiederholt. Mit dieser Einstellung berücksichtigt es die Vorschläge der letzten 7 Antworten auf unsere Anfragen.)
+- **Temperatur:** `0.7` (Gleicht Kreativität und Relevanz aus)
 
 **Beispiele für eine Anfrage und Antwort an dieses Tool könnten wie folgt aussehen:**
 
@@ -447,7 +447,7 @@ sendTo('ai-toolbox.0',  'tool_request',  {
 
 **Beschreibung:** Empfiehlt RGB-Lichteinstellungen basierend auf Stimmung und Genre der aktuell abgespielten Musik. Das Tool analysiert die Merkmale der Musik (z. B. Tempo, Stimmung) und schlägt passende Lichtfarben für fünf RGB-Lampen vor. Die Ausgabe erfolgt im JSON-Format mit den RGB-Hexadezimalwerten für jede Lampe.
 
-- **Name:**`light-setter`
+- **Name:** `light-setter`
 
 - **Systemaufforderung:**
 
@@ -471,9 +471,9 @@ sendTo('ai-toolbox.0',  'tool_request',  {
   }
   ```
 
-- **Nachrichtenverlauf:**`0` (Einmalverwendungstool zur Minimierung des Tokenverbrauchs.)
+- **Nachrichtenverlauf:** `0` (Einmalverwendungstool zur Minimierung des Tokenverbrauchs.)
 
-- **Temperatur:**`0.6` (Gleicht Kreativität und Beständigkeit aus.)
+- **Temperatur:** `0.6` (Gleicht Kreativität und Beständigkeit aus.)
 
 ---
 
@@ -489,7 +489,7 @@ sendTo('ai-toolbox.0',  'tool_request',  {
 
 ### Skriptintegrationsbeispiel
 
-Um dieses Tool programmatisch in ioBroker zu verwenden, können Sie es über die folgende Schnittstelle integrieren:`sendTo` Funktion:
+Um dieses Tool programmatisch in ioBroker zu verwenden, können Sie es über die folgende Schnittstelle integrieren: `sendTo` Funktion:
 
 ```javascript
 sendTo('ai-toolbox.0', 'tool_request', {
@@ -538,8 +538,8 @@ Jeder Anbieter hat seine Stärken. Wählen Sie das Modell, das am besten zu Ihre
 
 #### **4. Leistung und Kosten in Einklang bringen**
 
-- Beginnen Sie mit **kostenlosen Modellen** wie`meta-llama` Wir verwenden OpenRouter, um Ideen zu testen, bevor wir auf leistungsfähigere, kostenpflichtige Optionen umsteigen.
-- Verwenden Sie **Token-Statistiken** (verfügbar in`.statistics.tokens_input` Und`.statistics.tokens_output` ) um die Nutzung zu überwachen und die Werkzeugkonfigurationen zu optimieren.
+- Beginnen Sie mit **kostenlosen Modellen** wie `meta-llama` Wir verwenden OpenRouter, um Ideen zu testen, bevor wir auf leistungsfähigere, kostenpflichtige Optionen umsteigen.
+- Verwenden Sie **Token-Statistiken** (verfügbar in `.statistics.tokens_input` Und `.statistics.tokens_output`) um die Nutzung zu überwachen und die Werkzeugkonfigurationen zu optimieren.
 
 ---
 
@@ -563,7 +563,7 @@ Jeder Anbieter hat seine Stärken. Wählen Sie das Modell, das am besten zu Ihre
 #### **6. Testen, Optimieren und Weiterentwickeln**
 
 - Verwenden Sie Debugging-Protokolle, um Probleme mit der Tool-Performance zu identifizieren.\
-  &#x20;Protokollierungsstufe festlegen auf`debug` in der ioBroker-Administrationsoberfläche.
+  &#x20;Protokollierungsstufe festlegen auf `debug` in der ioBroker-Administrationsoberfläche.
 - Experimentieren Sie mit **verschiedenen Systemaufforderungen, Temperatureinstellungen und Token-Limits,** um das Verhalten zu optimieren.
 
 ---
@@ -592,7 +592,7 @@ Diese bewährten Verfahren, kombiniert mit Experimenten und iterativer Verbesser
 
 ### Debugging
 
-Stellen Sie den Protokollierungsgrad auf ein`debug` Detaillierte Protokolle finden Sie in der ioBroker-Admin-Oberfläche.
+Stellen Sie den Protokollierungsgrad auf ein `debug` Detaillierte Protokolle finden Sie in der ioBroker-Admin-Oberfläche.
 
 ## Changelog
 <!--

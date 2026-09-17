@@ -81,7 +81,7 @@ Für jedes Gerät werden die folgenden Zustände erstellt:
 
 ## Tasten
 
-Tastendrücke funktionieren nicht bei allen Geräten, und einige benötigen möglicherweise eine aktive Verbindung zum ioBroker-Gerät, um über den CEC-Bus gesteuert zu werden. Bei Fire TV funktioniert es einwandfrei. Um die Tastendrücke zu testen, drücken Sie`createButtons` Man schaltet einen Knopf in ein Gerät ein und testet einige der erstellten Knöpfe in verschiedenen Situationen. Die Stromversorgung funktioniert für eine ganze Reihe von Geräten.
+Tastendrücke funktionieren nicht bei allen Geräten, und einige benötigen möglicherweise eine aktive Verbindung zum ioBroker-Gerät, um über den CEC-Bus gesteuert zu werden. Bei Fire TV funktioniert es einwandfrei. Um die Tastendrücke zu testen, drücken Sie `createButtons` Man schaltet einen Knopf in ein Gerät ein und testet einige der erstellten Knöpfe in verschiedenen Situationen. Die Stromversorgung funktioniert für eine ganze Reihe von Geräten.
 
 #### Weltstaaten
 

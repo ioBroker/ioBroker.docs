@@ -31,11 +31,11 @@ Dieser Adapter wurde ursprünglich von @soef unter <https://github.com/soef/ioBr
 
 ### So verwenden Sie den Befehl „Status“:
 
-- Mögliche Kennungen sind:`red, r, green, g, blue, b, bri, sat, transition, on, off`
+- Mögliche Kennungen sind: `red, r, green, g, blue, b, bri, sat, transition, on, off`
 - Die Zeichenkette kann ein JSON-Objekt mit oder ohne Klammern sein.
 - Sie können auch einen Wert zuweisen mit =
-- Farbpalette:`0..255`
-- Bri-Bereich:`0..100`
+- Farbpalette: `0..255`
+- Bri-Bereich: `0..100`
 
 Einige Beispiele:
 
@@ -49,7 +49,7 @@ on
 {on:0}
 ```
 
-Um die Farbe zu ändern, müssen Sie nicht alle drei Werte verwenden. Zum Beispiel:`red = 0` Die Farben Blau und Grün bleiben unverändert.
+Um die Farbe zu ändern, müssen Sie nicht alle drei Werte verwenden. Zum Beispiel: `red = 0` Die Farben Blau und Grün bleiben unverändert.
 
 ### r, g, b, w Staaten:
 

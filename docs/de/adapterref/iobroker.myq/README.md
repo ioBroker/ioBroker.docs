@@ -32,11 +32,11 @@ Nicht alle Bundesstaaten sind für alle Gerätetypen verfügbar.
 `myq.0.devices.<id>.info.name` - Der interne Gerätename (nicht der vom Benutzer angegebene)\
 `myq.0.devices.<id>.info.numdevices` - (Gateway) Die Anzahl der mit diesem Gateway verbundenen Geräte\
 `myq.0.devices.<id>.info.online` Das Gerät ist aktuell mit der Cloud verbunden und erreichbar.\
-`myq.0.devices.<id>.states.IsFirmwareCurrent` -`true` , vorausgesetzt, die Geräte-Firmware ist auf dem neuesten Stand\
+`myq.0.devices.<id>.states.IsFirmwareCurrent` -`true`, vorausgesetzt, die Geräte-Firmware ist auf dem neuesten Stand\
 `myq.0.devices.<id>.states.ishomekitactive` -`true` wenn die HomeKit-Nutzung für dieses Gerät aktiviert ist\
-`myq.0.devices.<id>.states.ishomekitcapable` -`true` , sofern das Gerät HomeKit-fähig ist\
+`myq.0.devices.<id>.states.ishomekitcapable` -`true`, sofern das Gerät HomeKit-fähig ist\
 `myq.0.devices.<id>.states.doorstate` - (Garagentor) Zustand des Tores (siehe Torzustände)\
-`myq.0.devices.<id>.states.moving` -`true` , wenn sich die Tür gerade bewegt
+`myq.0.devices.<id>.states.moving` -`true`, wenn sich die Tür gerade bewegt
 
 ### Türzustände
 

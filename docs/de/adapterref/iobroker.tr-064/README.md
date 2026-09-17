@@ -28,8 +28,8 @@ Der Adapter basiert auf der [FRITZ!-Schnittstellendokumentation](https://fritz.c
 - Ändern Sie die Anmeldemethode auf „Benutzername und Passwort verwenden“.
 - Die Fritz!Box verwendet maximal 32 Zeichen für das Passwort. Längere Passwörter werden in der Benutzeroberfläche der Fritz!Box ohne Warnung gekürzt. Geben Sie daher bei der Konfiguration des Adapters nur diese 32 Zeichen ein.
 - Erstellen Sie einen Benutzer und erteilen Sie diesem Benutzer die Berechtigung, die Fritz!Box und ihre Einstellungen zu steuern.
-- Aktivieren Sie den Anwendungszugriff auf der Registerkarte „Netzwerk“. In der deutschen Benutzeroberfläche lautet der Pfad:`Netzwerk` ->`Heimnetzfreigaben` ->`Zugriff für Anwendungen` ->`aktiviert` Die
-- Wenn Sie die`ring` Für diese Funktion müssen Sie zusätzliche Einstellungen konfigurieren. Siehe [Abschnitt „Anrufen (Nummer wählen)“](#ring-dial-a-number) .
+- Aktivieren Sie den Anwendungszugriff auf der Registerkarte „Netzwerk“. In der deutschen Benutzeroberfläche lautet der Pfad: `Netzwerk` ->`Heimnetzfreigaben` ->`Zugriff für Anwendungen` ->`aktiviert` Die
+- Wenn Sie die `ring` Für diese Funktion müssen Sie zusätzliche Einstellungen konfigurieren. Siehe [Abschnitt „Anrufen (Nummer wählen)“](#ring-dial-a-number) .
 
 ## Merkmale
 
@@ -44,16 +44,16 @@ Der Adapter basiert auf der [FRITZ!-Schnittstellendokumentation](https://fritz.c
 
 ### klingeln (eine Nummer wählen)
 
-- Wenn Sie beispielsweise eine interne Nummer verwenden`**610` , der Staat`ring` Lässt dieses interne Telefon klingeln. Beispiel:`**610[,timeout]`
-- Wenn Sie eine externe Nummer verwenden, der Staat`ring` Verbindet Sie mit dieser externen Nummer. Die Fritz!Box wählt die externe Nummer, und Ihr Standardtelefon klingelt, sobald der Angerufene abnimmt.
+- Wenn Sie beispielsweise eine interne Nummer verwenden `**610`, der Staat `ring` Lässt dieses interne Telefon klingeln. Beispiel: `**610[,timeout]`
+- Wenn Sie eine externe Nummer verwenden, der Staat `ring` Verbindet Sie mit dieser externen Nummer. Die Fritz!Box wählt die externe Nummer, und Ihr Standardtelefon klingelt, sobald der Angerufene abnimmt.
 
-Sie können das Standardtelefon in der Fritz!Box konfigurieren. In der deutschen Benutzeroberfläche lautet der Pfad:`Telefonie` ->`Anrufe` ->`Wahlhilfe` ->`Wählhilfe verwenden` Wählen Sie dort auch die Option aus`Verbindung mit dem Telefon ISDN- und Schnurlostelefone` Die
+Sie können das Standardtelefon in der Fritz!Box konfigurieren. In der deutschen Benutzeroberfläche lautet der Pfad: `Telefonie` ->`Anrufe` ->`Wahlhilfe` ->`Wählhilfe verwenden` Wählen Sie dort auch die Option aus `Verbindung mit dem Telefon ISDN- und Schnurlostelefone` Die
 
 ### toPauseState
 
-- Mögliche Werte:`ring` ,`connect` ,`end`
-- Sie können diesen Zustand nutzen, um einen Videoplayer bei einem eingehenden Anruf anzuhalten (`ring` ), oder wenn jemand den Hörer abnimmt (`connect` ).
-- Sie können die Wiedergabe für diesen Wert fortsetzen.`end` Die
+- Mögliche Werte: `ring`, `connect`, `end`
+- Sie können diesen Zustand nutzen, um einen Videoplayer bei einem eingehenden Anruf anzuhalten (`ring`), oder wenn jemand den Hörer abnimmt (`connect`).
+- Sie können die Wiedergabe für diesen Wert fortsetzen. `end` Die
 
 ### Gegenwart
 
@@ -61,8 +61,8 @@ Mit diesem Adapter können Sie die Anwesenheit von Personen in Ihrem Zuhause üb
 
 - Öffnen Sie die Einstellungen des Adapters und wechseln Sie zum Tab „Geräte“.
 - Fügen Sie alle Geräte Ihrer Familienmitglieder oder Mitbewohner hinzu, beispielsweise deren Smartphones, und bestätigen Sie mit „Speichern“.
-- Für jedes Gerät erstellt der Adapter eine Ordnerstruktur in den Adapterobjekten. Normalerweise ist dies der Ordner`tr-064.0.devices` Die
-- Sobald jemand ankommt oder abreist, erhält der Adapter diese Information. Der Zustand`tr-064.0.devices.xxx.active` , Wo`xxx` ist der Name des Geräts, zeigt an, ob dieses Gerät verfügbar ist und somit, ob die Person zu Hause ist.
+- Für jedes Gerät erstellt der Adapter eine Ordnerstruktur in den Adapterobjekten. Normalerweise ist dies der Ordner `tr-064.0.devices` Die
+- Sobald jemand ankommt oder abreist, erhält der Adapter diese Information. Der Zustand `tr-064.0.devices.xxx.active`, Wo `xxx` ist der Name des Geräts, zeigt an, ob dieses Gerät verfügbar ist und somit, ob die Person zu Hause ist.
 
 Sie können auch die Option „mDNS zur Erkennung neuer Geräte verwenden“ aktivieren. Wenn mDNS verwendet wird, muss der Adapter die Fritz!Box nicht abfragen und erkennt Änderungen schneller.
 
@@ -70,9 +70,9 @@ Nutzer berichten, dass die Erkennung auch auf iOS-Geräten, beispielsweise iPhon
 
 Die ioBroker-Community hat ein Skript veröffentlicht, das diese Adapterinformationen nutzt, um Aktionen auszulösen. Beispiele hierfür sind: automatisches Abschalten aller Geräte, nachdem alle Personen das Haus verlassen haben; Anzeige der Anzahl der anwesenden Personen; oder Anzeige des Status einer Person in VIS. Siehe den [entsprechenden Thread im ioBroker-Forum](https://forum.iobroker.net/topic/4538/anwesenheitscontrol-basierend-auf-tr64-adapter-script) (auf Deutsch).
 
-### Anrufbeantworter (auf Deutsch:`Anrufbeantworter` )
+### Anrufbeantworter (auf Deutsch: `Anrufbeantworter`)
 
-Sie können den Anrufbeantworter ein- und ausschalten. Mit dem Status`cbIndex` Sie wählen die Nummer des Anrufbeantworters.
+Sie können den Anrufbeantworter ein- und ausschalten. Mit dem Status `cbIndex` Sie wählen die Nummer des Anrufbeantworters.
 
 ### Anrufüberwachung
 
@@ -83,7 +83,7 @@ Der Anrufmonitor erstellt in Echtzeit Zustände für jeden eingehenden und ausge
 - Wenn das Telefonbuch eingeschaltet ist, verwendet der Adapter es, um den Namen des Anrufers zur angegebenen Nummer zu ermitteln.
 - Es gibt drei weitere Optionen zur Auflösung einer Nummer oder eines Namens. Falls ein Bild verfügbar ist, erhalten Sie auch die URL des Bildes des Kontakts.
 
-Beispiel: Wenn Sie den Zustand festlegen`phonebook.number` Der Adapter stellt alle 3 Zustände ein.`name` ,`number` Und`image` Die Werte werden den gefundenen Kontaktwerten zugeordnet. Hinweis: Bei einer Namenssuche vergleicht der Adapter zunächst den vollständigen Namen. Wird kein Kontakt gefunden, sucht er nach einem Namensbestandteil.
+Beispiel: Wenn Sie den Zustand festlegen `phonebook.number` Der Adapter stellt alle 3 Zustände ein. `name`, `number` Und `image` Die Werte werden den gefundenen Kontaktwerten zugeordnet. Hinweis: Bei einer Namenssuche vergleicht der Adapter zunächst den vollständigen Namen. Wird kein Kontakt gefunden, sucht er nach einem Namensbestandteil.
 
 ### Anruflisten
 
@@ -105,7 +105,7 @@ Sie können die HTML-Ausgabe mithilfe einer Vorlage konfigurieren.
 
 ### Die Zustände Befehl und Befehlsergebnis
 
-Mit dem Staat`command` Sie können jeden tr-064-Befehl aus dieser [Dokumentation](https://avm.de/service/schnittstellen/) aufrufen. Beispiel:
+Mit dem Staat `command` Sie können jeden tr-064-Befehl aus dieser [Dokumentation](https://avm.de/service/schnittstellen/) aufrufen. Beispiel:
 
 ```javascript
 command = {
@@ -118,9 +118,9 @@ command = {
 };
 ```
 
-Den Zustand festlegen`command` Für das JSON der obigen Zeilen bedeutet dies:`{ ... }` , ohne`command =` und ohne Zeilenumbrüche. Die Antwort auf den Anruf wird im Status gespeichert.`commandResult` Die
+Den Zustand festlegen `command` Für das JSON der obigen Zeilen bedeutet dies: `{ ... }`, ohne `command =` und ohne Zeilenumbrüche. Die Antwort auf den Anruf wird im Status gespeichert. `commandResult` Die
 
-Das folgende Beispiel zeigt, wie man den Anrufbeantworter der Fritz!Box im Zustand ein- und ausschaltet.`command` Zum Testen können Sie den Text kopieren und in den Status einfügen.`tr-064.0.states.command` Die
+Das folgende Beispiel zeigt, wie man den Anrufbeantworter der Fritz!Box im Zustand ein- und ausschaltet. `command` Zum Testen können Sie den Text kopieren und in den Status einfügen. `tr-064.0.states.command` Die
 
 Schalten Sie den Anrufbeantworter ein:
 
@@ -134,7 +134,7 @@ Eine detaillierte Beschreibung der Aktionen und Parameter von TAM finden Sie hie
 
 ### Schalten Sie den Anrufmonitor ein.
 
-Bevor Sie den Anrufmonitor verwenden können, müssen Sie ihn in der AVM Fritz!Box aktivieren. Um den Anrufmonitor zu aktivieren, wählen Sie`#96*5*` auf einem angeschlossenen Telefon. Die Fritz!Box öffnet dann den TCP/IP-Port 1012. Um den Port zu schließen, wählen Sie`#96*4*` Die
+Bevor Sie den Anrufmonitor verwenden können, müssen Sie ihn in der AVM Fritz!Box aktivieren. Um den Anrufmonitor zu aktivieren, wählen Sie `#96*5*` auf einem angeschlossenen Telefon. Die Fritz!Box öffnet dann den TCP/IP-Port 1012. Um den Port zu schließen, wählen Sie `#96*4*` Die
 
 ## Erste Erstellung
 
@@ -145,11 +145,11 @@ Bevor Sie den Anrufmonitor verwenden können, müssen Sie ihn in der AVM Fritz!B
 Wenn Sie vom Adapter tr-064-community wechseln, können Sie die vollständige Geräteliste und alle Einstellungen kopieren:
 
 - Öffnen Sie die Objekte im Adminbereich und schalten Sie den Expertenmodus ein.
-- Suche nach dem Objektbaum`system.adapter.tr-064-community.0` , Wo`0` Dies ist die Nummer der Instanz. Falls mehrere Instanzen vorhanden sind, wählen Sie die richtige aus.
+- Suche nach dem Objektbaum `system.adapter.tr-064-community.0`, Wo `0` Dies ist die Nummer der Instanz. Falls mehrere Instanzen vorhanden sind, wählen Sie die richtige aus.
 - Klicken Sie auf die Schaltfläche mit dem Stiftsymbol rechts neben dieser Zeile.
-- Wählen Sie im Fenster „Rohdaten (nur für Experten)“ aus und kopieren Sie den entsprechenden Teil.`native` des JSON.
-- Offen`system.adapter.tr-064.0` , Wo`0` Dies ist die Nummer der Instanz. Falls mehrere Instanzen vorhanden sind, wählen Sie die richtige aus.
-- Fügen Sie den kopierten Inhalt in den entsprechenden Abschnitt ein.`native` Die
+- Wählen Sie im Fenster „Rohdaten (nur für Experten)“ aus und kopieren Sie den entsprechenden Teil. `native` des JSON.
+- Offen `system.adapter.tr-064.0`, Wo `0` Dies ist die Nummer der Instanz. Falls mehrere Instanzen vorhanden sind, wählen Sie die richtige aus.
+- Fügen Sie den kopierten Inhalt in den entsprechenden Abschnitt ein. `native` Die
 - Änderungen speichern.
 - Schalten Sie den Adapter ein.
 - Überprüfen Sie die Konfiguration und stellen Sie sicher, dass alles korrekt wiederhergestellt wurde.

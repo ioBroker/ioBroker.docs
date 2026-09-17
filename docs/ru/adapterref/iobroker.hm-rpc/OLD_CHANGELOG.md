@@ -48,7 +48,7 @@ hash: up9GvocF6yWIlMyRG2WXMTxgeUtaJ+QHhg7+J5/Bu70=
 
 ### 1.9.9 (2019-03-17)
 
-- (foxriver76) состояния окна теперь являются ролями`value.window`
+- (foxriver76) состояния окна теперь являются ролями `value.window`
 
 ### 1.9.8 (2019-02-27)
 

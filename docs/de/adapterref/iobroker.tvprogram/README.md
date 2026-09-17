@@ -48,7 +48,7 @@ Folgende Attribute stehen in vis zur Konfiguration zur Verfügung. Die Mindestko
 
 | Attribut                | Beispiel              | Beschreibung                                         |
 | ----------------------- | --------------------- | ---------------------------------------------------- |
-| `tvprogram_oid`         | `tvprogram.0.tv1.cmd` | Ein Datenpunkt einer Instanz des`tvprogram` Adapter. |
+| `tvprogram_oid`         | `tvprogram.0.tv1.cmd` | Ein Datenpunkt einer Instanz des `tvprogram` Adapter. |
 | `widthItem`             | 120                   | Standardbreite in Pixeln für ein 30-Minuten-Segment  |
 | `heightRow`             | 35                    | Höhe für jede angezeigte Zeile                       |
 | `showpictures`          | X                     | Falls verfügbar, Bilder in der Zeitleiste anzeigen.  |
@@ -61,7 +61,7 @@ Folgende Attribute stehen in vis zur Konfiguration zur Verfügung. Die Mindestko
 
 ##### CSS-Klassen
 
-Bitte ändern Sie`w00001` zu Ihrer Widget-ID
+Bitte ändern Sie `w00001` zu Ihrer Widget-ID
 
 So ändern Sie die Formatierung der Dialogfelder
 
@@ -112,7 +112,7 @@ Folgende Attribute stehen in vis zur Konfiguration zur Verfügung. Die Mindestko
 
 | Attribut         | Beispiel               | Beschreibung                                         |
 | ---------------- | ---------------------- | ---------------------------------------------------- |
-| `oid`            | `tvprogram.0.tv 1.cmd` | Ein Datenpunkt einer Instanz des`tvprogram` Adapter. |
+| `oid`            | `tvprogram.0.tv 1.cmd` | Ein Datenpunkt einer Instanz des `tvprogram` Adapter. |
 | `channelname`    | `no`                   | Logo (aus) oder Kanalnamen anzeigen                  |
 | `showweekday`    | `yes`                  | Show Wochentags                                      |
 | `maxfavorites`   | 10                     | Max' Favoriten zum Zeigen                            |
@@ -126,7 +126,7 @@ Folgende Attribute stehen in vis zur Konfiguration zur Verfügung. Die Mindestko
 
 | Attribut               | Beispiel                 | Beschreibung                                                                                                                           |
 | ---------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `oid`                  | `tvprogram.0.tv1.cmd`    | Ein Datenpunkt einer Instanz des`tvprogram` Adapter.                                                                                   |
+| `oid`                  | `tvprogram.0.tv1.cmd`    | Ein Datenpunkt einer Instanz des `tvprogram` Adapter.                                                                                   |
 | `time`                 |                          | Wenn das Feld leer ist, werden die tatsächlichen Sendungen angezeigt.                                                                  |
 | `time`                 | 20:15                    | Wenn nur die Zeit ausreicht, würde die Sendung zu diesem Zeitpunkt 120 Minuten lang gezeigt werden, dann wird der nächste Tag gezeigt. |
 | `time`                 | 20:15/200                | Wenn die Sendezeit mit Dauer angegeben würde, würde die Sendung zu diesem Zeitpunkt 200 Minuten lang ausgestrahlt werden.              |
@@ -140,7 +140,7 @@ Folgende Attribute stehen in vis zur Konfiguration zur Verfügung. Die Mindestko
 
 ##### CSS-Klassen
 
-Bitte ändern Sie`w00001` zu Ihrer Widget-ID
+Bitte ändern Sie `w00001` zu Ihrer Widget-ID
 
 Um die Formatierung der abwechselnden Hintergrundfarben der Sendungen zu ändern
 
@@ -161,7 +161,7 @@ Folgende Attribute stehen in vis zur Konfiguration zur Verfügung. Die Mindestko
 
 | Attribut               | Beispiel              | Beschreibung                                         |
 | ---------------------- | --------------------- | ---------------------------------------------------- |
-| `Object ID`            | `tvprogram.0.tv1.cmd` | Ein Datenpunkt einer Instanz des`tvprogram` Adapter. |
+| `Object ID`            | `tvprogram.0.tv1.cmd` | Ein Datenpunkt einer Instanz des `tvprogram` Adapter. |
 | `showpictures`         | X                     | Zeigen Sie gegebenenfalls Bilder.                    |
 | `maxresults`           | 10                    | maximale Ergebnisse in der Liste                     |
 | `heightRow`            | 35                    | Höhe für jede angezeigte Zeile                       |
@@ -172,7 +172,7 @@ Folgende Attribute stehen in vis zur Konfiguration zur Verfügung. Die Mindestko
 
 ##### CSS-Klassen
 
-Bitte ändern Sie`w00001` zu Ihrer Widget-ID
+Bitte ändern Sie `w00001` zu Ihrer Widget-ID
 
 Um die Formatierung der abwechselnden Hintergrundfarben der Sendungen zu ändern
 
@@ -249,7 +249,7 @@ Alle Icons sollten über den iobroker-Dateidialog hochgeladen werden.
 
 Ein Beispiel finden Sie im Kapitel [„Beispiel für alternative Logos“.](#alternative-channel-logos-by-tino-0)
 
-### Bereitgestellt`Sendto` -Befehle
+### Bereitgestellt `Sendto` -Befehle
 
 Alle Daten können über sendto-Befehle vom Adapter angefordert werden. Dies kann zur Entwicklung individueller Funktionalitäten genutzt werden.
 
@@ -279,7 +279,7 @@ Programmdaten vom Adapter anfordern.
 
 ##### Gültige Parameter sind
 
-eine Datumszeichenfolge im folgenden Format:`yyyy-mm-dd`
+eine Datumszeichenfolge im folgenden Format: `yyyy-mm-dd`
 
 **Rückgabe:**
 
@@ -374,7 +374,7 @@ Suchen Sie nach Sendungen in einem bestimmten Zeitraum und optional nach Kategor
 
 ##### Gültige Parameter sind
 
-`channelfilter` : Array von Kanal-IDs Ihrer Lieblingskanäle`categoryfilter` : Optionales Array von Kategorie-IDs`datetimefrom` : Datum/Uhrzeit von`datetimetill` : datetime till`textfilter` : Optionaler Titel oder Teil eines Titels für die Suche`maxresults` Optional: Die maximale Anzahl der Ergebnisse. Standardwert: 10.
+`channelfilter`: Array von Kanal-IDs Ihrer Lieblingskanäle `categoryfilter`: Optionales Array von Kategorie-IDs `datetimefrom`: Datum/Uhrzeit von `datetimetill`: datetime till `textfilter`: Optionaler Titel oder Teil eines Titels für die Suche `maxresults` Optional: Die maximale Anzahl der Ergebnisse. Standardwert: 10.
 
 **Rückgabe:**
 
@@ -418,7 +418,7 @@ sendTo('tvprogram.0', 'getServerInfo', '{}', data => console.log(data));
 
 ### Die Community stellt Widgets/Skripte bereit.
 
-#### `Harmony` Und`MagentaTV`
+#### `Harmony` Und `MagentaTV`
 
 Das von pix bereitgestellte Skript setzt nach dem Klicken auf das Kanallogo die zugeordnete Kanal-ID auf den Harmony-Datenpunkt.
 
@@ -595,7 +595,7 @@ Prüfen Sie, ob der folgende Pfad existiert, oder erstellen Sie den Pfad im Dial
 
 **Pfad im Datenpunkt eingeben:**
 
-Geben Sie den folgenden Pfad in den Datenpunkt ein.`optchnlogopath` Ersetzen Sie 192.1.2.3 durch die IP-Adresse Ihrer iobroker-Installation.
+Geben Sie den folgenden Pfad in den Datenpunkt ein. `optchnlogopath` Ersetzen Sie 192.1.2.3 durch die IP-Adresse Ihrer iobroker-Installation.
 
 ```text
 http://192.1.2.3:8082/vis.0/icons/tvlogos/
@@ -649,7 +649,7 @@ var timer = setInterval(function () {
 }, 1000 * 60);
 ```
 
-Um diese Daten zu visualisieren, kann die Widget-JSON-Vorlage des Adapters „myTime“ mit der folgenden Vorlage helfen. Geben Sie als „json\_oid“ den Datenpunkt mit der`recordlist` und als json\_template den folgenden Code:
+Um diese Daten zu visualisieren, kann die Widget-JSON-Vorlage des Adapters „myTime“ mit der folgenden Vorlage helfen. Geben Sie als „json\_oid“ den Datenpunkt mit der `recordlist` und als json\_template den folgenden Code:
 
 ```javascript
 <% data.sort((a,b)=>new Date(a.startTime) - new Date(b.startTime)) %>
@@ -695,7 +695,7 @@ var timer = setInterval(function () {
 }, 1000 * 60);
 ```
 
-#### Farbgebung von Programmen, die sich im`recordlist` Datenpunkt im Widget tvprogram
+#### Farbgebung von Programmen, die sich im `recordlist` Datenpunkt im Widget tvprogram
 
 Die folgende Vorlage dient als Widget-JSON-Vorlage für den Adapter RSS-Feed. Diese Vorlage erzeugt keine sichtbare Ausgabe, sondern CSS-Anweisungen, die die aktuellen Programme farblich hervorheben. Auch die Aufnahmetaste in der Detailansicht wird farblich markiert.
 

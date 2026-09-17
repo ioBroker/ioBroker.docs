@@ -42,17 +42,17 @@ Die Optionen sollten weitgehend selbsterklärend sein. Alle Optionen verfügen a
 
 Es gibt zwei Implementierungen des Braiins-Miners, da Braiins den API-Stack über die Firmware-Generationen hinweg geändert hat:
 
-- `bos` Verwenden Sie dies für die offizielle Brains OS-Firmware.`>= 23.03` Typischerweise werden Antminer der S19-Serie und neuere Modelle verwendet. Diese Implementierung nutzt die Brains OS Public API (PAPI) über gRPC.
-- `bosMiner` Verwenden Sie dies für ältere Brains OS-Firmware.`< 23.03` Typischerweise handelt es sich dabei um Geräte vor der S19-Serie, wie beispielsweise die Antminer-Serien S9 und S17. Dabei wird weiterhin die ältere, mit CGMiner kompatible API verwendet.
+- `bos` Verwenden Sie dies für die offizielle Brains OS-Firmware. `>= 23.03` Typischerweise werden Antminer der S19-Serie und neuere Modelle verwendet. Diese Implementierung nutzt die Brains OS Public API (PAPI) über gRPC.
+- `bosMiner` Verwenden Sie dies für ältere Brains OS-Firmware. `< 23.03` Typischerweise handelt es sich dabei um Geräte vor der S19-Serie, wie beispielsweise die Antminer-Serien S9 und S17. Dabei wird weiterhin die ältere, mit CGMiner kompatible API verwendet.
 
-`bosMiner` unterstützt auch die`control.powerTarget` Der Legacy Brains OS stellt diesen Status nicht über die CGMiner-kompatible API bereit, daher verwendet der Adapter einen SSH-Workaround: Er meldet sich beim Miner an und aktualisiert den Status.`power_target` im`[autotuning]` Abschnitt und`timestamp` im`[format]` Abschnitt von`/etc/bosminer.toml` speichert eine Sicherungskopie bei`/etc/bosminer.toml.iobroker-power-target.bak` , hält`bosminer` schreibt die Konfiguration und startet`bosminer` Konfigurieren Sie erneut gültige SSH-Anmeldeinformationen für`bosMiner` Geräte; der Standardbenutzername ist`root` ohne Passwort.
+`bosMiner` unterstützt auch die `control.powerTarget` Der Legacy Brains OS stellt diesen Status nicht über die CGMiner-kompatible API bereit, daher verwendet der Adapter einen SSH-Workaround: Er meldet sich beim Miner an und aktualisiert den Status. `power_target` im `[autotuning]` Abschnitt und `timestamp` im `[format]` Abschnitt von `/etc/bosminer.toml` speichert eine Sicherungskopie bei `/etc/bosminer.toml.iobroker-power-target.bak`, hält `bosminer` schreibt die Konfiguration und startet `bosminer` Konfigurieren Sie erneut gültige SSH-Anmeldeinformationen für `bosMiner` Geräte; der Standardbenutzername ist `root` ohne Passwort.
 
-Warnung: Änderung`control.powerTarget` auf alten`bosMiner` Geräte benötigen eine vollständige`bosminer` Stopp-/Startzyklus. Ändern Sie diesen Wert nicht häufig; verwenden Sie ihn für gezielte Zielwertänderungen, nicht für schnelle Automatisierungsschleifen.
+Warnung: Änderung `control.powerTarget` auf alten `bosMiner` Geräte benötigen eine vollständige `bosminer` Stopp-/Startzyklus. Ändern Sie diesen Wert nicht häufig; verwenden Sie ihn für gezielte Zielwertänderungen, nicht für schnelle Automatisierungsschleifen.
 
 Wenn Sie sich nicht sicher sind, welches Gerät Sie wählen sollen, überprüfen Sie zuerst die Firmware-Generation/Gerätefamilie:
 
-- S19/S21/T19 und neuere Brains OS-Images sind im aktuellen Firmware-Download-Prozess aufgeführt und sollten normalerweise verwendet werden`bos` Die
-- S17-Bilder werden veröffentlicht als`v 23.01` und S9-Bilder als`v 22.08.1` auf der Brainins-Downloadseite, damit ältere Generationen dies nutzen können.`bosMiner` Die
+- S19/S21/T19 und neuere Brains OS-Images sind im aktuellen Firmware-Download-Prozess aufgeführt und sollten normalerweise verwendet werden `bos` Die
+- S17-Bilder werden veröffentlicht als `v 23.01` und S9-Bilder als `v 22.08.1` auf der Brainins-Downloadseite, damit ältere Generationen dies nutzen können. `bosMiner` Die
 
 Referenzen:
 
@@ -69,10 +69,10 @@ Alle Objekte werden unter folgendem Pfad erstellt:
 
 ### Gruppen (Kanäle)
 
-- `info` : Identität/Konfiguration/Firmware/Verbindungsmetadaten
-- `stats` : Live-Leistungskennzahlen (Hashrate, Shares, Leistung, Temperaturen, ...)
-- `control` : beschreibbare Steuerelemente (Start/Stopp, Neustart, ...)
-- `raw` : Rohdaten der API (Expertenversion)
+- `info`: Identität/Konfiguration/Firmware/Verbindungsmetadaten
+- `stats`: Live-Leistungskennzahlen (Hashrate, Shares, Leistung, Temperaturen, ...)
+- `control`: beschreibbare Steuerelemente (Start/Stopp, Neustart, ...)
+- `raw`: Rohdaten der API (Expertenversion)
 
 ### Entitäten (optionale Teilbäume)
 
@@ -92,13 +92,13 @@ Manche Miner legen Unterentitäten offen. Falls verfügbar, werden diese unterha
 
 ### Miner aktivieren/deaktivieren
 
-Jedes Mining-Gerät verfügt über ein beschreibbares Top-Level-Verzeichnis.`enabled` Zustand:
+Jedes Mining-Gerät verfügt über ein beschreibbares Top-Level-Verzeichnis. `enabled` Zustand:
 
 `miner.<instance>.miner.<minerId>.enabled`
 
-Stellen Sie diesen Zustand auf`false` Um den Miner im Adapter zur Laufzeit zu deaktivieren. Deaktivierte Miner werden entladen und es findet keine Abfrage-/Steuerungsverarbeitung für sie statt. Stellen Sie die Einstellung wieder auf 1.`true` Um den Miner erneut zu initialisieren, ohne den Adapter neu zu starten.
+Stellen Sie diesen Zustand auf `false` Um den Miner im Adapter zur Laufzeit zu deaktivieren. Deaktivierte Miner werden entladen und es findet keine Abfrage-/Steuerungsverarbeitung für sie statt. Stellen Sie die Einstellung wieder auf 1. `true` Um den Miner erneut zu initialisieren, ohne den Adapter neu zu starten.
 
-Dies ist etwas anderes als`control.running` :`enabled` steuert, ob der Adapter den Miner überhaupt verwaltet, während`control.running` Fordert einen unterstützten Miner auf, mit dem Mining zu beginnen oder es zu beenden.
+Dies ist etwas anderes als `control.running`: `enabled` steuert, ob der Adapter den Miner überhaupt verwaltet, während `control.running` Fordert einen unterstützten Miner auf, mit dem Mining zu beginnen oder es zu beenden.
 
 ### Beispielbaum
 

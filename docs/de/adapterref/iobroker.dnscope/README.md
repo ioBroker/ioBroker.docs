@@ -18,7 +18,7 @@ hash: J0TVC1fp27JArO2akZOUcOUjV8HnUBIs7Sw/HwZW3fw=
 
 # ioBroker.dnscope
 
-Dieser Adapter nutzt den Dienst`Sentry.io` Ausnahmen, Codefehler und neue Geräteschemata werden mir als Entwickler automatisch gemeldet. Weitere Details finden Sie unten!
+Dieser Adapter nutzt den Dienst `Sentry.io` Ausnahmen, Codefehler und neue Geräteschemata werden mir als Entwickler automatisch gemeldet. Weitere Details finden Sie unten!
 
 ---
 
@@ -44,7 +44,7 @@ Folgende DynDNS-Anbieter werden derzeit unterstützt:
 - Dynv6
 - Brauch
 
-Bei der Auswahl`Custom` Es ist möglich, eine direkte Update-URL anzugeben, um jeden Anbieter zu integrieren, der dies unterstützt.
+Bei der Auswahl `Custom` Es ist möglich, eine direkte Update-URL anzugeben, um jeden Anbieter zu integrieren, der dies unterstützt.
 
 Folgende Platzhalter können in der benutzerdefinierten URL verwendet werden und werden zur Laufzeit durch die aktuelle IP-Adresse ersetzt:
 

@@ -32,9 +32,9 @@ Der Adapter erzeugt standardmäßig viele Datenpunkte. Mit der Allowlist können
 
 | Typ                  | Beschreibung                                  | Beispiel                                  |
 | -------------------- | --------------------------------------------- | ----------------------------------------- |
-| **Genaue Schlüssel** | Exakte Übereinstimmung nur mit Feldnamen      | `bmi` findet jedes Feld namens`bmi`       |
+| **Genaue Schlüssel** | Exakte Übereinstimmung nur mit Feldnamen      | `bmi` findet jedes Feld namens `bmi`       |
 | **Exakte Pfade**     | Exakte Übereinstimmung mit vollständigem Pfad | `weight.dateweightlist.bmi`               |
-| **Suchen**           | Teilstring-Suche in Key oder Pfad             | `heart` findet`heartRate` ,`restingHeart` |
+| **Suchen**           | Teilstring-Suche in Key oder Pfad             | `heart` findet `heartRate`, `restingHeart` |
 
 ### Beispiele
 
@@ -67,8 +67,8 @@ Search: sleep
 ### Hinweise
 
 - Filter sind case-insensitive (Gross/Kleinschreibung egal)
-- Pfade werden mit Punkt getrennt:`dailysleep.dailysleepdto.sleepscores.overall.value`
-- **Wichtig** : Pfade OHNE Array-Indizes angeben (zB`weight.dateweightlist.bmi` NICHT`weight.dateweightlist01.bmi` ). Die Indizes (`01` ,`02` , ...) werden erst von ioBroker hinzugefügt.
+- Pfade werden mit Punkt getrennt: `dailysleep.dailysleepdto.sleepscores.overall.value`
+- **Wichtig** : Pfade OHNE Array-Indizes angeben (zB `weight.dateweightlist.bmi` NICHT `weight.dateweightlist01.bmi`). Die Indizes (`01`, `02`, ...) werden erst von ioBroker hinzugefügt.
 - Leere Allowlist = alle Datenpunkte werden angelegt
 - Leere API-Antworten erzeugen keinen Ordner
 
@@ -80,7 +80,7 @@ Search: sleep
 
 ### OAuth-Anmeldeinformationen
 
-Die OAuth1 Consumer Credentials sind in der Garmin Connect Mobile APK in der nativen Bibliothek enthalten`libsr.so` verstecken.
+Die OAuth1 Consumer Credentials sind in der Garmin Connect Mobile APK in der nativen Bibliothek enthalten `libsr.so` verstecken.
 
 **Extraktion:**
 
@@ -101,15 +101,15 @@ strings /tmp/lib/arm64-v8a/libsr.so | grep "apps.googleusercontent.com"
 | OAuth1-Verbrauchergeheimnis | `E08WAR897WEy2knn7aFBrvegVAf0AFdWBBF`  |
 | OAuth2 DI Client-ID         | `GARMIN_CONNECT_MOBILE_ANDROID_DI`     |
 
-Alternativ von garth S3:`https://thegarth.s3.amazonaws.com/oauth_consumer.json`
+Alternativ von garth S3: `https://thegarth.s3.amazonaws.com/oauth_consumer.json`
 
 ### Authentifizierungsablauf (Mobile API)
 
-1. SSO-Anmeldung:`POST https://sso.garmin.com/sso/signin` -> Serviceticket (ST-xxxxx)
-2. OAuth1-Token:`POST https://connectapi.garmin.com/oauth-service/oauth/preauthorized?ticket=ST-xxxxx` -> oauth\_token + oauth\_token\_secret (HMAC-SHA1 signiert)
-3. OAuth2-Token:`POST https://connectapi.garmin.com/oauth-service/oauth/exchange/user/2.0` -> Zugriffstoken + Aktualisierungstoken (Bearer)
-4. Aktualisierungstoken:`POST https://connectapi.garmin.com/di-oauth2-service/oauth/token` mit`grant_type=refresh_token&client_id=GARMIN_CONNECT_MOBILE_ANDROID_DI&refresh_token=...`
-5. API-Aufrufe:`GET https://connectapi.garmin.com/...` mit Header`Authorization: Bearer {access_token}`
+1. SSO-Anmeldung: `POST https://sso.garmin.com/sso/signin` -> Serviceticket (ST-xxxxx)
+2. OAuth1-Token: `POST https://connectapi.garmin.com/oauth-service/oauth/preauthorized?ticket=ST-xxxxx` -> oauth\_token + oauth\_token\_secret (HMAC-SHA1 signiert)
+3. OAuth2-Token: `POST https://connectapi.garmin.com/oauth-service/oauth/exchange/user/2.0` -> Zugriffstoken + Aktualisierungstoken (Bearer)
+4. Aktualisierungstoken: `POST https://connectapi.garmin.com/di-oauth2-service/oauth/token` mit `grant_type=refresh_token&client_id=GARMIN_CONNECT_MOBILE_ANDROID_DI&refresh_token=...`
+5. API-Aufrufe: `GET https://connectapi.garmin.com/...` mit Header `Authorization: Bearer {access_token}`
 
 ### API-Endpunkte
 
@@ -121,7 +121,7 @@ Alternativ von garth S3:`https://thegarth.s3.amazonaws.com/oauth_consumer.json`
 ### Referenz
 
 - [garth](https://github.com/matin/garth) – Python-Bibliothek für Garmin Connect
-- Testskript:`test-api.js` (SSO-Login + Token-Austausch + API-Test)
+- Testskript: `test-api.js` (SSO-Login + Token-Austausch + API-Test)
 
 ## Changelog
 ### 1.0.0 (2026-01-15)

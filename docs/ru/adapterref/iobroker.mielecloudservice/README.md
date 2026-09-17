@@ -62,7 +62,7 @@ hash: ukTe/tfTBtEcvDSPK2Z5KYoAHtdhgVk28kR00mkVtiY=
 - Поддерживаются все известные и задокументированные типы устройств (API V1.0.6).
 - Основная информация по всем типам бытовой техники.
 - Расширенная информация по всем типам бытовой техники.
-- Функция EcoFeedback (показатели потребления воды и/или электроэнергии) для приборов, сообщающих об этом.`Note: Not all devices report this information - event not if they do so in the iOS or Android apps. Search for the ecoFeedback folder in the device tree.`
+- Функция EcoFeedback (показатели потребления воды и/или электроэнергии) для приборов, сообщающих об этом. `Note: Not all devices report this information - event not if they do so in the iOS or Android apps. Search for the ecoFeedback folder in the device tree.`
 - Поддерживаемые действия, которые можно выполнять на этом устройстве — возможности устройства в основном предоставляются самим API.
 
 ## Известные проблемы

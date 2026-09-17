@@ -31,7 +31,7 @@ fiat.0.id.remote на истинном экране управления юве�
 
 ### Ladeplan (remote.CPPLUS)
 
-Государство`<VIN>.remote.CPPLUS` Возврат к массиву объектов Schedule (а также к выбранным объектам, которые будут автоматически распознаваться и автоматически входить в комплект массива). Адаптер работает с Wrapper-Body с официальным приложением My-Uconnect:
+Государство `<VIN>.remote.CPPLUS` Возврат к массиву объектов Schedule (а также к выбранным объектам, которые будут автоматически распознаваться и автоматически входить в комплект массива). Адаптер работает с Wrapper-Body с официальным приложением My-Uconnect:
 
 ```json
 {
@@ -55,7 +55,7 @@ fiat.0.id.remote на истинном экране управления юве�
 }
 ```
 
-Gesendet wird an`/v2/accounts/{UID}/vehicles/{VIN}/ev/schedule/` — das Body-Format ist aus`ScheduleV2Model$Post$Request` Официальное приложение (APK 1.99.701) недоступно.
+Gesendet wird an `/v2/accounts/{UID}/vehicles/{VIN}/ev/schedule/` — das Body-Format ist aus `ScheduleV2Model$Post$Request` Официальное приложение (APK 1.99.701) недоступно.
 
 ## Discussion und Fragen:
 

@@ -41,7 +41,7 @@ hash: NJL9Ax6BzDw0feahNcCVKwkv4+NCjfPe7wOznk60er8=
 
 `owfs -C -m /mnt/1wire --allow_other`
 
-Перед этим необходимо создать каталог _/mnt/1wire_ с помощью команды.`mkdir /mnt/1wire`
+Перед этим необходимо создать каталог _/mnt/1wire_ с помощью команды. `mkdir /mnt/1wire`
 
 ## Установите Windows OWFS.
 

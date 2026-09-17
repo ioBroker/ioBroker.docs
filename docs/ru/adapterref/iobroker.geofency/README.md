@@ -22,9 +22,9 @@ hash: nCpSnz7elWf1IHm7Klaqv/SPx0m0JjIZuIZLNf9qXzc=
 ## Настройка на мобильном устройстве
 
 - для любого местоположения -> свойства -> настройки веб-перехватчика:
-- URL для входа и выхода:`<your ioBroker Domain>:<configured port>/<any locationname>` ;
-- Формат публикации:`JSON-encoded` : включено
-- аутентификация: установить пользователя/пароль из`iobroker.geofency` конфигурация
+- URL для входа и выхода: `<your ioBroker Domain>:<configured port>/<any locationname>`;
+- Формат публикации: `JSON-encoded`: включено
+- аутентификация: установить пользователя/пароль из `iobroker.geofency` конфигурация
 
 ## На форуме ioBroker (на немецком языке)
 

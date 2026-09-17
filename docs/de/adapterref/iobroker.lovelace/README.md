@@ -45,7 +45,7 @@ Verwendete Version von home-assistant-frontend\@20260527.7; Browser-Mod-Version:
 
 Zunächst muss der eigentliche Branch <https://github.com/home-assistant/frontend> (dev branch) **manuell** in den [Branch https://github.com/GermanBluefox/home-assistant-polymer.git](https://github.com/GermanBluefox/home-assistant-polymer.git) ( _**iob**_ branch!) zusammengeführt werden.
 
-Alle Änderungen für ioBroker sind mit einem Kommentar gekennzeichnet.`// IoB` Bis zum 27.05.2026 wurden folgende Dateien geändert:
+Alle Änderungen für ioBroker sind mit einem Kommentar gekennzeichnet. `// IoB` Bis zum 27.05.2026 wurden folgende Dateien geändert:
 
 - `build-scripts/gulp/app.js` - Füge die neue Gulp-Aufgabe develop-iob hinzu
 - `build-scripts/gulp/rspack.js` - Neue Gulp-Aufgabe rspack-dev-app hinzufügen
@@ -54,8 +54,8 @@ Alle Änderungen für ioBroker sind mit einem Kommentar gekennzeichnet.`// IoB` 
 - `src/data/weather.ts` - Unterstützung für die Anzeige eines Wettersymbols aus einer URL hinzufügen.
 - `src/dialogs/more-info/const.ts` - Wetterstatus und -verlauf entfernen, falls es sich um ein Bild handelt
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - Schaltfläche und Registerkarte „Entitätseinstellungen“ entfernen
-- `src/dialogs/more-info/ha-more-info-history.ts` - entfernen`show more` Verbindung zur Geschichte
-- `src/dialogs/more-info/ha-more-info-logbook.ts` - entfernen`show more` Link im Logbuch
+- `src/dialogs/more-info/ha-more-info-history.ts` - entfernen `show more` Verbindung zur Geschichte
+- `src/dialogs/more-info/ha-more-info-logbook.ts` - entfernen `show more` Link im Logbuch
 - `src/dialogs/more-info/controls/more-info-weather.ts` - Unterstützung für die Anzeige eines Wettersymbols aus einer URL hinzufügen.
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - Konfiguration von Sprachassistenten deaktivieren
 - `src/entrypoints/core.ts` - Option "Keine Authentifizierung" hinzufügen
@@ -74,17 +74,17 @@ Alle Änderungen für ioBroker sind mit einem Kommentar gekennzeichnet.`// IoB` 
 - `src/html/index.html.template` - Entfernen des Safari Smart App Banners (apple-itunes-app meta) für die HA iOS App (#418).
 - `.husky/pre-commit` - Git-Commit-Hooks entfernen.
 
-Danach checken Sie die geänderte Version aus.`./build` Ordner. Dann.
+Danach checken Sie die geänderte Version aus. `./build` Ordner. Dann.
 
 1. Wechseln Sie in das Verzeichnis ./build.
 2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` Es handelt sich um eine Abspaltung von <https://github.com/home-assistant/frontend.git> , allerdings wurden einige Dinge geändert (siehe die Dateiliste weiter oben).
 3. `cd home-assistant-polymer`
 4. `git checkout master`
 5. `yarn install`
-6. `gulp build-app` zur Veröffentlichung oder`gulp develop-iob` für die Debugging-Version. Um die Webseite nach Änderungen neu zu erstellen, können Sie Folgendes aufrufen:`webpack-dev-app` für einen schnelleren Build, aber Sie müssen anrufen`build-app` jedenfalls sobald die Version einsatzbereit ist.
-7. Skript ausführen`hass_frontend/static_cards/newFrontend.sh` im Adapter-Repository, um das Frontend zu aktualisieren (es wird davon ausgegangen, dass sich die beiden Repositories im selben Ordner befinden; falls nicht, passen Sie bitte das Skript an, vorzugsweise mit Parameterbehandlung, und erstellen Sie einen Pull Request, danke :smile: ).
-8. Laufen`gulp rename` Aufgabe.
-9. Aktualisieren Sie die Version in`README.md` Die
+6. `gulp build-app` zur Veröffentlichung oder `gulp develop-iob` für die Debugging-Version. Um die Webseite nach Änderungen neu zu erstellen, können Sie Folgendes aufrufen: `webpack-dev-app` für einen schnelleren Build, aber Sie müssen anrufen `build-app` jedenfalls sobald die Version einsatzbereit ist.
+7. Skript ausführen `hass_frontend/static_cards/newFrontend.sh` im Adapter-Repository, um das Frontend zu aktualisieren (es wird davon ausgegangen, dass sich die beiden Repositories im selben Ordner befinden; falls nicht, passen Sie bitte das Skript an, vorzugsweise mit Parameterbehandlung, und erstellen Sie einen Pull Request, danke :smile: ).
+8. Laufen `gulp rename` Aufgabe.
+9. Aktualisieren Sie die Version in `README.md` Die
 
 ## Changelog
 

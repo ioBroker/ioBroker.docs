@@ -187,7 +187,7 @@ Dies ist ein spezieller Adapter, der versucht, alle vom iobroker-Host aus erreic
 ## Wenn der Adapter keine IPs findet ...
 
 Der Adapter pingt das Netzwerk der IP-Adresse des aktuellen Hosts (xyz1..255) an. Zusätzlich werden UPnP und mDNS zur IP-Adresserkennung verwendet.\
-&#x20;Falls nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Benutzer ausführen kann.`/bin/ping` Sie können ausführen`sudo setcap cap_net_raw+p /bin/ping` um fehlende Funktionen/Berechtigungen hinzuzufügen.
+&#x20;Falls nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Benutzer ausführen kann. `/bin/ping` Sie können ausführen `sudo setcap cap_net_raw+p /bin/ping` um fehlende Funktionen/Berechtigungen hinzuzufügen.
 
 ## Todo
 
@@ -213,7 +213,7 @@ Der Adapter pingt das Netzwerk der IP-Adresse des aktuellen Hosts (xyz1..255) an
 
 Die Instanz verfügt über einen Einstellungsdialog mit zwei Registerkarten. **Die Registerkarte „Einstellungen“** enthält eine Schaltfläche _„Jetzt scannen“_ , den Live-Status eines laufenden Scans (Fortschritt, gefundene Geräte, vorgeschlagene Adapter) und alle darunter stehenden Informationen; die Registerkarte **„Geräte“** listet die vom letzten Scan gefundenen Geräte auf.
 
-Der Dialog ist neu. Eine Installation, die eingerichtet wurde, bevor er existierte, behält ihn bei.`adminUI.config: "none"` Da js-controller dieses verschachtelte Feld bei einer Aktualisierung nicht übernimmt, werden die Objekte des Adapters beim Start selbst repariert und protokolliert. Sollte die Schaltfläche „Einstellungen“ danach immer noch fehlen, laden Sie die Admin-Seite neu.
+Der Dialog ist neu. Eine Installation, die eingerichtet wurde, bevor er existierte, behält ihn bei. `adminUI.config: "none"` Da js-controller dieses verschachtelte Feld bei einer Aktualisierung nicht übernimmt, werden die Objekte des Adapters beim Start selbst repariert und protokolliert. Sollte die Schaltfläche „Einstellungen“ danach immer noch fehlen, laden Sie die Admin-Seite neu.
 
 ## Geplanter Scan
 
@@ -223,18 +223,18 @@ Ein Scan, der über den Entdeckungsdialog gestartet wird, gewinnt immer – wenn
 
 ## Geräte im Objektbaum
 
-Nach jedem abgeschlossenen Scan wird unten angezeigt, was gefunden wurde.`discovery.0.devices` , ein Kanal pro Gerät:
+Nach jedem abgeschlossenen Scan wird unten angezeigt, was gefunden wurde. `discovery.0.devices`, ein Kanal pro Gerät:
 
 | Zustand     | Bedeutung                                                         |
 | ----------- | ----------------------------------------------------------------- |
 | `address`   | IP-Adresse oder serielle Schnittstelle                            |
 | `name`      | Hostname, mDNS-Name oder was auch immer das Gerät angekündigt hat |
-| `type`      | Wie es gefunden wurde:`ip` ,`upnp` ,`mdns` ,`serial` , ...        |
+| `type`      | Wie es gefunden wurde: `ip`, `upnp`, `mdns`, `serial`, ...        |
 | `source`    | Die Methode, die dies gemeldet hat                                |
 | `suggested` | Die Adapter, die dieses Gerät erkannten                           |
 | `lastSeen`  | Zeitpunkt des Scans, der es gefunden hat                          |
 
-`discovery.0.lastScan` Speichert den Zeitpunkt des letzten abgeschlossenen Scans. Die Baumstruktur zeigt diesen Scan und nicht den Verlauf: Geräte, die nicht wieder auftauchen, werden entfernt, sodass keine veralteten Daten zurückbleiben. Das vollständige Ergebnis, einschließlich der vorgeschlagenen Instanzkonfigurationen, bleibt an seinem ursprünglichen Ort.`system.discovery` Objekt.
+`discovery.0.lastScan` Speichert den Zeitpunkt des letzten abgeschlossenen Scans. Die Baumstruktur zeigt diesen Scan und nicht den Verlauf: Geräte, die nicht wieder auftauchen, werden entfernt, sodass keine veralteten Daten zurückbleiben. Das vollständige Ergebnis, einschließlich der vorgeschlagenen Instanzkonfigurationen, bleibt an seinem ursprünglichen Ort. `system.discovery` Objekt.
 
 <!--
 	Placeholder for the next version (at the beginning of the line):

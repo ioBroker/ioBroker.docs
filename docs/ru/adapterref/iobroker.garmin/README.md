@@ -32,9 +32,9 @@ hash: tWkq9hpXvyKfFk7K0pWYYiS765KE97wU5nzRphoIiao=
 
 | Тип              | Описание                                        | Пример                                   |
 | ---------------- | ----------------------------------------------- | ---------------------------------------- |
-| **Точные ключи** | Exakte Uebereinstimmung nur mit Feldnamen       | `bmi` findet jedes Feld namens`bmi`      |
+| **Точные ключи** | Exakte Uebereinstimmung nur mit Feldnamen       | `bmi` findet jedes Feld namens `bmi`      |
 | **Точные пути**  | Exakte Uebereinstimmung mit vollstaendigem Pfad | `weight.dateweightlist.bmi`              |
-| **Поиск**        | Teilstring-Suche в ключе или Pfad               | `heart` найти`heartRate` ,`restingHeart` |
+| **Поиск**        | Teilstring-Suche в ключе или Pfad               | `heart` найти `heartRate`, `restingHeart` |
 
 ### Beispiele
 
@@ -67,8 +67,8 @@ Search: sleep
 ### Hinweise
 
 - Фильтр без учета регистра (Gross/Kleinschreibung egal)
-- Pfade werden mit Punkt getrennt:`dailysleep.dailysleepdto.sleepscores.overall.value`
-- **Wichtig** : Pfade OHNE Array-Indizes angeben (zB`weight.dateweightlist.bmi` НИХТ`weight.dateweightlist01.bmi` ). Die Indizes (`01` ,`02` , ...) сначала был предложен ioBroker.
+- Pfade werden mit Punkt getrennt: `dailysleep.dailysleepdto.sleepscores.overall.value`
+- **Wichtig** : Pfade OHNE Array-Indizes angeben (zB `weight.dateweightlist.bmi` НИХТ `weight.dateweightlist01.bmi`). Die Indizes (`01`, `02`, ...) сначала был предложен ioBroker.
 - Список разрешенных = alle Datenpunkte werden angelegt
 - Leere API-Antworten erzeugen keine Ordner
 
@@ -80,7 +80,7 @@ Search: sleep
 
 ### Учетные данные OAuth
 
-Потребительские учетные данные OAuth1 находятся в APK-файле Garmin Connect Mobile в собственной библиотеке.`libsr.so` versteckt.
+Потребительские учетные данные OAuth1 находятся в APK-файле Garmin Connect Mobile в собственной библиотеке. `libsr.so` versteckt.
 
 **Извлечение:**
 
@@ -101,15 +101,15 @@ strings /tmp/lib/arm64-v8a/libsr.so | grep "apps.googleusercontent.com"
 | Секрет потребителя OAuth1       | `E08WAR897WEy2knn7aFBrvegVAf0AFdWBBF`  |
 | Идентификатор клиента OAuth2 DI | `GARMIN_CONNECT_MOBILE_ANDROID_DI`     |
 
-Alternativ von garth S3:`https://thegarth.s3.amazonaws.com/oauth_consumer.json`
+Alternativ von garth S3: `https://thegarth.s3.amazonaws.com/oauth_consumer.json`
 
 ### Процесс аутентификации (мобильный API)
 
-1. Вход через единый вход (SSO):`POST https://sso.garmin.com/sso/signin` -> Сервисный билет (ST-xxxxx)
-2. Токен OAuth1:`POST https://connectapi.garmin.com/oauth-service/oauth/preauthorized?ticket=ST-xxxxx` -> oauth\_token + oauth\_token\_secret (подпись HMAC-SHA1)
-3. Токен OAuth2:`POST https://connectapi.garmin.com/oauth-service/oauth/exchange/user/2.0` -> access\_token + refresh\_token (Bearer)
-4. Токен обновления:`POST https://connectapi.garmin.com/di-oauth2-service/oauth/token` мит`grant_type=refresh_token&client_id=GARMIN_CONNECT_MOBILE_ANDROID_DI&refresh_token=...`
-5. Вызовы API:`GET https://connectapi.garmin.com/...` с заголовком`Authorization: Bearer {access_token}`
+1. Вход через единый вход (SSO): `POST https://sso.garmin.com/sso/signin` -> Сервисный билет (ST-xxxxx)
+2. Токен OAuth1: `POST https://connectapi.garmin.com/oauth-service/oauth/preauthorized?ticket=ST-xxxxx` -> oauth\_token + oauth\_token\_secret (подпись HMAC-SHA1)
+3. Токен OAuth2: `POST https://connectapi.garmin.com/oauth-service/oauth/exchange/user/2.0` -> access\_token + refresh\_token (Bearer)
+4. Токен обновления: `POST https://connectapi.garmin.com/di-oauth2-service/oauth/token` мит `grant_type=refresh_token&client_id=GARMIN_CONNECT_MOBILE_ANDROID_DI&refresh_token=...`
+5. Вызовы API: `GET https://connectapi.garmin.com/...` с заголовком `Authorization: Bearer {access_token}`
 
 ### Конечные точки API
 
@@ -121,7 +121,7 @@ Alternativ von garth S3:`https://thegarth.s3.amazonaws.com/oauth_consumer.json`
 ### Референс
 
 - [garth](https://github.com/matin/garth) — библиотека Python для Garmin Connect
-- Тестовый скрипт:`test-api.js` (Вход через SSO + Обмен токенов + Тестирование API)
+- Тестовый скрипт: `test-api.js` (Вход через SSO + Обмен токенов + Тестирование API)
 
 ## Changelog
 ### 1.0.0 (2026-01-15)

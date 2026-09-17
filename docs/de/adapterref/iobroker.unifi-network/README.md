@@ -24,7 +24,7 @@ Unifi Network nutzt die WebSocket-Schnittstelle, um Echtzeitinformationen von de
 
 1. Der Adapter wurde ausschließlich auf Basis des UniFi OS entwickelt. Kompatibilität mit einem selbst gehosteten Netzwerkcontroller ist zwar gegeben, kann aber nicht garantiert werden.
 
-2. **Dieser Adapter kann sehr ressourcenintensiv sein!**<br> Dies hängt von Ihrer Umgebung ab, d. h. von der Anzahl der UniFi-Geräte und Clients in Ihrem Netzwerk. Dies lässt sich teilweise über die Echtzeit-API beeinflussen.`debounce time [s]` Dieser Parameter befindet sich in den Adaptereinstellungen. Echtzeitereignisse werden von dieser Einstellung nicht beeinflusst, sondern nur die „zyklische“ Echtzeitaktualisierung von Geräten, Clients usw.
+2. **Dieser Adapter kann sehr ressourcenintensiv sein!**<br> Dies hängt von Ihrer Umgebung ab, d. h. von der Anzahl der UniFi-Geräte und Clients in Ihrem Netzwerk. Dies lässt sich teilweise über die Echtzeit-API beeinflussen. `debounce time [s]` Dieser Parameter befindet sich in den Adaptereinstellungen. Echtzeitereignisse werden von dieser Einstellung nicht beeinflusst, sondern nur die „zyklische“ Echtzeitaktualisierung von Geräten, Clients usw.
 
 3. **Nicht alle Zustände sind direkt verfügbar, nachdem der Adapter gestartet wurde.**<br> Zustände werden nur erstellt und aktualisiert, wenn die Daten vom Netzwerkcontroller gesendet werden; dies kann einige Zeit dauern, bis die Daten zum ersten Mal gesendet werden.
 

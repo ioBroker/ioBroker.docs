@@ -21,7 +21,7 @@ SONOS-Geräte mit ioBroker steuern und überwachen.
 
 Der Adapter liefert ein Widget für beide Visualisierungsadapter. Beide werden mit dem Adapter installiert; **vis** und **vis-2** werden automatisch neu gestartet, der Editor muss jedoch manuell neu geladen werden (Strg+F5).
 
-**Sonos Control** schaltet zwischen Räumen um, steuert die Wiedergabe, erstellt Gruppen und startet Favoriten, Wiedergabelisten, Titel in der Warteschlange, zuletzt gehörte Titel und Quellen. Binden Sie es an eine _Instanz_ , zum Beispiel`sonos.0` - nicht auf einen einzelnen Staat wie z.B.`play` Das Widget erkennt selbstständig alle Sprecher dieser Instanz.
+**Sonos Control** schaltet zwischen Räumen um, steuert die Wiedergabe, erstellt Gruppen und startet Favoriten, Wiedergabelisten, Titel in der Warteschlange, zuletzt gehörte Titel und Quellen. Binden Sie es an eine _Instanz_ , zum Beispiel `sonos.0` - nicht auf einen einzelnen Staat wie z.B. `play` Das Widget erkennt selbstständig alle Sprecher dieser Instanz.
 
 Jeder gefundene Lautsprecher wird oben als Symbol angezeigt. Die Gruppenzugehörigkeit wird über die Kontrollkästchen aktiviert/deaktiviert. Gehört ein Raum zu einer Gruppe, wird im Wiedergabebereich der Titel der Gruppe angezeigt, nicht der letzte lokale Titel dieses Raums. Die Bibliotheksschaltflächen ( **Favoriten** , **Wiedergabelisten** , **Warteschlange** , **Zuletzt gehört** , **Quellen** ) öffnen darunter ein Fenster. Unter **„Zuletzt gehört** “ werden die letzten Titel des ausgewählten Raums angezeigt.
 
@@ -43,9 +43,9 @@ _TV HDMI: Titel, TV-Format, Stummschaltung, Nachtmodus, Ton- und Sprachverbesser
 
 ### vis-2 und vis 1
 
-Es gibt zwei Implementierungen von **Sonos Control** unter derselben Template-ID.`tplSonosControl` : eine React-Version für vis-2 (`src-widgets` ) und die ursprüngliche jQuery-Version für vis 1 (`widgets/sonos.html` ).
+Es gibt zwei Implementierungen von **Sonos Control** unter derselben Template-ID. `tplSonosControl`: eine React-Version für vis-2 (`src-widgets`) und die ursprüngliche jQuery-Version für vis 1 (`widgets/sonos.html`).
 
-Jeder Editor zeigt immer nur eines davon an. Denn der Adapter deklariert`common.visWidgets` , vis-2 Skips`widgets/sonos.html` vollständig und lädt das React-Widget; vis 1 kennt keine React-Widget-Sets und lädt stattdessen das jQuery-Widget. Ansichten, die mit dem vis-1-Widget erstellt wurden, behalten ihre`oid` Bindung, wenn sie in vis-2 geöffnet werden.
+Jeder Editor zeigt immer nur eines davon an. Denn der Adapter deklariert `common.visWidgets`, vis-2 Skips `widgets/sonos.html` vollständig und lädt das React-Widget; vis 1 kennt keine React-Widget-Sets und lädt stattdessen das jQuery-Widget. Ansichten, die mit dem vis-1-Widget erstellt wurden, behalten ihre `oid` Bindung, wenn sie in vis-2 geöffnet werden.
 
 vis-2 bietet zusätzlich **Sonos Room** , einen Lautsprecher als kompakte Karte mit Cover, Titel, Transport- und Lautstärkeregelung. Die letzte Taste öffnet die gleiche Quellenauswahl in einem Dialog, sodass eine einzelne Karte auch einen Favoriten, eine Playlist oder eine Quelle starten kann. Es gibt kein vis-1-Pendant.
 
@@ -97,22 +97,22 @@ http://<ioBroker>:8082/sonos/
 
 und bietet die gleichen Funktionen wie das Vis-Widget: die Raum-Chips, die aktuell abgespielte Musik mit Cover, Transport, Fortschritt, Lautstärke, die Gruppierungs-Kontrollkästchen und die Quellenauswahl mit Favoriten, Wiedergabelisten, Warteschlange, zuletzt abgespielten Titeln und den durchsuchbaren Quellen des Lautsprechers.
 
-Es wird keine Web-Erweiterung verwendet.`iobroker upload sonos` setzt die`www/` Der Adapter speichert den Ordner im ioBroker-Dateispeicher, und der Webadapter stellt die Datei von dort bereit – seine Catch-All-Route liest den ersten Pfadabschnitt der URL als Adapternamen. Dies ist derselbe Mechanismus, den der Adapter bereits verwendet, um eine TTS-Datei an einen Sprecher zu übergeben.
+Es wird keine Web-Erweiterung verwendet. `iobroker upload sonos` setzt die `www/` Der Adapter speichert den Ordner im ioBroker-Dateispeicher, und der Webadapter stellt die Datei von dort bereit – seine Catch-All-Route liest den ersten Pfadabschnitt der URL als Adapternamen. Dies ist derselbe Mechanismus, den der Adapter bereits verwendet, um eine TTS-Datei an einen Sprecher zu übergeben.
 
-Die Seite kommuniziert über den Socket der Webinstanz, die sie bereitstellt, mit ioBroker und übernimmt daher deren Authentifizierung und Benutzerrechte. Der Socket-Client ist nicht im Lieferumfang enthalten: Die Seite fragt den Webadapter danach.`socket.io.js` und ruft ab, was diese Instanz verwendet – socket.io oder`@iobroker/ws` Die
+Die Seite kommuniziert über den Socket der Webinstanz, die sie bereitstellt, mit ioBroker und übernimmt daher deren Authentifizierung und Benutzerrechte. Der Socket-Client ist nicht im Lieferumfang enthalten: Die Seite fragt den Webadapter danach. `socket.io.js` und ruft ab, was diese Instanz verwendet – socket.io oder `@iobroker/ws` Die
 
-`?instance=sonos.1` Heft die Seite an eine Instanz an,`?room=Kitchen` öffnet die Seite auf einem bestimmten Lautsprecher. Sind diese nicht vorhanden, greift die Seite auf die zuletzt verwendete Instanz und den zuletzt verwendeten Lautsprecher zurück, die beide im Browser gespeichert sind; erst wenn noch nichts gespeichert ist, öffnet sie die erste Instanz und deren ersten Lautsprecher.
+`?instance=sonos.1` Heft die Seite an eine Instanz an, `?room=Kitchen` öffnet die Seite auf einem bestimmten Lautsprecher. Sind diese nicht vorhanden, greift die Seite auf die zuletzt verwendete Instanz und den zuletzt verwendeten Lautsprecher zurück, die beide im Browser gespeichert sind; erst wenn noch nichts gespeichert ist, öffnet sie die erste Instanz und deren ersten Lautsprecher.
 
 Im Adminbereich erscheint die Seite auch als Kachel in der Übersicht, neben den Kacheln der anderen Adapter.
 
 ## Umgang mit Gruppen
 
 - Bundesstaaten für die Verwaltung von SONOS-Gruppen:
-  - **`coordinator`** : Den Koordinator festlegen/abrufen, also das SONOS-Gerät, das als Master fungiert und die Gruppe koordiniert. Hierfür wird die IP-Adresse (der Kanalname) des SONOS-Geräts benötigt, das als Koordinator fungieren soll, jedoch mit einem Unterstrich.`_` statt Punkt`.` Verwenden Sie beispielsweise`192_168_0_100` für IP-Adresse`192.168.0.100` Wenn das Gerät keiner Gruppe angehört, entspricht der Wert dem eigenen Kanalnamen (IP-Adresse).
-  - **`group_volume`** : das Volumen der Gruppe
-  - **`group_muted`** : Stummschaltungsstatus der Gruppe.
-  - **`add_to_group`** Fügen Sie dem SONOS-Gerät, unter dem dieser Status angezeigt wird, ein bestimmtes SONOS-Gerät hinzu. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
-  - **`remove_from_group`** Entfernen Sie ein bestimmtes SONOS-Gerät aus dem SONOS-Gerät, unter dem dieser Status registriert ist. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
+  - ** `coordinator` ** : Den Koordinator festlegen/abrufen, also das SONOS-Gerät, das als Master fungiert und die Gruppe koordiniert. Hierfür wird die IP-Adresse (der Kanalname) des SONOS-Geräts benötigt, das als Koordinator fungieren soll, jedoch mit einem Unterstrich. `_` statt Punkt `.` Verwenden Sie beispielsweise `192_168_0_100` für IP-Adresse `192.168.0.100` Wenn das Gerät keiner Gruppe angehört, entspricht der Wert dem eigenen Kanalnamen (IP-Adresse).
+  - ** `group_volume` ** : das Volumen der Gruppe
+  - ** `group_muted` ** : Stummschaltungsstatus der Gruppe.
+  - ** `add_to_group` ** Fügen Sie dem SONOS-Gerät, unter dem dieser Status angezeigt wird, ein bestimmtes SONOS-Gerät hinzu. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
+  - ** `remove_from_group` ** Entfernen Sie ein bestimmtes SONOS-Gerät aus dem SONOS-Gerät, unter dem dieser Status registriert ist. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
 
 \*) Diese Statusangaben werden aktualisiert, wenn Änderungen in der SONOS-App vorgenommen werden.
 
@@ -131,30 +131,30 @@ Als Workaround für die Text-zu-Sprache-Umwandlung kann die [SONOS HTTP API](htt
 
 ## Favoriten & Warteschlange in VIS
 
-Nutzungszustände`favorites_list_html` Und`queue_html` Mit einem einfachen HTML-Widget in VIS lassen sich Wiedergabelisten und die aktuelle Wiedergabeliste anzeigen. Durch Klicken auf eine Zeile wird die entsprechende Wiedergabeliste oder der Titel sofort abgespielt.
+Nutzungszustände `favorites_list_html` Und `queue_html` Mit einem einfachen HTML-Widget in VIS lassen sich Wiedergabelisten und die aktuelle Wiedergabeliste anzeigen. Durch Klicken auf eine Zeile wird die entsprechende Wiedergabeliste oder der Titel sofort abgespielt.
 
-Für eine eigene Benutzeroberfläche sind dieselben Listen als JSON verfügbar:`favorites_list_array` ,`playlist_list_array` Und`queue_array` Die`queue` Verbindet die Spuren mit einem Komma und kann nicht zuverlässig wieder getrennt werden, daher verwenden Sie`queue_array` - es trägt eins`{ artist, title, album, cover }` Eintrag pro Spur, und der Index eines Eintrags ist der Wert für`current_track_number` Formatieren Sie die Tabelle mit den folgenden CSS-Klassen:
+Für eine eigene Benutzeroberfläche sind dieselben Listen als JSON verfügbar: `favorites_list_array`, `playlist_list_array` Und `queue_array` Die `queue` Verbindet die Spuren mit einem Komma und kann nicht zuverlässig wieder getrennt werden, daher verwenden Sie `queue_array` - es trägt eins `{ artist, title, album, cover }` Eintrag pro Spur, und der Index eines Eintrags ist der Wert für `current_track_number` Formatieren Sie die Tabelle mit den folgenden CSS-Klassen:
 
 ### Favoriten
 
-- `sonosFavoriteTable` : ganze Lieblingstafel
-- `sonosFavoriteRow` : Zeilen mit Favoriteninformationen
+- `sonosFavoriteTable`: ganze Lieblingstafel
+- `sonosFavoriteRow`: Zeilen mit Favoriteninformationen
 - `sonosFavoriteNumber` Anzahl der Favoriten
-- `sonosFavoriteCover` Albumcover des Lieblingsalbums (Bild aufnehmen mit`.sonosFavoriteCover img` )
+- `sonosFavoriteCover` Albumcover des Lieblingsalbums (Bild aufnehmen mit `.sonosFavoriteCover img`)
 - `sonosFavoriteTitle` Name des Favoriten
 
 ### Warteschlange
 
-- `.sonosQueueTable` : gesamte Tabelle
-- `.sonosQueueRow` : Zeilen mit Streckeninformationen
-- `.currentTrack` : wurde der Zeile hinzugefügt, die den aktuell abgespielten Titel enthält.
-- `.sonosQueueTrackNumber` : Nummer oder Spur
-- `.sonosQueueTrackCover` Albumcover des Titels (Bild aufnehmen mit`.sonosQueueTrackCover img` )
+- `.sonosQueueTable`: gesamte Tabelle
+- `.sonosQueueRow`: Zeilen mit Streckeninformationen
+- `.currentTrack`: wurde der Zeile hinzugefügt, die den aktuell abgespielten Titel enthält.
+- `.sonosQueueTrackNumber`: Nummer oder Spur
+- `.sonosQueueTrackCover` Albumcover des Titels (Bild aufnehmen mit `.sonosQueueTrackCover img`)
 - `.sonosQueueTrackArtist` Name des Künstlers
-- `.sonosQueueTrackAlbum` Name des Albums (verwenden`display:none` (falls nicht erforderlich)
+- `.sonosQueueTrackAlbum` Name des Albums (verwenden `display:none` (falls nicht erforderlich)
 - `.sonosQueueTrackTitle` Name des Titels
 
-Bei langen Listen hinzufügen`overflow:auto;` oder`overflow-y:auto;` zum einfachen HTML-Widget. Bitte beachten Sie: Das Hervorheben des aktuell abgespielten Favoriten wird nicht unterstützt.
+Bei langen Listen hinzufügen `overflow:auto;` oder `overflow-y:auto;` zum einfachen HTML-Widget. Bitte beachten Sie: Das Hervorheben des aktuell abgespielten Favoriten wird nicht unterstützt.
 
 ### Beispiel-CSS
 
@@ -211,7 +211,7 @@ Neben dem Adapter befinden sich vier Frontends, alle mit Vite erstellt – die e
 | `src-widgets/` | `widgets/sonos/`    | vis-2                                                      |
 | `src-admin/`   | `admin/custom/`     | die Registerkarte **„Steuerung“** der Instanzeinstellungen |
 | `src-devices/` | `admin/dm-widgets/` | das Dashboard von ioBroker.devices                         |
-| `src-web/`     | `www/`              | der **Webadapter** , bei`/sonos/`                          |
+| `src-web/`     | `www/`              | der **Webadapter** , bei `/sonos/`                          |
 
 ```bash
 npm run npm            # install the adapter and all four front-ends
@@ -223,17 +223,17 @@ npm run build:devices  # the ioBroker.devices widgets -> admin/dm-widgets/
 npm run build:all      # the same as build, in a single tasks.mts run
 ```
 
-Sie alle werden angetrieben von`tasks.mts` , welcher Knoten direkt aus dem Quellcode mit eigener Typbereinigung ausgeführt wird - es gibt keinen Build-Schritt für das Build-Skript, sondern`npm run check:ts` Es wird eine Typprüfung durchgeführt und Syntaxfehler, die nicht entfernt werden konnten, werden zurückgewiesen.
+Sie alle werden angetrieben von `tasks.mts`, welcher Knoten direkt aus dem Quellcode mit eigener Typbereinigung ausgeführt wird - es gibt keinen Build-Schritt für das Build-Skript, sondern `npm run check:ts` Es wird eine Typprüfung durchgeführt und Syntaxfehler, die nicht entfernt werden konnten, werden zurückgewiesen.
 
-`admin/custom/` Und`admin/dm-widgets/` werden festgeschrieben, da ein Cold Module Federation Build den gesamten gemeinsam genutzten GUI-Stack vorab erstellt und mehrere Minuten dauert.`npm run build` baut sie zusammen mit allem anderen wieder auf.`npm run build:admin` /`npm run build:devices` Erneuern Sie nur einen davon – in jedem Fall die Ausgabe speichern, wenn etwas darunter liegt`src-admin/` oder`src-devices/` geändert.
+`admin/custom/` Und `admin/dm-widgets/` werden festgeschrieben, da ein Cold Module Federation Build den gesamten gemeinsam genutzten GUI-Stack vorab erstellt und mehrere Minuten dauert. `npm run build` baut sie zusammen mit allem anderen wieder auf. `npm run build:admin` /`npm run build:devices` Erneuern Sie nur einen davon – in jedem Fall die Ausgabe speichern, wenn etwas darunter liegt `src-admin/` oder `src-devices/` geändert.
 
-`src-devices` verfügt über ein Entwickler-Geschirr:`cd src-devices && npm start` öffnet die Widgets auf`http://localhost:3000` gegen einen echten ioBroker-Administrator am`localhost:8081` sodass sie weiterentwickelt werden können, ohne dass ein Umbau erforderlich ist.`ioBroker.devices` jedes Mal.
+`src-devices` verfügt über ein Entwickler-Geschirr: `cd src-devices && npm start` öffnet die Widgets auf `http://localhost:3000` gegen einen echten ioBroker-Administrator am `localhost:8081` sodass sie weiterentwickelt werden können, ohne dass ein Umbau erforderlich ist. `ioBroker.devices` jedes Mal.
 
-`src-web` hat dasselbe:`cd src-web && npm start` dient der Steuerungsseite auf`http://localhost:3000` und leitet den Socket, den Socket-Client und die Coverbilder an eine Webinstanz weiter.`localhost:8082` Die Seite erkennt ihren Entwicklungsserver über diesen Port, daher kann er nicht geändert werden – und weil`src-devices` Hört auch auf 3000, es kann jedoch immer nur eines der beiden Kabelbäume gleichzeitig laufen.
+`src-web` hat dasselbe: `cd src-web && npm start` dient der Steuerungsseite auf `http://localhost:3000` und leitet den Socket, den Socket-Client und die Coverbilder an eine Webinstanz weiter. `localhost:8082` Die Seite erkennt ihren Entwicklungsserver über diesen Port, daher kann er nicht geändert werden – und weil `src-devices` Hört auch auf 3000, es kann jedoch immer nur eines der beiden Kabelbäume gleichzeitig laufen.
 
 ## Zu erledigen
 
-- Machen`@svrooij/sonos` die Standardeinstellung, sobald sich das experimentelle Backend in realen Haushalten bewährt hat, und fallen lassen`sonos-discovery`
+- Machen `@svrooij/sonos` die Standardeinstellung, sobald sich das experimentelle Backend in realen Haushalten bewährt hat, und fallen lassen `sonos-discovery`
 
 ## Konfiguration
 

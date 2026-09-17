@@ -53,7 +53,7 @@ Alle in diesem Projekt genannten Produkt- und Firmennamen, Logos und Marken geh�
 - Ruft die echten Namen und Profildaten der mit dem Konto verbunden Tiere ab.
 - Вы должны знать координаты GPS, высоту, значения, позиции, настройки, настройки ioBroker-Standort и Aktualisierungszeit.
 - Kann Koordinaten необязательно в eine lesbare Adresse umwandeln.
-- Stellt Batteriesstand, Ladezustand, verwendete Positionsquelle (`KNOWN_WIFI` /`GPS` ), Zuhause-/Unterwegs-Status, Online-Status und Energiesparzustand bereit.
+- Stellt Batteriesstand, Ladezustand, verwendete Positionsquelle (`KNOWN_WIFI` /`GPS`), Zuhause-/Unterwegs-Status, Online-Status und Energiesparzustand bereit.
 - Liefert Modell, Firmware, Hardwareversion, Fähigkeiten, Geschlecht, Geburtstag, Größe, Gewicht und weitere verfügbare Informationen.
 - Благодаря отслеживанию в реальном времени, светодиодам и сигналам трекер оснащен множеством функций.
 - Speichert alle abgerufenen Konto-, Abonnement-, Freigabe-, Tier-, Tracker-, Positions- und Hardwaredaten als logischen lokalen Datenbaum sowie als vollständigen JSON-Schnappschuss.
@@ -83,7 +83,7 @@ Mit **Verbindung testen** können die eingegebenen Zugangsdaten geprüft werden.
 - Уровневый профиль, изображения и статистика всегда будут актуальными.
 - Когда вы начнете использовать адаптеры, это будет необходимо во время работы.
 
-Трактивный доступ может быть открыт с HTTP 429. При использовании адаптера, вращающегося в месте установки, необходимо приостановить работу, чтобы начать работу с устройствами и автоматическим подключением. Eine erfolgreiche Aktualisierung — это`info.lastSuccessfulSync` унд`info.dataFresh` erkennbar.
+Трактивный доступ может быть открыт с HTTP 429. При использовании адаптера, вращающегося в месте установки, необходимо приостановить работу, чтобы начать работу с устройствами и автоматическим подключением. Eine erfolgreiche Aktualisierung — это `info.lastSuccessfulSync` унд `info.dataFresh` erkennbar.
 
 ## Объекты и точки данных
 
@@ -115,25 +115,25 @@ tractive-gps.0
 
 ### Adapterinformationen
 
-- `info.connection` : Zeigt an, ob die letzte Synchronisierung erfolgreich war.
-- `info.dataFresh` : Zeigt an, ob aktuelle nutzbare Daten vorhanden sind.
-- `info.lastSync` : Zeitpunkt des letzten Synchronisierungsversuchs.
-- `info.lastSuccessfulSync` : Zeitpunkt der Letzten erfolgreichen Synchronisierung.
-- `info.refresh` : Taster zum manuellen Starten eines vollständigen Abgleichs.
-- `info.status` : Актуальный статус адаптера.
-- `info.currentApi` : Vollständiger JSON-Schnappschuss der aktuell verfügbaren Tractive-Daten.
+- `info.connection`: Zeigt an, ob die letzte Synchronisierung erfolgreich war.
+- `info.dataFresh`: Zeigt an, ob aktuelle nutzbare Daten vorhanden sind.
+- `info.lastSync`: Zeitpunkt des letzten Synchronisierungsversuchs.
+- `info.lastSuccessfulSync`: Zeitpunkt der Letzten erfolgreichen Synchronisierung.
+- `info.refresh`: Taster zum manuellen Starten eines vollständigen Abgleichs.
+- `info.status`: Актуальный статус адаптера.
+- `info.currentApi`: Vollständiger JSON-Schnappschuss der aktuell verfügbaren Tractive-Daten.
 
 ### Тьер
 
-Die Datenpunkte unter`pets.<pet-id>.*` enthalten nutzliche Tierprofildaten, Tracker-Zuordnung, Aktivitätsziele und das Profilbild. Подробная информация и внутренний API-Felder weggelassen.
+Die Datenpunkte unter `pets.<pet-id>.*` enthalten nutzliche Tierprofildaten, Tracker-Zuordnung, Aktivitätsziele und das Profilbild. Подробная информация и внутренний API-Felder weggelassen.
 
 ### Трекер
 
-Die Datenpunkte unter`trackers.<tracker-id>.*` Enthalten Tracker-Kennung, Betriebs- und Onlinestatus, Position, Positionsquelle, Entfernung zum ioBroker-Systemstandort, Adresse, Batterieinformationen und unterstützte Befehle.`location.sensorUsed` enthält die Tractive-Positionsquelle.`status.home` wird aus`KNOWN_WIFI` beziehungsweise`GPS` абгелитет. Эйнен доппельтен Датенпункт`connectionType` gibt es nicht mehr. Breiten- und Längengrad des ioBroker-Standorts werden in den Systemeinstellungen festgelegt.
+Die Datenpunkte unter `trackers.<tracker-id>.*` Enthalten Tracker-Kennung, Betriebs- und Onlinestatus, Position, Positionsquelle, Entfernung zum ioBroker-Systemstandort, Adresse, Batterieinformationen und unterstützte Befehle. `location.sensorUsed` enthält die Tractive-Positionsquelle. `status.home` wird aus `KNOWN_WIFI` beziehungsweise `GPS` абгелитет. Эйнен доппельтен Датенпункт `connectionType` gibt es nicht mehr. Breiten- und Längengrad des ioBroker-Standorts werden in den Systemeinstellungen festgelegt.
 
 ### Vollständige API-Daten
 
-Ну, для сценариев, автоматизации и визуализации без каких-либо ошибок, которые можно было бы использовать в качестве ангельских дат. Ознакомьтесь с метаданными API, внутренними версиями и дополнительными сведениями о них. Комбинированные ответы на ваши вопросы в формате JSON-Wert`info.currentApi` верфюгбар. Anmeldepasswort и Zugriffstoken не используются.
+Ну, для сценариев, автоматизации и визуализации без каких-либо ошибок, которые можно было бы использовать в качестве ангельских дат. Ознакомьтесь с метаданными API, внутренними версиями и дополнительными сведениями о них. Комбинированные ответы на ваши вопросы в формате JSON-Wert `info.currentApi` верфюгбар. Anmeldepasswort и Zugriffstoken не используются.
 
 ## Трекер-Бефеле
 
@@ -143,34 +143,34 @@ Die Datenpunkte unter`trackers.<tracker-id>.*` Enthalten Tracker-Kennung, Betrie
 - `trackers.<tracker-id>.commands.led`
 - `trackers.<tracker-id>.commands.buzzer`
 
-Der gewünschte Datenpunkt wird auf`true` Одер`false` гесетц. Лучше всего, чтобы получить Tractive den Befehl angenommen шляпу.
+Der gewünschte Datenpunkt wird auf `true` Одер `false` гесетц. Лучше всего, чтобы получить Tractive den Befehl angenommen шляпу.
 
 ## VIS-виджеты
 
-Адаптер — это классический вариант`PetTrackerCard` для VIS 1 sowie eine родной React-`PetTrackerCard` Для VIS 2. Для использования Tier beziehungsweise jeden Tracker wird ein eigenes Widget eingefügt und in den Widget-Einstellungen mit den Gewünschten Datenpunkten verbunden.
+Адаптер — это классический вариант `PetTrackerCard` для VIS 1 sowie eine родной React-`PetTrackerCard` Для VIS 2. Для использования Tier beziehungsweise jeden Tracker wird ein eigenes Widget eingefügt und in den Widget-Einstellungen mit den Gewünschten Datenpunkten verbunden.
 
 Die Karte kann Folgendes anzeigen:
 
 - Название уровня, Tierart, Geschlecht, Alter und Gewicht,
 - Имя трекера и онлайн-статус,
-- Tierbild aus dem lokalen Datenpunkt`media.localProfilePictureUrl` ,
+- Tierbild aus dem lokalen Datenpunkt `media.localProfilePictureUrl`,
 - интерактивная листовка-/OpenStreetMap-Карта,
 - драгоценный камень или мануэль eingestellter Positionsradius,
 - Подставка для аккумулятора, Positionsquelle, Zuhause-/Unterwegs-Status und Entfernung zu ioBroker,
 - letzte Aktualisierung, Adresse, Energiesparzustand, Ladezustand, Geschwindigkeit, Höhe und Positionsgenauigkeit,
 - Schalter für Signalton, LED и Live-Tracking bei unterstützten Trackern.
 
-Für das Tractive-Bild wird`pets.<pet-id>.media.localProfilePictureUrl` также Bilddatenpunkt ausgewählt. Вы указываете URL-адрес на локальном компьютере ioBroker-Dateispeicher abgelegten Kopie. Wird kein Bild geliefert или cann es nicht geladen werden, lässt sich im Widget-Bereich **Darstellung** ein eigenes Bild auswählen order hochladen.
+Für das Tractive-Bild wird `pets.<pet-id>.media.localProfilePictureUrl` также Bilddatenpunkt ausgewählt. Вы указываете URL-адрес на локальном компьютере ioBroker-Dateispeicher abgelegten Kopie. Wird kein Bild geliefert или cann es nicht geladen werden, lässt sich im Widget-Bereich **Darstellung** ein eigenes Bild auswählen order hochladen.
 
 Die Karte kann den vollständigen Genauigkeits- или Bereichskreis autotisch einpassen. Минимальное и максимальное масштабирование, измерение, изменение и изменение радиуса можно выполнить на панели конфигурации Widget-Einstellungen. Карта доступна на карте OpenStreetMap.
 
-Für die Befehlsschalter werden die zugehörigen Datenpunkte unter`trackers.<tracker-id>.commands.*` im Widget-Bereich **Befehle** zugeordnet. Während der Bearbeitung der VIS-Ansicht sind die Befehle gesperrt; im Laufzeitmodus lassen sie sich bedienen.
+Für die Befehlsschalter werden die zugehörigen Datenpunkte unter `trackers.<tracker-id>.commands.*` im Widget-Bereich **Befehle** zugeordnet. Während der Bearbeitung der VIS-Ansicht sind die Befehle gesperrt; im Laufzeitmodus lassen sie sich bedienen.
 
 ## Datenschutz und Sicherheit
 
 - Этот пароль будет использоваться для получения дополнительных настроек ioBroker-Konfigurationsverfahren.
 - Zugriffstoken bleiben im Arbeitsspeicher und werden autotisch erneuert.
-- Ausgewählte Konto- und Abonnementinformationen werden im logischen Objektbaum Gespeichert. Die vollständigen abgerufenen API-Datan werden local in`info.currentApi` абгелегт. Der Zugriff auf den ioBroker-Objektbaum sollte entsprechend geschützt werden.
+- Ausgewählte Konto- und Abonnementinformationen werden im logischen Objektbaum Gespeichert. Die vollständigen abgerufenen API-Datan werden local in `info.currentApi` абгелегт. Der Zugriff auf den ioBroker-Objektbaum sollte entsprechend geschützt werden.
 - Пароль и Zugriffstoken используются для API-данных, которые не являются подсказками и не используются в дополнительных конфигурациях без настройки в Arbeitsspeicher.
 - Если вы находитесь в локальном положении в ioBroker-Datenpunkten, то это означает, что функция адаптеров не работает.
 - Die Rückwärts-Geokodierung не является обязательным и отправляется в активную координацию по адресу Tractive.
@@ -181,11 +181,11 @@ Für die Befehlsschalter werden die zugehörigen Datenpunkte unter`trackers.<tra
 
 - **Verbindungstest schlägt fehl:** адрес электронной почты, пароль, подключение к Интернету и подключение к HTTPS-запросу.
 - **На панели управления или панели Tracker:** нажмите кнопку Tracker, чтобы активировать Tractive-Konto, и отключите адаптер, который не запустится.
-- **Дата недействительна:**`info.status` ,`info.dataFresh` унд`info.lastSuccessfulSync` prüfen.
+- **Дата недействительна:** `info.status`, `info.dataFresh` унд `info.lastSuccessfulSync` prüfen.
 - **HTTP 429 выдает сообщение:** Die Instanz weiterlaufen lassen. Адаптер приостанавливает работу и автоматически включается при включении тягового механизма.
 - **Адрес электронной панели:** Rückwärts-Geokodierung в активной конфигурации адаптера.
 - **Эйн Бефель чувствовал:** Der Tracker не дает покоя.
-- **Tierbild fehlt:**`localProfilePictureUrl` Im Widget zuordnen или ein eigenes Bild auswählen.
+- **Tierbild fehlt:** `localProfilePictureUrl` Im Widget zuordnen или ein eigenes Bild auswählen.
 
 ## Разработка документации
 

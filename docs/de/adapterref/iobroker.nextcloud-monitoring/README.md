@@ -40,16 +40,16 @@ Dieser Adapter ermöglicht die detaillierte Überwachung Ihrer Nextcloud-Instanz
 
 ### 1. Verbindungseinstellungen
 
-- **Domain:** Geben Sie Ihre Nextcloud-Domain ein (ohne Domain).`https://` (z.B,`cloud.yourdomain.com` ).
+- **Domain:** Geben Sie Ihre Nextcloud-Domain ein (ohne Domain). `https://` (z.B, `cloud.yourdomain.com`).
 - **Token:** Das OCS-API-Token Ihrer Nextcloud (siehe Abschnitt „Anleitung: Token“).
 - **Aktualisierungsintervall:** Zeit in Minuten zwischen API-Anfragen (Standard: 10 Min., Minimum: 5 Min.).
 - **Mehrere Server:** Sie können jetzt mehrere Server hinzufügen, z. B. my\_server\_1 und einen weiteren Server, z. B. other\_server\_2.
 - **Widget:**
 
 1. **Aktivieren:** Aktivieren Sie das Kontrollkästchen „Widget erstellen“ in den Instanzeinstellungen für Ihren Standort.
-2. **Zustand finden:** Der Adapter erstellt einen Zustand namens`htmlWidget` (unter`nextcloud-monitoring.0.SERVERNAME.htmlWidget` ).
+2. **Zustand finden:** Der Adapter erstellt einen Zustand namens `htmlWidget` (unter `nextcloud-monitoring.0.SERVERNAME.htmlWidget`).
 3. **In VIS/VIS2:** \* Ziehen Sie ein Standard- **„HTML“-Widget** in Ihre Ansicht.
-   - Weisen Sie der "HTML"-Eigenschaft dieses Widgets die Bindung Ihres Zustands zu:`{nextcloud-monitoring.0.SERVERNAME.htmlWidget}` Die
+   - Weisen Sie der "HTML"-Eigenschaft dieses Widgets die Bindung Ihres Zustands zu: `{nextcloud-monitoring.0.SERVERNAME.htmlWidget}` Die
    - Passen Sie Breite und Höhe des Widget-Containers an den Inhalt an.
 
 ### 2. Datenoptionen
@@ -61,11 +61,11 @@ Dieser Adapter ermöglicht die detaillierte Überwachung Ihrer Nextcloud-Instanz
 
 ## Anleitung: Token erstellen und festlegen
 
-Zugriff auf die`serverinfo` Die API benötigt ein gültiges API-Token. Dieses Token muss direkt in der Nextcloud-Konfiguration gespeichert werden.
+Zugriff auf die `serverinfo` Die API benötigt ein gültiges API-Token. Dieses Token muss direkt in der Nextcloud-Konfiguration gespeichert werden.
 
 ### Token generieren (Linux / Windows)
 
-Um den Zugriff zu ermöglichen, müssen Sie ein Token (eine zufällige Zeichenfolge) generieren und es in Ihrer Nextcloud-Instanz registrieren.`occ` Werkzeug.
+Um den Zugriff zu ermöglichen, müssen Sie ein Token (eine zufällige Zeichenfolge) generieren und es in Ihrer Nextcloud-Instanz registrieren. `occ` Werkzeug.
 
 **Befehl zum Generieren des Tokens:**
 
@@ -149,7 +149,7 @@ Stellen Sie sicher, dass die App „Server Info“ (Standard-App) in Ihrer Nextc
 
 - Wenn Sie Ihre Nextcloud in einem Webspace oder bei einem anderen Anbieter nutzen, benötigen Sie in den meisten Fällen kein sudo:
 
-`php occ config:app:get serverinfo token` oder`php /path_to/your/nextcloud_folder/occ config:app:get serverinfo token`
+`php occ config:app:get serverinfo token` oder `php /path_to/your/nextcloud_folder/occ config:app:get serverinfo token`
 
 ### Wartungsmodus:
 

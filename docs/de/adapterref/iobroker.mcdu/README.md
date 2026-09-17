@@ -35,7 +35,7 @@ Beide Projekte verwenden denselben Raspberry-Pi-Client und dasselbe MQTT-Protoko
 
 > **Hinweis:** Es kann jeweils nur ein „Steuergerät“ eine MCDU ansteuern. Die Anzeigethemen bleiben erhalten – wenn dieser Adapter und die Home Assistant-Integration gleichzeitig auf demselben Gerät veröffentlichen, flackert die Anzeige.
 
-**Bekannter offener Fehler:**`lib/mqtt/ButtonSubscriber.js` Griffe`PREV_PAGE` /`NEXT_PAGE` Aber der Client sendet immer nur`SLEW_LEFT` /`SLEW_RIGHT` /`SLEW_UP` /`SLEW_DOWN` (sehen`mcdu-client/lib/button-map.json` Die SLEW-Navigation scheint in diesem Adapter daher nicht zu funktionieren. Ein guter erster Beitrag.
+**Bekannter offener Fehler:** `lib/mqtt/ButtonSubscriber.js` Griffe `PREV_PAGE` /`NEXT_PAGE` Aber der Client sendet immer nur `SLEW_LEFT` /`SLEW_RIGHT` /`SLEW_UP` /`SLEW_DOWN` (sehen `mcdu-client/lib/button-map.json` Die SLEW-Navigation scheint in diesem Adapter daher nicht zu funktionieren. Ein guter erster Beitrag.
 
 ### Architektur
 
@@ -92,7 +92,7 @@ Der mcdu-Client ist ein ressourcenschonender Node.js-Prozess (ca. 50–100 MB RA
 | Raspberry Pi Zero 2 W       | \~$15  | 2,4 GHz  | OTG-Adapter erforderlich | Billige, aber fummelige OTG-Lösung mit einem Port                                                    |
 | ESP32-S3                    | $5-15  | Ja       | USB OTG                  | Node.js kann nicht ausgeführt werden – dies würde eine vollständige Neuentwicklung in C++ erfordern. |
 
-**Wichtige Einschränkung** : Die WinWing MCDU-Firmware benötigt SET\_REPORT-Steuerübertragungen (keine Interrupt-OUT-Übertragungen). Der MCDU-Client verwendet`node-hid` Dies wird auf allen Plattformen automatisch erledigt (IOHIDManager unter macOS, hidraw unter Linux).
+**Wichtige Einschränkung** : Die WinWing MCDU-Firmware benötigt SET\_REPORT-Steuerübertragungen (keine Interrupt-OUT-Übertragungen). Der MCDU-Client verwendet `node-hid` Dies wird auf allen Plattformen automatisch erledigt (IOHIDManager unter macOS, hidraw unter Linux).
 
 ### Schnellstart (Entwicklung)
 

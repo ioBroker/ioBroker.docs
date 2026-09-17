@@ -209,7 +209,7 @@ Das URL-Format ist:
 **Hinweis:** Die Tracker-Karten werden vom Server [ioBroker-Webadapter](https://github.com/ioBroker/ioBroker.web) bereitgestellt. Stellen Sie sicher, dass dieser installiert ist und ausgeführt wird. Der Status `urlLocal` wird automatisch aus der IP-Adresse des Servers und dem Port des Webadapters (Standard: 8082) erstellt.
 
 
-Die generierten HTML-, CSS- und JS-Dateien werden im ioBroker-Dateisystem gespeichert und können unter **Admin → Dateien → `life360ng.<instance>/tracker/`** eingesehen werden.
+Die generierten HTML-, CSS- und JS-Dateien werden im ioBroker-Dateisystem gespeichert und können unter **Admin → Dateien → `life360ng.<instance>/tracker/` ** eingesehen werden.
 
 #### Kartenmerkmale
 - **Interaktive Leaflet-Karte** - Schwenken und Zoomen, basierend auf OpenStreetMap

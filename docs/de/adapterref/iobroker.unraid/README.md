@@ -72,7 +72,7 @@ Dieser Adapter verbindet ioBroker über die GraphQL-API mit Unraid-Servern, um S
 
 ### Adaptereinstellungen
 
-1. **Basis-URL** : Geben Sie Ihre Unraid-Serveradresse ein (z. B.`https://192.168.1.10` oder`https://tower.local` )
+1. **Basis-URL** : Geben Sie Ihre Unraid-Serveradresse ein (z. B. `https://192.168.1.10` oder `https://tower.local`)
 2. **API-Token** : Fügen Sie den Admin-Token ein, den Sie in Unraid generiert haben.
 3. **Abfrageintervall** : Legen Sie fest, wie oft Daten abgerufen werden sollen (Standard: 60 Sekunden, Minimum: 10 Sekunden).
 4. **Selbstsignierte Zertifikate** : Aktivieren Sie diese Option, wenn Ihr Unraid-Server ein selbstsigniertes HTTPS-Zertifikat verwendet.

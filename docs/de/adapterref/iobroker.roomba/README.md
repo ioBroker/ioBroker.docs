@@ -39,7 +39,7 @@ Basierend auf der dorita980-Bibliothek <https://github.com/karlvr/dorita980#read
 
 Folgende Funktionen sind in diesem Adapter enthalten:
 
-- **Befehle senden** (`start` ,`stop` ,`resume` ,`pause` ,`dock` ) zu Ihrem Roomba
+- **Befehle senden** (`start`, `stop`, `resume`, `pause`, `dock`) zu Ihrem Roomba
 - **Gerätezustände** abrufen, z. B. Akku, angedockt, voller/eingesetzter Behälter (vollständige Liste unter [Kanäle & Zustände](#channels--states) )
 - **Gerätekonfiguration** abrufen, z. B. Voreinstellungen, Netzwerk- oder Zeitplaneinstellungen (vollständige Liste unter [Kanäle & Status](#channels--states) ).
 - **Gerätestatistiken** abrufen, z. B. Gesamtmissionen, Betriebsstunden an der Dockingstation usw. (vollständige Liste unter [Kanäle & Status](#channels--states) )
@@ -59,7 +59,7 @@ Wahrscheinlich müssen Sie jedoch die Paketabhängigkeiten von Canvas (und Canva
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-Führen Sie außerdem den folgenden Befehl **im Verzeichnis ioBroker.roomba** aus (`/opt/iobroker/node_modules/iobroker.roomba` ):
+Führen Sie außerdem den folgenden Befehl **im Verzeichnis ioBroker.roomba** aus (`/opt/iobroker/node_modules/iobroker.roomba`):
 
 ```
 sudo npm install canvas --unsafe-perm=true
@@ -67,7 +67,7 @@ sudo npm install canvas --unsafe-perm=true
 
 ### Windows
 
-1. Stellen Sie sicher, dass Sie Folgendes haben`node-gyp` installiert über
+1. Stellen Sie sicher, dass Sie Folgendes haben `node-gyp` installiert über
    ```
    npm install -g node-gyp
    ```
@@ -77,7 +77,7 @@ sudo npm install canvas --unsafe-perm=true
    npm install --global --production windows-build-tools
    ```
 
-3. Laden Sie GTK 2 (für [Win32](http://ftp.gnome.org/pub/GNOME/binaries/win32/gtk+/2.24/gtk+-bundle_2.24.10-20120208_win32.zip) oder [Win64](http://ftp.gnome.org/pub/GNOME/binaries/win64/gtk+/2.22/gtk+-bundle_2.22.1-20101229_win64.zip) ) herunter und entpacken Sie es (z. B. nach …).`C:\path\to\GTK2` )
+3. Laden Sie GTK 2 (für [Win32](http://ftp.gnome.org/pub/GNOME/binaries/win32/gtk+/2.24/gtk+-bundle_2.24.10-20120208_win32.zip) oder [Win64](http://ftp.gnome.org/pub/GNOME/binaries/win64/gtk+/2.22/gtk+-bundle_2.22.1-20101229_win64.zip) ) herunter und entpacken Sie es (z. B. nach …). `C:\path\to\GTK2`)
 
 4. Laufen
    ```
@@ -224,7 +224,7 @@ Nach erfolgreicher Einrichtung werden die folgenden Kanäle und Zustände erstel
 
 ## Beschreibung der Präferenzen _(unvollständig)_
 
-Beim Aufruf wird die folgende Nutzlast empfangen.`getPreferences()` (siehe <https://github.com/karlvr/dorita980#getpreferences> ):
+Beim Aufruf wird die folgende Nutzlast empfangen. `getPreferences()` (siehe <https://github.com/karlvr/dorita980#getpreferences> ):
 
 | Objekt                | Index      | Typ             | Beschreibung                                | ioBroker-Status        |
 | --------------------- | ---------- | --------------- | ------------------------------------------- | ---------------------- |
@@ -318,7 +318,7 @@ on({id: ns + '.missions.current.ended', change: 'any'}, function(obj)
 
 _04.05.2019: Fehler behoben, der das Senden der Karte verhinderte_
 
-Sie können die Variable bearbeiten.`message` Sie können alle Benachrichtigungen, die Sie zusammen mit der Karte erhalten möchten, hier eingeben.`%name-of-state%` um den Wert eines Zustands innerhalb des ioBroker.roomba-Objektbaums abzurufen.
+Sie können die Variable bearbeiten. `message` Sie können alle Benachrichtigungen, die Sie zusammen mit der Karte erhalten möchten, hier eingeben. `%name-of-state%` um den Wert eines Zustands innerhalb des ioBroker.roomba-Objektbaums abzurufen.
 
 ## Credits
 

@@ -25,14 +25,14 @@ Adapter für Ford-Fahrzeuge unter Verwendung der offiziellen FordConnect Query A
 
 ### Voraussetzungen
 
-Erstellen Sie eine App im Ford-Entwicklerportal unter <https://developer.ford.com/developer-eu> . Verwenden Sie dieselbe E-Mail-Adresse wie für Ihr FordPass-Konto und legen Sie eine Umleitungs-URI fest (z. B. .fordPass.com/developer-eu).`http://localhost:8080/callback` ) und notieren Sie sich die generierte Client-ID und das Client-Geheimnis.
+Erstellen Sie eine App im Ford-Entwicklerportal unter <https://developer.ford.com/developer-eu> . Verwenden Sie dieselbe E-Mail-Adresse wie für Ihr FordPass-Konto und legen Sie eine Umleitungs-URI fest (z. B. .fordPass.com/developer-eu). `http://localhost:8080/callback`) und notieren Sie sich die generierte Client-ID und das Client-Geheimnis.
 
 ### Login
 
 1. Geben Sie Client-ID, Client-Geheimnis und Umleitungs-URI in den Adaptereinstellungen ein und speichern Sie die Einstellungen.
 2. Starten Sie den Adapter – er gibt eine Anmelde-URL im Protokoll aus.
 3. Öffnen Sie die URL in Ihrem Browser, melden Sie sich mit Ihrem FordPass-Konto an und autorisieren Sie die App.
-4. Sie werden mit einem`?code=...` Parameter.
+4. Sie werden mit einem `?code=...` Parameter.
 5. Kopieren Sie die vollständige Weiterleitungs-URL aus der Adressleiste Ihres Browsers.
 6. Fügen Sie die URL in das Feld „Code-URL“ in den Adaptereinstellungen ein, speichern Sie die Einstellungen und starten Sie den Adapter neu.
 

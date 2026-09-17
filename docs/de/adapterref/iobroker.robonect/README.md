@@ -65,7 +65,7 @@ Die Erweiterungen GPIO 1, GPIO 2, OUT 1 und OUT 2 des Robonect-Moduls lassen sic
 
 ## Bekannte Probleme:
 
-- Um sicherzustellen, dass RoboConnect erreichbar ist, pingt der Adapter das Gerät an, bevor er Anfragen sendet. Dieser Ping kann insbesondere dann fehlschlagen, wenn ioBroker in einem Container installiert ist. Das Problem liegt nicht am Adapter selbst, aber da es auftreten kann und die Lösungsfindung recht schwierig ist, versuchen Sie Folgendes:`sudo chmod 4755 /bin/ping` in einer Shell innerhalb des ioBroker-Containers. Diese Lösung setzt voraus, dass ein Berechtigungsproblem zwischen dem ioBroker-Benutzer und dem Ping-Dienstprogramm besteht.
+- Um sicherzustellen, dass RoboConnect erreichbar ist, pingt der Adapter das Gerät an, bevor er Anfragen sendet. Dieser Ping kann insbesondere dann fehlschlagen, wenn ioBroker in einem Container installiert ist. Das Problem liegt nicht am Adapter selbst, aber da es auftreten kann und die Lösungsfindung recht schwierig ist, versuchen Sie Folgendes: `sudo chmod 4755 /bin/ping` in einer Shell innerhalb des ioBroker-Containers. Diese Lösung setzt voraus, dass ein Berechtigungsproblem zwischen dem ioBroker-Benutzer und dem Ping-Dienstprogramm besteht.
 
 ## Changelog
 ### 1.4.2 (2024-10-01)

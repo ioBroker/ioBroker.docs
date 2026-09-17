@@ -41,15 +41,15 @@ hash: WNYyw/6YHk/M5domxVVo6sjaZ70D2aarZfxkcmRkxGU=
 
 1. Войдите в систему по адресу <https://developer.spotify.com/dashboard/>
 2. Создайте приложение, и вы получите идентификатор клиента (Client ID) и секретный ключ клиента (Client Secret) (см. [инструкцию](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/blob/master/docs/create_app.png) ).
-3. Установите URI перенаправления на`https://oauth2.iobroker.in/spotify` в настройках вашего приложения Spotify, которое вы создали.
+3. Установите URI перенаправления на `https://oauth2.iobroker.in/spotify` в настройках вашего приложения Spotify, которое вы создали.
 4. Введите идентификатор клиента (Client ID) и секретный ключ клиента (Client Secret) в поля ниже.
 5. Запустите экземпляр
-6. Перейдите на вкладку «Объект» и нажмите кнопку «Получить авторизацию» в...`spotify-premium.0.authorization`
-7. Скопируйте появившийся URL-адрес из`spotify-premium.0.authorization.authorizationUrl` откройте его в своем веб-браузере и назовите его.
+6. Перейдите на вкладку «Объект» и нажмите кнопку «Получить авторизацию» в... `spotify-premium.0.authorization`
+7. Скопируйте появившийся URL-адрес из `spotify-premium.0.authorization.authorizationUrl` откройте его в своем веб-браузере и назовите его.
 8. Возможно, вам потребуется войти в Spotify и предоставить доступ.
-9. Браузер будет перенаправлен на недействительный URL-адрес. Если возникнет ошибка...`invalid redirect uri` происходит, пожалуйста, проверьте шаг 3
-10. Скопируйте этот URL-адрес и вставьте его в...`spotify-premium.0.authorization.authorizationReturnUri`
-11. Значение в`spotify-premium.0.authorization.authorized` становится истинным, если все прошло успешно.
+9. Браузер будет перенаправлен на недействительный URL-адрес. Если возникнет ошибка... `invalid redirect uri` происходит, пожалуйста, проверьте шаг 3
+10. Скопируйте этот URL-адрес и вставьте его в... `spotify-premium.0.authorization.authorizationReturnUri`
+11. Значение в `spotify-premium.0.authorization.authorized` становится истинным, если все прошло успешно.
 
 Нам необходимо указать URI перенаправления HTTPS, поскольку с декабря 2025 года Spotify больше не разрешает использовать незащищенные URI.
 

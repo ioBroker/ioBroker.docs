@@ -24,11 +24,11 @@ Solarprognose basierend auf der API von [solarprognose.de](https://www.solarprog
 
 1. Unter Einstellungen -> API-Übersicht ein Zugriffstoken erstellen
 
-2. Unter Einstellungen -> Benutzerprofil alle Zeitzonen`UTC (UTC -00:00)` muss ausgewählt werden
+2. Unter Einstellungen -> Benutzerprofil alle Zeitzonen `UTC (UTC -00:00)` muss ausgewählt werden
 
    ![Bild](../../../en/adapterref/iobroker.solarprognose/doc/api_timezone.png)
 
-3. Unter Einstellungen -> Benutzereinstellungen`Use the user timezone in the API` muss aktiviert werden
+3. Unter Einstellungen -> Benutzereinstellungen `Use the user timezone in the API` muss aktiviert werden
 
    ![Bild](../../../en/adapterref/iobroker.solarprognose/doc/api_use_timezone.png)
 

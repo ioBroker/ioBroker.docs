@@ -19,39 +19,39 @@ Dieser Adapter ermöglicht die Verbindung von FHEM mit ioBroker.
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Um die Verbindung herzustellen, muss Telnet in FHEM aktiviert sein. Um es zu aktivieren (standardmäßig aktiviert), überprüfen Sie die folgenden Einstellungen in`fhem.cfg` :
+Um die Verbindung herzustellen, muss Telnet in FHEM aktiviert sein. Um es zu aktivieren (standardmäßig aktiviert), überprüfen Sie die folgenden Einstellungen in `fhem.cfg`:
 
 `define telnetPort telnet 7072 global`
 
 Für die Einstellungen des Adapters müssen exakt derselbe Port und dieselbe IP-Adresse wie auf dem FHEM-Host (oder localhost, falls FHEM und ioBroker auf demselben PC laufen) verwendet werden.
 
-ioBroker sendet zu Beginn`jsonlist2` Befehl zum Abrufen aller`Readings` aus der Liste.
+ioBroker sendet zu Beginn `jsonlist2` Befehl zum Abrufen aller `Readings` aus der Liste.
 
 ## Unterstützte Geräte
 
 Normalerweise werden alle Geräte unterstützt. Einige sind jedoch besser integriert.
 
-Die Probleme treten insbesondere bei der Zustandssteuerung auf. Da keine klare Attributstruktur existiert, versucht ioBroker zu erraten, welche Attributstruktur definiert ist.`PossibleSets` Es können Felder verwendet werden. Tatsächlich werden nur die folgenden Attribute unterstützt:
+Die Probleme treten insbesondere bei der Zustandssteuerung auf. Da keine klare Attributstruktur existiert, versucht ioBroker zu erraten, welche Attributstruktur definiert ist. `PossibleSets` Es können Felder verwendet werden. Tatsächlich werden nur die folgenden Attribute unterstützt:
 
-- RGB: Wenn RGB existiert in`PossibleSets` und in`Readings` Es wird zu einem einzigen Zustand zusammengefasst, der gelesen und geschrieben werden kann. Werte wie`#234567` wird automatisch umgewandelt in`234567` Die
-- Ein-/Aus-Zustand: Wenn`on` Und`off` existieren in`PossibleSets` Und`state` In`Readings` Es wird in einem Bundesstaat unter dem Namen zusammengeführt.`state` Es kann mit „true“ und „false“ gesteuert werden, und die Befehle werden entsprechend geändert.`set DEVICE on` Und`set DEVICE off` Die
+- RGB: Wenn RGB existiert in `PossibleSets` und in `Readings` Es wird zu einem einzigen Zustand zusammengefasst, der gelesen und geschrieben werden kann. Werte wie `#234567` wird automatisch umgewandelt in `234567` Die
+- Ein-/Aus-Zustand: Wenn `on` Und `off` existieren in `PossibleSets` Und `state` In `Readings` Es wird in einem Bundesstaat unter dem Namen zusammengeführt. `state` Es kann mit „true“ und „false“ gesteuert werden, und die Befehle werden entsprechend geändert. `set DEVICE on` Und `set DEVICE off` Die
 
 ## Funktionen und Nutzung
 
 - Wenn der Raum "ioBroker" in FHEM existiert, werden nur diese Objekte synchronisiert.
 - Nach der Synchronisierung werden nicht verwendete FHEM-Objekte automatisch gelöscht.
-- Interna wie`TYPE` ,`NAME` ,`PORT` ,`manufacturername` ,`modelid` ,`swversion` wird synchronisiert (`role=value.xxx` )
-- Attribute wie`room` ,`alias` ,`disable` ,`comment` wird synchronisiert, und es ist möglich, Attribute in ioBroker zu bearbeiten.`role=state.xxx` )
+- Interna wie `TYPE`, `NAME`, `PORT`, `manufacturername`, `modelid`, `swversion` wird synchronisiert (`role=value.xxx`)
+- Attribute wie `room`, `alias`, `disable`, `comment` wird synchronisiert, und es ist möglich, Attribute in ioBroker zu bearbeiten. `role=state.xxx`)
 - Rolle und andere Einstellungen während der Synchronisierung festlegen.
-  - `Readings xxx` mit jedem`PossibleSets` wird festgelegt`role=state.xxx`
-  - `Readings xxx` ohne PossibleSets wird gesetzt`role=value.xxx`
-  - `Readings xxx` mit PossibleSets wird "noArg" gesetzt`role=button.xxx`
-  - `Readings xxx` Mit PossibleSets wird der "Slider" eingestellt`role=level.xxx, min=slider(min), max=slider(max)`
-  - `Readings "desired-temp"` wird festgelegt`role=level.temperature, min=5, max=35, unit=°C` Die
-  - `Readings "pct, brightness,dim"` wird festgelegt`role=level.dimmer, min=0, max=100, unit=%`
-  - `Readings "Volume, volume, GroupVolume"` wird festgelegt`role=level.volume, min=0, max=100, unit=%`
-  - `Readings "GroupVolume"` wird festgelegt`role=level.volume.group` ,`min=0` ,`max=100` ,`unit=%`
-- `SmartName` Der Cloud-Adapter wird automatisch mit einem Alias oder Namen (nur`fhem.0` und Objekte mit`role = level.temperature, level.dim, level.volume` )
+  - `Readings xxx` mit jedem `PossibleSets` wird festgelegt `role=state.xxx`
+  - `Readings xxx` ohne PossibleSets wird gesetzt `role=value.xxx`
+  - `Readings xxx` mit PossibleSets wird "noArg" gesetzt `role=button.xxx`
+  - `Readings xxx` Mit PossibleSets wird der "Slider" eingestellt `role=level.xxx, min=slider(min), max=slider(max)`
+  - `Readings "desired-temp"` wird festgelegt `role=level.temperature, min=5, max=35, unit=°C` Die
+  - `Readings "pct, brightness,dim"` wird festgelegt `role=level.dimmer, min=0, max=100, unit=%`
+  - `Readings "Volume, volume, GroupVolume"` wird festgelegt `role=level.volume, min=0, max=100, unit=%`
+  - `Readings "GroupVolume"` wird festgelegt `role=level.volume.group`, `min=0`, `max=100`, `unit=%`
+- `SmartName` Der Cloud-Adapter wird automatisch mit einem Alias oder Namen (nur `fhem.0` und Objekte mit `role = level.temperature, level.dim, level.volume`)
 
 <!--
 	Placeholder for the next version (at the beginning of the line):

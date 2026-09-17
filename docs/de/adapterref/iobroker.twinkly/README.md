@@ -34,7 +34,7 @@ In der Tabelle können Sie alle Twinkly-Lichter hinzufügen, die Sie steuern mö
 | `Enabled`    | Soll diese Verbindung genutzt werden?                                                                                                                   |
 | `Name`       | Name der Verbindung in ioBroker                                                                                                                         |
 | `IP Address` | IP-Adresse der Lichterkette                                                                                                                             |
-| `Mode On`    | Welche`ledMode` sollte aktiviert werden, wenn der Zustand`on` ist aktiviert.<br/> Farbe, Effekt, Film, Musikreaktiv, Wiedergabeliste oder letzter Modus |
+| `Mode On`    | Welche `ledMode` sollte aktiviert werden, wenn der Zustand `on` ist aktiviert.<br/> Farbe, Effekt, Film, Musikreaktiv, Wiedergabeliste oder letzter Modus |
 
 Folgende zusätzliche Status werden pro Gerät erstellt, wenn diese Option aktiviert ist:
 
@@ -50,13 +50,13 @@ Folgende Bundesstaaten stehen zur Verfügung:
 | `details`     | :X:                  | Gerätedetails                                                                                                                                                                  |
 | `firmware`    | :X:                  | Firmware-Version                                                                                                                                                               |
 | `ledBri`      | :heavy\_check\_mark: | Helligkeit (Steuerung mit -1 deaktivieren)                                                                                                                                     |
-| `ledColor`    | :heavy\_check\_mark: | Farbe der LEDs, HSV/RGB(W)/HEX (`Color` )                                                                                                                                      |
+| `ledColor`    | :heavy\_check\_mark: | Farbe der LEDs, HSV/RGB(W)/HEX (`Color`)                                                                                                                                      |
 | `ledConfig`   | :heavy\_check\_mark: | LED-Konfiguration                                                                                                                                                              |
-| `ledEffect`   | :heavy\_check\_mark: | Auswirkungen (`Effect` )                                                                                                                                                       |
+| `ledEffect`   | :heavy\_check\_mark: | Auswirkungen (`Effect`)                                                                                                                                                       |
 | `ledLayout`   | :heavy\_check\_mark: | Anordnung der LEDs (für weitere Tests deaktiviert)                                                                                                                             |
 | `ledMode`     | :heavy\_check\_mark: | Modus: Farbe, Effekt, Film, Musikreaktiv, Wiedergabeliste, Aus, Echtzeit (noch nicht unterstützt), Demo                                                                        |
-| `ledMovie`    | :heavy\_check\_mark: | Aktiver Film: Wenn in der Wiedergabelistenfunktion mehrere Filme hinzugefügt wurden, können diese hier ausgewählt werden.`Movie` )                                             |
-| `ledPlaylist` | :heavy\_check\_mark: | Aktiver Playlist-Eintrag, Wechsel zwischen Filmen.`Playlist` )                                                                                                                 |
+| `ledMovie`    | :heavy\_check\_mark: | Aktiver Film: Wenn in der Wiedergabelistenfunktion mehrere Filme hinzugefügt wurden, können diese hier ausgewählt werden. `Movie`)                                             |
+| `ledPlaylist` | :heavy\_check\_mark: | Aktiver Playlist-Eintrag, Wechsel zwischen Filmen. `Playlist`)                                                                                                                 |
 | `ledSat`      | :heavy\_check\_mark: | Sättigung 0-100 (Steuerung mit -1 deaktivieren)                                                                                                                                |
 | `mqtt`        | :heavy\_check\_mark: | MQTT-Verbindung                                                                                                                                                                |
 | `name`        | :heavy\_check\_mark: | Name                                                                                                                                                                           |
@@ -124,7 +124,7 @@ sendTo('twinkly.0', 'sendrealtimeframe', {
 
 ### Rahmen in einer bestimmten Farbe generieren
 
-Gibt ein vollständiges Bild in einer Farbe zurück. Die Farben werden in der Eigenschaft übergeben.`colors` Sie erhalten ein Array von Frames zurück.
+Gibt ein vollständiges Bild in einer Farbe zurück. Die Farben werden in der Eigenschaft übergeben. `colors` Sie erhalten ein Array von Frames zurück.
 
 ```
 sendTo('twinkly.0', 'generateFrame', {

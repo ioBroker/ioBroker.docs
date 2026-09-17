@@ -61,33 +61,33 @@ Allerdings enthalten manche empfangene Ereignisse Binärdaten wie Bilder, deren 
 
 Diese Funktion ist zwar hauptsächlich für Bilder konzipiert, unterstützt aber auch das Senden von Inhalten, die durch einfache XML-Teile ausgelöst werden.
 
-Die genaue Nachricht, die gesendet wird, kann in der Konfiguration festgelegt werden.`Send to message...` Felder. Diese Felder werden mit JavaScript ausgewertet.`Function` Das Objekt verfügt über zwei verfügbare Variablen:`ctx` (das Ereigniskontextobjekt – siehe unten) und im Falle von Bildteilen ist der Rohpuffer verfügbar in`imageBuffer` Die
+Die genaue Nachricht, die gesendet wird, kann in der Konfiguration festgelegt werden. `Send to message...` Felder. Diese Felder werden mit JavaScript ausgewertet. `Function` Das Objekt verfügt über zwei verfügbare Variablen: `ctx` (das Ereigniskontextobjekt – siehe unten) und im Falle von Bildteilen ist der Rohpuffer verfügbar in `imageBuffer` Die
 
 ##### Beispiel 1: Senden einer Textbenachrichtigung bei jedem über Telegram empfangenen Ereignis
 
-Wenn der Telegram-Adapter implementiert wurde, können die folgenden Parameter im`XML event parts` Abschnitt:
+Wenn der Telegram-Adapter implementiert wurde, können die folgenden Parameter im `XML event parts` Abschnitt:
 
-- An Instanz für XML senden:`telegram.0`
+- An Instanz für XML senden: `telegram.0`
 - Befehl für XML senden: Leer lassen
 - An Nachricht senden für XML: Beachten Sie, dass Backticks Teil des konfigurierten Werts sind -`` `Received ${ctx.eventType} from ${ctx.deviceName}` ``
 
 ##### Beispiel 2: Bilder über Telegram senden
 
-Wenn der Telegram-Adapter implementiert wurde, können die folgenden Parameter im`Image event parts` Abschnitt:
+Wenn der Telegram-Adapter implementiert wurde, können die folgenden Parameter im `Image event parts` Abschnitt:
 
-- An Instanz senden, um Bilder zu erhalten:`telegram.0`
+- An Instanz senden, um Bilder zu erhalten: `telegram.0`
 - An Befehl zum Abrufen von Bildern senden: Leer lassen
-- Senden Sie eine Nachricht, um Bilder zu erhalten:`{ text: imageBuffer, type: 'photo' }`
+- Senden Sie eine Nachricht, um Bilder zu erhalten: `{ text: imageBuffer, type: 'photo' }`
 
 ##### Beispiel 3: Bilder an benutzerdefiniertes JavaScript senden
 
 Ein komplexeres Beispiel ist das Senden jedes empfangenen Bildpuffers an ein benutzerdefiniertes Skript, das innerhalb eines Javascript-Adapters ausgeführt wird:
 
-- An Instanznamen senden:`javascript.0`
-- An den Befehl senden:`toScript` (Dies ist kein Beispiel – die Zeichenkette muss wörtlich angegeben werden).
-- An Nachricht senden:`{ script: 'script.js.myImageHandler', message: 'myImageReceiver', data: { device: ctx.device, image: imageBuffer } }`
+- An Instanznamen senden: `javascript.0`
+- An den Befehl senden: `toScript` (Dies ist kein Beispiel – die Zeichenkette muss wörtlich angegeben werden).
+- An Nachricht senden: `{ script: 'script.js.myImageHandler', message: 'myImageReceiver', data: { device: ctx.device, image: imageBuffer } }`
 
-Erstellen Sie innerhalb des Javascript-Adapters (Instanz null) ein Skript mit dem Namen`myImageHandler` und fügen Sie diesen Code hinzu:
+Erstellen Sie innerhalb des Javascript-Adapters (Instanz null) ein Skript mit dem Namen `myImageHandler` und fügen Sie diesen Code hinzu:
 
 ```javascript
 onMessage('myImageReceiver', (data, cb) => {
@@ -100,25 +100,25 @@ onMessage('myImageReceiver', (data, cb) => {
 
 ##### Ereigniskontextobjekt
 
-Der`ctx` Der Ereigniskontext besitzt folgende Eigenschaften:
+Der `ctx` Der Ereigniskontext besitzt folgende Eigenschaften:
 
 - `macAddress`
 - `eventType`
 - `detectionTarget`
 - `channelName`
 - `device` - MAC-Adresse ohne Anführungszeichen (zur Konsistenz mit net-tools).
-- `deviceName` - Hostname abgeleitet von net-tools oder einer Kopie von`device` falls nicht gefunden.
+- `deviceName` - Hostname abgeleitet von net-tools oder einer Kopie von `device` falls nicht gefunden.
 - `stateId` - Status-ID, die dieses Ereignis auslöst.
 - `eventLogged` - Boolescher Wert, der angibt, ob ein Zustand ordnungsgemäß ausgelöst wurde. Sollte immer „true“ sein.
 - `xml` - Geparste XML-Daten.
-- `ts` - JavaScript`Date` Objekt erstellt aus`dateTime` in der Ereignisnachricht (oder dem Zeitpunkt des Empfangs des Ereignisses, falls nicht verfügbar).
+- `ts` - JavaScript `Date` Objekt erstellt aus `dateTime` in der Ereignisnachricht (oder dem Zeitpunkt des Empfangs des Ereignisses, falls nicht verfügbar).
 - `periodPath` - Dateisystemordner, in dem die Ereignisteile aktuell gespeichert werden (ändert sich täglich).
 - `fileBase` - Präfix für alle gespeicherten Teile der aktuellen Nachricht.
 - `files` - Array, das die Dateinamen (einschließlich des vollständigen Pfads) aller Dateien enthält, die im Rahmen der Verarbeitung der aktuellen Nachricht ausgegeben wurden.
 
 #### Ereignisdaten speichern
 
-Wenn aktiviert, werden Ereignis-XML- und/oder Bilddaten im lokalen Dateisystem unter gespeichert.`iobroker-data/hikvision-alarmserver.<instance>` Die
+Wenn aktiviert, werden Ereignis-XML- und/oder Bilddaten im lokalen Dateisystem unter gespeichert. `iobroker-data/hikvision-alarmserver.<instance>` Die
 
 _Achtung!_ Diese Dateien werden derzeit weder gelöscht noch archiviert. Verwenden Sie sie daher mit Vorsicht oder implementieren Sie eine externe Strategie.
 

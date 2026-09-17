@@ -27,18 +27,18 @@ Es verfügt über eine nützliche Weboberfläche zum Bearbeiten der Anfragen:
 
 ## Verwendung
 
-Aufruf im Browser`http://ipaddress:8093/` und verwenden Sie Swagger UI, um Zustände und Objekte anzufordern und zu ändern.
+Aufruf im Browser `http://ipaddress:8093/` und verwenden Sie Swagger UI, um Zustände und Objekte anzufordern und zu ändern.
 
 Einige Beispiele für Anfragen:
 
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - Zustand als JSON lesen
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - Zustand als Zeichenkette lesen (nur Wert)
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - Status mit GET schreiben (nur zur Abwärtskompatibilität mit simple-api)
-- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - eine Nachricht senden an`javascript.0` im Skript`scriptName`
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - eine Nachricht senden an `javascript.0` im Skript `scriptName`
 
 ### Authentifizierung
 
-Um die Authentifizierung zu aktivieren, müssen Sie die folgende Einstellung vornehmen:`Authentication` Option im Konfigurationsdialog.
+Um die Authentifizierung zu aktivieren, müssen Sie die folgende Einstellung vornehmen: `Authentication` Option im Konfigurationsdialog.
 
 Es werden drei Authentifizierungsarten unterstützt:
 
@@ -46,15 +46,15 @@ Es werden drei Authentifizierungsarten unterstützt:
 - Basisauthentifizierung
 - OAuth2 (Bearer)
 
-Zur Authentifizierung bei einer Abfrage müssen Sie Folgendes festlegen:`user` Und`pass` in einer Abfrage wie:
+Zur Authentifizierung bei einer Abfrage müssen Sie Folgendes festlegen: `user` Und `pass` in einer Abfrage wie:
 
 ```http
 http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?user=admin&pass=admin
 ```
 
-Für die Basisauthentifizierung müssen Sie die`Authorization` Kopfzeile mit dem Wert`Basic base64(user:pass)` Die
+Für die Basisauthentifizierung müssen Sie die `Authorization` Kopfzeile mit dem Wert `Basic base64(user:pass)` Die
 
-Für die OAuth2-Authentifizierung müssen Sie die`Authorization` Kopfzeile mit dem Wert`Bearer <AccessToken>` Die
+Für die OAuth2-Authentifizierung müssen Sie die `Authorization` Kopfzeile mit dem Wert `Bearer <AccessToken>` Die
 
 Das Zugriffstoken kann mit einer HTTP-Anfrage wie der folgenden abgerufen werden:
 
@@ -90,7 +90,7 @@ Ein Beispiel für den Browser finden Sie hier: [demoNodeClient.js](https://githu
 
 ## Weberweiterung
 
-Dieser Adapter kann als Web-Erweiterung ausgeführt werden. In diesem Fall ist der Pfad unter folgender Adresse verfügbar:`http://ipaddress:8082/rest-api/`
+Dieser Adapter kann als Web-Erweiterung ausgeführt werden. In diesem Fall ist der Pfad unter folgender Adresse verfügbar: `http://ipaddress:8082/rest-api/`
 
 ## Beachten
 
@@ -106,9 +106,9 @@ Darüber hinaus können Sie viele Socket-Befehle über eine spezielle Schnittste
 
 Z.B
 
-- `http://ipaddress:8093/v1/command/getState?id=system.adapter.admin.0.alive` - den Zustand lesen`system.adapter.admin.0.alive`
-- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png` - um die Datei zu lesen`admin.admin/admin.png` als JSON-Ergebnis
-- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png?binary` - um die Datei zu lesen`admin.admin/admin.png` als Datei
+- `http://ipaddress:8093/v1/command/getState?id=system.adapter.admin.0.alive` - den Zustand lesen `system.adapter.admin.0.alive`
+- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png` - um die Datei zu lesen `admin.admin/admin.png` als JSON-Ergebnis
+- `http://ipaddress:8093/v1/command/readFile?adapter=admin.admin&fileName=admin.png?binary` - um die Datei zu lesen `admin.admin/admin.png` als Datei
 - `http://ipaddress:8093/v1/command/extendObject?id=system.adapter.admin.0?obj={"common":{"enabled":true}}` - zum Neustart des Administrators
 
 Sie können alle Befehle auch mit der POST-Methode anfordern. Der Body muss ein Objekt mit Parametern sein. Beispiel:
@@ -132,7 +132,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getStates(pattern)` - Ruft die Liste der Zustände für ein Muster ab (z. B. für system.adapter.admin.0.\*). Die grafische Benutzeroberfläche kann Probleme bei der Visualisierung des Ergebnisses haben.
 - `getForeignStates(pattern)` - dasselbe wie getStates
 - `getState(id)` - Statuswert anhand der ID abrufen
-- `setState(id, state)` - Zustandswert mit JSON-Objekt festlegen (z. B.`{"val": 1, "ack": true}` )
+- `setState(id, state)` - Zustandswert mit JSON-Objekt festlegen (z. B. `{"val": 1, "ack": true}`)
 - `getBinaryState(id)` - Binärzustand anhand der ID abrufen
 - `setBinaryState(id, base64)` - Binärzustand anhand der ID festlegen
 
@@ -141,7 +141,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getObject(id)` - Objekt anhand der ID abrufen
 - `getObjects(list)` Alle Zustände und Räume abrufen. Die grafische Benutzeroberfläche kann Probleme bei der Visualisierung des Ergebnisses haben.
 - `getObjectView(design, search, params)` - bestimmte Objekte abrufen, z. B. design=system, search=state, params=`{"startkey": "system.adapter.admin.", "endkey": "system.adapter.admin.\u9999"}`
-- `setObject(id, obj)` - Objekt mit JSON-Objekt festlegen (z. B.`{"common": {"type": "boolean"}, "native": {}, "type": "state"}` )
+- `setObject(id, obj)` - Objekt mit JSON-Objekt festlegen (z. B. `{"common": {"type": "boolean"}, "native": {}, "type": "state"}`)
 - `delObject(id, options)` - ein Objekt anhand seiner ID löschen
 
 ### Dateien
@@ -184,7 +184,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `delGroup(group)` - Gruppe löschen
 - `changePassword(user, pass)` - Benutzerpasswort ändern
 - `getAllObjects()` - Alle Objekte werden als Liste gelesen. Die grafische Benutzeroberfläche kann Probleme bei der Visualisierung des Ergebnisses haben.
-- `extendObject(id, obj)` - Ein Objekt anhand seiner ID mit JSON modifizieren. (z. B.`{"common":{"enabled": true}}` )
+- `extendObject(id, obj)` - Ein Objekt anhand seiner ID mit JSON modifizieren. (z. B. `{"common":{"enabled": true}}`)
 - `getForeignObjects(pattern, type)` - dasselbe wie getObjects
 - `delObjects(id, options)` - Objekte anhand eines Musters löschen
 

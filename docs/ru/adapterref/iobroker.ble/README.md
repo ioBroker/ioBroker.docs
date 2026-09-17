@@ -14,15 +14,15 @@ hash: ZsjsFFVPqZRjXaY7G62PHdi6Tg8/7nk2qml410R0syM=
 
 ## Установка
 
-Для компиляции этого адаптера требуются дополнительные библиотеки. Подробные инструкции см. на <https://github.com/sandeepmistry/noble#prerequisites> . На Raspberry Pi и аналогичных устройствах это должно сработать:`sudo apt-get install bluetooth bluez libbluetooth-dev libudev-dev libcap2-bin`
+Для компиляции этого адаптера требуются дополнительные библиотеки. Подробные инструкции см. на <https://github.com/sandeepmistry/noble#prerequisites> . На Raspberry Pi и аналогичных устройствах это должно сработать: `sudo apt-get install bluetooth bluez libbluetooth-dev libudev-dev libcap2-bin`
 
-Если адаптер запускается, но не подключается к вашему Bluetooth-устройству, пожалуйста, проверьте следующее:`info.driverState` Состояние в ioBroker. Если оно такое:`unauthorized` , вам нужно дать`node` дополнительные разрешения. Для Linux это делается очень просто:
+Если адаптер запускается, но не подключается к вашему Bluetooth-устройству, пожалуйста, проверьте следующее: `info.driverState` Состояние в ioBroker. Если оно такое: `unauthorized`, вам нужно дать `node` дополнительные разрешения. Для Linux это делается очень просто:
 
 ```bash
 sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
 ```
 
-что требует`libcap2-bin` подлежит установке.
+что требует `libcap2-bin` подлежит установке.
 
 ## Конфигурация
 
@@ -40,9 +40,9 @@ sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
   - [Датчик для ухода за цветами](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-huahuacaocao-flower-care-smart-monitor/)
   - [Датчик температуры и влажности Mijia](https://www.banggood.com/Xiaomi-Mijia-Bluetooth-Thermometer-Hygrometer-with-LCD-Screen-Magnetic-Suction-Wall-Stickers-p-1232396.html?cur_warehouse=USA)
   - [Средство от комаров](https://www.aliexpress.com/item/32883859984.html)
-- `"mi-flora"` Оригинальный плагин для датчика ухода за цветами, теперь имеет псевдоним для`"xiaomi"`
+- `"mi-flora"` Оригинальный плагин для датчика ухода за цветами, теперь имеет псевдоним для `"xiaomi"`
 - `"ruuvi-tag"` Мультисенсорный модуль [Ruuvi Tag](https://tag.ruuvi.com/) с версиями прошивки v1 и v2. **Не тестировался, пожалуйста, оставьте отзыв!**
-- `"bthome"` Датчики, использующие протокол [BTHome](https://bthome.io) . На данный момент это ограничено следующими устройствами:`v2` Протокол был пересмотрен и не поддерживает зашифрованные пакеты.
+- `"bthome"` Датчики, использующие протокол [BTHome](https://bthome.io) . На данный момент это ограничено следующими устройствами: `v2` Протокол был пересмотрен и не поддерживает зашифрованные пакеты.
 
 ## Changelog
 <!--

@@ -2638,7 +2638,7 @@ Im Funktionsblock kann zusätzlich ein spezielles Return-Element verwendet werde
                           <block type="procedures_ifreturn" id=")htNPjBWw1J/gp-Y5#Kg">
                             <mutation value="1"></mutation>
                             <value name="CONDITION">
-                              <block type="logic_compare" id="nFZ;s`3ij0v|.wQqw`AB">
+                              <block type="logic_compare" id="nFZ;s `3ij0v|.wQqw` AB">
                                 <field name="OP">EQ</field>
                                 <value name="A">
                                   <block type="variables_get" id="Q^3OKKD]aGa0/qxWf%*g">

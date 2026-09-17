@@ -93,17 +93,17 @@ Adapter-Wiki: <https://github.com/ticaki/ioBroker.nspanel-lovelace-ui/wiki>\
 
 ## Summersteuerung
 
-Der Adapter unterstützt die Summersteuerung für NSPanel-Geräte mithilfe von Tasmota.`Buzzer` Befehl. Dies aktiviert Tastentöne, Benachrichtigungen über dringende Meldungen und die allgemeine Summersteuerung.
+Der Adapter unterstützt die Summersteuerung für NSPanel-Geräte mithilfe von Tasmota. `Buzzer` Befehl. Dies aktiviert Tastentöne, Benachrichtigungen über dringende Meldungen und die allgemeine Summersteuerung.
 
 ### Voraussetzungen
 
-Um die Summerfunktion nutzen zu können, stellen Sie sicher, dass Ihre NSPanel Tasmota-Firmware über die entsprechende Firmware verfügt.`SetOption111 1` Aktiviert. Hierbei wird BuzzerPwm für die Frequenzausgabe des Piezo-Summers anstelle eines Ein-/Aus-Signals verwendet.
+Um die Summerfunktion nutzen zu können, stellen Sie sicher, dass Ihre NSPanel Tasmota-Firmware über die entsprechende Firmware verfügt. `SetOption111 1` Aktiviert. Hierbei wird BuzzerPwm für die Frequenzausgabe des Piezo-Summers anstelle eines Ein-/Aus-Signals verwendet.
 
 ### Anwendungsmethoden
 
 #### 1. Zustandsbasierte Steuerung
 
-Jedes Bedienfeld verfügt über einen Summer-Steuerungszustand:`panels.{panelName}.cmd.buzzer`
+Jedes Bedienfeld verfügt über einen Summer-Steuerungszustand: `panels.{panelName}.cmd.buzzer`
 
 ```javascript
 // Set buzzer command (tone, duration, count, frequency)
@@ -139,7 +139,7 @@ sendTo('nspanel-lovelace-ui.0', 'buzzer', {
 
 ### Summer-Befehlsformat
 
-Der Buzzer-Befehl folgt dem Format von Tasmota:`tone,duration,count,frequency`
+Der Buzzer-Befehl folgt dem Format von Tasmota: `tone,duration,count,frequency`
 
 - **Tonhöhe** : 1-4 (Tonart)
 - **Dauer** : 1-10 (Dauereinheiten, jeweils ca. 100 ms)

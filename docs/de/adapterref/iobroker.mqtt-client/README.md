@@ -37,15 +37,15 @@ ioBroker-Zustände an MQTT-Broker veröffentlichen und abonnieren
 
 ### zum Thema „Verbindung“ und zur Nachricht
 
-Der`on connect message` wird veröffentlicht auf`on connect topic` jedes Mal, wenn der Client eine Verbindung zum Server herstellt oder die Verbindung wiederherstellt.
+Der `on connect message` wird veröffentlicht auf `on connect topic` jedes Mal, wenn der Client eine Verbindung zum Server herstellt oder die Verbindung wiederherstellt.
 
 ### Thema und Nachricht zum Thema „Verbindungsabbruch“
 
-Der`on disconnect message` wird veröffentlicht auf`on disconnect topic` wenn der Adapter ordnungsgemäß stoppt.
+Der `on disconnect message` wird veröffentlicht auf `on disconnect topic` wenn der Adapter ordnungsgemäß stoppt.
 
 ### Thema und Nachricht des letzten Willens
 
-Der`last will message` wird veröffentlicht auf`last will topic` Jedes Mal, wenn sich der Client mit dem Server verbindet oder die Verbindung wiederherstellt, speichert der Server diese Nachricht und sendet sie an seine Abonnenten, wenn die Verbindung des Clients unerwartet abbricht.
+Der `last will message` wird veröffentlicht auf `last will topic` Jedes Mal, wenn sich der Client mit dem Server verbindet oder die Verbindung wiederherstellt, speichert der Server diese Nachricht und sendet sie an seine Abonnenten, wenn die Verbindung des Clients unerwartet abbricht.
 
 ### Abonnements
 
@@ -53,14 +53,14 @@ Eine durch Kommas getrennte Liste von Themen, die noch nicht von bestehenden Zus
 
 ### JSON in Zustände für Themen aufteilen
 
-Durch Kommas getrennte Liste von MQTT-Themenfiltern (ohne Präfix,`+` Und`#` sind erlaubt), z.B.`zigbee2mqtt/+` Ein zu einem passenden Thema empfangenes JSON-Objekt wird nicht als Text gespeichert, sondern in einen Kanal aufgeteilt, wobei jeder Wert einen eigenen Status hat.`zigbee2mqtt/sensor` =`{"battery":100,"occupancy":false,"color":{"x":0.3}}` erstellt den Kanal`mqtt-client.0.zigbee2mqtt.sensor` mit den Staaten`battery` (Nummer),`occupancy` (boolesch) und der Kanal`color` mit dem Staat`x` (Nummer).
+Durch Kommas getrennte Liste von MQTT-Themenfiltern (ohne Präfix, `+` Und `#` sind erlaubt), z.B. `zigbee2mqtt/+` Ein zu einem passenden Thema empfangenes JSON-Objekt wird nicht als Text gespeichert, sondern in einen Kanal aufgeteilt, wobei jeder Wert einen eigenen Status hat. `zigbee2mqtt/sensor` =`{"battery":100,"occupancy":false,"color":{"x":0.3}}` erstellt den Kanal `mqtt-client.0.zigbee2mqtt.sensor` mit den Staaten `battery` (Nummer), `occupancy` (boolesch) und der Kanal `color` mit dem Staat `x` (Nummer).
 
 - Verschachtelte Objekte werden zu Kanälen (bis zu 5 Ebenen), Arrays werden als JSON-Text gespeichert.
-- Punkte, Leerzeichen und in IDs nicht zulässige Zeichen werden ersetzt durch`_` in den IDs.
-- In ioBroker geschriebene Werte (`ack=false` werden als JSON an`<topic>/set` z.B.`{"color":{"x":0.5}}` Dies ist die Konvention von zigbee2mqtt. Das Gerät bestätigt den neuen Wert mit seiner nächsten Nachricht.
+- Punkte, Leerzeichen und in IDs nicht zulässige Zeichen werden ersetzt durch `_` in den IDs.
+- In ioBroker geschriebene Werte (`ack=false` werden als JSON an `<topic>/set` z.B. `{"color":{"x":0.5}}` Dies ist die Konvention von zigbee2mqtt. Das Gerät bestätigt den neuen Wert mit seiner nächsten Nachricht.
 - Nutzdaten, die kein JSON-Objekt sind (Arrays, Zahlen, Text), werden wie bisher behandelt.
 
-Die Themen müssen noch abonniert werden, z. B. mit`zigbee2mqtt/#` In den zusätzlichen Abonnements wird angegeben, dass ältere, als Text erstellte Versionen dieser Themen nicht geändert werden und gelöscht werden können.
+Die Themen müssen noch abonniert werden, z. B. mit `zigbee2mqtt/#` In den zusätzlichen Abonnements wird angegeben, dass ältere, als Text erstellte Versionen dieser Themen nicht geändert werden und gelöscht werden können.
 
 ### Veröffentlichungspräfix
 
@@ -82,13 +82,13 @@ Aktiviert oder deaktiviert die MQTT-Client-Funktionalität für diesen Zustand. 
 
 Das Thema, in dem dieser Status veröffentlicht und von dem er abonniert wird. Standard: Status-ID, konvertiert in ein MQTT-Thema.
 
-Wenn das Thema von der State-ID abgeleitet wird, werden Punkte in Trennzeichen auf Themenebene umgewandelt (`/` ) und die folgenden Zeichen werden ersetzt durch`_` :
+Wenn das Thema von der State-ID abgeleitet wird, werden Punkte in Trennzeichen auf Themenebene umgewandelt (`/`) und die folgenden Zeichen werden ersetzt durch `_`:
 
-- die MQTT-Wildcards`+` Und`#` - Sie sind in Themennamen nicht zulässig (verwendet z. B. von Shelly-IDs wie`shelly.0.SHSW-1#B96701#1` )
+- die MQTT-Wildcards `+` Und `#` - Sie sind in Themennamen nicht zulässig (verwendet z. B. von Shelly-IDs wie `shelly.0.SHSW-1#B96701#1`)
 - Schrägstriche innerhalb der ID selbst würden zusätzliche Themenebenen erzeugen.
 - Leerzeichen dürfen nicht in Objekt-IDs gelangen, wenn das Thema zurückkonvertiert wird.
 
-Also`shelly.0.SHSW-1#B96701#1.Relay0.Switch` wird`shelly/0/SHSW-1_B96701_1/Relay0/Switch` Wenn zwei Status-IDs zum selben Thema gehören (z. B.`a#b` Und`a+b` ), wird eine Warnung protokolliert. Konfigurieren Sie in diesem Fall ein explizites Thema für eines davon.
+Also `shelly.0.SHSW-1#B96701#1.Relay0.Switch` wird `shelly/0/SHSW-1_B96701_1/Relay0/Switch` Wenn zwei Status-IDs zum selben Thema gehören (z. B. `a#b` Und `a+b`), wird eine Warnung protokolliert. Konfigurieren Sie in diesem Fall ein explizites Thema für eines davon.
 
 ### veröffentlichen
 
@@ -108,8 +108,8 @@ Also`shelly.0.SHSW-1#B96701#1.Relay0.Switch` wird`shelly/0/SHSW-1_B96701_1/Relay
 
 #### Notiz
 
-- Wenn ack auf true gesetzt ist, überschreibt es die ack-Eigenschaft des Objekts (siehe unten).`as object`
-- Um Nachrichtenschleifen zu vermeiden, müssen sowohl Publish als auch Subscribe aktiviert sein.`changes only` ist immer zum Abonnieren verfügbar
+- Wenn ack auf true gesetzt ist, überschreibt es die ack-Eigenschaft des Objekts (siehe unten). `as object`
+- Um Nachrichtenschleifen zu vermeiden, müssen sowohl Publish als auch Subscribe aktiviert sein. `changes only` ist immer zum Abonnieren verfügbar
 
 <!--
 	Placeholder for the next version (at the beginning of the line):

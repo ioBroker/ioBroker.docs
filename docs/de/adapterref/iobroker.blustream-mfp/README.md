@@ -45,7 +45,7 @@ Steuern Sie die AV-Präsentationsmischer der Blustream AMF/MFP/WMF-Serie über e
 | Videowand / Multiview | MX44VW, MX44AVW, MV41                                                                    | Modus/Routing/Blende/MV-Audio + HDMI/VGA-Eingangsauswahl |
 | USB / KVM             | MX44KVM                                                                                  | USB-Host↔Geräte-Routing + Voreinstellungen               |
 
-Diese Familien erhalten außerdem **EDID-Management** (alle Matrizen), **CEC-Steuerung** (HMX-18G, SW41HDBT) und **Audio** (HMX-18G Audiomatrix; Pro-Matrix Audio-Einbettung/Stummschaltung). CMX/MX-Audio folgt dem Videoausgang (keine separate Steuerung). **Die STATUS-Rückmeldung (Auslesen) wird für jede Familie mit fester Breite analysiert** – Routing, Ausgabefreigabe, PoC, CEC, EDID, Audiomatrix, Netzwerk, Videowandmodus und SW42DA Dante Master-Audio – basierend auf realen Geräteaufzeichnungen. Der MX44KVM hat sein eigenes Antwortformat, aus dem Host-Routing, GPIO-Modi und USB-Kaskadierung ausgelesen werden (seine Netzwerktabelle nicht). Die einzige Ausnahme ist **MV41** , dessen STATUS-Header keine Spaltentrennzeichen haben. Noch nicht unterstützt: **AMF41W** (separate Linux-CLI-API), **MFP31** und **SW12USB** (Dokumentation nicht verfügbar); MX44AVW erweitertes PIP/Rotation und MV41 sind vorläufig. Siehe`MODEL-EXPANSION-PLAN.md` Die
+Diese Familien erhalten außerdem **EDID-Management** (alle Matrizen), **CEC-Steuerung** (HMX-18G, SW41HDBT) und **Audio** (HMX-18G Audiomatrix; Pro-Matrix Audio-Einbettung/Stummschaltung). CMX/MX-Audio folgt dem Videoausgang (keine separate Steuerung). **Die STATUS-Rückmeldung (Auslesen) wird für jede Familie mit fester Breite analysiert** – Routing, Ausgabefreigabe, PoC, CEC, EDID, Audiomatrix, Netzwerk, Videowandmodus und SW42DA Dante Master-Audio – basierend auf realen Geräteaufzeichnungen. Der MX44KVM hat sein eigenes Antwortformat, aus dem Host-Routing, GPIO-Modi und USB-Kaskadierung ausgelesen werden (seine Netzwerktabelle nicht). Die einzige Ausnahme ist **MV41** , dessen STATUS-Header keine Spaltentrennzeichen haben. Noch nicht unterstützt: **AMF41W** (separate Linux-CLI-API), **MFP31** und **SW12USB** (Dokumentation nicht verfügbar); MX44AVW erweitertes PIP/Rotation und MV41 sind vorläufig. Siehe `MODEL-EXPANSION-PLAN.md` Die
 
 Weitere Informationen zu Blustream-Produkten finden Sie unter [Blustream](https://www.blustream.co.uk/) .
 
@@ -67,7 +67,7 @@ Der Adapter unterstützt zwei Verbindungstypen:
 
 #### RS232-Serielle Verbindung
 
-- **Serielle Schnittstelle** : Pfad zum seriellen Gerät (z. B.`/dev/ttyUSB0` unter Linux,`COM3` (unter Windows)
+- **Serielle Schnittstelle** : Pfad zum seriellen Gerät (z. B. `/dev/ttyUSB0` unter Linux, `COM3` (unter Windows)
 - **Baudrate** : Serielle Übertragungsgeschwindigkeit (typischerweise 57600 für MFP-Serien)
 
 ### Gerätemodell
@@ -83,34 +83,34 @@ Wählen Sie Ihr spezifisches Blustream-Gerätemodell aus dem Dropdown-Menü aus.
 
 Der Adapter erzeugt Zustände dynamisch basierend auf dem ausgewählten Gerätemodell. Häufige Zustände sind:
 
-### Information (`info.*` )
+### Information (`info.*`)
 
 - `info.connection` - Geräteverbindungsstatus
 - `info.model` - Gerätemodellkennung
 
-### Befehle (`commands.*` )
+### Befehle (`commands.*`)
 
 - `commands.raw` - Sende Rohbefehle an das Gerät
 - `commands.getStatus` - Aktuellen Gerätestatus anfordern
 
-### Ausgangssteuerung (`output.*` )
+### Ausgangssteuerung (`output.*`)
 
 - `output.X.source` - Eingangsquelle für Ausgang X auswählen
 - `output.X.enabled` - Ausgang X aktivieren/deaktivieren
 - `output.X.videoMute` - Videoausgang X deaktivieren
 
-### Audio (`audio.*` )
+### Audio (`audio.*`)
 
 - `audio.volume` - Master-Lautstärkepegel
 - `audio.mute` - Master-Stummschaltung
 
-### Systemsteuerung (`system.*` )
+### Systemsteuerung (`system.*`)
 
 - `system.power` - Ein-/Ausschalten
 - `system.beep` - Signalton für die Aktivierungs-/Deaktivierungstaste
 - Und je nach Gerätemodell noch weitere...
 
-### Netzwerkeinstellungen (`network.*` )
+### Netzwerkeinstellungen (`network.*`)
 
 - `network.dhcp` - DHCP aktivieren/deaktivieren
 - `network.ip` - Geräte-IP-Adresse
@@ -139,7 +139,7 @@ Der Adapter erzeugt Zustände dynamisch basierend auf dem ausgewählten Gerätem
 
 1. **IP-Verbindung fehlgeschlagen** : Überprüfen Sie IP-Adresse und Port. Stellen Sie sicher, dass keine Firewall die Verbindung blockiert. Deaktivieren Sie die Telnet-IAC-Aushandlung, falls Ihr Gerät diese nicht unterstützt.
 
-2. **RS232-Verbindung fehlgeschlagen** : Überprüfen Sie den Pfad und die Baudrate der seriellen Schnittstelle. Stellen Sie sicher, dass Sie die Berechtigung für den Zugriff auf die serielle Schnittstelle besitzen (unter Linux fügen Sie Ihren Benutzer der entsprechenden Gruppe hinzu).`dialout` Gruppe).
+2. **RS232-Verbindung fehlgeschlagen** : Überprüfen Sie den Pfad und die Baudrate der seriellen Schnittstelle. Stellen Sie sicher, dass Sie die Berechtigung für den Zugriff auf die serielle Schnittstelle besitzen (unter Linux fügen Sie Ihren Benutzer der entsprechenden Gruppe hinzu). `dialout` Gruppe).
 
 3. **Befehle funktionieren nicht** : Einige Geräte benötigen eine kurze Verzögerung zwischen den Befehlen. Der Adapter handhabt dies automatisch mithilfe einer Befehlswarteschlange.
 

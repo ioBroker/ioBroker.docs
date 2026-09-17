@@ -83,7 +83,7 @@ Sie können nun wichtige Wattpilot-Funktionen direkt steuern, indem Sie in die Z
 
 #### Erweiterte Steuerung über set\_state
 
-Für eine erweiterte Steuerung verwenden Sie die`set_state` Datenpunkt in diesem Format:
+Für eine erweiterte Steuerung verwenden Sie die `set_state` Datenpunkt in diesem Format:
 
 ```
 stateName;value
@@ -91,8 +91,8 @@ stateName;value
 
 **Verfügbare Bundesstaaten:**
 
-- **Verstärker** :`6-16` (Ladestrom in Ampere)
-- **cae** :`true` oder`false` (⚠️ Deaktiviert die Cloud-Funktionalität – Neustart erforderlich)
+- **Verstärker** : `6-16` (Ladestrom in Ampere)
+- **cae** : `true` oder `false` (⚠️ Deaktiviert die Cloud-Funktionalität – Neustart erforderlich)
 
 **Beispiele:**
 
@@ -138,7 +138,7 @@ Der Adapter verbindet sich mit der WebSocket-Schnittstelle von Wattpilot und wan
 - **Verbindung fehlgeschlagen** : Überprüfen Sie IP-Adresse und Passwort.
 - **Häufige Verbindungsabbrüche** : Weisen Sie Ihrem Wattpilot eine statische IP-Adresse zu.
 - **Fehlende Datenpunkte** : Versuchen Sie, den Modus „Alle Werte“ zu aktivieren.
-- **Probleme mit der Cloud-Verbindung** : Überprüfen Sie die`cae` Einstellung
+- **Probleme mit der Cloud-Verbindung** : Überprüfen Sie die `cae` Einstellung
 
 **⚠️ Haftungsausschluss:** Dieser Adapter verwendet inoffizielle APIs. Die Nutzung erfolgt auf eigene Gefahr. Seien Sie vorsichtig beim Ändern von Einstellungen, die die Funktion Ihres Geräts beeinträchtigen könnten.
 

@@ -67,7 +67,7 @@ setState('tileboard.0.control.command', JSON.stringify({
 
 Следующие файлы были изменены:
 
-- `/ index.html` - добавлены` ../ tileboard.0 / custom.css`, `../../ lib / js / socket.io.js`,` ./_ socket / info.js` и `scripts / vendors / conn.js`, удалены` styles / custom.css`
+- `/ index.html` - добавлены `../ tileboard.0 / custom.css`, `../../ lib / js / socket.io.js`, `./_ socket / info.js` и `scripts / vendors / conn.js`, удалены ` styles / custom.css`
 - `/ scripts / models / api.js` - полностью заменено
 - `/ scripts / controllers / main.js` -
 

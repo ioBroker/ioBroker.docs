@@ -19,7 +19,7 @@ hash: LmeZvuB7fJt9rlTVoFCSXVO/CePDLhBE4rM9jtnYJlc=
 
 ## HomeKit-Tiles für ioBroker-VIS
 
-HomeKit Tiles ist ein Widget-Set, das auf dem Design von Apple HomeKit basiert. Die Besonderheit der Widgets besteht darin, dass sie keine festen Stilelemente enthalten, sondern alles über CSS formatiert wird. Daher gibt es im VIS-Editor keine separaten Einstellungen für die Position und/oder Größe von Symbolen, Beschriftungen usw. Das Design wird durch Ändern des CSS-Codes angepasst. Zu diesem Zweck wird der CSS-Code aus der Datei verwendet.`/widgets/homekittiles/css/style.css` Kann als Vorlage verwendet werden. Der Code wird im CSS-Tab des VIS-Editors eingefügt und kann nach Belieben angepasst werden. Es ist auch möglich, eigene CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets hinzuzufügen.
+HomeKit Tiles ist ein Widget-Set, das auf dem Design von Apple HomeKit basiert. Die Besonderheit der Widgets besteht darin, dass sie keine festen Stilelemente enthalten, sondern alles über CSS formatiert wird. Daher gibt es im VIS-Editor keine separaten Einstellungen für die Position und/oder Größe von Symbolen, Beschriftungen usw. Das Design wird durch Ändern des CSS-Codes angepasst. Zu diesem Zweck wird der CSS-Code aus der Datei verwendet. `/widgets/homekittiles/css/style.css` Kann als Vorlage verwendet werden. Der Code wird im CSS-Tab des VIS-Editors eingefügt und kann nach Belieben angepasst werden. Es ist auch möglich, eigene CSS-Klassen über den VIS-Editor im Bereich „Allgemein“ der Widgets hinzuzufügen.
 
 Die Widgets sind für VIS 1.x konzipiert.
 

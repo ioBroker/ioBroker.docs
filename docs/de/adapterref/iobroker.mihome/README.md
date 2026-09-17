@@ -32,36 +32,36 @@ Zuerst muss die lokale Netzwerkfunktion aktiviert werden, da der Adapter nur üb
 #### Android
 
 - Laden Sie die [Android-App](https://play.google.com/store/apps/details?id=com.xiaomi.smarthome) auf ein Android-Gerät herunter, installieren Sie sie, öffnen Sie sie und stimmen Sie den Nutzungsbedingungen zu.
-- Wählen`Mainland China` als Land (unter`settings -> Locale` Zum jetzigen Zeitpunkt scheint dies erforderlich zu sein. Die Sprache kann weiterhin auf Englisch eingestellt werden.
+- Wählen `Mainland China` als Land (unter `settings -> Locale` Zum jetzigen Zeitpunkt scheint dies erforderlich zu sein. Die Sprache kann weiterhin auf Englisch eingestellt werden.
 - Erstellen Sie ein Konto über _Login_
-- Nach erfolgreicher Registrierung können Sie ein Gerät hinzufügen über`+`
-- Wählen Sie unter _„Haushaltssicherheit“_ die Option „Haushaltssicherheit“ aus.`MI Control Hub` und befolgen Sie die Anweisungen
+- Nach erfolgreicher Registrierung können Sie ein Gerät hinzufügen über `+`
+- Wählen Sie unter _„Haushaltssicherheit“_ die Option „Haushaltssicherheit“ aus. `MI Control Hub` und befolgen Sie die Anweisungen
 - Nachdem das Gateway erfolgreich integriert wurde, tippen Sie auf die drei Punkte oben rechts auf dem Bildschirm und anschließend _auf „Über“._
 - Tippen Sie unten auf dem Bildschirm 10 Mal auf den Text _„Plug-in-Version“_ (bei älteren App-Versionen: die Versionsnummer). Dadurch wird der Entwicklermodus aktiviert und nach kurzer Zeit erscheinen zwei zusätzliche Menüeinträge. \[Falls nicht, wiederholen Sie alle Schritte!]
-- Wählen Sie den Menüeintrag aus.`Wireless communication protocol` (der erste neue Eintrag in älteren App-Versionen)
-- Schalten Sie den Schiebeschalter oben ein, notieren Sie sich das Passwort (`29p9i40jeypwck38` (im Screenshot) und bestätigen Sie mit`OK` (rechts neben der Schaltfläche „Abbrechen“), um Ihre Änderungen zu speichern
+- Wählen Sie den Menüeintrag aus. `Wireless communication protocol` (der erste neue Eintrag in älteren App-Versionen)
+- Schalten Sie den Schiebeschalter oben ein, notieren Sie sich das Passwort (`29p9i40jeypwck38` (im Screenshot) und bestätigen Sie mit `OK` (rechts neben der Schaltfläche „Abbrechen“), um Ihre Änderungen zu speichern
 
 > Das Passwort wird später bei der Konfiguration des ioBroker-Adapters benötigt. Wenn Sie hier etwas ändern, wird ein neues Passwort generiert und das alte geht verloren!
 
 ![Android](../../../en/adapterref/iobroker.mihome/img/mihome-settings.png)
 
-Nun können mithilfe der Technologie weitere Geräte angeleitet werden.`+` Symbol.
+Nun können mithilfe der Technologie weitere Geräte angeleitet werden. `+` Symbol.
 
 #### iOS
 
 - Laden Sie die [iOS-App](https://itunes.apple.com/de/app/mi-home-xiaomi-smarthome/id957323480?mt=8) auf ein iOS-Gerät herunter, installieren Sie sie, öffnen Sie sie und stimmen Sie der Datenschutzrichtlinie zu.
 - Wählen Sie unter Profil/Einstellungen/Ländereinstellungen das Land _Festlandchina_ aus – dies ist derzeit erforderlich. Die Sprache kann weiterhin auf Englisch eingestellt werden.
 - Erstellen Sie ein Konto über _Login_
-- Nach erfolgreicher Registrierung können Sie ein Gerät hinzufügen über`+`
-- Wählen Sie unter _„Haushaltssicherheit“_ die Option „Haushaltssicherheit“ aus.`MI Control Hub` und befolgen Sie die Anweisungen
+- Nach erfolgreicher Registrierung können Sie ein Gerät hinzufügen über `+`
+- Wählen Sie unter _„Haushaltssicherheit“_ die Option „Haushaltssicherheit“ aus. `MI Control Hub` und befolgen Sie die Anweisungen
 - Nachdem das Gateway erfolgreich integriert wurde, tippen Sie auf die drei Punkte oben rechts auf dem Bildschirm und anschließend _auf „Über“._
 - Tippe wiederholt auf den leeren Bereich unterhalb des _Tutorial_ -Menüs. Dadurch wird der Entwicklermodus aktiviert und nach einer gewissen Zeit erscheinen zusätzliche Menüeinträge (in älteren App-Versionen auf Chinesisch). \[Falls es nicht sofort funktioniert, wiederhole die Schritte!]
 - Wählen Sie den vierten Menüpunkt (in älteren App-Versionen den zweiten neuen Eintrag).
-- Schalten Sie den Schiebeschalter oben ein, notieren Sie sich das Passwort und bestätigen Sie es mit`OK` (rechts neben der Schaltfläche „Abbrechen“), um Ihre Änderungen zu speichern
+- Schalten Sie den Schiebeschalter oben ein, notieren Sie sich das Passwort und bestätigen Sie es mit `OK` (rechts neben der Schaltfläche „Abbrechen“), um Ihre Änderungen zu speichern
 
 > Das Passwort wird später bei der Konfiguration des ioBroker-Adapters benötigt. Wenn Sie hier etwas ändern, wird ein neues Passwort generiert und das alte geht verloren!
 
-Nun können mithilfe der Technologie weitere Geräte angeleitet werden.`+` Symbol.
+Nun können mithilfe der Technologie weitere Geräte angeleitet werden. `+` Symbol.
 
 ### Einstellungen am Router
 
@@ -90,7 +90,7 @@ So starten Sie die Nutzung:
 
 ## Installation des ioBroker Mi Home-Adapters
 
-Weitere Einstellungen erfolgen ausschließlich über die ioBroker-Administrationsoberfläche. Suchen Sie den Adapter im Bereich _„Adapter“_ und installieren Sie ihn mithilfe des entsprechenden Befehls.`+` Symbol.
+Weitere Einstellungen erfolgen ausschließlich über die ioBroker-Administrationsoberfläche. Suchen Sie den Adapter im Bereich _„Adapter“_ und installieren Sie ihn mithilfe des entsprechenden Befehls. `+` Symbol.
 
 ![Adapter](../../../en/adapterref/iobroker.mihome/img/Adapter.png)
 
@@ -98,7 +98,7 @@ Anschließend öffnet sich folgendes Konfigurationsfenster:
 
 ![Adapterkonfiguration](../../../en/adapterref/iobroker.mihome/img/Adapterconfig1.PNG)
 
-Geben Sie das oben ermittelte Passwort ein unter`Default Gateway Key` Schließen Sie das Fenster mit _„Speichern und schließen“_ . Der laufende Adapter sollte dann unter _„Instanzen“_ grün angezeigt werden.
+Geben Sie das oben ermittelte Passwort ein unter `Default Gateway Key` Schließen Sie das Fenster mit _„Speichern und schließen“_ . Der laufende Adapter sollte dann unter _„Instanzen“_ grün angezeigt werden.
 
 ![Beispiel](../../../en/adapterref/iobroker.mihome/img/Instanz.PNG)
 
@@ -110,13 +110,13 @@ Dieses Handbuch wurde nach bestem Wissen und Gewissen erstellt.
 
 ## Verwendung
 
-Sie können den kleinen Knopf am Temperatursensor verwenden, um ihn auszulösen.`double Press` Drücken Sie einfach innerhalb von 5 Sekunden zweimal. Sie können dieses Intervall in den Einstellungen festlegen, es sollte jedoch nicht über 10 Sekunden liegen.
+Sie können den kleinen Knopf am Temperatursensor verwenden, um ihn auszulösen. `double Press` Drücken Sie einfach innerhalb von 5 Sekunden zweimal. Sie können dieses Intervall in den Einstellungen festlegen, es sollte jedoch nicht über 10 Sekunden liegen.
 
 ### Gerät anhand der SID hinzufügen
 
 Falls ein Gerät anhand seines Modellnamens nicht erkannt wird, kann versucht werden, es mithilfe der SID hinzuzufügen. Dies ist derzeit für **das Aqara-2-Kanal-Relaissteuermodul** anwendbar, dessen Modellname aufgrund von Problemen in der Gateway-Firmware leer ist.
 
-Um ein Gerät anhand der SID hinzuzufügen, öffnen Sie`DEVICE SID` Klicken Sie auf die Registerkarte „Adaptereinstellungen“ und geben Sie die SID und den Gerätenamen aus der unten stehenden Liste der unterstützten Geräte an.
+Um ein Gerät anhand der SID hinzuzufügen, öffnen Sie `DEVICE SID` Klicken Sie auf die Registerkarte „Adaptereinstellungen“ und geben Sie die SID und den Gerätenamen aus der unten stehenden Liste der unterstützten Geräte an.
 
 Für das Aqara-Relaismodul sollte es wie folgt angegeben werden:![von Seite](../../../en/adapterref/iobroker.mihome/img/device-sid-settings.png)
 

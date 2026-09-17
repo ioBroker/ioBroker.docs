@@ -31,7 +31,7 @@ fiat.0.id.remote auf true setzt steuert den jeweiligen Befehl
 
 ### Ladeplan (remote.CPPLUS)
 
-Der Staat`<VIN>.remote.CPPLUS` erwartet ein Array von Schedule-Objekten (auch ein einzelnes Objekt wird akzeptiert und automatisch in ein Array verpackt). Der Adapter baut daraus den Wrapper-Body wie die offizielle My-Uconnect-App:
+Der Staat `<VIN>.remote.CPPLUS` erwartet ein Array von Schedule-Objekten (auch ein einzelnes Objekt wird akzeptiert und automatisch in ein Array verpackt). Der Adapter baut daraus den Wrapper-Body wie die offizielle My-Uconnect-App:
 
 ```json
 {
@@ -55,7 +55,7 @@ Der Staat`<VIN>.remote.CPPLUS` erwartet ein Array von Schedule-Objekten (auch ei
 }
 ```
 
-Gesendet wird an`/v2/accounts/{UID}/vehicles/{VIN}/ev/schedule/` — das Body-Format ist aus`ScheduleV2Model$Post$Request` der offizielle App (APK 1.99.701) übernommen.
+Gesendet wird an `/v2/accounts/{UID}/vehicles/{VIN}/ev/schedule/` — das Body-Format ist aus `ScheduleV2Model$Post$Request` der offizielle App (APK 1.99.701) übernommen.
 
 ## Diskussion und Fragen:
 

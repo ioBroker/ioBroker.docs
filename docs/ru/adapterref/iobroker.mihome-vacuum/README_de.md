@@ -59,15 +59,15 @@ Die folgenden Modelle sind ausdrücklich als unterstützt documentiert. Weitere 
 | `dreame.vacuum.p2148o` |        ✅       |         ✅         |       —       |   —   |
 | `dreame.vacuum.p2156o` |        ✅       |         ✅         |       —       |   —   |
 
-`✅` bedeutet, dass die Funktion für das documentierte Modell unterstützt wird.`—` bedeutet, этот адаптер не будет использоваться для данной модели.
+`✅` bedeutet, dass die Funktion für das documentierte Modell unterstützt wird. `—` bedeutet, этот адаптер не будет использоваться для данной модели.
 
 ### Unterstützung für ein neues Modell anfragen
 
-Адаптер содержит одну библиотеку, находящуюся в первой части Modell-ID, в которой находится один из следующих пунктов:`roborock` унд`rockrobo` verwenden die Roborock-Библиотека,`viomi` die Viomi-Bibliothek,`dreame` унд`xiaomi` die Dreame/МИОТ-Библиотека. Ein Modell einer dieser Familien, das oben nicht aufgeführt ist, funktioniert meist mit derselben Bibliothek: Grundsteuerung, Status, Akku, Verbrauchsmaterial und Reinigungsverlauf stehen zur Verfügung, wenn der Roboter die Standard-Eigenschaften nutzt; Eigenschaften, die der Roboter nicht Liefert, bleiben leer. Функционирование моделей в каталоге, где указана проблема с идентификатором модели и версией прошивки, находится в таблице, которая может быть добавлена.
+Адаптер содержит одну библиотеку, находящуюся в первой части Modell-ID, в которой находится один из следующих пунктов: `roborock` унд `rockrobo` verwenden die Roborock-Библиотека, `viomi` die Viomi-Bibliothek, `dreame` унд `xiaomi` die Dreame/МИОТ-Библиотека. Ein Modell einer dieser Familien, das oben nicht aufgeführt ist, funktioniert meist mit derselben Bibliothek: Grundsteuerung, Status, Akku, Verbrauchsmaterial und Reinigungsverlauf stehen zur Verfügung, wenn der Roboter die Standard-Eigenschaften nutzt; Eigenschaften, die der Roboter nicht Liefert, bleiben leer. Функционирование моделей в каталоге, где указана проблема с идентификатором модели и версией прошивки, находится в таблице, которая может быть добавлена.
 
-Zeigt das Log`Model <id> not supported! You can try to setup manually a library in settings.` , начиная с Modell-ID с вашим Präfix, адаптер не имеет значения (zum Beispiel`ijai` Одер`xtl` ). Адаптер может быть поврежден в течение нескольких дней, а затем мгновенно отключен. Über die Option **Manager** in den Instanzeinstellungen lässt sich eine der Bibliotheken erzwingen; Используйте протокол MIOT-Protokoll, который будет работать с Библиотекой мечты. Eine eigene Bibliothek für einen neuen Hersteller braucht die MIOT-Spezifikation des Modells (`https://home.miot-spec.com/spec/<Modell-ID>` ) и jemanden, der das Gerät besitzt und testen kann.
+Zeigt das Log `Model <id> not supported! You can try to setup manually a library in settings.`, начиная с Modell-ID с вашим Präfix, адаптер не имеет значения (zum Beispiel `ijai` Одер `xtl`). Адаптер может быть поврежден в течение нескольких дней, а затем мгновенно отключен. Über die Option **Manager** in den Instanzeinstellungen lässt sich eine der Bibliotheken erzwingen; Используйте протокол MIOT-Protokoll, который будет работать с Библиотекой мечты. Eine eigene Bibliothek für einen neuen Hersteller braucht die MIOT-Spezifikation des Modells (`https://home.miot-spec.com/spec/<Modell-ID>`) и jemanden, der das Gerät besitzt und testen kann.
 
-Jede Anfrage und jeder Fehlerbericht sollte enthalten: Modell-ID и Firmware (`deviceInfo.model` ,`deviceInfo.fw_ver` ), версии адаптера, js-контроллера и Node.js, а также функции дат и ничего, что связано с журналом отладки и проблемами, для всех случаев с ними`Device model detected` ,`MIIO request` унд`Status update:` . Bei Kartenproblemen zusätzlich den Wert von`auth.status` und die Ausgabe von`npm ls canvas` с помощью ioBroker-Verzeichnis. Токен, ссылки для входа, облачные хранилища и IP-адреса для других пользователей.
+Jede Anfrage und jeder Fehlerbericht sollte enthalten: Modell-ID и Firmware (`deviceInfo.model`, `deviceInfo.fw_ver`), версии адаптера, js-контроллера и Node.js, а также функции дат и ничего, что связано с журналом отладки и проблемами, для всех случаев с ними `Device model detected`, `MIIO request` унд `Status update:`. Bei Kartenproblemen zusätzlich den Wert von `auth.status` und die Ausgabe von `npm ls canvas` с помощью ioBroker-Verzeichnis. Токен, ссылки для входа, облачные хранилища и IP-адреса для других пользователей.
 
 ## Haftungsausschlus
 
@@ -97,11 +97,11 @@ Xiaomi Cloud не является обязательным для обычно�
 6. Когда ioBroker зарегистрируется, вы получите статус Cloud-Status **Angemeldet** anzeigt.
 7. После **этого** нажмите кнопку и нажмите кнопку «Saugroboter» в списке «Auswählen».
 8. Автоматическое создание токенов, IP-адресов, моделей и менеджеров.
-9. Настройка и контроль конфигурации,`info.connection` ден Верт`true` erhält.
+9. Настройка и контроль конфигурации, `info.connection` ден Верт `true` erhält.
 
 ![Verbindung und Xiaomi-Cloud-Anmeldung](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Login%20VacuumControl-redacted.png)
 
-Die Anmeldung erfolgt über einen Xiaomi-Anmeldelink. Адаптер доступен в QR-Bild. Der Link läuft nach kurzer Zeit ab; Бэй`expired` Одер`error` muss ein neuer Link erstellt werden.
+Die Anmeldung erfolgt über einen Xiaomi-Anmeldelink. Адаптер доступен в QR-Bild. Der Link läuft nach kurzer Zeit ab; Бэй `expired` Одер `error` muss ein neuer Link erstellt werden.
 
 Автоматическое автоматическое восстановление локального токена, IP-адреса и модели. Токен можно будет использовать в используемой конфигурации ioBroker-Instanz и в окончательной версии Oberfläche. Das Auge sollte nur verwendet werden, wenn der Token bewusst angezeigt order kopiert werden soll.
 
@@ -113,10 +113,10 @@ Geräte-Token, Xiaomi-Anmeldelinks, Cookies, Cloud-Sitzungen und ungekürzte Deb
 
 - **Токен:** шестнадцатеричный локальный токен
 - **IP-адрес:** актуальный региональный адрес роботов
-- **Modell:** Modellkennung wie`roborock.vacuum.s5`
+- **Modell:** Modellkennung wie `roborock.vacuum.s5`
 - **Менеджер:** Wird Normalerweise Autotisch erkannt; Роборок, Виоми или Dreame nur bei Bedarf manuell auswählen
-- **Порт-де-Роботеры:** нормальный`54321`
-- **Собственный порт:** локальный UDP-порт dieser Adaptorinstanz, Normalerweise`53421`
+- **Порт-де-Роботеры:** нормальный `54321`
+- **Собственный порт:** локальный UDP-порт dieser Adaptorinstanz, Normalerweise `53421`
 
 Когда робот будет работать с маршрутизатором на празднике DHCP-соединения, его IP-адрес не будет работать.
 
@@ -148,8 +148,8 @@ Der Tab Verbindung включает в себя Xiaomi-Cloud-Anmeldung, Gerätes
 - **Статус WLAN отображается в течение нескольких секунд:** лучше всего, если сигнал будет актуален.
 - **Карта активации Xiaomi Cloud:** активация Xiaomi-Cloud-Kartenabruf и полезное использование Cloud-Sitzung.
 - **Активация режима:** убедитесь, что он совместим с регионом Валетудо-Картенкуелле.
-- **Эйджин Бефелесенден:** erzeugt die Experten-Datenpunkte`control.X_send_command` унд`control.X_get_response` .
-- **Alexa/IoT-Datenpunkte Anlegen:** erzeugt zusätzlich`control.pauseResume` для Sprachassistenten und IoT-Anbindungen.`control.clean_home` ist immer vorhanden.
+- **Эйджин Бефелесенден:** erzeugt die Experten-Datenpunkte `control.X_send_command` унд `control.X_get_response`.
+- **Alexa/IoT-Datenpunkte Anlegen:** erzeugt zusätzlich `control.pauseResume` для Sprachassistenten und IoT-Anbindungen. `control.clean_home` ist immer vorhanden.
 - **Пауза, отправленная в Zuhause:** отправленная модель, умирает benötigen, останавливается и возвращается к Befehl zur Ladestation.
 - **Pausierte Zonenreinigung mit Start fortsetzen:** setzt eine unterbrochene Zonenreinigung fort, statt eine vollständige Reinigung zu starten.
 - **Erweiterte Diagnoseprotokollierung:** ergänzt ausführliche, bereinigte Debug-Ausgaben. Эта опция может быть использована для активации функции.
@@ -204,36 +204,36 @@ Die Kartenunterstützung hängt vom Modell und der Gewählten Quelle ab.
 | `control.zoneClean`  | Eine oder mehrere Zonen and von Koordinaten reinigen   |
 | `control.goTo`       | Zu Kartenkoordinaten fahren                            |
 | `control.clearQueue` | Wartende Reinigungsaufträge löschen                    |
-| `control.clean_home` | `true` startet die Reinigung,`false` fährt zur Station |
+| `control.clean_home` | `true` startet die Reinigung, `false` fährt zur Station |
 
 Weitere Befehle für Wischen, Moppwäsche, Trocknung, Staubabsaugung, Teppichmodus und Dockfunktionen werden nur angelegt, wenn das gewählte Modell sie unterstützt.
 
 ### Räume
 
-Der Adapter erstellt unter`rooms` Канал, когда Roboter Raum- или Segmentinformationen bereitstellt.
+Der Adapter erstellt unter `rooms` Канал, когда Roboter Raum- или Segmentinformationen bereitstellt.
 
-- Мит`rooms.loadRooms` werden die Räume erneut vom Roboter geladen.
+- Мит `rooms.loadRooms` werden die Räume erneut vom Roboter geladen.
 - В вашем рабочем канале есть карточный индекс или зональные координаты и стартовые настройки.
-- Raumkanäle können ioBroker-Einträgen unter`enum.rooms` zugewiesen werden.
+- Raumkanäle können ioBroker-Einträgen unter `enum.rooms` zugewiesen werden.
 - Для начала работы могут быть выбраны соответствующие инструкции.
 - `rooms.multiRoomClean` startet mehrere zugewiesene Räume gemeinsam.
-- Мит`rooms.addRoom` kann anhand eines Kartenindexes или von Zonkoordinaten manuell ein Raum angelegt werden.
+- Мит `rooms.addRoom` kann anhand eines Kartenindexes или von Zonkoordinaten manuell ein Raum angelegt werden.
 
 Назовите и установите функциональные параметры робота и выберите модель и прошивку.
 
 ### Reinigungsverlauf
 
-Канал`history` enthält Gesamtreinigungszeit, Gesamtfläche, Anzahl der Reinigungen sowie die Letzten Reinigungsdatatensätze в формате JSON и HTML. Der Verlauf будет открыт для использования виджетов.
+Канал `history` enthält Gesamtreinigungszeit, Gesamtfläche, Anzahl der Reinigungen sowie die Letzten Reinigungsdatatensätze в формате JSON и HTML. Der Verlauf будет открыт для использования виджетов.
 
 ### Verbrauchsmaterialien und Wartung
 
-Unterstützte Wartungswerte werden unter`consumable` angelegt, zum Beispiel Filter, Hauptbürste, Seitenbürste, Sensoren, Wasserfilter, Wischpad, Sieb, Reinigungsbürste und Staubabsaugungszähler.
+Unterstützte Wartungswerte werden unter `consumable` angelegt, zum Beispiel Filter, Hauptbürste, Seitenbürste, Sensoren, Wasserfilter, Wischpad, Sieb, Reinigungsbürste und Staubabsaugungszähler.
 
 Eine Lebensdauer darf erst nach Reinigung или Austausch des betreffenden Teils zurückgesetzt werden. Не используйте дополнительные материалы при использовании виджетов.
 
 ### Erweiterte eigene Befehle
 
-Wenn **Eigene Befehle senden** aktiviert ist, können Befehle in`control.X_send_command` гешрибен верден. Антвортен ершайнен в`control.X_get_response` . Diese Funktion richtet sich erfahrene Benutzer. Ungültige oder nicht zum Modell passende Befehle können zu unerwartetem Roboterverhalten führen.
+Wenn **Eigene Befehle senden** aktiviert ist, können Befehle in `control.X_send_command` гешрибен верден. Антвортен ершайнен в `control.X_get_response`. Diese Funktion richtet sich erfahrene Benutzer. Ungültige oder nicht zum Modell passende Befehle können zu unerwartetem Roboterverhalten führen.
 
 ## Важные точки данных
 
@@ -253,7 +253,7 @@ Wenn **Eigene Befehle senden** aktiviert ist, können Befehle in`control.X_send_
 | `auth.lastError`    | Letzte bereinigte Fehlermeldung der Anmeldung                           |
 | `auth.expiresAt`    | Ablaufzeitpunkt des Anmeldelinks                                        |
 
-`info.state` унд`info.error` Enthalten im ioBroker-Objects lesbare Wertelisten. Unbekannte Codes bleiben sichtbar, damit der ursprüngliche Wert bei einer Fehlermeldung nicht verloren geht.
+`info.state` унд `info.error` Enthalten im ioBroker-Objects lesbare Wertelisten. Unbekannte Codes bleiben sichtbar, damit der ursprüngliche Wert bei einer Fehlermeldung nicht verloren geht.
 
 ## Виджеты VIS-1 и VIS-2
 
@@ -261,7 +261,7 @@ Beide mitgelieferten Widgets bieten ein Responses Dashboard с картами, V
 
 ### ВИС 1
 
-Im Widget-Set **mihome-vacuum** das Widget **Vacuum приборная панель с картой, обслуживанием и историей** использования. Zuerst den **Status-Datenpunkt** (`info.state` ) Мгновенный выбор: Виджет содержит все дополнительные сведения об атрибутах дат, а также Viomi- и Dreame-Varianten von Wasserstufe, Wischmodus и Stationsstatus.
+Im Widget-Set **mihome-vacuum** das Widget **Vacuum приборная панель с картой, обслуживанием и историей** использования. Zuerst den **Status-Datenpunkt** (`info.state`) Мгновенный выбор: Виджет содержит все дополнительные сведения об атрибутах дат, а также Viomi- и Dreame-Varianten von Wasserstufe, Wischmodus и Stationsstatus.
 
 Дизельный виджет VIS-1 используется вместе с виджетом VIS-2: режимы, режимы и режимы работы, базовая станция с их активными действиями, карта с новыми картами, статус отсутствия данных с их первым таймером и собственными настройками Anzahl и Verlaufseintragen. Jeder Bereich erscheint nur, wenn sein Datenpunkt zugewiesen ist; Datenpunkte für Funktionen, die der Roboter nicht Hat, bleiben daher leer. Таймер активируется в режиме VIS 2, VIS 1 до момента начала работы.
 
@@ -271,9 +271,9 @@ Im Widget-Set **mihome-vacuum** das Widget **Vacuum приборная пане�
 
 Im Widget-Set **Mi Home Vacuum** das Widget **Staubsaugersteuerung mit Karte** auswählen. Die Einstellungen sind в Allgemein, Zustände und Steuerung, Wartung, Räume und Verlauf gegliedert.
 
-- **Instantzauswahl:** den **Status-Datenpunkt** (`info.state` ) der gewünschten Adaptorinstanz Wählen. Все данные Datenpunkt-Attribute werden daraus autotisch gefüllt, der Wechsel von`mihome-vacuum.0` auf eine andere Instanz ist damit ein Klick.
+- **Instantzauswahl:** den **Status-Datenpunkt** (`info.state`) der gewünschten Adaptorinstanz Wählen. Все данные Datenpunkt-Attribute werden daraus autotisch gefüllt, der Wechsel von `mihome-vacuum.0` auf eine andere Instanz ist damit ein Klick.
 - **Дизайн:** этот виджет соответствует темам Hellen или Dunklen Theme und der Primärfarbe des VIS-2-Projekts. Необязательный **вариант использования** может быть превышен.
-- **Saugstufen:** die wählbaren Stufen stammen aus dem Datenpunkt`control.fan_power` des Roboters, jedes Modell zeigt также seine eigenen Stufen. Die Drei Zahlenwerte dienen nur als Ersatz, wenn der Datenpunkt keine Stufenliste Hat.
+- **Saugstufen:** die wählbaren Stufen stammen aus dem Datenpunkt `control.fan_power` des Roboters, jedes Modell zeigt также seine eigenen Stufen. Die Drei Zahlenwerte dienen nur als Ersatz, wenn der Datenpunkt keine Stufenliste Hat.
 - **Статус и текст сообщения:** укажите дату-определение адаптеров и проверьте, что это необходимо.
 - **Verlauf:** die Anzahl der angezeigten Reinigungen ist einstellbar.
 - **Reinigungseinstellungen:** Wasserstufe, Wischmodus и Teppichmodus erscheinen als Bedienelemente, wenn der Roboter die passenden Datenpunkte Lifert. Die Instantzauswahl findet auch die Viomi- und Dreame-Varianten dieser Datenpunkte.
@@ -287,7 +287,7 @@ Jedes Bedienelement erscheint nur, wenn der Adaptor den passenden Datenpunkt fü
 
 ### Ройме, Saugleistung und Darstellung
 
-**Автоматическое подключение** (стандартное) для виджета VIS-2 со всеми параметрами, с помощью адаптера`rooms.*` ангельская шляпа, включая eigener Saugstufe, wenn der Roboter das unterstützt. Ohne die Option может быть выбран вручную с помощью Anzeigename, Start-Datenpunkt и Saugleistungs-Datenpunkt configurieren. Виджет VIS-1 можно вручную настроить.
+**Автоматическое подключение** (стандартное) для виджета VIS-2 со всеми параметрами, с помощью адаптера `rooms.*` ангельская шляпа, включая eigener Saugstufe, wenn der Roboter das unterstützt. Ohne die Option может быть выбран вручную с помощью Anzeigename, Start-Datenpunkt и Saugleistungs-Datenpunkt configurieren. Виджет VIS-1 можно вручную настроить.
 
 Виджеты используются для свободного доступа к карте и перехода к их собственному времени, а не к браузеру. Это виджет, который можно использовать, когда вы прокрутите прокрутку, получите карту, настройку или дополнительную карту. Das Zurücksetzen eines Verbrauchsmaterial-Zahlers fragt vorher nach einer Bestätigung.
 
@@ -301,10 +301,10 @@ Der Tab Verlauf zeigt die gesamte Anzahl der Reinigungen, Gesamtfläche, Gesamtz
 
 ### Der Roboter verbindet sich nicht
 
-- `info.connection` , IP-адрес, токен и другие модели.
+- `info.connection`, IP-адрес, токен и другие модели.
 - Sicherstellen, dass Roboter и ioBroker-Host в локальной сети Netzwerk Miteinander Kommunizieren Können. Einige Modelle benötigen dasselbe Subnetz.
 - Роботизированный DHCP-сервер должен быть зарезервирован для IP-адреса.
-- Den Roboter-Port bei`54321` belassen, sofern das Gerät nicht ausdrücklich einen anderen Port verwendet.
+- Den Roboter-Port bei `54321` belassen, sofern das Gerät nicht ausdrücklich einen anderen Port verwendet.
 - Проверьте, есть ли другой плотный адаптер UDP-порта.
 
 ### Cloud-Anmeldung или Gerätesuche schlägt fehl
@@ -312,28 +312,28 @@ Der Tab Verlauf zeigt die gesamte Anzahl der Reinigungen, Gesamtfläche, Gesamtz
 - Dieselbe Xiaomi-Region auswählen, в реестре роботов.
 - Bei einem abgelaufenen Link einen neuen Anmeldelink erstellen.
 - Если вы хотите отключить **браузер** , вы можете отключить его.
-- Eine Xiaomi-Antwort mit`401` Одер`403` macht die gespeicherte Sitzung ungültig und erfordert eine neue ausdrückliche Anmeldung.
+- Eine Xiaomi-Antwort mit `401` Одер `403` macht die gespeicherte Sitzung ungültig und erfordert eine neue ausdrückliche Anmeldung.
 
 ### Es wird keine Karte angezeigt
 
 - Prüfen, ob das verbundene Modell den Kartenabruf unterstützt.
 - Включите облачную карту Xiaomi или активируйте функцию Valetudo.
-- Bei Xiaomi-Karten muss`auth.status` ден Верт`authenticated` хабен.
-- `cleanmap.mapStatus` ,`cleanmap.map64` и готовый протокол отладки адаптеров.
+- Bei Xiaomi-Karten muss `auth.status` ден Верт `authenticated` хабен.
+- `cleanmap.mapStatus`, `cleanmap.map64` и готовый протокол отладки адаптеров.
 
 ### Установка штампа scheitert beim Bau von Canvas
 
-Der Kartenrenderer добавляет дополнительный собственный пакет`canvas` . Если в Linux используется один из следующих пакетов, вам необходимо выполнить следующие действия при установке следующих системных пакетов:
+Der Kartenrenderer добавляет дополнительный собственный пакет `canvas`. Если в Linux используется один из следующих пакетов, вам необходимо выполнить следующие действия при установке следующих системных пакетов:
 
 ```sh
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-Keine alte`canvas` -Версия 2.x будет установлена вручную при установке адаптера.
+Keine alte `canvas` -Версия 2.x будет установлена вручную при установке адаптера.
 
 ### Мехрере Роботер
 
-Для вашего робота будет полезен собственный адаптер. Jede Instanz muss einen anderen **Eigenen Port** verwenden, zum Beispiel`53421` ,`53422` и так далее.
+Для вашего робота будет полезен собственный адаптер. Jede Instanz muss einen anderen **Eigenen Port** verwenden, zum Beispiel `53421`, `53422` и так далее.
 
 ## Unterstützung und Fehlermeldungen
 

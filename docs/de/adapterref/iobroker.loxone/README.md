@@ -85,7 +85,7 @@ Wählen Sie die Wetterdaten aus, die Sie synchronisieren möchten:
 
 Der Adapter verbindet sich automatisch mit dem konfigurierten Loxone Miniserver und erstellt Zustände für jeden gefundenen Steuerungszustand.
 
-Die IDs der Bundesstaaten sind wie folgt formatiert:`loxone.<instance>.<control>.<state>`
+Die IDs der Bundesstaaten sind wie folgt formatiert: `loxone.<instance>.<control>.<state>`
 
 - `<instance>` ist der Instanzindex des ioBroker-Adapters (normalerweise "0")
 - `<control>` ist die UUID des Steuerelements
@@ -117,12 +117,12 @@ Um Diagnoseeingaben anzuzeigen (z. B. den Batteriestatus von Air-Geräten), übe
 
 Folgende globale Zustände werden derzeit von diesem Adapter bereitgestellt:
 
-- `operatingMode` : die aktuelle Betriebsmodusnummer des Loxone Miniservers
-- `operatingMode-text` : der aktuelle Betriebsmodus des Loxone Miniservers als Text
-- `sunrise` : die Anzahl der Minuten nach Mitternacht, wenn die Sonne heute aufgeht
-- `sunset` : die Anzahl der Minuten nach Mitternacht, bis heute die Sonne untergeht
-- `notifications` : die Anzahl der Benachrichtigungen
-- `modifications` : die Anzahl der Änderungen
+- `operatingMode`: die aktuelle Betriebsmodusnummer des Loxone Miniservers
+- `operatingMode-text`: der aktuelle Betriebsmodus des Loxone Miniservers als Text
+- `sunrise`: die Anzahl der Minuten nach Mitternacht, wenn die Sonne heute aufgeht
+- `sunset`: die Anzahl der Minuten nach Mitternacht, bis heute die Sonne untergeht
+- `notifications`: die Anzahl der Benachrichtigungen
+- `modifications`: die Anzahl der Änderungen
 - Alle anderen globalen Staaten werden einfach als Texte gemeldet.
 
 ## Unterstützte Steuerungstypen
@@ -131,8 +131,8 @@ Folgende Steuerungstypen werden von diesem Adapter derzeit unterstützt.
 
 Hinter dem Namen des Bundesstaates kann man die Art des Bundesstaates erkennen:
 
-- `(rw)` : lesbar und beschreibbar: Dieser Status kann über ioBroker geändert werden.
-- `(ro)` : Schreibgeschützt: Dieser Status kann von ioBroker aus nicht geändert werden.
+- `(rw)`: lesbar und beschreibbar: Dieser Status kann über ioBroker geändert werden.
+- `(ro)`: Schreibgeschützt: Dieser Status kann von ioBroker aus nicht geändert werden.
 - `(wo)` Schreibgeschützt: Der Wert dieses Zustands wird von diesem Adapter nicht gemeldet, kann aber geändert werden, wodurch eine Aktion auf dem Loxone-Miniserver ausgelöst wird.
 
 ### AalSmartAlarm
@@ -170,7 +170,7 @@ Bereitgestellt durch die AAL Smart Emergency Button-Steuerung.
 
 Bereitgestellt von der Einbruchmeldeanlage.
 
-- `armed` (rw) Boolescher Status (wahr / falsch) des Alarms; Schreiben`true` Bei einem Wert auf dieser Höhe wird der Alarm sofort aktiviert (ohne die vordefinierte Verzögerung).
+- `armed` (rw) Boolescher Status (wahr / falsch) des Alarms; Schreiben `true` Bei einem Wert auf dieser Höhe wird der Alarm sofort aktiviert (ohne die vordefinierte Verzögerung).
 - `nextLevel` (ro) die ID der nächsten Alarmstufe
   - 1 = Stumm
   - 2 = Akustik
@@ -199,7 +199,7 @@ Bereitgestellt von der Einbruchmeldeanlage.
 
 Bereitgestellt von der zentralen Einbruchmeldeanlage.
 
-- `armed` (rw) Boolescher Status (wahr / falsch) des Alarms; Schreiben`true` Bei einem Wert auf dieser Höhe wird der Alarm sofort aktiviert (ohne die vordefinierte Verzögerung).
+- `armed` (rw) Boolescher Status (wahr / falsch) des Alarms; Schreiben `true` Bei einem Wert auf dieser Höhe wird der Alarm sofort aktiviert (ohne die vordefinierte Verzögerung).
 - `delayedOn` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand aktiviert den Alarm mit der konfigurierten Verzögerung.
 - `quit` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand bestätigt den Alarm
 
@@ -257,7 +257,7 @@ Bereitgestellt von Music Server Zone.
 - `station` (ro) Stationsname
 - `genre` (ro) Genre-Name
 - `cover` (ro) URL des Song-/Albumcoverbildes
-- `source` (rw) aktuell ausgewählte Quellenkennung (siehe`sourceList` über)
+- `source` (rw) aktuell ausgewählte Quellenkennung (siehe `sourceList` über)
 - `prev` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand führt zum vorherigen Pfad
 - `next` (wo) Das Schreiben eines beliebigen Wertes in diesen Zustand führt zum nächsten Track
 
@@ -265,7 +265,7 @@ Bereitgestellt von Music Server Zone.
 
 Bereitgestellt vom zentralen Musikserver.
 
-- `control` (wo) setzt den Spielzustand aller Spieler (`true` = spielen,`false` = Pause)
+- `control` (wo) setzt den Spielzustand aller Spieler (`true` = spielen, `false` = Pause)
 
 ### Farbauswahl
 
@@ -294,7 +294,7 @@ Bereitgestellt durch Timer/Zeitplan.
 - `mode` (ro) Aktuelle Betriebsart der Tageszeitschaltuhr
 - `mode-text` (ro) Name des aktuellen Betriebsmodus der Tageszeitschaltuhr
 - `override` (ro) die verbleibende Zeit des Timers
-- `value` (ro) aktueller Wert,`true` oder`false` für digitale und ein Wert für analoge
+- `value` (ro) aktueller Wert, `true` oder `false` für digitale und ein Wert für analoge
 - `value-formatted` (ro) aktueller formatierter Wert als Text
 - `needsActivation` (ro) nur verfügbar, wenn die Steuerung aktiviert werden muss
 - `resetActive` (ro) bleibt aktiv, solange der Reset-Eingang des Tagestimers aktiv ist.
@@ -369,7 +369,7 @@ Bereitgestellt von
 - `total` (ro) Gesamtzahl der Sekunden, die der Zähler bisher aktiv war
 - `remaining` (ro) Wie viele Sekunden bleiben noch bis zur nächsten Wartung?
 - `lastActivation` (ro) der Zeitstempel, wann der Zähler zuletzt aktiviert wurde
-- `overdue` (ro)`false` Sofern nicht überfällig, andernfalls ist eine Wartung erforderlich.
+- `overdue` (ro) `false` Sofern nicht überfällig, andernfalls ist eine Wartung erforderlich.
 - `maintenanceInterval` (ro) Sekunden bis zur nächsten Wartung
 - `active` (ro) ob der Zähler aktuell aktiv ist oder nicht.
 - `overdueSince` (ro) Sekunden seit Überschreitung des Wartungsintervalls
@@ -377,7 +377,7 @@ Bereitgestellt von
   - verbleibendes Wartungsintervall
   - überfällig auf 0
   - überfälligSeit bis 0
-- `resetAll` (wo) wie`reset` , aber auch Sets
+- `resetAll` (wo) wie `reset`, aber auch Sets
   - Summe zu 0
   - letzte Aktivierung auf 0
 
@@ -662,38 +662,38 @@ Für jedes überwachte Fenster/jede überwachte Tür gibt es ein Gerät mit eine
 
 ## Wetterserver
 
-Die Wetterserverinformationen werden als Gerät mit mehreren Kanälen bereitgestellt. Dieses Gerät heißt:`WeatherServer` Es enthält:
+Die Wetterserverinformationen werden als Gerät mit mehreren Kanälen bereitgestellt. Dieses Gerät heißt: `WeatherServer` Es enthält:
 
-- der Kanal`Actual` mit den aktuellen Wetterwerten
-- ein Kanal für jede Vorhersagestunde genannt`HourXX` Wo`XX` ist die Anzahl der Stunden ab jetzt
+- der Kanal `Actual` mit den aktuellen Wetterwerten
+- ein Kanal für jede Vorhersagestunde genannt `HourXX` Wo `XX` ist die Anzahl der Stunden ab jetzt
 
 Jeder Kanal enthält die folgenden Zustände:
 
-- `barometricPressure` : numerischer barometrischer Druckwert
-- `barometricPressure-formatted` : formatierter barometrischer Druckwert mit Einheit
-- `dewPoint` : numerischer Taupunktwert
-- `dewPoint-formatted` : formatierter Taupunktwert mit Einheit
-- `perceivedTemperature` : numerischer Wert der wahrgenommenen Temperatur
-- `perceivedTemperature-formatted` : formatierter Wert der wahrgenommenen Temperatur mit Einheit
-- `precipitation` : numerischer Niederschlagswert
-- `precipitation-formatted` : formatierter Niederschlagswert mit Einheit
-- `relativeHumidity` : numerischer Wert der relativen Luftfeuchtigkeit
-- `relativeHumidity-formatted` : formatierter Wert der relativen Luftfeuchtigkeit mit Einheit
-- `solarRadiation` : Wert der Sonneneinstrahlung
-- `temperature` : numerischer Temperaturwert
-- `temperature-formatted` : formatierter Temperaturwert mit Einheit
-- `timestamp` : Zeitstempel der Daten als`value.time` (JavaScript-Zeit)
-- `weatherType` : numerischer Aufzählungswert für Wettertypen
-- `weatherType-text` : Textliche Darstellung des Wettertyps
-- `windDirection` : Windrichtungswert
-- `windSpeed` : Windgeschwindigkeitswert
-- `windSpeed-formatted` : formatierter Windgeschwindigkeitswert mit Einheit
+- `barometricPressure`: numerischer barometrischer Druckwert
+- `barometricPressure-formatted`: formatierter barometrischer Druckwert mit Einheit
+- `dewPoint`: numerischer Taupunktwert
+- `dewPoint-formatted`: formatierter Taupunktwert mit Einheit
+- `perceivedTemperature`: numerischer Wert der wahrgenommenen Temperatur
+- `perceivedTemperature-formatted`: formatierter Wert der wahrgenommenen Temperatur mit Einheit
+- `precipitation`: numerischer Niederschlagswert
+- `precipitation-formatted`: formatierter Niederschlagswert mit Einheit
+- `relativeHumidity`: numerischer Wert der relativen Luftfeuchtigkeit
+- `relativeHumidity-formatted`: formatierter Wert der relativen Luftfeuchtigkeit mit Einheit
+- `solarRadiation`: Wert der Sonneneinstrahlung
+- `temperature`: numerischer Temperaturwert
+- `temperature-formatted`: formatierter Temperaturwert mit Einheit
+- `timestamp`: Zeitstempel der Daten als `value.time` (JavaScript-Zeit)
+- `weatherType`: numerischer Aufzählungswert für Wettertypen
+- `weatherType-text`: Textliche Darstellung des Wettertyps
+- `windDirection`: Windrichtungswert
+- `windSpeed`: Windgeschwindigkeitswert
+- `windSpeed-formatted`: formatierter Windgeschwindigkeitswert mit Einheit
 
 ## Nicht unterstützte Steuerungstypen
 
 Wenn Loxone neue Steuerungstypen einführt, werden diese von diesem Adapter meist nicht sofort unterstützt.
 
-In diesem Fall steht vor dem Namen des Steuerelements „Unbekannt:“. Z. B.`Unknown: Wallbox`
+In diesem Fall steht vor dem Namen des Steuerelements „Unbekannt:“. Z. B. `Unknown: Wallbox`
 
 Diese Steuerelemente enthalten alle vom Miniserver gemeldeten Zustände, jedoch sind es ausschließlich lesbare Zeichenketten.
 

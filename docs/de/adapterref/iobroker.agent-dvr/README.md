@@ -22,8 +22,8 @@ Verbindet ioBroker mit [AgentDVR](https://www.ispyconnect.com) : Erkennt automat
 
 ## Anforderungen
 
-- ioBroker mit`iobroker.web` Adapter
-- **AgentDVR ≥ 7.8.0.0** – frühere Versionen weisen einen Fehler auf`streamFile.cgi` Ein Endpunkt (fehlerhafte Chunked-Codierung, falscher MIME-Typ) verhindert die Wiedergabe von Aufnahmen im integrierten Dashboard. Der Entwickler hat bestätigt, dass die Korrektur in Version 7.8.0.0 enthalten ist.
+- ioBroker mit `iobroker.web` Adapter
+- **AgentDVR ≥ 7.8.0.0** – frühere Versionen weisen einen Fehler auf `streamFile.cgi` Ein Endpunkt (fehlerhafte Chunked-Codierung, falscher MIME-Typ) verhindert die Wiedergabe von Aufnahmen im integrierten Dashboard. Der Entwickler hat bestätigt, dass die Korrektur in Version 7.8.0.0 enthalten ist.
 
 ## Merkmale
 
@@ -36,9 +36,9 @@ Verbindet ioBroker mit [AgentDVR](https://www.ispyconnect.com) : Erkennt automat
 - PTZ-Steuerung mit Halte-zum-Bewegen-Tasten
 - Stream-URLs pro Kamera (Schnappschuss, Foto, MJPEG, MP4)
 - Webhook-Endpunkt für Echtzeitaktualisierungen – rufen Sie ihn aus einer AgentDVR-Aktion auf, um eine sofortige vollständige Abfrage auszulösen.
-- HTML-Aufnahmegalerie-Widget pro Kamera (`widget_recordings` ) und Live-Kachel mit einer Kamera (`widget_live` — reiner HTML/CSS- oder vollständiger JS-Modus mit Such- und Tag-Filter
+- HTML-Aufnahmegalerie-Widget pro Kamera (`widget_recordings`) und Live-Kachel mit einer Kamera (`widget_live` — reiner HTML/CSS- oder vollständiger JS-Modus mit Such- und Tag-Filter
 - Übersichts-Widget, das alle Kameras in einem HTML-Zustand kombiniert
-- **Integriertes Live-Dashboard** bei`http://<iobroker>:<webport>/agent-dvr.0/` — keine zusätzliche App erforderlich:
+- **Integriertes Live-Dashboard** bei `http://<iobroker>:<webport>/agent-dvr.0/` — keine zusätzliche App erforderlich:
   - Auswahl des Streams pro Kamera: MJPEG, MP4/FLV mit Audio oder go2rtc WebRTC/MSE
   - Schaltfläche für den Kamerafilter in der Kopfzeile (Trichtersymbol) – öffnet ein Popup mit Kontrollkästchen für jede Kamera; ein Badge zeigt an, wie viele Kameras ausgeblendet sind; der Status wird im localStorage gespeichert.
   - Bewegungs- und Alarmindikatoren in Echtzeit (gelber/oranger Kachelrand) über Socket.io
@@ -164,7 +164,7 @@ Die go2rtc-Streamnamen werden automatisch vom go2rtc-Server abgerufen, sobald di
 | Einstellung       | Beschreibung                                                                                             | Standard |
 | ----------------- | -------------------------------------------------------------------------------------------------------- | -------- |
 | Widget aktivieren | Erzeuge ein HTML-Galerie-Widget pro Kamera                                                               | `true`   |
-| Widget-Modus      | `No JS` — reines HTML/CSS, überall einbettbar;`JS` — volle Interaktivität mit Such- und Schlagwortfilter | `No JS`  |
+| Widget-Modus      | `No JS` — reines HTML/CSS, überall einbettbar; `JS` — volle Interaktivität mit Such- und Schlagwortfilter | `No JS`  |
 
 **Layout**
 
@@ -195,7 +195,7 @@ Die go2rtc-Streamnamen werden automatisch vom go2rtc-Server abgerufen, sobald di
 
 | Einstellung           | Beschreibung                                                     | Standard |
 | --------------------- | ---------------------------------------------------------------- | -------- |
-| Live-Seitenverhältnis | Seitenverhältnis für die Live-Stream-Vorschau, z. B.`16/9`       | —        |
+| Live-Seitenverhältnis | Seitenverhältnis für die Live-Stream-Vorschau, z. B. `16/9`       | —        |
 | Player-URL            | Benutzerdefinierte URL für den im Widget verwendeten Videoplayer | —        |
 
 **Farbthema** – 5 Farbauswahlfelder + abgerundete Ecken:
@@ -221,7 +221,7 @@ Die go2rtc-Streamnamen werden automatisch vom go2rtc-Server abgerufen, sobald di
 
 ## Live-Dashboard
 
-Der Adapter verfügt über ein integriertes Live-Dashboard bei`http://<iobroker>:<webport>/agent-dvr.0/` Eine zweite Instanz ist erreichbar unter`/agent-dvr.1/` , ein Drittel bei`/agent-dvr.2/` , und so weiter.
+Der Adapter verfügt über ein integriertes Live-Dashboard bei `http://<iobroker>:<webport>/agent-dvr.0/` Eine zweite Instanz ist erreichbar unter `/agent-dvr.1/`, ein Drittel bei `/agent-dvr.2/`, und so weiter.
 
 **Merkmale:**
 
@@ -248,7 +248,7 @@ Der Adapter verfügt über ein integriertes Live-Dashboard bei`http://<iobroker>
 
 1. Installieren und starten Sie go2rtc und konfigurieren Sie Ihre Kamerastreams in der go2rtc-Konfiguration.
 2. Im Menüpunkt „Adapterkonfiguration → _Dashboard“_ weisen Sie jeder Kamera aus der Dropdown-Liste den gewünschten go2rtc-Streamnamen zu.
-3. Geben Sie die **go2rtc-URL** ein, die unterhalb der Tabelle angezeigt wird (z. B.`http://192.168.1.10:1984` ).
+3. Geben Sie die **go2rtc-URL** ein, die unterhalb der Tabelle angezeigt wird (z. B. `http://192.168.1.10:1984`).
 4. Speichern und neu starten. Der Adapter leitet WebSocket-Datenverkehr über ioBroker weiter, um browserübergreifende Beschränkungen zu umgehen.
 
 ## Medienproxy
@@ -281,7 +281,7 @@ FLV und go2rtc laufen unabhängig von den Einstellungen immer über ioBroker –
 
 ## Datenpunkte
 
-`<cam>` steht für`cam_<oid>_<name>` z.B.`cam_8_Reolink` Die
+`<cam>` steht für `cam_<oid>_<name>` z.B. `cam_8_Reolink` Die
 
 ### System
 
@@ -330,7 +330,7 @@ FLV und go2rtc laufen unabhängig von den Einstellungen immer über ioBroker –
 | `<cam>.data.scheduleActive`        | boolescher Wert | R   | Zeitplan aktiviert                                                      |
 | `<cam>.data.width` /`height`       | Nummer          | R   | Streamauflösung                                                         |
 | `<cam>.data.*`                     | verschieden     | R   | Alle weiteren Geräteeigenschaften von AgentDVR                          |
-| `<cam>.snapshot_b64`               | Zeichenkette    | R   | Aktueller Frame als`data:image/jpeg;base64,…` (Rolle`media.picture` )   |
+| `<cam>.snapshot_b64`               | Zeichenkette    | R   | Aktueller Frame als `data:image/jpeg;base64,…` (Rolle `media.picture`)   |
 | `<cam>.control.record`             | Taste           | W   | Aufnahme starten                                                        |
 | `<cam>.control.recordStop`         | Taste           | W   | Aufnahme stoppen                                                        |
 | `<cam>.control.recordRestart`      | Taste           | W   | Aufnahme neu starten                                                    |
@@ -400,11 +400,11 @@ Der Adapter stellt einen Webhook-Endpunkt bereit, der eine sofortige vollständi
 GET http://<iobroker>:<webport>/agent-dvr.0/webhook
 ```
 
-Ersetzen`agent-dvr.0` mit der tatsächlichen Instanznummer (`agent-dvr.1` usw.), wenn Sie mehrere Instanzen ausführen.
+Ersetzen `agent-dvr.0` mit der tatsächlichen Instanznummer (`agent-dvr.1` usw.), wenn Sie mehrere Instanzen ausführen.
 
 Konfigurieren Sie diese URL als **Aktion** in AgentDVR (Kamera → Bearbeiten → Benachrichtigungen → Aktionen → URL), um Echtzeit-Updates zu erhalten, sobald eine Aufnahme beendet oder eine Benachrichtigung ausgelöst wird. Der Adapter ruft dann umgehend alle Kameradaten, Aufnahmen und Systemstatistiken neu ab – ein Warten auf den nächsten Abfragezyklus ist nicht erforderlich.
 
-Rücksendungen`{"ok":true}` auf Erfolg.
+Rücksendungen `{"ok":true}` auf Erfolg.
 
 ### Übersicht _(erfordert das "Übersichts-Widget")_
 

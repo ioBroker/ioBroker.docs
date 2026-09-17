@@ -118,7 +118,7 @@ Widgets sind nicht auf Rechtecke beschränkt. Mit den **Formeinstellungen** kön
 
 - **Drehung** (0–359°) — Dreht jedes integrierte Polygon um einen beliebigen Winkel
 - **Eckradius** (0–30) – rundet alle Eckpunkte gleichmäßig mit Bézierkurven ab; funktioniert für jede Form, auch für benutzerdefinierte.
-- **Benutzerdefinierte Polygonpunkte** — durch Komma getrennt`X% Y%` Paare im Uhrzeigersinn, z.B.`40% 0%, 100% 50%, 40% 100%, 0% 50%` • Erstellen Sie Pfade visuell unter <https://bennettfeely.com/clippy/>
+- **Benutzerdefinierte Polygonpunkte** — durch Komma getrennt `X% Y%` Paare im Uhrzeigersinn, z.B. `40% 0%, 100% 50%, 40% 100%, 0% 50%` • Erstellen Sie Pfade visuell unter <https://bennettfeely.com/clippy/>
 
 Alle vorhandenen Funktionen – Innen-/Außenschatten, Rahmen, Farbverläufe im Hintergrund, Klick-Feedback – funktionieren mit jeder Form.
 
@@ -141,7 +141,7 @@ Ein horizontaler oder vertikaler Schieberegler zur Steuerung numerischer Datenpu
 - Schrittanzeige (automatische oder benutzerdefinierte Schrittwerte)
 - Schritte können innerhalb der Schiebeleiste platziert werden.
 - **Nur-Lese-Modus** – zeigt einen Wert an, ohne Interaktion zu ermöglichen
-- Unterstützung für Farbverläufe für Schienen und aktive Schienen (beliebige CSS-Farbzeichenfolge einschließlich)`linear-gradient(...)` )
+- Unterstützung für Farbverläufe für Schienen und aktive Schienen (beliebige CSS-Farbzeichenfolge einschließlich) `linear-gradient(...)`)
 - Individuelle Gestaltung von Spur, aktiver Spur und Daumen inklusive Schatteneffekten
 
 ---
@@ -216,7 +216,7 @@ Eine dynamische Datentabelle, die JSON-Objekte aus einem ioBroker-Datenpunkt ren
 
 ## Widget - Dropdown
 
-Ein Dropdown-Auswahlfeld, das seine Optionen automatisch aus dem`common.states` Eigenschaft eines ioBroker-Objekts.
+Ein Dropdown-Auswahlfeld, das seine Optionen automatisch aus dem `common.states` Eigenschaft eines ioBroker-Objekts.
 
 ![Vorschau-Dropdown](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/raw/main/src-widgets/public/img/vis-widget-inventwo-dropdown.png)
 
@@ -257,14 +257,14 @@ Erstellt eine Stichpunktliste aus einem einzelnen Textwert – entweder aus eine
 
 - Datenpunkt oder manuelle Texteingabe als Quelle
 - Frei konfigurierbares Trennzeichen – beliebiges Zeichen oder Zeichenkette:
-  - Komma:`,`
-  - Semikolon:`;`
-  - Neue Zeile:`\n`
-  - Tab:`\t`
+  - Komma: `,`
+  - Semikolon: `;`
+  - Neue Zeile: `\n`
+  - Tab: `\t`
   - Jede andere benutzerdefinierte Zeichenfolge
 - Entfernen von führenden/nachfolgenden Leerzeichen pro Eintrag
 - Filterung leerer Elemente
-- Geschosstypen:`•` Scheibe,`○` Kreis,`▪` Quadrat,`–` Bindestrich,`›` Pfeil,`1. 2. 3.` Nummeriert, Keine, Benutzerdefiniertes Zeichen
+- Geschosstypen: `•` Scheibe, `○` Kreis, `▪` Quadrat, `–` Bindestrich, `›` Pfeil, `1. 2. 3.` Nummeriert, Keine, Benutzerdefiniertes Zeichen
 - Die Farbe des einzelnen Aufzählungspunktes ist unabhängig von der Textfarbe.
 - Textfarbe, Hintergrund, Schriftgröße, Textausrichtung
 - Konfigurierbarer Abstand zwischen Aufzählungszeichen und Text
@@ -279,7 +279,7 @@ Monatskalenderansicht, ein einfacher Datumswähler basierend auf dem Datumskalen
 
 **Hauptmerkmale:**
 
-- Liest/schreibt ein Datum aus einer Objekt-ID als Zeitstempel (ms) oder ISO-Datumszeichenfolge (`YYYY-MM-DD` )
+- Liest/schreibt ein Datum aus einer Objekt-ID als Zeitstempel (ms) oder ISO-Datumszeichenfolge (`YYYY-MM-DD`)
 - „Nur-Lese“-Modus zur Anzeige eines Datums ohne Änderungsmöglichkeit
 - „Heute hervorheben“, um den heutigen Tag deutlich zu kennzeichnen
 - Vergangene und/oder zukünftige Daten deaktivieren

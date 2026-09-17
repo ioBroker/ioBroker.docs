@@ -73,11 +73,11 @@ Hier kannst du eigenen Vorlagen erstellen, orer vorhandene anpassen. Unterhalb d
 Zeichen mit besonderer Bedeutung:
 
 - `${}` umfasst Tokens, die durch Generierte Infomationen ersetzt werden. Der Vorlagenbezeichner может быть ebenfalls eingesetzt werden.
-- Vorlagenbezeichner die mit`_` начало, werden bei Diensten nicht angeboten, jedoch werden diese в Штатах Geschrieben.
+- Vorlagenbezeichner die mit `_` начало, werden bei Diensten nicht angeboten, jedoch werden diese в Штатах Geschrieben.
 - `${[0,1,2,3,4]token}` Eine Zeichenkette mit Werten, token muß ein Zahlentoken sein. Index ist wie im Beispiel. 0 ist der erste Wert in der Liste
-- bei einer Vorlage für Jsons muß das abschließende`}` so geschrieben werden`\}`
+- bei einer Vorlage für Jsons muß das abschließende `}` so geschrieben werden `\}`
 - siehe Beispiele im Adapter.
-- es ist ebenfalls sowas möglich:`${[0,🟢,🟡,🟠,🔴]warnlevelnumber}`
+- es ist ebenfalls sowas möglich: `${[0,🟢,🟡,🟠,🔴]warnlevelnumber}`
 
 Пример:
 
@@ -85,7 +85,7 @@ Zeichen mit besonderer Bedeutung:
 Luke, wir haben eine neue Warnung ${Warntypename} ab ${starttime} erhalten, sieht aus wie ein ${_customArray}
 ```
 
-Das Warntypename wird zB durch`Gewitter` ersetzt.`startime` durch 20:15 und`_customArray` durch das Ergebnis der entsprechenden Vorlage.
+Das Warntypename wird zB durch `Gewitter` ersetzt. `startime` durch 20:15 und `_customArray` durch das Ergebnis der entsprechenden Vorlage.
 
 **Шаблоны восстановления:** Setzt die Vorlagen auf die aktuelle Systemsprache zurück. Vorhandene Vorlagen gehen **verloren** . Anschließend speichern & schließen. Если вы хотите, чтобы системы были верны, вы можете сказать, что они работают.
 
@@ -144,8 +144,8 @@ Wird keine Vorlagen ausgewählt, wird nicht versendet.
 ## Общее поведение
 
 - Не следует отправлять дублирующие сообщения для одной и той же цели. DWD очень щепетильно относится к этому вопросу.
-- Если`none` Если выбран шаблон, уведомления по нему не отправляются.
-- Штаты под`.alerts` Enthalten nach Warntypen guppierte Felder for Start, Ende, Warntyp, **jetzt** aktiv und Schlagzeile. Предупреждение о фильтровании группы 1 по следующим критериям:
+- Если `none` Если выбран шаблон, уведомления по нему не отправляются.
+- Штаты под `.alerts` Enthalten nach Warntypen guppierte Felder for Start, Ende, Warntyp, **jetzt** aktiv und Schlagzeile. Предупреждение о фильтровании группы 1 по следующим критериям:
   1. Предупреждение **активируется** , если уровень повышен.
 
 ## Иконки

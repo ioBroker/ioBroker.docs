@@ -49,7 +49,7 @@ Nach der Erstinstallation müssen Sie eine bestimmte Option auswählen.
 
 - `Device` für jeden einzelnen Fall.
 
-Sobald Sie einen gültigen Wert eingegeben haben`Username` Und`Password` Die
+Sobald Sie einen gültigen Wert eingegeben haben `Username` Und `Password` Die
 
 - `List of Wolf Devices` wird mit den Ihrem Konto zugewiesenen Geräten gefüllt.
 
@@ -83,7 +83,7 @@ Die Wolf Smartset API erfordert, dass jede Abfrageanfrage neben einer Liste der 
 - `BundleId for Short Poll Cycle`
 - `BundleId for Long Poll Cycle`
 
-Wenn Sie konfiguriert haben`Poll all Parameters` Die in den Abfrageanfragen verwendete BundleId ist auf 1000 gesetzt. Dies führt wahrscheinlich dazu, dass einige Expert-Parameter (siehe unten) vom Ergebnis ausgeschlossen werden. Wenn Sie also Expert-Parameter abfragen möchten, sollten Sie diese Methode wahrscheinlich nicht verwenden.`Poll all Parameters` Die
+Wenn Sie konfiguriert haben `Poll all Parameters` Die in den Abfrageanfragen verwendete BundleId ist auf 1000 gesetzt. Dies führt wahrscheinlich dazu, dass einige Expert-Parameter (siehe unten) vom Ergebnis ausgeschlossen werden. Wenn Sie also Expert-Parameter abfragen möchten, sollten Sie diese Methode wahrscheinlich nicht verwenden. `Poll all Parameters` Die
 
 #### Experten-Login
 
@@ -92,13 +92,13 @@ Die Wolf Smartset API definiert zwei Zugriffsebenen für Geräteparameter: **Ben
 Wenn Sie überprüfen
 
 - `Do Expert Login` und geben Sie die richtige ein
-- `Expert Password` ,
+- `Expert Password`,
 
 Der Adapter führt während der Initialisierung eine Expertenanmeldung durch und empfängt außerdem während des zugehörigen Abfragezyklus periodische Aktualisierungen der Parameterwerte auf Expertenebene (wie im **Fachmannbaum** dargestellt).
 
 **!!! Wichtiger Hinweis für Experten: Start !!!**
 
-Der Expertenmodus scheint sich wie eine Büchse der Pandora zu verhalten! Tests haben gezeigt, dass es ziemlich schwierig ist, den Expertenmodus wieder zu verlassen, sobald er aktiviert ist. Obwohl der Adapter beim Deaktivieren den Benutzer vollständig abmeldet und alle lokal zwischengespeicherten Authentifizierungsdaten (OpenID-Token und Sitzungs-ID) löscht.`Do Expert Login` Nach dem Einstellen und Neustarten der Instanz scheint dies für den Wolf Smartset-Server nicht ausreichend zu sein.
+Der Expertenmodus scheint sich wie eine Büchse der Pandora zu verhalten! Tests haben gezeigt, dass es ziemlich schwierig ist, den Expertenmodus wieder zu verlassen, sobald er aktiviert ist. Obwohl der Adapter beim Deaktivieren den Benutzer vollständig abmeldet und alle lokal zwischengespeicherten Authentifizierungsdaten (OpenID-Token und Sitzungs-ID) löscht. `Do Expert Login` Nach dem Einstellen und Neustarten der Instanz scheint dies für den Wolf Smartset-Server nicht ausreichend zu sein.
 
 ```
 In fact, only a change of the adapter's public IP address in combination with an adapter instance reload might get the adapter back to User level.
@@ -118,13 +118,13 @@ Dies betrifft insbesondere die folgenden ParameterIds und wahrscheinlich auch we
 - wolf-smartset.0.Benutzer.Heizung.212_Statistik_Wärmeerzeuger 1.27017700001
 ```
 
-Wenn Sie also auf eine konstante und präzise Bereitstellung solcher Vorperiodenstatistikwerte angewiesen sind, sollten Sie sich gut überlegen, ob Sie überprüfen sollten.`Do Expert Login` Beschwert euch nicht, wenn ihr Schwierigkeiten habt, wieder auf Benutzerstufe zurückzukehren – ihr wurdet gewarnt!
+Wenn Sie also auf eine konstante und präzise Bereitstellung solcher Vorperiodenstatistikwerte angewiesen sind, sollten Sie sich gut überlegen, ob Sie überprüfen sollten. `Do Expert Login` Beschwert euch nicht, wenn ihr Schwierigkeiten habt, wieder auf Benutzerstufe zurückzukehren – ihr wurdet gewarnt!
 
 **!!! Wichtiger Hinweis für Experten: Ende !!!**
 
 #### Prüfen Sie auf Änderungen der öffentlichen IP-Adresse
 
-Der Wolf Smartset-Server ist client-IP-adressenbewusst. Das bedeutet, er verknüpft bestimmte Anwendungsstatusinformationen mit der öffentlichen IP-Adresse der Clientanwendung. Wenn Sie also Folgendes konfiguriert haben:`Do Expert Login` Ändert sich die öffentliche IP-Adresse des Adapters (z. B. nach einem Router-Neustart), muss sich der Adapter erneut beim Wolf Smartset-Server authentifizieren, um den Expertenmodus wieder zu aktivieren. Da die Authentifizierung nur stündlich erfolgt, kann es bis zu **einer Stunde dauern, bis der Adapter wieder im Expertenmodus ist** .
+Der Wolf Smartset-Server ist client-IP-adressenbewusst. Das bedeutet, er verknüpft bestimmte Anwendungsstatusinformationen mit der öffentlichen IP-Adresse der Clientanwendung. Wenn Sie also Folgendes konfiguriert haben: `Do Expert Login` Ändert sich die öffentliche IP-Adresse des Adapters (z. B. nach einem Router-Neustart), muss sich der Adapter erneut beim Wolf Smartset-Server authentifizieren, um den Expertenmodus wieder zu aktivieren. Da die Authentifizierung nur stündlich erfolgt, kann es bis zu **einer Stunde dauern, bis der Adapter wieder im Expertenmodus ist** .
 
 Falls Ihnen das zu lang ist, können Sie Folgendes überprüfen:
 

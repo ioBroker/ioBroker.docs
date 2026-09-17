@@ -42,7 +42,7 @@ Nach der Verbindung mit dem Daikin Cloud-Konto erstellt der Adapter automatisch 
 Darüber hinaus gilt für die Daikin Cloud API eine Beschränkung auf 200 Anfragen pro Tag. Bitte beachten Sie daher die folgenden Best Practices:
 
 - Ein Standard-Abfrageintervall von 15 Minuten sollte für die meisten Anwendungsfälle ausreichend sein und gleichzeitig genügend Spielraum für die Gerätesteuerung lassen. Beachten Sie, dass jede Steuerungsaktion zwei Anfragen erfordert (eine zur Steuerung selbst, eine zur Datenaktualisierung eine Minute nach der Steuerungsanfrage). Insbesondere bei einer großen Anzahl von Geräten kann dies problematisch werden.
-- Der Adapter unterstützt auch „Slow Polling“, bei dem Sie ein eigenes Intervall definieren können. Verwenden Sie den Status.`useSlowPolling` Je nach Bedarf können Sie die langsame Abfrage aktivieren oder deaktivieren (z. B. nachts nur stündlich abfragen ...).
+- Der Adapter unterstützt auch „Slow Polling“, bei dem Sie ein eigenes Intervall definieren können. Verwenden Sie den Status. `useSlowPolling` Je nach Bedarf können Sie die langsame Abfrage aktivieren oder deaktivieren (z. B. nachts nur stündlich abfragen ...).
 - Idealerweise sollten zwischen dem Umschalten des Geräte-Ein-/Ausschaltstatus mindestens 10 Minuten vergehen, da dies sonst den beweglichen Teilen der Geräte schaden kann.
 
 Die aktuellen Ratenbegrenzungsdetails sind in den Adapter-i-fo-Zuständen enthalten und werden jedes Mal aktualisiert, wenn der Adapter eine Anfrage an die Daikin Cloud sendet.

@@ -19,7 +19,7 @@ So konfigurieren Sie diesen Adapter: Überprüfen Sie zunächst die Einstellunge
 
 Protokoll für die WebSocket-Verbindung zu Ihrem Fernseher.
 
-Mögliche Werte sind`http` oder`wss` Auf neueren Geräten verwenden`wss` Die
+Mögliche Werte sind `http` oder `wss` Auf neueren Geräten verwenden `wss` Die
 
 ### 1.2. IP-Adresse
 
@@ -38,15 +38,15 @@ Token für eine sichere Verbindung zu Ihrem Fernseher.
 
 Speichern Sie die Adapterkonfiguration mit token = 0 und wechseln Sie zur Registerkarte „Objekte“ im ioBroker-Adminbereich.
 
-Dann geh zu`samsung_tizen.0.config.getToken` Objekt und klicken Sie auf die Schaltfläche.
+Dann geh zu `samsung_tizen.0.config.getToken` Objekt und klicken Sie auf die Schaltfläche.
 
-Wenn alles funktioniert, wird ein neues Objekt erstellt`samsung_tizen.0.config.token` Es erscheint ein Eintrag, dessen Name Ihr Token ist. Kopieren Sie den Namen (z. B. 123456789), gehen Sie zurück zur Adapterkonfiguration und fügen Sie ihn in das Token-Feld ein.
+Wenn alles funktioniert, wird ein neues Objekt erstellt `samsung_tizen.0.config.token` Es erscheint ein Eintrag, dessen Name Ihr Token ist. Kopieren Sie den Namen (z. B. 123456789), gehen Sie zurück zur Adapterkonfiguration und fügen Sie ihn in das Token-Feld ein.
 
 Kann mit dem Wert "0" deaktiviert werden.
 
 #### Wie man manuell ein Token erhält
 
-Installieren`wscat` auf dem Gerät, auf dem ioBroker ausgeführt wird, mit folgendem Befehl:
+Installieren `wscat` auf dem Gerät, auf dem ioBroker ausgeführt wird, mit folgendem Befehl:
 
 ```sh
 npm install wscat
@@ -109,7 +109,7 @@ Kann mit dem Wert "0" deaktiviert werden.
 
 ### 1.7. Befehlsverzögerung
 
-Verzögerung in Millisekunden zwischen den über die`samsung_tizen.0.control.sendCmd` Objekt.
+Verzögerung in Millisekunden zwischen den über die `samsung_tizen.0.control.sendCmd` Objekt.
 
 ## 2. Verwendung
 
@@ -117,55 +117,55 @@ Verzögerung in Millisekunden zwischen den über die`samsung_tizen.0.control.sen
 
 #### Senden Sie einen einzelnen Schlüssel
 
-Um eine einzelne Taste zu senden, klicken Sie auf die Schaltfläche des entsprechenden Objekts, z. B.`samsung_tizen.0.control.KEY_MUTE` Die
+Um eine einzelne Taste zu senden, klicken Sie auf die Schaltfläche des entsprechenden Objekts, z. B. `samsung_tizen.0.control.KEY_MUTE` Die
 
 #### Senden Sie eine Taste ohne vordefinierte Schaltfläche.
 
-Sie können einen benutzerdefinierten (nicht vordefinierten) Schlüssel mit dem senden`samsung_tizen.0.control.sendCmd` Objekt. Geben Sie den Schlüssel ein, den Sie senden möchten, z. B.`KEY_POWER` Die
+Sie können einen benutzerdefinierten (nicht vordefinierten) Schlüssel mit dem senden `samsung_tizen.0.control.sendCmd` Objekt. Geben Sie den Schlüssel ein, den Sie senden möchten, z. B. `KEY_POWER` Die
 
 #### Senden Sie mehrere Tasten in einem einzigen Befehl
 
-Um mehrere Tasten in einem einzigen Befehl zu senden, verwenden Sie die`samsung_tizen.0.control.sendCmd` Objekt. Geben Sie die Tasten durch Kommas getrennt ein, z. B.`KEY_POWER` ,`KEY_HDMI` ,`KEY_VOLUP` Die
+Um mehrere Tasten in einem einzigen Befehl zu senden, verwenden Sie die `samsung_tizen.0.control.sendCmd` Objekt. Geben Sie die Tasten durch Kommas getrennt ein, z. B. `KEY_POWER`, `KEY_HDMI`, `KEY_VOLUP` Die
 
 #### Makros für Befehle erstellen
 
-Gehe zu`samsung_tizen.0.command` Dort finden Sie Beispielmakros, und Sie können Ihre eigenen erstellen.
+Gehe zu `samsung_tizen.0.command` Dort finden Sie Beispielmakros, und Sie können Ihre eigenen erstellen.
 
 ### 2.2. Apps
 
 #### Installierte Apps laden
 
-Um die installierten Apps zu laden, klicken Sie auf die Schaltfläche`samsung_tizen.0.apps.getInstalledApps` Schaltfläche. Danach ein separates Objekt namens`start_<app name>` wird für jede installierte App erstellt.
+Um die installierten Apps zu laden, klicken Sie auf die Schaltfläche `samsung_tizen.0.apps.getInstalledApps` Schaltfläche. Danach ein separates Objekt namens `start_<app name>` wird für jede installierte App erstellt.
 
 #### Starte eine App
 
-Sie können eine App starten, indem Sie auf die Schaltfläche klicken.`samsung_tizen.0.apps.start_<app name>` Objekt.
+Sie können eine App starten, indem Sie auf die Schaltfläche klicken. `samsung_tizen.0.apps.start_<app name>` Objekt.
 
 ### 2.3. Energiezustand
 
-Wenn die Abfrage des Energiestatus wie oben beschrieben konfiguriert ist,`samsung_tizen.0.powerOn` Ist`true` während Ihr Fernseher eingeschaltet ist und`false` während es ausgeschaltet ist.
+Wenn die Abfrage des Energiestatus wie oben beschrieben konfiguriert ist, `samsung_tizen.0.powerOn` Ist `true` während Ihr Fernseher eingeschaltet ist und `false` während es ausgeschaltet ist.
 
 ### 2.4. Befehle
 
-Befehle können manuell über die`samsung_tizen.0.control.sendCmd` Objekt, wie unter Steuerung beschrieben, oder über ein benutzerdefiniertes Objekt unten`samsung_tizen.0.command` Es gibt einige Beispielbefehle, aber Sie können auch Ihre eigenen Makros erstellen.
+Befehle können manuell über die `samsung_tizen.0.control.sendCmd` Objekt, wie unter Steuerung beschrieben, oder über ein benutzerdefiniertes Objekt unten `samsung_tizen.0.command` Es gibt einige Beispielbefehle, aber Sie können auch Ihre eigenen Makros erstellen.
 
 #### Wie man ein Befehlsmakro erstellt
 
-1. Wechseln Sie zur Registerkarte „Objekte“ und öffnen Sie`samsung_tizen.0.command` Die
+1. Wechseln Sie zur Registerkarte „Objekte“ und öffnen Sie `samsung_tizen.0.command` Die
 
 2. Klicken Sie auf das Plus-Symbol, um ein neues Objekt zu erstellen.
 
    ![cmd1](../../../en/adapterref/iobroker.samsung_tizen/images/cmd1.png)
 
-3. Prüfen Sie, ob das übergeordnete Objekt ist`samsung_tizen.0.command` Die
+3. Prüfen Sie, ob das übergeordnete Objekt ist `samsung_tizen.0.command` Die
 
-4. Geben Sie einen Namen für Ihren Befehl ein und überprüfen Sie, ob der Typ „Befehl“ lautet.`datapoint` Und`stateType` Ist`boolean` Die
+4. Geben Sie einen Namen für Ihren Befehl ein und überprüfen Sie, ob der Typ „Befehl“ lautet. `datapoint` Und `stateType` Ist `boolean` Die
 
    ![cmd2](../../../en/adapterref/iobroker.samsung_tizen/images/cmd2.png)
 
 5. Geben Sie unter „Name“ die Schlüssel ein, die Sie senden möchten.
 
-6. Die Rolle muss sein`button` Die
+6. Die Rolle muss sein `button` Die
 
 7. Speichern Sie das Objekt.
 

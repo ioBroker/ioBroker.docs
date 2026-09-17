@@ -44,17 +44,17 @@ Danksagung: [mr-suw/ioBroker.oasecontrol](https://github.com/mr-suw/ioBroker.oas
 
 | Gerät                              | Artikelnummer | Rolle                      |
 | ---------------------------------- | ------------- | -------------------------- |
-| OASE Garden Controller Cloud (EGC) | 55317         | Gateway (`GatewayCloud` )  |
-| OASE AquaMax Eco Titanium          | 73656         | Teichpumpe (`GardenPump` ) |
+| OASE Garden Controller Cloud (EGC) | 55317         | Gateway (`GatewayCloud`)  |
+| OASE AquaMax Eco Titanium          | 73656         | Teichpumpe (`GardenPump`) |
 
 ### Projektstatus
 
 - **Phase 1 – Cloud-Nur-Lesezugriff** ✓ Abfrage des OASE-Cloud-Inventars; Gateway und beide Pumpen mit Live-Status
 - **Phase 2 – Cloud-Steuerung** ✓ Pumpenein/aus und Drehzahl sind über den Cloud-Tunnel beschreibbar
 - **Phase 4 – Live-Telemetrie** ✓ Leistung, Motordrehzahl, Temperatur und Netzspannung werden bei jeder Abfrage live ausgelesen.
-- **Phase 3 — Lokaler (LAN) Transport** ✓ Verbindungsmodus`local` Der gesamte Adapter wird über das lokale Netzwerk ohne Cloud gesteuert: Inventarisierung, Live-Telemetrie sowie Ein-/Ausschalten und Geschwindigkeitsregelung – alles über das LAN.
+- **Phase 3 — Lokaler (LAN) Transport** ✓ Verbindungsmodus `local` Der gesamte Adapter wird über das lokale Netzwerk ohne Cloud gesteuert: Inventarisierung, Live-Telemetrie sowie Ein-/Ausschalten und Geschwindigkeitsregelung – alles über das LAN.
 
-**Cloud-Authentifizierung:** Die OASE-Cloud verwendet **Azure AD B2C** (`account.oase.com` Der Adapter authentifiziert sich mit dem Headless-freundlichen **Refresh-Token-Grant** : Einmalig wird bei der Anmeldung in einer OASE-App ein Refresh-Token erfasst und (verschlüsselt) in die Adaptereinstellungen eingefügt. Der Adapter tauscht dieses gegen kurzlebige Zugriffstoken aus und rotiert das Refresh-Token transparent. **Ihr Kontopasswort wird vom Adapter weder eingegeben noch gespeichert.** Ohne Refresh-Token startet der Adapter, meldet jedoch einen Fehler.`info.connection = false` mit einer deutlichen Warnung.
+**Cloud-Authentifizierung:** Die OASE-Cloud verwendet **Azure AD B2C** (`account.oase.com` Der Adapter authentifiziert sich mit dem Headless-freundlichen **Refresh-Token-Grant** : Einmalig wird bei der Anmeldung in einer OASE-App ein Refresh-Token erfasst und (verschlüsselt) in die Adaptereinstellungen eingefügt. Der Adapter tauscht dieses gegen kurzlebige Zugriffstoken aus und rotiert das Refresh-Token transparent. **Ihr Kontopasswort wird vom Adapter weder eingegeben noch gespeichert.** Ohne Refresh-Token startet der Adapter, meldet jedoch einen Fehler. `info.connection = false` mit einer deutlichen Warnung.
 
 ### Konfiguration
 
@@ -62,7 +62,7 @@ Alle Einstellungen sind in der Admin-Benutzeroberfläche (JSON-Konfiguration) ve
 
 | Einstellung                   | Beschreibung                                                                |
 | ----------------------------- | --------------------------------------------------------------------------- |
-| Verbindungsmodus              | `cloud` oder`local` (sich gegenseitig ausschließend)                        |
+| Verbindungsmodus              | `cloud` oder `local` (sich gegenseitig ausschließend)                        |
 | Umfrageintervall              | Abfrageintervall in Sekunden (Standardwert 30)                              |
 | Cloud-Benutzername / Passwort | OASE-Cloud-Kontozugangsdaten (Passwort verschlüsselt gespeichert)           |
 | Controller-IP                 | IP-Adresse des EGC-Gateways (lokaler Modus)                                 |
@@ -96,7 +96,7 @@ Alle Einstellungen sind in der Admin-Benutzeroberfläche (JSON-Konfiguration) ve
 
 ### 0.12.4 (2026-09-11)
 
-- (ssbingo) **Actuator value fields are now a dropdown (bugfix).** The **on-value** and **off-value** of an actuator schedule window — and the value of the **"Set actuator"** weather rule — are no longer a free-text field. That field re-parsed on every keystroke and fell back to `true` for any partial input, so **typing `false` snapped back to `true`**. They are now a clear **dropdown**: `true` / `false` / `number` (with an inline number field), and the off-value additionally offers **"leave untouched"**. The handbook (10.2) now also clarifies that the `on` field in the `schedule.actuators` status datapoint is the **live window status**, not the on/off value
+- (ssbingo) **Actuator value fields are now a dropdown (bugfix).** The **on-value** and **off-value** of an actuator schedule window — and the value of the **"Set actuator"** weather rule — are no longer a free-text field. That field re-parsed on every keystroke and fell back to `true` for any partial input, so **typing `false` snapped back to `true` **. They are now a clear **dropdown**: `true` / `false` / `number` (with an inline number field), and the off-value additionally offers **"leave untouched"**. The handbook (10.2) now also clarifies that the `on` field in the `schedule.actuators` status datapoint is the **live window status**, not the on/off value
 
 ### 0.12.3 (2026-09-10)
 
@@ -167,7 +167,7 @@ Alle Einstellungen sind in der Admin-Benutzeroberfläche (JSON-Konfiguration) ve
 
 ### 0.5.0 (2026-09-09)
 
-- (ssbingo) **Water-temperature sensor picker + clearer scheduler UI.** Each pump's temperature/weather section gains a **"Water temperature sensor"** dropdown: it lists the pump's own device temperature sensors **with their live value**, so you pick which one actually reads the water. The choice feeds a new read-only state **`telemetry.waterTemperature`** and **pre-fills the curve source** (external sensors are still selectable via the object picker)
+- (ssbingo) **Water-temperature sensor picker + clearer scheduler UI.** Each pump's temperature/weather section gains a **"Water temperature sensor"** dropdown: it lists the pump's own device temperature sensors **with their live value**, so you pick which one actually reads the water. The choice feeds a new read-only state ** `telemetry.waterTemperature` ** and **pre-fills the curve source** (external sensors are still selectable via the object picker)
 - (ssbingo) **Every scheduler field is now self-explanatory** — full labels, a **suggested value** (placeholder) and a **help text** on each: minimum power (Q_min), temperature smoothing, hysteresis, max change per hour, the curve-vs-windows priority and the curve source
 - (ssbingo) Handbook chapter 11 (DE + EN) updated for the sensor picker and the fine-tuning suggestions; PDFs regenerated
 

@@ -25,25 +25,25 @@ Dieser Adapter verbindet ioBroker mit der My Renault / My Dacia / My Alpine Clou
 
 1. Installieren Sie den Adapter über die ioBroker-Admin-Oberfläche.
 2. Öffnen Sie die Adapterkonfiguration und geben Sie die Zugangsdaten Ihres **My Renault** (oder **My Dacia** / **My Alpine** ) Kontos ein: App-E-Mail-Adresse und App-Passwort.
-3. Wählen Sie die **Marke,** die zu Ihrer App passt:`Renault / Dacia` oder`Alpine` (Sie verwenden separate Konten und API-Schlüssel).
-4. Stellen Sie das **Land** auf den zweistelligen Ländercode ein, der zu Ihrem Konto passt (z. B.`de` ,`fr` ,`it` ,`es` ).
+3. Wählen Sie die **Marke,** die zu Ihrer App passt: `Renault / Dacia` oder `Alpine` (Sie verwenden separate Konten und API-Schlüssel).
+4. Stellen Sie das **Land** auf den zweistelligen Ländercode ein, der zu Ihrem Konto passt (z. B. `de`, `fr`, `it`, `es`).
 5. Optional können Sie das **Abfrageintervall** in Minuten und den **API-Schlüssel** festlegen (für die automatische Erkennung leer lassen).
 6. Speichern Sie den Speicher, und die Instanz beginnt mit der Abfrage.
 
 ## Fernbedienung
 
-Jedes Fahrzeug wird anhand seiner Fahrzeugidentifikationsnummer (VIN) als Gerät angelegt. Fernsteuerungsbefehle werden als Zustände unter „Zustände“ bereitgestellt.`renault.0.<VIN>.remote.*` :
+Jedes Fahrzeug wird anhand seiner Fahrzeugidentifikationsnummer (VIN) als Gerät angelegt. Fernsteuerungsbefehle werden als Zustände unter „Zustände“ bereitgestellt. `renault.0.<VIN>.remote.*`:
 
 | Zustand                  | Typ             | Aktion                                                      |
 | ------------------------ | --------------- | ----------------------------------------------------------- |
-| `actions/hvac-start`     | boolescher Wert | `true` = Start,`false` = Stopp der Vorkonditionierung       |
+| `actions/hvac-start`     | boolescher Wert | `true` = Start, `false` = Stopp der Vorkonditionierung       |
 | `hvac-temperature`       | Nummer          | Zieltemperatur für die Klimaanlage                          |
-| `actions/charging-start` | boolescher Wert | `true` = Start,`false` = Ladevorgang stoppen                |
-| `charge/pause-resume`    | boolescher Wert | `true` = Start,`false` = Pause                              |
-| `charge/start`           | boolescher Wert | `true` = Start,`false` = Gebühren stoppen (Legacy-Endpunkt) |
+| `actions/charging-start` | boolescher Wert | `true` = Start, `false` = Ladevorgang stoppen                |
+| `charge/pause-resume`    | boolescher Wert | `true` = Start, `false` = Pause                              |
+| `charge/start`           | boolescher Wert | `true` = Start, `false` = Gebühren stoppen (Legacy-Endpunkt) |
 | `refresh`                | boolescher Wert | `true` = Aktualisierung der Fahrzeugdaten erzwingen         |
 
-Setzen Sie den entsprechenden Zustand auf`true` um den Befehl auszulösen.
+Setzen Sie den entsprechenden Zustand auf `true` um den Befehl auszulösen.
 
 ## Diskussion / Fragen
 

@@ -70,7 +70,7 @@ hash: cXThTcD0+jNx72qX//2Zhh3P60T/+KEF4gsaKnW70Ug=
 
 В настройках адаптера можно указать следующую опцию:
 
-- **URL WebSocket** : URL для API WebSocket mempool.space (по умолчанию:`wss://mempool.space/api/v1/ws` )
+- **URL WebSocket** : URL для API WebSocket mempool.space (по умолчанию: `wss://mempool.space/api/v1/ws`)
 
 - Вы можете использовать общедоступный или локальный экземпляр mempool.space.
 

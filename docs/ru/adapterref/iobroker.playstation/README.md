@@ -87,7 +87,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 
 1. Перейдите по ссылке и войдите в PlayStation Network.
 2. Перейдите по этой ссылке и скопируйте NPSSO. </br>![instance\_tab\_token\_npsso.png](../../../de/adapterref/iobroker.playstation/img/instance_tab_token_npsso.png)</br>
-3. Этот файл cookie в`NPSSO-Cookie` Вставьте и сохраните настройки экземпляра. Этот cookie должен быть действителен только в течение 2 месяцев. </br>![instance\_tab\_token.png](img/instance_tab_token.png)</br>![instance\_tab\_token\_done.png](../../../de/adapterref/iobroker.playstation/img/instance_tab_token_done.png)
+3. Этот файл cookie в `NPSSO-Cookie` Вставьте и сохраните настройки экземпляра. Этот cookie должен быть действителен только в течение 2 месяцев. </br>![instance\_tab\_token.png](img/instance_tab_token.png)</br>![instance\_tab\_token\_done.png](../../../de/adapterref/iobroker.playstation/img/instance_tab_token_done.png)
 
 ### Вход в систему устройства Playstation
 
@@ -98,14 +98,14 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 1. (Маршрутизатор) Назначьте PlayStation статический IP-адрес (пожалуйста, используйте Google).
 2. (P.S.) Включите PlayStation и выберите профиль. </br>![ps4\_profile.png](../../../de/adapterref/iobroker.playstation/img/ps4_profile.png)</br>
 3. (PS) Открыть настройки </br>![ps4\_settings.png](../../../de/adapterref/iobroker.playstation/img/ps4_settings.png)</br>
-4. (PS) настройка`mobile APP` открыть </br>![ps4\_settings\_app.png](../../../de/adapterref/iobroker.playstation/img/ps4_settings_app.png)</br>
+4. (PS) настройка `mobile APP` открыть </br>![ps4\_settings\_app.png](../../../de/adapterref/iobroker.playstation/img/ps4_settings_app.png)</br>
 5. Настройки экземпляра (ioBroker) из адаптера PlayStation </br>![instance\_tab\_device\_empty.png](../../../de/adapterref/iobroker.playstation/img/instance_tab_device_empty.png)</br>
 6. (ioBroker) Создайте устройство и введите IP-адрес PlayStation в поле "IP".
-7. (ioBroker) В`Welche PS4/5 soll gekoppelt werden?` затем выберите IP-адрес </br>![instance\_tab\_device\_select.png](../../../de/adapterref/iobroker.playstation/img/instance_tab_device_select.png)</br>
-8. (ioBroker) Теперь кнопка`Überprüfung der Playstation-Verfügbarkeit` Нажмите. Появится сообщение и всплывающее окно с текстом «ОК» или сообщением об ошибке. </br>![instance\_tab\_device\_available.png](../../../de/adapterref/iobroker.playstation/img/instance_tab_device_available.png)</br>
+7. (ioBroker) В `Welche PS4/5 soll gekoppelt werden?` затем выберите IP-адрес </br>![instance\_tab\_device\_select.png](../../../de/adapterref/iobroker.playstation/img/instance_tab_device_select.png)</br>
+8. (ioBroker) Теперь кнопка `Überprüfung der Playstation-Verfügbarkeit` Нажмите. Появится сообщение и всплывающее окно с текстом «ОК» или сообщением об ошибке. </br>![instance\_tab\_device\_available.png](../../../de/adapterref/iobroker.playstation/img/instance_tab_device_available.png)</br>
 9. (PS) Выберите новое устройство (появится PIN-код) </br>![ps4\_add\_device.png](img/ps4_add_device.png)</br>![ps4\_code.png](../../../de/adapterref/iobroker.playstation/img/ps4_code.png)</br>
-10. (ioBroker) В`PIN-Code` Введите ПИН-код
-11. Кнопка (ioBroker)`PIN-Code senden` Нажмите кнопку. Появится всплывающее окно с возможностью выбора варианта «ОК» или сообщением об ошибке. </br>![instance\_tab\_device\_code.png](../../../de/adapterref/iobroker.playstation/img/instance_tab_device_code.png)</br>
+10. (ioBroker) В `PIN-Code` Введите ПИН-код
+11. Кнопка (ioBroker) `PIN-Code senden` Нажмите кнопку. Появится всплывающее окно с возможностью выбора варианта «ОК» или сообщением об ошибке. </br>![instance\_tab\_device\_code.png](../../../de/adapterref/iobroker.playstation/img/instance_tab_device_code.png)</br>
 12. (PS) PIN-код больше не должен отображаться, а должно отображаться имя playactor-iob. </br>![ps4\_done.png](../../../de/adapterref/iobroker.playstation/img/ps4_done.png)</br>
 13. Сохранены настройки экземпляра (ioBroker).
 14. (ioBroker) Если вы получили сообщение об ошибке, пожалуйста, повторите процесс, начиная с шага 9.
@@ -120,7 +120,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 
 - `playstation.0.192_168_2_36.remote.back` Кнопка «Назад»
 - `playstation.0.192_168_2_36.remote.down` нижняя клавиша
-- `playstation.0.192_168_2_36.remote.enter`Нажмите Enter
+- `playstation.0.192_168_2_36.remote.enter` Нажмите Enter
 - `playstation.0.192_168_2_36.remote.left` Левая кнопка
 - `playstation.0.192_168_2_36.remote.option` Вариант кнопки
 - `playstation.0.192_168_2_36.remote.osk` Отправить экранную клавиатуру
@@ -161,10 +161,10 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 | playstation.0.profile\_remote\_profile.received\_requests\_with\_name    | Запросы на добавление в друзья с указанием онлайн-идентификатора в формате JSON.                                                                                                                                 | [Пример](#request-playstation0profile_remote_profilereceived_requests_with_name)    |
 | playstation.0.profile\_remote\_profile.received\_requests\_without\_name | Запросы на добавление в друзья без онлайн-идентификатора в формате JSON                                                                                                                                          | [Пример](#request-playstation0profile_remote_profilereceived_requests_without_name) |
 | playstation.0.profile\_remote.result                                     | Результаты всех запросов                                                                                                                                                                                         |                                                                                     |
-| playstation.0.profile\_remote\_profile.search\_game                      | Поиск игр. Отображается максимум 15 игр в формате JSON. Для получения более подробных результатов выберите штат.`playstation.0.profile_remote_profile.search_result_pagination` использовать                     | [Пример](#request-playstation0profile_remote_profilesearch_game)                    |
+| playstation.0.profile\_remote\_profile.search\_game                      | Поиск игр. Отображается максимум 15 игр в формате JSON. Для получения более подробных результатов выберите штат. `playstation.0.profile_remote_profile.search_result_pagination` использовать                     | [Пример](#request-playstation0profile_remote_profilesearch_game)                    |
 | playstation.0.profile\_remote\_profile.search\_result                    | Результаты всех поисковых запросов                                                                                                                                                                               |                                                                                     |
 | playstation.0.profile\_remote\_profile.search\_result\_pagination        | Показать еще 15 игр/пользователей                                                                                                                                                                                |                                                                                     |
-| playstation.0.profile\_remote\_profile.search\_user                      | Поиск пользователей. Максимальное количество пользователей в формате JSON — 15. Для отображения дополнительных данных выберите штат.`playstation.0.profile_remote_profile.search_result_pagination` использовать | [Пример](#request-playstation0profile_remote_profilesearch_user)                    |
+| playstation.0.profile\_remote\_profile.search\_user                      | Поиск пользователей. Максимальное количество пользователей в формате JSON — 15. Для отображения дополнительных данных выберите штат. `playstation.0.profile_remote_profile.search_result_pagination` использовать | [Пример](#request-playstation0profile_remote_profilesearch_user)                    |
 | playstation.0.profile\_remote\_profile.shareProfile                      | Поделитесь своим профилем с другом (идентификатором аккаунта). Будет сгенерирована ссылка на QR-код.                                                                                                             |                                                                                     |
 | playstation.0.profile\_remote\_profile.storeWishlist                     | Список желаний                                                                                                                                                                                                   | [Пример](#request-playstation0profile_remote_profilestorewishlist)                  |
 | playstation.0.profile\_remote\_profile.total                             | Сумма текущего запроса                                                                                                                                                                                           |                                                                                     |
@@ -230,10 +230,10 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 | playstation.0.profile\_remote\_groups.createGroup               | Создайте группу с участниками (идентификаторы учетных записей участников в виде массива).                                                                                 | [Пример](#request-playstation0profile_remote_groupscreategroup)             |
 | playstation.0.profile\_remote\_groups.favorite                  | Загрузка групп Избранное/Нет избранного (все)                                                                                                                             |                                                                             |
 | playstation.0.profile\_remote\_groups.fields                    | Какие поля следует загрузить?                                                                                                                                             |                                                                             |
-| playstation.0.profile\_remote\_groups.groupSettings             | Настройки группы (Группу необходимо создать в разделе`selectGroup` (необходимо выбрать, требуется 3 участника)                                                            | Результат неизвестен                                                        |
-| playstation.0.profile\_remote\_groups.inviteMembers             | Добавление участников в группу (идентификаторы учетных записей участников в виде массива — группа должна существовать в определенной группе)`selectGroup` (будет выбрано) | Результат неизвестен                                                        |
-| playstation.0.profile\_remote\_groups.kickMember                | Удалить участника из группы с идентификатором учетной записи (должна существовать группа в рамках этой учетной записи).`selectGroup` (будет выбрано)                      | Результат неизвестен                                                        |
-| playstation.0.profile\_remote\_groups.leaveGroup                | Покинуть группу (ниже должна быть группа)`selectGroup` (будет выбрано)                                                                                                    | Результат неизвестен                                                        |
+| playstation.0.profile\_remote\_groups.groupSettings             | Настройки группы (Группу необходимо создать в разделе `selectGroup` (необходимо выбрать, требуется 3 участника)                                                            | Результат неизвестен                                                        |
+| playstation.0.profile\_remote\_groups.inviteMembers             | Добавление участников в группу (идентификаторы учетных записей участников в виде массива — группа должна существовать в определенной группе) `selectGroup` (будет выбрано) | Результат неизвестен                                                        |
+| playstation.0.profile\_remote\_groups.kickMember                | Удалить участника из группы с идентификатором учетной записи (должна существовать группа в рамках этой учетной записи). `selectGroup` (будет выбрано)                      | Результат неизвестен                                                        |
+| playstation.0.profile\_remote\_groups.leaveGroup                | Покинуть группу (ниже должна быть группа) `selectGroup` (будет выбрано)                                                                                                    | Результат неизвестен                                                        |
 | playstation.0.profile\_remote\_groups.limit                     | Ограничение на количество загружаемых групп или сообщений (см. пример в профиле).                                                                                         |                                                                             |
 | playstation.0.profile\_remote\_groups.loadFileData              | Загрузить вложения из сообщений                                                                                                                                           | [Пример](#request-playstation0profile_remote_groupsloadfiledata)            |
 | playstation.0.profile\_remote\_groups.loadGroups                | Группы приглашают                                                                                                                                                         | [Пример](#request-playstation0profile_remote_groupsloadgroups)              |
@@ -241,7 +241,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 | playstation.0.profile\_remote\_groups.offset                    | Смещение для групп загрузки                                                                                                                                               |                                                                             |
 | playstation.0.profile\_remote\_groups.result                    | Загрузка результатов из групп или групп, содержащих сообщения в формате JSON.                                                                                             |                                                                             |
 | playstation.0.profile\_remote\_groups.selectGroup               | Загрузите идентификатор группы из результатов или загрузите группы, содержащие сообщения. Выбор группы загружает сообщения.                                               | [Пример](#request-playstation0profile_remote_groupsselectgroup)             |
-| playstation.0.profile\_remote\_groups.sendGroupMessage          | Отправить сообщение выбранной группе (необходимо выбрать группу в разделе...)`selectGroup` (будет выбрано)                                                                | [Пример](#request-playstation0profile_remote_groupssendgroupmessage)        |
+| playstation.0.profile\_remote\_groups.sendGroupMessage          | Отправить сообщение выбранной группе (необходимо выбрать группу в разделе...) `selectGroup` (будет выбрано)                                                                | [Пример](#request-playstation0profile_remote_groupssendgroupmessage)        |
 | playstation.0.profile\_remote\_groups.total                     | Количество всех возможных групп или сообщений (важно для ограничения и смещения).                                                                                         |                                                                             |
 
 ![objects\_overview\_remote\_groups.png](../../../de/adapterref/iobroker.playstation/img/objects_overview_remote_groups.png)
@@ -250,7 +250,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 
 [Краткое содержание](#zusammenfassung)
 
-Идентификатор кампании: От`profile_remote_stars.campaigns` collectible-ID: From`profile_remote_stars.campaigns` Идентификатор вознаграждения: От`profile_remote_stars.rewards`
+Идентификатор кампании: От `profile_remote_stars.campaigns` collectible-ID: From `profile_remote_stars.campaigns` Идентификатор вознаграждения: От `profile_remote_stars.rewards`
 
 | объект                                                          | Описание                                                            | Пример ссылки |
 | --------------------------------------------------------------- | ------------------------------------------------------------------- | ------------- |
@@ -273,7 +273,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 
 [Краткое содержание](#zusammenfassung)
 
-Идентификатор концепции: Из`profile_remote_store.products` Идентификатор продукта: От`profile_remote_store.products` title-ID (npTitleId): From`profile_remote_store.products`
+Идентификатор концепции: Из `profile_remote_store.products` Идентификатор продукта: От `profile_remote_store.products` title-ID (npTitleId): From `profile_remote_store.products`
 
 | объект                                                        | Описание                                                                 | Пример ссылки                                                       |
 | ------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------- |
@@ -335,7 +335,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 
 [Краткое содержание](#zusammenfassung)
 
-### Запрос с указанием AccountID`playstation.0.profile_remote_profile.account_id`
+### Запрос с указанием AccountID `playstation.0.profile_remote_profile.account_id`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_profile)
 
@@ -372,7 +372,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос с использованием онлайн-идентификатора`playstation.0.profile_remote_profile.online_id`
+### Запрос с использованием онлайн-идентификатора `playstation.0.profile_remote_profile.online_id`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_profile)
 
@@ -431,7 +431,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_store)
 
-Первый`playstation.0.profile_remote_store.products` Вызовите эту функцию и заполните фильтр данными из JSON. Затем снова нажмите кнопку.`playstation.0.profile_remote_store.products` нажимать
+Первый `playstation.0.profile_remote_store.products` Вызовите эту функцию и заполните фильтр данными из JSON. Затем снова нажмите кнопку. `playstation.0.profile_remote_store.products` нажимать
 
 ```json
 {
@@ -445,7 +445,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_store.featuresRetrieve`
+### Запрос `playstation.0.profile_remote_store.featuresRetrieve`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_store)
 
@@ -540,7 +540,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_groups.loadFileData`
+### Запрос `playstation.0.profile_remote_groups.loadFileData`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные группы PSN](#objekte-remote_groups)
 
@@ -583,7 +583,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 
 ![objects\_meta.png](../../../de/adapterref/iobroker.playstation/img/objects_meta.png)
 
-### Запрос`playstation.0.profile_remote_groups.loadGroups`
+### Запрос `playstation.0.profile_remote_groups.loadGroups`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные группы PSN](#objekte-remote_groups)
 
@@ -730,7 +730,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_groups.loadGroups_with_message`
+### Запрос `playstation.0.profile_remote_groups.loadGroups_with_message`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные группы PSN](#objekte-remote_groups)
 
@@ -941,7 +941,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_groups.sendGroupMessage`
+### Запрос `playstation.0.profile_remote_groups.sendGroupMessage`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные группы PSN](#objekte-remote_groups)
 
@@ -952,7 +952,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_groups.createGroup`
+### Запрос `playstation.0.profile_remote_groups.createGroup`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные группы PSN](#objekte-remote_groups)
 
@@ -966,7 +966,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_groups.selectGroup`
+### Запрос `playstation.0.profile_remote_groups.selectGroup`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные группы PSN](#objekte-remote_groups)
 
@@ -1037,7 +1037,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_profile.received_requests_with_name`
+### Запрос `playstation.0.profile_remote_profile.received_requests_with_name`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_profile)
 
@@ -1067,7 +1067,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 ]
 ```
 
-### Запрос`playstation.0.profile_remote_profile.presencesUser`
+### Запрос `playstation.0.profile_remote_profile.presencesUser`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные группы PSN](#objekte-remote_groups)
 
@@ -1085,7 +1085,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_profile.received_requests_without_name`
+### Запрос `playstation.0.profile_remote_profile.received_requests_without_name`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_profile)
 
@@ -1113,7 +1113,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 ]
 ```
 
-### Запрос`playstation.0.profile_remote_profile.friends_without_name`
+### Запрос `playstation.0.profile_remote_profile.friends_without_name`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_profile)
 
@@ -1121,7 +1121,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 ["xxxx4105713269xxxx"]
 ```
 
-### Запрос`playstation.0.profile_remote_profile.search_game`
+### Запрос `playstation.0.profile_remote_profile.search_game`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_profile)
 
@@ -1175,7 +1175,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_profile.search_user`
+### Запрос `playstation.0.profile_remote_profile.search_user`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_profile)
 
@@ -1245,7 +1245,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_profile.storeWishlist`
+### Запрос `playstation.0.profile_remote_profile.storeWishlist`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_profile)
 
@@ -1255,7 +1255,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_profile.friends_with_name`
+### Запрос `playstation.0.profile_remote_profile.friends_with_name`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_profile)
 
@@ -1268,7 +1268,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 ]
 ```
 
-### Запрос`playstation.0.profile_remote_profile.friends_with_name_status`
+### Запрос `playstation.0.profile_remote_profile.friends_with_name_status`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_profile)
 
@@ -1299,7 +1299,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 ]
 ```
 
-### Запрос`playstation.0.profile_remote_trophies.trophy_title_group_user`
+### Запрос `playstation.0.profile_remote_trophies.trophy_title_group_user`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные трофеи PSN](#objekte-remote_trophies)
 
@@ -1339,7 +1339,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_trophies.trophy_title_group`
+### Запрос `playstation.0.profile_remote_trophies.trophy_title_group`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные трофеи PSN](#objekte-remote_trophies)
 
@@ -1383,7 +1383,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_trophies.trophies_game_help_for_title`
+### Запрос `playstation.0.profile_remote_trophies.trophies_game_help_for_title`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные трофеи PSN](#objekte-remote_trophies)
 
@@ -1424,7 +1424,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_trophies.trophies_game_help_available_for_title`
+### Запрос `playstation.0.profile_remote_trophies.trophies_game_help_available_for_title`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные трофеи PSN](#objekte-remote_trophies)
 
@@ -1594,7 +1594,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_trophies.trophy_title`
+### Запрос `playstation.0.profile_remote_trophies.trophy_title`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные трофеи PSN](#objekte-remote_trophies)
 
@@ -1633,7 +1633,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_trophies.trophy_all`
+### Запрос `playstation.0.profile_remote_trophies.trophy_all`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные трофеи PSN](#objekte-remote_trophies)
 
@@ -1777,7 +1777,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 ]
 ```
 
-### Запрос`playstation.0.profile_remote_trophies.trophies_for_title`
+### Запрос `playstation.0.profile_remote_trophies.trophies_for_title`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные трофеи PSN](#objekte-remote_trophies)
 
@@ -1808,7 +1808,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_trophies.trophies_earned_for_title`
+### Запрос `playstation.0.profile_remote_trophies.trophies_earned_for_title`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленные трофеи PSN](#objekte-remote_trophies)
 
@@ -1839,7 +1839,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_profile.gameList`
+### Запрос `playstation.0.profile_remote_profile.gameList`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_profile)
 
@@ -2060,7 +2060,7 @@ hash: ycIMqEAdjbV/Si1HM5AGOyt3LIEHTdGNAH1n7QRSVyY=
 }
 ```
 
-### Запрос`playstation.0.profile_remote_profile.gameTitle`
+### Запрос `playstation.0.profile_remote_profile.gameTitle`
 
 [Краткое содержание](#zusammenfassung)</br> [Удаленный профиль PSN](#objekte-remote_profile)
 

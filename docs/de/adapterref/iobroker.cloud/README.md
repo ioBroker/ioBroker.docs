@@ -39,7 +39,7 @@ Wenn Sie die Standard-Cloud von iobroker.net nutzen, können Sie diese Funktion 
 
 ### Alexa-Einstellungen
 
-_**Alexa wird nicht unterstützt in`cloud` Den Adapter nicht mehr verwenden. Nutzen Sie dafür den ioBroker.iot-Adapter.**_
+_**Alexa wird nicht unterstützt in `cloud` Den Adapter nicht mehr verwenden. Nutzen Sie dafür den ioBroker.iot-Adapter.**_
 
 ## IFTTT
 
@@ -47,27 +47,27 @@ _**Alexa wird nicht unterstützt in`cloud` Den Adapter nicht mehr verwenden. Nut
 
 ## Dienstleistungen
 
-Es besteht die Möglichkeit, Nachrichten an den Cloud-Adapter zu senden. Wenn Sie anrufen`[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` und Wert als Nutzlast.
+Es besteht die Möglichkeit, Nachrichten an den Cloud-Adapter zu senden. Wenn Sie anrufen `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` und Wert als Nutzlast.
 
 ```bash
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
-Wenn Sie in den Einstellungen das Feld „Whitelist für Dienste“ auf den Namen _„custom\_test_ “ setzen und den Dienst mit „custom\_test“ als Namen aufrufen, wird der Status`cloud.0.services.custom_test` wird eingestellt auf`myString` Die
+Wenn Sie in den Einstellungen das Feld „Whitelist für Dienste“ auf den Namen _„custom\_test_ “ setzen und den Dienst mit „custom\_test“ als Namen aufrufen, wird der Status `cloud.0.services.custom_test` wird eingestellt auf `myString` Die
 
 Sie können ein "\*" in die Whitelist eintragen, dann sind alle Dienste zugelassen.
 
-Ab Version 2.0.5 können Sie GET-Anfragen im folgenden Format verwenden:`[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` um die`\<data\>` hinein`cloud.0.services.custom_\<NAME\>` Die
+Ab Version 2.0.5 können Sie GET-Anfragen im folgenden Format verwenden: `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` um die `\<data\>` hinein `cloud.0.services.custom_\<NAME\>` Die
 
 Hier finden Sie eine Anleitung zur Verwendung mit [Tasker](/#/docs/adapterref/iobroker.cloud/doc/tasker.md) .
 
 Der IFTTT-Dienst ist nur zulässig, wenn ein IFTTT-Schlüssel festgelegt ist.
 
-Reservierte Namen sind`ifttt` ,`text2command` ,`simpleApi` ,`swagger` Diese müssen ohne die`"custom_"` Präfix.
+Reservierte Namen sind `ifttt`, `text2command`, `simpleApi`, `swagger` Diese müssen ohne die `"custom_"` Präfix.
 
 ### text2command
 
-Sie können schreiben`text2command` In der Whitelist können Sie POST-Anfragen senden an`https://iobroker.net/service/text2command/<user-app-key>` Daten schreiben in`text2command.X.text` Variable.
+Sie können schreiben `text2command` In der Whitelist können Sie POST-Anfragen senden an `https://iobroker.net/service/text2command/<user-app-key>` Daten schreiben in `text2command.X.text` Variable.
 
 "X" kann in den Einstellungen über die Option "Text2Command-Instanz verwenden" definiert werden.
 
@@ -79,19 +79,19 @@ Folgende Befehle können verwendet werden (nur Pro-Version):
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - um den Statuswert zu lesen =>`103.641`
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - um den Statuswert festzulegen =>`{"result":"OK"}`
 
-**Vergessen Sie nicht, Folgendes hinzuzufügen`simpleApi` zu den in der Konfiguration zulässigen Diensten.**
+**Vergessen Sie nicht, Folgendes hinzuzufügen `simpleApi` zu den in der Konfiguration zulässigen Diensten.**
 
 ### Einschränkungen
 
 Wenn HTTPS (Sicherheit) oder Authentifizierung auf einer bestimmten Webinstanz aktiviert ist, funktioniert es nicht.
 
-Sie können HTTPS und die Authentifizierung für diese Webinstanz deaktivieren, es ist jedoch besser, eine neue Webinstanz zu erstellen, die an … gebunden ist.`localhost` und wählen Sie diese Instanz in den Cloud-Einstellungen aus.
+Sie können HTTPS und die Authentifizierung für diese Webinstanz deaktivieren, es ist jedoch besser, eine neue Webinstanz zu erstellen, die an … gebunden ist. `localhost` und wählen Sie diese Instanz in den Cloud-Einstellungen aus.
 
 ## Android-Anwendung
 
 Bei der neuen Android-Anwendung wurde der Speicherort der Variablen für Helligkeit und Standort geändert.
 
-Nun waren sie zu finden in`cloud.X.devices.NAME` :
+Nun waren sie zu finden in `cloud.X.devices.NAME`:
 
 - `cloud.X.devices.NAME.brightness`
 - `cloud.X.devices.NAME.currentLocation` Die

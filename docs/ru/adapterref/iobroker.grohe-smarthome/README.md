@@ -25,10 +25,10 @@ This adapter connects ioBroker to the <strong>Grohe Smarthome / Ondus</strong> c
 
 Он поддерживает:
 
-- **Grohe Sense** (тип)`101` )
-- **Grohe Sense Guard** (тип)`103` )
-- **Дом Grohe Blue** (тип)`104` )
-- **Grohe Blue Professional** (тип)`105` )
+- **Grohe Sense** (тип) `101`)
+- **Grohe Sense Guard** (тип) `103`)
+- **Дом Grohe Blue** (тип) `104`)
+- **Grohe Blue Professional** (тип) `105`)
 
 Адаптер выполняет вход через поток OIDC/Keycloak от Grohe, сохраняет **токен обновления, зашифрованный** в определенном состоянии, и опрашивает облачный API Grohe с настраиваемым интервалом.
 

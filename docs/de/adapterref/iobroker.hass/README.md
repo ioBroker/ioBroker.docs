@@ -38,7 +38,7 @@ Allowed field keys are: temperature, target_temp_high, target_temp_low, hvac_mod
 
 Setzen Sie den Status auf einen String-Wert ack=false, der ein serialisiertes JSON-Objekt ist, um den Dienst aufzurufen und das JSON-Objekt als Dienstdaten zu verwenden.
 
-Für die letzte Option bei light.turn\_off mit z.B.`{"transition":10,"flash":"short"}` Diese beiden Servicedaten werden mit dem Aufruf an HASS gesendet. Die verfügbaren Felder mit ihren genauen Datendefinitionen finden Sie in der JSON-Definition des ioBroker-Objekts.`native` Der Abschnitt "Felder" würde im obigen Beispiel wie folgt aussehen:
+Für die letzte Option bei light.turn\_off mit z.B. `{"transition":10,"flash":"short"}` Diese beiden Servicedaten werden mit dem Aufruf an HASS gesendet. Die verfügbaren Felder mit ihren genauen Datendefinitionen finden Sie in der JSON-Definition des ioBroker-Objekts. `native` Der Abschnitt "Felder" würde im obigen Beispiel wie folgt aussehen:
 
 ```json5
 {
@@ -78,7 +78,7 @@ Für die letzte Option bei light.turn\_off mit z.B.`{"transition":10,"flash":"sh
 }
 ```
 
-Für einige Dienste wie set\_speed ist es erforderlich, sie mit einem JSON-Objekt aufzurufen, wie zum Beispiel`{speed: "high"}` Im Allgemeinen müssen die erforderlichen Werte bereitgestellt werden. In diesem Fall sieht die Felddefinition beispielsweise so aus:
+Für einige Dienste wie set\_speed ist es erforderlich, sie mit einem JSON-Objekt aufzurufen, wie zum Beispiel `{speed: "high"}` Im Allgemeinen müssen die erforderlichen Werte bereitgestellt werden. In diesem Fall sieht die Felddefinition beispielsweise so aus:
 
 ```json5
 {
@@ -113,19 +113,19 @@ Bitte schauen Sie hier nach: <https://www.smarthomejetzt.de/mit-iobroker-auf-ein
 
 Optional kann eingeschränkt werden, welche Home Assistant-Entitäten mit ioBroker synchronisiert werden.
 
-Jede nicht leere Zeile ohne Kommentar im Feld **„Ausschlussmuster“** ist ein Glob (nur`*` ist ein Platzhalter und entspricht jeder beliebigen Zeichenfolge, einschließlich`.` Die Übereinstimmung unterscheidet zwischen Groß- und Kleinschreibung und ist an die vollständige ID gebunden. Es gibt zwei Arten von Mustern:
+Jede nicht leere Zeile ohne Kommentar im Feld **„Ausschlussmuster“** ist ein Glob (nur `*` ist ein Platzhalter und entspricht jeder beliebigen Zeichenfolge, einschließlich `.` Die Übereinstimmung unterscheidet zwischen Groß- und Kleinschreibung und ist an die vollständige ID gebunden. Es gibt zwei Arten von Mustern:
 
-- **Entitätsmuster** (alle Muster, die nicht mit beginnen)`entities.` ) werden mit dem vollständigen`entity_id` (z.B`switch.living_room` ) nur.
-- **Objektpfadmuster** beginnen mit`entities.` und werden mit der ioBroker-Objekt-ID ohne Instanzpräfix abgeglichen (z. B.`entities.sensor.living_room_temperature.device_class` Das Instanzpräfix kann enthalten sein (z. B.`hass.0.entities.…` Daher funktionieren auch IDs, die aus dem Objektbrowser kopiert wurden.
+- **Entitätsmuster** (alle Muster, die nicht mit beginnen) `entities.`) werden mit dem vollständigen `entity_id` (z.B `switch.living_room`) nur.
+- **Objektpfadmuster** beginnen mit `entities.` und werden mit der ioBroker-Objekt-ID ohne Instanzpräfix abgeglichen (z. B. `entities.sensor.living_room_temperature.device_class` Das Instanzpräfix kann enthalten sein (z. B. `hass.0.entities.…` Daher funktionieren auch IDs, die aus dem Objektbrowser kopiert wurden.
 
-Eine Entität, die einem Entitätsmuster entspricht oder deren Kanal`entities.<entity_id>` entspricht einem Objektpfadmuster, ist:
+Eine Entität, die einem Entitätsmuster entspricht oder deren Kanal `entities.<entity_id>` entspricht einem Objektpfadmuster, ist:
 
 - wird übersprungen, wenn Objekte erstellt oder aktualisiert werden (erste Synchronisierung und erneute Synchronisierungen).
 - Wird bei Zustandsänderungen in HASS ignoriert (es werden keine Zustandsschreibvorgänge in ioBroker ausgelöst)
 
-Einzelne Status-, Attribut- oder Serviceobjekte, die einem Objektpfadmuster entsprechen, werden einzeln übersprungen. Dies kann verwendet werden, um irrelevante Attribute wie beispielsweise … zu entfernen.`device_class` oder`state_class` ohne den Sensor selbst zu verlieren. Entitätsmuster stimmen niemals mit Objektpfaden überein:`*battery*` Entfernt Batterieeinheiten, aber nicht die`battery_level` Attribut anderer Entitäten.
+Einzelne Status-, Attribut- oder Serviceobjekte, die einem Objektpfadmuster entsprechen, werden einzeln übersprungen. Dies kann verwendet werden, um irrelevante Attribute wie beispielsweise … zu entfernen. `device_class` oder `state_class` ohne den Sensor selbst zu verlieren. Entitätsmuster stimmen niemals mit Objektpfaden überein: `*battery*` Entfernt Batterieeinheiten, aber nicht die `battery_level` Attribut anderer Entitäten.
 
-Zeilen, die mit beginnen`#` werden als Kommentare behandelt.
+Zeilen, die mit beginnen `#` werden als Kommentare behandelt.
 
 Beispiele:
 
@@ -144,13 +144,13 @@ entities.*.*.device_class
 entities.*.*.state_class
 ```
 
-Aktivieren Sie die **Option „Ausführliche Filterprotokollierung“** , um alle ausgeschlossenen Elemente zu protokollieren.`entity_id` einzeln während der ersten Synchronisierung (erfordert Adapter-Protokollierungsstufe)`info` oder`debug` Bei nachfolgenden Synchronisierungen wird nur die Gesamtzahl ausgegeben, um das Protokoll übersichtlich zu halten.
+Aktivieren Sie die **Option „Ausführliche Filterprotokollierung“** , um alle ausgeschlossenen Elemente zu protokollieren. `entity_id` einzeln während der ersten Synchronisierung (erfordert Adapter-Protokollierungsstufe) `info` oder `debug` Bei nachfolgenden Synchronisierungen wird nur die Gesamtzahl ausgegeben, um das Protokoll übersichtlich zu halten.
 
 Eine leere Musterliste führt dazu, dass sich der Adapter genauso verhält wie in früheren Versionen.
 
 ## Große Anlagen
 
-Der js-controller gibt eine Warnung aus, wenn eine Adapterinstanz mehr Objekte enthält als das festgelegte Warnlimit (standardmäßig 5000). Da eine Home Assistant-Installation dieses Limit leicht überschreiten kann, ist im Adapter standardmäßig ein Limit von 30000 festgelegt (js-controller >= 7.1.2). Sollte die Warnung weiterhin für eine bestehende Instanz angezeigt werden, erhöhen Sie den Wert von`system.adapter.hass.<instance>.objectsWarnLimit` oder die Anzahl der Objekte mit Objektpfadmustern reduzieren (siehe oben).
+Der js-controller gibt eine Warnung aus, wenn eine Adapterinstanz mehr Objekte enthält als das festgelegte Warnlimit (standardmäßig 5000). Da eine Home Assistant-Installation dieses Limit leicht überschreiten kann, ist im Adapter standardmäßig ein Limit von 30000 festgelegt (js-controller >= 7.1.2). Sollte die Warnung weiterhin für eine bestehende Instanz angezeigt werden, erhöhen Sie den Wert von `system.adapter.hass.<instance>.objectsWarnLimit` oder die Anzahl der Objekte mit Objektpfadmustern reduzieren (siehe oben).
 
 <!--
 	Placeholder for the next version (at the beginning of the line):

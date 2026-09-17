@@ -14,4 +14,4 @@ Alle Produktnamen, Logos, Warenzeichen und Markennamen sind Eigentum ihrer jewei
 
 Wenn Sie Rechteinhaber sind und möchten, dass Marken oder Verweise angepasst oder entfernt werden, eröffnen Sie bitte ein Ticket.
 
-Die Kartenmarkierungs-Assets unter`lib/anthbot/assets/` Die von der App bereitgestellten Anthbot-Ressourcen dienen ausschließlich dazu, die Positionen von Mähwerk und Ladegerät im Kartenbild darzustellen. Anthbot behält alle Rechte an diesen Ressourcen; die im Renderer generierte Mähwerksmarkierung ist der Ausweichweg für nicht unterstützte oder nicht verfügbare Ressourcen.
+Die Kartenmarkierungs-Assets unter `lib/anthbot/assets/` Die von der App bereitgestellten Anthbot-Ressourcen dienen ausschließlich dazu, die Positionen von Mähwerk und Ladegerät im Kartenbild darzustellen. Anthbot behält alle Rechte an diesen Ressourcen; die im Renderer generierte Mähwerksmarkierung ist der Ausweichweg für nicht unterstützte oder nicht verfügbare Ressourcen.

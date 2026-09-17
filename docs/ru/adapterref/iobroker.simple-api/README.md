@@ -23,7 +23,7 @@ hash: 0JOPmTd4iyB02/9Id0kjwEODYj9CjoP+zNRAwhqu2lY=
 
 ## Использование
 
-Вызов в браузере`http://ipaddress:8087/help` Чтобы получить справку по API, выполните следующие действия:
+Вызов в браузере `http://ipaddress:8087/help` Чтобы получить справку по API, выполните следующие действия:
 
 ```json
 {
@@ -55,7 +55,7 @@ hash: 0JOPmTd4iyB02/9Id0kjwEODYj9CjoP+zNRAwhqu2lY=
 
 `true`
 
-Кроме того, вы можете использовать ключ запроса.`json` чтобы принудительно выполнить разбор сохраненного значения:
+Кроме того, вы можете использовать ключ запроса. `json` чтобы принудительно выполнить разбор сохраненного значения:
 
 `http://ipaddress:8087/getPlainValue/javascript.0.value?json`
 
@@ -63,11 +63,11 @@ hash: 0JOPmTd4iyB02/9Id0kjwEODYj9CjoP+zNRAwhqu2lY=
 
 `{"a":1}`
 
-И без`json` флаг, результат будет следующим
+И без `json` флаг, результат будет следующим
 
 `"{\"a\": 1}"`
 
-Можно использовать ещё один полезный флаг.`noStringify` :
+Можно использовать ещё один полезный флаг. `noStringify`:
 
 `http://ipaddress:8087/getPlainValue/javascript.0.stringValue?noStringify`
 
@@ -75,13 +75,13 @@ hash: 0JOPmTd4iyB02/9Id0kjwEODYj9CjoP+zNRAwhqu2lY=
 
 `VALUETEXT`
 
-И без`noStringify` флаг, результат будет следующим
+И без `noStringify` флаг, результат будет следующим
 
 `"VALUETEXT"`
 
 ### получать
 
-Например, позвоните:`http://ipaddress:8087/get/system.adapter.admin.0.alive`
+Например, позвоните: `http://ipaddress:8087/get/system.adapter.admin.0.alive`
 
 Результат:
 
@@ -122,7 +122,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 
 ### набор
 
-Например, позвоните:`http://ipaddress:8087/set/javascript.0.test?value=1`
+Например, позвоните: `http://ipaddress:8087/set/javascript.0.test?value=1`
 
 Результат:
 
@@ -130,7 +130,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 {"id":"javascript.0.test","value":1}
 ```
 
-или позвоните, например:`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint`
+или позвоните, например: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint`
 
 Результат:
 
@@ -141,11 +141,11 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 }
 ```
 
-Конечно, это данные.`javascript.0.test` должно существовать.
+Конечно, это данные. `javascript.0.test` должно существовать.
 
-Кроме того, можно определить тип значения:`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string`
+Кроме того, можно определить тип значения: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string`
 
-Также можно определить флаг подтверждения:`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true`
+Также можно определить флаг подтверждения: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true`
 
 ### переключать
 
@@ -159,25 +159,25 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 
 Задайте несколько состояний одним запросом. Этот запрос также поддерживает метод POST, поскольку данные для POST-запроса должны быть в теле запроса, а не в URL.
 
-Пожалуйста, используйте тип контента.`text/plain` для этого.
+Пожалуйста, используйте тип контента. `text/plain` для этого.
 
 ### setValueFromBody
 
 Эта команда позволяет задать значение определённого состояния, которое будет определяться содержимым тела POST-запроса.
 
-Например, позвоните:`http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state` с телом`hello` где`0_userdata.0.example_state` это идентификатор штата.
+Например, позвоните: `http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state` с телом `hello` где `0_userdata.0.example_state` это идентификатор штата.
 
-Пожалуйста, используйте тип контента.`text/plain` для этого.
+Пожалуйста, используйте тип контента. `text/plain` для этого.
 
 ### объекты
 
 Считывание объектов заданного типа из базы данных.
 
-Например, позвоните:`http://ipaddress:8087/objects?pattern=enum.*&type=enum` - прочитать все перечисления
+Например, позвоните: `http://ipaddress:8087/objects?pattern=enum.*&type=enum` - прочитать все перечисления
 
 или
 
-`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - прочитать все состояния в филиале`system.adapter.admin.0`
+`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - прочитать все состояния в филиале `system.adapter.admin.0`
 
 ### штаты
 
@@ -199,9 +199,9 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 
 Для всех запросов можно указать название или идентификатор штата.
 
-Для каждого запроса, возвращающего JSON, можно задать параметр.`prettyPrint` чтобы получить результат в удобочитаемом виде.
+Для каждого запроса, возвращающего JSON, можно задать параметр. `prettyPrint` чтобы получить результат в удобочитаемом виде.
 
-Если аутентификация включена, два других поля являются обязательными:`?user=admin&pass=iobroker`
+Если аутентификация включена, два других поля являются обязательными: `?user=admin&pass=iobroker`
 
 ### getPlainValue
 
@@ -348,7 +348,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
      }
 ```
 
-Если в указанный срок ответ не получен,`null` Значение будет возвращено. В первом случае ответ будет возвращен немедленно.`ack` Это неверно. Во втором случае`ack` Это правда. Это значит, что это была реакция водителя.
+Если в указанный срок ответ не получен, `null` Значение будет возвращено. В первом случае ответ будет возвращен немедленно. `ack` Это неверно. Во втором случае `ack` Это правда. Это значит, что это была реакция водителя.
 
 ### setBulk
 
@@ -368,7 +368,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
   ]
 ```
 
-Вы также можете отправить этот запрос методом POST. Пожалуйста, используйте тип содержимого.`text/plain` и поместите данные в тело документа.
+Вы также можете отправить этот запрос методом POST. Пожалуйста, используйте тип содержимого. `text/plain` и поместите данные в тело документа.
 
 ### объекты
 
@@ -412,7 +412,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
   ...
 ```
 
-Получить все управляющие объекты адаптера system.adapter.admin.0:`http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint` =>
+Получить все управляющие объекты адаптера system.adapter.admin.0: `http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint` =>
 
 ```json
     {
@@ -609,20 +609,20 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
   ]
 ```
 
-В запросе можно использовать относительное время. Например:`dateFrom=-1h` или`dateTo=today` .
+В запросе можно использовать относительное время. Например: `dateFrom=-1h` или `dateTo=today`.
 
 Поддерживаются следующие относительные шаблоны:
 
-- `hour` или`thisHour` или`this hour` - начало текущего часа
-- `last hour` или`lastHour` - начало предыдущего часа
+- `hour` или `thisHour` или `this hour` - начало текущего часа
+- `last hour` или `lastHour` - начало предыдущего часа
 - `today` - начало текущего дня
 - `yesterday` - начало предыдущего дня
-- `week` или`thisWeek` или`this week` - начало текущей недели
-- `lastWeek` или`last week` - начало предыдущей недели
-- `month` или`thisMonth` или`this month` - начало текущего месяца
-- `lastMonth` или`last month` - начало предыдущего месяца
-- `year` или`thisYear` или`this year` - начало текущего года
-- `lastYear` или`last year` - начало предыдущего года
+- `week` или `thisWeek` или `this week` - начало текущей недели
+- `lastWeek` или `last week` - начало предыдущей недели
+- `month` или `thisMonth` или `this month` - начало текущего месяца
+- `lastMonth` или `last month` - начало предыдущего месяца
+- `year` или `thisYear` или `this year` - начало текущего года
+- `lastYear` или `last year` - начало предыдущего года
 - `-Nd` - N дней назад
 - `-NM` - N месяцев назад
 - `-Ny` - N лет назад
@@ -632,7 +632,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 
 ## КОРС
 
-С помощью опции "Разрешить источник (CORS)" можно установить`Access-Control-Allow-Origin` заголовок, разрешающий запросы с других доменов.
+С помощью опции "Разрешить источник (CORS)" можно установить `Access-Control-Allow-Origin` заголовок, разрешающий запросы с других доменов.
 
 Если оставить это поле пустым, заголовок не будет установлен.
 
@@ -641,15 +641,15 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 Вы можете использовать некоторые параметры для изменения ответа:
 
 - `prettyPrint` - получить результат в удобочитаемом виде
-- `json` - для принудительного анализа значения в`getPlainValue` команда
-- `timeRFC3339` - получить временные метки (`ts` и`lc` ) в формате RFC3339, например`2019-06-08T01:00:00.000Z`
-- `callback` - ответ в формате JSONP.`callback=<CALLBACK>` тот`CALLBACK` — это имя функции обратного вызова.
+- `json` - для принудительного анализа значения в `getPlainValue` команда
+- `timeRFC3339` - получить временные метки (`ts` и `lc`) в формате RFC3339, например `2019-06-08T01:00:00.000Z`
+- `callback` - ответ в формате JSONP. `callback=<CALLBACK>` тот `CALLBACK` — это имя функции обратного вызова.
 
 ## Аутентификация
 
 Данный адаптер поддерживает следующие типы аутентификации:
 
-- Параметр запроса`user` и`pass`
+- Параметр запроса `user` и `pass`
 - Базовая аутентификация
 - В заголовке содержится токен OAuth2 Bearer. Подробнее о том, как получить токены, читайте в веб-адаптере.
 

@@ -14,9 +14,9 @@ Der Adapter verbindet Omron-SPS der Reihen CP, CV, CS, CJ, NJ und kompatible NX-
 
 ## Konfiguration
 
-In der responsiven Adapterkonfiguration werden IP-Adresse, FINS-Port (normalerweise) angegeben`9600` ), Protokoll und Abfrageintervall eingetragen. Ziel- und Quellknoten können normalerweise auf`0` für automatische Erkennung bleiben. Bei gerouteten FINS-Netzen lassen sich DA1 und SA1 ausdrücklich vorgeben.
+In der responsiven Adapterkonfiguration werden IP-Adresse, FINS-Port (normalerweise) angegeben `9600`), Protokoll und Abfrageintervall eingetragen. Ziel- und Quellknoten können normalerweise auf `0` für automatische Erkennung bleiben. Bei gerouteten FINS-Netzen lassen sich DA1 und SA1 ausdrücklich vorgeben.
 
-Variablen können mit eindeutigem Namen, FINS-Adresse und Datentyp manuell eingetragen werden. Beispiele sind`CIO0.00` (oder historisch`CB0:00` ),`W31.00` ,`H0.01` ,`A0.00` ,`D100` Timer und Zähler.
+Variablen können mit eindeutigem Namen, FINS-Adresse und Datentyp manuell eingetragen werden. Beispiele sind `CIO0.00` (oder historisch `CB0:00`), `W31.00`, `H0.01`, `A0.00`, `D100` Timer und Zähler.
 
 Jede Variable wird als ioBroker-Datenpunkt angelegt. Schreibvorgänge werden erst bestätigt, wenn die SPS den FINS-Befehl erfolgreich beantwortet hat.
 

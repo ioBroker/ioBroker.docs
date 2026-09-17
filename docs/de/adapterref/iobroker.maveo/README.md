@@ -20,27 +20,27 @@ hash: vTNzWEpWpuE7gNqDA3o4btfxKhZvPphlE9WLKanaZvk=
 
 Adapter für die Maveo Garagentorsysteme von Marantec. Zwei Betriebsmodi:
 
-- **Cloud-Modus (Standard)** – Anmeldung an der Marantec-Cloud (Amazon Cognito), Steuerung über den Nymea-Tunnel`wss://remoteproxy.nymea.io` Die Box muss **über Bluetooth-Onboarding** in der Maveo-App gekoppelt werden (die App schreibt die Cognito-Identitäts-ID während des Onboardings in die Box). Wurde die Box nur lokal hinzugefügt, ist die Liste der Cloud-Geräte leer; in diesem Fall meldet der Adapter dies im Protokoll, und Sie können in den LAN-Modus wechseln.
+- **Cloud-Modus (Standard)** – Anmeldung an der Marantec-Cloud (Amazon Cognito), Steuerung über den Nymea-Tunnel `wss://remoteproxy.nymea.io` Die Box muss **über Bluetooth-Onboarding** in der Maveo-App gekoppelt werden (die App schreibt die Cognito-Identitäts-ID während des Onboardings in die Box). Wurde die Box nur lokal hinzugefügt, ist die Liste der Cloud-Geräte leer; in diesem Fall meldet der Adapter dies im Protokoll, und Sie können in den LAN-Modus wechseln.
 - **LAN-Modus** — direkte JSON-RPC-Verbindung zum Gerät (`<boxIp>:2222` Die Authentifizierung erfolgt standardmäßig über TLS. Beim ersten Start wird eine Authentifizierung per Knopfdruck durchgeführt: Drücken Sie innerhalb von 60 Sekunden die gelbe Taste auf der Rückseite der Maveo-Box. Das generierte Token wird im Adapter gespeichert. Diese Methode funktioniert unabhängig vom Cognito-Konto und ist die zuverlässigste Option, wenn die Box im lokalen Netzwerk erreichbar ist.
 
-Statusaktualisierungen (Position, Bewegung, Sensoren) werden in beiden Modi als Push-Benachrichtigungen übermittelt.`Integrations.StateChanged` ; Öffnen/Schließen wird ausgegeben über`Integrations.ExecuteAction` Die
+Statusaktualisierungen (Position, Bewegung, Sensoren) werden in beiden Modi als Push-Benachrichtigungen übermittelt. `Integrations.StateChanged`; Öffnen/Schließen wird ausgegeben über `Integrations.ExecuteAction` Die
 
 ## Konfiguration
 
 | Feld                        | Bedeutung                                            | Standard |
 | --------------------------- | ---------------------------------------------------- | -------- |
 | `App Email` /`App Password` | Anmeldeinformationen der Maveo-App (nur Cloud-Modus) | —        |
-| `Region`                    | `eu` (Europa) oder`us` (USA)                         | `eu`     |
+| `Region`                    | `eu` (Europa) oder `us` (USA)                         | `eu`     |
 | `IoT wake topic`            | Optionales AWS IoT-Thema zum Aktivieren der Box      | leer     |
 | `Maveo box IP`              | Aktiviert den LAN-Modus, wenn eingestellt            | leer     |
 | `Port`                      | JSON-RPC-Port                                        | 2222     |
 | `TLS`                       | SSL für den JSON-RPC-Socket                          | An       |
 
-Die Cognito-Pool-/Client-IDs und IoT-Endpunkte sind in der Maveo-App 2.6.1 fest codiert und regionsabhängig. Das lokale Druckknopf-Token wird verschlüsselt gespeichert.`native.localToken` Die
+Die Cognito-Pool-/Client-IDs und IoT-Endpunkte sind in der Maveo-App 2.6.1 fest codiert und regionsabhängig. Das lokale Druckknopf-Token wird verschlüsselt gespeichert. `native.localToken` Die
 
 ## Kontrolle
 
-Für jedes Element erzeugt der Adapter beschreibbare Zustände unter`maveo.<inst>.<thingId>.remote.<action>` (Zum Beispiel`open` ,`close` ). Das Schreiben eines beliebigen Wertes in einen solchen Zustand führt zu Problemen`Integrations.ExecuteAction` Statusänderungen werden automatisch als Push-Updates übernommen.`maveo.<inst>.<thingId>.<stateTypeId>` Die
+Für jedes Element erzeugt der Adapter beschreibbare Zustände unter `maveo.<inst>.<thingId>.remote.<action>` (Zum Beispiel `open`, `close`). Das Schreiben eines beliebigen Wertes in einen solchen Zustand führt zu Problemen `Integrations.ExecuteAction` Statusänderungen werden automatisch als Push-Updates übernommen. `maveo.<inst>.<thingId>.<stateTypeId>` Die
 
 ## Diskussion
 

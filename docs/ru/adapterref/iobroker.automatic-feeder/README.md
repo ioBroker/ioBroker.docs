@@ -450,16 +450,16 @@ hash: ob1yElM+nrsA6HO4+nST19NH5lCOPeAy9DdeUUD+FVI=
 | `info.connection` | логическое значение (ro) | Адаптер запущен, и конфигурация действительна. |
 | `info.feeds` | string (ro) | Центральный **список фидов** в формате JSON (каждый тип корма с названием, поставщиком, размером гранул, пищевой ценностью и ссылкой на предложение) - для визуализации/виджетов, позволяющих отображать список без чтения конфигурации экземпляра. |
 
-**Для каждого переключателя, в разделе `switches.<id>.`** (`<id>` - это внутренний идентификатор, как `sw-0`)
+**Для каждого переключателя, в разделе `switches.<id>.` ** (`<id>` - это внутренний идентификатор, как `sw-0`)
 
 Непосредственно под переключателем находится ручной триггер и два дополнительных канала:
 
-* **`status`** (`switches.<id>.status.*`) - указанные ниже данные о состоянии, доступные только для чтения.
-* **`настройки`** (`switches.<id>.settings.*`) - **редактируемое** зеркальное отображение настроек этого переключателя
+* ** `status` ** (`switches.<id>.status.*`) - указанные ниже данные о состоянии, доступные только для чтения.
+* ** `настройки` ** (`switches.<id>.settings.*`) - **редактируемое** зеркальное отображение настроек этого переключателя
 
 Конфигурация. Запись нового значения (из VIS или скрипта) изменяет конфигурацию и перезапускает экземпляр, так что изменения вступают в силу. Некоторые производные поля доступны только для чтения (например, `winterWindow`).
 
-* **`реле`** (`switches.<id>.relay.*`) - присутствует только в том случае, если этот переключатель использует релейную плату;
+* ** `реле` ** (`switches.<id>.relay.*`) - присутствует только в том случае, если этот переключатель использует релейную плату;
 
 Данные о состоянии платы реле, доступные только для чтения, перечислены в конце таблицы.
 
@@ -698,23 +698,23 @@ hash: ob1yElM+nrsA6HO4+nST19NH5lCOPeAy9DdeUUD+FVI=
 * (ssbingo) Maintenance: dependency updates merged via Dependabot — `@iobroker/adapter-react-v5` 8.3.3, `@tsconfig/node22` 22.0.6 and `dayjs` 1.11.23 (MUI stays 6 as `adapter-react-v5` still requires it); the admin UI was rebuilt. No functional changes
 
 ### 1.18.1 (2026-09-03)
-* (ssbingo) **Fix – Sayit announcement.** The pre-feeding announcement via **Sayit** now reliably speaks the **current** text: it uses Sayit's documented **`say` message command** (`sendTo`) instead of writing the `tts.text` / `tts.volume` states, which could re-play a **stale/old** announcement (e.g. a previous test message) and raced the separate volume write. Telegram announcements were never affected
+* (ssbingo) **Fix – Sayit announcement.** The pre-feeding announcement via **Sayit** now reliably speaks the **current** text: it uses Sayit's documented ** `say` message command** (`sendTo`) instead of writing the `tts.text` / `tts.volume` states, which could re-play a **stale/old** announcement (e.g. a previous test message) and raced the separate volume write. Telegram announcements were never affected
 
 ### 1.18.0 (2026-09-01)
 * (ssbingo) **Central feed list** with its own **Feed list** tab (issue #26). Maintain your food types centrally — **name, vendor/dealer, pellet size (mm)** and the four standard **nutritional values** (crude protein / fat / fibre / ash %), plus an optional **offer/purchase link**. In each switch tab you pick, under **Currently loaded feed**, which feed is currently filled into that feeder
 * (ssbingo) This **replaces the per-switch feed profiles** from 1.17.0 (issue #25): existing profiles are automatically merged into the central list, each switch's calibrated **dispense rate stays per switch** (`dispenseGramsPerSec`), and its `activeFeed` now references a feed by **id**
-* (ssbingo) New states: **`info.feeds`** (the list as JSON, for VIS/widgets) and per switch **`status.activeFeedName` / `activeFeedVendor` / `activeFeedSize` / `activeFeedProtein` / `activeFeedFat` / `activeFeedFibre` / `activeFeedAsh` / `activeFeedUrl`**. The active feed is selectable from VIS via the writable `settings.activeFeed` (feed id)
+* (ssbingo) New states: ** `info.feeds` ** (the list as JSON, for VIS/widgets) and per switch ** `status.activeFeedName` / `activeFeedVendor` / `activeFeedSize` / `activeFeedProtein` / `activeFeedFat` / `activeFeedFibre` / `activeFeedAsh` / `activeFeedUrl` **. The active feed is selectable from VIS via the writable `settings.activeFeed` (feed id)
 * (ssbingo) Documentation updated in all 11 languages and in the German PDF handbook
 
 ### 1.17.0 (2026-09-01)
 * (ssbingo) **Feed profiles for the feeding-amount model.** Instead of a single rate you can define several **named feed types** per switch, each with its own calibrated **dispense rate (g/s)** (e.g. a 3 mm all-round and a 6 mm summer pellet); the **active** profile's rate drives Phase B. Manage the list in the admin (the calibration helper fills the active profile), switch the active feed from the VIS widget via the writable `settings.activeFeed` state
-* (ssbingo) New states **`status.dispenseRate`** (effective g/s) and **`status.activeFeedName`**. Backward compatible — with no profile defined, the single dispense rate is used
+* (ssbingo) New states ** `status.dispenseRate` ** (effective g/s) and ** `status.activeFeedName` **. Backward compatible — with no profile defined, the single dispense rate is used
 * (ssbingo) Documentation updated in all 11 languages and in the German PDF handbook
 
 ### 1.16.0 (2026-08-31)
 * (ssbingo) **Feeding-amount model – high-temperature throttling** (issue #23). The percentage table no longer stays at 3 % above 23 °C: the top band now ends at 28 °C and two new editable bands throttle the amount in the heat – **1.5 % at 28–30 °C** and **0.5 % above 30 °C** (the temperature response peaks around 24–26 °C and falls off above it). Behaviour up to 28 °C is unchanged; existing switches get the new bands with sensible defaults
 * (ssbingo) **Feeding-amount settings are now editable from VIS/scripts** (issue #24): the model's config (`amountModelEnabled`, fish counts, temperature percentages, `amountControlEnabled`, `dispenseGramsPerSec`, `feedDailyMaxGrams`) is mirrored as writable `switches.<id>.settings.*` states, so a VIS widget can edit them
-* (ssbingo) New states **`status.feedingsPerDayToday`** and **`status.feedTargetPortionGrams`** (recommended grams per single feeding = daily amount ÷ feedings, after cap / water-quality reduction)
+* (ssbingo) New states ** `status.feedingsPerDayToday` ** and ** `status.feedTargetPortionGrams` ** (recommended grams per single feeding = daily amount ÷ feedings, after cap / water-quality reduction)
 * (ssbingo) Documentation updated in all 11 languages and in the German PDF handbook
 
 ### 1.15.1 (2026-08-31)
@@ -722,7 +722,7 @@ hash: ob1yElM+nrsA6HO4+nST19NH5lCOPeAy9DdeUUD+FVI=
 
 ### 1.15.0 (2026-08-31)
 * (ssbingo) **Water-quality limits (Phase C).** New optional per-switch **ammonia (NH₃/NH₄)** and **nitrite (NO₂)** sources – "if these values rise, feed less" (from the feeder manual). Each has a **warn threshold** that **reduces the daily amount** (only in the feeding-amount control mode) and a **max threshold** that **blocks feeding entirely** in every mode
-* (ssbingo) New states **`status.ammonia`** and **`status.nitrite`** mirror the source values; when a max threshold is exceeded the block reason (`blockAmmoniaHigh` / `blockNitriteHigh`) appears in `status.blockReason`. There are no universal safe limits – set the thresholds from your own test kit
+* (ssbingo) New states ** `status.ammonia` ** and ** `status.nitrite` ** mirror the source values; when a max threshold is exceeded the block reason (`blockAmmoniaHigh` / `blockNitriteHigh`) appears in `status.blockReason`. There are no universal safe limits – set the thresholds from your own test kit
 * (ssbingo) Documentation updated in all 11 languages and in the German PDF handbook
 
 ### 1.14.2 (2026-08-31)

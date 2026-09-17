@@ -27,7 +27,7 @@ hash: fkwTJNnATdRBTFa+A3sKb+Cew9SoJJ90zK3tnaBuozA=
 
 ![информация об изображении](../../../en/adapterref/iobroker.freeair/doc/freeair_config.png)
 
-- под`bluHome` добавьте IP-адрес вашего ioBroker
+- под `bluHome` добавьте IP-адрес вашего ioBroker
 
 ### Адаптер
 

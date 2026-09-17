@@ -70,7 +70,7 @@ Darstellung verschiedener Elemente auf einer Karte.
 | `mapwidgets_daynightfillcolor`   | Füllfarbe für die Tag-/Nachtzone                                               |
 | `mapwidgets_daynightfillopacity` | Deckkraft für die Tag-/Nachtzone                                               |
 
-Das Farbschema der Karte ändert nur die Darstellung der OpenStreetMap-Kacheln.`auto` folgt dem Browser`prefers-color-scheme` Einstellungen und Aktualisierungen, wenn sich diese Einstellungen ändern.`light` zeigt die Originalfliesen an, während`dark` Wendet einen Dark-Map-Filter an. Markierungen, Pfade, Polygone und andere Leaflet-Overlays werden nicht gefiltert.
+Das Farbschema der Karte ändert nur die Darstellung der OpenStreetMap-Kacheln. `auto` folgt dem Browser `prefers-color-scheme` Einstellungen und Aktualisierungen, wenn sich diese Einstellungen ändern. `light` zeigt die Originalfliesen an, während `dark` Wendet einen Dark-Map-Filter an. Markierungen, Pfade, Polygone und andere Leaflet-Overlays werden nicht gefiltert.
 
 #### Kartenkonfiguration
 
@@ -133,7 +133,7 @@ Dies enthält ein Array von einzelnen Markerinformationsobjekten.
 
 Breitengrad und Längengrad sind Pflicht; alle anderen Parameter sind optional. Es gibt zwei alternative Schreibweisen für Breitengrad und Längengrad; siehe Beispiel oben.
 
-Bei einem benutzerdefinierten Symbol wird die eindeutige ID des Symbols als Zeichenfolge angegeben (siehe …).`icons` Konfiguration).
+Bei einem benutzerdefinierten Symbol wird die eindeutige ID des Symbols als Zeichenfolge angegeben (siehe …). `icons` Konfiguration).
 
 Für Tooltips und Popups siehe [Tooltips](#tooltip) und [Popups](#popup) .
 
@@ -170,9 +170,9 @@ Dies enthält ein Array von Objekten mit Informationen zu einzelnen Symbolen.
 
 `iconURL` ist obligatorisch; alle anderen Parameter sind optional.
 
-Der Schlüsselname des Symbols (im Beispiel,`greenleaf` ) ist case-sensitiv, muss innerhalb der Symbolgruppe eindeutig sein und dient als Referenz in Markierungen.
+Der Schlüsselname des Symbols (im Beispiel, `greenleaf`) ist case-sensitiv, muss innerhalb der Symbolgruppe eindeutig sein und dient als Referenz in Markierungen.
 
-Zulässige Zeichen:`a–z, 0–9, _, -.`
+Zulässige Zeichen: `a–z, 0–9, _, -.`
 
 Detaillierte Beschreibungen der Parameter finden Sie hier:
 
@@ -444,20 +444,20 @@ Jeder konfigurierte Tracking-Datenpunkt muss eine kombinierte WGS84-Position ent
 50.11552,8.68417
 ```
 
-Zum Testen kopieren[`example/LocationTimeline/create-example-track.js`](https://github.com/oweitman/ioBroker.vis-mapwidgets/blob/main/example/LocationTimeline/create-example-track.js) in ein JavaScript-Adapterskript. Es erstellt einen konfigurierbaren Beispieltag und speichert die Rohpositionen in`history.0` durch`storeState` Die
+Zum Testen kopieren[`example/LocationTimeline/create-example-track.js`](https://github.com/oweitman/ioBroker.vis-mapwidgets/blob/main/example/LocationTimeline/create-example-track.js) in ein JavaScript-Adapterskript. Es erstellt einen konfigurierbaren Beispieltag und speichert die Rohpositionen in `history.0` durch `storeState` Die
 
-Für den ausgewählten lokalen Kalendertag fordert das Widget nicht aggregierte Werte an von`history.0` Tagesgrenzen und Sommerzeitumstellungen richten sich nach der Zeitzone des Browsers. Falls für den heutigen Tag kein Verlauf verfügbar ist, wird der aktuelle Status als einzelne Markierung angezeigt. Vergangene Tage ohne Verlauf bleiben leer.
+Für den ausgewählten lokalen Kalendertag fordert das Widget nicht aggregierte Werte an von `history.0` Tagesgrenzen und Sommerzeitumstellungen richten sich nach der Zeitzone des Browsers. Falls für den heutigen Tag kein Verlauf verfügbar ist, wird der aktuelle Status als einzelne Markierung angezeigt. Vergangene Tage ohne Verlauf bleiben leer.
 
 Das Widget entfernt einzelne, unplausible GPS-Sprünge und gruppiert nahe beieinander liegende Messwerte zu Aufenthalten. Die folgenden Optionen steuern diese Verarbeitung:
 
 - **Zeitleistenlayout** : automatisch, neben der Karte oder unterhalb der Karte
-- **Farbschema** (`timeline_theme` ): automatisch, hell oder dunkel für die Steuerelemente der Zeitleiste, die Liste und die Dialogfelder
-- **Farbschema der Karte** (`mapwidgets_maptheme` ): automatisch, hell oder dunkel (nur für die OpenStreetMap-Kacheln)
+- **Farbschema** (`timeline_theme`): automatisch, hell oder dunkel für die Steuerelemente der Zeitleiste, die Liste und die Dialogfelder
+- **Farbschema der Karte** (`mapwidgets_maptheme`): automatisch, hell oder dunkel (nur für die OpenStreetMap-Kacheln)
 - **Aufenthaltsradius** : Maximale Entfernung von Proben, die zu einem Aufenthalt gehören (Standardwert 75 m)
 - **Mindestaufenthaltsdauer** : Mindestdauer eines Aufenthalts (standardmäßig 10 Minuten)
-- **Maximale sinnvolle Geschwindigkeit** : Schwellenwert für isolierte GPS-Sprünge (Standard 300 km/h);`0` (deaktiviert den Filter)
+- **Maximale sinnvolle Geschwindigkeit** : Schwellenwert für isolierte GPS-Sprünge (Standard 300 km/h); `0` (deaktiviert den Filter)
 
-Beide Farbschemaoptionen sind standardmäßig auf`auto` und folgen Sie den Anweisungen des Browsers.`prefers-color-scheme` Die Einstellungen können unabhängig voneinander ausgewählt werden, beispielsweise um eine dunkle Zeitleistenoberfläche mit hellen Kartenkacheln zu kombinieren. Das Kartenthema filtert weder Routenlinien noch Markierungen oder andere Leaflet-Overlays.
+Beide Farbschemaoptionen sind standardmäßig auf `auto` und folgen Sie den Anweisungen des Browsers. `prefers-color-scheme` Die Einstellungen können unabhängig voneinander ausgewählt werden, beispielsweise um eine dunkle Zeitleistenoberfläche mit hellen Kartenkacheln zu kombinieren. Das Kartenthema filtert weder Routenlinien noch Markierungen oder andere Leaflet-Overlays.
 
 Bekannte Orte und Ergebnisse der umgekehrten Geokodierung werden in diesen Zuständen gespeichert, die während der Adapterinstallation erstellt werden:
 
@@ -474,7 +474,7 @@ Externes Reverse-Geocoding ist standardmäßig deaktiviert. Ist es aktiviert, wi
 
 ### Dokumentation der Hilfsfunktionen
 
-Folgende Funktionen stehen zur Verfügung unter`window.iobroker.mapwidgets` . Zum Beispiel:
+Folgende Funktionen stehen zur Verfügung unter `window.iobroker.mapwidgets`. Zum Beispiel:
 
 ```js
 window.iobroker.mapwidgets.waitForGlobal(...)
@@ -482,9 +482,9 @@ window.iobroker.mapwidgets.loadScript(...)
 window.iobroker.mapwidgets.loadCSS(...)
 ```
 
-`loadScript` Und`loadCSS` Kann verwendet werden, um JavaScript-Dateien und CSS-Stylesheets dynamisch zu laden, was für die Verwendung der Karten-Widgets erforderlich sein kann.
+`loadScript` Und `loadCSS` Kann verwendet werden, um JavaScript-Dateien und CSS-Stylesheets dynamisch zu laden, was für die Verwendung der Karten-Widgets erforderlich sein kann.
 
-`waitForGlobal` kann verwendet werden, um auf eine globale Variable zu warten.`window.` Dies ist notwendig, da die Kartenvariable erst verfügbar ist, nachdem das Karten-Widget von vis.js initialisiert wurde.
+`waitForGlobal` kann verwendet werden, um auf eine globale Variable zu warten. `window.` Dies ist notwendig, da die Kartenvariable erst verfügbar ist, nachdem das Karten-Widget von vis.js initialisiert wurde.
 
 #### `loadScript(src, { attrs = {}, timeout = 15000 } = {})`
 
@@ -492,20 +492,20 @@ Lädt dynamisch eine externe JavaScript-Datei in das aktuelle Dokument.
 
 ##### Parameter loadScript
 
-- **src** (`string` )\
+- **src** (`string`)\
   &#x20;Die URL der zu ladenden JavaScript-Datei.
 - **attrs** (`object` (optional)\
-  &#x20;Zusätzliche Attribute für die`<script>` Element. Unterstützte Schlüssel:
-  - `type` z.B.`"module"` Als ES-Modul laden.
-  - `integrity` : Subresource Integrity (SRI)-Hash.
-  - `crossOrigin` : Cross-Origin-Einstellung (`"anonymous"` oder`"use-credentials"` ).
-- **Zeitüberschreitung** (`number` optional, Standardwert:`15000` )\
+  &#x20;Zusätzliche Attribute für die `<script>` Element. Unterstützte Schlüssel:
+  - `type` z.B. `"module"` Als ES-Modul laden.
+  - `integrity`: Subresource Integrity (SRI)-Hash.
+  - `crossOrigin`: Cross-Origin-Einstellung (`"anonymous"` oder `"use-credentials"`).
+- **Zeitüberschreitung** (`number` optional, Standardwert: `15000`)\
   &#x20;Maximale Zeit in Millisekunden, bevor der Ladevorgang fehlschlägt.
 
 ##### Gibt loadScript zurück
 
 - **Versprechen**\
-  &#x20;Wird erfolgreich aufgelöst, wenn das Skript geladen wurde; bei Fehlern oder Zeitüberschreitungen wird eine Fehlermeldung ausgegeben. Wenn das Skript bereits im Dokument vorhanden ist, wird es mit einem Fehlercode aufgelöst.`"already-loaded"` Die
+  &#x20;Wird erfolgreich aufgelöst, wenn das Skript geladen wurde; bei Fehlern oder Zeitüberschreitungen wird eine Fehlermeldung ausgegeben. Wenn das Skript bereits im Dokument vorhanden ist, wird es mit einem Fehlercode aufgelöst. `"already-loaded"` Die
 
 ##### Beispiel-Ladeskript
 
@@ -523,20 +523,20 @@ Lädt dynamisch ein externes CSS-Stylesheet in das aktuelle Dokument.
 
 ##### Parameter loadCSS
 
-- **href** (`string` )\
+- **href** (`string`)\
   &#x20;Die URL der zu ladenden CSS-Datei.
 - **attrs** (`object` (optional)\
-  &#x20;Zusätzliche Attribute für die`<link>` Element. Unterstützte Schlüssel:
-  - `integrity` : Subresource Integrity (SRI)-Hash.
-  - `crossOrigin` : Cross-Origin-Einstellung.
-  - `media` : Medienabfrage für bedingtes Laden (z. B.`"print"` ,`"(min-width: 768px)"` ).
-- **Zeitüberschreitung** (`number` optional, Standardwert:`15000` )\
+  &#x20;Zusätzliche Attribute für die `<link>` Element. Unterstützte Schlüssel:
+  - `integrity`: Subresource Integrity (SRI)-Hash.
+  - `crossOrigin`: Cross-Origin-Einstellung.
+  - `media`: Medienabfrage für bedingtes Laden (z. B. `"print"`, `"(min-width: 768px)"`).
+- **Zeitüberschreitung** (`number` optional, Standardwert: `15000`)\
   &#x20;Maximale Zeit in Millisekunden, bevor der Ladevorgang fehlschlägt.
 
 ##### Gibt loadCSS zurück
 
 - **Versprechen**\
-  &#x20;Wird aufgelöst, wenn das Stylesheet erfolgreich geladen wurde, andernfalls wird ein Fehler oder eine Zeitüberschreitung zurückgegeben. Wenn das Stylesheet bereits im Dokument vorhanden ist, wird es mit einem Fehlercode aufgelöst.`"already-loaded"` Die
+  &#x20;Wird aufgelöst, wenn das Stylesheet erfolgreich geladen wurde, andernfalls wird ein Fehler oder eine Zeitüberschreitung zurückgegeben. Wenn das Stylesheet bereits im Dokument vorhanden ist, wird es mit einem Fehlercode aufgelöst. `"already-loaded"` Die
 
 ##### Beispiel loadCSS
 
@@ -546,16 +546,16 @@ loadCSS('https://cdn.example.com/theme.css').catch(console.error);
 
 #### `waitForGlobal(path, interval = 100, timeout = 0)`
 
-Wartet auf eine globale Variable (oder eine verschachtelte Eigenschaft von`window` ) verfügbar zu werden.
+Wartet auf eine globale Variable (oder eine verschachtelte Eigenschaft von `window`) verfügbar zu werden.
 
 ##### Parameters waitForGlobal
 
-- **Weg** (`string` )\
-  &#x20;Durch Punkte getrennter Pfad zur globalen Variable (z. B.`"jQuery"` ,`"MyLib.utils.helper"` ).
-- **Intervall** (`number` optional, Standardwert:`100` )\
+- **Weg** (`string`)\
+  &#x20;Durch Punkte getrennter Pfad zur globalen Variable (z. B. `"jQuery"`, `"MyLib.utils.helper"`).
+- **Intervall** (`number` optional, Standardwert: `100`)\
   &#x20;Intervall in Millisekunden, in dem die Variable überprüft werden soll.
-- **Zeitüberschreitung** (`number` optional, Standardwert:`0` )\
-  &#x20;Maximale Wartezeit in Millisekunden.`0` bedeutet, unbestimmt zu warten.
+- **Zeitüberschreitung** (`number` optional, Standardwert: `0`)\
+  &#x20;Maximale Wartezeit in Millisekunden. `0` bedeutet, unbestimmt zu warten.
 
 ##### Gibt waitForGlobal zurück
 

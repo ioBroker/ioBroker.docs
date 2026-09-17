@@ -17,7 +17,7 @@ hash: FGppS76zclw9eA0vJc7+VFSafTTQph3XnzQ4ZjBovJ4=
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
-Dieser Adapter analysiert Daten, die über eine URL oder aus einer Datei empfangen werden, mithilfe regulärer Ausdrücke. Für jede in den Einstellungen dieses Adapters konfigurierte Regel wird ein Zustand erstellt.`parser.<instance number>` und wurde mit den analysierten Informationen gefüllt und aktualisiert.
+Dieser Adapter analysiert Daten, die über eine URL oder aus einer Datei empfangen werden, mithilfe regulärer Ausdrücke. Für jede in den Einstellungen dieses Adapters konfigurierte Regel wird ein Zustand erstellt. `parser.<instance number>` und wurde mit den analysierten Informationen gefüllt und aktualisiert.
 
 ## Einstellungen
 
@@ -55,9 +55,9 @@ Klicken Sie auf die Schaltfläche „Plus“, um einen neuen Eintrag zur Tabelle
 
 **Tabellenfelder:**
 
-- **_Name_** – Name des Staates, der unter diesem Namen erstellt wird`parser.<instance number>` Leerzeichen sind nicht erlaubt. Punkte sind erlaubt.`.` als Trennzeichen zum Erstellen von Unterordnern. Beispiel:`Shares.Microsoft.Current` wird dazu führen`parser.<instance number>.Shares.Microsoft.Current` Die
-- **_URL oder Dateiname_** – entweder die URL einer Website oder der Pfad zu einer Datei, aus der wir Informationen abrufen möchten. Beispiele`https://darksky.net/forecast/48.1371,11.5754/si24/de` (Wetterinformationen München) oder`/opt/iobroker/test/testdata.txt` (Datei aus ioBroker).
-- **_RegEx_** – regulärer Ausdruck, wie man Daten aus einem Link extrahiert. Es gibt einen guten Dienst zum Testen regulärer Ausdrücke: [regex101](https://regex101.com/) . Beispiel:`temp swip">(-?\d+)˚<` für die obige Zeile.
+- **_Name_** – Name des Staates, der unter diesem Namen erstellt wird `parser.<instance number>` Leerzeichen sind nicht erlaubt. Punkte sind erlaubt. `.` als Trennzeichen zum Erstellen von Unterordnern. Beispiel: `Shares.Microsoft.Current` wird dazu führen `parser.<instance number>.Shares.Microsoft.Current` Die
+- **_URL oder Dateiname_** – entweder die URL einer Website oder der Pfad zu einer Datei, aus der wir Informationen abrufen möchten. Beispiele `https://darksky.net/forecast/48.1371,11.5754/si24/de` (Wetterinformationen München) oder `/opt/iobroker/test/testdata.txt` (Datei aus ioBroker).
+- **_RegEx_** – regulärer Ausdruck, wie man Daten aus einem Link extrahiert. Es gibt einen guten Dienst zum Testen regulärer Ausdrücke: [regex101](https://regex101.com/) . Beispiel: `temp swip">(-?\d+)˚<` für die obige Zeile.
 - **_Element_** (auch: „Num“) – Ein regulärer Ausdruck kann mehrere Einträge finden (übereinstimmen). Mit dieser Option können Sie festlegen, welche Übereinstimmung ausgewählt werden soll. 0 = erste Übereinstimmung, 1 = zweite Übereinstimmung, 2 = dritte Übereinstimmung usw. Standardwert ist 0 (erste Übereinstimmung).
 - **_Rolle_** – eine der Rollen:
   - benutzerdefiniert – der Benutzer definiert die Rolle selbst über _den Administrator._
@@ -68,7 +68,7 @@ Klicken Sie auf die Schaltfläche „Plus“, um einen neuen Eintrag zur Tabelle
   - Schaltfläche – der Wert ist eine Schaltfläche
   - Indikator - Boolescher Indikator
 - **_Typ_** – der Variablentyp gemäß dem Dropdown-Menü.
-- **_Einheit_** – Optional: Einheit des dem Statuseintrag hinzugefügten Wertes. Z. B.`°C` ,`€` ,`GB` , usw.
+- **_Einheit_** – Optional: Einheit des dem Statuseintrag hinzugefügten Wertes. Z. B. `°C`, `€`, `GB`, usw.
 - **_Alt_** - Wenn diese Option aktiviert ist, wird der Status _nicht_ aktualisiert, wenn der Wert im angegebenen Datum (URL oder Datei) nicht gelesen oder gefunden werden kann. In diesem Fall bleibt der vorherige Wert erhalten.
 - **_Ersatz_** -URL oder Dateiname (optional): Diese Ersatz-URL/dieser Ersatzdateiname wird verwendet, falls die URL/der Dateiname der ersten Spalte nicht verfügbar ist.
 - **_Faktor/Offset_** (nur für „Typ“-Nummern) – ermöglicht die Modifizierung der abgerufenen Daten vor der Festlegung des Zustands:
@@ -92,7 +92,7 @@ _Hinweis:_ Beim Anwenden von regulären Ausdrücken auf die abgerufenen URL-/Dat
 
 Reguläre Ausdrücke sind ein leistungsstarkes Werkzeug zum Parsen und Extrahieren bestimmter Daten aus Zeichenketten, und noch wichtiger: Sie ermöglichen es, bestimmte Werte/Texte aus einer gegebenen Zeichenkette (z. B. aus dem HTML-Code einer Webseite oder aus dem Text einer Datei) durch Anwenden von Regeln zu extrahieren.
 
-Für boolesche Datentypen ist der reguläre Ausdruck recht einfach. Für numerische Datentypen sollten Sie die Zahl in eckige Klammern setzen.`()` Um beispielsweise die Zahl aus _„Die Temperatur beträgt 5 °C“_ zu extrahieren, sollten Sie Folgendes verwenden:` (\d+)` Ausdruck.
+Für boolesche Datentypen ist der reguläre Ausdruck recht einfach. Für numerische Datentypen sollten Sie die Zahl in eckige Klammern setzen. `()` Um beispielsweise die Zahl aus _„Die Temperatur beträgt 5 °C“_ zu extrahieren, sollten Sie Folgendes verwenden: ` (\d+)` Ausdruck.
 
 Weitere Informationen zu regulären Ausdrücken:
 
@@ -101,26 +101,26 @@ Weitere Informationen zu regulären Ausdrücken:
 
 ### Beispiele
 
-- `.at` passt auf jede dreistellige Zeichenkette, die mit endet`at` , einschließlich`hat` ,`cat` , Und`bat` Die
-- `[hc]at` Spiele`hat` Und`cat` Die
-- `[^b]at` Findet alle Zeichenketten, die von .at gefunden werden, außer`bat` Die
-- `[^hc]at` Findet alle Zeichenketten, die von .at gefunden werden, außer`hat` Und`cat` Die
-- `^[hc]at` Spiele`hat` Und`cat` , aber nur am Anfang der Zeichenkette oder Zeile.
-- `[hc]at$` Spiele`hat` Und`cat` , aber nur am Ende der Zeichenkette oder Zeile.
-- `\[.\]` passt auf ein beliebiges einzelnes Zeichen, das von`[` Und`]` da die Klammern maskiert sind, zum Beispiel:`[a]` Und`[b]` Die
-- `s.\*` Übereinstimmungen mit s, gefolgt von null oder mehr Zeichen, zum Beispiel:`s` Und`saw` Und`seed` Die
-- `[hc]+at` Spiele`hat` ,`cat` ,`hhat` ,`chat` ,`hcat` ,`cchchat` und so weiter, aber nicht`at` Die
-- `[hc]?at` Spiele`hat` ,`cat` , Und`at` Die
-- `[hc]\*at` Spiele`hat` ,`cat` ,`hhat` ,`chat` ,`hcat` ,`cchchat` ,`at` , und so weiter.
-- `cat|dog` Spiele`cat` oder`dog` Die
+- `.at` passt auf jede dreistellige Zeichenkette, die mit endet `at`, einschließlich `hat`, `cat`, Und `bat` Die
+- `[hc]at` Spiele `hat` Und `cat` Die
+- `[^b]at` Findet alle Zeichenketten, die von .at gefunden werden, außer `bat` Die
+- `[^hc]at` Findet alle Zeichenketten, die von .at gefunden werden, außer `hat` Und `cat` Die
+- `^[hc]at` Spiele `hat` Und `cat`, aber nur am Anfang der Zeichenkette oder Zeile.
+- `[hc]at$` Spiele `hat` Und `cat`, aber nur am Ende der Zeichenkette oder Zeile.
+- `\[.\]` passt auf ein beliebiges einzelnes Zeichen, das von `[` Und `]` da die Klammern maskiert sind, zum Beispiel: `[a]` Und `[b]` Die
+- `s.\*` Übereinstimmungen mit s, gefolgt von null oder mehr Zeichen, zum Beispiel: `s` Und `saw` Und `seed` Die
+- `[hc]+at` Spiele `hat`, `cat`, `hhat`, `chat`, `hcat`, `cchchat` und so weiter, aber nicht `at` Die
+- `[hc]?at` Spiele `hat`, `cat`, Und `at` Die
+- `[hc]\*at` Spiele `hat`, `cat`, `hhat`, `chat`, `hcat`, `cchchat`, `at`, und so weiter.
+- `cat|dog` Spiele `cat` oder `dog` Die
 - `(\d+)` - die Zahl aus der Zeichenkette extrahieren
-- `now (\w+)` später - lass es uns wissen`now` Und`later`
+- `now (\w+)` später - lass es uns wissen `now` Und `later`
 
 ### Weitere nützliche Ausdrücke
 
 - `(-?\d+)` Zahl erhalten (sowohl negative als auch positive Zahlen)
-- `[+-]?([0-9]+.?[0-9]|.[0-9]+)` eine Zahl mit Dezimalstellen erhalten (und`.` als Dezimaltrennzeichen)
-- `[+-]?([0-9]+,?[0-9]|,[0-9]+)` eine Zahl mit Dezimalstellen erhalten (und`,` als Dezimaltrennzeichen)
+- `[+-]?([0-9]+.?[0-9]|.[0-9]+)` eine Zahl mit Dezimalstellen erhalten (und `.` als Dezimaltrennzeichen)
+- `[+-]?([0-9]+,?[0-9]|,[0-9]+)` eine Zahl mit Dezimalstellen erhalten (und `,` als Dezimaltrennzeichen)
 
 ## Benachrichtigungsbeispiel
 
@@ -144,9 +144,9 @@ Werte können Qualitätsmerkmale aufweisen:
 
 ## Auslösen
 
-Zusätzlich zum Abfrageintervall kann die Auswertung bestimmter Regeln durch das Schreiben eines leeren Wertes ausgelöst werden (`false` ,`0` , '' - hängt von der Art des Zustands ab) zum Zustand mit`false` Bestätigungsflag. In diesem Fall wird der Wert aus der URL/Datei gelesen und sofort analysiert.
+Zusätzlich zum Abfrageintervall kann die Auswertung bestimmter Regeln durch das Schreiben eines leeren Wertes ausgelöst werden (`false`, `0`, '' - hängt von der Art des Zustands ab) zum Zustand mit `false` Bestätigungsflag. In diesem Fall wird der Wert aus der URL/Datei gelesen und sofort analysiert.
 
-Sie können auch eine Nachricht an den Adapter senden mit`sendTo` Befehl:
+Sie können auch eine Nachricht an den Adapter senden mit `sendTo` Befehl:
 
 ```Javascript
 sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.temperatureMunich */, result => {

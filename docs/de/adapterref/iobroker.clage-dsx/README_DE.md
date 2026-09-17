@@ -31,13 +31,13 @@ Grundlage ist die mitgelieferte \[CLAGE Home Server API-Spezifikation v1.3.4]\( 
 
 In den Einstellungen der Instanz werden drei Werte eingetragen:
 
-1. **IP-Adresse des CLAGE Home Servers** , zum Beispiel`192.168.2.35` (ohne`https://` )
-2. **API-Benutzername** , zum Beispiel`admin`
-3. **API-Passwort** , zum Beispiel`geheim`
+1. **IP-Adresse des CLAGE Home Servers** , zum Beispiel `192.168.2.35` (ohne `https://`)
+2. **API-Benutzername** , zum Beispiel `admin`
+3. **API-Passwort** , zum Beispiel `geheim`
 
-Alle drei Felder sind erforderlich. Der historische native Konfigurationsschlüssel für den Benutzernamen heißt`port` ; Er bleibt zur Kompatibilität mit bestehenden Installationen erhalten.
+Alle drei Felder sind erforderlich. Der historische native Konfigurationsschlüssel für den Benutzernamen heißt `port`; Er bleibt zur Kompatibilität mit bestehenden Installationen erhalten.
 
-Die Werte`admin` und`geheim` sind Beispiele aus der CLAGE-API-Dokumentation. Es müssen die tatsächlich auf dem eigenen Home Server eingerichteten API-Zugangsdaten verwendet werden; Das Beispielpasswort funktioniert nur, wenn es dort genauso konfiguriert wurde.
+Die Werte `admin` und `geheim` sind Beispiele aus der CLAGE-API-Dokumentation. Es müssen die tatsächlich auf dem eigenen Home Server eingerichteten API-Zugangsdaten verwendet werden; Das Beispielpasswort funktioniert nur, wenn es dort genauso konfiguriert wurde.
 
 Der Home Server verwendet normalerweise ein selbstsigniertes TLS-Zertifikat. Der Adapter akzeptiert dieses lokale Zertifikat bei der direkten Verbindung mit dem konfigurierten Gerät.
 
@@ -56,12 +56,12 @@ Für jedes angemeldete CLAGE-Gerät legt der Adapter Datenpunkte an für:
 
 Schreibbare Datenpunkte:
 
-- `Setpoint` : API-Wert in Zehntelgrad, zum Beispiel`450` = 45,0 °C
-- `Themperatur` : Temperatur in °C; Die historische Schreibweise bleibt aus Kompatibilitätsgründen erhalten
-- `flowMax` : Durchflussgrenze in 0,1 l/min; Besondere API-Werte sind`253` (ECO) und`254` (AUTO)
+- `Setpoint`: API-Wert in Zehntelgrad, zum Beispiel `450` = 45,0 °C
+- `Themperatur`: Temperatur in °C; Die historische Schreibweise bleibt aus Kompatibilitätsgründen erhalten
+- `flowMax`: Durchflussgrenze in 0,1 l/min; Besondere API-Werte sind `253` (ECO) und `254` (AUTO)
 - `Name` Gerätename
-- `setup.flowMax` ,`setup.loadShedding` ,`setup.scaldProtection` und`setup.sound`
-- `timers.createJson` ,`timers.updateJson` und`timers.deleteId` zur kontrollierten Timerverwaltung
+- `setup.flowMax`, `setup.loadShedding`, `setup.scaldProtection` und `setup.sound`
+- `timers.createJson`, `timers.updateJson` und `timers.deleteId` zur kontrollierten Timerverwaltung
 
 `info.connection` zeigt an, ob der Home Server erreichbar ist und die eingetragenen Zugangsdaten akzeptiert.
 
@@ -69,21 +69,21 @@ Der Adapter prüft vor Schreibzugriff die API-Rechtemaske. Sollwertänderungen w
 
 ## Timer-JSON
 
-Ein Timer kann durch Schreiben eines JSON wie diesem auf`timers.createJson` angelegt werden:
+Ein Timer kann durch Schreiben eines JSON wie diesem auf `timers.createJson` angelegt werden:
 
 ```json
 {"type":0,"weekdays":127,"start":"06:00","stop":"07:00","deviceId":"A001FF0034","setpoint":450}
 ```
 
-Für Änderungen wird derselbe Aufbau mit numerischer`id` auf`timers.updateJson` geschrieben. Zum Löschen eines einzelnen Timers wird dessen numerische ID aufgegeben`timers.deleteId` geschrieben. Gefährliche Sammeloperationen, das Abmelden von Geräten und Änderungen der Funkadresse werden bewusst nicht angeboten.
+Für Änderungen wird derselbe Aufbau mit numerischer `id` auf `timers.updateJson` geschrieben. Zum Löschen eines einzelnen Timers wird dessen numerische ID aufgegeben `timers.deleteId` geschrieben. Gefährliche Sammeloperationen, das Abmelden von Geräten und Änderungen der Funkadresse werden bewusst nicht angeboten.
 
 ## Implementierung
 
 - Die IP-Adresse darf kein Protokoll und keinen Pfad enthalten.
 - API-Zugangsdaten in der Konfiguration des CLAGE Home Servers prüfen.
 - TCP-Port 443 muss vom ioBroker-Host erreichbar sein.
-- HTTP-Status`401` bedeutet ungültige Zugangsdaten;`403` bedeutet unzureichende API-Rechte.
-- Ein Gerät kann angemeldet werden, ist aber vorübergehend nicht erreichbar. Die API meldet stirbt mit`404` ,`410` oder einem negativen Gerätefehlercode.
+- HTTP-Status `401` bedeutet ungültige Zugangsdaten; `403` bedeutet unzureichende API-Rechte.
+- Ein Gerät kann angemeldet werden, ist aber vorübergehend nicht erreichbar. Die API meldet stirbt mit `404`, `410` oder einem negativen Gerätefehlercode.
 
 ## Lizenz
 

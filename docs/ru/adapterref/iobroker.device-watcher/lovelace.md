@@ -18,7 +18,7 @@ hash: idvhufUGzDXErv40wc+b5/o6SJVl68amxFpHZE6UtQc=
 
 ![dw\_setting\_htmllist](../../../de/adapterref/iobroker.device-watcher/img/dw_setting_htmllist.png)
 
-- Затем таблицы можно добавить в Lovelace. Карты имеют следующий тип:`Markdown` Вот пример кода интеграции; нужно будет лишь скорректировать путь к спискам:
+- Затем таблицы можно добавить в Lovelace. Карты имеют следующий тип: `Markdown` Вот пример кода интеграции; нужно будет лишь скорректировать путь к спискам:
 
 ```
 type: markdown

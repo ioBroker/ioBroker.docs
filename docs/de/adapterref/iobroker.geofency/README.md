@@ -22,9 +22,9 @@ Dieser Adapter kann [Geofency-](http://www.geofency.com/) Ereignisse empfangen, 
 ## Konfiguration auf dem Mobilgerät
 
 - für jeden Standort -> Eigenschaften -> Webhook-Einstellungen:
-- URL für Ein- und Ausgang:`<your ioBroker Domain>:<configured port>/<any locationname>` ;
-- Beitragsformat:`JSON-encoded` : ermöglicht
-- Authentifizierung: Benutzername/Passwort festlegen von`iobroker.geofency` Konfiguration
+- URL für Ein- und Ausgang: `<your ioBroker Domain>:<configured port>/<any locationname>`;
+- Beitragsformat: `JSON-encoded`: ermöglicht
+- Authentifizierung: Benutzername/Passwort festlegen von `iobroker.geofency` Konfiguration
 
 ## Im ioBroker Forum (Deutsch)
 

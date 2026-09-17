@@ -34,20 +34,20 @@ Ein Großteil des Codes basiert auf [dem AlexxIT](https://github.com/AlexxIT) -P
 
 Zunächst können Sie den Adapter einfach installieren, ihn verwenden und etwaige Probleme melden.
 
-Wenn Sie viele verschiedene Geräte besitzen, können Sie deren Unterstützung verbessern, indem Sie die entsprechende Option aktivieren.`Debug output (to state)` (siehe unten) und geben Sie mir nach einigen Tagen der Datenerfassung eine Debug-Ausgabe.
+Wenn Sie viele verschiedene Geräte besitzen, können Sie deren Unterstützung verbessern, indem Sie die entsprechende Option aktivieren. `Debug output (to state)` (siehe unten) und geben Sie mir nach einigen Tagen der Datenerfassung eine Debug-Ausgabe.
 
 ## Hardware und Grenzen
 
 <img src="static/xiaomi-gateway3-img.png" width="250">
 
-Der Adapter unterstützt`Xiaomi Gateway 3 (ZNDMWG03LM and ZNDMWG02LM)` Diese Versionen laufen mit der Original-Firmware:
+Der Adapter unterstützt `Xiaomi Gateway 3 (ZNDMWG03LM and ZNDMWG02LM)` Diese Versionen laufen mit der Original-Firmware:
 
 - `v1.5.0_0026` (darauf aufgebaut)
-- `v1.5.0_0102` (ähnlich`1.5.0_0026` (aber nicht getestet)
+- `v1.5.0_0102` (ähnlich `1.5.0_0026` (aber nicht getestet)
 
 Sie können das Gateway mit benutzerdefinierter oder Standard-Firmware dieser Versionen flashen: [wiki](https://github.com/AlexxIT/XiaomiGateway3/wiki) .
 
-**_Achtung:_** Firmware-Versionen niedriger als`1.4.7_0000` Der Adapter wird nicht unterstützt und wird es auch zukünftig nicht. Unterstützt werden Versionen unterhalb von`v1.5.0_0026` Nicht garantiert.
+**_Achtung:_** Firmware-Versionen niedriger als `1.4.7_0000` Der Adapter wird nicht unterstützt und wird es auch zukünftig nicht. Unterstützt werden Versionen unterhalb von `v1.5.0_0026` Nicht garantiert.
 
 ## Unterstützte Geräte
 
@@ -150,21 +150,21 @@ _**Hinweis:** BLE-Geräte verfügen nach dem ersten Koppeln möglicherweise nich
 
 ### `Button long press`
 
-Bei Tastengeräten können Sie eine Kombination aus zwei Zuständen sehen (zum Beispiel):`long_press` Und`long_timeout` Wie funktioniert das? Tasten, die langes Drücken unterstützen, senden beim Drücken und Loslassen eine Nachricht. Manchmal kann es vorkommen, dass eine Taste beim Loslassen keine Nachricht sendet. In diesem Fall`timeout` sollte dazu beitragen, den Zustand "freizugeben".
+Bei Tastengeräten können Sie eine Kombination aus zwei Zuständen sehen (zum Beispiel): `long_press` Und `long_timeout` Wie funktioniert das? Tasten, die langes Drücken unterstützen, senden beim Drücken und Loslassen eine Nachricht. Manchmal kann es vorkommen, dass eine Taste beim Loslassen keine Nachricht sendet. In diesem Fall `timeout` sollte dazu beitragen, den Zustand "freizugeben".
 
-Standardmäßig`timeout` Zustandswert nicht gesetzt und`long_press` Die Taste wird nach einer Sekunde losgelassen, nachdem Sie sie gedrückt gehalten haben, auch wenn Sie sie noch gedrückt halten. Wenn Sie einstellen`long_timeout` Ein Timeout von -1 wird vollständig ignoriert und der Status wird nur durch eine Nachricht vom Button "freigegeben".
+Standardmäßig `timeout` Zustandswert nicht gesetzt und `long_press` Die Taste wird nach einer Sekunde losgelassen, nachdem Sie sie gedrückt gehalten haben, auch wenn Sie sie noch gedrückt halten. Wenn Sie einstellen `long_timeout` Ein Timeout von -1 wird vollständig ignoriert und der Status wird nur durch eine Nachricht vom Button "freigegeben".
 
-In den meisten Fällen ist es sinnvoll, festzulegen`timeout` auf einen kleinen Wert wie 4 oder 5 Sekunden.
+In den meisten Fällen ist es sinnvoll, festzulegen `timeout` auf einen kleinen Wert wie 4 oder 5 Sekunden.
 
-### `Occupancy` Und`Occupancy timeout`
+### `Occupancy` Und `Occupancy timeout`
 
 Der RTCGQ11LM und andere Bewegungsmelder weisen nach der Bewegungserkennung eine Verzögerung (Timeout) von 5 bis 60 Sekunden auf (abhängig von Version und Modifikationen). Das bedeutet, dass während dieser Zeit keine weitere Bewegung erkannt werden kann (der Sensor sendet technisch gesehen keine Nachricht).
 
-`occupancy`_**trifft**_ zu, wenn der Sensor eine Bewegung erkennt, und bleibt _**gültig**_ .
+`occupancy` _**trifft**_ zu, wenn der Sensor eine Bewegung erkennt, und bleibt _**gültig**_ .
 
-Ziel von`occupancy_timeout` ist festgelegt`occupancy` wird auf _**„false“**_ gesetzt, wenn der Sensor wieder Nachrichten senden kann. Standardmäßig`occupancy_timeout` ist nicht festgelegt und`occupancy` Nach 60 Sekunden wieder auf _**„false“**_ zurücksetzen. Falls Ihr Sensor eine andere Verzögerung aufweist, ist es besser, diese einzustellen.`occupancy_timeout` bis zu diesem Verzögerungswert.
+Ziel von `occupancy_timeout` ist festgelegt `occupancy` wird auf _**„false“**_ gesetzt, wenn der Sensor wieder Nachrichten senden kann. Standardmäßig `occupancy_timeout` ist nicht festgelegt und `occupancy` Nach 60 Sekunden wieder auf _**„false“**_ zurücksetzen. Falls Ihr Sensor eine andere Verzögerung aufweist, ist es besser, diese einzustellen. `occupancy_timeout` bis zu diesem Verzögerungswert.
 
-Wenn Sie die Bewegungserkennung direkt nach dem Erkennen wieder auf _**„false“**_ zurücksetzen möchten, können Sie Folgendes einstellen:`occupancy_timeout` bis zu 1 Sekunde.
+Wenn Sie die Bewegungserkennung direkt nach dem Erkennen wieder auf _**„false“**_ zurücksetzen möchten, können Sie Folgendes einstellen: `occupancy_timeout` bis zu 1 Sekunde.
 
 ## Konfiguration
 
@@ -204,7 +204,7 @@ Sie haben mehrere Möglichkeiten, Adapter und Gateway zu konfigurieren.
 
 ### Protokollierungseinstellungen
 
-_**Hinweis:** Um Debug-Meldungen im ioBroker-Protokoll anzuzeigen, müssen Sie Folgendes einstellen:`debug` Protokollierungsstufe für Adapter unter`Instances` Seite (Expertenmodus aktivieren)_
+_**Hinweis:** Um Debug-Meldungen im ioBroker-Protokoll anzuzeigen, müssen Sie Folgendes einstellen: `debug` Protokollierungsstufe für Adapter unter `Instances` Seite (Expertenmodus aktivieren)_
 
 - [x] **Lumi MQTT-Nachrichten**<br/> Aktivieren Sie die Debug-Protokollierung von MQTT-Nachrichten für Lumi (ZigBee)-Geräte.
 
@@ -222,15 +222,15 @@ _**Hinweis:** Um Debug-Meldungen im ioBroker-Protokoll anzuzeigen, müssen Sie F
 
 <br>
 
-Es gibt Gerätekarten auf`devices` Seite, auf der Sie Informationen über das Gerät und aktuelle Statuswerte einsehen und einige davon steuern können.
+Es gibt Gerätekarten auf `devices` Seite, auf der Sie Informationen über das Gerät und aktuelle Statuswerte einsehen und einige davon steuern können.
 
-Sie können auch ändern`friendly name` des Geräts.
+Sie können auch ändern `friendly name` des Geräts.
 
 _**Hinweis:** Diese Seite bietet derzeit nur grundlegende Funktionen. Sie wird in Zukunft erweitert._
 
 ### Gerätekonfiguration
 
-Sie können verschiedene Optionen zur Konfiguration des Geräts (und seiner Karte) mithilfe einer YAML-Konfiguration festlegen. Die verfügbaren Optionen sind in der folgenden Tabelle beschrieben. Sie können das Gerätekonfigurationsfenster (Fenster mit Texteingabefeld) mit folgendem Befehl aufrufen:`Config` Im Menü auswählen.
+Sie können verschiedene Optionen zur Konfiguration des Geräts (und seiner Karte) mithilfe einer YAML-Konfiguration festlegen. Die verfügbaren Optionen sind in der folgenden Tabelle beschrieben. Sie können das Gerätekonfigurationsfenster (Fenster mit Texteingabefeld) mit folgendem Befehl aufrufen: `Config` Im Menü auswählen.
 
 <img src="static/device-yaml-config.png">
 
@@ -245,9 +245,9 @@ Sie können verschiedene Optionen zur Konfiguration des Geräts (und seiner Kart
 
 <img src="static/tab-statistic.png">
 
-- Statistiken werden nicht standardmäßig geladen. Sie müssen die Schaltfläche verwenden.`RELOAD` um die Statistik auf der Seite zu aktualisieren.
+- Statistiken werden nicht standardmäßig geladen. Sie müssen die Schaltfläche verwenden. `RELOAD` um die Statistik auf der Seite zu aktualisieren.
 
-- Außerdem können Sie die Statistik mit der Schaltfläche löschen.`CLEAR` Dadurch werden die Statistiken nicht wirklich gelöscht. Es werden lediglich die Zustände gelöscht, die Statistiken enthalten. Dies kann hilfreich sein, wenn der Adapter neu gestartet wird, da die ioBroker-Zustände beim Neustart nicht gelöscht werden.
+- Außerdem können Sie die Statistik mit der Schaltfläche löschen. `CLEAR` Dadurch werden die Statistiken nicht wirklich gelöscht. Es werden lediglich die Zustände gelöscht, die Statistiken enthalten. Dies kann hilfreich sein, wenn der Adapter neu gestartet wird, da die ioBroker-Zustände beim Neustart nicht gelöscht werden.
 
 _**Achtung:** Beachten Sie bitte, dass es sich hierbei nicht um eine Statistik der ZigBee-Nachrichten zwischen Gateway und Gerät (ZigBee-Protokollstatistik) handelt. Es ist eine Statistik der Nachrichten, die den Adapter erreichen. Was bedeutet das? Es macht keinen Unterschied, ob das Gateway oder der Adapter selbst (per MQTT) keine Nachrichten vom Gateway empfängt. Sollte der Adapter aus irgendeinem Grund (z. B. bei einem WLAN-Verbindungsproblem) keine Nachrichten vom Gateway empfangen, interpretiert er diese als verloren, obwohl ZigBee selbst weiterhin funktioniert._
 

@@ -98,20 +98,20 @@ Eine der größten Herausforderungen in der Statistik ist die Identifizierung fe
 
 #### Fehlerprüfung
 
-Fehler beim Mähen werden ständig überwacht. Ein Fehler tritt in diesem Zusammenhang auf, wenn der Wert des Datenpunkts`state_value` ist nicht gleich`OK` Die
+Fehler beim Mähen werden ständig überwacht. Ein Fehler tritt in diesem Zusammenhang auf, wenn der Wert des Datenpunkts `state_value` ist nicht gleich `OK` Die
 
 #### Grundlegende Überprüfung
 
 Damit ein Verlauf als gültig akzeptiert wird, muss das Ende der Aktion (Mähen oder Aufladen) erkannt worden sein. Dies wird durch eine Statusänderung signalisiert.
 
 - zum Ende des Mähens:
-  - Datenpunkt:`activity_value`
+  - Datenpunkt: `activity_value`
     | alter Status                                   | neuer Status                     |
     | ---------------------------------------------- | -------------------------------- |
-    | `OK_CUTTING` oder`OK_CUTTING_TIMER_OVERRIDDEN` | `OK_SEARCHING` oder`OK_CHARGING` |
+    | `OK_CUTTING` oder `OK_CUTTING_TIMER_OVERRIDDEN` | `OK_SEARCHING` oder `OK_CHARGING` |
 
 - zum Ende des Ladevorgangs:
-  - Datenpunkt:`batteryState_value`
+  - Datenpunkt: `batteryState_value`
     | alter Status | neuer Status |
     | ------------ | ------------ |
     | `CHARGING`   | `OK`         |

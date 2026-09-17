@@ -126,13 +126,13 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
 http://IP:1984
 ```
 
-Затем вы можете добавить поток. URL-адрес потока можно найти, например, в разделе`onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+Затем вы можете добавить поток. URL-адрес потока можно найти, например, в разделе `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
 <img src="addgo.png" height="300">
 
 ### Вставить поток как iFrame
 
-Добавить`iFrame` Вставьте виджет в Vis и используйте ссылку на поток от go2rtsp в качестве источника.
+Добавить `iFrame` Вставьте виджет в Vis и используйте ссылку на поток от go2rtsp в качестве источника.
 
 `http://192.168.178.1:1984/stream.html?src=camera&mode=webrtc`
 
@@ -154,7 +154,7 @@ docker run --name rtsp-to-web -v /YOURPATHFORCONFIG:/config --network host ghcr.
 http://IP:8083
 ```
 
-Затем вы можете добавить поток. URL-адрес потока можно найти, например, в разделе`onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+Затем вы можете добавить поток. URL-адрес потока можно найти, например, в разделе `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
 <img src="addstream.png" height="600">
 
@@ -168,7 +168,7 @@ http://IP:8083
 
 <img src="html.png" height="150">
 
-## **Если необходимо добавить несколько потоков,`webrtc-url` и`webrtc-video` В HTML и скрипте необходимо заменить новым идентификатором, например:`webrtc-url2` и`webrtc-video2`**
+## **Если необходимо добавить несколько потоков, `webrtc-url` и `webrtc-video` В HTML и скрипте необходимо заменить новым идентификатором, например: `webrtc-url2` и `webrtc-video2` **
 
 ```html
 <input
@@ -242,7 +242,7 @@ setTimeout(function () {
 
 ## Все потоки отображаются в виде iFrame.
 
-В качестве альтернативы вы также можете вставить обзор камеры в виде iframe: Добавить виджет`iFrame` и введите сервер rtsp2web в качестве источника:
+В качестве альтернативы вы также можете вставить обзор камеры в виде iframe: Добавить виджет `iFrame` и введите сервер rtsp2web в качестве источника:
 
 `http://192.168.0.2:8083/pages/multiview/full?controls`
 
@@ -268,11 +268,11 @@ onvif.0.IP\_PORT.infos.streamUris.MediaProfile\_Channel1\_MainStream.snapshotUrl
 
 #### Обновите состояние через onvif.0.IP\_PORT.remote.snapshot
 
-Назначить`String img src` элемент в состояние onvif.0.IP\_PORT.snapshot.
+Назначить `String img src` элемент в состояние onvif.0.IP\_PORT.snapshot.
 
-Или в качестве альтернативы, если`String img src` не работает
+Или в качестве альтернативы, если `String img src` не работает
 
-Вставьте состояние onvif.0.IP\_PORT.snapshot следующим образом:`HTML` вставьте элемент в визуальный элемент со следующим содержимым
+Вставьте состояние onvif.0.IP\_PORT.snapshot следующим образом: `HTML` вставьте элемент в визуальный элемент со следующим содержимым
 
 ```javascript
 <img src="{onvif.0.IP_PORT.snapshot}" width="500px" />

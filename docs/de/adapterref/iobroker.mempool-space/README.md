@@ -70,7 +70,7 @@ Die Datenübertragung dauert einige Minuten. Warten Sie mindestens zwei Blöcke.
 
 In den Adaptereinstellungen können Sie die folgende Option konfigurieren:
 
-- **WebSocket-URL** : Die URL für die mempool.space WebSocket-API (Standard:`wss://mempool.space/api/v1/ws` )
+- **WebSocket-URL** : Die URL für die mempool.space WebSocket-API (Standard: `wss://mempool.space/api/v1/ws`)
 
 - Sie können eine öffentliche oder lokale mempool.space-Instanz verwenden.
 

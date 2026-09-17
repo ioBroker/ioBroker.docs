@@ -64,9 +64,9 @@ Jedes Backend definiert einen virtuellen Host:
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Aktiv**               | Backend aktivieren/deaktivieren                                                                                                                                      |
 | **Hostname**            | Domain, die über DNS auf diesen Server verweist                                                                                                                      |
-| **Ziel-URL**            | Backend-Adresse (`http://IP:Port` )                                                                                                                                  |
-| **Zertifikat**          | Zertifikat von`system.certificates` **Mit Zertifikat** = HTTPS + automatische HTTP→HTTPS-Weiterleitung. **Ohne Zertifikat** = nur HTTP (kein HTTPS für diesen Host). |
-| **Zulässige Netzwerke** | Kommagetrennte CIDR-Netzwerke/IPs (z. B.`192.168.0.0/24, fd00::/8` Leer = Zugriff von überall erlaubt.                                                               |
+| **Ziel-URL**            | Backend-Adresse (`http://IP:Port`)                                                                                                                                  |
+| **Zertifikat**          | Zertifikat von `system.certificates` **Mit Zertifikat** = HTTPS + automatische HTTP→HTTPS-Weiterleitung. **Ohne Zertifikat** = nur HTTP (kein HTTPS für diesen Host). |
+| **Zulässige Netzwerke** | Kommagetrennte CIDR-Netzwerke/IPs (z. B. `192.168.0.0/24, fd00::/8` Leer = Zugriff von überall erlaubt.                                                               |
 | **Ursprung ändern**     | Schreiben Sie den Host-Header auf die Ziel-IP-Adresse um.                                                                                                            |
 
 ### Beispielkonfiguration
@@ -80,7 +80,7 @@ Jedes Backend definiert einen virtuellen Host:
 In diesem Beispiel:
 
 - `website.example.com` → **HTTPS** mit Let's Encrypt-Zertifikat, HTTP-Weiterleitungen zu HTTPS
-- `iobroker.example.com` → **HTTPS** mit ioBroker-Standardzertifikat (`default` ), nur lokales Netzwerk
+- `iobroker.example.com` → **HTTPS** mit ioBroker-Standardzertifikat (`default`), nur lokales Netzwerk
 - `host.example.com` → **HTTP** (ohne Zertifikat), nur lokales Netzwerk
 
 ## Staaten
@@ -91,7 +91,7 @@ In diesem Beispiel:
 | `certificates.<name>.expires`  | Zeichenkette    | Ablaufdatum des Zertifikats (pro Sammlung) |
 | `certificates.<name>.daysLeft` | Nummer          | Tage bis zum Ablaufdatum (pro Kollektion)  |
 
-Zertifikatsstatus werden dynamisch für jede verwendete Zertifikatssammlung erstellt (z. B.`certificates.acme.daysLeft` ,`certificates.default.expires` ).
+Zertifikatsstatus werden dynamisch für jede verwendete Zertifikatssammlung erstellt (z. B. `certificates.acme.daysLeft`, `certificates.default.expires`).
 
 ## ACME-Adapterkonfiguration
 
@@ -103,33 +103,33 @@ Der ACME-Adapter muss auf einem anderen Port als 80 laufen, wenn der Proxy auf d
 
 ## Zertifikate
 
-Der Adapter liest Zertifikate von`system.certificates` und bietet drei Arten an:
+Der Adapter liest Zertifikate von `system.certificates` und bietet drei Arten an:
 
 ### 1. Einzelzertifikate nach Namenskonvention
 
-Dies sind Zertifikate, die der Benutzer manuell über die ioBroker-Systemeinstellungen hinzufügen kann. Alle Schlüssel-/Zertifikatspaare werden in`system.certificates → native.certificates` können verwendet werden, sofern sie dieser Namenskonvention folgen:
+Dies sind Zertifikate, die der Benutzer manuell über die ioBroker-Systemeinstellungen hinzufügen kann. Alle Schlüssel-/Zertifikatspaare werden in `system.certificates → native.certificates` können verwendet werden, sofern sie dieser Namenskonvention folgen:
 
 | Schlüssel       | Inhalt                                                            |
 | --------------- | ----------------------------------------------------------------- |
 | `{name}Private` | Privater Schlüssel (PEM)                                          |
 | `{name}Public`  | Zertifikat (PEM)                                                  |
-| `{name}Chained` | Vollständige Zertifikatskette (PEM, bevorzugt gegenüber`Public` ) |
+| `{name}Chained` | Vollständige Zertifikatskette (PEM, bevorzugt gegenüber `Public`) |
 
-Der Basisname`{name}` Das ist das, was im Dropdown-Menü erscheint und in der Konfiguration gespeichert ist.
+Der Basisname `{name}` Das ist das, was im Dropdown-Menü erscheint und in der Konfiguration gespeichert ist.
 
-> **Beispiel:** Wenn ioBroker die Schlüssel gespeichert hat`myCertPrivate` Und`myCertChained` ,`myCert` wird im Dropdown-Menü erscheinen.
+> **Beispiel:** Wenn ioBroker die Schlüssel gespeichert hat `myCertPrivate` Und `myCertChained`, `myCert` wird im Dropdown-Menü erscheinen.
 
 #### Das ioBroker-Standardzertifikat
 
-Das mit ioBroker ausgelieferte selbstsignierte Zertifikat wird unter den Namen gespeichert`defaultPrivate` Und`defaultPublic` In`system.certificates` Es folgt der gleichen Konvention wie jedes andere Zertifikat:
+Das mit ioBroker ausgelieferte selbstsignierte Zertifikat wird unter den Namen gespeichert `defaultPrivate` Und `defaultPublic` In `system.certificates` Es folgt der gleichen Konvention wie jedes andere Zertifikat:
 
-- Basisname:**`default`**
-- Wird im Dropdown-Menü angezeigt als`default`
+- Basisname:** `default` **
+- Wird im Dropdown-Menü angezeigt als `default`
 - Ideal für interne Dienste, die kein öffentlich signiertes Zertifikat benötigen.
 
 ### 2. ACME-Sammlungen
 
-Let's Encrypt-Zertifikate werden automatisch vom ACME-Adapter generiert. Sie werden gespeichert in`system.certificates → native.collections` unter dem Namen, der der Sammlung in der ACME-Adapterkonfiguration zugewiesen wurde. ACME-Herausforderungen auf Port 80 werden vom Proxy automatisch an den konfigurierten ACME-Port weitergeleitet.
+Let's Encrypt-Zertifikate werden automatisch vom ACME-Adapter generiert. Sie werden gespeichert in `system.certificates → native.collections` unter dem Namen, der der Sammlung in der ACME-Adapterkonfiguration zugewiesen wurde. ACME-Herausforderungen auf Port 80 werden vom Proxy automatisch an den konfigurierten ACME-Port weitergeleitet.
 
 ### Pro-Host-Protokoll
 

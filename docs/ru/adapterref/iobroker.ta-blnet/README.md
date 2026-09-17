@@ -41,7 +41,7 @@ hash: ffx3dlMVpfvKuz+//EBB6sR8o/aAByZJWiWLFQcr1As=
 
 Установка может быть выполнена следующим образом:
 
-- **ioBroker GUI** : Перейдите в экспертный режим > Адаптер > Установить по URL и введите`https://github.com/weberk/ioBroker.ta-blnet`
+- **ioBroker GUI** : Перейдите в экспертный режим > Адаптер > Установить по URL и введите `https://github.com/weberk/ioBroker.ta-blnet`
 - **Интерфейс командной строки** : Выполните следующую команду:
   ```sh
   iobroker url iobroker.ta-blnet@latest

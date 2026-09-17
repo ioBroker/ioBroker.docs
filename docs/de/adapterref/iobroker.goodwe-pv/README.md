@@ -48,9 +48,9 @@ Alle GoodWe-Hybridwechselrichter, die die lokale Modbus-over-UDP-Schnittstelle a
 
 ## Konfiguration
 
-**IP-Adresse** — Lokale IP-Adresse des GoodWe-Wechselrichters (Standard:`127.0.0.1` Sie finden die IP-Adresse in der DHCP-Leasetabelle Ihres Routers oder im SEMS-Portal/in der ShinePhone-App unter „Geräteinformationen“. Eine statische IP-Adresse oder eine DHCP-Reservierung wird empfohlen.
+**IP-Adresse** — Lokale IP-Adresse des GoodWe-Wechselrichters (Standard: `127.0.0.1` Sie finden die IP-Adresse in der DHCP-Leasetabelle Ihres Routers oder im SEMS-Portal/in der ShinePhone-App unter „Geräteinformationen“. Eine statische IP-Adresse oder eine DHCP-Reservierung wird empfohlen.
 
-**Abfragezyklus** – Wie oft in Sekunden jede Datengruppe vom Wechselrichter neu eingelesen wird (Standard:`10` Die vier Datengruppen (DeviceInfo, RunningData, ExtComData, BMSInfo) sind so gestaffelt, dass pro Sekunde nur eine UDP-Anfrage gesendet wird.
+**Abfragezyklus** – Wie oft in Sekunden jede Datengruppe vom Wechselrichter neu eingelesen wird (Standard: `10` Die vier Datengruppen (DeviceInfo, RunningData, ExtComData, BMSInfo) sind so gestaffelt, dass pro Sekunde nur eine UDP-Anfrage gesendet wird.
 
 > **Tipp:** Die IP-Adresse des Wechselrichters finden Sie in der DHCP-Leasetabelle Ihres Routers oder im GoodWe SEMS-Portal bzw. in der ShinePhone-App unter „Geräteinformationen“. Es wird empfohlen, eine statische IP-Adresse zuzuweisen oder eine DHCP-Reservierung vorzunehmen, damit sich die Adresse nicht ändert.
 

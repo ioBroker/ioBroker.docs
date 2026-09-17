@@ -54,7 +54,7 @@ Dieser ioBroker-Adapter (ehemals ioBroker.Nuki2) ermöglicht die Steuerung und �
 
 So erhalten Sie Ihr Hardware-Bridge-Token (funktioniert nicht für Software-Bridges):
 
-1. Anruf`http://<bridge_ip>:<bridge_port>/auth` Von jedem Browser in Ihrem Netzwerk aus. Die LED der Bridge schaltet sich ein.
+1. Anruf `http://<bridge_ip>:<bridge_port>/auth` Von jedem Browser in Ihrem Netzwerk aus. Die LED der Bridge schaltet sich ein.
 2. Drücken Sie den Knopf der Brücke innerhalb von 30 Sekunden.
 3. Das Ergebnis des Browseraufrufs sollte etwa so aussehen:
    ```
@@ -71,7 +71,7 @@ Gehen Sie wie folgt vor, um die Nuki Web API zu verwenden:
 
 1. Ein Token kann unter <https://web.nuki.io/de/#/admin/web-api> abgerufen werden.
 2. Verwenden Sie dieses Token im nuki-extended Adapter
-3. Stellen Sie sicher, dass Ihre Nuki-Geräte in der Nuki Web API veröffentlicht sind (verwenden Sie dazu die Smartphone-App über die Einstellungen).`Activate Nuki Web` )
+3. Stellen Sie sicher, dass Ihre Nuki-Geräte in der Nuki Web API veröffentlicht sind (verwenden Sie dazu die Smartphone-App über die Einstellungen). `Activate Nuki Web`)
 
 ## Kanäle und Staaten
 
@@ -79,7 +79,7 @@ Wenn Sie ioBroker.nuki-extended erfolgreich eingerichtet haben, werden die folge
 
 ### Brücken (mit Nuki Bridge API)
 
-Es wird eine Brücke als Gerät mit dem Namensmuster erstellt.`bridge__<name of bridge>` In jeder Bridge werden die folgenden Kanäle/Zustände erstellt:
+Es wird eine Brücke als Gerät mit dem Namensmuster erstellt. `bridge__<name of bridge>` In jeder Bridge werden die folgenden Kanäle/Zustände erstellt:
 
 | Kanal                           | Zustand      | Beschreibung                                                                    |
 | :------------------------------ | :----------- | :------------------------------------------------------------------------------ |
@@ -127,7 +127,7 @@ Es wird eine Brücke als Gerät mit dem Namensmuster erstellt.`bridge__<name of 
 
 ### Smartlocks und Öffner (mit Nuki Bridge API)
 
-Es wird ein Schloss als Gerät mit dem Namensmuster erstellt.`door__<name of door>` Die folgenden Kanäle/Zustände werden in jedem Lock erstellt (bei Verwendung der Nuki Bridge API):
+Es wird ein Schloss als Gerät mit dem Namensmuster erstellt. `door__<name of door>` Die folgenden Kanäle/Zustände werden in jedem Lock erstellt (bei Verwendung der Nuki Bridge API):
 
 | Kanal  | Zustand              | Beschreibung                           |
 | :----- | :------------------- | :------------------------------------- |
@@ -146,7 +146,7 @@ _\*\* Markierte Zustände werden bei einer Nuki-Aktion aktualisiert, wenn ein Ca
 
 ### Smartlocks und Öffner (mit Nuki Web API)
 
-Es wird ein Schloss als Gerät mit dem Namensmuster erstellt.`door__<name of door>` Die folgenden Kanäle/Zustände werden in jedem Lock erstellt (bei Verwendung der Nuki Web API):
+Es wird ein Schloss als Gerät mit dem Namensmuster erstellt. `door__<name of door>` Die folgenden Kanäle/Zustände werden in jedem Lock erstellt (bei Verwendung der Nuki Web API):
 
 | Kanal | Zustand    | Beschreibung (mögliche Werte)    |
 | :---- | :--------- | :------------------------------- |
@@ -323,13 +323,13 @@ schedule('0 22 * * *', function()
 });
 ```
 
-**Ersetzen`nuki-extended.0.door__home_door.status.lockState` mit dem Sperrstatus Ihres Schlosses!** Sie können die Nachricht auch anpassen über`msg` Die
+**Ersetzen `nuki-extended.0.door__home_door.status.lockState` mit dem Sperrstatus Ihres Schlosses!** Sie können die Nachricht auch anpassen über `msg` Die
 
 ### Lassen Sie sich von Alexa über Schlossänderungen informieren.
 
 Hierfür wird der ioBroker-Adapter ioBroker.alexa2 ( <https://github.com/Apollon77/ioBroker.alexa2> ) benötigt.
 
-Um die Sprachausgabe von Alexa zu nutzen, definieren wir eine Funktion`say` Fügen Sie die folgende Funktion in ein Skript im Ordner „global“ von ioBroker.javascript ein. WICHTIG: Ersetzen Sie #IHRE ALEXA-ID# (und auch #) durch Ihre Alexa-ID. Sie finden die Alexa-ID in der Objektstruktur von ioBroker.`alexa2.0.Echo-Devices` Die
+Um die Sprachausgabe von Alexa zu nutzen, definieren wir eine Funktion `say` Fügen Sie die folgende Funktion in ein Skript im Ordner „global“ von ioBroker.javascript ein. WICHTIG: Ersetzen Sie #IHRE ALEXA-ID# (und auch #) durch Ihre Alexa-ID. Sie finden die Alexa-ID in der Objektstruktur von ioBroker. `alexa2.0.Echo-Devices` Die
 
 ```javascript
 /**
@@ -350,9 +350,9 @@ function say(message, alexas = '#YOUR ALEXA ID#') // use alexas = ['#YOUR ALEXA 
 }
 ```
 
-Sie können diese Funktion in ioBroker.javascript verwenden, um mit Alexa einen Satz zu sagen.`say('Hello World')` oder`say('Hello World', ['#YOUR ALEXA ID 1#', '#YOUR ALEXA ID 2#'])` zur Sprachausgabe von mehreren Geräten.
+Sie können diese Funktion in ioBroker.javascript verwenden, um mit Alexa einen Satz zu sagen. `say('Hello World')` oder `say('Hello World', ['#YOUR ALEXA ID 1#', '#YOUR ALEXA ID 2#'])` zur Sprachausgabe von mehreren Geräten.
 
-Erstellen Sie im Ordner „common“ der Datei ioBroker.javascript ein Skript und fügen Sie den folgenden Listener hinzu. WICHTIG: Ersetzen Sie #LOCK STATE ID# (und auch #) durch den Status, der den Sperrstatus enthält (z. B.`nuki-extended.0.door__home_door.status.lockState` ):
+Erstellen Sie im Ordner „common“ der Datei ioBroker.javascript ein Skript und fügen Sie den folgenden Listener hinzu. WICHTIG: Ersetzen Sie #LOCK STATE ID# (und auch #) durch den Status, der den Sperrstatus enthält (z. B. `nuki-extended.0.door__home_door.status.lockState`):
 
 ```javascript
 const DOOR_STATES = {
@@ -383,7 +383,7 @@ on({id: 'nuki-extended.0.smartlocks.home_door.state.lockState', change: 'any'}, 
 
 Hierfür wird der ioBroker-Adapter ioBroker.telegram ( <https://github.com/iobroker-community-adapters/ioBroker.telegram> ) benötigt.
 
-Um die Nachrichtenausgabe von Telegram zu nutzen, definieren wir eine Funktion`msg` Und`messenger` Fügen Sie die folgende Funktion in ein Skript im Ordner „global“ von ioBroker.javascript ein:
+Um die Nachrichtenausgabe von Telegram zu nutzen, definieren wir eine Funktion `msg` Und `messenger` Fügen Sie die folgende Funktion in ein Skript im Ordner „global“ von ioBroker.javascript ein:
 
 ```javascript
 /**
@@ -434,9 +434,9 @@ function messenger(content, user = '')
 }
 ```
 
-Sie können diese Funktion in ioBroker.javascript verwenden, um beliebige Inhalte über Telegram zu senden.`msg('Hello World')` (an alle Benutzer) oder`msg('Hello World', 'Zefau')` (an bestimmte Nutzer).
+Sie können diese Funktion in ioBroker.javascript verwenden, um beliebige Inhalte über Telegram zu senden. `msg('Hello World')` (an alle Benutzer) oder `msg('Hello World', 'Zefau')` (an bestimmte Nutzer).
 
-Erstellen Sie im Ordner „common“ der Datei ioBroker.javascript ein Skript und fügen Sie den folgenden Listener hinzu. WICHTIG: Ersetzen Sie #LOCK STATE ID# (und auch #) durch den Status, der den Sperrstatus enthält (z. B.`nuki-extended.0.door__home_door.status.lockState` ):
+Erstellen Sie im Ordner „common“ der Datei ioBroker.javascript ein Skript und fügen Sie den folgenden Listener hinzu. WICHTIG: Ersetzen Sie #LOCK STATE ID# (und auch #) durch den Status, der den Sperrstatus enthält (z. B. `nuki-extended.0.door__home_door.status.lockState`):
 
 ```javascript
 const DOOR_STATES = {

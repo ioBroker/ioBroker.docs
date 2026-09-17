@@ -40,7 +40,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## Verwendung
 
-Um den Player zu steuern, müssen Sie das Plugin [foo\_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/) installieren. Um das Cover als Link zu einer Datei anzuzeigen, fügen Sie in der Datei`c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config` Ändern Sie den Parameter`albumart_prefer_embedded = 0`
+Um den Player zu steuern, müssen Sie das Plugin [foo\_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/) installieren. Um das Cover als Link zu einer Datei anzuzeigen, fügen Sie in der Datei `c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config` Ändern Sie den Parameter `albumart_prefer_embedded = 0`
 
 ## Changelog
 

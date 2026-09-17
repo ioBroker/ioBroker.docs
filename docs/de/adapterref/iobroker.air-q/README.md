@@ -33,7 +33,7 @@ Dieser ioBroker-Adapter wird in Verbindung mit unserem [air-Q-Gerät](https://ww
 
 ### Installieren Sie den Adapter und fügen Sie eine Instanz hinzu.
 
-Navigieren Sie in Ihrer Admin-Oberfläche zu`Adapters` in der Seitenleiste und suchen Sie nach`air-q` In`Filter by name` . Wählen`+` (`Add instance` ) im`⋮` (`Info` ) Menü des Adapters.
+Navigieren Sie in Ihrer Admin-Oberfläche zu `Adapters` in der Seitenleiste und suchen Sie nach `air-q` In `Filter by name`. Wählen `+` (`Add instance`) im `⋮` (`Info`) Menü des Adapters.
 
 Dadurch werden die Instanzeinstellungen automatisch geöffnet.
 
@@ -74,15 +74,15 @@ Sie können den Adapter auch über **ioBroker.discovery** konfigurieren: Führen
 
 ### Optional
 
-- **Nachtmodus des Geräts beachten** . Standard:`on` Wenn auf Ihrem air-Q-Gerät der Nachtmodus aktiviert und WLAN nachts deaktiviert ist, kann der Adapter Abfrageversuche während dieser Stunden automatisch überspringen. Dadurch werden unnötige Verbindungsfehler in Ihren Protokollen vermieden. ⚠️ Wenn Sie die Einstellungen für den Nachtmodus Ihres Geräts ändern (Start-/Endzeit, Aktivieren/Deaktivieren), haben Sie zwei Möglichkeiten:
+- **Nachtmodus des Geräts beachten** . Standard: `on` Wenn auf Ihrem air-Q-Gerät der Nachtmodus aktiviert und WLAN nachts deaktiviert ist, kann der Adapter Abfrageversuche während dieser Stunden automatisch überspringen. Dadurch werden unnötige Verbindungsfehler in Ihren Protokollen vermieden. ⚠️ Wenn Sie die Einstellungen für den Nachtmodus Ihres Geräts ändern (Start-/Endzeit, Aktivieren/Deaktivieren), haben Sie zwei Möglichkeiten:
   1. (Empfohlen): Starten Sie den Adapter neu, um die neue Konfiguration sofort zu laden.
   2. (Automatisch): Warten Sie bis zu 1 Stunde, bis der Adapter die Konfiguration automatisch aktualisiert (funktioniert nur außerhalb der Nachtmoduszeiten).
 
-- **Negative Werte abschneiden** . Standardwert:`off` Zur Kalibrierung der Ausgangswerte können bestimmte Sensorwerte kurzzeitig negativ werden. Solche Werte können Sie bedenkenlos auf 0 begrenzen.
+- **Negative Werte abschneiden** . Standardwert: `off` Zur Kalibrierung der Ausgangswerte können bestimmte Sensorwerte kurzzeitig negativ werden. Solche Werte können Sie bedenkenlos auf 0 begrenzen.
 
-- **Daten alle x Sekunden abfragen** . Standardwert:`10` Sie können die Häufigkeit der Datenabfrage in Sekunden festlegen.
+- **Daten alle x Sekunden abfragen** . Standardwert: `10` Sie können die Häufigkeit der Datenabfrage in Sekunden festlegen.
 
-- **Datentyp abrufen** . Standard:`Average data` In der Standardkonfiguration mittelt air-Q die Sensorwerte. Mit diesem Adapter können Sie zwischen dem Abrufen der gemittelten und der Rohdaten vom Gerät umschalten. Um verrauschte Sensorwerte abzurufen, wählen Sie`Realtime data` aus dem Dropdown-Menü.
+- **Datentyp abrufen** . Standard: `Average data` In der Standardkonfiguration mittelt air-Q die Sensorwerte. Mit diesem Adapter können Sie zwischen dem Abrufen der gemittelten und der Rohdaten vom Gerät umschalten. Um verrauschte Sensorwerte abzurufen, wählen Sie `Realtime data` aus dem Dropdown-Menü.
 
 Jetzt sind Sie bestens vorbereitet und können loslegen!
 

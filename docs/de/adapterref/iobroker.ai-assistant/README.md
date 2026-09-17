@@ -46,8 +46,8 @@ Der ioBroker AI Assistant Adapter führt einen intelligenten Assistenten in Ihre
 2. Richten Sie einen Provider ein (z. B. OpenAI, Anthropic, Perplexity, OpenRouter) und besorgen Sie sich ein API-Token.
 3. Konfigurieren Sie den Adapter mit dem API-Token.
 4. Wählen Sie das Modell aus, das Sie für den Assistenten verwenden möchten.
-5. Fügen Sie einige ioBroker-Zustände unter dem`Objects` Registerkarte, die dem Assistenten zur Verfügung stehen wird.
-6. Beginnen Sie die Kommunikation mit Ihrem Assistenten, indem Sie Textanfragen an den Assistenten senden.`text_request` den Staat und Antworten von ihm erhalten`text_response` Alternativ können Sie den benutzerdefinierten Admin-Tab mit der Bezeichnung „Assistent“ verwenden.
+5. Fügen Sie einige ioBroker-Zustände unter dem `Objects` Registerkarte, die dem Assistenten zur Verfügung stehen wird.
+6. Beginnen Sie die Kommunikation mit Ihrem Assistenten, indem Sie Textanfragen an den Assistenten senden. `text_request` den Staat und Antworten von ihm erhalten `text_response` Alternativ können Sie den benutzerdefinierten Admin-Tab mit der Bezeichnung „Assistent“ verwenden.
 
 ---
 
@@ -105,9 +105,9 @@ Richten Sie die ioBrokers-Objekte und -Zustände ein, auf die der Assistent Zugr
 
 ### Funktionen
 
-Richten Sie benutzerdefinierte Funktionen ein, die dem Assistenten zur Verfügung stehen sollen. Ihre benutzerdefinierten Funktionen müssen die Antwort in den von Ihnen definierten Zustand schreiben.`State (Response)` Feld nach dem`State (Request)` Das Ergebnis kann in jedem beliebigen Format vorliegen (z. B. JSON, Klartext), solange der Assistent es verarbeiten kann. Tipp: Mit dem [AI-Toolbox-Adapter](https://github.com/ToGe3688/ioBroker.ai-toolbox) können Sie Ihren Assistenten in benutzerdefinierte KI-Tools integrieren.
+Richten Sie benutzerdefinierte Funktionen ein, die dem Assistenten zur Verfügung stehen sollen. Ihre benutzerdefinierten Funktionen müssen die Antwort in den von Ihnen definierten Zustand schreiben. `State (Response)` Feld nach dem `State (Request)` Das Ergebnis kann in jedem beliebigen Format vorliegen (z. B. JSON, Klartext), solange der Assistent es verarbeiten kann. Tipp: Mit dem [AI-Toolbox-Adapter](https://github.com/ToGe3688/ioBroker.ai-toolbox) können Sie Ihren Assistenten in benutzerdefinierte KI-Tools integrieren.
 
-**HINWEIS: Wenn Sie keine Antwort auf die`State (Response)` Wird das Feld in 60 Sekunden nicht erreicht, schlägt der Funktionsaufruf fehl!**
+**HINWEIS: Wenn Sie keine Antwort auf die `State (Response)` Wird das Feld in 60 Sekunden nicht erreicht, schlägt der Funktionsaufruf fehl!**
 
 | **Einstellung**       | **Beschreibung**                                                                                            |
 | --------------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -166,27 +166,27 @@ Konfigurieren Sie jeden KI-Anbieter einzeln:
 
 ### Einfaches Gespräch
 
-Sie können mit Ihrem Assistenten interagieren, indem Sie Textanfragen an die`text_request` Zustand und Empfang von Antworten von der`text_response` Zustand.
+Sie können mit Ihrem Assistenten interagieren, indem Sie Textanfragen an die `text_request` Zustand und Empfang von Antworten von der `text_response` Zustand.
 
 #### Funktionsaufruf
 
-Der Assistent kann alle verfügbaren Funktionen aufrufen. Er ermittelt dazu die aufzurufende Funktion anhand der Textanfrage. Wenn Sie die Debug-/CoT-Ausgabe aktiviert haben, können Sie den internen Prozess des Assistenten im Debugger einsehen.`text_response` Zustand.
+Der Assistent kann alle verfügbaren Funktionen aufrufen. Er ermittelt dazu die aufzurufende Funktion anhand der Textanfrage. Wenn Sie die Debug-/CoT-Ausgabe aktiviert haben, können Sie den internen Prozess des Assistenten im Debugger einsehen. `text_response` Zustand.
 
 #### Zustandsinteraktion
 
-Der Assistent kann mehrere ioBroker-Zustände gleichzeitig auflisten, lesen und schreiben. Sie können den`Objects` Mit dieser Registerkarte können Sie festlegen, auf welche Bundesstaaten der Assistent Zugriff haben soll.
+Der Assistent kann mehrere ioBroker-Zustände gleichzeitig auflisten, lesen und schreiben. Sie können den `Objects` Mit dieser Registerkarte können Sie festlegen, auf welche Bundesstaaten der Assistent Zugriff haben soll.
 
 #### Zeitbasierte Anweisungen
 
-Der Assistent kann Timeouts für relative Zeitanweisungen und Cronjobs für bestimmte Zeiten festlegen. Cronjobs werden in der Objektstruktur des Assistenten unter \[Pfad einfügen] aufgelistet.`Cronjobs` Timeouts sind nur temporär und werden nach Ablauf des Timeouts oder nach einem Neustart des Adapters aufgehoben. Bei Auslösung eines Timeouts oder Cronjobs wird der Assistent aktiviert und die entsprechende Anweisung ausgeführt.
+Der Assistent kann Timeouts für relative Zeitanweisungen und Cronjobs für bestimmte Zeiten festlegen. Cronjobs werden in der Objektstruktur des Assistenten unter \[Pfad einfügen] aufgelistet. `Cronjobs` Timeouts sind nur temporär und werden nach Ablauf des Timeouts oder nach einem Neustart des Adapters aufgehoben. Bei Auslösung eines Timeouts oder Cronjobs wird der Assistent aktiviert und die entsprechende Anweisung ausgeführt.
 
 #### Triggerbasierte Anweisungen
 
-Der Assistent kann Trigger für ioBroker-Zustände mit optionalen Bedingungen festlegen, die Anweisungen ausführen, sobald die Bedingungen erfüllt sind. Die Trigger werden in der Objektstruktur des Assistenten unter „…“ aufgelistet.`Triggers` Wird der Befehl ausgelöst, wird der Assistent aktiviert und die Anweisung ausgeführt.
+Der Assistent kann Trigger für ioBroker-Zustände mit optionalen Bedingungen festlegen, die Anweisungen ausführen, sobald die Bedingungen erfüllt sind. Die Trigger werden in der Objektstruktur des Assistenten unter „…“ aufgelistet. `Triggers` Wird der Befehl ausgelöst, wird der Assistent aktiviert und die Anweisung ausgeführt.
 
 #### Benutzerdefinierte Funktionen
 
-Der Assistent kann benutzerdefinierte Funktionen aufrufen, die Sie in der`Functions` Der Assistent wird die Anfrage an die Registerkarte schreiben.`State (Request)` Feld und erwartet die Antwort im`State (Response)` Feld.
+Der Assistent kann benutzerdefinierte Funktionen aufrufen, die Sie in der `Functions` Der Assistent wird die Anfrage an die Registerkarte schreiben. `State (Request)` Feld und erwartet die Antwort im `State (Response)` Feld.
 
 #### Funktionsverkettung
 
@@ -194,13 +194,13 @@ Der Assistent ermöglicht die Verkettung mehrerer Funktionen. Beispielsweise lä
 
 #### Chatverlauf löschen
 
-Manchmal kann es hilfreich sein, den Chatverlauf zurückzusetzen. Dies können Sie tun, indem Sie den Assistenten bitten, seinen Verlauf zu löschen. Dadurch werden alle vorherigen Nachrichten aus dem Speicher des Assistenten entfernt. (z. B.`Clear history` oder`Forget the previous messages` )
+Manchmal kann es hilfreich sein, den Chatverlauf zurückzusetzen. Dies können Sie tun, indem Sie den Assistenten bitten, seinen Verlauf zu löschen. Dadurch werden alle vorherigen Nachrichten aus dem Speicher des Assistenten entfernt. (z. B. `Clear history` oder `Forget the previous messages`)
 
 ## Weitere Informationen
 
 ### Statistiken
 
-Für Ihren Assistenten werden Statistiken protokolliert, die Sie in der folgenden Ansicht einsehen können:`Statistics` Objektbaum.
+Für Ihren Assistenten werden Statistiken protokolliert, die Sie in der folgenden Ansicht einsehen können: `Statistics` Objektbaum.
 
 | **Datenpunkt**                    | **Beschreibung**                                                    |
 | --------------------------------- | ------------------------------------------------------------------- |
@@ -217,7 +217,7 @@ Dieser Adapter befindet sich noch in der Entwicklung und kann Fehler enthalten. 
 
 ### Debugging
 
-Stellen Sie den Protokollierungsgrad auf ein`debug` Detaillierte Protokolle finden Sie in der ioBroker-Admin-Oberfläche.
+Stellen Sie den Protokollierungsgrad auf ein `debug` Detaillierte Protokolle finden Sie in der ioBroker-Admin-Oberfläche.
 
 ## Changelog
 

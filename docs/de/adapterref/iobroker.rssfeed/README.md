@@ -69,7 +69,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 | --------------------- | -------------------------------------------------------------------------------------------------------- |
 | Name                  | Name für den erstellten Zustand. Der Name muss innerhalb seines Ordners eindeutig sein.                  |
 | Kategorie             | Optionaler Unterordner, in dem der Status erstellt wird.                                                 |
-| URL                   | Vollständige Feed-Adresse, einschließlich`http://` oder`https://` Die                                    |
+| URL                   | Vollständige Feed-Adresse, einschließlich `http://` oder `https://` Die                                    |
 | Aktualisierung (Min.) | Optionales, feedspezifisches Aktualisierungsintervall. Ist dieses leer, wird der Standardwert verwendet. |
 | Max-Artikel           | Optionales, feedspezifisches Artikellimit. Wenn leer, wird der allgemeine Wert verwendet.                |
 
@@ -99,7 +99,7 @@ Der EJS-Leitfaden erläutert die allgemeine Template-Notation unabhängig von ei
 
 ## Todo
 
-- Nicht verwendete Einträge aufräumen in`info.lastRequest` beim Speichern der Administratorkonfiguration.
+- Nicht verwendete Einträge aufräumen in `info.lastRequest` beim Speichern der Administratorkonfiguration.
 - Fügen Sie eine Schaltfläche zum Löschen nicht verwendeter Feed-Zustände aus der Objektstruktur hinzu.
 
 ## Changelog

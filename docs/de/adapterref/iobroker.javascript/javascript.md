@@ -179,9 +179,9 @@ hash: X1HVE/A9+JcDFcuk7AdslSskOjjerFs2ylau36frk2c=
 
 ## Globale Funktionen
 
-Sie können die globalen Skripte in der`global` Ordner. Alle globalen Skripte sind auf allen Instanzen verfügbar. Wenn ein globales Skript deaktiviert ist, wird es nicht verwendet. Globale Skripte werden einfach dem normalen Skript vorangestellt und kompiliert. Daher ist es nicht möglich, Daten zwischen Skripten über globale Skripte auszutauschen. Verwenden Sie hierfür Zustände.
+Sie können die globalen Skripte in der `global` Ordner. Alle globalen Skripte sind auf allen Instanzen verfügbar. Wenn ein globales Skript deaktiviert ist, wird es nicht verwendet. Globale Skripte werden einfach dem normalen Skript vorangestellt und kompiliert. Daher ist es nicht möglich, Daten zwischen Skripten über globale Skripte auszutauschen. Verwenden Sie hierfür Zustände.
 
-Um globale Funktionen in TypeScript zu verwenden, müssen Sie`declare` Zuerst sollten sie dem Compiler bekannt sein, damit dieser die globalen Funktionen kennt. Beispiel:
+Um globale Funktionen in TypeScript zu verwenden, müssen Sie `declare` Zuerst sollten sie dem Compiler bekannt sein, damit dieser die globalen Funktionen kennt. Beispiel:
 
 ```typescript
 // global script:
@@ -209,15 +209,15 @@ Erstellen Sie zwei Instanzen des JavaScript-Adapters: eine „Test“- und eine 
 const mod = require('module_name');
 ```
 
-Folgende Module sind vorinstalliert:`node:dgram` ,`node:crypto` ,`node:dns` ,`node:events` ,`node:fs` ,`node:http` ,`node:https` ,`node:http2` ,`node:net` ,`node:os` ,`node:path` ,`node:util` ,`node:stream` ,`node:zlib` ,`suncalc2` ,`axios` ,`wake_on_lan` ,`request` (veraltet)
+Folgende Module sind vorinstalliert: `node:dgram`, `node:crypto`, `node:dns`, `node:events`, `node:fs`, `node:http`, `node:https`, `node:http2`, `node:net`, `node:os`, `node:path`, `node:util`, `node:stream`, `node:zlib`, `suncalc2`, `axios`, `wake_on_lan`, `request` (veraltet)
 
 Um andere Module zu verwenden, geben Sie den Namen (und die Version) des Moduls in der Instanzkonfiguration an. ioBroker installiert das Modul. Anschließend können Sie es in Ihren Skripten einbinden und verwenden.
 
 ### Konsole – Gibt die Nachricht im Protokoll aus
 
-Die Verwendung ist die gleiche wie in`javascript`
+Die Verwendung ist die gleiche wie in `javascript`
 
-### exec - einen Betriebssystembefehl ausführen, zum Beispiel`cp file1 file2`
+### exec - einen Betriebssystembefehl ausführen, zum Beispiel `cp file1 file2`
 
 ```js
 exec(cmd, [options], callback);
@@ -264,7 +264,7 @@ Die Callback-Funktion gibt das Objekt als Parameter mit folgendem Inhalt zurück
 }
 ```
 
-**Notiz:**`state` wurde zuvor genannt`newState` Das funktioniert immer noch.
+**Notiz:** `state` wurde zuvor genannt `newState` Das funktioniert immer noch.
 
 Beispiel:
 
@@ -398,7 +398,7 @@ Sie können die folgenden Parameter verwenden, um den Auslöser festzulegen:
 |            | RegExp          | Der alte Wert stammt nicht von einem Adapter, der dem regulären Ausdruck entspricht.                                                                                                                            |
 |            | Array           | Der alte Wert stammt nicht von einem Adapter, der in der angegebenen Liste der verbotenen Adapter enthalten ist.                                                                                                |
 
-Beispiele: Auslöser für alle Zustände mit ID`'*.STATE'` wenn sie anerkannt werden und einen neuen Wert haben`true` Die
+Beispiele: Auslöser für alle Zustände mit ID `'*.STATE'` wenn sie anerkannt werden und einen neuen Wert haben `true` Die
 
 ```js
 {
@@ -428,7 +428,7 @@ on('stateId1', 'stateId2');
 
 Alle Änderungen von _stateId1_ werden in _stateId2_ geschrieben.
 
-Wenn die`value` Der Parameter wird in Kombination mit der Status-ID als zweitem Parameter festgelegt; bei jeder Änderung wird der Status entsprechend aktualisiert.`value` Die
+Wenn die `value` Der Parameter wird in Kombination mit der Status-ID als zweitem Parameter festgelegt; bei jeder Änderung wird der Status entsprechend aktualisiert. `value` Die
 
 ```js
 on('stateId1', 'stateId2', 'triggered');
@@ -437,15 +437,15 @@ setState('stateId1', 'new value');
 // stateId2 will be set to 'triggered'.
 ```
 
-Funktion`on` Gibt den Handler zurück. Dieser Handler kann durch Abmelden verwendet werden.
+Funktion `on` Gibt den Handler zurück. Dieser Handler kann durch Abmelden verwendet werden.
 
-_Hinweis:_ Standardmäßig werden nur Zustände mit der Qualität 0x00 an die Callback-Funktion übergeben. Um alle Ereignisse zu erhalten, fügen Sie Folgendes hinzu:`{q: '*'}` zur Musterstruktur.
+_Hinweis:_ Standardmäßig werden nur Zustände mit der Qualität 0x00 an die Callback-Funktion übergeben. Um alle Ereignisse zu erhalten, fügen Sie Folgendes hinzu: `{q: '*'}` zur Musterstruktur.
 
-_Hinweis:_ Bitte beachten Sie, dass "change" standardmäßig "any" entspricht, außer wenn nur "id" als Zeichenkette angegeben ist (z. B.`on('id', () => {});` Im letzten Fall wird die Änderung auf „ne“ gesetzt.
+_Hinweis:_ Bitte beachten Sie, dass "change" standardmäßig "any" entspricht, außer wenn nur "id" als Zeichenkette angegeben ist (z. B. `on('id', () => {});` Im letzten Fall wird die Änderung auf „ne“ gesetzt.
 
-_Hinweis:_ Wenn Sie auch Statuslöschungen/Ablaufereignisse als Auslöser erhalten möchten, müssen Sie die Änderungsfunktion verwenden.`ne` oder`any` UND q mit`*` als Filter!
+_Hinweis:_ Wenn Sie auch Statuslöschungen/Ablaufereignisse als Auslöser erhalten möchten, müssen Sie die Änderungsfunktion verwenden. `ne` oder `any` UND q mit `*` als Filter!
 
-_Hinweis:_ Ab Version 4.3.2 ist es möglich, einen Triggertyp als zweiten Parameter anzugeben:`on('my.id.0', 'any', obj => log(obj.state.val));`
+_Hinweis:_ Ab Version 4.3.2 ist es möglich, einen Triggertyp als zweiten Parameter anzugeben: `on('my.id.0', 'any', obj => log(obj.state.val));`
 
 ### einmal
 
@@ -634,18 +634,18 @@ Das Attribut „Verschiebung“ gibt den Versatz in Minuten an. Es kann auch neg
 Folgende Werte können als Attribut in der Astro-Funktion verwendet werden:
 
 - `"sunrise"` Sonnenaufgang (der obere Rand der Sonne erscheint am Horizont)
-- `"sunriseEnd"` : Sonnenaufgang endet (Unterkante der Sonne berührt den Horizont)
-- `"goldenHourEnd"` : Die goldene Stunde des Morgens (weiches Licht, die beste Zeit zum Fotografieren) endet
-- `"solarNoon"` : Sonnenhöchststand (die Sonne steht am höchsten)
-- `"goldenHour"` : Die goldene Stunde am Abend beginnt
+- `"sunriseEnd"`: Sonnenaufgang endet (Unterkante der Sonne berührt den Horizont)
+- `"goldenHourEnd"`: Die goldene Stunde des Morgens (weiches Licht, die beste Zeit zum Fotografieren) endet
+- `"solarNoon"`: Sonnenhöchststand (die Sonne steht am höchsten)
+- `"goldenHour"`: Die goldene Stunde am Abend beginnt
 - `"sunsetStart"` Sonnenuntergang beginnt (der untere Rand der Sonne berührt den Horizont)
 - `"sunset"` Sonnenuntergang (die Sonne verschwindet hinter dem Horizont, die bürgerliche Abenddämmerung beginnt)
 - `"dusk"` Dämmerung (die nautische Abenddämmerung beginnt)
-- `"nauticalDusk"` : nautische Dämmerung (beginnt die astronomische Abenddämmerung)
-- `"night"` : Die Nacht beginnt (dunkel genug für astronomische Beobachtungen)
-- `"nightEnd"` : Die Nacht endet (die astronomische Morgendämmerung beginnt)
-- `"nauticalDawn"` : nautische Dämmerung (Morgendämmerung auf See beginnt)
-- `"dawn"` : Morgendämmerung (die nautische Morgendämmerung endet, die bürgerliche Morgendämmerung beginnt)
+- `"nauticalDusk"`: nautische Dämmerung (beginnt die astronomische Abenddämmerung)
+- `"night"`: Die Nacht beginnt (dunkel genug für astronomische Beobachtungen)
+- `"nightEnd"`: Die Nacht endet (die astronomische Morgendämmerung beginnt)
+- `"nauticalDawn"`: nautische Dämmerung (Morgendämmerung auf See beginnt)
+- `"dawn"`: Morgendämmerung (die nautische Morgendämmerung endet, die bürgerliche Morgendämmerung beginnt)
 - `"nadir"` Nadir (der dunkelste Moment der Nacht, die Sonne steht am tiefsten)
 
 **Hinweis:** Um die "astro"-Funktion zu verwenden, müssen "latitude" und "longitude" in den Javascript-Adaptereinstellungen definiert werden.
@@ -679,8 +679,8 @@ Ermöglicht die Erstellung eines Zeitplans basierend auf einem Statuswert. Ände
 
 Unterstützte Formate:
 
-- `[h]h:[m]m:ss` (z.B`12:42:15` ,`15:3:12` ,`3:10:25` )
-- `[h]h:[m]m` (z.B`13:37` ,`9:40` )
+- `[h]h:[m]m:ss` (z.B `12:42:15`, `15:3:12`, `3:10:25`)
+- `[h]h:[m]m` (z.B `13:37`, `9:40`)
 
 ```js
 scheduleById('0_userdata.0.configurableTimeFormat', () => {
@@ -713,7 +713,7 @@ createState(
 const list = getSchedules(true);
 ```
 
-Gibt die Liste aller CRON-Jobs und -Zeitpläne (außer astro) zurück. Das Argument muss ein`true` Wenn Sie die Liste für **jedes laufende Skript** erhalten möchten. Andernfalls werden nur die Zeitpläne des aktuellen Skripts zurückgegeben.
+Gibt die Liste aller CRON-Jobs und -Zeitpläne (außer astro) zurück. Das Argument muss ein `true` Wenn Sie die Liste für **jedes laufende Skript** erhalten möchten. Andernfalls werden nur die Zeitpläne des aktuellen Skripts zurückgegeben.
 
 ```js
 const list = getSchedules(true);
@@ -741,14 +741,14 @@ let sch = schedule('*/2 * * * *', () => { /* ... */ });
 clearSchedule(sch);
 ```
 
-`clearSchedule` akzeptiert alles`schedule` Gibt (ein CRON-Job-Objekt oder die ID eines Zeitplans des Zeitassistenten) und auch die Einträge von [getSchedules](#getschedules) zurück:
+`clearSchedule` akzeptiert alles `schedule` Gibt (ein CRON-Job-Objekt oder die ID eines Zeitplans des Zeitassistenten) und auch die Einträge von [getSchedules](#getschedules) zurück:
 
 ```js
 // Clear all schedules of this script
 getSchedules().forEach(sch => clearSchedule(sch));
 ```
 
-Es kehrt zurück`true` wenn der Zeitplan gefunden und freigegeben wurde, andernfalls`false` Mit der Astro-Option erstellte Zeitpläne können auf diese Weise nicht gelöscht werden.
+Es kehrt zurück `true` wenn der Zeitplan gefunden und freigegeben wurde, andernfalls `false` Mit der Astro-Option erstellte Zeitpläne können auf diese Weise nicht gelöscht werden.
 
 ### getAttr
 
@@ -766,7 +766,7 @@ Wenn das erste Attribut vom Typ String ist, versucht die Funktion, den String al
 getAstroDate(pattern, date, offsetMinutes);
 ```
 
-Gibt ein JavaScript-Date-Objekt für den angegebenen Astro-Namen zurück (z. B.`"sunrise"` oder`"sunriseEnd"` Gültige Werte finden Sie in der Liste der zulässigen Werte im Abschnitt „Astro“ der Funktion _„Zeitplan“_ .
+Gibt ein JavaScript-Date-Objekt für den angegebenen Astro-Namen zurück (z. B. `"sunrise"` oder `"sunriseEnd"` Gültige Werte finden Sie in der Liste der zulässigen Werte im Abschnitt „Astro“ der Funktion _„Zeitplan“_ .
 
 Das zurückgegebene Datumsobjekt wird für das übergebene _Datum_ berechnet. Wird kein Datum angegeben, wird der aktuelle Tag verwendet.
 
@@ -789,7 +789,7 @@ Sie können Webseiten wie [suncalc.net](http://suncalc.net) verwenden, um zu üb
 isAstroDay();
 ```
 
-Rücksendungen`true` wenn die aktuelle Zeit zwischen dem astronomischen Sonnenaufgang und Sonnenuntergang liegt.
+Rücksendungen `true` wenn die aktuelle Zeit zwischen dem astronomischen Sonnenaufgang und Sonnenuntergang liegt.
 
 ### Vergleichszeit
 
@@ -799,22 +799,22 @@ compareTime(startTime, endTime, operation, timeToCompare);
 
 Vergleiche die vorgegebene Zeit mit den Grenzwerten.
 
-Wenn`timeToCompare` Da keine Zeitangabe vorliegt, wird die tatsächliche Zeit verwendet.
+Wenn `timeToCompare` Da keine Zeitangabe vorliegt, wird die tatsächliche Zeit verwendet.
 
 Folgende Operationen sind möglich:
 
-- `">"` - wenn die vorgegebene Zeit größer ist als`startTime`
-- `">="` - wenn die angegebene Zeit größer oder gleich ist`startTime`
-- `"<"` - wenn die vorgegebene Zeit kürzer ist als`startTime`
-- `"<="` - wenn die vorgegebene Zeit kleiner oder gleich ist`startTime`
-- `"=="` - wenn die gegebene Zeit gleich ist`startTime`
-- `"<>"` - wenn die vorgegebene Zeit nicht gleich ist`startTime`
-- `"between"` - wenn die angegebene Zeit zwischen`startTime` Und`endTime`
-- `"not between"` - wenn die angegebene Zeit nicht zwischen`startTime` Und`endTime`
+- `">"` - wenn die vorgegebene Zeit größer ist als `startTime`
+- `">="` - wenn die angegebene Zeit größer oder gleich ist `startTime`
+- `"<"` - wenn die vorgegebene Zeit kürzer ist als `startTime`
+- `"<="` - wenn die vorgegebene Zeit kleiner oder gleich ist `startTime`
+- `"=="` - wenn die gegebene Zeit gleich ist `startTime`
+- `"<>"` - wenn die vorgegebene Zeit nicht gleich ist `startTime`
+- `"between"` - wenn die angegebene Zeit zwischen `startTime` Und `endTime`
+- `"not between"` - wenn die angegebene Zeit nicht zwischen `startTime` Und `endTime`
 
 Die Zeitangabe kann ein Datumsobjekt, ein Datum mit Uhrzeit oder nur die Zeitangabe sein.
 
-Sie können astronomische Namen für die Zeitdefinition verwenden. Alle drei Parameter können als astronomische Zeit eingestellt werden. Folgende Werte sind möglich:`sunrise` ,`sunset` ,`sunriseEnd` ,`sunsetStart` ,`dawn` ,`dusk` ,`nauticalDawn` ,`nauticalDusk` ,`nightEnd` ,`night` ,`goldenHourEnd` ,`goldenHour` Weitere Einzelheiten finden Sie bei Astro.
+Sie können astronomische Namen für die Zeitdefinition verwenden. Alle drei Parameter können als astronomische Zeit eingestellt werden. Folgende Werte sind möglich: `sunrise`, `sunset`, `sunriseEnd`, `sunsetStart`, `dawn`, `dusk`, `nauticalDawn`, `nauticalDusk`, `nightEnd`, `night`, `goldenHourEnd`, `goldenHour` Weitere Einzelheiten finden Sie bei Astro.
 
 ```js
 log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
@@ -850,7 +850,7 @@ setState('myState', { val: 1, ack: false });
 setState('myState', 1);
 ```
 
-Informationen zur Verwendung finden Sie unter [https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation#commands-and-statuses.](https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation#commands-and-statuses)`ack` . Kurz:
+Informationen zur Verwendung finden Sie unter [https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation#commands-and-statuses.](https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation#commands-and-statuses) `ack`. Kurz:
 
 - `ack` =`false` Das Skript möchte einen Befehl an das Zielgerät/den Zieladapter senden, der dort ausgeführt werden soll.
 - `ack` =`true` Der Befehl wurde erfolgreich ausgeführt, und der Status wurde als positives Ergebnis aktualisiert.
@@ -861,7 +861,7 @@ Informationen zur Verwendung finden Sie unter [https://github.com/ioBroker/ioBro
 await setStateAsync(id, state, ack);
 ```
 
-Dasselbe wie setState, aber mit`promise` Die
+Dasselbe wie setState, aber mit `promise` Die
 
 ### setStateDelayed
 
@@ -897,7 +897,7 @@ Dasselbe wie setState, aber der Wert wird nur dann gesetzt, wenn er sich tatsäc
 await setStateChangedAsync(id, state, ack);
 ```
 
-Dasselbe wie setStateChanged, aber mit`promise` Die
+Dasselbe wie setStateChanged, aber mit `promise` Die
 
 ### clearStateDelayed
 
@@ -979,7 +979,7 @@ Gibt den Zustand mit der angegebenen ID in folgendem Format zurück:
 }
 ```
 
-Falls kein Zustand existiert, wird eine Warnung in den Protokollen ausgegeben und das Objekt wird entsprechend angepasst.`{ val: null, notExist: true }` wird zurückgegeben. Um die Warnung zu unterdrücken, prüfen Sie, ob der Zustand existiert, bevor Sie getState aufrufen (siehe [existsState](#existsState) ).
+Falls kein Zustand existiert, wird eine Warnung in den Protokollen ausgegeben und das Objekt wird entsprechend angepasst. `{ val: null, notExist: true }` wird zurückgegeben. Um die Warnung zu unterdrücken, prüfen Sie, ob der Zustand existiert, bevor Sie getState aufrufen (siehe [existsState](#existsState) ).
 
 ### getStateAsync
 
@@ -987,7 +987,7 @@ Falls kein Zustand existiert, wird eine Warnung in den Protokollen ausgegeben un
 const stateObject = await getStateAsync(id);
 ```
 
-Dasselbe wie getState, aber mit`promise` Die
+Dasselbe wie getState, aber mit `promise` Die
 
 ### existiertZustand
 
@@ -1059,7 +1059,7 @@ Prüfen, ob ein Objekt existiert.
 extendObject(id, obj, callback);
 ```
 
-Es ist fast dasselbe wie`setObject` Zuerst liest es aber das Objekt ein und versucht, alle Einstellungen zusammenzuführen.
+Es ist fast dasselbe wie `setObject` Zuerst liest es aber das Objekt ein und versucht, alle Einstellungen zusammenzuführen.
 
 Verwenden Sie es folgendermaßen:
 
@@ -1074,9 +1074,9 @@ extendObject('system.adapter.sayit.0', {common: {enabled: false}});
 deleteObject(id, isRecursive, callback);
 ```
 
-Ein Objekt anhand seiner ID aus der Datenbank löschen. Wenn das Objekt den Typ hat.`state` Der Statuswert wird ebenfalls gelöscht.
+Ein Objekt anhand seiner ID aus der Datenbank löschen. Wenn das Objekt den Typ hat. `state` Der Statuswert wird ebenfalls gelöscht.
 
-Zusätzlicher Parameter`isRecursive` Es könnte eine solche ID angegeben werden, sodass alle Kinder mit dieser ID gelöscht werden. Sehr gefährlich!
+Zusätzlicher Parameter `isRecursive` Es könnte eine solche ID angegeben werden, sodass alle Kinder mit dieser ID gelöscht werden. Sehr gefährlich!
 
 Verwenden Sie es folgendermaßen:
 
@@ -1085,7 +1085,7 @@ Verwenden Sie es folgendermaßen:
 deleteObject('javascript.0.createdState');
 ```
 
-_Beachten:`isRecursive` Diese Option ist nur mit js-controller >= 2.2.x verfügbar._
+_Beachten: `isRecursive` Diese Option ist nur mit js-controller >= 2.2.x verfügbar._
 
 ### getIdByName
 
@@ -1093,7 +1093,7 @@ _Beachten:`isRecursive` Diese Option ist nur mit js-controller >= 2.2.x verfügb
 getIdByName(name, alwaysArray);
 ```
 
-Gibt die ID des Objekts mit dem angegebenen Namen zurück. Existieren mehrere Objekte mit diesem Namen, ist das Ergebnis ein Array.`alwaysArray` Wenn das Flag gesetzt ist, ist das Ergebnis immer ein Array, falls eine ID gefunden wird.
+Gibt die ID des Objekts mit dem angegebenen Namen zurück. Existieren mehrere Objekte mit diesem Namen, ist das Ergebnis ein Array. `alwaysArray` Wenn das Flag gesetzt ist, ist das Ergebnis immer ein Array, falls eine ID gefunden wird.
 
 ### getEnums
 
@@ -1152,20 +1152,20 @@ getEnums('functions');
 createState(name, initialValue, forceCreation, common, native, callback);
 ```
 
-Erstelle einen Zustand und ein Objekt im JavaScript-Bereich, falls diese noch nicht existieren, z. B.`javascript.0.mystate` Die
+Erstelle einen Zustand und ein Objekt im JavaScript-Bereich, falls diese noch nicht existieren, z. B. `javascript.0.mystate` Die
 
-!! Bevorzugt werden eigene Datenpunkte mit der vollständigen ID erstellt.`0_userdata.0.mystate` !!!
+!! Bevorzugt werden eigene Datenpunkte mit der vollständigen ID erstellt. `0_userdata.0.mystate` !!!
 
 #### Parameter:
 
-- `name` : Name des Zustands ohne Namensraum, z. B.`mystate`
+- `name`: Name des Zustands ohne Namensraum, z. B. `mystate`
 - `initialValue` Eine Variable kann nach ihrer Erstellung initialisiert werden. Der Wert "undefined" bedeutet, dass der Wert nicht initialisiert wird.
-- `forceCreation` : Zustand erstellen/überschreiben, unabhängig davon, ob der Zustand bereits existiert oder nicht.
+- `forceCreation`: Zustand erstellen/überschreiben, unabhängig davon, ob der Zustand bereits existiert oder nicht.
 - `common` Allgemeine Beschreibung des Objekts (siehe Beschreibung [hier)](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state)
-- `native` : Native Beschreibung eines Objekts. Alle spezifischen Informationen.
-- `callback` : wird aufgerufen, nachdem der Zustand erstellt und initialisiert wurde.
+- `native`: Native Beschreibung eines Objekts. Alle spezifischen Informationen.
+- `callback`: wird aufgerufen, nachdem der Zustand erstellt und initialisiert wurde.
 
-Wenn Sie einstellen`common` die Flagge`alias` Zu`true` Dann wird ein Alias mit demselben Namen erstellt (aber in`alias.0` Namespace) als Status. Ein Alias wird nur erstellt, wenn er noch nicht existiert.
+Wenn Sie einstellen `common` die Flagge `alias` Zu `true` Dann wird ein Alias mit demselben Namen erstellt (aber in `alias.0` Namespace) als Status. Ein Alias wird nur erstellt, wenn er noch nicht existiert.
 
 Folgende Einstellungen für Aliase sind ebenfalls gültig:
 
@@ -1197,17 +1197,17 @@ Es ist eine mögliche Kurzform von createState:
 - `createState('myDatapoint', { name: 'My own datapoint', unit: '°C' }, () => { log('created'); });`
 - `createState('myDatapoint', 1, { name: 'My own datapoint', unit: '°C' })` - Erstelle einen Datenpunkt mit dem angegebenen Namen und den angegebenen Einheiten, falls dieser noch nicht existiert.
 
-#### Ein Objekt an der zweiten Position ist immer das`common`
+#### Ein Objekt an der zweiten Position ist immer das `common`
 
-Diese Kurzformen sind der Grund dafür, dass ein Objekt an der zweiten Position **niemals** als Anfangswert gelesen wird.`createState('myDatapoint', {}, { type: 'object' })` tut daher nicht das, was es zu tun scheint:`{}` wird zu`common` , Und`{ type: 'object' }` geht weiter zu`native` Die
+Diese Kurzformen sind der Grund dafür, dass ein Objekt an der zweiten Position **niemals** als Anfangswert gelesen wird. `createState('myDatapoint', {}, { type: 'object' })` tut daher nicht das, was es zu tun scheint: `{}` wird zu `common`, Und `{ type: 'object' }` geht weiter zu `native` Die
 
-Um einem Zustand einen Anfangswert zuzuweisen, der kein primitiver Wert ist, legen Sie ihn in`common.def` :
+Um einem Zustand einen Anfangswert zuzuweisen, der kein primitiver Wert ist, legen Sie ihn in `common.def`:
 
 ```js
 createState('0_userdata.0.myObject', { name: 'My object', type: 'object', read: true, write: true, def: {} });
 ```
 
-Ein Zustand vom Typ`object` ,`json` oder`array` behält seinen Wert als JSON bei, daher beginnt der obige Zustand mit der Zeichenkette`'{}'` - genau wie`setState('0_userdata.0.myObject', {})` würde es speichern. Standardmäßig wird es für Sie in einen String umgewandelt; Schreiben`def: '{}'` „Selbst“ funktioniert auch.
+Ein Zustand vom Typ `object`, `json` oder `array` behält seinen Wert als JSON bei, daher beginnt der obige Zustand mit der Zeichenkette `'{}'` - genau wie `setState('0_userdata.0.myObject', {})` würde es speichern. Standardmäßig wird es für Sie in einen String umgewandelt; Schreiben `def: '{}'` „Selbst“ funktioniert auch.
 
 ### createStateAsync
 
@@ -1215,7 +1215,7 @@ Ein Zustand vom Typ`object` ,`json` oder`array` behält seinen Wert als JSON bei
 await createStateAsync(name, initialValue, forceCreation, common, native);
 ```
 
-Dasselbe wie`createState` Aber das Versprechen wird erwidert.
+Dasselbe wie `createState` Aber das Versprechen wird erwidert.
 
 ### deleteState
 
@@ -1223,7 +1223,7 @@ Dasselbe wie`createState` Aber das Versprechen wird erwidert.
 deleteState(name, callback);
 ```
 
-Zustand und Objekt im JavaScript-Bereich löschen, z. B.`javascript.0.mystate` Zustände von anderen Adaptern können nicht gelöscht werden.
+Zustand und Objekt im JavaScript-Bereich löschen, z. B. `javascript.0.mystate` Zustände von anderen Adaptern können nicht gelöscht werden.
 
 ```js
 deleteState('myDatapoint')
@@ -1237,7 +1237,7 @@ Löschen Sie einfach den Datenpunkt, falls er existiert.
 await deleteStateAsync(name);
 ```
 
-Dasselbe wie`deleteState` Aber das Versprechen wird erwidert.
+Dasselbe wie `deleteState` Aber das Versprechen wird erwidert.
 
 ### Alias erstellen
 
@@ -1245,16 +1245,16 @@ Dasselbe wie`deleteState` Aber das Versprechen wird erwidert.
 createAlias(name, alias, forceCreation, common, native, callback);
 ```
 
-Erstellen Sie einen Alias in`alias.0` Platzhalter, falls dieser nicht existiert, z. B.`javascript.0.myalias` und Verweise auf einen Zustand oder Lese-/Schreibzustände. Die allgemeine Definition wird aus dem Lesealias-ID-Objekt übernommen, jedoch hat eine bereitgestellte allgemeine Definition Vorrang.
+Erstellen Sie einen Alias in `alias.0` Platzhalter, falls dieser nicht existiert, z. B. `javascript.0.myalias` und Verweise auf einen Zustand oder Lese-/Schreibzustände. Die allgemeine Definition wird aus dem Lesealias-ID-Objekt übernommen, jedoch hat eine bereitgestellte allgemeine Definition Vorrang.
 
 #### Parameter:
 
-- `name` : ID des neuen Alias-Status mit (möglicherweise ohne Alias-Namensraum), z. B.`test.mystate` (Namensraum`alias.0.` wird hinzugefügt =`alias.0.test.mystate` )
+- `name`: ID des neuen Alias-Status mit (möglicherweise ohne Alias-Namensraum), z. B. `test.mystate` (Namensraum `alias.0.` wird hinzugefügt =`alias.0.test.mystate`)
 - `alias` Kann entweder eine vorhandene Status-ID als Zeichenkette oder ein Objekt mit vollständiger Aliasdefinition einschließlich Lese-/Schreib-IDs und Lese-/Schreibfunktionen sein. Hinweis: Aliasdefinitionen können nicht als Teil des allgemeinen Parameters festgelegt werden!
-- `forceCreation` : Alias erstellen/überschreiben, unabhängig davon, ob der Zustand bereits existiert oder nicht.
+- `forceCreation`: Alias erstellen/überschreiben, unabhängig davon, ob der Zustand bereits existiert oder nicht.
 - `common` Allgemeine Beschreibung des Alias-Objekts (siehe Beschreibung [hier)](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#state) . Die hier angegebenen Werte haben Vorrang vor der allgemeinen Definition des gelesenen Alias-ID-Objekts. Hinweis: Aliasdefinitionen können nicht als Teil dieses allgemeinen Parameters festgelegt werden; siehe Parameter „Alias“!
-- `native` : Native Beschreibung eines Objekts. Alle spezifischen Informationen.
-- `callback` : wird aufgerufen, nachdem der Zustand erstellt und initialisiert wurde.
+- `native`: Native Beschreibung eines Objekts. Alle spezifischen Informationen.
+- `callback`: wird aufgerufen, nachdem der Zustand erstellt und initialisiert wurde.
 
 Es ist möglich, eine Kurzform von createAlias zu verwenden:
 
@@ -1269,7 +1269,7 @@ Weitere Details finden Sie unter createState, es ist ähnlich.
 await createAliasAsync(name, alias, forceCreation, common, native);
 ```
 
-Dasselbe wie`createAlias` Aber das Versprechen wird erwidert.
+Dasselbe wie `createAlias` Aber das Versprechen wird erwidert.
 
 ### senden an
 
@@ -1313,7 +1313,7 @@ await sendToAsync(adapter, command, message);
 await sendToAsync(adapter, command, message, options);
 ```
 
-Dasselbe wie sendTo, aber mit`promise` Die
+Dasselbe wie sendTo, aber mit `promise` Die
 
 Beispiel:
 
@@ -1377,7 +1377,7 @@ sendToHost('myComputer', 'cmdExec', { data: 'ls /' }, (res) => {
 await sendToHostAsync(hostName, command, message);
 ```
 
-Dasselbe wie sendToHost, aber mit`promise` Die
+Dasselbe wie sendToHost, aber mit `promise` Die
 
 ### setInterval
 
@@ -1385,7 +1385,7 @@ Dasselbe wie sendToHost, aber mit`promise` Die
 setInterval(callback, ms, arg1, arg2, arg3, arg4);
 ```
 
-Dasselbe wie bei JavaScript`setInterval` Die
+Dasselbe wie bei JavaScript `setInterval` Die
 
 ### clearInterval
 
@@ -1393,7 +1393,7 @@ Dasselbe wie bei JavaScript`setInterval` Die
 clearInterval(id);
 ```
 
-Dasselbe wie bei JavaScript`clearInterval` Die
+Dasselbe wie bei JavaScript `clearInterval` Die
 
 ### setTimeout
 
@@ -1401,7 +1401,7 @@ Dasselbe wie bei JavaScript`clearInterval` Die
 setTimeout(callback, ms, arg1, arg2, arg3, arg4);
 ```
 
-Dasselbe wie bei JavaScript`setTimeout` Die
+Dasselbe wie bei JavaScript `setTimeout` Die
 
 ### clearTimeout
 
@@ -1409,7 +1409,7 @@ Dasselbe wie bei JavaScript`setTimeout` Die
 clearTimeout(id);
 ```
 
-Dasselbe wie bei JavaScript`clearTimeout` Die
+Dasselbe wie bei JavaScript `clearTimeout` Die
 
 ### setImmediate
 
@@ -1417,7 +1417,7 @@ Dasselbe wie bei JavaScript`clearTimeout` Die
 setImmediate(callback, arg1, arg2, arg3, arg4);
 ```
 
-Dasselbe wie bei JavaScript`setImmediate` und fast identisch mit`setTimeout(callback, 0, arg1, arg2, arg3, arg4)` aber mit höherer Priorität.
+Dasselbe wie bei JavaScript `setImmediate` und fast identisch mit `setTimeout(callback, 0, arg1, arg2, arg3, arg4)` aber mit höherer Priorität.
 
 ### Datum formatieren
 
@@ -1427,8 +1427,8 @@ formatDate(millisecondsOrDate, format);
 
 #### Parameter:
 
-- `millisecondsOrDate` : Anzahl der Millisekunden seit state.ts oder state.lc (Anzahl der Millisekunden seit dem 1970.01.01 00:00:00) oder JavaScript _new Date()_ -Objekt oder Anzahl der Millisekunden seit _(new Date().getTime())_
-- `format` Kann sein`null` Daher wird das Systemzeitformat verwendet, andernfalls
+- `millisecondsOrDate`: Anzahl der Millisekunden seit state.ts oder state.lc (Anzahl der Millisekunden seit dem 1970.01.01 00:00:00) oder JavaScript _new Date()_ -Objekt oder Anzahl der Millisekunden seit _(new Date().getTime())_
+- `format` Kann sein `null` Daher wird das Systemzeitformat verwendet, andernfalls
 
 * YYYY, JJJJ, ГГГГ – ganzes Jahr, z. B. 2015
 * YY, JJ, ГГ – kurzes Jahr, z. B. 15
@@ -1468,8 +1468,8 @@ formatTimeDiff(milliseconds, format);
 
 #### Parameter:
 
-- `milliseconds` : Differenz in Millisekunden\*
-- `format` Kann sein`null` , also`hh:mm:ss` wird das Format verwendet, andernfalls
+- `milliseconds`: Differenz in Millisekunden\*
+- `format` Kann sein `null`, also `hh:mm:ss` wird das Format verwendet, andernfalls
 
 * DD, TT, ДД – ganztägig, z. B. „02“
 * D, T, Д – kurzer Tag, z. B. „2“
@@ -1480,7 +1480,7 @@ formatTimeDiff(milliseconds, format);
 * ss, сс(kyrillisch) - volle Sekunden, z. B. "05"
 * s, c (kyrillisch) – kurze Sekunden, z. B. „5“
 
-Sie können das Escape-Zeichen verwenden.`\` um den Austausch zu vermeiden. z.B.`DD \Day\s, h \hour\s, m \minute, ss \second\s`
+Sie können das Escape-Zeichen verwenden. `\` um den Austausch zu vermeiden. z.B. `DD \Day\s, h \hour\s, m \minute, ss \second\s`
 
 #### Beispiel
 
@@ -1538,7 +1538,7 @@ Sende eine Nachricht „subscribe“ an den Adapter, um ihn zu informieren. Wenn
 adapterUnsubscribe(id);
 ```
 
-Sendet die Nachricht an einen Adapter`unsubscribe` um den Adapter anzuweisen, die Werte nicht abzufragen.
+Sendet die Nachricht an einen Adapter `unsubscribe` um den Adapter anzuweisen, die Werte nicht abzufragen.
 
 ### $ - Selektor
 
@@ -1561,7 +1561,7 @@ Format des Selektors:
 "name[commonAttr=something1](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/enumName=something2){nativeName=something3}[id=idfilter][state.id=idfilter]"
 ```
 
-Der Name kann Folgendes sein: Status, Kanal, Gerät oder Zeitplan`idfilter` kann Platzhalter '\*' enthalten
+Der Name kann Folgendes sein: Status, Kanal, Gerät oder Zeitplan `idfilter` kann Platzhalter '\*' enthalten
 
 Präfixe _**(nicht implementiert - sollten diskutiert werden)**_ :
 
@@ -1571,8 +1571,8 @@ Präfixe _**(nicht implementiert - sollten diskutiert werden)**_ :
 
 _**Beispiel**_ :
 
-- `$('state[id=*.STATE]')` oder`$('state[state.id=*.STATE]')` oder`$('*.STATE')` - Wähle alle Bundesstaaten aus, deren ID mit ".STATE" endet.
-- `$('state[id='hm-rpc.0.*]')` oder`$('hm-rpc.0.*')` - Gibt alle Zustände der Adapterinstanz hm-rpc.0 zurück.
+- `$('state[id=*.STATE]')` oder `$('state[state.id=*.STATE]')` oder `$('*.STATE')` - Wähle alle Bundesstaaten aus, deren ID mit ".STATE" endet.
+- `$('state[id='hm-rpc.0.*]')` oder `$('hm-rpc.0.*')` - Gibt alle Zustände der Adapterinstanz hm-rpc.0 zurück.
 - `$('channel(rooms=Living room)')` - alle Zustände im Raum "Wohnzimmer"
 - `$('channel{TYPE=BLIND}[state.id=*.LEVEL]')` - Holen Sie sich alle Rollläden von Homematic
 - `$('channel[role=switch](rooms=Living room)[state.id=*.STATE]').setState(false)` - Alle Zustände mit .STATE von Kanälen mit der Rolle "switch" im "Wohnzimmer" auf false setzen.
@@ -1589,7 +1589,7 @@ $('channel[role=switch][state.id=*.STATE](https://github.com/iobroker/ioBroker.j
 });
 ```
 
-Dieser Code durchsucht Kanäle. Alle Kanäle finden mit`common.role="switch"` und gehört zu`enum.rooms.Wohnzimmer` Nimm alle ihre Zustände, bei denen id mit endet`".STATE"` und abonniere alle diese Zustände. Wenn sich einer dieser Zustände ändert, wird die Callback-Funktion wie bei der "on"-Funktion aufgerufen.
+Dieser Code durchsucht Kanäle. Alle Kanäle finden mit `common.role="switch"` und gehört zu `enum.rooms.Wohnzimmer` Nimm alle ihre Zustände, bei denen id mit endet `".STATE"` und abonniere alle diese Zustände. Wenn sich einer dieser Zustände ändert, wird die Callback-Funktion wie bei der "on"-Funktion aufgerufen.
 
 Folgende Funktionen sind möglich: setState, getState (nur vom ersten Wert), on, each, toArray
 
@@ -1623,7 +1623,7 @@ const enabled = $('channel[role=switch][state.id=*.STATE](https://github.com/iob
 readFile(adapter, fileName, (error, bytes) => {});
 ```
 
-Das Ergebnis wird in der Callback-Funktion zurückgegeben. Datei aus der Datenbank aus dem Ordner lesen`javascript.0` Die
+Das Ergebnis wird in der Callback-Funktion zurückgegeben. Datei aus der Datenbank aus dem Ordner lesen `javascript.0` Die
 
 Der _Argumentadapter_ kann weggelassen werden.
 
@@ -1639,7 +1639,7 @@ readFile('vis.0', '/main/vis-views.json', (error, data) => {
 //});
 ```
 
-Standardmäßig ist das Arbeitsverzeichnis/der Adapter`javascript.0` Die
+Standardmäßig ist das Arbeitsverzeichnis/der Adapter `javascript.0` Die
 
 ### Datei schreiben
 
@@ -1649,7 +1649,7 @@ writeFile(adapter, fileName, bytes, (error) => {});
 
 Der optionale Fehlercode wird in der Callback-Funktion übergeben. _Der Argumentadapter_ kann weggelassen werden. \`fileName\` ist der Dateiname in der Datenbank. Alle Dateien werden im Ordner „javascript“ gespeichert. Um in andere Ordner zu schreiben, z. B. nach „/vis.0/“, verwenden Sie \`setFile\`.
 
-Die Datei, die aussieht wie`'/subfolder/file.txt'` wird gespeichert unter`"/javascript/subfolder/file.txt"` und kann über einen Webserver aufgerufen werden mit`"http://ip:8082/javascript/subfolder/file.txt"`
+Die Datei, die aussieht wie `'/subfolder/file.txt'` wird gespeichert unter `"/javascript/subfolder/file.txt"` und kann über einen Webserver aufgerufen werden mit `"http://ip:8082/javascript/subfolder/file.txt"`
 
 ```js
 // store screenshot in DB
@@ -1682,7 +1682,7 @@ delFile(adapter, fileName, (error) => {});
 
 Datei oder Verzeichnis löschen. Dateiname ist der Name der Datei oder des Verzeichnisses in der Datenbank.
 
-Die alternative Bezeichnung für diese Methode lautet:`unlink`
+Die alternative Bezeichnung für diese Methode lautet: `unlink`
 
 ### renameFile
 
@@ -1692,7 +1692,7 @@ renameFile(adapter, oldName, newName, (error) => {});
 
 Datei oder Verzeichnis umbenennen. oldName ist der Name der Datei oder des Verzeichnisses in der Datenbank und wird in newName umbenannt.
 
-Die alternative Bezeichnung für diese Methode lautet:`rename`
+Die alternative Bezeichnung für diese Methode lautet: `rename`
 
 ### onFile
 
@@ -1704,17 +1704,17 @@ onFile(id, fileName, (id, fileName, size) => {});
 
 Abonnieren Sie Dateiänderungen:
 
-- `id` ist die ID eines Objekts vom Typ`meta` , wie`vis.0`
-- `fileName` ist ein Dateiname oder ein Muster, wie z. B.`main/*` oder`main/vis-view.json`
-- `withFile` ob der Inhalt der Datei im Callback übermittelt werden soll oder nicht. Die Übermittlung des Dateiinhalts kostet Speicher und Zeit. Wenn Sie also nur über Änderungen informiert werden möchten, setzen Sie`withFile` zu falsch.
+- `id` ist die ID eines Objekts vom Typ `meta`, wie `vis.0`
+- `fileName` ist ein Dateiname oder ein Muster, wie z. B. `main/*` oder `main/vis-view.json`
+- `withFile` ob der Inhalt der Datei im Callback übermittelt werden soll oder nicht. Die Übermittlung des Dateiinhalts kostet Speicher und Zeit. Wenn Sie also nur über Änderungen informiert werden möchten, setzen Sie `withFile` zu falsch.
 
 Argumente im Callback:
 
-- `id` - ID von`meta` Objekt;
+- `id` - ID von `meta` Objekt;
 - `fileName` - Dateiname (kein Muster);
 - `size` - neue Dateigröße;
-- `fileData` - Dateiinhalt vom Typ`Buffer` wenn die Datei binär ist (erkennbar an der Dateiendung) oder`string` Lieferung nur bei`withFile` ;
-- `mimeType` - MIME-Typ der Datei, wie z. B.`image/jpeg` Lieferung nur bei`withFile` ;
+- `fileData` - Dateiinhalt vom Typ `Buffer` wenn die Datei binär ist (erkennbar an der Dateiendung) oder `string` Lieferung nur bei `withFile`;
+- `mimeType` - MIME-Typ der Datei, wie z. B. `image/jpeg` Lieferung nur bei `withFile`;
 
 **Wichtig** : Diese Funktionalität ist nur mit <js-controller@4.1.x> oder neuer verfügbar.
 
@@ -1728,8 +1728,8 @@ onFile(id, fileName);
 
 Benachrichtigungen über Dateiänderungen abbestellen:
 
-- `id` ist die ID eines Objekts vom Typ`meta` , wie`vis.0`
-- `fileName` ist ein Dateiname oder ein Muster, wie z. B.`main/*` oder`main/vis-view.json`
+- `id` ist die ID eines Objekts vom Typ `meta`, wie `vis.0`
+- `fileName` ist ein Dateiname oder ein Muster, wie z. B. `main/*` oder `main/vis-view.json`
 
 **Wichtig** : Diese Funktionalität ist nur mit <js-controller@4.1.x> oder neuer verfügbar.
 
@@ -1831,7 +1831,7 @@ runScript('groupName.scriptName1');
 
 ### runScriptAsync
 
-Dasselbe wie bei runScript, aber mit`promise` Die
+Dasselbe wie bei runScript, aber mit `promise` Die
 
 ```js
 runScriptAsync('scriptName')
@@ -1857,7 +1857,7 @@ startScript('scriptName', true); // start script if not started
 
 ### startScriptAsync
 
-Dasselbe wie bei runScript, aber mit`promise` Die
+Dasselbe wie bei runScript, aber mit `promise` Die
 
 ```js
 startScriptAsync('scriptName', ignoreIfStarted)
@@ -1889,7 +1889,7 @@ stopScript();
 
 ### stopScriptAsync
 
-Dasselbe wie stopScript, aber mit`promise` :
+Dasselbe wie stopScript, aber mit `promise`:
 
 ```js
 stopScriptAsync('scriptName')
@@ -1926,7 +1926,7 @@ Es handelt sich nicht um eine Funktion. Es ist eine Variable mit einer JavaScrip
 
 ### Warten
 
-Halten Sie die Skriptausführung einfach an. Warnung: Diese Funktion ist`promise` und muss wie folgt aufgerufen werden:
+Halten Sie die Skriptausführung einfach an. Warnung: Diese Funktion ist `promise` und muss wie folgt aufgerufen werden:
 
 ```js
 await wait(1000);
@@ -1997,7 +1997,7 @@ onMessage('messageName', (data, callback) => {
 });
 ```
 
-Abonnieren auf`javascript` Der Adapter verwendet einen Message Bus und übermittelt die Antwort über einen Callback. Die Antwort des Skripts, das als erstes eine Antwort sendet, wird akzeptiert; alle anderen Antworten werden ignoriert.
+Abonnieren auf `javascript` Der Adapter verwendet einen Message Bus und übermittelt die Antwort über einen Callback. Die Antwort des Skripts, das als erstes eine Antwort sendet, wird akzeptiert; alle anderen Antworten werden ignoriert.
 
 Um eine Nachricht an ein JavaScript-Skript zu senden, die dann von diesem Handler empfangen wird, verwenden Sie [messageTo](#messageTo) .
 
@@ -2056,7 +2056,7 @@ onLog('error', data => {
 });
 ```
 
-Um alle Protokolle zu erhalten`*` könnte verwendet werden. In diesem Fall wird die Protokollausgabe im Handler vollständig deaktiviert.
+Um alle Protokolle zu erhalten `*` könnte verwendet werden. In diesem Fall wird die Protokollausgabe im Handler vollständig deaktiviert.
 
 ```js
 onLog('*', data => {
@@ -2100,11 +2100,11 @@ httpGet('http://jsonplaceholder.typicode.com/posts', (err, response) => {
 Der zweite Parameter kann ein Objekt mit weiteren Optionen sein (optional). Alle Optionen sind optional. Unterstützte Flags:
 
 - `timeout` (Zahl) - Timeout in Millisekunden
-- `responseType` (Zeichenkette) - Unterstützte Werte sind`text` (Standardeinstellung) oder`arraybuffer` für Binärdaten in der Antwort
-- `basicAuth` (Objekt) – Anmeldeinformationen für die HTTP-Basisauthentifizierung. Z. B.`{ user: 'admin', password: 'iobroker' }`
+- `responseType` (Zeichenkette) - Unterstützte Werte sind `text` (Standardeinstellung) oder `arraybuffer` für Binärdaten in der Antwort
+- `basicAuth` (Objekt) – Anmeldeinformationen für die HTTP-Basisauthentifizierung. Z. B. `{ user: 'admin', password: 'iobroker' }`
 - `bearerAuth` (Zeichenkette) - Token für die Bearer-Authentifizierung
-- `headers` (Objekt) - Zusätzliche benutzerdefinierte HTTP-Header, z. B.`{ 'Accept-Language': 'en-GB,en;q=0.9' }`
-- `validateCertificate` (Boolescher Wert) - Erlaubt selbstsignierte Zertifikate, wenn`false`
+- `headers` (Objekt) - Zusätzliche benutzerdefinierte HTTP-Header, z. B. `{ 'Accept-Language': 'en-GB,en;q=0.9' }`
+- `validateCertificate` (Boolescher Wert) - Erlaubt selbstsignierte Zertifikate, wenn `false`
 
 ```js
 httpGet('http://jsonplaceholder.typicode.com/posts', { timeout: 1000 }, (err, response) => {
@@ -2257,7 +2257,7 @@ log(`Script ${scriptName} started!`);
 
 ### Beispiel
 
-`instance` - Die JavaScript-Instanz, in der ein Skript ausgeführt wird (z. B.`0` ).
+`instance` - Die JavaScript-Instanz, in der ein Skript ausgeführt wird (z. B. `0`).
 
 ```js
 log(`Script ${scriptName} started started by ${instance}`);
@@ -2288,7 +2288,7 @@ if (verbose) {
 
 `SECRETS` - Die Zugangsdaten des zentralen ioBroker-Zugangsdatenspeichers.
 
-Die Zugangsdaten werden in der Administratoroberfläche unter **Grundeinstellungen** -> **Zugangsdaten** verwaltet. Jede Zugangsberechtigung hat eine ID (z. B. 127.12.1).`CameraPassword` ) und enthält entweder einen einzelnen **Schlüssel** (z. B. einen API-Schlüssel oder ein Passwort) oder ein **Login** / **Passwort-** Paar. Die geheimen Felder werden mit dem Systemgeheimnis verschlüsselt gespeichert und den Skripten bereits entschlüsselt übergeben:
+Die Zugangsdaten werden in der Administratoroberfläche unter **Grundeinstellungen** -> **Zugangsdaten** verwaltet. Jede Zugangsberechtigung hat eine ID (z. B. 127.12.1). `CameraPassword`) und enthält entweder einen einzelnen **Schlüssel** (z. B. einen API-Schlüssel oder ein Passwort) oder ein **Login** / **Passwort-** Paar. Die geheimen Felder werden mit dem Systemgeheimnis verschlüsselt gespeichert und den Skripten bereits entschlüsselt übergeben:
 
 ```js
 // credential of the type "key"
@@ -2305,7 +2305,7 @@ log(SECRETS['My camera'].key);
 
 `SECRETS` ist schreibgeschützt und immer aktuell: Wenn Anmeldeinformationen in der Admin-UI hinzugefügt, geändert oder gelöscht werden, wird der neue Wert sofort verwendet – weder der Adapter noch das Skript müssen neu gestartet werden.
 
-Falls keine Anmeldeinformationen existieren,`undefined` wird zurückgegeben:
+Falls keine Anmeldeinformationen existieren, `undefined` wird zurückgegeben:
 
 ```js
 if (SECRETS.CameraPassword) {
@@ -2315,10 +2315,10 @@ if (SECRETS.CameraPassword) {
 
 #### Welche Felder enthält ein Anmeldeinformationsblatt?
 
-Jede Anmeldeinformation hat entweder ein einzelnes`key` oder ein`login` /`password` Paar. Drei Möglichkeiten, um herauszufinden, welches:
+Jede Anmeldeinformation hat entweder ein einzelnes `key` oder ein `login` /`password` Paar. Drei Möglichkeiten, um herauszufinden, welches:
 
 - In den Instanzeinstellungen des JavaScript-Adapters listet der Abschnitt " **Verfügbare Anmeldeinformationen"** alle Anmeldeinformationen mit ihren Feldern und dem zum Kopieren bereiten Ausdruck auf.
-- Im Editor, die automatische Vervollständigung nach`SECRETS.` bietet die vorhandenen Anmeldeinformationen an und nach dem nächsten Punkt genau die Felder, die diese Anmeldeinformationen enthalten.
+- Im Editor, die automatische Vervollständigung nach `SECRETS.` bietet die vorhandenen Anmeldeinformationen an und nach dem nächsten Punkt genau die Felder, die diese Anmeldeinformationen enthalten.
 - In einem Skript:
 
 ```js
@@ -2328,7 +2328,7 @@ log(JSON.stringify(Object.keys(SECRETS.MyMailAccount))); // ["login","password"]
 
 Blockly verfügt über einen **Anmeldeinformationsblock** für denselben Zweck – siehe die [Blockly-Dokumentation](/#/docs/adapterref/iobroker.javascript/blockly.md#credential) .
 
-Der Zugriff kann mit der Instanzoption **"Skripten das Lesen der Anmeldeinformationen erlauben"** deaktiviert werden.`SECRETS` ist dann leer und eine Warnung wird in das Protokoll geschrieben.
+Der Zugriff kann mit der Instanzoption **"Skripten das Lesen der Anmeldeinformationen erlauben"** deaktiviert werden. `SECRETS` ist dann leer und eine Warnung wird in das Protokoll geschrieben.
 
 **Hinweis:** Hierfür wird js-controller 7.2 oder neuer benötigt.
 
@@ -2342,7 +2342,7 @@ Es gibt zwei Möglichkeiten, Staaten zu abonnieren:
 log(getState('someID').val);
 ```
 
-2. Der Adapter abonniert jedes Mal die angegebene ID, wenn`on/subscribe` wird aufgerufen. In diesem Modus empfängt der Adapter nur Aktualisierungen für die gewünschten Zustände. Diese Option benötigt weniger RAM und ist effizienter, jedoch können Sie nicht synchron über getState auf Zustände zugreifen. **Sie müssen Rückruffunktionen oder Promises verwenden, um auf die Zustände zuzugreifen** .
+2. Der Adapter abonniert jedes Mal die angegebene ID, wenn `on/subscribe` wird aufgerufen. In diesem Modus empfängt der Adapter nur Aktualisierungen für die gewünschten Zustände. Diese Option benötigt weniger RAM und ist effizienter, jedoch können Sie nicht synchron über getState auf Zustände zugreifen. **Sie müssen Rückruffunktionen oder Promises verwenden, um auf die Zustände zuzugreifen** .
 
 ```js
 getState('someID', (error, state) => {
@@ -2354,4 +2354,4 @@ Grund: Der Adapter verfügt nicht über den Wert des Zustands im Arbeitsspeicher
 
 ## Skriptaktivität
 
-Es besteht die Möglichkeit, Skripte über Zustände zu aktivieren und zu deaktivieren. Für jedes Skript wird ein Zustand mit dem Namen erstellt.`javascript.INSTANCE.scriptEnabled.SCRIPT_NAME` Skripte können durch Steuerung dieses Zustands aktiviert und deaktiviert werden.`ack=false` Die
+Es besteht die Möglichkeit, Skripte über Zustände zu aktivieren und zu deaktivieren. Für jedes Skript wird ein Zustand mit dem Namen erstellt. `javascript.INSTANCE.scriptEnabled.SCRIPT_NAME` Skripte können durch Steuerung dieses Zustands aktiviert und deaktiviert werden. `ack=false` Die

@@ -16,7 +16,7 @@ hash: QzbcM7ReY+xfy43lUEdZL+32mh9ElJ1JfucZtF8bG+Q=
 
 # ioBroker BenQ Projektoradapter
 
-Der IoBroker BenQ Projektoradapter dient zur Steuerung Ihres BenQ Projektors über RS232 in Verbindung mit dem Ethernet Gateway. Die Liste der Modelle und Befehle ist in der Dokumentation enthalten.`admin/commands.json` Datei.
+Der IoBroker BenQ Projektoradapter dient zur Steuerung Ihres BenQ Projektors über RS232 in Verbindung mit dem Ethernet Gateway. Die Liste der Modelle und Befehle ist in der Dokumentation enthalten. `admin/commands.json` Datei.
 
 ## Hardware
 

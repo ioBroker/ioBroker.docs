@@ -51,9 +51,9 @@ card 1: SpkUAC20 [miniDSP VocalFusion Spk (UAC2.0], device 0: USB Audio [USB Aud
   Subdevice #0: subdevice #0
 ```
 
-Редактировать`/usr/share/alsa/alsa.conf` и заменить`defaults.pcm.card 0` с`defaults.pcm.card 1` , потому что, например, на первой карте есть микрофон.
+Редактировать `/usr/share/alsa/alsa.conf` и заменить `defaults.pcm.card 0` с `defaults.pcm.card 1`, потому что, например, на первой карте есть микрофон.
 
-Вы можете проверить микрофон с помощью`rec test.wav` .
+Вы можете проверить микрофон с помощью `rec test.wav`.
 
 ### учетные данные Google
 
@@ -82,7 +82,7 @@ JSON-файл Google выглядит следующим образом:
 
 ### Собственное горячее слово
 
-Ключевое слово по умолчанию —`snowboy` или`sonus` , но вы можете создать свою собственную модель "горячего слова" здесь: <https://snowboy.kitt.ai/hotword/> и загрузить ее в адаптер.
+Ключевое слово по умолчанию —`snowboy` или `sonus`, но вы можете создать свою собственную модель "горячего слова" здесь: <https://snowboy.kitt.ai/hotword/> и загрузить ее в адаптер.
 
 ## Как разобрать текст
 

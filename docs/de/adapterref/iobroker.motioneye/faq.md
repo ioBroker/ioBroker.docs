@@ -41,7 +41,7 @@ Wenn du dich im Browser anmelden kannst, der Adapter aber `GET /config/list → 
 
 ### MotionEye 0.44+ (Adapter 0.5.0+)
 
-Ab **MotionEye 0.44** hat sich die API-Authentifizierung geändert: Statt `_username` / `_signature` in der URL meldet sich der Client per **`POST /login`** an und nutzt ein Session-Cookie ([Release Notes](https://github.com/motioneye-project/motioneye/releases/tag/0.44.0)).
+Ab **MotionEye 0.44** hat sich die API-Authentifizierung geändert: Statt `_username` / `_signature` in der URL meldet sich der Client per ** `POST /login` ** an und nutzt ein Session-Cookie ([Release Notes](https://github.com/motioneye-project/motioneye/releases/tag/0.44.0)).
 
 | MotionEye | Adapter | Ergebnis |
 |-----------|---------|----------|
@@ -76,8 +76,8 @@ Ab Adapter **0.6.0** liegen Kamera-Parameter unter `motioneye.<Instanz>.<kamera>
 Ab Adapter **1.0.0** liegen die Parameter zur Feineinstellung der Bewegungserkennung unter `motioneye.<Instanz>.<kamera>.motiondetection.*` (`frameChangeThreshold`, `autoThresholdTuning`, `autoNoiseDetect`, `noiseLevel`, `eventGap`, `minimumMotionFrames`, `lightSwitchDetect`, `despeckleFilter`, `preCapture`, `postCapture`).
 
 1. **Erkennung ein/aus** steuerst du weiterhin über den Root-Datenpunkt `mode` (`off` / `still` / `sharp`) — `motiondetection.*` regelt nur Empfindlichkeit und Timing, solange die Erkennung aktiv ist.
-2. **`frameChangeThreshold`** ist der Anteil der Bildpixel in Prozent, der sich ändern muss, um Bewegung auszulösen (0–20 %, wie der Schieberegler in MotionEye). Bei `0` ist die Erkennung praktisch ausgeschaltet.
-3. **`autoThresholdTuning`** und **`autoNoiseDetect`** lassen MotionEye Schwellwert und Rauschen automatisch anpassen. Ist die automatische Rauscherkennung an, ist `noiseLevel` weiter lesbar, wirkt aber erst wieder, wenn du Auto ausschaltest.
+2. ** `frameChangeThreshold` ** ist der Anteil der Bildpixel in Prozent, der sich ändern muss, um Bewegung auszulösen (0–20 %, wie der Schieberegler in MotionEye). Bei `0` ist die Erkennung praktisch ausgeschaltet.
+3. ** `autoThresholdTuning` ** und ** `autoNoiseDetect` ** lassen MotionEye Schwellwert und Rauschen automatisch anpassen. Ist die automatische Rauscherkennung an, ist `noiseLevel` weiter lesbar, wirkt aber erst wieder, wenn du Auto ausschaltest.
 4. **Timing:** `eventGap` ist die Dauer ohne Bewegung, bis ein Ereignis endet (Sekunden). `minimumMotionFrames` filtert kurze Fehlalarme. `preCapture`/`postCapture` sind Frame-Puffer vor/nach der Bewegung (die Frame-Anzahl hängt von der Kamera-Framerate ab).
 5. **Sync-Verzögerung:** Änderungen in der MotionEye-Weboberfläche erscheinen in ioBroker erst beim nächsten Status-Poll (`statusPollIntervalSec`, Standard 300 s). Schreiben aus ioBroker wirkt sofort.
 
@@ -89,10 +89,10 @@ Nach dem Adapter-Update: Instanz **neu starten**, damit die neuen Objekte unter 
 
 Ab Adapter **0.7.0** liegt die Textüberlagerung der Kamera unter `motioneye.<Instanz>.<kamera>.overlay.*` (`enabled`, `leftText`, `rightText`, `customLeftText`, `customRightText`, `textScale`).
 
-1. **`enabled`** ist der Hauptschalter für die Überlagerung. Schaltest du ihn aus, entfernt MotionEye den angezeigten Text im Video — `leftText`/`rightText`/der Benutzertext bleiben im Adapter und in der MotionEye-Config erhalten und werden beim erneuten Einschalten wieder verwendet.
-2. **`leftText`/`rightText`** akzeptieren einen der Werte `camera-name`, `timestamp`, `custom-text`, `disabled` (in der ioBroker-Admin/Objektansicht als Dropdown dargestellt).
+1. ** `enabled` ** ist der Hauptschalter für die Überlagerung. Schaltest du ihn aus, entfernt MotionEye den angezeigten Text im Video — `leftText`/`rightText`/der Benutzertext bleiben im Adapter und in der MotionEye-Config erhalten und werden beim erneuten Einschalten wieder verwendet.
+2. ** `leftText`/`rightText` ** akzeptieren einen der Werte `camera-name`, `timestamp`, `custom-text`, `disabled` (in der ioBroker-Admin/Objektansicht als Dropdown dargestellt).
 3. **Benutzerdefinierter Text:** Setze `leftText` (bzw. `rightText`) auf `custom-text` und trage den Text in `customLeftText` (bzw. `customRightText`) ein — die Reihenfolge spielt keine Rolle. MotionEye speichert den Benutzertext nur dann dauerhaft, wenn der Modus bereits `custom-text` ist, deshalb sendet der Adapter beide Werte immer gemeinsam in einer Anfrage, damit der Text nicht verloren geht.
-4. **`textScale`** steuert die Textgröße (`1`–`10`, entspricht dem Schieberegler in der MotionEye-Oberfläche).
+4. ** `textScale` ** steuert die Textgröße (`1`–`10`, entspricht dem Schieberegler in der MotionEye-Oberfläche).
 
 **Textüberlagerung über die Adapter-Konfiguration voreinstellen (Overlay-Tab):**
 
@@ -112,10 +112,10 @@ Ab Adapter **0.8.0** zeigt der Konfigurations-Tab **Overlay** eine Zeile pro Kam
 | Was | Wo |
 |-----|-----|
 | **Snapshot-/Video-Archiv** | Auf dem **MotionEye-Server**, im Medienordner der Kamera (Standard `/var/lib/motioneye/Camera<N>/`, oder ein eigener Ordner in MotionEye / Feld **Medienordner** im Cameras-Tab) |
-| **Datenpunkt `snapshot`** | Button — löst in MotionEye eine Aufnahme aus; MotionEye speichert die Datei auf dem MotionEye-Server |
-| **Datenpunkt `motion`** | Boolesches Ereignis per Webhook — ohne Bilddatei |
-| **`storage.*`-Datenpunkte** | Nur **Anzahl und belegter Speicherplatz** aus MotionEye — nicht die Dateien selbst |
-| **`snapshots.*` + Dateien-Tab** | **Letzter Snapshot als JPEG** im ioBroker-Dateispeicher (Cache, optional abschaltbar) — `snapshots.filePath` für Telegram/Skripte, `snapshots.urlLocal` / `snapshots.html` für VIS |
+| **Datenpunkt `snapshot` ** | Button — löst in MotionEye eine Aufnahme aus; MotionEye speichert die Datei auf dem MotionEye-Server |
+| **Datenpunkt `motion` ** | Boolesches Ereignis per Webhook — ohne Bilddatei |
+| ** `storage.*`-Datenpunkte** | Nur **Anzahl und belegter Speicherplatz** aus MotionEye — nicht die Dateien selbst |
+| ** `snapshots.*` + Dateien-Tab** | **Letzter Snapshot als JPEG** im ioBroker-Dateispeicher (Cache, optional abschaltbar) — `snapshots.filePath` für Telegram/Skripte, `snapshots.urlLocal` / `snapshots.html` für VIS |
 
 **Archiv ansehen oder herunterladen:** MotionEye-Weboberfläche (Bilder / Filme pro Kamera) oder direkt auf dem MotionEye-Host.
 
@@ -125,13 +125,13 @@ Details zum Snapshot-Cache (VIS, Telegram, Blockly): [Snapshot-Cache](#snapshot-
 
 ### Snapshot-Cache (`snapshots.*`)
 
-Wenn **Letzten Snapshot in ioBroker cachen** aktiv ist (`snapshotCacheEnabled`, standardmäßig an), lädt der Adapter `lastsnap.jpg` von MotionEye (Symlink auf den zuletzt gespeicherten Snapshot) und speichert sie unter **Admin → Dateien → `motioneye.<Instanz>/snapshots/<kanal>/lastsnap.jpg`**.
+Wenn **Letzten Snapshot in ioBroker cachen** aktiv ist (`snapshotCacheEnabled`, standardmäßig an), lädt der Adapter `lastsnap.jpg` von MotionEye (Symlink auf den zuletzt gespeicherten Snapshot) und speichert sie unter **Admin → Dateien → `motioneye.<Instanz>/snapshots/<kanal>/lastsnap.jpg` **.
 
 | Auslöser | Wann |
 |----------|------|
-| **Datenpunkt `snapshot`** | Nach jeder erfolgreichen Snapshot-Aktion (mit konfigurierbarer Wartezeit, damit MotionEye die Datei schreiben kann) |
+| **Datenpunkt `snapshot` ** | Nach jeder erfolgreichen Snapshot-Aktion (mit konfigurierbarer Wartezeit, damit MotionEye die Datei schreiben kann) |
 | **Bewegungs-Webhook** | Optional (`snapshotCacheOnMotion`, standardmäßig aus) — pro Kamera rate-limitiert |
-| **`snapshots.refresh`** | Manuell neu laden, ohne weiteren Snapshot auszulösen |
+| ** `snapshots.refresh` ** | Manuell neu laden, ohne weiteren Snapshot auszulösen |
 
 **Datenpunkte für Automatisierung / VIS:**
 
@@ -176,7 +176,7 @@ Seit Adapter **0.9.0** zeigt `motioneye.<Instanz>.<kamera>.storage.*` an, wie vi
 2. **Manuelle Aktualisierung (immer verfügbar):** Setze `storage.refresh` bei der gewünschten Kamera auf `true` — der Adapter holt die aktuellen Werte und setzt `refresh` danach automatisch wieder auf `false`. Das funktioniert unabhängig von den folgenden Einstellungen.
 3. **Globaler Auto-Aktualisierung-Schalter:** Im Config-Tab **Storage** ist **Speicherplatz-Statistik Auto-Aktualisierung aktivieren** (`storagePollEnabled`) standardmäßig aus. Aktiviere ihn und stelle **das Intervall in Sekunden** (`storagePollIntervalSec`, z. B. `3600` für stündlich) ein, damit Kameras automatisch in diesem Intervall aktualisiert werden.
 4. **Pro Kamera abwählen:** Derselbe Tab **Storage** zeigt eine Zeile pro Kamera mit einem Häkchen **Vom Auto-Intervall ausschließen** (standardmäßig deaktiviert). Aktiviere es für unwichtige Kameras mit großen Medienarchiven, damit sie beim automatischen Intervall übersprungen werden — ihr Datenpunkt `storage.refresh` funktioniert davon unabhängig weiterhin jederzeit. Der Tab enthält außerdem den Button **"Speicherplatz-Statistik jetzt aktualisieren"**, der sofort alle Kameras der Tabelle aktualisiert (unabhängig vom Häkchen) — praktisch für eine einmalige Aktualisierung aller Kameras, ohne auf das Intervall zu warten.
-5. **`usedSpaceMb` ist eine Näherung:** MotionEye liefert pro Datei nur eine bereits gerundete Größenangabe (z. B. `"1.2 MB"`), keine exakten Byte-Werte. Die Summe hat daher einen kleinen Rundungsfehler — ausreichend genau, um Speichertrends zu erkennen, aber keine exakte Belegungsanzeige.
+5. ** `usedSpaceMb` ist eine Näherung:** MotionEye liefert pro Datei nur eine bereits gerundete Größenangabe (z. B. `"1.2 MB"`), keine exakten Byte-Werte. Die Summe hat daher einen kleinen Rundungsfehler — ausreichend genau, um Speichertrends zu erkennen, aber keine exakte Belegungsanzeige.
 6. Schlägt eine Aktualisierung fehl (z. B. weil MotionEye bei einem sehr großen Ordner ein Timeout auslöst), bleiben die vorherigen Werte erhalten und der Fehler wird in `status` geschrieben — später erneut versuchen oder das **API-Anfrage-Timeout** (`requestTimeoutMs`) in den Einstellungen erhöhen.
 
 ---

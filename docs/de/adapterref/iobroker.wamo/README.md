@@ -29,9 +29,9 @@ Das POLYGONVATRO-Gerät ist im Grunde ein SYR SaveTech Connect 2422-Gerät, jedo
 
 ## WICHTIG
 
-Innerhalb der`SafeFloor Connect release` Unter anderem wurde eine neue Funktion für SafeFlore Connect-Geräte implementiert. Aktuell können bis zu 4 Geräte hinzugefügt werden. Um diesen Sensor mit der aktuellen SafeFloor-Sensor-Firmware (Version 2.21) auszulesen, lesen Sie bitte den Abschnitt **„Haftungsausschluss/Warnung“** weiter unten sorgfältig durch.
+Innerhalb der `SafeFloor Connect release` Unter anderem wurde eine neue Funktion für SafeFlore Connect-Geräte implementiert. Aktuell können bis zu 4 Geräte hinzugefügt werden. Um diesen Sensor mit der aktuellen SafeFloor-Sensor-Firmware (Version 2.21) auszulesen, lesen Sie bitte den Abschnitt **„Haftungsausschluss/Warnung“** weiter unten sorgfältig durch.
 
-Wichtige Informationen zu älteren Versionen finden Sie im zugehörigen Kapitel in`Importent release related information` im [Wiki](https://github.com/smarthausleben/ioBroker.wamo/wiki/Importent-release-related-information) .
+Wichtige Informationen zu älteren Versionen finden Sie im zugehörigen Kapitel in `Importent release related information` im [Wiki](https://github.com/smarthausleben/ioBroker.wamo/wiki/Importent-release-related-information) .
 
 ### Haftungsausschluss / Warnung
 

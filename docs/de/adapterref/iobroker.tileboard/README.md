@@ -28,7 +28,7 @@ TileBoard erstellt 3 Variablen:
 
 Befehle:
 
-* alert - Benachrichtigungsfenster in TileBoard anzeigen. "control.data" hat folgendes Format "message; title; jquery-icon". Titel und Abfragesymbol sind optional. Symbolnamen finden Sie [hier] (http://jqueryui.com/themeroller/). Um das Symbol "ui-icon-info" anzuzeigen, schreiben Sie "` `Message ;; info```".
+* alert - Benachrichtigungsfenster in TileBoard anzeigen. "control.data" hat folgendes Format "message; title; jquery-icon". Titel und Abfragesymbol sind optional. Symbolnamen finden Sie [hier] (http://jqueryui.com/themeroller/). Um das Symbol "ui-icon-info" anzuzeigen, schreiben Sie "` ` Message ;; info```".
 * changeView - wechselt zur gewünschten Ansicht. "control.data" muss den Index oder den Titel der Ansicht haben, wie in config definiert.
 * refresh - TileBoard neu laden, zum Beispiel nachdem das Projekt so geändert wurde, dass es in allen Browsern neu geladen wird.
 * reload - wie refresh.
@@ -67,7 +67,7 @@ So fügen Sie das ursprüngliche Repository in dieses ein:
 
 Folgende Dateien wurden geändert:
 
-- `/ index.html` -` ../ tileboard.0 / custom.css`, `../../ lib / js / socket.io.js`,` ./_ socket / info.js` und hinzugefügt `scripts / vendors / conn.js`,` styles / custom.css` entfernt
+- `/ index.html` -`../ tileboard.0 / custom.css`, `../../ lib / js / socket.io.js`, `./_ socket / info.js` und hinzugefügt `scripts / vendors / conn.js`, ` styles / custom.css` entfernt
 - `/ scripts / models / api.js` - komplett ersetzt
 - `/ scripts / controller / main.js` -
 

@@ -41,7 +41,7 @@ Bei Konten ohne Zwei-Faktor-Authentifizierung müssen Sie möglicherweise in Ihr
 
 Verwenden Sie für den E-Mail-Dienst mail.ee **nicht** Ihre normalen Webmail-Anmeldedaten. Stattdessen:
 
-- **Benutzername** : Verwenden Sie Ihre vollständige E-Mail-Adresse (z. B.`username@mail.ee` )
+- **Benutzername** : Verwenden Sie Ihre vollständige E-Mail-Adresse (z. B. `username@mail.ee`)
 - **Passwort** : Verwenden Sie das spezielle IMAP/SMTP-Passwort (nicht Ihr Webmail-Passwort).
   - So finden Sie Ihr IMAP/SMTP-Passwort: Melden Sie sich in Ihrem mail.ee-Webmail-Konto an und besuchen Sie <https://posti.mail.ee/prefs?group=enable_pop3>
 
@@ -89,7 +89,7 @@ sendTo('email', {
 });
 ```
 
-Um E-Mails von einem anderen Adapter zu senden, verwenden Sie`adapter.sendTo` Funktion.
+Um E-Mails von einem anderen Adapter zu senden, verwenden Sie `adapter.sendTo` Funktion.
 
 ## Unterstützte Dienste
 
@@ -131,7 +131,7 @@ Um E-Mails von einem anderen Adapter zu senden, verwenden Sie`adapter.sendTo` Fu
 - Zoho
 - Benutzerspezifisch (Server, Port und Sicherheit manuell definiert)
 
-Weitere Dienste finden Sie in der Dokumentation von **Nodemailer** :`[https://github.com/nodemailer/nodemailer](https://github.com/nodemailer/nodemailer)`
+Weitere Dienste finden Sie in der Dokumentation von **Nodemailer** : `[https://github.com/nodemailer/nodemailer](https://github.com/nodemailer/nodemailer)`
 
 ## Changelog
 <!--

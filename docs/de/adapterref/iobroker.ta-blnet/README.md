@@ -41,7 +41,7 @@ BL-NET und CMI sind Produkte der Firma 'Technische Alternative' und ermöglichen
 
 Die Installation kann wie folgt erfolgen:
 
-- **ioBroker GUI** : Gehen Sie zu Expertenmodus > Adapter > Von URL installieren und geben Sie Folgendes ein:`https://github.com/weberk/ioBroker.ta-blnet`
+- **ioBroker GUI** : Gehen Sie zu Expertenmodus > Adapter > Von URL installieren und geben Sie Folgendes ein: `https://github.com/weberk/ioBroker.ta-blnet`
 - **CLI** : Führen Sie folgenden Befehl aus:
   ```sh
   iobroker url iobroker.ta-blnet@latest

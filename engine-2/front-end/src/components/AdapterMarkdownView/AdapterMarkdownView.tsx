@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import type React from 'react';
-import { Children, isValidElement, useState } from 'react';
+import { Children, createContext, isValidElement, useContext, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
@@ -16,6 +16,37 @@ import {
     isPaypalButton,
 } from './adapterMarkdownViewUtils';
 import { I18n } from '../../utils/i18n';
+
+/*
+ * Since react-markdown 9 the renderer no longer says whether a piece of code stands in a line or in
+ * a block: the `inline` flag it used to hand over is gone, so the test for it was never true again
+ * and every `code` in a sentence lost its look. It stood in the text as bare monospace, which read
+ * like a mistake rather than like code (OliverIO in the forum, 17.09.2026). The block says so
+ * itself now: everything below a `pre` is block code, everything else is a piece in a line.
+ */
+const InsideCodeBlock = createContext(false);
+
+const InlineCode = ({
+    className,
+    codeClass,
+    children,
+}: {
+    className?: string;
+    codeClass: string;
+    children: React.ReactNode;
+}): React.JSX.Element => {
+    if (useContext(InsideCodeBlock)) {
+        return <code className={className}>{children}</code>;
+    }
+    return (
+        <Box
+            component="code"
+            className={codeClass}
+        >
+            {children}
+        </Box>
+    );
+};
 
 interface AdapterMarkdownViewProps {
     markdown?: string;
@@ -195,6 +226,7 @@ export const AdapterMarkdownView = ({
                     </Box>
                 ),
                 pre: ({ children }) => {
+                    // everything inside belongs to the block, so the code in it keeps its plain look
                     const child = Children.toArray(children)[0];
                     const className = isValidElement<{ className?: string }>(child) ? child.props.className : undefined;
                     const language = getCodeLanguage(className);
@@ -244,24 +276,19 @@ export const AdapterMarkdownView = ({
                                 component="pre"
                                 className={classNames.codeBlockContent}
                             >
-                                {children}
+                                <InsideCodeBlock.Provider value={true}>{children}</InsideCodeBlock.Provider>
                             </Box>
                         </Box>
                     );
                 },
-                code: ({ inline, className, children }: React.ComponentProps<'code'> & { inline?: boolean }) => {
-                    if (inline) {
-                        return (
-                            <Box
-                                component="code"
-                                className={classNames.inlineCode}
-                            >
-                                {children}
-                            </Box>
-                        );
-                    }
-                    return <code className={className}>{children}</code>;
-                },
+                code: ({ className, children }: React.ComponentProps<'code'>) => (
+                    <InlineCode
+                        className={className}
+                        codeClass={classNames.inlineCode}
+                    >
+                        {children}
+                    </InlineCode>
+                ),
                 hr: () => null,
             }}
         >

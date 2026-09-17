@@ -49,21 +49,21 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird die Fehler
 
 | Einstellung                                 | Ergebnis                                                                                                                  |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Jahresstatistik: Wochen / Monate / Quartale | Die unten aufgeführten Werte der Geschäfte wurden bereits vervollständigt.`<source>.<year>` zum historischen Vergleich.   |
+| Jahresstatistik: Wochen / Monate / Quartale | Die unten aufgeführten Werte der Geschäfte wurden bereits vervollständigt. `<source>.<year>` zum historischen Vergleich.   |
 | Aktuelles Jahr: Wochentag                   | Speichert die Werte der aktuellen Woche nach Wochentagen.                                                                 |
-| Aktuelles Jahr: Wochen / Monate / Quartale  | Speichert unten Werte für jede Periode`<source>.currentYear` Die                                                          |
+| Aktuelles Jahr: Wochen / Monate / Quartale  | Speichert unten Werte für jede Periode `<source>.currentYear` Die                                                          |
 | Aktuelles Jahr: Vorherige Periode           | Speichert den abgeschlossenen Tag, die Woche, den Monat, das Quartal und das Jahr sowie die Wochentagswerte der Vorwoche. |
-| Runden: Dezimalzahlen für Verbrauchswerte   | Dezimalzahlen für berechnete Größen und Zählerstände,`3` standardmäßig.                                                   |
-| Runden: Dezimalzahlen für Kostenwerte       | Dezimalzahlen für berechnete Kosten und Erträge,`2` standardmäßig.                                                        |
+| Runden: Dezimalzahlen für Verbrauchswerte   | Dezimalzahlen für berechnete Größen und Zählerstände, `3` standardmäßig.                                                   |
+| Runden: Dezimalzahlen für Kostenwerte       | Dezimalzahlen für berechnete Kosten und Erträge, `2` standardmäßig.                                                        |
 
-Beide Rundungseinstellungen akzeptieren`-1` Um den exakten berechneten Wert ohne Rundung zu speichern, kann eine einzelne Datenquelle davon abweichen: Ihre Felder **„Dezimalstellen für Verbrauchswerte“** und **„Dezimalstellen für Kostenwerte“** überschreiben die globale Einstellung und verwenden diese, wenn sie leer sind. Die Rundung betrifft nur die in Zustände geschriebenen Werte; interne Berechnungen, die kumulativen Messwerte und die persistenten Speicher behalten stets die volle Genauigkeit, sodass im Laufe der Zeit kein Genauigkeitsverlust auftritt.
+Beide Rundungseinstellungen akzeptieren `-1` Um den exakten berechneten Wert ohne Rundung zu speichern, kann eine einzelne Datenquelle davon abweichen: Ihre Felder **„Dezimalstellen für Verbrauchswerte“** und **„Dezimalstellen für Kostenwerte“** überschreiben die globale Einstellung und verwenden diese, wenn sie leer sind. Die Rundung betrifft nur die in Zustände geschriebenen Werte; interne Berechnungen, die kumulativen Messwerte und die persistenten Speicher behalten stets die volle Genauigkeit, sodass im Laufe der Zeit kein Genauigkeitsverlust auftritt.
 
 SourceAnalytix speichert die zuletzt erfolgreich verarbeiteten Kalenderperioden. Falls der Adapter oder ioBroker um Mitternacht nicht ausgeführt wird, werden verpasste Änderungen für Tag, Woche, Monat, Quartal und Jahr beim nächsten Start einmalig verarbeitet.
 
 Ein Rollover kann auch ohne Neustart der Instanz ausgelöst werden, was nützlich ist, wenn festgestellt wird, dass die Instanz kurz nach Mitternacht nicht mehr verfügbar ist:
 
-- Satz`sourceanalytix.<instance>.info.recoverPeriods` Zu`true` Der Knopf setzt sich nach Beendigung des Laufs automatisch zurück.
-- Oder senden Sie eine Nachricht über ein Skript:`sendTo('sourceanalytix.<instance>', 'recoverPeriods', {}, result => log(result.recovered))` Die Antwort enthält die Anzahl der Quellen, deren Rollover verarbeitet wurde.
+- Satz `sourceanalytix.<instance>.info.recoverPeriods` Zu `true` Der Knopf setzt sich nach Beendigung des Laufs automatisch zurück.
+- Oder senden Sie eine Nachricht über ein Skript: `sendTo('sourceanalytix.<instance>', 'recoverPeriods', {}, result => log(result.recovered))` Die Antwort enthält die Anzahl der Quellen, deren Rollover verarbeitet wurde.
 
 Eine stündliche Überprüfung führt die gleiche Wiederherstellung automatisch durch, sodass ein verpasster Rollover, während der Adapter nach einem Host-Suspend oder einer Systemzeitkorrektur weiterlief, automatisch korrigiert wird. Jede Route ist idempotent: Quellen, deren Perioden bereits aktuell sind, werden übersprungen.
 
@@ -77,7 +77,7 @@ Eine stündliche Überprüfung führt die gleiche Wiederherstellung automatisch 
 | -------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Kategorie                  | Die eindeutige Kennung wird im Feld **„Preisdefinition auswählen“** des Quellstaates angezeigt.                 |
 | Beschreibung               | Freitextbeschreibung des Tarifs.                                                                                |
-| Kostenart                  | Wählt die`costs` /`consumed` oder`earnings` /`delivered` Ergebniskategorien.                                    |
+| Kostenart                  | Wählt die `costs` /`consumed` oder `earnings` /`delivered` Ergebniskategorien.                                    |
 | Einheit                    | Zieleinheit für den Verbrauch und Nenner des Stückpreises.                                                      |
 | Preisquelle                | Festpreis, numerischer ioBroker-Status- oder Tarifwähler.                                                       |
 | Preis pro Einheit          | Einzelpreis für einen Festtarif oder der inaktive/Basispreis für einen Selektor.                                |
@@ -95,7 +95,7 @@ Wählen Sie **„Festpreis“** und geben Sie **den Preis pro Einheit** ein. Wen
 
 Wählen Sie **unter „Status“** den Status aus, der den aktuellen numerischen Stückpreis enthält. SourceAnalytix abonniert diesen Status und protokolliert jede Änderung mit dem zugehörigen Zeitstempel. Sowohl Zahlen als auch numerische Zeichenketten mit Punkt oder Komma als Dezimaltrennzeichen werden akzeptiert.
 
-Der Statuswert muss die Systemwährung pro ausgewählter Zieleinheit darstellen, z. B. Währung/kWh, wenn die Preisdefinition verwendet wird.`kWh` Konvertieren Sie Werte wie Cent pro kWh im Quelladapter oder in einem Skript, bevor Sie sie verwenden.
+Der Statuswert muss die Systemwährung pro ausgewählter Zieleinheit darstellen, z. B. Währung/kWh, wenn die Preisdefinition verwendet wird. `kWh` Konvertieren Sie Werte wie Cent pro kWh im Quelladapter oder in einem Skript, bevor Sie sie verwenden.
 
 #### Tarifauswahl
 
@@ -103,12 +103,12 @@ Wählen Sie **im Tarifauswahlmenü** den gewünschten Tag-/Nacht-, Relais-, Kont
 
 - **Der Preis pro Einheit** ist der inaktive/Basispreis.
 - **Der aktive Tarifpreis** wird verwendet, solange der Selektor aktiv ist.
-- Ohne **aktiven Selektorwert** ,`true` Bei von Null verschiedenen Zahlen und häufig vorkommenden Wahrheitszeichenketten wird der alternative Tarif aktiviert.
+- Ohne **aktiven Selektorwert** , `true` Bei von Null verschiedenen Zahlen und häufig vorkommenden Wahrheitszeichenketten wird der alternative Tarif aktiviert.
 - Bei **der Auswahl „Aktiv“** wird der alternative Tarif nur dann aktiviert, wenn die Zeichenkettendarstellung exakt übereinstimmt.
 
 #### Beschreibbarer aktueller Preis
 
-Jede Kategorie legt Folgendes offen`sourceanalytix.<instance>.priceDefinitions.<category>.currentPrice` Skripte und Visualisierungen können diesem Zustand einen numerischen Wert zuweisen, um sofort einen neuen Preis anzuwenden. Der Wert wird außerdem der mit einem Zeitstempel versehenen Preishistorie hinzugefügt.
+Jede Kategorie legt Folgendes offen `sourceanalytix.<instance>.priceDefinitions.<category>.currentPrice` Skripte und Visualisierungen können diesem Zustand einen numerischen Wert zuweisen, um sofort einen neuen Preis anzuwenden. Der Wert wird außerdem der mit einem Zeitstempel versehenen Preishistorie hinzugefügt.
 
 #### Historische Preisberechnung
 
@@ -142,7 +142,7 @@ SourceAnalytix wird über die benutzerdefinierten ioBroker-Einstellungen jedes Q
 | Einschließlich des Grundtarifs                             | Fügt den monatlichen Grundpreis der Preisdefinition hinzu.                                                                                |
 | Verbrauch berechnen                                        | Erstellt und aktualisiert Verbrauchs- oder Lieferzustände.                                                                                |
 | Durchschnittliche Leistungswerte zwischen Aktualisierungen | Optionaler Berechnungsmodus für Leistungszustände; siehe [Leistungszustände](#power-states) .                                             |
-| Negative Potenzwerte ignorieren                            | Zählt negative Leistungsmesswerte als`0 W` ; siehe [Leistungszustände](#power-states) .                                                   |
+| Negative Potenzwerte ignorieren                            | Zählt negative Leistungsmesswerte als `0 W`; siehe [Leistungszustände](#power-states) .                                                   |
 | Zählerwerte speichern                                      | Speichert Zählerstände in den aktivierten Erfassungszeiträumen.                                                                           |
 | Erkennung von Gerätewertrücksetzungen                      | Die kumulierte Gesamtsumme wird auch nach einem Zähler-Reset oder -Austausch fortgeführt.                                                 |
 | Schwelle                                                   | Die größte Rückwärtsschwankung wird als Messjitter ignoriert und in der Zieleinheit ausgedrückt.                                          |
@@ -153,7 +153,7 @@ Die Quellstatus-ID wird in die generierte SourceAnalytix-Geräte-ID umgewandelt,
 
 ### Kumulative Quellzustände
 
-Verwenden Sie eine kumulative Summe, die normalerweise nur steigt, zum Beispiel Tasmota.`ENERGY_Total` oder dem Gesamtverbrauch eines intelligenten Zählers. Verwenden Sie keinen Wert wie beispielsweise`ENERGY_Today` Dieser Wert wird absichtlich täglich zurückgesetzt. Falls kein kumulativer Gesamtwert verfügbar ist, erstellen Sie einen solchen in einem vorgelagerten Adapter oder Skript.
+Verwenden Sie eine kumulative Summe, die normalerweise nur steigt, zum Beispiel Tasmota. `ENERGY_Total` oder dem Gesamtverbrauch eines intelligenten Zählers. Verwenden Sie keinen Wert wie beispielsweise `ENERGY_Today` Dieser Wert wird absichtlich täglich zurückgesetzt. Falls kein kumulativer Gesamtwert verfügbar ist, erstellen Sie einen solchen in einem vorgelagerten Adapter oder Skript.
 
 Bei kumulativen Quellen wird der Verbrauch wie folgt berechnet:
 
@@ -169,11 +169,11 @@ Geben Sie manuelle Startwerte in der durch die Preisdefinition ausgewählten **Z
 
 ### Machtzustände
 
-Leistungswerte wie z.B.`W` oder`kW` Die Messwerte werden über die tatsächliche Zeit zwischen den Zustandsaktualisierungen integriert, um Energie zu erzeugen. Die erste Messung dient der Festlegung des Ausgangswerts und erzeugt keinen Verbrauch.
+Leistungswerte wie z.B. `W` oder `kW` Die Messwerte werden über die tatsächliche Zeit zwischen den Zustandsaktualisierungen integriert, um Energie zu erzeugen. Die erste Messung dient der Festlegung des Ausgangswerts und erzeugt keinen Verbrauch.
 
 Standardmäßig wird der vorherige Leistungswert für das gesamte Intervall als gültig betrachtet. Aktivieren Sie die Option **„Durchschnittliche Leistungswerte zwischen Aktualisierungen“** für Sensoren, die regelmäßig Daten liefern und sich nur allmählich ändern. SourceAnalytix verwendet dann den Durchschnitt aus vorherigem und aktuellem Wert. Lassen Sie diese Option deaktiviert für Geräte, die abrupt umschalten, wenn die Aktualisierung das Umschaltereignis markiert.
 
-Manche Wechselrichter melden im ausgeschalteten Zustand eine stark negative Leistung, die andernfalls als negative Energie integriert würde und den Gesamtertrag mindern würde. Aktivieren Sie die **Option „Negative Leistungswerte ignorieren“,** um solche Messwerte als negative Energie zu berücksichtigen.`0 W` Der Messwert wird gespeichert statt verworfen, sodass das Intervall weiterläuft; würde man ihn verwerfen, bliebe der letzte positive Wert als Basiswert erhalten und würde über die gesamte Ausfallzeit integriert.
+Manche Wechselrichter melden im ausgeschalteten Zustand eine stark negative Leistung, die andernfalls als negative Energie integriert würde und den Gesamtertrag mindern würde. Aktivieren Sie die **Option „Negative Leistungswerte ignorieren“,** um solche Messwerte als negative Energie zu berücksichtigen. `0 W` Der Messwert wird gespeichert statt verworfen, sodass das Intervall weiterläuft; würde man ihn verwerfen, bliebe der letzte positive Wert als Basiswert erhalten und würde über die gesamte Ausfallzeit integriert.
 
 ### Unterstützte Einheiten
 
@@ -181,18 +181,18 @@ SourceAnalytix konvertiert Werte automatisch nur zwischen kompatiblen Größen:
 
 | Menge               | Unterstützte Einheiten                  |
 | ------------------- | --------------------------------------- |
-| Leistung            | `GW` ,`MW` ,`kW` ,`W` ,`mW`             |
-| Energie             | `GWh` ,`MWh` ,`kWh` ,`Wh` ,`mWh`        |
-| Kubikvolumen        | `km³` ,`m³` ,`dm³` ,`cm³` ,`mm³`        |
-| Flüssigkeitsvolumen | `hl` ,`l` ,`dl` ,`cl` ,`ml`             |
-| Masse               | `t` ,`kg` ,`g`                          |
-| Metrische Länge     | `km` ,`m` ,`dm` ,`cm` ,`mm` ,`µm` ,`nm` |
+| Leistung            | `GW`, `MW`, `kW`, `W`, `mW`             |
+| Energie             | `GWh`, `MWh`, `kWh`, `Wh`, `mWh`        |
+| Kubikvolumen        | `km³`, `m³`, `dm³`, `cm³`, `mm³`        |
+| Flüssigkeitsvolumen | `hl`, `l`, `dl`, `cl`, `ml`             |
+| Masse               | `t`, `kg`, `g`                          |
+| Metrische Länge     | `km`, `m`, `dm`, `cm`, `mm`, `µm`, `nm` |
 
 Liter und Kubikmeter lassen sich ineinander umrechnen. Inkompatible Umrechnungen, wie beispielsweise Kilogramm in kWh oder Meter in Liter, werden verworfen, um irreführende Ergebnisse zu vermeiden.
 
 ## Generierte Zustände
 
-Für jede Quelle erstellt SourceAnalytix eine`cumulativeReading` und die aktivierten Ergebnisbäume:
+Für jede Quelle erstellt SourceAnalytix eine `cumulativeReading` und die aktivierten Ergebnisbäume:
 
 | Weg                                  | Inhalt                                                                         |
 | ------------------------------------ | ------------------------------------------------------------------------------ |
@@ -204,13 +204,13 @@ Für jede Quelle erstellt SourceAnalytix eine`cumulativeReading` und die aktivie
 | `<source>.<year>`                    | Optionale archivierte Wochen-, Monats- und Quartalsstatistiken.                |
 | `<source>.statisticsJson`            | Kompakte Statistiken des laufenden Jahres für VIS, Skripte und andere Adapter. |
 
-Die grundlegenden aktuellen und optionalen vorherigen Zustände verwenden Namen wie z. B.`01_currentDay` ,`02_currentWeek` ,`03_currentMonth` ,`04_currentQuarter` ,`05_currentYear` und ihre`previous` Äquivalente.
+Die grundlegenden aktuellen und optionalen vorherigen Zustände verwenden Namen wie z. B. `01_currentDay`, `02_currentWeek`, `03_currentMonth`, `04_currentQuarter`, `05_currentYear` und ihre `previous` Äquivalente.
 
-Vorherige Werte werden mit dem Zeitstempel der Periode, zu der sie gehören, geschrieben.`23:59:59` Am letzten Tag, nicht zum Zeitpunkt des Rollovers. Verlaufsadapter protokollieren daher einen abgeschlossenen Tag, eine Woche, einen Monat, ein Quartal oder ein Jahr innerhalb dieses Zeitraums, was Visualisierungen wie Flot erwarten.
+Vorherige Werte werden mit dem Zeitstempel der Periode, zu der sie gehören, geschrieben. `23:59:59` Am letzten Tag, nicht zum Zeitpunkt des Rollovers. Verlaufsadapter protokollieren daher einen abgeschlossenen Tag, eine Woche, einen Monat, ein Quartal oder ein Jahr innerhalb dieses Zeitraums, was Visualisierungen wie Flot erwarten.
 
 ### Statistiken JSON
 
-Jede aktive Quelle legt automatisch einen schreibgeschützten Bereich offen.`statisticsJson` Staat mit Rolle`json` Es sind keine zusätzlichen Einstellungen erforderlich. Es enthält dieselben berechneten Werte wie die einzelnen Bundesstaaten und führt keine separate Berechnung durch.
+Jede aktive Quelle legt automatisch einen schreibgeschützten Bereich offen. `statisticsJson` Staat mit Rolle `json` Es sind keine zusätzlichen Einstellungen erforderlich. Es enthält dieselben berechneten Werte wie die einzelnen Bundesstaaten und führt keine separate Berechnung durch.
 
 ```json
 {
@@ -262,23 +262,23 @@ Jede aktive Quelle legt automatisch einen schreibgeschützten Bereich offen.`sta
 }
 ```
 
-`quantity` stellt entweder dar`consumed` oder`delivered` Werte.`financial` stellt entweder dar`costs` oder`earnings` Die`meterReadings` wird befüllt, wenn die Zählerwertspeicherung aktiviert ist. Deaktivierte Berechnungen und periodische Datenerfassungen werden dargestellt durch`null` Das Schema bleibt also vorhersehbar.
+`quantity` stellt entweder dar `consumed` oder `delivered` Werte. `financial` stellt entweder dar `costs` oder `earnings` Die `meterReadings` wird befüllt, wenn die Zählerwertspeicherung aktiviert ist. Deaktivierte Berechnungen und periodische Datenerfassungen werden dargestellt durch `null` Das Schema bleibt also vorhersehbar.
 
-Wochentagsnutzung`1` für Montag bis`7` für Sonntag. Wochen- und Monatstasten sind mit Nullen aufgefüllt, und Vierteljahrestasten verwenden`1` durch`4` Es werden nur die Sammlungen des aktuellen Jahres und optional die Werte der vorherigen Periode berücksichtigt, um ein unbegrenztes Anwachsen des Zustands zu verhindern. Der ioBroker-Status-Zeitstempel gibt an, wann die JSON-Datei zuletzt geändert wurde.
+Wochentagsnutzung `1` für Montag bis `7` für Sonntag. Wochen- und Monatstasten sind mit Nullen aufgefüllt, und Vierteljahrestasten verwenden `1` durch `4` Es werden nur die Sammlungen des aktuellen Jahres und optional die Werte der vorherigen Periode berücksichtigt, um ein unbegrenztes Anwachsen des Zustands zu verhindern. Der ioBroker-Status-Zeitstempel gibt an, wann die JSON-Datei zuletzt geändert wurde.
 
 Der Zustand wird beim Start des Adapters anhand vorhandener Statistiken neu erstellt, und seine Schreibvorgänge werden in die normalen Berechnungen einbezogen. Wenn eine Datenquelle deaktiviert oder gelöscht wird, bleibt der letzte JSON-Wert zusammen mit dem übrigen berechneten Verlauf erhalten und wird nicht mehr aktualisiert.
 
 ## Zählerrückstellungen und -korrekturen
 
-Bei aktivierter Reset-Erkennung wird eine Verringerung des Verbrauchs oberhalb **des Schwellenwerts** als tatsächlicher Zählerreset oder -austausch interpretiert. SourceAnalytix speichert einen Offset und führt die kumulative Messung fort, ohne den vorherigen Verbrauch zu verlieren. Kleinere Rückwärtsänderungen werden als Jitter behandelt und ignoriert. Ein Schwellenwert von`0` Jede Verringerung wird als Neustart betrachtet.
+Bei aktivierter Reset-Erkennung wird eine Verringerung des Verbrauchs oberhalb **des Schwellenwerts** als tatsächlicher Zählerreset oder -austausch interpretiert. SourceAnalytix speichert einen Offset und führt die kumulative Messung fort, ohne den vorherigen Verbrauch zu verlieren. Kleinere Rückwärtsänderungen werden als Jitter behandelt und ignoriert. Ein Schwellenwert von `0` Jede Verringerung wird als Neustart betrachtet.
 
 Wenn die Reset-Erkennung deaktiviert ist, werden sinkende Messwerte der Quelle akzeptiert und können die berechneten Summen verringern. Dieser Modus ist nur für Quellen vorgesehen, bei denen dieses Verhalten erwartet wird.
 
-Um einen bereits falschen Fehler zu korrigieren`cumulativeReading` :
+Um einen bereits falschen Fehler zu korrigieren `cumulativeReading`:
 
 1. Die SourceAnalytix-Instanz stoppen.
 2. **Objekte** öffnen und Expertenmodus aktivieren.
-3. Richtig`<source>.cumulativeReading` Die
+3. Richtig `<source>.cumulativeReading` Die
 4. Öffnen Sie die benutzerdefinierten SourceAnalytix-Einstellungen des Quellstatus und korrigieren Sie die betroffenen Periodenstartwerte in derselben Zieleinheit.
 5. Starten Sie den Adapter erneut und überprüfen Sie die Ergebnisse der aktuellen Periode.
 
@@ -309,7 +309,7 @@ current cumulative reading - consumption since the beginning of today
 - Prüfen Sie, ob der Preisstatus die Währung pro Zieleinheit angibt und nicht Cent, es sei denn, der Wert wurde umgerechnet.
 - Prüfen Sie den Zeitstempel des Preisstatus und die Messwerte des Quellzählers.
 - Beachten Sie, dass die Differenz zwischen Preisänderungen und der verstrichenen Zeit durch die verstrichene Zeit geteilt wird, da kein feineres Verbrauchsprofil verfügbar ist.
-- Überprüfen`priceDefinitions.<category>.currentPrice` zum aktuellen Preis.
+- Überprüfen `priceDefinitions.<category>.currentPrice` zum aktuellen Preis.
 
 ## Bekannte Einschränkungen
 
@@ -321,7 +321,7 @@ current cumulative reading - consumption since the beginning of today
 
 Die Ursprünge des Adapters reichen zurück bis zu einer Arbeit von pix im Jahr 2016: [ioBroker-Forum-Thread](https://forum.iobroker.net/viewtopic.php?f=21\&t=2262)
 
-Es wurde später verbessert durch`@hadering` und als [homematic\_verbrauchszaehler](https://github.com/hdering/homematic_verbrauchszaehler) veröffentlicht.
+Es wurde später verbessert durch `@hadering` und als [homematic\_verbrauchszaehler](https://github.com/hdering/homematic_verbrauchszaehler) veröffentlicht.
 
 ## Unterstützt mich
 

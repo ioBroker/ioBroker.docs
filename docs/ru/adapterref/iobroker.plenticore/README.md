@@ -43,13 +43,13 @@ Eine deutsche Beschreibung ist [hier zu finden](https://github.com/StrathCole/io
 
 ## Объекты
 
-Ниже приведён фрагмент наиболее важных объектов, используемых и заполняемых этим адаптером. Все настройки отмечены значком .`[**]` Должно быть доступно для редактирования, но не все элементы были протестированы, и могут быть ошибки.
+Ниже приведён фрагмент наиболее важных объектов, используемых и заполняемых этим адаптером. Все настройки отмечены значком . `[**]` Должно быть доступно для редактирования, но не все элементы были протестированы, и могут быть ошибки.
 
 ### plenticore.X.devices.local
 
 В дереве devices.local содержится информация об инверторе и, возможно, подключенном интеллектуальном счетчике энергии и/или батарее.
 
-`plenticore.X.devices.local.Dc_P` - текущая мощность постоянного тока, включая собственную мощность инвертора. Это значение должно быть близко к значению`plenticore.X.devices.local.ac.P` (примерно +30-40 Вт)\
+`plenticore.X.devices.local.Dc_P` - текущая мощность постоянного тока, включая собственную мощность инвертора. Это значение должно быть близко к значению `plenticore.X.devices.local.ac.P` (примерно +30-40 Вт)\
 `plenticore.X.devices.local.Pv_P` - Текущая вырабатываемая фотоэлектрическая энергия. Это значение рассчитывается адаптером путем суммирования значений pvx.P.\
 `plenticore.X.devices.local.Home_P` - общее текущее потребление электроэнергии в доме\
 `plenticore.X.devices.local.HomeBat_P` - текущая мощность электросети, обеспечиваемая батареей.\
@@ -71,7 +71,7 @@ Eine deutsche Beschreibung ist [hier zu finden](https://github.com/StrathCole/io
 #### plenticore.X.devices.local.battery
 
 `plenticore.X.devices.local.battery.Cycles`- количество циклов зарядки/разрядки батареи за весь срок службы на данный момент\
-`[**] plenticore.X.devices.local.battery.DynamicSoc` - true, если включен динамический SoC (только если`SmartBatteryControl` (Это тоже правда)\
+`[**] plenticore.X.devices.local.battery.DynamicSoc` - true, если включен динамический SoC (только если `SmartBatteryControl` (Это тоже правда)\
 `[**] plenticore.X.devices.local.battery.MinHomeConsumption` - минимальное потребление электроэнергии в домашних условиях, необходимое для работы батареи.\
 `[**] plenticore.X.devices.local.battery.MinSoc` - желаемый минимальный уровень заряда батареи (SoC). Фактический уровень заряда может быть ниже этого значения при недостатке солнечной энергии.\
 `plenticore.X.devices.local.battery.MinSocDummy` — Это значение устанавливается адаптером, если управление MinSoC отключено в конфигурации. Оно показывает, до какого значения будет установлен MinSoC.\
@@ -79,7 +79,7 @@ Eine deutsche Beschreibung ist [hier zu finden](https://github.com/StrathCole/io
 `plenticore.X.devices.local.battery.Charge_P` - Текущая мощность зарядки аккумулятора (0, если происходит разрядка)\
 `plenticore.X.devices.local.battery.Discharge_P` - Текущая мощность разряда батареи (0, если идет зарядка)\
 `[**] plenticore.X.devices.local.battery.SmartBatteryControl` — Верно, если включено интеллектуальное управление батареей. Согласно официальному руководству, эта функция должна быть включена только в том случае, если нет дополнительного источника переменного тока, например, второго инвертора.\
-`[**] plenticore.X.devices.local.battery.ExternControl` - Настроить можно только через веб-интерфейс установщика. Для управления через ioBroker используйте состояния ExternControl\_DcPowerAbs и ExternControl\_MaxChargePowerAbs, при этом для ExternControl установлено значение 2 (Modbus TCP).`[**] plenticore.X.devices.local.battery.ExternControl_DcPowerAbs` - ОПАСНО: Используйте это только если вы знаете, что делаете, неправильное использование может повредить вашу батарею! ВАЖНО: Значение необходимо обновлять каждые 3 минуты, иначе Plenticore переключится на внутреннее управление, если не получит новое значение. Это состояние доступно только в том случае, если ExternControl установлено на 2 (Modbus TCP). Значение указывается в ваттах и может быть установлено в диапазоне от -10000 до 10000. Отрицательное значение означает, что батарея разряжается, положительное значение означает, что батарея заряжается.`[**] plenticore.X.devices.local.battery.ExternControl_MaxChargePowerAbs` - ОПАСНО: Используйте это только если вы знаете, что делаете, неправильное использование может повредить вашу батарею! ВАЖНО: Значение необходимо обновлять каждые 3 минуты, иначе Plenticore переключится на внутреннее управление, если не получит новое значение. Это состояние доступно только в том случае, если ExternControl установлено на 2 (Modbus TCP).`plenticore.X.devices.local.battery.SoC` - текущий уровень заряда батареи
+`[**] plenticore.X.devices.local.battery.ExternControl` - Настроить можно только через веб-интерфейс установщика. Для управления через ioBroker используйте состояния ExternControl\_DcPowerAbs и ExternControl\_MaxChargePowerAbs, при этом для ExternControl установлено значение 2 (Modbus TCP). `[**] plenticore.X.devices.local.battery.ExternControl_DcPowerAbs` - ОПАСНО: Используйте это только если вы знаете, что делаете, неправильное использование может повредить вашу батарею! ВАЖНО: Значение необходимо обновлять каждые 3 минуты, иначе Plenticore переключится на внутреннее управление, если не получит новое значение. Это состояние доступно только в том случае, если ExternControl установлено на 2 (Modbus TCP). Значение указывается в ваттах и может быть установлено в диапазоне от -10000 до 10000. Отрицательное значение означает, что батарея разряжается, положительное значение означает, что батарея заряжается. `[**] plenticore.X.devices.local.battery.ExternControl_MaxChargePowerAbs` - ОПАСНО: Используйте это только если вы знаете, что делаете, неправильное использование может повредить вашу батарею! ВАЖНО: Значение необходимо обновлять каждые 3 минуты, иначе Plenticore переключится на внутреннее управление, если не получит новое значение. Это состояние доступно только в том случае, если ExternControl установлено на 2 (Modbus TCP). `plenticore.X.devices.local.battery.SoC` - текущий уровень заряда батареи
 
 #### plenticore.X.devices.local.inverter
 
@@ -103,7 +103,7 @@ Eine deutsche Beschreibung ist [hier zu finden](https://github.com/StrathCole/io
 `[**] plenticore.X.scb.network.Hostname` - текущее имя хоста инвертора\
 `[**] plenticore.X.scb.network.IPv4Auto` - Используйте DHCP для предоставления IP-адресов инвертору.\
 `[**] plenticore.X.scb.network.IPv4Address` - текущий IP-адрес инвертора\
-`[**] plenticore.X.scb.network.IPv4DNS1` и`plenticore.X.scb.network.IPv4DNS2` - используемые в данный момент DNS-серверы\
+`[**] plenticore.X.scb.network.IPv4DNS1` и `plenticore.X.scb.network.IPv4DNS2` - используемые в данный момент DNS-серверы\
 `[**] plenticore.X.scb.network.IPv4Gateway` - используемый в данный момент сетевой шлюз\
 `[**] plenticore.X.scb.network.IPv4Subnetmask` - маска подсети
 
@@ -115,7 +115,7 @@ Eine deutsche Beschreibung ist [hier zu finden](https://github.com/StrathCole/io
 
 ### plenticore.X.scb.statistic.EnergyFlow
 
-В этом разделе представлены статистические данные, отображаемые в веб-интерфейсе Plenticore. Следуя только указанным ниже данным,`Day` Указаны определенные точки данных, но каждая из них также доступна для`Month` ,`Year` и`Total` .
+В этом разделе представлены статистические данные, отображаемые в веб-интерфейсе Plenticore. Следуя только указанным ниже данным, `Day` Указаны определенные точки данных, но каждая из них также доступна для `Month`, `Year` и `Total`.
 
 `plenticore.0.scb.statistic.EnergyFlow.AutarkyDay`- автаркия в процентах на сегодняшний день\
 `plenticore.0.scb.statistic.EnergyFlow.CO2SavingDay` - расчетное количество сэкономленных CO2 в кг на текущий день\
@@ -169,7 +169,7 @@ Eine deutsche Beschreibung ist [hier zu finden](https://github.com/StrathCole/io
 `plenticore.0.forecast.day1.power.remaining` - оставшаяся мощность прогнозируемого суммарного показателя на день, рассчитанная на основе прогноза оставшихся солнечных часов.\
 `plenticore.0.forecast.day1.power.Xh.power` - расчетная суммарная мощность, вырабатываемая электростанцией в час восхода солнца X прогнозируемого дня, где 1h — час восхода солнца.\
 `plenticore.0.forecast.day1.power.Xh.power_high` - расчетная суммарная мощность, вырабатываемая электростанцией в час X солнечного дня, но без учета данных о видимости и осадках.\
-`plenticore.0.forecast.day1.power.Xh.time` - время восхода солнца`plenticore.0.forecast.power.Xh.power` начинается\
+`plenticore.0.forecast.day1.power.Xh.time` - время восхода солнца `plenticore.0.forecast.power.Xh.power` начинается\
 `plenticore.0.forecast.day1.sun.sunrise` - время восхода солнца в прогнозируемую дату\
 `plenticore.0.forecast.day1.sun.sunset` - время захода солнца в прогнозируемую дату
 

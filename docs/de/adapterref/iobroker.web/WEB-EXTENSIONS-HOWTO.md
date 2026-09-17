@@ -10,13 +10,13 @@ hash: SOVZgZC06vGyoVQd2jiyFS0YTb5u+HAy7k/Euz8yAPE=
 
 Wenn ein Adapter unter demselben Port wie der Webadapter verfügbar sein soll, muss er die Funktionalität der Web-Erweiterung implementieren.
 
-Erstens muss es ein`common.webExtension` Flagge in`io-package.json` Datei, die auf die Web-Erweiterungsdatei verweist. Zum Beispiel.`"webExtension": "lib/web.js"` Die
+Erstens muss es ein `common.webExtension` Flagge in `io-package.json` Datei, die auf die Web-Erweiterungsdatei verweist. Zum Beispiel. `"webExtension": "lib/web.js"` Die
 
-Zweite,`native.webInstance` Flagge in`io-package.json` muss auf den Instanznamen des Webadapters verweisen, für den die Erweiterung geladen werden soll. Alternativ kann sie einfach für alle Instanzen geladen werden.`"webInstance": "*"` Die
+Zweite, `native.webInstance` Flagge in `io-package.json` muss auf den Instanznamen des Webadapters verweisen, für den die Erweiterung geladen werden soll. Alternativ kann sie einfach für alle Instanzen geladen werden. `"webInstance": "*"` Die
 
-Drittens, stellen Sie sicher`common.enabled` des jeweiligen Web-Erweiterungsadapters ist auf „true“ gesetzt in`io-package.json` :`"enabled": true` Wenn Sie mit **dev-server** arbeiten, beachten Sie bitte Folgendes: dev-server **aktiviert die Instanz nicht automatisch** beim Befehl „dev-server watch“. Dies müssen Sie manuell tun: Navigieren Sie zu`system.adapter.<ADAPTER_NAME>.0` , verwenden`edit object` einstellen`"enabled": true` innerhalb der Objektdaten. Wenn diese nicht korrekt konfiguriert sind, wird die Web-Erweiterung vom Webadapter nicht aktiviert.
+Drittens, stellen Sie sicher `common.enabled` des jeweiligen Web-Erweiterungsadapters ist auf „true“ gesetzt in `io-package.json`: `"enabled": true` Wenn Sie mit **dev-server** arbeiten, beachten Sie bitte Folgendes: dev-server **aktiviert die Instanz nicht automatisch** beim Befehl „dev-server watch“. Dies müssen Sie manuell tun: Navigieren Sie zu `system.adapter.<ADAPTER_NAME>.0`, verwenden `edit object` einstellen `"enabled": true` innerhalb der Objektdaten. Wenn diese nicht korrekt konfiguriert sind, wird die Web-Erweiterung vom Webadapter nicht aktiviert.
 
-Als Nächstes sollten Sie ein Zustandsobjekt erstellen.`info.extension` und legen Sie es auf Codeebene auf „true“ oder „false“ fest. Dieser Status steuert die Anzeige des Adapterstatus durch den Administrator.
+Als Nächstes sollten Sie ein Zustandsobjekt erstellen. `info.extension` und legen Sie es auf Codeebene auf „true“ oder „false“ fest. Dieser Status steuert die Anzeige des Adapterstatus durch den Administrator.
 
 ```json
   "instanceObjects": [
@@ -58,7 +58,7 @@ Als Nächstes sollten Sie ein Zustandsobjekt erstellen.`info.extension` und lege
 }
 ```
 
-Fünftens, die Datei`lib/web.js` (oder was auch immer) muss existieren und eine Klasse exportieren.
+Fünftens, die Datei `lib/web.js` (oder was auch immer) muss existieren und eine Klasse exportieren.
 
 ```js
 /**
@@ -135,7 +135,7 @@ module.exports = ExtensionExample;
 
 `common.mode` könnte sein:
 
-- `daemon` Die Instanz wird gestartet, aber wenn main.js zurückgibt`utils.EXIT_CODES.ADAPTER_REQUESTED_TERMINATION` Da es sich um einen Exit-Code handelt, wird die Instanz nicht neu gestartet.
+- `daemon` Die Instanz wird gestartet, aber wenn main.js zurückgibt `utils.EXIT_CODES.ADAPTER_REQUESTED_TERMINATION` Da es sich um einen Exit-Code handelt, wird die Instanz nicht neu gestartet.
 - `extension` - Die Instanz wird niemals gestartet, da sie nur als Teil einer Webinstanz ausgeführt wird.
 
 ## Beispiele

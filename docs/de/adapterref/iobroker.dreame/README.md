@@ -137,7 +137,7 @@ Der Adapter erstellt Zustände für Saugroboter verzögert – nur die von Ihrem
 
 #### AutoSwitch analysierte Werte
 
-Diese werden aus den folgenden Daten extrahiert:`auto-switch-settings` JSON und als einzelne Zustände verfügbar:
+Diese werden aus den folgenden Daten extrahiert: `auto-switch-settings` JSON und als einzelne Zustände verfügbar:
 
 | Zustand               | Beschreibung                                               |
 | --------------------- | ---------------------------------------------------------- |
@@ -221,7 +221,7 @@ Diese schreiben direkt in die AutoSwitch-Einstellungen des Geräts (Eigenschaft 
 
 #### Aktionen
 
-> **Breaking Change seit Version 0.3.18:** Aktionszustände (`start-clean` ,`stop` ,`pause` ,`return-to-dock` ,`locate` ,`start-washing` ,`start-auto-empty` ,`clear-warning` (und alle Reset-Tasten) sind jetzt **vom Typ Boolean / Rolle Taste** . Schreiben`true` Um sie auszulösen, müssen Skripte oder Vis-Widgets, die zuvor einen Zeichenfolgenwert geschrieben haben, aktualisiert werden.
+> **Breaking Change seit Version 0.3.18:** Aktionszustände (`start-clean`, `stop`, `pause`, `return-to-dock`, `locate`, `start-washing`, `start-auto-empty`, `clear-warning` (und alle Reset-Tasten) sind jetzt **vom Typ Boolean / Rolle Taste** . Schreiben `true` Um sie auszulösen, müssen Skripte oder Vis-Widgets, die zuvor einen Zeichenfolgenwert geschrieben haben, aktualisiert werden.
 
 | Zustand                    | Beschreibung                                                             |
 | -------------------------- | ------------------------------------------------------------------------ |
@@ -252,17 +252,17 @@ Diese schreiben direkt in die AutoSwitch-Einstellungen des Geräts (Eigenschaft 
 ]
 ```
 
-X = Raum-ID. Mehrere Räume:`{\"selects\":[[X,1,3,2,1],[Y,1,3,2,1]]}`
+X = Raum-ID. Mehrere Räume: `{\"selects\":[[X,1,3,2,1],[Y,1,3,2,1]]}`
 
 #### Schalterbelegung
 
-`dreame.0.XXXXXXX.remote.customCommand` :
+`dreame.0.XXXXXXX.remote.customCommand`:
 
 ```json
 { "siid": 6, "aiid": 2, "in": [{ "piid": 4, "value": "{\"sm\":{},\"mapid\":X}" }] }
 ```
 
-X = mapId (siehe`dreame.0.XXXX.status.map-list` )
+X = mapId (siehe `dreame.0.XXXX.status.map-list`)
 
 ---
 
@@ -274,25 +274,25 @@ Mit der Funktion **„Benutzerdefinierte Raumreinigung“** können Sie einzelne
 
 **a) Benennen Sie Ihre Karte (optional, empfohlen für Haushalte mit mehreren Etagen)**
 
-Wenn eine Karte zum ersten Mal erkannt wird,`map.maps.<id>.mapName` wird mit dem Platzhalterwert erstellt`"Map <id>"` (z.B`"Map 1"` Dieser Zustand ist direkt beschreibbar – ändern Sie den Wert im ioBroker-Objektbaum in einen aussagekräftigen Wert, z. B. von`"Map 1"` Zu`"Ground Floor"` Der Kanalname von`map.maps.<id>` Die Aktualisierung erfolgt automatisch, sobald Sie den neuen Wert speichern. Ein Neustart des Adapters ist nicht erforderlich.
+Wenn eine Karte zum ersten Mal erkannt wird, `map.maps.<id>.mapName` wird mit dem Platzhalterwert erstellt `"Map <id>"` (z.B `"Map 1"` Dieser Zustand ist direkt beschreibbar – ändern Sie den Wert im ioBroker-Objektbaum in einen aussagekräftigen Wert, z. B. von `"Map 1"` Zu `"Ground Floor"` Der Kanalname von `map.maps.<id>` Die Aktualisierung erfolgt automatisch, sobald Sie den neuen Wert speichern. Ein Neustart des Adapters ist nicht erforderlich.
 
 **b) Aktive Karte festlegen**
 
-Schreiben Sie die Karten-ID (z. B.`1` ) Zu`remote.custom-room-cleaning.active-map` Nur die Räume, die zu dieser Karte gehören, werden beim Start an den Roboter gesendet. Die in Schritt (a) erstellte Karte hilft Ihnen dabei, die IDs den einzelnen Etagen zuzuordnen.
+Schreiben Sie die Karten-ID (z. B. `1`) Zu `remote.custom-room-cleaning.active-map` Nur die Räume, die zu dieser Karte gehören, werden beim Start an den Roboter gesendet. Die in Schritt (a) erstellte Karte hilft Ihnen dabei, die IDs den einzelnen Etagen zuzuordnen.
 
 **c) Zimmer auswählen**
 
-Unter`remote.custom-room-cleaning.map-<id>/` Jeder erkannte Raum wird als boolescher Zustand dargestellt. Die Kanal- und Zustandsnamen zeigen den übersetzten Raumnamen aus der Karte an (z. B.`kitchen` ,`living-room` ,`bathroom` Stellen Sie die gewünschten Räume ein auf`true` Die
+Unter `remote.custom-room-cleaning.map-<id>/` Jeder erkannte Raum wird als boolescher Zustand dargestellt. Die Kanal- und Zustandsnamen zeigen den übersetzten Raumnamen aus der Karte an (z. B. `kitchen`, `living-room`, `bathroom` Stellen Sie die gewünschten Räume ein auf `true` Die
 
 **d) Saugstärke und Wassermenge einstellen (optional)**
 
-`remote.suction-level` Und`remote.water-volume` Die Einstellungen sollen auf alle ausgewählten Räume angewendet werden. Um abweichende Werte zu erhalten, müssen diese vor dem Start der Reinigung festgelegt werden. Es handelt sich dabei um dieselben Zustände, die auch für die reguläre Reinigung verwendet werden.
+`remote.suction-level` Und `remote.water-volume` Die Einstellungen sollen auf alle ausgewählten Räume angewendet werden. Um abweichende Werte zu erhalten, müssen diese vor dem Start der Reinigung festgelegt werden. Es handelt sich dabei um dieselben Zustände, die auch für die reguläre Reinigung verwendet werden.
 
 **e) Starten Sie den Reinigungslauf.**
 
-Satz`remote.custom-room-cleaning.start` Zu`true` Der Adapter erstellt die Raumauswahl anhand der Kontrollkästchen der aktiven Karte, sendet sie an den Roboter und setzt die`start` Staat zu`false` automatisch.
+Satz `remote.custom-room-cleaning.start` Zu `true` Der Adapter erstellt die Raumauswahl anhand der Kontrollkästchen der aktiven Karte, sendet sie an den Roboter und setzt die `start` Staat zu `false` automatisch.
 
-#### Fortgeschritten: direkt`customCommand` Bearbeitung
+#### Fortgeschritten: direkt `customCommand` Bearbeitung
 
 `remote.custom-room-cleaning.customCommand` Speichert die Rohauswahl als JSON-Zeichenkette. Sie können sie auch direkt schreiben, wenn Sie das bevorzugen:
 
@@ -306,18 +306,18 @@ Beispiel — Küche (ID 4) einmal bei starker Saugkraft, mittlerer Wassermenge:
 {"selects":[[4, 1, 2, 2, 1]]}
 ```
 
-Der`customCommand` Die Zimmer-Kontrollkästchen sind **bidirektional synchronisiert** : Die Bearbeitung eines Kontrollkästchens aktualisiert das andere automatisch. Schreiben`customCommand` Aktualisiert direkt die Kontrollkästchen der aktiven Karte; durch Aktivieren eines Kontrollkästchens wird die Karte neu erstellt.`customCommand` Beide Wege sind gleichwertig.
+Der `customCommand` Die Zimmer-Kontrollkästchen sind **bidirektional synchronisiert** : Die Bearbeitung eines Kontrollkästchens aktualisiert das andere automatisch. Schreiben `customCommand` Aktualisiert direkt die Kontrollkästchen der aktiven Karte; durch Aktivieren eines Kontrollkästchens wird die Karte neu erstellt. `customCommand` Beide Wege sind gleichwertig.
 
 #### Bekannte Einschränkungen
 
-- **Globale Saug-/Wassereinstellung** – Saugstärke und Wassermenge sind für alle ausgewählten Räume identisch eingestellt. Raumspezifische Einstellungen (wie in der Tabelle dargestellt)`map.cleanset.*` ) werden von dieser Funktion nicht unterstützt.
+- **Globale Saug-/Wassereinstellung** – Saugstärke und Wassermenge sind für alle ausgewählten Räume identisch eingestellt. Raumspezifische Einstellungen (wie in der Tabelle dargestellt) `map.cleanset.*`) werden von dieser Funktion nicht unterstützt.
 - **Mehrgeschossige Haushalte wurden mit einer Karte getestet** – die Mehrkartenstruktur (eine Kanalgruppe pro Karte) ist vollständig implementiert, jedoch wurde bisher nur der Betrieb mit einer einzelnen Karte umfassend auf realer Hardware getestet. Mehrgeschossige Haushalte mit zwei oder mehr Karten sollten funktionieren, wurden aber noch nicht vollständig verifiziert.
 
 ---
 
 ### Staubsauger-Abkürzungen
 
-Verknüpfungen (Schnellbefehle, die in der Dreame-App erstellt wurden) werden aus den Eigenschaften 4–48 (Base64-kodierte Namen) extrahiert. Jede Verknüpfung erhält einen eigenen Kanal unter`deviceId.shortcuts.{id}` :
+Verknüpfungen (Schnellbefehle, die in der Dreame-App erstellt wurden) werden aus den Eigenschaften 4–48 (Base64-kodierte Namen) extrahiert. Jede Verknüpfung erhält einen eigenen Kanal unter `deviceId.shortcuts.{id}`:
 
 | Zustand | Beschreibung                              |
 | ------- | ----------------------------------------- |
@@ -331,18 +331,18 @@ Kanäle werden beim Start des Adapters automatisch neu erstellt (nicht erst bei 
 
 ### Zeitpläne
 
-In der Dreame-App erstellte Zeitpläne (Eigenschaft 8-2) werden pro Zeitplaneintrag in einen Kanal aufgeteilt unter`deviceId.schedule.{id}` :
+In der Dreame-App erstellte Zeitpläne (Eigenschaft 8-2) werden pro Zeitplaneintrag in einen Kanal aufgeteilt unter `deviceId.schedule.{id}`:
 
 | Zustand     | Beschreibung                                                                                                                                                                          |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ermöglicht  | Ob der Zeitplan aktiv ist – beschreibbar, schaltet den Zeitplan direkt auf dem Roboter um.                                                                                            |
-| Zeit        | Tageszeit, zu der der Zeitplan ausgelöst wird (`HH:MM` )                                                                                                                              |
-| Wochentage  | An Wochentagen läuft der Zeitplan (derzeit immer auf Deutsch, z. B.`Mo,Mi,Fr` oder`täglich` )                                                                                         |
+| Zeit        | Tageszeit, zu der der Zeitplan ausgelöst wird (`HH:MM`)                                                                                                                              |
+| Wochentage  | An Wochentagen läuft der Zeitplan (derzeit immer auf Deutsch, z. B. `Mo,Mi,Fr` oder `täglich`)                                                                                         |
 | Typ         | Art des Reinigungsplans: Zimmerreinigung, Reinigung aller Zimmer oder eine Abkürzung                                                                                                  |
 | Zimmer      | _(Nur für Zimmerreinigungspläne)_ JSON-Array, ein Eintrag pro Zimmer mit eigenem Modus/Saugkraft/Route/Zyklen/Feuchtigkeit und übersetztem Zimmernamen                                |
 | Parameter   | _(Nur Zeitpläne für alle Räume)_ JSON-Objekt mit Modus/Saugkraft/Route/Zyklen/Feuchtigkeit, angewendet auf den gesamten Boden                                                         |
 | Shortcut-ID | _(Nur für Verknüpfungszeitpläne)_ die numerische ID der verknüpften Verknüpfung                                                                                                       |
-| Waise       | _(Nur Kurzzeitpläne)_`true` wenn die verknüpfte Verknüpfung nicht mehr existiert (in der App gelöscht wurde) —`enabled` sollte in diesem Fall nicht als verlässlich angesehen werden. |
+| Waise       | _(Nur Kurzzeitpläne)_ `true` wenn die verknüpfte Verknüpfung nicht mehr existiert (in der App gelöscht wurde) —`enabled` sollte in diesem Fall nicht als verlässlich angesehen werden. |
 
 Die Zeitplankanäle werden beim Start des Adapters automatisch neu erstellt und beim Löschen eines Zeitplans in der App automatisch entfernt, genau wie die oben genannten Verknüpfungen.
 
@@ -355,10 +355,10 @@ Der Adapter beinhaltet ein browserbasiertes Live-Karten-Widget: Roboterposition,
 #### Aufstellen
 
 - Zum Ausliefern der Seite wird der ioBroker **-Webadapter** (beliebige Instanz) benötigt.
-- Öffne es bei`%web_protocol%://%ip%:%web_port%/dreame/` — z.B.`http://<your-iobroker>:8082/dreame/` Ein vorgefertigter Link („Dreame-Map“) befindet sich auf der ioBroker-Startseite und neben dieser Instanz in der Adapterliste.
+- Öffne es bei `%web_protocol%://%ip%:%web_port%/dreame/` — z.B. `http://<your-iobroker>:8082/dreame/` Ein vorgefertigter Link („Dreame-Map“) befindet sich auf der ioBroker-Startseite und neben dieser Instanz in der Adapterliste.
 - **Die Option „Karte abrufen“** muss aktiviert sein (siehe [Konfiguration](#configuration) ) – ohne sie verfügt das Widget über keine Daten.
 - Falls noch keine Karte angezeigt wird, starten Sie den Adapter einmal, während sich der Roboter in seiner Dockingstation befindet, damit die erste vollständige Karte geladen werden kann.
-- Mehrere Roboter in derselben Instanz: Das Widget zeigt im Header einen Geräteumschalter an, wenn mehr als ein Gerät gefunden wird, oder man kann direkt eines auswählen mit`?did=<did>` in der Adresse.
+- Mehrere Roboter in derselben Instanz: Das Widget zeigt im Header einen Geräteumschalter an, wenn mehr als ein Gerät gefunden wird, oder man kann direkt eines auswählen mit `?did=<did>` in der Adresse.
 
 > **Kamera-/VSLAM-Roboter werden nicht unterstützt.** Geräte, die per Kamera statt per Lidar navigieren (z. B. Mijia 1C/1T, Dreame F9), werden vom Karten-Widget nicht erfasst – es wurde ausschließlich für Lidar-Roboter entwickelt und getestet. Der Adapter protokolliert eine Warnung, und die Karte bleibt für diese Geräte leer.
 
@@ -388,20 +388,20 @@ Alle Darstellungseinstellungen befinden sich im Widget selbst – öffnen Sie da
 - Schnellzugriffsleiste: Eine Kachel pro App-Verknüpfung; tippen Sie darauf, um die App direkt aus dem Widget zu starten.
 - Die Schaltfläche „Zeitpläne“ öffnet eine Tabelle aller in der Dreame-App erstellten Zeitpläne (Zeit, Wochentage, Typ, Einstellungen pro Raum oder für die gesamte Etage) mit einem Ein-/Ausschalter für jeden Zeitplan. Ein Zeitplan, der auf eine gelöschte Verknüpfung verweist, zeigt einen gesperrten Schalter an, anstatt stillschweigend keine Aktion auszuführen.
 - Die Widget-Benutzeroberfläche ist in Deutsch und Englisch verfügbar, entsprechend der Systemsprache von ioBroker.
-- Kioskmodus (`?gear=0` ) blendet das Einstellungs-Zahnrad aus – für schreibgeschützte Displays (Wandtablets, Dashboards)
-- Das aktuelle Erscheinungsbild und die Bedienfeldeinstellungen können als kompakter Link exportiert werden (`?cfg=<blob>` ), um ein Setup schnell über mehrere Einbettungen hinweg zu teilen oder wiederzuverwenden, ohne die gespeicherte Konfiguration zu verändern.
+- Kioskmodus (`?gear=0`) blendet das Einstellungs-Zahnrad aus – für schreibgeschützte Displays (Wandtablets, Dashboards)
+- Das aktuelle Erscheinungsbild und die Bedienfeldeinstellungen können als kompakter Link exportiert werden (`?cfg=<blob>`), um ein Setup schnell über mehrere Einbettungen hinweg zu teilen oder wiederzuverwenden, ohne die gespeicherte Konfiguration zu verändern.
 - Verbrauchszähler für Wassertank und Wischmopp (Wasser- und Wischmopp-Bedienfeld)
 - Mit einem Klick auf die Standarddarstellung und Bedienfeldeinstellungen zurücksetzen, unabhängig von der gespeicherten Adapterkonfiguration
 
 #### Kiosk-/iFrame-Beispiel
 
-Kombinieren`?gear=0` (Einstellungen ausblenden) mit einem`?cfg=` Im Einstellungsfeld wird ein Link generiert, um eine vorkonfigurierte, schreibgeschützte Ansicht einzubetten:
+Kombinieren `?gear=0` (Einstellungen ausblenden) mit einem `?cfg=` Im Einstellungsfeld wird ein Link generiert, um eine vorkonfigurierte, schreibgeschützte Ansicht einzubetten:
 
 ```
 http://<your-iobroker>:8082/dreame/?gear=0&cfg=<blob>
 ```
 
-Der`<blob>` wird vom Abschnitt "Link" im Einstellungsfeld des Widgets generiert und betrifft nur diesen Browser-Tab/diese Einbettung – die für das Widget selbst gespeicherten Einstellungen werden niemals überschrieben.
+Der `<blob>` wird vom Abschnitt "Link" im Einstellungsfeld des Widgets generiert und betrifft nur diesen Browser-Tab/diese Einbettung – die für das Widget selbst gespeicherten Einstellungen werden niemals überschrieben.
 
 ---
 
@@ -423,23 +423,23 @@ Der Adapter unterstützt Dreame-Mähroboter mit dedizierten Zuständen und Karte
 | Aufgabenstatus                 | Aufgabenstatus                                                                                                                  |
 | Fehler                         | Fehlerdetails                                                                                                                   |
 | Warnstatus                     | Warnstatus                                                                                                                      |
-| Einstellungen aktualisieren    | Einstellungen werden über MQTT (2-51) geändert. Wert:`[en,hours]` =Regen`0/1` =Frost,`[en,start,end]` =Niedrige Geschwindigkeit |
+| Einstellungen aktualisieren    | Einstellungen werden über MQTT (2-51) geändert. Wert: `[en,hours]` =Regen `0/1` =Frost, `[en,start,end]` =Niedrige Geschwindigkeit |
 | Zonenstatus                    | Zonenmähstatus pro Bereich                                                                                                      |
 | KI-Hindernisse                 | KI hat Hindernisse erkannt                                                                                                      |
 | Selbstprüfung                  | Selbsttest-Diagnoseergebnis                                                                                                     |
 | Gesamtmähzeit                  | Gesamte Mähzeit (min)                                                                                                           |
 | Gesamtzahl der Mähvorgänge     | Gesamtzahl der Mähvorgänge                                                                                                      |
 | Gesamtmähfläche                | Gesamte gemähte Fläche (m²)                                                                                                     |
-| Regenschutz                    | Regenschutzeinstellungen (WRP):`[enabled, wait_hours, sensitivity]`                                                             |
+| Regenschutz                    | Regenschutzeinstellungen (WRP): `[enabled, wait_hours, sensitivity]`                                                             |
 | Frostschutz                    | Frostschutz (FDP): 0 = aus, 1 = ein                                                                                             |
-| niedrige Geschwindigkeit       | Nachtmodus mit niedriger Geschwindigkeit (NIEDRIG):`[enabled, start_min, end_min]`                                              |
-| dnd-Einstellungen              | Nicht stören-Einstellungen (DND):`[enabled, start_min, end_min]`                                                                |
-| Batteriekonfiguration          | Batteriekonfiguration (BAT):`[return%, max%, charge_en, ?, start, end]`                                                         |
+| niedrige Geschwindigkeit       | Nachtmodus mit niedriger Geschwindigkeit (NIEDRIG): `[enabled, start_min, end_min]`                                              |
+| dnd-Einstellungen              | Nicht stören-Einstellungen (DND): `[enabled, start_min, end_min]`                                                                |
+| Batteriekonfiguration          | Batteriekonfiguration (BAT): `[return%, max%, charge_en, ?, start, end]`                                                         |
 | Volumen                        | Lautstärke (VOL): 0-100                                                                                                         |
 | Kindersicherungs-Konfiguration | Kindersicherung (CLS): 0 = aus, 1 = ein                                                                                         |
 | ai-obstacle-cfg                | KI-Hindernisvermeidung (AOP): 0 = aus, 1 = ein                                                                                  |
 | Diebstahlsicherung             | Diebstahlsicherung (STUN): 0 = aus, 1 = ein                                                                                     |
-| Scheinwerfer                   | Scheinwerfereinstellungen (LIT):`[enabled, start, end, l1, l2, l3, l4]`                                                         |
+| Scheinwerfer                   | Scheinwerfereinstellungen (LIT): `[enabled, start, end, l1, l2, l3, l4]`                                                         |
 | Rasenschutz                    | Rasenschutz (PROT): 0=aus, 1=ein                                                                                                |
 | Klingenstunden                 | Betriebsstunden des Rotorblatts (max. 100 h)                                                                                    |
 | Klingengesundheit              | Klingengesundheit 0-100%                                                                                                        |
@@ -470,17 +470,17 @@ Diese Zustände werden aus binären MQTT-Nachrichten befüllt und verzögert ers
 
 | Zustand                 | Beschreibung                                                                           |
 | ----------------------- | -------------------------------------------------------------------------------------- |
-| Roboterposition         | Aktuelle Roboterposition (JSON):`{"x":..., "y":..., "angle":...}`                      |
+| Roboterposition         | Aktuelle Roboterposition (JSON): `{"x":..., "y":..., "angle":...}`                      |
 | Mähfortschritt          | Aktueller Aufgabenfortschritt (%)                                                      |
 | gemähte Fläche          | Im Rahmen der aktuellen Aufgabe fertiggestellte Fläche (m²)                            |
 | Gesamtmähfläche-Aufgabe | Geplante Gesamtfläche für die aktuelle Aufgabe (m²)                                    |
-| Mähaufgabe              | Vollständige Aufgabendaten im JSON-Format:`{regionId, taskId, percent, total, finish}` |
+| Mähaufgabe              | Vollständige Aufgabendaten im JSON-Format: `{regionId, taskId, percent, total, finish}` |
 
 **Aus dem Gerätetelemetriepaket (SIID 1-1):**
 
 | Zustand          | Beschreibung                                                                                            |
 | ---------------- | ------------------------------------------------------------------------------------------------------- |
-| Dockposition     | Dock-/Ladeposition JSON:`{"x":..., "y":..., "angle":...}` (wird beim Andocken aktualisiert)             |
+| Dockposition     | Dock-/Ladeposition JSON: `{"x":..., "y":..., "angle":...}` (wird beim Andocken aktualisiert)             |
 | Andockzustand    | IN\_STATION / OUT\_OF\_STATION / PAUSE\_DOCKING / FINISH\_DOCKING / DOCKING\_FAILED / DOCKING\_IN\_BASE |
 | Standort-Status  | Standortstatus (0–3)                                                                                    |
 | Akkustand-Live   | Aktueller Akkustand (%) aus der binären Telemetrie                                                      |
@@ -509,18 +509,18 @@ Diese Zustände werden aus binären MQTT-Nachrichten befüllt und verzögert ers
 | dnd-enable                          | Bitte nicht stören ein/aus                                                                                |
 | dnd-start / dnd-end                 | DND-Zeitbereich                                                                                           |
 | Zeitplan                            | Mähplan                                                                                                   |
-| Regenschutzset                      | Regenschutz einstellen:`{"value":1,"time":8,"sen":0}` oder`{"value":0}`                                   |
+| Regenschutzset                      | Regenschutz einstellen: `{"value":1,"time":8,"sen":0}` oder `{"value":0}`                                   |
 | Frostschutz einstellen              | Frostschutz einstellen: 0 = aus, 1 = ein                                                                  |
-| niedrige Geschwindigkeit einstellen | Nachts niedrige Geschwindigkeit einstellen:`{"value":1,"time":[1200,480]}` oder`{"value":0}`              |
-| set-dnd                             | Nicht stören aktivieren:`{"value":1,"time":[1200,480]}` oder`{"value":0}`                                 |
+| niedrige Geschwindigkeit einstellen | Nachts niedrige Geschwindigkeit einstellen: `{"value":1,"time":[1200,480]}` oder `{"value":0}`              |
+| set-dnd                             | Nicht stören aktivieren: `{"value":1,"time":[1200,480]}` oder `{"value":0}`                                 |
 | set-child-lock                      | Kindersicherung einstellen: 0 = aus, 1 = ein                                                              |
 | Lautstärke einstellen               | Lautstärke einstellen: 0-100                                                                              |
 | set-ai-obstacle                     | KI-Hindernisvermeidung einstellen: 0 = aus, 1 = ein                                                       |
 | Diebstahlschutz einstellen          | Diebstahlsicherung einstellen: 0 = aus, 1 = ein                                                           |
-| Scheinwerfer einstellen             | Scheinwerfer einstellen:`{"value":1,"time":[480,1200],"light":[1,1,1,1]}`                                 |
+| Scheinwerfer einstellen             | Scheinwerfer einstellen: `{"value":1,"time":[480,1200],"light":[1,1,1,1]}`                                 |
 | set-path-display                    | Pfadanzeige einstellen: 0=aus, 1=ein                                                                      |
 | Rasenschutz einstellen              | Rasenschutz einstellen: 0 = aus, 1 = ein                                                                  |
-| Verbrauchsmaterialien zurücksetzen  | Verbrauchsmaterialien zurücksetzen:`{"value":[0,brush,robot]}`                                            |
+| Verbrauchsmaterialien zurücksetzen  | Verbrauchsmaterialien zurücksetzen: `{"value":[0,brush,robot]}`                                            |
 | Roboter finden                      | Roboter finden (Ton abspielen, Knopf drücken)                                                             |
 | Schlossroboter                      | Roboter sperren (Taste)                                                                                   |
 | fetchMap                            | Karte vom Gerät abrufen (Schaltfläche)                                                                    |
@@ -537,18 +537,18 @@ Diese Zustände werden aus binären MQTT-Nachrichten befüllt und verzögert ers
 | Kantenerkennung                     | Kantenerkennung einstellen (PRE): 0=aus, 1=ein                                                            |
 | Richtungsänderung festlegen         | Richtungsänderung einstellen (VORHERIGUNG): 0=automatisch, 1=aus                                          |
 | mow-all                             | Alle Bereiche mähen (Schaltfläche, o=100)                                                                 |
-| Mähzone                             | Ausgewählte Zonen mähen — CSV`"1,3"` oder JSON`"[1,3]"` (o=102)                                           |
+| Mähzone                             | Ausgewählte Zonen mähen — CSV `"1,3"` oder JSON `"[1,3]"` (o=102)                                           |
 | Mähplan                             | Starten Sie den Mähvorgang gemäß gespeichertem Plan (Schaltfläche, o=104).                                |
 | Mäh-Hindernis-Scan                  | Hinderniserkennungslauf (Taste, o=105)                                                                    |
-| Mähkante                            | Mähkontur: JSON`{"edge":[[x,y],...]}` (o=101)                                                             |
-| Mähfleck                            | Mähbereich: JSON`{"area":{...}}` (o=103)                                                                  |
+| Mähkante                            | Mähkontur: JSON `{"edge":[[x,y],...]}` (o=101)                                                             |
+| Mähfleck                            | Mähbereich: JSON `{"area":{...}}` (o=103)                                                                  |
 | Mäh-Änderungs-Karte                 | Aktive Karte wechseln (Nummer, 0-basierter Index, o=200)                                                  |
 
 #### Mähen bestimmter Zonen
 
-Jede auf der Karte definierte Mähfläche wird als eigener Kanal dargestellt unter`dreame.0.<did>.mower.map.slot<X>.zone<zoneId>` Öffnen Sie den Objektbrowser von ioBroker, navigieren Sie zu Ihrem Rasenmäher und dann zu`mower.map` und Sie werden einen sehen`slot0` ,`slot1` , ... pro gespeicherter Karte. Jeder Speicherplatz enthält eine`zone<N>` Kanal pro Mähfläche – zum Beispiel`slot0.zone1` ,`slot0.zone3` Innerhalb jeder Zone findet man`name` (wie in der App angezeigt),`area` (m²),`time` , Und`path` Die
+Jede auf der Karte definierte Mähfläche wird als eigener Kanal dargestellt unter `dreame.0.<did>.mower.map.slot<X>.zone<zoneId>` Öffnen Sie den Objektbrowser von ioBroker, navigieren Sie zu Ihrem Rasenmäher und dann zu `mower.map` und Sie werden einen sehen `slot0`, `slot1`, ... pro gespeicherter Karte. Jeder Speicherplatz enthält eine `zone<N>` Kanal pro Mähfläche – zum Beispiel `slot0.zone1`, `slot0.zone3` Innerhalb jeder Zone findet man `name` (wie in der App angezeigt), `area` (m²), `time`, Und `path` Die
 
-Der **numerische Teil nach`zone`** ist die Zonen-ID, die Sie schreiben`remote.mow-zone` Wenn der Baum also so aussieht:
+Der **numerische Teil nach `zone` ** ist die Zonen-ID, die Sie schreiben `remote.mow-zone` Wenn der Baum also so aussieht:
 
 ```text
 dreame.0.<did>.mower.map.slot0.zone1     name = "Front lawn"
@@ -582,7 +582,7 @@ Blockly / JavaScript-Adapter-Beispiel:
 setState('dreame.0.' + did + '.remote.mow-zone', '1,3', false);
 ```
 
-Der Mäher analysiert die Liste, beginnt mit dem Mähen der ausgewählten Bereiche und kehrt nach Abschluss des Mähvorgangs zur Ladestation zurück. Um den Mähvorgang mittendrin zu stoppen, drücken Sie`stop-mow` (o=2) oder`pause-mow` (o=4). Zuerst werden die Karten gewechselt (`mow-change-map` ) ist erforderlich, wenn sich die Zielzonen auf einer anderen Karte befinden – andernfalls können die Zonen-IDs nicht aufgelöst werden.
+Der Mäher analysiert die Liste, beginnt mit dem Mähen der ausgewählten Bereiche und kehrt nach Abschluss des Mähvorgangs zur Ladestation zurück. Um den Mähvorgang mittendrin zu stoppen, drücken Sie `stop-mow` (o=2) oder `pause-mow` (o=4). Zuerst werden die Karten gewechselt (`mow-change-map`) ist erforderlich, wenn sich die Zielzonen auf einer anderen Karte befinden – andernfalls können die Zonen-IDs nicht aufgelöst werden.
 
 #### Wechseln der aktiven Karte
 
@@ -595,7 +595,7 @@ dreame.0.<did>.remote.mow-change-map = 1   // second map
 
 ### Rasenmäher-Abkürzungen
 
-Verknüpfungen werden aus den Eigenschaften 4-48 (Base64-kodierte Namen) extrahiert. Jede Verknüpfung erhält einen eigenen Kanal unter`deviceId.shortcuts.{id}` :
+Verknüpfungen werden aus den Eigenschaften 4-48 (Base64-kodierte Namen) extrahiert. Jede Verknüpfung erhält einen eigenen Kanal unter `deviceId.shortcuts.{id}`:
 
 | Zustand | Beschreibung                              |
 | ------- | ----------------------------------------- |
@@ -629,15 +629,15 @@ Die Kartendaten werden über die Dreame iotuserdata API abgerufen (nicht über M
 | 3dmap-URL      | URL zum Herunterladen der 3D-LIDAR-Karte (vorab signiert) |
 | 3dmap-progress | Fortschritt der 3D-Kartengenerierung (0-100%)             |
 
-**Kartenabfrage:** Die Karte wird beim Start des Adapters und über die`fetchMap` Taste. Während des aktiven Mähvorgangs (Status 1, 3, 5, 11) wird die Karte automatisch alle 30 Sekunden abgefragt, um den Mähpfad zu verfolgen.
+**Kartenabfrage:** Die Karte wird beim Start des Adapters und über die `fetchMap` Taste. Während des aktiven Mähvorgangs (Status 1, 3, 5, 11) wird die Karte automatisch alle 30 Sekunden abgefragt, um den Mähpfad zu verfolgen.
 
-**Kartendarstellung:** Erfordert die optionale`canvas` npm-Paket. Die Karte zeigt Zonen (grün), Konturen (weiße Umrisse), Mähwege (gelb), verbotene Bereiche (rot) und Hindernisse (rote Kreise).
+**Kartendarstellung:** Erfordert die optionale `canvas` npm-Paket. Die Karte zeigt Zonen (grün), Konturen (weiße Umrisse), Mähwege (gelb), verbotene Bereiche (rot) und Hindernisse (rote Kreise).
 
-**3D-LIDAR-Karte:** Presse`generate-3dmap` um den Mäher zum Scannen und Hochladen einer 3D-Punktwolkenkarte zu veranlassen. Die heruntergeladene Datei ist eine PCD-Datei (Punktwolkendaten), die mit Tools wie CloudCompare oder MeshLab angezeigt werden kann. Der Fortschritt wird verfolgt in`3dmap-progress` Nach Abschluss des Vorgangs wird die vorab signierte Download-URL geschrieben an`3dmap-url` Die URL ist temporär und läuft nach einigen Stunden ab.
+**3D-LIDAR-Karte:** Presse `generate-3dmap` um den Mäher zum Scannen und Hochladen einer 3D-Punktwolkenkarte zu veranlassen. Die heruntergeladene Datei ist eine PCD-Datei (Punktwolkendaten), die mit Tools wie CloudCompare oder MeshLab angezeigt werden kann. Der Fortschritt wird verfolgt in `3dmap-progress` Nach Abschluss des Vorgangs wird die vorab signierte Download-URL geschrieben an `3dmap-url` Die URL ist temporär und läuft nach einigen Stunden ab.
 
 #### Benutzerdefinierte Befehle für den Rasenmäher
 
-Über`dreame.0.XXXXXX.remote.customCommand` :
+Über `dreame.0.XXXXXX.remote.customCommand`:
 
 ```json
 {
@@ -651,9 +651,9 @@ Die Kartendaten werden über die Dreame iotuserdata API abgerufen (nicht über M
 
 **Der Objektbaum füllt sich schrittweise (verzögerte Zustandserstellung).** Zustände werden erst angezeigt, wenn das Gerät die entsprechende Eigenschaft mindestens einmal gemeldet hat. Nach einer Neuinstallation oder einem Neustart des Adapters kann der Baum einige Minuten lang unvollständig erscheinen – dies ist das erwartete Verhalten.
 
-**L40s Pro Ultra und ähnliche Geräte: Einige Zustände erscheinen erst nach aktiver Nutzung.** Eigenschaften in der SIID 4-Gruppe (`cleaning-mode` 4-23,`suction-level` 4:4,`water-volume` 4-5) und SIID 28 (`wetness-level` 28-1) kann vom Gerät nur nach einer aktiven Reinigungssitzung, nicht aber während der Leerlaufabfrage, ausgelöst werden. Diese Zustände werden erst angezeigt, nachdem mindestens ein Reinigungszyklus nach der Installation oder dem Neustart des Adapters abgeschlossen wurde.
+**L40s Pro Ultra und ähnliche Geräte: Einige Zustände erscheinen erst nach aktiver Nutzung.** Eigenschaften in der SIID 4-Gruppe (`cleaning-mode` 4-23, `suction-level` 4:4, `water-volume` 4-5) und SIID 28 (`wetness-level` 28-1) kann vom Gerät nur nach einer aktiven Reinigungssitzung, nicht aber während der Leerlaufabfrage, ausgelöst werden. Diese Zustände werden erst angezeigt, nachdem mindestens ein Reinigungszyklus nach der Installation oder dem Neustart des Adapters abgeschlossen wurde.
 
-**`cleaning-mode`Bei einigen** Geräten, darunter auch dem L40s Pro Ultra, konnten in Versionen vor 0.3.18 anstelle des dokumentierten Bereichs von 0–3 Rohwerte (z. B. 5120, 5121, 5122) angezeigt werden. Dies lag daran, dass der Adapter einen zusammengesetzten Wert, der Modus, Fläche und Luftfeuchtigkeit in einer einzigen Ganzzahl kombiniert, nicht dekodieren konnte. Seit Version 0.3.18 wird dieser Wert korrekt dekodiert. Sollten nach dem Update weiterhin Rohwerte über 1000 angezeigt werden, melden Sie bitte ein Problem mit Angabe Ihres Gerätemodells und des angezeigten Rohwerts.
+** `cleaning-mode` Bei einigen** Geräten, darunter auch dem L40s Pro Ultra, konnten in Versionen vor 0.3.18 anstelle des dokumentierten Bereichs von 0–3 Rohwerte (z. B. 5120, 5121, 5122) angezeigt werden. Dies lag daran, dass der Adapter einen zusammengesetzten Wert, der Modus, Fläche und Luftfeuchtigkeit in einer einzigen Ganzzahl kombiniert, nicht dekodieren konnte. Seit Version 0.3.18 wird dieser Wert korrekt dekodiert. Sollten nach dem Update weiterhin Rohwerte über 1000 angezeigt werden, melden Sie bitte ein Problem mit Angabe Ihres Gerätemodells und des angezeigten Rohwerts.
 
 ---
 
@@ -661,7 +661,7 @@ Die Kartendaten werden über die Dreame iotuserdata API abgerufen (nicht über M
 
 Staatsnamen und -beschreibungen sind in 11 Sprachen verfügbar: Englisch, Deutsch, Russisch, Portugiesisch, Niederländisch, Französisch, Italienisch, Spanisch, Polnisch, Ukrainisch und Chinesisch (vereinfacht).
 
-`lib/i18n/en.json` ist die maßgebliche Quelle. Alle anderen Sprachen werden daraus generiert.`npm run translate` Korrekturen an nicht-englischen Übersetzungen sollten als Pull Requests (PRs) für die jeweilige Übersetzung eingereicht werden.`lib/i18n/<lang>.json` Datei.
+`lib/i18n/en.json` ist die maßgebliche Quelle. Alle anderen Sprachen werden daraus generiert. `npm run translate` Korrekturen an nicht-englischen Übersetzungen sollten als Pull Requests (PRs) für die jeweilige Übersetzung eingereicht werden. `lib/i18n/<lang>.json` Datei.
 
 ---
 

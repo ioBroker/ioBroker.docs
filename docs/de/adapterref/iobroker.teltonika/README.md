@@ -51,7 +51,7 @@ Schritte:
   - Bei manchen Routern ist ein Neustart erforderlich, damit die Einstellungen angewendet werden.
 - Nach einiger Zeit werden die Datenpunkte in der Adapterinstanz erstellt.
 
-**Hinweis** : Getestet wurde nur mit`RUTC` Und`TSW202` Geräte.
+**Hinweis** : Getestet wurde nur mit `RUTC` Und `TSW202` Geräte.
 
 ### SNMP
 
@@ -59,7 +59,7 @@ Geräte, die keinen MQTT-Publisher anbieten, werden über SNMP ausgelesen:
 
 - Aktivieren Sie den SNMP-Agenten auf dem Gerät unter _Dienste → SNMP → SNMP-Einstellungen_ und legen Sie eine schreibgeschützte Community fest.
 - Öffnen Sie im Adapter die Registerkarte _„SNMP“_ , geben Sie einen Adressbereich ein und klicken Sie auf _„Scannen“_ oder fügen Sie das Gerät manuell hinzu.
-- Heute unterstützt werden die`RUTC` Und`TSW2` Familien. Andere Modelle greifen auf die Werte zurück, die jedes Teltonika-Gerät gemeinsam nutzt (Seriennummer, Name, Betriebszeit, CPU); um sie vollständig auszulesen, laden Sie die MIB vom Gerät unter _SNMP-Systemübersicht_ herunter und legen Sie sie in`MIBs/` und laufen`npm run generate-oids`
+- Heute unterstützt werden die `RUTC` Und `TSW2` Familien. Andere Modelle greifen auf die Werte zurück, die jedes Teltonika-Gerät gemeinsam nutzt (Seriennummer, Name, Betriebszeit, CPU); um sie vollständig auszulesen, laden Sie die MIB vom Gerät unter _SNMP-Systemübersicht_ herunter und legen Sie sie in `MIBs/` und laufen `npm run generate-oids`
 
 Neben den oben aufgeführten Werten liefert SNMP auch Statistiken pro Port für Switches (Verbindung, Geschwindigkeit, Duplex, übertragene Bytes und Raten) sowie für die benannten digitalen Ein- und Ausgänge eines Routers.
 
@@ -73,11 +73,11 @@ Die MAC-Tabelle pro Client wird überhaupt nicht gelesen, auch nicht, wenn der W
 
 ### Schaltanschlüsse
 
-Füllen Sie eine _Schreibgemeinschaft_ für ein Gerät aus, und seine Ports werden umschaltbar.`<device>.ports.<name>.enabled` Wenn dieses Feld leer bleibt, liest der Adapter nur, und der Zustand wird ohne Schreibflag erstellt.
+Füllen Sie eine _Schreibgemeinschaft_ für ein Gerät aus, und seine Ports werden umschaltbar. `<device>.ports.<name>.enabled` Wenn dieses Feld leer bleibt, liest der Adapter nur, und der Zustand wird ohne Schreibflag erstellt.
 
-Der Schalter fährt weiter`ifAdminStatus` Die Teltonika-MIB stellt keine beschreibbaren Daten der Standard-IF-MIB bereit. **PoE kann nicht gesteuert werden** : Diese Geräte antworten ohne Objekte unter der POWER-ETHERNET-MIB.
+Der Schalter fährt weiter `ifAdminStatus` Die Teltonika-MIB stellt keine beschreibbaren Daten der Standard-IF-MIB bereit. **PoE kann nicht gesteuert werden** : Diese Geräte antworten ohne Objekte unter der POWER-ETHERNET-MIB.
 
-Ein Port wird nur dann umschaltbar, wenn sein Name genau einer Schnittstelle entspricht. Bei einem TSW202 deckt dies alle Ports ab, da beide Tabellen dies besagen.`port1` …`port8` Ein RUTC meldet vier benannte Häfen`LAN` gegen Schnittstellen`lan1` …`lan4` , was nicht mit Sicherheit kombiniert werden kann, also nur seine`WAN` Der Port ist umschaltbar.
+Ein Port wird nur dann umschaltbar, wenn sein Name genau einer Schnittstelle entspricht. Bei einem TSW202 deckt dies alle Ports ab, da beide Tabellen dies besagen. `port1` …`port8` Ein RUTC meldet vier benannte Häfen `LAN` gegen Schnittstellen `lan1` …`lan4`, was nicht mit Sicherheit kombiniert werden kann, also nur seine `WAN` Der Port ist umschaltbar.
 
 ### Widgets für den Gerätemanager
 
@@ -86,7 +86,7 @@ Für den _Geräteadapter_ sind zwei Komponenten registriert:
 - **Teltonika-Geräte** – jeder Router und Switch einer Instanz als Kachel: Erreichbarkeit, eine Leiste mit dem Verbindungsstatus jedes Ports sowie bei Routern Betreiber, Verbindungstyp und Signalstärke. Ein Klick öffnet die Detailansicht mit Frontpanel, digitalen Ein- und Ausgängen und WAN-Adressen.
 - **Teltonika-Ports** – die Frontblende eines einzelnen Geräts wird auf einer eigenen Kachel dargestellt und zeigt Verbindung, Geschwindigkeit, Duplexmodus und übertragene Bytes pro Port an. Die Ports werden so angezeigt, wie sie auf der Hardware beschriftet sind: ungerade Nummern in der oberen Reihe, gerade Nummern darunter, Glasfaserkäfige in einer eigenen Gruppe. Das Gerät wird aus einer Dropdown-Liste ausgewählt, die vom Adapter befüllt wird. Ein Klick auf die Kachel öffnet den Detaildialog für dieses Gerät.
 
-Ein Router zeigt zusätzlich seine **WAN-Schnittstellen** an, da mwan3 diese verfolgt: Name, Failover-Status (`online` ,`standby` ,`notracking` ), ob die Schnittstelle aktiviert ist und wie lange sie bereits aktiv ist. Beachten Sie, dass die Adressspalte der WebUI hier kein Gegenstück hat – mwan3 meldet über SNMP die angepingten Hosts, um eine Verbindung zu beurteilen, nicht die Adresse der Schnittstelle.
+Ein Router zeigt zusätzlich seine **WAN-Schnittstellen** an, da mwan3 diese verfolgt: Name, Failover-Status (`online`, `standby`, `notracking`), ob die Schnittstelle aktiviert ist und wie lange sie bereits aktiv ist. Beachten Sie, dass die Adressspalte der WebUI hier kein Gegenstück hat – mwan3 meldet über SNMP die angepingten Hosts, um eine Verbindung zu beurteilen, nicht die Adresse der Schnittstelle.
 
 Wenn eine Schreib-Community konfiguriert ist, kann ein Port über das Bedienfeld umgeschaltet werden. Es gibt bewusst keine PoE-Anzeige – siehe oben, diese Geräte stellen überhaupt keine PoE-Objekte bereit, daher würde ein Blitzsymbol für nicht vorhandene Daten stehen.
 
@@ -96,7 +96,7 @@ Die Widgets erkennen Geräte aus dem Objektbaum und nicht aus der Adapterkonfigu
 
 Der Adapter kann SNMP-Traps empfangen. Aktivieren Sie diese Funktion im _SNMP-_ Tab und legen Sie den Host unter _„Dienste“ → „SNMP“ → „Trap-Einstellungen“_ fest. Beachten Sie, dass Port 162 unter Linux ein privilegierter Port ist; gegebenenfalls ist ein höherer Port erforderlich.
 
-Jede Benachrichtigung wird angezeigt als`<device>.traps.<name>` Die Zeit der letzten Ankunft wird gespeichert, und`<device>.traps.last` nennt die aktuellste. Die meisten Teltonika-Benachrichtigungen weisen keine Nutzdaten aus – von den sieben, die ein RUTC definiert, nur`signalChangeNotification` Es speichert beliebige Daten – daher wird eine Trap aufgezeichnet und anschließend eine sofortige Abfrage des entsprechenden Geräts ausgelöst, woher die tatsächlichen Werte stammen. Ein TSW202 definiert überhaupt keine Traps.
+Jede Benachrichtigung wird angezeigt als `<device>.traps.<name>` Die Zeit der letzten Ankunft wird gespeichert, und `<device>.traps.last` nennt die aktuellste. Die meisten Teltonika-Benachrichtigungen weisen keine Nutzdaten aus – von den sieben, die ein RUTC definiert, nur `signalChangeNotification` Es speichert beliebige Daten – daher wird eine Trap aufgezeichnet und anschließend eine sofortige Abfrage des entsprechenden Geräts ausgelöst, woher die tatsächlichen Werte stammen. Ein TSW202 definiert überhaupt keine Traps.
 
 <!--
 	Placeholder for the next version (at the beginning of the line):

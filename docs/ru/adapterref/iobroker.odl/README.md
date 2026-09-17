@@ -43,12 +43,12 @@ hash: 8pBJKycsjAdC2t7oYt79UWy9bbl+V8X6zfZf7ECy6a4=
 
 Чтобы найти идентификатор, необходимый для адаптера, нужно открыть [список измерительных станций в ODL-Info](https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/list/list_node.html) и выполнить поиск измерительной станции.
 
-Если вы откроете нужную измерительную станцию, вы сможете найти её идентификатор в URL-адресе браузера.`?id=...` .
+Если вы откроете нужную измерительную станцию, вы сможете найти её идентификатор в URL-адресе браузера. `?id=...`.
 
 Пример точки измерения _Берлин-Карлсхорст_ :
 
-- URL:`https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/map/_documents/Messstelle.html?id=110000006`
-- ИДЕНТИФИКАТОР:`110000006`
+- URL: `https://odlinfo.bfs.de/ODL/EN/topics/location-of-measuring-stations/map/_documents/Messstelle.html?id=110000006`
+- ИДЕНТИФИКАТОР: `110000006`
 
 ## Changelog
 

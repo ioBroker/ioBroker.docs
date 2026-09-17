@@ -55,7 +55,7 @@ _**SurveillanceStation.cameras.{NAMECAM}**_ :
 
 _**SurveillanceStation.HomeMode.status\_on**_ - Aktueller Status und Aktivierung/Deaktivierung des Heimmodus
 
-_**SurveillanceStation.getSnapshotCamera**_ - Erzeugt einen Schnappschuss anhand der Kameranummer; die Datei wird in einem Verzeichnis gespeichert.`...iobroker-data\synology_0\snapshotCam_2.jpg`
+_**SurveillanceStation.getSnapshotCamera**_ - Erzeugt einen Schnappschuss anhand der Kameranummer; die Datei wird in einem Verzeichnis gespeichert. `...iobroker-data\synology_0\snapshotCam_2.jpg`
 
 _**AudioStation.players.{PLAYERID}**_ :
 
@@ -64,19 +64,19 @@ _**AudioStation.players.{PLAYERID}**_ :
 - Zufallswiedergabe - Zufallswiedergabe steuern (ein-/ausschalten)
 - Lautstärke - Lautstärke des Fernabspielgeräts (0-100)
 - Suchfunktion - Steuerung der Wiedergabesuche (0-100)
-- Wiedergabeordner - Fügt Titel aus dem Ordner zur Wiedergabeliste hinzu (z. B. Ordner-ID).`dir_5816` )
-- play\_track - Spielt einen Titel anhand seiner ID ab (z. B.`music_120847` )
-- current\_play - Steuerung und Status des aktuell abgespielten Titels anhand seiner Nummer in der Wiedergabeliste (z. B.`14` )
+- Wiedergabeordner - Fügt Titel aus dem Ordner zur Wiedergabeliste hinzu (z. B. Ordner-ID). `dir_5816`)
+- play\_track - Spielt einen Titel anhand seiner ID ab (z. B. `music_120847`)
+- current\_play - Steuerung und Status des aktuell abgespielten Titels anhand seiner Nummer in der Wiedergabeliste (z. B. `14`)
 
 _**DownloadStation**_ :
 
 - aktive Aufgabe – Anzahl unvollständiger Downloads
 - listTasks – ein Array mit unvollständigen Downloads
 - schedule\_enabled, schedule\_enabled - Status und Steuerung geplanter oder sofortiger Downloads
-- add\_hash\_download - zu Hash-Downloads hinzufügen (z. B.`8BD3CAD02FC9ECB661A12378414FA310D3F3FE03` )
+- add\_hash\_download - zu Hash-Downloads hinzufügen (z. B. `8BD3CAD02FC9ECB661A12378414FA310D3F3FE03`)
 - add\_url\_download – Download-URL oder Magnet-Link hinzufügen
 - Ordner - Der Ordner, in den heruntergeladen werden soll. Dieser muss vor dem Hinzufügen des Downloads festgelegt werden, andernfalls wird der Download im Standardordner gespeichert.
-- pause\_task, resume\_task – Download anhalten und fortsetzen. (z. B.)`dbid_170` oder`170` oder`all` )
+- pause\_task, resume\_task – Download anhalten und fortsetzen. (z. B.) `dbid_170` oder `170` oder `all`)
 
 ### Messagebox
 

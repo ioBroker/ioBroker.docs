@@ -13,12 +13,12 @@ Moderner Samsung TV-Adapter mit automatischer Erkennung und Multi-Geräte-Manage
 
 Dies ist ein unabhängiger Community-Adapter für Fernsehgeräte der Firma [Samsung Electronics](https://www.samsung.com/) .
 
-Deutsche Dokumentation ist verfügbar unter`doc/de/README.md` Die
+Deutsche Dokumentation ist verfügbar unter `doc/de/README.md` Die
 
 ## Merkmale
 
 - Automatische Erkennung über SSDP/UPnP und optionales mDNS
-- Mehrere Fernseher in einem Gerät:`samsungtv.0.<tvname>.*`
+- Mehrere Fernseher in einem Gerät: `samsungtv.0.<tvname>.*`
 - Tizen WebSocket API (8001/8002) + Pairing/Token
 - PIN-Paarung der H/J-Serie (nach bestem Wissen und Gewissen)
 - Wake-on-LAN (optional)
@@ -52,7 +52,7 @@ Die Aktionen des Geräte-Managers werden sofort angewendet und gespeichert. Die 
 - **Tizen** : Wenn Sie auf **„Koppeln“** klicken, erscheint auf dem Fernseher eine Meldung (normalerweise **„Zulassen“/„Abbrechen** “, keine PIN). Bestätigen Sie diese auf dem Fernseher.
 - **H/J-Serien** : Klicken Sie auf **Koppeln** → TV-Sendungen PIN → geben Sie die PIN im nativen Dialogfeld ein.
 
-Die dynamische Geräteregistrierung wird im persistenten Instanzdatenverzeichnis von ioBroker gespeichert, sodass Aktionen des Geräte-Managers nicht durch ein bereits geöffnetes Einstellungsformular überschrieben werden können. Tokens/Identitäten in dieser Registrierung werden mit dem ioBroker-Systemgeheimnis verschlüsselt, und die Datei wird nur mit Eigentümerberechtigungen geschrieben.`native.devices` und verschlüsselt`native.tokens` Die Werte werden beim ersten Start automatisch importiert.
+Die dynamische Geräteregistrierung wird im persistenten Instanzdatenverzeichnis von ioBroker gespeichert, sodass Aktionen des Geräte-Managers nicht durch ein bereits geöffnetes Einstellungsformular überschrieben werden können. Tokens/Identitäten in dieser Registrierung werden mit dem ioBroker-Systemgeheimnis verschlüsselt, und die Datei wird nur mit Eigentümerberechtigungen geschrieben. `native.devices` und verschlüsselt `native.tokens` Die Werte werden beim ersten Start automatisch importiert.
 
 Wenn während des Kopplungsvorgangs **keine Eingabeaufforderung** erscheint:
 
@@ -65,43 +65,43 @@ Wenn während des Kopplungsvorgangs **keine Eingabeaufforderung** erscheint:
 Laut TV:
 
 - `samsungtv.0.<tvname>.info.*`
-  - `id` ,`ip` ,`mac` ,`model` ,`uuid` ,`api` ,`lastSeen` ,`paired` , `online`
+  - `id`, `ip`, `mac`, `model`, `uuid`, `api`, `lastSeen`, `paired`, `online`
   - `tokenAuthSupport`
 - `samsungtv.0.<tvname>.state.*`
-  - `power` ,`volume` , `muted`
+  - `power`, `volume`, `muted`
 - `samsungtv.0.<tvname>.control.*`
-  - `power` ,`wol` ,`key` ,`volumeUp` ,`volumeDown` ,`mute` ,`channelUp` ,`channelDown` ,`launchApp` ,`source`
-  - `volume` ,`muted`
+  - `power`, `wol`, `key`, `volumeUp`, `volumeDown`, `mute`, `channelUp`, `channelDown`, `launchApp`, `source`
+  - `volume`, `muted`
 
 ### Steuerung (kurz)
 
-- `control.key` : beliebiger Fernbedienungsschlüssel (z. B.`KEY_POWER` ,`KEY_VOLUP` )
-- `control.launchApp` : App-ID (Tizen) aus der TV-App-Liste
-- `control.source` : Quelle als Schlüssel (`KEY_HDMI` ,`KEY_SOURCE` ) oder Kurzform (`HDMI` )
+- `control.key`: beliebiger Fernbedienungsschlüssel (z. B. `KEY_POWER`, `KEY_VOLUP`)
+- `control.launchApp`: App-ID (Tizen) aus der TV-App-Liste
+- `control.source`: Quelle als Schlüssel (`KEY_HDMI`, `KEY_SOURCE`) oder Kurzform (`HDMI`)
 - `control.volume` Absoluter Volumenwert von 0 bis 100
-- `control.muted` Stummschaltung ein- oder ausschalten, im Gegensatz zu`control.mute` , was umschaltet
+- `control.muted` Stummschaltung ein- oder ausschalten, im Gegensatz zu `control.mute`, was umschaltet
 
 ### Volumen
 
-`control.volume` Und`control.muted` Sie nutzen den UPnP-RenderingControl-Dienst des Fernsehers, um einen exakten Pegel anstatt einer schrittweisen Einstellung festzulegen. Drei Dinge sind über diesen Dienst wissenswert:
+`control.volume` Und `control.muted` Sie nutzen den UPnP-RenderingControl-Dienst des Fernsehers, um einen exakten Pegel anstatt einer schrittweisen Einstellung festzulegen. Drei Dinge sind über diesen Dienst wissenswert:
 
-- Es antwortet nur, solange der Fernseher eingeschaltet ist, und zwar einige Sekunden, nachdem der Fernseher sich als eingeschaltet meldet. Der Port kann eine TCP-Verbindung akzeptieren, ohne dass der dahinterliegende Dienst antwortet; die Erreichbarkeit wird also durch einen tatsächlichen`GetVolume` Anruf.
-- UPnP definiert`upnp:401` als`Invalid Action` Und`upnp:402` als`Invalid Args` Einige Samsung-Fernseher werden ebenfalls zurückgegeben`upnp:401` Wenn Netzwerk- oder Hospitality-Modus-Beschränkungen die Steuerung blockieren, meldet der Adapter diese Beschränkungen als mögliche Ursachen und nicht als Gewissheit.
+- Es antwortet nur, solange der Fernseher eingeschaltet ist, und zwar einige Sekunden, nachdem der Fernseher sich als eingeschaltet meldet. Der Port kann eine TCP-Verbindung akzeptieren, ohne dass der dahinterliegende Dienst antwortet; die Erreichbarkeit wird also durch einen tatsächlichen `GetVolume` Anruf.
+- UPnP definiert `upnp:401` als `Invalid Action` Und `upnp:402` als `Invalid Args` Einige Samsung-Fernseher werden ebenfalls zurückgegeben `upnp:401` Wenn Netzwerk- oder Hospitality-Modus-Beschränkungen die Steuerung blockieren, meldet der Adapter diese Beschränkungen als mögliche Ursachen und nicht als Gewissheit.
 
 ### Tastencodes (control.key)
 
-`control.key` akzeptiert entweder **Samsung-Schlüsselcodes** (`KEY_*` ) oder **freundliche Kurzformen** :
+`control.key` akzeptiert entweder **Samsung-Schlüsselcodes** (`KEY_*`) oder **freundliche Kurzformen** :
 
-- Navigation:`up` ,`down` ,`left` ,`right` ,`enter` ,`back`
-- System:`home` ,`source` ,`menu` ,`info` ,`guide` ,`exit`
-- Lautstärke/Kanal:`volup` ,`voldown` ,`mute` ,`chup` ,`chdown`
-- Medien:`play` ,`pause` ,`stop` ,`rewind` ,`ff` ,`record`
-- Farben:`red` ,`green` ,`yellow` ,`blue`
-- Zahlen:`0` Zu`9`
+- Navigation: `up`, `down`, `left`, `right`, `enter`, `back`
+- System: `home`, `source`, `menu`, `info`, `guide`, `exit`
+- Lautstärke/Kanal: `volup`, `voldown`, `mute`, `chup`, `chdown`
+- Medien: `play`, `pause`, `stop`, `rewind`, `ff`, `record`
+- Farben: `red`, `green`, `yellow`, `blue`
+- Zahlen: `0` Zu `9`
 
 Direkte Tastencodes funktionieren auch:
 
-- Beispiele:`KEY_UP` ,`KEY_DOWN` ,`KEY_ENTER` ,`KEY_RETURN` ,`KEY_HOME` ,`KEY_SOURCE`
+- Beispiele: `KEY_UP`, `KEY_DOWN`, `KEY_ENTER`, `KEY_RETURN`, `KEY_HOME`, `KEY_SOURCE`
 
 Hinweis: Nicht jeder Fernseher unterstützt alle Tasten. Einige Tasten funktionieren nur, wenn ein Menü/Fokus aktiv ist.
 
@@ -111,16 +111,16 @@ Hinweis: Nicht jeder Fernseher unterstützt alle Tasten. Einige Tasten funktioni
 - Ältere Geräte werden nach Möglichkeit erkannt (HJ/Legacy); der Funktionsumfang kann variieren.
 - Bei H/J/JU-Geräten wird HJ bevorzugt, sofern verfügbar. Andernfalls wird die Tizen-Fernbedienung verwendet und schaltet automatisch auf HJ um, wenn der Fernseher „Unbekannte Methode“ meldet.
 - Falls Legacy-Objekte vorhanden sind, werden Warnungen protokolliert.
-- Der Adapter wurde umbenannt in`samsungtv` um Konflikte mit den Alten zu vermeiden`samsung` Adapter.
+- Der Adapter wurde umbenannt in `samsungtv` um Konflikte mit den Alten zu vermeiden `samsung` Adapter.
 
 ## Wie man testet (kurz)
 
 1. Installieren Sie den Adapter und erstellen Sie eine Instanz.
 2. Öffnen Sie **die TV-Verwaltung** und starten Sie **den Scan** .
-3. Füge einen Fernseher hinzu und vergebe einen Namen (z. B.`tv-livingroom` ).
-4. Objektbaum überprüfen`samsungtv.0.tv-livingroom.*` Die
+3. Füge einen Fernseher hinzu und vergebe einen Namen (z. B. `tv-livingroom`).
+4. Objektbaum überprüfen `samsungtv.0.tv-livingroom.*` Die
 5. Führen Sie **„Pair“** aus und bestätigen Sie die Anzeige auf dem Fernseher.
-6. Prüfen`control.*` Objekte (z. B.`control.mute` ).
+6. Prüfen `control.*` Objekte (z. B. `control.mute`).
 7. Benennen Sie den Fernseher im Geräte-Manager um: Die Objektstruktur sollte dann reibungslos migriert werden.
 
 ## Changelog

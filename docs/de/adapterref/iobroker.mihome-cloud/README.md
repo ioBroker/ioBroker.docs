@@ -46,17 +46,17 @@ Der Adapter verwendet eine **URL-basierte Anmeldung** (Benutzername/Passwort sin
 2. Schalten Sie den Adapter ein.
 3. Falls keine gültige persistente Sitzung verfügbar ist, erstellt der Adapter eine **Anmelde-URL** und stellt diese an zwei Stellen bereit:
    - als Warnung im Adapterprotokoll
-   - als Staat`mihome-cloud.0.auth.loginUrl`
+   - als Staat `mihome-cloud.0.auth.loginUrl`
 4. Öffnen Sie die URL in Ihrem Browser und melden Sie sich mit Ihrem Xiaomi-Konto an.
 5. Der Adapter erkennt die erfolgreiche Anmeldung automatisch und stellt die Verbindung her.
 
-Wenn die Sitzung serverseitig abläuft, löscht der Adapter die ungültige Sitzung und wechselt in den Zustand der erneuten Authentifizierung (`mihome-cloud.0.auth.status = reauth_required` ).
+Wenn die Sitzung serverseitig abläuft, löscht der Adapter die ungültige Sitzung und wechselt in den Zustand der erneuten Authentifizierung (`mihome-cloud.0.auth.status = reauth_required`).
 
 - **Startverhalten** : Falls beim Start des Adapters keine gültige Sitzung existiert, wird ein Anmeldeversuch (Generierung der Anmelde-URL) ausgelöst.
 - **Laufzeitverhalten** : Automatische Wiederanmeldeversuche werden nach Authentifizierungsfehlern/Sitzungsablauf geplant.
 - **Optionale Laufzeitsperre** : Wenn **die Option „Zusätzliche Anmeldeversuche zur Laufzeit blockieren“** aktiviert ist, werden während der Laufzeit keine weiteren automatischen Anmeldeversuche gestartet.
 
-Die Sitzung wird beibehalten in`auth.session` und kann nach einem Neustart des Adapters wiederverwendet werden, sofern es noch gültig ist.
+Die Sitzung wird beibehalten in `auth.session` und kann nach einem Neustart des Adapters wiederverwendet werden, sofern es noch gültig ist.
 
 ## Objektbaum
 
@@ -64,13 +64,13 @@ Nach dem Start und der Anmeldung erstellt der Adapter die folgende Objektstruktu
 
 ### `mihome-cloud.0.info.connection`
 
-Verbindungsanzeige (`true` /`false` ) für die Xiaomi Cloud-Sitzung.
+Verbindungsanzeige (`true` /`false`) für die Xiaomi Cloud-Sitzung.
 
 ### `mihome-cloud.0.auth.*`
 
 Laufzeit- und Sitzungsstatus der Authentifizierung:
 
-- `auth.status` - aktueller Authentifizierungsstatus (zum Beispiel`connected` ,`qr_login_pending` ,`reauth_required` ,`cooldown_wait` )
+- `auth.status` - aktueller Authentifizierungsstatus (zum Beispiel `connected`, `qr_login_pending`, `reauth_required`, `cooldown_wait`)
 - `auth.loginUrl` - Aktuelle Xiaomi-Anmelde-URL für die Browseranmeldung
 - `auth.session` - persistentes Cookie/Session-JSON zur Sitzungswiederherstellung
 
@@ -92,15 +92,15 @@ Je nach Modell-/Spezifikationsanalyse können Ereignisindikatorzustände vorhand
 
 Beschreibbare MIoT-Spezifikationseigenschaften und -Aktionen.
 
-- Beschreibbare Eigenschaften werden über MIoT gesendet.`prop/set`
-- Aktionen werden über MIoT gesendet.`action`
+- Beschreibbare Eigenschaften werden über MIoT gesendet. `prop/set`
+- Aktionen werden über MIoT gesendet. `action`
 - Aktionen mit Eingabeargumenten erwarten JSON-Eingaben im Statuswert.
 
 Nach der Befehlsausführung führt der Adapter eine automatische Statusaktualisierung für MIoT-Spezifikations- und benutzerdefinierte Zustände durch (Vakuum-Statusaktualisierungen werden über den normalen Abfragezyklus fortgesetzt).
 
 ### `mihome-cloud.0.<device-id>.custom`
 
-Modellspezifische Zustände aus internen Quellen`configDes` Zuordnungen (zum Beispiel Vakuummetriken wie`clean_area` ,`clean_time` ,`battery` ).
+Modellspezifische Zustände aus internen Quellen `configDes` Zuordnungen (zum Beispiel Vakuummetriken wie `clean_area`, `clean_time`, `battery`).
 
 ### `mihome-cloud.0.<device-id>.remotePlugins`
 
@@ -108,41 +108,41 @@ Zusätzliche beschreibbare Befehle, die aus Xiaomi-Plugin-Bundles extrahiert wur
 
 ### `mihome-cloud.0.scenes`
 
-Intelligente Szenen/Automatisierungen aus Ihrem Mi Home-Konto. Stellen Sie einen Szenenstatus ein, um`true` um es auszuführen.
+Intelligente Szenen/Automatisierungen aus Ihrem Mi Home-Konto. Stellen Sie einen Szenenstatus ein, um `true` um es auszuführen.
 
 ## Beispiel: Roboterstaubsaugerreinigung
 
 1. Zimmer-IDs finden:
 
-   `mihome-cloud.0.<id>.remote.get-map-room-list` - erfordert`[cur-map-id]` als Eingabe.
+   `mihome-cloud.0.<id>.remote.get-map-room-list` - erfordert `[cur-map-id]` als Eingabe.
 
-   Die aktuelle Karten-ID erhalten Sie von`mihome-cloud.0.<id>.status.cur-map-id` oder fragen Sie die Kartenliste ab über:
+   Die aktuelle Karten-ID erhalten Sie von `mihome-cloud.0.<id>.status.cur-map-id` oder fragen Sie die Kartenliste ab über:
 
-   `mihome-cloud.0.<id>.remote.get-map-list` (Keine Eingabe erforderlich) → Ergebnis erscheint unter`mihome-cloud.0.<id>.status.map-list`
+   `mihome-cloud.0.<id>.remote.get-map-list` (Keine Eingabe erforderlich) → Ergebnis erscheint unter `mihome-cloud.0.<id>.status.map-list`
 
 2. Karten-ID festlegen und Räume abfragen:
 
-   `mihome-cloud.0.<id>.remote.get-map-room-list` mit Input`[<map-id>]`
+   `mihome-cloud.0.<id>.remote.get-map-room-list` mit Input `[<map-id>]`
 
-   → Ergebnis:`mihome-cloud.0.<id>.status.room-id-name-list` :`[{"name":"room1","id":10}]`
+   → Ergebnis: `mihome-cloud.0.<id>.status.room-id-name-list`: `[{"name":"room1","id":10}]`
 
 3. Zimmerreinigung beginnen:
 
-   `mihome-cloud.0.<id>.remote.start-room-sweep` mit Format`["10", "11", "12", "13"]`
+   `mihome-cloud.0.<id>.remote.start-room-sweep` mit Format `["10", "11", "12", "13"]`
 
    oder
 
-   `mihome-cloud.0.<id>.remote.set-room-clean` mit Format`["10",0,1]`
+   `mihome-cloud.0.<id>.remote.set-room-clean` mit Format `["10",0,1]`
 
 ## Fehlerbehebung
 
 - **Warnungen vom Typ „DB geschlossen“** : Harmlos – diese werden nun proaktiv beim Herunterfahren des Adapters durch ein sauberes Beendigungsflag verhindert.
 - **„ECONNRESET“-Fehler** : Vorübergehende Netzwerkunterbrechungen zur Xiaomi Cloud. Der Adapter versucht es beim nächsten Abfrageintervall automatisch erneut.
 - **„-106 Gerätenetzwerk nicht erreichbar“** : Das Gerät (z. B. ein Staubsauger) ist offline, nicht mit dem WLAN verbunden oder ausgeschaltet. Der Adapter protokolliert dies als Debug-Meldung und versucht weiterhin, eine Verbindung herzustellen.
-- **401/400 Authentifizierungsfehler** : Der Adapter löscht die ungültige Sitzung und wechselt in den Modus für die erneute Authentifizierung. Eine neue Anmelde-URL wird über eine Protokollwarnung bereitgestellt.`auth.loginUrl` wenn automatische Anmeldeversuche aktiviert sind.
+- **401/400 Authentifizierungsfehler** : Der Adapter löscht die ungültige Sitzung und wechselt in den Modus für die erneute Authentifizierung. Eine neue Anmelde-URL wird über eine Protokollwarnung bereitgestellt. `auth.loginUrl` wenn automatische Anmeldeversuche aktiviert sind.
 - **Keine neue Anmelde-URL nach Sitzungsablauf** : Aktivieren Sie **„Zusätzliche Anmeldeversuche zur Laufzeit blockieren“** . Ist diese Option aktiviert, werden automatische Wiederholungsversuche zur Laufzeit standardmäßig unterdrückt.
 - **Gerätebaum nach Konto-/Regionsänderung neu erstellt** : Erwartetes Verhalten. Der Adapter entfernt alte Geräteobjekte und erstellt sie für das aktive Konto/die aktive Region neu.
-- **Keine Eigenschaften für das Gerät** : Einige reine ZigBee/Bluetooth-Sensorgeräte (z. B.`lumi.sensor_switch.v2` ) geben ihren Status nicht über die Cloud-API preis. Erwägen Sie stattdessen die Verwendung eines lokalen ZigBee-Adapters.
+- **Keine Eigenschaften für das Gerät** : Einige reine ZigBee/Bluetooth-Sensorgeräte (z. B. `lumi.sensor_switch.v2`) geben ihren Status nicht über die Cloud-API preis. Erwägen Sie stattdessen die Verwendung eines lokalen ZigBee-Adapters.
 
 ## Diskussion und Fragen
 

@@ -19,7 +19,7 @@ hash: 79JU88C6RRqGDVfAdSbiTeA8E554Sr49Aui3WU/88A0=
 
 ## Überblick
 
-Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2. Die Datenausgabe lässt sich mithilfe eines Templatesystems anpassen. Die Templates können HTML, CSS und JavaScript einbinden. Das verwendete Templatesystem war`ejs` Sie können die grundlegenden Funktionen hier im Online-Spielplatz ausprobieren: <https://ionicabizau.github.io/ejs-playground>
+Adapter zur Visualisierung von JSON-Daten und anderen Daten in Vis/Vis2. Die Datenausgabe lässt sich mithilfe eines Templatesystems anpassen. Die Templates können HTML, CSS und JavaScript einbinden. Das verwendete Templatesystem war `ejs` Sie können die grundlegenden Funktionen hier im Online-Spielplatz ausprobieren: <https://ionicabizau.github.io/ejs-playground>
 
 Das jsontemplate-Widget war zuvor in den Adaptern rssfeed (für vis1) und vis-2-widgets-ovarious verfügbar. Die Widgets werden in Kürze aus diesen Adaptern entfernt.
 
@@ -78,7 +78,7 @@ Mit diesem Widget lassen sich beliebige Datenpunkte mit JSON-Daten nach Wunsch d
 | json\_oid          | Auswahl des Datenpunkts mit den zugehörigen JSON-Daten.                                                                                                                                                                                                                                                            |
 | json\_dpCount      | Anzahl der im Template bereitzustellenden Datenpunkte.                                                                                                                                                                                                                                                             |
 | json\_dp           | Die Datenpunkt-ID wird zur Verfügung gestellt.                                                                                                                                                                                                                                                                     |
-| json\_dp\_variable | Optionaler JavaScript-Variablenname. Die Variable enthält die Datenpunkt-ID; derselbe Name wie`_value` Der Anhang enthält seinen aktuellen Wert.                                                                                                                                                                   |
+| json\_dp\_variable | Optionaler JavaScript-Variablenname. Die Variable enthält die Datenpunkt-ID; derselbe Name wie `_value` Der Anhang enthält seinen aktuellen Wert.                                                                                                                                                                   |
 | json\_scriptCount  | Anzahl der zu ladenden JavaScript-URLs                                                                                                                                                                                                                                                                             |
 | json\_script\[]    | Die zu ladende JavaScript-URL. Siehe Beispiel unten.                                                                                                                                                                                                                                                               |
 | json\_cssCount     | Anzahl der zu ladenden CSS-URLs.                                                                                                                                                                                                                                                                                   |
@@ -111,7 +111,7 @@ B) Indexnummer des Datenpunkts (die Nummerierung beginnt immer mit 0)
 <%- dp[Object.keys(dp)[1]] %>
 ```
 
-C) Ein optionaler Variablenname, der für den Datenpunkt konfiguriert ist. Für einen Datenpunkt`0_userdata.0.selectwrite` , Variablenname`dpwrite` und Wert`abc` :
+C) Ein optionaler Variablenname, der für den Datenpunkt konfiguriert ist. Für einen Datenpunkt `0_userdata.0.selectwrite`, Variablenname `dpwrite` und Wert `abc`:
 
 ```javascript
 <%- dpwrite %>          <!-- 0_userdata.0.selectwrite -->
@@ -177,7 +177,7 @@ In den obigen Beispielen wurde nur die reine Ausgabe betrachtet. Die Vorlage kan
 
 #### Geschweifte Klammern in CSS und JSON
 
-Der Bindungsmechanismus in vis / vis-2 nutzt das Muster`{ ... }` Um Bindungsausdrücke in HTML zu erkennen, müssen geschweifte Klammern bei der Angabe von CSS oder JSON immer in separaten Zeilen stehen. Andernfalls wird der Inhalt des vis-Widgets überschrieben.`undefined` Die
+Der Bindungsmechanismus in vis / vis-2 nutzt das Muster `{ ... }` Um Bindungsausdrücke in HTML zu erkennen, müssen geschweifte Klammern bei der Angabe von CSS oder JSON immer in separaten Zeilen stehen. Andernfalls wird der Inhalt des vis-Widgets überschrieben. `undefined` Die
 
 ##### Beispiel
 
@@ -195,7 +195,7 @@ muss wie folgt geschrieben werden:
 
 #### Verwendung von setInterval
 
-Bitte nicht verwenden`setInterval` Da die Vorlage jedes Mal neu aufgerufen wird, wenn sich ein Datenpunkt ändert, werden alle bestehenden`setInterval` Anrufe können nicht ordnungsgemäß abgewickelt werden. Folglich kommt es zu einer zunehmenden Anzahl sich überschneidender Anrufe.`setInterval` Die Aufrufe häufen sich mit der Zeit; dies verbraucht Arbeitsspeicher und kann zu unvorhersehbaren Nebenwirkungen führen. Ein Neuladen der Seite kann dieses Problem zwar beheben, der Code sollte jedoch nicht auf diese Weise implementiert werden. Stattdessen sollten solche Szenarien mithilfe von … implementiert werden.`setTimeout` Die
+Bitte nicht verwenden `setInterval` Da die Vorlage jedes Mal neu aufgerufen wird, wenn sich ein Datenpunkt ändert, werden alle bestehenden `setInterval` Anrufe können nicht ordnungsgemäß abgewickelt werden. Folglich kommt es zu einer zunehmenden Anzahl sich überschneidender Anrufe. `setInterval` Die Aufrufe häufen sich mit der Zeit; dies verbraucht Arbeitsspeicher und kann zu unvorhersehbaren Nebenwirkungen führen. Ein Neuladen der Seite kann dieses Problem zwar beheben, der Code sollte jedoch nicht auf diese Weise implementiert werden. Stattdessen sollten solche Szenarien mithilfe von … implementiert werden. `setTimeout` Die
 
 #### Entwicklung von Vorlagen mit KI
 

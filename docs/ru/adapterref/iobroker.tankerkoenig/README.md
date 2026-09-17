@@ -43,7 +43,7 @@ hash: 28DrFvsqKLmdUUvtWFhaWuKmcNSB1E3DiwZvr0cSjKY=
 Существует два способа скопировать идентификатор в поле:
 
 - Выделите идентификатор и скопируйте его с помощью Ctrl+C или щелкните правой кнопкой мыши по кнопке «Копировать», а затем вставьте в поле.
-- Это также можно сделать с помощью кнопки.`Copy` Это скопирует всё содержимое, и вы сможете либо вставить его непосредственно в поле, либо нажать на кнопку.`Paste` В этом случае в поле будет вставлен только идентификатор.
+- Это также можно сделать с помощью кнопки. `Copy` Это скопирует всё содержимое, и вы сможете либо вставить его непосредственно в поле, либо нажать на кнопку. `Paste` В этом случае в поле будет вставлен только идентификатор.
 
 **Но для этого необходимо разрешить браузеру доступ к буферу обмена.** (Это работает только в том случае, если ваша административная панель работает по протоколу HTTPS, и вы заходите на страницу по HTTPS).
 
@@ -58,7 +58,7 @@ hash: 28DrFvsqKLmdUUvtWFhaWuKmcNSB1E3DiwZvr0cSjKY=
 
 ### Недействительные цены
 
-Если на заправке не указаны цены на топливо E5, E10 или дизельное топливо, например, если заправка закрыта, цена не изменится, вместо этого будет установлено значение «качество».`Quality code 0x40 => Substitute value from device` В этом случае штат будет отображен оранжевым цветом.
+Если на заправке не указаны цены на топливо E5, E10 или дизельное топливо, например, если заправка закрыта, цена не изменится, вместо этого будет установлено значение «качество». `Quality code 0x40 => Substitute value from device` В этом случае штат будет отображен оранжевым цветом.
 
 ![альтернативный текст](../../../en/adapterref/img/state_quality.png "Настройки скриншота")
 
@@ -75,7 +75,7 @@ hash: 28DrFvsqKLmdUUvtWFhaWuKmcNSB1E3DiwZvr0cSjKY=
 - `3rd` (третий знак после запятой цены используется для обозначения верхнего индекса в системе VIS)
 - `combined` (готовый HTML-код, отформатированный с указанием цены и третьего знака после запятой в верхнем индексе или, при необходимости, статуса открытия \[`closed` /`not found` (для удобного отображения с помощью виджета VIS HTML)
 
-Под каждым типом топлива находится отдельная папка.`minmax` В этой базе данных создаются точки данных для минимальной и максимальной цен на автозаправке. Они хранятся только один день, после чего обнуляются и пополняются на следующий день.
+Под каждым типом топлива находится отдельная папка. `minmax` В этой базе данных создаются точки данных для минимальной и максимальной цен на автозаправке. Они хранятся только один день, после чего обнуляются и пополняются на следующий день.
 
 Кроме того, на соответствующей станции создаются пять точек данных:
 
@@ -93,14 +93,14 @@ hash: 28DrFvsqKLmdUUvtWFhaWuKmcNSB1E3DiwZvr0cSjKY=
 
 На уровне станции создаются еще пять точек данных:
 
-- `adapterStatus` (Отображает состояние адаптера и возможные значения:)`idle / automatic request / manual request / detail request / requet timeout 1min / write states / request Error / offline` )
+- `adapterStatus` (Отображает состояние адаптера и возможные значения:) `idle / automatic request / manual request / detail request / requet timeout 1min / write states / request Error / offline`)
 - `json` (JSON-данные автозаправочной станции)
-- `jsonTable` (JSON-таблица для визуализации)`only the json data no widget` )
+- `jsonTable` (JSON-таблица для визуализации) `only the json data no widget`)
 
 ![альтернативный текст](../../../en/adapterref/img/jsonTable.png "Настройки скриншота")
 
 - `lastUpdate` (время последнего обновления)
-- `refresh` (Это кнопка для ручного обновления данных)`WARNING` После однократного запуска ручное обновление в течение 1 минуты запустить невозможно.
+- `refresh` (Это кнопка для ручного обновления данных) `WARNING` После однократного запуска ручное обновление в течение 1 минуты запустить невозможно.
 
 В рамках этих каналов создается наиболее выгодная автозаправочная станция для указанного типа топлива. Если несколько заправочных станций предлагают топливо по одинаковой цене, выводится станция, указанная первой/вверху в настройках.
 
@@ -112,7 +112,7 @@ hash: 28DrFvsqKLmdUUvtWFhaWuKmcNSB1E3DiwZvr0cSjKY=
 [{"tpl":"tplHtml","data":{"visibility-cond":"==","visibility-val":1,"refreshInterval":"0","gestures-offsetX":0,"gestures-offsetY":0,"signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"html":"<span style=\"font-size: 80%; padding: 0 20px 0 5px;\">Diesel</span>{tankerkoenig.0.stations.0.diesel.combined}"},"style":{"left":"634px","top":"745px","z-index":"20","width":"228px","height":"36px","background-color":"","color":"rgba(225,225,225,1)","font-size":"30px","text-align":"center","background":"rgba(250,0,0,0.1)"},"widgetSet":"basic"}]
 ```
 
-Значение точки данных`combined` Предоставляет CSS-класс. Эти классы:`station_open` ,`station_closed` и`station_notfound` Благодаря определениям CSS в редакторе CSS в VIS теперь можно создавать оригинальные дизайнерские решения (например, красный цвет шрифта для закрытой станции).
+Значение точки данных `combined` Предоставляет CSS-класс. Эти классы: `station_open`, `station_closed` и `station_notfound` Благодаря определениям CSS в редакторе CSS в VIS теперь можно создавать оригинальные дизайнерские решения (например, красный цвет шрифта для закрытой станции).
 
 ```css
 .station_open {

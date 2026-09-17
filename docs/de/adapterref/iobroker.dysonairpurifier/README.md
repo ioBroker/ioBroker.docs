@@ -77,13 +77,13 @@ Beim Start fragt die Dyson Cloud alle bekannten, mit Ihrem Konto verbundenen Ger
 
 #### Verwendung von npm
 
-Laufen`npm install iobroker.dysonairpurifier` Installieren Sie ioBroker, um die neueste Version dieses Adapters aus dem npm-Repository zu beziehen.
+Laufen `npm install iobroker.dysonairpurifier` Installieren Sie ioBroker, um die neueste Version dieses Adapters aus dem npm-Repository zu beziehen.
 
 #### Alternative: Verwendung der GitHub-URL
 
 Installieren Sie ioBroker über die Admin-Oberfläche, indem Sie auf die neueste stabile Version auf GitHub verweisen: <https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-Sie können auch ältere Release-Versionen mit diesen Methoden installieren (indem Sie auf ein Versions-Tag verweisen, z. B.`v0.6.0` anstatt`master` in der URL), wobei im Allgemeinen die aktuellste Version bevorzugt wird.
+Sie können auch ältere Release-Versionen mit diesen Methoden installieren (indem Sie auf ein Versions-Tag verweisen, z. B. `v0.6.0` anstatt `master` in der URL), wobei im Allgemeinen die aktuellste Version bevorzugt wird.
 
 ### Benötigte Konfigurationsdaten
 
@@ -91,15 +91,15 @@ Sie können auch ältere Release-Versionen mit diesen Methoden installieren (ind
 - Dyson-Kontopasswort (dieser Adapter kann Passwörter mit bis zu 32 Zeichen verarbeiten)
 - Die IP-Adresse Ihrer Ventilatoren/Luftreiniger in Ihrem LAN (nicht in allen Fällen).
 
-Benutzername und Passwort für Dyson sind allgemeine Konfigurationsdaten, die auf der Konfigurationsseite des Adapters eingegeben werden müssen. Die IP-Adresse hingegen wird in das entsprechende Feld eingetragen.`Hostname` im Gerätebaum auf dem`devices` Registerkartenseite.
+Benutzername und Passwort für Dyson sind allgemeine Konfigurationsdaten, die auf der Konfigurationsseite des Adapters eingegeben werden müssen. Die IP-Adresse hingegen wird in das entsprechende Feld eingetragen. `Hostname` im Gerätebaum auf dem `devices` Registerkartenseite.
 
 #### So konfigurieren Sie den Adapter
 
-> Beim ersten regulären Start dieses Adapters wird die Dyson-API nach allen Ihren Geräten abgefragt und alle unterstützten Geräte werden im Gerätebaum erstellt – mit ihren von der API bereitgestellten Basisinformationen und einem zusätzlichen Feld.`Hostaddress` Die
+> Beim ersten regulären Start dieses Adapters wird die Dyson-API nach allen Ihren Geräten abgefragt und alle unterstützten Geräte werden im Gerätebaum erstellt – mit ihren von der API bereitgestellten Basisinformationen und einem zusätzlichen Feld. `Hostaddress` Die
 >
 > Bitte führen Sie den Adapter einmal aus, dann werden Ihre Dyson-Geräte mit ihren Grundeinstellungen im Gerätebaum erstellt.
 >
-> Dann stoppen Sie den Adapter und geben Sie die IP-Adresse(n) in das entsprechende Feld ein.`Hostaddress` Aktualisieren Sie die Felder im Gerätebaum und starten Sie den Adapter neu. Danach sollten Ihre Dyson-Geräte im Gerätebaum mit Daten gefüllt sein.
+> Dann stoppen Sie den Adapter und geben Sie die IP-Adresse(n) in das entsprechende Feld ein. `Hostaddress` Aktualisieren Sie die Felder im Gerätebaum und starten Sie den Adapter neu. Danach sollten Ihre Dyson-Geräte im Gerätebaum mit Daten gefüllt sein.
 
 _Bitte beachten Sie_ : Aufgrund einer nicht konformen mDNS-Implementierung durch Dyson müssen Sie _nach dem ersten Start_ die lokale IP-Adresse des Geräts angeben.
 
@@ -165,7 +165,7 @@ Die möglichen Werte für diese Zustände sind unten aufgeführt, soweit bekannt
 
 ### SystemStates-Ordner (seit Version 2.4.0)
 
-Die Geräte können Fehler melden. Diese Funktion wurde in Adapterversion 2.4.0 hinzugefügt. Aktuell liegen nur grobe Informationen zu den Fehlern vor, und die Datenpunkte variieren von Gerät zu Gerät. Sollten Sie genauere Informationen zu einem Fehler haben, zögern Sie bitte nicht, mir diese zu melden, um den Adapter zu verbessern. Alle Statusmeldungen geben an, ob ein Fehler vorliegt oder nicht.`True` bedeutet ein Scheitern`false` bedeutet „Kein Ausfall“.
+Die Geräte können Fehler melden. Diese Funktion wurde in Adapterversion 2.4.0 hinzugefügt. Aktuell liegen nur grobe Informationen zu den Fehlern vor, und die Datenpunkte variieren von Gerät zu Gerät. Sollten Sie genauere Informationen zu einem Fehler haben, zögern Sie bitte nicht, mir diese zu melden, um den Adapter zu verbessern. Alle Statusmeldungen geben an, ob ein Fehler vorliegt oder nicht. `True` bedeutet ein Scheitern `false` bedeutet „Kein Ausfall“.
 
 ### Umfrageintervall
 
@@ -176,7 +176,7 @@ Die Geräte können Fehler melden. Diese Funktion wurde in Adapterversion 2.4.0 
 - Keine automatische IP-Erkennung von Geräten
 - Es gibt immer noch viele unbekannte Gerätemeldungen (meist Fehler und Warnungen).
 - Der Filter-Reset funktioniert nicht, da die korrekte MQTT-Nachricht unbekannt ist.
-- Manchmal verliert der Adapter die MQTT-Verbindung zu einem Lüfter und kann diese nicht wiederherstellen.`This is usually no issue of the adapter itself, but an issue in your local network!`
+- Manchmal verliert der Adapter die MQTT-Verbindung zu einem Lüfter und kann diese nicht wiederherstellen. `This is usually no issue of the adapter itself, but an issue in your local network!`
   - In manchen Fällen genügt es, den Ventilator für etwa 10 Sekunden vom Stromnetz zu trennen, um ihn zurückzusetzen, und ihn dann wieder anzuschließen. Probieren Sie es einfach aus!
   - In anderen Fällen handelte es sich um ein IP-/DNS-Problem. Das Zurücksetzen des DHCP-/DNS-Servers (Routers) hat das Problem behoben.
 

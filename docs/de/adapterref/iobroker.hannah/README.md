@@ -26,10 +26,10 @@ Dieser Adapter ersetzt die bisherige MQTT-basierte Integration und beseitigt die
 - **Zusätzliche Staatenpräfixe** – Abonnieren Sie beliebige zusätzliche Staatenbäume (z. B. Fahrzeugortung, Wetteradapter)
 - **Momentaufnahme beim Verbindungsaufbau** – die aktuellen Statuswerte werden unmittelbar nach der Verbindungsherstellung an Hannah übertragen und ersetzen die von MQTT gespeicherten Nachrichten.
 - **Bewohnerpräsenz** – Weiterleitung von Anwesenheitsstatusänderungen vom Bewohneradapter
-- **Textbefehle** — schreiben an`hannah.<instance>.textCommand` um Textanfragen an Hannah zu senden
+- **Textbefehle** — schreiben an `hannah.<instance>.textCommand` um Textanfragen an Hannah zu senden
 - **SetState** – Hannah kann ioBroker-Zustände direkt über denselben gRPC-Kanal festlegen.
-- **Benachrichtigungen** – Nachrichten an Hannah weiterleiten über`sendTo` oder der native ioBroker Notification Manager; LLM-Neuformulierung für Systemmeldungen, direkte TTS für`sendDirect`
-- **Ansagen** – TTS in bestimmten Satellitenräumen und/oder für eine bestimmte Person abspielen über`sendTo` mit einer Zimmerliste und/oder Zimmergenossen-ID, ohne LLM oder Telegram
+- **Benachrichtigungen** – Nachrichten an Hannah weiterleiten über `sendTo` oder der native ioBroker Notification Manager; LLM-Neuformulierung für Systemmeldungen, direkte TTS für `sendDirect`
+- **Ansagen** – TTS in bestimmten Satellitenräumen und/oder für eine bestimmte Person abspielen über `sendTo` mit einer Zimmerliste und/oder Zimmergenossen-ID, ohne LLM oder Telegram
 - **Blockly-Unterstützung** – benutzerdefinierte Blöcke für Direktnachrichten und Raum-/Personenankündigungen
 
 ## Anforderungen
@@ -78,7 +78,7 @@ Wählen Sie aus, über welche **Räume** und **Funktionen** Hannah informiert se
 
 ## Hannah Core-Konfiguration
 
-Der Adapter erwartet`HannahService.AgentConnect` Die Verfügbarkeit auf dem konfigurierten Host/Port ist erforderlich. Es ist keine zusätzliche Konfiguration auf Hannah-Seite notwendig – der Adapter identifiziert sich beim Verbindungsaufbau automatisch.
+Der Adapter erwartet `HannahService.AgentConnect` Die Verfügbarkeit auf dem konfigurierten Host/Port ist erforderlich. Es ist keine zusätzliche Konfiguration auf Hannah-Seite notwendig – der Adapter identifiziert sich beim Verbindungsaufbau automatisch.
 
 ## Changelog
 <!--

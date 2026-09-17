@@ -57,7 +57,7 @@ Installieren Sie den Adapter aus dem offiziellen ioBroker-Repository über die i
 
 Das minimale Abfrageintervall beträgt **60 Sekunden** . Der SAX Power API-Endpunkt ist im Adapter integriert und kann nicht über die Verwaltungsschnittstelle geändert werden.
 
-Das Passwort wird über ioBroker gespeichert.`encryptedNative` Konfigurationsmechanismus und Schutz vor gewöhnlichen Konfigurationslesevorgängen`protectedNative` Sie bleibt unverändert, wenn nicht damit zusammenhängende Einstellungen wie das Abfrageintervall oder das Batteriemodell gespeichert werden.
+Das Passwort wird über ioBroker gespeichert. `encryptedNative` Konfigurationsmechanismus und Schutz vor gewöhnlichen Konfigurationslesevorgängen `protectedNative` Sie bleibt unverändert, wenn nicht damit zusammenhängende Einstellungen wie das Abfrageintervall oder das Batteriemodell gespeichert werden.
 
 Die Verwaltungsschnittstelle trennt die Cloud-Anmeldung von den Adaptereinstellungen. Speichersysteme können nicht manuell hinzugefügt werden: Der Adapter erkennt sie über das SAX Power-Konto und fragt lediglich nach dem passenden Modell.
 
@@ -75,7 +75,7 @@ Das Dashboard zeigt lediglich die Zustände von ioBroker an. Es führt keine zus
 
 ## Objektstruktur
 
-Der Adapter erstellt für jedes erkannte SAX Power-Speichersystem separate Objektstrukturen. Alle installationsweiten Werte sind unten gruppiert.`summary` Sie dürfen daher nicht mit den Werten eines einzelnen Speichermediums verwechselt werden.
+Der Adapter erstellt für jedes erkannte SAX Power-Speichersystem separate Objektstrukturen. Alle installationsweiten Werte sind unten gruppiert. `summary` Sie dürfen daher nicht mit den Werten eines einzelnen Speichermediums verwechselt werden.
 
 Typischer Aufbau:
 
@@ -122,7 +122,7 @@ Für Accounts mit mehreren Speichersystemen berechnet der Adapter auch aggregier
 
 Weitere Einzelheiten sind in [docs/STATISTICS.md](/#/docs/adapterref/iobroker.sax-power/docs/STATISTICS.md) dokumentiert.
 
-Für die Berechnung äquivalenter Vollzyklen wird die dokumentierte Formel verwendet.`(charged energy + discharged energy) / (2 × nominal capacity)` Der Batteriezustand wird explizit anhand des Medians von fünf qualifizierten Entladezyklen geschätzt, die jeweils mindestens 40 SOC-Prozentpunkte abdecken. Gültige, erforderliche und verworfene Zyklen sowie der Fortschritt des aktuellen Zyklus bleiben während der Datenerfassung sichtbar. Die Integrationsmethode, Akzeptanzgrenzen, Persistenz und bekannte Genauigkeitsbeschränkungen sind in [docs/BATTERY.md](/#/docs/adapterref/iobroker.sax-power/docs/BATTERY.md) dokumentiert.
+Für die Berechnung äquivalenter Vollzyklen wird die dokumentierte Formel verwendet. `(charged energy + discharged energy) / (2 × nominal capacity)` Der Batteriezustand wird explizit anhand des Medians von fünf qualifizierten Entladezyklen geschätzt, die jeweils mindestens 40 SOC-Prozentpunkte abdecken. Gültige, erforderliche und verworfene Zyklen sowie der Fortschritt des aktuellen Zyklus bleiben während der Datenerfassung sichtbar. Die Integrationsmethode, Akzeptanzgrenzen, Persistenz und bekannte Genauigkeitsbeschränkungen sind in [docs/BATTERY.md](/#/docs/adapterref/iobroker.sax-power/docs/BATTERY.md) dokumentiert.
 
 ## Modbus
 

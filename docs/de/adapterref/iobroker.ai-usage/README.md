@@ -108,7 +108,7 @@ verschwindet der Datenpunkt nicht — Zeitstempel werden stattdessen leer geschr
 Entfernt wird nur ein ganzes Fenster oder Modell, das der Anbieter gar nicht mehr meldet;
 und ein ausgeschaltetes Konto verliert seinen Knoten vollständig.
 
-**`total.costs` summiert nur echtes Geld gleicher Währung** — Stück-Zähler
+** `total.costs` summiert nur echtes Geld gleicher Währung** — Stück-Zähler
 (Anfrage-Guthaben, Reset-Gutscheine) und Fremdwährungen bleiben bewusst draußen.
 
 ---

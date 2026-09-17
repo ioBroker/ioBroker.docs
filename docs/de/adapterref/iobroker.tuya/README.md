@@ -186,7 +186,7 @@ Wenn Probleme mit der Tuya App Cloud-Synchronisierung auftreten, können zusätz
 
 - Den Adapter im Administratormodus stoppen.
 - Öffnen Sie eine Shell auf dem ioBroker-Host.
-- ausführen`DEBUG=@tuyapi/cloud* iobroker debug tuya`
+- ausführen `DEBUG=@tuyapi/cloud* iobroker debug tuya`
 - Rufen Sie das Protokoll über die Kommandozeile ab. Senden Sie das Protokoll mit Bezug auf das generierte GitHub-Issue an [iobroker@fischer-ka.de.](mailto:iobroker@fischer-ka.de)
 
 ## Changelog

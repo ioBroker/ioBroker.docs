@@ -14,17 +14,17 @@ Liest LTE- und 5G-Signalwerte von einem ZTE MC888-Router und stellt sie als ioBr
 
 [ZTE MC888 5G FWA (Indoor-Router)](https://www.ztedevices.com/de/products/mobile-internet/5g-fwa/MC888.html) — Produktseite bei ZTE Devices.
 
-Der Adapter kommuniziert mit dem lokalen Netzwerk des Routers.`goform` HTTP-API, daher sind weder ein Cloud-Konto noch eine Internetverbindung erforderlich.
+Der Adapter kommuniziert mit dem lokalen Netzwerk des Routers. `goform` HTTP-API, daher sind weder ein Cloud-Konto noch eine Internetverbindung erforderlich.
 
 ## Staaten
 
-Alle Zustände sind schreibgeschützt.`…Dec` Die Zustände sind die Dezimaldarstellung des daneben stehenden rohen Hexadezimalwerts (so wird es auf der Weboberfläche des Routers angezeigt).
+Alle Zustände sind schreibgeschützt. `…Dec` Die Zustände sind die Dezimaldarstellung des daneben stehenden rohen Hexadezimalwerts (so wird es auf der Weboberfläche des Routers angezeigt).
 
 ### `general`
 
 | Zustand       | Typ          | Einheit | Beschreibung                                      |
 | ------------- | ------------ | ------- | ------------------------------------------------- |
-| `networkType` | Zeichenkette |         | Aktueller Netzwerktyp, z. B.`ENDC` oder `LTE`     |
+| `networkType` | Zeichenkette |         | Aktueller Netzwerktyp, z. B. `ENDC` oder `LTE`     |
 | `cellId`      | Zeichenkette |         | Zell-ID, wie vom Router übermittelt (hexadezimal) |
 | `cellIdDec`   | Nummer       |         | Zell-ID als Dezimalzahl                           |
 
@@ -85,29 +85,29 @@ Ohne Anmeldung übermittelt der Router lediglich den Netzwerktyp und die primär
 
 ## Konfiguration
 
-- **Router-IP** — normalerweise`192.168.0.1` Einige Firmwares verwenden`192.168.254.1` Die
+- **Router-IP** — normalerweise `192.168.0.1` Einige Firmwares verwenden `192.168.254.1` Die
 - **Abfrageintervall** – Sekunden zwischen den Lesevorgängen (5 bis 86400).
 - **Anmeldung erforderlich** – aktivieren Sie diese Option, wenn die API erst nach Authentifizierung antwortet.
-- **Benutzername / Passwort** – die Router-Administratoranmeldeinformationen (Standardbenutzername:`admin` ).
+- **Benutzername / Passwort** – die Router-Administratoranmeldeinformationen (Standardbenutzername: `admin`).
 - **Die Web-Oberfläche hat Priorität** _(nur bei Anmeldung)_ – wenn sich der Router über die Web-Oberfläche mit demselben Benutzer anmeldet, pausiert der Adapter, anstatt sich erneut anzumelden und die Verbindung zu trennen. Siehe unten.
-- **Wartezeit nach Web-UI-Anmeldung (Minuten)** _(nur bei Anmeldung)_ – Wie lange bleibt der Adapter abgemeldet (und behält die letzten Werte bei), nachdem die Web-UI die Sitzung übernommen hat? Standardwert: 5. Festlegen auf`0` Um sich bei der nächsten Umfrage erneut anzumelden.
+- **Wartezeit nach Web-UI-Anmeldung (Minuten)** _(nur bei Anmeldung)_ – Wie lange bleibt der Adapter abgemeldet (und behält die letzten Werte bei), nachdem die Web-UI die Sitzung übernommen hat? Standardwert: 5. Festlegen auf `0` Um sich bei der nächsten Umfrage erneut anzumelden.
 
 ## Anmeldung, Sitzungen und die Web-Benutzeroberfläche
 
 Der MC888 stellt ohne Authentifizierung nur wenige Felder bereit (Netzwerktyp + primäres RSRP/RSSI); für RSRQ, SINR, Frequenzbänder, PCI, Carrier Aggregation und die sekundären Zellen ist eine Anmeldung erforderlich. Der Router erlaubt zudem **nur eine Sitzung pro Benutzer** ; eine zweite Anmeldung beendet die erste.
 
-Um Kämpfe mit der Weboberfläche des Routers zu vermeiden (gleiche`admin` Benutzer), der Adapter:
+Um Kämpfe mit der Weboberfläche des Routers zu vermeiden (gleiche `admin` Benutzer), der Adapter:
 
 1. Meldet sich einmal an und **behält** die Sitzung über mehrere Umfragen hinweg bei (vollständiger Feldsatz).
 2. erkennt, wenn ein anderer Login (die Web-UI) die Sitzung übernimmt,
 3. Anschließend **erfolgt eine Pause** für die konfigurierte Zeit, anstatt sich sofort wieder anzumelden – während dieses Zeitraums bleiben die letzten Werte erhalten und nur die öffentlichen Felder werden aktualisiert, sodass Ihre Web-UI-Sitzung nicht gestört wird.
 4. Die Sitzung wird wiedererlangt, sobald die Wartezeit abgelaufen ist.
 
-Wenn Sie lieber immer alle Daten haben möchten und es Ihnen nichts ausmacht, von der Web-Oberfläche abgemeldet zu sein, deaktivieren Sie **die Option „Web-Oberfläche hat Priorität“** (oder setzen Sie den Backoff-Wert auf …).`0` ).
+Wenn Sie lieber immer alle Daten haben möchten und es Ihnen nichts ausmacht, von der Web-Oberfläche abgemeldet zu sein, deaktivieren Sie **die Option „Web-Oberfläche hat Priorität“** (oder setzen Sie den Backoff-Wert auf …). `0`).
 
 ## Firmware-Unterschiede
 
-Die Feldnamen des Routers variieren je nach Firmware-Version, daher können einzelne Zustände in manchen Firmwares leer bleiben. Sollte dies der Fall sein, [erstellen Sie bitte ein Ticket](https://github.com/muraus/ioBroker.zte-mc888/issues) und fügen Sie ein Debug-Log (Instanz-Log-Level) bei.`debug` , das die Rohantwort des Routers protokolliert) plus Ihre Firmware-Version – die Unterstützung für die unterschiedlichen Feldnamen kann dann zum Adapter hinzugefügt werden.
+Die Feldnamen des Routers variieren je nach Firmware-Version, daher können einzelne Zustände in manchen Firmwares leer bleiben. Sollte dies der Fall sein, [erstellen Sie bitte ein Ticket](https://github.com/muraus/ioBroker.zte-mc888/issues) und fügen Sie ein Debug-Log (Instanz-Log-Level) bei. `debug`, das die Rohantwort des Routers protokolliert) plus Ihre Firmware-Version – die Unterstützung für die unterschiedlichen Feldnamen kann dann zum Adapter hinzugefügt werden.
 
 ## Mitwirken
 

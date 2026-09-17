@@ -37,7 +37,7 @@ ioBroker-Adapter zur Steuerung von FS20, Max!, HMS und anderen Geräten über [C
 
 `sendTo("cul.0", "sendraw", {"command": 'is0FFFFF0FFFFF'});`
 
-Diese Befehle nutzen die CUL-Bibliothek dieses Adapters, um die Befehle an ein Gerät zu senden. Basierend auf JavaScript/Node.js.`Busware CUL USB / culfw` Adapter
+Diese Befehle nutzen die CUL-Bibliothek dieses Adapters, um die Befehle an ein Gerät zu senden. Basierend auf JavaScript/Node.js. `Busware CUL USB / culfw` Adapter
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -50,19 +50,19 @@ Diese Befehle nutzen die CUL-Bibliothek dieses Adapters, um die Befehle an ein G
 
 ### 3.0.1 (2026-08-25)
 
-- (@GermanBluefox) Der serielle Port kann jetzt manuell eingegeben werden, daher ein symbolischer Link unten.`/dev/serial/by-id` kann verwendet werden (#150)
-- (@GermanBluefox) Die Portliste bietet die`/dev/serial/by-id` zusätzlich zu den`/dev/ttyUSBx` Geräte unter Linux. Sie sind nicht länger hinter der experimentellen Option versteckt und ersetzen nicht mehr die Gerätepfade.
+- (@GermanBluefox) Der serielle Port kann jetzt manuell eingegeben werden, daher ein symbolischer Link unten. `/dev/serial/by-id` kann verwendet werden (#150)
+- (@GermanBluefox) Die Portliste bietet die `/dev/serial/by-id` zusätzlich zu den `/dev/ttyUSBx` Geräte unter Linux. Sie sind nicht länger hinter der experimentellen Option versteckt und ersetzen nicht mehr die Gerätepfade.
 
 ### 3.0.0 (2026-08-25)
 
 - (bluefox) EILMELDUNG: Der Adapter benötigt jetzt node.js >= 22, js-controller >= 6.0.11 und admin >= 7.0.0.
-- (bluefox) Der Adapter wurde in TypeScript neu geschrieben. Die Quelltexte befinden sich in`src/` , der veröffentlichte Code in`build/`
-- (bluefox) Aktualisiert`cul` Das Paket wurde auf Version 1.0.0 aktualisiert. Es verwendet serielle Schnittstelle 13, daher sind für die Installation keine Build-Tools mehr erforderlich.
-- (bluefox) EILMELDUNG:`cul` In Version 1.0.0 wurden einige Datenpunkte umbenannt:`battery` ist jetzt`batteryLow` /`batteryState` ,`window` /`isopen` ist jetzt`open` ,`valveposition` ist jetzt`valvePosition` Die alten Zustände werden nicht mehr gespeichert und können gelöscht werden.
-- (bluefox) Problem mit vertauschten Daten behoben`Mode` Und`Type` Beschriftungen im Konfigurationsdialog
-- (bluefox) Die Portliste im experimentellen Modus wurde korrigiert: die`/dev/serial/by-id` Die Einträge wurden aus einem undefinierten Wert erstellt.
+- (bluefox) Der Adapter wurde in TypeScript neu geschrieben. Die Quelltexte befinden sich in `src/`, der veröffentlichte Code in `build/`
+- (bluefox) Aktualisiert `cul` Das Paket wurde auf Version 1.0.0 aktualisiert. Es verwendet serielle Schnittstelle 13, daher sind für die Installation keine Build-Tools mehr erforderlich.
+- (bluefox) EILMELDUNG: `cul` In Version 1.0.0 wurden einige Datenpunkte umbenannt: `battery` ist jetzt `batteryLow` /`batteryState`, `window` /`isopen` ist jetzt `open`, `valveposition` ist jetzt `valvePosition` Die alten Zustände werden nicht mehr gespeichert und können gelöscht werden.
+- (bluefox) Problem mit vertauschten Daten behoben `Mode` Und `Type` Beschriftungen im Konfigurationsdialog
+- (bluefox) Die Portliste im experimentellen Modus wurde korrigiert: die `/dev/serial/by-id` Die Einträge wurden aus einem undefinierten Wert erstellt.
 - (bluefox) Der HTML-Konfigurationsdialog und die gulpfile wurden entfernt.
-- (bluefox) Der Debug-Treiber, der die Wiedergabe wiederholte`lib/rawData.txt` wenn die Umgebungsvariable`DEBUG` wurde gesetzt, wurde entfernt
+- (bluefox) Der Debug-Treiber, der die Wiedergabe wiederholte `lib/rawData.txt` wenn die Umgebungsvariable `DEBUG` wurde gesetzt, wurde entfernt
 
 ### 2.2.0 (2023-04-17)
 

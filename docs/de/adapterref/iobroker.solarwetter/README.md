@@ -28,7 +28,7 @@ Geben Sie die Leistung Ihrer Solaranlage ein, um den Energieertrag zu berechnen.
 Geben Sie die Gesamtleistung Ihrer Solaranlage ein, um die Tagesprognose für die Energieproduktion zu berechnen (Dezimaltrennzeichen möglich)
 
 ### 4-Tages-Vorhersage
-Wählen Sie eine Stadt aus, damit der Adapter eine Verbindung zu einem 4-Tages-Vorhersagediagramm (Datenpunkt `solarwetter.0.forecast.chart.__url__` ) erstellt.
+Wählen Sie eine Stadt aus, damit der Adapter eine Verbindung zu einem 4-Tages-Vorhersagediagramm (Datenpunkt `solarwetter.0.forecast.chart.__url__`) erstellt.
 
 ![Alt-Text](../../../en/adapterref/iobroker.solarwetter/img/solarwetterSettingScreenshot.jpg "Screenshot-Einstellungen")
 

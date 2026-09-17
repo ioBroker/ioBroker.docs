@@ -21,22 +21,22 @@ Adapter für [Feller](https://www.feller.ch/) **[zeptrion / zApp](https://www.fe
 
 ## Funktionsumfang
 
-- **Kanalsteuerung** (`zrap/chctrl` ): ein/aus/stopp/umschalten, öffnen/schließen, bewegen\_öffnen/bewegen\_schließen, dimmen\_erhöhen/dimmen\_verringern inkl. zeitgesteuerter Varianten (`_t` in ms), sowie Szenen restart\_s1-4 / store\_s1-4 / delete\_s1-4 - als einzelne Buttons UND als frei`command` -Textfeld.
-- **Kanalzustand** (`zrap/chscan` als periodischer Resync +`zrap/chnotify` als Long-Poll-Push für nahezu Echtzeit-Updates) und **Kanalbeschreibung** (`zrap/chdes` , lesen/schreiben: Name, Gruppe, Icon, Typ, Kategorie).
-- **Geräteinformationen** (`zrap/id` ): Hardware-/Software-/Bootloader-Version, Seriennummer, Systemname, Gerätetyp.
-- **Signalstärke** (`zrap/rssi` , gepollt).
-- **Netzwerkstatus** (`zrap/net` , schreibgeschützt): SSID, IP, MAC, Modus, Verschlüsselung, Maske, Gateway.
-- **Systembefehle** (`zrap/sys` ): Neustart, Werksreset, Zurücksetzen im Access-Point-Modus.
-- **Standort** (`zrap/loc` ), **NTP-Konfiguration** (`zrap/ntp` ) und **Datum/Zeit** (`zrap/date` ) inkl. Ein-Klick-Synchronisation der Geräte-Uhrzeit mit dem ioBroker-Host.
+- **Kanalsteuerung** (`zrap/chctrl`): ein/aus/stopp/umschalten, öffnen/schließen, bewegen\_öffnen/bewegen\_schließen, dimmen\_erhöhen/dimmen\_verringern inkl. zeitgesteuerter Varianten (`_t` in ms), sowie Szenen restart\_s1-4 / store\_s1-4 / delete\_s1-4 - als einzelne Buttons UND als frei `command` -Textfeld.
+- **Kanalzustand** (`zrap/chscan` als periodischer Resync +`zrap/chnotify` als Long-Poll-Push für nahezu Echtzeit-Updates) und **Kanalbeschreibung** (`zrap/chdes`, lesen/schreiben: Name, Gruppe, Icon, Typ, Kategorie).
+- **Geräteinformationen** (`zrap/id`): Hardware-/Software-/Bootloader-Version, Seriennummer, Systemname, Gerätetyp.
+- **Signalstärke** (`zrap/rssi`, gepollt).
+- **Netzwerkstatus** (`zrap/net`, schreibgeschützt): SSID, IP, MAC, Modus, Verschlüsselung, Maske, Gateway.
+- **Systembefehle** (`zrap/sys`): Neustart, Werksreset, Zurücksetzen im Access-Point-Modus.
+- **Standort** (`zrap/loc`), **NTP-Konfiguration** (`zrap/ntp`) und **Datum/Zeit** (`zrap/date`) inkl. Ein-Klick-Synchronisation der Geräte-Uhrzeit mit dem ioBroker-Host.
 - **mDNS-Discovery** (Kapitel 4 der API-Doku): durchsucht das lokale Netz nach zeptrion-Geräten und übernimmt Funde deaktiviert in die Konfigurationstabelle (Discovery kombiniert mit manueller Kontrolle/Aktivierung).
-- **Sammelbefehle für Hagelalarm** :`control.closeAllShutters` /`openAllShutters` /`stopAllShutters` Steuern Sie alle konfigurierten Kanäle über alle aktiven Geräte gleichzeitig
+- **Sammelbefehle für Hagelalarm** : `control.closeAllShutters` /`openAllShutters` /`stopAllShutters` Steuern Sie alle konfigurierten Kanäle über alle aktiven Geräte gleichzeitig
   - Dank Multicast-Bündelung (siehe unten) als je EIN Request pro Gerät, nicht pro Kanal.
-- **Multicast-Befehlsbündelung** : Kanalbefehle desselben Geräts, die innerhalb von 50 ms eintreffen, werden automatisch zu einem einzigen`zrap/chctrl` -Multicast-POST gebündelt (Kapitel 3.6.5 der API-Doku) statt mehrerer sequentieller Einzelrequests.
-- **Storen-Positionsschätzung** (optional,`posEstimate` ): da die Hardware laut Doku für Storenkanäle praktisch immer`-1` (unbekannt) liefert, kann pro Gerät eine Motor-Laufzeit hinterlegt werden; Der Adapter schätzt daraus die Position anhand der Bewegungsrichtung und verstrichener Zeit (Best Effort, kein Hardware-Feedback, manuell kalibrierbar).
-- **Smartfront-Unterstützung** (optional,`zapi/smartfront/*` ): Temperatur/Helligkeit/ Luftfeuchtigkeit auslesen, LED-Hintergrundfarbe setzen (nur für Geräte mit angeschlossenem Feller-Smartfront-Taster, Checkbox in der Konfiguration).
+- **Multicast-Befehlsbündelung** : Kanalbefehle desselben Geräts, die innerhalb von 50 ms eintreffen, werden automatisch zu einem einzigen `zrap/chctrl` -Multicast-POST gebündelt (Kapitel 3.6.5 der API-Doku) statt mehrerer sequentieller Einzelrequests.
+- **Storen-Positionsschätzung** (optional, `posEstimate`): da die Hardware laut Doku für Storenkanäle praktisch immer `-1` (unbekannt) liefert, kann pro Gerät eine Motor-Laufzeit hinterlegt werden; Der Adapter schätzt daraus die Position anhand der Bewegungsrichtung und verstrichener Zeit (Best Effort, kein Hardware-Feedback, manuell kalibrierbar).
+- **Smartfront-Unterstützung** (optional, `zapi/smartfront/*`): Temperatur/Helligkeit/ Luftfeuchtigkeit auslesen, LED-Hintergrundfarbe setzen (nur für Geräte mit angeschlossenem Feller-Smartfront-Taster, Checkbox in der Konfiguration).
 - Robustes Fehlerhandling: unterscheidet sich von ECONNREFUSED/Timeout/DNS-Fehler, Backoff bei wiederholten Fehlern, pro Gerät und global sichtbarem Verbindungsstatus. mDNS-Discovery ist gegen zusätzliche Exceptions durch fremde/kaputte Netzwerkpakete abgesichert.
 
-Nicht implementiert (siehe „Bekannte Einschränkungen“): Schreibzugriff auf`zrap/net` (WLAN-Zugangsdaten ändern),`zrap/scheduler` , Smartbutton-Webhook-Programmierung (`zapi/smartbt/*` ).
+Nicht implementiert (siehe „Bekannte Einschränkungen“): Schreibzugriff auf `zrap/net` (WLAN-Zugangsdaten ändern), `zrap/scheduler`, Smartbutton-Webhook-Programmierung (`zapi/smartbt/*`).
 
 ## Installation
 
@@ -45,11 +45,11 @@ Admin-Oberfläche -> Adapter -> "zeptrion" suchen -> Installieren.
 ## Konfiguration
 
 - **HTTP-Timeout** : Timeout pro Anfrage an ein Gerät (Standard 4000 ms).
-- **Discovery-Button** : durchsucht das lokale Netz per mDNS (Service-Type`_zapp._tcp` , Zurückgreifen`_http._tcp` für Firmware < 01.08.xx anhand des Hostnamen-Musters`zapp-YYWWNNNN` ). Neue Geräte werden in der Tabelle übernommen **deaktiviert** - Zeile danach prüfen, ID/Name vergeben, Kanalzahl gefunden (3340-4-x = 4 Kanäle, 3340-2-x = 2 Kanäle) und aktivieren. mDNS funktioniert nur innerhalb des gleichen Netzsegments/VLANs.
+- **Discovery-Button** : durchsucht das lokale Netz per mDNS (Service-Type `_zapp._tcp`, Zurückgreifen `_http._tcp` für Firmware < 01.08.xx anhand des Hostnamen-Musters `zapp-YYWWNNNN`). Neue Geräte werden in der Tabelle übernommen **deaktiviert** - Zeile danach prüfen, ID/Name vergeben, Kanalzahl gefunden (3340-4-x = 4 Kanäle, 3340-2-x = 2 Kanäle) und aktivieren. mDNS funktioniert nur innerhalb des gleichen Netzsegments/VLANs.
 - **Geräte-Tabelle** (auch komplett manuell befüllbar, ohne Discovery):
-  - `Aktiv` ,`ID` (az 0-9 \_ -),`Bezeichnung` ,`IP-Adresse/Hostname` ,`Kanäle` (1-4),`Art` (Storen/Licht/unbekannt - steuert die ioBroker-Objektrollen, siehe unten),`Laufzeit Storenmotor` (Sekunden, 0=deaktiviert - schaltet`posEstimate` frei, siehe unten, gilt als Standard für alle Kanäle),`Laufzeit/Kanal` (optional, kommagetrennt, zB`22,28` - überschreibt die Standard-Laufzeit einzeln je Kanal; nützlich bei 2K-Geräten, deren Kanäle unterschiedliche Motor-Laufzeiten haben; leere Einträge gefallen auf die Standard-Laufzeit zurück),`Smartfront` (Checkbox, nur bei angeschlossenem Feller-Smartfront-Taster aktivieren),`Poll (s)` (Standard 30, für RSSI + periodischen chscan-Resync; die eigentlichen Kanalupdates laufen unabhängig davon über den chnotify-Long-Poll).
+  - `Aktiv`, `ID` (az 0-9 \_ -), `Bezeichnung`, `IP-Adresse/Hostname`, `Kanäle` (1-4), `Art` (Storen/Licht/unbekannt - steuert die ioBroker-Objektrollen, siehe unten), `Laufzeit Storenmotor` (Sekunden, 0=deaktiviert - schaltet `posEstimate` frei, siehe unten, gilt als Standard für alle Kanäle), `Laufzeit/Kanal` (optional, kommagetrennt, zB `22,28` - überschreibt die Standard-Laufzeit einzeln je Kanal; nützlich bei 2K-Geräten, deren Kanäle unterschiedliche Motor-Laufzeiten haben; leere Einträge gefallen auf die Standard-Laufzeit zurück), `Smartfront` (Checkbox, nur bei angeschlossenem Feller-Smartfront-Taster aktivieren), `Poll (s)` (Standard 30, für RSSI + periodischen chscan-Resync; die eigentlichen Kanalupdates laufen unabhängig davon über den chnotify-Long-Poll).
 
-## Objektbaum pro Gerät (`zeptrion.0.<id>` )
+## Objektbaum pro Gerät (`zeptrion.0.<id>`)
 
 ```
 <id>.info.connection / lastError / hw / sw / boot / sn / sys / type / oen / rssi / refresh
@@ -89,10 +89,10 @@ Die zrap-API selbst unterscheidet sich nicht zwischen Licht- und Storenkanal - d
 | Kunst                | `<ch>.val` Rolle | `stop` /`open` /`close` Rolle                            |
 | -------------------- | ---------------- | -------------------------------------------------------- |
 | Storen/Rolladen      | `level.blind`    | `button.stop` /`button.open.blind` /`button.close.blind` |
-| Licht                | `level.dimmer`   | generisch`button`                                        |
-| unbekannt (Standard) | `value`          | generisch`button`                                        |
+| Licht                | `level.dimmer`   | generisch `button`                                        |
+| unbekannt (Standard) | `value`          | generisch `button`                                        |
 
-Wichtig:`level.blind` täuscht **keine** echte Positionsrückmeldung vor - laut Feller-Doku liefert`chscan` /`chnotify` für einen Storenkanal so gut wie immer`-1` (unbekannt), da die Hardware selbst keine Lamellenposition zurückmeldet. Die Rolle verbessert nur die Erkennung durch VIS-Widgets, der Zahlenwert bleibt idR uninformativ.
+Wichtig: `level.blind` täuscht **keine** echte Positionsrückmeldung vor - laut Feller-Doku liefert `chscan` /`chnotify` für einen Storenkanal so gut wie immer `-1` (unbekannt), da die Hardware selbst keine Lamellenposition zurückmeldet. Die Rolle verbessert nur die Erkennung durch VIS-Widgets, der Zahlenwert bleibt idR uninformativ.
 
 ## Hagelalarm-Nutzung
 
@@ -103,14 +103,14 @@ on({id: 'wetter.0.warnungen.hagel', val: true}, function () {
 });
 ```
 
-Fehler bei einzelnen Geräten (offline etc.) unterbrechen die Kanäle übrigens nicht - jeder fehlgeschlagene Kanal wird einzeln geloggt und in`<id>.info.lastError` vermerkt.
+Fehler bei einzelnen Geräten (offline etc.) unterbrechen die Kanäle übrigens nicht - jeder fehlgeschlagene Kanal wird einzeln geloggt und in `<id>.info.lastError` vermerkt.
 
 ## Bekannte Einschränkungen / bewusste Entscheidungen
 
-- **Smartbutton-Webhook-Programmierung** (`zapi/smartbt/prgm` /`prgn` /`prgs` ) ist nicht implementiert: Dabei ruft der Taster bei Tastendruck direkt eine URL auf ioBroker auf (echtes Push, ganz ohne Polling). Das würde einen eingehenden HTTP-Server im Adapter voraussetzen, den es aktuell nicht gibt - eine größere Architekturerweiterung, kein kleiner Zusatz. Bleibt als möglicher zukünftiger Ausbauschritt dokumentiert.
-- **Schreibzugriff auf`zrap/net`** ist nicht implementiert - WLAN-Zugangsdaten eines Aktors per Skript zu ändern ist riskant (Verbindungsverlust, Reboot nötig). Kann bei Bedarf ergänzt werden.
-- **Planer (`zrap/scheduler` )** und die **zeptrionAir-Smartfront-Services** (`zapi/smartfront/*` ,`zapi/smartbt/*` ) sind nicht implementiert, da für den Storen-/Hagel-Use-Case nicht relevant. Stirb`zrapGet` /`zrapPost` -Struktur in`main.js` lässt sich leicht erweitern.
-- `chctrl` liefert laut Doku HTTP 302 ohne Body - Redirects werden bewusst nicht verfolgt (`maxRedirects: 0` ), um unnötige Zusatzanfragen zu vermeiden.
+- **Smartbutton-Webhook-Programmierung** (`zapi/smartbt/prgm` /`prgn` /`prgs`) ist nicht implementiert: Dabei ruft der Taster bei Tastendruck direkt eine URL auf ioBroker auf (echtes Push, ganz ohne Polling). Das würde einen eingehenden HTTP-Server im Adapter voraussetzen, den es aktuell nicht gibt - eine größere Architekturerweiterung, kein kleiner Zusatz. Bleibt als möglicher zukünftiger Ausbauschritt dokumentiert.
+- **Schreibzugriff auf `zrap/net` ** ist nicht implementiert - WLAN-Zugangsdaten eines Aktors per Skript zu ändern ist riskant (Verbindungsverlust, Reboot nötig). Kann bei Bedarf ergänzt werden.
+- **Planer (`zrap/scheduler`)** und die **zeptrionAir-Smartfront-Services** (`zapi/smartfront/*`, `zapi/smartbt/*`) sind nicht implementiert, da für den Storen-/Hagel-Use-Case nicht relevant. Stirb `zrapGet` /`zrapPost` -Struktur in `main.js` lässt sich leicht erweitern.
+- `chctrl` liefert laut Doku HTTP 302 ohne Body - Redirects werden bewusst nicht verfolgt (`maxRedirects: 0`), um unnötige Zusatzanfragen zu vermeiden.
 - Bei wiederholten Fehlern eines Geräts wird das Poll-Intervall bis maximal das 5-fache verlängert (einfacher Backoff).
 
 ## Entwicklung / Tests

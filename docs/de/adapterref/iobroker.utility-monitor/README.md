@@ -35,7 +35,7 @@ hash: REJ2ZAflTmFNCzNuSzzawcSh94c7VvZk2riZ/aai/cg=
 - 🔔 **Intelligente Benachrichtigungen** – separate Erinnerungen für das Ende des Abrechnungszeitraums (Zählerablesung) und für eine Vertragsänderung (Tarifprüfung), jeweils mit eigener Vorwarnzeit.
 - 📈 **Wöchentliche Auswertung** – Verfolgen Sie Ihren Verbrauch auch wöchentlich.
 - 📥 **CSV-Import** – Historische Zählerstände per Drag & Drop importieren
-- ⌨️ **Kommaunterstützung** – die Admin-Oberfläche akzeptiert`12,50` sowie`12.50` für Dezimalzahlen
+- ⌨️ **Kommaunterstützung** – die Admin-Oberfläche akzeptiert `12,50` sowie `12.50` für Dezimalzahlen
 
 ---
 
@@ -173,7 +173,7 @@ gas.main.statistics.timestamps.lastDayStart   ← timestamps of the resets
 
 Für jeden aktivierten Versorgungstyp (Gas/Wasser/Strom/PV) werden die folgenden Ordner erstellt:
 
-**Wichtig:** Seit Version 1.4.6 enthalten alle Pfade den Zählernamen (z. B.`gas.main.*` anstatt`gas.*` ).
+**Wichtig:** Seit Version 1.4.6 enthalten alle Pfade den Zählernamen (z. B. `gas.main.*` anstatt `gas.*`).
 
 ### 🗂️ **Konsum**
 
@@ -197,7 +197,7 @@ Für jeden aktivierten Versorgungstyp (Gas/Wasser/Strom/PV) werden die folgenden
 | `yearlyNT`      | Jährlicher Verbrauch zum Niedrigtarif               | 219,01 kWh       |
 | `lastUpdate`    | Letzte Aktualisierung                               | 06.01.2026 14:11 |
 
-**💡 Tipp:**`yearly` wird automatisch berechnet als`(current meter reading - offset) - initial reading` Die
+**💡 Tipp:** `yearly` wird automatisch berechnet als `(current meter reading - offset) - initial reading` Die
 
 **📅 Wichtig:** Die jährliche Zurücksetzung erfolgt am **Vertragsbeginn** (z. B. 12. Mai), NICHT am 1. Januar.
 
@@ -301,10 +301,10 @@ Seit Version 1.6.1 sind die Statistiken in drei Unterkanäle aufgeteilt.
 **💡 Arbeitsablauf zum Jahresende:**
 
 1. Lesen Sie den physikalischen Zählerstand ab (z. B. 10316,82 m³).
-2. Geben Sie den Wert ein in`endReading`
-3. Satz`closePeriod` Zu`true`
-4. ✅ Der Adapter archiviert alle Daten automatisch unter`history.{YEAR}.*`
-5. ⚠️ **Wichtig:** Aktualisieren Sie die Konfiguration mit der neuen`initialReading` (sehen`newInitialReading` )
+2. Geben Sie den Wert ein in `endReading`
+3. Satz `closePeriod` Zu `true`
+4. ✅ Der Adapter archiviert alle Daten automatisch unter `history.{YEAR}.*`
+5. ⚠️ **Wichtig:** Aktualisieren Sie die Konfiguration mit der neuen `initialReading` (sehen `newInitialReading`)
 
 ---
 
@@ -339,7 +339,7 @@ Die Sensorabweichung lässt sich durch eine manuelle Justierung korrigieren.
 
 1. Lesen Sie den physikalischen Zähler ab: **10350 m³**
 2. Der Adapter zeigt an: **10346 m³**
-3. Geben Sie die Differenz ein in`adjustment.value` : **+4**
+3. Geben Sie die Differenz ein in `adjustment.value`: **+4**
 4. ✅ Alle Berechnungen werden automatisch korrigiert.
 5. **Dank der Integration von Spitzen- und Nebenzeiten** werden Anpassungen automatisch auf den Spitzentarif (HT) gebucht, wenn zwei Tarife genutzt werden.
 
@@ -351,7 +351,7 @@ Die Sensorabweichung lässt sich durch eine manuelle Justierung korrigieren.
 
 Der Gasverbrauch wird **in m³ gemessen** , aber **in kWh abgerechnet** .
 
-**Formel:**`kWh = m³ × calorific value × Z number`
+**Formel:** `kWh = m³ × calorific value × Z number`
 
 💡 **Tipp:** Den Brennwert und die Z-Zahl finden Sie auf Ihrer Gasrechnung.
 
@@ -391,7 +391,7 @@ Der Adapter setzt die Zähler automatisch zurück:
 
 - **FIX:** 🌐 **Multilingual object names** - object and state names are now provided as `{ en, de }` objects, so German users keep the German labels while the repository checker and other locales get an English name.
 - **FIX:** 🇬🇧 **English log messages** - all log and error messages are now in English, as required for adapters in the ioBroker repository. User notifications (Telegram etc.) stay in German.
-- **FIX:** 🔘 **`billing.closePeriod` button** - the button state now uses `read: false` as required for the `button` role. Existing installations are migrated automatically on startup.
+- **FIX:** 🔘 ** `billing.closePeriod` button** - the button state now uses `read: false` as required for the `button` role. Existing installations are migrated automatically on startup.
 - **CHORE:** 🧹 **Cleanup** - removed a redundant `*.adjustment.note` subscription that was never handled, removed the dead legacy `closeBillingPeriod` code path (which still used the non-catalogue `value.money` role), removed the unused `createUtilityStateStructure` and an orphaned translation key.
 
 ### 1.6.6 (2026-08-07)
@@ -405,9 +405,9 @@ Der Adapter setzt die Zähler automatisch zurück:
 
 ### 1.6.5 (2026-08-06)
 
-- **BREAKING:** ⚠️ **`info.monthlyInstallment` is now a number (#11)** - the advance payment used to be stored as formatted text (`"25.00 €"`), which made it unusable for history, charts and scripts. It is now a numeric state with the unit `€`. Existing installations are converted automatically on startup. **Scripts that parsed the text have to be adjusted.**
+- **BREAKING:** ⚠️ ** `info.monthlyInstallment` is now a number (#11)** - the advance payment used to be stored as formatted text (`"25.00 €"`), which made it unusable for history, charts and scripts. It is now a numeric state with the unit `€`. Existing installations are converted automatically on startup. **Scripts that parsed the text have to be adjusted.**
 - **FIX:** 🛠️ **Info page** - the link to the GitHub repository still pointed at the former name `ioBroker.nebenkosten-monitor` and was dead.
-- **FIX:** 🛠️ **Description of `daysRemaining`** - the state was described as "days until the end of the contract" although it counts down to the end of the billing period. That wording had caused misunderstandings.
+- **FIX:** 🛠️ **Description of `daysRemaining` ** - the state was described as "days until the end of the contract" although it counts down to the end of the billing period. That wording had caused misunderstandings.
 - **DOCS:** 🧹 **Info page cleaned up** - removed the hard-coded version number (admin shows it anyway) and the outdated "NEW in 1.4.6" markers.
 - **CHORE:** ⬆️ **Release tooling updated** - `@alcalzone/release-script` and its plugins raised to 5.x.
 

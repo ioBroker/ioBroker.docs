@@ -44,7 +44,7 @@ Für weitere Informationen über Harvia und deren Saunasteuerungen beuche bitte 
 
 ### Über ioBroker Admin
 
-1. Открыть ioBroker-Weboberfläche в браузере einem (z. B.`192.168.1.33:8081` ).
+1. Открыть ioBroker-Weboberfläche в браузере einem (z. B. `192.168.1.33:8081`).
 2. Нажмите на **адаптер** Reiter.
 3. Используйте «harvia-fenix» в разделе «Фильтр».
 4. Нажмите на один из пунктов и на символ «+» адаптеров **Harvia Fenix** , чтобы получить мгновенный сигнал.
@@ -67,8 +67,8 @@ _Примечание: Es wird ein разделяет Konto für ioBroker в п�
 
 ### ioBroker-Конфигурация
 
-1. Открыть ioBroker-Oberfläche в браузере einem (z. B.`192.168.1.33:8081` ).
-2. Navigiere zum Reiter **Instantzen** und clicke auf das Einstellungs-Symbol Deiner`harvia-fenix.0` -Инстанц.
+1. Открыть ioBroker-Oberfläche в браузере einem (z. B. `192.168.1.33:8081`).
+2. Navigiere zum Reiter **Instantzen** und clicke auf das Einstellungs-Symbol Deiner `harvia-fenix.0` -Инстанц.
 3. Укажите **адрес электронной почты** и **пароль** , указанные в MyHarvia-Kontos.
 4. Когда вы получите **ID-код** , вы увидите, что адаптер будет автоматически запускаться после того, как вы нажмете на него соответствующий значок. Er verwendet das erste gefundene Gerät als aktive Einheit.
 5. Необязательный параметр Passe bei Bei Darf: **Abfrageintervall** (секунды), **Mindest-/Maximal-Zieltemperatur** (°C) и **Maximale Heizdauer** (минуты).
@@ -90,7 +90,7 @@ _Примечание: Es wird ein разделяет Konto für ioBroker в п�
 
 Wenn dein MyHarvia-Konto meherere Steuereinheiten verwaltet (z. B. eine zu Hause und eine im Ferienhaus):
 
-1. Erstelle für jede Sauna eine eigene Instanz des Adapters (z. B.`harvia-fenix.0` унд`harvia-fenix.1` ).
+1. Erstelle für jede Sauna eine eigene Instanz des Adapters (z. B. `harvia-fenix.0` унд `harvia-fenix.1`).
 2. Вручную внесите **идентификатор устройства** в конфигурацию, используемую в данный момент. Дадурч может помочь вам в сауне, если вы не хотите, чтобы ваши собственные даты были проверены и проверены.
 
 ### Geteilte Konten / Gast-Zugänge & Die Partner-ID
@@ -104,7 +104,7 @@ Wenn dein MyHarvia-Konto meherere Steuereinheiten verwaltet (z. B. eine zu Hause
 
 #### 🟡 Sonderfall: Geteiltes Konto / Gast-Zugang (от ioBroker-Konto)
 
-Если вы хотите, чтобы сауна в приложении MyHarvia 2 была бесплатной, используйте автоматический метод Cloud-API для основных настроек газовой карты (Gast-Konto).`{"devices":[]}` ).
+Если вы хотите, чтобы сауна в приложении MyHarvia 2 была бесплатной, используйте автоматический метод Cloud-API для основных настроек газовой карты (Gast-Konto). `{"devices":[]}`).
 
 В этом случае **необходимо** вручную **получить идентификатор устройства (идентификатор устройства)** и **идентификатор партнера Hauptkontos** в режиме Einstellungen eingetragen:
 
@@ -113,7 +113,7 @@ Wenn dein MyHarvia-Konto meherere Steuereinheiten verwaltet (z. B. eine zu Hause
 1. Трагедия в конфигурации адаптера включает в себя данные входа в **систему** (Des Besitzers) и щелчок **мышью** .
 2. Открыт журнал ioBroker-Log. Адаптер обеспечивает удобство сауны и возможность использования следующих вариантов:
    - `Found device: ... (ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)` ➡️ Das ist deine **Geräte-ID** .
-   - `Using partner ID from user token: ORG/prod:0:6656` ➡️ Das ist deine **Partner-ID** (стандарт:`ORG/prod:0:6656` Одер`ORG/prod:0:6656:0` ).
+   - `Using partner ID from user token: ORG/prod:0:6656` ➡️ Das ist deine **Partner-ID** (стандарт: `ORG/prod:0:6656` Одер `ORG/prod:0:6656:0`).
 3. Kopiere beide Werte in die Zwischenablage.
 4. Если вы не хотите использовать Einstellungen, вы увидите, что в Zugangsdaten указан **Gast-Kontos** , вы можете скопировать **Geräte-ID** и **Partner-ID** в необязательных полях и щелкнуть по **Speichern & Schließen** .
 
@@ -135,32 +135,32 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | Пункт данных                    | Тип        | Ролле                 | Зугриф          | Описание                                                                                                                                             |
 | ------------------------------- | ---------- | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `info.connection`               | логический | `indicator`           | Нур Лесен       | Статус адаптеров для MyHarvia-Cloud.                                                                                                                 |
-| `info.minTemp`                  | число      | `value.temperature`   | Нур Лесен       | Mindest-Zieltemperaturgrenze (`40 °C` ).                                                                                                             |
-| `info.maxTemp`                  | число      | `value.temperature`   | Нур Лесен       | Максимальный-Zieltemperaturgrenze (`110 °C` ).                                                                                                       |
-| `info.avgHeatingRate`           | число      | `value`               | Нур Лесен       | Gelerntes durchschnittliche Aufheizrate в °C на минуту (`°C/min` ).                                                                                  |
-| `info.heatingAnomaly`           | логический | `indicator`           | Нур Лесен       | Wechselt auf`true` , когда актуальная Heizleistung deutlich vom historischen Durchschnitt abweicht (zu langsam oder zu schnell).                     |
-| `info.heatingAnomalyType`       | нить       | `text`                | Нур Лесен       | Искусство аномалии:`'none'` (Нормальное обслуживание),`'too_slow'` (< 50 % des Schnitts) oder`'too_fast'` (> 180 % des Schnitts).                    |
+| `info.minTemp`                  | число      | `value.temperature`   | Нур Лесен       | Mindest-Zieltemperaturgrenze (`40 °C`).                                                                                                             |
+| `info.maxTemp`                  | число      | `value.temperature`   | Нур Лесен       | Максимальный-Zieltemperaturgrenze (`110 °C`).                                                                                                       |
+| `info.avgHeatingRate`           | число      | `value`               | Нур Лесен       | Gelerntes durchschnittliche Aufheizrate в °C на минуту (`°C/min`).                                                                                  |
+| `info.heatingAnomaly`           | логический | `indicator`           | Нур Лесен       | Wechselt auf `true`, когда актуальная Heizleistung deutlich vom historischen Durchschnitt abweicht (zu langsam oder zu schnell).                     |
+| `info.heatingAnomalyType`       | нить       | `text`                | Нур Лесен       | Искусство аномалии: `'none'` (Нормальное обслуживание), `'too_slow'` (< 50 % des Schnitts) oder `'too_fast'` (> 180 % des Schnitts).                    |
 | `info.heatingAnomalyDesc`       | нить       | `text`                | Нур Лесен       | Klartext-Diagnose und empfohlene Prüfschritte für Visualisierungen или Benachrichtigungen.                                                           |
-| `estimatedHeatingTimeRemaining` | число      | `value.interval`      | Нур Лесен       | Geschätzte verbleibende Aufheizzeit in Minuten bis zur Zieltemperatur (`min` ).                                                                      |
+| `estimatedHeatingTimeRemaining` | число      | `value.interval`      | Нур Лесен       | Geschätzte verbleibende Aufheizzeit in Minuten bis zur Zieltemperatur (`min`).                                                                      |
 | `online`                        | логический | `indicator.reachable` | Нур Лесен       | Verbindungsstatus der Steuereinheit zur Cloud.                                                                                                       |
-| `doorSafety`                    | логический | `indicator.safety`    | Нур Лесен       | Статус дер Türsicherung (z.B.`true` , wenn die Tür sicher geschlossen ist).                                                                          |
-| `remoteControl`                 | логический | `indicator`           | Нур Лесен       | Статус дер Fernstart-Bereitschaft. Венн`false` , ist das Starten des Ofens aus der Ferne (переходник) заблокирован.                                  |
+| `doorSafety`                    | логический | `indicator.safety`    | Нур Лесен       | Статус дер Türsicherung (z.B. `true`, wenn die Tür sicher geschlossen ist).                                                                          |
+| `remoteControl`                 | логический | `indicator`           | Нур Лесен       | Статус дер Fernstart-Bereitschaft. Венн `false`, ist das Starten des Ofens aus der Ferne (переходник) заблокирован.                                  |
 | `errorMsg`                      | нить       | `text`                | Нур Лесен       | Aktuelle Fehlermeldungen или Statustexte des Ofens.                                                                                                  |
-| `heatOn`                        | логический | `switch.power`        | Lesen/Chreiben  | Hauptschalter, um den Saunaofen EIN (`true` ) или AUS (`false` ) zu schalten.                                                                        |
-| `heaterPower`                   | число      | `value.power`         | Нур Лесен       | _Примечание:_ Dieses Objekt wird von der API bereitgestellt, часто используется`0 kW` (nicht ausgefüllt). Это возможность резервирования обновлений. |
+| `heatOn`                        | логический | `switch.power`        | Lesen/Chreiben  | Hauptschalter, um den Saunaofen EIN (`true`) или AUS (`false`) zu schalten.                                                                        |
+| `heaterPower`                   | число      | `value.power`         | Нур Лесен       | _Примечание:_ Dieses Objekt wird von der API bereitgestellt, часто используется `0 kW` (nicht ausgefüllt). Это возможность резервирования обновлений. |
 | `lightOn`                       | логический | `switch.light`        | Lesen/Schreiben | Schalter für die integrierte Saunabeleuchtung.                                                                                                       |
-| `maxDuration`                   | число      | `level.timer`         | Lesen/Schreiben | Maximale Heizdauer für die Saunasitzung in Minuten (`min` ).                                                                                         |
+| `maxDuration`                   | число      | `level.timer`         | Lesen/Schreiben | Maximale Heizdauer für die Saunasitzung in Minuten (`min`).                                                                                         |
 | `panelTemp`                     | число      | `value.temperature`   | Нур Лесен       | Temperaturmesswert Direct an der Physischen Steuereinheit / Panel.                                                                                   |
-| `targetTemp`                    | число      | `level.temperature`   | Lesen/Chreiben  | Zieltemperatur-Sollwert für die Saunakabine (z.B.`90 °C` ).                                                                                          |
-| `temp`                          | число      | `value.temperature`   | Нур Лесен       | Актуальная температура в сауне (z.B.`17 °C` ).                                                                                                       |
-| `readyNotified10Min`            | логический | `indicator`           | Нур Лесен       | Вирд`true` , wenn die Sauna noch ca. 10 минут при температуре Zieltemperatur (13°C до температуры Ziel).                                             |
-| `targetReachedNotified`         | логический | `indicator`           | Нур Лесен       | Вирд`true` , если в сауне выбрана необходимая температура воздуха в сауне, используйте ее.                                                           |
-| `totalBathingHours`             | число      | `value.number`        | Нур Лесен       | Historische kumulierte Betriebsstunden der Saunanutzung (`h` ).                                                                                      |
-| `totalOperatingHours`           | число      | `value.hours`         | Нур Лесен       | Gesamte Betriebsstunden des Systems (`h` ).                                                                                                          |
+| `targetTemp`                    | число      | `level.temperature`   | Lesen/Chreiben  | Zieltemperatur-Sollwert für die Saunakabine (z.B. `90 °C`).                                                                                          |
+| `temp`                          | число      | `value.temperature`   | Нур Лесен       | Актуальная температура в сауне (z.B. `17 °C`).                                                                                                       |
+| `readyNotified10Min`            | логический | `indicator`           | Нур Лесен       | Вирд `true`, wenn die Sauna noch ca. 10 минут при температуре Zieltemperatur (13°C до температуры Ziel).                                             |
+| `targetReachedNotified`         | логический | `indicator`           | Нур Лесен       | Вирд `true`, если в сауне выбрана необходимая температура воздуха в сауне, используйте ее.                                                           |
+| `totalBathingHours`             | число      | `value.number`        | Нур Лесен       | Historische kumulierte Betriebsstunden der Saunanutzung (`h`).                                                                                      |
+| `totalOperatingHours`           | число      | `value.hours`         | Нур Лесен       | Gesamte Betriebsstunden des Systems (`h`).                                                                                                          |
 | `totalSessions`                 | число      | `value.count`         | Нур Лесен       | Zähler für die Gesamtzahl der durchgeführten Heizvorgänge.                                                                                           |
-| `readyAt`                       | нить       | `text`                | Нур Лесен       | Geschätzte Uhrzeit der Fertigstellung (z.B.`17:57` ).                                                                                                |
-| `readyAtMessage`                | нить       | `text`                | Нур Лесен       | Lesbare Bereitschafts-Statusmeldung (z.B.`Ready at 17:57 if turned on now` ).                                                                        |
-| `timeToTargetFormatted`         | нить       | `text`                | Нур Лесен       | Formatierte verbleibende Aufheizzeit (z.B.`39 min 30 sec` ).                                                                                         |
+| `readyAt`                       | нить       | `text`                | Нур Лесен       | Geschätzte Uhrzeit der Fertigstellung (z.B. `17:57`).                                                                                                |
+| `readyAtMessage`                | нить       | `text`                | Нур Лесен       | Lesbare Bereitschafts-Statusmeldung (z.B. `Ready at 17:57 if turned on now`).                                                                        |
+| `timeToTargetFormatted`         | нить       | `text`                | Нур Лесен       | Formatierte verbleibende Aufheizzeit (z.B. `39 min 30 sec`).                                                                                         |
 | `heatingCurve`                  | нить       | `json`                | Нур Лесен       | JSON-Array der Stützstellen-Aufheizzeiten pro 10°C-Intervall für VIS/Diagramme.                                                                      |
 | `profiles`                      | нить       | `json`                | Нур Лесен       | JSON-массив der verfügbaren Saunaprofile (z. B. Cozy и т. д.).                                                                                       |
 | `activeProfile`                 | число      | `level`               | Lesen/Chreiben  | Индекс актуальных активных профилей сауны.                                                                                                           |
@@ -171,12 +171,12 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 
 ### 1. Адаптивный Aufheizzeit-Prognose и Anomalie-Erkennung
 
-- **Lernende Aufheizdauer (`estimatedHeatingTimeRemaining` &`info.avgHeatingRate` ):**\
+- **Lernende Aufheizdauer (`estimatedHeatingTimeRemaining` &`info.avgHeatingRate`):**\
   &#x20;Адаптер предназначен для обычного нагревателя (°C за минуту). Während des Aufheizens kombiniert — это исторические исследования с актуальной живой температурой, а также вербальный отдых в соответствии с минутной температурой для прогнозирования.
-- **Beidseitige Anomalie-Erkennung (`info.heatingAnomaly` ,`info.heatingAnomalyType` ,`info.heatingAnomalyDesc` ):**\
+- **Beidseitige Anomalie-Erkennung (`info.heatingAnomaly`, `info.heatingAnomalyType`, `info.heatingAnomalyDesc`):**\
   &#x20;После 10-минутной активации адаптера вы сможете проверить его эффективность с помощью следующих настроек:
-  - **Zu langsam (`too_slow` ):** Fällt die Heizrate unter 50 % des Schnitts (z. B. Saunatür angelehnt oder Ausfall eines Heizstabs), wird`info.heatingAnomaly` ауф`true` gesetzt.
-  - **Zu schnell (`too_fast` ):** Steigt die Heizrate über 180 % des Schnitts (z. B. Temperaturfühler verrutscht, Hitzestau am Sensor oder klebendes Schütz), wird`info.heatingAnomaly` ауф`true` gesetzt.
+  - **Zu langsam (`too_slow`):** Fällt die Heizrate unter 50 % des Schnitts (z. B. Saunatür angelehnt oder Ausfall eines Heizstabs), wird `info.heatingAnomaly` ауф `true` gesetzt.
+  - **Zu schnell (`too_fast`):** Steigt die Heizrate über 180 % des Schnitts (z. B. Temperaturfühler verrutscht, Hitzestau am Sensor oder klebendes Schütz), wird `info.heatingAnomaly` ауф `true` gesetzt.
   - `info.heatingAnomalyDesc` Liefert eine verständliche Fehlerbeschreibung für Push-Benachrichtigungen или Visualisierungen.
 
 ### 2. Бенахрихтигунген (нажимной курок)
@@ -203,18 +203,18 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 });
 ```
 
-_Примечание: Diese Zustände werden autotisch auf`false` zurückgesetzt, когда der Ofen ausgeschaltet wird или начало нового Heizvorgang._
+_Примечание: Diese Zustände werden autotisch auf `false` zurückgesetzt, когда der Ofen ausgeschaltet wird или начало нового Heizvorgang._
 
 ---
 
 ## Fehlerbehebung (Устранение неполадок)
 
-### Häufige API-Fehler и Statusmeldungen в`errorMsg`
+### Häufige API-Fehler и Statusmeldungen в `errorMsg`
 
-- **`Action blocked (403 Forbidden). Remote start authorization (Safety Loop) at panel might not be active.`**
+- ** `Action blocked (403 Forbidden). Remote start authorization (Safety Loop) at panel might not be active.` **
   - **Условно:** Die europäische Sicherheitsnorm schreibt vor, dass ein Fernstart nur aktiv sein darf, wenn der Sicherheitskreis/Türsensor geschlossen ist und der Fernstart physch am Saunapanel scharf geschaltet wurde.
   - **Lösung:** Schließe die Saunatür und Drücke am Physischen Harvia-Bedienfeld die **Fernstart** -Taste. Das Fernstart-Symbol auf dem Display muss leuchten. Прежде всего, необходимо использовать бесплатный адаптер.
-- **`Cloud lock: Device busy, command discarded.`(Als Debug-Log)**
+- ** `Cloud lock: Device busy, command discarded.`(Als Debug-Log)**
   - **Ursache:** Блокировка Harvia-API может быть полезна, если вы используете шнеллер, когда он работает (z. B. durch schnelles Klicken in der Vis), um die Hardware zu schützen.
   - **Изображение:** Warte einige Sekunden zwischen den Befehlen. Адаптер автоматически работает со щелчками мыши, и вы можете использовать API-интерфейс для управления.
 

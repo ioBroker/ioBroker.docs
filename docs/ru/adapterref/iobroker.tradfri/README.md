@@ -21,7 +21,7 @@ hash: 1/BdBjV+kOxM6ivEgzwqK0bKJ78VpMtF9v88n3GBAMA=
 
 ## Установка
 
-1. Установите этот адаптер через административный интерфейс iobroker или с помощью`npm install iobroker.tradfri --production`
+1. Установите этот адаптер через административный интерфейс iobroker или с помощью `npm install iobroker.tradfri --production`
 2. В графическом интерфейсе ioBroker добавьте экземпляр адаптера.
 3. Настройте экземпляр, введя IP-адрес/имя хоста вашего шлюза и код безопасности, который можно найти на этикетке внизу.
 
@@ -46,7 +46,7 @@ Can't find Python executable "python", you can set the PYTHON env variable.
 Для решения проблемы откройте командную оболочку с правами администратора:
 
 1. Нажмите<kbd> ⊞ Windows</kbd> ключ
-2. Входить`cmd` , нажимать<kbd> Ctrl</kbd> +<kbd> Сдвиг</kbd> +<kbd> Входить</kbd>
+2. Входить `cmd`, нажимать<kbd> Ctrl</kbd> +<kbd> Сдвиг</kbd> +<kbd> Входить</kbd>
 3. Подтвердите запрос UAC и выполните следующую команду:
 
 ```
@@ -57,7 +57,7 @@ npm install --add-python-to-path --global windows-build-tools
 
 ## Отправка пользовательских CoAP-пакетов
 
-Вы можете отправлять пользовательские CoAP-пакеты с других адаптеров, используя...`sendTo` Пример из JavaScript:
+Вы можете отправлять пользовательские CoAP-пакеты с других адаптеров, используя... `sendTo` Пример из JavaScript:
 
 ```js
 sendTo("tradfri.0", "request", options, (ret) => {
@@ -65,7 +65,7 @@ sendTo("tradfri.0", "request", options, (ret) => {
 });
 ```
 
-Он`options` Объект выглядит следующим образом:
+Он `options` Объект выглядит следующим образом:
 
 ```js
 {
@@ -75,7 +75,7 @@ sendTo("tradfri.0", "request", options, (ret) => {
 }
 ```
 
-Результирующий объект`ret` Выглядит следующим образом:
+Результирующий объект `ret` Выглядит следующим образом:
 
 ```js
 {

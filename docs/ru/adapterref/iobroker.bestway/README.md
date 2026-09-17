@@ -40,13 +40,13 @@ hash: k33197ntu/wRdxaF60jVQgz8qdFFEwnHvIMTUS30jiA=
 
 Поколение «V2» выбрано и выбрано в регионе. Dann eine der beiden Kopplungsmethoden nutzen:
 
-- **QR-код** (iOS и Android): в приложении Bestway Connect для создания > создания QR-кода, его декодирования (zB über <https://scanqr.org/> ) и текста (начинается с`RW_Share_` ) им Адаптер eintragen. Кодекс — это невероятная минута, когда вы можете совершить покупку.
+- **QR-код** (iOS и Android): в приложении Bestway Connect для создания > создания QR-кода, его декодирования (zB über <https://scanqr.org/> ) и текста (начинается с `RW_Share_`) им Адаптер eintragen. Кодекс — это невероятная минута, когда вы можете совершить покупку.
 - **Android-ID** (для Android): добавьте в приложение Bestway Connect дополнительный идентификатор профиля. Если вы хотите получить лучший контакт с помощью QR-кода, вы можете получить его напрямую, используя QR-код.
 
 ## Стойерн
 
-- В1:`bestway.0.<id>.remote.*` бзв.`remotev2.*` setzen steuert den jeweiligen Befehl.
-- V2:`bestway.0.<id>.remotev3.*` setzen steuert den jeweiligen Befehl (мощность, тепло, фильтр, струя, волна, temp\_set, заблокировано).
+- В1: `bestway.0.<id>.remote.*` бзв. `remotev2.*` setzen steuert den jeweiligen Befehl.
+- V2: `bestway.0.<id>.remotev3.*` setzen steuert den jeweiligen Befehl (мощность, тепло, фильтр, струя, волна, temp\_set, заблокировано).
 
 ## Discussion und Fragen:
 

@@ -44,7 +44,7 @@ Die Datenpunkte werden mit den korrekten Zuständen und, falls verfügbar, auch 
 
 ### Informationen identifizieren
 
-Geräte, die keinem Controller zugeordnet sind, haben ein`admin.identify` Zustand, der ausgelöst werden kann mit`true` In diesem Fall muss sich das betreffende Gerät identifizieren (z. B. durch Blinken einer Lampe). Diese Funktion ist nur verfügbar, solange das Gerät nicht mit einem Controller gekoppelt ist.
+Geräte, die keinem Controller zugeordnet sind, haben ein `admin.identify` Zustand, der ausgelöst werden kann mit `true` In diesem Fall muss sich das betreffende Gerät identifizieren (z. B. durch Blinken einer Lampe). Diese Funktion ist nur verfügbar, solange das Gerät nicht mit einem Controller gekoppelt ist.
 
 #### Paarungsinformationen
 
@@ -58,7 +58,7 @@ Es kann vorkommen, dass es bei der Kopplung noch Probleme gibt, da ich nur mit s
 
 #### Informationen zum Entpaaren
 
-Zum Entkoppeln einfach auslösen`admin.unpair` Der Status ist auf „true“ gesetzt, woraufhin der Entkopplungsprozess ausgeführt wird – eine Admin-Benutzeroberfläche folgt in Kürze.
+Zum Entkoppeln einfach auslösen `admin.unpair` Der Status ist auf „true“ gesetzt, woraufhin der Entkopplungsprozess ausgeführt wird – eine Admin-Benutzeroberfläche folgt in Kürze.
 
 #### Besondere Hinweise zur Verwendung von IP-Geräten
 
@@ -82,9 +82,9 @@ Nach einem Neustart des Adapters können Bluetooth-Geräte nicht direkt verbunde
 
 Falls Sie Probleme beim Koppeln des Geräts mit diesem Adapter haben, versuchen Sie es bitte mit der normalen Apple Home App für iOS. Funktioniert auch das nicht, liegt ein Fehler am Gerät vor, und dieser Adapter kann Ihnen ebenfalls nicht helfen. Ein Zurücksetzen ist nicht möglich, aber es gibt keine andere Möglichkeit.
 
-Dies trifft derzeit auf einige zu.`Tado Door Locks` Beispielsweise müssen sie mithilfe der folgenden Methode gepaart werden:`Tado App` Das Gerät wird auf irgendeine Weise bei Apple Home registriert, jedoch nicht über einen offiziellen Kopplungsprozess.
+Dies trifft derzeit auf einige zu. `Tado Door Locks` Beispielsweise müssen sie mithilfe der folgenden Methode gepaart werden: `Tado App` Das Gerät wird auf irgendeine Weise bei Apple Home registriert, jedoch nicht über einen offiziellen Kopplungsprozess.
 
-Zusätzlich auch`Nuki 3 Locks (BLE)` Eine Kopplung ist nicht möglich, da sie Hardware-Authentifizierungskomponenten verwenden, die von Apple nicht öffentlich dokumentiert sind.
+Zusätzlich auch `Nuki 3 Locks (BLE)` Eine Kopplung ist nicht möglich, da sie Hardware-Authentifizierungskomponenten verwenden, die von Apple nicht öffentlich dokumentiert sind.
 
 Ein Netatmo-Nutzer fand heraus, wie das Koppeln trotz Problemen möglich war. Siehe <https://github.com/Apollon77/ioBroker.homekit-controller/issues/233#issuecomment-1311983379>
 
@@ -92,12 +92,12 @@ Ein Netatmo-Nutzer fand heraus, wie das Koppeln trotz Problemen möglich war. Si
 
 ##### für BLE-Geräte
 
-- Falls die BLE-Verbindung nicht funktioniert oder Fehler auftreten, wenn der Adapter versucht, die BluetoothLE-Verbindung zu initialisieren, führen Sie bitte zuerst Folgendes aus:`iobroker fix` um sicherzustellen, dass alle Berechtigungen und erforderlichen Funktionen korrekt eingestellt sind.
+- Falls die BLE-Verbindung nicht funktioniert oder Fehler auftreten, wenn der Adapter versucht, die BluetoothLE-Verbindung zu initialisieren, führen Sie bitte zuerst Folgendes aus: `iobroker fix` um sicherzustellen, dass alle Berechtigungen und erforderlichen Funktionen korrekt eingestellt sind.
 - Falls dies nicht hilft, besuchen Sie bitte <https://github.com/noble/noble#running-on-linux>
-- Bitte stellen Sie sicher, dass Ihr System einschließlich des Kernels auf dem neuesten Stand ist.`apt update && apt dist-upgrade`
-- Versuchen Sie, das betreffende BLE-Gerät beispielsweise mit dem Befehl \`setup\` zurückzusetzen.`sudo hciconfig hci0 reset`
-- Bei Problemen geben Sie bitte auch die Ausgabe von`uname -a` Und`lsusb`
-- Niedrigstufige BLE-Geräteprotokolle können wie folgt abgerufen werden:`sudo hcidump -t -x >log.txt` (in einer zweiten Shell zusätzlich zum Ausführen des Adapters)
+- Bitte stellen Sie sicher, dass Ihr System einschließlich des Kernels auf dem neuesten Stand ist. `apt update && apt dist-upgrade`
+- Versuchen Sie, das betreffende BLE-Gerät beispielsweise mit dem Befehl \`setup\` zurückzusetzen. `sudo hciconfig hci0 reset`
+- Bei Problemen geben Sie bitte auch die Ausgabe von `uname -a` Und `lsusb`
+- Niedrigstufige BLE-Geräteprotokolle können wie folgt abgerufen werden: `sudo hcidump -t -x >log.txt` (in einer zweiten Shell zusätzlich zum Ausführen des Adapters)
 
 ##### Allgemeine Hinweise
 
@@ -111,14 +111,14 @@ Wenn Sie Probleme haben und ein Problem melden möchten (siehe unten), ist ein e
 
 - Bitte stoppen Sie die Adapterinstanz in iobBroker Admin.
 - Öffnen Sie eine Shell auf dem entsprechenden Server.
-- Den Adapter manuell starten`DEBUG=hap* node /opt/iobroker/node_modules/iobroker.homekit-controller/build/main.js 0 --debug --logs`
+- Den Adapter manuell starten `DEBUG=hap* node /opt/iobroker/node_modules/iobroker.homekit-controller/build/main.js 0 --debug --logs`
 - Führe dann die Aktion aus, die den Fehler verursacht, und speichere das Log aus der Shell. Poste es anschließend zusammen mit der Problembeschreibung.
 - Bitte fügen Sie das Konsolenprotokoll ebenfalls dem Problem bei. Dadurch wird ein Protokoll auf Protokollebene erstellt.
 - Suchen Sie außerdem das entsprechende Objekt im Admin-Tab „Objekte“, klicken Sie auf das Stiftsymbol rechts und geben Sie den JSON-Code des Objekts an.
 
 ### Ressourcen und Links
 
-- Ressource, die versucht zu entschlüsseln`Elgato` Sonderzustände: <https://gist.github.com/simont77/3f4d4330fa55b83f8ca96388d9004e7d>
+- Ressource, die versucht zu entschlüsseln `Elgato` Sonderzustände: <https://gist.github.com/simont77/3f4d4330fa55b83f8ca96388d9004e7d>
 
 ### TODO
 

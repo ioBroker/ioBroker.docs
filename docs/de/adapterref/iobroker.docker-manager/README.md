@@ -34,13 +34,13 @@ Ein Docker-Container hingegen ist eine Laufzeitinstanz eines Docker-Images. Er s
 ## Voraussetzungen
 
 - Sie benötigen Docker, das auf Ihrem System installiert und ausgeführt wird.
-- Der Benutzer, der den ioBroker-Prozess ausführt, benötigt die Berechtigung zum Zugriff auf den Docker-Daemon. Dies geschieht üblicherweise durch Hinzufügen des Benutzers zur entsprechenden Berechtigungsliste.`docker` Gruppe. Oder rufen Sie einfach an.`iob fix` um die Berechtigungen festzulegen.
+- Der Benutzer, der den ioBroker-Prozess ausführt, benötigt die Berechtigung zum Zugriff auf den Docker-Daemon. Dies geschieht üblicherweise durch Hinzufügen des Benutzers zur entsprechenden Berechtigungsliste. `docker` Gruppe. Oder rufen Sie einfach an. `iob fix` um die Berechtigungen festzulegen.
 
 ## Wie installiert man Docker?
 
 - Installationsanweisungen finden Sie in der offiziellen Docker-Dokumentation: <https://docs.docker.com/get-docker/>
 - Nach der Installation von Docker stellen Sie sicher, dass der Docker-Dienst ausgeführt wird. Sie können den Status des Docker-Dienstes mit folgendem Befehl überprüfen:
-  - Unter Linux:`systemctl status docker`
+  - Unter Linux: `systemctl status docker`
   - Unter Windows und macOS sollte Docker Desktop ausgeführt werden.
 
 ## Verwendung der Docker-API
@@ -53,13 +53,13 @@ Der Adapter kann die Docker-API nutzen, um mit dem Docker-Daemon auf anderen Hos
    - `/lib/systemd/system/docker.service`
    - `/etc/docker/daemon.json`
    - `/etc/systemd/system/docker.service`
-2. Wenn die Datei`/etc/docker/daemon.json` , hinzufügen oder ändern`hosts` Eintrag zum Einbinden des TCP-Sockets. Zum Beispiel:
+2. Wenn die Datei `/etc/docker/daemon.json`, hinzufügen oder ändern `hosts` Eintrag zum Einbinden des TCP-Sockets. Zum Beispiel:
    ```json
    {
        "hosts": ["unix:///var/run/docker.sock", "tcp://0.0.0.0:2375"]
    }
    ```
-   Wenn es sich bei der Datei um eine systemd-Dienstdatei handelt (z. B.`/lib/systemd/system/docker.service` ), modifizieren`ExecStart` Zeile, die die`-H tcp://0.0.0.0:2375` Option. Zum Beispiel:
+   Wenn es sich bei der Datei um eine systemd-Dienstdatei handelt (z. B. `/lib/systemd/system/docker.service`), modifizieren `ExecStart` Zeile, die die `-H tcp://0.0.0.0:2375` Option. Zum Beispiel:
    ```
    ExecStart=/usr/bin/dockerd -H fd:// -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375 --containerd=/run/containerd/containerd.sock 
    ```
@@ -76,9 +76,9 @@ Der Adapter kann die Docker-API nutzen, um mit dem Docker-Daemon auf anderen Hos
 
 ## Todo
 
-- BackItUp sollte dies unterstützen`/opt/iobroker/docker-volumes`
+- BackItUp sollte dies unterstützen `/opt/iobroker/docker-volumes`
 - Überlegen Sie, ob der js-Controller Docker-Container entfernt, die nicht mehr verwendet werden, aber das Label haben.
-- Docker-Installationsprogramm:`iob docker <remove>`
+- Docker-Installationsprogramm: `iob docker <remove>`
 - Fortschrittsanzeige: Image hinzufügen/abrufen, Container erstellen
 
 <!--

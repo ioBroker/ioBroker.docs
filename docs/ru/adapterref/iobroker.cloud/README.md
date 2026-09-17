@@ -39,7 +39,7 @@ hash: D4/31oNNg8hFbzAZM2/B9qkJ3cSrn58qXixte5ZRV0s=
 
 ### Настройки Alexa
 
-_**Alexa не поддерживается в`cloud` Больше не нужен адаптер. Используйте для этого адаптер ioBroker.iot.**_
+_**Alexa не поддерживается в `cloud` Больше не нужен адаптер. Используйте для этого адаптер ioBroker.iot.**_
 
 ## IFTTT
 
@@ -47,27 +47,27 @@ _**Alexa не поддерживается в`cloud` Больше не нуже�
 
 ## Услуги
 
-Есть возможность отправлять сообщения в облачный адаптер. Если вы позвоните...`[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` и ценность в качестве полезной нагрузки.
+Есть возможность отправлять сообщения в облачный адаптер. Если вы позвоните... `[POST]https://iobroker.net/service/custom_<NAME>/<user-app-key>` и ценность в качестве полезной нагрузки.
 
 ```bash
 curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ```
 
-Если в настройках в поле «Белый список для сервисов» указать имя _custom\_test_ и вызвать сервис, указав в качестве имени "custom\_test", то состояние`cloud.0.services.custom_test` будет установлено на`myString` .
+Если в настройках в поле «Белый список для сервисов» указать имя _custom\_test_ и вызвать сервис, указав в качестве имени "custom\_test", то состояние `cloud.0.services.custom_test` будет установлено на `myString`.
 
 Вы можете добавить символ "\*" в белый список, и все сервисы будут разрешены.
 
-Начиная с версии 2.0.5, вы можете использовать GET-запросы в форме.`[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` разместить`\<data\>` в`cloud.0.services.custom_\<NAME\>` .
+Начиная с версии 2.0.5, вы можете использовать GET-запросы в форме. `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` разместить `\<data\>` в `cloud.0.services.custom_\<NAME\>`.
 
 Здесь вы найдете инструкции по использованию [Tasker](/#/docs/adapterref/iobroker.cloud/doc/tasker.md) .
 
 Использование сервиса IFTTT разрешено только при наличии установленного ключа IFTTT.
 
-Зарезервированные имена`ifttt` ,`text2command` ,`simpleApi` ,`swagger` Их необходимо использовать без`"custom_"` префикс.
+Зарезервированные имена `ifttt`, `text2command`, `simpleApi`, `swagger` Их необходимо использовать без `"custom_"` префикс.
 
 ### текст2команда
 
-Вы можете написать`text2command` В белом списке можно отправлять POST-запросы на`https://iobroker.net/service/text2command/<user-app-key>` записывать данные в`text2command.X.text` переменная.
+Вы можете написать `text2command` В белом списке можно отправлять POST-запросы на `https://iobroker.net/service/text2command/<user-app-key>` записывать данные в `text2command.X.text` переменная.
 
 Параметр "X" можно задать в настройках с помощью опции "Использовать экземпляр text2command".
 
@@ -79,24 +79,24 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - для чтения значения состояния =>`103.641`
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - установить значение состояния =>`{"result":"OK"}`
 
-**Не забудьте добавить`simpleApi` к разрешенным службам в конфигурации.**
+**Не забудьте добавить `simpleApi` к разрешенным службам в конфигурации.**
 
 ### Ограничения
 
 Если на определенном веб-экземпляре включен HTTPS (безопасность) или аутентификация, это не будет работать.
 
-Вы можете отключить HTTPS и аутентификацию на этом экземпляре веб-сайта, но лучше создать новый экземпляр веб-сайта, привязанный к...`localhost` и выберите этот экземпляр в настройках облака.
+Вы можете отключить HTTPS и аутентификацию на этом экземпляре веб-сайта, но лучше создать новый экземпляр веб-сайта, привязанный к... `localhost` и выберите этот экземпляр в настройках облака.
 
 ## Android-приложение
 
 В новом приложении для Android изменено расположение переменных, отвечающих за яркость и местоположение.
 
-Теперь их можно было найти в`cloud.X.devices.NAME` :
+Теперь их можно было найти в `cloud.X.devices.NAME`:
 
 - `cloud.X.devices.NAME.brightness`
-- `cloud.X.devices.NAME.currentLocation` .
+- `cloud.X.devices.NAME.currentLocation`.
 - `cloud.X.devices.NAME.batteryLevel`
-- `cloud.X.devices.NAME.batteryState` .
+- `cloud.X.devices.NAME.batteryState`.
 
 <!--
 	Placeholder for the next version (at the beginning of the line):

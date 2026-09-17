@@ -51,9 +51,9 @@ card 1: SpkUAC20 [miniDSP VocalFusion Spk (UAC2.0], device 0: USB Audio [USB Aud
   Subdevice #0: subdevice #0
 ```
 
-Bearbeiten`/usr/share/alsa/alsa.conf` und ersetzen`defaults.pcm.card 0` mit`defaults.pcm.card 1` , weil sich beispielsweise auf Karte 1 ein Mikrofon befindet.
+Bearbeiten `/usr/share/alsa/alsa.conf` und ersetzen `defaults.pcm.card 0` mit `defaults.pcm.card 1`, weil sich beispielsweise auf Karte 1 ein Mikrofon befindet.
 
-Sie können das Mikrofon testen mit`rec test.wav` Die
+Sie können das Mikrofon testen mit `rec test.wav` Die
 
 ### Google-Anmeldeinformationen
 
@@ -82,7 +82,7 @@ Und fügen Sie einfach den gesamten kopierten Text in die iobroker-Konfiguration
 
 ### Eigenes heißes Wort
 
-Standard-Hotword ist`snowboy` oder`sonus` Sie können aber hier <https://snowboy.kitt.ai/hotword/> Ihr eigenes "Hotword"-Modell erstellen und es in den Adapter hochladen.
+Standard-Hotword ist `snowboy` oder `sonus` Sie können aber hier <https://snowboy.kitt.ai/hotword/> Ihr eigenes "Hotword"-Modell erstellen und es in den Adapter hochladen.
 
 ## Wie man den Text analysiert
 

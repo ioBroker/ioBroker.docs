@@ -28,11 +28,11 @@ hash: NZZlPgk6tEpWMvMhoy6ZkKwcotfviMd4dbVqujDyd4g=
 
 ## Status-Werte (eingehend)
 
-Alle Geraete werden regelmaessig gepollt. Die Werte werden autotisch unter`tapo.0.id.*` angelegt.
+Alle Geraete werden regelmaessig gepollt. Die Werte werden autotisch unter `tapo.0.id.*` angelegt.
 
 ### Alle Geraete
 
-Пример:`tapo.0.80A5897B21C7.nickname` ,`tapo.0.80A5897B21C7.device_on`
+Пример: `tapo.0.80A5897B21C7.nickname`, `tapo.0.80A5897B21C7.device_on`
 
 | Верт            | Тип        | Описание                          |
 | --------------- | ---------- | --------------------------------- |
@@ -52,7 +52,7 @@ Alle Geraete werden regelmaessig gepollt. Die Werte werden autotisch unter`tapo.
 
 ### Lampen (zusaetzlich)
 
-Пример:`tapo.0.80A5897B21C7.brightness` ,`tapo.0.80A5897B21C7.hue`
+Пример: `tapo.0.80A5897B21C7.brightness`, `tapo.0.80A5897B21C7.hue`
 
 | Верт         | Тип   | Описание                        |
 | ------------ | ----- | ------------------------------- |
@@ -63,7 +63,7 @@ Alle Geraete werden regelmaessig gepollt. Die Werte werden autotisch unter`tapo.
 
 ### P110/P115 Энергетические данные (zusaetzlich)
 
-Пример:`tapo.0.80A5897B21C7.current_power` ,`tapo.0.80A5897B21C7.voltage_mv`
+Пример: `tapo.0.80A5897B21C7.current_power`, `tapo.0.80A5897B21C7.voltage_mv`
 
 | Верт                  | Тип   | Описание                           |
 | --------------------- | ----- | ---------------------------------- |
@@ -78,7 +78,7 @@ Alle Geraete werden regelmaessig gepollt. Die Werte werden autotisch unter`tapo.
 
 ### Hub-Sensoren (Детские устройства)
 
-Пример:`tapo.0.80A5897B21C7.child_SENSOR_ID.current_temp`
+Пример: `tapo.0.80A5897B21C7.child_SENSOR_ID.current_temp`
 
 | Датчик                            | Верте                                                                     | Описание                      |
 | --------------------------------- | ------------------------------------------------------------------------- | ----------------------------- |
@@ -88,11 +88,11 @@ Alle Geraete werden regelmaessig gepollt. Die Werte werden autotisch unter`tapo.
 | T310/T315 (температура/влажность) | текущая\_температура, текущая\_влажность, единица\_измерения\_температуры | Температура и люфтфойхтигкейт |
 | KE100 (термостат)                 | target\_temp, current\_temp, frost\_protection\_on, trv\_states           | Состояние термостата          |
 
-Все сенсорные датчики`battery_percentage` ,`at_low_battery` унд`signal_level` .
+Все сенсорные датчики `battery_percentage`, `at_low_battery` унд `signal_level`.
 
 ### Статус камеры
 
-Пример:`tapo.0.80A5897B21C7.alarm` ,`tapo.0.80A5897B21C7.personDetection`
+Пример: `tapo.0.80A5897B21C7.alarm`, `tapo.0.80A5897B21C7.personDetection`
 
 | Верт                                     | Тип        | Описание                                                  |
 | ---------------------------------------- | ---------- | --------------------------------------------------------- |
@@ -119,9 +119,9 @@ Nicht jedes Geraet Lifert alle Werte. Felder die das Geraet nicht unterstuetzt w
 
 ### Kamera-Erkennungsereignisse
 
-Пример:`tapo.0.80A5897B21C7.detection.active` ,`tapo.0.80A5897B21C7.detection.events.0.alarm_type`
+Пример: `tapo.0.80A5897B21C7.detection.active`, `tapo.0.80A5897B21C7.detection.events.0.alarm_type`
 
-Die Kamera wird local gepollt und Lifert Erkennungs-Events (Bewegung, Personen и т. д.). Die letzten 10 Events werden abgerufen (`searchDetectionList` ), neuestes Event zuerst.
+Die Kamera wird local gepollt und Lifert Erkennungs-Events (Bewegung, Personen и т. д.). Die letzten 10 Events werden abgerufen (`searchDetectionList`), neuestes Event zuerst.
 
 | Верт                           | Тип        | Описание                                       |
 | ------------------------------ | ---------- | ---------------------------------------------- |
@@ -158,7 +158,7 @@ Nicht jede Kamera Lifert alle Typen. Die verfuegbaren Werte haengen von Modell u
 
 ### Настройка сигнализации
 
-Пример:`tapo.0.80A5897B21C7.alarmInfo.enabled` ,`tapo.0.80A5897B21C7.alarmInfo.alarm_volume`
+Пример: `tapo.0.80A5897B21C7.alarmInfo.enabled`, `tapo.0.80A5897B21C7.alarmInfo.alarm_volume`
 
 | Верт                            | Тип       | Описание                                    |
 | ------------------------------- | --------- | ------------------------------------------- |
@@ -173,7 +173,7 @@ Nicht jede Kamera Lifert alle Typen. Die verfuegbaren Werte haengen von Modell u
 
 ### Alarm-Event-Typen (выбор типа сигнала тревоги)
 
-Пример:`tapo.0.80A5897B21C7.alertEventTypes.motion` ,`tapo.0.80A5897B21C7.alertEventTypes.person`
+Пример: `tapo.0.80A5897B21C7.alertEventTypes.motion`, `tapo.0.80A5897B21C7.alertEventTypes.person`
 
 | Верт                    | Тип        | Описание                    |
 | ----------------------- | ---------- | --------------------------- |
@@ -184,7 +184,7 @@ Nicht jede Kamera Lifert alle Typen. Die verfuegbaren Werte haengen von Modell u
 
 ### Benachrichtigungen einrichten
 
-Fuer Benachrichtigungen bei Erkennung ein ioBroker-Skript auf`detection.events.0.start_time` триггер:
+Fuer Benachrichtigungen bei Erkennung ein ioBroker-Skript auf `detection.events.0.start_time` триггер:
 
 ```javascript
 const alarmTypen = {
@@ -270,7 +270,7 @@ Tapo.0.id.remote auf true/false setzen steuert den jeweiligen Befehl. Der Befehl
 | --------------------------- | ---------- | ------------------------------------------------------- |
 | обновить                    | логический | Обновление состояния ручного управления                 |
 | setPowerState               | логический | Эйн/Аус                                                 |
-| setPowerStateChild          | нить       | Child-Device steuern:`childId,true` Одер`childId,false` |
+| setPowerStateChild          | нить       | Child-Device steuern: `childId,true` Одер `childId,false` |
 | setLedEnabled               | логический | LED Indikator ein/aus                                   |
 | setAutoOff                  | логический | Таймер автоматического отключения ein/aus               |
 | setAutoOffDelay             | число      | Автоматическое отключение Verzoegerung через минуту     |
@@ -289,8 +289,8 @@ Alle Plug-Remote plus:
 | ------------------ | ---------- | ------------------------------------ |
 | установить яркость | число      | Helligkeit setzen                    |
 | setColorTemp       | число      | Фартерматура (2500-6500K)            |
-| setColor           | нить       | Farbe setzen:`hue, saturation`       |
-| setLightEffect     | нить       | Идентификатор светового эффекта`off` |
+| setColor           | нить       | Farbe setzen: `hue, saturation`       |
+| setLightEffect     | нить       | Идентификатор светового эффекта `off` |
 | setGradualOnOff    | логический | Sanftes Ein-/Ausschalten             |
 
 ### Фанаты (F1xx)
@@ -319,7 +319,7 @@ Alle Plug-Remote plus:
 
 ### Хаб-сенсорен (T100, T110, T300, T310, T315)
 
-Датчики температуры (температура, люфтфойхтигкейт, Bewegung, Kontakt, Wasserleck) автоматически передаются через`getChildDeviceList` abgerufen и другие статусы.
+Датчики температуры (температура, люфтфойхтигкейт, Bewegung, Kontakt, Wasserleck) автоматически передаются через `getChildDeviceList` abgerufen и другие статусы.
 
 ### Камеры (C200, C310, C520, TC70, ...)
 
@@ -348,7 +348,7 @@ Alle Plug-Remote plus:
 | установить HDR                | логический | HDR ein/aus                                          |
 | setCoverConfig                | логический | Зоны конфиденциальности ein/aus                      |
 | setRecordPlan                 | логический | SD-Karten Aufnahme ein/aus                           |
-| moveMotor                     | нить       | Kamera bewegen:`x, y` (-360..360, -45..45)           |
+| moveMotor                     | нить       | Kamera bewegen: `x, y` (-360..360, -45..45)           |
 | moveMotorStep                 | нить       | Schrittwinkel (0-360)                                |
 | moveToPreset                  | нить       | Zu Preset fahren (ID)                                |
 | калибровать двигатель         | логический | Motor kalibrieren                                    |

@@ -67,7 +67,7 @@ Wenn die tägliche historische Verbrauchsanzeige aktiviert ist, liefert der Adap
 
 - `Homes.<HOME-ID>.Consumption.currentMonthConsumption`
 
-Dieser Wert entspricht dem Gesamtverbrauch für den aktuellen Kalendermonat.`kWh` Die Berechnung erfolgt anhand der von Tibber zurückgegebenen täglichen Verbrauchsdaten. Sind zu wenige Tage konfiguriert, spiegelt der Wert nur diese Anzahl an Tagen wider – nicht einen vollständigen Monat.
+Dieser Wert entspricht dem Gesamtverbrauch für den aktuellen Kalendermonat. `kWh` Die Berechnung erfolgt anhand der von Tibber zurückgegebenen täglichen Verbrauchsdaten. Sind zu wenige Tage konfiguriert, spiegelt der Wert nur diese Anzahl an Tagen wider – nicht einen vollständigen Monat.
 
 ## Rechnerkonfiguration
 
@@ -89,7 +89,7 @@ Der Adapter kann Tibber Pulse lokal über Ihr Heimnetzwerk (via Tibber Bridge) a
 
 ## Fahrzeug- und Ladegerätekonfiguration
 
-Zusätzlich zum Haupt-API-Token kann der Adapter IoT-Gerätedaten (Fahrzeuge, Ladegeräte) von der separaten **Tibber Data API** lesen (`data-api.tibber.com` ), wofür eine eigene OAuth2-Clientregistrierung und einmalige Autorisierung erforderlich ist. Fahrzeugdaten werden geschrieben nach`Vehicles.<VIN>.*` , Ladedaten an`Chargers.<id>.*` Die
+Zusätzlich zum Haupt-API-Token kann der Adapter IoT-Gerätedaten (Fahrzeuge, Ladegeräte) von der separaten **Tibber Data API** lesen (`data-api.tibber.com`), wofür eine eigene OAuth2-Clientregistrierung und einmalige Autorisierung erforderlich ist. Fahrzeugdaten werden geschrieben nach `Vehicles.<VIN>.*`, Ladedaten an `Chargers.<id>.*` Die
 
 📖 **Vollständige Einrichtungsanleitung (Kundenregistrierung, Autorisierung, verfügbare Bundesstaaten): [docu/VehiclesAndChargers.md](/#/docs/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md)**
 

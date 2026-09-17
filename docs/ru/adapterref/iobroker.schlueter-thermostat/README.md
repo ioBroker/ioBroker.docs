@@ -52,7 +52,7 @@ hash: 9tcRgjLCZfK53bfl2ilvpFK2nb520IbV5bBxy2jb44U=
 
 4. Сохраните и запустите адаптер.
 
-Для получения API-ключа можно попробовать следующее:`f219aab4-9ac0-4343-8422-b72203e2fac9` Этот ключ можно найти на форуме:`https://community.home-assistant.io/t/mwd5-wifi-thermostat-oj-electronics-microtemp/445601` Таким образом, это выглядит как глобальный ключ.
+Для получения API-ключа можно попробовать следующее: `f219aab4-9ac0-4343-8422-b72203e2fac9` Этот ключ можно найти на форуме: `https://community.home-assistant.io/t/mwd5-wifi-thermostat-oj-electronics-microtemp/445601` Таким образом, это выглядит как глобальный ключ.
 
 ##
 

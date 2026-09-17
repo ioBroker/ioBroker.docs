@@ -83,7 +83,7 @@ Sie können jetzt wichtige Wattpilot-Funktionen Direct Steuern, Indem Sie in die
 
 #### Erweiterte Steuerung über set\_state
 
-Для лучшего понимания ситуации`set_state` Datenpunkt mit diesem Format:
+Для лучшего понимания ситуации `set_state` Datenpunkt mit diesem Format:
 
 ```
 zustandsName;wert
@@ -91,8 +91,8 @@ zustandsName;wert
 
 **Verfügbare Zustände:**
 
-- **amp** :`6-16` (Ладэстр в амперах)
-- **cae** :`true` Одер`false` (⚠️ деактивация Cloud-Funktionalität - kann Neustart erfordern)
+- **amp** : `6-16` (Ладэстр в амперах)
+- **cae** : `true` Одер `false` (⚠️ деактивация Cloud-Funktionalität - kann Neustart erfordern)
 
 **Примеры:**
 
@@ -138,7 +138,7 @@ Schauen Sie sich unser [Blockly-Beispiel](https://github.com/tim2zg/ioBroker.fro
 - **Verbindung fehlgeschlagen** : Prüfen Sie IP-адрес и пароль
 - **Häufige Verbindungsabbrüche** : Weisen Sie Ihrem Wattpilot eine statische IP zu
 - **Fehlende Datenpunkte** : Versuchen Sie den "Alle Werte"-Modus zu aktivieren
-- **Проблема с облаком** : Überprüfen Sie die`cae` -Einstellung
+- **Проблема с облаком** : Überprüfen Sie die `cae` -Einstellung
 
 **⚠️ Haftungsausschluss:** новые API-интерфейсы адаптера Dieser. Verwenden Sie ihn auf eigene Gefahr und seien Sie vorsichtig beim Ändern von Einstellungen, die den Betrieb Ihres Geräts beeinträchtigen könnten.
 

@@ -92,21 +92,21 @@ Staaten im Zusammenhang mit allgemeinen Adapterinformationen:
 - info.discoveredDevices: Liste der erkannten EEBUS-Geräte
 - info.ski: die SKI dieser Adapterinstanz
 
-Staaten im Zusammenhang mit LPC (unter`LPC/` ):
+Staaten im Zusammenhang mit LPC (unter `LPC/`):
 
 - LPC.state: Der Status des LPC-Anwendungsfalls; siehe die oben erwähnte EEBUS-Anwendungsfallspezifikation.
 - LPC.limit: Aktueller Verbrauchsgrenzwert, der von der Steuereinheit gesendet wird, falls der Grenzwert aktiv ist
 - LPC.limitDuration: Dauer des aktiven Verbrauchslimits
 - LPC.limitMinutesToday: Gesamtdauer der Dimmung. Laut Gesetz darf diese 2 Stunden pro Tag nicht überschreiten. Sollte sie überschritten werden, wenden Sie sich bitte an Ihren Energieversorger.
 
-Staaten im Zusammenhang mit LPP (unter`LPP/` (nur wenn LPP aktiviert ist):
+Staaten im Zusammenhang mit LPP (unter `LPP/` (nur wenn LPP aktiviert ist):
 
 - LPP.state: der Zustand des LPP-Anwendungsfalls (dieselbe Zustandsmaschine wie LPC)
 - LPP.limit: Aktuelles Produktionslimit, das von der Steuereinheit gesendet wird, falls das Limit aktiv ist
 - LPP.limitDuration: Dauer des aktiven Produktionslimits
 - LPP.limitMinutesToday: Gesamtdauer der Produktionsdrosselung
 
-Staaten, die mit allen Energieschutzmaßnahmen in Verbindung stehen (unter`LPC.EnergyGuards.Guard_{name}/` oder`LPP.EnergyGuards.Guard_{name}/` ):
+Staaten, die mit allen Energieschutzmaßnahmen in Verbindung stehen (unter `LPC.EnergyGuards.Guard_{name}/` oder `LPP.EnergyGuards.Guard_{name}/`):
 
 - Prozentsatz: Prozentsatz des Steuerkastenlimits, der diesem Gerät während einer Beschränkung zugewiesen werden soll
 - currentLimit: Falls nicht null, das aktuell aktive Limit für dieses Gerät
@@ -126,7 +126,7 @@ Staaten im Zusammenhang mit manuellen Energieschutzvorrichtungen:
 
 Ein Beispiel für einen manuellen Schutz finden Sie im Ordner „doc“.
 
-**Hinweis:** Beim Upgrade von einer Version ohne LPP-Unterstützung werden vorhandene LPC-Zustände automatisch migriert.`info.*` Zu`LPC.*` und Energieschutzobjekte von`EnergyGuards.Guard_*` Zu`LPC.EnergyGuards.Guard_*` Benutzerskripte, die auf die alten Pfade verweisen, müssen aktualisiert werden.
+**Hinweis:** Beim Upgrade von einer Version ohne LPP-Unterstützung werden vorhandene LPC-Zustände automatisch migriert. `info.*` Zu `LPC.*` und Energieschutzobjekte von `EnergyGuards.Guard_*` Zu `LPC.EnergyGuards.Guard_*` Benutzerskripte, die auf die alten Pfade verweisen, müssen aktualisiert werden.
 
 ### Verhalten
 
@@ -881,7 +881,7 @@ notice like this when it starts in an interactive mode:
     This is free software, and you are welcome to redistribute it
     under certain conditions; type `show c' for details.
 
-The hypothetical commands `show w' and `show c' should show the appropriate
+The hypothetical commands `show w' and ` show c' should show the appropriate
 parts of the General Public License. Of course, your program's commands
 might be different; for a GUI interface, you would use an "about box".
 

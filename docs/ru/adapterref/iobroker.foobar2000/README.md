@@ -40,7 +40,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## С использованием
 
-Для управления плеером необходимо установить плагин [foo\_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/) . Чтобы отобразить обложку в виде ссылки на файл, в файле`c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config` изменить параметр`albumart_prefer_embedded = 0`
+Для управления плеером необходимо установить плагин [foo\_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/) . Чтобы отобразить обложку в виде ссылки на файл, в файле `c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config` изменить параметр `albumart_prefer_embedded = 0`
 
 ## Changelog
 

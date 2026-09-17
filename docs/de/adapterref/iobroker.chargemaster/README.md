@@ -52,7 +52,7 @@ ChargeMaster verwaltet eine oder mehrere Ladestationen für Elektrofahrzeuge (Wa
 
 Der Adapter führt einen Regelzyklus durch (standardmäßig alle 10 Sekunden). Für jede konfigurierte Wanddose plant er einen Zielstrom basierend auf ihrem Betriebsmodus:
 
-1. **ChargeNOW aktiviert** → die Wallbox ist mit dem benutzerdefinierten`ChargeCurrent` Die
+1. **ChargeNOW aktiviert** → die Wallbox ist mit dem benutzerdefinierten `ChargeCurrent` Die
 2. **ChargeManager aktiviert** → wenn der SoC der Heimbatterie den Sollwert erreicht hat (`Settings.Setpoint_HomeBatSoC` Der optimale Strom wird aus dem PV-Überschuss berechnet (siehe [Lademanager-Algorithmus](#charge-manager-algorithm) ). Andernfalls bleibt die Wallbox ausgeschaltet, bis die Batterie geladen ist.
 3. **Wenn keines der beiden aktiviert ist** , ist die Wallbox ausgeschaltet.
 
@@ -96,9 +96,9 @@ Alle konfigurierten Zustände werden beim Start des Adapters überprüft – fal
 | Zustand                         | Beschreibung                                                                                                              |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `Settings.Setpoint_HomeBatSoC`  | Minimaler Ladezustand der Hausbatterie in Prozent, bevor die PV-Überschussladung beginnt (beschreibbar, Standardwert 80). |
-| `Settings.WB_<x>.ChargeNOW`     | Sofortiges Laden für die Wallbox aktivieren`<x>` (beschreibbar).                                                          |
+| `Settings.WB_<x>.ChargeNOW`     | Sofortiges Laden für die Wallbox aktivieren `<x>` (beschreibbar).                                                          |
 | `Settings.WB_<x>.ChargeCurrent` | Ladestrom in A, der im ChargeNOW-Modus verwendet wird (beschreibbar).                                                     |
-| `Settings.WB_<x>.ChargeManager` | PV-Überschussladung für Wallbox aktivieren`<x>` (beschreibbar).                                                           |
+| `Settings.WB_<x>.ChargeManager` | PV-Überschussladung für Wallbox aktivieren `<x>` (beschreibbar).                                                           |
 | `Power.Charge`                  | Gemessene Gesamtladeleistung aller Wallboxen in Watt.                                                                     |
 | `info.connection`               | Trifft zu, solange alle konfigurierten ausländischen Zustände verifiziert wurden und der Adapter läuft.                   |
 
@@ -117,7 +117,7 @@ Der geplante Strom nähert sich dann diesem Optimum um 1 A pro Zyklus. Der Ladev
 
 - Die Leistungs-zu-Strom-Umwandlung geht von einphasigem Laden mit 230 V aus. Bei dreiphasigen Lade-Wallboxen wird der berechnete Überschussstrom derzeit nicht durch die Anzahl der Phasen geteilt – die konfigurierbare Phasenanzahl ist geplant.
 - Der Eigenverbrauch darf nicht die Ladeleistung der Wallbox selbst beinhalten, da sonst der Regelkreis in Schwingung gerät.
-- Der Adapter schreibt in jedem Zyklus die Zustände Ihrer Wallbox – stellen Sie sicher, dass die Konfiguration korrekt ist.`state charge current` /`state charge allowed` Es handelt sich dabei tatsächlich um die beschreibbaren Steuerzustände Ihres Wanddosenadapters.
+- Der Adapter schreibt in jedem Zyklus die Zustände Ihrer Wallbox – stellen Sie sicher, dass die Konfiguration korrekt ist. `state charge current` /`state charge allowed` Es handelt sich dabei tatsächlich um die beschreibbaren Steuerzustände Ihres Wanddosenadapters.
 
 ## Spenden
 

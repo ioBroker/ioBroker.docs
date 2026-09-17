@@ -71,7 +71,7 @@ Elgato-Leuchte und ioBroker-Host указан в обычном режиме в 
 
 1. Установите адаптер и мгновенно установите его.
 2. Конфигурация мгновенного действия отключена.
-3. **Сеть сканирования** Мит`_elg._tcp.local.` -Diensten suchen und die gewünschten Treffer hinzufügen. Альтернативный частный IP-адрес или собственный`.local` -Hostnamen Samt Port Manuell eintragen. Стандартный порт Elgato-API ist`9123` .
+3. **Сеть сканирования** Мит `_elg._tcp.local.` -Diensten suchen und die gewünschten Treffer hinzufügen. Альтернативный частный IP-адрес или собственный `.local` -Hostnamen Samt Port Manuell eintragen. Стандартный порт Elgato-API ist `9123`.
 4. Eine manuelle Adresse vor dem Hinzufügen mit **Test** prüfen.
 5. Конфигурация активируется и включается настройка конфигурации.
 6. В разделе «Admin-Seitenleiste» вкладка **«Elgato Key Light»** для Live-Steuerung öffnen.
@@ -104,7 +104,7 @@ Netzwerksuchen zeigen nur verfügbare Geräte an. Если устройство 
 
 Карточка должна быть указана в режиме онлайн/оффлайн, ответах, версии встроенного ПО, полученной информации и живом таймере для вашего текущего счета. **Все включено** и **все выключено.** **Обновите** данные Dashboard-Daten neu; **Диагностика** zeigt Laufzeit- und Gerätedaten für die Fehlersuche.
 
-Beim Ändern der Farbe eines Light Strip bleibt die separat eingestellte Helligkeit erhalten. Датенпункте`hex` унд`rgb` bilden jedoch die aktuell ausgegebene Farbe einschließlich Helligkeit ab. Derselbe blaue Farbton может быть снят с 50-ти процентными ставками и другими`#000080` und bei 100 Prozent als`#0000FF` angezeigt werden.
+Beim Ändern der Farbe eines Light Strip bleibt die separat eingestellte Helligkeit erhalten. Датенпункте `hex` унд `rgb` bilden jedoch die aktuell ausgegebene Farbe einschließlich Helligkeit ab. Derselbe blaue Farbton может быть снят с 50-ти процентными ставками и другими `#000080` und bei 100 Prozent als `#0000FF` angezeigt werden.
 
 ## Steuerung über ioBroker-Datenpunkte
 
@@ -114,12 +114,12 @@ Beim Ändern der Farbe eines Light Strip bleibt die separat eingestellte Helligk
 elgato-key-light.<Instanz>.<Seriennummer>
 ```
 
-Die meisten Geräte enthalten eine Leuchte unter`light.lights.0` . Es werden nur Datenpunkte angelegt, die das Gerät unterstützt.
+Die meisten Geräte enthalten eine Leuchte unter `light.lights.0`. Es werden nur Datenpunkte angelegt, die das Gerät unterstützt.
 
 | Relativer Datenpunkt         | Тип / Берейх                               | Bedeutung                                                         |
 | ---------------------------- | ------------------------------------------ | ----------------------------------------------------------------- |
 | `reachable`                  | логическое значение, nur lesbar            | Gerät ist aktuell erreichbar                                      |
-| `identify`                   | логическое значение-Taster, nur schreibbar | Geräteidentifizierung durch Schreiben von`true` auslösen          |
+| `identify`                   | логическое значение-Taster, nur schreibbar | Geräteidentifizierung durch Schreiben von `true` auslösen          |
 | `info.displayName`           | нить                                       | Anzeigenamen lesen oder ändern                                    |
 | `light.numberOfLights`       | номер, ну лесбар                           | Использование API-интерфейса Anzahl der Leuchtelemente            |
 | `light.lights.0.on`          | логический                                 | Ein- ord ausschalten                                              |
@@ -127,8 +127,8 @@ Die meisten Geräte enthalten eine Leuchte unter`light.lights.0` . Es werden nur
 | `light.lights.0.temperature` | число, 2900–7000 К                         | Weiße Farbtemperatur einstellen                                   |
 | `light.lights.0.hue`         | число, 0–360°                              | Farbton einstellen                                                |
 | `light.lights.0.saturation`  | число, 0–100 %                             | Farbsättigung einstellen                                          |
-| `light.lights.0.hex`         | нить                                       | Farbe als`#RRGGBB` einstellen                                     |
-| `light.lights.0.rgb`         | нить                                       | Farbe im bisherigen`R,G,B` -Format setzen, zum Beispiel `255,0,0` |
+| `light.lights.0.hex`         | нить                                       | Farbe als `#RRGGBB` einstellen                                     |
+| `light.lights.0.rgb`         | нить                                       | Farbe im bisherigen `R,G,B` -Format setzen, zum Beispiel `255,0,0` |
 | `battery.level`              | число, 0–100 %, nur lesbar                 | Аккустанд eines Key Light Mini                                    |
 | `battery.status`             | string, nur lesbar                         | Vom Gerät Gemeldeter Ladestatus                                   |
 | `battery.powerSource`        | string, nur lesbar                         | Актуэль Стромкелле                                                |
@@ -140,11 +140,11 @@ Die meisten Geräte enthalten eine Leuchte unter`light.lights.0` . Es werden nur
 | `health.consecutiveFailures` | номер, ну лесбар                           | Anzahl aufeinanderfolgender fehlgeschlagener Abfragen             |
 | `health.nextPoll`            | Datumsstring, nur lesbar                   | Geplanter Zeitpunkt der nächsten Abfrage                          |
 
-Weitere nur lesbare Datenpunkte unter`info` , для WLAN, подключения и подключения к сети, когда вы получаете одну и ту же информацию.
+Weitere nur lesbare Datenpunkte unter `info`, для WLAN, подключения и подключения к сети, когда вы получаете одну и ту же информацию.
 
 ### Skriptbeispiele
 
-Инстанцнумер и серийный номер могут быть использованы для идентификаторов, связанных с собственными объектами ioBroker-Objektbaum, которые можно использовать. Schreibbare Datenpunkte müssen mit`ack = false` Если адаптер не используется, он должен быть установлен как Befehl erkennt.
+Инстанцнумер и серийный номер могут быть использованы для идентификаторов, связанных с собственными объектами ioBroker-Objektbaum, которые можно использовать. Schreibbare Datenpunkte müssen mit `ack = false` Если адаптер не используется, он должен быть установлен как Befehl erkennt.
 
 ```javascript
 const light = 'elgato-key-light.0.EW40K1A09882.light.lights.0';
@@ -173,17 +173,17 @@ Wird ein Gerät über das Papierkorb-Symbol gelöscht, wird es aus der Laufenden
 ### Ein Gerät wird nicht gfunden
 
 - Prüfen, ioBroker-Host и Leuchte einander в локальной сети Netzwerk не работают.
-- Для такого типа Multicast-DNS/UDP 5353 и Weiterleitung von`_elg._tcp.local.` prüfen.
-- Частный IP-адрес или собственный IP-адрес`.local` -Имя хоста должно быть указано вручную, если такая сеть VLAN не может быть использована.
+- Для такого типа Multicast-DNS/UDP 5353 и Weiterleitung von `_elg._tcp.local.` prüfen.
+- Частный IP-адрес или собственный IP-адрес `.local` -Имя хоста должно быть указано вручную, если такая сеть VLAN не может быть использована.
 - Убедитесь, что TCP-порт 9123 не работает и не работает при изолированном проводе Gast-WLAN-Regel.
 
 ### Ein Gerät ist im Dashboard оффлайн
 
-Die Karte zeigt den letzten Fehler und den Countdown bis zum nächsten Veruch. **Повторно подключите** löst sofort eine neue Abfrage aus. Für Automatisierungen или Überwachung stehen`health.lastError` ,`health.consecutiveFailures` унд`health.nextPoll` zur Verfügung.
+Die Karte zeigt den letzten Fehler und den Countdown bis zum nächsten Veruch. **Повторно подключите** löst sofort eine neue Abfrage aus. Für Automatisierungen или Überwachung stehen `health.lastError`, `health.consecutiveFailures` унд `health.nextPoll` zur Verfügung.
 
 ### Bedienelemente fehlen
 
-Адаптер может быть использован в качестве необходимого элемента для обеспечения безопасности. Если вы используете актуальную прошивку, вы можете использовать ее снова и снова.`info.capabilities` или нажмите кнопку Dashboard-Diagnose. Если элемент питания является нормальным, этот API не может быть использован.
+Адаптер может быть использован в качестве необходимого элемента для обеспечения безопасности. Если вы используете актуальную прошивку, вы можете использовать ее снова и снова. `info.capabilities` или нажмите кнопку Dashboard-Diagnose. Если элемент питания является нормальным, этот API не может быть использован.
 
 ### Diagnosedaten sammeln
 
@@ -205,7 +205,7 @@ npm run elgato:probe -- 192.168.1.50 9123
 
 ## Актуальная версия другой версии
 
-Die Geräte-Stammbjekte auf Seriennummernbasis und die bekannten schreibbaren Pfade unter`<Seriennummer>.light.lights.0` bleiben erhalten. [docs/MIGRATION.md](/#/docs/adapterref/iobroker.elgato-key-light/docs/MIGRATION.md) beschreibt Metadatencorrekturen, Konfigurationsmigration and Rollback. Для этого необходимо обновить ioBroker-Backup снова.
+Die Geräte-Stammbjekte auf Seriennummernbasis und die bekannten schreibbaren Pfade unter `<Seriennummer>.light.lights.0` bleiben erhalten. [docs/MIGRATION.md](/#/docs/adapterref/iobroker.elgato-key-light/docs/MIGRATION.md) beschreibt Metadatencorrekturen, Konfigurationsmigration and Rollback. Для этого необходимо обновить ioBroker-Backup снова.
 
 ## Entwicklung
 

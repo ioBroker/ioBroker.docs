@@ -117,12 +117,12 @@ Intelligenten Betrieb basierend auf der Außentemperatur ermöglichen:
 
 ### Manuelle Steuerungsmaßnahmen
 
-Der Adapter erstellt Aktionsobjekte unter`heizungssteuerung.0.Actions` :
+Der Adapter erstellt Aktionsobjekte unter `heizungssteuerung.0.Actions`:
 
 #### Globale Aktionen (Alle Räume)
 
 - **Abwesenheitsmodus bis** : Abwesenheitsmodus bis zu einem bestimmten Datum/einer bestimmten Uhrzeit festlegen
-  - Format:`dd.MM.yyyy HH:mm` (z. B. „01.01.2024 14:00“)
+  - Format: `dd.MM.yyyy HH:mm` (z. B. „01.01.2024 14:00“)
   - Effekt: Ignoriert Perioden und verwendet die Standardtemperatur
 - **Pause** : Heizung/Kühlung vorübergehend anhalten
 - **Boost** : Boost-Modus für alle Räume aktivieren

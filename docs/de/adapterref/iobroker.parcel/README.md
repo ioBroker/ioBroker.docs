@@ -42,15 +42,15 @@ Geben Sie Benutzernamen und Passwort ein.
 
 **Telegram-Benachrichtigung für Pakete und Briefe**
 
-Aktivieren Sie die Option in den Instanzeinstellungen und geben Sie beispielsweise Folgendes ein:`telegram.0`
+Aktivieren Sie die Option in den Instanzeinstellungen und geben Sie beispielsweise Folgendes ein: `telegram.0`
 
 ## Vis
 
 **Parzellen in einer Vis-Tabelle anzeigen**
 
-Datenpunkt für alle Parzellen:`parcel.0.allProviderJson`
+Datenpunkt für alle Parzellen: `parcel.0.allProviderJson`
 
-Datenpunkt für Pakete in der Zustellung:`parcel.0.inDelivery`
+Datenpunkt für Pakete in der Zustellung: `parcel.0.inDelivery`
 
 **Widget: JSON-Tabelle**
 
@@ -58,7 +58,7 @@ Anleitung: <https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-
 
 **DHL-Sendungsverfolgung in Vis anzeigen**
 
-Weisen Sie den Datenpunkt zu`parcel.0.dhl.briefe....image` zu einem "String img src"-Element als Objekt-ID.
+Weisen Sie den Datenpunkt zu `parcel.0.dhl.briefe....image` zu einem "String img src"-Element als Objekt-ID.
 
 ## Diskussion und Fragen
 

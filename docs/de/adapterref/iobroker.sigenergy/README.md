@@ -128,7 +128,7 @@ Wählen Sie die zu berechnenden statistischen Werte aus:
 
 ## Datenobjekte
 
-### Anlage (`plant.*` )
+### Anlage (`plant.*`)
 
 | Zustand                 | Beschreibung                          | Einheit |
 | ----------------------- | ------------------------------------- | ------- |
@@ -139,7 +139,7 @@ Wählen Sie die zu berechnenden statistischen Werte aus:
 | `plant.activePower`     | Gesamte Wirkleistung des Kraftwerks   | kW      |
 | `plant.runningState`    | Anlagenstatus (0=Standby, 1=Läuft...) | -       |
 
-### Wechselrichter (`inverter.*` )
+### Wechselrichter (`inverter.*`)
 
 | Zustand                          | Beschreibung                  | Einheit |
 | -------------------------------- | ----------------------------- | ------- |
@@ -150,7 +150,7 @@ Wählen Sie die zu berechnenden statistischen Werte aus:
 | `inverter.phaseAVoltage`         | Spannung in Phase A           | V       |
 | `inverter.gridFrequency`         | Netzfrequenz                  | Hz      |
 
-### Statistik (`statistics.*` )
+### Statistik (`statistics.*`)
 
 | Zustand                           | Beschreibung                                     | Einheit |
 | --------------------------------- | ------------------------------------------------ | ------- |
@@ -178,7 +178,7 @@ Die einzig sichere Lösung besteht darin, das externe System **sofort vom Netz z
 
 ### Wie der Adapter damit umgeht
 
-Der Adapter überwacht die`plant.onOffGridStatus` in jedem Wahlzyklus.
+Der Adapter überwacht die `plant.onOffGridStatus` in jedem Wahlzyklus.
 
 **Bei Netzausfall** (`onOffGridStatus` = 1 oder 2):
 
@@ -205,7 +205,7 @@ Der Adapter überwacht die`plant.onOffGridStatus` in jedem Wahlzyklus.
 | Feld                              | Beschreibung                                                                                                                                     |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Stabile Verzögerung (Minuten)** | Wie lange muss das Stromnetz stabil bleiben, bevor die Geräte wieder eingeschaltet werden können? Empfohlen werden 10 Minuten.                   |
-| **Gerät 1 — Objekt-ID**           | Die ioBroker-Status-ID des Hauptschalters für das externe System. Auf „Einstellen“ setzen.`false` bei Netzausfall;`true` nach stabiler Genesung. |
+| **Gerät 1 — Objekt-ID**           | Die ioBroker-Status-ID des Hauptschalters für das externe System. Auf „Einstellen“ setzen. `false` bei Netzausfall; `true` nach stabiler Genesung. |
 | **Geräte 2–4 — Objekt-ID**        | Zusätzliche optionale Geräte.                                                                                                                    |
 | **Geräte 2–4 — Richtung**         | _AUS bei Fehler, EIN nach Wiederherstellung_ oder _EIN bei Fehler, AUS nach Wiederherstellung_ .                                                 |
 
@@ -214,17 +214,17 @@ Der Adapter überwacht die`plant.onOffGridStatus` in jedem Wahlzyklus.
 | Feld                                       | Beschreibung                                                                                                               |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
 | **Telegram-Benachrichtigungen aktivieren** | Aktiviert Benachrichtigungen bei Netzausfällen und -wiederherstellungen.                                                   |
-| **Telegram-Instanz**                       | Wählen Sie die`telegram.x` Zu verwendende Adapterinstanz.                                                                  |
+| **Telegram-Instanz**                       | Wählen Sie die `telegram.x` Zu verwendende Adapterinstanz.                                                                  |
 | **Chat-ID**                                | Optional: Beschränkung auf einen bestimmten Chat. Feld leer lassen, um die Sendung an alle konfigurierten Chats zu senden. |
 
 ### Beispiel – Balkonkraftwerk
 
-Ein Shelly Plus 1-Relais ist in Reihe mit dem Versorgungskabel der Balkonstromanlage geschaltet. Seine ioBroker-Status-ID lautet:`shelly.0.SHPLUS1-ABC123.Relay0.Switch` Die
+Ein Shelly Plus 1-Relais ist in Reihe mit dem Versorgungskabel der Balkonstromanlage geschaltet. Seine ioBroker-Status-ID lautet: `shelly.0.SHPLUS1-ABC123.Relay0.Switch` Die
 
 Konfiguration:
 
-- **Gerät 1** :`shelly.0.SHPLUS1-ABC123.Relay0.Switch`\
-  &#x20;→ Relais öffnet (`false` ) bei Netzausfall, schließt (`true` nach stabiler Erholung
+- **Gerät 1** : `shelly.0.SHPLUS1-ABC123.Relay0.Switch`\
+  &#x20;→ Relais öffnet (`false`) bei Netzausfall, schließt (`true` nach stabiler Erholung
 
 Das Balkonkraftwerk ist nun automatisch geschützt.
 

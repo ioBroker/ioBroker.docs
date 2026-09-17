@@ -28,7 +28,7 @@ Der Adapter versendet individuelle Benachrichtigungen für konfigurierbare Wette
 
 ### Konfigurierbares HTML-Widget
 
-Der Adapter generiert einen sofort einsatzbereiten HTML-Datenpunkt (`widget` ) das direkt in VIS, vis-2 oder jedes beliebige ioBroker-Dashboard eingebettet werden kann – ohne externe Tools oder manuelle CSS-Anpassungen. Design (hell/dunkel), Hintergrundtransparenz, Kartentransparenz, Schriftgröße und Kartenfarbe lassen sich direkt in den Adaptereinstellungen konfigurieren.
+Der Adapter generiert einen sofort einsatzbereiten HTML-Datenpunkt (`widget`) das direkt in VIS, vis-2 oder jedes beliebige ioBroker-Dashboard eingebettet werden kann – ohne externe Tools oder manuelle CSS-Anpassungen. Design (hell/dunkel), Hintergrundtransparenz, Kartentransparenz, Schriftgröße und Kartenfarbe lassen sich direkt in den Adaptereinstellungen konfigurieren.
 
 ### Animiertes Wetter-Hintergrundbild / Bildschirmschoner
 
@@ -53,7 +53,7 @@ Je nach gewähltem Wettermodell sind Tagesvorhersagen für bis zu **16 Tage** ve
 
 ### Wetterzusammenfassungen
 
-Der Adapter generiert Wetterzusammenfassungen in natürlicher Sprache (`current.summary` ,`dayX.summary_day` ,`dayX.summary_night` ) in **11 Sprachen** unter Verwendung von DWD-Standardschwellenwerten für Temperatur, Wind und Niederschlag, einschließlich des auf CAPE basierenden Gewitterrisikos.
+Der Adapter generiert Wetterzusammenfassungen in natürlicher Sprache (`current.summary`, `dayX.summary_day`, `dayX.summary_night`) in **11 Sprachen** unter Verwendung von DWD-Standardschwellenwerten für Temperatur, Wind und Niederschlag, einschließlich des auf CAPE basierenden Gewitterrisikos.
 
 ## Merkmale
 
@@ -69,10 +69,10 @@ Der Adapter generiert Wetterzusammenfassungen in natürlicher Sprache (`current.
   - amCharts Wettersymbole – animiertes SVG _(Regen/Schnee/Gewitter: keine Tag/Nacht-Variante)_
   - amCharts Wettersymbole – statisches SVG _(Regen/Schnee/Gewitter: keine Tag/Nacht-Variante)_
   - WMO OGC-Wettersymbole – PNG
-- **Tag-/Nacht-Symbole** – Die Symbole von Meteocons und amCharts (klar/bewölkt) wechseln je nach Wetterlage zu Nachtvarianten.`is_day`
+- **Tag-/Nacht-Symbole** – Die Symbole von Meteocons und amCharts (klar/bewölkt) wechseln je nach Wetterlage zu Nachtvarianten. `is_day`
 - **Windrichtung** – Grad, Kompassschrift (N/NO/O/…), Pfeil-Emoji (⬆️↗️…), SVG-Pfeilsymbol
 - **Windstärke** – Beaufort-Skala (0–12) mit Meteocons Beaufort-Symbolen
-- **`info.lastUpdate`** – Zeitstempel der letzten erfolgreichen Aktualisierung
+- ** `info.lastUpdate` ** – Zeitstempel der letzten erfolgreichen Aktualisierung
 
 ### Optionale Datengruppen (einzeln umschaltbar, jeweils mit der Option „auch stündlich“)
 
@@ -97,7 +97,7 @@ Der Adapter integriert offizielle Wetterwarnungen nationaler Wetterdienste. Akti
 | EU-Länder        | [Wetteralarm](https://www.meteoalarm.org)          | Alle Warnarten, polygonbasierte Übereinstimmung                      |
 | Andere           | —                                                  | Nicht verfügbar (verwenden Sie die berechneten Open-Meteo-Warnungen) |
 
-Warnungen werden gespeichert unter`location.warnings.*` unabhängig von der Quelle. A`warnings.source` Datenpunkt zeigt`"DWD"` oder`"MeteoAlarm"` Die
+Warnungen werden gespeichert unter `location.warnings.*` unabhängig von der Quelle. A `warnings.source` Datenpunkt zeigt `"DWD"` oder `"MeteoAlarm"` Die
 
 ## Installation
 
@@ -122,7 +122,7 @@ Installation über die ioBroker-Admin-Oberfläche (Suche nach "openmeteo-notify"
 | Widget-Kartenfarbe                        | Kartenhintergrundfarbe                                                                               | #ffffff                 |
 | Kompaktansicht                            | Verwenden Sie ein kompaktes Layout im HTML-Widget.                                                   | aus                     |
 | Luftqualität                              | AQI + Feinstaub aktivieren                                                                           | An                      |
-| Luftqualität – ebenfalls stündlich        | Stündlicher AQI/PM unter`hXX.air_quality`                                                            | aus                     |
+| Luftqualität – ebenfalls stündlich        | Stündlicher AQI/PM unter `hXX.air_quality`                                                            | aus                     |
 | Astronomie                                | Sonnen- und Monddaten aktivieren                                                                     | An                      |
 | Astronomie – ebenfalls stündlich          | Echo-Astronomiedaten pro Stundenschlitz                                                              | aus                     |
 | Landwirtschaft / Solarenergie             | Strahlung aktivieren, CAPE, Bodentemperatur                                                          | aus                     |
@@ -139,9 +139,9 @@ Installation über die ioBroker-Admin-Oberfläche (Suche nach "openmeteo-notify"
 
 ## Datenpunkte
 
-Der Adapter erzeugt Datenpunkte unter`openmeteo-notify.<instance>.<location>` Die
+Der Adapter erzeugt Datenpunkte unter `openmeteo-notify.<instance>.<location>` Die
 
-### Aktuelles Wetter (`current` )
+### Aktuelles Wetter (`current`)
 
 | Datenpunkt                    | Beschreibung                                                                                                                                                                                                        | Einheit         |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
@@ -174,14 +174,14 @@ Der Adapter erzeugt Datenpunkte unter`openmeteo-notify.<instance>.<location>` Di
 | `agriculture.solar_radiation` | Kurzwellige Sonneneinstrahlung am Boden _(falls aktiviert)_                                                                                                                                                         | W/m²            |
 | `agriculture.cape`            | CAPE – Konvektive verfügbare potenzielle Energie: Energie, die für die Gewitterentwicklung zur Verfügung steht; > 500 J/kg = nennenswertes Risiko, > 2000 J/kg = schweres Risiko _(falls aktiviert)_                | J/kg            |
 | `agriculture.soil_temp`       | Bodentemperatur in 0 cm Tiefe _(falls aktiviert)_                                                                                                                                                                   | °C/°F           |
-| `comfort.heat_index`          | Hitzeindex (Rothfusz) – wie heiß es sich anfühlt, unter Berücksichtigung von Temperatur und Luftfeuchtigkeit; nur sinnvoll bei ≥ 27 °C und ≥ 40 % relativer Luftfeuchtigkeit,`null` andernfalls _(falls aktiviert)_ | °C/°F           |
-| `comfort.windchill`           | Windchill (NWS) – wie kalt es sich aufgrund des Windes anfühlt; nur sinnvoll bei ≤ 10 °C und Windgeschwindigkeit > 4,8 km/h,`null` andernfalls _(falls aktiviert)_                                                  | °C/°F           |
+| `comfort.heat_index`          | Hitzeindex (Rothfusz) – wie heiß es sich anfühlt, unter Berücksichtigung von Temperatur und Luftfeuchtigkeit; nur sinnvoll bei ≥ 27 °C und ≥ 40 % relativer Luftfeuchtigkeit, `null` andernfalls _(falls aktiviert)_ | °C/°F           |
+| `comfort.windchill`           | Windchill (NWS) – wie kalt es sich aufgrund des Windes anfühlt; nur sinnvoll bei ≤ 10 °C und Windgeschwindigkeit > 4,8 km/h, `null` andernfalls _(falls aktiviert)_                                                  | °C/°F           |
 | `comfort.humidex`             | Humidex (kanadische Formel) – kombinierter Hitze- und Feuchtigkeits-Beschwerdeindex; Werte über 40 sind unangenehm, Werte über 46 gefährlich _(falls aktiviert)_                                                    | °C/°F           |
 | `comfort.humidex_level`       | Humidex-Beschwerdeniveau: 1 = keins (<29) · 2 = leicht (29–34) · 3 = spürbar (35–39) · 4 = stark (40–45) · 5 = gefährlich (≥46) _(falls aktiviert)_                                                                 | 1–5             |
 | `comfort.uv_index`            | UV-Index (0–11+) – Intensität der UV-Strahlung am Boden _(falls aktiviert)_                                                                                                                                         |                 |
-| `comfort.uv_level`            | UV-Schutzstufe (WHO-Skala):`low` (0–2, kein Schutz) ·`moderate` (3–5, Sonnenschutz) ·`high` (6–7) ·`very_high` (8–10) ·`extreme` (≥11) _(falls aktiviert)_                                                          |                 |
+| `comfort.uv_level`            | UV-Schutzstufe (WHO-Skala): `low` (0–2, kein Schutz) ·`moderate` (3–5, Sonnenschutz) ·`high` (6–7) ·`very_high` (8–10) ·`extreme` (≥11) _(falls aktiviert)_                                                          |                 |
 
-### Tagesvorhersage (`day1` …`day16` )
+### Tagesvorhersage (`day1` …`day16`)
 
 | Datenpunkt                                         | Beschreibung                                                                                                                                                      |
 | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -224,7 +224,7 @@ Der Adapter erzeugt Datenpunkte unter`openmeteo-notify.<instance>.<location>` Di
 | `comfort.uv_index_max` /`.uv_level`                | Maximaler UV-Index / -Pegel (siehe aktuellen Abschnitt) _(falls aktiviert)_                                                                                       |
 | `pollen.alder` …`pollen.ragweed`                   | Tägliche maximale Pollenkonzentration + Niveauangabe (Keine/Niedrig/Mittel/Hoch) _(falls aktiviert, nur Tag 1–4)_                                                 |
 
-### Stündliche Werte (`day1.hourly.h00` …`h23` )
+### Stündliche Werte (`day1.hourly.h00` …`h23`)
 
 Temperatur, gefühlte Temperatur, Niederschlag, Regen, Schneefall, Schneehöhe, Schneefallhöhe, Regenwahrscheinlichkeit, Bewölkung, Luftfeuchtigkeit, Taupunkt, Luftdruck, Sichtweite, Tag, Windgeschwindigkeit, Windrichtung (Text/Emoji/Symbol), Beaufort, UV-Index, Höhe der Gefriergrenze, Wettercode, Symbol/Symbol-URL, Beschreibung.
 
@@ -238,11 +238,11 @@ Optional pro Stunde (falls aktiviert + "auch stündlich"):
 | `hXX.comfort`     | Hitzeindex, Windchill, Feuchtigkeitsindex, Feuchtigkeitsindex, UV-Index, UV-Level                                                                                          |
 | `hXX.pollen`      | Erle … Ambrosia + Ebenentext (Keine/Niedrig/Mittel/Hoch)                                                                                                                   |
 
-### Offizielle Warnungen (`warnings` )
+### Offizielle Warnungen (`warnings`)
 
 | Datenpunkt                                | Beschreibung                                                                 |
 | ----------------------------------------- | ---------------------------------------------------------------------------- |
-| `warnings.source`                         | Warndienst:`"DWD"` oder `"MeteoAlarm"`                                       |
+| `warnings.source`                         | Warndienst: `"DWD"` oder `"MeteoAlarm"`                                       |
 | `warnings.active`                         | Mindestens eine aktive Warnung                                               |
 | `warnings.count`                          | Anzahl aktiver Warnungen                                                     |
 | `warnings.max_level`                      | Höchster Schweregrad: 1 = Geringfügig · 2 = Mittel · 3 = Schwer · 4 = Extrem |

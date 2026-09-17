@@ -71,7 +71,7 @@ Elgato-Leuchte und ioBroker-Host sollten sich normalerweise im selben lokalen Ne
 
 1. Den Adapter installieren und eine Instanz anlegen.
 2. Die Konfiguration der Instanz öffnen.
-3. Mit **Scan Netzwerk** nach`_elg._tcp.local.` -Dienste suchen und die gewünschten Treffer hinzufügen. Alternativ eine private IP-Adresse oder einen`.local` -Hostnamen und Port manuell eingeben. Der Standardport der Elgato-API ist`9123` Die
+3. Mit **Scan Netzwerk** nach `_elg._tcp.local.` -Dienste suchen und die gewünschten Treffer hinzufügen. Alternativ eine private IP-Adresse oder einen `.local` -Hostnamen und Port manuell eingeben. Der Standardport der Elgato-API ist `9123` Die
 4. Eine manuelle Adresse vor dem Hinzufügen mit **Test** prüfen.
 5. Die konfigurierten Geräte aktivieren und die Konfiguration speichern.
 6. In der Admin-Seitenleiste den Tab **Elgato Key Light** für die Live-Steuerung öffnen.
@@ -104,7 +104,7 @@ Der Adapter-Tab zeigt für jedes Gerät der ausgewählten Instanz eine eigene Ka
 
 Die Karte zeigt außerdem Online-/Offline-Status, Antwortzeit, Firmware-Version, gegebenenfalls Akkuinformationen und einen live herunterzählenden Timer bis zur nächsten Abfrage. **Alles ein** und **alles aus** schalten alle erreichbaren Leuchten der aktuellen Adapterinstanz. **Aktualisieren** lädt die Dashboard-Daten neu; **Diagnostics** zeigt Laufzeit- und Gerätedaten für die Fehlersuche.
 
-Beim Ändern der Farbe eines Lichtstreifens bleibt die jeweils eingestellte Helligkeit erhalten. Die Datenpunkte`hex` und`rgb` Bilden Sie jedoch die aktuell ausgegebene Farbe einschließlich Helligkeit ab. Derselbe Farbton kann daher bei 50 Prozent Helligkeit als blau sein`#000080` und bei 100 Prozent als`#0000FF` angezeigt werden.
+Beim Ändern der Farbe eines Lichtstreifens bleibt die jeweils eingestellte Helligkeit erhalten. Die Datenpunkte `hex` und `rgb` Bilden Sie jedoch die aktuell ausgegebene Farbe einschließlich Helligkeit ab. Derselbe Farbton kann daher bei 50 Prozent Helligkeit als blau sein `#000080` und bei 100 Prozent als `#0000FF` angezeigt werden.
 
 ## Steuerung über ioBroker-Datenpunkte
 
@@ -114,12 +114,12 @@ Jedes erfolgreich verbundene Gerät erhält ein Stammobjekt auf Basis seiner Ser
 elgato-key-light.<Instanz>.<Seriennummer>
 ```
 
-Die meisten Geräte enthalten eine Leuchte unter`light.lights.0` . Es werden nur Datenpunkte angelegt, die das Gerät unterstützt.
+Die meisten Geräte enthalten eine Leuchte unter `light.lights.0`. Es werden nur Datenpunkte angelegt, die das Gerät unterstützt.
 
 | Relativer Datenpunkt         | Typ / Bereich                  | Bedeutung                                                         |
 | ---------------------------- | ------------------------------ | ----------------------------------------------------------------- |
 | `reachable`                  | boolesch, nur lesbar           | Gerät ist aktuell erreichbar                                      |
-| `identify`                   | boolean-Taster, nur schreibbar | Geräteidentifizierung durch Schreiben von`true` Aus               |
+| `identify`                   | boolean-Taster, nur schreibbar | Geräteidentifizierung durch Schreiben von `true` Aus               |
 | `info.displayName`           | Zeichenkette                   | Anzeigenamen lesen oder ändern                                    |
 | `light.numberOfLights`       | Nummer, nur lesbar             | Von der API gemeldete Anzahl der Leuchtelemente                   |
 | `light.lights.0.on`          | boolescher Wert                | Ein- oder ausschalten                                             |
@@ -127,8 +127,8 @@ Die meisten Geräte enthalten eine Leuchte unter`light.lights.0` . Es werden nur
 | `light.lights.0.temperature` | Nummer, 2900–7000 K            | Weiße Farbtemperatur einstellen                                   |
 | `light.lights.0.hue`         | Nummer, 0–360°                 | Farbton einstellen                                                |
 | `light.lights.0.saturation`  | Zahl, 0–100 %                  | Farbsättigung einstellen                                          |
-| `light.lights.0.hex`         | Zeichenkette                   | Farbe als`#RRGGBB` einstellen                                     |
-| `light.lights.0.rgb`         | Zeichenkette                   | Farbe im bisherigen`R,G,B` -Format setzen, zum Beispiel `255,0,0` |
+| `light.lights.0.hex`         | Zeichenkette                   | Farbe als `#RRGGBB` einstellen                                     |
+| `light.lights.0.rgb`         | Zeichenkette                   | Farbe im bisherigen `R,G,B` -Format setzen, zum Beispiel `255,0,0` |
 | `battery.level`              | Zahl, 0–100 %, nur lesbar      | Akkustand eines Key Light Mini                                    |
 | `battery.status`             | string, nur lesbar             | Vom Gerät gemeldeter Ladestatus                                   |
 | `battery.powerSource`        | string, nur lesbar             | Aktuelle Stromquelle                                              |
@@ -140,11 +140,11 @@ Die meisten Geräte enthalten eine Leuchte unter`light.lights.0` . Es werden nur
 | `health.consecutiveFailures` | Nummer, nur lesbar             | Anzahl aufeinanderfolgender fehlgeschlagener Abfragen             |
 | `health.nextPoll`            | Datumsstring, nur lesbar       | Geplanter Zeitpunkt der nächsten Abfrage                          |
 
-Weitere nur lesbare Datenpunkte unter`info` , für WLAN, Akkuspannung/-strom und Geräteeinstellungen können angelegt werden, wenn das Gerät diese Informationen meldet.
+Weitere nur lesbare Datenpunkte unter `info`, für WLAN, Akkuspannung/-strom und Geräteeinstellungen können angelegt werden, wenn das Gerät diese Informationen meldet.
 
 ### Skriptbeispiele
 
-Instanznummer und Seriennummer müssen durch die IDs aus dem eigenen ioBroker-Objektbaum ersetzt werden. Schreibbare Datenpunkte müssen mit`ack = false` geschrieben werden, damit der Adapter sie als Befehl erkennt.
+Instanznummer und Seriennummer müssen durch die IDs aus dem eigenen ioBroker-Objektbaum ersetzt werden. Schreibbare Datenpunkte müssen mit `ack = false` geschrieben werden, damit der Adapter sie als Befehl erkennt.
 
 ```javascript
 const light = 'elgato-key-light.0.EW40K1A09882.light.lights.0';
@@ -173,17 +173,17 @@ Wird ein Gerät über das Papierkorb-Symbol gelöscht, wird es aus der laufenden
 ### Ein Gerät wird nicht gefunden
 
 - Prüfen Sie, ob ioBroker-Host und Leuchte einander im lokalen Netzwerk erreichen können.
-- Für die Suche Multicast-DNS/UDP 5353 und die Weiterleitung von`_elg._tcp.local.` prüfen.
-- Eine private IP-Adresse oder einen`.local` -Hostnamen manuell hinzufügen, wenn die Suche kein VLAN überqueren kann.
+- Für die Suche Multicast-DNS/UDP 5353 und die Weiterleitung von `_elg._tcp.local.` prüfen.
+- Eine private IP-Adresse oder einen `.local` -Hostnamen manuell hinzufügen, wenn die Suche kein VLAN überqueren kann.
 - Prüfen Sie, ob TCP-Port 9123 erreichbar ist und das Gerät nicht durch eine Gast-WLAN-Regel isoliert wird.
 
 ### Ein Gerät ist im Dashboard offline
 
-Die Karte zeigt den letzten Fehler und den Countdown bis zum nächsten Versuch. **Reconnect** löst sofort eine neue Abfrage aus. Für Automatisierungen oder Überwachung stehen`health.lastError` ,`health.consecutiveFailures` und`health.nextPoll` zur Verfügbarkeit.
+Die Karte zeigt den letzten Fehler und den Countdown bis zum nächsten Versuch. **Reconnect** löst sofort eine neue Abfrage aus. Für Automatisierungen oder Überwachung stehen `health.lastError`, `health.consecutiveFailures` und `health.nextPoll` zur Verfügbarkeit.
 
 ### Bedienelemente fehlen
 
-Der Adapter erzeugt Bedienelemente anhand der vom Gerät zurückgegebenen Felder. Gegebenenfalls die Gerätefirmware aktualisieren, das Gerät erneut anschließen und`info.capabilities` oder die Dashboard-Diagnose prüfen. Ein fehlendes Bedienelement bedeutet normalerweise, dass die API diese Fähigkeit nicht gemeldet hat.
+Der Adapter erzeugt Bedienelemente anhand der vom Gerät zurückgegebenen Felder. Gegebenenfalls die Gerätefirmware aktualisieren, das Gerät erneut anschließen und `info.capabilities` oder die Dashboard-Diagnose prüfen. Ein fehlendes Bedienelement bedeutet normalerweise, dass die API diese Fähigkeit nicht gemeldet hat.
 
 ### Diagnosedaten
 
@@ -205,7 +205,7 @@ Da die lokale Geräte-API keine Authentifizierung verwendet, sollten sich Leucht
 
 ## Aktualisierung von einer älteren Version
 
-Die Geräte-Stammobjekte auf Seriennummernbasis und die bekannten schreibbaren Pfade unter`<Seriennummer>.light.lights.0` erhalten bleiben. [docs/MIGRATION.md](/#/docs/adapterref/iobroker.elgato-key-light/docs/MIGRATION.md) beschreibt Metadatenkorrekturen, Konfigurationsmigration und Rollback. Vor einem großen Update sollte ein ioBroker-Backup erstellt werden.
+Die Geräte-Stammobjekte auf Seriennummernbasis und die bekannten schreibbaren Pfade unter `<Seriennummer>.light.lights.0` erhalten bleiben. [docs/MIGRATION.md](/#/docs/adapterref/iobroker.elgato-key-light/docs/MIGRATION.md) beschreibt Metadatenkorrekturen, Konfigurationsmigration und Rollback. Vor einem großen Update sollte ein ioBroker-Backup erstellt werden.
 
 ## Entwicklung
 

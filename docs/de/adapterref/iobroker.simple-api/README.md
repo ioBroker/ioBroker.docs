@@ -23,7 +23,7 @@ Dies ist eine RESTful-Schnittstelle zum Lesen der Objekte und Zustände von ioBr
 
 ## Verwendung
 
-Aufruf im Browser`http://ipaddress:8087/help` Um Hilfe zur API zu erhalten. Das Ergebnis lautet:
+Aufruf im Browser `http://ipaddress:8087/help` Um Hilfe zur API zu erhalten. Das Ergebnis lautet:
 
 ```json
 {
@@ -55,7 +55,7 @@ Ergebnis:
 
 `true`
 
-Zusätzlich können Sie einen Abfrageschlüssel verwenden.`json` um das Parsen des gespeicherten Werts zu erzwingen:
+Zusätzlich können Sie einen Abfrageschlüssel verwenden. `json` um das Parsen des gespeicherten Werts zu erzwingen:
 
 `http://ipaddress:8087/getPlainValue/javascript.0.value?json`
 
@@ -63,11 +63,11 @@ Ergebnis:
 
 `{"a":1}`
 
-Und ohne`json` Das Ergebnis wäre
+Und ohne `json` Das Ergebnis wäre
 
 `"{\"a\": 1}"`
 
-Eine weitere nützliche Flagge könnte ebenfalls verwendet werden.`noStringify` :
+Eine weitere nützliche Flagge könnte ebenfalls verwendet werden. `noStringify`:
 
 `http://ipaddress:8087/getPlainValue/javascript.0.stringValue?noStringify`
 
@@ -75,13 +75,13 @@ Ergebnis:
 
 `VALUETEXT`
 
-Und ohne`noStringify` Das Ergebnis wäre
+Und ohne `noStringify` Das Ergebnis wäre
 
 `"VALUETEXT"`
 
 ### erhalten
 
-Anrufbeispiel:`http://ipaddress:8087/get/system.adapter.admin.0.alive`
+Anrufbeispiel: `http://ipaddress:8087/get/system.adapter.admin.0.alive`
 
 Ergebnis:
 
@@ -122,7 +122,7 @@ Mehrere Zustände mit einer Anfrage abrufen, zurückgegeben als Array von Objekt
 
 ### Satz
 
-Anrufbeispiel:`http://ipaddress:8087/set/javascript.0.test?value=1`
+Anrufbeispiel: `http://ipaddress:8087/set/javascript.0.test?value=1`
 
 Ergebnis:
 
@@ -130,7 +130,7 @@ Ergebnis:
 {"id":"javascript.0.test","value":1}
 ```
 
-oder rufen Sie z.B. an:`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint`
+oder rufen Sie z.B. an: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint`
 
 Ergebnis:
 
@@ -141,11 +141,11 @@ Ergebnis:
 }
 ```
 
-Natürlich der Datenpunkt`javascript.0.test` muss existieren.
+Natürlich der Datenpunkt `javascript.0.test` muss existieren.
 
-Darüber hinaus könnte der Werttyp definiert werden:`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string`
+Darüber hinaus könnte der Werttyp definiert werden: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string`
 
-und es könnte auch ein Bestätigungsflag definiert werden:`http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true`
+und es könnte auch ein Bestätigungsflag definiert werden: `http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true`
 
 ### Umschalten
 
@@ -159,25 +159,25 @@ Schaltet den Wert um:
 
 Mehrere Zustände können mit einer einzigen Anfrage festgelegt werden. Diese Anfrage unterstützt auch die POST-Methode; die POST-Daten müssen sich im Anfragetext und nicht in der URL befinden.
 
-Bitte verwenden Sie den Inhaltstyp`text/plain` dafür.
+Bitte verwenden Sie den Inhaltstyp `text/plain` dafür.
 
 ### setValueFromBody
 
 Mit diesem Befehl kann der Wert eines bestimmten Zustands durch den Inhalt des POST-Bodys festgelegt werden.
 
-Anrufbeispiel:`http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state` mit Körper`hello` Wo`0_userdata.0.example_state` ist die Kennung des Staates.
+Anrufbeispiel: `http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state` mit Körper `hello` Wo `0_userdata.0.example_state` ist die Kennung des Staates.
 
-Bitte verwenden Sie den Inhaltstyp`text/plain` dafür.
+Bitte verwenden Sie den Inhaltstyp `text/plain` dafür.
 
 ### Objekte
 
 Objekte eines definierten Typs aus der Datenbank lesen.
 
-Anrufbeispiel:`http://ipaddress:8087/objects?pattern=enum.*&type=enum` - alle Enumerationen lesen
+Anrufbeispiel: `http://ipaddress:8087/objects?pattern=enum.*&type=enum` - alle Enumerationen lesen
 
 oder
 
-`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - alle Zustände im Zweig lesen`system.adapter.admin.0`
+`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - alle Zustände im Zweig lesen `system.adapter.admin.0`
 
 ### Staaten
 
@@ -199,9 +199,9 @@ Angenommen, wir haben keine Sicherheitsvorkehrungen getroffen und der Server lä
 
 Bei allen Anfragen kann der Name oder die ID des Bundeslandes angegeben werden.
 
-Für jede Anfrage, die JSON zurückgibt, können Sie einen Parameter festlegen.`prettyPrint` um die Ausgabe in einer für Menschen lesbaren Form zu erhalten.
+Für jede Anfrage, die JSON zurückgibt, können Sie einen Parameter festlegen. `prettyPrint` um die Ausgabe in einer für Menschen lesbaren Form zu erhalten.
 
-Wenn die Authentifizierung aktiviert ist, sind zwei weitere Felder obligatorisch:`?user=admin&pass=iobroker`
+Wenn die Authentifizierung aktiviert ist, sind zwei weitere Felder obligatorisch: `?user=admin&pass=iobroker`
 
 ### getPlainValue
 
@@ -348,7 +348,7 @@ Schreiben Sie die Zustände mit den angegebenen IDs. Sie können die _Wartezeit_
      }
 ```
 
-Wenn innerhalb der vorgegebenen Zeit keine Antwort eingeht,`null` Es wird ein Wert zurückgegeben. Im ersten Fall wird die Antwort sofort zurückgegeben.`ack` ist falsch. Im zweiten Fall`ack` Das stimmt. Das bedeutet, es war eine Reaktion des Fahrers.
+Wenn innerhalb der vorgegebenen Zeit keine Antwort eingeht, `null` Es wird ein Wert zurückgegeben. Im ersten Fall wird die Antwort sofort zurückgegeben. `ack` ist falsch. Im zweiten Fall `ack` Das stimmt. Das bedeutet, es war eine Reaktion des Fahrers.
 
 ### setBulk
 
@@ -368,7 +368,7 @@ Wenn innerhalb der vorgegebenen Zeit keine Antwort eingeht,`null` Es wird ein We
   ]
 ```
 
-Sie können diese Anfrage auch als POST-Anfrage senden. Bitte verwenden Sie den Inhaltstyp.`text/plain` und fügen Sie die Daten in den Textkörper ein.
+Sie können diese Anfrage auch als POST-Anfrage senden. Bitte verwenden Sie den Inhaltstyp. `text/plain` und fügen Sie die Daten in den Textkörper ein.
 
 ### Objekte
 
@@ -412,7 +412,7 @@ Gibt die Liste aller Objekte zurück, die einem bestimmten Muster entsprechen. W
   ...
 ```
 
-Alle Steuerungsobjekte des Adapters system.adapter.admin.0 abrufen:`http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint` =>
+Alle Steuerungsobjekte des Adapters system.adapter.admin.0 abrufen: `http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint` =>
 
 ```json
     {
@@ -609,20 +609,20 @@ Wenn keine Datenquelle angegeben wurde oder der Parameter noHistory übergeben w
   ]
 ```
 
-Sie können in der Abfrage relative Zeitangaben verwenden. Zum Beispiel:`dateFrom=-1h` oder`dateTo=today` Die
+Sie können in der Abfrage relative Zeitangaben verwenden. Zum Beispiel: `dateFrom=-1h` oder `dateTo=today` Die
 
 Folgende relative Muster werden unterstützt:
 
-- `hour` oder`thisHour` oder`this hour` - Beginn der aktuellen Stunde
-- `last hour` oder`lastHour` - Beginn der vorherigen Stunde
+- `hour` oder `thisHour` oder `this hour` - Beginn der aktuellen Stunde
+- `last hour` oder `lastHour` - Beginn der vorherigen Stunde
 - `today` - Beginn des heutigen Tages
 - `yesterday` - Beginn des Vortages
-- `week` oder`thisWeek` oder`this week` - Beginn der aktuellen Woche
-- `lastWeek` oder`last week` - Beginn der Vorwoche
-- `month` oder`thisMonth` oder`this month` - Beginn des laufenden Monats
-- `lastMonth` oder`last month` - Anfang des Vormonats
-- `year` oder`thisYear` oder`this year` - Beginn des laufenden Jahres
-- `lastYear` oder`last year` - Beginn des Vorjahres
+- `week` oder `thisWeek` oder `this week` - Beginn der aktuellen Woche
+- `lastWeek` oder `last week` - Beginn der Vorwoche
+- `month` oder `thisMonth` oder `this month` - Beginn des laufenden Monats
+- `lastMonth` oder `last month` - Anfang des Vormonats
+- `year` oder `thisYear` oder `this year` - Beginn des laufenden Jahres
+- `lastYear` oder `last year` - Beginn des Vorjahres
 - `-Nd` - vor N Tagen
 - `-NM` - vor N Monaten
 - `-Ny` - vor N Jahren
@@ -632,7 +632,7 @@ Folgende relative Muster werden unterstützt:
 
 ## CORS
 
-Mit der Option „Ursprung zulassen (CORS)“ können Sie die`Access-Control-Allow-Origin` Header, um Anfragen von anderen Domains zu ermöglichen.
+Mit der Option „Ursprung zulassen (CORS)“ können Sie die `Access-Control-Allow-Origin` Header, um Anfragen von anderen Domains zu ermöglichen.
 
 Wenn Sie das Feld leer lassen, wird die Kopfzeile nicht festgelegt.
 
@@ -641,15 +641,15 @@ Wenn Sie das Feld leer lassen, wird die Kopfzeile nicht festgelegt.
 Sie können einige Optionen nutzen, um die Antwort zu ändern:
 
 - `prettyPrint` - um die Ausgabe in einer für Menschen lesbaren Form zu erhalten
-- `json` - um das Parsen des Wertes im`getPlainValue` Befehl
-- `timeRFC3339` - um die Zeit von Zeitstempeln zu erhalten (`ts` Und`lc` ) im RFC3339-Format, wie`2019-06-08T01:00:00.000Z`
-- `callback` - Antwort im JSONP-Format.`callback=<CALLBACK>` Die`CALLBACK` ist der Name der Callback-Funktion
+- `json` - um das Parsen des Wertes im `getPlainValue` Befehl
+- `timeRFC3339` - um die Zeit von Zeitstempeln zu erhalten (`ts` Und `lc`) im RFC3339-Format, wie `2019-06-08T01:00:00.000Z`
+- `callback` - Antwort im JSONP-Format. `callback=<CALLBACK>` Die `CALLBACK` ist der Name der Callback-Funktion
 
 ## Authentifizierung
 
 Dieser Adapter unterstützt die folgenden Authentifizierungstypen:
 
-- Abfrageparameter`user` Und`pass`
+- Abfrageparameter `user` Und `pass`
 - Basisauthentifizierung
 - Der OAuth2-Bearer-Token befindet sich im Header. Weitere Informationen zum Abrufen von Tokens finden Sie im Webadapter.
 

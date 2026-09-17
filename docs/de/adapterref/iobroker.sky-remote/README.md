@@ -45,7 +45,7 @@ In den Adaptereinstellungen müssen Sie Folgendes konfigurieren:
 
 ### Verbindungsüberwachung
 
-Der Adapter überprüft regelmäßig die Verbindung zu Ihrer Sky Q Box und aktualisiert die Einstellungen.`sky-remote.X.info.connection` Status. Dieser Status zeigt an, ob der Adapter erfolgreich mit Ihrer Sky Q Box verbunden werden kann:
+Der Adapter überprüft regelmäßig die Verbindung zu Ihrer Sky Q Box und aktualisiert die Einstellungen. `sky-remote.X.info.connection` Status. Dieser Status zeigt an, ob der Adapter erfolgreich mit Ihrer Sky Q Box verbunden werden kann:
 
 - `true` Die Sky Q Box ist online und erreichbar.
 - `false` Die Sky Q Box ist offline oder nicht erreichbar.
@@ -54,12 +54,12 @@ Sie können diesen Status in Ihren Visualisierungen oder Skripten verwenden, um 
 
 ### Tastenverhalten
 
-Der Adapter stellt Tasten bereit, die als Momenttaster funktionieren. Sie sind nur beschreibbar und speichern keinen lesbaren Wert; ein Taster wird also ausschließlich durch Schreiben ausgelöst.`true` dazu:
+Der Adapter stellt Tasten bereit, die als Momenttaster funktionieren. Sie sind nur beschreibbar und speichern keinen lesbaren Wert; ein Taster wird also ausschließlich durch Schreiben ausgelöst. `true` dazu:
 
-1. Du schreibst`true` zu einem`buttons.*` Zustand
+1. Du schreibst `true` zu einem `buttons.*` Zustand
 2. Der Befehl wird an die Sky Q Box gesendet.
 
-Schreiben`true` „erneut“ löst den Befehl immer wieder aus, selbst wenn der Zustand bereits erfüllt ist.`true` Dadurch können Sie dieselbe Taste mehrmals hintereinander drücken, was für die Eingabe von Kanalnummern unerlässlich ist (z. B. Drücken von 1, 0, 2 für Kanal 102).
+Schreiben `true` „erneut“ löst den Befehl immer wieder aus, selbst wenn der Zustand bereits erfüllt ist. `true` Dadurch können Sie dieselbe Taste mehrmals hintereinander drücken, was für die Eingabe von Kanalnummern unerlässlich ist (z. B. Drücken von 1, 0, 2 für Kanal 102).
 
 ## Verwendung
 
@@ -67,14 +67,14 @@ Schreiben`true` „erneut“ löst den Befehl immer wieder aus, selbst wenn der 
 
 Der Adapter erzeugt die folgenden Zustände:
 
-- `sky-remote.X.buttons.*` - Zustände für jede Fernbedienungstaste (z.B.`sky-remote.0.buttons.power` ,`sky-remote.0.buttons.play` )
+- `sky-remote.X.buttons.*` - Zustände für jede Fernbedienungstaste (z.B. `sky-remote.0.buttons.power`, `sky-remote.0.buttons.play`)
 - `sky-remote.X.sendSequence` - Senden Sie eine durch Kommas getrennte Befehlsfolge
 
 ### Beispiele
 
-- Zum Drücken des Netzschalters: Einstellen`sky-remote.0.buttons.power` Zu`true`
-- So navigieren Sie zu einem Kanal: Einstellen`sky-remote.0.sendSequence` Zu`"1,0,6"` (für Kanal 106)
-- So öffnen und navigieren Sie im Fernsehprogramm: Einstellen`sky-remote.0.sendSequence` Zu`"tvguide,right,right,select"`
+- Zum Drücken des Netzschalters: Einstellen `sky-remote.0.buttons.power` Zu `true`
+- So navigieren Sie zu einem Kanal: Einstellen `sky-remote.0.sendSequence` Zu `"1,0,6"` (für Kanal 106)
+- So öffnen und navigieren Sie im Fernsehprogramm: Einstellen `sky-remote.0.sendSequence` Zu `"tvguide,right,right,select"`
 
 ### Verfügbare Befehle
 
@@ -109,14 +109,14 @@ Der Adapter erzeugt die folgenden Zustände:
 | Theaterkasse             | Kassenschalter           |
 | Himmel                   | Sky-Taste                |
 
-Folgende Aliase werden ebenfalls akzeptiert in`sendSequence` (Sie entsprechen denselben Befehlen wie die Schaltflächen oben, daher wird kein separater Schaltflächenzustand erstellt):`dismiss` (= Backup),`sidebar` (= interaktiv),`search` (= Dienstleistungen).
+Folgende Aliase werden ebenfalls akzeptiert in `sendSequence` (Sie entsprechen denselben Befehlen wie die Schaltflächen oben, daher wird kein separater Schaltflächenzustand erstellt): `dismiss` (= Backup), `sidebar` (= interaktiv), `search` (= Dienstleistungen).
 
 ## Integration mit Blockly
 
 Sie können die visuelle Programmierschnittstelle Blockly in ioBroker verwenden, um Befehlssequenzen zu erstellen:
 
 1. Erstelle ein neues Blockly-Skript
-2. Verwenden Sie den „set state“-Block, um den Status festzulegen.`sendSequence` Zustand
+2. Verwenden Sie den „set state“-Block, um den Status festzulegen. `sendSequence` Zustand
 3. Fügen Sie Ihre durch Kommas getrennte Befehlssequenz hinzu.
 
 ## Integration mit JavaScript

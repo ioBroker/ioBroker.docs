@@ -124,13 +124,13 @@ Dann ist go2rtsp erreichbar über
 http://IP:1984
 ```
 
-Dann kann man einen Stream hinzufügen. Die Stream-URL findet man zB unter`onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+Dann kann man einen Stream hinzufügen. Die Stream-URL findet man zB unter `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
 <img src="addgo.png" height="300">
 
 ### Stream als iFrame einfügen
 
-Das Widget`iFrame` in der Vis hinzufügen und als Quelle den Stream-Link von go2rtsp verwenden
+Das Widget `iFrame` in der Vis hinzufügen und als Quelle den Stream-Link von go2rtsp verwenden
 
 `http://192.168.178.1:1984/stream.html?src=camera&mode=webrtc`
 
@@ -154,7 +154,7 @@ Dann ist rtsptoweb erreichbar über
 http://IP:8083
 ```
 
-Dann kann man einen Stream hinzufügen. Die Stream-URL findet man zB unter`onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+Dann kann man einen Stream hinzufügen. Die Stream-URL findet man zB unter `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
 <img src="addstream.png" height="600">
 
@@ -168,7 +168,7 @@ Wählen Sie dann in der Ansicht ein HTML-Objekt aus. Dann im Widget unter HTML d
 
 <img src="html.png" height="150">
 
-## **Wenn mehrere Streams hinzugefügt werden müssen`webrtc-url` und`webrtc-video` in html und skript durch eine neue id ersetzt werden zB`webrtc-url2` und`webrtc-video2`**
+## **Wenn mehrere Streams hinzugefügt werden müssen `webrtc-url` und `webrtc-video` in html und skript durch eine neue id ersetzt werden zB `webrtc-url2` und `webrtc-video2` **
 
 ```html
 <input
@@ -242,7 +242,7 @@ setTimeout(function () {
 
 ## Alle Streams als iFrame
 
-Alternativ könnte man auch den Kamera Overview als Iframe einfügen: Das Widget`iFrame` hinzufügen und als Quelle den rtsp2web Server eintragen:
+Alternativ könnte man auch den Kamera Overview als Iframe einfügen: Das Widget `iFrame` hinzufügen und als Quelle den rtsp2web Server eintragen:
 
 `http://192.168.0.2:8083/pages/multiview/full?controls`
 
@@ -266,11 +266,11 @@ Wenn möglich, verwenden Sie die snapshotUri zB onvif.0.IP\_PORT.infos.streamUri
 
 #### Den Datenpunkt über onvif.0.IP\_PORT.remote.snapshot aktualisieren
 
-Der Datenpunkt onvif.0.IP\_PORT.snapshot ein`String img src` element zu ordnen
+Der Datenpunkt onvif.0.IP\_PORT.snapshot ein `String img src` element zu ordnen
 
-Oder als Alternative fällt`String img src` funktioniert nicht
+Oder als Alternative fällt `String img src` funktioniert nicht
 
-Den Datenpunkt onvif.0.IP\_PORT.snapshot auch`HTML` element in die vis einfügen mit folgendem Inhalt
+Den Datenpunkt onvif.0.IP\_PORT.snapshot auch `HTML` element in die vis einfügen mit folgendem Inhalt
 
 ```javascript
 <img src="{onvif.0.IP_PORT.snapshot}" width="500px" />

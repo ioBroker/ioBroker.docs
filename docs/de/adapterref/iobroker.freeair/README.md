@@ -27,7 +27,7 @@ Lokale Verbindung zu Ihrem [BluMartin FreeAir 100](https://blumartin.de/wohnraum
 
 ![Bildinformationen](../../../en/adapterref/iobroker.freeair/doc/freeair_config.png)
 
-- unter`bluHome` Fügen Sie die IP-Adresse Ihres ioBrokers hinzu.
+- unter `bluHome` Fügen Sie die IP-Adresse Ihres ioBrokers hinzu.
 
 ### Adapter
 

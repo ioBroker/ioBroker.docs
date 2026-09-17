@@ -29,7 +29,7 @@ Geräte verwalten und erstellen, um sie in anderen Adaptern wie Material, IoT, M
 
 ### Überblick
 
-Der`ioBroker.devices` Der Adapter ist eine Komponente der ioBroker Smart-Home-Plattform, die die Geräteverwaltung durch die Erstellung und Verwaltung virtueller Geräte vereinfachen soll.
+Der `ioBroker.devices` Der Adapter ist eine Komponente der ioBroker Smart-Home-Plattform, die die Geräteverwaltung durch die Erstellung und Verwaltung virtueller Geräte vereinfachen soll.
 
 Diese virtuellen Geräte bieten eine standardisierte Schnittstelle für physische Geräte und erleichtern so die Integration, Skripterstellung, Visualisierung und Steuerung von Geräten verschiedener Hersteller und Protokolle.
 
@@ -37,7 +37,7 @@ Der Adapter gewährleistet Konsistenz bei der Benennung und Strukturierung der D
 
 Es kapselt beliebige Sammlungen von Zuständen in ioBroker (physisch **oder** virtuell) in wohlgeformte **Geräte** mit umfangreichen Informationen:
 
-- `type` ,`role` ,`smartName` ,`color` ,`room` ,`function` ,`icon` ,`unit` und mehr
+- `type`, `role`, `smartName`, `color`, `room`, `function`, `icon`, `unit` und mehr
 
 Das Ergebnis wird von Dashboards (Material UI, VIS‑2), Sprachassistenten (Alexa/Google), dem Matter-Adapter, dem **IoT/Cloud** -Adapter und Skripten genutzt und bietet Ihnen so eine übersichtliche, zukunftssichere Objektstruktur.
 
@@ -45,7 +45,7 @@ Das Ergebnis wird von Dashboards (Material UI, VIS‑2), Sprachassistenten (Alex
 
 ### Zweck
 
-Der`ioBroker.devices` Der Adapter dient folgenden Zwecken:
+Der `ioBroker.devices` Der Adapter dient folgenden Zwecken:
 
 - Standardisierung: Erzeugt virtuelle Geräte mit konsistenten Datenpunktstrukturen, unabhängig von der zugrunde liegenden Hardware oder dem Protokoll aus verschiedenen Datenpunkten.
 - Vereinfachte Wartung: Ermöglicht Benutzern den Austausch physischer Geräte, ohne Skripte oder Visualisierungen aktualisieren zu müssen, indem Datenpunkte im Adapter neu zugeordnet werden.
@@ -58,7 +58,7 @@ Viele Adapter wie MQTT, KNX oder ähnliche liefern Datenpunkte mit unterschiedli
 
 #### Vereinfachte Wartung
 
-Der`ioBroker.devices` Der Adapter ermöglicht es Benutzern, virtuelle Geräte zu erstellen, die sich problemlos verschiedenen physischen Geräten zuordnen lassen. Das bedeutet: Wenn Sie ein physisches Gerät ändern, müssen Sie weder Ihre Skripte, Visualisierungen noch die Verlaufseinstellungen aktualisieren; Sie müssen lediglich die Datenpunkte im Adapter neu zuordnen.
+Der `ioBroker.devices` Der Adapter ermöglicht es Benutzern, virtuelle Geräte zu erstellen, die sich problemlos verschiedenen physischen Geräten zuordnen lassen. Das bedeutet: Wenn Sie ein physisches Gerät ändern, müssen Sie weder Ihre Skripte, Visualisierungen noch die Verlaufseinstellungen aktualisieren; Sie müssen lediglich die Datenpunkte im Adapter neu zuordnen.
 
 #### Verbesserte Kompatibilität
 
@@ -66,7 +66,7 @@ Der Adapter weiß, wie die Geräte aussehen und wie sie verwendet werden. Er ers
 
 #### Benutzerfreundlich
 
-Der`ioBroker.devices` Der Adapter ist benutzerfreundlich gestaltet und somit sowohl für Einsteiger als auch für erfahrene Anwender mit erweiterten Funktionen geeignet. Dank der intuitiven Benutzeroberfläche können Benutzer virtuelle Geräte erstellen und verwalten, ohne über umfassende technische Kenntnisse verfügen zu müssen.
+Der `ioBroker.devices` Der Adapter ist benutzerfreundlich gestaltet und somit sowohl für Einsteiger als auch für erfahrene Anwender mit erweiterten Funktionen geeignet. Dank der intuitiven Benutzeroberfläche können Benutzer virtuelle Geräte erstellen und verwalten, ohne über umfassende technische Kenntnisse verfügen zu müssen.
 
 ## Konfiguration
 
@@ -85,7 +85,7 @@ Nach der Installation konfigurieren Sie den Adapter über die Registerkarte „G
 
 Kartendatenpunkte:
 
-Ordnen Sie für jede Funktion (z. B. Ein/Aus, Helligkeit) den Datenpunkt des virtuellen Geräts dem entsprechenden Zustand des physischen Geräts zu (z. B.`hm-rpc.0.12345.1.STATE` (für einen Homematic-Schalter).
+Ordnen Sie für jede Funktion (z. B. Ein/Aus, Helligkeit) den Datenpunkt des virtuellen Geräts dem entsprechenden Zustand des physischen Geräts zu (z. B. `hm-rpc.0.12345.1.STATE` (für einen Homematic-Schalter).
 
 Über die Benutzeroberfläche können Sie Zustände anderer Adapter durchsuchen und auswählen.
 
@@ -93,7 +93,7 @@ Speichern: Klicken Sie auf „Speichern“, um das virtuelle Gerät zu erstellen
 
 #### Gerätetypen
 
-Der`ioBroker.devices` Der Adapter unterstützt drei Hauptansätze zur Geräteerstellung:
+Der `ioBroker.devices` Der Adapter unterstützt drei Hauptansätze zur Geräteerstellung:
 
 1. Automatisch erkannte Geräte
 
@@ -101,21 +101,21 @@ Einige Adapter (z. B. ioBroker.zigbee, ioBroker.hm-rpc) stellen bereits eine gü
 
 2. Verbundene Geräte
 
-Verknüpfte Geräte sind virtuelle Geräte, die manuell erstellt werden, um die Datenpunkte eines bestimmten physischen Geräts widerzuspiegeln.`ioBroker.linkeddevices` Die
+Verknüpfte Geräte sind virtuelle Geräte, die manuell erstellt werden, um die Datenpunkte eines bestimmten physischen Geräts widerzuspiegeln. `ioBroker.linkeddevices` Die
 
-Es wird empfohlen,`ioBroker.devices` Und`alias.0` Zweig statt`linkeddevices` Die
+Es wird empfohlen, `ioBroker.devices` Und `alias.0` Zweig statt `linkeddevices` Die
 
 3. Aliase
 
 Aliase sind leichtgewichtige virtuelle Geräte, die als Abkürzungen oder vereinfachte Verweise auf bestehende Zustände fungieren, ohne eine vollständige Gerätestruktur zu erzeugen.
 
-Sie können ein neues virtuelles Gerät in einem erstellen`alias.0` Zweig. Wählen Sie den Gerätetyp aus und füllen Sie alle erforderlichen Zustände (mit \* gekennzeichnet) aus. Optional können Sie nicht erforderliche Zustände hinzufügen (z. B. Luftfeuchtigkeit über einen Temperatursensor). Für jeden erforderlichen und ausgefüllten optionalen Zustand erstellt der Adapter eine Aliasstruktur. Wenn Sie beispielsweise ein Temperaturgerät mit dem Namen „Temperaturgerät“ erstellt haben, …`Temperature` und wenn beide Zustände (Temperatur und Luftfeuchtigkeit) angegeben werden, finden Sie die folgenden Zustände und Kanäle in`alias.0` Zweig:
+Sie können ein neues virtuelles Gerät in einem erstellen `alias.0` Zweig. Wählen Sie den Gerätetyp aus und füllen Sie alle erforderlichen Zustände (mit \* gekennzeichnet) aus. Optional können Sie nicht erforderliche Zustände hinzufügen (z. B. Luftfeuchtigkeit über einen Temperatursensor). Für jeden erforderlichen und ausgefüllten optionalen Zustand erstellt der Adapter eine Aliasstruktur. Wenn Sie beispielsweise ein Temperaturgerät mit dem Namen „Temperaturgerät“ erstellt haben, …`Temperature` und wenn beide Zustände (Temperatur und Luftfeuchtigkeit) angegeben werden, finden Sie die folgenden Zustände und Kanäle in `alias.0` Zweig:
 
 - `alias.0.Temperature` - Kanal
-- `alias.0.Temperature.temperature` - Zustand mit der Einheit '°C'. Es sollte eine virtuelle Verknüpfung zu einem realen Zustand mit Temperaturangabe geben. Wenn Sie den Alias entfernen in`ioBroker.devices` Adapter, dieser Zustand bleibt ohne Verbindung bestehen.
-- `alias.0.Temperature.humidity` - Zustand mit der Einheit '%'. Dieser hat eine virtuelle Verknüpfung zum realen Zustand (z. B. zu`hm-rpc.0.JHAGHGJJJ.1.HUMIDITY` Wenn Sie den Alias entfernen in`ioBroker.devices` Adapter, dieser Zustand wird gelöscht.
+- `alias.0.Temperature.temperature` - Zustand mit der Einheit '°C'. Es sollte eine virtuelle Verknüpfung zu einem realen Zustand mit Temperaturangabe geben. Wenn Sie den Alias entfernen in `ioBroker.devices` Adapter, dieser Zustand bleibt ohne Verbindung bestehen.
+- `alias.0.Temperature.humidity` - Zustand mit der Einheit '%'. Dieser hat eine virtuelle Verknüpfung zum realen Zustand (z. B. zu `hm-rpc.0.JHAGHGJJJ.1.HUMIDITY` Wenn Sie den Alias entfernen in `ioBroker.devices` Adapter, dieser Zustand wird gelöscht.
 
-Nahezu jeder Gerätetyp könnte zusätzliche Statusanzeigen (Indikatoren) für Akku, Verbindung, Fehler und weitere Funktionen aufweisen. Diese sind optional, aber einige Adapter (z. B. …)`material` oder`matter` ) könnte es interpretieren.
+Nahezu jeder Gerätetyp könnte zusätzliche Statusanzeigen (Indikatoren) für Akku, Verbindung, Fehler und weitere Funktionen aufweisen. Diese sind optional, aber einige Adapter (z. B. …) `material` oder `matter`) könnte es interpretieren.
 
 Für jeden Bundesstaat können Sie alle Einstellungen angeben, die von Aliasen unterstützt werden:
 
@@ -132,7 +132,7 @@ Geräte organisieren: Verwenden Sie Kategorien, um Geräte zu gruppieren (z. B. 
 
 ## Gerätetypen
 
-Dieser Adapter wurde mithilfe von`type-detector` Alle möglichen Geräte finden Sie [hier](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md) .
+Dieser Adapter wurde mithilfe von `type-detector` Alle möglichen Geräte finden Sie [hier](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md) .
 
 ## Video
 

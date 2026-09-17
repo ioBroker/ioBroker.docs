@@ -44,8 +44,8 @@ hash: 5rQsZOQXXCWvf7nDPQvPMYOyS7GyxtxkHHT+DBFyHXA=
 - Для каждого сервера MotionEye создайте отдельный экземпляр адаптера.
 - В **настройках** : укажите хост MotionEye, учетные данные и **хост веб-перехватчика** (IP-адрес ioBroker, доступный с MotionEye).
 - В **разделе «Камеры»** : добавьте камеры или используйте функцию **«Загрузить камеры из MotionEye»** , затем сохраните изменения и перезапустите экземпляр.
-- Проверять`motioneye.<instance>._info.connection` — должно быть`true` когда MotionEye доступен.
-- Для просмотра видео в реальном времени в VIS: HTML-виджет с привязкой к`<camera>.streamUrl` (см. [прямую трансляцию в VIS](/#/docs/adapterref/iobroker.motioneye/vis-stream.md) ).
+- Проверять `motioneye.<instance>._info.connection` — должно быть `true` когда MotionEye доступен.
+- Для просмотра видео в реальном времени в VIS: HTML-виджет с привязкой к `<camera>.streamUrl` (см. [прямую трансляцию в VIS](/#/docs/adapterref/iobroker.motioneye/vis-stream.md) ).
 
 ## Changelog
 
@@ -61,7 +61,7 @@ hash: 5rQsZOQXXCWvf7nDPQvPMYOyS7GyxtxkHHT+DBFyHXA=
 - (skvarel) Instance `_info` disk usage from MotionEye: `diskUsedGb`, `diskTotalGb`, `diskUsedPercent` (filesystem of first online camera)
 
 ### 1.2.0 (2026-07-11)
-- (skvarel) Per-camera **`alertLevel`** datapoint: one VIS dropdown for off / motion-only / motion+Telegram / motion+video / full protection; syncs `mode` and Telegram-on-motion; legacy `mode` writes still supported
+- (skvarel) Per-camera ** `alertLevel` ** datapoint: one VIS dropdown for off / motion-only / motion+Telegram / motion+video / full protection; syncs `mode` and Telegram-on-motion; legacy `mode` writes still supported
 - (skvarel) Fixed Telegram-on-motion image: trigger MotionEye snapshot before download when `lastsnap.jpg` is not ready yet (same path as manual snapshot button)
 - (skvarel) Telegram notification timestamps use local time (`YYYY-MM-DD HH:mm:ss`) instead of UTC ISO (`…Z`)
 

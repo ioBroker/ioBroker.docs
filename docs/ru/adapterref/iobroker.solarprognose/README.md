@@ -28,7 +28,7 @@ hash: tH2EVCi5WJPjxH2eaaI0SKcW5lekH1mutWngpFqkcpE=
 
    ![изображение](../../../en/adapterref/iobroker.solarprognose/doc/api_timezone.png)
 
-3. В разделе «Настройки» -> «Настройки пользователя»,`Use the user timezone in the API` необходимо активировать
+3. В разделе «Настройки» -> «Настройки пользователя», `Use the user timezone in the API` необходимо активировать
 
    ![изображение](../../../en/adapterref/iobroker.solarprognose/doc/api_use_timezone.png)
 

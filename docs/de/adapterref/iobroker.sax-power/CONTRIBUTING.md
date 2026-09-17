@@ -56,7 +56,7 @@ npm run test:package
 npm pack --dry-run
 ```
 
-Die React-Administrationsschnittstelle hat ihren eigenen Abhängigkeitsbaum unter`src-admin` Die
+Die React-Administrationsschnittstelle hat ihren eigenen Abhängigkeitsbaum unter `src-admin` Die
 
 ## Pull-Anfragen
 

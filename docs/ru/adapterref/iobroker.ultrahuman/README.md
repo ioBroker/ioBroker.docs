@@ -36,7 +36,7 @@ hash: R1YcZ1BZ5ycyrc+uVpXAhqUMGoj61l8x8+LvBwmnAZA=
 
 Исходный код: [GitHub](https://github.com/SmarterPapa/ioBroker.ultrahuman)
 
-**Разработчики:** Включить [доверенных издателей](https://docs.npmjs.com/trusted-publishers) для`iobroker.ultrahuman` (этот репозиторий GitHub). В релизах используется`ioBroker/testing-action-deploy@v1` на **Node.js 24** только с OIDC (без`npm-token` См. [testing-action-deploy#19](https://github.com/ioBroker/testing-action-deploy/issues/19) .
+**Разработчики:** Включить [доверенных издателей](https://docs.npmjs.com/trusted-publishers) для `iobroker.ultrahuman` (этот репозиторий GitHub). В релизах используется `ioBroker/testing-action-deploy@v1` на **Node.js 24** только с OIDC (без `npm-token` См. [testing-action-deploy#19](https://github.com/ioBroker/testing-action-deploy/issues/19) .
 
 ### Установка
 
@@ -121,7 +121,7 @@ hash: R1YcZ1BZ5ycyrc+uVpXAhqUMGoj61l8x8+LvBwmnAZA=
 
 ### 0.1.12 (2026-04-10)
 
-* **0.1.12:** `testing-action-deploy@v1` with **`npm-token`** again (OIDC-only path breaks on `ubuntu-latest` during global npm upgrade); README documents **W3019** trade-off
+* **0.1.12:** `testing-action-deploy@v1` with ** `npm-token` ** again (OIDC-only path breaks on `ubuntu-latest` during global npm upgrade); README documents **W3019** trade-off
 * `common.news` trimmed to seven entries (W1032); **0.1.3** moved to history only via [CHANGELOG_OLD.md](https://github.com/SmarterPapa/ioBroker.ultrahuman/blob/main/CHANGELOG_OLD.md)
 
 ### 0.1.11 (2026-04-09)

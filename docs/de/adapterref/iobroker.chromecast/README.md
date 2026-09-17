@@ -33,7 +33,7 @@ Bauen Sie auf den folgenden Projekten auf:
    - Sie benötigen eine ioBroker-Webserverinstanz, um lokale Dateien zu streamen.
    - Sie müssen die Informationen (Name, IP-Adresse, Port, AD-Typ) für jedes Gerät, das sich in einem anderen Subnetz als Ihr ioBroker-Server befindet, manuell hinzufügen. Wenn die Namen mit den Namen der automatisch gefundenen Geräte übereinstimmen sollen, verwenden Sie die MAC-Adresse als Namen. Sie können einen beliebigen Namen wählen. Achten Sie darauf, dass jeder Name eindeutig ist! Um Probleme zu vermeiden, dürfen Namen nur Großbuchstaben (AZ), Kleinbuchstaben (az), Ziffern (0–9), Minuszeichen (-) und Unterstriche (\_) enthalten.
 3. Überprüfen Sie Ihr Protokoll: Dort sollten Einträge zu den erkannten Geräten zu finden sein.
-4. Schreiben Sie eine URL wie <http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3> auf den chromecast.0.`<your chromecast name>` .player.url2play
+4. Schreiben Sie eine URL wie <http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3> auf den chromecast.0. `<your chromecast name>`.player.url2play
 5. Die URL sollte nun auf Ihrem Gerät abgespielt werden.
 
 ## Merkmale
@@ -47,7 +47,7 @@ Bauen Sie auf den folgenden Projekten auf:
   - Stummschalten/Stummschaltung aufheben
   - Sendung einstellen
   - Pause
-  - Wiedergabe-URL (chromecast.0.`<your Google Home name>` .player.url2play)
+  - Wiedergabe-URL (chromecast.0. `<your Google Home name>`.player.url2play)
     - getestet mit MP3
       - Die vollständige Liste der Formate [finden Sie hier](https://developers.google.com/cast/docs/media) .
     - Wenn die URL nicht mit http beginnt, gehen Sie davon aus, dass es sich um eine lokale Datei handelt.
@@ -57,7 +57,7 @@ Bauen Sie auf den folgenden Projekten auf:
   - HINWEIS: Erfordert [einen gepatchten Vis-Adapter](https://github.com/angelnu/ioBroker.vis) .
 - Erste Unterstützung für Chromecast-Audiogruppen
   - Hinweis: Dies funktioniert nicht mit SSDP -> in den Adaptereinstellungen standardmäßig deaktivieren
-- Den zuletzt wiedergegebenen Stream erneut abspielen: Einfach _chromecast.0 einstellen.`<your device>` .status.playing_ auf _true setzen_
+- Den zuletzt wiedergegebenen Stream erneut abspielen: Einfach _chromecast.0 einstellen. `<your device>`.status.playing_ auf _true setzen_
 
 ## Was fehlt?
 

@@ -100,7 +100,7 @@ Die Werte in Nord-Ost-Richtung sind positiv, die Werte in Süd-West-Richtung neg
 | `kp.g_scale`           | Nummer       | Abgeleitete NOAA-G-Skala (0 = keine, 1–5 = G1–G5)                  |
 | `kp.forecast_max`      | Nummer       | Maximaler Kp-Wert in der 72-Stunden-Vorhersage                     |
 | `kp.forecast_max_time` | Nummer       | Zeitpunkt des vorhergesagten Maximums (UTC, ms)                    |
-| `kp.forecast`          | Zeichenkette | Vollständige 72-Stunden-Kp-Vorhersage als JSON-Array`[{time, kp}]` |
+| `kp.forecast`          | Zeichenkette | Vollständige 72-Stunden-Kp-Vorhersage als JSON-Array `[{time, kp}]` |
 
 ### Solarwind
 
@@ -129,7 +129,7 @@ Die Jagd nach Polarlichtern funktioniert in zwei Phasen: **Planung im Voraus** m
 
 ### Phase 1 – Plan: Wird ein Sturm erwartet?
 
-Verwenden`kp.forecast_max` um zu prüfen, ob in den nächsten 72 Stunden ein geomagnetischer Sturm zu erwarten ist. Ungefähre Sichtweiten nach geografischer Breite:
+Verwenden `kp.forecast_max` um zu prüfen, ob in den nächsten 72 Stunden ein geomagnetischer Sturm zu erwarten ist. Ungefähre Sichtweiten nach geografischer Breite:
 
 | `kp.forecast_max` | Sturmstärke | Sichtbar bis hinunter zu \~                            |
 | ----------------- | ----------- | ------------------------------------------------------ |
@@ -144,11 +144,11 @@ Verwenden`kp.forecast_max` um zu prüfen, ob in den nächsten 72 Stunden ein geo
 
 `kp.g_scale` spiegelt die aktuelle Sturmstärke in Echtzeit wider (0 = ruhig, 1–5 = G1–G5).
 
-> **Hinweis:** Dies sind ungefähre geografische Breitengrade für Europa. Die tatsächliche Sichtweite hängt stark von verschiedenen Faktoren ab.`solar_wind.bz` (siehe unten), Wolkenbedeckung und Lichtverschmutzung.
+> **Hinweis:** Dies sind ungefähre geografische Breitengrade für Europa. Die tatsächliche Sichtweite hängt stark von verschiedenen Faktoren ab. `solar_wind.bz` (siehe unten), Wolkenbedeckung und Lichtverschmutzung.
 
 ### Phase 2 – React: Ist Aurora derzeit aktiv?
 
-Selbst bei einem hohen Kp-Wert wird die Aurora nur sichtbar, wenn sich das interplanetare Magnetfeld (IMF) **nach Süden** dreht – erkennbar an einem stark negativen Wert.`solar_wind.bz` Dies ist der zuverlässigste kurzfristige Auslöser.
+Selbst bei einem hohen Kp-Wert wird die Aurora nur sichtbar, wenn sich das interplanetare Magnetfeld (IMF) **nach Süden** dreht – erkennbar an einem stark negativen Wert. `solar_wind.bz` Dies ist der zuverlässigste kurzfristige Auslöser.
 
 | `solar_wind.bz` | Bedeutung                                                                |
 | --------------- | ------------------------------------------------------------------------ |
@@ -160,15 +160,15 @@ Selbst bei einem hohen Kp-Wert wird die Aurora nur sichtbar, wenn sich das inter
 
 **Vorwarnzeit:** Bz wird am Beobachtungspunkt L1 zwischen Erde und Sonne gemessen. Der Sonnenwind benötigt **15–60 Minuten,** um von L1 zur Erde zu gelangen – dies ist Ihr Vorwarnfenster.
 
-`solar_wind.bt` ist die gesamte Feldstärke. Wenn`|bz|` Ansätze`bt` Das Feld ist nahezu vollständig nach Süden gerichtet. Beispielsweise ist bz = −18 nT mit bt = 20 nT ein stärkeres Signal als bz = −10 nT mit bt = 30 nT.
+`solar_wind.bt` ist die gesamte Feldstärke. Wenn `|bz|` Ansätze `bt` Das Feld ist nahezu vollständig nach Süden gerichtet. Beispielsweise ist bz = −18 nT mit bt = 20 nT ein stärkeres Signal als bz = −10 nT mit bt = 30 nT.
 
 `solar_wind.speed` Der Effekt wird verstärkt: Starke Winde (> 400 km/s) in Kombination mit negativem Bz-Wert führen der Magnetosphäre mehr Energie zu. Sehr hohe Geschwindigkeiten (> 600 km/s) können sogar bei moderatem Bz-Wert Polarlichter auslösen.
 
 `solar_wind.density` spielt eine unterstützende Rolle: Eine hohe Dichte (> 10 p/cm³) erhöht den dynamischen Druck und kann die Aktivität steigern.
 
-### Standortspezifische Bestätigung: Was bedeutet das?`probability` hinzufügen?
+### Standortspezifische Bestätigung: Was bedeutet das? `probability` hinzufügen?
 
-Kp ist ein globaler Index – er beschreibt die allgemeine geomagnetische Aktivität, nicht das, was über Ihrem Standort geschieht.`probability` ist anders: Es wird speziell für Ihre konfigurierten Koordinaten mithilfe des **NOAA OVATION-Modells** berechnet, das Echtzeit-Sonnenwindmessungen als direkte Eingangsdaten verwendet und die tatsächliche Ausdehnung und Intensität des Polarlichtovals modelliert. Daher reagiert es schneller und präziser auf Änderungen von Bz als der abgeleitete Kp-Wert.
+Kp ist ein globaler Index – er beschreibt die allgemeine geomagnetische Aktivität, nicht das, was über Ihrem Standort geschieht. `probability` ist anders: Es wird speziell für Ihre konfigurierten Koordinaten mithilfe des **NOAA OVATION-Modells** berechnet, das Echtzeit-Sonnenwindmessungen als direkte Eingangsdaten verwendet und die tatsächliche Ausdehnung und Intensität des Polarlichtovals modelliert. Daher reagiert es schneller und präziser auf Änderungen von Bz als der abgeleitete Kp-Wert.
 
 Für Mitteleuropa (etwa 50–55°N) sind unter aktiven Bedingungen folgende Reichweiten realistisch:
 
@@ -179,14 +179,14 @@ Für Mitteleuropa (etwa 50–55°N) sind unter aktiven Bedingungen folgende Reic
 | 15–30 %       | Aktiv – Polarlichter sind bei klarem Himmel wahrscheinlich sichtbar. |
 | > 30 %        | Starke Aktivität über uns                                            |
 
-Verwenden`probability` Als standortspezifische Bestätigung zusätzlich zu Kp und Bz. Ein steigender Wert bei gleichzeitig stark negativem Bz ist das deutlichste Zeichen dafür, dass es sich lohnt, nach draußen zu gehen.
+Verwenden `probability` Als standortspezifische Bestätigung zusätzlich zu Kp und Bz. Ein steigender Wert bei gleichzeitig stark negativem Bz ist das deutlichste Zeichen dafür, dass es sich lohnt, nach draußen zu gehen.
 
 ### Beispiel für Automatisierungslogik
 
 Eine praktische dreistufige Alarmierungsstrategie:
 
 1. **Uhrenmodus** —`kp.forecast_max` ≥ 5: „Sturm wird in den nächsten 72 Stunden erwartet – beobachten Sie die Bedingungen heute Abend“
-2. **Alarm** -`kp.value` ≥ 5 UND`solar_wind.bz` ≤ −10: „Sturm aktiv und Bz stark nach Süden gerichtet – Aurora wahrscheinlich in 15–60 Minuten“
+2. **Alarm** -`kp.value` ≥ 5 UND `solar_wind.bz` ≤ −10: „Sturm aktiv und Bz stark nach Süden gerichtet – Aurora wahrscheinlich in 15–60 Minuten“
 3. **Bestätigung von oben** —`probability` ≥ 15: „An Ihrem Standort ist derzeit wahrscheinlich ein Nordlicht sichtbar.“
 
 Durch die Kombination aller drei Schichten werden Fehlalarme vermieden: Der Kp-Filter bestätigt einen echten Sturm, der Bz-Filter bestätigt, dass die Magnetosphäre geöffnet ist, und der Wahrscheinlichkeitsfilter bestätigt Aktivität an Ihrem genauen Standort.

@@ -60,17 +60,17 @@ pi-hole2.0.Clients.<clientName>.QueriesTotal
 pi-hole2.0.Clients.<clientName>.QueriesBlocked
 ```
 
-Jeder Wert ist ein JSON-Array, wie zum Beispiel`[{"domain":"example.org","count":12}]` Eine Domäne kommt in jedem Array nur einmal vor, und die Einträge sind absteigend nach ihrer Anzahl sortiert. Zeichen, die in einer ioBroker-Objekt-ID nicht sicher sind (einschließlich`.` Und`#` ) werden ersetzt durch`_` Falls zwei Kundennamen zur gleichen ID führen, sorgt ein numerischer Suffix dafür, dass ihre Status getrennt bleiben.`QueriesTotal` enthält die absolute Anzahl aller für den Client gelesenen Anfragen, während`QueriesBlocked` Enthält die absolute Anzahl blockierter Anfragen. Die Namen folgen der gleichen Konvention wie die detaillierten Zusammenfassungsdatenpunkte.
+Jeder Wert ist ein JSON-Array, wie zum Beispiel `[{"domain":"example.org","count":12}]` Eine Domäne kommt in jedem Array nur einmal vor, und die Einträge sind absteigend nach ihrer Anzahl sortiert. Zeichen, die in einer ioBroker-Objekt-ID nicht sicher sind (einschließlich `.` Und `#`) werden ersetzt durch `_` Falls zwei Kundennamen zur gleichen ID führen, sorgt ein numerischer Suffix dafür, dass ihre Status getrennt bleiben. `QueriesTotal` enthält die absolute Anzahl aller für den Client gelesenen Anfragen, während `QueriesBlocked` Enthält die absolute Anzahl blockierter Anfragen. Die Namen folgen der gleichen Konvention wie die detaillierten Zusammenfassungsdatenpunkte.
 
 Die Clientnamen von Pi-hole werden anhand der von den Anfragen zurückgegebenen Clientinformationen ihren IP-Adressen zugeordnet. Ein Client mit Hostnamen behält den anonymisierten Hostnamen als ioBroker-Objekt-ID, während der Anzeigename des Kanalobjekts dessen IP-Adresse enthält. Meldet Pi-hole nur eine IP-Adresse, wird diese anonymisierte IP-Adresse sowohl als Objekt-ID als auch als Anzeigename verwendet.
 
-Pi-hole-Datenschutzstufen und das Pi-hole`excludeClients` /`excludeDomains` Die Einstellungen gelten auch für diese Daten. Der Adapter liest lediglich das Abfrageprotokoll; er ändert weder Zulassungs- noch Sperrlisten.
+Pi-hole-Datenschutzstufen und das Pi-hole `excludeClients` /`excludeDomains` Die Einstellungen gelten auch für diese Daten. Der Adapter liest lediglich das Abfrageprotokoll; er ändert weder Zulassungs- noch Sperrlisten.
 
-Die optionale Bereinigung inaktiver Clients wird einmal pro lokalem Tag nach 00:05 Uhr ausgeführt. Sie löscht einen Clientkanal rekursiv nur dann, wenn dessen Kanalobjekt seit Beginn des vorherigen lokalen Kalendertages nicht aktualisiert wurde.`QueriesTotal` Der Zustand ist`0` Dies bedeutet, dass am gesamten Vortag keine Schreibvorgänge stattfanden. Zukünftige Zeitstempel werden nicht als Aktivität gewertet. Neue Clientkanäle werden erst erstellt, nachdem mindestens eine Abfrage für den aktuellen Tag gefunden wurde.
+Die optionale Bereinigung inaktiver Clients wird einmal pro lokalem Tag nach 00:05 Uhr ausgeführt. Sie löscht einen Clientkanal rekursiv nur dann, wenn dessen Kanalobjekt seit Beginn des vorherigen lokalen Kalendertages nicht aktualisiert wurde. `QueriesTotal` Der Zustand ist `0` Dies bedeutet, dass am gesamten Vortag keine Schreibvorgänge stattfanden. Zukünftige Zeitstempel werden nicht als Aktivität gewertet. Neue Clientkanäle werden erst erstellt, nachdem mindestens eine Abfrage für den aktuellen Tag gefunden wurde.
 
 ### Allgemeine SendTo-Funktion
 
-Die Funktion \`sendTo\` dient zum Senden von Befehlen an das Pi-hole-Gerät. Sie können die API auf Ihrem lokalen Rechner testen. Gehen Sie zu <http://pihole/api/docs/#> , geben Sie Ihr Passwort ein und klicken Sie auf die Schaltfläche **„Anmelden“** . Wenn die Domäne`pihole` Wenn es nicht funktioniert, überprüfen Sie bitte den Hostnamen Ihrer Pi-hole-Instanz in der oberen rechten Ecke der Dashboard-Seite.
+Die Funktion \`sendTo\` dient zum Senden von Befehlen an das Pi-hole-Gerät. Sie können die API auf Ihrem lokalen Rechner testen. Gehen Sie zu <http://pihole/api/docs/#> , geben Sie Ihr Passwort ein und klicken Sie auf die Schaltfläche **„Anmelden“** . Wenn die Domäne `pihole` Wenn es nicht funktioniert, überprüfen Sie bitte den Hostnamen Ihrer Pi-hole-Instanz in der oberen rechten Ecke der Dashboard-Seite.
 
 #### Beispiel
 

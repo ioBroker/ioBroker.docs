@@ -24,9 +24,9 @@ Um diesen Adapter zu verwenden, müssen Sie sich zuerst auf der [KISSHome Defend
 Für den Betrieb dieses Adapters benötigen Sie:
 
 - Mehr als 3 Smart-Home-Geräte
-- Fritz!Box Router. Ohne`Fritz!Box` Der Adapter wird nicht funktionieren.
-- iobroker muss unter Debian/Raspbian (oder zumindest unter Linux, wo die folgenden Befehle verfügbar sind) laufen:`which` ,`rsync` )
-- Docker muss für den Benutzer installiert und aktiviert sein.`iobroker` den IDS-Container ausführen
+- Fritz!Box Router. Ohne `Fritz!Box` Der Adapter wird nicht funktionieren.
+- iobroker muss unter Debian/Raspbian (oder zumindest unter Linux, wo die folgenden Befehle verfügbar sind) laufen: `which`, `rsync`)
+- Docker muss für den Benutzer installiert und aktiviert sein. `iobroker` den IDS-Container ausführen
 
 ### Docker für Benutzer iobroker aktivieren
 

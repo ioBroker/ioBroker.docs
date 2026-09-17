@@ -52,14 +52,14 @@ Die Ersteinrichtung erfordert die Konfiguration der Grundlagen (Hardwareverbindu
 
 Hierfür muss das passende USB-Gerät und die korrekte Baudrate ausgewählt werden ( **üblicherweise** für IMST iM871A: 57600 Baud; IMST iU891A-XL: 115200 Baud; Amber: 9600 Baud; Embit: 9600 Baud; CUL: 38400 oder 9600 Baud). Die meisten **Messgeräte** senden im „T-Modus“.
 
-Ab Version 0.9.0 unterstützt der Adapter auch die Verbindung zu seriellen Geräten, die über einen TCP-Socket erreichbar sind. Die Benutzeroberfläche spiegelt dies jedoch (noch) nicht wider; Sie müssen „Benutzerdefinierter Port“ auswählen und den Hostnamen eingeben.`tcp://host:port` Die
+Ab Version 0.9.0 unterstützt der Adapter auch die Verbindung zu seriellen Geräten, die über einen TCP-Socket erreichbar sind. Die Benutzeroberfläche spiegelt dies jedoch (noch) nicht wider; Sie müssen „Benutzerdefinierter Port“ auswählen und den Hostnamen eingeben. `tcp://host:port` Die
 
 ### Weitere Optionen
 
 - **Unveränderte Zustände aktualisieren** : Beim Eintreffen eines Telegramms werden alle Zustände aktualisiert, auch wenn sich ihr Wert nicht geändert hat. (Standard: aktiviert)
 - **Energieeinheiten auf kWh umrechnen** : Alle Energieeinheiten (Wh und J) werden in kWh umgerechnet. (Standard: Aus)
 - **Gerät nach aufeinanderfolgenden Fehlern vorübergehend sperren** : Wenn 10 aufeinanderfolgende Telegramme desselben Geräts nicht erfolgreich verarbeitet werden können, wird das Gerät bis zum Neustart des Adapters ignoriert (Standard: aktiviert).
-- **Es werden nur Geräte mit bereits vorhandenem Objektbaum verarbeitet** : Telegramme von Geräten ohne Objektbaum werden ignoriert, sodass keine neuen Geräte erstellt werden – dies ist nützlich, sobald alle relevanten Zähler eingerichtet sind. Telegramme, die überhaupt nicht dekodiert werden können, werden ebenfalls ignoriert: Sie fügen kein Gerät zur AES-Schlüsselliste hinzu und werden nicht geschrieben.`info.rawdata` Die automatische Sperrliste zählt die Geräte weiterhin, sodass ein unerwünschtes Gerät keinen Dekodierungsversuch mehr verursacht – dies wird nur nicht im Protokoll vermerkt. Die Geräte werden beim Start des Adapters neu gesucht. Ein Gerät, das Sie aus der Objektliste löschen, ist nach dem nächsten Neustart endgültig entfernt, und ein Gerät, das wieder erkannt werden soll, muss ebenfalls neu geladen werden. (Standard: deaktiviert)
+- **Es werden nur Geräte mit bereits vorhandenem Objektbaum verarbeitet** : Telegramme von Geräten ohne Objektbaum werden ignoriert, sodass keine neuen Geräte erstellt werden – dies ist nützlich, sobald alle relevanten Zähler eingerichtet sind. Telegramme, die überhaupt nicht dekodiert werden können, werden ebenfalls ignoriert: Sie fügen kein Gerät zur AES-Schlüsselliste hinzu und werden nicht geschrieben. `info.rawdata` Die automatische Sperrliste zählt die Geräte weiterhin, sodass ein unerwünschtes Gerät keinen Dekodierungsversuch mehr verursacht – dies wird nur nicht im Protokoll vermerkt. Die Geräte werden beim Start des Adapters neu gesucht. Ein Gerät, das Sie aus der Objektliste löschen, ist nach dem nächsten Neustart endgültig entfernt, und ein Gerät, das wieder erkannt werden soll, muss ebenfalls neu geladen werden. (Standard: deaktiviert)
 
 Kompakttelegramme (die von einigen Kamstrup-Geräten verwendet werden) werden automatisch unterstützt: Die Struktur eines vollständigen Telegramms wird – zusammen mit dem Gerät, sodass sie auch nach einem Neustart des Adapters erhalten bleibt – gespeichert und zum Dekodieren der Kompakttelegramme wiederverwendet. Lediglich die Kompakttelegramme, die ein Gerät sendet, bevor es zum ersten Mal ein vollständiges Telegramm gesendet hat, können nicht dekodiert werden und werden stillschweigend übersprungen.
 
@@ -99,17 +99,17 @@ Die Beschreibung ist im JSON-Format, ein Eintrag pro Herstellercode – den drei
 | --------------------- | ------------------------------------------------------------------------------------------------------ |
 | `byte`                | wobei der Wert im Blob beginnt, gezählt von Null (erforderlich)                                        |
 | `bytes`               | wie viele Bytes es sind (Standardwert 1)                                                               |
-| `bit` /`bits`         | ein einzelnes Bit oder ein umfassender Bereich wie`[0, 1]` , dieses Bytes                              |
-| `description`         | Welchen Wert es ist – er wird zum Namen des Bundesstaates (erforderlich, außer`flags` wird gegeben)    |
-| `flags`               | ein Name pro Bit des Bytes,`null` um es kurz zu überspringen – jeder Name wird zu einem eigenen Staat. |
+| `bit` /`bits`         | ein einzelnes Bit oder ein umfassender Bereich wie `[0, 1]`, dieses Bytes                              |
+| `description`         | Welchen Wert es ist – er wird zum Namen des Bundesstaates (erforderlich, außer `flags` wird gegeben)    |
+| `flags`               | ein Name pro Bit des Bytes, `null` um es kurz zu überspringen – jeder Name wird zu einem eigenen Staat. |
 | `values`              | Namen für die Zahlen, die ein Feld enthalten kann, als Liste oder als Objekt wie `{ "4": "Water" }`    |
 | `unit`                | die Einheit des Staates                                                                                |
-| `legacyName`          | Die`VIF_…` Teil der staatlichen ID, siehe unten                                                        |
-| `storageNo` ,`tariff` | die Aussage des Datensatzes, aus dem sie stammen, außer Kraft setzen.                                  |
+| `legacyName`          | Die `VIF_…` Teil der staatlichen ID, siehe unten                                                        |
+| `storageNo`, `tariff` | die Aussage des Datensatzes, aus dem sie stammen, außer Kraft setzen.                                  |
 
 Die obige Tabelle ist eine Zusammenfassung. Jedes Feld, das eine Beschreibung enthalten kann, und seine jeweilige Auswirkung auf den Wert sind in der Dokumentation des Parsers selbst beschrieben: [wireless-mbus-parser, „Beschreiben eines Blobs anstatt ihn zu dekodieren“.](https://github.com/lvogt/wireless-mbus-parser#describing-a-blob-instead-of-decoding-it)
 
-- Derselbe Link befindet sich unter dem Editor im entsprechenden Tab. **Mit „Beispiel einfügen“** wird eine Beschreibung eines nicht existierenden Zählers in den Editor eingefügt, die alle Feldtypen enthält. Dies ist der schnellste Weg, um zu beginnen: Ersetzen Sie dessen`XXX` mit dem Herstellercode Ihres Zählers.
+- Derselbe Link befindet sich unter dem Editor im entsprechenden Tab. **Mit „Beispiel einfügen“** wird eine Beschreibung eines nicht existierenden Zählers in den Editor eingefügt, die alle Feldtypen enthält. Dies ist der schnellste Weg, um zu beginnen: Ersetzen Sie dessen `XXX` mit dem Herstellercode Ihres Zählers.
 
 Wenn ein Hersteller mehr als einen Blob-Typ verwendet, beschreiben Sie jeden Typ als Layout mit den Gerätetypen und der zugehörigen VIF - der erste übereinstimmende Typ dekodiert den Blob:
 
@@ -123,15 +123,15 @@ Das Telegramm und die dekodierte Tabelle sind Teil der Instanzkonfiguration und 
 
 Zwei Dinge sind es wert, bekannt zu sein:
 
-- **Die Status-ID wird aus der Beschreibung ihres Feldes abgeleitet** , also`"description": "Battery"` wird`…-VIF_BATTERY` Die Korrektur eines Tippfehlers in einer Beschreibung führt daher zu einer Umbenennung des Bundesstaates.`legacyName` Setzt diesen Teil der ID direkt und hält ihn stabil, was für jeden Wert, den Sie behalten möchten, sinnvoll ist.
+- **Die Status-ID wird aus der Beschreibung ihres Feldes abgeleitet** , also `"description": "Battery"` wird `…-VIF_BATTERY` Die Korrektur eines Tippfehlers in einer Beschreibung führt daher zu einer Umbenennung des Bundesstaates. `legacyName` Setzt diesen Teil der ID direkt und hält ihn stabil, was für jeden Wert, den Sie behalten möchten, sinnvoll ist.
 - **Eine Beschreibung ersetzt die vom Parser für diesen Hersteller bereitgestellte Beschreibung** , anstatt sie zu ergänzen. Die Beschreibung eines Wertes eines Itron-Rauchmelders bedeutet, dass die anderen 25 Werte nicht mehr beschrieben werden.
 
 ## Aktualisierung von Version 0.11.x
 
 Version 0.12.0 ersetzt den integrierten Telegram-Parser durch die Bibliothek [wireless-mbus-parser](https://github.com/lvogt/wireless-mbus-parser) . Die Objekt-IDs bleiben unverändert, aber vier Dinge ändern sich:
 
-- **Die Messwerte sind jetzt Zahlen** , kein vorformatierter Text mehr.`"474.240"` wurde`474.24` Die Staaten waren schon immer vom Typ`mixed` ioBroker selbst hat damit kein Problem, wohl aber ein History-Backend, das die Daten als Text gespeichert hat: InfluxDB akzeptiert keine Zahlen für Felder, die Zeichenketten enthalten, und der SQL-Adapter speichert einen Datentyp pro Datenpunkt. Daher beginnen diese Datenreihen von vorn. Überprüfen Sie nach dem Update das Log Ihres History-Adapters und entscheiden Sie für jede Datenreihe einzeln, ob die alten Daten gelöscht oder neben den neuen beibehalten werden sollen.
-- **Skripte und Visualisierungen, die diesen Text vergleichen oder formatieren,** müssen überprüft werden:`state.val === '474.240'` Die Werte stimmen nicht mehr überein, und ein Widget, das auf der festen Anzahl von Dezimalstellen basierte, zeigt jetzt eine einfache Zahl an.
+- **Die Messwerte sind jetzt Zahlen** , kein vorformatierter Text mehr. `"474.240"` wurde `474.24` Die Staaten waren schon immer vom Typ `mixed` ioBroker selbst hat damit kein Problem, wohl aber ein History-Backend, das die Daten als Text gespeichert hat: InfluxDB akzeptiert keine Zahlen für Felder, die Zeichenketten enthalten, und der SQL-Adapter speichert einen Datentyp pro Datenpunkt. Daher beginnen diese Datenreihen von vorn. Überprüfen Sie nach dem Update das Log Ihres History-Adapters und entscheiden Sie für jede Datenreihe einzeln, ob die alten Daten gelöscht oder neben den neuen beibehalten werden sollen.
+- **Skripte und Visualisierungen, die diesen Text vergleichen oder formatieren,** müssen überprüft werden: `state.val === '474.240'` Die Werte stimmen nicht mehr überein, und ein Widget, das auf der festen Anzahl von Dezimalstellen basierte, zeigt jetzt eine einfache Zahl an.
 - **Tarif und Geräteeinheit wurden von den falschen Bits ausgelesen** und sind nun korrekt, daher ändern sich die _Bezeichnungen_ der Zustände eines Zählers mit mehreren Tarifen. Ihre IDs bleiben unverändert.
 - **Reservierte und unbekannte VIFs können von der Bibliothek unterschiedlich benannt werden** , sodass einige Zustände ungewöhnlicher Zähler unter einer neuen ID erscheinen. Die alten bleiben erhalten und können gelöscht werden – alles andere wird wie zuvor beschrieben.
 
@@ -139,9 +139,9 @@ Die Option „Cache für Unterstützung kompakter Frames“ ist ebenfalls entfal
 
 ### Techem- und Diehl-(PRIOS)-Messgeräte
 
-Version 0.12.0 enthielt diese beiden Fehler: Ein Techem-Wärmekostenrechner meldete unter Namen wie „…“ unsinnige Ergebnisse.`VIF_RETURN_TEMP` Ein Techem-Wärmezähler konnte nicht ausgelesen werden und landete auf der automatischen Sperrliste, und ein PRIOS-Wasserzähler meldete sein Volumen als Heizkosteneinheit. Version 0.12.1 liest sie wieder korrekt aus – die von Version 0.12.0 erstellten Zustände bleiben erhalten und können gelöscht werden; die korrekten Zustände werden mit dem nächsten Telegramm geschrieben.
+Version 0.12.0 enthielt diese beiden Fehler: Ein Techem-Wärmekostenrechner meldete unter Namen wie „…“ unsinnige Ergebnisse. `VIF_RETURN_TEMP` Ein Techem-Wärmezähler konnte nicht ausgelesen werden und landete auf der automatischen Sperrliste, und ein PRIOS-Wasserzähler meldete sein Volumen als Heizkosteneinheit. Version 0.12.1 liest sie wieder korrekt aus – die von Version 0.12.0 erstellten Zustände bleiben erhalten und können gelöscht werden; die korrekten Zustände werden mit dem nächsten Telegramm geschrieben.
 
-Zwei ihrer Zustände sind anders benannt als in Version 0.11.x, da die Werte der vorherigen Periode nun die Speichernummer tragen, zu der sie gehören (`1-1-…` statt`1-0-…` ), und die verbleibende Batterielebensdauer eines PRIOS-Zählers wird in Monaten statt in Jahren angegeben.
+Zwei ihrer Zustände sind anders benannt als in Version 0.11.x, da die Werte der vorherigen Periode nun die Speichernummer tragen, zu der sie gehören (`1-1-…` statt `1-0-…`), und die verbleibende Batterielebensdauer eines PRIOS-Zählers wird in Monaten statt in Jahren angegeben.
 
 ## Aufgaben
 

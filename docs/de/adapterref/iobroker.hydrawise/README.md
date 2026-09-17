@@ -29,7 +29,7 @@ Integrieren Sie Ihren Hydrawise-Controller in ioBroker.
 
 Beide APIs bieten Zonen und Zeitpläne. Standardmäßig wird **Version 2 (GraphQL)** verwendet (gleiche Anmeldedaten wie für die Hydrawise-App). **Version 1 (REST)** dient als Fallback und wird per API-Schlüssel übermittelt, falls GraphQL nicht verfügbar ist. Sie können eine oder beide APIs aktivieren.
 
-- **Version 2** (empfohlen): E-Mail-Adresse/Passwort wie in der App —`zones.*` ,`sensors.*` ,`weather.*` ,`water.*` ,`controller.*` (plus Wetterdaten, Messwerte von Sensoren, Leckageanzeige, GraphQL-Zonenbefehle).
+- **Version 2** (empfohlen): E-Mail-Adresse/Passwort wie in der App —`zones.*`, `sensors.*`, `weather.*`, `water.*`, `controller.*` (plus Wetterdaten, Messwerte von Sensoren, Leckageanzeige, GraphQL-Zonenbefehle).
 - **v1** (Fallback): API-Schlüssel —`schedule.*` /`customer.*` (gleiche Zonen und Zeitpläne, keine Wetter- oder Messsensoren).
 
 ## Dokumentation
@@ -49,15 +49,15 @@ Nur erforderlich, wenn GraphQL nicht verfügbar ist:
 
 | Objektbaum                                          | Quelle                          | Steuert die Bewässerung?                                        |
 | --------------------------------------------------- | ------------------------------- | --------------------------------------------------------------- |
-| `schedule.*`                                        | v1 REST                         | Ja (`setzone.php` )                                             |
+| `schedule.*`                                        | v1 REST                         | Ja (`setzone.php`)                                             |
 | `zones.*`                                           | v2 GraphQL                      | Ja (GraphQL-Mutationen), aber nur wenn Version 2 aktiviert ist. |
-| `water.*` ,`sensors.*` ,`weather.*` ,`controller.*` | v2 GraphQL                      | Nur lesbar                                                      |
+| `water.*`, `sensors.*`, `weather.*`, `controller.*` | v2 GraphQL                      | Nur lesbar                                                      |
 | `info.connection`                                   | Instanz (alle aktivierten APIs) | —                                                               |
 | `info.connectionV2`                                 | v2 GraphQL-only                 | —                                                               |
 
-Die Admin-Ampel (`info.connection` Die Anzeige ist nur dann grün, wenn **alle aktivierten APIs** online sind. v1 ist aktiviert, funktioniert aber nicht, v2 ist jedoch in Ordnung → gelb/rot. Nur v2 ist aktiv und verbunden → grün.`info.connectionV2` bleibt immer dann wahr, wenn GraphQL funktioniert.
+Die Admin-Ampel (`info.connection` Die Anzeige ist nur dann grün, wenn **alle aktivierten APIs** online sind. v1 ist aktiviert, funktioniert aber nicht, v2 ist jedoch in Ordnung → gelb/rot. Nur v2 ist aktiv und verbunden → grün. `info.connectionV2` bleibt immer dann wahr, wenn GraphQL funktioniert.
 
-v1`schedule.sensors.*` Enthält lediglich die _Sensorkonfiguration_ . Gemessene Durchflussmengen, Niederschlagsmengen und Leckagewarnungen stammen aus Version 2.`sensors.*` /`water.leakSuspected` Die
+v1 `schedule.sensors.*` Enthält lediglich die _Sensorkonfiguration_ . Gemessene Durchflussmengen, Niederschlagsmengen und Leckagewarnungen stammen aus Version 2. `sensors.*` /`water.leakSuspected` Die
 
 Das Standard-Abfrageintervall für GraphQL v2 beträgt **300 Sekunden** (Minimum 120 Sekunden). Die Abfragerate von GraphQL ist pro Konto begrenzt (einschließlich der offiziellen App). Verringern Sie dieses Intervall nicht ohne triftigen Grund.
 

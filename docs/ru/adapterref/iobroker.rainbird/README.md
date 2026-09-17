@@ -37,7 +37,7 @@ hash: TIUcipxW6UZVyI1O+QiffVWcHs2VRJSMELeMkvA/ITY=
 
 `rainbird.X.device.stations.Y.available` - Значение True, если зона Y доступна в устройстве.\
 `rainbird.X.device.stations.Y.irrigation` - Верно, если зона Y в данный момент орошается.\
-`rainbird.X.device.stations.Y.remaining` - Оставшееся время полива в секундах`rainbird.X.device.stations.Y.runZone` - Вручную включить полив в зоне Y на указанное количество минут.\
+`rainbird.X.device.stations.Y.remaining` - Оставшееся время полива в секундах `rainbird.X.device.stations.Y.runZone` - Вручную включить полив в зоне Y на указанное количество минут.\
 `rainbird.X.device.stations.Y.testZone` - Тестовая зона Y.
 
 ## Кредиты

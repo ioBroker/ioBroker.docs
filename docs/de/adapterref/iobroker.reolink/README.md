@@ -104,20 +104,20 @@ Akkubetriebene Kameras (Argus PT, Argus 3 Pro, ...) verwenden ein proprietäres 
    ```bash
    sudo apt install gstreamer1.0-rtsp
    ```
-4. **Adapter starten** → RTSP-Streams verfügbar unter`rtsp://<server-ip>:8554/<CameraName>/mainStream`
+4. **Adapter starten** → RTSP-Streams verfügbar unter `rtsp://<server-ip>:8554/<CameraName>/mainStream`
 
-> Die Server-IP wird automatisch ermittelt.`<CameraName>` ist der Name, der in der Adapterkonfiguration festgelegt ist.
+> Die Server-IP wird automatisch ermittelt. `<CameraName>` ist der Name, der in der Adapterkonfiguration festgelegt ist.
 
 ### Batteriesparmodus
 
 **Der Akku entlädt sich im Betrieb schnell!** Der Adapter verwendet eine automatische Deaktivierungsstrategie:
 
-- **`streams.enable`** (Boolescher Wert) — RTSP-Streaming aktivieren/deaktivieren
-  - Standard:`false` (Aus = Batteriesparmodus)
+- ** `streams.enable` ** (Boolescher Wert) — RTSP-Streaming aktivieren/deaktivieren
+  - Standard: `false` (Aus = Batteriesparmodus)
   - Automatische Deaktivierung nach 30 Sekunden (konfigurierbar)
   - Der Stream pausiert automatisch, wenn kein Client verbunden ist.
 
-- **`mqtt.enable`** (Boolesch) — MQTT-Integration für Bewegungs-/Batterie-/Flutlicht-/PIR-Sensoren aktivieren
+- ** `mqtt.enable` ** (Boolesch) — MQTT-Integration für Bewegungs-/Batterie-/Flutlicht-/PIR-Sensoren aktivieren
   - Erforderlich für Statusaktualisierungen und Flutlicht-/PIR-Steuerung
   - Automatische Deaktivierung nach konfigurierbarem Timeout (Batterieschutz)
   - Broker in den Adaptereinstellungen konfigurieren
@@ -136,25 +136,25 @@ Akkubetriebene Kameras (Argus PT, Argus 3 Pro, ...) verwenden ein proprietäres 
 | `query.battery`          | Taste           | W   | Akkuladestand über die NeoLink-Befehlszeile abfragen                                      |
 | `query.preview`          | Taste           | W   | Snapshot über RTSP erfassen                                                               |
 | `ptz.preset`             | Nummer          | R/W | Kamera auf gespeicherte Voreinstellungsposition bewegen (0–9)                             |
-| `ptz.up/down/left/right` | boolescher Wert | R/W | Zum Bewegen gedrückt halten (`true` =Start,`false` =Stopp)                                |
+| `ptz.up/down/left/right` | boolescher Wert | R/W | Zum Bewegen gedrückt halten (`true` =Start, `false` =Stopp)                                |
 | `ptz.speed`              | Nummer          | R/W | PTZ-Bewegungsgeschwindigkeit (1–100, Standardwert 32)                                     |
 | `status.motion`          | boolescher Wert | R   | Bewegung erkannt (via MQTT)                                                               |
 | `status.battery_level`   | Nummer          | R   | Akkustand in % (über Neolink CLI, periodisch)                                             |
 
-|`snapshotImage` | Zeichenkette | R | Letztes Snapshot-Bild (base64, Daten-URI) | |`snapshotStatus` | Zeichenkette | R | Snapshot-Status:`idle` /`capturing` /`success` /`error` | |`info.neolink_status` | Zeichenkette | R | Neolink-Prozessstatus:`stopped` /`running` |
+|`snapshotImage` | Zeichenkette | R | Letztes Snapshot-Bild (base64, Daten-URI) | |`snapshotStatus` | Zeichenkette | R | Snapshot-Status: `idle` /`capturing` /`success` /`error` | |`info.neolink_status` | Zeichenkette | R | Neolink-Prozessstatus: `stopped` /`running` |
 
 ### PTZ-Steuerung
 
 PTZ funktioniert über die Neolink-Befehlszeilenschnittstelle – MQTT ist nicht erforderlich.
 
-**Richtungsbewegung** (`ptz.up/down/left/right` ):
+**Richtungsbewegung** (`ptz.up/down/left/right`):
 
-- Auf einstellen`true` → Die Kamera beginnt sich zu bewegen und stoppt automatisch nach 5 Sekunden.
-- Auf einstellen`false` → Die Kamera stoppt sofort
-- In VIS: Konfigurieren Sie eine Schaltfläche mit`mousedown=true` /`mouseup=false` zum Halten-zum-Bewegen
-- Geschwindigkeit anpassen mit`ptz.speed` (1–100)
+- Auf einstellen `true` → Die Kamera beginnt sich zu bewegen und stoppt automatisch nach 5 Sekunden.
+- Auf einstellen `false` → Die Kamera stoppt sofort
+- In VIS: Konfigurieren Sie eine Schaltfläche mit `mousedown=true` /`mouseup=false` zum Halten-zum-Bewegen
+- Geschwindigkeit anpassen mit `ptz.speed` (1–100)
 
-**Voreinstellungen** (`ptz.preset` ): Stellen Sie eine voreingestellte Zahl (0–9) ein, um zu dieser gespeicherten Position zu springen.
+**Voreinstellungen** (`ptz.preset`): Stellen Sie eine voreingestellte Zahl (0–9) ein, um zu dieser gespeicherten Position zu springen.
 
 ### Merkmale
 
@@ -172,12 +172,12 @@ PTZ funktioniert über die Neolink-Befehlszeilenschnittstelle – MQTT ist nicht
 
 In den Adaptereinstellungen konfigurieren:
 
-- **Broker-Host** (Standard:`127.0.0.1` )
-- **Broker-Port** (Standard:`1883` )
+- **Broker-Host** (Standard: `127.0.0.1`)
+- **Broker-Port** (Standard: `1883`)
 - **Benutzername / Passwort** (optional)
-- **Automatische Deaktivierung des Timeouts** (Standard:`30` s, Batterieschutz)
+- **Automatische Deaktivierung des Timeouts** (Standard: `30` s, Batterieschutz)
 
-MQTT wird für Kamerastatusaktualisierungen und -steuerung verwendet. Der Adapter abonniert automatisch, wenn`mqtt.enable` ist eingestellt auf`true` Die
+MQTT wird für Kamerastatusaktualisierungen und -steuerung verwendet. Der Adapter abonniert automatisch, wenn `mqtt.enable` ist eingestellt auf `true` Die
 
 Statusthemen (von der Kamera über Neolink veröffentlicht):
 
@@ -198,10 +198,10 @@ Steuerungsthemen (vom Adapter an die Kamera gesendet):
 | --------------------------------------- | --------------------------------------------------------------------------------------- |
 | "Kamera-UID erforderlich"               | UID aus der Reolink-App eingeben → Geräteinformationen                                  |
 | "libgstrspserver nicht gefunden"        | `sudo apt install gstreamer1.0-rtsp`                                                    |
-| Stream kann keine Verbindung herstellen | Aktivieren`streams.enable` Warten Sie ca. 5 Sekunden, bis Neolink startet.              |
-| Snapshot schlägt fehl                   | Installieren Sie ffmpeg:`sudo apt install ffmpeg`                                       |
+| Stream kann keine Verbindung herstellen | Aktivieren `streams.enable` Warten Sie ca. 5 Sekunden, bis Neolink startet.              |
+| Snapshot schlägt fehl                   | Installieren Sie ffmpeg: `sudo apt install ffmpeg`                                       |
 | Flutlicht/PIR reagiert nicht            | MQTT startet automatisch – warten Sie nach dem Umschalten etwa 3 Sekunden.              |
-| MQTT`NotAuthorized`                     | Broker-Zugangsdaten prüfen; Neolink verwendet`credentials = ["user", "pass"]` Format    |
+| MQTT `NotAuthorized`                     | Broker-Zugangsdaten prüfen; Neolink verwendet `credentials = ["user", "pass"]` Format    |
 | Der Akku entlädt sich schnell           | Streaming deaktivieren, wenn nicht verwendet; MQTT nur für Bewegungserkennung verwenden |
 | PTZ reagiert nicht                      | Jeder PTZ-Befehl benötigt ca. 2 Sekunden (P2P-Kameraanmeldung) – das ist normal.        |
 

@@ -41,10 +41,10 @@ Der Adapter fragt die Philips Hue Sync Box API alle 15 Sekunden ab und aktualisi
 3. Geben Sie die IP-Adresse des Geräts ein. (Nur IPv4) (Kleiner Hinweis: Bei der Eingabe der IP-Adresse wird automatisch nach jeder dritten Ziffer ein Punkt eingefügt.)
 
    ![name\_ip\_token](../../../en/adapterref/iobroker.hue-sync-box/admin/media/name_ip_token.png)
-4. Klicken Sie auf die Schaltfläche`register box` Es öffnet sich ein neues Fenster, in dem Sie die Box registrieren können (siehe unten).![Anmeldung](../../../en/adapterref/iobroker.hue-sync-box/admin/media/registration.png)
-5. Sobald der Knopf gedrückt wird`registration` Wenn der Knopf gedrückt wird, startet der Vorgang. Anschließend haben Sie 30 Sekunden Zeit, den Knopf an der Box zu drücken und ihn etwa 3 Sekunden lang gedrückt zu halten, bis die LED grün blinkt. (siehe unten)![Anmeldung](../../../en/adapterref/iobroker.hue-sync-box/admin/media/registration_timer.png)
+4. Klicken Sie auf die Schaltfläche `register box` Es öffnet sich ein neues Fenster, in dem Sie die Box registrieren können (siehe unten).![Anmeldung](../../../en/adapterref/iobroker.hue-sync-box/admin/media/registration.png)
+5. Sobald der Knopf gedrückt wird `registration` Wenn der Knopf gedrückt wird, startet der Vorgang. Anschließend haben Sie 30 Sekunden Zeit, den Knopf an der Box zu drücken und ihn etwa 3 Sekunden lang gedrückt zu halten, bis die LED grün blinkt. (siehe unten)![Anmeldung](../../../en/adapterref/iobroker.hue-sync-box/admin/media/registration_timer.png)
 6. Nach dem Loslassen der Gerätetaste wird nach einigen Sekunden das Token angezeigt und in das Feld eingefügt. (siehe unten)![Token](admin/media/registration_successful.png)![Token](../../../en/adapterref/iobroker.hue-sync-box/admin/media/token.png)
-7. Jetzt können Sie auf die Schaltfläche klicken.`add` Das Feld wird dann hinzugefügt, anschließend müssen Sie nur noch auf die Schaltfläche klicken.`save` Die Konfiguration speichern.![Adapter\_GUI](../../../en/adapterref/iobroker.hue-sync-box/admin/media/Adapter_GUI.png)
+7. Jetzt können Sie auf die Schaltfläche klicken. `add` Das Feld wird dann hinzugefügt, anschließend müssen Sie nur noch auf die Schaltfläche klicken. `save` Die Konfiguration speichern.![Adapter\_GUI](../../../en/adapterref/iobroker.hue-sync-box/admin/media/Adapter_GUI.png)
 
 ## Entfernen Sie die Hue Sync Box vom Adapter.
 

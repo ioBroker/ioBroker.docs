@@ -18,7 +18,7 @@ hash: NzX9jmIPIZwV4g6Osoo7NhutL0+doCxiiJhUncX7NZ0=
 
 # ioBroker.remeha-home
 
-Dieser Adapter nutzt den Dienst`Sentry.io` Ausnahmen, Codefehler und neue Geräteschemata werden mir als Entwickler automatisch gemeldet. Weitere Details finden Sie unten!
+Dieser Adapter nutzt den Dienst `Sentry.io` Ausnahmen, Codefehler und neue Geräteschemata werden mir als Entwickler automatisch gemeldet. Weitere Details finden Sie unten!
 
 ---
 

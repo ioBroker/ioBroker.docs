@@ -24,10 +24,10 @@ hash: qoYnNJwv15Uw7o/3KPJ6vOj6FmoLRvEKr7O8c6DDEhU=
 
 Verbindet Creality Klipper-Drucker (primäres Ziel: **[SPARKX i7](https://store.creality.com/products/sparkx-i7-3d-printer)** mit CFS lite) über zwei lokale APIs mit ioBroker:
 
-1. **Moonraker HTTP** (Standardport)`7125` ) — Druckstatistiken, Temperaturen, Lüfter, CFS-Filamentbox, G-Code
-2. **Creality WebSocket** (Standardport)`9999` ) — LED am Werkzeugkopf, Pause/Fortsetzen/Stopp, Status der Nivellierung/des Selbsttests, verbleibende Zeit (`printLeftTime` )
+1. **Moonraker HTTP** (Standardport) `7125`) — Druckstatistiken, Temperaturen, Lüfter, CFS-Filamentbox, G-Code
+2. **Creality WebSocket** (Standardport) `9999`) — LED am Werkzeugkopf, Pause/Fortsetzen/Stopp, Status der Nivellierung/des Selbsttests, verbleibende Zeit (`printLeftTime`)
 
-Moonraker allein reicht nicht aus, um die Creality-UI-Zustände anzuzeigen (z. B. Levelaufstiege, während Klipper noch Meldungen ausgibt).`standby` ) oder die Werkzeugkopfleuchte.
+Moonraker allein reicht nicht aus, um die Creality-UI-Zustände anzuzeigen (z. B. Levelaufstiege, während Klipper noch Meldungen ausgibt). `standby`) oder die Werkzeugkopfleuchte.
 
 Hersteller: [Creality](https://www.creality.com/) . Andere Creality Klipper-Modelle funktionieren möglicherweise nach bestem Wissen und Gewissen; bisher wurde nur der SPARKX i7 getestet.
 
@@ -36,7 +36,7 @@ Hersteller: [Creality](https://www.creality.com/) . Andere Creality Klipper-Mode
 | Einstellung                   | Standard | Beschreibung                                |
 | ----------------------------- | -------- | ------------------------------------------- |
 | Host / IP                     | —        | Druckeradresse (erforderlich)               |
-| Moonraker HTTP-Port           | `7125`   | Fluidd Reverse Proxy verwendet häufig`4408` |
+| Moonraker HTTP-Port           | `7125`   | Fluidd Reverse Proxy verwendet häufig `4408` |
 | Creality WebSocket-Port       | `9999`   | Werkzeugkopf-LED und Drucksteuerung         |
 | Umfrageintervall              | `5` S    | Moonraker-Umfrage (Min. 2 Sek.)             |
 | API-Schlüssel                 | leer     | Optionale Moonraker-Autorisierung           |
@@ -46,7 +46,7 @@ Ein Drucker pro Adapterinstanz.
 
 ## Datenpunkte
 
-Unter`creality.<instance>.*` (Beispiele):
+Unter `creality.<instance>.*` (Beispiele):
 
 | Zustand                                                 | Beschreibung                                                                                            |
 | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -54,15 +54,15 @@ Unter`creality.<instance>.*` (Beispiele):
 | `currentJob.*`                                          | Fortschritt, Datei, Zeiten, Schichten, Vorschub/Fluss, aktives Filament                                 |
 | `info.*`                                                | Modell, Firmware, Hostname, Seriennummer, Festplatte, Druckstunden/Druckaufträge, Fehler                |
 | `temp.*`                                                | Düse, Bett, Kasten/Kammer                                                                               |
-| `fans.partCooling`                                      | Teilekühlungs **-UI %** (entspricht der Anzeige des Slicers/Druckers; Creality)`fan0_min` Neuzuordnung) |
+| `fans.partCooling`                                      | Teilekühlungs **-UI %** (entspricht der Anzeige des Slicers/Druckers; Creality) `fan0_min` Neuzuordnung) |
 | `fans.partCoolingPwm`                                   | **PWM-%** für die Teilekühlung (Rohdaten des Hardware-Tastverhältnisses von Moonraker)                  |
 | `fans.*` /`cfs.*`                                       | Andere Lüfter / CFS (optional)                                                                          |
 | `control.light` /`sleepMode` /`pause` /`resume` /`stop` | Bedienelemente                                                                                          |
 | `webcam.available`                                      | Kamera vorhanden (schreibgeschützt; die lokale API kann sie auf dem SPARKX i7 nicht ausschalten)        |
-| `webcam.streamUrl`                                      | URL für VIS-iFrame (Creality WebRTC-Seite, Standard)`http://<host>:8000` )                              |
+| `webcam.streamUrl`                                      | URL für VIS-iFrame (Creality WebRTC-Seite, Standard) `http://<host>:8000`)                              |
 | `webcam.webrtcUrl`                                      | WebRTC-Signalisierungsendpunkt                                                                          |
 
-**Hinweis zur Webcam:** SPARKX verwendet WebRTC auf Port`8000` , nicht klassisches MJPEG.`webcam.streamUrl` Verweist auf die Creality-Viewer-Seite – verwendbar in einem VIS-iFrame, sofern der Browser die Drucker-IP-Adresse erreichen kann. Für Home Assistant / go2rtc verwenden Sie`webcam.webrtcUrl` Die
+**Hinweis zur Webcam:** SPARKX verwendet WebRTC auf Port `8000`, nicht klassisches MJPEG. `webcam.streamUrl` Verweist auf die Creality-Viewer-Seite – verwendbar in einem VIS-iFrame, sofern der Browser die Drucker-IP-Adresse erreichen kann. Für Home Assistant / go2rtc verwenden Sie `webcam.webrtcUrl` Die
 
 ## Unterstützung
 

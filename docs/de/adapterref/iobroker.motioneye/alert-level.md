@@ -21,22 +21,22 @@ Pfad: `motioneye.<Instanz>.<kamera>.alertLevel` (gleiche Ebene wie `mode`).
 
 ### VIS-Nutzung
 
-Dropdown an **`alertLevel`** binden statt an `mode`. Der Adapter wendet das Profil an und hält **`mode`** synchron (`still` / `sharp` / `off`).
+Dropdown an ** `alertLevel` ** binden statt an `mode`. Der Adapter wendet das Profil an und hält ** `mode` ** synchron (`still` / `sharp` / `off`).
 
 Aliase (ohne Groß/Kleinschreibung): `aus`, `bewegung`, `alarm`, `aufnahme`, `vollschutz` oder `0`–`4`.
 
 ### Legacy-Steuerung über `mode`
 
-Direktes Schreiben auf **`mode`** funktioniert weiter (bestehende VIS/Skripte). Telegram folgt dann der Config im Tab **Benachrichtigungen**; **`alertLevel`** wird zur Anzeige auf die passende Stufe gesetzt.
+Direktes Schreiben auf ** `mode` ** funktioniert weiter (bestehende VIS/Skripte). Telegram folgt dann der Config im Tab **Benachrichtigungen**; ** `alertLevel` ** wird zur Anzeige auf die passende Stufe gesetzt.
 
-Schreiben auf **`alertLevel`** hat Vorrang für Telegram-bei-Bewegung, bis wieder **`mode`** geschrieben wird.
+Schreiben auf ** `alertLevel` ** hat Vorrang für Telegram-bei-Bewegung, bis wieder ** `mode` ** geschrieben wird.
 
 ### Persistenz
 
-Die gewählte Stufe liegt im **`alertLevel`**-State und wird nach Adapter-Neustart erneut angewendet.
+Die gewählte Stufe liegt im ** `alertLevel` **-State und wird nach Adapter-Neustart erneut angewendet.
 
-Manueller **`snapshot`** und **Bei Snapshot** in der Config bleiben unabhängig.
+Manueller ** `snapshot` ** und **Bei Snapshot** in der Config bleiben unabhängig.
 
 ### Telegram-Bild bei Bewegung (`notify` / `full`)
 
-Ist **Bild senden** im Tab Benachrichtigungen aktiv, löst der Adapter beim Bewegungs-Webhook **zuerst einen MotionEye-Snapshot** aus (wie der manuelle **`snapshot`**-Button), wartet **`snapshotCacheDelayMs`** (Tab Snapshots, Standard 800 ms) und lädt dann das JPEG für Telegram. Im Modus **`still`** liegt oft noch kein fertiges `lastsnap.jpg` ohne diesen Schritt vor.
+Ist **Bild senden** im Tab Benachrichtigungen aktiv, löst der Adapter beim Bewegungs-Webhook **zuerst einen MotionEye-Snapshot** aus (wie der manuelle ** `snapshot` **-Button), wartet ** `snapshotCacheDelayMs` ** (Tab Snapshots, Standard 800 ms) und lädt dann das JPEG für Telegram. Im Modus ** `still` ** liegt oft noch kein fertiges `lastsnap.jpg` ohne diesen Schritt vor.

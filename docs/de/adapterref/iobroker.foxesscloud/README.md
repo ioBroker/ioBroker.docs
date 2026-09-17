@@ -34,37 +34,37 @@ Ruft Daten von der FoxESS Cloud API für Solarwechselrichter (z. B. für Enpal-S
 
 ### Leistungswerte
 
-- **`pvPower`** Aktuelle PV-Stromerzeugung (kW)
-- **`pv1Power`…`pv24Power`** : Leistungen einzelner PV-Strings (kW) – es werden nur die im Gerät vorhandenen Strings automatisch erstellt
-- **`generationPower`** Gesamtleistung (kW)
-- **`load`** Aktuelle Last/Leistungsaufnahme (kW)
-- **`gridConsumption`** : Aus dem Netz importierte Leistung (kW)
-- **`feedinPower`** : Ins Netz eingespeiste Leistung (kW)
+- ** `pvPower` ** Aktuelle PV-Stromerzeugung (kW)
+- ** `pv1Power`…`pv24Power` ** : Leistungen einzelner PV-Strings (kW) – es werden nur die im Gerät vorhandenen Strings automatisch erstellt
+- ** `generationPower` ** Gesamtleistung (kW)
+- ** `load` ** Aktuelle Last/Leistungsaufnahme (kW)
+- ** `gridConsumption` ** : Aus dem Netz importierte Leistung (kW)
+- ** `feedinPower` ** : Ins Netz eingespeiste Leistung (kW)
 
 ### Batterie
 
-- **`soc`** : Ladezustand der Batterie (%)
-- **`batCharge`** Batterieladeleistung (kW)
-- **`batDischarge`** Batterieentladeleistung (kW)
-- **`batTemperature`** Batterietemperatur (°C) – wird automatisch erstellt, wenn das Gerät einen Wert meldet
+- ** `soc` ** : Ladezustand der Batterie (%)
+- ** `batCharge` ** Batterieladeleistung (kW)
+- ** `batDischarge` ** Batterieentladeleistung (kW)
+- ** `batTemperature` ** Batterietemperatur (°C) – wird automatisch erstellt, wenn das Gerät einen Wert meldet
 
 ### Temperatur & Status
 
-- **`invTemperature`** Interne Temperatur des Wechselrichters (°C) – wird automatisch erstellt, sobald das Gerät einen Wert meldet; Warnungen im Protokoll bei ≥ 65 °C und ≥ 80 °C
-- **`runningState`** Aktueller Betriebszustand des Wechselrichters (String)
+- ** `invTemperature` ** Interne Temperatur des Wechselrichters (°C) – wird automatisch erstellt, sobald das Gerät einen Wert meldet; Warnungen im Protokoll bei ≥ 65 °C und ≥ 80 °C
+- ** `runningState` ** Aktueller Betriebszustand des Wechselrichters (String)
 
 ### Verbindungsstatus
 
-- **`info.connection`** Verbindungsstatus
+- ** `info.connection` ** Verbindungsstatus
 
 ### Energieberichterstattung (optional)
 
 Wenn diese Option im Tab _„Berichterstellung“_ aktiviert ist, leitet der Adapter die Periodensummen aus den von der API zurückgegebenen kumulierten Werten über die gesamte Lebensdauer ab:
 
-- **`report.day.*`** Heutige Stromerzeugung, Einspeisung und Netzverbrauch (kWh)
-- **`report.week.*`** Gesamtverbrauch dieser Woche (kWh)
-- **`report.month.*`** Gesamtverbrauch dieses Monats (kWh)
-- **`report.year.*`** Die diesjährigen Gesamtmengen (kWh)
+- ** `report.day.*` ** Heutige Stromerzeugung, Einspeisung und Netzverbrauch (kWh)
+- ** `report.week.*` ** Gesamtverbrauch dieser Woche (kWh)
+- ** `report.month.*` ** Gesamtverbrauch dieses Monats (kWh)
+- ** `report.year.*` ** Die diesjährigen Gesamtmengen (kWh)
 
 ### PV-Leistungs-JSON-Statistiken (optional)
 
@@ -82,7 +82,7 @@ Die [FoxESS Open API](https://www.foxesscloud.com/public/i18n/en/OpenApiDocument
 
 Bei dem empfohlenen Intervall **von 60 Sekunden** verbraucht eine einzelne Instanz das gesamte Tageskontingent (1440 Minuten = 24 Stunden).
 
-**Wichtig:** Alle Open-API-Clients, die denselben API-Schlüssel verwenden, teilen sich ein Kontingent – beispielsweise mehrere ioBroker-Instanzen, Home-Assistant-Integrationen oder Skripte. Eine Überschreitung des Limits kann zu zeitweiligen API-Fehlern führen (z. B. …).`40400` ,`40402` Überprüfen Sie die verbleibenden Aufrufe im FoxESS-Portal unter **Profil → API-Verwaltung** .
+**Wichtig:** Alle Open-API-Clients, die denselben API-Schlüssel verwenden, teilen sich ein Kontingent – beispielsweise mehrere ioBroker-Instanzen, Home-Assistant-Integrationen oder Skripte. Eine Überschreitung des Limits kann zu zeitweiligen API-Fehlern führen (z. B. …). `40400`, `40402` Überprüfen Sie die verbleibenden Aufrufe im FoxESS-Portal unter **Profil → API-Verwaltung** .
 
 Für zusätzliche Wechselrichter erstellen Sie pro Gerät eine Adapterinstanz (eine Seriennummer pro Instanz) und planen Sie das Abfrageintervall entsprechend, oder verwenden Sie separate API-Schlüssel, falls Ihr Konto dies zulässt.
 
@@ -216,9 +216,9 @@ Bei jeder Abfrage liest der Adapter drei Lebensdauerwerte von der API:
 - `feedin` — Gesamtenergie, die seit der Installation ins Netz eingespeist wurde (kWh)
 - `gridConsumption` — Gesamtenergieverbrauch aus dem Netz seit der Installation (kWh)
 
-Zu Beginn jedes Zeitraums (neuer Tag / neue ISO-Woche / neuer Kalendermonat / neues Jahr) werden die aktuellen Lebensdauerwerte als Basiswert gespeichert. Der gemeldete Statuswert ist immer`current lifetime value − baseline` Die
+Zu Beginn jedes Zeitraums (neuer Tag / neue ISO-Woche / neuer Kalendermonat / neues Jahr) werden die aktuellen Lebensdauerwerte als Basiswert gespeichert. Der gemeldete Statuswert ist immer `current lifetime value − baseline` Die
 
-Die Ausgangswerte werden beibehalten in`report._baselines` damit sie Neustarts des Adapters überstehen.
+Die Ausgangswerte werden beibehalten in `report._baselines` damit sie Neustarts des Adapters überstehen.
 
 ### Bericht Staaten
 

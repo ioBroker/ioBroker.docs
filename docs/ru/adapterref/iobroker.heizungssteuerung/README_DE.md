@@ -117,12 +117,12 @@ Richten Sie die erforderlichen Funktionen unter **Objekte → Aufzählungen → 
 
 ### Manuelle Steuerungsaktionen
 
-Другие действия адаптера`heizungssteuerung.0.Actions` :
+Другие действия адаптера `heizungssteuerung.0.Actions`:
 
 #### Globale Aktionen (Alle Räume)
 
 - **отсутсвие** : Abwesenheitsmodus bis zu einem bestimmten Datum/Zeit setzen
-  - Формат:`dd.MM.yyyy HH:mm` (zB "01.01.2024 14:00")
+  - Формат: `dd.MM.yyyy HH:mm` (zB "01.01.2024 14:00")
   - Эффект: Игнорирование периода и изменение стандартной температуры.
 - **пауза : Alle Heizung/Kühlung temporär pausieren**
 - **boost** : Режим повышения для всех активных режимов

@@ -37,12 +37,12 @@ node ring-auth-cli
 
 Sie können spezielle Variablen für den Pfad und den Dateinamen Ihres Livestreams und Snapshots verwenden. Diese Variablen werden durch einen Zähler, einen Zeitstempel, eine Ring-ID oder eine Ringart ersetzt.
 
-- `%d` Unix-Zeitstempel. Beispiel:`test_%d -> test_1588331430061`
-- `%g` : Formatiertes Datum im Format JJJJMMTT. Beispiel:`test_%g -> test_20240614`
-- `%t` : Formatierte Zeit HHiiss. Beispiel:`test_%t -> test_235901`
-- `%i` : ID Ihres Ringgeräts: Beispiel:`test_%i -> test_234567890`
-- `%n` Zähler seit Beginn der Ringinstanz. Beispiel:`test_%n -> test_1`
-- `%k` Art Ihres Ringgeräts: Beispiel:`test_%k -> test_doorbell`
+- `%d` Unix-Zeitstempel. Beispiel: `test_%d -> test_1588331430061`
+- `%g`: Formatiertes Datum im Format JJJJMMTT. Beispiel: `test_%g -> test_20240614`
+- `%t`: Formatierte Zeit HHiiss. Beispiel: `test_%t -> test_235901`
+- `%i`: ID Ihres Ringgeräts: Beispiel: `test_%i -> test_234567890`
+- `%n` Zähler seit Beginn der Ringinstanz. Beispiel: `test_%n -> test_1`
+- `%k` Art Ihres Ringgeräts: Beispiel: `test_%k -> test_doorbell`
 
 ### Häufig gestellte Fragen
 
@@ -54,17 +54,17 @@ Damit dieser Adapter korrekt auf Ereignisse reagieren kann, muss Ring die Push-B
 
 ### Änderungen in Version 5
 
-1. Einige Datenpunkte wurden umbenannt, um eine einheitlichere Benennung zu gewährleisten (z. B.`livestream_request` wurde reduziert auf`request` wie es bereits im Kanal ist`livestream` ).
+1. Einige Datenpunkte wurden umbenannt, um eine einheitlichere Benennung zu gewährleisten (z. B. `livestream_request` wurde reduziert auf `request` wie es bereits im Kanal ist `livestream`).
 2. Sie können nun konfigurieren, ob Sie auf Ereignisse reagieren möchten (z. B. durch Aufzeichnung, Schnappschuss usw.) oder nicht.
 3. Binäre Zustände wurden entfernt.
 
 ### V3 Überarbeitung – Inkompatible Änderungen
 
-1. Die Gerätenamen wurden um ihre Beschreibung erweitert (z. B. von`Device 1234567` Zu`Device 1234567 ("Floodlight Garden")` )
+1. Die Gerätenamen wurden um ihre Beschreibung erweitert (z. B. von `Device 1234567` Zu `Device 1234567 ("Floodlight Garden")`)
 2. Die Snapshot-/Livestream-Daten befinden sich nun in einem separaten Kanal, der auch die anderen Datenpunkte enthält.
 3. Das Snapshot-/Livestream-Objekt wurde vom Typ Meta in den Status mit dem Typ Datei geändert.
 4. Ereignisse (Bewegung, Klingeln usw.) befinden sich nun im jeweiligen Kanal.
-5. Wegen`ring-api` die Unterstützung für Node vor`v16.x` Dieser Adapter benötigt`node v16.x` oder`node v18.x`
+5. Wegen `ring-api` die Unterstützung für Node vor `v16.x` Dieser Adapter benötigt `node v16.x` oder `node v18.x`
 6. Die Aktualisierungsfrequenz wird auf einmal alle zwei Stunden reduziert, da wir auf Ereignisse reagieren.
 
 ### SIP (vor Version 3.x)

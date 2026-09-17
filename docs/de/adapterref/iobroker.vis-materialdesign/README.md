@@ -249,13 +249,13 @@ Jede Einstellungsseite für Farben, dunkle Farben, Schriftart und Schriftgröße
 
 Standardfarben, -schriftarten und -schriftgrößen können im oberen Bereich definiert werden. Diese können dann mithilfe der Schaltflächen in der Tabelle den einzelnen Widgets zugewiesen werden. Wenn Sie die Standardeinstellungen ändern, werden diese automatisch für alle Widgets übernommen, die diese Einstellungen verwenden. Zusätzlich können Sie den Widgets auch eigene, von den Standardeinstellungen unabhängige Farben, Schriftarten und Schriftgrößen zuweisen.
 
-Bei den Farben gibt es zwei Designs – ein helles und ein dunkles. Mit dem Datenpunkt`vis-materialdesign.0.colors.darkTheme` Sie können zwischen den beiden Designs wechseln. Beispielsweise kann dieser Datenpunkt in einem Skript verwendet werden, um bei Sonnenaufgang und Sonnenuntergang zwischen hellen und dunklen Farben umzuschalten.
+Bei den Farben gibt es zwei Designs – ein helles und ein dunkles. Mit dem Datenpunkt `vis-materialdesign.0.colors.darkTheme` Sie können zwischen den beiden Designs wechseln. Beispielsweise kann dieser Datenpunkt in einem Skript verwendet werden, um bei Sonnenaufgang und Sonnenuntergang zwischen hellen und dunklen Farben umzuschalten.
 
 ##### VIS-Editor (Alte Widgets wiederherstellen/aktualisieren)
 
 ![Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/vis_editor_theme_restore.gif)
 
-Im VIS-Editor finden Sie eine Schaltfläche`use theme` Für jedes Widget. Mit dieser Schaltfläche können Sie die Widgets auf die Verwendung der Designs zurücksetzen. Das heißt, wenn Sie Farben, Schriftarten oder Schriftgrößen geändert haben, können Sie diese mit dieser Schaltfläche zurücksetzen.
+Im VIS-Editor finden Sie eine Schaltfläche `use theme` Für jedes Widget. Mit dieser Schaltfläche können Sie die Widgets auf die Verwendung der Designs zurücksetzen. Das heißt, wenn Sie Farben, Schriftarten oder Schriftgrößen geändert haben, können Sie diese mit dieser Schaltfläche zurücksetzen.
 
 Mithilfe dieser Schaltfläche können Sie auch Ihre Widgets von Versionen vor 0.4.0 aktualisieren, um die Designs zu verwenden.
 
@@ -263,13 +263,13 @@ Mithilfe dieser Schaltfläche können Sie auch Ihre Widgets von Versionen vor 0.
 
 ![Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/settings_mdw_binding.gif)
 
-Wenn Sie die Verwendung von Farben ändern möchten, die für andere Widgets definiert sind, können Sie die Datenpunktbindung kopieren, indem Sie auf die Schaltfläche mit dem Material-Design-Symbol klicken. Fügen Sie diese einfach in ein beliebiges Farb-, Schriftart- oder Schriftgrößenfeld eines Material-Design-Widgets ein. Eine Farb-„Statusbindung“ sieht beispielsweise so aus:`#mdwTheme:vis-materialdesign.0.colors.card.background`
+Wenn Sie die Verwendung von Farben ändern möchten, die für andere Widgets definiert sind, können Sie die Datenpunktbindung kopieren, indem Sie auf die Schaltfläche mit dem Material-Design-Symbol klicken. Fügen Sie diese einfach in ein beliebiges Farb-, Schriftart- oder Schriftgrößenfeld eines Material-Design-Widgets ein. Eine Farb-„Statusbindung“ sieht beispielsweise so aus: `#mdwTheme:vis-materialdesign.0.colors.card.background`
 
 ##### Verwenden Sie Binding für Widgets, die nicht im Material Design gestaltet sind.
 
 ![Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/settings_binding.gif)
 
-In den Adaptereinstellungen können Sie den Binding-Befehl in die Zwischenablage kopieren, indem Sie auf die Schaltfläche mit dem iobroker-Symbol klicken. Dieses Binding kann dann per Kopieren und Einfügen auch für Widgets verwendet werden, die nicht dem Material Design entsprechen. Ein Farbbinding sieht beispielsweise so aus:`{mode:vis-materialdesign.0.colors.darkTheme;light:vis-materialdesign.0.colors.light.card.background;dark:vis-materialdesign.0.colors.dark.card.background; mode === "true" ? dark : light}`
+In den Adaptereinstellungen können Sie den Binding-Befehl in die Zwischenablage kopieren, indem Sie auf die Schaltfläche mit dem iobroker-Symbol klicken. Dieses Binding kann dann per Kopieren und Einfügen auch für Widgets verwendet werden, die nicht dem Material Design entsprechen. Ein Farbbinding sieht beispielsweise so aus: `{mode:vis-materialdesign.0.colors.darkTheme;light:vis-materialdesign.0.colors.light.card.background;dark:vis-materialdesign.0.colors.dark.card.background; mode === "true" ? dark : light}`
 
 # Widgets
 
@@ -8842,7 +8842,7 @@ Das Layout „auto“ wechselt je nach Bildschirmauflösung automatisch zwischen
 
 Damit das Widget „view in widget 8“ korrekt funktioniert, müssen Sie eine CSS-Medienregel definieren.
 
-- Weisen Sie dem Widget zunächst eine „Allgemeine CSS-Regel“ zu, z. B. mit dem Namen „Widget“.`my-view-in-widget8` Die
+- Weisen Sie dem Widget zunächst eine „Allgemeine CSS-Regel“ zu, z. B. mit dem Namen „Widget“. `my-view-in-widget8` Die
 - Fügen Sie anschließend den folgenden CSS-Code zu Ihrem Projekt hinzu:
 
 ```
@@ -8867,8 +8867,8 @@ Damit das Widget „view in widget 8“ korrekt funktioniert, müssen Sie eine C
 }
 ```
 
-- Passen Sie in der CSS-Datei die Auflösung an die Auflösung an, die Sie im VIS-Editor festgelegt haben (im Beispiel).`max-width: 800px` Und`min-width: 800px` )
-- Wenn Sie eine benutzerdefinierte Breite für die Menüleiste festlegen, müssen Sie auch die CSS-Eigenschaften 'left' und 'width' auf diesen Wert ändern (im Beispiel).`left: 256px !important;` Und`width: calc(100% - 256px) !important;` )
+- Passen Sie in der CSS-Datei die Auflösung an die Auflösung an, die Sie im VIS-Editor festgelegt haben (im Beispiel). `max-width: 800px` Und `min-width: 800px`)
+- Wenn Sie eine benutzerdefinierte Breite für die Menüleiste festlegen, müssen Sie auch die CSS-Eigenschaften 'left' und 'width' auf diesen Wert ändern (im Beispiel). `left: 256px !important;` Und `width: calc(100% - 256px) !important;`)
 
 ### Editor-Einstellungen
 
@@ -11097,13 +11097,13 @@ Um ein Steuerelement (Schaltfläche, Kontrollkästchen usw.) in einer Tabellenze
 
 ## Responsives Layout
 
-Es gibt zwei Widgets – Masonry-Ansichten und Rasteransichten –, mit denen sich ein responsives Layout (ein Layout für Desktop, Tablet und Mobilgeräte) erstellen lässt. Beide Widgets verfügen über mehrere Optionen.`view in widget` integriert.
+Es gibt zwei Widgets – Masonry-Ansichten und Rasteransichten –, mit denen sich ein responsives Layout (ein Layout für Desktop, Tablet und Mobilgeräte) erstellen lässt. Beide Widgets verfügen über mehrere Optionen. `view in widget` integriert.
 
 ### Mauerwerksansichten
 
 ![Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/masnory.gif)
 
-Masonry Views verfügt über mehrere`view in widget` Die Elemente sind integriert und werden automatisch anhand ihrer Breite sortiert. Mit diesem Widget lässt sich ein responsives Layout erstellen (ein Layout für Desktop, Tablet und Smartphone). Masonry-Ansichten sind besonders nützlich, wenn die enthaltenen Ansichten unterschiedliche Höhen haben.
+Masonry Views verfügt über mehrere `view in widget` Die Elemente sind integriert und werden automatisch anhand ihrer Breite sortiert. Mit diesem Widget lässt sich ein responsives Layout erstellen (ein Layout für Desktop, Tablet und Smartphone). Masonry-Ansichten sind besonders nützlich, wenn die enthaltenen Ansichten unterschiedliche Höhen haben.
 
 <b> Schauen Sie sich das [Beispielprojekt „Material Design Widgets“](https://github.com/Scrounger/ioBroker.vis-materialdesign#online-example-project) an.</b> um zu verstehen, wie es funktioniert.
 
@@ -11143,7 +11143,7 @@ Masonry Views verfügt über mehrere`view in widget` Die Elemente sind integrier
 
 ![Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/grid.gif)
 
-Grid Views hat mehrere`view in widget` Die Elemente sind integriert und werden automatisch anhand ihrer Breite sortiert. Mit diesem Widget lässt sich ein responsives Layout erstellen (ein Layout für Desktop, Tablet und Smartphone). Rasteransichten sind besonders nützlich, wenn die enthaltenen Ansichten die gleiche Höhe haben.
+Grid Views hat mehrere `view in widget` Die Elemente sind integriert und werden automatisch anhand ihrer Breite sortiert. Mit diesem Widget lässt sich ein responsives Layout erstellen (ein Layout für Desktop, Tablet und Smartphone). Rasteransichten sind besonders nützlich, wenn die enthaltenen Ansichten die gleiche Höhe haben.
 
 <b> Das Grid-View-Widget hat insgesamt 12 Spalten. Wenn eine Ansicht eine Breite von 4 Spalten haben soll, müssen Sie die Spaltenbreite (column span) in der entsprechenden Ansicht auf 4 setzen\[x].</b>
 
@@ -11595,12 +11595,12 @@ Einstellungen, die in der folgenden Tabelle nicht aufgeführt sind, sind selbste
 
 ## HTML-Widgets
 
-Erstellen Sie ein HTML-Widget aus den unterstützten Material-Design-Widgets, um es in jedem anderen Widget zu verwenden, das HTML unterstützt. Gestalten Sie einfach Ihr Material-Design-Widget und drücken Sie die entsprechende Schaltfläche.`generate Html Element` Kopieren Sie die Daten und fügen Sie sie in ein beliebiges Widget ein, das HTML-Tags unterstützt. Oder verwenden Sie sie in Skripten, um Widgets dynamisch zu generieren.
+Erstellen Sie ein HTML-Widget aus den unterstützten Material-Design-Widgets, um es in jedem anderen Widget zu verwenden, das HTML unterstützt. Gestalten Sie einfach Ihr Material-Design-Widget und drücken Sie die entsprechende Schaltfläche. `generate Html Element` Kopieren Sie die Daten und fügen Sie sie in ein beliebiges Widget ein, das HTML-Tags unterstützt. Oder verwenden Sie sie in Skripten, um Widgets dynamisch zu generieren.
 
 > Aufmerksamkeit:
 >
-> - Attribute von HTML-Tags müssen von \<span> umschlossen werden`'` (einfaches Anführungszeichen)
-> - doppelte Anführungszeichen`"` In Attributen verwendete Zeichen müssen wie folgt maskiert werden:`\"`
+> - Attribute von HTML-Tags müssen von \<span> umschlossen werden `'` (einfaches Anführungszeichen)
+> - doppelte Anführungszeichen `"` In Attributen verwendete Zeichen müssen wie folgt maskiert werden: `\"`
 >
 > Vergleichen Sie dies mit den gezeigten Beispielen der verschiedenen Widgets.
 

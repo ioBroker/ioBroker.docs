@@ -53,7 +53,7 @@ Der Adapter verwendet eine inoffizielle Tractive-Service-Schnittstelle. Ein funk
 - Ruft die echten Namen und Profildaten der mit dem Konto verbundenen Tiere ab.
 - Stellt aktuelle GPS-Koordinaten, Höhe, Geschwindigkeit, Positionsgenauigkeit, Entfernung zum konfigurierten ioBroker-Standort und Aktualisierungszeit bereit.
 - Kann Koordinaten optional in eine lesbare Adresse umwandeln.
-- Stellt Batteriestand, Ladezustand,verwendete Positionsquelle (`KNOWN_WIFI` /`GPS` ), Zuhause-/Unterwegs-Status, Online-Status und Energiesparzustand bereit.
+- Stellt Batteriestand, Ladezustand,verwendete Positionsquelle (`KNOWN_WIFI` /`GPS`), Zuhause-/Unterwegs-Status, Online-Status und Energiesparzustand bereit.
 - Liefert Modell, Firmware, Hardwareversion, Fähigkeiten, Geschlecht, Geburtstag, Größe, Gewicht und weitere verfügbare Informationen.
 - Unterstützt Live-Tracking, LED und Signalton, sofern der Tracker die jeweilige Funktion meldet.
 - Speichert alle abgerufenen Konto-, Abonnement-, Freigabe-, Tier-, Tracker-, Positions- und Hardwaredaten als logischen lokalen Datenbaum sowie als vollständigen JSON-Schnappschuss.
@@ -83,7 +83,7 @@ Nach dem ersten Speichern bleibt das Passwort unverändert, wenn das Passwortfel
 - Tierprofile, Bilder und weitere statistische Angaben werden beim täglichen Vollabgleich aktualisiert.
 - Nach dem Start des Adapters wird ebenfalls ein Vollabgleich durchgeführt.
 
-Tractive kann vorübergehend mit HTTP 429 begrenzt sein. Der Adapter verteilt seine Anfragen, pausiert innerhalb dieser Begrenzung alle weiteren Anfragen und wiederholt sie automatisch. Eine erfolgreiche Aktualisierung ist an`info.lastSuccessfulSync` und`info.dataFresh` identifizierbar.
+Tractive kann vorübergehend mit HTTP 429 begrenzt sein. Der Adapter verteilt seine Anfragen, pausiert innerhalb dieser Begrenzung alle weiteren Anfragen und wiederholt sie automatisch. Eine erfolgreiche Aktualisierung ist an `info.lastSuccessfulSync` und `info.dataFresh` identifizierbar.
 
 ## Objekte und Datenpunkte
 
@@ -115,25 +115,25 @@ tractive-gps.0
 
 ### Adapterinformationen
 
-- `info.connection` : Zeigt an, ob die letzte Synchronisierung erfolgreich war.
-- `info.dataFresh` : Zeigt an, ob aktuelle nutzbare Daten vorhanden sind.
-- `info.lastSync` : Zeitpunkt des letzten Synchronisierungsversuchs.
-- `info.lastSuccessfulSync` : Zeitpunkt der letzten erfolgreichen Synchronisierung.
-- `info.refresh` : Taster zum manuellen Starten eines vollständigen Abgleichs.
+- `info.connection`: Zeigt an, ob die letzte Synchronisierung erfolgreich war.
+- `info.dataFresh`: Zeigt an, ob aktuelle nutzbare Daten vorhanden sind.
+- `info.lastSync`: Zeitpunkt des letzten Synchronisierungsversuchs.
+- `info.lastSuccessfulSync`: Zeitpunkt der letzten erfolgreichen Synchronisierung.
+- `info.refresh`: Taster zum manuellen Starten eines vollständigen Abgleichs.
 - `info.status` Aktueller Adapterstatus.
-- `info.currentApi` : Vollständiger JSON-Schnappschuss der aktuell verfügbaren Tractive-Daten.
+- `info.currentApi`: Vollständiger JSON-Schnappschuss der aktuell verfügbaren Tractive-Daten.
 
 ### Tiere
 
-Die Datenpunkte unter`pets.<pet-id>.*` Enthalten nützliche Tierprofildaten, Tracker-Zuordnung, Aktivitätsziele und das Profilbild. Leere und interne API-Felder werden weggelassen.
+Die Datenpunkte unter `pets.<pet-id>.*` Enthalten nützliche Tierprofildaten, Tracker-Zuordnung, Aktivitätsziele und das Profilbild. Leere und interne API-Felder werden weggelassen.
 
 ### Tracker
 
-Die Datenpunkte unter`trackers.<tracker-id>.*` Enthalten Tracker-Kennung, Betriebs- und Onlinestatus, Position, Positionsquelle, Entfernung zum ioBroker-Systemstandort, Adresse, Batterieinformationen und unterstützte Befehle.`location.sensorUsed` Enthält die Tractive-Positionsquelle.`status.home` wird aus`KNOWN_WIFI` daher`GPS` abgeleitet. Einen doppelten Datenpunkt`connectionType` mehr gibt es nicht. Breiten- und Längengrad des ioBroker-Standorts werden in den Systemeinstellungen festgelegt.
+Die Datenpunkte unter `trackers.<tracker-id>.*` Enthalten Tracker-Kennung, Betriebs- und Onlinestatus, Position, Positionsquelle, Entfernung zum ioBroker-Systemstandort, Adresse, Batterieinformationen und unterstützte Befehle. `location.sensorUsed` Enthält die Tractive-Positionsquelle. `status.home` wird aus `KNOWN_WIFI` daher `GPS` abgeleitet. Einen doppelten Datenpunkt `connectionType` mehr gibt es nicht. Breiten- und Längengrad des ioBroker-Standorts werden in den Systemeinstellungen festgelegt.
 
 ### Vollständige API-Daten
 
-Nur für Skripte, Automatisierungen und Visualisierungen werden sinnvoll nutzbare Werte als einzelne Datenpunkte angelegt. Leere Werte, API-Metadaten, interne Versionsfelder und doppelte Darstellungen werden weggelassen. Die vollständige unveränderte kombinierte Antwort bleibt als einzelner JSON-Wert in`info.currentApi` verfügbar. Anmeldepasswort und Zugriffstoken werden dabei nie abgelegt.
+Nur für Skripte, Automatisierungen und Visualisierungen werden sinnvoll nutzbare Werte als einzelne Datenpunkte angelegt. Leere Werte, API-Metadaten, interne Versionsfelder und doppelte Darstellungen werden weggelassen. Die vollständige unveränderte kombinierte Antwort bleibt als einzelner JSON-Wert in `info.currentApi` verfügbar. Anmeldepasswort und Zugriffstoken werden dabei nie abgelegt.
 
 ## Tracker-Befehle
 
@@ -143,34 +143,34 @@ Folgende schreibbare Datenpunkte werden nur angelegt, wenn der gewählte Tracker
 - `trackers.<tracker-id>.commands.led`
 - `trackers.<tracker-id>.commands.buzzer`
 
-Der gewünschte Datenpunkt wird angezeigt`true` Oder`false` gesetzt. Er wird bestätigt, sobald Tractive den Befehl angenommen hat.
+Der gewünschte Datenpunkt wird angezeigt `true` Oder `false` gesetzt. Er wird bestätigt, sobald Tractive den Befehl angenommen hat.
 
 ## VIS-Widgets
 
-Der Adapter enthält einen klassischen`PetTrackerCard` für VIS 1 sowie eine native React-`PetTrackerCard` für VIS 2. Für jedes Tier bzw. jeden Tracker wird ein eigenes Widget eingefügt und in den Widget-Einstellungen mit den gewünschten Datenpunkten verknüpft.
+Der Adapter enthält einen klassischen `PetTrackerCard` für VIS 1 sowie eine native React-`PetTrackerCard` für VIS 2. Für jedes Tier bzw. jeden Tracker wird ein eigenes Widget eingefügt und in den Widget-Einstellungen mit den gewünschten Datenpunkten verknüpft.
 
 Die Karte kann Folgendes anzeigen:
 
 - Tiername, Tierart, Geschlecht, Alter und Gewicht,
 - Tracker-Name und Online-Status,
-- Tierbild aus dem lokalen Datenpunkt`media.localProfilePictureUrl` ,
+- Tierbild aus dem lokalen Datenpunkt `media.localProfilePictureUrl`,
 - interaktive Prospekt-/OpenStreetMap-Karte,
 - gemeldeter oder manuell eingestellter Positionsradius,
 - Batteriestand, Positionsquelle, Zuhause-/Unterwegs-Status und Entfernung zu ioBroker,
 - letzte Aktualisierung, Adresse, Energiesparzustand, Ladezustand, Geschwindigkeit, Höhe und Positionsgenauigkeit,
 - Schalter für Signalton, LED und Live-Tracking bei unterstützten Trackern.
 
-Für das Tractive-Bild wird`pets.<pet-id>.media.localProfilePictureUrl` als Bilddatenpunkt ausgewählt. Er enthält die URL der im lokalen ioBroker-Dateispeicher abgelegten Kopie. Wird kein Bild geliefert oder kann es nicht geladen werden, lässt sich im Widget-Bereich **Darstellung** ein eigenes Bild auswählen oder hochladen.
+Für das Tractive-Bild wird `pets.<pet-id>.media.localProfilePictureUrl` als Bilddatenpunkt ausgewählt. Er enthält die URL der im lokalen ioBroker-Dateispeicher abgelegten Kopie. Wird kein Bild geliefert oder kann es nicht geladen werden, lässt sich im Widget-Bereich **Darstellung** ein eigenes Bild auswählen oder hochladen.
 
 Die Karte kann den vollständigen Genauigkeits- oder Bereichskreis automatisch eingeben. Minimaler und maximaler Zoom, Bedienung, Bereichsquelle und ein manueller Radius sind in den Widget-Einstellungen konfigurierbar. Zur Anzeige der Karte werden Kartenkacheln von OpenStreetMap geladen.
 
-Für die Befehlsschalter werden die entsprechenden Datenpunkte unter`trackers.<tracker-id>.commands.*` Im Widget-Bereich **Befehle** zugeordnet. Während der Bearbeitung der VIS-Ansicht sind die Befehle gesperrt; Im Laufzeitmodus lassen sie sich bedienen.
+Für die Befehlsschalter werden die entsprechenden Datenpunkte unter `trackers.<tracker-id>.commands.*` Im Widget-Bereich **Befehle** zugeordnet. Während der Bearbeitung der VIS-Ansicht sind die Befehle gesperrt; Im Laufzeitmodus lassen sie sich bedienen.
 
 ## Datenschutz und Sicherheit
 
 - Das Passwort wird mit dem verschlüsselten ioBroker-Konfigurationsverfahren gespeichert.
 - Zugriffstoken bleiben im Arbeitsspeicher und werden automatisch erneuert.
-- Ausgewählte Konto- und Abonnementinformationen werden im logischen Objektbaum gespeichert. Die vollständig abgerufenen API-Daten werden lokal in`info.currentApi` abgelegt. Der Zugriff auf den ioBroker-Objektbaum sollte entsprechend geschützt werden.
+- Ausgewählte Konto- und Abonnementinformationen werden im logischen Objektbaum gespeichert. Die vollständig abgerufenen API-Daten werden lokal in `info.currentApi` abgelegt. Der Zugriff auf den ioBroker-Objektbaum sollte entsprechend geschützt werden.
 - Passwort und Zugriffstoken werden dem API-Datenbaum nie hinzugefügt und verbleiben geschützt in der verschlüsselten Konfiguration bzw. im Arbeitsspeicher.
 - Genaue Positionen werden lokal in ioBroker-Datenpunkten gespeichert, weil sie für die Funktion des Adapters erforderlich sind.
 - Die Rückwärts-Geokodierung ist optional und wird bei Aktivierung Koordinaten an den Adressdienst von Tractive gesendet.
@@ -181,11 +181,11 @@ Für die Befehlsschalter werden die entsprechenden Datenpunkte unter`trackers.<t
 
 - **Verbindungstest schlägt fehl:** E-Mail-Adresse, Passwort, Internetverbindung und anfänglichen HTTPS-Zugriff prüfen.
 - **Keine Tiere oder Tracker sichtbar:** Prüfen Sie, ob der Tracker dem eingestellten Tractive-Konto zugeordnet sind, und starten Sie anschließend die Adapterinstanz neu.
-- **Daten werden nicht aktualisiert:**`info.status` ,`info.dataFresh` und`info.lastSuccessfulSync` prüfen.
+- **Daten werden nicht aktualisiert:** `info.status`, `info.dataFresh` und `info.lastSuccessfulSync` prüfen.
 - **HTTP 429 wird gemeldet:** Die Instanz weiterlaufen lassen. Der Adapter pausiert seine Anfragen und wiederholt sie automatisch nach Ablauf der Traktiv-Begrenzung.
 - **Keine sichtbare Adresse:** Rückwärts-Geokodierung in der Adapterkonfiguration aktivieren.
 - **Ein Befehl fehlt:** Der Tracker meldet die notwendige Fähigkeit dafür nicht.
-- **Tierbild fehlt:**`localProfilePictureUrl` im Widget zuordnen oder ein eigenes Bild auswählen.
+- **Tierbild fehlt:** `localProfilePictureUrl` im Widget zuordnen oder ein eigenes Bild auswählen.
 
 ## Entwicklerdokumentation
 

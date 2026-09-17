@@ -289,7 +289,7 @@ Dies veranlasst iQontrol, dem Benutzer die vom Benutzer als Objekt konfigurierte
 * Um Nachrichten von iQontrol zu empfangen, müssen Sie einen Event-Listener für das "message"-Ereignis mit dem JavaScript-Befehl `window.addEventListener("message", receivePostMessage, false);` registrieren.
 * Die Funktion `receivePostMessage` empfängt das Objekt `event`
 * `event.data` enthält die Nachricht von iqontrol, die ein Objekt wie folgt sein wird:
-* event.data = `{ command: "getState", stateId: <stateId>, value: <stateObject> }` - dies ist die Antwort auf einen `getState`-Befehl oder einen `getStateSubscribed`-Befehl und liefert Ihnen das tatsächliche `<value>`-Objekt des ioBroker-Status.`<stateId>`
+* event.data = `{ command: "getState", stateId: <stateId>, value: <stateObject> }` - dies ist die Antwort auf einen `getState`-Befehl oder einen `getStateSubscribed`-Befehl und liefert Ihnen das tatsächliche `<value>`-Objekt des ioBroker-Status. `<stateId>`
 * `<stateObject>` selbst ist ein Objekt wie
 
 			```

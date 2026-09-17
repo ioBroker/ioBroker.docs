@@ -46,7 +46,7 @@ Neben der hohen Qualität der Daten sind insbesondere die Solardaten von Interes
 
 <img width="1200" height="444" alt="image" src="https://github.com/user-attachments/assets/fc63120a-3dff-4651-841d-ff55bd8482d7" />  
 
-Da die Werte aus dem Datenpunkt`brightsky.0.current.solar_60` Beispielsweise werden sie in kWh/m² angegeben und sind bereits als Energie pro Stunde ausgedrückt, der Wert`multiplied by 1000` kann auch in W/m² ausgedrückt werden.
+Da die Werte aus dem Datenpunkt `brightsky.0.current.solar_60` Beispielsweise werden sie in kWh/m² angegeben und sind bereits als Energie pro Stunde ausgedrückt, der Wert `multiplied by 1000` kann auch in W/m² ausgedrückt werden.
 
 Beispiel für die Globalstrahlung (W/m²)<img width="1200" height="224" alt="image" src="https://github.com/user-attachments/assets/a83fdbdc-c56f-499e-b2ad-a58c9b24d5de" />
 
@@ -67,10 +67,10 @@ Die Geokoordinaten für die Position können entweder direkt aus dem Browser ode
 Die Daten lauten wie folgt:<img width="183" height="156" alt="image" src="https://github.com/user-attachments/assets/fcb85df5-ff25-4d22-be54-0b04ea36f6ef" />
 
 - aktuell - das aktuelle Wetter (siehe auch: <https://brightsky.dev/docs/#/operations/getCurrentWeather> )
-- täglich – die aktuelle Wettervorhersage für die nächsten konfigurierbaren Tage (siehe`forecastDays` Konfiguration (Standard: 7 Tage)
-  - `daily.XX.hourly` - optionale verschachtelte Stundendaten unter dem jeweiligen Tag (gesteuert durch`hourlyForecastDays` (nur an den ersten N Tagen vorhanden; 0 = deaktiviert)
+- täglich – die aktuelle Wettervorhersage für die nächsten konfigurierbaren Tage (siehe `forecastDays` Konfiguration (Standard: 7 Tage)
+  - `daily.XX.hourly` - optionale verschachtelte Stundendaten unter dem jeweiligen Tag (gesteuert durch `hourlyForecastDays` (nur an den ersten N Tagen vorhanden; 0 = deaktiviert)
   - `daily.XX.day` /`daily.XX.night` - zusammengefasste Tages-/Nachtübersichten pro Tag
-- stündlich – flache Liste der stündlichen Vorhersagen für die nächsten N Stunden (siehe`hours` Konfiguration; unabhängig von der verschachtelten`daily.XX.hourly` Funktion; siehe auch: <https://brightsky.dev/docs/#/operations/getWeather> )
+- stündlich – flache Liste der stündlichen Vorhersagen für die nächsten N Stunden (siehe `hours` Konfiguration; unabhängig von der verschachtelten `daily.XX.hourly` Funktion; siehe auch: <https://brightsky.dev/docs/#/operations/getWeather> )
 - Radar – Niederschlagsradarvorhersage für die nächsten 2 Stunden in 5-Minuten-Intervallen mit Werten in mm pro 5 Minuten. Enthält Maximalwerte über alle Gitterzellen hinweg und kumulative Summen über alle Gitterbereiche (siehe auch: <https://brightsky.dev/docs/#/operations/getRadar> )
 
 ---

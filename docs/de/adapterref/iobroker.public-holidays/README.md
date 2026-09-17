@@ -159,7 +159,7 @@ Die Berechnungsregel des Feiertags wurde in den Daten umbenannt. Der Adapter war
 Durchgang vor veralteten Ausschlüssen; den Chip in den Einstellungen entfernen und den Feiertag neu
 auswählen.
 
-**Im Log steht um Mitternacht `Connection is closed.`**
+**Im Log steht um Mitternacht `Connection is closed.` **
 Das kommt vom ioBroker-Controller beim Herunterfahren des Adapters, nicht vom Adapter selbst. Es ist
 folgenlos — der Durchgang hat seine Datenpunkte zu diesem Zeitpunkt bereits geschrieben.
 

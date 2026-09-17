@@ -40,13 +40,13 @@ Beachten Sie, dass Wildcard-Zertifikatsbestellungen nur mit der DNS-01-Challenge
 
 #### HTTP-01
 
-Der CA holt`http://<FQDN>/.well-known/acme-challenge/<token>` auf Port 80. Dieser Pfad und Port sind durch das ACME-Protokoll festgelegt, daher muss etwas darauf antworten.
+Der CA holt `http://<FQDN>/.well-known/acme-challenge/<token>` auf Port 80. Dieser Pfad und Port sind durch das ACME-Protokoll festgelegt, daher muss etwas darauf antworten.
 
 **Die Übermittlung der HTTP-01-Herausforderung** auf der Konfigurationsseite entscheidet über Folgendes:
 
-- **Automatisch (empfohlen)** – der Adapter veröffentlicht die Challenge-Token im Zustand`acme.<instance>.info.httpChallenges` Die`web` Und`admin` Bedienen Sie sie direkt von dort, wenn sie kürzlich genug Zeit hatten.`@iobroker/webserver` Daher muss nichts gestoppt und kein Port freigehalten werden. Wenn der konfigurierte Port nicht mit einem veröffentlichten Token antwortet, greift der Adapter auf seinen eigenen Challenge-Server zurück und stoppt Adapter auf diesem Port, genau wie in älteren Versionen.
+- **Automatisch (empfohlen)** – der Adapter veröffentlicht die Challenge-Token im Zustand `acme.<instance>.info.httpChallenges` Die `web` Und `admin` Bedienen Sie sie direkt von dort, wenn sie kürzlich genug Zeit hatten. `@iobroker/webserver` Daher muss nichts gestoppt und kein Port freigehalten werden. Wenn der konfigurierte Port nicht mit einem veröffentlichten Token antwortet, greift der Adapter auf seinen eigenen Challenge-Server zurück und stoppt Adapter auf diesem Port, genau wie in älteren Versionen.
 - **Eigener Challenge-Server, keine Adapterkonflikte** – es wird immer ein eigener Server auf dem konfigurierten Port betrieben, wobei alle daran angeschlossenen Adapter für die Dauer des Auftrags deaktiviert werden. Dies war das einzige Verhalten bis Version 5.0.0.
-- **Wird der Dienst von einem anderen Adapter oder Reverse-Proxy bereitgestellt** – veröffentlichen Sie die Tokens und ändern Sie den Port niemals. Verwenden Sie dies, wenn ein nginx-, Traefik- oder anderer Dienst verwendet wird.`proxy` Adapter nach vorne`/.well-known/acme-challenge/` an einen Webserver, der den Zustand ausliest.
+- **Wird der Dienst von einem anderen Adapter oder Reverse-Proxy bereitgestellt** – veröffentlichen Sie die Tokens und ändern Sie den Port niemals. Verwenden Sie dies, wenn ein nginx-, Traefik- oder anderer Dienst verwendet wird. `proxy` Adapter nach vorne `/.well-known/acme-challenge/` an einen Webserver, der den Zustand ausliest.
 
 Damit eine HTTP-01-Challenge erfolgreich ist, **muss** der Server, der die Challenge durchführt, über Port 80 des in einem Sammlungsnamen (Common/Alt Name) angegebenen FQDN öffentlich aus dem Internet erreichbar sein. Let's Encrypt folgt Weiterleitungen, sodass die Anfrage möglicherweise über einen anderen Port oder HTTPS läuft – sie beginnt jedoch immer mit Port 80.
 
@@ -73,7 +73,7 @@ Beispielszenarien:
 
    Mögliche Lösungen:
 
-   1. Wenn der andere Dienst`web` oder`admin` auf einer Version mit`@iobroker/webserver` Mit ACME-Unterstützung ist nichts weiter zu tun: ACME beantwortet die veröffentlichten Herausforderungen selbstständig und läuft kontinuierlich. Die Zustellung kann auf **„Automatisch“** eingestellt bleiben.
+   1. Wenn der andere Dienst `web` oder `admin` auf einer Version mit `@iobroker/webserver` Mit ACME-Unterstützung ist nichts weiter zu tun: ACME beantwortet die veröffentlichten Herausforderungen selbstständig und läuft kontinuierlich. Die Zustellung kann auf **„Automatisch“** eingestellt bleiben.
 
    2. Wenn es sich bei dem anderen Dienst um einen IoB-Adapter handelt, der den Portkonfigurations-Namensstandards entspricht, aber die Herausforderungen nicht selbst bedienen kann, stoppt ACME ihn, bevor versucht wird, ein Zertifikat zu bestellen, verwendet Port 80 für seinen eigenen HTTP-01-Herausforderungsserver und startet jeden gestoppten Adapter nach Abschluss neu.
 
@@ -98,7 +98,7 @@ Beispielszenarien:
 
 ##### Sich selbst veröffentlichen Herausforderungen stellen
 
-Der Staat`acme.<instance>.info.httpChallenges` ist der Vertrag zwischen diesem Adapter und dem Dienst, der Port 80 bedient. Er enthält ein JSON-Objekt, dessen Schlüssel das Challenge-Token ist:
+Der Staat `acme.<instance>.info.httpChallenges` ist der Vertrag zwischen diesem Adapter und dem Dienst, der Port 80 bedient. Er enthält ein JSON-Objekt, dessen Schlüssel das Challenge-Token ist:
 
 ```json
 {
@@ -109,12 +109,12 @@ Der Staat`acme.<instance>.info.httpChallenges` ist der Vertrag zwischen diesem A
 }
 ```
 
-Ein Leser antwortet`GET /.well-known/acme-challenge/<token>` sollen:
+Ein Leser antwortet `GET /.well-known/acme-challenge/<token>` sollen:
 
-- Lesen Sie jede einzelne Instanz, d. h. das Muster des ausländischen Staates.`acme.*.info.httpChallenges` - Die Instanznummer ist nicht festgelegt, und es können zwei Instanzen gleichzeitig bestellen;
-- Ein Token ablehnen, das nicht`[A-Za-z0-9_-]{16,128}` bevor ich es nachschlage;
-- einen Eintrag ignorieren, dessen`expires` liegt in der Vergangenheit;
-- Antwort`200` mit`keyAuthorization` als der ganze Körper,`404` ;
+- Lesen Sie jede einzelne Instanz, d. h. das Muster des ausländischen Staates. `acme.*.info.httpChallenges` - Die Instanznummer ist nicht festgelegt, und es können zwei Instanzen gleichzeitig bestellen;
+- Ein Token ablehnen, das nicht `[A-Za-z0-9_-]{16,128}` bevor ich es nachschlage;
+- einen Eintrag ignorieren, dessen `expires` liegt in der Vergangenheit;
+- Antwort `200` mit `keyAuthorization` als der ganze Körper, `404`;
 - Führen Sie all dies **vor** jeglicher Authentifizierung durch, da die Zertifizierungsstelle anonym ist.
 
 Die Werte sind absichtlich öffentlich - sie werden über einfaches HTTP an jeden, der danach fragt, übermittelt - und werden wieder entfernt, sobald die Bestellung abgeschlossen ist.

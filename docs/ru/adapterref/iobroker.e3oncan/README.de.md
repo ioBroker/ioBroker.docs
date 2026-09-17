@@ -73,15 +73,15 @@ Die Datenpunktdefinitionen wurden auf Version 20260705 (allgemein) и 20260630 (
 
 ### Новый кодек O3ESwitch
 
-Ein neuer Codec`O3ESwitch` Чтобы получить доступ к дате, необходимо использовать структуру вашего специального дискриминатора-байта. Первый байт будет активен при выборе выбранного кодека. Если вы хотите, чтобы структурное декодирование ZigBee-Geräteslot-DID (2086–2143, 2262) было невозможным, то это означает, что декодирование не требуется (z. B. Klimasensor, Heizkörperthermostat, Fußbodenheizungsthermostat, Stellantrieb).
+Ein neuer Codec `O3ESwitch` Чтобы получить доступ к дате, необходимо использовать структуру вашего специального дискриминатора-байта. Первый байт будет активен при выборе выбранного кодека. Если вы хотите, чтобы структурное декодирование ZigBee-Geräteslot-DID (2086–2143, 2262) было невозможным, то это означает, что декодирование не требуется (z. B. Klimasensor, Heizkörperthermostat, Fußbodenheizungsthermostat, Stellantrieb).
 
 ### Десятичное числовые кодеки
 
-Численные кодеки (`O3EInt8` ,`O3EInt16` ,`O3EInt32` ,`O3EInt64` ,`O3EFloat32` ) unterstützen jetzt einen опционально Параметр`decimals` . Если это число больше 0, вы получите Dekodierergebnis auf die angebene Anzahl Nachkomastellen gerundet. Beispielsweise wird`SignalLevel` (Скалирование 2,55, десятичное число 2) damit ohne übermäßig lange Gleitkommazahlen ausgegeben.
+Численные кодеки (`O3EInt8`, `O3EInt16`, `O3EInt32`, `O3EInt64`, `O3EFloat32`) unterstützen jetzt einen опционально Параметр `decimals`. Если это число больше 0, вы получите Dekodierergebnis auf die angebene Anzahl Nachkomastellen gerundet. Beispielsweise wird `SignalLevel` (Скалирование 2,55, десятичное число 2) damit ohne übermäßig lange Gleitkommazahlen ausgegeben.
 
 ### Einheiten und Metadaten werden beim Start nach Strukturänderungen Gesetzt
 
-Чтобы начать работу с адаптером, выберите Struktur eines Datenpunkts geändert Hat (новая версия в`didsE3var.json` Одер`didsE3.json` ), werden Einheiten und Beschreibungen für alle Unterzustände des neu angelegten Tree-Abschnitts jetzt correkt gsetzt. Bisher wurden Einheiten nur beim Datenpunktscan gesetzt; nach einer Strukturaktualisierung war ein erneuter Scan erforderlich, um sie zu befüllen.
+Чтобы начать работу с адаптером, выберите Struktur eines Datenpunkts geändert Hat (новая версия в `didsE3var.json` Одер `didsE3.json`), werden Einheiten und Beschreibungen für alle Unterzustände des neu angelegten Tree-Abschnitts jetzt correkt gsetzt. Bisher wurden Einheiten nur beim Datenpunktscan gesetzt; nach einer Strukturaktualisierung war ein erneuter Scan erforderlich, um sie zu befüllen.
 
 ---
 
@@ -89,7 +89,7 @@ Ein neuer Codec`O3ESwitch` Чтобы получить доступ к дате,
 
 ### Выполните перестройку, чтобы выполнить обновление Node.js.
 
-Das native CAN-Modul`socketcan` Когда версия 4.2.1 будет актуализирована и будет проверена стабильная версия **N-API** -Schnittstelle. Этот модуль должен быть заменен версией Node.js, которая больше не компилируется. Обновление Node.js (от 22 до 24) erfordert keinen`iob rebuild` -Schritt mehr — der Adaptor startet ohne weitere Maßnahmen.
+Das native CAN-Modul `socketcan` Когда версия 4.2.1 будет актуализирована и будет проверена стабильная версия **N-API** -Schnittstelle. Этот модуль должен быть заменен версией Node.js, которая больше не компилируется. Обновление Node.js (от 22 до 24) erfordert keinen `iob rebuild` -Schritt mehr — der Adaptor startet ohne weitere Maßnahmen.
 
 ### Фильтр для установленных дат в дата-центре
 
@@ -97,7 +97,7 @@ Das native CAN-Modul`socketcan` Когда версия 4.2.1 будет акт�
 
 ### Schutz benutzerdefinierter Variantendatenpunkt-Definitionen
 
-Benutzerdefinierte Strukturen в`e3oncan.0.<GERÄT>.info.udsDidsSpecific` können jetzt durch das Setzen фон`"protected": true` **для автоматических обновлений** . Дополнительные опции Feld`"reason"` wird in das Log geschrieben, wenn der Schutz greift. Ohne Schutz werden Variantendatenpunkte (die auch in`didsE3var.json` enthalten sind) weiterhin autotisch auf neuere Definitionen actualisiert. Подробности Стивен в [документации](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific) .
+Benutzerdefinierte Strukturen в `e3oncan.0.<GERÄT>.info.udsDidsSpecific` können jetzt durch das Setzen фон `"protected": true` **для автоматических обновлений** . Дополнительные опции Feld `"reason"` wird in das Log geschrieben, wenn der Schutz greift. Ohne Schutz werden Variantendatenpunkte (die auch in `didsE3var.json` enthalten sind) weiterhin autotisch auf neuere Definitionen actualisiert. Подробности Стивен в [документации](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific) .
 
 ### Актуальные определения дат
 
@@ -106,7 +106,7 @@ Die Datenpunktdefinitionen wurden auf Version 20260528 (allgemein) и 20260527 (
 - ZigBee-DIDs 2084–2319 vollständig Strukturiert (Geräteeigenschaften, aktuelle Werte в 57- и 68-байтовых вариантах)
 - Структура Raum-DID 1884–1943 (название, тип, температура, Fenstererkennung, мин/макс-Luftfeuchte)
 - Neue ViGuide-basierte DID-Strukturen für Brennstoffzellenmetriken, Energiedeckung und Batterie-/Wechselrichter-Abonnements
-- `Unknown*` -Felder verwenden jetzt einheitlich`RawCodec`
+- `Unknown*` -Felder verwenden jetzt einheitlich `RawCodec`
 
 ---
 
@@ -132,7 +132,7 @@ Beim ersten Start nach einem Upgrade von einer früheren Version wird die bisher
 
 ### Анализ топологии автобусной сети
 
-Для автоматического сканирования адаптером всех топологических данных необходимо выполнить сканирование. Das Ergebnis wird в новых Штатах в`info` -Канал gespeichert:
+Для автоматического сканирования адаптером всех топологических данных необходимо выполнить сканирование. Das Ergebnis wird в новых Штатах в `info` -Канал gespeichert:
 
 - `info.topology` – структурированные JSON со всеми используемыми UDS-файлами и топологическими элементами (дедупликация всех топологических матриц).
 - `info.topologyHtml` – вам нужно создать HTML-таблицу, указать тип шины (CanInternal, CanExternal, CanRaw, ModBus, ServiceBus), с UDS-значком для создания, а также использовать UDS-бар. Используйте этот HTML-виджет для просмотра, просмотра или просмотра вашего HTML-виджета.
@@ -145,7 +145,7 @@ Beim ersten Start nach einem Upgrade von einer früheren Version wird die bisher
 
 - USB-to-CAN- или CAN-адаптер, который используется для внешней или внутренней CAN-шины Viessmann-E3-Geräts verbunden ist.
 - Базовая хост-система Linux (Nur Linux wird unterstützt).
-- CAN-адаптер активен и находится на системной панели, z. Б. как`can0` (prüfen mit`ifconfig` ).
+- CAN-адаптер активен и находится на системной панели, z. Б. как `can0` (prüfen mit `ifconfig`).
 - Zur Einrichtung des CAN-Adapters siehe das [open3e-Projekt-Wiki](https://github.com/open3e/open3e/wiki/020-Inbetriebnahme-CAN-Adapter-am-Raspberry) .
 
 > **Важная информация:** Если вы хотите использовать другой клиент UDsonCAN (z. B. open3e), используйте адаптер для быстрого подключения. Parallele UDS-Kommunikation verursacht Fehler в beiden Anwendungen.
@@ -160,7 +160,7 @@ Beim ersten Start nach einem Upgrade von einer früheren Version wird die bisher
 
 Подробные описания указаны в [настройках конфигурации](#konfigurationsanleitung) .
 
-> **После обновления Node.js:** встроенные адаптеры модулей должны быть снова компилированы, если вы хотите установить версию Node.js. Переход к адаптеру после Node.js-Upgrade больше не начинается, адаптер останавливается,`iob rebuild` auf der Kommandozeile ausführen и адаптер не запускается.
+> **После обновления Node.js:** встроенные адаптеры модулей должны быть снова компилированы, если вы хотите установить версию Node.js. Переход к адаптеру после Node.js-Upgrade больше не начинается, адаптер останавливается, `iob rebuild` auf der Kommandozeile ausführen и адаптер не запускается.
 
 ---
 
@@ -170,7 +170,7 @@ Beim ersten Start nach einem Upgrade von einer früheren Version wird die bisher
 
 Откройте диалоговое окно конфигурации адаптера и перейдите на вкладку **CAN-адаптер** .
 
-- Namen der CAN-Schnittstelle eingeben (Стандарт:`can0` ).
+- Namen der CAN-Schnittstelle eingeben (Стандарт: `can0`).
 - **С помощью адаптера** можно активировать автоматические выключатели.
 - **ШПЕЙХЕРН** дрюкен. Адаптер не будет установлен и будет отключен от CAN-шины.
 
@@ -211,17 +211,17 @@ Dieser Schritt ist für die reine Lesenutzung nicht zwingend erforderlich, wird 
 
 **Datenpunktwerte während des Scans im Objektbaum speichern**
 
-Standardmäßig schreibt der Scan auch den aktuellen Wert jedes Datenpunkts in den Objektbaum (`json` -,`raw` - унд`tree` -Штаты). Если вы хотите использовать опцию **Datenpunktwerte im Objektbaum während des Scans speichern** oberhalb der Scan-Schaltfläche angepasst werden. Если эта опция деактивирована, активируется переход и метаданные для изменения объекта ввода данных, а затем снова автоматически включается, когда на дем-сканере используются старые данные.
+Standardmäßig schreibt der Scan auch den aktuellen Wert jedes Datenpunkts in den Objektbaum (`json` -, `raw` - унд `tree` -Штаты). Если вы хотите использовать опцию **Datenpunktwerte im Objektbaum während des Scans speichern** oberhalb der Scan-Schaltfläche angepasst werden. Если эта опция деактивирована, активируется переход и метаданные для изменения объекта ввода данных, а затем снова автоматически включается, когда на дем-сканере используются старые данные.
 
-Этот вариант - это лучший вариант, когда вы получаете большую прибыль от State-Schreibvorgängen während des Scans vermieden werden soll (z. B. auf Systemen mit vielen Geräten). Wenn zuvor ein Scan mit gespeicherten Werten durchgeführt wurde und jetzt ein sauberer Neuanfang gewünscht wird, können die`json` -,`raw` - одер`tree` -Unterobjekte eines Geräts aus dem ioBroker-Objektbaum gelöscht werden — адаптер легт sie autotisch neu an, wenn er das nachste Mal Daten empfängt. **Примечание: Если** вы хотите, чтобы ваш брокер ioBroker имел привлекательный внешний вид, вы могли бы получить доступ к RAM-Verbrauch erhöhen kann. Auf Systemen mit knappem Arbeitsspeicher besser in kleinen Batches loschen.
+Этот вариант - это лучший вариант, когда вы получаете большую прибыль от State-Schreibvorgängen während des Scans vermieden werden soll (z. B. auf Systemen mit vielen Geräten). Wenn zuvor ein Scan mit gespeicherten Werten durchgeführt wurde und jetzt ein sauberer Neuanfang gewünscht wird, können die `json` -, `raw` - одер `tree` -Unterobjekte eines Geräts aus dem ioBroker-Objektbaum gelöscht werden — адаптер легт sie autotisch neu an, wenn er das nachste Mal Daten empfängt. **Примечание: Если** вы хотите, чтобы ваш брокер ioBroker имел привлекательный внешний вид, вы могли бы получить доступ к RAM-Verbrauch erhöhen kann. Auf Systemen mit knappem Arbeitsspeicher besser in kleinen Batches loschen.
 
 > **Совет по адаптеру истории:** если объект не работает с историческими данными, адаптер истории (History, InfluxDB, SQL) **не** используется. Если вы хотите использовать Backend-ы адаптеров для просмотра диаграмм, то State-ID будет неожиданным. История-Подключение-Конфигурация (das „enabled“-Flag am Objekt) будет доступна для просмотра и должна быть активирована вручную.
 
-> **Предупреждение:** Den`info` -Kanal niemals löschen (z.B.`e3oncan.0.info` ). Er enthält Scan-Ergebnisse, Energiezähler-Erkennung, Verzögerungen, Aktiv-Flags, Bus-Topologie-Zusammenfassungen и CAN-Verbindungsstatus. Если устройство не настроено, оно не должно автоматически выполняться.
+> **Предупреждение:** Den `info` -Kanal niemals löschen (z.B. `e3oncan.0.info`). Er enthält Scan-Ergebnisse, Energiezähler-Erkennung, Verzögerungen, Aktiv-Flags, Bus-Topologie-Zusammenfassungen и CAN-Verbindungsstatus. Если устройство не настроено, оно не должно автоматически выполняться.
 
 **Анализ топологии автобусной сети**
 
-Nach dem Scan erzeugt der Adaptisch eine Bus-Topologie-Zusammenfassung und speichert und speichert sie in Zwei States im`info` -Канал:`info.topology` (JSON) унд`info.topologyHtml` (HTML). Подробности [для анализа топологии шины](#bus-topologie-analyse) еще раз.
+Nach dem Scan erzeugt der Adaptisch eine Bus-Topologie-Zusammenfassung und speichert und speichert sie in Zwei States im `info` -Канал: `info.topology` (JSON) унд `info.topologyHtml` (HTML). Подробности [для анализа топологии шины](#bus-topologie-analyse) еще раз.
 
 Nach dem Scan können die gefundenen Datenpunkte über die **e3oncan Datenpunkte** -Seite durchsucht und verwaltet werden (siehe [unten](#e3oncan-datenpunkte-seite) ).
 
@@ -239,7 +239,7 @@ Die empfohlene Vorgehensweise zum Konfigurieren von Leseintervallen und gerätei
 
 ## Анализ топологии автобусной сети
 
-Когда данные Datenpunktscan пересылаются адаптером во все места сканирования, общие топологические данные и сведения об их эргебнисах в двух штатах`info` -Канал:
+Когда данные Datenpunktscan пересылаются адаптером во все места сканирования, общие топологические данные и сведения об их эргебнисах в двух штатах `info` -Канал:
 
 | Состояние           | Ролле  | Инхальт                                                                                                                                  |
 | ------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -253,7 +253,7 @@ Die empfohlene Vorgehensweise zum Konfigurieren von Leseintervallen und gerätei
 - **jarvis** : **stateHTML** -Подсказка виджета →`e3oncan.x.info.topologyHtml` auswählen.
 - **vis / vis2** : Widget **basic – Строка (без экранирования)** или **HTML** →`e3oncan.x.info.topologyHtml` auswählen.
 
-> **Hinweis:** Die States`info.topology` унд`info.topologyHtml` können für den Standard-ioBroker-Admin-State-Editor-Dialog zu Groß Sein. Dies ist eine bekannte Einschränkung des Admin-UI для больших строковых состояний. Состояния были исправлены, а стандартные настройки скриптов и виджетов были изменены.
+> **Hinweis:** Die States `info.topology` унд `info.topologyHtml` können für den Standard-ioBroker-Admin-State-Editor-Dialog zu Groß Sein. Dies ist eine bekannte Einschränkung des Admin-UI для больших строковых состояний. Состояния были исправлены, а стандартные настройки скриптов и виджетов были изменены.
 
 ---
 
@@ -298,19 +298,19 @@ Beide Optionen können kombiniert werden. В режиме Zeitplan-Filter (Alle 
 
 ## Читать пункты данных
 
-Даты автоматически включаются в конфигурацию Zeitplanen gelesen. Die Werte erscheinen im ioBroker-Objektbaum unter dem Gerätenamen, aufgeteilt in`json` -,`raw` - унд`tree` -Unterobjekte mit lesbaren Namen und Metadaten.
+Даты автоматически включаются в конфигурацию Zeitplanen gelesen. Die Werte erscheinen im ioBroker-Objektbaum unter dem Gerätenamen, aufgeteilt in `json` -, `raw` - унд `tree` -Unterobjekte mit lesbaren Namen und Metadaten.
 
 **Einzelnen Datenpunkt auf Abruf lesen**
 
-Jeder Datenpunkt kann jederzeit abgefragt werden, indem der State`e3oncan.0.<GERÄT>.cmnd.udsReadByDid` Bearbeitet und eine Liste von Datenpunkt-IDs eingegeben wird, z. Б.`[3350, 3351, 3352]` . Wenn der Datenpunkt auf dem Gerät verfügbar ist, erscheint der Wert im Objektbaum und kann in Leseintervallen verwendet werden.
+Jeder Datenpunkt kann jederzeit abgefragt werden, indem der State `e3oncan.0.<GERÄT>.cmnd.udsReadByDid` Bearbeitet und eine Liste von Datenpunkt-IDs eingegeben wird, z. Б. `[3350, 3351, 3352]`. Wenn der Datenpunkt auf dem Gerät verfügbar ist, erscheint der Wert im Objektbaum und kann in Leseintervallen verwendet werden.
 
-Der numerische Scanbereich ist derzeit begrenzt (z. B. 256–3338 в версии 0.11.0). Мит`udsReadByDid` können Datenpunkte außerhalb dieses Bereichs abgerufen werden.
+Der numerische Scanbereich ist derzeit begrenzt (z. B. 256–3338 в версии 0.11.0). Мит `udsReadByDid` können Datenpunkte außerhalb dieses Bereichs abgerufen werden.
 
 ---
 
 ## Datenpunkte schreiben
 
-Das Schreiben ist bewusst einfach gehalten: Den Wert des entsprechenden States in ioBroker ändern und speichern, **ohne** das Kontrollkästchen`Bestätigt` (ack) zu activieren. Адаптер предназначен для наилучшего подключения и отправки в устройство.
+Das Schreiben ist bewusst einfach gehalten: Den Wert des entsprechenden States in ioBroker ändern und speichern, **ohne** das Kontrollkästchen `Bestätigt` (ack) zu activieren. Адаптер предназначен для наилучшего подключения и отправки в устройство.
 
 Через 2,5 секунды после установки адаптера на место выпадет напряжение и будет указан лучший момент. Если состояние не является лучшим, необходимо прочитать журнал адаптера или получить подробную информацию о нем.
 
@@ -322,7 +322,7 @@ Das Schreiben ist bewusst einfach gehalten: Den Wert des entsprechenden States i
 e3oncan.0.<GERÄT>.info.udsDidsWritable
 ```
 
-Die Liste kann durch Bearbeiten dieses States erweitert werden. Шпайхерн **без**`Bestätigt` zu aktivieren.
+Die Liste kann durch Bearbeiten dieses States erweitert werden. Шпайхерн **без** `Bestätigt` zu aktivieren.
 
 Einige Datenpunkte können auch nach der Aufnahme in die Whitelist nicht geändert werden — das Gerät Liefert dann eine отрицательный ответ. Вариант адаптера может быть альтернативным (внутренняя CAN-шина). Schreibvorgänge immer durch Prüfen des bestätigten Werts verifizieren.
 
@@ -345,7 +345,7 @@ Ausführliche Informationen zur Struktur der Datenpunkte, zur Funktionsweise von
 | 2. МОЖЕТ | 98        | `e380_98`      |
 | 2. МОЖЕТ | 97        | `e380_97`      |
 
-`e380` (без суффикса) укажите CAN-адрес 98 на UDS-CAN-канале, чтобы обеспечить совместимость с наилучшей установкой.`e3100cb` Вы можете погрузить его в E3100CB.
+`e380` (без суффикса) укажите CAN-адрес 98 на UDS-CAN-канале, чтобы обеспечить совместимость с наилучшей установкой. `e3100cb` Вы можете погрузить его в E3100CB.
 
 Die Collect-Verzögerung (Standard 5 s) может быть использован для Zählertyp in der **e3oncan Datenpunkte -** Seite angepasst werden. Не используйте адаптер-Neustart.
 
@@ -400,8 +400,8 @@ Es werden bis zu zwei E380-Energiezähler unterstützt. Идентификато
 
 Derzeit ist das Collect-Protokoll bekannt für:
 
-- Витокал / HPMUMASTER (Collect-ID)`0x693` (интернет CAN-шина)
-- Vitocharge VX3 и Vitoair / EMCUMASTER (Collect-ID`0x451` , внешняя и внутренняя CAN-шина)
+- Витокал / HPMUMASTER (Collect-ID) `0x693` (интернет CAN-шина)
+- Vitocharge VX3 и Vitoair / EMCUMASTER (Collect-ID `0x451`, внешняя и внутренняя CAN-шина)
 
 CAN-ID можно автоматически сканировать и автоматически сканировать по UDS-Gerätennames. Когда вы ничего не делаете в списке, вы можете автоматически собирать идентификаторы; Вы можете вручную изменить конфигурацию адаптера.
 
@@ -411,7 +411,7 @@ CAN-ID можно автоматически сканировать и авто�
 
 **Функция адаптера для Node.js-Upgrade больше не используется. Был Тун?**
 
-Этот адаптер является родным модулем, но его версия Node.js не компилируется автоматически. Адаптер стопор,`iob rebuild` При включении командной строки адаптер не запускается. Если проблема будет лучше всего, проблема будет решена.
+Этот адаптер является родным модулем, но его версия Node.js не компилируется автоматически. Адаптер стопор, `iob rebuild` При включении командной строки адаптер не запускается. Если проблема будет лучше всего, проблема будет решена.
 
 **Был ли это Unterschied zum open3e-Projekt?**
 
@@ -423,7 +423,7 @@ CAN-ID можно автоматически сканировать и авто�
 
 **Können Datenpunkte außerhalb des Scanbereichs abgefragt werden?**
 
-Дж. Ден Стейт`e3oncan.0.<GERÄT>.cmnd.udsReadByDid` Bearbeiten und eine Liste von Datenpunkt-IDs eingeben, z. Б.`[3350, 3351, 3352, 3353]` . Verfügbare Datenpunkte erscheinen im Objektbaum und können in Leseintervallen verwendet werden. Nicht verfügbare Datenpunkte erzeugen eine «Отрицательный ответ»-Meldung im Log.
+Дж. Ден Стейт `e3oncan.0.<GERÄT>.cmnd.udsReadByDid` Bearbeiten und eine Liste von Datenpunkt-IDs eingeben, z. Б. `[3350, 3351, 3352, 3353]`. Verfügbare Datenpunkte erscheinen im Objektbaum und können in Leseintervallen verwendet werden. Nicht verfügbare Datenpunkte erzeugen eine «Отрицательный ответ»-Meldung im Log.
 
 ---
 

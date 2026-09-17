@@ -153,7 +153,7 @@ $ ls -l /dev/serial/by-id
 lrwxrwxrwx 1 root root 13 10. Okt 11:37 usb-ftdi_usb_serial_converter_ftDZ0DGP-if00-port0 -> ../../ttyUSB0
 ```
 
-Таким образом, устройство`/dev/serial/by-id/usb-ftdi_usb_serial_converter_ftDZ0DGP-if00-port0`
+Таким образом, устройство `/dev/serial/by-id/usb-ftdi_usb_serial_converter_ftDZ0DGP-if00-port0`
 
 ### com через TCP
 

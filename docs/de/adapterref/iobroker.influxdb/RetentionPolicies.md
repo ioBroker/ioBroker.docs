@@ -10,9 +10,9 @@ hash: Oi11XTykFLnng/l2bCQxbYoW8zcGGW23DfkQvBYjSSk=
 
 Um zu bestimmen, wie lange Daten in InfluxDB aufbewahrt werden, ist es wichtig zu verstehen, wie **Aufbewahrungsrichtlinien** und **Shard-Gruppendauern** zusammenhängen.
 
-Influx speichert alle Messwerte innerhalb eines bestimmten Zeitraums im selben **Shard** , der wiederum Teil einer **Shard-Gruppe** ist. Die Shard-Gruppe erzwingt einen definierten Zeitraum.`Shard Group Duration` für alle Shards, aber die Einstellungen variieren je nach Influx-Version.
+Influx speichert alle Messwerte innerhalb eines bestimmten Zeitraums im selben **Shard** , der wiederum Teil einer **Shard-Gruppe** ist. Die Shard-Gruppe erzwingt einen definierten Zeitraum. `Shard Group Duration` für alle Shards, aber die Einstellungen variieren je nach Influx-Version.
 
-Wenn der konfigurierte Wert überschritten wird`Shard Group Duration` ,
+Wenn der konfigurierte Wert überschritten wird `Shard Group Duration`,
 
 - Es wird ein neuer Shard erstellt, der ab diesem Zeitpunkt neuere Messdaten speichert.
 - Der alte Shard mit allen Messdaten wird zwar noch in der Datenbank gespeichert, aber gelöscht, sobald die Aufbewahrungsfrist für die Messung abgelaufen ist.

@@ -73,11 +73,11 @@ Hier können Sie eigene Vorlagen erstellen, oder anpassen. Unterhalb der Tabelle
 Zeichen mit besonderer Bedeutung:
 
 - `${}` Umfasst Token, die durch generierte Informationen ersetzt werden. Der Vorlagenbezeichner kann hier ebenfalls eingesetzt werden.
-- Vorlagenbezeichner die mit`_` beginnen, werden bei Diensten nicht angeboten, jedoch werden diese in Staaten geschrieben.
+- Vorlagenbezeichner die mit `_` beginnen, werden bei Diensten nicht angeboten, jedoch werden diese in Staaten geschrieben.
 - `${[0,1,2,3,4]token}` Eine Zeichenkette mit Werten, Token muss ein Zahlentoken sein. Index ist wie im Beispiel. 0 ist der erste Wert in der Liste
-- bei einer Vorlage für Jsons muss das abschließende sein`}` so geschrieben werden`\}`
+- bei einer Vorlage für Jsons muss das abschließende sein `}` so geschrieben werden `\}`
 - siehe Beispiele im Adapter.
-- Es ist auch sowas möglich:`${[0,🟢,🟡,🟠,🔴]warnlevelnumber}`
+- Es ist auch sowas möglich: `${[0,🟢,🟡,🟠,🔴]warnlevelnumber}`
 
 Ein Beispiel:
 
@@ -85,7 +85,7 @@ Ein Beispiel:
 Luke, wir haben eine neue Warnung ${Warntypename} ab ${starttime} erhalten, sieht aus wie ein ${_customArray}
 ```
 
-Das Warntypename wird zB durch`Gewitter` ersetzt.`startime` durch 20:15 und`_customArray` durch das Ergebnis der entsprechenden Vorlage.
+Das Warntypename wird zB durch `Gewitter` ersetzt. `startime` durch 20:15 und `_customArray` durch das Ergebnis der entsprechenden Vorlage.
 
 **Vorlagen wiederherstellen:** Setzt die Vorlagen auf die aktuelle Systemsprache zurück. Vorhandene Vorlagen gehen **verloren** . Anschließend speichern & schließen. Sollte ebenfalls verwendet werden, wenn die Systemsprache geändert wurde.
 
@@ -144,8 +144,8 @@ Vorlagen für 3) können keine ${} Tokens enthalten, da für diese Nachricht meh
 ## Allgemeines Verhalten
 
 - Es dürfen keine doppelten Nachrichten für ein und dasselbe Anliegen versendet werden. DWD legt diesbezüglich großen Wert.
-- Wenn`none` Wenn diese Vorlage ausgewählt ist, werden keine Benachrichtigungen dafür versendet.
-- Staaten unter`.alerts` Enthalten nach Warntypen guppierte Felder für Start, Ende, Warntyp, **jetzt** aktiv und Schlagzeile. Angezeigt wird 1 Warnung pro Gruppe, gefiltert nach folgenden Kriterien:
+- Wenn `none` Wenn diese Vorlage ausgewählt ist, werden keine Benachrichtigungen dafür versendet.
+- Staaten unter `.alerts` Enthalten nach Warntypen guppierte Felder für Start, Ende, Warntyp, **jetzt** aktiv und Schlagzeile. Angezeigt wird 1 Warnung pro Gruppe, gefiltert nach folgenden Kriterien:
   1. Warnung ist **jetzt** aktiv, die mit dem höchsten Level.
 
 ## Symbole

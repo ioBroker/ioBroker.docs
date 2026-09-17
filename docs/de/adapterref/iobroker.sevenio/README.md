@@ -23,7 +23,7 @@ Dieser Adapter verbindet ioBroker mit der SMS- und Kommunikations-API [von seven
 
 ## Merkmale
 
-- **SMS senden** – Auslösung über Datenpunkt, Blockly-Block oder`sendTo()`
+- **SMS senden** – Auslösung über Datenpunkt, Blockly-Block oder `sendTo()`
 - **Flash-SMS** – die Nachricht erscheint direkt auf dem Bildschirm des Empfängers
 - **Sprachanrufe (TTS)** – Vorlesen von Texten per automatisiertem Anruf
 - **Zustellstatus** – automatische Prüfung ca. 60 Sekunden nach dem Versand, Eintrag in einen dedizierten Bundesstaat
@@ -32,7 +32,7 @@ Dieser Adapter verbindet ioBroker mit der SMS- und Kommunikations-API [von seven
 - **Kontostandsabfrage** – konfigurierbares Intervall, Ergebnis als lesbarer Zustand verfügbar
 - **SMS-Abfrage für eingehende** Nachrichten – Empfang eingehender SMS (erfordert eine gemietete virtuelle Nummer, siehe unten)
 - **Blockly-Block** – sofort einsatzbereiter Block in der Kategorie „Senden an“ mit Kontrollkästchen für SMS und/oder Sprachanrufe
-- **`sendTo()`API** – vollständige Skriptunterstützung für den JavaScript-Adapter
+- ** `sendTo()` API** – vollständige Skriptunterstützung für den JavaScript-Adapter
 
 ---
 
@@ -55,10 +55,10 @@ Dieser Adapter verbindet ioBroker mit der SMS- und Kommunikations-API [von seven
 | Einstellung                             | Beschreibung                                                                                                                                                                                                                                                                                                                                                    | Standard         |
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | **API-Schlüssel**                       | Ihr seven.io API-Schlüssel                                                                                                                                                                                                                                                                                                                                      | _(erforderlich)_ |
-| **Standard-Absender-ID**                | Absendername oder -nummer, die den Empfängern angezeigt wird. Maximal 11 alphanumerische **oder** 16 numerische Zeichen. Lassen Sie das Feld leer, um die Standardeinstellung Ihres seven.io-Kontos zu verwenden. Um Antworten zu ermöglichen, verwenden Sie`getReplies: true` pro Nachricht (Blockly oder`sendTo()` ) — siehe [eingehende SMS](#inbound-sms) . | _(leer)_         |
+| **Standard-Absender-ID**                | Absendername oder -nummer, die den Empfängern angezeigt wird. Maximal 11 alphanumerische **oder** 16 numerische Zeichen. Lassen Sie das Feld leer, um die Standardeinstellung Ihres seven.io-Kontos zu verwenden. Um Antworten zu ermöglichen, verwenden Sie `getReplies: true` pro Nachricht (Blockly oder `sendTo()`) — siehe [eingehende SMS](#inbound-sms) . | _(leer)_         |
 | **Abstimmungsintervall**                | Wie oft (in Minuten) der Adapter Ihren Kontostand abfragt                                                                                                                                                                                                                                                                                                       | `30`             |
-| **Abfrageintervall für eingehende SMS** | Wie oft (in Minuten) der Adapter auf neue eingehende SMS prüft. Einstellen auf`0` zum Deaktivieren.                                                                                                                                                                                                                                                             | `0`              |
-| **Ländercode für die Preisgestaltung**  | ISO-Ländercode (z. B.`DE` ,`US` ) um die SMS-Preise nur für dieses Land zu laden. Lassen Sie dieses Feld leer, um die Preise für alle Länder zu laden.                                                                                                                                                                                                          | _(leer)_         |
+| **Abfrageintervall für eingehende SMS** | Wie oft (in Minuten) der Adapter auf neue eingehende SMS prüft. Einstellen auf `0` zum Deaktivieren.                                                                                                                                                                                                                                                             | `0`              |
+| **Ländercode für die Preisgestaltung**  | ISO-Ländercode (z. B. `DE`, `US`) um die SMS-Preise nur für dieses Land zu laden. Lassen Sie dieses Feld leer, um die Preise für alle Länder zu laden.                                                                                                                                                                                                          | _(leer)_         |
 
 ---
 
@@ -75,7 +75,7 @@ Dieser Adapter verbindet ioBroker mit der SMS- und Kommunikations-API [von seven
 | Zustand             | Typ          | Beschreibung                              |
 | ------------------- | ------------ | ----------------------------------------- |
 | `account.balance`   | Nummer       | Aktueller Kontostand                      |
-| `account.currency`  | Zeichenkette | Währung (z. B.`EUR` )                     |
+| `account.currency`  | Zeichenkette | Währung (z. B. `EUR`)                     |
 | `account.lastCheck` | Zeichenkette | ISO-Zeitstempel der letzten Saldenabfrage |
 
 ### `contacts`
@@ -84,25 +84,25 @@ Dieser Adapter verbindet ioBroker mit der SMS- und Kommunikations-API [von seven
 | ---------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `contacts.json`        | Zeichenkette (JSON) | Vollständige Kontaktliste als JSON-Array                                                                                                                 |
 | `contacts.count`       | Nummer              | Anzahl der Kontakte                                                                                                                                      |
-| `contacts.refresh`     | boolescher Wert     | Auf einstellen`true` um eine sofortige Kontaktaktualisierung auszulösen                                                                                  |
+| `contacts.refresh`     | boolescher Wert     | Auf einstellen `true` um eine sofortige Kontaktaktualisierung auszulösen                                                                                  |
 | `contacts.new.name`    | Zeichenkette        | Name für einen neuen Kontakt, der erstellt werden soll                                                                                                   |
-| `contacts.new.number`  | Zeichenkette        | Telefonnummer für den neuen Kontakt (Format:`491234567890` , ohne`+` )                                                                                   |
-| `contacts.new.save`    | boolescher Wert     | Auf einstellen`true` um den Kontakt zu erstellen und die Liste zu aktualisieren                                                                          |
-| `contacts.list.<Name>` | Zeichenkette        | Ein Bundesstaat pro Kontakt – der Bundesstaatsname ist der Anzeigename des Kontakts (z. B.`contacts.list.Max_Mustermann` Der Wert ist die Telefonnummer. |
+| `contacts.new.number`  | Zeichenkette        | Telefonnummer für den neuen Kontakt (Format: `491234567890`, ohne `+`)                                                                                   |
+| `contacts.new.save`    | boolescher Wert     | Auf einstellen `true` um den Kontakt zu erstellen und die Liste zu aktualisieren                                                                          |
+| `contacts.list.<Name>` | Zeichenkette        | Ein Bundesstaat pro Kontakt – der Bundesstaatsname ist der Anzeigename des Kontakts (z. B. `contacts.list.Max_Mustermann` Der Wert ist die Telefonnummer. |
 
 ### `sms`
 
 | Zustand            | Typ                 | R/W | Beschreibung                                                                                                                     |
 | ------------------ | ------------------- | --- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `sms.to`           | Zeichenkette        | rw  | Empfänger — Telefonnummer (`+491234567890` ) **oder Kontaktname** (z. B.`Max Mustermann` )                                       |
+| `sms.to`           | Zeichenkette        | rw  | Empfänger — Telefonnummer (`+491234567890`) **oder Kontaktname** (z. B. `Max Mustermann`)                                       |
 | `sms.from`         | Zeichenkette        | rw  | Absender-ID überschreiben – leer = Standardwert aus den Einstellungen verwenden                                                  |
 | `sms.text`         | Zeichenkette        | rw  | Nachrichtentext (max. 1520 Zeichen / \~10 SMS-Teile)                                                                             |
 | `sms.flash`        | boolescher Wert     | rw  | Als Flash-SMS senden (Nachricht wird direkt auf dem Bildschirm angezeigt)                                                        |
 | `sms.getReplies`   | boolescher Wert     | rw  | Gemeinsamen Nachrichtenpool aktivieren, damit der Empfänger antworten kann – optional pro Nachricht, Standardeinstellung `false` |
-| `sms.send`         | boolescher Wert     | rw  | Auf einstellen`true` zum Senden — setzt zurück auf`false` automatisch                                                            |
+| `sms.send`         | boolescher Wert     | rw  | Auf einstellen `true` zum Senden — setzt zurück auf `false` automatisch                                                            |
 | `sms.lastResult`   | Zeichenkette (JSON) | R   | Vollständige API-Antwort des letzten Sendeversuchs, einschließlich `statusText`                                                  |
-| `sms.lastStatus`   | Zeichenkette        | R   | Für Menschen lesbarer Status der letzten Sendung (z. B.`Success` ,`Insufficient credits` )                                       |
-| `sms.lastDelivery` | Zeichenkette (JSON) | R   | Zustellbericht ca. 60 Sekunden nach dem Versand abgerufen — enthält`id` ,`to` ,`status` (z.B`DELIVERED` )                        |
+| `sms.lastStatus`   | Zeichenkette        | R   | Für Menschen lesbarer Status der letzten Sendung (z. B. `Success`, `Insufficient credits`)                                       |
+| `sms.lastDelivery` | Zeichenkette (JSON) | R   | Zustellbericht ca. 60 Sekunden nach dem Versand abgerufen — enthält `id`, `to`, `status` (z.B `DELIVERED`)                        |
 
 ### `sms.inbound`
 
@@ -121,9 +121,9 @@ Dieser Adapter verbindet ioBroker mit der SMS- und Kommunikations-API [von seven
 | `voice.from`       | Zeichenkette        | rw  | Verifizierte Anrufernummer (muss in Ihrem seven.io-Konto registriert sein)       |
 | `voice.text`       | Zeichenkette        | rw  | Text zum Vorlesen (TTS), maximal 10.000 Zeichen                                  |
 | `voice.ringtime`   | Nummer              | rw  | Wie lange soll es klingeln, bevor aufgelegt wird (5–60 Sekunden, Standard 30)    |
-| `voice.send`       | boolescher Wert     | rw  | Auf einstellen`true` Anruf starten — wird zurückgesetzt auf`false` automatisch   |
+| `voice.send`       | boolescher Wert     | rw  | Auf einstellen `true` Anruf starten — wird zurückgesetzt auf `false` automatisch   |
 | `voice.lastResult` | Zeichenkette (JSON) | R   | Vollständige API-Antwort des letzten Aufrufversuchs                              |
-| `voice.lastStatus` | Zeichenkette        | R   | Für Menschen lesbarer Status des letzten Anrufs (z. B.`Success` ,`Call failed` ) |
+| `voice.lastStatus` | Zeichenkette        | R   | Für Menschen lesbarer Status des letzten Anrufs (z. B. `Success`, `Call failed`) |
 
 ### `pricing`
 
@@ -132,7 +132,7 @@ Dieser Adapter verbindet ioBroker mit der SMS- und Kommunikations-API [von seven
 | `pricing.json`       | Zeichenkette (JSON) | Die vollständigen Preisdaten von seven.io – SMS-Preise pro Netzwerk für das konfigurierte Land oder alle Länder |
 | `pricing.price`      | Anzahl (€)          | SMS-Preis für das konfigurierte Land – wird nur festgelegt, wenn eine Ländervorwahl konfiguriert ist            |
 | `pricing.lastUpdate` | Zeichenkette        | ISO-Zeitstempel der letzten Preisabfrage                                                                        |
-| `pricing.refresh`    | boolescher Wert     | Auf einstellen`true` Preisdaten sofort aktualisieren                                                            |
+| `pricing.refresh`    | boolescher Wert     | Auf einstellen `true` Preisdaten sofort aktualisieren                                                            |
 
 ### `stats` _(gleitender 30-Tage-Zeitraum)_
 
@@ -146,17 +146,17 @@ Die Statistiken decken stets den Zeitraum **von heute bis heute (30 Tage)** ab. 
 | `stats.totalCost`  | Nummer              | Gesamtkosten in EUR für die letzten 30 Tage                        |
 | `stats.lastUpdate` | Zeichenkette        | ISO-Zeitstempel des letzten Statistikabrufs                        |
 | `stats.json`       | Zeichenkette (JSON) | Rohdaten der Analyse, gruppiert nach Tag                           |
-| `stats.refresh`    | boolescher Wert     | Auf einstellen`true` Statistiken sofort aktualisieren              |
+| `stats.refresh`    | boolescher Wert     | Auf einstellen `true` Statistiken sofort aktualisieren              |
 
 ---
 
 ## Eingehende SMS
 
-Um SMS-Antworten zu erhalten, benötigen Sie einen **numerischen Absender** – alphanumerische Namen (z. B. 1999) sind nicht zulässig.`MyCompany` Sie können keine direkten Antworten empfangen. Sie haben zwei Möglichkeiten:
+Um SMS-Antworten zu erhalten, benötigen Sie einen **numerischen Absender** – alphanumerische Namen (z. B. 1999) sind nicht zulässig. `MyCompany` Sie können keine direkten Antworten empfangen. Sie haben zwei Möglichkeiten:
 
 ### Option 1 — Gemeinschaftspool (kostenlos, zum Testen und für gelegentliche Nutzung)
 
-Passieren`getReplies: true` pro Nachricht (Blockly-Kontrollkästchen oder`sendTo()` seven.io weist automatisch eine temporäre Shared-Pool-Nummer als Absender zu, sodass Antworten auch mit einer alphanumerischen Absender-ID funktionieren.
+Passieren `getReplies: true` pro Nachricht (Blockly-Kontrollkästchen oder `sendTo()` seven.io weist automatisch eine temporäre Shared-Pool-Nummer als Absender zu, sodass Antworten auch mit einer alphanumerischen Absender-ID funktionieren.
 
 |                       |                                                                                 |
 | --------------------- | ------------------------------------------------------------------------------- |
@@ -178,9 +178,9 @@ Mieten Sie eine virtuelle Rufnummer direkt in Ihrem seven.io-Dashboard. Antworte
 | **Verfügbare Länder** | Viele – überprüfen Sie das seven.io-Dashboard    |
 | **Geeignet für**      | Laufende Kundenkommunikation, Produktionsnutzung |
 
-> Konfigurieren Sie das Abfrageintervall in den Adaptereinstellungen. Stellen Sie es auf ein.`0` um eingehende Abfragen zu deaktivieren (z. B. wenn Sie stattdessen Webhooks verwenden).
+> Konfigurieren Sie das Abfrageintervall in den Adaptereinstellungen. Stellen Sie es auf ein. `0` um eingehende Abfragen zu deaktivieren (z. B. wenn Sie stattdessen Webhooks verwenden).
 
-> **Mehrere Nachrichten pro Zyklus:** Wenn zwischen zwei Abfragen mehrere SMS eintreffen, verarbeitet der Adapter alle – die älteste zuerst. Jede Nachricht löst eine separate Statusänderung aus.`sms.inbound.text` Daher wird jede Blockly-Regel oder JavaScript-Automatisierung, die diesen Status überwacht, einmal pro Nachricht ausgeführt. Die Datenpunkte spiegeln nach dem Zyklus immer die aktuellste Nachricht wider.
+> **Mehrere Nachrichten pro Zyklus:** Wenn zwischen zwei Abfragen mehrere SMS eintreffen, verarbeitet der Adapter alle – die älteste zuerst. Jede Nachricht löst eine separate Statusänderung aus. `sms.inbound.text` Daher wird jede Blockly-Regel oder JavaScript-Automatisierung, die diesen Status überwacht, einmal pro Nachricht ausgeführt. Die Datenpunkte spiegeln nach dem Zyklus immer die aktuellste Nachricht wider.
 
 ---
 
@@ -209,7 +209,7 @@ Nach der Installation des Adapters erscheint ein sofort einsatzbereiter Block in
 
 ## sendTo()-Skripting
 
-Alle Funktionen sind verfügbar über`sendTo()` im JavaScript-Adapter.
+Alle Funktionen sind verfügbar über `sendTo()` im JavaScript-Adapter.
 
 **Senden Sie eine SMS:**
 
@@ -283,7 +283,7 @@ sendTo('sevenio.0', 'get_stats', {}, result => {
 });
 ```
 
-Alternativ können Sie die folgende Einstellung vornehmen:`sevenio.0.stats.refresh` Datenpunkt zu`true` — Der Adapter ruft aktuelle Statistiken ab und setzt den Zustand zurück auf`false` automatisch.
+Alternativ können Sie die folgende Einstellung vornehmen: `sevenio.0.stats.refresh` Datenpunkt zu `true` — Der Adapter ruft aktuelle Statistiken ab und setzt den Zustand zurück auf `false` automatisch.
 
 **Verzögerte SMS (geplante Zustellung):**
 
@@ -297,13 +297,13 @@ sendTo('sevenio.0', 'send', {
 });
 ```
 
-Der`delay` Der Parameter wird direkt an die seven.io-API weitergeleitet. Verwenden Sie eine ISO-Datums-/Zeitzeichenfolge (`YYYY-MM-DD HH:MM:SS` oder ein Unix-Zeitstempel in Sekunden. Die Nachricht wird von seven.io in die Warteschlange gestellt und zum angegebenen Zeitpunkt zugestellt.
+Der `delay` Der Parameter wird direkt an die seven.io-API weitergeleitet. Verwenden Sie eine ISO-Datums-/Zeitzeichenfolge (`YYYY-MM-DD HH:MM:SS` oder ein Unix-Zeitstempel in Sekunden. Die Nachricht wird von seven.io in die Warteschlange gestellt und zum angegebenen Zeitpunkt zugestellt.
 
 ---
 
 ## SMS-Statuscodes
 
-Der`sms.lastStatus` Der Status enthält eine für Menschen lesbare Übersetzung des seven.io-Statuscodes:
+Der `sms.lastStatus` Der Status enthält eine für Menschen lesbare Übersetzung des seven.io-Statuscodes:
 
 | Code | Bedeutung                                   |
 | ---- | ------------------------------------------- |

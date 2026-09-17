@@ -30,7 +30,7 @@ Nur auf SBMS0 getestet.
 
 1. Überprüfen Sie in SBMS die Baudrate (fest auf 921600 eingestellt, WLAN aktiviert)
 2. Verbinden Sie den Host mit dem SBMS-USB-Anschluss (oder verwenden Sie einen USB-zu-Seriell-Adapter und stellen Sie eine direkte Verbindung her, falls Sie keine WLAN-Erweiterungskarte besitzen).
-3. Auf dem Host den seriellen Port identifizieren mit`ls /dev/serial/by-id`
+3. Auf dem Host den seriellen Port identifizieren mit `ls /dev/serial/by-id`
 4. Konfigurieren Sie die Einstellungen entsprechend auf der Adapter-Administrationsseite.
 5. Aktualisierungsintervall anpassen (1 Sekunde: vollständiger Datenstrom wird verarbeitet)
 

@@ -326,12 +326,19 @@ export const useStyles = makeStyles()(theme => ({
             minWidth: '100px',
         },
     },
+    /*
+     * A piece of code in a sentence stays quiet: it marks a name, it does not open a box. The
+     * padding is narrow on purpose, a readme of an adapter names a data point in nearly every
+     * line and a wide box in each of them makes the paragraph restless.
+     */
     inlineCode: {
         backgroundColor: theme.custom.surfaces.raised,
-        padding: '2px 6px',
-        borderRadius: '6px',
+        padding: '1px 5px',
+        borderRadius: '5px',
         fontFamily: 'monospace',
-        fontSize: '0.9em',
+        fontSize: '0.88em',
+        // the name may break where it has to, instead of pushing the column wider
+        overflowWrap: 'anywhere',
     },
     blockquote: {
         borderLeft: `3px solid ${theme.palette.primary.main}`,

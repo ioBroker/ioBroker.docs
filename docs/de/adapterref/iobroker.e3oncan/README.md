@@ -73,15 +73,15 @@ Die Definitionen der Datenpunkte wurden auf Version 20260705 (allgemein) und 202
 
 ### Neuer O3ESwitch-Codec
 
-Ein neuer Codec`O3ESwitch` Für Datenpunkte, deren Struktur von einem Gerätetyp-Diskriminatorbyte abhängt, wurde eine neue Funktion hinzugefügt. Das erste Byte wählt die aktive Variante aus einer Menge vordefinierter Codec-Zweige aus. Dies ermöglicht die vollständige strukturierte Dekodierung von ZigBee-Geräteslot-DIDs (2086–2143, 2262), wobei sich die dekodierten Felder je nach Gerätetyp unterscheiden (z. B. Klimasensor, Thermostatventil, Fußbodenthermostat, Aktor).
+Ein neuer Codec `O3ESwitch` Für Datenpunkte, deren Struktur von einem Gerätetyp-Diskriminatorbyte abhängt, wurde eine neue Funktion hinzugefügt. Das erste Byte wählt die aktive Variante aus einer Menge vordefinierter Codec-Zweige aus. Dies ermöglicht die vollständige strukturierte Dekodierung von ZigBee-Geräteslot-DIDs (2086–2143, 2262), wobei sich die dekodierten Felder je nach Gerätetyp unterscheiden (z. B. Klimasensor, Thermostatventil, Fußbodenthermostat, Aktor).
 
 ### Dezimalrundeung für numerische Codecs
 
-Numerische Codecs (`O3EInt8` ,`O3EInt16` ,`O3EInt32` ,`O3EInt64` ,`O3EFloat32` ) unterstützen nun eine optionale`decimals` Parameter. Wenn der Wert größer als 0 ist, wird das dekodierte Ergebnis auf die entsprechende Anzahl an Dezimalstellen gerundet. Dies wird beispielsweise verwendet für`SignalLevel` (Skalierung 2,55, Dezimalstellen 2), um übermäßig lange Gleitkommawerte zu vermeiden.
+Numerische Codecs (`O3EInt8`, `O3EInt16`, `O3EInt32`, `O3EInt64`, `O3EFloat32`) unterstützen nun eine optionale `decimals` Parameter. Wenn der Wert größer als 0 ist, wird das dekodierte Ergebnis auf die entsprechende Anzahl an Dezimalstellen gerundet. Dies wird beispielsweise verwendet für `SignalLevel` (Skalierung 2,55, Dezimalstellen 2), um übermäßig lange Gleitkommawerte zu vermeiden.
 
 ### Einheiten und Metadaten werden beim Start festgelegt, wenn sich die Datenpunktstruktur ändert
 
-Wenn der Adapter beim Start erkennt, dass sich die Struktur eines Datenpunkts geändert hat (neue Version in`didsE3var.json` oder`didsE3.json` ) werden nun Einheiten und Beschreibungen für alle Unterzustände des neu aufgebauten Baums korrekt erfasst. Zuvor wurden Einheiten nur während eines Datenpunktscans festgelegt; nach einer Strukturaktualisierung war ein nachfolgender Scan erforderlich, um sie zu befüllen.
+Wenn der Adapter beim Start erkennt, dass sich die Struktur eines Datenpunkts geändert hat (neue Version in `didsE3var.json` oder `didsE3.json`) werden nun Einheiten und Beschreibungen für alle Unterzustände des neu aufgebauten Baums korrekt erfasst. Zuvor wurden Einheiten nur während eines Datenpunktscans festgelegt; nach einer Strukturaktualisierung war ein nachfolgender Scan erforderlich, um sie zu befüllen.
 
 ---
 
@@ -89,7 +89,7 @@ Wenn der Adapter beim Start erkennt, dass sich die Struktur eines Datenpunkts ge
 
 ### Kein erneuter Build nach einem Node.js-Upgrade mehr.
 
-Das native CAN-Modul`socketcan` wurde auf Version 4.2.1 aktualisiert, die die stabile **N-API-** Schnittstelle verwendet. Das Modul muss bei einem Node.js-Versionswechsel nicht mehr neu kompiliert werden. Ein Upgrade von Node.js (z. B. von Version 22 auf 24) erfordert keinen neuen Befehl mehr.`iob rebuild` Anschließend startet der Adapter ohne weitere Schritte.
+Das native CAN-Modul `socketcan` wurde auf Version 4.2.1 aktualisiert, die die stabile **N-API-** Schnittstelle verwendet. Das Modul muss bei einem Node.js-Versionswechsel nicht mehr neu kompiliert werden. Ein Upgrade von Node.js (z. B. von Version 22 auf 24) erfordert keinen neuen Befehl mehr. `iob rebuild` Anschließend startet der Adapter ohne weitere Schritte.
 
 ### Geplanter Datenpunktfilter auf der Registerkarte „Datenpunkte“.
 
@@ -97,7 +97,7 @@ Durch Klicken auf das grüne Symbol mit der Anzahl der geplanten Datenpunkte auf
 
 ### Schutz benutzerdefinierter Variantendatenpunktdefinitionen
 
-Benutzerdefinierte Strukturen in`e3oncan.0.<DEVICE>.info.udsDidsSpecific` kann nun durch Hinzufügen **vor automatischen Updates geschützt** werden`"protected": true` zum Eintrag. Optional`"reason"` Das Feld wird protokolliert, sobald der Schutz wirksam wird. Ohne Schutz werden Variantendatenpunktdefinitionen (die auch in der Liste aufgeführt sind) protokolliert.`didsE3var.json` Die Definitionen werden automatisch aktualisiert, sobald eine neuere Version verfügbar ist – dieses Verhalten bleibt unverändert. Weitere Informationen finden Sie in der [Dokumentation](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific) .
+Benutzerdefinierte Strukturen in `e3oncan.0.<DEVICE>.info.udsDidsSpecific` kann nun durch Hinzufügen **vor automatischen Updates geschützt** werden `"protected": true` zum Eintrag. Optional `"reason"` Das Feld wird protokolliert, sobald der Schutz wirksam wird. Ohne Schutz werden Variantendatenpunktdefinitionen (die auch in der Liste aufgeführt sind) protokolliert. `didsE3var.json` Die Definitionen werden automatisch aktualisiert, sobald eine neuere Version verfügbar ist – dieses Verhalten bleibt unverändert. Weitere Informationen finden Sie in der [Dokumentation](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific) .
 
 ### Aktualisierte Datenpunktdefinitionen
 
@@ -106,7 +106,7 @@ Die Definitionen der Datenpunkte wurden auf Version 20260528 (allgemein) und 202
 - ZigBee DIDs 2084–2319 vollständig strukturiert (Geräteeigenschaften, Stromwerte in 57-Byte- und 68-Byte-Varianten)
 - Raum-DIDs 1884–1943 strukturiert (Name, Typ, Temperaturregelung, Fenstererkennung, min./max. Luftfeuchtigkeit)
 - Neue, von ViGuide abgeleitete DID-Strukturen für Brennstoffzellenmetriken, Energieabdeckung und Batterie-/Wechselrichterabonnements
-- `Unknown*` Felder verwenden jetzt einheitlich`RawCodec`
+- `Unknown*` Felder verwenden jetzt einheitlich `RawCodec`
 
 ---
 
@@ -132,7 +132,7 @@ Die neue Option **„Datenpunktwerte während des Scans im Objektbaum speichern�
 
 ### Bustopologieanalyse
 
-Nach dem Scan der Datenpunkte analysiert der Adapter automatisch die während des Scans erfassten Bustopologiedaten und erstellt eine Zusammenfassung. Das Ergebnis wird in zwei neuen Zuständen gespeichert.`info` Kanal:
+Nach dem Scan der Datenpunkte analysiert der Adapter automatisch die während des Scans erfassten Bustopologiedaten und erstellt eine Zusammenfassung. Das Ergebnis wird in zwei neuen Zuständen gespeichert. `info` Kanal:
 
 - `info.topology` – strukturiertes JSON mit allen gefundenen UDS-zugänglichen Geräten und Topologieelementen (aus allen Topologiematrizen entfernt).
 - `info.topologyHtml` – Eine gerenderte HTML-Tabelle, farblich nach Bustyp (CanInternal, CanExternal, CanRaw, ModBus, ServiceBus) gekennzeichnet, mit einem UDS-Badge für Geräte, die auch über UDS erreichbar sind. Zur Anzeige in vis, jarvis oder jedem HTML-fähigen Widget geeignet.
@@ -145,7 +145,7 @@ Nach dem Scan der Datenpunkte analysiert der Adapter automatisch die während de
 
 - Ein USB-zu-CAN- oder CAN-Adapter, der an den externen oder internen CAN-Bus Ihres Viessmann E3-Geräts angeschlossen ist.
 - Ein Linux-basiertes Hostsystem (nur Linux wird unterstützt).
-- Der CAN-Adapter ist betriebsbereit und im System sichtbar, z. B. als`can0` (überprüfen mit`ifconfig` ).
+- Der CAN-Adapter ist betriebsbereit und im System sichtbar, z. B. als `can0` (überprüfen mit `ifconfig`).
 - Einzelheiten zur Einrichtung des CAN-Adapters finden Sie im [Wiki des open3e-Projekts](https://github.com/open3e/open3e/wiki/020-Inbetriebnahme-CAN-Adapter-am-Raspberry) .
 
 > **Wichtig:** Stellen Sie sicher, dass kein anderer UDSonCAN-Client (z. B. open3e) ausgeführt wird, während Sie diesen Adapter zum ersten Mal einrichten. Parallele UDS-Kommunikation führt zu Fehlern in beiden Anwendungen.
@@ -168,7 +168,7 @@ Die detaillierten Schritte sind im unten stehenden [Konfigurationsleitfaden](#co
 
 Öffnen Sie den Adapterkonfigurationsdialog und wechseln Sie zur Registerkarte **CAN-Adapter** .
 
-- Geben Sie den Namen Ihrer CAN-Schnittstelle ein (Standard:`can0` ).
+- Geben Sie den Namen Ihrer CAN-Schnittstelle ein (Standard: `can0`).
 - Aktivieren Sie für jede Schnittstelle, die Sie verwenden möchten, **die Option „Mit Adapter verbinden“** .
 - Drücken Sie auf **SPEICHERN** . Die Adapterinstanz wird neu gestartet und verbindet sich mit dem CAN-Bus.
 
@@ -209,17 +209,17 @@ Dieser Schritt ist für die Nutzung im Nur-Lese-Modus nicht unbedingt erforderli
 
 **Speichere die Datenpunktwerte während des Scans im Objektbaum.**
 
-Standardmäßig schreibt der Scan auch den aktuellen Wert jedes Datenpunkts in den Objektbaum (`json` ,`raw` ,`tree` Sie können das Verhalten mithilfe der Option **„Datenpunktwerte während des Scans im Objektbaum über der Scan-Schaltfläche speichern“** anpassen. Wenn diese Option deaktiviert ist, aktualisiert der Adapter Werte und Metadaten bereits vorhandener Datenpunktobjekte, erstellt aber keine neuen – diese werden automatisch beim ersten Datenempfang nach dem Scan erstellt.
+Standardmäßig schreibt der Scan auch den aktuellen Wert jedes Datenpunkts in den Objektbaum (`json`, `raw`, `tree` Sie können das Verhalten mithilfe der Option **„Datenpunktwerte während des Scans im Objektbaum über der Scan-Schaltfläche speichern“** anpassen. Wenn diese Option deaktiviert ist, aktualisiert der Adapter Werte und Metadaten bereits vorhandener Datenpunktobjekte, erstellt aber keine neuen – diese werden automatisch beim ersten Datenempfang nach dem Scan erstellt.
 
-Diese Option ist nützlich, wenn Sie eine große Anzahl von Statusänderungen während des Scans vermeiden möchten (z. B. auf Systemen mit vielen Geräten). Wenn Sie zuvor einen Scan mit gespeicherten Werten durchgeführt haben und nun einen Neustart wünschen, können Sie die Daten aller Geräte gefahrlos löschen.`json` ,`raw` , oder`tree` Unterobjekte aus dem ioBroker-Objektbaum werden vom Adapter beim nächsten Datenempfang automatisch neu erstellt. **Hinweis:** Das gleichzeitige Löschen einer großen Anzahl von Objekten führt dazu, dass ioBroker viele interne Ereignisse gleichzeitig auslöst, was kurzzeitig zu einem Anstieg des RAM-Verbrauchs führen kann. Löschen Sie Objekte daher in kleinen Gruppen, wenn Ihr System speicherbelastet ist.
+Diese Option ist nützlich, wenn Sie eine große Anzahl von Statusänderungen während des Scans vermeiden möchten (z. B. auf Systemen mit vielen Geräten). Wenn Sie zuvor einen Scan mit gespeicherten Werten durchgeführt haben und nun einen Neustart wünschen, können Sie die Daten aller Geräte gefahrlos löschen. `json`, `raw`, oder `tree` Unterobjekte aus dem ioBroker-Objektbaum werden vom Adapter beim nächsten Datenempfang automatisch neu erstellt. **Hinweis:** Das gleichzeitige Löschen einer großen Anzahl von Objekten führt dazu, dass ioBroker viele interne Ereignisse gleichzeitig auslöst, was kurzzeitig zu einem Anstieg des RAM-Verbrauchs führen kann. Löschen Sie Objekte daher in kleinen Gruppen, wenn Ihr System speicherbelastet ist.
 
 > **Hinweis zu Verlaufsadaptern:** Das Löschen von Objekten löscht **nicht** die vom Verlaufsadapter (History, InfluxDB, SQL) gespeicherten Verlaufsdaten. Die aufgezeichneten Werte bleiben im Backend des Adapters erhalten und werden in den Diagrammen wieder angezeigt, sobald die Status-ID neu erstellt wurde. Die Konfiguration des Verlaufsabonnements (das „Aktiviert“-Flag des Objekts) geht jedoch beim Löschen eines Objekts verloren und muss für das neue Objekt manuell wieder aktiviert werden.
 
-> **Warnung:** Löschen Sie niemals die`info` Kanal (z. B.`e3oncan.0.info` Diese Datei enthält Scan-Ergebnisse, Informationen zur Energiezählererkennung, Verzögerungen, aktive Flags, Zusammenfassungen der Bustopologie und den CAN-Verbindungsstatus. Durch das Löschen dieser Datei gehen Konfigurationsdaten verloren, die nicht automatisch wiederhergestellt werden können.
+> **Warnung:** Löschen Sie niemals die `info` Kanal (z. B. `e3oncan.0.info` Diese Datei enthält Scan-Ergebnisse, Informationen zur Energiezählererkennung, Verzögerungen, aktive Flags, Zusammenfassungen der Bustopologie und den CAN-Verbindungsstatus. Durch das Löschen dieser Datei gehen Konfigurationsdaten verloren, die nicht automatisch wiederhergestellt werden können.
 
 **Bustopologieanalyse**
 
-Nach Abschluss des Scans generiert der Adapter automatisch eine Bustopologie-Zusammenfassung und speichert diese in zwei Zuständen im`info` Kanal:`info.topology` (JSON) und`info.topologyHtml` (HTML). Weitere Details finden Sie in der unten stehenden [Bus-Topologieanalyse](#bus-topology-analysis) .
+Nach Abschluss des Scans generiert der Adapter automatisch eine Bustopologie-Zusammenfassung und speichert diese in zwei Zuständen im `info` Kanal: `info.topology` (JSON) und `info.topologyHtml` (HTML). Weitere Details finden Sie in der unten stehenden [Bus-Topologieanalyse](#bus-topology-analysis) .
 
 Nach dem Scan können Sie die gefundenen Datenpunkte auf der **e3oncan-** Datenpunkteseite durchsuchen und verwalten (siehe [unten](#e3oncan-datapoints-tab) ).
 
@@ -237,7 +237,7 @@ Klicken Sie nach Abschluss der Arbeit auf **„Speichern & Schließen“** . Üb
 
 ## Bustopologieanalyse
 
-Nach dem Scan der Datenpunkte analysiert der Adapter alle während des Scans erfassten Bustopologiedaten und speichert das Ergebnis in zwei Zuständen im`info` Kanal:
+Nach dem Scan der Datenpunkte analysiert der Adapter alle während des Scans erfassten Bustopologiedaten und speichert das Ergebnis in zwei Zuständen im `info` Kanal:
 
 | Zustand             | Rolle  | Inhalt                                                                                                                                  |
 | ------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -248,10 +248,10 @@ Nach dem Scan der Datenpunkte analysiert der Adapter alle während des Scans erf
 
 Die einfachste Möglichkeit, die Topologie in ioBroker anzuzeigen, besteht in der Verwendung eines Dashboard-Tools, das HTML-Zustände rendern kann:
 
-- **jarvis** : **StateHTML-** Widget hinzufügen → auswählen`e3oncan.x.info.topologyHtml` Die
-- **vis / vis2** : **Einfaches Widget hinzufügen – Zeichenkette (unmaskiert)** oder **HTML** → Auswahl`e3oncan.x.info.topologyHtml` Die
+- **jarvis** : **StateHTML-** Widget hinzufügen → auswählen `e3oncan.x.info.topologyHtml` Die
+- **vis / vis2** : **Einfaches Widget hinzufügen – Zeichenkette (unmaskiert)** oder **HTML** → Auswahl `e3oncan.x.info.topologyHtml` Die
 
-> **Hinweis:** Die`info.topology` Und`info.topologyHtml` Die Zustände können zu groß sein, um im Standarddialog des ioBroker-Admin-Editors angezeigt zu werden. Dies ist eine bekannte Einschränkung der Admin-Oberfläche für große Zeichenketten-Zustände. Die Zustände sind korrekt geschrieben und können von Skripten und Widgets normal verwendet werden.
+> **Hinweis:** Die `info.topology` Und `info.topologyHtml` Die Zustände können zu groß sein, um im Standarddialog des ioBroker-Admin-Editors angezeigt zu werden. Dies ist eine bekannte Einschränkung der Admin-Oberfläche für große Zeichenketten-Zustände. Die Zustände sind korrekt geschrieben und können von Skripten und Widgets normal verwendet werden.
 
 ---
 
@@ -296,19 +296,19 @@ Klicken Sie auf **„Speichern“** , um Ihre Änderungen anzuwenden, ohne den T
 
 ## Lesedatenpunkte
 
-Die Datenpunkte werden automatisch gemäß den von Ihnen konfigurierten Zeitplänen ausgelesen. Die Werte erscheinen in der Objektstruktur von ioBroker unter dem Gerätenamen und sind wie folgt organisiert:`json` ,`raw` Und`tree` Unterobjekte mit für Menschen lesbaren Namen und Metadaten.
+Die Datenpunkte werden automatisch gemäß den von Ihnen konfigurierten Zeitplänen ausgelesen. Die Werte erscheinen in der Objektstruktur von ioBroker unter dem Gerätenamen und sind wie folgt organisiert: `json`, `raw` Und `tree` Unterobjekte mit für Menschen lesbaren Namen und Metadaten.
 
 **Lesen eines bestimmten Datenpunkts auf Anfrage**
 
-Sie können jederzeit jeden Datenpunkt anfordern, indem Sie den Status bearbeiten.`e3oncan.0.<DEVICE>.cmnd.udsReadByDid` und die Eingabe einer Liste von Datenpunkt-IDs, zum Beispiel`[3350, 3351, 3352]` Wenn der Datenpunkt auf dem Gerät verfügbar ist, wird der Wert in der Objektstruktur angezeigt und kann in Leseplänen verwendet werden.
+Sie können jederzeit jeden Datenpunkt anfordern, indem Sie den Status bearbeiten. `e3oncan.0.<DEVICE>.cmnd.udsReadByDid` und die Eingabe einer Liste von Datenpunkt-IDs, zum Beispiel `[3350, 3351, 3352]` Wenn der Datenpunkt auf dem Gerät verfügbar ist, wird der Wert in der Objektstruktur angezeigt und kann in Leseplänen verwendet werden.
 
-Der numerische Scanbereich ist derzeit begrenzt (z. B. 256–3338 in Version 0.11.0). Verwenden Sie`udsReadByDid` um Datenpunkte außerhalb dieses Bereichs zu untersuchen.
+Der numerische Scanbereich ist derzeit begrenzt (z. B. 256–3338 in Version 0.11.0). Verwenden Sie `udsReadByDid` um Datenpunkte außerhalb dieses Bereichs zu untersuchen.
 
 ---
 
 ## Schreiben von Datenpunkten
 
-Das Schreiben ist bewusst einfach gehalten: Ändern Sie den Wert des entsprechenden Zustands in ioBroker und speichern Sie ihn, **ohne** dies zu überprüfen.`Acknowledged` (ack)-Kontrollkästchen. Der Adapter erkennt den nicht bestätigten Schreibvorgang und sendet ihn an das Gerät.
+Das Schreiben ist bewusst einfach gehalten: Ändern Sie den Wert des entsprechenden Zustands in ioBroker und speichern Sie ihn, **ohne** dies zu überprüfen. `Acknowledged` (ack)-Kontrollkästchen. Der Adapter erkennt den nicht bestätigten Schreibvorgang und sendet ihn an das Gerät.
 
 Etwa 2,5 Sekunden nach dem Schreiben liest der Adapter den Datenpunkt vom Gerät zurück und speichert den bestätigten Wert. Wird der Status anschließend nicht bestätigt, überprüfen Sie das Adapterprotokoll auf Fehlerdetails.
 
@@ -320,7 +320,7 @@ Das Schreiben ist auf Datenpunkte auf einer Positivliste beschränkt, die hier g
 e3oncan.0.<DEVICE>.info.udsDidsWritable
 ```
 
-Sie können die Liste erweitern, indem Sie diesen Status bearbeiten. Speichern Sie die Änderung, **ohne** sie zu aktivieren.`Acknowledged` Die
+Sie können die Liste erweitern, indem Sie diesen Status bearbeiten. Speichern Sie die Änderung, **ohne** sie zu aktivieren. `Acknowledged` Die
 
 Manche Datenpunkte können selbst dann nicht geändert werden, wenn sie auf der Whitelist stehen – das Gerät gibt eine negative Antwort zurück. Der Adapter versucht es dann mit einem alternativen Dienst (nur interner CAN-Bus). Überprüfen Sie Schreibvorgänge immer, indem Sie kontrollieren, ob der Wert bestätigt wurde.
 
@@ -343,7 +343,7 @@ Energiezähler werden während des Gerätescans automatisch erkannt. Eine manuel
 | 2. CAN  | 98          | `e380_98`  |
 | 2. CAN  | 97          | `e380_97`  |
 
-`e380` (ohne Suffix) wird für die CAN-Adresse 98 auf dem UDS CAN-Kanal verwendet, um die Rückwärtskompatibilität mit bestehenden Installationen zu gewährleisten.`e3100cb` wird immer für den E3100CB verwendet.
+`e380` (ohne Suffix) wird für die CAN-Adresse 98 auf dem UDS CAN-Kanal verwendet, um die Rückwärtskompatibilität mit bestehenden Installationen zu gewährleisten. `e3100cb` wird immer für den E3100CB verwendet.
 
 Die Erfassungsverzögerung (standardmäßig 5 s) kann pro Zählertyp auf der Seite **„e3oncan-Datenpunkte“** angepasst werden. Änderungen werden nach einem Neustart des Adapters wirksam.
 
@@ -398,8 +398,8 @@ Collect liefert Ihnen Echtzeitdaten für alle zwischen den Geräten ausgetauscht
 
 Das Collect-Protokoll ist derzeit bekannt für:
 
-- Vitocal / HPMUMASTER (Sammel-ID)`0x693` (interner CAN-Bus)
-- Vitocharge VX3 und Vitoair / EMCUMASTER (Sammel-ID)`0x451` (externer und interner CAN-Bus)
+- Vitocal / HPMUMASTER (Sammel-ID) `0x693` (interner CAN-Bus)
+- Vitocharge VX3 und Vitoair / EMCUMASTER (Sammel-ID) `0x451` (externer und interner CAN-Bus)
 
 Die Collect-CAN-IDs werden während des Gerätescans automatisch anhand des UDS-Gerätenamens zugewiesen. Geräte, die oben nicht aufgeführt sind, erhalten keine automatische Collect-ID; diese kann manuell in der Adapterkonfiguration eingegeben werden.
 
@@ -421,7 +421,7 @@ Ab Adapterversion 1.0.3 verwendet das native CAN-Modul (socketcan) die N-API und
 
 **Kann ich Datenpunkte außerhalb des Scanbereichs anfordern?**
 
-Ja. Bearbeiten Sie den Bundesstaat.`e3oncan.0.<DEVICE>.cmnd.udsReadByDid` und geben Sie eine Liste von Datenpunkt-IDs ein, z. B.`[3350, 3351, 3352, 3353]` Verfügbare Datenpunkte werden in der Objektstruktur angezeigt und können in Leseplänen verwendet werden. Nicht verfügbare Datenpunkte führen zu einer „Negative Antwort“-Meldung im Protokoll.
+Ja. Bearbeiten Sie den Bundesstaat. `e3oncan.0.<DEVICE>.cmnd.udsReadByDid` und geben Sie eine Liste von Datenpunkt-IDs ein, z. B. `[3350, 3351, 3352, 3353]` Verfügbare Datenpunkte werden in der Objektstruktur angezeigt und können in Leseplänen verwendet werden. Nicht verfügbare Datenpunkte führen zu einer „Negative Antwort“-Meldung im Protokoll.
 
 ---
 

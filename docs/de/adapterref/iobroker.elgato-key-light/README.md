@@ -71,7 +71,7 @@ Die Elgato-Lampe und der ioBroker-Host müssen sich normalerweise im selben loka
 
 1. Installieren Sie den Adapter und erstellen Sie eine Instanz.
 2. Öffnen Sie die Instanzkonfiguration.
-3. Wählen Sie **„Netzwerk scannen“** , um zu finden`_elg._tcp.local.` Dienste, fügen Sie dann die erforderlichen Ergebnisse hinzu. Alternativ können Sie eine private IP-Adresse eingeben oder`.local` Hostname und Port manuell festlegen. Der Standard-API-Port von Elgato ist`9123` Die
+3. Wählen Sie **„Netzwerk scannen“** , um zu finden `_elg._tcp.local.` Dienste, fügen Sie dann die erforderlichen Ergebnisse hinzu. Alternativ können Sie eine private IP-Adresse eingeben oder `.local` Hostname und Port manuell festlegen. Der Standard-API-Port von Elgato ist `9123` Die
 4. Verwenden Sie **die Testfunktion** , um eine manuelle Adresse vor dem Hinzufügen zu überprüfen.
 5. Aktivieren Sie die konfigurierten Geräte und speichern Sie die Konfiguration.
 6. Öffnen Sie den Tab **„Elgato Key Light“** in der Admin-Seitenleiste, um die Live-Steuerung zu ermöglichen.
@@ -104,7 +104,7 @@ Die Registerkarte „Adapter“ zeigt für jedes in der ausgewählten Instanz ko
 
 Die Karte zeigt außerdem den Online-/Offline-Status, die Antwortzeit, die Firmware-Version, – sofern verfügbar – Akkuinformationen und einen Countdown bis zur nächsten Abfrage an. **„Alle ein“** und **„Alle aus“** schalten alle erreichbaren LEDs der aktuellen Adapterinstanz ein. **„Aktualisieren“** lädt die Dashboard-Daten neu, während **„Diagnose“** Laufzeit- und Geräteinformationen zur Fehlerbehebung anzeigt.
 
-Durch das Ändern der Farbe des Lichtstreifens bleibt dessen separate Helligkeitseinstellung erhalten.`hex` Und`rgb` Die Zustandswerte repräsentieren die aktuell emittierte Farbe und beinhalten daher auch die aktuelle Helligkeit. Beispielsweise kann derselbe Blauton erscheinen als`#000080` bei 50 % Helligkeit und`#0000FF` bei 100% Helligkeit.
+Durch das Ändern der Farbe des Lichtstreifens bleibt dessen separate Helligkeitseinstellung erhalten. `hex` Und `rgb` Die Zustandswerte repräsentieren die aktuell emittierte Farbe und beinhalten daher auch die aktuelle Helligkeit. Beispielsweise kann derselbe Blauton erscheinen als `#000080` bei 50 % Helligkeit und `#0000FF` bei 100% Helligkeit.
 
 ## Geräte mit ioBroker-Zuständen steuern
 
@@ -114,7 +114,7 @@ Jedes erfolgreich kontaktierte Gerät erhält ein Root-Objekt basierend auf sein
 elgato-key-light.<instance>.<serial>
 ```
 
-Die meisten Geräte enthalten eine Leuchte bei`light.lights.0` Es werden nur vom Gerät unterstützte Zustände erstellt.
+Die meisten Geräte enthalten eine Leuchte bei `light.lights.0` Es werden nur vom Gerät unterstützte Zustände erstellt.
 
 | Relativer Zustand            | Typ / Bereich                        | Beschreibung                                                             |
 | ---------------------------- | ------------------------------------ | ------------------------------------------------------------------------ |
@@ -128,7 +128,7 @@ Die meisten Geräte enthalten eine Leuchte bei`light.lights.0` Es werden nur vom
 | `light.lights.0.hue`         | Nummer, 0–360°                       | Farbton einstellen                                                       |
 | `light.lights.0.saturation`  | Zahl, 0–100 %                        | Farbsättigung einstellen                                                 |
 | `light.lights.0.hex`         | Zeichenkette                         | Farbe festlegen als `#RRGGBB`                                            |
-| `light.lights.0.rgb`         | Zeichenkette                         | Farbe in Legacy-Systemen festlegen`R,G,B` Format, zum Beispiel `255,0,0` |
+| `light.lights.0.rgb`         | Zeichenkette                         | Farbe in Legacy-Systemen festlegen `R,G,B` Format, zum Beispiel `255,0,0` |
 | `battery.level`              | Zahl, 0–100 %, schreibgeschützt      | Schlüssellicht Mini-Batterie laden                                       |
 | `battery.status`             | Zeichenkette, schreibgeschützt       | Vom Gerät gemeldeter Ladestatus                                          |
 | `battery.powerSource`        | Zeichenkette, schreibgeschützt       | Stromquelle                                                              |
@@ -140,11 +140,11 @@ Die meisten Geräte enthalten eine Leuchte bei`light.lights.0` Es werden nur vom
 | `health.consecutiveFailures` | Nummer, schreibgeschützt             | Anzahl aufeinanderfolgender gescheiterter Wahlen                         |
 | `health.nextPoll`            | Datumszeichenfolge, schreibgeschützt | Geplanter Zeitpunkt der nächsten Abstimmung                              |
 
-Zusätzliche schreibgeschützte`info` Beim Melden der entsprechenden Daten können Wi-Fi-, Batteriespannungs-/Strom- und Geräteeinstellungen erfasst werden.
+Zusätzliche schreibgeschützte `info` Beim Melden der entsprechenden Daten können Wi-Fi-, Batteriespannungs-/Strom- und Geräteeinstellungen erfasst werden.
 
 ### Skriptbeispiele
 
-Ersetzen Sie die Instanznummer und die Seriennummer durch die IDs aus Ihrem ioBroker-Objektbaum. Schreibbare Zustände müssen mit geschrieben werden`ack = false` Der Adapter erkennt sie also als Befehle.
+Ersetzen Sie die Instanznummer und die Seriennummer durch die IDs aus Ihrem ioBroker-Objektbaum. Schreibbare Zustände müssen mit geschrieben werden `ack = false` Der Adapter erkennt sie also als Befehle.
 
 ```javascript
 const light = 'elgato-key-light.0.EW40K1A09882.light.lights.0';
@@ -173,17 +173,17 @@ Durch das Entfernen eines Geräts mit dem Papierkorbsymbol wird dieses aus der l
 ### Es wurde kein Gerät gefunden.
 
 - Prüfen Sie, ob ioBroker und die Lampe im lokalen Netzwerk miteinander in Kontakt treten können.
-- Zur Erkennung prüfen Sie Multicast-DNS/UDP 5353 und`_elg._tcp.local.` Weiterleitung.
-- Fügen Sie die private IP-Adresse hinzu oder`.local` Hostnamen manuell eingeben, falls die Erkennung nicht über ein VLAN hinweg möglich ist.
+- Zur Erkennung prüfen Sie Multicast-DNS/UDP 5353 und `_elg._tcp.local.` Weiterleitung.
+- Fügen Sie die private IP-Adresse hinzu oder `.local` Hostnamen manuell eingeben, falls die Erkennung nicht über ein VLAN hinweg möglich ist.
 - Prüfen Sie, ob der TCP-Port 9123 erreichbar ist und ob das Gerät nicht durch eine Gast-WLAN-Richtlinie isoliert ist.
 
 ### Im Dashboard wird ein Gerät als offline angezeigt.
 
-Die Karte zeigt den letzten Fehler und den Countdown bis zum nächsten Wiederholungsversuch an. Verwenden Sie **„Neu verbinden“,** um den aktuellen Stand sofort auszulesen. Prüfen`health.lastError` ,`health.consecutiveFailures` Und`health.nextPoll` für Automatisierungen oder Überwachung.
+Die Karte zeigt den letzten Fehler und den Countdown bis zum nächsten Wiederholungsversuch an. Verwenden Sie **„Neu verbinden“,** um den aktuellen Stand sofort auszulesen. Prüfen `health.lastError`, `health.consecutiveFailures` Und `health.nextPoll` für Automatisierungen oder Überwachung.
 
 ### Es fehlen die Bedienelemente.
 
-Der Adapter generiert Steuerelemente aus den vom Gerät zurückgegebenen Feldern. Aktualisieren Sie gegebenenfalls die Geräte-Firmware, schließen Sie das Gerät erneut an und überprüfen Sie es.`info.capabilities` oder die Dashboard-Diagnose. Ein fehlendes Steuerelement bedeutet normalerweise, dass die API diese Funktion nicht gemeldet hat.
+Der Adapter generiert Steuerelemente aus den vom Gerät zurückgegebenen Feldern. Aktualisieren Sie gegebenenfalls die Geräte-Firmware, schließen Sie das Gerät erneut an und überprüfen Sie es. `info.capabilities` oder die Dashboard-Diagnose. Ein fehlendes Steuerelement bedeutet normalerweise, dass die API diese Funktion nicht gemeldet hat.
 
 ### Diagnostik sammeln
 
@@ -205,7 +205,7 @@ Da die lokale Geräte-API keine Authentifizierung besitzt, sollten Sie die Lampe
 
 ## Aktualisierung von einer älteren Version
 
-Seriennummern der Gerätewurzeln und die unten aufgeführten festgelegten beschreibbaren Pfade`<serial>.light.lights.0` werden beibehalten. Informationen zu Metadatenkorrekturen, Konfigurationsmigration und Rollback finden Sie in [docs/MIGRATION.md](/#/docs/adapterref/iobroker.elgato-key-light/docs/MIGRATION.md) . Erstellen Sie vor einem größeren Update eine ioBroker-Sicherung.
+Seriennummern der Gerätewurzeln und die unten aufgeführten festgelegten beschreibbaren Pfade `<serial>.light.lights.0` werden beibehalten. Informationen zu Metadatenkorrekturen, Konfigurationsmigration und Rollback finden Sie in [docs/MIGRATION.md](/#/docs/adapterref/iobroker.elgato-key-light/docs/MIGRATION.md) . Erstellen Sie vor einem größeren Update eine ioBroker-Sicherung.
 
 ## Entwicklung
 

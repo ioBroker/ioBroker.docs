@@ -41,15 +41,15 @@ Siehe auch die [Spotify Developer API-Dokumentation](https://developer.spotify.c
 
 1. Melde dich an unter <https://developer.spotify.com/dashboard/>
 2. Wenn Sie eine Anwendung erstellen, erhalten Sie eine Client-ID und ein Client-Geheimnis (siehe [Anleitung](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/blob/master/docs/create_app.png) ).
-3. Setzen Sie die Umleitungs-URIs auf`https://oauth2.iobroker.in/spotify` in den App-Einstellungen Ihrer erstellten Spotify-Anwendung
+3. Setzen Sie die Umleitungs-URIs auf `https://oauth2.iobroker.in/spotify` in den App-Einstellungen Ihrer erstellten Spotify-Anwendung
 4. Geben Sie die Client-ID und das Client-Geheimnis in die unten stehenden Felder ein.
 5. Starten Sie die Instanz
-6. Wechseln Sie zur Registerkarte „Objekt“ und drücken Sie die Schaltfläche „getAuthorization“ bei`spotify-premium.0.authorization`
-7. Kopieren Sie die angezeigte URL von`spotify-premium.0.authorization.authorizationUrl` zu Ihrem Webbrowser und rufen Sie es auf
+6. Wechseln Sie zur Registerkarte „Objekt“ und drücken Sie die Schaltfläche „getAuthorization“ bei `spotify-premium.0.authorization`
+7. Kopieren Sie die angezeigte URL von `spotify-premium.0.authorization.authorizationUrl` zu Ihrem Webbrowser und rufen Sie es auf
 8. Möglicherweise müssen Sie sich bei Spotify anmelden und den Zugriff gewähren.
-9. Der Browser wird auf eine ungültige URL umgeleitet.`invalid redirect uri` Bitte überprüfen Sie Schritt 3.
-10. Kopieren Sie diese URL und fügen Sie sie ein an`spotify-premium.0.authorization.authorizationReturnUri`
-11. Der Wert in`spotify-premium.0.authorization.authorized` wird wahr, wenn alles erfolgreich war
+9. Der Browser wird auf eine ungültige URL umgeleitet. `invalid redirect uri` Bitte überprüfen Sie Schritt 3.
+10. Kopieren Sie diese URL und fügen Sie sie ein an `spotify-premium.0.authorization.authorizationReturnUri`
+11. Der Wert in `spotify-premium.0.authorization.authorized` wird wahr, wenn alles erfolgreich war
 
 Wir müssen eine HTTPS-Weiterleitungs-URI angeben, da Spotify ab Dezember 2025 keine unsicheren URIs mehr zulässt.
 

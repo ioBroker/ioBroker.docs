@@ -32,10 +32,10 @@ Sie müssen ein MEATER-Cloud-Konto einrichten (verwenden Sie dazu die Smartphone
 ## Konfiguration
 
 - `Username for MEATER cloud` Ihre registrierte E-Mail-Adresse
-- `Password for MEATER cloud` : das Passwort, das Sie für den Cloud-Zugriff verwendet haben
+- `Password for MEATER cloud`: das Passwort, das Sie für den Cloud-Zugriff verwendet haben
 - `Language` Einige (nicht alle!) Werte werden übersetzt, z. B. die Bezeichnung von Fleischsorten.
 - `Update interval idle` Zeit in Sekunden, wie oft Daten aus der Cloud abgerufen werden sollen
-- `Update interval cook` : Zeitangabe in Sekunden, die angibt, wie oft Daten aus der Cloud abgerufen werden sollen, wenn eine Kochsensation aktiv ist.
+- `Update interval cook`: Zeitangabe in Sekunden, die angibt, wie oft Daten aus der Cloud abgerufen werden sollen, wenn eine Kochsensation aktiv ist.
 - `Temperature unit` Wird verwendet, um Einheiten in ioBroker-Zuständen zu erstellen. Stellen Sie hier dieselbe Einheit ein, die Sie in der App verwenden. Wenn die Einheit nach der Zustandserstellung geändert wird, löschen Sie alle Prüfzustände und starten Sie den Adapter neu.
 - `Clear old values` Die MEATER Cloud-API sendet nur Werte für aktive Sonden/laufende Kochvorgänge. Nach Beendigung eines Vorgangs werden keine Temperatur- und Statusaktualisierungen mehr empfangen. Aktivieren Sie dieses Kontrollkästchen, um alte, nicht aktualisierte Werte zu löschen und Missverständnisse zu vermeiden.
 

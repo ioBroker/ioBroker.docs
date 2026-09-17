@@ -30,7 +30,7 @@ Kommunikation mit einer Behringer X-Touch Bedienoberfläche (DAW-Controller)
 Es gibt zwei akzeptierte Befehle:
 
 - `export` Exportiert die in den Zuständen der Gerätegruppen gespeicherten Istwerte in den Benutzerdatenordner x-touch.0.
-- `import` Importiert die jüngste Datei aus dem Benutzerdatenordner. Zusätzlich können Sie Folgendes angeben:`file` und/oder die`devicegroup` Nummer zum Wiederherstellen. Wenn`path` wird angegeben, dass das gesamte Dateisystem verwendet wird und ein`file` Die Angabe des Namens ist obligatorisch.
+- `import` Importiert die jüngste Datei aus dem Benutzerdatenordner. Zusätzlich können Sie Folgendes angeben: `file` und/oder die `devicegroup` Nummer zum Wiederherstellen. Wenn `path` wird angegeben, dass das gesamte Dateisystem verwendet wird und ein `file` Die Angabe des Namens ist obligatorisch.
 
 ## Changelog
 

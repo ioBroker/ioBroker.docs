@@ -19,9 +19,9 @@ Deutsche Dokumentation: [READMEde.md](/#/docs/adapterref/iobroker.omron-fins/REA
 
 ## Konfiguration
 
-Konfigurieren Sie die IP-Adresse der SPS und den FINS-Port (normalerweise`9600` Protokoll und Abfrageintervall auf der Verwaltungsseite des responsiven Adapters. Ziel-/Quellknotenwerte können erhalten bleiben`0` zur automatischen Adressierung, es sei denn, das SPS-Netzwerk erfordert ein explizites FINS-Routing.
+Konfigurieren Sie die IP-Adresse der SPS und den FINS-Port (normalerweise `9600` Protokoll und Abfrageintervall auf der Verwaltungsseite des responsiven Adapters. Ziel-/Quellknotenwerte können erhalten bleiben `0` zur automatischen Adressierung, es sei denn, das SPS-Netzwerk erfordert ein explizites FINS-Routing.
 
-Variablen können manuell mit einem eindeutigen Namen, einer FINS-Adresse und einem Datentyp eingegeben werden. Unterstützte Beispiele sind:`CIO0.00` (oder Legacy)`CB0:00` ),`W31.00` ,`H0.01` ,`A0.00` ,`D100` , Timer und Zähler.
+Variablen können manuell mit einem eindeutigen Namen, einer FINS-Adresse und einem Datentyp eingegeben werden. Unterstützte Beispiele sind: `CIO0.00` (oder Legacy) `CB0:00`), `W31.00`, `H0.01`, `A0.00`, `D100`, Timer und Zähler.
 
 Jede Variable wird zu einem beschreibbaren ioBroker-Zustand, sofern die Schreiboption nicht deaktiviert ist. Schreibvorgänge werden erst nach erfolgreicher FINS-Anfrage bestätigt.
 

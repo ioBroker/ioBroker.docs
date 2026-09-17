@@ -20,24 +20,24 @@ hash: Yh7RE6AH3dri+yPJ1Q4WhWq2iD+Pq/ViwDGWL+C34rE=
 
 ## Smart Control Adapter für ioBroker
 
-Der`ioBroker.smartcontrol` Der Adapter ist ein leistungsstarkes Werkzeug zur Verwaltung und Automatisierung verschiedener Szenarien in Ihrem [ioBroker-](https://github.com/ioBroker/ioBroker) Hausautomatisierungssystem. Er ermöglicht es Ihnen, Auslöser, Bedingungen und Aktionen zu definieren, um Ihre Smart-Geräte zu steuern und benutzerdefinierte Automatisierungsroutinen zu erstellen.
+Der `ioBroker.smartcontrol` Der Adapter ist ein leistungsstarkes Werkzeug zur Verwaltung und Automatisierung verschiedener Szenarien in Ihrem [ioBroker-](https://github.com/ioBroker/ioBroker) Hausautomatisierungssystem. Er ermöglicht es Ihnen, Auslöser, Bedingungen und Aktionen zu definieren, um Ihre Smart-Geräte zu steuern und benutzerdefinierte Automatisierungsroutinen zu erstellen.
 
-Mit`ioBroker.smartcontrol` Sie können Szenarien einfach anhand von Auslösern wie Bewegungsmeldern, Schaltern oder bestimmten Zeiten konfigurieren. Zusätzlich lassen sich Bedingungen festlegen, um weitere Anforderungen zu überprüfen, beispielsweise ob ein Feiertag ist oder ein Fenster geöffnet ist. Sobald die festgelegten Auslöser und Bedingungen erfüllt sind, können Sie definieren, welche Zielgeräte geschaltet oder gesteuert werden sollen.
+Mit `ioBroker.smartcontrol` Sie können Szenarien einfach anhand von Auslösern wie Bewegungsmeldern, Schaltern oder bestimmten Zeiten konfigurieren. Zusätzlich lassen sich Bedingungen festlegen, um weitere Anforderungen zu überprüfen, beispielsweise ob ein Feiertag ist oder ein Fenster geöffnet ist. Sobald die festgelegten Auslöser und Bedingungen erfüllt sind, können Sie definieren, welche Zielgeräte geschaltet oder gesteuert werden sollen.
 
 Der Adapter verfügt außerdem über eine Timerfunktion, die nach Auslösung eines Bewegungsmelders aktiviert wird. Dieser Timer schaltet die angeschlossenen Geräte nach einer festgelegten Anzahl von Sekunden automatisch ab, wenn keine Bewegung mehr erkannt wird.
 
-Durch die Verwendung`ioBroker.smartcontrol` Sie erhalten eine benutzerfreundliche und vielseitige Umgebung zur Automatisierung verschiedener Aspekte Ihres Zuhauses. Komplexe Skripte werden überflüssig, und die Automatisierung wird konsistenter und stabiler.
+Durch die Verwendung `ioBroker.smartcontrol` Sie erhalten eine benutzerfreundliche und vielseitige Umgebung zur Automatisierung verschiedener Aspekte Ihres Zuhauses. Komplexe Skripte werden überflüssig, und die Automatisierung wird konsistenter und stabiler.
 
 ## Anweisungen
 
-Alle Anweisungen zur Konfiguration und Verwendung des`ioBroker.smartcontrol` Die Adaptereinstellungen finden Sie in den Administratoreinstellungen des jeweiligen Adapters. Um auf die Anweisungen zuzugreifen, gehen Sie wie folgt vor:
+Alle Anweisungen zur Konfiguration und Verwendung des `ioBroker.smartcontrol` Die Adaptereinstellungen finden Sie in den Administratoreinstellungen des jeweiligen Adapters. Um auf die Anweisungen zuzugreifen, gehen Sie wie folgt vor:
 
 1. Öffnen Sie die ioBroker-Admin-Oberfläche.
 2. Wechseln Sie zum Tab „Instanzen“.
-3. Finde die`ioBroker.smartcontrol` Klicken Sie anschließend auf das Schraubenschlüssel-Symbol, um die Einstellungen zu öffnen.
+3. Finde die `ioBroker.smartcontrol` Klicken Sie anschließend auf das Schraubenschlüssel-Symbol, um die Einstellungen zu öffnen.
 4. Detaillierte Anweisungen und Optionen zur Konfiguration des Adapters finden Sie auf der Einstellungsseite.
 
-Lesen und befolgen Sie die Anweisungen sorgfältig, um Ihre gewünschten Automatisierungsszenarien einzurichten.`ioBroker.smartcontrol` Die
+Lesen und befolgen Sie die Anweisungen sorgfältig, um Ihre gewünschten Automatisierungsszenarien einzurichten. `ioBroker.smartcontrol` Die
 
 Außerdem können Sie die meisten dieser Anweisungen unten abrufen:
 

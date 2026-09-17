@@ -30,7 +30,7 @@ MeteoSwiss aktualisiert seine Wetterdaten alle 10 Minuten. Dieser Adapter versuc
 
 ## Unbekannte Werte
 
-Bestimmte Werte werden nicht immer von allen Wetterstationen oder Vorhersagestandorten gemeldet. In diesen Staaten wird der Wert angegeben.`null` um zwischen unbekannten Werten und bekannten "0"-Werten klar zu unterscheiden.
+Bestimmte Werte werden nicht immer von allen Wetterstationen oder Vorhersagestandorten gemeldet. In diesen Staaten wird der Wert angegeben. `null` um zwischen unbekannten Werten und bekannten "0"-Werten klar zu unterscheiden.
 
 ## Aggregation von Werten
 
@@ -38,9 +38,9 @@ Bestimmte Messwerte und Vorhersagen werden häufiger gemeldet als das vom Adapte
 
 ## Wetterwarnungen
 
-Alle`warning-xx` Die Statusanzeige zeigt die aktuell wichtigste aktive Warnung der jeweiligen Kategorie an. Es können mehrere Warnungen derselben Kategorie gleichzeitig vorliegen, dieser Adapter zeigt jedoch nur die wichtigste an. Warnungen höherer Priorität und Warnungen, die nicht als „Outlook“ gekennzeichnet sind, werden als wichtiger eingestuft als Warnungen niedrigerer Priorität oder solche, die als „Outlook“ gekennzeichnet sind.
+Alle `warning-xx` Die Statusanzeige zeigt die aktuell wichtigste aktive Warnung der jeweiligen Kategorie an. Es können mehrere Warnungen derselben Kategorie gleichzeitig vorliegen, dieser Adapter zeigt jedoch nur die wichtigste an. Warnungen höherer Priorität und Warnungen, die nicht als „Outlook“ gekennzeichnet sind, werden als wichtiger eingestuft als Warnungen niedrigerer Priorität oder solche, die als „Outlook“ gekennzeichnet sind.
 
-Wenn keine Warnung einer bestimmten Kategorie aktiv ist,`warning-xx.level` Der Zustand wird den Wert haben`0` (Keine) und alle anderen Zustände dieser Kategorie werden`null` Die
+Wenn keine Warnung einer bestimmten Kategorie aktiv ist, `warning-xx.level` Der Zustand wird den Wert haben `0` (Keine) und alle anderen Zustände dieser Kategorie werden `null` Die
 
 ## Changelog
 

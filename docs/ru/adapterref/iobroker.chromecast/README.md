@@ -33,7 +33,7 @@ hash: hNhxuqqE8fbmTaOUucEB3d5swRihcwAX07Ew3F/fnA4=
    - Для потоковой передачи локальных файлов вам потребуется экземпляр веб-сервера ioBroker.
    - Вам необходимо вручную добавить информацию (имя, IP-адрес, порт, тип объявления) для каждого устройства, расположенного в другой подсети, отличной от вашей подсети ioBroker. Если вы хотите, чтобы имена соответствовали именам автоматически найденных устройств, используйте MAC-адрес в качестве имени. Вы можете задать любое имя. Убедитесь, что каждое имя уникально! Во избежание проблем имена должны содержать только заглавные буквы AZ, строчные буквы az, цифры 0-9, - (минус) и \_ (подчеркивание).
 3. Проверьте журнал: вы должны увидеть записи об обнаруженных устройствах.
-4. Введите URL-адрес, например, <http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3> , в адрес устройства Chromecast.0.`<your chromecast name>` .player.url2play
+4. Введите URL-адрес, например, <http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3> , в адрес устройства Chromecast.0. `<your chromecast name>`.player.url2play
 5. Видеоролик должен начать воспроизводиться на вашем устройстве.
 
 ## Функции
@@ -47,7 +47,7 @@ hash: hNhxuqqE8fbmTaOUucEB3d5swRihcwAX07Ew3F/fnA4=
   - включить/выключить звук
   - прекратить трансляцию
   - пауза
-  - URL для воспроизведения (chromecast.0.`<your Google Home name>` .player.url2play)
+  - URL для воспроизведения (chromecast.0. `<your Google Home name>`.player.url2play)
     - протестировано с MP3
       - Полный список форматов [здесь](https://developers.google.com/cast/docs/media) .
     - Если URL-адрес не начинается с http, то следует считать, что это локальный файл.
@@ -57,7 +57,7 @@ hash: hNhxuqqE8fbmTaOUucEB3d5swRihcwAX07Ew3F/fnA4=
   - ПРИМЕЧАНИЕ: требуется [модифицированный адаптер vis](https://github.com/angelnu/ioBroker.vis) .
 - Первоначальная поддержка групп Chromecast Audio
   - Примечание: это не работает с SSDP -> отключено по умолчанию в настройках адаптера.
-- Воспроизвести последний воспроизведенный поток: просто установите _параметр chromecast.0.`<your device>` .status.playing_ to _true_
+- Воспроизвести последний воспроизведенный поток: просто установите _параметр chromecast.0. `<your device>`.status.playing_ to _true_
 
 ## Чего не хватает?
 

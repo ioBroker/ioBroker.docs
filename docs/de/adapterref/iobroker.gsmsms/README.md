@@ -31,7 +31,7 @@ Bei einigen Geräten muss der richtige Modus für die serielle Kommunikation ein
 
 #### Pfad zur seriellen Schnittstelle - erforderlich.
 
-z.B`/dev/ttyUSB0` oder`/dev/serial/by-id/xxxxxxxxxxx` (by-id ist stabiler, ttyUSBx kann sich bei einem Neustart ändern)
+z.B `/dev/ttyUSB0` oder `/dev/serial/by-id/xxxxxxxxxxx` (by-id ist stabiler, ttyUSBx kann sich bei einem Neustart ändern)
 
 Manche Geräte verfügen über mehrere USB-Anschlüsse, daher müssen Sie diese möglicherweise ausprobieren. Der erste Anschluss funktioniert höchstwahrscheinlich, zeigt aber unter Umständen keine Benachrichtigungen über eingehende Nachrichten an. Versuchen Sie es dann mit einem anderen Anschluss und senden Sie eine SMS. Prüfen Sie, ob diese einige Sekunden später ankommt (bei Huawei ist dies beispielsweise der dritte Anschluss).
 
@@ -63,7 +63,7 @@ Um Speicherplatz auf der SIM-Karte zu sparen, werden alle SMS nach Zustellung/Le
 | --------------------------------------- | --------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Anzeige für eingehende SMS              | boolescher Wert | WAHR                      | Ermöglicht es dem Modem, über den Empfang einer neuen SMS zu informieren.                                                                                                                                                                                                                                                                                                                                                                    |
 | Verkettung aktivieren                   | boolescher Wert | WAHR                      | Zusammengefasste Nachrichten werden als eine einzige Nachricht empfangen.                                                                                                                                                                                                                                                                                                                                                                    |
-| Benutzerdefinierter Iinit-Befehl        | Zeichenkette    |                           | Falls Ihr Gerät einen benutzerdefinierten Initialisierungsbefehl benötigt, kann dieser angegeben werden und wird nach der PIN-Prüfung verwendet. Beispielsweise benötigen manche Geräte „AT+CPMS="SM","SM","SM"“, um den richtigen Speichersatz zu erhalten. Der Befehl sollte einen bestimmten Wert zurückgeben.`'OK'` (Leer bedeutet „kein benutzerdefinierter Befehl für init“). Bitte beachten Sie die Spezifikationen Ihres GSM-Geräts. |
+| Benutzerdefinierter Iinit-Befehl        | Zeichenkette    |                           | Falls Ihr Gerät einen benutzerdefinierten Initialisierungsbefehl benötigt, kann dieser angegeben werden und wird nach der PIN-Prüfung verwendet. Beispielsweise benötigen manche Geräte „AT+CPMS="SM","SM","SM"“, um den richtigen Speichersatz zu erhalten. Der Befehl sollte einen bestimmten Wert zurückgeben. `'OK'` (Leer bedeutet „kein benutzerdefinierter Befehl für init“). Bitte beachten Sie die Spezifikationen Ihres GSM-Geräts. |
 | CNMI bei geöffnetem/geschlossenem Modem | Zeichenkette    | '2,1,0,2,0' / '2,0,2,2,1' | Legt fest, ob Nachrichten auf der SIM-Karte gespeichert oder sofort zugestellt werden. Bitte beachten Sie die Spezifikationen Ihres GSM-Geräts.                                                                                                                                                                                                                                                                                              |
 
 <!--| Incoming call indication    | boolean | false                     | Receive `'onNewIncomingCall'` event when receiving calls.                                                                                                                 |-->                                                       
@@ -85,17 +85,17 @@ Bitte konsultieren Sie die Spezifikationen Ihres GMS-Geräts (Google hilft in de
 
 ### Weitere Einstellungen und Empfehlungen
 
-#### Als Adapterobjekte anzugeben (`admin.x` )
+#### Als Adapterobjekte anzugeben (`admin.x`)
 
-- Ihr Name (Standardwert ist`ownNumber` Die maximale Länge beträgt 16 Zeichen.
+- Ihr Name (Standardwert ist `ownNumber` Die maximale Länge beträgt 16 Zeichen.
 - Ihre Telefonnummer.
-- SMS-Betriebsmodus (`PDU` oder`SMS` ,`PDU` (ist die Standardeinstellung und empfohlen).
+- SMS-Betriebsmodus (`PDU` oder `SMS`, `PDU` (ist die Standardeinstellung und empfohlen).
 
 Alle Eingaben müssen mit ack=false erfolgen!
 
 #### Posteingang/Postausgang – Verlauf
 
-Durch Aktivieren des Verlaufsadapters für den`inbox.messageRaw` - Objekt und das`sendSMS.messageRaw` - Sie erhalten einen vollständigen Überblick über den Posteingang und Postausgang Ihres SMS-Verkehrs.
+Durch Aktivieren des Verlaufsadapters für den `inbox.messageRaw` - Objekt und das `sendSMS.messageRaw` - Sie erhalten einen vollständigen Überblick über den Posteingang und Postausgang Ihres SMS-Verkehrs.
 
 <!--
 #### SMS - errors
@@ -108,11 +108,11 @@ An (incomplete) list of possible error codes and their meanings can be found e.g
 
 ### SMS empfangen
 
-Eingehende SMS werden geschrieben an`inbox.*` - Objekte.`inbox.messageRaw` kann als Auslöser für weitere Operationen verwendet werden (z. B. Weiterleitung eingehender SMS über den E-Mail-Adapter).
+Eingehende SMS werden geschrieben an `inbox.*` - Objekte. `inbox.messageRaw` kann als Auslöser für weitere Operationen verwendet werden (z. B. Weiterleitung eingehender SMS über den E-Mail-Adapter).
 
 ### SMS senden
 
-Um eine SMS zu senden, füllen Sie bitte das Formular aus.`sendSMS.recipient, sendSMS.message` und optional`sendSMS.alert` und schieben`sendSMS.send` - Schaltfläche. Oder stellen Sie die`sendSMS.messageRaw` - Objekt mit einer Zeichenkette in folgender Form und ack=false:`{"recipient": "Number", "message":"Yourtext", "alert":"false"}` Die
+Um eine SMS zu senden, füllen Sie bitte das Formular aus. `sendSMS.recipient, sendSMS.message` und optional `sendSMS.alert` und schieben `sendSMS.send` - Schaltfläche. Oder stellen Sie die `sendSMS.messageRaw` - Objekt mit einer Zeichenkette in folgender Form und ack=false: `{"recipient": "Number", "message":"Yourtext", "alert":"false"}` Die
 
 Dieser Adapter bietet außerdem einen Kommunikationsblock für Blockly und SendTo-Funktionalitäten für andere Skripte (sendTo(" _gsmsms.InstanceNo_ ", "send", {text: ' _yourText_ ',recipient: ' _phonenumber_ ', alert: ' _false/true_ '});).
 
@@ -120,7 +120,7 @@ Dieser Adapter bietet außerdem einen Kommunikationsblock für Blockly und SendT
 
 Bitte achten Sie darauf, was Sie beim Einstellen von AT+-Befehlen tun, da es sich um Ihre SIM-Karte bzw. Ihr Gerät handelt.
 
-AT+-Befehle werden durch Einstellen gesendet`admin.atCommandSLR` im Format`AT+XXXXy` Sie können einen beliebigen Befehl senden, aber beachten Sie, dass Sie nur die letzte Zeile der Antwort sehen werden.
+AT+-Befehle werden durch Einstellen gesendet `admin.atCommandSLR` im Format `AT+XXXXy` Sie können einen beliebigen Befehl senden, aber beachten Sie, dass Sie nur die letzte Zeile der Antwort sehen werden.
 
 ## Serialport-gsm
 

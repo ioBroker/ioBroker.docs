@@ -17,7 +17,7 @@ hash: AVYSi23V3EBNRp+HLb1MOiYfrmmrO9uW1FFDtoRYAog=
 
 # ioBroker.wled
 
-**Dieser Adapter nutzt den Dienst`Sentry.io` Ausnahmen, Codefehler und neue Geräteschemata werden mir als Entwickler automatisch gemeldet.** Weitere Details finden Sie unten!
+**Dieser Adapter nutzt den Dienst `Sentry.io` Ausnahmen, Codefehler und neue Geräteschemata werden mir als Entwickler automatisch gemeldet.** Weitere Details finden Sie unten!
 
 ## WLED-Adapter für ioBroker
 
@@ -46,12 +46,12 @@ Keine Sorge, in diesem Fall können Sie das Gerät manuell über die IP-Adresse 
 Der Adapter bietet vielfältige Möglichkeiten zur Steuerung Ihrer WLED-Geräte:
 
 1. **Standardzustände** - Verwenden Sie individuelle Zustände für Helligkeit, Farbe, Effekte usw.
-2. **JSON-Befehle** – Senden Sie vollständige JSON-Befehle über die`action` Zustand für erweiterte Steuerung
-3. **Rohe HTTP-API-Befehle** – Senden von Legacy-HTTP-API-Befehlen über die`rawCommand` Zustand
+2. **JSON-Befehle** – Senden Sie vollständige JSON-Befehle über die `action` Zustand für erweiterte Steuerung
+3. **Rohe HTTP-API-Befehle** – Senden von Legacy-HTTP-API-Befehlen über die `rawCommand` Zustand
 
 ### Verwendung von rohen HTTP-API-Befehlen
 
-Für fortgeschrittene Benutzer, die rohe HTTP-API-Befehle senden müssen (Legacy-Version)`/win` Endpunkt), können Sie den`rawCommand` Zustand:
+Für fortgeschrittene Benutzer, die rohe HTTP-API-Befehle senden müssen (Legacy-Version) `/win` Endpunkt), können Sie den `rawCommand` Zustand:
 
 ```javascript
 // Example: Set brightness to 255, effect to 0, and colors
@@ -61,14 +61,14 @@ setState('wled.0.XXXXXXXXXXXX.rawCommand', 'A=255&FX=0&R=255&G=0&B=0');
 setState('wled.0.XXXXXXXXXXXX.rawCommand', 'SM=0&SS=0&SV=2&S=15&S2=299&GP=7&SP=30&RV=0&SB=255&A=255&W=255&R2=0&G2=0&B2=0&W2=&FX=0&T=1');
 ```
 
-**Hinweis:** Die`rawCommand` Der Status ist für fortgeschrittene Anwendungsfälle und die Kompatibilität mit der älteren WLED-HTTP-API vorgesehen. Für die meisten Anwendungsfälle reichen die Standardstatus oder JSON-Befehle (über`action` staatlich) werden empfohlen.
+**Hinweis:** Die `rawCommand` Der Status ist für fortgeschrittene Anwendungsfälle und die Kompatibilität mit der älteren WLED-HTTP-API vorgesehen. Für die meisten Anwendungsfälle reichen die Standardstatus oder JSON-Befehle (über `action` staatlich) werden empfohlen.
 
 Gängige Rohbefehlsparameter:
 
 - `A` - Masterhelligkeit (0-255)
-- `R` ,`G` ,`B` - RGB-Werte der Primärfarben (0-255)
-- `R2` ,`G2` ,`B2` - Sekundärfarben-RGB-Werte (0-255)
-- `W` ,`W2` - Weißkanalwerte (0-255)
+- `R`, `G`, `B` - RGB-Werte der Primärfarben (0-255)
+- `R2`, `G2`, `B2` - Sekundärfarben-RGB-Werte (0-255)
+- `W`, `W2` - Weißkanalwerte (0-255)
 - `FX` - Effekt-ID
 - `SX` - Effektgeschwindigkeit
 - `IX` - Effektintensität
@@ -79,7 +79,7 @@ Eine vollständige Liste der Parameter finden Sie in der [WLED HTTP API-Dokument
 
 ### Segmentverwaltung via sendTo
 
-Der Adapter bietet leistungsstarke Segmentverwaltungsfunktionen durch`sendTo` Befehle, mit denen Sie Segmente dynamisch zu Ihrem JavaScript-Code hinzufügen und daraus löschen können:
+Der Adapter bietet leistungsstarke Segmentverwaltungsfunktionen durch `sendTo` Befehle, mit denen Sie Segmente dynamisch zu Ihrem JavaScript-Code hinzufügen und daraus löschen können:
 
 #### Hinzufügen von Segmenten
 
@@ -126,7 +126,7 @@ sendTo('wled.0', 'deleteSegment', {
 
 - `deviceId` (erforderlich): Die MAC-Adresse Ihres WLED-Geräts (z. B. 'AABBCCDDEEFF')
 - `segmentId` (erforderlich): Die Segment-ID (0-basierte Nummerierung)
-- Für`addSegment` :
+- Für `addSegment`:
   - `start` (optional): Erste LED im Segment, Standardwert 0
   - `stop` (optional): Letzte LED im Segment (exklusiv), Standardwert ist 1
   - `on` (optional): Segment ein-/ausschalten

@@ -32,7 +32,7 @@ Der Adapter ist für alle Verwendungszwecke kostenlos.
 
 Normalerweise verfügen die meisten Widgets über ein ObjectID-Attribut, das mit einem Objekt-ID-Wert verknüpft werden kann. Es gibt jedoch noch eine weitere Möglichkeit, _ein beliebiges_ Widget-Attribut an eine ObjectID zu binden.
 
-Schreiben Sie einfach in das Attribut.`{object.id}` und es wird (nicht im Bearbeitungsmodus) an den Wert dieses Objekts gebunden. Bei Verwendung des speziellen Formats können Sie sogar einfache Operationen damit durchführen, z. B. Multiplikation oder Formatierung. Das Muster hat folgendes Format:
+Schreiben Sie einfach in das Attribut. `{object.id}` und es wird (nicht im Bearbeitungsmodus) an den Wert dieses Objekts gebunden. Bei Verwendung des speziellen Formats können Sie sogar einfache Operationen damit durchführen, z. B. Multiplikation oder Formatierung. Das Muster hat folgendes Format:
 
 ```
 {objectID;operation1;operation2;...}
@@ -59,12 +59,12 @@ Folgende Operationen werden unterstützt:
 - `pow` - Zweierpotenz.
 - `floor` - Math.floor
 - `ceil` - Math.ceil
-- `json` - Operation zum Abrufen von JSON- oder Objekteigenschaften. Z. B.`{id;json(common.name.en)}`
+- `json` - Operation zum Abrufen von JSON- oder Objekteigenschaften. Z. B. `{id;json(common.name.en)}`
 - `random(R)` - Math.random() \* R, oder einfach Math.random(), wenn kein Argument angegeben wird
 - `formatValue(decimals)` - Wert gemäß Systemeinstellungen formatieren und Dezimalstellen verwenden
-- `date(format)` - Wert als Datum formatieren. Das Format sieht folgendermaßen aus:`YYYY-MM-DD hh:mm:ss.sss`
-- `momentDate(format, useTodayOrYesterday)` - Wert mithilfe von Moment.js als Datum formatieren. [Zulässige Formate müssen gemäß der Moment.js-Bibliothek eingegeben werden](https://momentjs.com/docs/#/displaying/format/) .`useTodayOrYesterday=true` das momentjs-Format`ddd` /`dddd` werden mit heute / gestern überschrieben
-- `array(element1,element2[,element3,element4])` - Gibt das Element mit dem angegebenen Index zurück. Beispiel:`{id.ack;array(ack is false,ack is true)}`
+- `date(format)` - Wert als Datum formatieren. Das Format sieht folgendermaßen aus: `YYYY-MM-DD hh:mm:ss.sss`
+- `momentDate(format, useTodayOrYesterday)` - Wert mithilfe von Moment.js als Datum formatieren. [Zulässige Formate müssen gemäß der Moment.js-Bibliothek eingegeben werden](https://momentjs.com/docs/#/displaying/format/) . `useTodayOrYesterday=true` das momentjs-Format `ddd` /`dddd` werden mit heute / gestern überschrieben
+- `array(element1,element2[,element3,element4])` - Gibt das Element mit dem angegebenen Index zurück. Beispiel: `{id.ack;array(ack is false,ack is true)}`
 
 Sie können dieses Muster in jedem beliebigen Text verwenden, zum Beispiel
 
@@ -78,7 +78,7 @@ oder Farbberechnungen:
 #{objectRed;/(100);*(255);HEX2}{objectGreen;HEX2}{objectBlue;HEX2}
 ```
 
-Um den Zeitstempel eines Objekts anzuzeigen, schreiben Sie`.ts` oder`.lc` (für die letzte Änderung) am Ende der Objekt-ID, z. B.:
+Um den Zeitstempel eines Objekts anzuzeigen, schreiben Sie `.ts` oder `.lc` (für die letzte Änderung) am Ende der Objekt-ID, z. B.:
 
 ```
 Last change: {objectRed.lc;date(hh:mm)}
@@ -115,16 +115,16 @@ Es gibt eine Reihe unterschiedlicher interner Bindungen, um zusätzliche Informa
 - `username` - zeigt den angemeldeten Benutzer an
 - `view` - Name der aktuellen Ansicht
 - `wname` - Widget-Name
-- `widget` - ist ein Objekt mit allen Daten des Widgets. Kann nur im JS-Teil verwendet werden, wie z. B.`{a:a;widget.data.name}`
+- `widget` - ist ein Objekt mit allen Daten des Widgets. Kann nur im JS-Teil verwendet werden, wie z. B. `{a:a;widget.data.name}`
 - `wid` - Name des eigentlichen Widgets
-- `language` - kann sein`de` ,`en` oder`ru` Die
+- `language` - kann sein `de`, `en` oder `ru` Die
 - `instance` - Browserinstanz
 - `login` - ob eine Anmeldung erforderlich ist oder nicht (z. B. zum Ein-/Ausblenden des Abmeldebuttons)
-- `local_*` - wenn der Staatsname mit folgendem beginnt`local_` Es wird nicht an ioBroker gemeldet, aktualisiert aber alle Widgets, die von diesem Zustand abhängen. (Lokale Variable der aktuellen Browsersitzung)
+- `local_*` - wenn der Staatsname mit folgendem beginnt `local_` Es wird nicht an ioBroker gemeldet, aktualisiert aber alle Widgets, die von diesem Zustand abhängen. (Lokale Variable der aktuellen Browsersitzung)
 
 Hinweis: Um ":" in Berechnungen (z. B. in einer Formel) zu verwenden, verwenden Sie stattdessen "::" .
 
-**Denken Sie daran** , dass Stildefinitionen als Bindungen interpretiert werden, also verwenden Sie`{{style: value}}` oder einfach
+**Denken Sie daran** , dass Stildefinitionen als Bindungen interpretiert werden, also verwenden Sie `{{style: value}}` oder einfach
 
 ```
 {
@@ -138,43 +138,43 @@ dafür.
 
 Um die Gesamtzahl der Widgets in einer einzigen Ansicht darzustellen, können Sie Filter verwenden, um die Anzahl der gleichzeitig in der Ansicht angezeigten Widgets zu reduzieren.
 
-Jedes Widget hat ein Feld`filter` Wenn Sie es auf einen bestimmten Wert setzen, z.B.`light` Sie können also auch andere Widgets verwenden.`(bars - filters, filter - dropdown)` um zu steuern, welcher Filter tatsächlich aktiv ist.
+Jedes Widget hat ein Feld `filter` Wenn Sie es auf einen bestimmten Wert setzen, z.B. `light` Sie können also auch andere Widgets verwenden. `(bars - filters, filter - dropdown)` um zu steuern, welcher Filter tatsächlich aktiv ist.
 
 ## Steuerungsschnittstelle
 
 Vis erstellt 3 Variablen:
 
-- `control.instance` - Hier sollte die Browserinstanz angegeben werden oder`FFFFFFFF` wenn jeder Browser kontrolliert werden muss.
+- `control.instance` - Hier sollte die Browserinstanz angegeben werden oder `FFFFFFFF` wenn jeder Browser kontrolliert werden muss.
 - `control.data` - Parameter für den Befehl. Siehe die spezifische Befehlsbeschreibung.
 - `control.command` - Befehlsname. Durch Schreiben dieser Variable wird der Befehl ausgelöst. Das bedeutet, dass vor der Ausführung des Befehls die Variablen „Instanz“ und „Daten“ mit Daten vorbereitet werden müssen.
 
 Befehle:
 
-- `alert` - Zeigt ein Warnfenster in der Visualisierung an. "control.data" hat das Format "message;title;jquery-icon". Titel und jquery-icon sind optional. Die Namen der Icons finden Sie [hier](http://jqueryui.com/themeroller/) . Um das Icon "ui-icon-info" anzuzeigen, schreiben Sie`Message;;info` Die
+- `alert` - Zeigt ein Warnfenster in der Visualisierung an. "control.data" hat das Format "message;title;jquery-icon". Titel und jquery-icon sind optional. Die Namen der Icons finden Sie [hier](http://jqueryui.com/themeroller/) . Um das Icon "ui-icon-info" anzuzeigen, schreiben Sie `Message;;info` Die
 - `changeView` - Wechseln Sie zur gewünschten Ansicht. "control.data" muss den Namen der Ansicht enthalten. Sie können auch den Projektnamen als "project/view" angeben. Das Standardprojekt ist "main".
 - `refresh` - die Ansicht neu laden, beispielsweise nachdem ein Projekt geändert wurde, sodass sie in allen Browsern neu geladen wird.
 - `reload` - Dasselbe wie beim Aktualisieren.
 - `dialog` - Dialogfenster anzeigen. Der Dialog muss in der Ansicht vorhanden sein. Eine der folgenden Optionen:
 
-  - `static    - HTML    - Dialog` ,
-  - `static    - Icon    - Dialog` ,
-  - `container - HTML    - view in jqui Dialog` ,
-  - `container - ext cmd - view in jqui Dialog` ,
-  - `container - Icon    - view in jqui Dialog` ,
+  - `static    - HTML    - Dialog`,
+  - `static    - Icon    - Dialog`,
+  - `container - HTML    - view in jqui Dialog`,
+  - `container - ext cmd - view in jqui Dialog`,
+  - `container - Icon    - view in jqui Dialog`,
   - `container - Button  - view in jqui Dialog` Die
 
-  `control.data` muss die ID des Dialog-Widgets haben, z. B.`w00056` Die
+  `control.data` muss die ID des Dialog-Widgets haben, z. B. `w00056` Die
 - `dialogClose`
-- `popup` - öffnet ein neues Browserfenster. Der Link muss angegeben werden in`control.data` z. B. <http://google.com>
-- `playSound` - Audiodatei abspielen. Der Link zur Datei ist angegeben in`control.data` z. B. <http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3> . Sie können Ihre eigene Datei in vis hochladen und sie beispielsweise abspielen lassen.`/vis.0/main/img/myFile.mp3` Die
+- `popup` - öffnet ein neues Browserfenster. Der Link muss angegeben werden in `control.data` z. B. <http://google.com>
+- `playSound` - Audiodatei abspielen. Der Link zur Datei ist angegeben in `control.data` z. B. <http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3> . Sie können Ihre eigene Datei in vis hochladen und sie beispielsweise abspielen lassen. `/vis.0/main/img/myFile.mp3` Die
 
 Wenn der Benutzer die Ansicht ändert oder beim Start, werden die Variablen von der Ansicht mit
 
-- `control.instance` : Browserinstanz und`ack=true`
-- `control.data` : Projekt- und Ansichtsname im Formular`project/view` z.B.`main/view` (Und`ack=true` )
-- `control.command` :`changedView` Und`ack=true`
+- `control.instance`: Browserinstanz und `ack=true`
+- `control.data`: Projekt- und Ansichtsname im Formular `project/view` z.B. `main/view` (Und `ack=true`)
+- `control.command`: `changedView` Und `ack=true`
 
-Sie können die JSON-Zeichenfolge oder das Objekt in Folgendes schreiben:`control.command` als`{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` In diesem Fall werden die Instanz und die Daten aus einem JSON-Objekt entnommen.
+Sie können die JSON-Zeichenfolge oder das Objekt in Folgendes schreiben: `control.command` als `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` In diesem Fall werden die Instanz und die Daten aus einem JSON-Objekt entnommen.
 
 Beispiel für einen JavaScript-Adapter:
 
@@ -188,7 +188,7 @@ Sie können für jede Ansicht die gewünschte Auflösung festlegen (Menü => Wer
 
 Zusätzlich können Sie festlegen, ob diese Ansicht für diese Auflösung als Standard verwendet werden soll.
 
-Also jedes Mal, wenn`index.html` (ohne`#viewName` Wird die entsprechende Option aufgerufen, wird die für diese Bildschirmauflösung am besten geeignete Ansicht geöffnet. Ist nur eine Ansicht als _„Standard“_ gekennzeichnet, wird diese unabhängig von Bildschirmauflösung und -ausrichtung geöffnet.
+Also jedes Mal, wenn `index.html` (ohne `#viewName` Wird die entsprechende Option aufgerufen, wird die für diese Bildschirmauflösung am besten geeignete Ansicht geöffnet. Ist nur eine Ansicht als _„Standard“_ gekennzeichnet, wird diese unabhängig von Bildschirmauflösung und -ausrichtung geöffnet.
 
 Sie können beispielsweise zwei Ansichten erstellen, „Querformat-Mobil“ und „Hochformat-Mobil“, und zwischen diesen beiden Ansichten wird automatisch umgeschaltet, wenn Sie die Ausrichtung oder die Bildschirmgröße ändern.
 

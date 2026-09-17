@@ -62,7 +62,7 @@ Dieser Adapter implementiert derzeit nahezu alle Funktionen der Miele API V1.0.5
 - Alle bekannten und dokumentierten Gerätetypen werden unterstützt (API V1.0.6).
 - Grundlegende Informationen für alle Gerätetypen.
 - Ausführliche Informationen für alle Gerätetypen.
-- EcoFeedback (Wasser- und/oder Stromverbrauch) für Geräte, die dies melden.`Note: Not all devices report this information - event not if they do so in the iOS or Android apps. Search for the ecoFeedback folder in the device tree.`
+- EcoFeedback (Wasser- und/oder Stromverbrauch) für Geräte, die dies melden. `Note: Not all devices report this information - event not if they do so in the iOS or Android apps. Search for the ecoFeedback folder in the device tree.`
 - Unterstützte Aktionen, die Sie auf diesem Gerät ausführen können – die Fähigkeiten des Geräts werden größtenteils von der API selbst gemeldet.
 
 ## Bekannte Probleme

@@ -14,7 +14,7 @@ hash: TTOP35VBU3OqgONlJCA7Al0XXFva+AVoDr+9znJCpVE=
 
 ## Конфигурация
 
-IPv4-адрес тривиального музыкального центра внутри. Zonen und Steuerungen работают автоматически. Abfrageintervall и HTTP-Timeout в панели конфигурации; Bestehende Installationen Behalten die Historischen Konfigurationsschlüssel`adresse` унд`option3` .
+IPv4-адрес тривиального музыкального центра внутри. Zonen und Steuerungen работают автоматически. Abfrageintervall и HTTP-Timeout в панели конфигурации; Bestehende Installationen Behalten die Historischen Konfigurationsschlüssel `adresse` унд `option3`.
 
 `Anzahl der Durchsage-Vorlagen` erzeugt globale Durchsage-Schaltflächen ab ID 0.
 
@@ -22,20 +22,20 @@ IPv4-адрес тривиального музыкального центра �
 
 Globale Steuerungen:
 
-- `Global.ALLOFF` : alle Zonen ausschalten
-- `Global.Aktive_zonen` : в три раза активная зона
-- `Global.PagingN` : Durchsage-Vorlage N starten
+- `Global.ALLOFF`: alle Zonen ausschalten
+- `Global.Aktive_zonen`: в три раза активная зона
+- `Global.PagingN`: Durchsage-Vorlage N starten
 
 Je erkannter Zone werden angelegt:
 
-- `Muten` : Stummschaltung ein-/ausschalten
-- `DEFAULT_STREAMING` : Standardstream starten
-- `ZONECMD_DEFAULT_TUNER` : Standardtuner starten
-- `VOLUME` : Lautstärke от 0 до 100 процентов
-- `ZONECMD_POWER_OFF` : Zone ausschalten
-- `Status` : aktueller Zonenstatus
+- `Muten`: Stummschaltung ein-/ausschalten
+- `DEFAULT_STREAMING`: Standardstream starten
+- `ZONECMD_DEFAULT_TUNER`: Standardtuner starten
+- `VOLUME`: Lautstärke от 0 до 100 процентов
+- `ZONECMD_POWER_OFF`: Zone ausschalten
+- `Status`: aktueller Zonenstatus
 
-Schaltflächen werden nach erfolgreichem Aufruf autotisch zurückgesetzt.`info.connection` wird erst nach einer erfolgreichen trivum-Antwort gesetzt;`info.lastError` enthält den letzten Kommunikationsfehler.
+Schaltflächen werden nach erfolgreichem Aufruf autotisch zurückgesetzt. `info.connection` wird erst nach einer erfolgreichen trivum-Antwort gesetzt; `info.lastError` enthält den letzten Kommunikationsfehler.
 
 ## Лицензия
 

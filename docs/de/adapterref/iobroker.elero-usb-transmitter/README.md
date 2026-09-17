@@ -22,7 +22,7 @@ Adapter zur Steuerung von Elero-Geräten mit dem Elero USB-Transmitter-Stick. Si
 
 ## Konfiguration
 
-1. **USB-Stick-Gerätepfad** : Pfad zu Ihrem USB-Transmitter-Stick (z. B.`/dev/ttyUSB0` oder`COM3` ).
+1. **USB-Stick-Gerätepfad** : Pfad zu Ihrem USB-Transmitter-Stick (z. B. `/dev/ttyUSB0` oder `COM3`).
 2. **Aktualisierungsintervall** : Zeit in Minuten, um den Gerätestatus zu aktualisieren.
 3. **Gerätekonfigurationen** : In den Adaptereinstellungen können Sie Kanalnummern benutzerdefinierten Namen zuordnen.
 
@@ -34,30 +34,30 @@ Der Adapter erstellt für jeden aktiven Kanal des Sticks ein Gerät. Jedes Gerä
 | :--------------- | :------- | :------------------------------------------------------------------------------------- |
 | `channel`        | Text     | Die Kanalnummer des Geräts.                                                            |
 | `info`           | Text     | Aktuelle Statusinformationen, die vom Stick zurückgegeben werden.                      |
-| `open`           | schalten | Hauptsteuerung. Einstellen auf`true` zum ÖFFNEN,`false` zum SCHLIESSEN (ABSCHLIESSEN). |
+| `open`           | schalten | Hauptsteuerung. Einstellen auf `true` zum ÖFFNEN, `false` zum SCHLIESSEN (ABSCHLIESSEN). |
 | `controlCommand` | Zustand  | Sende spezifische Befehle direkt.                                                      |
 
 ### Steuerbefehle
 
-Sie können die folgenden Werte in die`controlCommand` Zustand:
+Sie können die folgenden Werte in die `controlCommand` Zustand:
 
-- `16` : STOPPEN
-- `32` : HOCH
+- `16`: STOPPEN
+- `32`: HOCH
 - `36` Belüftung/Neigung
-- `64` : RUNTER
+- `64`: RUNTER
 - `68` Zwischenposition
 
 ### Einfache Befehle
 
-- `74` : EASY\_CHECK
-- `75` : EASY\_CONFIRM
-- `76` : EASY\_SEND
-- `77` : EASY\_ACK
-- `78` : EASY\_INFO
+- `74`: EASY\_CHECK
+- `75`: EASY\_CONFIRM
+- `76`: EASY\_SEND
+- `77`: EASY\_ACK
+- `78`: EASY\_INFO
 
 ### Statuswerte
 
-Der`info` Der Status zeigt den aktuellen Status des Geräts an. Gängige Werte sind:
+Der `info` Der Status zeigt den aktuellen Status des Geräts an. Gängige Werte sind:
 
 | Wert                                 | Beschreibung                                           |
 | :----------------------------------- | :----------------------------------------------------- |

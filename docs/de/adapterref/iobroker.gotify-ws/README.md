@@ -18,7 +18,7 @@ hash: 1Nujq/M2hQYIjpGp8z92I1UwOsJr25OgTzZsMfyGi3c=
 
 # ioBroker.gotify-ws
 
-Dieser Adapter nutzt den Dienst`Sentry.io` Ausnahmen, Codefehler und neue Geräteschemata werden mir als Entwickler automatisch gemeldet. Weitere Details finden Sie unten!
+Dieser Adapter nutzt den Dienst `Sentry.io` Ausnahmen, Codefehler und neue Geräteschemata werden mir als Entwickler automatisch gemeldet. Weitere Details finden Sie unten!
 
 ---
 

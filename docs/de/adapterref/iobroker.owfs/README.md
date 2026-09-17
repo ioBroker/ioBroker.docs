@@ -41,7 +41,7 @@ Dieser Befehl startet den 1wire-Server auf dem lokalen Port 4304.
 
 `owfs -C -m /mnt/1wire --allow_other`
 
-Zuvor müssen Sie das Verzeichnis _/mnt/1wire_ mit dem Befehl erstellen.`mkdir /mnt/1wire`
+Zuvor müssen Sie das Verzeichnis _/mnt/1wire_ mit dem Befehl erstellen. `mkdir /mnt/1wire`
 
 ## OWFS unter Windows installieren
 

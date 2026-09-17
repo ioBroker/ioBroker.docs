@@ -8,7 +8,7 @@ hash: jdhfqPHDux77bKQpJdXE0i6KDGHjey9qbP7RelO/Fs0=
 ---
 # Programmablauf – ioBroker.kecontact
 
-Dieses Dokument beschreibt den Programmfluss des Adapters, das Zusammenspiel der Konfigurationsoptionen und der Datenpunkte. Die gesamte Logik liegt in`main.js` in der Klasse`Kecontact` Die
+Dieses Dokument beschreibt den Programmfluss des Adapters, das Zusammenspiel der Konfigurationsoptionen und der Datenpunkte. Die gesamte Logik liegt in `main.js` in der Klasse `Kecontact` Die
 
 ---
 
@@ -19,7 +19,7 @@ Der Adapter steuert eine KEBA KeContact P20/P30 (bzw. BMW i) Wallbox über **UDP
 Zwei Betriebsarten:
 
 - **Aktiv** (Standard): Adapter empfängt Broadcasts der Wallbox, rechnet und reguliert.
-- **Passiv** (`passiveMode` Oder`subsequent wallbox` ): nur Beobachtung, keine Regelung. Wichtig, weil pro Wallbox nur **eine** Instanz den Broadcast-Port belegen darf.
+- **Passiv** (`passiveMode` Oder `subsequent wallbox`): nur Beobachtung, keine Regelung. Wichtig, weil pro Wallbox nur **eine** Instanz den Broadcast-Port belegen darf.
 
 ---
 
@@ -46,8 +46,8 @@ flowchart TD
 
 Wichtige Punkte:
 
-- `checkConfig()` verwirft ungültige IPs (`0.0.0.0` ,`127.0.0.1` ), setzt`isPassive` und die Update-Intervalle.
-- Der interne State-Cache (`getStateInternal` /`setStateInternal` ) spiegelt alle ioBroker-States wider, damit die Regelung ohne asynchrone Reads rechnen kann.
+- `checkConfig()` verwirft ungültige IPs (`0.0.0.0`, `127.0.0.1`), setzt `isPassive` und die Update-Intervalle.
+- Der interne State-Cache (`getStateInternal` /`setStateInternal`) spiegelt alle ioBroker-States wider, damit die Regelung ohne asynchrone Reads rechnen kann.
 - `stateVehicleSoC` kann auf einen **Fremd-Staat** zeigen; Dieser wird beim Start und bei Änderung dynamisch (ab)abonniert.
 
 ---
@@ -70,15 +70,15 @@ flowchart LR
     end
 ```
 
-- **Senden ist gedrosselt** (Warteschlange +`sendDelayTimer` ), weil die Wallbox schnelle Kommandos verwirft.`highPriority` Stellt ein Kommando vorne in die Warteschlange.
-- Schreiben auf steuernde Datenpunkte löst über`stateChangeListeners` das passende UDP-Kommando aus (siehe Tabelle Abschnitt 6).
-- Bei mehreren Instanzen tauschen sich diese über`internal.message` (`handleWallboxExchange` ) aus.
+- **Senden ist gedrosselt** (Warteschlange +`sendDelayTimer`), weil die Wallbox schnelle Kommandos verwirft. `highPriority` Stellt ein Kommando vorne in die Warteschlange.
+- Schreiben auf steuernde Datenpunkte löst über `stateChangeListeners` das passende UDP-Kommando aus (siehe Tabelle Abschnitt 6).
+- Bei mehreren Instanzen tauschen sich diese über `internal.message` (`handleWallboxExchange`) aus.
 
 ---
 
-## 4. Regel-Schleife:`checkWallboxPower()`
+## 4. Regel-Schleife: `checkWallboxPower()`
 
-Das Herz des Adapters. Wird periodisch (Timer) und bei erzwungenen Neuberechnungen (`forceUpdateOfCalculation` ) aufgerufen. Ergebnis ist ein Ladestrom`curr` in mA, der über`regulateWallbox()` gesetzt wird – oder`stopCharging()` Die
+Das Herz des Adapters. Wird periodisch (Timer) und bei erzwungenen Neuberechnungen (`forceUpdateOfCalculation`) aufgerufen. Ergebnis ist ein Ladestrom `curr` in mA, der über `regulateWallbox()` gesetzt wird – oder `stopCharging()` Die
 
 ```mermaid
 flowchart TD
@@ -143,45 +143,45 @@ flowchart TD
 
 ### Kern-Reihenfolge (Priorität der Einschränkungen)
 
-1. **Harte Obergrenzen** zuerst:`maxGridPower` →`maxAmperage` →`§14a EnWG` . Diese können den Strom nur **senken** , nicht erhöhen.
-2. **Sperren** : manuelle Pause, kein Fahrzeug eingesteckt,`tempMax = 0` Die
-3. **Betriebsmodus** : dynamisch (PV) vs. Maximalleistung (`isDynamicChargingActive` – abhängig von PV-Automatik,`targetSoC` ,`maxSoC` ).
+1. **Harte Obergrenzen** zuerst: `maxGridPower` →`maxAmperage` →`§14a EnWG`. Diese können den Strom nur **senken** , nicht erhöhen.
+2. **Sperren** : manuelle Pause, kein Fahrzeug eingesteckt, `tempMax = 0` Die
+3. **Betriebsmodus** : dynamisch (PV) vs. Maximalleistung (`isDynamicChargingActive` – abhängig von PV-Automatik, `targetSoC`, `maxSoC`).
 4. **Überschussrechnung** mit optionaler Batterie-Einbeziehung.
-5. **Sitzungsunterbrechung** :`addPower` ,`underusage` ,`minTime` ,`regardTime` Verhindern Sie ständiges Ein/Aus – ein einmal gestarteter Ladevorgang wird toleriert fortgeführt.
+5. **Sitzungsunterbrechung** : `addPower`, `underusage`, `minTime`, `regardTime` Verhindern Sie ständiges Ein/Aus – ein einmal gestarteter Ladevorgang wird toleriert fortgeführt.
 6. **Phasenumschaltung 1p/3p** als Sonderfall, der die Rechnung neu anstößt.
 
 ---
 
 ## 5. Zusammenspiel der Optionen (Konfiguration → Verhalten)
 
-Optionen aus`admin/jsonConfig.json` (`this.config.*` ). Fremd-States sind Verweise auf Datenpunkte **anderer** Adapter (Energiezähler, Speicher, Fahrzeug-SoC).
+Optionen aus `admin/jsonConfig.json` (`this.config.*`). Fremd-States sind Verweise auf Datenpunkte **anderer** Adapter (Energiezähler, Speicher, Fahrzeug-SoC).
 
 | Bereich           | Option(en)                                                                                                                                                               | Wirkung im Ablauf                                                                  |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
-| Verbindung        | `host` ,`pollInterval` ,`passiveMode` ,`loadChargingSessions` ,`lessInfoLogs`                                                                                            | Basis: IP, Poll-Takt, aktiv/passiv, Session-Download, Log-Detail                   |
-| PV-Basis          | `stateSurplus` ,`stateRegard`                                                                                                                                            | Fremd-Staaten für Überschuss / Netzbezug →`getSurplusWithoutWallbox`               |
-| PV-Feinabstimmung | `minAmperage` ,`addPower` ,`delta` ,`underusage` ,`minTime` ,`regardTime`                                                                                                | Start-/Halte-Verhalten der Session, Hysterese gegen Flattern                       |
-| Wallbox-Einbezug  | `statesIncludeWallbox` ,`wallboxNotIncluded`                                                                                                                             | Ob Wallbox-Leistung in Zählerwerten bereits enthalten ist                          |
-| 1p/3p             | `state1p3pSwitch` ,`1p3pSwitchIsNO` ,`1p3pViaX2` ,`useX1forAutomatic`                                                                                                    | Phasenumschaltung über Schütz (NO/NC) oder X2-Port; X1-Eingang                     |
-| Batteriespeicher  | `stateBatteryCharging` ,`stateBatteryDischarging` ,`stateBatterySoC` ,`batteryPower` ,`batteryChargePower` ,`batteryMinSoC` ,`batteryLimitSoC` ,`batteryStorageStrategy` | ob/wie Speicher fürs Fahrzeug genutzt wird →`getBatteryStoragePower` Strategie 1–4 |
-| §14a EnWG         | `stateEnWG` ,`dynamicEnWG` ,`powerEnWG`                                                                                                                                  | fixe 6 A oder dynamische Begrenzung →`getMaxCurrentEnWG`                           |
-| Leistungslimit    | `maxPower` ,`stateEnergyMeter1..3` ,`wallboxNotIncluded`                                                                                                                 | Gesamtleistungs-Deckel →`getTotalPowerAvailable`                                   |
-| Amperelimit       | `maxAmperage` ,`stateAmperagePhase1..3` ,`amperageUnit`                                                                                                                  | Deckel je Phase →`getTotalAmperageAvailable`                                       |
+| Verbindung        | `host`, `pollInterval`, `passiveMode`, `loadChargingSessions`, `lessInfoLogs`                                                                                            | Basis: IP, Poll-Takt, aktiv/passiv, Session-Download, Log-Detail                   |
+| PV-Basis          | `stateSurplus`, `stateRegard`                                                                                                                                            | Fremd-Staaten für Überschuss / Netzbezug →`getSurplusWithoutWallbox`               |
+| PV-Feinabstimmung | `minAmperage`, `addPower`, `delta`, `underusage`, `minTime`, `regardTime`                                                                                                | Start-/Halte-Verhalten der Session, Hysterese gegen Flattern                       |
+| Wallbox-Einbezug  | `statesIncludeWallbox`, `wallboxNotIncluded`                                                                                                                             | Ob Wallbox-Leistung in Zählerwerten bereits enthalten ist                          |
+| 1p/3p             | `state1p3pSwitch`, `1p3pSwitchIsNO`, `1p3pViaX2`, `useX1forAutomatic`                                                                                                    | Phasenumschaltung über Schütz (NO/NC) oder X2-Port; X1-Eingang                     |
+| Batteriespeicher  | `stateBatteryCharging`, `stateBatteryDischarging`, `stateBatterySoC`, `batteryPower`, `batteryChargePower`, `batteryMinSoC`, `batteryLimitSoC`, `batteryStorageStrategy` | ob/wie Speicher fürs Fahrzeug genutzt wird →`getBatteryStoragePower` Strategie 1–4 |
+| §14a EnWG         | `stateEnWG`, `dynamicEnWG`, `powerEnWG`                                                                                                                                  | fixe 6 A oder dynamische Begrenzung →`getMaxCurrentEnWG`                           |
+| Leistungslimit    | `maxPower`, `stateEnergyMeter1..3`, `wallboxNotIncluded`                                                                                                                 | Gesamtleistungs-Deckel →`getTotalPowerAvailable`                                   |
+| Amperelimit       | `maxAmperage`, `stateAmperagePhase1..3`, `amperageUnit`                                                                                                                  | Deckel je Phase →`getTotalAmperageAvailable`                                       |
 | Autorisierung     | `authChargingTime`                                                                                                                                                       | Zwangs-Ladefenster nach RFID-Autorisierung                                         |
 
-Merksatz: **Fremd-States liefern Messwerte** , **Optionen liefern Parameter/Grenzen** und die dynamischen`automatic.*` -Datenpunkte erlauben eine Übersteuerung zur Laufzeit.
+Merksatz: **Fremd-States liefern Messwerte** , **Optionen liefern Parameter/Grenzen** und die dynamischen `automatic.*` -Datenpunkte erlauben eine Übersteuerung zur Laufzeit.
 
 ---
 
 ## 6. Steuernde Datenpunkte (Schreiben → UDP-Kommando)
 
-Registriert in`subscribeStatesAndStartWorking()` . Schreiben löst sofort ein UDP-Kommando aus:
+Registriert in `subscribeStatesAndStartWorking()`. Schreiben löst sofort ein UDP-Kommando aus:
 
 | Datenpunkt                               | Kommando an Wallbox                         |
 | ---------------------------------------- | ------------------------------------------- |
 | `enableUser`                             | `ena 0/1`                                   |
 | `currentUser`                            | `curr <mA>`                                 |
-| `currentTimer` (+`timeoutCurrentTimer` ) | `currtime <mA> <t>`                         |
+| `currentTimer` (+`timeoutCurrentTimer`) | `currtime <mA> <t>`                         |
 | `output`                                 | `output 0/1`                                |
 | `display`                                | `display 0 0 0 0 <text>`                    |
 | `setenergy`                              | `setenergy <Wh*10>`                         |
@@ -189,13 +189,13 @@ Registriert in`subscribeStatesAndStartWorking()` . Schreiben löst sofort ein UD
 | `start` /`stop`                          | `start <tag>` / `stop <tag>`                |
 | `setdatetime`                            | `setdatetime <...>`                         |
 | `unlock`                                 | `unlock`                                    |
-| `x2phaseSource` /`x2phaseSwitch`         | `x2src <n>` /`x2 <n>` (+`1p3pSwTimestamp` ) |
+| `x2phaseSource` /`x2phaseSwitch`         | `x2src <n>` /`x2 <n>` (+`1p3pSwTimestamp`) |
 
 ---
 
-## 7. Dynamische Steuer-Datenpunkte`automatic.*`
+## 7. Dynamische Steuer-Datenpunkte `automatic.*`
 
-Diese verändern das Regelverhalten zur Laufzeit (per Skript/Vis beschreibbar), ohne UDP-Kommando – sie fließen ein`checkWallboxPower` ein:
+Diese verändern das Regelverhalten zur Laufzeit (per Skript/Vis beschreibbar), ohne UDP-Kommando – sie fließen ein `checkWallboxPower` ein:
 
 | Datenpunkt                                           | Bedeutung                                                 |
 | ---------------------------------------------------- | --------------------------------------------------------- |
@@ -203,7 +203,7 @@ Diese verändern das Regelverhalten zur Laufzeit (per Skript/Vis beschreibbar), 
 | `automatic.pauseWallbox`                             | uner Ladestopp, solange `true`                            |
 | `automatic.addPower`                                 | erlaubter zusätzlicher Netzbezug (W); negativ = Reserve   |
 | `automatic.limitCurrent` /`automatic.limitCurrent1p` | Ampere-Deckel dynamisches Laden (0 = aus / aus Settings)  |
-| `automatic.maxGridPower`                             | Netzleistungs-Deckel (0 = aus Einstellungen,`maxPower` )  |
+| `automatic.maxGridPower`                             | Netzleistungs-Deckel (0 = aus Einstellungen, `maxPower`)  |
 | `automatic.calcPhases`                               | Phasenzahl für Berechnung (KeContact Deutschland-Edition) |
 | `automatic.1p3pCharging`                             | erzwingt 1p oder 3p                                       |
 | `automatic.batteryStorageStrategy`                   | Speicherstrategie 1–4                                     |
@@ -225,16 +225,16 @@ Diese verändern das Regelverhalten zur Laufzeit (per Skript/Vis beschreibbar), 
 | `statistics.plugTimestamp` /`chargeTimestamp` /`authPlugTimestamp`   | Zeitstempel Einstecken / Ladebeginn / Autorisierung |
 | `statistics.consumptionTimestamp` /`1p3pSwTimestamp`                 | Halte-Timer Netzbezug / letzte Phasenumschaltung    |
 | `statistics.lastChargeStart` /`lastChargeFinish` /`lastChargeAmount` | letzte Ladesitzung                                  |
-| `statistics.sessionId` ,`rfid_tag` ,`rfid_class`                     | Sitzungs-/RFID-Informationen                        |
+| `statistics.sessionId`, `rfid_tag`, `rfid_class`                     | Sitzungs-/RFID-Informationen                        |
 | `info.connection`                                                    | Wandbox erreichbar                                  |
 
-Roh-Messwerte der Wallbox (aus KEBA-Reports):`state` ,`plug` ,`p` ,`u1..u3` ,`i1..i3` ,`ePres` ,`eTotal` ,`maxCurrent` ,`currentHardware` usw.
+Roh-Messwerte der Wallbox (aus KEBA-Reports): `state`, `plug`, `p`, `u1..u3`, `i1..i3`, `ePres`, `eTotal`, `maxCurrent`, `currentHardware` usw.
 
 ---
 
 ## 9. Kurz-Zusammenfassung des Zusammenspiels
 
 1. **Messwerte** kommen per UDP-Report (eigene Wallbox) und aus **Fremd-States** (Zähler, Speicher, Fahrzeug-SoC) in den internen Cache.
-2. **Optionen** legen Parameter und harte Grenzen fest;**`automatic.*`** erlaubte Laufzeit-Übersteuerung.
+2. **Optionen** legen Parameter und harte Grenzen fest;** `automatic.*` ** erlaubte Laufzeit-Übersteuerung.
 3. `checkWallboxPower()` verrechnet beides zu einem Ladestrom, unter Beachtung der Reihenfolge Grenzen → Sperren → Modus → Überschuss → Session-Halten → 1p/3p.
-4. Das Ergebnis wird via`regulateWallbox()` /`stopCharging()` als UDP-Kommando gesendet und in`statistics.*` gespiegelt.
+4. Das Ergebnis wird via `regulateWallbox()` /`stopCharging()` als UDP-Kommando gesendet und in `statistics.*` gespiegelt.

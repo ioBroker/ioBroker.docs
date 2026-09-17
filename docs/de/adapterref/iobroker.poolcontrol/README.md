@@ -35,7 +35,7 @@ Es bietet Automatisierung für Pumpen, Heizung, Solar- und Photovoltaiksteuerung
   - Sicherheitsfunktionen (Frostschutz, Überhitzungsschutz)
   - Prioritätsverantwortung und Helferkoordination
   - Leistungsempfehlungen für drehzahlvariable Pumpen
-  - Lernfunktionen für Leistungs- und Flussverhalten (`pump.learning.*` )
+  - Lernfunktionen für Leistungs- und Flussverhalten (`pump.learning.*`)
 
 - **Zeitsteuerung**
   - Bis zu 3 frei konfigurierbare wöchentliche Zeitfenster
@@ -56,8 +56,8 @@ Es bietet Automatisierung für Pumpen, Heizung, Solar- und Photovoltaiksteuerung
   - Maximale Pooltemperaturgrenzen
   - Diagnose- und Begründungszustände
   - Prioritäts- und Blocklogik
-  - Statusabschnitt unter`solar.extended.*`
-  - Laufzeitänderungen an`solar.extended.pool_temperature_source` werden automatisch angewendet; da Solar Extended ein zyklisches Prüfintervall, Berechnungslogik und Steuerlogik verwendet,`solar.extended.collector_pool_reference_delta` Die Aktualisierung kann bis zu etwa 60 Sekunden dauern.
+  - Statusabschnitt unter `solar.extended.*`
+  - Laufzeitänderungen an `solar.extended.pool_temperature_source` werden automatisch angewendet; da Solar Extended ein zyklisches Prüfintervall, Berechnungslogik und Steuerlogik verwendet, `solar.extended.collector_pool_reference_delta` Die Aktualisierung kann bis zu etwa 60 Sekunden dauern.
 
 - **Photovoltaiksteuerung**
   - Pumpensteuerung basierend auf PV-Überschuss und Haushaltsverbrauch
@@ -65,7 +65,7 @@ Es bietet Automatisierung für Pumpen, Heizung, Solar- und Photovoltaiksteuerung
   - Optionaler Überlauf bei Bewölkung
   - Ignoriermodus aktivieren, wenn das Zirkulationsziel erreicht ist
   - Unterstützt externe Energieobjekt-IDs
-  - Pumpenmodus:`Automatic (PV)`
+  - Pumpenmodus: `Automatic (PV)`
 
 - **Heizungs-/Wärmepumpensteuerung**
   - Automatische Steuerung von Heizstab oder Wärmepumpe
@@ -74,7 +74,7 @@ Es bietet Automatisierung für Pumpen, Heizung, Solar- und Photovoltaiksteuerung
   - Eigentumsschutz
   - Wartungsblockierungslogik
   - Unterstützt umschaltbare Ausgänge und boolesche Zustände
-  - Interner Status und Diagnose unter`heat.*`
+  - Interner Status und Diagnose unter `heat.*`
   - Keine Chemie oder Solarlogik
 
 - **Zusätzliche Aktuatoren**

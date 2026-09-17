@@ -50,7 +50,7 @@ hash: ZhkW+WSpllScxR0az3H7OFC3Kutdg+Pin4Gw4TZWs5M=
 
 - `+ Zeichen` Добавить новое расписание
 - `Schaltplandaten Id` Созданные объекты
-- `Name` : Название виджета
+- `Name`: Название виджета
 - `Anzahl Auslöser` Количество триггеров
 - `Aktiv` Активный
 - `Löschen` Удалить расписание
@@ -441,7 +441,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 [Краткое содержание](#zusammenfassung)
 
-- Использовать`CSS aktivieren` изменить стиль </br>![create\_widget\_css.png](img/create_widget_css.png)</br>![create\_widget\_css\_1.png](img/create_widget_css_1.png)</br>![create\_widget\_css\_2.png](img/create_widget_css_2.png)</br>![create\_widget\_css\_3.png](img/create_widget_css_3.png)</br>![widget\_switched.png](img/widget_switched.png)</br>![widget\_manual.png](img/widget_manual.png)</br>![widget\_astro\_icon.png](img/widget_astro_icon.png)</br>![widget\_condition\_1.png](img/widget_condition_1.png)</br>![widget\_condition\_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/widget_condition_2.png)
+- Использовать `CSS aktivieren` изменить стиль </br>![create\_widget\_css.png](img/create_widget_css.png)</br>![create\_widget\_css\_1.png](img/create_widget_css_1.png)</br>![create\_widget\_css\_2.png](img/create_widget_css_2.png)</br>![create\_widget\_css\_3.png](img/create_widget_css_3.png)</br>![widget\_switched.png](img/widget_switched.png)</br>![widget\_manual.png](img/widget_manual.png)</br>![widget\_astro\_icon.png](img/widget_astro_icon.png)</br>![widget\_condition\_1.png](img/widget_condition_1.png)</br>![widget\_condition\_2.png](../../../de/adapterref/iobroker.schedule-switcher/img/widget_condition_2.png)
 
 ### Размеры значков и пользовательские значки
 
@@ -449,7 +449,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 ![create\_widget\_css\_4.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_css_4.png)
 
-Чтобы найти путь к своим собственным иконкам, вам нужно...`CSS aktivieren` Эту функцию нельзя активировать. Для существующих виджетов расширение файла необходимо изменить один раз; в противном случае атрибут не будет создан. То же самое относится к настройкам ширины/высоты. Иконки можно загрузить или скопировать в отдельную директорию. Пример пути:`Dateien` :
+Чтобы найти путь к своим собственным иконкам, вам нужно... `CSS aktivieren` Эту функцию нельзя активировать. Для существующих виджетов расширение файла необходимо изменить один раз; в противном случае атрибут не будет создан. То же самое относится к настройкам ширины/высоты. Иконки можно загрузить или скопировать в отдельную директорию. Пример пути: `Dateien`:
 
 - <http://192.168.2.18:8081/files/0_userdata.0/>
 - /opt/iobroker/iobroker-data/files/0\_userdata.0/
@@ -614,7 +614,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - `html.column_align_03` Выравнивание верхнего колонтитула (3 столбца) - по центру (стандартное).
 - `html.column_align_04` Выравнивание текста заголовка по столбцу 4 — по центру (стандартное).
 - `html.column_align_05` Выравнивание текста заголовка по столбцу 5 — стандартное выравнивание по центру.
-- `html.column_align_06`Выравнивание верхнего колонтитула по центру (6 столбцов)
+- `html.column_align_06` Выравнивание верхнего колонтитула по центру (6 столбцов)
 - `html.column_align_07` Выравнивание верхнего колонтитула (7 столбцов) - по центру (стандартное).
 - `html.column_align_08` Выравнивание верхнего колонтитула (8 столбцов) - по центру (стандартное).
 - `html.column_align_09` Выравнивание текста заголовка по 9 столбцам - по центру (стандартное).
@@ -648,8 +648,8 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - `html.header_font_size` Размер шрифта заголовка - стандартный 15
 - `html.header_linear_color_1` Фоновое изображение заголовка: линейный градиент 1 - Стандартный #BDBDBD
 - `html.header_linear_color_2` Фоновое изображение заголовка: линейный градиент 2 - Стандартный #BDBDBD
-- `html.header_tag_border_color` HTML-тег заголовка`<td>` Цвет кромки - Стандартный №424242
-- `html.header_width` День головы`<table>` Стандартный размер автомобиля
+- `html.header_tag_border_color` HTML-тег заголовка `<td>` Цвет кромки - Стандартный №424242
+- `html.header_width` День головы `<table>` Стандартный размер автомобиля
 - `html.column_align_row_01` Выравнивание текста строк в первом столбце — по умолчанию по левому краю.
 - `html.column_align_row_02` Выравнивание текста по строкам во втором столбце — по умолчанию по левому краю.
 - `html.column_align_row_03` Выравнивание текста по строкам в 3-м столбце — по умолчанию по левому краю.
@@ -673,15 +673,15 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - `html.icon_switch_symbol` Значок переключателя для включения/выключения таймера — по умолчанию ⏱
 - `html.icon_true` Статус переключателя значков: включен - Стандартный 🟡
 - `html.jarvis` Совместимо с Jarvis - Standard false
-- `html.p_tag_text_algin` HTML`<p>` Выравнивание текста (последнее обновление и нижний колонтитул) — по центру по умолчанию.
-- `html.table_tag_border_color` Цвет рамки дня`<table>` - Стандарт № 424242
-- `html.table_tag_cell` Расстояние от границы ДНЯ`<table>` в пикселях - Стандарт 6
-- `html.table_tag_text_align` Выравнивание текста по тегу`<table>` - Стандартный центр
-- `html.table_tag_width` Размер дня`<table>` - Стандартный автомобиль
-- `html.td_tag_border_bottom` нижний край TAG`<td>` в пикселях - Стандарт 1
-- `html.td_tag_border_color` Цвет нижней границы бирки`<td>` - Стандарт № 424242
-- `html.td_tag_border_right` правый край TAG`<td>` в пикселях - Стандарт 1
-- `html.td_tag_cell`Пространство вокруг текста из тега`<td>` в пикселях (отступы) - по умолчанию 6
+- `html.p_tag_text_algin` HTML `<p>` Выравнивание текста (последнее обновление и нижний колонтитул) — по центру по умолчанию.
+- `html.table_tag_border_color` Цвет рамки дня `<table>` - Стандарт № 424242
+- `html.table_tag_cell` Расстояние от границы ДНЯ `<table>` в пикселях - Стандарт 6
+- `html.table_tag_text_align` Выравнивание текста по тегу `<table>` - Стандартный центр
+- `html.table_tag_width` Размер дня `<table>` - Стандартный автомобиль
+- `html.td_tag_border_bottom` нижний край TAG `<td>` в пикселях - Стандарт 1
+- `html.td_tag_border_color` Цвет нижней границы бирки `<td>` - Стандарт № 424242
+- `html.td_tag_border_right` правый край TAG `<td>` в пикселях - Стандарт 1
+- `html.td_tag_cell` Пространство вокруг текста из тега `<td>` в пикселях (отступы) - по умолчанию 6
 - `html.top_font_family` Семейство шрифтов для верхнего и нижнего колонтитулов — Standard Helvetica
 - `html.top_font_size` Размер шрифта в верхнем и нижнем колонтитулах в пикселях — по умолчанию 20.
 - `html.top_font_weight` Толщина шрифта в верхнем и нижнем колонтитулах — стандартная "normal"
@@ -691,11 +691,11 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 ![vis\_object\_1.png](../../../de/adapterref/iobroker.schedule-switcher/img/vis_object_1.png)
 
-- Создайте HTML-виджет и вставьте объект в поле HTML.`{schedule-switcher.0.html.html_code}`
-- Нажмите на текст`Letzte Aktualisierung` выполнить обновление вручную
+- Создайте HTML-виджет и вставьте объект в поле HTML. `{schedule-switcher.0.html.html_code}`
+- Нажмите на текст `Letzte Aktualisierung` выполнить обновление вручную
 - Нажмите на значок, чтобы активировать/деактивировать виджет.
-- Чтобы удалить триггер, сначала нужно поставить галочку, а затем нажать кнопку.`delete` нажимать
-- Изменить время/астрономическое и нажать кнопку.`save` Нажмите, чтобы применить изменения.
+- Чтобы удалить триггер, сначала нужно поставить галочку, а затем нажать кнопку. `delete` нажимать
+- Изменить время/астрономическое и нажать кнопку. `save` Нажмите, чтобы применить изменения.
 - Нажмите на день недели, чтобы активировать/деактивировать его.
 - В строке с названием триггера отображается следующее событие включения/выключения в зависимости от дня недели.
 

@@ -29,18 +29,18 @@ Das Archiv wird vollständig im Browser analysiert – während des Browsens wer
 ## Merkmale
 
 - Durchsuchen Sie Backup-Archive direkt über den ioBroker-Admin-Tab.
-- Lokale Sicherungsdateien aus dem Sicherungsverzeichnis laden (Standard:`/opt/iobroker/backups` )
+- Lokale Sicherungsdateien aus dem Sicherungsverzeichnis laden (Standard: `/opt/iobroker/backups`)
 - Laden Sie Archivdateien direkt von Ihrem Computer hoch.
-- Unterstützte Formate:`.tar.gz` ,`.tar` ,`.json` ,`.jsonl`
+- Unterstützte Formate: `.tar.gz`, `.tar`, `.json`, `.jsonl`
 - Baumansicht aller Skripte, nach Ordnern geordnet
 - Skripte nach Typ filtern: JS, TypeScript, Blockly, Regeln
 - Volltextsuche in Skriptnamen, Pfaden und Quellcode
 - Quellcode anzeigen (JS/TS/Blockly/Regeln)
 - Quellcode in die Zwischenablage kopieren oder als Datei herunterladen
 - **Wählen Sie mehrere Skripte** mit dem ☐-Kontrollkästchen aus und laden Sie sie als ZIP-Archiv herunter.
-- **Importieren Sie ZIP-Archive** aus dem Skript-Wiederherstellungsexport oder aus der eigenen Sicherung des JS-Adapters (`2026-07-17-scripts.zip` )
+- **Importieren Sie ZIP-Archive** aus dem Skript-Wiederherstellungsexport oder aus der eigenen Sicherung des JS-Adapters (`2026-07-17-scripts.zip`)
 - Vollständig browserbasiertes Parsen – kein Server-Roundtrip für Uploads
-- **Skripte direkt in ioBroker mit einem konfigurierbaren Suffix wiederherstellen** (Standard:`_rcvr` ) — Vorhandene Skripte werden niemals überschrieben
+- **Skripte direkt in ioBroker mit einem konfigurierbaren Suffix wiederherstellen** (Standard: `_rcvr`) — Vorhandene Skripte werden niemals überschrieben
 
 ## Konfiguration
 
@@ -73,12 +73,12 @@ Das Archiv wird vollständig im Browser analysiert – während des Browsens wer
 
 | Format                     | Beschreibung                                                                                              |
 | -------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `.tar.gz`                  | Standard ioBroker-Backup (`iobroker_YYYY-MM-DD-HH-mm_SS_backupiobroker.tar.gz` )                          |
+| `.tar.gz`                  | Standard ioBroker-Backup (`iobroker_YYYY-MM-DD-HH-mm_SS_backupiobroker.tar.gz`)                          |
 | `.tar`                     | Unkomprimiertes Tar-Archiv                                                                                |
 | `.json`                    | JavaScript-Adapterskript exportieren                                                                      |
 | `.jsonl`                   | ioBroker-Objekte exportieren (JSON-Zeilen)                                                                |
-| `.zip` (scripts.zip)       | Skript zur Wiederherstellung des ZIP-Exports (enthält`.js` /`.ts` Dateien)                                |
-| `.zip` (JS-Adapter-Backup) | Interne Sicherung des JS-Adapters (`YYYY-MM-DD-scripts.zip` , enthält`.json` Dateien mit Skriptmetadaten) |
+| `.zip` (scripts.zip)       | Skript zur Wiederherstellung des ZIP-Exports (enthält `.js` /`.ts` Dateien)                                |
+| `.zip` (JS-Adapter-Backup) | Interne Sicherung des JS-Adapters (`YYYY-MM-DD-scripts.zip`, enthält `.json` Dateien mit Skriptmetadaten) |
 
 ## Changelog
 ### 0.1.13 (2026-07-22)

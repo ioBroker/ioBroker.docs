@@ -58,15 +58,15 @@ Die folgenden Modelle sind explizit als unterstützt dokumentiert. Andere Modell
 | `dreame.vacuum.p2148o` |            ✅           |          ✅         |        —        |   —   |
 | `dreame.vacuum.p2156o` |            ✅           |          ✅         |        —        |   —   |
 
-`✅` bedeutet, dass die Funktion für das dokumentierte Modell unterstützt wird.`—` Das bedeutet, dass der Adapter diese Funktion für das Modell derzeit nicht bereitstellt.
+`✅` bedeutet, dass die Funktion für das dokumentierte Modell unterstützt wird. `—` Das bedeutet, dass der Adapter diese Funktion für das Modell derzeit nicht bereitstellt.
 
 ### Unterstützung für ein neues Modell anfordern
 
-Der Adapter wählt seine Gerätebibliothek aus dem ersten Teil der Modell-ID aus, dem Teil vor dem ersten Punkt:`roborock` Und`rockrobo` Verwenden Sie die Roborock-Bibliothek,`viomi` die Viomi-Bibliothek`dreame` Und`xiaomi` Die Dreame/MIOT-Bibliothek. Modelle dieser Familien, die oben nicht aufgeführt sind, funktionieren in der Regel mit derselben Bibliothek: Grundlegende Steuerung, Status, Akku, Verbrauchsmaterialien und Reinigungsverlauf sind verfügbar, wenn der Roboter die Standardeigenschaften verwendet. Eigenschaften, die der Roboter nicht bereitstellt, bleiben leer. Falls ein solches Modell bei Ihnen funktioniert, erstellen Sie bitte ein Ticket mit der Modell-ID und der Firmware-Version, damit es der Tabelle hinzugefügt werden kann.
+Der Adapter wählt seine Gerätebibliothek aus dem ersten Teil der Modell-ID aus, dem Teil vor dem ersten Punkt: `roborock` Und `rockrobo` Verwenden Sie die Roborock-Bibliothek, `viomi` die Viomi-Bibliothek `dreame` Und `xiaomi` Die Dreame/MIOT-Bibliothek. Modelle dieser Familien, die oben nicht aufgeführt sind, funktionieren in der Regel mit derselben Bibliothek: Grundlegende Steuerung, Status, Akku, Verbrauchsmaterialien und Reinigungsverlauf sind verfügbar, wenn der Roboter die Standardeigenschaften verwendet. Eigenschaften, die der Roboter nicht bereitstellt, bleiben leer. Falls ein solches Modell bei Ihnen funktioniert, erstellen Sie bitte ein Ticket mit der Modell-ID und der Firmware-Version, damit es der Tabelle hinzugefügt werden kann.
 
-Wenn das Protokoll anzeigt`Model <id> not supported! You can try to setup manually a library in settings.` Die Modell-ID beginnt mit einem Präfix, das der Adapter nicht kennt (zum Beispiel`ijai` oder`xtl` Der Adapter erzeugt dann keine Zustände, obwohl die Instanz ausgeführt wird. Sie können eine der Bibliotheken mit der Option **„Manager“** in den Instanzeinstellungen erzwingen; Geräte, die das MIOT-Protokoll verwenden, funktionieren manchmal mit der Dreame-Bibliothek. Eine eigene Bibliothek für einen neuen Hersteller benötigt die MIOT-Spezifikation des Modells (`https://home.miot-spec.com/spec/<model id>` ) und jemand, dem das Gerät gehört und der es testen kann.
+Wenn das Protokoll anzeigt `Model <id> not supported! You can try to setup manually a library in settings.` Die Modell-ID beginnt mit einem Präfix, das der Adapter nicht kennt (zum Beispiel `ijai` oder `xtl` Der Adapter erzeugt dann keine Zustände, obwohl die Instanz ausgeführt wird. Sie können eine der Bibliotheken mit der Option **„Manager“** in den Instanzeinstellungen erzwingen; Geräte, die das MIOT-Protokoll verwenden, funktionieren manchmal mit der Dreame-Bibliothek. Eine eigene Bibliothek für einen neuen Hersteller benötigt die MIOT-Spezifikation des Modells (`https://home.miot-spec.com/spec/<model id>`) und jemand, dem das Gerät gehört und der es testen kann.
 
-Jede Anfrage oder jeder Fehlerbericht sollte die Modell-ID und die Firmware enthalten (`deviceInfo.model` ,`deviceInfo.fw_ver` ), die Versionen des Adapters, des JS-Controllers und von Node.js, welche Zustände funktionieren und welche nicht, sowie das Debug-Protokoll rund um das Problem, insbesondere die Zeilen mit`Device model detected` ,`MIIO request` Und`Status update:` Bei Kartenproblemen addieren Sie den Wert von`auth.status` und die Ausgabe von`npm ls canvas` Aus dem ioBroker-Verzeichnis. Tokens, Anmeldelinks, Cloud-Sitzungen und IP-Adressen vor dem Posten entfernen.
+Jede Anfrage oder jeder Fehlerbericht sollte die Modell-ID und die Firmware enthalten (`deviceInfo.model`, `deviceInfo.fw_ver`), die Versionen des Adapters, des JS-Controllers und von Node.js, welche Zustände funktionieren und welche nicht, sowie das Debug-Protokoll rund um das Problem, insbesondere die Zeilen mit `Device model detected`, `MIIO request` Und `Status update:` Bei Kartenproblemen addieren Sie den Wert von `auth.status` und die Ausgabe von `npm ls canvas` Aus dem ioBroker-Verzeichnis. Tokens, Anmeldelinks, Cloud-Sitzungen und IP-Adressen vor dem Posten entfernen.
 
 ## Haftungsausschluss
 
@@ -96,11 +96,11 @@ Xiaomi Cloud ist für die normale lokale Steuerung optional. Es dient der komfor
 6. Kehren Sie zu ioBroker zurück, nachdem sich der Cloud-Status auf **„Authentifiziert“** geändert hat.
 7. Klicken Sie auf **„Geräte abrufen“** und wählen Sie den Staubsauger aus der Geräteliste aus.
 8. Überprüfen Sie das automatisch ausgefüllte Token, die IP-Adresse, das Modell und den Manager.
-9. Speichern Sie die Konfiguration und überprüfen Sie, ob`info.connection` wird`true` Die
+9. Speichern Sie die Konfiguration und überprüfen Sie, ob `info.connection` wird `true` Die
 
 ![Verbindung und Anmeldung bei Xiaomi Cloud](../../../en/adapterref/iobroker.mihome-vacuum/admin/media/Login%20VacuumControl-redacted.png)
 
-Die Anmeldung erfolgt über einen Xiaomi-Anmeldelink. Der Adapter generiert kein QR-Code-Bild. Der Link ist nur kurze Zeit gültig; erstellen Sie einen neuen Link, wenn sich der Status ändert.`expired` oder`error` Die
+Die Anmeldung erfolgt über einen Xiaomi-Anmeldelink. Der Adapter generiert kein QR-Code-Bild. Der Link ist nur kurze Zeit gültig; erstellen Sie einen neuen Link, wenn sich der Status ändert. `expired` oder `error` Die
 
 Das ausgewählte Gerät liefert normalerweise automatisch das lokale Token, die IP-Adresse und das Modell. Das Token ist in der ioBroker-Instanzkonfiguration verschlüsselt und wird in der Benutzeroberfläche ausgeblendet. Verwenden Sie die Augenschaltfläche nur, wenn Sie das Token absichtlich anzeigen oder kopieren müssen.
 
@@ -112,10 +112,10 @@ Die lokale Steuerung ist nicht von einer aktiven Xiaomi Cloud-Sitzung abhängig.
 
 - **Token:** Lokales hexadezimales Gerätetoken
 - **IP-Adresse:** Aktuelle lokale Adresse des Roboters
-- **Modell:** Modellkennung wie z. B.`roborock.vacuum.s5`
+- **Modell:** Modellkennung wie z. B. `roborock.vacuum.s5`
 - **Manager:** wird normalerweise automatisch erkannt; Roborock, Viomi oder Dreame sollten nur bei Bedarf manuell ausgewählt werden
-- **Vakuumanschluss:** normalerweise`54321`
-- **Eigener Port:** Lokaler UDP-Port, der von dieser Adapterinstanz verwendet wird, normalerweise`53421`
+- **Vakuumanschluss:** normalerweise `54321`
+- **Eigener Port:** Lokaler UDP-Port, der von dieser Adapterinstanz verwendet wird, normalerweise `53421`
 
 Weisen Sie dem Roboter eine feste DHCP-Lease zu, damit sich seine IP-Adresse nicht ändert.
 
@@ -147,8 +147,8 @@ Der Reiter „Verbindung“ enthält die Xiaomi Cloud-Authentifizierung, die Ger
 - **Abfrageintervall für den WLAN-Status:** Wie oft werden die Signalinformationen aktualisiert?
 - **Karten aus der Xiaomi Cloud aktivieren:** Ermöglicht das Herunterladen von Karten aus der Xiaomi Cloud. Erfordert eine authentifizierte Cloud-Sitzung.
 - **Valetudo aktivieren:** Verwendet eine kompatible lokale Valetudo-Kartenquelle.
-- **Sende eigene Befehle:** Erzeugt die Expertenzustände`control.X_send_command` Und`control.X_get_response` Die
-- **Alexa/IoT-Zustände hinzufügen:** erstellt zusätzlich`control.pauseResume` für Sprachassistenten und IoT-Integrationen.`control.clean_home` existiert immer.
+- **Sende eigene Befehle:** Erzeugt die Expertenzustände `control.X_send_command` Und `control.X_get_response` Die
+- **Alexa/IoT-Zustände hinzufügen:** erstellt zusätzlich `control.pauseResume` für Sprachassistenten und IoT-Integrationen. `control.clean_home` existiert immer.
 - **Send pause before home:** Sendet eine Pause vor dem Befehl "Return-to-Dock" für Modelle, die dies erfordern.
 - **Mit der Starttaste eine pausierte Zonenreinigung fortsetzen:** Setzt eine unterbrochene Zonenreinigung fort, anstatt eine vollständige Reinigung zu starten.
 - **Erweiterte Diagnoseprotokollierung:** Fügt detaillierte, anonymisierte Debug-Informationen hinzu. Aktivieren Sie diese Funktion nur vorübergehend während der Fehlerbehebung.
@@ -203,17 +203,17 @@ Adapter-Timer werden in ioBroker gespeichert und können daher auch über VIS an
 | `control.zoneClean`  | Bereinigen Sie eine oder mehrere koordinatenbasierte Zonen      |
 | `control.goTo`       | Zu den Kartenkoordinaten wechseln                               |
 | `control.clearQueue` | Leere die ausstehende Reinigungswarteschlange.                  |
-| `control.clean_home` | `true` beginnt mit der Reinigung`false` kehrt nach Hause zurück |
+| `control.clean_home` | `true` beginnt mit der Reinigung `false` kehrt nach Hause zurück |
 
 Zusätzliche Bedienelemente für Wischen, Waschen, Trocknen, Staubabsaugung, Teppichmodus und Dockingstationen werden nur dann erstellt, wenn sie vom ausgewählten Modell unterstützt werden.
 
 ### Zimmer
 
-Der Adapter erzeugt Kanäle darunter`rooms` wenn der Roboter Raum- oder Segmentinformationen preisgibt.
+Der Adapter erzeugt Kanäle darunter `rooms` wenn der Roboter Raum- oder Segmentinformationen preisgibt.
 
-- Verwenden`rooms.loadRooms` Räume vom Roboter neu laden.
+- Verwenden `rooms.loadRooms` Räume vom Roboter neu laden.
 - Ein Raumkanal enthält seinen Kartenindex oder seine Zonenkoordinaten und einen Startbefehl.
-- Weisen Sie ioBroker Raumkanäle zu.`enum.rooms` Einträge mit lesbaren Zimmerzuweisungen.
+- Weisen Sie ioBroker Raumkanäle zu. `enum.rooms` Einträge mit lesbaren Zimmerzuweisungen.
 - Stellen Sie vor Beginn der Arbeiten in diesem Raum die gewünschte Saugleistung ein.
 - `rooms.multiRoomClean` Sie können mehrere zugewiesene Räume gleichzeitig starten.
 - `rooms.addRoom` Ein Raum kann manuell anhand eines Kartenindex oder von Zonenkoordinaten erstellt werden.
@@ -222,17 +222,17 @@ Die Raumnamen und -funktionen stammen vom Roboter und können je nach Modell und
 
 ### Reinigungshistorie
 
-Der`history` Der Kanal enthält die gesamte Reinigungszeit, die Gesamtfläche, die Anzahl der Reinigungsvorgänge und die letzten Reinigungsdatensätze im JSON- und HTML-Format. Der Verlauf wird ebenfalls in beiden bereitgestellten Widgets angezeigt.
+Der `history` Der Kanal enthält die gesamte Reinigungszeit, die Gesamtfläche, die Anzahl der Reinigungsvorgänge und die letzten Reinigungsdatensätze im JSON- und HTML-Format. Der Verlauf wird ebenfalls in beiden bereitgestellten Widgets angezeigt.
 
 ### Verbrauchsmaterialien und Wartung
 
-Unterstützte Wartungswerte werden unten erstellt.`consumable` zum Beispiel Filter, Hauptbürste, Seitenbürste, Sensoren, Wasserfilter, Wischmopp-Pad, Sieb, Reinigungsbürste und Staubsammelbehälter.
+Unterstützte Wartungswerte werden unten erstellt. `consumable` zum Beispiel Filter, Hauptbürste, Seitenbürste, Sensoren, Wasserfilter, Wischmopp-Pad, Sieb, Reinigungsbürste und Staubsammelbehälter.
 
 Die Lebensdauer wird erst zurückgesetzt, nachdem die entsprechende Komponente gereinigt oder ausgetauscht wurde. Nicht unterstützte Verbrauchsmaterialien werden von den Widgets nicht angezeigt.
 
 ### Erweiterte benutzerdefinierte Befehle
 
-Wenn **„Eigene Befehle senden“** aktiviert ist, können Befehle geschrieben werden an`control.X_send_command` ; Antworten erscheinen in`control.X_get_response` Dies richtet sich an erfahrene Benutzer. Ungültige oder modellinkompatible Befehle können zu unerwartetem Roboterverhalten führen.
+Wenn **„Eigene Befehle senden“** aktiviert ist, können Befehle geschrieben werden an `control.X_send_command`; Antworten erscheinen in `control.X_get_response` Dies richtet sich an erfahrene Benutzer. Ungültige oder modellinkompatible Befehle können zu unerwartetem Roboterverhalten führen.
 
 ## Wichtige Staaten
 
@@ -252,7 +252,7 @@ Wenn **„Eigene Befehle senden“** aktiviert ist, können Befehle geschrieben 
 | `auth.lastError`    | Letzte Fehlermeldung zur sicheren Authentifizierung                   |
 | `auth.expiresAt`    | Ablaufzeit des Anmeldelinks                                           |
 
-`info.state` Und`info.error` Geben Sie in der ioBroker-Objektdefinition nummerierten Text an. Unbekannte Codes bleiben sichtbar, sodass sie gemeldet werden können, ohne den ursprünglichen Wert zu verlieren.
+`info.state` Und `info.error` Geben Sie in der ioBroker-Objektdefinition nummerierten Text an. Unbekannte Codes bleiben sichtbar, sodass sie gemeldet werden können, ohne den ursprünglichen Wert zu verlieren.
 
 ## VIS 1- und VIS 2-Widgets
 
@@ -270,9 +270,9 @@ Das VIS-1-Widget bietet dieselben Bereiche wie das VIS-2-Widget: Wasserstand, Wi
 
 Wählen Sie das Widget-Set **„Mi Home Vacuum“** aus und fügen Sie **die Staubsaugersteuerung mit Karte** hinzu. Die Einstellungen sind in allgemeine Optionen, Status und Steuerung, Wartung, Räume und Verlauf unterteilt.
 
-- **Instanzauswahl:** Wählen Sie den **Statuszustand** (`info.state` ) der Adapterinstanz, die Sie anzeigen möchten. Alle leeren Statusattribute werden automatisch von dieser Instanz befüllt, sodass der Wechsel von`mihome-vacuum.0` Für den Wechsel zu einer anderen Instanz ist ein Klick erforderlich.
+- **Instanzauswahl:** Wählen Sie den **Statuszustand** (`info.state`) der Adapterinstanz, die Sie anzeigen möchten. Alle leeren Statusattribute werden automatisch von dieser Instanz befüllt, sodass der Wechsel von `mihome-vacuum.0` Für den Wechsel zu einer anderen Instanz ist ein Klick erforderlich.
 - **Design:** Das Widget passt sich dem hellen oder dunklen Design und der Primärfarbe Ihres VIS 2-Projekts an. Eine optionale **Akzentfarbe** überschreibt die Primärfarbe.
-- **Saugstufen:** Die wählbaren Stufen stammen aus der`control.fan_power` Der Zustand Ihres Roboters wird angezeigt, sodass jedes Modell seine eigenen Stufen hat. Die drei numerischen Ausweichwerte werden nur verwendet, wenn für den Zustand kein Stufenkatalog existiert.
+- **Saugstufen:** Die wählbaren Stufen stammen aus der `control.fan_power` Der Zustand Ihres Roboters wird angezeigt, sodass jedes Modell seine eigenen Stufen hat. Die drei numerischen Ausweichwerte werden nur verwendet, wenn für den Zustand kein Stufenkatalog existiert.
 - **Status- und Fehlertexte:** aus den Zustandsdefinitionen des Adapters übernommen und, sofern eine Übersetzung vorhanden ist, übersetzt.
 - **Verlauf:** Die Anzahl der angezeigten Reinigungsläufe ist konfigurierbar.
 - **Reinigungseinstellungen:** Wasserstand, Wischmodus und Teppichmodus werden als Bedienelemente angezeigt, sobald Ihr Roboter die entsprechenden Zustände unterstützt. Die Instanzauswahl findet auch die Viomi- und Dreame-Varianten dieser Zustände.
@@ -286,7 +286,7 @@ Jedes Steuerelement wird nur dann angezeigt, wenn der Adapter den entsprechenden
 
 ### Räume, Saugstärken und Layout
 
-Bei **der automatischen Raumerkennung** (Standardeinstellung) zeigt das VIS 2-Widget alle vom Adapter erstellten Räume an (siehe unten).`rooms.*` einschließlich der eigenen Saugkraft, sofern der Roboter dies unterstützt. Deaktivieren Sie die Option, bis zu sechs Räume manuell mit angezeigtem Namen, Startstatus und Lüfterleistungsstatus zu konfigurieren. Das VIS 1-Widget verwendet immer die manuelle Raumkonfiguration.
+Bei **der automatischen Raumerkennung** (Standardeinstellung) zeigt das VIS 2-Widget alle vom Adapter erstellten Räume an (siehe unten). `rooms.*` einschließlich der eigenen Saugkraft, sofern der Roboter dies unterstützt. Deaktivieren Sie die Option, bis zu sechs Räume manuell mit angezeigtem Namen, Startstatus und Lüfterleistungsstatus zu konfigurieren. Das VIS 1-Widget verwendet immer die manuelle Raumkonfiguration.
 
 Die Widgets behalten das vollständige Seitenverhältnis der Karte bei und passen ihr Layout an ihre eigene Breite an, nicht an die des Browserfensters. Ist ein Widget zu klein, scrollt sein Inhalt, anstatt dass die Karte Steuerelemente oder Wartungskarten überlappt. Das Zurücksetzen eines Verbrauchszählers erfordert eine vorherige Bestätigung.
 
@@ -300,10 +300,10 @@ Auf der Registerkarte „Verlauf“ werden die Gesamtzahl der Reinigungen, die G
 
 ### Der Roboter verbindet sich nicht.
 
-- Verifizieren`info.connection` , die Roboter-IP-Adresse, das Token und das ausgewählte Modell.
+- Verifizieren `info.connection`, die Roboter-IP-Adresse, das Token und das ausgewählte Modell.
 - Stellen Sie sicher, dass der Roboter und der ioBroker-Host über das lokale Netzwerk kommunizieren können. Einige Modelle benötigen dasselbe Subnetz.
 - Reservieren Sie die IP-Adresse des Roboters auf dem DHCP-Server.
-- Halten Sie den Vakuumanschluss bei`54321` es sei denn, das Gerät verwendet explizit einen anderen Port.
+- Halten Sie den Vakuumanschluss bei `54321` es sei denn, das Gerät verwendet explizit einen anderen Port.
 - Stellen Sie sicher, dass keine andere Adapterinstanz denselben UDP-Port verwendet.
 
 ### Cloud-Anmeldung oder Geräteerkennung schlägt fehl
@@ -311,28 +311,28 @@ Auf der Registerkarte „Verlauf“ werden die Gesamtzahl der Reinigungen, die G
 - Wählen Sie dieselbe Xiaomi-Region, die auch der Roboter verwendet.
 - Erstellen Sie einen neuen Anmeldelink, falls der vorherige abgelaufen ist.
 - Schließen Sie die Browseranmeldung ab, bevor Sie **auf „Geräte abrufen“** klicken.
-- Ein Xiaomi`401` oder`403` Die Antwort führt zur Ungültigkeit der gespeicherten Sitzung und erfordert eine erneute, explizite Anmeldung.
+- Ein Xiaomi `401` oder `403` Die Antwort führt zur Ungültigkeit der gespeicherten Sitzung und erfordert eine erneute, explizite Anmeldung.
 
 ### Es wird keine Karte angezeigt
 
 - Prüfen Sie, ob das verbundene Modell den Kartenabruf unterstützt.
 - Aktivieren Sie entweder Xiaomi Cloud Maps oder Valetudo.
-- Überprüfen Sie bei Xiaomi-Karten Folgendes:`auth.status` Ist`authenticated` Die
-- Überprüfen`cleanmap.mapStatus` ,`cleanmap.map64` und das Adapter-Debug-Protokoll.
+- Überprüfen Sie bei Xiaomi-Karten Folgendes: `auth.status` Ist `authenticated` Die
+- Überprüfen `cleanmap.mapStatus`, `cleanmap.map64` und das Adapter-Debug-Protokoll.
 
 ### Die Installation schlägt beim Erstellen der Leinwand fehl.
 
-Der Kartenrenderer verwendet die optionale native`canvas` Paket. Falls unter Linux keine vorkompilierte Binärdatei verfügbar ist, installieren Sie die erforderlichen Systempakete vor der Neuinstallation:
+Der Kartenrenderer verwendet die optionale native `canvas` Paket. Falls unter Linux keine vorkompilierte Binärdatei verfügbar ist, installieren Sie die erforderlichen Systempakete vor der Neuinstallation:
 
 ```sh
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-Installieren Sie keine alte Version manuell.`canvas` Version 2.x in das Adapterverzeichnis einfügen.
+Installieren Sie keine alte Version manuell. `canvas` Version 2.x in das Adapterverzeichnis einfügen.
 
 ### Mehrere Roboter
 
-Erstellen Sie für jeden Roboter eine Adapterinstanz. Jede Instanz muss einen anderen **eigenen Port** verwenden, zum Beispiel`53421` ,`53422` , und so weiter.
+Erstellen Sie für jeden Roboter eine Adapterinstanz. Jede Instanz muss einen anderen **eigenen Port** verwenden, zum Beispiel `53421`, `53422`, und so weiter.
 
 ## Support- und Fehlerberichte
 

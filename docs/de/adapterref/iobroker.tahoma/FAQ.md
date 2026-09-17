@@ -16,15 +16,15 @@ Der Adapter kann die von Tahoma empfangenen Daten protokollieren, was Entwickler
 
 - Bitte aktivieren Sie die Debug-Protokollierung und starten Sie den Adapter in ioBroker Admin neu.
 - Exportieren Sie die Protokolle in der Protokollansicht von ioBroker Admin.
-- Bevor Sie die Protokolldateien einem Ticket anhängen oder senden, entfernen Sie bitte Ihre persönlichen Daten. Achten Sie dazu auf Folgendes:`Response:` Einträge im Protokoll. Manchmal sendet Tahomalink Daten wie diese:`<location>` (Ihre privaten Adressdaten!), die auf dem DEBUG-Protokolllevel ebenfalls in Ihren Protokollen erscheinen. Ersetzen Sie die sensiblen Daten dort durch Platzhalter.
+- Bevor Sie die Protokolldateien einem Ticket anhängen oder senden, entfernen Sie bitte Ihre persönlichen Daten. Achten Sie dazu auf Folgendes: `Response:` Einträge im Protokoll. Manchmal sendet Tahomalink Daten wie diese: `<location>` (Ihre privaten Adressdaten!), die auf dem DEBUG-Protokolllevel ebenfalls in Ihren Protokollen erscheinen. Ersetzen Sie die sensiblen Daten dort durch Platzhalter.
 - Senden Sie die Protokolle an <excodibur-iobroker@posteo.de> oder hängen Sie sie an Ihr GitHub-Issue an.
 
 ## Ich kann keine Verbindung zu Tahoma herstellen und erhalte 401-Fehler. Warum?
 
 - Ihre Benutzername-/Passwortkombination ist möglicherweise ungültig. Bitte prüfen Sie unter <https://tahomalink.com/> , ob Sie sich mit diesen Zugangsdaten noch anmelden können. Falls sie dort funktionieren, sollten sie auch für den Adapter funktionieren.
 - Somfy hat Ihr Konto möglicherweise vorübergehend gesperrt. Wir wissen nicht genau, warum das passiert, aber es könnte folgende Gründe haben:
-  - Zu viele fehlgeschlagene Anmeldeversuche mit falschem Passwort. Deaktivieren Sie den Adapter vorübergehend und versuchen Sie es später erneut. Sie können das Wiederverbindungsverhalten auch unter \[Link einfügen] anpassen.`Advanced Connection Settings` Die
-  - Zu viele Aktualisierungs-/Statusabfrageanfragen innerhalb eines bestimmten Zeitraums. Erwägen Sie, ein größeres Zeitlimit festzulegen.`Polling Interval` Konfiguration.
+  - Zu viele fehlgeschlagene Anmeldeversuche mit falschem Passwort. Deaktivieren Sie den Adapter vorübergehend und versuchen Sie es später erneut. Sie können das Wiederverbindungsverhalten auch unter \[Link einfügen] anpassen. `Advanced Connection Settings` Die
+  - Zu viele Aktualisierungs-/Statusabfrageanfragen innerhalb eines bestimmten Zeitraums. Erwägen Sie, ein größeres Zeitlimit festzulegen. `Polling Interval` Konfiguration.
 
 ## Mein Adapter verliert ständig das Passwort. Warum?
 

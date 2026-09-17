@@ -50,54 +50,54 @@ Rohregisterwerte werden als ioBroker-Zustände gespeichert. Moduswerte sind nume
 | Bundesstaat                                                                                      | Beschreibung                                                                                                                                   |
 | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `DeviceInfo.*`                                                                                   | Wechselrichterprotokoll, Nennleistung, Seriennummer, Gerätetyp und Firmware-Daten                                                              |
-| `RunningData.PV1.*` ...`RunningData.PV4.*`                                                       | PV-Spannung, Stromstärke, Leistung und Betriebsart                                                                                             |
-| `RunningData.GridL1.*` ...`RunningData.GridL3.*`                                                 | Netzspannung, Stromstärke, Frequenz und Leistung                                                                                               |
-| `RunningData.BackUpL1.*` ...`RunningData.BackUpL3.*`                                             | Ausgangsspannung, -strom, -frequenz, -leistung und -modus der Notstromversorgung                                                               |
+| `RunningData.PV1.*`... `RunningData.PV4.*`                                                       | PV-Spannung, Stromstärke, Leistung und Betriebsart                                                                                             |
+| `RunningData.GridL1.*`... `RunningData.GridL3.*`                                                 | Netzspannung, Stromstärke, Frequenz und Leistung                                                                                               |
+| `RunningData.BackUpL1.*`... `RunningData.BackUpL3.*`                                             | Ausgangsspannung, -strom, -frequenz, -leistung und -modus der Notstromversorgung                                                               |
 | `RunningData.Battery1.*`                                                                         | Batteriespannung, Stromstärke, Leistung und Modus                                                                                              |
 | `RunningData.*Energy*`                                                                           | Tages- und Gesamtenergiezähler                                                                                                                 |
-| `RunningData.*Mode` ,`RunningData.GridMode` ,`RunningData.WorkMode` ,`RunningData.OperationMode` | Numerische Moduszustände mit ioBroker-Enumerationsbezeichnungen                                                                                |
+| `RunningData.*Mode`, `RunningData.GridMode`, `RunningData.WorkMode`, `RunningData.OperationMode` | Numerische Moduszustände mit ioBroker-Enumerationsbezeichnungen                                                                                |
 | `RunningData.ErrorMessageActive`                                                                 | Fehlerbits des aktiven Wechselrichters als Text                                                                                                |
 | `RunningData.DiagStatusActive`                                                                   | Aktive Diagnosebits als Text, dekodiert von `RunningData.DiagStatusL`                                                                          |
 | `RunningData.DiagStatusH`                                                                        | Höchstwert des Diagnosestatus, der als Rohzahl gespeichert wird, da das GoodWe-Protokoll keine Bits dafür definiert.                           |
 | `ExtComData.*`                                                                                   | Smart-Meter- und Kommunikationsdaten                                                                                                           |
 | `BMSInfo.*`                                                                                      | BMS-Status, SOC, SOH, Fehler- und Warndaten                                                                                                    |
 | `BMSInfo.ErrorCodeActive`                                                                        | Dekodiertes BMS-Alarm-Bitfeld                                                                                                                  |
-| `BMSInfo.WarningCodeActive` ,`BMSInfo.DRMStatusActive`                                           | Dekodierte BMS-Warnungen und DRM-Bitfelder bei aktiviertem erweitertem BMS-Polling                                                             |
+| `BMSInfo.WarningCodeActive`, `BMSInfo.DRMStatusActive`                                           | Dekodierte BMS-Warnungen und DRM-Bitfelder bei aktiviertem erweitertem BMS-Polling                                                             |
 | `FlashInfo.*`                                                                                    | Informationen zur Flash-Version und zur Anzahl der Schreibvorgänge, sofern diese Option aktiviert ist und vom Wechselrichter unterstützt wird. |
 | `BMSDetail.*`                                                                                    | Detaillierte BMS-Werte, sofern aktiviert und vom Wechselrichter unterstützt.                                                                   |
 | `CEIAutoTest.*`                                                                                  | CEI-Autotestwerte, sofern vom Wechselrichter unterstützt                                                                                       |
 | `PowerLimit.*`                                                                                   | Leistungsbegrenzungs- und -verteilungswerte, sofern aktiviert und vom Wechselrichter unterstützt.                                              |
 | `Settings.Battery.*`                                                                             | Batteriekapazität, Modulanzahl, Lade- und Entladegrenzen und Entladetiefe                                                                      |
-| `Settings.GridExportEnabled` ,`Settings.GridExportLimit`                                         | Netzexport-Grenzschalter und Wert                                                                                                              |
-| `Settings.EmsMode` ,`Settings.EmsPowerLimit`                                                     | EMS-Modus und die Leistung, mit der der EMS-Modus arbeitet                                                                                     |
+| `Settings.GridExportEnabled`, `Settings.GridExportLimit`                                         | Netzexport-Grenzschalter und Wert                                                                                                              |
+| `Settings.EmsMode`, `Settings.EmsPowerLimit`                                                     | EMS-Modus und die Leistung, mit der der EMS-Modus arbeitet                                                                                     |
 
 ## Konfiguration
 
 - `ipAddr` IP-Adresse des Wechselrichters. Bei Neuinstallationen leer. Der Adapter prüft beim Start, ob es sich um eine gültige IPv4-Hostadresse handelt.
-- `discoverySubnet` Optional`/24` Subnetz für die Netzwerkermittlung, zum Beispiel`192.168.178.0/24` Die
-- `pollCycle` : Sekunden zwischen zwei Lesevorgängen der Live-Daten (`RunningData` ,`ExtComData` ,`BMSInfo` ) und die Einstellungen (`Settings.*` ), von 2 bis 3600. Die anderen optionalen Registergruppen folgen diesem Zyklus nicht: Sie teilen sich einen Slot, der etwa alle 30 Sekunden im Round-Robin-Verfahren bedient wird, und`DeviceInfo` wird einmal pro Verbindung gelesen.
-- `timeoutMs` : Timeout für UDP-Anfragen in Millisekunden, von 1000 bis 30000.
-- `retries` : Anzahl der Wiederholungsversuche pro UDP-Anfrage, von 0 bis 5.
-- `pollExtended` : Hauptschalter für optionale Registergruppen.`DeviceInfo` ,`RunningData` ,`ExtComData` Und`BMSInfo` werden immer gelesen.
-- `pollSimccid` : Aktiviert die optionale SIMCCID-Abfrage.
-- `pollExtendedMeter` : Aktiviert erweiterte Zählerregister.
-- `pollFlashInfo` : Aktiviert Flash-Informationsregister.
-- `pollBmsExtended` : Aktiviert erweiterte BMS-Informationsregister.
-- `pollBmsDetail` : Aktiviert BMS-Detailregister, sofern vom Wechselrichter unterstützt.
-- `pollCeiAutoTest` : Aktiviert die automatischen Testregister von CEI.
-- `pollPowerLimit` : Aktiviert Leistungsbegrenzungsregister, sofern vom Wechselrichter unterstützt.
-- `pollSettings` : Aktiviert die Batterie- und EMS-Einstellungsregister.
-- `enableControl` : Ermöglicht das Beschreiben der EMS- und Grid-Exportzustände (siehe unten). Standardmäßig deaktiviert.
+- `discoverySubnet` Optional `/24` Subnetz für die Netzwerkermittlung, zum Beispiel `192.168.178.0/24` Die
+- `pollCycle`: Sekunden zwischen zwei Lesevorgängen der Live-Daten (`RunningData`, `ExtComData`, `BMSInfo`) und die Einstellungen (`Settings.*`), von 2 bis 3600. Die anderen optionalen Registergruppen folgen diesem Zyklus nicht: Sie teilen sich einen Slot, der etwa alle 30 Sekunden im Round-Robin-Verfahren bedient wird, und `DeviceInfo` wird einmal pro Verbindung gelesen.
+- `timeoutMs`: Timeout für UDP-Anfragen in Millisekunden, von 1000 bis 30000.
+- `retries`: Anzahl der Wiederholungsversuche pro UDP-Anfrage, von 0 bis 5.
+- `pollExtended`: Hauptschalter für optionale Registergruppen. `DeviceInfo`, `RunningData`, `ExtComData` Und `BMSInfo` werden immer gelesen.
+- `pollSimccid`: Aktiviert die optionale SIMCCID-Abfrage.
+- `pollExtendedMeter`: Aktiviert erweiterte Zählerregister.
+- `pollFlashInfo`: Aktiviert Flash-Informationsregister.
+- `pollBmsExtended`: Aktiviert erweiterte BMS-Informationsregister.
+- `pollBmsDetail`: Aktiviert BMS-Detailregister, sofern vom Wechselrichter unterstützt.
+- `pollCeiAutoTest`: Aktiviert die automatischen Testregister von CEI.
+- `pollPowerLimit`: Aktiviert Leistungsbegrenzungsregister, sofern vom Wechselrichter unterstützt.
+- `pollSettings`: Aktiviert die Batterie- und EMS-Einstellungsregister.
+- `enableControl`: Ermöglicht das Beschreiben der EMS- und Grid-Exportzustände (siehe unten). Standardmäßig deaktiviert.
 
 Die Seite mit den Grundeinstellungen bietet außerdem Suchhilfen:
 
 - `Inverter IP` Speichert nur die IPv4-Adresse des Wechselrichters.
-- `Validate inverter IP` : Überprüft die konfigurierte Adresse und sendet die GoodWe-ID-Anfrage an den UDP-Port 8899.
-- `Discover inverters` Durchsucht die konfigurierte`/24` Subnetz für GoodWe-Geräte auf UDP-Port 8899 und zeigt gefundene Wechselrichter mit IP-Adresse, Modellname, Seriennummer und Versionsinformationen an, sofern diese vom Wechselrichter bereitgestellt werden.
+- `Validate inverter IP`: Überprüft die konfigurierte Adresse und sendet die GoodWe-ID-Anfrage an den UDP-Port 8899.
+- `Discover inverters` Durchsucht die konfigurierte `/24` Subnetz für GoodWe-Geräte auf UDP-Port 8899 und zeigt gefundene Wechselrichter mit IP-Adresse, Modellname, Seriennummer und Versionsinformationen an, sofern diese vom Wechselrichter bereitgestellt werden.
 
 ## Wechselrichtersteuerung
 
-Mit`enableControl` Im eingeschalteten Zustand werden vier Zustände beschreibbar und als einzelne Registerschreibvorgänge an den Inverter gesendet. Alle anderen Zustände bleiben schreibgeschützt.
+Mit `enableControl` Im eingeschalteten Zustand werden vier Zustände beschreibbar und als einzelne Registerschreibvorgänge an den Inverter gesendet. Alle anderen Zustände bleiben schreibgeschützt.
 
 | Zustand                      | Registrieren | Reichweite | Beschreibung                                                    |
 | ---------------------------- | ------------ | ---------- | --------------------------------------------------------------- |
@@ -106,15 +106,15 @@ Mit`enableControl` Im eingeschalteten Zustand werden vier Zustände beschreibbar
 | `Settings.EmsMode`           | 47511        | 1-12       | EMS-Modus, zum Beispiel 1 Auto, 11 Akku laden, 12 Akku entladen |
 | `Settings.EmsPowerLimit`     | 47512        | 0-30000 W  | Der ausgewählte EMS-Modus funktioniert mit                      |
 
-`GridExportLimit` Und`EmsPowerLimit` Klemmwerte außerhalb ihres Bereichs.`GridExportEnabled` Und`EmsMode` Es handelt sich um Enumerationsregister, die nur die oben aufgeführten Werte akzeptieren. Werte außerhalb dieser Liste werden abgelehnt, anstatt sie in einen unerwünschten Modus zu zwingen. Zahlen, die beispielsweise als einfacher Dezimaltext geschrieben werden, werden ebenfalls akzeptiert.`"500"` aus einem Eingabefeld werden akzeptiert,`GridExportEnabled` nimmt auch`true` Und`false` Alle anderen Werte werden abgelehnt. Die Zustände sind Zahlen, daher protokolliert ioBroker Text- und Boolesche Werte mit einer Infozeile im Log des Adapters, der sie geschrieben hat. Nach einem abgelehnten Wert und nach jedem Schreibvorgang wird die Registergruppe ausgelesen, sodass die Zustände anzeigen, was der Inverter tatsächlich gespeichert hat.
+`GridExportLimit` Und `EmsPowerLimit` Klemmwerte außerhalb ihres Bereichs. `GridExportEnabled` Und `EmsMode` Es handelt sich um Enumerationsregister, die nur die oben aufgeführten Werte akzeptieren. Werte außerhalb dieser Liste werden abgelehnt, anstatt sie in einen unerwünschten Modus zu zwingen. Zahlen, die beispielsweise als einfacher Dezimaltext geschrieben werden, werden ebenfalls akzeptiert. `"500"` aus einem Eingabefeld werden akzeptiert, `GridExportEnabled` nimmt auch `true` Und `false` Alle anderen Werte werden abgelehnt. Die Zustände sind Zahlen, daher protokolliert ioBroker Text- und Boolesche Werte mit einer Infozeile im Log des Adapters, der sie geschrieben hat. Nach einem abgelehnten Wert und nach jedem Schreibvorgang wird die Registergruppe ausgelesen, sodass die Zustände anzeigen, was der Inverter tatsächlich gespeichert hat.
 
 Ein Schreibvorgang, während der Wechselrichter offline ist, wird ohne Datenübertragung abgelehnt, da jede Anfrage lediglich ihr Timeout abwarten würde. Die erste Abfrage nach der Wiederverbindung speichert den vom Wechselrichter gespeicherten Wert im Status.
 
 Vor einem Schreibvorgang liest der Adapter die Registergruppe und überspringt den Schreibvorgang, wenn der Wechselrichter den Wert bereits enthält. Ein Skript, das denselben Sollwert in jedem Zyklus wiederholt, sendet daher nicht jedes Mal einen Registerschreibvorgang.
 
-Umschalten`enableControl` Die EMS-Einstellungsregister werden auch dann abgefragt, wenn`pollSettings` oder`pollExtended` Diese Option ist deaktiviert, da die beschreibbaren Zustände vorhanden sein und ausgelesen werden müssen. Im Gegensatz zu den anderen optionalen Gruppen führt ein fehlgeschlagener Lesevorgang bei dieser Gruppe nicht zu einer einstündigen Unterbrechung; der Vorgang wird im nächsten Abfragezyklus erneut versucht.
+Umschalten `enableControl` Die EMS-Einstellungsregister werden auch dann abgefragt, wenn `pollSettings` oder `pollExtended` Diese Option ist deaktiviert, da die beschreibbaren Zustände vorhanden sein und ausgelesen werden müssen. Im Gegensatz zu den anderen optionalen Gruppen führt ein fehlgeschlagener Lesevorgang bei dieser Gruppe nicht zu einer einstündigen Unterbrechung; der Vorgang wird im nächsten Abfragezyklus erneut versucht.
 
-Die Einstellungen werden bei jedem Abstimmungszyklus neu ausgelesen, sodass eine Änderung, die an anderer Stelle vorgenommen wird, beispielsweise in der GoodWe-App, in den Staaten innerhalb eines Wahlzyklus sichtbar wird.`pollCycle` Die
+Die Einstellungen werden bei jedem Abstimmungszyklus neu ausgelesen, sodass eine Änderung, die an anderer Stelle vorgenommen wird, beispielsweise in der GoodWe-App, in den Staaten innerhalb eines Wahlzyklus sichtbar wird. `pollCycle` Die
 
 GoodWe dokumentiert seine beschreibbaren Register nicht. Die Steuerung ist standardmäßig deaktiviert, und die Aktivierung erfolgt auf eigenes Risiko: Ein falscher Wert verändert die Wechselrichtereinstellungen, die der Adapter nicht wiederherstellen kann. Lassen Sie die Steuerung deaktiviert, wenn Sie nur Daten lesen möchten.
 
@@ -124,15 +124,15 @@ Optionale Registergruppen hängen vom Wechselrichtermodell, der Firmware und der
 
 Bekannte modellabhängige Gruppen:
 
-- `pollBmsDetail` : wird oft nicht unterstützt, es sei denn, das BMS stellt Detailregister bereit.
+- `pollBmsDetail`: wird oft nicht unterstützt, es sei denn, das BMS stellt Detailregister bereit.
 - `pollPowerLimit` Wird häufig nicht unterstützt auf Geräten, die keine Telemetriedaten zur Leistungsbegrenzung bereitstellen.
-- `pollCeiAutoTest` : kann Werte für Geräte/Firmware bereitstellen, die CEI-Autotestdaten unterstützen.
+- `pollCeiAutoTest`: kann Werte für Geräte/Firmware bereitstellen, die CEI-Autotestdaten unterstützen.
 
 Falls in den Protokollen optionale Register-Timeouts angezeigt werden, deaktivieren Sie die entsprechende Gruppe in den erweiterten Einstellungen. Deaktivierte optionale Registerzustände werden beim Start des Adapters entfernt.
 
-Bei instabilen Netzwerkverbindungen`timeoutMs` niedrig und erhöhen`retries` Stattdessen beantwortet der Wechselrichter eine erfolgreiche Anfrage innerhalb von Millisekunden. Ein langes Timeout führt daher nicht dazu, dass ein verlorenes Paket ankommt – es blockiert lediglich die Anfragewarteschlange bis zu deren Ablauf. Ein Wert um 2000 mit zwei Wiederholungsversuchen stellt eine verlorene Antwort innerhalb von zwei Sekunden wieder her, anstatt ein zehnsekündiges Timeout abzuwarten.
+Bei instabilen Netzwerkverbindungen `timeoutMs` niedrig und erhöhen `retries` Stattdessen beantwortet der Wechselrichter eine erfolgreiche Anfrage innerhalb von Millisekunden. Ein langes Timeout führt daher nicht dazu, dass ein verlorenes Paket ankommt – es blockiert lediglich die Anfragewarteschlange bis zu deren Ablauf. Ein Wert um 2000 mit zwei Wiederholungsversuchen stellt eine verlorene Antwort innerhalb von zwei Sekunden wieder her, anstatt ein zehnsekündiges Timeout abzuwarten.
 
-Wiederkehrend`retry` Meldungen auf Debug-Ebene bedeuten, dass einzelne UDP-Antworten verloren gehen. Je größer die Registergruppe, desto häufiger ist sie betroffen, beispielsweise eine Gruppe wie`RunningData` Das erste Signal erscheint. Wenn sie sich jede Minute zur gleichen Sekunde häufen, ist periodisch etwas außerhalb des Adapters auf dem Wechselrichter ausgelastet – üblicherweise der Cloud-Upload des WLAN-Moduls. Solange kein`timed out` Nach einer Warnung konnte die Anfrage beim erneuten Versuch erfolgreich abgeschlossen werden, ohne dass Daten verloren gingen. Durch die Verkabelung des Wechselrichters mit LAN anstelle von WLAN wird die Ursache behoben; die Deaktivierung optionaler Registergruppen reduziert die Anzahl der möglichen Anfragen.
+Wiederkehrend `retry` Meldungen auf Debug-Ebene bedeuten, dass einzelne UDP-Antworten verloren gehen. Je größer die Registergruppe, desto häufiger ist sie betroffen, beispielsweise eine Gruppe wie `RunningData` Das erste Signal erscheint. Wenn sie sich jede Minute zur gleichen Sekunde häufen, ist periodisch etwas außerhalb des Adapters auf dem Wechselrichter ausgelastet – üblicherweise der Cloud-Upload des WLAN-Moduls. Solange kein `timed out` Nach einer Warnung konnte die Anfrage beim erneuten Versuch erfolgreich abgeschlossen werden, ohne dass Daten verloren gingen. Durch die Verkabelung des Wechselrichters mit LAN anstelle von WLAN wird die Ursache behoben; die Deaktivierung optionaler Registergruppen reduziert die Anzahl der möglichen Anfragen.
 
 ## Changelog
 <!--

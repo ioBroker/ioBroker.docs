@@ -19,7 +19,7 @@ hash: 0uuabNMYkIc1bZGSRLdEUxqWU4GqkDMo793/0LOQttM=
 
 ## xterm-Adapter für ioBroker
 
-Dieser Adapter ermöglicht die Ausführung von Shell-Befehlen auf dem ioBroker-Host. Er ersetzt den`ioBroker.terminal` Adapter.
+Dieser Adapter ermöglicht die Ausführung von Shell-Befehlen auf dem ioBroker-Host. Er ersetzt den `ioBroker.terminal` Adapter.
 
 Terminalserver zum Öffnen der Befehlszeilenschnittstelle. Bitte verwenden Sie ihn nur für administrative Zwecke.
 
@@ -29,13 +29,13 @@ Wenn die Authentifizierung aktiviert ist, kann sich nur der ioBroker-Benutzer "a
 
 ## Verwendung
 
-Der Adapter startet cmd.exe (Windows) oder bash (Linux) über ein echtes Pseudo-Terminal (node-pty). Unter Linux läuft bash unter dem`iobroker` Benutzer – Sie können zu einem anderen Benutzer mit mehr Berechtigungen wechseln über`su USER` Die
+Der Adapter startet cmd.exe (Windows) oder bash (Linux) über ein echtes Pseudo-Terminal (node-pty). Unter Linux läuft bash unter dem `iobroker` Benutzer – Sie können zu einem anderen Benutzer mit mehr Berechtigungen wechseln über `su USER` Die
 
 ### Persistente Terminals
 
 Die Shells laufen im Adapter und nicht im Browser. Bei Verbindungsverlust oder Seitenneuladung bleiben die Terminals aktiv und werden inklusive ihres Inhalts wiederhergestellt – auch langlaufende Befehle werden nicht unterbrochen.
 
-Ein Terminal wird beendet, wenn es explizit geschlossen wird oder wenn innerhalb des konfigurierten **Sitzungs-Timeouts** (standardmäßig 5 Minuten) kein Browser zurückkehrt;`0` (Die Shells werden sofort beendet, wenn die Browserverbindung getrennt wird.)
+Ein Terminal wird beendet, wenn es explizit geschlossen wird oder wenn innerhalb des konfigurierten **Sitzungs-Timeouts** (standardmäßig 5 Minuten) kein Browser zurückkehrt; `0` (Die Shells werden sofort beendet, wenn die Browserverbindung getrennt wird.)
 
 ## Tastenkombinationen
 

@@ -28,11 +28,11 @@ Die Tapo-Mail und das Passwort eingeben. Es werden die Geräte über die Cloud a
 
 ## Status-Werte (eingehend)
 
-Alle Geräte werden regelmäßig abgefragt. Die Werte werden automatisch unterschritten`tapo.0.id.*` angelegt.
+Alle Geräte werden regelmäßig abgefragt. Die Werte werden automatisch unterschritten `tapo.0.id.*` angelegt.
 
 ### Alle Geraete
 
-Beispiel:`tapo.0.80A5897B21C7.nickname` ,`tapo.0.80A5897B21C7.device_on`
+Beispiel: `tapo.0.80A5897B21C7.nickname`, `tapo.0.80A5897B21C7.device_on`
 
 | Wert            | Typ             | Beschreibung               |
 | --------------- | --------------- | -------------------------- |
@@ -52,7 +52,7 @@ Beispiel:`tapo.0.80A5897B21C7.nickname` ,`tapo.0.80A5897B21C7.device_on`
 
 ### Lampen (zusaetzlich)
 
-Beispiel:`tapo.0.80A5897B21C7.brightness` ,`tapo.0.80A5897B21C7.hue`
+Beispiel: `tapo.0.80A5897B21C7.brightness`, `tapo.0.80A5897B21C7.hue`
 
 | Wert           | Typ    | Beschreibung                     |
 | -------------- | ------ | -------------------------------- |
@@ -63,7 +63,7 @@ Beispiel:`tapo.0.80A5897B21C7.brightness` ,`tapo.0.80A5897B21C7.hue`
 
 ### P110/P115 Energiedaten (zusätzlich)
 
-Beispiel:`tapo.0.80A5897B21C7.current_power` ,`tapo.0.80A5897B21C7.voltage_mv`
+Beispiel: `tapo.0.80A5897B21C7.current_power`, `tapo.0.80A5897B21C7.voltage_mv`
 
 | Wert                | Typ    | Beschreibung                     |
 | ------------------- | ------ | -------------------------------- |
@@ -78,7 +78,7 @@ Beispiel:`tapo.0.80A5897B21C7.current_power` ,`tapo.0.80A5897B21C7.voltage_mv`
 
 ### Hub-Sensoren (Child Devices)
 
-Beispiel:`tapo.0.80A5897B21C7.child_SENSOR_ID.current_temp`
+Beispiel: `tapo.0.80A5897B21C7.child_SENSOR_ID.current_temp`
 
 | Sensor                   | Werte                                                                    | Beschreibung                    |
 | ------------------------ | ------------------------------------------------------------------------ | ------------------------------- |
@@ -88,11 +88,11 @@ Beispiel:`tapo.0.80A5897B21C7.child_SENSOR_ID.current_temp`
 | T310/T315 (Temp/Feuchte) | aktuelle\_Temperatur, aktuelle\_Luftfeuchtigkeit, Temperatureinheit      | Temperatur und Luftfeuchtigkeit |
 | KE100 (Thermostat)       | Zieltemperatur, aktuelle Temperatur, Frostschutz aktiviert, trv-Zustände | Thermostatstatus                |
 
-Alle Sensoren werden zuverlässig geliefert`battery_percentage` ,`at_low_battery` und`signal_level` Die
+Alle Sensoren werden zuverlässig geliefert `battery_percentage`, `at_low_battery` und `signal_level` Die
 
 ### Kamera-Status
 
-Beispiel:`tapo.0.80A5897B21C7.alarm` ,`tapo.0.80A5897B21C7.personDetection`
+Beispiel: `tapo.0.80A5897B21C7.alarm`, `tapo.0.80A5897B21C7.personDetection`
 
 | Wert                   | Typ             | Beschreibung                                    |
 | ---------------------- | --------------- | ----------------------------------------------- |
@@ -119,9 +119,9 @@ Nicht jedes Gerät liefert alle Werte. Felder die das Gerät nicht unterstützt 
 
 ### Kamera-Erkennungsereignisse
 
-Beispiel:`tapo.0.80A5897B21C7.detection.active` ,`tapo.0.80A5897B21C7.detection.events.0.alarm_type`
+Beispiel: `tapo.0.80A5897B21C7.detection.active`, `tapo.0.80A5897B21C7.detection.events.0.alarm_type`
 
-Die Kamera wird lokal gepollt und liefert Erkennungs-Events (Bewegung, Personen, etc.). Die letzten 10 Events werden abgerufen (`searchDetectionList` ), neuestes Event zuerst.
+Die Kamera wird lokal gepollt und liefert Erkennungs-Events (Bewegung, Personen, etc.). Die letzten 10 Events werden abgerufen (`searchDetectionList`), neuestes Event zuerst.
 
 | Wert                           | Typ             | Beschreibung                                    |
 | ------------------------------ | --------------- | ----------------------------------------------- |
@@ -158,7 +158,7 @@ Nicht jede Kamera liefert alle Typen. Die verfügbaren Werte hängen von Modell 
 
 ### Alarmkonfiguration
 
-Beispiel:`tapo.0.80A5897B21C7.alarmInfo.enabled` ,`tapo.0.80A5897B21C7.alarmInfo.alarm_volume`
+Beispiel: `tapo.0.80A5897B21C7.alarmInfo.enabled`, `tapo.0.80A5897B21C7.alarmInfo.alarm_volume`
 
 | Wert                            | Typ          | Beschreibung                |
 | ------------------------------- | ------------ | --------------------------- |
@@ -173,7 +173,7 @@ Beispiel:`tapo.0.80A5897B21C7.alarmInfo.enabled` ,`tapo.0.80A5897B21C7.alarmInfo
 
 ### Alarm-Event-Typen (welche Erkennungen lösen Alarm aus)
 
-Beispiel:`tapo.0.80A5897B21C7.alertEventTypes.motion` ,`tapo.0.80A5897B21C7.alertEventTypes.person`
+Beispiel: `tapo.0.80A5897B21C7.alertEventTypes.motion`, `tapo.0.80A5897B21C7.alertEventTypes.person`
 
 | Wert                    | Typ             | Beschreibung       |
 | ----------------------- | --------------- | ------------------ |
@@ -184,7 +184,7 @@ Beispiel:`tapo.0.80A5897B21C7.alertEventTypes.motion` ,`tapo.0.80A5897B21C7.aler
 
 ### Röhren einrichten
 
-Für Benachrichtigungen bei Erkennung ein ioBroker-Skript auf`detection.events.0.start_time` Auslöser:
+Für Benachrichtigungen bei Erkennung ein ioBroker-Skript auf `detection.events.0.start_time` Auslöser:
 
 ```javascript
 const alarmTypen = {
@@ -270,7 +270,7 @@ tapo.0.id.remote auf true/false setzen steuert den jeweiligen Befehl. Der Befehl
 | --------------------------- | --------------- | ---------------------------------------------------------- |
 | Aktualisieren               | boolescher Wert | Manueller Status-Refresh                                   |
 | setPowerState               | boolescher Wert | Ein/Aus                                                    |
-| setPowerStateChild          | Zeichenkette    | Kindersicherung steuern:`childId,true` Oder`childId,false` |
+| setPowerStateChild          | Zeichenkette    | Kindersicherung steuern: `childId,true` Oder `childId,false` |
 | setLEDEnabled               | boolescher Wert | LED-Indikator ein/aus                                      |
 | setAutoOff                  | boolescher Wert | Auto-Off Timer ein/aus                                     |
 | setAutoOffDelay             | Nummer          | Auto-Off-Verzögerung in Minuten                            |
@@ -289,8 +289,8 @@ Alle Plug-Remotes plus:
 | ------------------------ | --------------- | ------------------------------ |
 | Helligkeit einstellen    | Nummer          | Helligkeit setzen              |
 | Farbtemperatur festlegen | Nummer          | Farbtemperatur (2500-6500K)    |
-| Farbe setzen             | Zeichenkette    | Farbe setzen:`hue, saturation` |
-| Lichteffekt setzen       | Zeichenkette    | Lichteffekt ID oder`off`       |
+| Farbe setzen             | Zeichenkette    | Farbe setzen: `hue, saturation` |
+| Lichteffekt setzen       | Zeichenkette    | Lichteffekt ID oder `off`       |
 | setGradualOnOff          | boolescher Wert | Sanftes Ein-/Ausschalten       |
 
 ### Fans (F1xx)
@@ -319,7 +319,7 @@ Alle Plug-Remotes plus:
 
 ### Hub-Sensoren (T100, T110, T300, T310, T315)
 
-Sensordaten (Temperatur, Luftfeuchtigkeit, Bewegung, Kontakt, Wasserleck) werden automatisch über`getChildDeviceList` abgerufen und als Status angezeigt.
+Sensordaten (Temperatur, Luftfeuchtigkeit, Bewegung, Kontakt, Wasserleck) werden automatisch über `getChildDeviceList` abgerufen und als Status angezeigt.
 
 ### Kameras (C200, C310, C520, TC70, ...)
 
@@ -348,7 +348,7 @@ Sensordaten (Temperatur, Luftfeuchtigkeit, Bewegung, Kontakt, Wasserleck) werden
 | setHDR                                       | boolescher Wert | HDR ein/aus                                   |
 | setCoverConfig                               | boolescher Wert | Datenschutzzonen ein/aus                      |
 | setRecordPlan                                | boolescher Wert | SD-Karten Aufnahme ein/aus                    |
-| Motor bewegen                                | Zeichenkette    | Kamera bewegen:`x, y` (-360..360, -45..45)    |
+| Motor bewegen                                | Zeichenkette    | Kamera bewegen: `x, y` (-360..360, -45..45)    |
 | moveMotorStep                                | Zeichenkette    | Schrittwinkel (0-360)                         |
 | moveToPreset                                 | Zeichenkette    | Zu Preset fahren (ID)                         |
 | Motor kalibrieren                            | boolescher Wert | Motor kalibrieren                             |

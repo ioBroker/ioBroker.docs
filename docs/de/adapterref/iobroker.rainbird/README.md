@@ -37,7 +37,7 @@ Basierend auf der Python-Bibliothek „pyrainbird“ von <https://github.com/jba
 
 `rainbird.X.device.stations.Y.available` - Trifft zu, wenn Zone Y im Gerät verfügbar ist.\
 `rainbird.X.device.stations.Y.irrigation` - Trifft zu, wenn Zone Y derzeit bewässert wird.\
-`rainbird.X.device.stations.Y.remaining` - Verbleibende Bewässerungszeit in Sekunden`rainbird.X.device.stations.Y.runZone` - Die Bewässerung der Zone Y manuell für die angegebene Anzahl von Minuten durchführen.\
+`rainbird.X.device.stations.Y.remaining` - Verbleibende Bewässerungszeit in Sekunden `rainbird.X.device.stations.Y.runZone` - Die Bewässerung der Zone Y manuell für die angegebene Anzahl von Minuten durchführen.\
 `rainbird.X.device.stations.Y.testZone` - Testzone Y.
 
 ## Credits

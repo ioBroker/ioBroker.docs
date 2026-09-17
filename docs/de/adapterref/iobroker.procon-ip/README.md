@@ -26,7 +26,7 @@ Weitere Informationen finden Sie im [Wiki](https://github.com/ylabonte/ioBroker.
 
 ## Was ist der ProCon.IP-Pool-Controller?
 
-Die ProCon.IP Poolsteuerung ist eine kostengünstige, netzwerkfähige Steuereinheit für private Schwimmbäder. Mit ihren softwaregesteuerten Relais kann sie mehrere Pumpen (für die Poolfilterung und verschiedene Dosierungen) steuern, entweder nach einem Zeitplan oder abhängig von Messwerten eines ihrer zahlreichen Eingangskanäle (z. B. Durchflusssensoren, Dallas 1-Wire-Thermometer, Redox- und pH-Elektroden). Die Relais lassen sich auch bedarfsgesteuert schalten, wodurch sie sich auch zum Ein- und Ausschalten von Beleuchtung (oder anderen Geräten) eignen. Nicht alle Funktionen sind über die API zugänglich. Es gibt lediglich eine dokumentierte API zum Auslesen (Abfragen) von Werten im CSV-Format.`/GetState.csv` Ich erinnere mich, dass es noch eine weitere Funktion zum Ein- und Ausschalten der Relais mit Timer gab. Diese kann ich aber nicht mehr finden. Also, nicht besonders ansprechend, aber funktional: Die ProCon.IP verfügt über zwei native Web-Oberflächen, die analysiert werden können, um eine bestimmte Funktionalität (wie das Schalten der Relais) gewissermaßen zu rekonstruieren.
+Die ProCon.IP Poolsteuerung ist eine kostengünstige, netzwerkfähige Steuereinheit für private Schwimmbäder. Mit ihren softwaregesteuerten Relais kann sie mehrere Pumpen (für die Poolfilterung und verschiedene Dosierungen) steuern, entweder nach einem Zeitplan oder abhängig von Messwerten eines ihrer zahlreichen Eingangskanäle (z. B. Durchflusssensoren, Dallas 1-Wire-Thermometer, Redox- und pH-Elektroden). Die Relais lassen sich auch bedarfsgesteuert schalten, wodurch sie sich auch zum Ein- und Ausschalten von Beleuchtung (oder anderen Geräten) eignen. Nicht alle Funktionen sind über die API zugänglich. Es gibt lediglich eine dokumentierte API zum Auslesen (Abfragen) von Werten im CSV-Format. `/GetState.csv` Ich erinnere mich, dass es noch eine weitere Funktion zum Ein- und Ausschalten der Relais mit Timer gab. Diese kann ich aber nicht mehr finden. Also, nicht besonders ansprechend, aber funktional: Die ProCon.IP verfügt über zwei native Web-Oberflächen, die analysiert werden können, um eine bestimmte Funktionalität (wie das Schalten der Relais) gewissermaßen zu rekonstruieren.
 
 Weitere Informationen finden Sie unter folgendem Link (leider nur auf Deutsch; ich habe bisher keine englische Dokumentation/Informationen gefunden):
 
@@ -37,7 +37,7 @@ Weitere Informationen finden Sie unter folgendem Link (leider nur auf Deutsch; i
 
 ## Details zum Adapter
 
-Der Adapter verwendet den`/GetState.csv` Die ProCon.IP-API dient zum Abfragen ihrer Werte, eine weitere – nicht dokumentierte – API arbeitet mit Bitbefehlen zum Schalten der Relais. Letztere wird auch von den ursprünglichen Web-Oberflächen der ProCon.IP verwendet. Daher könnten zukünftige Firmware-Updates die Kompatibilität mit diesem Adapter oder zumindest dessen Relais-Schaltfunktion beeinträchtigen.
+Der Adapter verwendet den `/GetState.csv` Die ProCon.IP-API dient zum Abfragen ihrer Werte, eine weitere – nicht dokumentierte – API arbeitet mit Bitbefehlen zum Schalten der Relais. Letztere wird auch von den ursprünglichen Web-Oberflächen der ProCon.IP verwendet. Daher könnten zukünftige Firmware-Updates die Kompatibilität mit diesem Adapter oder zumindest dessen Relais-Schaltfunktion beeinträchtigen.
 
 ### Kompatibilität
 
@@ -62,7 +62,7 @@ npm run dev:setup               # creates the local .dev-server/ profile (git-ig
 npm run dev                     # builds, runs, admin UI at http://localhost:8081
 ```
 
-Konfigurieren Sie die Instanz mit Ihrer Controller-URL in der Admin-Benutzeroberfläche.`npm run dev` Der Adapter wird bei Änderungen am Quellcode neu erstellt und geladen.
+Konfigurieren Sie die Instanz mit Ihrer Controller-URL in der Admin-Benutzeroberfläche. `npm run dev` Der Adapter wird bei Änderungen am Quellcode neu erstellt und geladen.
 
 ## Spende
 

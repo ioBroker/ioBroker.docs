@@ -21,16 +21,16 @@ hash: EWqAOk+tfnRRDnSiOLu67j2JTwehpiSVxhA+AC07Tiw=
 
 ## zwave-WS-Adapter für ioBroker
 
-Der`zwavews` Ein Adapter verbindet ein[`zwave-js-ui`](https://zwave-js.github.io/zwave-js-ui/#/) Es wird an ioBroker angebunden und entsprechende Datenpunkte für Geräte, Werte und Status erstellt. Dadurch lassen sich Z-Wave-Geräte komfortabel in Visualisierungen, Logik und Automatisierungen verwenden.
+Der `zwavews` Ein Adapter verbindet ein[`zwave-js-ui`](https://zwave-js.github.io/zwave-js-ui/#/) Es wird an ioBroker angebunden und entsprechende Datenpunkte für Geräte, Werte und Status erstellt. Dadurch lassen sich Z-Wave-Geräte komfortabel in Visualisierungen, Logik und Automatisierungen verwenden.
 
 ### Merkmale
 
 - **Echtzeitkommunikation** : Empfängt umgehend Aktualisierungen von Gerätewerten und -status über WebSocket.
-- **Automatische Erkennung** : Erstellt und aktualisiert automatisch die Geräte- und Statusstruktur in ioBroker.`zwave-js-ui` Knoten.
+- **Automatische Erkennung** : Erstellt und aktualisiert automatisch die Geräte- und Statusstruktur in ioBroker. `zwave-js-ui` Knoten.
 - **Geräteverwaltung** : Akkustand, Verbindungsstatus und detaillierte Gerätemetriken können direkt über die ioBroker-Oberfläche eingesehen werden.
 - **Firmware-Updates** : Verfolgen Sie den Fortschritt von Firmware-Updates direkt über die Protokolle und Statusanzeigen des Adapters.
 - **Zustandssteuerung** : Befehle senden und Werte nativ über den ioBroker-Objektbaum aktualisieren.
-- **Unterstützung für WebSocket** : Sie können eine Verbindung herstellen mit`zwave-js-ui` über WebSocket.
+- **Unterstützung für WebSocket** : Sie können eine Verbindung herstellen mit `zwave-js-ui` über WebSocket.
 
 ## Adapterdokumentation
 
@@ -39,7 +39,7 @@ Es ist erforderlich, zwave-js-ui zu installieren (es ist möglich, die zwave2-Ge
 <img width="1444" height="740" alt="grafik" src="https://github.com/user-attachments/assets/876a81d3-04ab-43c6-914e-86772d0188e1" />
 <p></p>
 
-Aktivieren Sie die WS-Servereinstellungen in`zwave-js-ui` Wir verwenden dafür die Home Assistant-Einstellungen:
+Aktivieren Sie die WS-Servereinstellungen in `zwave-js-ui` Wir verwenden dafür die Home Assistant-Einstellungen:
 
 <img width="1887" height="479" alt="grafik" src="https://github.com/user-attachments/assets/6ed8cf36-2d91-435f-91d7-86e430bb0c6c" />
 

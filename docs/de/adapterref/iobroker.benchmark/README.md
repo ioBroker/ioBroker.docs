@@ -22,7 +22,7 @@ Testen Sie Ihr System.
 
 ## Wichtig: Informationen für Nutzer
 
-Beachten Sie, dass der Adapter in seiner aktuellen Form hauptsächlich dazu dient, verschiedene Szenarien zu testen, um Erkenntnisse über Änderungen auf der Ebene des JS-Controllers zu gewinnen. Die Benchmark-Tests können sehr lange dauern und Ihr System stark belasten. Beachten Sie außerdem, dass der Benchmark-Adapter standardmäßig im isolierten Modus ausgeführt wird. Dadurch werden alle anderen Adapter deaktiviert, und nur der Controller und der Adapter selbst bleiben aktiv. Darüber hinaus muss der Adapter immer mit der Instanznummer ausgeführt werden.`0` Die
+Beachten Sie, dass der Adapter in seiner aktuellen Form hauptsächlich dazu dient, verschiedene Szenarien zu testen, um Erkenntnisse über Änderungen auf der Ebene des JS-Controllers zu gewinnen. Die Benchmark-Tests können sehr lange dauern und Ihr System stark belasten. Beachten Sie außerdem, dass der Benchmark-Adapter standardmäßig im isolierten Modus ausgeführt wird. Dadurch werden alle anderen Adapter deaktiviert, und nur der Controller und der Adapter selbst bleiben aktiv. Darüber hinaus muss der Adapter immer mit der Instanznummer ausgeführt werden. `0` Die
 
 ## Wie füge ich einen neuen Test hinzu?
 
@@ -51,85 +51,85 @@ Aktuell werden folgende Anforderungen unterstützt:
 
 ### getStates
 
-Führt aus`iterations` mal`getState` Die
+Führt aus `iterations` mal `getState` Die
 
 ### getStatesAlias
 
-Führt aus`iterations` mal`getState` unter einem Pseudonym.
+Führt aus `iterations` mal `getState` unter einem Pseudonym.
 
 ### getStatesAliasRead
 
-Führt aus`iterations` mal`getState` auf einem Alias. Der Alias hat eine einfache Lesefunktion.
+Führt aus `iterations` mal `getState` auf einem Alias. Der Alias hat eine einfache Lesefunktion.
 
 ### getStatesMulti
 
-Erstellt 10.000 Zustände und führt diese anschließend aus.`iterations` mal`getStates` auf sie.
+Erstellt 10.000 Zustände und führt diese anschließend aus. `iterations` mal `getStates` auf sie.
 
 ### getStatesMultiAlias
 
-Erstellt 10.000 Alias-Zustände und führt diese anschließend aus.`iterations` mal`getStates` auf sie.
+Erstellt 10.000 Alias-Zustände und führt diese anschließend aus. `iterations` mal `getStates` auf sie.
 
 ### Leerlauf
 
-Einfach abwarten.`iterations` MS.
+Einfach abwarten. `iterations` MS.
 
 ### Nachrichten
 
-Erstellt eine sekundäre Benchmark-Instanz. Die Controller-Instanz sendet dann`iterations` Nachrichten an die sekundäre Instanz. Wenn alle Nachrichten empfangen wurden, ist der Test abgeschlossen.
+Erstellt eine sekundäre Benchmark-Instanz. Die Controller-Instanz sendet dann `iterations` Nachrichten an die sekundäre Instanz. Wenn alle Nachrichten empfangen wurden, ist der Test abgeschlossen.
 
 ### Objekterstellung
 
-Erstellt`iterations` Objekte über`setObject` Die
+Erstellt `iterations` Objekte über `setObject` Die
 
 ### Objektlöschung
 
-Löscht`iterations` Objekte über`delObject` Die
+Löscht `iterations` Objekte über `delObject` Die
 
 ### objectViewEqual
 
-Es werden 10.000 Objekte erstellt, von denen 50 % für die Objektansicht relevant sind. Anschließend wird Folgendes ausgeführt:`iterations` Objektansichten.
+Es werden 10.000 Objekte erstellt, von denen 50 % für die Objektansicht relevant sind. Anschließend wird Folgendes ausgeführt: `iterations` Objektansichten.
 
 ### objectViewLarge
 
-Es werden 10.000 Objekte erstellt, von denen 98 % für die Objektansicht relevant sind. Anschließend wird Folgendes ausgeführt:`iterations` Objektansichten.
+Es werden 10.000 Objekte erstellt, von denen 98 % für die Objektansicht relevant sind. Anschließend wird Folgendes ausgeführt: `iterations` Objektansichten.
 
 ### objectViewSmall
 
-Es werden 10.000 Objekte erstellt, von denen jedoch nur 2 % für die Objektansicht relevant sind. Anschließend wird Folgendes ausgeführt:`iterations` Objektansichten.
+Es werden 10.000 Objekte erstellt, von denen jedoch nur 2 % für die Objektansicht relevant sind. Anschließend wird Folgendes ausgeführt: `iterations` Objektansichten.
 
 ### setStates
 
-Sets`iterations` Staaten über`setState`
+Sets `iterations` Staaten über `setState`
 
 ### setStatesNonStrict
 
-Sets`iterations` Staaten über`setState` , Aber`strictObjectChecks` sind deaktiviert.
+Sets `iterations` Staaten über `setState`, Aber `strictObjectChecks` sind deaktiviert.
 
 ### setStateParallel
 
-Fügt 30 sekundäre Instanzen hinzu, jede Instanz wird festgelegt`iterations` Zustände. Auf Systemebene setzen die Instanzen diese Zustände parallel, aber auf Instanzebene die vorherigen`setState` Dieser Test muss abgeschlossen sein, bevor der nächste gestartet werden kann. Er dient der Bewertung von Mehrkernsystemen.
+Fügt 30 sekundäre Instanzen hinzu, jede Instanz wird festgelegt `iterations` Zustände. Auf Systemebene setzen die Instanzen diese Zustände parallel, aber auf Instanzebene die vorherigen `setState` Dieser Test muss abgeschlossen sein, bevor der nächste gestartet werden kann. Er dient der Bewertung von Mehrkernsystemen.
 
 **Systemvoraussetzungen** : 2 GB freier Speicherplatz
 
 ### Staatenlöschung
 
-Löscht`iterations` Staaten über`delState` Die
+Löscht `iterations` Staaten über `delState` Die
 
 ### StaatenAbonnement
 
-Die Controller-Instanz abonniert einen bestimmten Namensraum. 4 sekundäre Instanzen, jeweils mit einem Satz`iterations / 4` Zustände. Sobald der Controller alle empfangen hat`iterations` Mit der Veröffentlichung ist der Test abgeschlossen.
+Die Controller-Instanz abonniert einen bestimmten Namensraum. 4 sekundäre Instanzen, jeweils mit einem Satz `iterations / 4` Zustände. Sobald der Controller alle empfangen hat `iterations` Mit der Veröffentlichung ist der Test abgeschlossen.
 
 ### StaatenAbonnementAlias
 
-Die Controller-Instanz abonniert einen Alias-Namespace. 4 sekundäre Instanzen, jeweils gesetzt`iterations / 4` Alias-Zustände. Sobald der Controller alle empfangen hat`iterations` Mit der Veröffentlichung ist der Test abgeschlossen.
+Die Controller-Instanz abonniert einen Alias-Namespace. 4 sekundäre Instanzen, jeweils gesetzt `iterations / 4` Alias-Zustände. Sobald der Controller alle empfangen hat `iterations` Mit der Veröffentlichung ist der Test abgeschlossen.
 
 ### statesSubscriptionAliasWrite
 
-Die Controller-Instanz abonniert einen Alias-Namespace. 4 sekundäre Instanzen, jeweils gesetzt`iterations / 4` Alias-Zustände. Sobald der Controller alle empfangen hat`iterations` Nach der Veröffentlichung ist der Test abgeschlossen. Der Alias enthält eine einfache Schreibfunktion.
+Die Controller-Instanz abonniert einen Alias-Namespace. 4 sekundäre Instanzen, jeweils gesetzt `iterations / 4` Alias-Zustände. Sobald der Controller alle empfangen hat `iterations` Nach der Veröffentlichung ist der Test abgeschlossen. Der Alias enthält eine einfache Schreibfunktion.
 
 ### StaatenAbonnementEinzeln
 
-Zehn Sekundäranbieter abonnieren jeweils dasselbe`iterations` Staaten. Anstatt einen zu verwenden`subscribe` Rufen Sie jeden an, der ausführt`iterations` Einzelabonnements. Sobald alle`ìterations` werden von jeder weiterführenden Schule empfangen, der Test ist abgeschlossen.
+Zehn Sekundäranbieter abonnieren jeweils dasselbe `iterations` Staaten. Anstatt einen zu verwenden `subscribe` Rufen Sie jeden an, der ausführt `iterations` Einzelabonnements. Sobald alle `ìterations` werden von jeder weiterführenden Schule empfangen, der Test ist abgeschlossen.
 
 ## Changelog
 <!--

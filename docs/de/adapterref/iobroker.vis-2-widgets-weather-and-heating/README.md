@@ -49,7 +49,7 @@ Dieses Vis-2-Widget zeigt Wettervorhersagedaten von DasWetter.com oder weatherun
 
 Weitere Informationen finden Sie unter [METEORED](https://www.daswetter.com/users/widget) .
 
-Sie müssen Ihr Widget auf METEORED erstellen und die Widget-ID abrufen. Diese ID muss hier in den Widget-Einstellungen festgelegt werden. Vergessen Sie nicht, Ihre Domain in den METEORED-Einstellungen auf die Whitelist zu setzen. In meinem Fall musste ich dies tun.`https://192.168.xxx.xxx:8082` um das Widget zum Laufen zu bringen.
+Sie müssen Ihr Widget auf METEORED erstellen und die Widget-ID abrufen. Diese ID muss hier in den Widget-Einstellungen festgelegt werden. Vergessen Sie nicht, Ihre Domain in den METEORED-Einstellungen auf die Whitelist zu setzen. In meinem Fall musste ich dies tun. `https://192.168.xxx.xxx:8082` um das Widget zum Laufen zu bringen.
 
 ![vis-widget-METEORED.png](../../../en/adapterref/iobroker.vis-2-widgets-weather-and-heating/doc/vis-widget-Meteored.png)
 
@@ -59,14 +59,14 @@ Sie müssen Ihr Widget auf METEORED erstellen und die Widget-ID abrufen. Diese I
 
 ### Eingabedaten für allgemeines Diagramm
 
-- "OID-Datenserie" sollte auf einen Datenpunkt wie den folgenden verweisen:`sbfspot.0.xxxxxxxx.history.years`
+- "OID-Datenserie" sollte auf einen Datenpunkt wie den folgenden verweisen: `sbfspot.0.xxxxxxxx.history.years`
 - Ein Datenpunkt sollte Schlüssel-Wert-Paare enthalten, wie zum Beispiel
 
 \[{"year":"2008","value":7000},{"year":"2009","value":2309000},{"year":"2010","value":4445000},{"year":"2011","value":7019000},{"year":"2012","value":9371000},{"year":"2013","value":11393000},{"year":"2014","value":13666000},{"year":"2015","value":16034000},{"year":"2016","value":17826790}]
 
 - Die Differenzberechnung und -anzeige der Werte ist möglich. Aktivieren Sie dazu einfach die Option „Differenzberechnung“ in den Einstellungen.
 
-- Es unterstützt Adapter`sbfspot` Und`ebus` Wählen Sie einfach die Instanz aus, und die grundlegenden Anpassungen werden automatisch vorgenommen.
+- Es unterstützt Adapter `sbfspot` Und `ebus` Wählen Sie einfach die Instanz aus, und die grundlegenden Anpassungen werden automatisch vorgenommen.
 
 ## Heizung (Widgets für den HeatingControl-Adapter)
 

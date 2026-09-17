@@ -102,9 +102,9 @@ Seit Version **3.1.0** kann der Adapter automatisch ein vorkonfiguriertes HTML-W
 **Anwendung:**
 
 1. **Aktivieren:** Aktivieren Sie das Kontrollkästchen „Widget erstellen“ in den Instanzeinstellungen für Ihren Standort.
-2. **Zustand finden:** Der Adapter erstellt einen Zustand namens`htmlWidget` (unter`open-meteo-weather.0.yourLocation.htmlWidget` ).
+2. **Zustand finden:** Der Adapter erstellt einen Zustand namens `htmlWidget` (unter `open-meteo-weather.0.yourLocation.htmlWidget`).
 3. **In VIS/VIS2:** \* Ziehen Sie ein Standard- **„HTML“-Widget** in Ihre Ansicht.
-   - Weisen Sie der "HTML"-Eigenschaft dieses Widgets die Bindung Ihres Zustands zu:`{open-meteo-weather.0.yourLocation.htmlWidget}` Die
+   - Weisen Sie der "HTML"-Eigenschaft dieses Widgets die Bindung Ihres Zustands zu: `{open-meteo-weather.0.yourLocation.htmlWidget}` Die
    - Passen Sie Breite und Höhe des Widget-Containers an den Inhalt an.
 
 **Anpassung:** In der Adapterkonfiguration können Sie lediglich grundlegende Einstellungen wie Schriftgrößen, Vorhersagestunden und -tage direkt anpassen.
@@ -126,10 +126,10 @@ Wenn Sie tiefgreifende Änderungen am Design vornehmen möchten, fügen Sie Ihr 
 
 Der Adapter stellt dynamische Symbolpfade bereit, die direkt in Visualisierungen wie **vis, iQontrol oder Jarvis** verwendet werden können.
 
-- **Wettersymbole:** Zu finden unter`weather.current.icon_url` Der Adapter unterscheidet automatisch zwischen Tag und Nacht (z. B. Sonne vs. Mond).
-- **Windrichtung:** Statische Pfade unter`wind_direction_icon` Zeigt einen Kompasspfeil entsprechend dem Gradwert an (Anzeigerichtung wählbar).
-- **Windböenwarnung:** Ein Warnsymbol wird angezeigt unter`wind_gust_icon` für Windgeschwindigkeiten über ca. 39 km/h (Bft 6), mit Stufen 0–4.
-- **Mondphasen-Symbole:** Mond-Symbole finden Sie unter`moon_phase_icon` Sie zeigen die Mondphasen an.
+- **Wettersymbole:** Zu finden unter `weather.current.icon_url` Der Adapter unterscheidet automatisch zwischen Tag und Nacht (z. B. Sonne vs. Mond).
+- **Windrichtung:** Statische Pfade unter `wind_direction_icon` Zeigt einen Kompasspfeil entsprechend dem Gradwert an (Anzeigerichtung wählbar).
+- **Windböenwarnung:** Ein Warnsymbol wird angezeigt unter `wind_gust_icon` für Windgeschwindigkeiten über ca. 39 km/h (Bft 6), mit Stufen 0–4.
+- **Mondphasen-Symbole:** Mond-Symbole finden Sie unter `moon_phase_icon` Sie zeigen die Mondphasen an.
 - **Mehrere Symbole:** Sie können zwischen statischen und animierten Symbolen (von [basmilius](https://github.com/basmilius/meteocons) ) wählen.
 
 ---
@@ -177,7 +177,7 @@ Für jeden konfigurierten Standort wird ein Kanal mit den folgenden Datenpunkten
 | :------------ | :-------------------------- |
 | `pv-forecast` | Ordner für PV-Prognosedaten |
 
-### 15-Minuten-Vorhersage (`15-min-forecast.0 - 95` ), (24 Stunden des aktuellen Tages), falls aktiviert
+### 15-Minuten-Vorhersage (`15-min-forecast.0 - 95`), (24 Stunden des aktuellen Tages), falls aktiviert
 
 | Datenpunkt                 | Einheit | Beschreibung                                                      |
 | :------------------------- | :------ | :---------------------------------------------------------------- |
@@ -196,21 +196,21 @@ Bei Bedarf optional auswählbar, ansonsten sind die DP in den Wetterdaten enthal
 | `cloud_cover`       | %       | Gesamtbewölkung in Prozent.                                        |
 | `sunshine_duration` | min     | Tatsächliche Sonnenscheindauer in Minuten innerhalb dieser Stunde. |
 
-### Tagesvorhersage (`daily-forecast.dayX` )
+### Tagesvorhersage (`daily-forecast.dayX`)
 
 | Datenpunkt | Einheit | Beschreibung                  |
 | :--------- | :------ | :---------------------------- |
 | `Date`     | -       | Vorhersagedatum (TT.MM.JJJJ). |
 | `Peak_day` | Wh      | Erwarteter Tagesgesamtertrag. |
 
-### Prognose JSON (`location_folder` ) falls aktiviert
+### Prognose JSON (`location_folder`) falls aktiviert
 
 | Datenpunkt          | Einheit | Beschreibung             |
 | :------------------ | :------ | :----------------------- |
 | `15-min-json_chart` | -       | JSON 15-min              |
 | `hourly-json_chart` | -       | stündlich im JSON-Format |
 
-### Stündliche Vorhersage (`hourly-forecast.hourX` )
+### Stündliche Vorhersage (`hourly-forecast.hourX`)
 
 | Datenpunkt                 | Einheit | Beschreibung                                                      |
 | :------------------------- | :------ | :---------------------------------------------------------------- |
@@ -229,20 +229,20 @@ Bei Bedarf optional auswählbar, ansonsten sind die DP in den Wetterdaten enthal
 | `cloud_cover`       | %       | Gesamtbewölkung in Prozent.                                        |
 | `sunshine_duration` | min     | Tatsächliche Sonnenscheindauer in Minuten innerhalb dieser Stunde. |
 
-### sum\_peak\_locations\_15\_Minutely (`0-95` ) falls aktiviert
+### sum\_peak\_locations\_15\_Minutely (`0-95`) falls aktiviert
 
 | Datenpunkt      | Einheit | Beschreibung                        |
 | :-------------- | :------ | :---------------------------------- |
 | `sum_locations` | Wh      | Summe der Standorte alle 15 Minuten |
 | `time`          | -       | Vorhersagezeit (HH:mm).             |
 
-### sum\_peak\_locations\_Daily (`dayX` ) falls aktiviert
+### sum\_peak\_locations\_Daily (`dayX`) falls aktiviert
 
 | Datenpunkt      | Einheit | Beschreibung                |
 | :-------------- | :------ | :-------------------------- |
 | `sum_locations` | Wh      | Summe der Standorte täglich |
 
-### sum\_peak\_locations\_Hourly (`HourX` ) falls aktiviert
+### sum\_peak\_locations\_Hourly (`HourX`) falls aktiviert
 
 | Datenpunkt      | Einheit | Beschreibung                   |
 | :-------------- | :------ | :----------------------------- |
@@ -286,9 +286,9 @@ Für jeden Standort müssen folgende Werte definiert werden:
 
 ### Globale Optionen, nur anpassbar, wenn Sie mehrere Standorte haben!
 
-- **Gesamtsumme (täglich):** Erstellt den Kanal`sum_peak_locations_Daily` , indem die Erträge aller Systeme addiert werden.
-- **Gesamtsumme (stündlich):** Erstellt den Kanal`sum_peak_locations_Hourly` für die gesamte Stundenleistung.
-- **Gesamtsumme (15-Minuten-Takt):** Erstellt den Kanal`sum_peak_locations_15_Minutely` für die gesamte 15-Minuten-Vorhersage.
+- **Gesamtsumme (täglich):** Erstellt den Kanal `sum_peak_locations_Daily`, indem die Erträge aller Systeme addiert werden.
+- **Gesamtsumme (stündlich):** Erstellt den Kanal `sum_peak_locations_Hourly` für die gesamte Stundenleistung.
+- **Gesamtsumme (15-Minuten-Takt):** Erstellt den Kanal `sum_peak_locations_15_Minutely` für die gesamte 15-Minuten-Vorhersage.
 
 ---
 
@@ -296,7 +296,7 @@ Für jeden Standort müssen folgende Werte definiert werden:
 
 ### PV-Temperaturmodell
 
-Der Adapter verwendet das **Faiman-Modell** zur Schätzung der Modultemperatur. Dieses Modell berücksichtigt die Windkühlung, die sich direkt auf den Wirkungsgrad auswirkt:`pvTemp = Ambient Temperature + Irradiance / (25 + 6.84 * Wind Speed)` Die
+Der Adapter verwendet das **Faiman-Modell** zur Schätzung der Modultemperatur. Dieses Modell berücksichtigt die Windkühlung, die sich direkt auf den Wirkungsgrad auswirkt: `pvTemp = Ambient Temperature + Irradiance / (25 + 6.84 * Wind Speed)` Die
 
 ---
 

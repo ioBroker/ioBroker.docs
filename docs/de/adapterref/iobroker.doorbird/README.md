@@ -31,7 +31,7 @@ DoorBird ist eine Türsprechanlage, die sowohl als Türklingel als auch als Sich
 ## Konfiguration
 
 1. Geben Sie die IP-Adresse ein, unter der der Adapter Ereignisse vom Doorbird-Gerät empfangen soll. (Dies ist normalerweise die IP-Adresse Ihres ioBroker-Hosts.) Der Adapter versucht, das Feld automatisch mit der korrekten IP-Adresse vorzubelegen. Sollte die vorbelegte IP-Adresse nicht die Ihres ioBroker-Hosts sein, ändern Sie diese bitte entsprechend.
-2. Der Hafen ist vordefiniert auf`8100` Sie können den Port ändern, falls er bereits von einem anderen Dienst verwendet wird. Versuchen Sie einfach, den Adapter mit diesem Port auszuführen. Sollte der Port nicht verfügbar sein, erhalten Sie beim Starten des Adapters eine Fehlermeldung. Kehren Sie dann einfach hierher zurück und ändern Sie den Port.
+2. Der Hafen ist vordefiniert auf `8100` Sie können den Port ändern, falls er bereits von einem anderen Dienst verwendet wird. Versuchen Sie einfach, den Adapter mit diesem Port auszuführen. Sollte der Port nicht verfügbar sein, erhalten Sie beim Starten des Adapters eine Fehlermeldung. Kehren Sie dann einfach hierher zurück und ändern Sie den Port.
 3. Geben Sie die IP-Adresse Ihres Doorbird-Geräts ein. Klicken Sie dazu auf das Suchsymbol links neben dem Eingabefeld. Nach dem Klick erscheint oben im Konfigurationsbildschirm eine Meldung. Sie haben nun 60 Sekunden Zeit, die Klingeltaste an Ihrem Doorbird-Gerät zu drücken. Der Adapter versucht, die IP-Adresse zu erkennen und alle Felder automatisch auszufüllen.
 4. Die Geräte-ID (NICHT die IP-Adresse!) Ihres Doorbird.
 5. Der Benutzername muss die Berechtigungen **API-Operator** und **Watch always** auf dem Doorbird-Gerät besitzen.

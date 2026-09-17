@@ -35,7 +35,7 @@ hash: REJ2ZAflTmFNCzNuSzzawcSh94c7VvZk2riZ/aai/cg=
 - 🔔 **Умные уведомления** — отдельные напоминания об окончании расчетного периода (снятие показаний счетчика) и об изменении договора (проверка тарифа), каждое со своим временем подготовки.
 - 📈 **Еженедельная оценка** — отслеживайте потребление еженедельно.
 - 📥 **Импорт CSV-файлов** - импорт исторических показаний счетчиков методом перетаскивания.
-- ⌨️ **Поддержка запятых** — административный интерфейс принимает запятые.`12,50` а также`12.50` для десятичных дробей
+- ⌨️ **Поддержка запятых** — административный интерфейс принимает запятые. `12,50` а также `12.50` для десятичных дробей
 
 ---
 
@@ -173,7 +173,7 @@ gas.main.statistics.timestamps.lastDayStart   ← timestamps of the resets
 
 Для каждого включенного типа коммунальных услуг (газ/вода/электроэнергия/солнечные батареи) создаются следующие папки:
 
-**Важно:** начиная с версии 1.4.6 все пути содержат название счетчика (например,`gas.main.*` вместо`gas.*` ).
+**Важно:** начиная с версии 1.4.6 все пути содержат название счетчика (например, `gas.main.*` вместо `gas.*`).
 
 ### 🗂️ **потребление**
 
@@ -197,7 +197,7 @@ gas.main.statistics.timestamps.lastDayStart   ← timestamps of the resets
 | `yearlyNT`      | Годовое потребление по тарифу вне пиковой нагрузки             | 219,01 кВт·ч     |
 | `lastUpdate`    | Последнее обновление                                           | 06.01.2026 14:11 |
 
-**💡 Совет:**`yearly` рассчитывается автоматически как`(current meter reading - offset) - initial reading` .
+**💡 Совет:** `yearly` рассчитывается автоматически как `(current meter reading - offset) - initial reading`.
 
 **📅 Важно:** Ежегодный пересмотр тарифов происходит в **день начала действия контракта** (например, 12 мая), а НЕ 1 января.
 
@@ -301,10 +301,10 @@ Balance:            +62.64 € → additional payment
 **💡 План работы на конец года:**
 
 1. Считайте показания физического счетчика (например, 10316,82 м³)
-2. Введите значение в`endReading`
-3. Набор`closePeriod` к`true`
-4. ✅ Адаптер автоматически архивирует все данные в указанном месте.`history.{YEAR}.*`
-5. ⚠️ **Важно:** обновите конфигурацию, используя новые данные.`initialReading` (видеть`newInitialReading` )
+2. Введите значение в `endReading`
+3. Набор `closePeriod` к `true`
+4. ✅ Адаптер автоматически архивирует все данные в указанном месте. `history.{YEAR}.*`
+5. ⚠️ **Важно:** обновите конфигурацию, используя новые данные. `initialReading` (видеть `newInitialReading`)
 
 ---
 
@@ -339,7 +339,7 @@ Balance:            +62.64 € → additional payment
 
 1. Считайте показания физического счетчика: **10350 м³**
 2. На адаптере указано: **10346 м³**
-3. Введите разницу в`adjustment.value` : **+4**
+3. Введите разницу в `adjustment.value`: **+4**
 4. ✅ Все расчеты корректируются автоматически.
 5. **Благодаря интеграции пикового и непикового** тарифов корректировки автоматически применяются к пиковому тарифу (HT) при использовании двух тарифов.
 
@@ -351,7 +351,7 @@ Balance:            +62.64 € → additional payment
 
 Потребление газа **измеряется в м³** , но **оплачивается в кВт·ч** .
 
-**Формула:**`kWh = m³ × calorific value × Z number`
+**Формула:** `kWh = m³ × calorific value × Z number`
 
 💡 **Совет:** Теплотворную способность и Z-число указаны в вашем счете за газ.
 
@@ -391,7 +391,7 @@ Balance:            +62.64 € → additional payment
 
 - **FIX:** 🌐 **Multilingual object names** - object and state names are now provided as `{ en, de }` objects, so German users keep the German labels while the repository checker and other locales get an English name.
 - **FIX:** 🇬🇧 **English log messages** - all log and error messages are now in English, as required for adapters in the ioBroker repository. User notifications (Telegram etc.) stay in German.
-- **FIX:** 🔘 **`billing.closePeriod` button** - the button state now uses `read: false` as required for the `button` role. Existing installations are migrated automatically on startup.
+- **FIX:** 🔘 ** `billing.closePeriod` button** - the button state now uses `read: false` as required for the `button` role. Existing installations are migrated automatically on startup.
 - **CHORE:** 🧹 **Cleanup** - removed a redundant `*.adjustment.note` subscription that was never handled, removed the dead legacy `closeBillingPeriod` code path (which still used the non-catalogue `value.money` role), removed the unused `createUtilityStateStructure` and an orphaned translation key.
 
 ### 1.6.6 (2026-08-07)
@@ -405,9 +405,9 @@ Balance:            +62.64 € → additional payment
 
 ### 1.6.5 (2026-08-06)
 
-- **BREAKING:** ⚠️ **`info.monthlyInstallment` is now a number (#11)** - the advance payment used to be stored as formatted text (`"25.00 €"`), which made it unusable for history, charts and scripts. It is now a numeric state with the unit `€`. Existing installations are converted automatically on startup. **Scripts that parsed the text have to be adjusted.**
+- **BREAKING:** ⚠️ ** `info.monthlyInstallment` is now a number (#11)** - the advance payment used to be stored as formatted text (`"25.00 €"`), which made it unusable for history, charts and scripts. It is now a numeric state with the unit `€`. Existing installations are converted automatically on startup. **Scripts that parsed the text have to be adjusted.**
 - **FIX:** 🛠️ **Info page** - the link to the GitHub repository still pointed at the former name `ioBroker.nebenkosten-monitor` and was dead.
-- **FIX:** 🛠️ **Description of `daysRemaining`** - the state was described as "days until the end of the contract" although it counts down to the end of the billing period. That wording had caused misunderstandings.
+- **FIX:** 🛠️ **Description of `daysRemaining` ** - the state was described as "days until the end of the contract" although it counts down to the end of the billing period. That wording had caused misunderstandings.
 - **DOCS:** 🧹 **Info page cleaned up** - removed the hard-coded version number (admin shows it anyway) and the outdated "NEW in 1.4.6" markers.
 - **CHORE:** ⬆️ **Release tooling updated** - `@alcalzone/release-script` and its plugins raised to 5.x.
 

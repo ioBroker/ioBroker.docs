@@ -19,4 +19,4 @@ hash: 6rA78IQdxenOmTQ0aenuXpBWdwVkIf9kLZ2V41XLVfo=
 
 **Спасибо, Майкл, за то, что поделились Solix4 с сообществом.**
 
-Штаты публикуются в разделе`anker-solix.0.dashboard.*` и может отображаться в VIS/VIS-2 с помощью стандартного **HTML-** виджета (см. [README.md](/#/adapters/anker-solix#html-dashboards-solix4-style) ).
+Штаты публикуются в разделе `anker-solix.0.dashboard.*` и может отображаться в VIS/VIS-2 с помощью стандартного **HTML-** виджета (см. [README.md](/#/adapters/anker-solix#html-dashboards-solix4-style) ).

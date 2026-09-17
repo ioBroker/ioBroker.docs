@@ -39,7 +39,7 @@ Aufgrund des hohen Strombedarfs des Raspberry Pi empfehlen wir, ihn über eine e
 
 Weitere Einzelheiten finden Sie in Kapitel 3 des [PiCAN-M-Benutzerhandbuchs](https://github.com/ioBroker/ioBroker.nmea/blob/master/img/pican-m_UGB_10.pdf) , hier jedoch eine kurze Zusammenfassung:
 
-Datei bearbeiten`/boot/config.txt` (mit`sudo nano /boot/config.txt` ) und fügen Sie die folgenden Zeilen am Ende der Datei hinzu:
+Datei bearbeiten `/boot/config.txt` (mit `sudo nano /boot/config.txt`) und fügen Sie die folgenden Zeilen am Ende der Datei hinzu:
 
 ```
 enable_uart=1
@@ -50,11 +50,11 @@ dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
 
 Ausgaben auf der UART-Konsole deaktivieren:
 
-- Starten Sie in der Befehlszeile`sudo raspi-config`
-- gehe zu`3 Interface Options`
-- geh ot`I5 Serial Port`
-- Deaktivieren`shell accessible over serial` Und`serial port hardware enabled`
-- Ausgang`raspi-config` und Neustart
+- Starten Sie in der Befehlszeile `sudo raspi-config`
+- gehe zu `3 Interface Options`
+- geh ot `I5 Serial Port`
+- Deaktivieren `shell accessible over serial` Und `serial port hardware enabled`
+- Ausgang `raspi-config` und Neustart
 
 Installieren Sie can-utils
 
@@ -86,14 +86,14 @@ UDP wäre auch eine Möglichkeit, aber da das Gateway die Daten kontinuierlich i
 
 Sie können die Daten externer Sensoren an den NMEA2000-Bus anschließen. Tatsächlich können Sie aber nur Umgebungsdaten wie Temperatur, Luftfeuchtigkeit und Druck simulieren.
 
-Mit der Flagge`Combined environment` Sie können die PGN-Nummer definieren, die für Temperatur, Luftfeuchtigkeit und Druck verwendet wird:
+Mit der Flagge `Combined environment` Sie können die PGN-Nummer definieren, die für Temperatur, Luftfeuchtigkeit und Druck verwendet wird:
 
-- Wenn Sie die Markierung deaktivieren`Combined environment` Für die Temperatur wird PGN 130314, für die Luftfeuchtigkeit PGN 130313 und für den Druck PGN 130314 verwendet.
-- Wenn Sie die Flagge auswählen`Combined environment` Daher werden alle drei Werte in PGN 130311 zusammen mit anderen möglichen Umweltwerten gesendet.
+- Wenn Sie die Markierung deaktivieren `Combined environment` Für die Temperatur wird PGN 130314, für die Luftfeuchtigkeit PGN 130313 und für den Druck PGN 130314 verwendet.
+- Wenn Sie die Flagge auswählen `Combined environment` Daher werden alle drei Werte in PGN 130311 zusammen mit anderen möglichen Umweltwerten gesendet.
 
 ## Zeitzone
 
-Es besteht die Möglichkeit, die Zeitzone anhand der GPS-Koordinaten einzustellen. Dazu muss die entsprechende Option in den Adaptereinstellungen aktiviert und zugelassen werden.`iobroker` Benutzer die Befehlsausführung:`sudo visudo`
+Es besteht die Möglichkeit, die Zeitzone anhand der GPS-Koordinaten einzustellen. Dazu muss die entsprechende Option in den Adaptereinstellungen aktiviert und zugelassen werden. `iobroker` Benutzer die Befehlsausführung: `sudo visudo`
 
 ```
 iobroker ALL=(ALL) timedatectl set-timezone
@@ -107,14 +107,14 @@ Die Entwicklung von Simrad/navico/B\&G ist noch nicht abgeschlossen.
 
 ### Winddatumsanzeige
 
-Bei Raymarine-Geräten, die das „Pilot Wind Datum“ (PGN 65345) veröffentlichen, speichert der Adapter den Rohwinkel in Radiant unter`seatalkPilotWindDatum.windDatum` (Dies ist der Standardwert, den der Autopilot beim Ändern des Windwinkels zurückliest, daher muss er im Bogenmaß angegeben werden).
+Bei Raymarine-Geräten, die das „Pilot Wind Datum“ (PGN 65345) veröffentlichen, speichert der Adapter den Rohwinkel in Radiant unter `seatalkPilotWindDatum.windDatum` (Dies ist der Standardwert, den der Autopilot beim Ändern des Windwinkels zurückliest, daher muss er im Bogenmaß angegeben werden).
 
-Zusätzlich gibt es einen schreibgeschützten Komfortzustand`seatalkPilotWindDatum.windDatumDisplay` wird erstellt. Es zeigt den Winkel genau so an wie der Raymarine-Pilotenkopf:
+Zusätzlich gibt es einen schreibgeschützten Komfortzustand `seatalkPilotWindDatum.windDatumDisplay` wird erstellt. Es zeigt den Winkel genau so an wie der Raymarine-Pilotenkopf:
 
-- `0…180°` → Steuerbord,`180…360°` → Hafen,
-- jeweils als ein`≤180°` Wert plus ein sprachabhängiger Seitenbuchstabe (z. B. ein Datum von`230°` wird angezeigt als`130°P` auf Englisch und`130°B` (auf Deutsch).`0°` (direkt voraus) und`180°` (tot achtern) ohne Begleitschreiben.
+- `0…180°` → Steuerbord, `180…360°` → Hafen,
+- jeweils als ein `≤180°` Wert plus ein sprachabhängiger Seitenbuchstabe (z. B. ein Datum von `230°` wird angezeigt als `130°P` auf Englisch und `130°B` (auf Deutsch). `0°` (direkt voraus) und `180°` (tot achtern) ohne Begleitschreiben.
 
-Verwenden`windDatumDisplay` zur Visualisierung und`windDatum` für Berechnungen/Automatisierung.
+Verwenden `windDatumDisplay` zur Visualisierung und `windDatum` für Berechnungen/Automatisierung.
 
 <!--
 	### **WORK IN PROGRESS**

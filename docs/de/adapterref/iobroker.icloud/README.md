@@ -20,7 +20,7 @@ hash: TlgGuXYSpeSbWZQffBkJOjuZ5Hs65/38a4IU6Ru2PSY=
 
 ## iCloud-Adapter für ioBroker
 
-Dieser Adapter integriert Ihr Apple iCloud-Konto in ioBroker. Er ermöglicht Ihnen den Zugriff auf eine Vielzahl von Apple-Diensten – von Gerätestandorten und Erinnerungen bis hin zu Drive-Dateien, Kontakten, Notizen, Kalenderereignissen und Ihrer Fotomediathek – die alle lesbar und (sofern unterstützt) beschreibbar sind, wie ioBroker es angibt.`sendTo()` Die
+Dieser Adapter integriert Ihr Apple iCloud-Konto in ioBroker. Er ermöglicht Ihnen den Zugriff auf eine Vielzahl von Apple-Diensten – von Gerätestandorten und Erinnerungen bis hin zu Drive-Dateien, Kontakten, Notizen, Kalenderereignissen und Ihrer Fotomediathek – die alle lesbar und (sofern unterstützt) beschreibbar sind, wie ioBroker es angibt. `sendTo()` Die
 
 ---
 

@@ -59,7 +59,7 @@ hash: X/l23ffdAX/blSH67JVIm53CDwtjtX+Mxn0xo5tMZ+0=
 - Активация/деактивация Bluetooth и изменение имени Bluetooth.
 - Переключение между приложениями (следующее, предыдущее, переход к определенному приложению)
 - Отправляйте уведомления с помощью Blockly (с настраиваемым приоритетом, звуком, значками, текстом и т. д.).
-- Управляйте специальными приложениями, такими как`clock` ,`radio` ,`stopwatch` или`weather`
+- Управляйте специальными приложениями, такими как `clock`, `radio`, `stopwatch` или `weather`
 - Используйте приложение _My Data (DIY)_ LaMetric для отображения постоянно отображаемой информации.
 
 Функционал ограничен [возможностями официального API](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html) .

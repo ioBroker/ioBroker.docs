@@ -36,19 +36,19 @@ Normalerweise stellt die X-Achse eines Balkendiagramms die Zeit dar, und jeder B
 
 Fügen Sie nach dem Neustart den Tab im Adminbereich hinzu:![Administrator](../../../en/adapterref/iobroker.echarts/img/admin.png)
 
-Die erstellte Voreinstellung kann auch im Webadapter aufgerufen werden. URL:`http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID` Die
+Die erstellte Voreinstellung kann auch im Webadapter aufgerufen werden. URL: `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID` Die
 
-Für`vis` Es gibt ein spezielles Widget mit einfacher Auswahl von Voreinstellungen.
+Für `vis` Es gibt ein spezielles Widget mit einfacher Auswahl von Voreinstellungen.
 
 ### Tooltip
 
-Kleinbuchstaben`i` Dies bedeutet, dass der Wert aus den Werten der beiden Nachbarwerte interpoliert wurde und zum aktuellen Zeitpunkt nicht existiert.
+Kleinbuchstaben `i` Dies bedeutet, dass der Wert aus den Werten der beiden Nachbarwerte interpoliert wurde und zum aktuellen Zeitpunkt nicht existiert.
 
 ![Tooltip](../../../en/adapterref/iobroker.echarts/img/tooltip.png)
 
 ### Daten aus JSON
 
-Sie können die Datenquelle aus JSON definieren. In diesem Fall können Sie einen benutzerdefinierten Zustand vom Typ erstellen.`json` und speichern Sie den Wert folgendermaßen:
+Sie können die Datenquelle aus JSON definieren. In diesem Fall können Sie einen benutzerdefinierten Zustand vom Typ erstellen. `json` und speichern Sie den Wert folgendermaßen:
 
 ```json
 [
@@ -58,7 +58,7 @@ Sie können die Datenquelle aus JSON definieren. In diesem Fall können Sie eine
 ]
 ```
 
-Folgende alternative Attributnamen werden unterstützt:`val` :`value` ,`v` ,`data` ,`y` Und im Anschluss daran für`ts` :`time` ,`t` ,`date` Die
+Folgende alternative Attributnamen werden unterstützt: `val`: `value`, `v`, `data`, `y` Und im Anschluss daran für `ts`: `time`, `t`, `date` Die
 
 Start- und Endzeitpunkt können in den ECharts-Einstellungen nicht definiert werden. Sie werden automatisch aus den Daten berechnet. Eine Aggregation ist ebenfalls nicht möglich. Alle Änderungen müssen durch Schreiben der JSON-Daten erfolgen. Das Diagramm wird bei jeder Wertänderung automatisch aktualisiert.
 

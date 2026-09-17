@@ -52,11 +52,11 @@ Als Datenpunkt wählen Sie bitte den Konfigurationsdatenpunkt aus.
 
 ### CSS-Klassen
 
-#### `widgetID` Und`skiinfo`
+#### `widgetID` Und `skiinfo`
 
-Alle CSS-Klassen werden mit den beiden Basisklassen bereitgestellt.`widgetID` Und`skiinfo` Dies ermöglicht es Ihnen, Formatierungen auf einzelne Widgets oder, bei Verwendung mehrerer Skiinfo-Widgets, auf alle Skiinfo-Widgets anzuwenden.
+Alle CSS-Klassen werden mit den beiden Basisklassen bereitgestellt. `widgetID` Und `skiinfo` Dies ermöglicht es Ihnen, Formatierungen auf einzelne Widgets oder, bei Verwendung mehrerer Skiinfo-Widgets, auf alle Skiinfo-Widgets anzuwenden.
 
-#### `countries` ,`regions` Und`areas`
+#### `countries`, `regions` Und `areas`
 
 Jeder der verschiedenen Informationsbereiche kann separat mit diesen 3 CSS-Klassen angesprochen werden.
 
@@ -66,15 +66,15 @@ Jeder der 3 Informationsbereiche besteht aus einer normalen HTML-Tabelle.
 
 #### Ausgewählte Elemente im Land und in der Region
 
-Jedes der ausgewählten Elemente befindet sich in einem span-Element und hat die CSS-Klasse erhalten.`selected` Die
+Jedes der ausgewählten Elemente befindet sich in einem span-Element und hat die CSS-Klasse erhalten. `selected` Die
 
 #### Formatieren der Spalten im Bereich
 
-Die Tabellenüberschrift wurde mit den CSS-Klassen tharea und thsort versehen. Jedes Spaltenelement wurde mit`txtr` für rechtsbündige und`txtl` für linksbündige Formatierung.
+Die Tabellenüberschrift wurde mit den CSS-Klassen tharea und thsort versehen. Jedes Spaltenelement wurde mit `txtr` für rechtsbündige und `txtl` für linksbündige Formatierung.
 
 #### Lieblingsstar
 
-Der Lieblingsstern kann in einem Span-Element platziert und über die CSS-Klasse angesprochen werden.`favorite` Wenn ein Element als Favorit ausgewählt wurde, wird das Span-Element um Folgendes ergänzt:`selected` Die
+Der Lieblingsstern kann in einem Span-Element platziert und über die CSS-Klasse angesprochen werden. `favorite` Wenn ein Element als Favorit ausgewählt wurde, wird das Span-Element um Folgendes ergänzt: `selected` Die
 
 #### Beispiele für CSS-Klassen
 
@@ -86,7 +86,7 @@ Der Lieblingsstern kann in einem Span-Element platziert und über die CSS-Klasse
 }
 ```
 
-##### Unterschiedliche Formatierung der`regions` Elemente
+##### Unterschiedliche Formatierung der `regions` Elemente
 
 ```css
 .skiinfo.regions span {

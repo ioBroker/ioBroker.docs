@@ -29,9 +29,9 @@ RPI-Monitor-Implementierung zur Integration in ioBroker. Es handelt sich um die 
 
 ## Wichtige Informationen
 
-**ioBroker benötigt spezielle Berechtigungen zur Steuerung von GPIOs.** Auf den meisten Linux-Distributionen kann dies durch Hinzufügen des Benutzers ioBroker zur Benutzerverwaltung erreicht werden.`gpio` Gruppe.
+**ioBroker benötigt spezielle Berechtigungen zur Steuerung von GPIOs.** Auf den meisten Linux-Distributionen kann dies durch Hinzufügen des Benutzers ioBroker zur Benutzerverwaltung erreicht werden. `gpio` Gruppe.
 
-Damit GPIO funktioniert, müssen Sie Folgendes installieren:`libgpiod` in Version`2.x` , **bevor** Sie den Adapter installieren (siehe unten)!
+Damit GPIO funktioniert, müssen Sie Folgendes installieren: `libgpiod` in Version `2.x`, **bevor** Sie den Adapter installieren (siehe unten)!
 
 > \[!VORSICHT] Version 3.xx dieses Adapters unterstützt und erfordert Debian 13 / Trixie (Linux-Kernel 5.10 oder neuer). Führen Sie kein Update durch, wenn Sie ein älteres Betriebssystem verwenden.
 
@@ -39,7 +39,7 @@ Damit GPIO funktioniert, müssen Sie Folgendes installieren:`libgpiod` in Versio
 
 Nach der Installation müssen Sie alle erforderlichen Module über die Administrationsseite konfigurieren.
 
-Nach dem Start von`iobroker.rpi` Alle ausgewählten Module erzeugen einen Objektbaum in ioBroker innerhalb von rpi.<instance> Die<modulename> z.B`rpi.0.cpu`
+Nach dem Start von `iobroker.rpi` Alle ausgewählten Module erzeugen einen Objektbaum in ioBroker innerhalb von rpi.<instance> Die<modulename> z.B `rpi.0.cpu`
 
 Stellen Sie sicher, dass Python und build-essential installiert sind:
 
@@ -118,7 +118,7 @@ Auf der Konfigurationsseite können Sie folgende Module auswählen:
 
 ### NVME-Temperatur
 
-Ab Adapterversion 2.3.2 kann die NVMe-Temperatur ausgelesen werden. Dazu ist die Installation erforderlich.`nvme-cli` Das Paket muss auf Ihrem System installiert werden. Dies können Sie mit folgendem Befehl tun:`sudo apt-get install nvme-cli` Sie müssen den Befehl außerdem zur ioBroker-sudoers-Datei hinzufügen.`/etc/sudoers.d/iobroker` Öffnen Sie es mit einem Editor, zum Beispiel nano:`sudo nano /etc/sudoers.d/iobroker` und fügen Sie die folgende Zeile am Ende hinzu:
+Ab Adapterversion 2.3.2 kann die NVMe-Temperatur ausgelesen werden. Dazu ist die Installation erforderlich. `nvme-cli` Das Paket muss auf Ihrem System installiert werden. Dies können Sie mit folgendem Befehl tun: `sudo apt-get install nvme-cli` Sie müssen den Befehl außerdem zur ioBroker-sudoers-Datei hinzufügen. `/etc/sudoers.d/iobroker` Öffnen Sie es mit einem Editor, zum Beispiel nano: `sudo nano /etc/sudoers.d/iobroker` und fügen Sie die folgende Zeile am Ende hinzu:
 
 `iobroker ALL=(ALL) NOPASSWD: /usr/sbin/nvme smart-log /dev/nvme0`
 
@@ -132,7 +132,7 @@ Nachdem einige Ports aktiviert wurden, erscheinen im Objektbaum die folgenden Zu
 
 - rpi.0.gpio.PORT.state
 
-Die Portnummerierung erfolgt über BCM (BroadComm Pins on Chip). Die vollständige Nummerierung erhalten Sie mit`gpio readall` Zum Beispiel PI2:
+Die Portnummerierung erfolgt über BCM (BroadComm Pins on Chip). Die vollständige Nummerierung erhalten Sie mit `gpio readall` Zum Beispiel PI2:
 
 ```
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+

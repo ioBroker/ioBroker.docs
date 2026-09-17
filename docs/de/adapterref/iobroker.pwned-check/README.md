@@ -25,7 +25,7 @@ Dieser Adapter prüft, ob Ihre Passwörter oder E-Mail-Adressen in bekannten Dat
 - **Datenschutz hat oberste Priorität** – Passwörter werden niemals übertragen. Der SHA-1-Hash wird lokal im Browser berechnet; nur die ersten 5 Zeichen werden an die API gesendet (k-Anonymität).
 - **Passwortprüfung** – nutzt die kostenlose k-Anonymitäts-API [von Have I Been Pwned](https://haveibeenpwned.com/API/v3#PwnedPasswords) – kein API-Schlüssel erforderlich
 - **E-Mail-Prüfung** – nutzt die kostenlose [XposedOrNot-](https://xposedornot.com) API – kein API-Schlüssel erforderlich
-- **Details zum Datenleck** – einzelne Datenpunkte pro Datenleckquelle unter`emails.<id>.leaks.*`
+- **Details zum Datenleck** – einzelne Datenpunkte pro Datenleckquelle unter `emails.<id>.leaks.*`
 - **ioBroker-Benachrichtigungen** – sendet eine Systembenachrichtigung in der konfigurierten Systemsprache (11 Sprachen werden unterstützt), wenn ein neuer Sicherheitsverstoß festgestellt wird.
 - **HTML-Visualisierung** – generiert einen sofort einsatzbereiten HTML-Datenpunkt zur Verwendung in VIS oder anderen Dashboards
 - **Konfigurierbares Erscheinungsbild** – Design (hell/dunkel), Hintergrundtransparenz, Kartentransparenz, Schriftgröße
@@ -73,7 +73,7 @@ Fügen Sie pro zu überwachender E-Mail-Adresse einen Eintrag hinzu.
 
 ## Datenpunkte
 
-Der Adapter erzeugt Datenpunkte unter`pwned-check.<instance>` Die
+Der Adapter erzeugt Datenpunkte unter `pwned-check.<instance>` Die
 
 ### Passwörter
 

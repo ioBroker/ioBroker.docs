@@ -787,6 +787,16 @@ export interface ImageToDownload {
  *
  * @param link the link as the document writes it
  */
+/**
+ * A path of this site: `<language>/adapterref/...`, the place the documents of the adapters are
+ * written to, either in a directory of their own or directly beside it (`de/adapterref/pic.png`).
+ *
+ * What may not follow is another language directory. `img/../../de/img/icon.png` of ioBroker.imap
+ * becomes `de/adapterref/de/img/icon.png` when joined, which looks like a path of this site and is
+ * none: that picture belongs beside the adapter and is fetched there.
+ */
+const SITE_PATH = /^[a-z]{2}(-[a-z]{2})?\/adapterref\/(?![a-z]{2}(-[a-z]{2})?\/)/i;
+
 function withoutClimb(link: string): string {
     // The steps do not have to stand at the front: imap writes `img/../../de/img/icon.png`, which
     // only climbs out once the first segment is taken back. Normalising first turns that into
@@ -815,9 +825,29 @@ export function replaceImages(
         prefix += '/';
     }
 
-    /** the path the file gets here - the same as the link, unless it climbs out of the prefix */
-    const localOf = (link: string): string =>
-        prefixIsRoot ? withoutClimb(link) : link[0] === '/' ? link.substring(1) : link;
+    /**
+     * The path the file gets here, and whether the prefix still belongs in front of it.
+     *
+     * Two kinds of link climb out of the adapter's directory. A readme that lives in `docs/en/`
+     * of its repository reaches the logo beside the code as `../../admin/logo.svg`: that file is
+     * collected into the adapter's directory, so the steps are dropped. A translated document
+     * points back at the English copy on this site, `../../../en/adapterref/iobroker.x/admin/
+     * logo.svg`: that path is already complete, and dropping the steps and prefixing it produced
+     * `de/adapterref/iobroker.x/en/adapterref/iobroker.x/admin/logo.svg`, an address that exists
+     * nowhere (OliverIO in the forum, 17.09.2026).
+     */
+    const localOf = (link: string): { local: string; prefixed: boolean } => {
+        if (prefixIsRoot) {
+            if (link.includes('../')) {
+                const joined = path.posix.normalize(prefix + link);
+                if (SITE_PATH.test(joined)) {
+                    return { local: joined, prefixed: false };
+                }
+            }
+            return { local: withoutClimb(link), prefixed: true };
+        }
+        return { local: link[0] === '/' ? link.substring(1) : link, prefixed: true };
+    };
 
     const remember = (remote: string, local: string): void => {
         if (!doDownload.some(item => item.remote === remote)) {
@@ -845,9 +875,16 @@ export function replaceImages(
         const alt = m[1];
         const link = linkDestination(m[2]);
         if (!link.toLowerCase().match(/^https?:\/\//)) {
-            const local = localOf(link);
-            remember(link, local);
-            edits.push({ start: m.index, end: m.index + m[0].length, text: `![${alt}](${prefix + local})` });
+            const { local, prefixed } = localOf(link);
+            // a path that is already on this site brings nothing along to download
+            if (prefixed) {
+                remember(link, local);
+            }
+            edits.push({
+                start: m.index,
+                end: m.index + m[0].length,
+                text: `![${alt}](${prefixed ? prefix + local : local})`,
+            });
         } else if (!noBadges && isBadge(link)) {
             badges[alt] = link;
             edits.push({ start: m.index, end: m.index + m[0].length, text: '--delete--' });
@@ -860,12 +897,14 @@ export function replaceImages(
         if (src) {
             const link = src[1];
             if (!link.toLowerCase().match(/^https?:\/\//)) {
-                const local = localOf(link);
-                remember(link, local);
+                const { local, prefixed } = localOf(link);
+                if (prefixed) {
+                    remember(link, local);
+                }
                 edits.push({
                     start: m.index,
                     end: m.index + m[0].length,
-                    text: m[0].replace(link, prefix + local),
+                    text: m[0].replace(link, prefixed ? prefix + local : local),
                 });
             }
         }
@@ -884,6 +923,63 @@ export function replaceImages(
     }
 
     return { body, doDownload, badges };
+}
+
+/**
+ * Put back the blank that the translation ate beside a piece of inline code.
+ *
+ * The engines hand a sentence back without the space in front of `` `code` ``: "standardmäßig
+ * auf`auto` und folgen" instead of "standardmäßig auf `auto` und folgen". It happens in roughly
+ * every third translated readme and reads like a typographic error (OliverIO in the forum,
+ * 17.09.2026). A blank is put back where a letter, a digit, a closing emphasis or a sentence sign
+ * stands directly against the code, and a blank that ended up in front of a closing bracket or a
+ * comma is taken out again. Fenced blocks are left alone: there the spacing is the content.
+ *
+ * @param markdown the translated document
+ */
+export function restoreSpacesAroundInlineCode(markdown: string): string {
+    const SPAN = /(?<!`)`([^`\n]+)`(?!`)/g;
+    const EMPHASIS = ['**', '__', '*', '_'];
+    const SENTENCE = '.,;:!?)';
+    let inFence = false;
+
+    return markdown
+        .split('\n')
+        .map(line => {
+            if (/^\s*(```|~~~)/.test(line)) {
+                inFence = !inFence;
+                return line;
+            }
+            if (inFence) {
+                return line;
+            }
+            let out = '';
+            let last = 0;
+            for (const match of line.matchAll(SPAN)) {
+                const start = match.index!;
+                const before = line.substring(0, start);
+                out += line.substring(last, start);
+                const previous = before[before.length - 1] ?? '';
+                if (
+                    previous &&
+                    (/[\p{L}\p{N}]/u.test(previous) ||
+                        SENTENCE.includes(previous) ||
+                        EMPHASIS.some(sign => before.endsWith(sign)))
+                ) {
+                    out += ' ';
+                }
+                out += match[0];
+                last = start + match[0].length;
+                const rest = line.substring(last);
+                if (rest && (/[\p{L}\p{N}]/u.test(rest[0]) || EMPHASIS.some(sign => rest.startsWith(sign)))) {
+                    out += ' ';
+                }
+            }
+            out += line.substring(last);
+            // the blank the engine moved behind the code, in front of a sign that takes none
+            return out.replace(/` ([)\],.;:])/g, '`$1');
+        })
+        .join('\n');
 }
 
 /**

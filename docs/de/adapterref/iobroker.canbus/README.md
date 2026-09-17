@@ -36,7 +36,7 @@ Dieser Adapter verbindet ioBroker mit einem Controller Area Network (CAN-Bus).
 - Erweiterte Import-/Exportfunktion
   - Importieren Sie Nachrichtenkonfigurationen, um Ihre bestehende Konfiguration zu erweitern.
   - Importieren Sie vordefinierte, „bekannte“ Konfigurationen von GitHub über die Admin-Oberfläche.
-  - Exportieren und importieren Sie Ihre Nachrichtenkonfigurationen als`json` oder`csv` Dateien
+  - Exportieren und importieren Sie Ihre Nachrichtenkonfigurationen als `json` oder `csv` Dateien
 - Optionale Unterstützung für feste Datenlängen (DLC)
 - Optionale Unterstützung für das RTR-Flag
 - Optionale Rohzustände, die rohe CAN-Nachrichtenobjekte enthalten
@@ -45,7 +45,7 @@ Dieser Adapter verbindet ioBroker mit einem Controller Area Network (CAN-Bus).
 ## Anforderungen
 
 - Linux-Betriebssystem (wegen der verwendeten socketcan-Bibliothek)
-- CAN-Hardware, die vom Kernel unterstützt wird und eine Schnittstelle wie diese erstellt`can0`
+- CAN-Hardware, die vom Kernel unterstützt wird und eine Schnittstelle wie diese erstellt `can0`
 - Kenntnisse über die Nachrichten, die über den CAN-Bus gesendet werden
 
 ## Parser
@@ -77,29 +77,29 @@ Für einen benutzerdefinierten Parser müssen Sie Ihr eigenes Lese- und Schreibs
 
 In den Skripten stehen Ihnen folgende Funktionen zur Verfügung:
 
-- Globals`undefined` ,`NaN` ,`isNaN` ,`Infinity` ,`isFinite` ,`atob` ,`btoa` ,`encodeURI` ,`encodeURIComponent` ,`decodeURI` ,`decodeURIComponent` ,`parseFloat` ,`parseInt` ,`JSON` ,`Number` ,`String` ,`Array` ,`BigInt` ,`Blob` ,`Boolean` ,`Date` ,`Map` ,`Math` ,`Object` ,`RegExp` ,`Set` ,`Intl` ,`Buffer` ,`Promise` ,`setTimeout` ,`clearTimeout`
+- Globals `undefined`, `NaN`, `isNaN`, `Infinity`, `isFinite`, `atob`, `btoa`, `encodeURI`, `encodeURIComponent`, `decodeURI`, `decodeURIComponent`, `parseFloat`, `parseInt`, `JSON`, `Number`, `String`, `Array`, `BigInt`, `Blob`, `Boolean`, `Date`, `Map`, `Math`, `Object`, `RegExp`, `Set`, `Intl`, `Buffer`, `Promise`, `setTimeout`, `clearTimeout`
 - `async` /`await`
-- Adapter-Protokollfunktionen`log.warn('something')` ,`log.info('something')` ,`log.debug('something')`
-- `getStateAsync('id')` ,`getObjectAsync('id')` ,`setStateAsync('id', 'value', ack)` Wo`id` ist die partielle ID des Zustands/Objekts unterhalb der aktuellen Adapterinstanz.
-- `getForeignStateAsync('id')` ,`getForeignObjectAsync('id')` Und`setForeignStateAsync('id', 'value', ack)` Wo`id` ist die vollständige ID des Zustands/Objekts
-- Funktion`wait(ms)` das ein Promise zurückgibt, das nach der angegebenen Zeit aufgelöst wird.
-- Ein Objekt`sharedData` die von allen benutzerdefinierten Skripten einer Adapterinstanz gemeinsam genutzt wird.
+- Adapter-Protokollfunktionen `log.warn('something')`, `log.info('something')`, `log.debug('something')`
+- `getStateAsync('id')`, `getObjectAsync('id')`, `setStateAsync('id', 'value', ack)` Wo `id` ist die partielle ID des Zustands/Objekts unterhalb der aktuellen Adapterinstanz.
+- `getForeignStateAsync('id')`, `getForeignObjectAsync('id')` Und `setForeignStateAsync('id', 'value', ack)` Wo `id` ist die vollständige ID des Zustands/Objekts
+- Funktion `wait(ms)` das ein Promise zurückgibt, das nach der angegebenen Zeit aufgelöst wird.
+- Ein Objekt `sharedData` die von allen benutzerdefinierten Skripten einer Adapterinstanz gemeinsam genutzt wird.
 
 Fehler in den Skripten werden vom Adapter protokolliert.
 
-In beiden Skripten sind die Variablen`buffer` Und`value` sind vordefiniert.\
+In beiden Skripten sind die Variablen `buffer` Und `value` sind vordefiniert.\
 `buffer` Enthält immer den aktuellen CAN-Nachrichteninhalt als Node.js-Puffer.
 
-Der`sharedData` Das Objekt ist standardmäßig leer und kann verwendet werden, um Daten zwischen mehreren Aufrufen eines einzelnen benutzerdefinierten Parsers oder sogar zwischen mehreren benutzerdefinierten Parsern gemeinsam zu nutzen.
+Der `sharedData` Das Objekt ist standardmäßig leer und kann verwendet werden, um Daten zwischen mehreren Aufrufen eines einzelnen benutzerdefinierten Parsers oder sogar zwischen mehreren benutzerdefinierten Parsern gemeinsam zu nutzen.
 
 #### Benutzerdefiniertes Leseskript
 
-In einem Leseskript müssen Sie lesen`value` von`buffer` Variable.
+In einem Leseskript müssen Sie lesen `value` von `buffer` Variable.
 
-Am Anfang des benutzerdefinierten Leseskripts,`buffer` wird eine Kopie der empfangenen/aktuellen CAN-Nachrichtendaten sein (wie in der`.json` Zustand).`value` wird sein`undefined` und sollte vom Skript festgelegt werden.
+Am Anfang des benutzerdefinierten Leseskripts, `buffer` wird eine Kopie der empfangenen/aktuellen CAN-Nachrichtendaten sein (wie in der `.json` Zustand). `value` wird sein `undefined` und sollte vom Skript festgelegt werden.
 
-Der Inhalt des`value` Die Variable am Ende des benutzerdefinierten Leseskripts wird als neuer Wert für den Status verwendet.\
-&#x20;Wenn`value` Ist`undefined` Sie wird ignoriert. Damit können Sie Nachrichten im benutzerdefinierten Leseskript nach Datenbestandteilen filtern.
+Der Inhalt des `value` Die Variable am Ende des benutzerdefinierten Leseskripts wird als neuer Wert für den Status verwendet.\
+&#x20;Wenn `value` Ist `undefined` Sie wird ignoriert. Damit können Sie Nachrichten im benutzerdefinierten Leseskript nach Datenbestandteilen filtern.
 
 ##### Beispiel für ein benutzerdefiniertes Leseskript
 
@@ -112,17 +112,17 @@ if (buffer[0] === 0xC2 && buffer[1] === 0x10 && buffer[2] === 0x0F) {
 }
 ```
 
-Ursache von`value` wird nur dann gesetzt, wenn die ersten drei Bytes übereinstimmen; alle anderen Daten werden ignoriert und setzen keinen neuen Wert für den Zustand.
+Ursache von `value` wird nur dann gesetzt, wenn die ersten drei Bytes übereinstimmen; alle anderen Daten werden ignoriert und setzen keinen neuen Wert für den Zustand.
 
 #### Benutzerdefiniertes Schreibskript
 
-In einem Schreibskript müssen Sie Folgendes ändern (oder ersetzen):`buffer` Variable.
+In einem Schreibskript müssen Sie Folgendes ändern (oder ersetzen): `buffer` Variable.
 
-Am Anfang des benutzerdefinierten Schreibskripts,`buffer` wird eine Kopie der aktuellen CAN-Nachrichtendaten sein (wie in der`.json` Zustand).`value` wird auf den Wert des Zustands gesetzt, der in die Datei geschrieben werden soll.`buffer` Die
+Am Anfang des benutzerdefinierten Schreibskripts, `buffer` wird eine Kopie der aktuellen CAN-Nachrichtendaten sein (wie in der `.json` Zustand). `value` wird auf den Wert des Zustands gesetzt, der in die Datei geschrieben werden soll. `buffer` Die
 
-Der Inhalt des`buffer` Die Variable am Ende des benutzerdefinierten Schreibskripts wird als neue Daten für die CAN-Nachricht verwendet.
+Der Inhalt des `buffer` Die Variable am Ende des benutzerdefinierten Schreibskripts wird als neue Daten für die CAN-Nachricht verwendet.
 
-Sie können den Schreibvorgang auch stornieren, indem Sie anrufen.`return false;` im benutzerdefinierten Schreibskript. Dies ermöglicht es Ihnen, Schreibvorgänge zu verhindern, wenn bestimmte Bedingungen nicht erfüllt sind.
+Sie können den Schreibvorgang auch stornieren, indem Sie anrufen. `return false;` im benutzerdefinierten Schreibskript. Dies ermöglicht es Ihnen, Schreibvorgänge zu verhindern, wenn bestimmte Bedingungen nicht erfüllt sind.
 
 ##### Beispiel für ein benutzerdefiniertes Schreibskript
 
@@ -134,15 +134,15 @@ buffer = Buffer.from([0x30, 0x00, 0xFA, 0x06, 0x7E, 0x00, 0x00]);
 buffer.writeInt16BE(value, 5);
 ```
 
-Das neue`buffer` wird dann als die`.json` Zustand.\
+Das neue `buffer` wird dann als die `.json` Zustand.\
 &#x20;Wenn die Option _„Automatisch senden_ “ für die Nachricht aktiviert ist, wird die Nachricht automatisch gesendet.
 
 ## Verwendung in Skripten
 
-Sie können die`<messageId>.json` oder`<messageId>.<parserId>` Zustände in Ihren Skripten.
+Sie können die `<messageId>.json` oder `<messageId>.<parserId>` Zustände in Ihren Skripten.
 
-Darüber hinaus können Sie die`raw.received` Und`raw.send` Zustände, sofern diese in der Adapterkonfiguration aktiviert sind.\
-&#x20;Sie enthalten die als JSON-String formatierten Nachrichtendaten und können verwendet werden, um jede empfangene oder gesendete Nachricht unabhängig von den konfigurierten Nachrichten zu verarbeiten. Durch das Schreiben von JSON-Daten in die`raw.send` Sie erklären, dass Sie CAN-Nachrichten senden können, die beliebige Daten enthalten.
+Darüber hinaus können Sie die `raw.received` Und `raw.send` Zustände, sofern diese in der Adapterkonfiguration aktiviert sind.\
+&#x20;Sie enthalten die als JSON-String formatierten Nachrichtendaten und können verwendet werden, um jede empfangene oder gesendete Nachricht unabhängig von den konfigurierten Nachrichten zu verarbeiten. Durch das Schreiben von JSON-Daten in die `raw.send` Sie erklären, dass Sie CAN-Nachrichten senden können, die beliebige Daten enthalten.
 
 ### Beispiel für ein rohes Nachrichtenobjekt
 
@@ -155,7 +155,7 @@ Darüber hinaus können Sie die`raw.received` Und`raw.send` Zustände, sofern di
 }
 ```
 
-`ext` Und`rtr` sind optional und haben standardmäßig den Wert`false` Die
+`ext` Und `rtr` sind optional und haben standardmäßig den Wert `false` Die
 
 ## Changelog
 

@@ -84,9 +84,9 @@ Beim ersten Start werden die OpenWakeWord-Modelle in das Instanzdatenverzeichnis
 ## Lautstärke, Stummschaltung, Nicht stören
 Diese beschreibbaren Zustände gelten gleichermaßen für Antworten, Ansagen und den Signalton:
 
-- **`Lautstärke`** — 0–100 %
-- **`mute`** — den Sprecher stumm schalten
-- **`dnd`** — Nicht stören: **Durchsagen werden unterdrückt** (Antworten auf Ihre eigenen Fragen werden weiterhin abgespielt)
+- ** `Lautstärke` ** — 0–100 %
+- ** `mute` ** — den Sprecher stumm schalten
+- ** `dnd` ** — Nicht stören: **Durchsagen werden unterdrückt** (Antworten auf Ihre eigenen Fragen werden weiterhin abgespielt)
 
 `volume` und `mute` steuern den Mixer des Hosts. Beim Start verhält es sich umgekehrt: Der Adapter liest die aktuelle Einstellung des Hosts in die beiden Zustände ein, sodass das Starten einer Instanz die Lautstärke des Geräts nicht verändert. Jeder nachfolgende Schreibvorgang in die Zustände wird auf den Mixer angewendet.
 
@@ -100,7 +100,7 @@ Diese beschreibbaren Zustände gelten gleichermaßen für Antworten, Ansagen und
 
 - **macOS** — nicht kompatibel: `dnd` funktioniert, `volume` / `mute` nicht.
 
-**Prioritätsansagen:** Wenn der Ansagetext (gesendet über die `tts.text` / `satellites.<id>.tts` des Assistenten) mit **`!`** beginnt, wird das `!` entfernt und die Ansage wird **auch dann abgespielt, wenn der Nicht-Stören-Modus aktiviert ist** – z. B. `!Water leak in the basement`.
+**Prioritätsansagen:** Wenn der Ansagetext (gesendet über die `tts.text` / `satellites.<id>.tts` des Assistenten) mit ** `!` ** beginnt, wird das `!` entfernt und die Ansage wird **auch dann abgespielt, wenn der Nicht-Stören-Modus aktiviert ist** – z. B. `!Water leak in the basement`.
 
 ## Changelog
 <!--

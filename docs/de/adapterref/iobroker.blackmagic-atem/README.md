@@ -47,7 +47,7 @@ Dieser Adapter steuert [Blackmagic Design ATEM-](https://www.blackmagicdesign.co
 
 ## Installation
 
-Installation über die ioBroker-Admin-Benutzeroberfläche: **Adapter → suchen nach`blackmagic-atem` → installieren** .
+Installation über die ioBroker-Admin-Benutzeroberfläche: **Adapter → suchen nach `blackmagic-atem` → installieren** .
 
 ## Konfiguration
 

@@ -97,7 +97,7 @@ Lassen Sie dieses Feld leer, es sei denn, Sie haben einen bestimmten Grund, Verb
 
 ### AUS-Pegel für Schalter
 
-Manche Gruppen bestehen aus gemischten Geräten: Dimmern und Schaltern. Sie können mit den Befehlen „EIN“ und „AUS“ sowie mit Prozentangaben gesteuert werden. Wenn der Befehl lautet:`Set to 30%` und die`OFF level is 30%` Die Schalter werden also eingeschaltet. Mit dem Befehl „Auf 25 % setzen“ werden alle Schalter ausgeschaltet.
+Manche Gruppen bestehen aus gemischten Geräten: Dimmern und Schaltern. Sie können mit den Befehlen „EIN“ und „AUS“ sowie mit Prozentangaben gesteuert werden. Wenn der Befehl lautet: `Set to 30%` und die `OFF level is 30%` Die Schalter werden also eingeschaltet. Mit dem Befehl „Auf 25 % setzen“ werden alle Schalter ausgeschaltet.
 
 Wenn der Befehl „AUS“ lautet, merkt sich der Adapter den aktuellen Dimmerwert, sofern dieser mindestens 30 % beträgt. Beim anschließenden Befehl „EIN“ schaltet der Adapter den Dimmer nicht auf 100 %, sondern auf den gespeicherten Wert.
 
@@ -124,8 +124,8 @@ Für jeden Befehl wird eine Textantwort generiert. Hier können Sie die Objekt-I
 Der Kanal benötigt 3-5 Zustände mit folgenden Rollen:
 
 - `level.color.saturation` - erforderlich für die Kanalerkennung,
-- `level.color.hue` ,
-- `level.dimmer` ,
+- `level.color.hue`,
+- `level.dimmer`,
 - `switch` - optional,
 - `level.color.temperature` (optional)
 
@@ -138,7 +138,7 @@ Alexa, change the kitchen to the color chocolate
 
 ### Sperren
 
-Um die Möglichkeit zu haben, die Sperren zu verriegeln, muss der Staat die Rolle haben`switch.lock` und haben`native.LOCK_VALUE` um den Sperrstatus zu ermitteln. Falls Sie einen separaten Wert zur Steuerung der Sperre benötigen, können Sie diesen verwenden.`native.CONTROL VALUE` Die
+Um die Möglichkeit zu haben, die Sperren zu verriegeln, muss der Staat die Rolle haben `switch.lock` und haben `native.LOCK_VALUE` um den Sperrstatus zu ermitteln. Falls Sie einen separaten Wert zur Steuerung der Sperre benötigen, können Sie diesen verwenden. `native.CONTROL VALUE` Die
 
 ```
 Alexa, is "lock name" locked/unlocked
@@ -161,12 +161,12 @@ Aufzählungen sind eine in ioBroker integrierte Methode zur Organisation von Ger
 Damit ein Zustand (Gerät) automatisch in die Smart-Home-Steuerung einbezogen wird, muss er folgende Bedingungen erfüllen:
 
 1. **Muss in einer Funktionsaufzählung enthalten sein** (z. B. "Licht", "Heizung", "Jalousien").
-2. **Die richtige Rolle muss vorhanden sein** :`state` ,`switch` , oder`level.*` (wie`level.dimmer` )
+2. **Die richtige Rolle muss vorhanden sein** : `state`, `switch`, oder `level.*` (wie `level.dimmer`)
    - Wenn der gesamte Kanal in der Funktionsaufzählung enthalten ist, benötigen einzelne Zustände keine spezifischen Rollen.
-3. **Muss beschreibbar sein** :`common.write` muss sein`true`
+3. **Muss beschreibbar sein** : `common.write` muss sein `true`
 4. **Besondere Anforderungen:**
-   - Dimmer müssen haben`common.type` als`number`
-   - Heizung muss vorhanden sein`common.unit` als`°C` ,`°F` , oder`°K` Und`common.type` als`number`
+   - Dimmer müssen haben `common.type` als `number`
+   - Heizung muss vorhanden sein `common.unit` als `°C`, `°F`, oder `°K` Und `common.type` als `number`
 
 ### Wie Namen entstehen
 
@@ -186,8 +186,8 @@ Der Adapter kombiniert Raum- und Funktionsinformationen, um aussagekräftige Nam
 
 Sie können die automatische Namensgebung überschreiben:
 
-- Satz`common.smartName` Ihrem bevorzugten Namen → Das Gerät wird genau diesen Namen verwenden
-- Satz`common.smartName` Zu`false` → Das Gerät wird von der Smart-Home-Steuerung ausgeschlossen.
+- Satz `common.smartName` Ihrem bevorzugten Namen → Das Gerät wird genau diesen Namen verwenden
+- Satz `common.smartName` Zu `false` → Das Gerät wird von der Smart-Home-Steuerung ausgeschlossen.
 
 ### Manuelle Konfiguration
 
@@ -207,15 +207,15 @@ So erstellen Sie Ihre eigenen Gerätegruppen:
 
 ### Ersetzt
 
-Sie können Zeichenfolgen angeben, die in den Gerätenamen automatisch ersetzt werden sollen. Beispiel: Wenn Sie „ersetzt durch“ festlegen:`.STATE,.LEVEL` so alle`.STATE` Und`.LEVEL` wird aus Namen entfernt. Achten Sie auf Leerzeichen. Wenn Sie festlegen`.STATE, .LEVEL` , Also`.STATE` Und`.LEVEL` wird ersetzt und nicht`.LEVEL` Die
+Sie können Zeichenfolgen angeben, die in den Gerätenamen automatisch ersetzt werden sollen. Beispiel: Wenn Sie „ersetzt durch“ festlegen: `.STATE,.LEVEL` so alle `.STATE` Und `.LEVEL` wird aus Namen entfernt. Achten Sie auf Leerzeichen. Wenn Sie festlegen `.STATE, .LEVEL`, Also `.STATE` Und `.LEVEL` wird ersetzt und nicht `.LEVEL` Die
 
 ## Helfer erklärt
 
 - `smart.lastObjectID` Dieser Zustand wird eingestellt, wenn nur ein Gerät über den Smart-Home-Skill (Alexa, Google Home) gesteuert wird.
 - `smart.lastFunction` Funktionsname (falls vorhanden), für den der letzte Befehl ausgeführt wurde.
-- `smart.lastRoom` : Name des Raums (falls vorhanden), für den der letzte Befehl ausgeführt wurde.
-- `smart.lastCommand` : Zuletzt ausgeführter Befehl. Der Befehl kann Folgendes sein:`true(ON)` ,`false(OFF)` ,`number(%)` ,`-X(decrease at x)` ,`+X(increase at X)`
-- `smart.lastResponse` Textantwort auf Befehl. Sie kann an einige gesendet werden.`text2speech` (`sayit` ) Motor.
+- `smart.lastRoom`: Name des Raums (falls vorhanden), für den der letzte Befehl ausgeführt wurde.
+- `smart.lastCommand`: Zuletzt ausgeführter Befehl. Der Befehl kann Folgendes sein: `true(ON)`, `false(OFF)`, `number(%)`, `-X(decrease at x)`, `+X(increase at X)`
+- `smart.lastResponse` Textantwort auf Befehl. Sie kann an einige gesendet werden. `text2speech` (`sayit`) Motor.
 
 ## Umschaltmodus
 
@@ -227,13 +227,13 @@ Alexa v3 unterstützt den Umschaltmodus. Das bedeutet, dass das Licht ausgeschal
 
 ## Google Home
 
-Wenn die folgende Fehlermeldung im Protokoll angezeigt wird:`[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually` Daher müssen Sie den URL-Schlüssel neu generieren:
+Wenn die folgende Fehlermeldung im Protokoll angezeigt wird: `[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually` Daher müssen Sie den URL-Schlüssel neu generieren:
 
 ![URL-Schlüssel](../../../en/adapterref/iobroker.iot/img/url_key.png)
 
 ## Dienstleistungen
 
-Es besteht die Möglichkeit, Nachrichten an den Cloud-Adapter zu senden. Wenn Sie anrufen`[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>` und Wert als Nutzlast.
+Es besteht die Möglichkeit, Nachrichten an den Cloud-Adapter zu senden. Wenn Sie anrufen `[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>` und Wert als Nutzlast.
 
 `curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`
 
@@ -241,7 +241,7 @@ oder
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
-Wenn Sie in den Einstellungen das Feld „Whitelist für Dienste“ aktivieren, wird der Name`custom_test` und wird der Dienst mit "custom\_test" als Dienstnamen aufgerufen, so wird der Status **cloud.0.services.custom\_test** auf _myString_ gesetzt.
+Wenn Sie in den Einstellungen das Feld „Whitelist für Dienste“ aktivieren, wird der Name `custom_test` und wird der Dienst mit "custom\_test" als Dienstnamen aufgerufen, so wird der Status **cloud.0.services.custom\_test** auf _myString_ gesetzt.
 
 Sie können ein "\*" in die Whitelist eintragen, dann sind alle Dienste zugelassen.
 
@@ -249,7 +249,7 @@ Hier finden Sie eine Anleitung zur Verwendung mit [Tasker](/#/docs/adapterref/io
 
 Der IFTTT-Dienst ist nur zulässig, wenn ein IFTTT-Schlüssel festgelegt ist.
 
-Reservierte Namen sind`ifttt` ,`text2command` ,`simpleApi` ,`swagger` Diese müssen ohne die`custom_` Präfix.
+Reservierte Namen sind `ifttt`, `text2command`, `simpleApi`, `swagger` Diese müssen ohne die `custom_` Präfix.
 
 Sie können die gültige URL für den Dienst auch per Nachricht anfordern:
 
@@ -266,9 +266,9 @@ sendTo('iot.0', 'getServiceEndpoint', { serviceName: 'custom_myService' }, resul
 
 ### `text2command`
 
-Sie können schreiben`text2command` Sie können POST-Anfragen an die in der Whitelist aufgeführten Personen senden.`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` um Daten zu schreiben in`text2command.X.text` Variable.
+Sie können schreiben `text2command` Sie können POST-Anfragen an die in der Whitelist aufgeführten Personen senden. `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` um Daten zu schreiben in `text2command.X.text` Variable.
 
-Sie können auch die GET-Methode verwenden.`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
+Sie können auch die GET-Methode verwenden. `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
 
 `X` kann in den Einstellungen über die Option „Text2Command-Instanz verwenden“ definiert werden.
 
@@ -281,24 +281,24 @@ Die Antworten für die benutzerdefinierte Fertigkeit können auf zwei Arten vera
 
 ### `text2command`
 
-Wenn`text2command` Die Instanz wird im Konfigurationsdialog definiert, daher wird die Frage an die Instanz gesendet.
+Wenn `text2command` Die Instanz wird im Konfigurationsdialog definiert, daher wird die Frage an die Instanz gesendet.
 
 `text2command` muss so konfiguriert sein, dass der erwartete Ausdruck analysiert und die Antwort zurückgegeben wird.
 
 ### `Javascript`
 
-Es besteht die Möglichkeit, die Frage direkt mit dem Skript zu bearbeiten. Diese Funktion ist standardmäßig aktiviert, falls keine Anfrage vorliegt.`text2command` Instanz ausgewählt.
+Es besteht die Möglichkeit, die Frage direkt mit dem Skript zu bearbeiten. Diese Funktion ist standardmäßig aktiviert, falls keine Anfrage vorliegt. `text2command` Instanz ausgewählt.
 
-Wenn`text2command` Da eine Instanz definiert ist, muss diese Instanz die Antwort liefern, und die Antwort aus _dem Skript_ wird ignoriert.
+Wenn `text2command` Da eine Instanz definiert ist, muss diese Instanz die Antwort liefern, und die Antwort aus _dem Skript_ wird ignoriert.
 
 Der Adapter liefert die Details in zwei Zuständen mit unterschiedlichem Detaillierungsgrad.
 
-- `smart.lastCommand` Enthält den empfangenen Text einschließlich Informationen über die Art der Anfrage (Absicht). Beispiel:`askDevice Status Rasenmäher`
+- `smart.lastCommand` Enthält den empfangenen Text einschließlich Informationen über die Art der Anfrage (Absicht). Beispiel: `askDevice Status Rasenmäher`
 - `smart.lastCommandObj` enthält eine JSON-Zeichenkette, die in ein Objekt mit folgenden Informationen geparst werden kann:
   - `words` die empfangenen Wörter in einem Array speichern
   - `intent` Enthält den Abfragetyp. Mögliche Werte sind derzeit:
-    - v1 Fähigkeit:`askDevice` ,`controlDevice` ,`actionStart` ,`actionEnd` ,`askWhen` ,`askWhere` ,`askWho`
-    - v2 Fähigkeit:`queryIntent` als der vollständige Text erfasst wurde`controlDevice` als Ausweichlösung bei nur teilweisem Text
+    - v1 Fähigkeit: `askDevice`, `controlDevice`, `actionStart`, `actionEnd`, `askWhen`, `askWhere`, `askWho`
+    - v2 Fähigkeit: `queryIntent` als der vollständige Text erfasst wurde `controlDevice` als Ausweichlösung bei nur teilweisem Text
   - `deviceId` Enthält eine Geräte-ID, die das Gerät identifiziert, an das die Anfrage gesendet wurde (bereitgestellt von Amazon). Ist keine Geräte-ID angegeben, ist diese eine leere Zeichenkette.
   - `deviceRoom` enthält eine zugeordnete Raumkennung, die Sie in der IoT-Admin-Benutzeroberfläche für erfasste Geräte-IDs konfigurieren können.
   - `sessionId` Enthält die Sitzungs-ID der Skill-Sitzung; diese sollte bei mehreren gesprochenen Befehlen identisch sein; wird von Amazon bereitgestellt; ist eine leere Zeichenkette, falls keine angegeben wird.
@@ -309,7 +309,7 @@ Weitere Details darüber, wie die Wörter erkannt werden und welche Arten von An
 
 **Rückgabe des Ergebnisses über den Status smart.lastResponse**
 
-Die Antwort muss innerhalb von 200 ms im Zustand gesendet werden.`smart.lastResponse` und kann eine einfache Textzeichenfolge oder ein JSON-Objekt sein. Handelt es sich um eine Textzeichenfolge, wird dieser Text als Antwort an den Skill gesendet. Handelt es sich bei dem Text um ein JSON-Objekt, können die folgenden Schlüssel verwendet werden:
+Die Antwort muss innerhalb von 200 ms im Zustand gesendet werden. `smart.lastResponse` und kann eine einfache Textzeichenfolge oder ein JSON-Objekt sein. Handelt es sich um eine Textzeichenfolge, wird dieser Text als Antwort an den Skill gesendet. Handelt es sich bei dem Text um ein JSON-Objekt, können die folgenden Schlüssel verwendet werden:
 
 - `responseText` muss den Text enthalten, der an Amazon zurückgesendet werden soll.
 - `shouldEndSession` ist ein boolescher Wert und steuert, ob die Sitzung nach der gesprochenen Antwort geschlossen wird oder offen bleibt, um weitere Spracheingaben entgegenzunehmen.
@@ -317,7 +317,7 @@ Die Antwort muss innerhalb von 200 ms im Zustand gesendet werden.`smart.lastResp
 
 **Das Ergebnis wird über eine Nachricht an die IoT-Instanz zurückgegeben.**
 
-Die IoT-Instanz akzeptiert außerdem eine Nachricht mit dem Namen „alexaCustomResponse“, die den Schlüssel „response“ und ein Objekt enthält, das die Schlüssel enthalten kann.`responseText` Und`shouldEndSession` Und`sessionId` Wie oben beschrieben. Die IoT-Instanz wird auf die Nachricht nicht antworten!
+Die IoT-Instanz akzeptiert außerdem eine Nachricht mit dem Namen „alexaCustomResponse“, die den Schlüssel „response“ und ein Objekt enthält, das die Schlüssel enthalten kann. `responseText` Und `shouldEndSession` Und `sessionId` Wie oben beschrieben. Die IoT-Instanz wird auf die Nachricht nicht antworten!
 
 **Beispiel eines Skripts, das Texte verwendet**
 
@@ -352,9 +352,9 @@ on({ id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any' }, obj => {
 
 ### Private Cloud
 
-Wenn Sie private Fähigkeiten/Aktionen/навык zur Kommunikation mit`Alexa/Google Home/Алиса` Sie haben also die Möglichkeit, die Anfragen der IoT-Instanz zu verarbeiten.
+Wenn Sie private Fähigkeiten/Aktionen/навык zur Kommunikation mit `Alexa/Google Home/Алиса` Sie haben also die Möglichkeit, die Anfragen der IoT-Instanz zu verarbeiten.
 
-Beispiel für`yandex alice` :
+Beispiel für `yandex alice`:
 
 ```js
 const OBJECT_FROM_ALISA_SERVICE = {}; // object from alisa service or empty object
@@ -378,7 +378,7 @@ Folgende Typen werden unterstützt:
 
 ## Nachrichten an die App senden
 
-Ab Version 1.15.x können Sie Nachrichten senden an`ioBroker Visu` Anwendung ( [Android](https://play.google.com/store/apps/details?id=com.iobroker.visu) und [iOS](https://apps.apple.com/de/app/iobroker-visu/id1673095774) ). Dazu müssen Sie die folgenden Zustände schreiben:
+Ab Version 1.15.x können Sie Nachrichten senden an `ioBroker Visu` Anwendung ( [Android](https://play.google.com/store/apps/details?id=com.iobroker.visu) und [iOS](https://apps.apple.com/de/app/iobroker-visu/id1673095774) ). Dazu müssen Sie die folgenden Zustände schreiben:
 
 ```js
 setState('iot.0.app.expire', 60); // optional. Time in seconds

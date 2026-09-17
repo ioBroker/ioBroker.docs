@@ -34,15 +34,15 @@ hash: anceCDGjiQupAs+lYZFgjTOaTYCM3VMmYncJFljg96I=
 ## 1. Характеристики
 
 - Получайте подробную информацию о воспроизводимом медиафайле (например, битрейт видео, кодек, информация о субтитрах, звук; полный список см. в разделе [«Расширенные настройки](/#/docs/adapterref/iobroker.plex/README-states.md#with-advanced-setup) »).
-- Получать`events` из Plex (через [Plex Webhook](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) и [уведомления Plex](https://support.plex.tv/articles/push-notifications/#toc-0) с использованием Plex Pass или через Tautulli, [**см. настройку!**](#22-advanced-setup-plex-pass-or-tautulli) )
+- Получать `events` из Plex (через [Plex Webhook](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) и [уведомления Plex](https://support.plex.tv/articles/push-notifications/#toc-0) с использованием Plex Pass или через Tautulli, [**см. настройку!**](#22-advanced-setup-plex-pass-or-tautulli) )
 - Управление воспроизведением для игроков
-- Забрать`servers`
-- Забрать`libraries`
+- Забрать `servers`
+- Забрать `libraries`
 - Получить все предметы в библиотеке
-- Забрать`users` (только с Таутулли)
-- Забрать`statistics` (только с Таутулли)
-- Забрать`playlists`
-- Забрать`settings`
+- Забрать `users` (только с Таутулли)
+- Забрать `statistics` (только с Таутулли)
+- Забрать `playlists`
+- Забрать `settings`
 - Получить все данные от управляемых клиентов.
 - Веб-интерфейс, отображающий последние события из Plex:![Веб-интерфейс Plex](../../../en/adapterref/iobroker.plex/img/screenshot_adapter-interface.png)
 
@@ -62,13 +62,13 @@ hash: anceCDGjiQupAs+lYZFgjTOaTYCM3VMmYncJFljg96I=
 
 Если вы являетесь пользователем Plex Pass, вы можете [настроить веб-перехватчик](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) в настройках Plex для получения текущего события/действия с вашего медиасервера Plex (воспроизведение, пауза, возобновление, остановка, просмотр и оценка).
 
-Перейдите к своему медиасерверу Plex и выберите...`Settings` и`Webhook` Создан новый веб-перехватчик путем нажатия кнопки.`Add Webhook` и введите свой IP-адрес ioBroker с пользовательским портом, указанным в настройках ioBroker.plex, и в конце введите...`/plex` путь, например`http://192.168.178.29:41891/plex` :
+Перейдите к своему медиасерверу Plex и выберите... `Settings` и `Webhook` Создан новый веб-перехватчик путем нажатия кнопки. `Add Webhook` и введите свой IP-адрес ioBroker с пользовательским портом, указанным в настройках ioBroker.plex, и в конце введите... `/plex` путь, например `http://192.168.178.29:41891/plex`:
 
 ![Вебхук Plex](../../../en/adapterref/iobroker.plex/img/screenshot_plex-webhook.png)
 
 **События**
 
-Для получения информации о уведомлениях Plex, пожалуйста, [ознакомьтесь с официальной документацией](https://support.plex.tv/articles/push-notifications/#toc-0) . Чтобы включить уведомления на вашем медиасервере Plex, перейдите по ссылке:`Settings` >`Server` >`General` а затем включить`Push Notifications` предпочтения.
+Для получения информации о уведомлениях Plex, пожалуйста, [ознакомьтесь с официальной документацией](https://support.plex.tv/articles/push-notifications/#toc-0) . Чтобы включить уведомления на вашем медиасервере Plex, перейдите по ссылке: `Settings` >`Server` >`General` а затем включить `Push Notifications` предпочтения.
 
 #### 2.2.2.Таутулли
 
@@ -78,7 +78,7 @@ hash: anceCDGjiQupAs+lYZFgjTOaTYCM3VMmYncJFljg96I=
 
 ##### 2.2.2.1. API
 
-После установки Tautulli откройте страницу _«Настройки»_ на панели управления Tautulli и перейдите в раздел _«Веб-интерфейс»_ . Прокрутите вниз до раздела _«API»_ и убедитесь, что...`Enable API` отмечено. Скопируйте.`API key` и введите его в настройки ioBroker.plex. Кроме того, добавьте IP-адрес и порт Tautulli, чтобы разрешить взаимодействие через API.
+После установки Tautulli откройте страницу _«Настройки»_ на панели управления Tautulli и перейдите в раздел _«Веб-интерфейс»_ . Прокрутите вниз до раздела _«API»_ и убедитесь, что... `Enable API` отмечено. Скопируйте. `API key` и введите его в настройки ioBroker.plex. Кроме того, добавьте IP-адрес и порт Tautulli, чтобы разрешить взаимодействие через API.
 
 ##### 2.2.2.2. Вебхук
 
@@ -100,17 +100,17 @@ hash: anceCDGjiQupAs+lYZFgjTOaTYCM3VMmYncJFljg96I=
 
 1. Нажмите _«Добавить новый агент уведомлений_ и _веб-перехватчик»_ .
 
-2. Введите IP-адрес вашего ioBroker с пользовательским портом, указанным в настройках ioBroker.plex, и добавьте в конце...`/tautulli` путь, например`http://192.168.178.29:41891/tautulli` :
+2. Введите IP-адрес вашего ioBroker с пользовательским портом, указанным в настройках ioBroker.plex, и добавьте в конце... `/tautulli` путь, например `http://192.168.178.29:41891/tautulli`:
 
-   ![Вебхук Таутулли](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-webhook.png) Кроме того, выберите`POST` Для _метода веб-перехватчика_ введите любое описание по вашему желанию в _поле «Описание»_ .
+   ![Вебхук Таутулли](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-webhook.png) Кроме того, выберите `POST` Для _метода веб-перехватчика_ введите любое описание по вашему желанию в _поле «Описание»_ .
 
 3. Далее перейдите на вкладку _«Триггеры»_ , выберите нужные (или все) агенты уведомлений. Включенный агент уведомлений запустит событие, которое затем будет отправлено в ioBroker. На следующем шаге **обязательно** укажите необходимые данные для каждого из включенных агентов уведомлений!
 
-4. Теперь, **что наиболее важно** , заполните соответствующие данные на вкладке _«Данные»_ в соответствии с **[конфигурацией уведомлений, которую можно найти здесь](/#/docs/adapterref/iobroker.plex/README-tautulli.md#notification-configuration)** . Скопируйте конфигурацию уведомлений соответствующих агентов уведомлений из предыдущего шага (например,`Playback Start` ,`Playback Stop` ,`Playback Pause` и`Playback Resume` ) в каждом из текстовых полей, как показано ниже для`Playback Start` :
+4. Теперь, **что наиболее важно** , заполните соответствующие данные на вкладке _«Данные»_ в соответствии с **[конфигурацией уведомлений, которую можно найти здесь](/#/docs/adapterref/iobroker.plex/README-tautulli.md#notification-configuration)** . Скопируйте конфигурацию уведомлений соответствующих агентов уведомлений из предыдущего шага (например, `Playback Start`, `Playback Stop`, `Playback Pause` и `Playback Resume`) в каждом из текстовых полей, как показано ниже для `Playback Start`:
 
    ![Уведомление Таутулли](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-notification.png)
 
-5. Наконец, отметьте этот вариант.`Allow Consecutive Notifications` Включить возможность отправки последовательных уведомлений (например, как о просмотренных, так и о заблокированных уведомлениях):
+5. Наконец, отметьте этот вариант. `Allow Consecutive Notifications` Включить возможность отправки последовательных уведомлений (например, как о просмотренных, так и о заблокированных уведомлениях):
 
    ![Настройки уведомлений Таутулли](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-notification_settings.png)
 

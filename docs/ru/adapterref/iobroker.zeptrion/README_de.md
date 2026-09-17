@@ -21,22 +21,22 @@ hash: r6rRpxuBbcc620VTUXIDoRJGheGIkv4eo4yk5bQYH0Q=
 
 ## Funktionsumfang
 
-- **Управление каналами** (`zrap/chctrl` ): вкл/выкл/стоп/переключение, открыть/закрыть, переместить\_открыть/переместить\_закрыть, увеличить\_затемнение/уменьшить\_затемнение, включая временные ограничения (`_t` в мс), sowie Szenen cancel\_s1-4 / store\_s1-4 / delete\_s1-4 - als einzelne Buttons UND als freeies`command` -Текстфельд.
-- **Каналзустанд** (`zrap/chscan` als periodischer Resync +`zrap/chnotify` также Long-Poll-Push für nahezu Echtzeit-Updates) и **Kanalbeschreibung** (`zrap/chdes` , чтение/запись: имя, группа, значок, тип, категория).
-- **Geräteinformationen** (`zrap/id` ): Версия аппаратного обеспечения/программного обеспечения/загрузчика, серийный номер, имя системы, типовой код.
-- **Signalstärke** (`zrap/rssi` , gepollt).
-- **Статус сети** (`zrap/net` , только для чтения): SSID, IP, MAC, Modus, Verschlüsselung, Maske, Gateway.
-- **Systembefehle** (`zrap/sys` ): Neustart, Werksreset, Zurücksetzen в режиме точки доступа.
-- **Стандор** (`zrap/loc` ), **NTP-Конфигурация** (`zrap/ntp` ) и **Дата/Время** (`zrap/date` ) вкл. Ein-Klick-Synchronisation der Geräte-Uhrzeit с ioBroker-Host.
+- **Управление каналами** (`zrap/chctrl`): вкл/выкл/стоп/переключение, открыть/закрыть, переместить\_открыть/переместить\_закрыть, увеличить\_затемнение/уменьшить\_затемнение, включая временные ограничения (`_t` в мс), sowie Szenen cancel\_s1-4 / store\_s1-4 / delete\_s1-4 - als einzelne Buttons UND als freeies `command` -Текстфельд.
+- **Каналзустанд** (`zrap/chscan` als periodischer Resync +`zrap/chnotify` также Long-Poll-Push für nahezu Echtzeit-Updates) и **Kanalbeschreibung** (`zrap/chdes`, чтение/запись: имя, группа, значок, тип, категория).
+- **Geräteinformationen** (`zrap/id`): Версия аппаратного обеспечения/программного обеспечения/загрузчика, серийный номер, имя системы, типовой код.
+- **Signalstärke** (`zrap/rssi`, gepollt).
+- **Статус сети** (`zrap/net`, только для чтения): SSID, IP, MAC, Modus, Verschlüsselung, Maske, Gateway.
+- **Systembefehle** (`zrap/sys`): Neustart, Werksreset, Zurücksetzen в режиме точки доступа.
+- **Стандор** (`zrap/loc`), **NTP-Конфигурация** (`zrap/ntp`) и **Дата/Время** (`zrap/date`) вкл. Ein-Klick-Synchronisation der Geräte-Uhrzeit с ioBroker-Host.
 - **mDNS-Discovery** (глава 4 документа API): durchsucht das lokale Netz nach zeptrion-Geräten und übernimmt Funde deaktiviert in die Konfigurationstabelle (Discovery kombiniert mit manueller Kontrolle/Aktivierung).
-- **Sammelbefehle für Hagelalarm** :`control.closeAllShutters` /`openAllShutters` /`stopAllShutters` Все настроенные каналы всегда активны.
+- **Sammelbefehle für Hagelalarm** : `control.closeAllShutters` /`openAllShutters` /`stopAllShutters` Все настроенные каналы всегда активны.
   - Данк Multicast-Bündelung (siehe unten) как EIN Request pro Gerät, nicht pro Channel.
-- **Multicast-Befehlsbündelung** : Канал передачи сообщений, внутренний интервал в течение 50 мс автоматически включается в работу`zrap/chctrl` -Multicast-POST доступен (глава 3.6.5 der API-Doku) для отслеживания последовательности запросов Einzel.
-- **Storen-Positionsschätzung** (опционально,`posEstimate` ): da die Hardware laut Doku für Storenkanäle praktisch immer`-1` (unbekannt) Liefert, kann pro Gerät eine Motor-Laufzeit Hinterlegt Werden; der Adaptor schätzt daaus die Position and bewegungsrichtung und verstrichener Zeit (Best Effort, kein Hardware-Feedback, manuell kalibrierbar).
-- **Smartfront-Unterstützung** (опция,`zapi/smartfront/*` ): Температура/Хеллигкейт/Люфтфеухтигкеит Ауслесен, светодиодная установка (для настройки с использованием функции Feller-Smartfront-Taster, флажок в конфигурации).
+- **Multicast-Befehlsbündelung** : Канал передачи сообщений, внутренний интервал в течение 50 мс автоматически включается в работу `zrap/chctrl` -Multicast-POST доступен (глава 3.6.5 der API-Doku) для отслеживания последовательности запросов Einzel.
+- **Storen-Positionsschätzung** (опционально, `posEstimate`): da die Hardware laut Doku für Storenkanäle praktisch immer `-1` (unbekannt) Liefert, kann pro Gerät eine Motor-Laufzeit Hinterlegt Werden; der Adaptor schätzt daaus die Position and bewegungsrichtung und verstrichener Zeit (Best Effort, kein Hardware-Feedback, manuell kalibrierbar).
+- **Smartfront-Unterstützung** (опция, `zapi/smartfront/*`): Температура/Хеллигкейт/Люфтфеухтигкеит Ауслесен, светодиодная установка (для настройки с использованием функции Feller-Smartfront-Taster, флажок в конфигурации).
 - Надежная обработка ошибок: используется ECONNREFUSED/Timeout/DNS-Fehler, Backoff bei wiederholten Fehlern, pro Gerät und global sichtbarer Verbindungsstatus. mDNS-Discovery не может быть исключен из исключений во время блокировки или отключения сетевого пакета.
 
-Nichtimplementiert (siehe "Bekannte Einschränkungen"): Schreibzugriff auf`zrap/net` (WLAN-Zugangsdaten ändern),`zrap/scheduler` , Smartbutton-Webhook-Программирование (`zapi/smartbt/*` ).
+Nichtimplementiert (siehe "Bekannte Einschränkungen"): Schreibzugriff auf `zrap/net` (WLAN-Zugangsdaten ändern), `zrap/scheduler`, Smartbutton-Webhook-Программирование (`zapi/smartbt/*`).
 
 ## Установка
 
@@ -45,11 +45,11 @@ Admin-Oberfläche -> Адаптер -> "zeptrion" suchen -> Installieren.
 ## Конфигурация
 
 - **HTTP Timeout** : Timeout pro Request an ein Gerät (Default 4000 ms).
-- **Кнопка обнаружения** : durchsucht das lokale Netz для mDNS (тип службы`_zapp._tcp` , Отступать`_http._tcp` для прошивки < 01.08.xx и для проверки имени хоста`zapp-YYWWNNNN` ). Если вы не хотите, чтобы ваша таблица была **деактивирована** в дополнительной таблице, вы можете указать идентификатор/имя, контрольный канал (3340-4-x = 4 канала, 3340-2-x = 2 канала) и активировать его. mDNS функционирует для внутренних сегментов сети/VLAN.
+- **Кнопка обнаружения** : durchsucht das lokale Netz для mDNS (тип службы `_zapp._tcp`, Отступать `_http._tcp` для прошивки < 01.08.xx и для проверки имени хоста `zapp-YYWWNNNN`). Если вы не хотите, чтобы ваша таблица была **деактивирована** в дополнительной таблице, вы можете указать идентификатор/имя, контрольный канал (3340-4-x = 4 канала, 3340-2-x = 2 канала) и активировать его. mDNS функционирует для внутренних сегментов сети/VLAN.
 - **Информационная таблица** (также полная инструкция для Discovery):
-  - `Aktiv` ,`ID` (az 0-9 \_ -),`Bezeichnung` ,`IP-Adresse/Hostname` ,`Kanäle` (1-4),`Art` (Storen/Licht/unbekannt - steuert die ioBroker-Objektrollen, siehe unten),`Laufzeit Storenmotor` (Секунда, 0=деактивировать - отключить`posEstimate` frei, siehe unten, gilt als Standard für alle Kanäle),`Laufzeit/Kanal` (optional, kommagetrennt, zB)`22,28` - überschreibt die Standard-Laufzeit einzeln je Kanal; nützlich bei 2K-Geräten, deren beide Kanäle unterschiedliche Motor-Laufzeiten haben; leere Einträge упал на Standard-Laufzeit zurück),`Smartfront` (Флажок, при котором активируется Feller-Smartfront-Taster),`Poll (s)` (По умолчанию 30, для RSSI + периодического сканирования-Resync; собственные каналы обновлений будут отключены после chnotify-Long-Poll).
+  - `Aktiv`, `ID` (az 0-9 \_ -), `Bezeichnung`, `IP-Adresse/Hostname`, `Kanäle` (1-4), `Art` (Storen/Licht/unbekannt - steuert die ioBroker-Objektrollen, siehe unten), `Laufzeit Storenmotor` (Секунда, 0=деактивировать - отключить `posEstimate` frei, siehe unten, gilt als Standard für alle Kanäle), `Laufzeit/Kanal` (optional, kommagetrennt, zB) `22,28` - überschreibt die Standard-Laufzeit einzeln je Kanal; nützlich bei 2K-Geräten, deren beide Kanäle unterschiedliche Motor-Laufzeiten haben; leere Einträge упал на Standard-Laufzeit zurück), `Smartfront` (Флажок, при котором активируется Feller-Smartfront-Taster), `Poll (s)` (По умолчанию 30, для RSSI + периодического сканирования-Resync; собственные каналы обновлений будут отключены после chnotify-Long-Poll).
 
-## Objektbaum pro Gerät (`zeptrion.0.<id>` )
+## Objektbaum pro Gerät (`zeptrion.0.<id>`)
 
 ```
 <id>.info.connection / lastError / hw / sw / boot / sn / sys / type / oen / rssi / refresh
@@ -89,10 +89,10 @@ Die zrap-API selbst unterscheidet nicht zwischen Licht- und Storenkanal - das st
 | Искусство                | `<ch>.val` Ролле | `stop` /`open` /`close` Ролле                            |
 | ------------------------ | ---------------- | -------------------------------------------------------- |
 | Сторэн/Ролладен          | `level.blind`    | `button.stop` /`button.open.blind` /`button.close.blind` |
-| Свет                     | `level.dimmer`   | щедрый`button`                                           |
-| unbekannt (По умолчанию) | `value`          | щедрый`button`                                           |
+| Свет                     | `level.dimmer`   | щедрый `button`                                           |
+| unbekannt (По умолчанию) | `value`          | щедрый `button`                                           |
 
-Важно:`level.blind` täuscht **keine** echte Positionsrückmeldung vor - laut Feller-Dokuliefert`chscan` /`chnotify` für einen Storenkanal, так что все будет в порядке`-1` (необдуманно), если аппаратное обеспечение не установлено в нужном положении. Die Rolle verbessert nur die Erkennung durch VIS-Widgets, der Zahlenwert bleibt idR uninformativ.
+Важно: `level.blind` täuscht **keine** echte Positionsrückmeldung vor - laut Feller-Dokuliefert `chscan` /`chnotify` für einen Storenkanal, так что все будет в порядке `-1` (необдуманно), если аппаратное обеспечение не установлено в нужном положении. Die Rolle verbessert nur die Erkennung durch VIS-Widgets, der Zahlenwert bleibt idR uninformativ.
 
 ## Hagelalarm-Nutzung
 
@@ -103,14 +103,14 @@ on({id: 'wetter.0.warnungen.hagel', val: true}, function () {
 });
 ```
 
-Fehler bei einzelnen Geräten (оффлайн и т. д.) для использования неактивных каналов - jeder fehlgeschlagene Kanal wird einzeln geologgt und in`<id>.info.lastError` vermerkt.
+Fehler bei einzelnen Geräten (оффлайн и т. д.) для использования неактивных каналов - jeder fehlgeschlagene Kanal wird einzeln geologgt und in `<id>.info.lastError` vermerkt.
 
 ## Bekannte Einschränkungen / bewusste Entscheidungen
 
-- **Smartbutton-Webhook-Программирование** (`zapi/smartbt/prgm` /`prgn` /`prgs` ) это не реализовано: дабеи руфт дер Taster bei Tastendruck прямой URL-адрес на ioBroker auf (echtes Push, ganz ohne Polling). Если вы хотите использовать HTTP-сервер в выбранном адаптере, то это не является действительным — большая архитектура, kein kleiner Zusatz. Bleibt als möglicher zukünftiger Ausbauschritt documentiert.
-- **Schreibzugriff auf`zrap/net`** это не реализовано - WLAN-данные указаны для использования сценария, который может вызвать риск (Verbindungsverlust, Reboot notig). Kann bei Bedarf ergänzt werden.
-- **Планировщик (`zrap/scheduler` )** и **zeptrionAir-Smartfront-Services** (`zapi/smartfront/*` ,`zapi/smartbt/*` ) если он не реализован, то вариант использования Storen/Hagel не имеет значения. Die vorhandene`zrapGet` /`zrapPost` -Структура в`main.js` lässt sich leicht erweitern.
-- `chctrl` liefert laut Doku HTTP 302 ohne Body — перенаправления werden bewusst nicht verfolgt (`maxRedirects: 0` ), um unnötige Zusatzrequests zu vermeiden.
+- **Smartbutton-Webhook-Программирование** (`zapi/smartbt/prgm` /`prgn` /`prgs`) это не реализовано: дабеи руфт дер Taster bei Tastendruck прямой URL-адрес на ioBroker auf (echtes Push, ganz ohne Polling). Если вы хотите использовать HTTP-сервер в выбранном адаптере, то это не является действительным — большая архитектура, kein kleiner Zusatz. Bleibt als möglicher zukünftiger Ausbauschritt documentiert.
+- **Schreibzugriff auf `zrap/net` ** это не реализовано - WLAN-данные указаны для использования сценария, который может вызвать риск (Verbindungsverlust, Reboot notig). Kann bei Bedarf ergänzt werden.
+- **Планировщик (`zrap/scheduler`)** и **zeptrionAir-Smartfront-Services** (`zapi/smartfront/*`, `zapi/smartbt/*`) если он не реализован, то вариант использования Storen/Hagel не имеет значения. Die vorhandene `zrapGet` /`zrapPost` -Структура в `main.js` lässt sich leicht erweitern.
+- `chctrl` liefert laut Doku HTTP 302 ohne Body — перенаправления werden bewusst nicht verfolgt (`maxRedirects: 0`), um unnötige Zusatzrequests zu vermeiden.
 - Bei wiederholten Fehlern eines Geräts wird das Poll-Intervall bis Maximum das 5-fache verlängert (einfacher Backoff).
 
 ## Разработка / Тесты

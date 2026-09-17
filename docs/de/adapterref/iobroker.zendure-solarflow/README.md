@@ -49,7 +49,7 @@ Aktuell werden alle Zendure Solarflow-Geräte über die Cloud unterstützt.
 
 ### mDNS Discovery
 
-Wenn zenSDK aktiviert ist, durchsucht der Adapter nach dem Start kurz das lokale Netzwerk über mDNS/Bonjour, um Zendure-Geräte zu finden, die sich als Zendure-Geräte anmelden.`Zendure-<model>-<serialNumber>` Dies wird verwendet, um:
+Wenn zenSDK aktiviert ist, durchsucht der Adapter nach dem Start kurz das lokale Netzwerk über mDNS/Bonjour, um Zendure-Geräte zu finden, die sich als Zendure-Geräte anmelden. `Zendure-<model>-<serialNumber>` Dies wird verwendet, um:
 
 - **Ergänzen oder korrigieren Sie IP-Adressen** : Wenn ein Gerät, das in der Cloud-Geräteliste aufgeführt ist, keine IP-Adresse hat oder die IP-Adresse in der Cloud-Geräteliste nicht mehr mit der Adresse übereinstimmt, die das Gerät tatsächlich im Netzwerk ankündigt, wird dies automatisch korrigiert.
 - **Automatische Erstellung von Zubehör, das nur mit dem zenSDK funktioniert** : Die Geräte der Mix-Serie und beide Smart Meter (siehe unten) haben keinen bekannten Cloud-Produktschlüssel und können daher nicht aus der Cloud-Geräteliste erstellt werden. Der Adapter erstellt sie stattdessen direkt anhand ihrer mDNS-Ankündigung und verwendet dabei ihre Seriennummer als internen Geräteschlüssel.

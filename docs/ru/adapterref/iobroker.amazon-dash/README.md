@@ -20,7 +20,7 @@ hash: 7wPN7i5z+TNqw3EsGcAXoWBEo+lNXSGf55/S/GX9Y7M=
 
 ## Шаги
 
-1. Установить`libpcap-dev` :
+1. Установить `libpcap-dev`:
 
 `sudo apt-get install libpcap-dev`
 

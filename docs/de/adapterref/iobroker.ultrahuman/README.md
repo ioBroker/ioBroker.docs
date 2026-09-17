@@ -36,7 +36,7 @@ Dieser Adapter liest Gesundheitsmetriken von Ihrem **Ultrahuman Ring** über die
 
 Quellcode: [GitHub](https://github.com/SmarterPapa/ioBroker.ultrahuman)
 
-**Betreuer:** [Vertrauenswürdige Herausgeber](https://docs.npmjs.com/trusted-publishers) aktivieren für`iobroker.ultrahuman` (dieses GitHub-Repository). Releases verwenden`ioBroker/testing-action-deploy@v1` auf **Node.js 24** nur mit OIDC (kein`npm-token` Siehe [testing-action-deploy#19](https://github.com/ioBroker/testing-action-deploy/issues/19) .
+**Betreuer:** [Vertrauenswürdige Herausgeber](https://docs.npmjs.com/trusted-publishers) aktivieren für `iobroker.ultrahuman` (dieses GitHub-Repository). Releases verwenden `ioBroker/testing-action-deploy@v1` auf **Node.js 24** nur mit OIDC (kein `npm-token` Siehe [testing-action-deploy#19](https://github.com/ioBroker/testing-action-deploy/issues/19) .
 
 ### Installation
 
@@ -121,7 +121,7 @@ API-Integration basierend auf [ultrahuman-dashboard](https://github.com/mt-krain
 
 ### 0.1.12 (2026-04-10)
 
-* **0.1.12:** `testing-action-deploy@v1` with **`npm-token`** again (OIDC-only path breaks on `ubuntu-latest` during global npm upgrade); README documents **W3019** trade-off
+* **0.1.12:** `testing-action-deploy@v1` with ** `npm-token` ** again (OIDC-only path breaks on `ubuntu-latest` during global npm upgrade); README documents **W3019** trade-off
 * `common.news` trimmed to seven entries (W1032); **0.1.3** moved to history only via [CHANGELOG_OLD.md](https://github.com/SmarterPapa/ioBroker.ultrahuman/blob/main/CHANGELOG_OLD.md)
 
 ### 0.1.11 (2026-04-09)

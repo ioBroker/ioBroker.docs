@@ -124,7 +124,7 @@ Mit Sprachbefehlen können Sie Aktionen auf Ihrem Alexa-Gerät auslösen. Wenn S
 
 Detaillierte Informationen zu Sprachausgabe und Ansage: Geben Sie hier ein, was Alexa sagen soll. Sie können die Lautstärke von Alexa anpassen, indem Sie vor Ihrem Text einen Prozentwert angeben. Beispiel: 10; Alexa spricht mit 10 % Lautstärke, 100; Alexa spricht mit 100 % Lautstärke. Normalerweise können Sie nur 250 Zeichen pro Sprachbefehl senden. Mit einem Semikolon können Sie beliebig viel schreiben, solange Sie die 250 Zeichen durch ein Semikolon trennen. Alexa spricht den Text dann nacheinander mit einer kurzen Pause aus. Sie können die Lautstärke auch mit mehreren 255-Zeichen-Blöcken kombinieren, indem Sie #Lautstärke;#Block1;#Block2 usw. eingeben. Eine hier festgelegte Lautstärke wird über einer definierten Sprechlautstärke verwendet.
 
-Teilweise funktionieren auch Sounds von <https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html> . Geben Sie dies in speak oder ssml an.`<audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_groan_roar_01"/>` Weitere Details und Diskussionen finden Sie unter <https://forum.iobroker.net/topic/27509/ssml-audio>
+Teilweise funktionieren auch Sounds von <https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html> . Geben Sie dies in speak oder ssml an. `<audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_groan_roar_01"/>` Weitere Details und Diskussionen finden Sie unter <https://forum.iobroker.net/topic/27509/ssml-audio>
 
 ### alexa2.0.Echo-Geräte.Seriennummer.FireTVBefehle.\*
 
@@ -518,7 +518,7 @@ Bei einigen Benutzern kann es bei der erstmaligen Konfiguration des Adapters zu 
 
 Wenn diese Werte nicht angepasst werden, funktionieren Authentifizierung und Cookies möglicherweise, es kommt jedoch beim Abrufen Ihrer Geräte zu Fehlern, die zu Adapterstartfehlern führen und ein Beendigungssignal TERMINATE\_YOURSELF auslösen.
 
-Um die regionalen Endpunkte zu korrigieren, gehen Sie zu`Instances > alexa2.x > Settings > Cookie` und konfigurieren Sie die Werte wie folgt.
+Um die regionalen Endpunkte zu korrigieren, gehen Sie zu `Instances > alexa2.x > Settings > Cookie` und konfigurieren Sie die Werte wie folgt.
 
 | Region / Land             | Alexa-Basis-URL   | Accept-Sprache | Amazon-URL-Cookie |
 | ------------------------- | ----------------- | -------------- | ----------------- |

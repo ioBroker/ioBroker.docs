@@ -61,7 +61,7 @@ Zwei Verbindungsmodi (unabhängig konfigurierbar):
 - CO2-Einsparungsverfolgung (Cloud)
 - Befehle: Leistungsbegrenzung (2–100 %), Wechselrichter ein/aus/neu starten, DTU-Neustart, Leistungsfaktorbegrenzung, Blindleistungsbegrenzung, Warnungen bereinigen, Erdschluss beheben, Wechselrichter sperren/entsperren
 - Alarm- und Warnüberwachung (223 Codes, lokalisiert in allen 11 Sprachen)
-- Staatsqualität (`q` ): Markiert Daten bei Verbindungsabbruch als veraltet, dient als Ersatz für Cloud-Fallback und wird bei erneuter Verbindung automatisch zurückgesetzt.
+- Staatsqualität (`q`): Markiert Daten bei Verbindungsabbruch als veraltet, dient als Ersatz für Cloud-Fallback und wird bei erneuter Verbindung automatisch zurückgesetzt.
 - 5-minütige Leerlaufzeitüberschreitung mit automatischer Wiederverbindung
 - Netzwerkerkennungsmodul für ioBroker.discovery
 - TypeScript, ESLint, Prettier, GitHub CI/CD
@@ -142,7 +142,7 @@ Dieser Adapter unterstützt mehrere Wechselrichter in einer einzigen Instanz:
 - **Lokal:** Mehrere DTU-IP-Adressen in der Gerätetabelle hinzufügen
 - **Cloud:** Alle Wechselrichter und Stationen in Ihrem Konto werden automatisch erkannt
 
-Jede DTU erstellt einen Geräteknoten, indem sie ihre Seriennummer als ID verwendet (z. B.`hoymiles.0.4143A01CEDE4.*` Cloud-Stationen erstellen aggregierte Geräteknoten (z. B.`hoymiles.0.station-12345.*` ).
+Jede DTU erstellt einen Geräteknoten, indem sie ihre Seriennummer als ID verwendet (z. B. `hoymiles.0.4143A01CEDE4.*` Cloud-Stationen erstellen aggregierte Geräteknoten (z. B. `hoymiles.0.station-12345.*`).
 
 ## Changelog
 

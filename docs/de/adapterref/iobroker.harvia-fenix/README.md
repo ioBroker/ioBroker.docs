@@ -44,7 +44,7 @@ Der Adapter ist im offiziellen ioBroker-Repository verfügbar. Sie können ihn d
 
 ### Über ioBroker Admin
 
-1. Öffnen Sie die Weboberfläche Ihres ioBrokers in einem Browser (z. B.`192.168.1.33:8081` ).
+1. Öffnen Sie die Weboberfläche Ihres ioBrokers in einem Browser (z. B. `192.168.1.33:8081`).
 2. Klicken Sie auf die Registerkarte **Adapter** .
 3. Geben Sie "harvia-fenix" in den Filter ein.
 4. Klicken Sie auf die drei Punkte und anschließend auf das "+"-Symbol des **Harvia Fenix-** Adapters, um eine Instanz hinzuzufügen.
@@ -67,8 +67,8 @@ _Hinweis: Wir empfehlen, ein separates Konto für ioBroker in der Harvia 2-App e
 
 ### ioBroker-Konfiguration
 
-1. Öffnen Sie Ihre ioBroker-Oberfläche in einem Browser (z. B.`192.168.1.33:8081` ).
-2. Navigieren Sie zu Tab- **Instanzen** und klicken Sie auf das Einstellungssymbol Ihres`harvia-fenix.0` Beispiel.
+1. Öffnen Sie Ihre ioBroker-Oberfläche in einem Browser (z. B. `192.168.1.33:8081`).
+2. Navigieren Sie zu Tab- **Instanzen** und klicken Sie auf das Einstellungssymbol Ihres `harvia-fenix.0` Beispiel.
 3. Geben Sie Ihre **E-Mail-Adresse** und **Ihr Passwort** für Ihr MyHarvia-Konto ein.
 4. Wenn Sie das Feld **„Geräte-ID“** leer lassen, sucht der Adapter beim Start automatisch nach Geräten, die mit Ihrem Konto verknüpft sind. Das erste gefundene Gerät wird als aktive Einheit verwendet.
 5. Optionale Parameter anpassen: **Abfrageintervall** (Sekunden), **Minimale/Maximale Zieltemperaturgrenzen** (°C) und **Maximale Heizdauer** (Minuten).
@@ -88,7 +88,7 @@ Für die meisten Nutzer mit einer einzelnen Sauna ist die automatische Erkennung
 
 Wenn Ihr MyHarvia-Konto mehrere Steuereinheiten verwaltet (z. B. eine zu Hause und eine im Ferienhaus):
 
-1. Erstellen Sie für jede Sauna eine separate Instanz des Adapters (z. B.`harvia-fenix.0` Und`harvia-fenix.1` ).
+1. Erstellen Sie für jede Sauna eine separate Instanz des Adapters (z. B. `harvia-fenix.0` Und `harvia-fenix.1`).
 2. Geben Sie die jeweilige **Geräte-ID** für jede Einheit manuell in der zugehörigen Instanzkonfiguration ein. Dadurch können Sie beide Saunen unabhängig voneinander mit ihren eigenen Datenpunkten überwachen und steuern.
 
 ### Gemeinsame Konten / Gastkonten & Die Partner-ID
@@ -102,7 +102,7 @@ Wenn Sie den Adapter mit dem primären MyHarvia-Konto konfigurieren (dem Konto, 
 
 #### 🟡 Szenario: Gemeinsam genutztes/Gastkonto (z. B. dediziertes ioBroker-Konto)
 
-Wenn die Sauna über die MyHarvia 2-App vom Konto des Besitzers auf ein zweites Gastkonto freigegeben wurde, gibt der automatische Erkennungsendpunkt von Harvia eine leere Geräteliste zurück (`{"devices":[]}` ) für Gast-Tokens.
+Wenn die Sauna über die MyHarvia 2-App vom Konto des Besitzers auf ein zweites Gastkonto freigegeben wurde, gibt der automatische Erkennungsendpunkt von Harvia eine leere Geräteliste zurück (`{"devices":[]}`) für Gast-Tokens.
 
 In diesem Szenario müssen Sie sowohl die **Geräte-ID** als auch die **Partner-ID des Besitzers** **manuell in den Adaptereinstellungen angeben** :
 
@@ -111,7 +111,7 @@ In diesem Szenario müssen Sie sowohl die **Geräte-ID** als auch die **Partner-
 1. Geben Sie in der Adapterkonfiguration vorübergehend die Anmeldeinformationen des **primären/Besitzer-Kontos** ein und klicken Sie auf **Speichern** .
 2. Öffnen Sie das ioBroker-Protokoll. Der Adapter verbindet sich sofort und gibt Zeilen aus, die beide IDs enthalten:
    - `Found device: ... (ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)` ➡️ Dies ist Ihre **Geräte-ID** .
-   - `Using partner ID from user token: ORG/prod:0:6656` ➡️ Dies ist Ihre **Partner-ID** (in der Regel`ORG/prod:0:6656` oder`ORG/prod:0:6656:0` ).
+   - `Using partner ID from user token: ORG/prod:0:6656` ➡️ Dies ist Ihre **Partner-ID** (in der Regel `ORG/prod:0:6656` oder `ORG/prod:0:6656:0`).
 3. Kopiere beide Werte.
 4. Öffnen Sie die Konfiguration erneut, wechseln Sie zurück zu Ihren **Gastkonto-** Zugangsdaten, fügen Sie die kopierte **Geräte-ID** und **Partner-ID** in die entsprechenden optionalen Felder ein und klicken Sie auf **Speichern & Schließen** .
 
@@ -128,39 +128,39 @@ Das Gastkonto kann die Gemeinschaftssauna nun direkt und zuverlässig steuern!
 
 ## Verwendung
 
-Der Adapter bildet die Cloud-Zustände Ihrer Sauna auf strukturierte ioBroker-Datenpunkte ab.`harvia-fenix.0.*` Die
+Der Adapter bildet die Cloud-Zustände Ihrer Sauna auf strukturierte ioBroker-Datenpunkte ab. `harvia-fenix.0.*` Die
 
 ### Verfügbare Datenpunkte
 
 | Datenpunkt                      | Typ             | Rolle                 | Zugang          | Beschreibung                                                                                                                                                                                                         |
 | ------------------------------- | --------------- | --------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `info.connection`               | boolescher Wert | `indicator`           | Nur lesbar      | Verbindungsstatus des Adapters zur MyHarvia Cloud.                                                                                                                                                                   |
-| `info.minTemp`                  | Nummer          | `value.temperature`   | Nur lesbar      | Mindestzieltemperaturgrenze (`40 °C` ).                                                                                                                                                                              |
-| `info.maxTemp`                  | Nummer          | `value.temperature`   | Nur lesbar      | Maximale Zieltemperaturgrenze (`110 °C` ).                                                                                                                                                                           |
-| `info.avgHeatingRate`           | Nummer          | `value`               | Nur lesbar      | Historische durchschnittliche Aufheizrate in °C pro Minute (`°C/min` ).                                                                                                                                              |
-| `info.heatingAnomaly`           | boolescher Wert | `indicator`           | Nur lesbar      | Kurven`true` wenn die Heizleistung im laufenden Betrieb deutlich vom historischen Durchschnitt abweicht (zu langsam oder zu schnell).                                                                                |
-| `info.heatingAnomalyType`       | Zeichenkette    | `text`                | Nur lesbar      | Art der Anomalie:`'none'` (Normal),`'too_slow'` (unter 50 % des Durchschnitts) oder`'too_fast'` (über 180 % des Durchschnitts).                                                                                      |
+| `info.minTemp`                  | Nummer          | `value.temperature`   | Nur lesbar      | Mindestzieltemperaturgrenze (`40 °C`).                                                                                                                                                                              |
+| `info.maxTemp`                  | Nummer          | `value.temperature`   | Nur lesbar      | Maximale Zieltemperaturgrenze (`110 °C`).                                                                                                                                                                           |
+| `info.avgHeatingRate`           | Nummer          | `value`               | Nur lesbar      | Historische durchschnittliche Aufheizrate in °C pro Minute (`°C/min`).                                                                                                                                              |
+| `info.heatingAnomaly`           | boolescher Wert | `indicator`           | Nur lesbar      | Kurven `true` wenn die Heizleistung im laufenden Betrieb deutlich vom historischen Durchschnitt abweicht (zu langsam oder zu schnell).                                                                                |
+| `info.heatingAnomalyType`       | Zeichenkette    | `text`                | Nur lesbar      | Art der Anomalie: `'none'` (Normal), `'too_slow'` (unter 50 % des Durchschnitts) oder `'too_fast'` (über 180 % des Durchschnitts).                                                                                      |
 | `info.heatingAnomalyDesc`       | Zeichenkette    | `text`                | Nur lesbar      | Für Menschen verständliche Diagnosebeschreibung und empfohlene Schritte zur Fehlerbehebung.                                                                                                                          |
-| `estimatedHeatingTimeRemaining` | Nummer          | `value.interval`      | Nur lesbar      | Geschätzte verbleibende Aufheizzeit in Minuten bis zum Erreichen der Zieltemperatur (`min` ).                                                                                                                        |
+| `estimatedHeatingTimeRemaining` | Nummer          | `value.interval`      | Nur lesbar      | Geschätzte verbleibende Aufheizzeit in Minuten bis zum Erreichen der Zieltemperatur (`min`).                                                                                                                        |
 | `online`                        | boolescher Wert | `indicator.reachable` | Nur lesbar      | Verbindungsstatus der Steuereinheit zur Cloud.                                                                                                                                                                       |
-| `doorSafety`                    | boolescher Wert | `indicator.safety`    | Nur lesbar      | Status der Sicherheitsschleife (z. B.`true` (wenn die Tür sicher ist / sicher zu bedienen).                                                                                                                          |
-| `remoteControl`                 | boolescher Wert | `indicator`           | Nur lesbar      | Bereitschaftsstatus für Fernstart. Wenn`false` Das ferngesteuerte Starten der Heizung (über den Adapter) ist blockiert.                                                                                              |
+| `doorSafety`                    | boolescher Wert | `indicator.safety`    | Nur lesbar      | Status der Sicherheitsschleife (z. B. `true` (wenn die Tür sicher ist / sicher zu bedienen).                                                                                                                          |
+| `remoteControl`                 | boolescher Wert | `indicator`           | Nur lesbar      | Bereitschaftsstatus für Fernstart. Wenn `false` Das ferngesteuerte Starten der Heizung (über den Adapter) ist blockiert.                                                                                              |
 | `errorMsg`                      | Zeichenkette    | `text`                | Nur lesbar      | Aktuelle Fehlermeldungen oder Statusmeldungen vom Heizgerät.                                                                                                                                                         |
-| `heatOn`                        | boolescher Wert | `switch.power`        | Lesen/Schreiben | Hauptschalter zum Einschalten der Saunaheizung (`true` ) oder AUS (`false` ).                                                                                                                                        |
-| `heaterPower`                   | Nummer          | `value.power`         | Nur lesbar      | _Hinweis:_ Dieses Objekt wird von der MyHarvia-API-Struktur bereitgestellt, wird aber derzeit wie folgt ausgeliefert:`0 kW` (nicht belegt). Es scheint für zukünftige Hardware- oder App-Updates reserviert zu sein. |
+| `heatOn`                        | boolescher Wert | `switch.power`        | Lesen/Schreiben | Hauptschalter zum Einschalten der Saunaheizung (`true`) oder AUS (`false`).                                                                                                                                        |
+| `heaterPower`                   | Nummer          | `value.power`         | Nur lesbar      | _Hinweis:_ Dieses Objekt wird von der MyHarvia-API-Struktur bereitgestellt, wird aber derzeit wie folgt ausgeliefert: `0 kW` (nicht belegt). Es scheint für zukünftige Hardware- oder App-Updates reserviert zu sein. |
 | `lightOn`                       | boolescher Wert | `switch.light`        | Lesen/Schreiben | Mit diesem Schalter kann die integrierte Saunabeleuchtung ein- oder ausgeschaltet werden.                                                                                                                            |
-| `maxDuration`                   | Nummer          | `level.timer`         | Lesen/Schreiben | Maximal zulässige Heizdauer für den Saunagang in Minuten (`min` ).                                                                                                                                                   |
+| `maxDuration`                   | Nummer          | `level.timer`         | Lesen/Schreiben | Maximal zulässige Heizdauer für den Saunagang in Minuten (`min`).                                                                                                                                                   |
 | `panelTemp`                     | Nummer          | `value.temperature`   | Nur lesbar      | Die Temperaturanzeige erfolgte am physischen Bedienfeld.                                                                                                                                                             |
-| `targetTemp`                    | Nummer          | `level.temperature`   | Lesen/Schreiben | Zieltemperaturvorgabe für die Saunakabine (z. B.`90 °C` ).                                                                                                                                                           |
-| `temp`                          | Nummer          | `value.temperature`   | Nur lesbar      | Die aktuelle Umgebungstemperatur im Inneren der Saunakabine (z. B.`17 °C` ).                                                                                                                                         |
-| `readyNotified10Min`            | boolescher Wert | `indicator`           | Nur lesbar      | Kurven`true` wenn die Sauna noch etwa 10 Minuten von der Zieltemperatur entfernt ist (13°C unter der Zieltemperatur).                                                                                                |
-| `targetReachedNotified`         | boolescher Wert | `indicator`           | Nur lesbar      | Kurven`true` wenn die Sauna die eingestellte Zieltemperatur erfolgreich erreicht hat.                                                                                                                                |
-| `totalBathingHours`             | Nummer          | `value.number`        | Nur lesbar      | Gesamte historische kumulierte Betriebsstunden der Sauna (`h` ).                                                                                                                                                     |
-| `totalOperatingHours`           | Nummer          | `value.hours`         | Nur lesbar      | Gesamtbetriebsstunden des Systems (`h` ).                                                                                                                                                                            |
+| `targetTemp`                    | Nummer          | `level.temperature`   | Lesen/Schreiben | Zieltemperaturvorgabe für die Saunakabine (z. B. `90 °C`).                                                                                                                                                           |
+| `temp`                          | Nummer          | `value.temperature`   | Nur lesbar      | Die aktuelle Umgebungstemperatur im Inneren der Saunakabine (z. B. `17 °C`).                                                                                                                                         |
+| `readyNotified10Min`            | boolescher Wert | `indicator`           | Nur lesbar      | Kurven `true` wenn die Sauna noch etwa 10 Minuten von der Zieltemperatur entfernt ist (13°C unter der Zieltemperatur).                                                                                                |
+| `targetReachedNotified`         | boolescher Wert | `indicator`           | Nur lesbar      | Kurven `true` wenn die Sauna die eingestellte Zieltemperatur erfolgreich erreicht hat.                                                                                                                                |
+| `totalBathingHours`             | Nummer          | `value.number`        | Nur lesbar      | Gesamte historische kumulierte Betriebsstunden der Sauna (`h`).                                                                                                                                                     |
+| `totalOperatingHours`           | Nummer          | `value.hours`         | Nur lesbar      | Gesamtbetriebsstunden des Systems (`h`).                                                                                                                                                                            |
 | `totalSessions`                 | Nummer          | `value.count`         | Nur lesbar      | Zähler für die Gesamtzahl der durchgeführten Sauna-Heizvorgänge.                                                                                                                                                     |
-| `readyAt`                       | Zeichenkette    | `text`                | Nur lesbar      | Geschätzter Zeitpunkt des Tages, zu dem die Zieltemperatur erreicht wird (z. B.`17:57` ).                                                                                                                            |
-| `readyAtMessage`                | Zeichenkette    | `text`                | Nur lesbar      | Für Menschen lesbare Bereitschaftsmeldung (z. B.`Ready at 17:57 if turned on now` ).                                                                                                                                 |
-| `timeToTargetFormatted`         | Zeichenkette    | `text`                | Nur lesbar      | Formatierte Zeit, die benötigt wird, um die Zieltemperatur zu erreichen (z. B.`39 min 30 sec` ).                                                                                                                     |
+| `readyAt`                       | Zeichenkette    | `text`                | Nur lesbar      | Geschätzter Zeitpunkt des Tages, zu dem die Zieltemperatur erreicht wird (z. B. `17:57`).                                                                                                                            |
+| `readyAtMessage`                | Zeichenkette    | `text`                | Nur lesbar      | Für Menschen lesbare Bereitschaftsmeldung (z. B. `Ready at 17:57 if turned on now`).                                                                                                                                 |
+| `timeToTargetFormatted`         | Zeichenkette    | `text`                | Nur lesbar      | Formatierte Zeit, die benötigt wird, um die Zieltemperatur zu erreichen (z. B. `39 min 30 sec`).                                                                                                                     |
 | `heatingCurve`                  | Zeichenkette    | `json`                | Nur lesbar      | JSON-Array mit Intervall-Heizsekunden pro 10°C-Abschnitt für Diagramme/VIS.                                                                                                                                          |
 | `profiles`                      | Zeichenkette    | `json`                | Nur lesbar      | JSON-Array mit verfügbaren Saunaprofilen (z. B. Cozy usw.).                                                                                                                                                          |
 | `activeProfile`                 | Nummer          | `level`               | Lesen/Schreiben | Übersicht der aktuell aktiven Saunaprofile.                                                                                                                                                                          |
@@ -171,12 +171,12 @@ Der Adapter bildet die Cloud-Zustände Ihrer Sauna auf strukturierte ioBroker-Da
 
 ### 1. Adaptive Heizungsprognose und Anomalieerkennung
 
-- **Gelernte Heizdauer (`estimatedHeatingTimeRemaining` &`info.avgHeatingRate` ):**\
+- **Gelernte Heizdauer (`estimatedHeatingTimeRemaining` &`info.avgHeatingRate`):**\
   &#x20;Der Adapter lernt die Aufheizrate Ihrer Kabine (°C pro Minute). Während einer aktiven Sitzung kombiniert er historische Leistungsdaten mit dem aktuellen Temperaturverlauf, um die verbleibende Aufheizzeit präzise zu berechnen.
-- **Bidirektionale Anomalieerkennung (`info.heatingAnomaly` ,`info.heatingAnomalyType` ,`info.heatingAnomalyDesc` ):**\
+- **Bidirektionale Anomalieerkennung (`info.heatingAnomaly`, `info.heatingAnomalyType`, `info.heatingAnomalyDesc`):**\
   &#x20;Nach mindestens 10 Minuten aktiver Erwärmung vergleicht der Adapter die aktuelle Aufheizrate mit dem gelernten historischen Durchschnitt:
-  - **Zu langsam (`too_slow` ):** Wenn die Heizleistung unter 50 % des Durchschnittswerts sinkt (z. B. durch eine offene Tür oder einen Ausfall des Heizelements),`info.heatingAnomaly` wechselt zu`true` Die
-  - **Zu schnell (`too_fast` ):** Wenn die tatsächliche Erwärmung 180 % des Durchschnittswerts übersteigt (z. B. durch einen verschobenen Temperatursensor, eine Wärmeansammlung am Sensor oder ein klemmendes Relais),`info.heatingAnomaly` wechselt zu`true` Die
+  - **Zu langsam (`too_slow`):** Wenn die Heizleistung unter 50 % des Durchschnittswerts sinkt (z. B. durch eine offene Tür oder einen Ausfall des Heizelements), `info.heatingAnomaly` wechselt zu `true` Die
+  - **Zu schnell (`too_fast`):** Wenn die tatsächliche Erwärmung 180 % des Durchschnittswerts übersteigt (z. B. durch einen verschobenen Temperatursensor, eine Wärmeansammlung am Sensor oder ein klemmendes Relais), `info.heatingAnomaly` wechselt zu `true` Die
   - `info.heatingAnomalyDesc` Bietet für Menschen lesbare Diagnosedetails für Push-Benachrichtigungen oder Dashboards.
 
 ### 2. Benachrichtigungen (Push-Trigger)
@@ -203,18 +203,18 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 });
 ```
 
-_Hinweis: Diese Zustände werden automatisch zurückgesetzt auf`false` wenn die Heizung ausgeschaltet wird oder wenn eine neue Heizperiode beginnt._
+_Hinweis: Diese Zustände werden automatisch zurückgesetzt auf `false` wenn die Heizung ausgeschaltet wird oder wenn eine neue Heizperiode beginnt._
 
 ---
 
 ## Fehlerbehebung
 
-### Häufige API-Fehler und Statusmeldungen in`errorMsg`
+### Häufige API-Fehler und Statusmeldungen in `errorMsg`
 
-- **`Action blocked (403 Forbidden). Remote start authorization (Safety Loop) at panel might not be active.`**
+- ** `Action blocked (403 Forbidden). Remote start authorization (Safety Loop) at panel might not be active.` **
   - **Grund:** Die europäische Sicherheitsnorm verlangt, dass der Fernstart nur aktiviert werden kann, wenn der Sicherheitskreis/Türsensor geschlossen ist und der Fernstart am Saunabedienfeld physisch aktiviert wurde.
   - **Lösung:** Schließen Sie die Saunatür und drücken Sie die Taste **„Fernstart“** an Ihrem Harvia-Bedienfeld. Das Fernbedienungssymbol auf dem Bildschirm muss aktiv sein. Anschließend können Sie die Sauna über den Adapter steuern.
-- **`Cloud lock: Device busy, command discarded.`(Als Debug protokolliert)**
+- ** `Cloud lock: Device busy, command discarded.`(Als Debug protokolliert)**
   - **Grund:** Die API von Harvia begrenzt die Anzahl der Befehle, die in schneller Folge gesendet werden (z. B. durch schnelles Klicken in der Benutzeroberfläche), um die Hardware zu schützen.
   - **Lösung:** Warten Sie einige Sekunden zwischen den Befehlen. Der Adapter verwirft automatisch Befehle, die zu schnell gesendet werden, um eine Blockierung der API zu verhindern.
 

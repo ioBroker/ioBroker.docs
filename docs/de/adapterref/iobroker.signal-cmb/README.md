@@ -27,8 +27,8 @@ _Die folgende Dokumentation wurde von [der CallMeBot](https://www.callmebot.com/
 Sie müssen den API-Schlüssel vom Bot erhalten, bevor Sie die API verwenden können:
 
 - Fügen Sie die Telefonnummer des CallMeBot zu Ihren Telefonkontakten hinzu (benennen Sie sie nach Belieben). Die Telefonnummer finden Sie hier: <https://www.callmebot.com/blog/free-api-signal-send-messages/>
-- Sende diese Nachricht`I allow callmebot to send me messages` (auf Englisch) an den neu erstellten Kontakt (natürlich über Signal).<br> Wenn Sie im „Testlink“ eine GUID erhalten, können Sie diese GUID anstelle Ihrer Telefonnummer im Adapter verwenden. Sie können auch senden<br> die Botschaft`I allow callmebot to send me messages` Wiederum. Normalerweise sollte Ihre Telefonnummer jetzt im Link angezeigt werden und Sie können Ihre Telefonnummer im Adapter verwenden.
-- Warten Sie, bis Sie die Nachricht erhalten.`API Activated for your phone number. Your APIKEY is 123123` vom Bot. Da sich dies noch in der Beta-Testphase befindet, kann die Aktivierung bis zu 2 Minuten dauern.
+- Sende diese Nachricht `I allow callmebot to send me messages` (auf Englisch) an den neu erstellten Kontakt (natürlich über Signal).<br> Wenn Sie im „Testlink“ eine GUID erhalten, können Sie diese GUID anstelle Ihrer Telefonnummer im Adapter verwenden. Sie können auch senden<br> die Botschaft `I allow callmebot to send me messages` Wiederum. Normalerweise sollte Ihre Telefonnummer jetzt im Link angezeigt werden und Sie können Ihre Telefonnummer im Adapter verwenden.
+- Warten Sie, bis Sie die Nachricht erhalten. `API Activated for your phone number. Your APIKEY is 123123` vom Bot. Da sich dies noch in der Beta-Testphase befindet, kann die Aktivierung bis zu 2 Minuten dauern.
 - Die Signalnachricht des Bots enthält den API-Schlüssel, der zum Senden von Nachrichten über die API benötigt wird.
 - Sie können den API-Schlüssel nun in der ioBroker-Konfiguration verwenden.
 
@@ -38,7 +38,7 @@ Beispiel:![Beispiel](../../../en/adapterref/iobroker.signal-cmb/img/signal.jpg)
 
 Es gibt zwei Möglichkeiten, Nachrichten zu senden: ACHTUNG! Es wurde festgestellt, dass CallMeBot einen Benutzer für 15 Minuten sperrt, wenn mehrere Nachrichten innerhalb einer Sekunde gesendet werden. Daher muss sichergestellt werden, dass nur eine Nachricht pro Sekunde gesendet wird.
 
-- über`signal-cmb.0.sendMessage` Geben Sie einfach einen Text in dieses Feld ein, und die Nachricht wird an die in den Einstellungen konfigurierte Standardnummer gesendet.
+- über `signal-cmb.0.sendMessage` Geben Sie einfach einen Text in dieses Feld ein, und die Nachricht wird an die in den Einstellungen konfigurierte Standardnummer gesendet.
 - per Nachricht vom JavaScript-Adapter:
 
 ```

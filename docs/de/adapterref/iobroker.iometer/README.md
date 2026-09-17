@@ -36,9 +36,9 @@ Installieren Sie diesen Adapter über ioBroker Admin:
 
 ### IOmeter-IP-Adresse
 
-Die lokale IP-Adresse Ihres IOmeter-Geräts (z. B.`192.168.1.100` Diese Information finden Sie in den Geräteinformationen der IOmeter-App.
+Die lokale IP-Adresse Ihres IOmeter-Geräts (z. B. `192.168.1.100` Diese Information finden Sie in den Geräteinformationen der IOmeter-App.
 
-Der Adapter wird angeschlossen an`http://<ip>/v1/reading` Und`http://<ip>/v1/status` via SSE. Beide Datenströme werden automatisch wieder verbunden, falls die Verbindung abbricht.
+Der Adapter wird angeschlossen an `http://<ip>/v1/reading` Und `http://<ip>/v1/status` via SSE. Beide Datenströme werden automatisch wieder verbunden, falls die Verbindung abbricht.
 
 ## Staaten
 
@@ -50,14 +50,14 @@ Staatliche Kennungen folgen folgendem Format:
 iometer.<instance>.<channel>-<meterNumber>.<state>
 ```
 
-- `<instance>` — ioBroker-Adapterinstanzindex (normalerweise`0` )
-- `<channel>` - entweder`reading` (Zählerdaten),`device` (Hardwarestatus) oder`info` (Verbindungsstatus)
-- `<meterNumber>` — die vom Gerät gemeldete Seriennummer des Zählers (z. B.`1ISK04051904` )
+- `<instance>` — ioBroker-Adapterinstanzindex (normalerweise `0`)
+- `<channel>` - entweder `reading` (Zählerdaten), `device` (Hardwarestatus) oder `info` (Verbindungsstatus)
+- `<meterNumber>` — die vom Gerät gemeldete Seriennummer des Zählers (z. B. `1ISK04051904`)
 - `<state>` — der einzelne Datenpunkt (siehe unten)
 
-### Lesekanal (`reading-<meterNumber>` )
+### Lesekanal (`reading-<meterNumber>`)
 
-Bevölkert aus dem`/v1/reading` SSE-Stream (Ereignistyp)`readingEvent` ).
+Bevölkert aus dem `/v1/reading` SSE-Stream (Ereignistyp) `readingEvent`).
 
 | Zustand              | Typ    | Einheit | Rolle                   | Beschreibung                                                                                                                                         |
 | -------------------- | ------ | ------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -70,9 +70,9 @@ Bevölkert aus dem`/v1/reading` SSE-Stream (Ereignistyp)`readingEvent` ).
 | `energy_imported_t1` | Nummer | kWh     | `value.energy.consumed` | Importierte Energie — Tarif 1                                                                                                                        |
 | `energy_imported_t2` | Nummer | kWh     | `value.energy.consumed` | Importierte Energie – Tarif 2                                                                                                                        |
 
-### Gerätekanal (`device-<meterNumber>` )
+### Gerätekanal (`device-<meterNumber>`)
 
-Bevölkert aus dem`/v1/status` SSE-Stream (Ereignistyp)`statusEvent` ).
+Bevölkert aus dem `/v1/status` SSE-Stream (Ereignistyp) `statusEvent`).
 
 | Zustand             | Typ          | Einheit | Rolle           | Beschreibung                                           |
 | ------------------- | ------------ | ------- | --------------- | ------------------------------------------------------ |
@@ -83,14 +83,14 @@ Bevölkert aus dem`/v1/status` SSE-Stream (Ereignistyp)`statusEvent` ).
 | `core_rssi`         | Nummer       | dBm     | `value`         | HF-Signalstärke zwischen Kern und Brücke               |
 | `core_firmware`     | Zeichenkette | —       | `info.firmware` | Firmware-Version des Kernmoduls                        |
 | `battery_level`     | Nummer       | %       | `value.battery` | Batteriestand des Kernmoduls                           |
-| `power_status`      | Zeichenkette | —       | `info.status`   | Zustand der Stromversorgung (z. B.`wired` ,`battery` ) |
+| `power_status`      | Zeichenkette | —       | `info.status`   | Zustand der Stromversorgung (z. B. `wired`, `battery`) |
 | `attachment_status` | Zeichenkette | —       | `info.status`   | Anbindungsstatus des Kernmoduls                        |
 
 ### Verbindungsstatus
 
 | Zustand           | Beschreibung                                                |
 | ----------------- | ----------------------------------------------------------- |
-| `info.connection` | `true` wenn der Lesestream Daten empfängt,`false` ansonsten |
+| `info.connection` | `true` wenn der Lesestream Daten empfängt, `false` ansonsten |
 
 ## Changelog
 

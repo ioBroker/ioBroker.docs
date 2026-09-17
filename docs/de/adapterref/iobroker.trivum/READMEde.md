@@ -14,7 +14,7 @@ Der Adapter steuert ein trivum-Multiroom-Audiosystem über dessen lokale XML-API
 
 ## Konfiguration
 
-Die IPv4-Adresse des trivum MusicCenters eintragen. Zonen und Steuerungen werden automatisch erkannt. Abfrageintervall und HTTP-Timeout sind konfigurierbar; Bestehende Installationen behalten die historischen Konfigurationsschlüssel`adresse` und`option3` Die
+Die IPv4-Adresse des trivum MusicCenters eintragen. Zonen und Steuerungen werden automatisch erkannt. Abfrageintervall und HTTP-Timeout sind konfigurierbar; Bestehende Installationen behalten die historischen Konfigurationsschlüssel `adresse` und `option3` Die
 
 `Anzahl der Durchsage-Vorlagen` erzeugt globale Durchsage-Schaltflächen ab ID 0.
 
@@ -22,20 +22,20 @@ Die IPv4-Adresse des trivum MusicCenters eintragen. Zonen und Steuerungen werden
 
 Globale Steuerungen:
 
-- `Global.ALLOFF` : alle Zonen ausschalten
-- `Global.Aktive_zonen` : von trivum gemeldete aktive Zonen
-- `Global.PagingN` : Durchsage-Vorlage N starten
+- `Global.ALLOFF`: alle Zonen ausschalten
+- `Global.Aktive_zonen`: von trivum gemeldete aktive Zonen
+- `Global.PagingN`: Durchsage-Vorlage N starten
 
 Je erkannter Zone werden angelegt:
 
-- `Muten` : Stummschaltung ein-/ausschalten
-- `DEFAULT_STREAMING` : Standardstream starten
-- `ZONECMD_DEFAULT_TUNER` : Standardtuner starten
-- `VOLUME` : Lautstärke von 0 bis 100 Prozent lesen oder setzen
+- `Muten`: Stummschaltung ein-/ausschalten
+- `DEFAULT_STREAMING`: Standardstream starten
+- `ZONECMD_DEFAULT_TUNER`: Standardtuner starten
+- `VOLUME`: Lautstärke von 0 bis 100 Prozent lesen oder setzen
 - `ZONECMD_POWER_OFF` Zone ausschalten
-- `Status` : aktueller Zonenstatus
+- `Status`: aktueller Zonenstatus
 
-Schaltflächen werden nach erfolgreichem Aufruf automatisch zurückgesetzt.`info.connection` wird erst nach einer erfolgreichen Trivum-Antwort gesetzt;`info.lastError` enthält den letzten Kommunikationsfehler.
+Schaltflächen werden nach erfolgreichem Aufruf automatisch zurückgesetzt. `info.connection` wird erst nach einer erfolgreichen Trivum-Antwort gesetzt; `info.lastError` enthält den letzten Kommunikationsfehler.
 
 ## Lizenz
 

@@ -124,13 +124,13 @@ Dann ist go2rtsp erreichbar über
 http://IP:1984
 ```
 
-Dann kann man ein Stream hinzufügen. URL-адрес Die Stream findet man zB unter`onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+Dann kann man ein Stream hinzufügen. URL-адрес Die Stream findet man zB unter `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
 <img src="addgo.png" height="300">
 
 ### Stream als iFrame einfügen
 
-Виджет`iFrame` в der Vis hinzufügen und als Quelle den Stream Link von go2rtsp verwenden
+Виджет `iFrame` в der Vis hinzufügen und als Quelle den Stream Link von go2rtsp verwenden
 
 `http://192.168.178.1:1984/stream.html?src=camera&mode=webrtc`
 
@@ -154,7 +154,7 @@ Dann ist rtsptoweb erreichbar über
 http://IP:8083
 ```
 
-Dann kann man ein Stream hinzufügen. URL-адрес Die Stream findet man zB unter`onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+Dann kann man ein Stream hinzufügen. URL-адрес Die Stream findet man zB unter `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
 <img src="addstream.png" height="600">
 
@@ -168,7 +168,7 @@ Dann kann man ein Stream hinzufügen. URL-адрес Die Stream findet man zB un
 
 <img src="html.png" height="150">
 
-## **Wenn mehrere Stream hinzugefügt werden soll muss`webrtc-url` унд`webrtc-video` в формате html и скрипт с новым идентификатором ersetzt werden zB`webrtc-url2` унд`webrtc-video2`**
+## **Wenn mehrere Stream hinzugefügt werden soll muss `webrtc-url` унд `webrtc-video` в формате html и скрипт с новым идентификатором ersetzt werden zB `webrtc-url2` унд `webrtc-video2` **
 
 ```html
 <input
@@ -242,7 +242,7 @@ setTimeout(function () {
 
 ## Alle Streams als iFrame
 
-Альтернативный вариант, который можно использовать для обзора камеры как Iframe einfügen: Das Widget`iFrame` Рекомендации и другие сведения о сервере rtsp2web внутри:
+Альтернативный вариант, который можно использовать для обзора камеры как Iframe einfügen: Das Widget `iFrame` Рекомендации и другие сведения о сервере rtsp2web внутри:
 
 `http://192.168.0.2:8083/pages/multiview/full?controls`
 
@@ -266,11 +266,11 @@ setTimeout(function () {
 
 #### Den Datenpunkt актуализируется через onvif.0.IP\_PORT.remote.snapshot
 
-Den Datenpunkt onvif.0.IP\_PORT.snapshot ein`String img src` элемент зуорднен
+Den Datenpunkt onvif.0.IP\_PORT.snapshot ein `String img src` элемент зуорднен
 
-Oder als Alternative falls`String img src` nicht funktioniert
+Oder als Alternative falls `String img src` nicht funktioniert
 
-Den Datenpunkt onvif.0.IP\_PORT.snapshot als`HTML` элемент в умирании от einfügen mit folgendem Inhalt
+Den Datenpunkt onvif.0.IP\_PORT.snapshot als `HTML` элемент в умирании от einfügen mit folgendem Inhalt
 
 ```javascript
 <img src="{onvif.0.IP_PORT.snapshot}" width="500px" />

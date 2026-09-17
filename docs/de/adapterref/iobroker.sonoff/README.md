@@ -19,7 +19,7 @@ hash: dz3MPzIYcKLeDV62P+U0th7ufAFURanRp24L1wPkkpQ=
 
 ## Vergleich von ioBroker-Adaptern unter Verwendung des MQTT-Protokolls
 
-Wenn Sie nur Tasmotas haben, das das MQTT-Protokoll unterstützt, dann wählen Sie`ioBroker.sonoff` Für andere Szenarien sollten Sie die verschiedenen Optionen in Betracht ziehen:
+Wenn Sie nur Tasmotas haben, das das MQTT-Protokoll unterstützt, dann wählen Sie `ioBroker.sonoff` Für andere Szenarien sollten Sie die verschiedenen Optionen in Betracht ziehen:
 
 | Besonderheit                                        | ioBroker.sonoff           | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (im Broker-Modus) | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (im Client-Modus) | [ioBroker.mqtt-client](https://github.com/Pmant/ioBroker.mqtt-client/) |
 | --------------------------------------------------- | ------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
@@ -97,7 +97,7 @@ Folgende Themen werden erwartet:
 - `/DeviceNAME/SDS0X1/Longitude`
 - `/DeviceNAME/SR04/Distance`
 
-**Hinweis** : Die Liste kann problemlos erweitert werden. Bitte senden Sie uns Ihre Anfrage.`Pull Requests` oder _Debug-Daten_ für unbekannte Zustände an den Entwickler (über ein Ticket) weiterleiten.
+**Hinweis** : Die Liste kann problemlos erweitert werden. Bitte senden Sie uns Ihre Anfrage. `Pull Requests` oder _Debug-Daten_ für unbekannte Zustände an den Entwickler (über ein Ticket) weiterleiten.
 
 ## Brückenmodus
 
@@ -105,15 +105,15 @@ Standardmäßig verwendet der Adapter einen integrierten TCP-Broker, mit dem sic
 
 ### Konfiguration
 
-Aktivieren Sie in den Adaptereinstellungen **die Option „Externen MQTT-Broker verwenden“** und geben Sie **die URL des externen Brokers** auf die Adresse Ihres Brokers ein, z. B.`mqtt://192.168.1.10:1883` oder einfach`192.168.1.10:1883` Optional können Sie Benutzername und Passwort festlegen. Wenn diese Option deaktiviert ist (oder keine URL eingegeben wird), wird der integrierte Broker wie zuvor gestartet.
+Aktivieren Sie in den Adaptereinstellungen **die Option „Externen MQTT-Broker verwenden“** und geben Sie **die URL des externen Brokers** auf die Adresse Ihres Brokers ein, z. B. `mqtt://192.168.1.10:1883` oder einfach `192.168.1.10:1883` Optional können Sie Benutzername und Passwort festlegen. Wenn diese Option deaktiviert ist (oder keine URL eingegeben wird), wird der integrierte Broker wie zuvor gestartet.
 
-**Die Option „Zu abonnierende Themen“** definiert, welche Themen der Adapter standardmäßig überwacht.`tele/#, stat/#, +/tele/+, +/stat/+` Erweitern Sie diese Liste, wenn Ihre Geräte andere Themen verwenden, z. B. OpenBeken-Geräte, die Daten an folgende Adresse veröffentlichen:`<devicename>/...` oder ein globales Präfix im vollständigen Thema (`myPrefix/tele/#` ).
+**Die Option „Zu abonnierende Themen“** definiert, welche Themen der Adapter standardmäßig überwacht. `tele/#, stat/#, +/tele/+, +/stat/+` Erweitern Sie diese Liste, wenn Ihre Geräte andere Themen verwenden, z. B. OpenBeken-Geräte, die Daten an folgende Adresse veröffentlichen: `<devicename>/...` oder ein globales Präfix im vollständigen Thema (`myPrefix/tele/#`).
 
-Optional können Sie die beim Broker verwendete **Client-ID** festlegen (Standardwert).`iobroker_sonoff_<instance>` ), das **Keepalive-** Intervall und **die Clean-Session** . Deaktivieren Sie die Clean-Session, wenn der Broker die Nachrichten der Geräte speichern soll, während der Adapter nicht ausgeführt wird.
+Optional können Sie die beim Broker verwendete **Client-ID** festlegen (Standardwert). `iobroker_sonoff_<instance>`), das **Keepalive-** Intervall und **die Clean-Session** . Deaktivieren Sie die Clean-Session, wenn der Broker die Nachrichten der Geräte speichern soll, während der Adapter nicht ausgeführt wird.
 
 ### Vollständige Themenstrukturen
 
-Das übliche Tasmota`FullTopic` Einstellungen werden gerätespezifisch unterstützt und automatisch erkannt, Befehle werden in derselben Struktur zurückgesendet:
+Das übliche Tasmota `FullTopic` Einstellungen werden gerätespezifisch unterstützt und automatisch erkannt, Befehle werden in derselben Struktur zurückgesendet:
 
 | FullTopic                      | Beispiel                  | Befehl                    |
 | ------------------------------ | ------------------------- | ------------------------- |
@@ -122,35 +122,35 @@ Das übliche Tasmota`FullTopic` Einstellungen werden gerätespezifisch unterstü
 | `gateway/%prefix%/%topic%/`    | `gateway/tele/lamp/STATE` | `gateway/cmnd/lamp/POWER` |
 | `gateway/%topic%/%prefix%/`    | `gateway/lamp/tele/STATE` | `gateway/lamp/cmnd/POWER` |
 
-Verschachtelte Themen wie`tele/house/floor1/lamp/STATE` Das funktioniert auch. Ein festes Präfix vor dem vollständigen Topic (die letzten beiden Zeilen, z. B. für mehrere Gateways auf einem Broker) wird nur erkannt, wenn die Subscriptions es abdecken. Fügen Sie also z. B. Folgendes hinzu:`gateway/tele/#, gateway/stat/#` zu **den Themen, die Sie abonnieren möchten** . Dasselbe gilt für die`%topic%/%prefix%/` Struktur, die bedeckt ist von`+/tele/+, +/stat/+` standardmäßig.
+Verschachtelte Themen wie `tele/house/floor1/lamp/STATE` Das funktioniert auch. Ein festes Präfix vor dem vollständigen Topic (die letzten beiden Zeilen, z. B. für mehrere Gateways auf einem Broker) wird nur erkannt, wenn die Subscriptions es abdecken. Fügen Sie also z. B. Folgendes hinzu: `gateway/tele/#, gateway/stat/#` zu **den Themen, die Sie abonnieren möchten** . Dasselbe gilt für die `%topic%/%prefix%/` Struktur, die bedeckt ist von `+/tele/+, +/stat/+` standardmäßig.
 
 ### Verschlüsselte Verbindungen
 
-Verwenden`mqtts://broker:8883` (oder`wss://` ) als URL. Deaktivieren Sie bei selbstsignierten Zertifikaten **die Option „Zertifikat des Brokers prüfen“** oder geben Sie den Pfad zu Ihrem **CA-Zertifikat** an. Falls der Broker Clientzertifikate benötigt, können Sie auch die Pfade zum **Clientzertifikat** und zum **Clientschlüssel** angeben. Die Dateien werden aus dem Dateisystem des ioBroker-Hosts gelesen.
+Verwenden `mqtts://broker:8883` (oder `wss://`) als URL. Deaktivieren Sie bei selbstsignierten Zertifikaten **die Option „Zertifikat des Brokers prüfen“** oder geben Sie den Pfad zu Ihrem **CA-Zertifikat** an. Falls der Broker Clientzertifikate benötigt, können Sie auch die Pfade zum **Clientzertifikat** und zum **Clientschlüssel** angeben. Die Dateien werden aus dem Dateisystem des ioBroker-Hosts gelesen.
 
 ### Gerätebenennung
 
 Im Bridge-Modus kann der Adapter die MQTT CONNECT-Pakete der Geräte nicht sehen (Einschränkung des MQTT-Protokolls), daher wird der Name eines Geräts aus seinen Nachrichten entnommen:
 
-1. `MqttClient` aus`stat/<topic>/STATUS6` - Dies ist die MQTT-Client-ID, damit die Geräte die gleichen Namen wie beim integrierten Broker erhalten. Der Adapter fordert diese Informationen an (`cmnd/<topic>/Status 6` ) sobald ein unbekanntes Gerät auftaucht.
-2. `Hostname` aus`tele/<topic>/STATE` ,`tele/<topic>/INFO2` oder`stat/<topic>/STATUS5` , wenn das Gerät die Statusanfrage nicht beantwortet.
+1. `MqttClient` aus `stat/<topic>/STATUS6` - Dies ist die MQTT-Client-ID, damit die Geräte die gleichen Namen wie beim integrierten Broker erhalten. Der Adapter fordert diese Informationen an (`cmnd/<topic>/Status 6`) sobald ein unbekanntes Gerät auftaucht.
+2. `Hostname` aus `tele/<topic>/STATE`, `tele/<topic>/INFO2` oder `stat/<topic>/STATUS5`, wenn das Gerät die Statusanfrage nicht beantwortet.
 3. Das Thema selbst, falls innerhalb von 30 Sekunden keine Antwort eingeht (z. B. bei Geräten mit benutzerdefinierter Firmware).
 
 Ein Gerät wird nur dann umbenannt, wenn der neue Name aus derselben oder einer besseren Quelle stammt, sodass die Objekte nicht ständig zwischen den Namen hin und her wechseln. Wird ein Gerät in Tasmota umbenannt, benennt der Adapter die entsprechenden ioBroker-Objekte um, Referenzen in anderen Adaptern (History, VIS usw.) müssen jedoch manuell angepasst werden.
 
-Da der externe Broker auch während des Neustarts des Adapters weiterläuft, wiederholen die Geräte ihre Boot-Meldungen nicht.`INFO.Hostname` ,`INFO.IPAddress` Und`INFO.Version` Der Adapter fordert sie an (`cmnd/<topic>/Status 5` Und`cmnd/<topic>/Status 2` ) wenn ein Gerät zum ersten Mal gesehen wird.`Module` (von INFO1) kann nicht angefordert werden und bleibt leer.
+Da der externe Broker auch während des Neustarts des Adapters weiterläuft, wiederholen die Geräte ihre Boot-Meldungen nicht. `INFO.Hostname`, `INFO.IPAddress` Und `INFO.Version` Der Adapter fordert sie an (`cmnd/<topic>/Status 5` Und `cmnd/<topic>/Status 2`) wenn ein Gerät zum ersten Mal gesehen wird. `Module` (von INFO1) kann nicht angefordert werden und bleibt leer.
 
 ### Verfügbarkeit
 
-Mit dem integrierten Broker`alive` Der Status folgt der TCP-Verbindung des Geräts. Im Bridge-Modus wird das letzte Thema (`tele/<topic>/LWT` ) wird stattdessen verwendet:`Online` Sets`alive` wahr,`Offline` zu falsch.
+Mit dem integrierten Broker `alive` Der Status folgt der TCP-Verbindung des Geräts. Im Bridge-Modus wird das letzte Thema (`tele/<topic>/LWT`) wird stattdessen verwendet: `Online` Sets `alive` wahr, `Offline` zu falsch.
 
 ## Automatische Objekterstellung
 
 In der Webkonfiguration können Sie festlegen, welche MQTT-Telegramme die neuen Objekte erzeugen, die nicht zu den Standarddatenpunkten gehören:
 
-- `TELE_SENSOR` - erstellt Objekte aus`tele/xxx/SENSOR` Telegramme
-- `TELE_STATE` - erstellt Objekte aus`tele/xxx/STATE` Telegramme
-- `STAT_RESULT` - erstellt Objekte aus`stat/xxx/RESULT` Telegramme
+- `TELE_SENSOR` - erstellt Objekte aus `tele/xxx/SENSOR` Telegramme
+- `TELE_STATE` - erstellt Objekte aus `tele/xxx/STATE` Telegramme
+- `STAT_RESULT` - erstellt Objekte aus `stat/xxx/RESULT` Telegramme
 
 Normalerweise sollte TELE\_SENSOR für die meisten Benutzer ausreichend sein.
 
@@ -162,7 +162,7 @@ Normalerweise sollte TELE\_SENSOR für die meisten Benutzer ausreichend sein.
 
 Die Moduszustände werden nur dann erstellt, wenn das Gerät einen der folgenden Zustände aufweist:
 
-- `Red` ,`Green` ,`Blue` ,`WW` ,`CW` ,`Color` ,`RGB_POWER` ,`WW_POWER` ,`CW_POWER` ,`Hue` ,`Saturation`
+- `Red`, `Green`, `Blue`, `WW`, `CW`, `Color`, `RGB_POWER`, `WW_POWER`, `CW_POWER`, `Hue`, `Saturation`
 
 Staaten:
 

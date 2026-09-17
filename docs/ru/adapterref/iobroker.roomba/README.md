@@ -39,7 +39,7 @@ hash: m3M/1Ddw4P2/kWxvk5fXfRC3zfYF9jJwSLxIyktLOO4=
 
 Данный адаптер обладает следующими функциями:
 
-- **Отправка команд** (`start` ,`stop` ,`resume` ,`pause` ,`dock` ) к вашему роботу-пылесосу Roomba
+- **Отправка команд** (`start`, `stop`, `resume`, `pause`, `dock`) к вашему роботу-пылесосу Roomba
 - Получение информации **о состоянии устройства** , например, заряд батареи, подключение к док-станции, заполненность/вставка в корзину (полный список см. в разделе [«Каналы и состояния](#channels--states) »).
 - Получите **конфигурацию устройства** , например, настройки параметров, сети или расписания (полный список см. в разделе [«Каналы и состояния](#channels--states) »).
 - Получите **статистику устройства** , такую как общее количество миссий, время работы на док-станции и т. д. (полный список см. в разделе [«Каналы и состояния](#channels--states) »).
@@ -59,7 +59,7 @@ hash: m3M/1Ddw4P2/kWxvk5fXfRC3zfYF9jJwSLxIyktLOO4=
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-Кроме того, выполните следующую команду **в каталоге ioBroker.roomba** (`/opt/iobroker/node_modules/iobroker.roomba` ):
+Кроме того, выполните следующую команду **в каталоге ioBroker.roomba** (`/opt/iobroker/node_modules/iobroker.roomba`):
 
 ```
 sudo npm install canvas --unsafe-perm=true
@@ -67,7 +67,7 @@ sudo npm install canvas --unsafe-perm=true
 
 ### Windows
 
-1. Убедитесь, что у вас есть`node-gyp` установлен через
+1. Убедитесь, что у вас есть `node-gyp` установлен через
    ```
    npm install -g node-gyp
    ```
@@ -77,7 +77,7 @@ sudo npm install canvas --unsafe-perm=true
    npm install --global --production windows-build-tools
    ```
 
-3. Скачайте GTK 2 (для [Win32](http://ftp.gnome.org/pub/GNOME/binaries/win32/gtk+/2.24/gtk+-bundle_2.24.10-20120208_win32.zip) или [Win64](http://ftp.gnome.org/pub/GNOME/binaries/win64/gtk+/2.22/gtk+-bundle_2.22.1-20101229_win64.zip) ) и распакуйте его (например, в архив).`C:\path\to\GTK2` )
+3. Скачайте GTK 2 (для [Win32](http://ftp.gnome.org/pub/GNOME/binaries/win32/gtk+/2.24/gtk+-bundle_2.24.10-20120208_win32.zip) или [Win64](http://ftp.gnome.org/pub/GNOME/binaries/win64/gtk+/2.22/gtk+-bundle_2.22.1-20101229_win64.zip) ) и распакуйте его (например, в архив). `C:\path\to\GTK2`)
 
 4. Бегать
    ```
@@ -224,7 +224,7 @@ sudo npm install canvas --unsafe-perm=true
 
 ## Описание предпочтений _(неполное)_
 
-При вызове будет получена следующая полезная нагрузка.`getPreferences()` (см. <https://github.com/karlvr/dorita980#getpreferences> ):
+При вызове будет получена следующая полезная нагрузка. `getPreferences()` (см. <https://github.com/karlvr/dorita980#getpreferences> ):
 
 | Объект                    | Индекс     | Тип         | Описание                                                 | ioBroker State                |
 | ------------------------- | ---------- | ----------- | -------------------------------------------------------- | ----------------------------- |
@@ -318,7 +318,7 @@ on({id: ns + '.missions.current.ended', change: 'any'}, function(obj)
 
 _04.05.2019 исправлена ошибка, препятствовавшая отправке карты._
 
-Вы можете отредактировать переменную.`message` Вы можете использовать любые уведомления, которые хотите получать вместе с картой.`%name-of-state%` для получения значения состояния в дереве объектов ioBroker.roomba.
+Вы можете отредактировать переменную. `message` Вы можете использовать любые уведомления, которые хотите получать вместе с картой. `%name-of-state%` для получения значения состояния в дереве объектов ioBroker.roomba.
 
 ## Кредиты
 

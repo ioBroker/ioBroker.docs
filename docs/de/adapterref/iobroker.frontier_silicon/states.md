@@ -20,7 +20,7 @@ Die maximal wählbare Lautstärke
 
 - mute (`boolean, rw`)
 
-`true` wenn das Gerät stummgeschaltet ist, `false`ansonsten
+`true` wenn das Gerät stummgeschaltet ist, `false` ansonsten
 
 - volume (`number, rw`)
   - Kontrolle

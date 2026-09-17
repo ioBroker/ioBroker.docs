@@ -37,7 +37,7 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 
 ## Datenaktualisierung während des Ladevorgangs
 
-Während des Ladevorgangs kann es vorkommen, dass der Akkustand nicht per Stream aktualisiert wird, da sich das Fahrzeug im Schlaf-/Standby-Modus befindet. Beim Einschalten des Fahrzeugs werden die Daten aktualisiert. Sie können eine Aktualisierung über die API auslösen.`bmw.0.vin.remote.fetchViaAPI`
+Während des Ladevorgangs kann es vorkommen, dass der Akkustand nicht per Stream aktualisiert wird, da sich das Fahrzeug im Schlaf-/Standby-Modus befindet. Beim Einschalten des Fahrzeugs werden die Daten aktualisiert. Sie können eine Aktualisierung über die API auslösen. `bmw.0.vin.remote.fetchViaAPI`
 
 ## Datenpunktbeschreibung
 
@@ -78,7 +78,7 @@ Nachdem Sie Ihre Client-ID erstellt haben, konfigurieren Sie das Streaming:
 4. Klicken Sie auf die Schaltfläche **„Datenauswahl ändern“** .
 5. **Wählen Sie ALLE Kategorien aus** (Fahrzeugstatus, Ladevorgang, Fahrtdaten usw.).
 6. **Überprüfen Sie alle 244 einzelnen Datenpunkte manuell.**
-7. Oder geben Sie dies in der Google Developer Console ein und drücken Sie F12.`document.querySelectorAll('label.chakra-checkbox:not([data-checked])').forEach(l => l.click());`
+7. Oder geben Sie dies in der Google Developer Console ein und drücken Sie F12. `document.querySelectorAll('label.chakra-checkbox:not([data-checked])').forEach(l => l.click());`
 8. Speichern Sie Ihre Konfiguration, indem Sie gegebenenfalls auf **„Stream löschen“** klicken, um sie zurückzusetzen, und konfigurieren Sie sie anschließend neu.
 
 **Ohne die Auswahl aller Datenpunkte liefert MQTT-Streaming keine vollständigen Daten!**
@@ -100,15 +100,15 @@ Nachdem Sie Ihre Client-ID erstellt haben, konfigurieren Sie das Streaming:
 
 ## Datenstruktur
 
-Fahrzeugdaten sind organisiert unter`bmw.0.VIN.*` Wo`VIN` steht für Ihre Fahrzeugidentifikationsnummer:
+Fahrzeugdaten sind organisiert unter `bmw.0.VIN.*` Wo `VIN` steht für Ihre Fahrzeugidentifikationsnummer:
 
 ### Hauptordnerstruktur
 
-- **`bmw.0.VIN.api.*`** - API-Daten (regelmäßige Aktualisierungen)
+- ** `bmw.0.VIN.api.*` ** - API-Daten (regelmäßige Aktualisierungen)
   - Die Daten wurden über die BMW CarData REST API via .remote abgerufen.
   - Nutzt das API-Kontingent (50 Aufrufe pro 24 Stunden).
 
-- **`bmw.0.VIN.stream.*`** - Streamdaten (Echtzeit-MQTT)
+- ** `bmw.0.VIN.stream.*` ** - Streamdaten (Echtzeit-MQTT)
   - Daten, die über Echtzeit-MQTT-Streaming oder remote.fetchViaAPI empfangen werden.
   - Sofortige Aktualisierungen bei Änderungen der Fahrzeugdaten
   - Beinhaltet alle 244 konfigurierten Datenpunkte
@@ -196,7 +196,7 @@ Der Adapter verwaltet das Limit von 50 API-Aufrufen pro 24 Stunden automatisch:
 
 ### Fehlende Daten im API-Ordner
 
-Wenn Sie die erwarteten Daten nicht sehen in`VIN.api.*` :
+Wenn Sie die erwarteten Daten nicht sehen in `VIN.api.*`:
 
 1. Prüfen Sie, ob der entsprechende Endpunkt in den Adaptereinstellungen aktiviert ist.
 2. Prüfen Sie, ob Sie Ihr API-Kontingent überschritten haben (Adapterprotokolle prüfen).
@@ -205,10 +205,10 @@ Wenn Sie die erwarteten Daten nicht sehen in`VIN.api.*` :
 
 ### Datenquellen verstehen
 
-- **`VIN.api.*`** - Wird regelmäßig basierend auf dem Intervall und den aktivierten Endpunkten aktualisiert
-- **`VIN.stream.*`** - Aktualisierung in Echtzeit via MQTT bei Änderungen der Fahrzeugdaten
-- **`VIN.lastUpdate`** - Zeitstempel der letzten Datenaktualisierung (API oder MQTT)
-- **`VIN.lastStreamUpdate`** - Zeitstempel der letzten Aktualisierung des MQTT-Streams
+- ** `VIN.api.*` ** - Wird regelmäßig basierend auf dem Intervall und den aktivierten Endpunkten aktualisiert
+- ** `VIN.stream.*` ** - Aktualisierung in Echtzeit via MQTT bei Änderungen der Fahrzeugdaten
+- ** `VIN.lastUpdate` ** - Zeitstempel der letzten Datenaktualisierung (API oder MQTT)
+- ** `VIN.lastStreamUpdate` ** - Zeitstempel der letzten Aktualisierung des MQTT-Streams
 
 ## Quelle
 

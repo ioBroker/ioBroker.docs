@@ -19,13 +19,13 @@ hash: pOvYlJ/UiUytmh0q59qb2/kpor7ujNhqFYrlaSPRbqM=
 
 # ioBroker.hydrop
 
-Dieser Adapter nutzt den Dienst`Sentry.io` Ausnahmen, Codefehler und neue Geräteschemata werden mir als Entwickler automatisch gemeldet. Weitere Details finden Sie unten!
+Dieser Adapter nutzt den Dienst `Sentry.io` Ausnahmen, Codefehler und neue Geräteschemata werden mir als Entwickler automatisch gemeldet. Weitere Details finden Sie unten!
 
 ---
 
 ## Unterstützung der Adapterentwicklung
 
-**Wenn es Ihnen gefällt`ioBroker.hydrop` Bitte erwägen Sie eine Spende:**
+**Wenn es Ihnen gefällt `ioBroker.hydrop` Bitte erwägen Sie eine Spende:**
 
 [![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
@@ -49,9 +49,9 @@ Um Ihr Hydrometer in ioBroker zu integrieren, benötigen Sie Folgendes:
 - Der Name, den Sie Ihrem Hydropmeter in der App gegeben haben.
 - Ihr persönlicher API-Schlüssel für die hydrop REST-API
 
-Sie können einen API-Schlüssel in der Hydrop-App generieren. Navigieren Sie zu`Settings` , erweitern Sie die`Account` Abschnitt und tippen Sie auf`API key` Der API-Schlüssel wird nur einmal angezeigt. Bitte bewahren Sie ihn an einem sicheren Ort auf.
+Sie können einen API-Schlüssel in der Hydrop-App generieren. Navigieren Sie zu `Settings`, erweitern Sie die `Account` Abschnitt und tippen Sie auf `API key` Der API-Schlüssel wird nur einmal angezeigt. Bitte bewahren Sie ihn an einem sicheren Ort auf.
 
-Sobald Sie alle Informationen bereit haben, können Sie beginnen. Geben Sie die Informationen auf der Einstellungsseite Ihrer Hydrop-Adapterinstanz ein und klicken Sie auf „Starten“.`Save` Die entsprechenden Objekte werden automatisch im Objektbaum erstellt. Die Daten werden alle 5 Minuten in ioBroker abgefragt.
+Sobald Sie alle Informationen bereit haben, können Sie beginnen. Geben Sie die Informationen auf der Einstellungsseite Ihrer Hydrop-Adapterinstanz ein und klicken Sie auf „Starten“. `Save` Die entsprechenden Objekte werden automatisch im Objektbaum erstellt. Die Daten werden alle 5 Minuten in ioBroker abgefragt.
 
 ---
 

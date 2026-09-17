@@ -28,7 +28,7 @@ Diese Anwendung ist ein unabhängiges Produkt und steht in keiner Verbindung zu 
 
 ### CoE V2 aktivieren
 
-Gehen Sie in der CMI-Weboberfläche zu Einstellungen > CAN und wählen Sie`CoE V2 (4byte)` als CoE-Version
+Gehen Sie in der CMI-Weboberfläche zu Einstellungen > CAN und wählen Sie `CoE V2 (4byte)` als CoE-Version
 
 ### Ausgabe konfigurieren
 

@@ -22,7 +22,7 @@ hash: KYaeq07pHKclZ08zRgY/YoIOWyYRAC+s3Csw9GQe2iU=
 
 ## Was dieser Adapter bewirkt
 
-Verbindet sich mit Ihrem lokalen Autodarts Board Manager (über IP und Port, z. B.`192.168.x.x:3180` ) und stellt ioBroker-Zustände für die Hausautomation bereit:
+Verbindet sich mit Ihrem lokalen Autodarts Board Manager (über IP und Port, z. B. `192.168.x.x:3180`) und stellt ioBroker-Zustände für die Hausautomation bereit:
 
 - Schalte das Licht ein, wenn ein Spiel beginnt
 - Spiele einen Ton auf die Zielscheibe
@@ -39,43 +39,43 @@ Verbindet sich mit Ihrem lokalen Autodarts Board Manager (über IP und Port, z. 
 
 ### Spielstand & Würfe
 
-- **`visit.score`** Gesamtpunktzahl des letzten vollständigen Besuchs (3 Darts)
-- **`throw.current`** : Numerische Punktzahl des zuletzt geworfenen Dartpfeils
-- **`trigger.isTriple`** : Boolescher Wert für drei Treffer innerhalb eines konfigurierbaren Segmentbereichs (Standard: 1–20)
-- **`trigger.isDouble`** : Boolescher Wert für Doppeltreffer (alle Segmente)
-- **`trigger.isBullseye`** : Boolescher Wert für nur Volltreffer
-- **`trigger.isMiss`** : Boolescher Wert, der auf „true“ gesetzt ist, wenn der Dartpfeil kein gültiges Wertungssegment trifft (rein verfehlt, keine Punkte).
+- ** `visit.score` ** Gesamtpunktzahl des letzten vollständigen Besuchs (3 Darts)
+- ** `throw.current` ** : Numerische Punktzahl des zuletzt geworfenen Dartpfeils
+- ** `trigger.isTriple` ** : Boolescher Wert für drei Treffer innerhalb eines konfigurierbaren Segmentbereichs (Standard: 1–20)
+- ** `trigger.isDouble` ** : Boolescher Wert für Doppeltreffer (alle Segmente)
+- ** `trigger.isBullseye` ** : Boolescher Wert für nur Volltreffer
+- ** `trigger.isMiss` ** : Boolescher Wert, der auf „true“ gesetzt ist, wenn der Dartpfeil kein gültiges Wertungssegment trifft (rein verfehlt, keine Punkte).
 
 ### Vorstandsstatus
 
-- **`status.boardStatus`** : Statusanzeige eines Ereignisses im Vorstand (z. B.`"Stopped"` ,`"Calibration finished"` ,`"Started"` ).
-- **`status.trafficLightColor`** : HEX-Farbe des aktuellen Platinenstatus
-- **`status.trafficLightState`** : Statusanzeige
+- ** `status.boardStatus` ** : Statusanzeige eines Ereignisses im Vorstand (z. B. `"Stopped"`, `"Calibration finished"`, `"Started"`).
+- ** `status.trafficLightColor` ** : HEX-Farbe des aktuellen Platinenstatus
+- ** `status.trafficLightState` ** : Statusanzeige
   - `green` Der Spieler darf werfen
   - `yellow` = Pfeile entfernen
   - `red` = Board offline/Fehler
 
 ### Systeminformationen
 
-- **`system.software.*`** Autodarts-Versionen (Board-Version, Desktop-Version), Betriebssystem- und Plattformdetails
-- **`system.hardware.*`** : CPU-Modell, Kernel-Architektur, Hostname
-- **`system.cams.cam0/1/2`** : Kamerakonfiguration (Breite, Höhe, fps) als JSON
+- ** `system.software.*` ** Autodarts-Versionen (Board-Version, Desktop-Version), Betriebssystem- und Plattformdetails
+- ** `system.hardware.*` ** : CPU-Modell, Kernel-Architektur, Hostname
+- ** `system.cams.cam0/1/2` ** : Kamerakonfiguration (Breite, Höhe, fps) als JSON
 
 ### Hardwaresteuerung
 
-- **`system.hardware.light`** : Beleuchtung der Steuereinheit (bidirektional mit externen Zuständen)
-- **`system.hardware.power`** : Stromversorgung der Steuerplatine (bidirektional mit externen Zuständen)
+- ** `system.hardware.light` ** : Beleuchtung der Steuereinheit (bidirektional mit externen Zuständen)
+- ** `system.hardware.power` ** : Stromversorgung der Steuerplatine (bidirektional mit externen Zuständen)
 
 ### Laufzeitkonfiguration
 
-- **`config.tripleMinScore/tripleMaxScore`** : Dreifach-Trigger-Schwellenwerte während der Laufzeit anpassen
-- **`config.triggerResetSec`** Automatische Rücksetzzeit für Dreifach-/Doppel-/Volltreffer-/Fehlschuss-Flaggen
+- ** `config.tripleMinScore/tripleMaxScore` ** : Dreifach-Trigger-Schwellenwerte während der Laufzeit anpassen
+- ** `config.triggerResetSec` ** Automatische Rücksetzzeit für Dreifach-/Doppel-/Volltreffer-/Fehlschuss-Flaggen
 
 ### Tools-Addon-Integration
 
-- **`tools.RAW`** : Eingabestatus, der zum Empfangen von Ereignissen von Browser-Tools verwendet wird (z. B. busted, gameon, gameshot, 180, matchshot, takeout).
-- **`trigger.is180/isBusted/isGameon/isGameshot/isMatchshot/isTakeout`** : Schreibgeschützte Trigger-Flags werden gesetzt, wenn entsprechende Ereignisse empfangen werden über`tools.RAW` Die
-- **`tools.config.url*`** : Vorgefertigte HTTP-URLs (einfache API-Aufrufe), die in die Browsererweiterung Tools for Autodarts kopiert werden können.
+- ** `tools.RAW` ** : Eingabestatus, der zum Empfangen von Ereignissen von Browser-Tools verwendet wird (z. B. busted, gameon, gameshot, 180, matchshot, takeout).
+- ** `trigger.is180/isBusted/isGameon/isGameshot/isMatchshot/isTakeout` ** : Schreibgeschützte Trigger-Flags werden gesetzt, wenn entsprechende Ereignisse empfangen werden über `tools.RAW` Die
+- ** `tools.config.url*` ** : Vorgefertigte HTTP-URLs (einfache API-Aufrufe), die in die Browsererweiterung Tools for Autodarts kopiert werden können.
 
 ## Was dieser Adapter NICHT leistet
 
@@ -97,13 +97,13 @@ Alle Daten bleiben lokal auf Ihrem ioBroker-System.
 Unter **OPTIONEN** konfigurieren Sie, wie der Adapter eine Verbindung zu Ihrem lokalen Autodarts Board Manager herstellt und wie oft er Daten abfragt:
 
 - **Board Manager IP**\
-  &#x20;IP-Adresse Ihres Autodarts Board Managers (z. B.`192.168.178.50` oder`127.0.0.1` ).
+  &#x20;IP-Adresse Ihres Autodarts Board Managers (z. B. `192.168.178.50` oder `127.0.0.1`).
 
 - **Hafen**\
-  &#x20;TCP-Port des Board Managers (normalerweise`3180` ).
+  &#x20;TCP-Port des Board Managers (normalerweise `3180`).
 
 - **Dreifacher Abzugsbereich**\
-  &#x20;Zwei Dropdown-Menüs zur Festlegung der **minimalen** und **maximalen** Feldanzahl (1–20), die berücksichtigt werden soll für`trigger.isTriple` Die\
+  &#x20;Zwei Dropdown-Menüs zur Festlegung der **minimalen** und **maximalen** Feldanzahl (1–20), die berücksichtigt werden soll für `trigger.isTriple` Die\
   &#x20;Dreiergruppen außerhalb dieses Bereichs lösen keine Flagge aus.
 
 - **Trigger-Reset(s)**\
@@ -111,19 +111,19 @@ Unter **OPTIONEN** konfigurieren Sie, wie der Adapter eine Verbindung zu Ihrem l
   `0` bedeutet, dass kein automatischer Reset erfolgt.
 
 - **Abfrageintervall (s)**\
-  &#x20;Wie oft der Adapter den Board Manager nach neuen Daten abfragt (z. B.`0.5` ,`1` ,`2` Sekunden).
+  &#x20;Wie oft der Adapter den Board Manager nach neuen Daten abfragt (z. B. `0.5`, `1`, `2` Sekunden).
 
 ### Registerkarte: KARTEN
 
 In **MAPPINGS** können Sie bestehende ioBroker-Zustände mit den hardwarebezogenen Adapterzuständen verknüpfen:
 
 - **Lichtziel-ID**\
-  &#x20;ioBroker-Status-ID, die mit`system.hardware.light`\
-  &#x20;(z.B`0_userdata.0.Autodarts.LIGHT` oder ein Zustand einer intelligenten Leuchte/eines LED-Rings).
+  &#x20;ioBroker-Status-ID, die mit `system.hardware.light`\
+  &#x20;(z.B `0_userdata.0.Autodarts.LIGHT` oder ein Zustand einer intelligenten Leuchte/eines LED-Rings).
 
 - **Leistungsziel-ID**\
-  &#x20;ioBroker-Status-ID, die mit`system.hardware.power`\
-  &#x20;(z.B`0_userdata.0.Autodarts.POWER` oder ein Zustand eines intelligenten Steckers).
+  &#x20;ioBroker-Status-ID, die mit `system.hardware.power`\
+  &#x20;(z.B `0_userdata.0.Autodarts.POWER` oder ein Zustand eines intelligenten Steckers).
 
 Wenn die Konfiguration erfolgt, werden Änderungen auf beiden Seiten (Adapterstatus oder externer Status) bidirektional synchronisiert, sodass Sie das Board sowohl von ioBroker aus steuern als auch auf Board-Ereignisse reagieren können.
 

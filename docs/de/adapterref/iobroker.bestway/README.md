@@ -40,13 +40,13 @@ Die Bestway Smart Hub App Mail und Passwort eingeben und das Land auswählen.
 
 Generation „V2“ auswählen und die Region wählen. Dann eine der beiden Kopplungsmethoden nutzen:
 
-- **QR-Code** (iOS und Android): In der Bestway Connect App unter Geräteeinstellungen > Gerätefreigabe den QR-Code anzeigen, ihn dekodieren (zB über <https://scanqr.org/> ) und den Text (beginnt mit`RW_Share_` ) in den Adapter eintragen. Der Code ist nur wenige Minuten gültig und wird einmalig zur Kopplung verwendet.
+- **QR-Code** (iOS und Android): In der Bestway Connect App unter Geräteeinstellungen > Gerätefreigabe den QR-Code anzeigen, ihn dekodieren (zB über <https://scanqr.org/> ) und den Text (beginnt mit `RW_Share_`) in den Adapter eintragen. Der Code ist nur wenige Minuten gültig und wird einmalig zur Kopplung verwendet.
 - **Android-ID** (nur Android): Die in der Bestway Connect App unter dem Profil angezeigte ID eintragen. Damit wird das bestehende Konto samt gekoppelter Geräte direkt verwendet, ohne QR-Code.
 
 ## Steuern
 
-- V1:`bestway.0.<id>.remote.*` bzw.`remotev2.*` Setzt den jeweiligen Befehl.
-- V2:`bestway.0.<id>.remotev3.*` Setzen Sie den jeweiligen Befehl (Power, Heat, Filter, Jet, Wave, Temp\_set, Locked).
+- V1: `bestway.0.<id>.remote.*` bzw. `remotev2.*` Setzt den jeweiligen Befehl.
+- V2: `bestway.0.<id>.remotev3.*` Setzen Sie den jeweiligen Befehl (Power, Heat, Filter, Jet, Wave, Temp\_set, Locked).
 
 ## Diskussion und Fragen:
 

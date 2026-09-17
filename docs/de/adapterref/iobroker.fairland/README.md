@@ -19,13 +19,13 @@ Dieser Adapter kommuniziert direkt mit der iGarden-Cloud. Er nutzt weder Tuya no
 - Fairland Inverflow Plus Poolpumpen auf der iGarden-Plattform
 - von OEMs umgelabelten iGarden-Geräten, beispielsweise Madimack-Poolpumpen
 
-Der Adapter kennt aktuell die Gerätekategorien.`heatPump` Und`waterPump` Unbekannte Kategorien werden protokolliert und übersprungen.
+Der Adapter kennt aktuell die Gerätekategorien. `heatPump` Und `waterPump` Unbekannte Kategorien werden protokolliert und übersprungen.
 
 Dieses Projekt steht in keiner Verbindung zu Fairland, Home Assistant, ioBroker oder den Betreibern des übergeordneten ha-fairland-Projekts und wird von diesen weder unterstützt noch befürwortet.
 
 ## Installation
 
-Der Adapter wird auf npm veröffentlicht als`iobroker.fairland` Die
+Der Adapter wird auf npm veröffentlicht als `iobroker.fairland` Die
 
 Der Adapter ist im **aktuellen** ioBroker-Repository verfügbar und kann direkt über die Adapterliste in der ioBroker-Administration installiert werden, sobald dieses Repository ausgewählt ist. Die Aufnahme in das **stabile** Repository steht noch aus.
 
@@ -53,19 +53,19 @@ npm run release
 
 Die Instanzkonfiguration enthält:
 
-- `iGarden account e-mail` : Kontoname, der in der iGarden-App verwendet wird
-- `iGarden password` : Kontopasswort
-- `Login country` Optionaler Ländercode für die iGarden-Anmeldung. Verlassen`Automatic` wenn Ihr Konto ohne expliziten Ländercode funktioniert.
+- `iGarden account e-mail`: Kontoname, der in der iGarden-App verwendet wird
+- `iGarden password`: Kontopasswort
+- `Login country` Optionaler Ländercode für die iGarden-Anmeldung. Verlassen `Automatic` wenn Ihr Konto ohne expliziten Ländercode funktioniert.
 - `Scan interval` Abfrageintervall in Sekunden, Minimum 10 Sekunden, Maximum 3600 Sekunden
-- `Courtyard ID` Optionale dynamische Auswahl aus der iGarden-Cloud. Verlassen`Automatic` den ersten von der Wolke zurückgegebenen Hof nutzen.
-- `Create raw dpId states` : optionale Diagnosezustände unter`devices.<device>.raw.dp_<id>`
+- `Courtyard ID` Optionale dynamische Auswahl aus der iGarden-Cloud. Verlassen `Automatic` den ersten von der Wolke zurückgegebenen Hof nutzen.
+- `Create raw dpId states`: optionale Diagnosezustände unter `devices.<device>.raw.dp_<id>`
 
 Der Adapter erkennt automatisch den richtigen regionalen API-Server:
 
-- EU:`api-eu.fairlandiot.com`
-- UNS:`api-us.fairlandiot.com`
-- CN:`api-cn.fairlandiot.com`
-- HK:`api-hk.fairlandiot.com`
+- EU: `api-eu.fairlandiot.com`
+- UNS: `api-us.fairlandiot.com`
+- CN: `api-cn.fairlandiot.com`
+- HK: `api-hk.fairlandiot.com`
 
 ## Wichtige iGarden-Einschränkung
 
@@ -118,7 +118,7 @@ energy.consumption
 pump.mode
 ```
 
-Beschreibbare Zustände werden dem richtigen Fairland zugeordnet.`dpId` Der Adapter speichert nach Schreibvorgängen für kurze Zeit optimistische Werte, da die iGarden-Cloud einige Sekunden benötigen kann, um die neu geschriebenen Werte zurückzumelden.
+Beschreibbare Zustände werden dem richtigen Fairland zugeordnet. `dpId` Der Adapter speichert nach Schreibvorgängen für kurze Zeit optimistische Werte, da die iGarden-Cloud einige Sekunden benötigen kann, um die neu geschriebenen Werte zurückzumelden.
 
 ## Entwicklungsnotizen
 
@@ -126,8 +126,8 @@ Die Implementierung ist eine TypeScript-Portierung der Home Assistant Fairland/i
 
 - Cloud-Login und automatische regionale Servererkennung
 - Hof- und Geräteerkennung
-- kategoriespezifisch`dpId` Zuordnungen
-- Skalen- und Einheitenanalyse von`dpProperty`
+- kategoriespezifisch `dpId` Zuordnungen
+- Skalen- und Einheitenanalyse von `dpProperty`
 - optimistische Schreibbehandlung
 
 Bauen:
@@ -136,7 +136,7 @@ Bauen:
 npm run build
 ```
 
-Der kompilierte Adapter-Einstiegspunkt ist`build/main.js` Die
+Der kompilierte Adapter-Einstiegspunkt ist `build/main.js` Die
 
 ## Quellenangabe
 
@@ -146,7 +146,7 @@ Dieser Adapter basiert auf der MIT-lizenzierten Home Assistant Fairland-Integrat
 https://github.com/siedi/ha-fairland
 ```
 
-Die ursprüngliche Projektlizenzmitteilung wird aufbewahrt in`LICENSE` Weitere Hinweise Dritter sind aufgeführt in`THIRD_PARTY_NOTICES.md` Die
+Die ursprüngliche Projektlizenzmitteilung wird aufbewahrt in `LICENSE` Weitere Hinweise Dritter sind aufgeführt in `THIRD_PARTY_NOTICES.md` Die
 
 ## Changelog
 

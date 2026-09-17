@@ -28,8 +28,8 @@ Bitte installieren Sie bia Admin
 
 Möglicherweise werden folgende zusätzliche Dinge benötigt.
 
-- **Berechtigungen vorbereiten** : Ausführen`iob fix`
-- **Installieren Sie zusätzliche Pakete** :`sudo apt install libusb-1.0-0-dev`
+- **Berechtigungen vorbereiten** : Ausführen `iob fix`
+- **Installieren Sie zusätzliche Pakete** : `sudo apt install libusb-1.0-0-dev`
 - **Korrekte Berechtigungen festlegen** : Falls das Gerät nicht geöffnet werden kann, konsultieren Sie bitte <https://github.com/node-hid/node-hid#udev-device-permissions>
 
 ## Staaten

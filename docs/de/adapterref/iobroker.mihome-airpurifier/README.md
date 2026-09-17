@@ -14,7 +14,7 @@ hash: 4uMjO/WzuRTqVw/uD6M5oYdl2WLzyNuzeD/wo68DmJ0=
 
 ## Wie erhalte ich das Token?
 
-Sie müssen das miio-Befehlszeilentool installieren.`npm install -g miio`
+Sie müssen das miio-Befehlszeilentool installieren. `npm install -g miio`
 
 Nun haben Sie zwei Möglichkeiten:
 

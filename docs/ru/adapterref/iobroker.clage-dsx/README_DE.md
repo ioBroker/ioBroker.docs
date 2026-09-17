@@ -31,13 +31,13 @@ Grundlage ist die mitgelieferte \[Спецификация API-интерфей�
 
 In den Einstellungen der Instanz werden drei Werte eingetragen:
 
-1. **IP-адрес домашних серверов CLAGE** , zum Beispiel`192.168.2.35` (без`https://` )
-2. **API-Benutzername** , zum Beispiel`admin`
-3. **API-пароль** , например`geheim`
+1. **IP-адрес домашних серверов CLAGE** , zum Beispiel `192.168.2.35` (без `https://`)
+2. **API-Benutzername** , zum Beispiel `admin`
+3. **API-пароль** , например `geheim`
 
-Alle Drei Felder sind erforderlich. Der историческая родная Konfigurationsschlüssel für den Benutzernamen heißt`port` ; Вы должны обеспечить совместимость с лучшими установками.
+Alle Drei Felder sind erforderlich. Der историческая родная Konfigurationsschlüssel für den Benutzernamen heißt `port`; Вы должны обеспечить совместимость с лучшими установками.
 
-Die Werte`admin` унд`geheim` воспользуйтесь документацией CLAGE-API. Это возможно, если на собственном домашнем сервере указаны данные API-запросов; Если пароль введен, он будет функционировать только тогда, когда он будет настроен правильно.
+Die Werte `admin` унд `geheim` воспользуйтесь документацией CLAGE-API. Это возможно, если на собственном домашнем сервере указаны данные API-запросов; Если пароль введен, он будет функционировать только тогда, когда он будет настроен правильно.
 
 Домашний сервер имеет нормальный сертификат TLS. Местный сертификат адаптера указан для непосредственного подключения к его конфигурации.
 
@@ -56,12 +56,12 @@ Die Werte`admin` унд`geheim` воспользуйтесь документа�
 
 Schreibbare Datenpunkte:
 
-- `Setpoint` : API-Wert в Центельграде, цум Байшпиль.`450` = 45,0 °C
-- `Themperatur` : Температура в °C; die historische Schreibweise bleibt aus Kompatabilitätsgründen erhalten
-- `flowMax` : Durchflussgrenze в дозе 0,1 л/мин; besondere API-Werte Sind`253` (ECO) унд`254` (АВТО)
-- `Name` : Gerätename
-- `setup.flowMax` ,`setup.loadShedding` ,`setup.scaldProtection` унд`setup.sound`
-- `timers.createJson` ,`timers.updateJson` унд`timers.deleteId` для контроля таймера
+- `Setpoint`: API-Wert в Центельграде, цум Байшпиль. `450` = 45,0 °C
+- `Themperatur`: Температура в °C; die historische Schreibweise bleibt aus Kompatabilitätsgründen erhalten
+- `flowMax`: Durchflussgrenze в дозе 0,1 л/мин; besondere API-Werte Sind `253` (ECO) унд `254` (АВТО)
+- `Name`: Gerätename
+- `setup.flowMax`, `setup.loadShedding`, `setup.scaldProtection` унд `setup.sound`
+- `timers.createJson`, `timers.updateJson` унд `timers.deleteId` для контроля таймера
 
 `info.connection` Однако на домашнем сервере это недопустимо, и это необходимо для получения дополнительной информации.
 
@@ -69,21 +69,21 @@ Schreibbare Datenpunkte:
 
 ## Таймер-JSON
 
-Ein Timer kann durch Schreiben eines JSON wie diesem auf`timers.createJson` angelegt werden:
+Ein Timer kann durch Schreiben eines JSON wie diesem auf `timers.createJson` angelegt werden:
 
 ```json
 {"type":0,"weekdays":127,"start":"06:00","stop":"07:00","deviceId":"A001FF0034","setpoint":450}
 ```
 
-Für Änderungen wird derselbe Aufbau mit numerischer`id` ауф`timers.updateJson` гешрибен. Zum Löschen eines einzelnen Таймеры с числовым идентификатором`timers.deleteId` гешрибен. В процессе работы по уходу за детьми и развлечениями в Funkadresse мы ничего не испытываем.
+Für Änderungen wird derselbe Aufbau mit numerischer `id` ауф `timers.updateJson` гешрибен. Zum Löschen eines einzelnen Таймеры с числовым идентификатором `timers.deleteId` гешрибен. В процессе работы по уходу за детьми и развлечениями в Funkadresse мы ничего не испытываем.
 
 ## Fehlerbehebung
 
 - IP-адрес указан в соответствии с протоколом и выбранным пользователем.
 - API-данные в конфигурации домашних серверов CLAGE.
 - TCP-порт 443 должен быть установлен на ioBroker-Host.
-- HTTP-статус`401` bedeutet ungültige Zugangsdaten;`403` bedeutet unzureichende API-Rechte.
-- Ein Gerät cann angemeldet, aber vorübergehend nicht erreichbar sein. Умирает мелдет API`404` ,`410` oder einem отрицательный Gerätefehlercode.
+- HTTP-статус `401` bedeutet ungültige Zugangsdaten; `403` bedeutet unzureichende API-Rechte.
+- Ein Gerät cann angemeldet, aber vorübergehend nicht erreichbar sein. Умирает мелдет API `404`, `410` oder einem отрицательный Gerätefehlercode.
 
 ## Лицензия
 

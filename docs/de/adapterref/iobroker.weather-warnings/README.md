@@ -77,12 +77,12 @@ Nach dem Hinzufügen oder Löschen von Vorlagen speichern und schließen.
 Schilder mit besonderer Bedeutung:
 
 - `${}` Enthält Platzhalter, die durch generierte Informationen ersetzt werden. Die Vorlagenkennung kann hier ebenfalls verwendet werden.
-- Vorlagenkennungen, die mit beginnen`_` werden von den Diensten nicht angeboten.
+- Vorlagenkennungen, die mit beginnen `_` werden von den Diensten nicht angeboten.
 - `${[0,1,2,3,4]token}` Eine Zeichenkette mit Werten, wobei das Token ein Zahlentoken sein muss. Der Index entspricht dem im Beispiel gezeigten. 0 ist der erste Wert in der Liste.
-- `${(value=token)result1#result2}` oder`${(value=token)result1}` ist dasselbe wie ein JavaScript-Befehl:`if (value == token) result1 else result2` mögliche Vergleiche:`= < > != `
-- für eine JSON-Vorlage die schließende Klammer`}` muss auf diese Weise geschrieben werden`\}`
+- `${(value=token)result1#result2}` oder `${(value=token)result1}` ist dasselbe wie ein JavaScript-Befehl: `if (value == token) result1 else result2` mögliche Vergleiche: `= < > != `
+- für eine JSON-Vorlage die schließende Klammer `}` muss auf diese Weise geschrieben werden `\}`
 - Beispiele finden Sie im Adapter.
-- Alternativ ist auch Folgendes möglich:`${[0,🟢,🟡,🟠,🔴]warnlevelnumber}`
+- Alternativ ist auch Folgendes möglich: `${[0,🟢,🟡,🟠,🔴]warnlevelnumber}`
 
 **Vorlagen wiederherstellen:** Setzt die Vorlagen auf die aktuelle Systemsprache zurück. Vorhandene Vorlagen gehen dabei **verloren** . Anschließend speichern und schließen. Sollte nach dem Ändern der Systemsprache verwendet werden.
 
@@ -122,7 +122,7 @@ Spalte 2:
 1. Manuell ausgelöste Benachrichtigungen
 2. Verwendung ohne Warnung 1.3
 
-Vorlagen für 3) dürfen nicht enthalten`${}` Token.
+Vorlagen für 3) dürfen nicht enthalten `${}` Token.
 
 **Besondere Merkmale**
 
@@ -135,7 +135,7 @@ Nur **Titel, Kopfzeile und Fußzeile** – ${status} funktioniert hier. Andere P
 ## Allgemeines Verhalten
 
 - Es dürfen keine doppelten Nachrichten für ein und dasselbe Anliegen versendet werden. DWD legt diesbezüglich großen Wert.
-- Wenn`none` Wenn diese Vorlage ausgewählt ist, werden keine Benachrichtigungen dafür versendet.
+- Wenn `none` Wenn diese Vorlage ausgewählt ist, werden keine Benachrichtigungen dafür versendet.
 - Die Zustände in .alerts enthalten Arrays für Start, Ende, Warnungstyp, Status „aktiv“ und Überschrift, gruppiert nach Warnungstyp. Pro Gruppe wird eine Warnung angezeigt, gefiltert nach folgenden Kriterien:
   1. Die Warnung ist **jetzt** aktiv (die mit der höchsten Stufe).
 

@@ -34,15 +34,15 @@ Integration des Plex Media Servers in ioBroker (mit oder ohne Plex Pass). Außer
 ## 1. Merkmale
 
 - Erhalten Sie detaillierte Medieninformationen zum aktuell wiedergegebenen Medienelement (z. B. Videobitrate, Codec, Untertitelinformationen, Audio; eine vollständige Liste finden Sie unter [Erweiterte Einstellungen](/#/docs/adapterref/iobroker.plex/README-states.md#with-advanced-setup) ).
-- Erhalten`events` von Plex (über [Plex Webhook](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) und [Plex Notifications](https://support.plex.tv/articles/push-notifications/#toc-0) mit Plex Pass oder über Tautulli, [**siehe Einrichtung!**](#22-advanced-setup-plex-pass-or-tautulli) )
+- Erhalten `events` von Plex (über [Plex Webhook](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) und [Plex Notifications](https://support.plex.tv/articles/push-notifications/#toc-0) mit Plex Pass oder über Tautulli, [**siehe Einrichtung!**](#22-advanced-setup-plex-pass-or-tautulli) )
 - Wiedergabesteuerung für Spieler
-- Abrufen`servers`
-- Abrufen`libraries`
+- Abrufen `servers`
+- Abrufen `libraries`
 - Alle Elemente einer Bibliothek abrufen
-- Abrufen`users` (nur mit Tautulli)
-- Abrufen`statistics` (nur mit Tautulli)
-- Abrufen`playlists`
-- Abrufen`settings`
+- Abrufen `users` (nur mit Tautulli)
+- Abrufen `statistics` (nur mit Tautulli)
+- Abrufen `playlists`
+- Abrufen `settings`
 - Alle Daten von steuerbaren Clients abrufen
 - Weboberfläche, die die letzten Ereignisse von Plex anzeigt:![Plex-Weboberfläche](../../../en/adapterref/iobroker.plex/img/screenshot_adapter-interface.png)
 
@@ -62,13 +62,13 @@ Sobald diese Angaben gemacht wurden, ruft ioBroker.plex alle Basisdaten (einschl
 
 Wenn Sie ein Plex Pass-Nutzer sind, können Sie in den Plex-Einstellungen [einen Webhook einrichten](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) , um das aktuelle Ereignis/die aktuelle Aktion von Ihrem Plex Media Server abzurufen (Wiedergabe, Pause, Fortsetzung, Stopp, angesehen und bewertet).
 
-Navigieren Sie zu Ihrem Plex Media Server und gehen Sie zu`Settings` Und`Webhook` . Durch Klicken wurde ein neuer Webhook erstellt.`Add Webhook` und geben Sie Ihre ioBroker-IP-Adresse mit dem in den ioBroker.plex-Einstellungen angegebenen benutzerdefinierten Port und dem nachfolgenden ein.`/plex` Pfad, z.B.`http://192.168.178.29:41891/plex` :
+Navigieren Sie zu Ihrem Plex Media Server und gehen Sie zu `Settings` Und `Webhook`. Durch Klicken wurde ein neuer Webhook erstellt. `Add Webhook` und geben Sie Ihre ioBroker-IP-Adresse mit dem in den ioBroker.plex-Einstellungen angegebenen benutzerdefinierten Port und dem nachfolgenden ein. `/plex` Pfad, z.B. `http://192.168.178.29:41891/plex`:
 
 ![Plex Webhook](../../../en/adapterref/iobroker.plex/img/screenshot_plex-webhook.png)
 
 **Veranstaltungen**
 
-Weitere Informationen zu den Plex-Benachrichtigungen [finden Sie in der offiziellen Dokumentation](https://support.plex.tv/articles/push-notifications/#toc-0) . Um Benachrichtigungen auf Ihrem Plex Media Server zu aktivieren, gehen Sie zu`Settings` >`Server` >`General` und dann aktivieren`Push Notifications` Präferenz.
+Weitere Informationen zu den Plex-Benachrichtigungen [finden Sie in der offiziellen Dokumentation](https://support.plex.tv/articles/push-notifications/#toc-0) . Um Benachrichtigungen auf Ihrem Plex Media Server zu aktivieren, gehen Sie zu `Settings` >`Server` >`General` und dann aktivieren `Push Notifications` Präferenz.
 
 #### 2.2.2.Tautulli
 
@@ -78,7 +78,7 @@ Dieser Adapter stellt eine Verbindung zur [Tautulli-API](https://github.com/Taut
 
 ##### 2.2.2.1. API
 
-Nach der Installation von Tautulli öffnen Sie die _Einstellungsseite_ im Tautulli-Dashboard und navigieren Sie zur _Weboberfläche_ . Scrollen Sie nach unten zum Abschnitt _„API“_ und stellen Sie sicher, dass …`Enable API` ist geprüft. Kopieren Sie die`API key` Tragen Sie diese Daten in den ioBroker.plex-Einstellungen ein. Fügen Sie außerdem die Tautulli-IP-Adresse und den Port hinzu, um die API-Kommunikation zu ermöglichen.
+Nach der Installation von Tautulli öffnen Sie die _Einstellungsseite_ im Tautulli-Dashboard und navigieren Sie zur _Weboberfläche_ . Scrollen Sie nach unten zum Abschnitt _„API“_ und stellen Sie sicher, dass …`Enable API` ist geprüft. Kopieren Sie die `API key` Tragen Sie diese Daten in den ioBroker.plex-Einstellungen ein. Fügen Sie außerdem die Tautulli-IP-Adresse und den Port hinzu, um die API-Kommunikation zu ermöglichen.
 
 ##### 2.2.2.2. Webhook
 
@@ -100,17 +100,17 @@ Nach der Installation öffnen Sie die Einstellungsseite im Tautulli-Dashboard un
 
 1. Klicken Sie auf _„Neuen Benachrichtigungsagenten_ und _Webhook_ hinzufügen“.
 
-2. Geben Sie Ihre ioBroker-IP-Adresse mit dem in den ioBroker.plex-Einstellungen angegebenen benutzerdefinierten Port und dem nachfolgenden Suffix ein.`/tautulli` Pfad, z.B.`http://192.168.178.29:41891/tautulli` :
+2. Geben Sie Ihre ioBroker-IP-Adresse mit dem in den ioBroker.plex-Einstellungen angegebenen benutzerdefinierten Port und dem nachfolgenden Suffix ein. `/tautulli` Pfad, z.B. `http://192.168.178.29:41891/tautulli`:
 
-   ![Tautulli Webhook](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-webhook.png) Wählen Sie außerdem`POST` für die _Webhook-Methode_ und geben Sie eine beliebige Beschreibung im _Feld „Beschreibung“_ ein.
+   ![Tautulli Webhook](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-webhook.png) Wählen Sie außerdem `POST` für die _Webhook-Methode_ und geben Sie eine beliebige Beschreibung im _Feld „Beschreibung“_ ein.
 
 3. Wechseln Sie anschließend zum Tab _„Trigger“_ und wählen Sie die gewünschten (oder alle) Benachrichtigungsagenten aus. Ein aktivierter Benachrichtigungsagent löst ein Ereignis aus, das dann an ioBroker gesendet wird. **Stellen Sie sicher,** dass Sie im nächsten Schritt die erforderlichen Daten für jeden aktivierten Benachrichtigungsagenten angeben!
 
-4. Nun **ist es am wichtigsten** , die entsprechenden Nutzdaten im _Daten-_ Tab gemäß der **[hier zu findenden Benachrichtigungskonfiguration](/#/docs/adapterref/iobroker.plex/README-tautulli.md#notification-configuration)** einzugeben. Kopieren Sie die Benachrichtigungskonfiguration der relevanten Benachrichtigungsagenten aus dem vorherigen Schritt (z. B.`Playback Start` ,`Playback Stop` ,`Playback Pause` Und`Playback Resume` ) in jedem der unten gezeigten Textfelder für`Playback Start` :
+4. Nun **ist es am wichtigsten** , die entsprechenden Nutzdaten im _Daten-_ Tab gemäß der **[hier zu findenden Benachrichtigungskonfiguration](/#/docs/adapterref/iobroker.plex/README-tautulli.md#notification-configuration)** einzugeben. Kopieren Sie die Benachrichtigungskonfiguration der relevanten Benachrichtigungsagenten aus dem vorherigen Schritt (z. B. `Playback Start`, `Playback Stop`, `Playback Pause` Und `Playback Resume`) in jedem der unten gezeigten Textfelder für `Playback Start`:
 
    ![Tautulli-Benachrichtigung](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-notification.png)
 
-5. Abschließend die Option aktivieren`Allow Consecutive Notifications` um das Senden aufeinanderfolgender Benachrichtigungen zu ermöglichen (z. B. sowohl Benachrichtigungen über angesehene als auch gestoppte Benachrichtigungen):
+5. Abschließend die Option aktivieren `Allow Consecutive Notifications` um das Senden aufeinanderfolgender Benachrichtigungen zu ermöglichen (z. B. sowohl Benachrichtigungen über angesehene als auch gestoppte Benachrichtigungen):
 
    ![Tautulli-Benachrichtigungseinstellungen](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-notification_settings.png)
 

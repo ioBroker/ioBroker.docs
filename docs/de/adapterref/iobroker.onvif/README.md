@@ -126,13 +126,13 @@ Dann ist go2rtsp über
 http://IP:1984
 ```
 
-Anschließend können Sie einen Stream hinzufügen. Die Stream-URL finden Sie beispielsweise unter`onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+Anschließend können Sie einen Stream hinzufügen. Die Stream-URL finden Sie beispielsweise unter `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
 <img src="addgo.png" height="300">
 
 ### Stream als iFrame einfügen
 
-Füge die`iFrame` Widget im Vis und verwenden Sie den Stream-Link von go2rtsp als Quelle
+Füge die `iFrame` Widget im Vis und verwenden Sie den Stream-Link von go2rtsp als Quelle
 
 `http://192.168.178.1:1984/stream.html?src=camera&mode=webrtc`
 
@@ -154,7 +154,7 @@ Dann kann rtsptoweb über folgendes erreicht werden:
 http://IP:8083
 ```
 
-Anschließend können Sie einen Stream hinzufügen. Die Stream-URL finden Sie beispielsweise unter`onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+Anschließend können Sie einen Stream hinzufügen. Die Stream-URL finden Sie beispielsweise unter `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
 <img src="addstream.png" height="600">
 
@@ -168,7 +168,7 @@ Wählen Sie anschließend ein HTML-Objekt in der Ansicht aus. Geben Sie dann im 
 
 <img src="html.png" height="150">
 
-## **Wenn mehrere Datenströme hinzugefügt werden sollen,`webrtc-url` Und`webrtc-video` In HTML und Skript muss die ID durch eine neue ID ersetzt werden, z. B.`webrtc-url2` Und`webrtc-video2`**
+## **Wenn mehrere Datenströme hinzugefügt werden sollen, `webrtc-url` Und `webrtc-video` In HTML und Skript muss die ID durch eine neue ID ersetzt werden, z. B. `webrtc-url2` Und `webrtc-video2` **
 
 ```html
 <input
@@ -242,7 +242,7 @@ setTimeout(function () {
 
 ## Alle Streams als iFrame
 
-Alternativ können Sie die Kameraübersicht auch als iFrame einfügen: Fügen Sie das Widget hinzu.`iFrame` und geben Sie den rtsp2web-Server als Quelle ein:
+Alternativ können Sie die Kameraübersicht auch als iFrame einfügen: Fügen Sie das Widget hinzu. `iFrame` und geben Sie den rtsp2web-Server als Quelle ein:
 
 `http://192.168.0.2:8083/pages/multiview/full?controls`
 
@@ -268,11 +268,11 @@ onvif.0.IP\_PORT.infos.streamUris.MediaProfile\_Channel1\_MainStream.snapshotUrl
 
 #### Aktualisieren Sie den Status über onvif.0.IP\_PORT.remote.snapshot
 
-Weisen Sie eine`String img src` Element zum Zustand onvif.0.IP\_PORT.snapshot.
+Weisen Sie eine `String img src` Element zum Zustand onvif.0.IP\_PORT.snapshot.
 
-Oder alternativ, wenn`String img src` Funktioniert nicht
+Oder alternativ, wenn `String img src` Funktioniert nicht
 
-Füge den Status onvif.0.IP\_PORT.snapshot ein als`HTML` Element in die Vis mit folgendem Inhalt
+Füge den Status onvif.0.IP\_PORT.snapshot ein als `HTML` Element in die Vis mit folgendem Inhalt
 
 ```javascript
 <img src="{onvif.0.IP_PORT.snapshot}" width="500px" />

@@ -343,7 +343,7 @@ Beispiel:
 
 Gültig: Jahr, Monat, Tag | Stunde, Minute, Sekunde | Ungültig: Jahr, Minute, Sekunde
 
-Die Anzeigegröße kann über CSS gesteuert werden.`font-size` Einstellung.
+Die Anzeigegröße kann über CSS gesteuert werden. `font-size` Einstellung.
 
 **Der tatsächliche Aktionsstatus (cdstop,cdrun,cdpause,cdend) des Countdowns ist als CSS-Klassenselektor verfügbar:**
 
@@ -401,7 +401,7 @@ Für den negativen Rand muss eine CSS-Klasse erstellt werden.
 
 ###### Widgetgröße
 
-Die Anzeigegröße kann über CSS gesteuert werden.`font-size` Einstellung.
+Die Anzeigegröße kann über CSS gesteuert werden. `font-size` Einstellung.
 
 ###### Zentrieren der Nixie-Uhr
 
@@ -424,12 +424,12 @@ Ein konfigurierbares Widget zur Anzeige des aktuellen Datums und der Uhrzeit als
 
 | Attribut             | Beschreibung                                                                                    |
 | -------------------- | ----------------------------------------------------------------------------------------------- |
-| `clock_time_source`  | Wählt aus`client` für die Browserzeit oder`server` für die synchronisierte ioBroker-Serverzeit. |
-| `clock_format`       | Definiert das Datums- und Zeitformat. Der Standardwert ist`DD.MM.YYYY HH:mm:ss` Die             |
+| `clock_time_source`  | Wählt aus `client` für die Browserzeit oder `server` für die synchronisierte ioBroker-Serverzeit. |
+| `clock_format`       | Definiert das Datums- und Zeitformat. Der Standardwert ist `DD.MM.YYYY HH:mm:ss` Die             |
 | `clock_html_prepend` | Text oder HTML, der vor dem formatierten Datum und der Uhrzeit eingefügt wird.                  |
 | `clock_html_append`  | Text oder HTML wird nach dem formatierten Datum und der Uhrzeit angehängt.                      |
 
-Folgende Platzhalter können verwendet werden in`clock_format` :
+Folgende Platzhalter können verwendet werden in `clock_format`:
 
 | Platzhalter | Beschreibung                     |
 | ----------- | -------------------------------- |
@@ -441,7 +441,7 @@ Folgende Platzhalter können verwendet werden in`clock_format` :
 | `mm` /`m`   | Minuten mit / ohne führende Null |
 | `ss` /`s`   | Sekunden mit/ohne führende Null  |
 
-Die Anzeigegröße kann über CSS gesteuert werden.`font-size` Einstellung.
+Die Anzeigegröße kann über CSS gesteuert werden. `font-size` Einstellung.
 
 #### Widget-Uhr FlipClock
 
@@ -453,8 +453,8 @@ Ein konfigurierbares Datums- und Uhrzeit-Widget im Stil einer Flughafen-Anzeiget
 
 | Attribut                 | Beschreibung                                                                                    |
 | ------------------------ | ----------------------------------------------------------------------------------------------- |
-| `clock_time_source`      | Wählt aus`client` für die Browserzeit oder`server` für die synchronisierte ioBroker-Serverzeit. |
-| `clock_date_order`       | Wählt aus`DMY` ,`MDY` , oder`YMD` als die Reihenfolge der Datumskomponenten.                    |
+| `clock_time_source`      | Wählt aus `client` für die Browserzeit oder `server` für die synchronisierte ioBroker-Serverzeit. |
+| `clock_date_order`       | Wählt aus `DMY`, `MDY`, oder `YMD` als die Reihenfolge der Datumskomponenten.                    |
 | `clock_showyear`         | Zeigt die zweistellige Jahreskomponente an.                                                     |
 | `clock_showmonth`        | Zeigt die Monatskomponente an.                                                                  |
 | `clock_showday`          | Zeigt die Tageskomponente an.                                                                   |
@@ -465,7 +465,7 @@ Ein konfigurierbares Datums- und Uhrzeit-Widget im Stil einer Flughafen-Anzeiget
 | `clock_background_color` | Legt die Hintergrundfarbe der Wendekarten fest.                                                 |
 | `clock_dot_color`        | Legt die Farbe der Trennlinien zwischen den Komponenten fest.                                   |
 
-Die Zeitkomponenten werden stets nach den ausgewählten Datumskomponenten in der Reihenfolge Stunden, Minuten, Sekunden angezeigt. Die Anzeigegröße kann über CSS gesteuert werden.`font-size` Einstellung.
+Die Zeitkomponenten werden stets nach den ausgewählten Datumskomponenten in der Reihenfolge Stunden, Minuten, Sekunden angezeigt. Die Anzeigegröße kann über CSS gesteuert werden. `font-size` Einstellung.
 
 #### Widget-Uhr NixieClock
 
@@ -477,8 +477,8 @@ Ein konfigurierbares Datums- und Zeit-Widget im Nixie-Röhren-/LED-Stil. Jede Da
 
 | Attribut                 | Beschreibung                                                                                    |
 | ------------------------ | ----------------------------------------------------------------------------------------------- |
-| `clock_time_source`      | Wählt aus`client` für die Browserzeit oder`server` für die synchronisierte ioBroker-Serverzeit. |
-| `clock_date_order`       | Wählt aus`DMY` ,`MDY` , oder`YMD` als die Reihenfolge der Datumskomponenten.                    |
+| `clock_time_source`      | Wählt aus `client` für die Browserzeit oder `server` für die synchronisierte ioBroker-Serverzeit. |
+| `clock_date_order`       | Wählt aus `DMY`, `MDY`, oder `YMD` als die Reihenfolge der Datumskomponenten.                    |
 | `clock_showyear`         | Zeigt die zweistellige Jahreskomponente an.                                                     |
 | `clock_showmonth`        | Zeigt die Monatskomponente an.                                                                  |
 | `clock_showday`          | Zeigt die Tageskomponente an.                                                                   |
@@ -490,7 +490,7 @@ Ein konfigurierbares Datums- und Zeit-Widget im Nixie-Röhren-/LED-Stil. Jede Da
 | `clock_opacity_inactive` | Legt die Deckkraft der inaktiven Ziffern fest.                                                  |
 | `clock_glowcolor`        | Legt die Farbe des Leuchtens um die aktiven Ziffern fest.                                       |
 
-Die Zeitkomponenten werden stets nach den ausgewählten Datumskomponenten in der Reihenfolge Stunden, Minuten, Sekunden angezeigt. Die Anzeigegröße kann über CSS gesteuert werden.`font-size` Einstellung.
+Die Zeitkomponenten werden stets nach den ausgewählten Datumskomponenten in der Reihenfolge Stunden, Minuten, Sekunden angezeigt. Die Anzeigegröße kann über CSS gesteuert werden. `font-size` Einstellung.
 
 #### Widget-Wortuhr
 

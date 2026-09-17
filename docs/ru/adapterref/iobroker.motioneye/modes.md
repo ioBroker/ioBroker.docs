@@ -18,6 +18,6 @@ hash: WZWrMXesdSZX8UxZd3RBAr5HC62U6puiR3nkhR6G2xM=
 | `still` | Да                   | нет            | Да                  |
 | `sharp` | Да                   | MP4 в движении | Да                  |
 
-Режим через точку данных`<kamera>.mode` или задать скрипты. Адаптер записывает конфигурацию MotionEye, когда **MotionEye активно управляется через Config-API** .
+Режим через точку данных `<kamera>.mode` или задать скрипты. Адаптер записывает конфигурацию MotionEye, когда **MotionEye активно управляется через Config-API** .
 
-Для **выпадающего списка VIS,** включающего Telegram для отслеживания перемещений, необходимо выбрать соответствующий пункт.[`alertLevel`](/#/docs/adapterref/iobroker.motioneye/alert-level.md) использовать (`off` /`motion` /`notify` /`record` /`full` Точка данных`mode` его берут с собой.
+Для **выпадающего списка VIS,** включающего Telegram для отслеживания перемещений, необходимо выбрать соответствующий пункт.[`alertLevel`](/#/docs/adapterref/iobroker.motioneye/alert-level.md) использовать (`off` /`motion` /`notify` /`record` /`full` Точка данных `mode` его берут с собой.

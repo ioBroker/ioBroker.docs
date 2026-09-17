@@ -32,7 +32,7 @@ Bitte beachten Sie Urheberrechte und Markenrechte, wenn Sie Namen oder Logos von
 
 Sie haben es fast geschafft, nur noch wenige Schritte:
 
-1. Erstelle ein neues Repository auf GitHub mit dem Namen`ioBroker.i2c`
+1. Erstelle ein neues Repository auf GitHub mit dem Namen `ioBroker.i2c`
 
 2. Initialisiere den aktuellen Ordner als neues Git-Repository:
    ```bash
@@ -52,7 +52,7 @@ Sie haben es fast geschafft, nur noch wenige Schritte:
    git push origin master
    ```
 
-5. Fügen Sie unter <https://github.com/UncleSamSwiss/ioBroker.i2c/settings/secrets> ein neues Geheimnis hinzu. Es muss den Namen tragen.`AUTO_MERGE_TOKEN` und ein persönliches Zugriffstoken mit Push-Berechtigung für das Repository enthalten, z. B. Ihres. Sie können ein neues Token unter <https://github.com/settings/tokens> erstellen.
+5. Fügen Sie unter <https://github.com/UncleSamSwiss/ioBroker.i2c/settings/secrets> ein neues Geheimnis hinzu. Es muss den Namen tragen. `AUTO_MERGE_TOKEN` und ein persönliches Zugriffstoken mit Push-Berechtigung für das Repository enthalten, z. B. Ihres. Sie können ein neues Token unter <https://github.com/settings/tokens> erstellen.
 
 6. Gehe zu [main.js](https://github.com/UncleSamSwiss/ioBroker.i2c/blob/master/main.js) und fang an zu programmieren!
 
@@ -66,18 +66,18 @@ Beim Erstellen von Zustandsobjekten ist es wichtig, die korrekte Rolle für den 
 
 **Wichtig:** Erfinden Sie keine eigenen Rollennamen. Falls Sie eine Rolle benötigen, die nicht in der offiziellen Liste enthalten ist, wenden Sie sich bitte an die ioBroker-Entwickler-Community, um Unterstützung und Informationen zum Hinzufügen neuer Rollen zu erhalten.
 
-### Skripte in`package.json`
+### Skripte in `package.json`
 
-Für Ihre Bequemlichkeit sind mehrere npm-Skripte vordefiniert. Sie können diese ausführen mit`npm run <scriptname>`
+Für Ihre Bequemlichkeit sind mehrere npm-Skripte vordefiniert. Sie können diese ausführen mit `npm run <scriptname>`
 
 | Skriptname         | Beschreibung                                                                                                                                                                       |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `check`            | Führt eine Typüberprüfung Ihres Codes durch (ohne etwas zu kompilieren).                                                                                                           |
-| `test:ts`          | Führt die von Ihnen definierten Tests aus in`*.test.ts` Dateien.                                                                                                                   |
-| `test:package`     | Stellt sicher, dass Ihre`package.json` Und`io-package.json` sind gültig.                                                                                                           |
+| `test:ts`          | Führt die von Ihnen definierten Tests aus in `*.test.ts` Dateien.                                                                                                                   |
+| `test:package`     | Stellt sicher, dass Ihre `package.json` Und `io-package.json` sind gültig.                                                                                                           |
 | `test:integration` | Testet den Adapterstart mit einer tatsächlichen Instanz von ioBroker.                                                                                                              |
 | `test`             | Führt einen minimalen Testlauf für Paketdateien und Ihre Tests durch.                                                                                                              |
-| `lint`             | Läufe`ESLint` Überprüfen Sie Ihren Code auf Formatierungsfehler und mögliche Bugs.                                                                                                 |
+| `lint`             | Läufe `ESLint` Überprüfen Sie Ihren Code auf Formatierungsfehler und mögliche Bugs.                                                                                                 |
 | `translate`        | Übersetzt Texte in Ihrem Adapter in alle erforderlichen Sprachen, siehe[`@iobroker/adapter-dev`](https://github.com/ioBroker/adapter-dev#manage-translations) für weitere Details. |
 | `release`          | Erstellt eine neue Version, siehe[`@alcalzone/release-script`](https://github.com/AlCalzone/release-script#usage) für weitere Details.                                             |
 
@@ -89,7 +89,7 @@ Die Vorlage enthält grundlegende Tests für die Adapter-Start- und Paketdateien
 
 ### Veröffentlichung des Adapters
 
-Mithilfe von GitHub Actions können Sie automatische Releases auf npm aktivieren, die immer dann erfolgen, wenn Sie ein neues Git-Tag pushen, das dem folgenden Format entspricht:`v<major>.<minor>.<patch>` Wir **empfehlen Ihnen dies dringend** . Die notwendigen Schritte sind in folgendem Abschnitt beschrieben:`.github/workflows/test-and-release.yml` Die
+Mithilfe von GitHub Actions können Sie automatische Releases auf npm aktivieren, die immer dann erfolgen, wenn Sie ein neues Git-Tag pushen, das dem folgenden Format entspricht: `v<major>.<minor>.<patch>` Wir **empfehlen Ihnen dies dringend** . Die notwendigen Schritte sind in folgendem Abschnitt beschrieben: `.github/workflows/test-and-release.yml` Die
 
 Da Sie das Release-Skript installiert haben, können Sie ein neues Release ganz einfach durch folgenden Aufruf erstellen:
 
@@ -112,11 +112,11 @@ Um den Adapter lokal zu installieren, ohne ihn zu veröffentlichen, werden folge
      ```
      https://github.com/UncleSamSwiss/ioBroker.i2c
      ```
-     Sie können auch von einem bestimmten Branch installieren, indem Sie Folgendes hinzufügen`#branchname` Am Ende:
+     Sie können auch von einem bestimmten Branch installieren, indem Sie Folgendes hinzufügen `#branchname` Am Ende:
      ```
      https://github.com/UncleSamSwiss/ioBroker.i2c#dev
      ```
-   - **Über die Befehlszeile** : Installation mit dem`iob` Befehl:
+   - **Über die Befehlszeile** : Installation mit dem `iob` Befehl:
      ```bash
      iob url https://github.com/UncleSamSwiss/ioBroker.i2c
      ```
@@ -128,7 +128,7 @@ Um den Adapter lokal zu installieren, ohne ihn zu veröffentlichen, werden folge
 Für spätere Aktualisierungen:
 
 1. Übertrage deine Änderungen auf GitHub
-2. Wiederholen Sie die oben genannten Installationsschritte (über die Admin-Benutzeroberfläche oder`iob url` Befehl), um den Adapter zu aktualisieren
+2. Wiederholen Sie die oben genannten Installationsschritte (über die Admin-Benutzeroberfläche oder `iob url` Befehl), um den Adapter zu aktualisieren
 
 ## Changelog
 

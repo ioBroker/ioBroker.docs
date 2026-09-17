@@ -16,7 +16,7 @@ hash: 7Ye2IjPmKH3F2gIsVRYQWp3q/kfDDBhZL9jCwB0Ntvg=
 
 Dieser Adapter wird von Webanwendungen und Adaptern verwendet, um über WebSockets mit ioBroker zu kommunizieren.
 
-Es ist fast dasselbe wie`ioBroker.socketio` , verwendet aber nicht die socket.io-Bibliothek, sondern simuliert sie nur.
+Es ist fast dasselbe wie `ioBroker.socketio`, verwendet aber nicht die socket.io-Bibliothek, sondern simuliert sie nur.
 
 **Wichtiger Hinweis: Seit Version 4.0 dieses Adapters werden ausschließlich reine WebSockets verwendet! Socket.io wird nicht mehr durch die socket.io-Bibliothek implementiert, sondern über reine WebSockets simuliert!**
 
@@ -57,21 +57,21 @@ Zustände ändern sich im Vergleich zu Objekten sehr häufig. (Normalerweise sol
 
 ### Anerkennung
 
-Jeder Staat besitzt das Attribut`ack` Es zeigt die Befehlsrichtung an.
+Jeder Staat besitzt das Attribut `ack` Es zeigt die Befehlsrichtung an.
 
 - Wenn ack=false, bedeutet dies, dass ein anderer Adapter diese Variable steuern (schreiben) möchte, sodass dieser Befehl ausgeführt wird (z. B. wird das Licht eingeschaltet).
 - Wenn ack=true, bedeutet dies, dass das Gerät einen neuen Wert meldet (z. B. wurde das Licht manuell eingeschaltet oder eine Bewegung erkannt).
 
-**Beispiel** : Wir haben einen Hausautomatisierungsadapter (HAA), an den eine Lampe unter folgender Adresse angeschlossen ist:`haa.0.lamp1` Die
+**Beispiel** : Wir haben einen Hausautomatisierungsadapter (HAA), an den eine Lampe unter folgender Adresse angeschlossen ist: `haa.0.lamp1` Die
 
 - Die Lampe kann manuell über einen physischen Schalter oder per WLAN mit Hilfe von HAA eingeschaltet werden.
-- Wenn vis die Lampe über WLAN einschalten möchte, sollte es den neuen Wert mit`{ value: true, ack: false }` Die
-- Wenn die Lampe eingeschaltet wird, informiert sie HAA normalerweise über ihren neuen Zustand, und der Wert sollte sofort überschrieben werden.`{ value: true, ack: true }` Die
-- Wird die Lampe manuell über einen physischen Schalter ausgeschaltet, informiert dies HAA über den neuen Zustand.`{ value: false, ack: true }` Die
+- Wenn vis die Lampe über WLAN einschalten möchte, sollte es den neuen Wert mit `{ value: true, ack: false }` Die
+- Wenn die Lampe eingeschaltet wird, informiert sie HAA normalerweise über ihren neuen Zustand, und der Wert sollte sofort überschrieben werden. `{ value: true, ack: true }` Die
+- Wird die Lampe manuell über einen physischen Schalter ausgeschaltet, informiert dies HAA über den neuen Zustand. `{ value: false, ack: true }` Die
 
 ### Qualität
 
-Jeder Datenpunkt besitzt ein Attribut.`q` - _Qualität_ .
+Jeder Datenpunkt besitzt ein Attribut. `q` - _Qualität_ .
 
 ## Verwendung
 

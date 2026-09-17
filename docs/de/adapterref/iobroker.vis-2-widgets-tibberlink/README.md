@@ -24,13 +24,13 @@ Mehr Informationen zu Tibber und seinen dynamischen Tarifen: <https://tibber.com
 
 ## Voraussetzungen
 
-Dieser Widget-Adapter ruft **keine** Daten von Tibber selbst ab. Er liest Zustände, die vom Datenadapter erstellt werden.[`iobroker.tibberlink`](https://github.com/hombach/ioBroker.tibberlink) Installieren und konfigurieren`tibberlink` vor der Verwendung dieser Widgets:
+Dieser Widget-Adapter ruft **keine** Daten von Tibber selbst ab. Er liest Zustände, die vom Datenadapter erstellt werden.[`iobroker.tibberlink`](https://github.com/hombach/ioBroker.tibberlink) Installieren und konfigurieren `tibberlink` vor der Verwendung dieser Widgets:
 
-1. Installieren`iobroker.tibberlink` und geben Sie Ihr Tibber-API-Token ein (von <https://developer.tibber.com/settings/accesstoken> ).
+1. Installieren `iobroker.tibberlink` und geben Sie Ihr Tibber-API-Token ein (von <https://developer.tibber.com/settings/accesstoken> ).
 2. Aktivieren Sie in den Tibberlink-Einstellungen die **Option „Abruf historischer Verbrauchsdaten“** und legen Sie die Anzahl der Datensätze pro Tag auf mindestens 31 fest (erforderlich für Widget 3).
 3. Die Preis-Widgets (Widget 1 und 2) funktionieren automatisch, sobald tibberlink läuft – es werden keine Calculator-Kanäle benötigt.
 
-Ihre **Home-ID** ist die UUID, die im ioBroker-Objektbaum unter folgendem Pfad sichtbar ist:`tibberlink.0.Homes.<UUID>` z.B.`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` Die
+Ihre **Home-ID** ist die UUID, die im ioBroker-Objektbaum unter folgendem Pfad sichtbar ist: `tibberlink.0.Homes.<UUID>` z.B. `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` Die
 
 ## Widgets
 
@@ -90,14 +90,14 @@ Zeigt den Stromverbrauch in Echtzeit in großer Schrift zusammen mit Minimal-, D
 
 ![Monatliche Stromkosten](../../../en/adapterref/iobroker.vis-2-widgets-tibberlink/docs/img/vis-2-widget-Monatskosten.png)
 
-Aggregiert den Tibberlink`jsonDaily` Verbrauchsdaten für den aktuellen Kalendermonat. Angezeigt werden Gesamtkosten, Gesamtverbrauch, Durchschnittspreis, eine Prognose zum Monatsende sowie ein Fortschrittsbalken, der den aktuellen Monatsverlauf anzeigt. Voraussetzung ist die Aktivierung **des Abrufs historischer Verbrauchsdaten** in Tibberlink mit mindestens 31 Datensätzen pro Tag.
+Aggregiert den Tibberlink `jsonDaily` Verbrauchsdaten für den aktuellen Kalendermonat. Angezeigt werden Gesamtkosten, Gesamtverbrauch, Durchschnittspreis, eine Prognose zum Monatsende sowie ein Fortschrittsbalken, der den aktuellen Monatsverlauf anzeigt. Voraussetzung ist die Aktivierung **des Abrufs historischer Verbrauchsdaten** in Tibberlink mit mindestens 31 Datensätzen pro Tag.
 
 | Option               | Standard                 | Beschreibung                                                               |
 | -------------------- | ------------------------ | -------------------------------------------------------------------------- |
 | `oid_jsonDaily`      | `…Consumption.jsonDaily` | JSON-Array mit täglichen Verbrauchsdatensätzen                             |
 | `currency_symbol`    | `€`                      | Währungssymbol nach Beträgen angezeigt                                     |
 | `show_base_fee`      | `false`                  | Zu den Gesamtkosten wird eine feste monatliche Grundgebühr hinzugerechnet. |
-| `base_fee_per_month` | `0`                      | Grundgebühr in € (wird verwendet, wenn`show_base_fee` ist an)              |
+| `base_fee_per_month` | `0`                      | Grundgebühr in € (wird verwendet, wenn `show_base_fee` ist an)              |
 | `tib_darkmode`       | `true`                   | Dunkles (Standard) oder helles Design                                      |
 
 ## Dokumentation

@@ -19,4 +19,4 @@ Wir haben das Layout und das UX-Konzept für die **Anker-Solix** -Objektstruktur
 
 **Vielen Dank, Michael, dass du solix4 mit der Community geteilt hast.**
 
-Staaten werden veröffentlicht unter`anker-solix.0.dashboard.*` und kann in VIS/VIS-2 mit einem Standard **-HTML-** Widget angezeigt werden (siehe [README.md](/#/adapters/anker-solix#html-dashboards-solix4-style) ).
+Staaten werden veröffentlicht unter `anker-solix.0.dashboard.*` und kann in VIS/VIS-2 mit einem Standard **-HTML-** Widget angezeigt werden (siehe [README.md](/#/adapters/anker-solix#html-dashboards-solix4-style) ).
