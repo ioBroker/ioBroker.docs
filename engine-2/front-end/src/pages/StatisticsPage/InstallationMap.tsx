@@ -144,8 +144,20 @@ export const InstallationMap = (): React.ReactNode => {
     const [count, setCount] = useState(0);
     const container = useRef<HTMLDivElement | null>(null);
 
+    /*
+     * Whether the map was asked for - true from the click on, whatever phase follows.
+     *
+     * The effect below used to depend on `phase` itself. Its last step is `setPhase('ready')`, and
+     * a changed dependency makes React run the cleanup of the effect before anything else - the
+     * cleanup that calls `clearMarkers()`. All 44.517 markers were taken off the clusterer the
+     * moment they had been put on it: the map was drawn, the count below it was right, and not a
+     * single point was on the map. The build has to be tied to something that stays the same once
+     * it has started, so that its cleanup only runs when the component goes away.
+     */
+    const started = phase !== 'idle';
+
     useEffect(() => {
-        if (phase !== 'loading') {
+        if (!started) {
             return;
         }
         let cancelled = false;
@@ -205,7 +217,7 @@ export const InstallationMap = (): React.ReactNode => {
             cancelled = true;
             clusterer?.clearMarkers();
         };
-    }, [phase]);
+    }, [started]);
 
     return (
         <Box>
