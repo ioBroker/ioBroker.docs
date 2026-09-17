@@ -37,7 +37,7 @@ Der Adapter selbst läuft auf jeder Plattform, auf der ioBroker ausgeführt wird
 
 Durch regelmäßige HTTP-Abfragen werden allgemeine Statuswerte (z. B. Akkustand, Status und Fahrzeugstatus) aktualisiert, um sie auf dem neuesten Stand zu halten. Standortdaten und Mähfortschritt (`location.mowingPercentage` Die Standortinformationen werden über MQTT bereitgestellt. Während des aktiven Mähvorgangs überwacht der Adapter den MQTT-Standortdatenstrom und führt eine kontrollierte MQTT-Wiederverbindung durch, wenn keine Standortaktualisierungen mehr eintreffen, während HTTP weiterhin einen aktiven Mäherstatus meldet.
 
-## Posten
+## Sentry
 
 Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 

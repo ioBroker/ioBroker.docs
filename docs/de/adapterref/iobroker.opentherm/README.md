@@ -19,7 +19,7 @@ hash: xyaAR0EcyhfwHF8DPjo7OLZrmtVmYd5wn1qiTCLt7vM=
 # IoBroker.opentherm
 Dieser Adapter integriert alle Funktionen des OpenTherm-Gateways in ioBroker. OpenTherm ist ein Gateway-Protokoll, das von verschiedenen modernen Heizsystemen wie Remeha verwendet wird.
 
-## Wächter
+## Sentry
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 Weitere Informationen finden Sie unter http://otgw.tclcode.com/index.html#intro. Alle Rechte liegen bei den Entwicklern.

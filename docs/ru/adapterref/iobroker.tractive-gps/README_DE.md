@@ -28,7 +28,7 @@ hash: uRR3zyQhEWf5v1b3dzQXPfvWJiZJScwCOrP+PGIHI40=
 
 Alle in diesem Projekt genannten Produkt- und Firmennamen, Logos und Marken gehören ihren jeweiligen Eigentümern. Tractive und die damit verbunden Namen, Logos und Marken sind Eigentum der Tractive GmbH beziehungsweise ihrer Jeweiligen Rechteinhaber. Ihre Verwendung dient ausschließlich der Identifikation und bedeutet weder eine Verbindung mit noch ein Sponsoring ore eine Unterstützung durch die Tractive GmbH или mit ihr verbundene Unternehmen. Dies ist ein in Private, nicht komerzielles Projekt, das zu Freizeitzwecken entwickelt wird.
 
-## Часовой
+## Sentry
 
 **Этот адаптер предназначен для Sentry-Bibliotheken, а также автоматического и программного обеспечения, а также для облегчения работы.** Weitere Einzelheiten und eine Anleitung zum Deaktivieren der Fehlerberichterstattung enthält die [Dokumentation des Sentry-Plugins](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Приложение Sentry-Fehlerberichterstattung работает с js-контроллером 3.0.
 

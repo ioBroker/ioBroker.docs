@@ -207,7 +207,7 @@ Der Ladevorgang kann mehrere Abfragezyklen benötigen, da der interne Zielwert p
 
 Wenn ChargeManager mehrere Wallboxen gleichzeitig betreibt, wird der PV-Überschuss in der Reihenfolge der Wallbox-Liste aufgeteilt. Die erste Wallbox hat Priorität, die nachfolgenden erhalten nur den verbleibenden Überschuss (siehe [„PV-Überschussladung mit ChargeManager“](#pv-surplus-charging-with-chargemanager) oben). Der Adapter begrenzt derzeit noch **nicht** den Gesamtstrom aller Wallboxen an einer gemeinsamen Sicherung oder Zuleitung. Stellen Sie daher sicher, dass die Summe der maximalen Ströme pro Wallbox die Kapazität Ihrer Anlage nicht überschreitet.
 
-## Posten
+## Sentry
 
 Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Informationen und Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie in der [Dokumentation des Sentry-Plugins](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
 

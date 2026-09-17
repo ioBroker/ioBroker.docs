@@ -29,7 +29,7 @@ hash: PUE7yF38jUCtxmK5R9umw1aUiYQ01SvJ1yAS5u7t8Eo=
 
 ## Versionen
 
-## Posten
+## Sentry
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie unter \[Link einfügen].<a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry"> Sentry-Plugin-Dokumentation</a> !
 

@@ -21,7 +21,7 @@ VE.direct-Daten von einem Victron-Gerät mit vedirect-Anschluss über eine USB-S
 ### Konfiguration
 Stellen Sie das richtige Gerät (z. B. /dev/ttyUSB0) in der Adapterkonfiguration ein.
 
-## Wächter
+## Sentry
 Dieser Adapter verwendet die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in Abschnitt [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Changelog

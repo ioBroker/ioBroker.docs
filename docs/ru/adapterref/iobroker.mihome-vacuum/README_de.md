@@ -73,7 +73,7 @@ Jede Anfrage und jeder Fehlerbericht sollte enthalten: Modell-ID и Firmware (`d
 
 Alle in diesem Projekt genannten Produkt- und Firmennamen, Logos und Marken gehören ihren jeweiligen Eigentümern. Xiaomi, Mi Home, Roborock, Viomi, Dreame sowie die zugehörigen Namen, Logos und Marken sind Eigentum der Jeweiligen Rechteinhaber. Ihre Verwendung dient ausschließlich der Identifikation und bedeutet keine Verbindung, Forderung or Empfehlung durch die genannten Unternehmen. Dies ist ein in Private, nicht komerzielles Open-Source-Projekt, das zu Freizeitzwecken entwickelt wird.
 
-## Часовой
+## Sentry
 
 **Этот адаптер предназначен для Sentry-Bibliotheken, а также автоматического и программного обеспечения, а также для облегчения работы.** Weitere Informationen und eine Anleitung zum Abschalten der Fehlerberichte содержит [документацию по Sentry-Plugins](https://github.com/ioBroker/plugin-sentry) . Sentry-Berichte stehen ab js-controller 3.0 для Verfügung.
 

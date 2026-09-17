@@ -87,6 +87,45 @@ function isWorthTranslating(value: string): boolean {
     return /\p{L}/u.test(value);
 }
 
+/**
+ * Names that mean nothing in any other language.
+ *
+ * A heading that reads only "Sentry" came back as "Posten" in German and "Часовой" in Russian: the
+ * engine sees an ordinary word and translates the guard, not the service the chapter is about
+ * (mcm1957 in the forum, 17.09.2026). A run that is nothing but such a name therefore never
+ * travels. Only the whole run counts - a name inside a sentence stays where it is, the sentence
+ * around it still has to be translated.
+ */
+const PROPER_NAMES = new Set(
+    [
+        'Sentry',
+        'Blockly',
+        'ioBroker',
+        'Node-RED',
+        'JavaScript',
+        'TypeScript',
+        'Alexa',
+        'Google Home',
+        'Matter',
+        'MQTT',
+        'Zigbee',
+        'Z-Wave',
+        'KNX',
+        'Modbus',
+        'Docker',
+        'GitHub',
+        'Homematic',
+        'Raspberry Pi',
+        'npm',
+        'JSON',
+        'YAML',
+    ].map(name => name.toLowerCase()),
+);
+
+function isProperName(value: string): boolean {
+    return PROPER_NAMES.has(value.trim().replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '').toLowerCase());
+}
+
 function escapeHtml(value: string): string {
     return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
@@ -116,7 +155,7 @@ export function collectRuns(tree: Root): TextRun[] {
     let skipping = false;
 
     const add = (value: string, apply: (translated: string) => void): void => {
-        if (skipping || !value.trim() || !isWorthTranslating(value)) {
+        if (skipping || !value.trim() || !isWorthTranslating(value) || isProperName(value)) {
             return;
         }
         /*

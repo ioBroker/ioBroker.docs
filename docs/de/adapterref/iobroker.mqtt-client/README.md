@@ -27,7 +27,7 @@ hash: 63p6K+gIHjBbgziE1kE/sI5W09CPRbpbT3/TZmzwweo=
 
 ioBroker-Zustände an MQTT-Broker veröffentlichen und abonnieren
 
-## Posten
+## Sentry
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 

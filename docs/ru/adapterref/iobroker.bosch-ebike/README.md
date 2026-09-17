@@ -29,7 +29,7 @@ hash: 47hHZHzD/92zJnC1cQeSMSAeuCGMU603hywO/B8bigo=
 
 bosch-ebike.0.id.remote в режиме true/false setzen steuert den jeweiligen Befehl
 
-## Часовой
+## Sentry
 
 Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде. Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 

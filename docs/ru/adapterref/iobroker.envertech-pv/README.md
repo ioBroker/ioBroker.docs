@@ -30,7 +30,7 @@ hash: iHXYo8zwiNnco2XxvWng1qv+Rp/tuzqzwOgNfiQ0bBA=
 
 ---
 
-## Часовой
+## Sentry
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 

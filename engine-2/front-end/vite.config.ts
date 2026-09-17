@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import fs from 'node:fs';
+import path from 'node:path';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -16,7 +18,20 @@ export default defineConfig({
             '/api/iobroker': {
                 target: 'https://www.iobroker.com',
                 changeOrigin: true,
-                rewrite: (path: string): string => path.replace(/^\/api\/iobroker/, ''),
+                rewrite: (url: string): string => url.replace(/^\/api\/iobroker/, ''),
+                /*
+                 * A document that lies in `public` is taken from there, everything else from the
+                 * live site: a change to the documentation is then visible without a deployment,
+                 * and the indexes, statistics and icons that only the server has still arrive.
+                 */
+                bypass: (req): string | undefined => {
+                    const asked = (req.url || '').replace(/^\/api\/iobroker/, '').split('?')[0];
+                    if (!asked || asked === '/') {
+                        return undefined;
+                    }
+                    const local = path.join(import.meta.dirname, 'public', decodeURIComponent(asked));
+                    return fs.existsSync(local) && fs.statSync(local).isFile() ? asked : undefined;
+                },
             },
             // the search endpoint of the backend next door (`npm start` in engine-2). The live
             // site answers here too, but out of the index that is deployed there.

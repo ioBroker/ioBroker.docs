@@ -21,7 +21,7 @@ hash: 2ZUQaxAciUiHXNZocMHyO8VhnjSnoC50U+oX2HDrwhs=
 
 Adapter für Smart EQ und Hello Smart
 
-## Posten
+## Sentry
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 

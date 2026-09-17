@@ -46,7 +46,7 @@ hash: vTNzWEpWpuE7gNqDA3o4btfxKhZvPphlE9WLKanaZvk=
 
 <https://forum.iobroker.net/topic/48101/test-adapter-maveo-v-0-0-x>
 
-## Часовой
+## Sentry
 
 Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчику об исключениях и ошибках в коде. Более подробную информацию, а также сведения о том, как отключить отправку сообщений об ошибках, см. [в документации по плагину Sentry](https://github.com/ioBroker/plugin-sentry) .
 

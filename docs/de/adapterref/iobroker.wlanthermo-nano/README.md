@@ -21,7 +21,7 @@ hash: mcrEQaWLnscpdF6XAwzQVWcMBUPlhm9Aa2Ns4tJn7Kk=
 
 [WLANThermo Nano](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano") , der digitale Vorteil für Ihren Grillsport
 
-## Posten
+## Sentry
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 

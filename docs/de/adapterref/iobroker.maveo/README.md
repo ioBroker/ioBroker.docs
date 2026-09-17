@@ -46,7 +46,7 @@ Für jedes Element erzeugt der Adapter beschreibbare Zustände unter `maveo.<ins
 
 <https://forum.iobroker.net/topic/48101/test-adapter-maveo-v-0-0-x>
 
-## Posten
+## Sentry
 
 Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an den Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry) .
 

@@ -42,7 +42,7 @@ Wir freuen uns über jedes Feedback zur Funktionalität mit anderen Wechselricht
 
 Stellen Sie sicher, dass Ihr Piko- oder Piko-BA-Wechselrichter auf Kostal UI Version 6.11 oder höher aktualisiert ist. Um eine Verbindung zum Kostal Piko (BA/MP plus) Wechselrichter herzustellen, müssen Sie dessen IP-Adresse in den Einstellungen konfigurieren. Optional können Sie die Aktualisierungsfrequenzen für Live-Daten, Tagesstatistiken und Gesamtstatistiken anpassen. Sofern Ihre Hardware dies unterstützt, können Sie auch die Anzeige der vier Analogwerte aktivieren.
 
-## Posten
+## Sentry
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie unter \[Link einfügen].<a href="https://github.com/ioBroker/plugin-sentry#plugin-sentry"> Sentry-Plugin-Dokumentation</a> !
 

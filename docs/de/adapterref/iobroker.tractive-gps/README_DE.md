@@ -28,7 +28,7 @@ hash: uRR3zyQhEWf5v1b3dzQXPfvWJiZJScwCOrP+PGIHI40=
 
 Alle in diesem Projekt genannten Produkt- und Firmennamen, Logos und Marken gehören ihren jeweiligen Eigentümern. Tractive und die damit verbundenen Namen, Logos und Marken sind Eigentum der Tractive GmbH bzw. ihrer jeweiligen Rechteinhaber. Ihre Verwendung dient ausschließlich der Identifikation und bedeutet weder eine Verbindung mit noch einem Sponsoring oder eine Unterstützung durch die Tractive GmbH oder mit ihrem verbundenen Unternehmen. Dies ist ein privates, nicht kommerzielles Projekt, das zu Freizeitzwecken entwickelt wird.
 
-## Posten
+## Sentry
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Programmfehler automatisch an den Entwickler zu melden.** Weitere Einzelheiten und eine Anleitung zum Deaktivieren der Fehlerberichterstattung enthält die [Dokumentation des Sentry-Plugins](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Fehlerberichterstattung wird ab js-controller 3.0 verwendet.
 

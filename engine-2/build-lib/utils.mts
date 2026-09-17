@@ -923,11 +923,29 @@ export function replaceImages(
     edits.forEach(e => (body = body.substring(0, e.start) + e.text + body.substring(e.end)));
 
     if (Object.keys(badges).length) {
+        const lines = body.split('\n');
         // a line that held nothing but a badge goes with it
-        body = body
-            .split('\n')
-            .filter(line => !line.includes('--delete--'))
-            .join('\n');
+        const dropped = lines.map(line => line.includes('--delete--'));
+        /*
+         * And the label above such a row goes too. "**General Info:**<br>" introduced four shields;
+         * with those gone it stood at the top of the page as a word with a colon and nothing under
+         * it (mcm1957 in the forum, 17.09.2026). Only a label directly above a removed line counts:
+         * one that introduces a picture or a sentence keeps its place, as with the donate button of
+         * ioBroker.device-reminder.
+         */
+        const LABEL = /^\s*\*{1,2}[^*\n]+?:\*{1,2}\s*(?:<\/?br\s*\/?>)*\s*$/i;
+        const BREAK_ONLY = /^\s*(?:<\/?br\s*\/?>)+\s*$/i;
+        lines.forEach((line, index) => {
+            if (dropped[index]) {
+                return;
+            }
+            if (LABEL.test(line) && dropped[index + 1]) {
+                dropped[index] = true;
+            } else if (BREAK_ONLY.test(line) && dropped[index - 1]) {
+                dropped[index] = true;
+            }
+        });
+        body = lines.filter((_line, index) => !dropped[index]).join('\n');
     }
 
     return { body, doDownload, badges };

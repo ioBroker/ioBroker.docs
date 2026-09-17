@@ -26,7 +26,7 @@ Es werden zwei Gerätegenerationen unterstützt, die in den Adaptereinstellungen
 - **V1 – Bestway Smart Hub** (ältere Modelle, Gizwits-Backend): Melden Sie sich mit der App-E-Mail-Adresse und dem Passwort an und wählen Sie das Land aus.
 - **V2 – Bestway Connect / Smart Spa** (UltraFit-Modelle ab 2025, AWS IoT-Backend): Kopplung über QR-Code oder Android-ID und Auswahl der Region.
 
-## Posten
+## Sentry
 
 Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
