@@ -5,7 +5,7 @@ lastChanged: "17.09.2026"
 
 # Adapterlizenzen
 
-Von den über 800 Adaptern brauchen derzeit **drei** eine Lizenz, um überhaupt zu
+Von den hunderten Adaptern brauchen derzeit **drei** eine Lizenz, um überhaupt zu
 laufen:
 
 | Adapter | Wofür |

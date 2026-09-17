@@ -6,7 +6,7 @@ lastChanged: "10.09.2026"
 # Reiter Adapter
 
 Hier stehen alle Adapter, die es für ioBroker gibt: die installierten und die
-über 800 verfügbaren. Von hier aus werden Adapter installiert, aktualisiert und
+vielen hundert verfügbaren. Von hier aus werden Adapter installiert, aktualisiert und
 wieder entfernt.
 
 ?> Ein Adapter ist zunächst nur das Programm. Damit er etwas tut, braucht er eine

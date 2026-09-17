@@ -8,7 +8,7 @@ hash: fGZOJeWa09BHTKYq+LyYQu/O3UWGiRfV/6xBB4B1gx0=
 ---
 # Adapter licenses
 
-Of the more than 800 adapters, **three** currently require a license to even function:
+Of the hundreds of adapters, **three** currently require a license to even function:
 
 | adapter                 | For what                           |
 | ----------------------- | ---------------------------------- |

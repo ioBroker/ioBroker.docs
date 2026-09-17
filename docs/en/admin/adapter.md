@@ -8,7 +8,7 @@ hash: AdufgdBC05k2+5hnQqcXAm90gst2dCV/ZOuLQ9yT/kE=
 ---
 # Rider Adapter
 
-This page lists all available adapters for ioBroker: the installed ones and the over 800 available ones. Adapters are installed, updated, and removed from here.
+This page lists all available adapters for ioBroker: the installed ones and the hundreds of available ones. Adapters are installed, updated, and removed from here.
 
 An adapter is initially just the program. For it to do anything, it needs an **instance** . This is also created here and then configured in the [Instances](/docs/admin/instances.md) tab.
 

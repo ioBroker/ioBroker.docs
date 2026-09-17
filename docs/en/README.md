@@ -24,7 +24,7 @@ This convenience is what a smart home can offer. And it offers even more, if des
 
 The **ioBroker system** is modular and can be extended according to individual requirements by installing individual plugins, which we call adapters.
 
-With well over 600 adapters, ioBroker enables the integration of various platforms, systems and devices from A as in Alexa to Z as in Zigbee and offers many other possibilities for automation.
+With hundreds of adapters, ioBroker enables the integration of various platforms, systems and devices from A as in Alexa to Z as in Zigbee and offers many other possibilities for automation.
 
 #### What are adapters?
 

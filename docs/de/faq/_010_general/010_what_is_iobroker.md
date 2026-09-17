@@ -11,7 +11,7 @@ spricht mit diesen Zentralen und legt alles, was sie liefern, in einer
 gemeinsamen Datenbank ab.
 
 Der Aufbau ist modular. Jede Anbindung ist ein eigenes Programm, ein
-**Adapter**: über 800 gibt es davon. Installiert wird nur, was gebraucht wird.
+**Adapter**: hunderte gibt es davon. Installiert wird nur, was gebraucht wird.
 
 Ausführlich steht das unter
 [ioBroker Grundlagen](/docs/basics/README.md).

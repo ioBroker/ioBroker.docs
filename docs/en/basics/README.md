@@ -15,7 +15,7 @@ In special cases, such a central unit can be replicated via software, or connect
 ## Modularity
 
 ioBroker has a modular structure. These modules are called _**adapters**_ in ioBroker.\
-&#x20;There are over 800 [adapters](/adapters) for connecting various hardware or integrating a wide range of information such as weather, calendar, etc.
+&#x20;There are hundreds of [adapters](/adapters) for connecting various hardware or integrating a wide range of information such as weather, calendar, etc.
 
 Therefore, only the adapters required for individual needs need to be installed in an installation. This saves storage space and computing power.
 
