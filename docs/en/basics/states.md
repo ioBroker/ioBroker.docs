@@ -32,11 +32,12 @@ A state is not just a number. It also carries with it where it comes from and wh
 | `from`   | which adapter instance wrote it                                         |
 | `q`      | A quality value other than 0 means: something is wrong with this value. |
 | `user`   | who wrote it, provided they registered                                  |
+| `c`      | a comment on the value that whoever writes it can add                   |
 | `expire` | After how many seconds will the value be`null` falls                    |
 
-<img src="media/zustand_details.png" alt="Die Zustandsdaten eines Datenpunkts im Objekt-Editor" width="660" />
+<img src="media/zustand_details.png" alt="The state data of a data point in the object editor" width="380" />
 
-In the object editor, all of this is _found_ in the State tab. The "ack" flag there is "acknowledged" - shown in red in the image because the value represents a **command** and there is no feedback yet.
+In the object editor, all of this is found in the State tab. "Acknowledged" is the ack flag there: green for a **feedback** as in the image, red for a **command** that has not been answered yet. "Comment" is the field `c`, here the name of the script that wrote the value.
 
 The difference between`ts` and`lc` is more useful than it looks: A sensor that reports the same value every 30 seconds updates`ts` every time,`lc` But only if there's a genuine change. Anyone wanting to know how long a door has been open should look at...`lc` .
 

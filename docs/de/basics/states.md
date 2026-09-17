@@ -34,13 +34,15 @@ entstanden ist:
 | `from` | welche Adapterinstanz ihn geschrieben hat |
 | `q` | die Qualität - ungleich 0 heißt: mit diesem Wert stimmt etwas nicht |
 | `user` | wer ihn geschrieben hat, sofern über eine Anmeldung |
+| `c` | ein Kommentar zum Wert, den der Schreibende mitgeben kann |
 | `expire` | nach wie vielen Sekunden der Wert auf `null` fällt |
 
-<img src="media/zustand_details.png" alt="Die Zustandsdaten eines Datenpunkts im Objekt-Editor" width="660" />
+<img src="media/zustand_details.png" alt="Die Zustandsdaten eines Datenpunkts im Objekt-Editor" width="380" />
 
 Im Objekt-Editor steht das alles im Reiter *Zustand*. „Bestätigt" ist dort das
-ack-Flag - im Bild rot, weil der Wert ein **Befehl** ist und noch keine
-Rückmeldung.
+ack-Flag: grün bei einer **Rückmeldung** wie im Bild, rot bei einem **Befehl**,
+auf den noch keine Rückmeldung gekommen ist. „Kommentar" ist das Feld `c`, hier
+der Name des Skripts, das den Wert geschrieben hat.
 
 Der Unterschied zwischen `ts` und `lc` ist nützlicher, als er aussieht: Ein
 Fühler, der alle 30 Sekunden denselben Wert meldet, aktualisiert `ts` jedes Mal,
