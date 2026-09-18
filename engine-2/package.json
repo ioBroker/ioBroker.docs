@@ -67,8 +67,8 @@
         "searchIndex": "node tasks.mts --searchIndex",
         "10.build": "node tasks.mts --10.build",
         "11.snapshots": "node tasks.mts --11.snapshots",
-        "buildOnly": "node tasks.mts --buildOnly",
-        "buildBackend": "tsc -p tsconfig.build.json",
+        "build:gui": "node tasks.mts --buildOnly",
+        "build:backend": "tsc -p tsconfig.build.json",
         "default": "node tasks.mts"
     }
 }

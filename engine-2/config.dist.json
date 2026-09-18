@@ -9,11 +9,7 @@
         "cert": "",
         "chain": ""
     },
-    "LANGUAGES": [
-        "de",
-        "en",
-        "ru"
-    ],
+    "LANGUAGES": ["de", "en", "ru"],
     "sites": [
         {
             "route": "/docu/",
@@ -27,7 +23,6 @@
         "apiKey": "",
         "indexPrefix": "iobroker_docs"
     },
-    "redirectHosts": [],
     "prerender": {
         "origin": "https://www.iobroker.com",
         "maxCacheMB": 128,
@@ -38,5 +33,6 @@
         "snapshotMaxAgeDays": 7,
         "chromePath": "",
         "log": false
-    }
+    },
+    "redirectHosts": ["www.iobroker.net", "iobroker.com"]
 }

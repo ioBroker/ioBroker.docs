@@ -165,7 +165,10 @@ export default function init(config: AppConfig): {
     const redirectHosts = (config.redirectHosts || []).map(host => host.toLowerCase());
     if (redirectHosts.length) {
         app.app.use((req: Request, res: Response, next: NextFunction): void => {
-            if ((req.method === 'GET' || req.method === 'HEAD') && redirectHosts.includes(req.hostname.toLowerCase())) {
+            if (
+                (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') &&
+                redirectHosts.includes(req.hostname.toLowerCase())
+            ) {
                 // other sites read the adapter documents from here - without this header their
                 // browsers stop at the redirect instead of following it
                 res.set('Access-Control-Allow-Origin', '*');

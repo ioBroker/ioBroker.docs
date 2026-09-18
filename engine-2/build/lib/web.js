@@ -111,6 +111,34 @@ export default function init(config) {
         };
     }
     app.app.disable('x-powered-by');
+    /*
+     * The address the site is published under - not the one a request came in on, or a test server
+     * would name itself as the page to index. The prerendered pages, the sitemap and the redirect
+     * below all take it from here.
+     */
+    const siteOrigin = (config.prerender?.origin || 'https://www.iobroker.com').replace(/\/+$/, '');
+    /*
+     * The other names of the site - www.iobroker.net, where it lived before, and iobroker.com - send
+     * their visitors to that one address, path and query included, so that old links keep working and
+     * a search engine moves the pages over instead of finding each of them twice.
+     *
+     * Only GET and HEAD: the upload further down is a POST, and a client following a 301 repeats it
+     * as a GET without its body.
+     */
+    const redirectHosts = (config.redirectHosts || []).map(host => host.toLowerCase());
+    if (redirectHosts.length) {
+        app.app.use((req, res, next) => {
+            if ((req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') &&
+                redirectHosts.includes(req.hostname.toLowerCase())) {
+                // other sites read the adapter documents from here - without this header their
+                // browsers stop at the redirect instead of following it
+                res.set('Access-Control-Allow-Origin', '*');
+                res.redirect(301, `${siteOrigin}${req.originalUrl}`);
+                return;
+            }
+            next();
+        });
+    }
     // Compress every response. Must be registered before the static handlers below,
     // otherwise the site is delivered uncompressed - nothing else in front of it does gzip.
     app.app.use(compression());
@@ -133,6 +161,13 @@ export default function init(config) {
             }
         }
         app.app.use(site.route, (req, res, next) => {
+            /*
+             * These are archives - the old documentation under /docu/ - kept for readers, not for
+             * search engines. robots.txt does not block them for that very reason: a crawler that
+             * may not fetch a page never sees this header, and an address known from a link stays in
+             * the index as "blocked by robots.txt".
+             */
+            res.setHeader('X-Robots-Tag', 'noindex');
             if (req.url.endsWith('.html')) {
                 req.url = req.url.replace(/\.html$/, '.htm');
             }
@@ -160,11 +195,9 @@ export default function init(config) {
     const publicDir = path.join(import.meta.dirname, '../..', config.public);
     console.log(`Serving ${publicDir}`);
     /*
-     * The prerendered pages: the address the site is published under - not the one a request came
-     * in on, or a test server would name itself as the page to index -, where the words of the
-     * interface are kept, how much memory the pages may take and whether they go to disk as well.
+     * The prerendered pages: where the words of the interface are kept, how much memory the pages
+     * may take and whether they go to disk as well. The address they name is `siteOrigin` above.
      */
-    const siteOrigin = (config.prerender?.origin || 'https://www.iobroker.net').replace(/\/+$/, '');
     const frontEndSrc = path.join(import.meta.dirname, '../../front-end/src');
     const prerenderDumpDir = config.prerender?.dumpDir
         ? path.resolve(import.meta.dirname, '../..', config.prerender.dumpDir)
@@ -320,9 +353,18 @@ export default function init(config) {
     });
     // The front-end asks these three of its own server, always - the hosts behind them send no
     // CORS header, so a browser cannot reach them directly.
-    app.app.get('/api/products/net', cachedProxy('https://iobroker.net:3001/api/v1/public/products', PRODUCTS_CACHE_MS));
-    app.app.get('/api/products/pro', cachedProxy('https://iobroker.pro:3001/api/v1/public/products', PRODUCTS_CACHE_MS));
-    app.app.get('/api/iobroker/forum.json', cachedProxy('https://www.iobroker.net/data/forum.json', FORUM_CACHE_MS));
+    app.app.get('/api/products/net', cachedProxy('https://iobroker.net/api/v1/public/products', PRODUCTS_CACHE_MS));
+    /*
+     * The two catalogues are two endpoints, not two hosts. `public/products` holds the adapter
+     * licenses and `public/accessProducts` the access licenses (remote access, assistants), and both
+     * servers answer both of them with the same bytes. This used to ask `public/products` of
+     * iobroker.pro as well, on the assumption that the pro server would answer it with its own
+     * catalogue - so the page got the adapter licenses twice and remote access and the assistants
+     * not at all. The profile app on iobroker.pro asks for `public/accessProducts`, which is what
+     * settles which name is right.
+     */
+    app.app.get('/api/products/pro', cachedProxy('https://iobroker.pro/api/v1/public/accessProducts', PRODUCTS_CACHE_MS));
+    app.app.get('/api/iobroker/forum.json', cachedProxy(`${siteOrigin}/data/forum.json`, FORUM_CACHE_MS));
     app.app.use(bodyParser.json({ limit: 50000000, type: 'application/json' }));
     // Redirect install scripts
     app.app.get('/fix.sh', (req, res) => res.redirect(301, 'https://iobroker.net/fix.sh'));
