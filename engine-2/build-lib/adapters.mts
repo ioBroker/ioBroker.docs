@@ -261,8 +261,9 @@ function prepareAdapterReadme(
 
     // The title is gone by now, and with it the target of every "back to top" a readme closes its
     // chapters with. This has to happen after the removals above, not before, because that is what
-    // makes those links dead in the first place.
-    const cleaned = utils.removeDeadLinks(lines.join('\n'));
+    // makes those links dead in the first place. The Sentry notice goes first for the same reason:
+    // a readme that points to its "What is Sentry.io" chapter would otherwise keep a link to nothing.
+    const cleaned = utils.removeDeadLinks(utils.removeSentryNotice(lines.join('\n')));
 
     return {
         body: utils.addHeader(cleaned, header),

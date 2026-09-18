@@ -901,6 +901,15 @@
           },
           "content": "config/userrights.md"
         },
+        "Access rights (ACL) in detail": {
+          "title": {
+            "en": "Access rights (ACL) in detail",
+            "de": "Zugriffsrechte (ACL) im Detail",
+            "ru": "Права доступа (ACL) подробно",
+            "zh-cn": "访问权限（ACL）详解"
+          },
+          "content": "config/acl.md"
+        },
         "Authentication": {
           "title": {
             "en": "Authentication",

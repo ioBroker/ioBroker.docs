@@ -185,6 +185,28 @@ function inlineCodeRanges(line: string): [number, number][] {
  */
 function withoutCode(body: string): string {
     const lines = body.split('\n');
+    const inFence = fencedLines(lines);
+
+    return lines
+        .map((line, index) => {
+            if (inFence[index]) {
+                return ' '.repeat(line.length);
+            }
+            let masked = line;
+            inlineCodeRanges(line).forEach(([from, to]) => {
+                masked = masked.substring(0, from) + ' '.repeat(to - from) + masked.substring(to);
+            });
+            return masked;
+        })
+        .join('\n');
+}
+
+/**
+ * Which lines of a document belong to a fenced code block, markers included.
+ *
+ * @param lines the document, split into lines
+ */
+function fencedLines(lines: string[]): boolean[] {
     const inFence = new Array<boolean>(lines.length).fill(false);
 
     let openedAt = -1;
@@ -218,18 +240,184 @@ function withoutCode(body: string): string {
         }
     });
 
-    return lines
-        .map((line, index) => {
-            if (inFence[index]) {
-                return ' '.repeat(line.length);
+    return inFence;
+}
+
+/** A horizontal rule on a line of its own: `---`, `***` or `___` */
+const HORIZONTAL_RULE = /^\s*(?:-{3,}|\*{3,}|_{3,})\s*$/;
+
+/** A heading, captured as its level and its text */
+const HEADING_LINE = /^(#{1,6})\s+(.*?)\s*#*\s*$/;
+
+/**
+ * Headings of a section that is about Sentry and nothing else. Compared after `sentryPlainText`, so
+ * emphasis, a trailing colon or question mark and the case do not matter.
+ */
+const SENTRY_HEADING =
+    /^(?:sentry(?:\.io)?|error reporting (?:with|via|by) sentry(?:\.io)?|what is sentry(?:\.io)?(?: and what is reported to the servers(?: of that company)?)?)$/;
+
+/**
+ * How the Sentry notice of an adapter readme begins, in the wordings that are in use.
+ *
+ * Only the opening counts: the rest of the sentence differs in commas, links and the version of
+ * js-controller it names, and there are some fifty variants of it. What begins like this is the
+ * notice and nothing else.
+ */
+const SENTRY_NOTICE = [
+    /^this adapter (?:uses|employs) (?:the )?sentry (?:libraries|integration)\b/,
+    /^this adapter uses (?:the service )?sentry\.io\b/,
+    /^sentry reporting, starting with js-controller\b/,
+    /^dieser adapter (?:verwendet|nutzt) (?:die )?sentry[- ]?bibliotheken\b/,
+    /^sentry\.io is (?:a service|a way) for developers\b/,
+    /^(?:when|if) the adapter crashes,? or (?:if )?(?:an other|another|any other) code error\b/,
+    /^for details about the transmitted information and instructions for disabling error reporting\b/,
+];
+
+/** Longer than this, a block says more than the notice, and it stays */
+const SENTRY_NOTICE_MAX_LENGTH = 900;
+
+/**
+ * Markdown reduced to its words, lower case, for comparing a block or a heading with a wording.
+ *
+ * @param markdown a block, a list item or a heading text
+ */
+function sentryPlainText(markdown: string): string {
+    return markdown
+        .replace(/<!--|-->/g, ' ')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/!\[[^\]]*]\([^)]*\)/g, ' ')
+        .replace(/\[([^\]]*)]\([^)]*\)/g, '$1')
+        .replace(/^\s*(?:[-*+]|\d+[.)])\s+/, '')
+        .replace(/[*_`\\]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .replace(/[:?]+$/, '')
+        .trim()
+        .toLowerCase();
+}
+
+/**
+ * The Sentry notice cut out of an adapter readme.
+ *
+ * Almost every adapter tells its readers that it reports crashes through Sentry. Across some two
+ * hundred readmes that is the same paragraph again and again, and in a translation it is worse than
+ * redundant: the machine took the product name for a word, and "## Sentry" came out as "## Posten"
+ * on the German page of ioBroker.shrdzm. What js-controller reports and how to switch it off belongs
+ * in one place, not on every adapter page.
+ *
+ * Removed are sections under a heading that is only about Sentry, and blocks or list items that open
+ * with one of the known wordings of the notice. Anything that merely mentions Sentry stays: a privacy
+ * statement that names it among other things, the "Sentry Mode" of a car, a line in a to-do list, an
+ * author's note that the reports go to a server of their own. Code blocks are never touched, and a
+ * readme without the notice comes back exactly as it went in, so that its hash - and with it its
+ * translation - stays as it is.
+ *
+ * @param body the readme, without its header
+ */
+export function removeSentryNotice(body: string): string {
+    if (!/sentry/i.test(body)) {
+        return body;
+    }
+    const lines = body.split('\n');
+    const inFence = fencedLines(lines);
+    const drop = new Array<boolean>(lines.length).fill(false);
+    const levelOf = (index: number): number =>
+        inFence[index] ? 7 : (lines[index].match(HEADING_LINE)?.[1].length ?? 7);
+
+    // 1. sections under a heading that is about Sentry and nothing else
+    for (let i = 0; i < lines.length; i++) {
+        const heading = inFence[i] ? null : lines[i].match(HEADING_LINE);
+        if (!heading || !SENTRY_HEADING.test(sentryPlainText(heading[2]))) {
+            continue;
+        }
+        // up to the next heading of any level: ioBroker.wireguard keeps its "### Disclaimer" right
+        // under "## sentry.io", and a legal notice must not go with it
+        let end = i + 1;
+        while (end < lines.length && levelOf(end) === 7) {
+            end++;
+        }
+        for (let k = i; k < end; k++) {
+            drop[k] = true;
+        }
+        i = end - 1;
+    }
+
+    // 2. blocks and list items elsewhere that open with the notice
+    const isNotice = (from: number, to: number): boolean => {
+        // ioBroker.iqontrol sets the notice as a quote - the ">" is not part of how it begins
+        const text = sentryPlainText(
+            lines
+                .slice(from, to)
+                .map(line => line.replace(/^\s*(?:>\s*)+/, ''))
+                .join(' '),
+        );
+        return text.length <= SENTRY_NOTICE_MAX_LENGTH && SENTRY_NOTICE.some(opening => opening.test(text));
+    };
+    for (let i = 0; i < lines.length; i++) {
+        if (drop[i] || inFence[i] || !lines[i].trim() || levelOf(i) < 7 || HORIZONTAL_RULE.test(lines[i])) {
+            continue;
+        }
+        let end = i;
+        while (
+            end < lines.length &&
+            !drop[end] &&
+            !inFence[end] &&
+            lines[end].trim() &&
+            levelOf(end) === 7 &&
+            !HORIZONTAL_RULE.test(lines[end])
+        ) {
+            end++;
+        }
+        // a list is judged item by item: the notice may share it with lines that have to stay
+        const items: number[] = [];
+        for (let k = i; k < end; k++) {
+            if (k === i || /^\s*(?:[-*+]|\d+[.)])\s+/.test(lines[k])) {
+                items.push(k);
             }
-            let masked = line;
-            inlineCodeRanges(line).forEach(([from, to]) => {
-                masked = masked.substring(0, from) + ' '.repeat(to - from) + masked.substring(to);
-            });
-            return masked;
-        })
-        .join('\n');
+        }
+        items.push(end);
+        for (let n = 0; n < items.length - 1; n++) {
+            if (isNotice(items[n], items[n + 1])) {
+                for (let k = items[n]; k < items[n + 1]; k++) {
+                    drop[k] = true;
+                }
+            }
+        }
+        i = end;
+    }
+
+    if (!drop.includes(true)) {
+        return body;
+    }
+
+    // 3. tidy up what the removal leaves behind - only there, the rest of the readme stays as written
+    const kept: string[] = [];
+    let removedSince = false;
+    lines.forEach((line, index) => {
+        if (drop[index]) {
+            removedSince = true;
+            return;
+        }
+        if (removedSince && !inFence[index]) {
+            // no run of blank lines where a block used to be
+            if (!line.trim() && kept.length && !kept[kept.length - 1].trim()) {
+                return;
+            }
+            // two rules with nothing between them are what is left of a notice that stood between them
+            if (HORIZONTAL_RULE.test(line)) {
+                const previous = [...kept].reverse().find(l => l.trim());
+                if (previous !== undefined && HORIZONTAL_RULE.test(previous)) {
+                    return;
+                }
+            }
+        }
+        if (line.trim()) {
+            removedSince = false;
+        }
+        kept.push(line);
+    });
+
+    return kept.join('\n');
 }
 
 /**

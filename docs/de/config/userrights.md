@@ -17,10 +17,10 @@ Web-Adaptern. Angelegt werden sie im Reiter
 
 ## Die beiden vorhandenen Gruppen
 
-| Gruppe | Gedacht für |
-| --- | --- |
-| **Administrator** (`system.group.administrator`) | Vollzugriff. Hier liegt der Benutzer `admin`. |
-| **Benutzer** (`system.group.user`) | Alltagsbetrieb: schalten und ablesen, aber nichts umbauen. |
+| Gruppe                                           | Gedacht für                                                |
+|--------------------------------------------------|------------------------------------------------------------|
+| **Administrator** (`system.group.administrator`) | Vollzugriff. Hier liegt der Benutzer `admin`.              |
+| **Benutzer** (`system.group.user`)               | Alltagsbetrieb: schalten und ablesen, aber nichts umbauen. |
 
 Ein Benutzer kann in mehreren Gruppen sein. Seine Rechte sind dann die Summe
 aller Gruppenrechte.
@@ -34,13 +34,13 @@ Reiter **Berechtigungen** zeigt die Rechte:
 
 Fünf Blöcke, jeweils mit denselben fünf Rechten:
 
-| Block | Wofür er gilt |
-| --- | --- |
-| **Objektberechtigungen** | Die Beschreibung eines Datenpunkts: Name, Rolle, Einheit, Zuordnungen. |
-| **Zustandsberechtigungen** | Der Wert selbst. Schalten ist ein Schreibzugriff auf den Zustand. |
-| **Benutzerberechtigungen** | Benutzer und Gruppen verwalten. |
-| **Andere Berechtigungen** | `http-Anfragen`, `Shell-Ausführung` und `sendTo`. |
-| **Dateiberechtigungen** | Der Dateispeicher, also alles im Reiter Dateien. |
+| Block                      | Wofür er gilt                                                          |
+|----------------------------|------------------------------------------------------------------------|
+| **Objektberechtigungen**   | Die Beschreibung eines Datenpunkts: Name, Rolle, Einheit, Zuordnungen. |
+| **Zustandsberechtigungen** | Der Wert selbst. Schalten ist ein Schreibzugriff auf den Zustand.      |
+| **Benutzerberechtigungen** | Benutzer und Gruppen verwalten.                                        |
+| **Andere Berechtigungen**  | `http-Anfragen`, `Shell-Ausführung` und `sendTo`.                      |
+| **Dateiberechtigungen**    | Der Dateispeicher, also alles im Reiter Dateien.                       |
 
 Die fünf Rechte bedeuten: **lesen** einzeln abrufen, **auflisten** überhaupt
 sehen, dass es etwas gibt, **schreiben** ändern, **löschen** entfernen,
@@ -48,13 +48,13 @@ sehen, dass es etwas gibt, **schreiben** ändern, **löschen** entfernen,
 
 Die Gruppe *Benutzer* ist ab Werk so eingestellt, dass sie den Alltag abdeckt:
 
-| Block | Erlaubt |
-| --- | --- |
-| Objekte | lesen, auflisten |
+| Block    | Erlaubt                                |
+|----------|----------------------------------------|
+| Objekte  | lesen, auflisten                       |
 | Zustände | lesen, auflisten, schreiben, erstellen |
-| Benutzer | lesen, auflisten |
-| Andere | nur `http-Anfragen` |
-| Dateien | lesen, auflisten |
+| Benutzer | lesen, auflisten                       |
+| Andere   | nur `http-Anfragen`                    |
+| Dateien  | lesen, auflisten                       |
 
 Damit kann so ein Benutzer alles sehen und Geräte schalten, aber keine Objekte
 umbauen, keine Skripte über `sendTo` anstoßen und keine Shell-Befehle absetzen.
@@ -71,26 +71,34 @@ entscheidet immer das Strengere. Ein Benutzer, dessen Gruppe Zustände schreiben
 darf, kann trotzdem an einem einzelnen Datenpunkt scheitern.
 
 Diese Rechte am Objekt heißen **ACL**, von *Access Control List*, also
-Zugriffssteuerungsliste. Sie sind genauso aufgebaut wie die Dateirechte unter
-Linux: eine dreistellige Zahl, zum Beispiel `664`.
+Zugriffssteuerungsliste. Sie sind aufgebaut wie die Dateirechte unter Linux:
+eine dreistellige Zahl, zum Beispiel `664`. Gelesen wird sie aber
+**hexadezimal**, nicht oktal wie unter Linux. Im Admin und auf der
+Kommandozeile tippt man sie genau so, wie sie hier steht; nur in Skripten und in
+JSON muss `0x664` stehen, sonst kommt etwas ganz anderes heraus.
+
+?> Diese Seite zeigt, was im Alltag zu tun ist. Wie ioBroker im Einzelnen
+entscheidet - bei Objekten, Zuständen und Dateien, mit allen Operationen und der
+Bedeutung jeder Ziffer - steht unter
+[Zugriffsrechte (ACL) im Detail](/docs/config/acl.md).
 
 Die drei Ziffern stehen für drei Rollen, in dieser Reihenfolge:
 
-| Ziffer | Gilt für |
-| --- | --- |
-| erste | den **Besitzer**, also den Benutzer, der oben im Dialog eingetragen ist |
-| zweite | die **Besitzergruppe**, also jeden, der in dieser Gruppe ist |
-| dritte | **alle übrigen** angemeldeten Benutzer |
+| Ziffer | Gilt für                                                                |
+|--------|-------------------------------------------------------------------------|
+| erste  | den **Besitzer**, also den Benutzer, der oben im Dialog eingetragen ist |
+| zweite | die **Besitzergruppe**, also jeden, der in dieser Gruppe ist            |
+| dritte | **alle übrigen** angemeldeten Benutzer                                  |
 
 Jede Ziffer entsteht aus zwei Rechten: **lesen zählt 4**, **schreiben zählt 2**.
 Zusammen ergibt das 6, gar nichts ergibt 0.
 
-| Zahl | Bedeutet |
-| --- | --- |
+| Zahl  | Bedeutet                                                                                     |
+|-------|----------------------------------------------------------------------------------------------|
 | `664` | Besitzer und Gruppe lesen und schreiben, alle anderen lesen nur. Die übliche Voreinstellung. |
-| `644` | Nur der Besitzer schreibt, alle anderen lesen. |
-| `666` | Jeder darf schreiben. |
-| `600` | Nur der Besitzer, sonst niemand. |
+| `644` | Nur der Besitzer schreibt, alle anderen lesen.                                               |
+| `666` | Jeder darf schreiben.                                                                        |
+| `600` | Nur der Besitzer, sonst niemand.                                                             |
 
 Ein Beispiel, das im Alltag genau so vorkommt: Ein Benutzer der Gruppe
 *Benutzer* darf Zustände schreiben. Der Datenpunkt `alias.0.Licht` steht auf
@@ -127,7 +135,9 @@ einen kompletten Adapter-Namensraum auf Nur-Lesen zu setzen.
 
 ?> Welche Rechte **neu angelegte** Objekte bekommen, steht in den
 [Systemeinstellungen](/docs/admin/settings.md)
-unter *Standard ACL*. Bestehende Objekte ändert diese Einstellung nicht.
+unter *Standard ACL*. Objekte, die schon eine ACL haben, bleiben davon
+unberührt. Objekte ganz **ohne** ACL bekommen die neuen Werte allerdings
+nachträglich.
 
 !> Objekte, die ein Adapter selbst anlegt, gehören ihm. Legt er sie bei einem
 Update neu an, stehen auch die Rechte wieder so, wie der Adapter sie vorsieht.

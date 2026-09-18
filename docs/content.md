@@ -111,6 +111,7 @@
 * en:Advanced configuration;de:Erweiterte Konfiguration;ru:Экспертные настройки;zh-cn:高级配置
   * [en:Overview;de:Überblick;ru:Обзор;zh-cn:概览](config/README)
   * [User und rights control](config/userrights)
+  * [en:Access rights (ACL) in detail;de:Zugriffsrechte (ACL) im Detail;ru:Права доступа (ACL) подробно;zh-cn:访问权限（ACL）详解](config/acl)
   * [Authentication](config/login)
   * [SSL for Web access](config/encryption)
   * [CLI](config/cli)

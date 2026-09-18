@@ -128,7 +128,8 @@ bekommen, getrennt nach Besitzer, Gruppe und allen anderen.
 
 <img src="media/admin_einstellungen_acl.png" alt="Der Reiter Standard ACL" width="900" />
 
-Die Rechte bestehender Objekte ändert diese Seite nicht. Benutzer und Gruppen
+Objekte, die schon eine ACL haben, ändert diese Seite nicht. Objekte ganz
+**ohne** ACL bekommen die neuen Werte dagegen nachträglich. Benutzer und Gruppen
 selbst werden im Reiter
 [Benutzer](/docs/admin/users.md) verwaltet.
 
