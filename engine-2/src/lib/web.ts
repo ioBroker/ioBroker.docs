@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import httpModule from 'node:http';
 import httpsModule from 'node:https';
+import http2Module from 'node:http2';
 import type { Express, Request, Response, NextFunction } from 'express';
 import express from 'express';
 import { configurePrerender, crawlerName, isCrawler, pickLanguage, renderPage } from './prerender.js';
@@ -36,7 +37,7 @@ const bruteforce = rateLimit({
 });
 
 // App container
-type ServerLike = httpModule.Server | httpsModule.Server;
+type ServerLike = httpModule.Server | httpsModule.Server | http2Module.Http2SecureServer;
 
 const app: {
     app: Express;
@@ -128,6 +129,49 @@ const PRODUCTS_CACHE_MS = 10 * 60 * 1000;
 /** The forum counter is generated every few hours, so the same order of magnitude fits */
 const FORUM_CACHE_MS = 10 * 60 * 1000;
 
+/** A year - what the HSTS preload list asks for as the least, and what most sites send */
+const HSTS_MAX_AGE = 365 * 24 * 60 * 60;
+
+/**
+ * The request handler for the HTTP/2 server, which answers HTTP/1.1 on the same port as well.
+ *
+ * Express does not know HTTP/2. For every request it swaps the prototypes of `req` and `res` for its
+ * own, and those lead back to `http.IncomingMessage` and `http.ServerResponse`. An HTTP/2 request
+ * keeps its `url`, `method` and `headers` on `Http2ServerRequest.prototype`, though, so it would lose
+ * them there - and every request would end in an error. HTTP/2 requests are therefore handed to a
+ * view of the app whose prototypes carry the methods of express on top of the HTTP/2 classes.
+ * HTTP/1.1 requests are the ordinary ones and go to the app as before.
+ */
+function http2Handler(
+    expressApp: Express,
+): (req: httpModule.IncomingMessage | http2Module.Http2ServerRequest, res: unknown) => void {
+    const withApp = { app: { configurable: true, enumerable: true, writable: true, value: expressApp } };
+    const request = Object.create(
+        Object.create(http2Module.Http2ServerRequest.prototype, Object.getOwnPropertyDescriptors(express.request)),
+        withApp,
+    );
+    const response = Object.create(
+        Object.create(http2Module.Http2ServerResponse.prototype, Object.getOwnPropertyDescriptors(express.response)),
+        withApp,
+    );
+    // `handle` takes the prototypes from `this.request` and `this.response`; router and settings are the app's
+    const http2App = Object.create(expressApp, { request: { value: request }, response: { value: response } }) as {
+        handle: (req: unknown, res: unknown) => void;
+    };
+
+    return (req, res): void => {
+        if (!(req instanceof http2Module.Http2ServerRequest)) {
+            expressApp(req, res as httpModule.ServerResponse);
+            return;
+        }
+        // HTTP/2 names the host in `:authority`, but `req.hostname` reads the `Host` header only
+        if (!req.headers.host && req.headers[':authority']) {
+            req.headers.host = req.headers[':authority'];
+        }
+        http2App.handle(req, res);
+    };
+}
+
 export default function init(config: AppConfig): {
     app: Express;
     server: ServerLike | null;
@@ -146,6 +190,27 @@ export default function init(config: AppConfig): {
     }
 
     app.app.disable('x-powered-by');
+
+    /*
+     * HSTS: from the first answer on, the browser asks this host by HTTPS only. It comes first, so
+     * that the redirects of the other host names below carry it as well. Only on the HTTPS server -
+     * a browser ignores the header over plain HTTP, and port 80 is not this server anyway.
+     */
+    if (config.secure && config.hsts !== false) {
+        const hsts = config.hsts || {};
+        const value = [
+            `max-age=${hsts.maxAge ?? HSTS_MAX_AGE}`,
+            hsts.includeSubDomains ? 'includeSubDomains' : '',
+            hsts.preload ? 'preload' : '',
+        ]
+            .filter(Boolean)
+            .join('; ');
+        console.log(`Strict-Transport-Security: ${value}`);
+        app.app.use((_req: Request, res: Response, next: NextFunction): void => {
+            res.setHeader('Strict-Transport-Security', value);
+            next();
+        });
+    }
 
     /*
      * The address the site is published under - not the one a request came in on, or a test server
@@ -493,6 +558,9 @@ export default function init(config: AppConfig): {
     // Create HTTP(S) server
     if (!config.secure) {
         app.server = httpModule.createServer(app.app);
+    } else if (config.http2 !== false) {
+        // `allowHTTP1`: clients without HTTP/2 - older tools, some crawlers - still get HTTP/1.1 on the same port
+        app.server = http2Module.createSecureServer({ ...httpsOptions, allowHTTP1: true }, http2Handler(app.app));
     } else {
         app.server = httpsModule.createServer(httpsOptions, app.app);
     }

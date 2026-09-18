@@ -9,6 +9,12 @@
         "cert": "",
         "chain": ""
     },
+    "http2": true,
+    "hsts": {
+        "maxAge": 31536000,
+        "includeSubDomains": false,
+        "preload": false
+    },
     "LANGUAGES": ["de", "en", "ru"],
     "sites": [
         {

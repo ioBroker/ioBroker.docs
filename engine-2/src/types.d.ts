@@ -63,6 +63,21 @@ export interface PrerenderConfig {
     log?: boolean;
 }
 
+/**
+ * The Strict-Transport-Security header, sent with every answer while `secure` is set. A browser that
+ * has seen it goes to the site by HTTPS only, for `maxAge` seconds - it rewrites http:// links itself
+ * and no longer lets a certificate error be clicked away. To take it back, send `maxAge: 0` for a
+ * while before switching it off: browsers only forget it when they are told to.
+ */
+export interface HstsConfig {
+    /** how long a browser keeps to HTTPS, in seconds - 31536000 (a year) when not set */
+    maxAge?: number;
+    /** the same for every subdomain of the host that sent it - off when not set */
+    includeSubDomains?: boolean;
+    /** consent to the preload list built into the browsers - needs `includeSubDomains`, off when not set */
+    preload?: boolean;
+}
+
 export type AppConfig = {
     secure: boolean;
     port: number;
@@ -74,6 +89,10 @@ export type AppConfig = {
         cert: string;
         chain: string;
     };
+    /** HTTP/2 beside HTTP/1.1 on the same port while `secure` is set - on when not set, `false` switches it off */
+    http2?: boolean;
+    /** Strict-Transport-Security while `secure` is set, see HstsConfig - on when not set, `false` switches it off */
+    hsts?: HstsConfig | false;
     LANGUAGES: Languages[];
     /** the search server, see SearchConfig - optional, the site runs without it */
     search?: SearchConfig;
