@@ -992,7 +992,7 @@
     },
     "notFound": {
         "title": "Seite nicht gefunden",
-        "lead": "Die gesuchte Seite wurde entfernt, umbenannt oder hat es nie gegeben.",
+        "lead": "Die gesuchte Seite wurde entfernt oder umbenannt. Vielleicht hat es sie auch nie gegeben.",
         "home": "Startseite",
         "search": "Suche",
         "jokes": [

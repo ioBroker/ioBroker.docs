@@ -8,6 +8,16 @@ import { makeStyles } from '../../theme';
  * surface a step above the canvas - no image file, so it is sharp at any size and needs no second
  * version for the light theme.
  */
+/**
+ * The width both buttons carry.
+ *
+ * They stand next to each other as one control in two ranks, so they are the same size in every
+ * language: `STARTSEITE` is the longest of the six labels across de/en/ru, and the value follows
+ * it. One constant rather than a number in each rule, or the two drift apart the next time one of
+ * them is touched.
+ */
+const ACTION_WIDTH = '260px';
+
 export const useStyles = makeStyles()(theme => ({
     pageRoot: {
         position: 'relative',
@@ -42,11 +52,14 @@ export const useStyles = makeStyles()(theme => ({
         alignItems: 'center',
         justifyContent: 'space-between',
         [theme.breakpoints.down('sm')]: {
-            // on a phone the two groups sit close and centred, so the page fits without scrolling
-            flex: '0 1 auto',
+            /*
+             * A phone screen is tall and narrow, so the three zones are spread here as well and the
+             * two buttons come to rest near the lower edge, in reach of a thumb. The cap is lifted
+             * because the window is the measure on a phone, and the gap keeps the zones apart when
+             * a long translation leaves no free space to distribute.
+             */
             maxHeight: 'none',
-            justifyContent: 'center',
-            gap: theme.spacing(5),
+            gap: theme.spacing(4),
         },
     },
     /* top zone: the status - the heading and the number */
@@ -77,7 +90,8 @@ export const useStyles = makeStyles()(theme => ({
      */
     label: {
         fontFamily: 'var(--font-display)',
-        fontSize: '13px',
+        // 15 px is the label size of the system; it was 13 and read as a footnote above the number
+        fontSize: '15px',
         lineHeight: 1,
         // the label tracking of the system; Audiowide is a wide face already and needs little more
         letterSpacing: '0.04em',
@@ -91,7 +105,7 @@ export const useStyles = makeStyles()(theme => ({
         color: theme.palette.primary.main,
         marginBottom: theme.spacing(2.25),
         [theme.breakpoints.down('sm')]: {
-            fontSize: '12px',
+            fontSize: '13px',
         },
     },
     /*
@@ -105,13 +119,12 @@ export const useStyles = makeStyles()(theme => ({
         lineHeight: 1,
         letterSpacing: '0.02em',
         /*
-         * The brand blue of the `//` that opens the heading, worn thin. The number is the same voice
-         * as the mark above it, only far back: a surface the eye passes over on the way to the
-         * words, not a line it has to read. One value for both themes: the blue carries about as
-         * far on white as it does on the dark canvas once it is this far back.
+         * The picture of the page, at full strength, in the brand blue of the `//` above it. It is
+         * the same colour in both themes and only the ground behind it changes, so the page reads
+         * the same either way. The number carries no information - the heading above says what
+         * happened in words, and the screen reader skips this - it is what the page looks like.
          */
         color: theme.palette.primary.main,
-        opacity: 0.1,
         userSelect: 'none',
     },
     /*
@@ -122,7 +135,8 @@ export const useStyles = makeStyles()(theme => ({
         fontFamily: "'Roboto', Arial, sans-serif",
         fontWeight: 400,
         fontSize: '20px',
-        lineHeight: 1.3,
+        // two short lines of one thought, so they stand close; the reading scale's 1.6 pulled them apart
+        lineHeight: 1.2,
         color: theme.custom.textHeading,
         maxWidth: '760px',
         [theme.breakpoints.down('md')]: {
@@ -142,10 +156,15 @@ export const useStyles = makeStyles()(theme => ({
      * and keeps its contrast floor in both.
      */
     lead: {
-        fontSize: '16px',
-        lineHeight: 1.6,
+        // the caption step of the reading scale: a side note under the line that carries the tone
+        fontSize: '13px',
+        lineHeight: 1.5,
         color: theme.custom.textSubtle,
         maxWidth: '620px',
+        [theme.breakpoints.down('sm')]: {
+            // the joke drops to 16px here; at 13 the two read as one block, so this steps down too
+            fontSize: '12px',
+        },
     },
     /* the two ways on: the home page in full, the search still beside it. They stack on a phone. */
     actions: {
@@ -164,10 +183,10 @@ export const useStyles = makeStyles()(theme => ({
         },
     },
     homeButton: {
-        minWidth: '260px',
+        minWidth: ACTION_WIDTH,
         gap: theme.spacing(1.5),
         [theme.breakpoints.down('sm')]: {
-            minWidth: 'min(100%, 260px)',
+            minWidth: `min(100%, ${ACTION_WIDTH})`,
         },
     },
     /* the mark is two-tone; on the blue of the button it is one colour, white */
@@ -176,11 +195,26 @@ export const useStyles = makeStyles()(theme => ({
         height: 22,
         filter: 'brightness(0) invert(1)',
     },
+    /*
+     * Beside the filled STARTSEITE this is the same control in a quieter rank, so on dark it speaks
+     * in the reading colour, white, instead of the light blue the secondary button wears elsewhere:
+     * the blue is already spoken for by the mark and the number above, and a third blue beside them
+     * reads as a third thing. On light nothing changes, the deep blue stays.
+     *
+     * `&&` because the button's own class carries the colour and would otherwise win - the same
+     * specificity trap the audit found in the HomePage.
+     */
     searchButton: {
-        minWidth: '200px',
+        minWidth: ACTION_WIDTH,
         gap: theme.spacing(1.25),
+        '&&': {
+            color: theme.palette.mode === 'dark' ? theme.custom.textHeading : theme.palette.secondary.main,
+            '&:hover': {
+                color: theme.palette.mode === 'dark' ? theme.custom.textHeading : theme.palette.secondary.main,
+            },
+        },
         [theme.breakpoints.down('sm')]: {
-            minWidth: 'min(100%, 260px)',
+            minWidth: `min(100%, ${ACTION_WIDTH})`,
         },
     },
     /* the magnifier takes the button's own colour through `currentColor` in the icon */
