@@ -31,15 +31,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
             <Box className={classes.heroContentWrapper}>
                 <Box className={`${classes.container} ${classes.heroContent}`}>
                     <Box className={classes.heroLeft}>
+                        {/*
+                            The three pictures of this section carry their own size, and the
+                            browser needs it: the CSS gives them a width and leaves the height to
+                            the picture, so until the file arrived the box was flat and everything
+                            below it moved once it was not. That single jump was the whole layout
+                            shift of the page (CLS 0.155, measured 18.09.2026). The numbers are the
+                            pictures' own: 470 by 119 for the mark, 566 by 390 and 361 by 252 for
+                            the houses; the browser reserves the room in that ratio and draws the
+                            page once.
+                        */}
                         <img
                             src={logo}
                             alt="ioBroker Logo"
+                            width={470}
+                            height={119}
                             className={classes.heroLogo}
                         />
                         <Box className={classes.smallHousesImageWrapper}>
                             <img
                                 src={SmallHousesGroup}
                                 alt="Houses"
+                                width={361}
+                                height={252}
                                 className={classes.smallHousesImage}
                             />
                         </Box>
@@ -97,6 +111,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
                             <img
                                 src={HousesGroup}
                                 alt="Houses"
+                                width={566}
+                                height={390}
                                 className={classes.housesImage}
                             />
                         </Box>

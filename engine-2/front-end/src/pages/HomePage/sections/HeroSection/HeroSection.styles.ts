@@ -213,6 +213,9 @@ export const useStyles = makeStyles()(theme => ({
     heroLogo: {
         width: '100%',
         maxWidth: '400px',
+        // the picture carries its size as an attribute now, so that the room for it is reserved
+        // before it arrives - without this the attribute would also set the height and stretch it
+        height: 'auto',
         marginTop: '-12px',
         [theme.breakpoints.down('md')]: {
             marginBottom: '20px',
