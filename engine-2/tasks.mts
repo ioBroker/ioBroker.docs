@@ -19,7 +19,8 @@ import * as consts from './build-lib/consts.mts';
 import * as utils from './build-lib/utils.mts';
 import * as translation from './build-lib/translation.mts';
 import { buildSearchIndex } from './build-lib/searchIndex.mts';
-import type { LanguageWords, MultiLanguageWords } from './build-lib/types.mts';
+import * as blogSocial from './build-lib/blogSocial.mts';
+import type { BlogContent, LanguageWords, MultiLanguageWords } from './build-lib/types.mts';
 
 const EMPTY = '';
 const fileName = 'temp_words.js';
@@ -648,6 +649,15 @@ async function main(): Promise<void> {
     } else if (process.argv.includes('--downloadAdapterTest')) {
         const content = await adapters.buildAdapterContent('shelly');
         console.log(JSON.stringify(content));
+    } else if (process.argv.includes('--blogSocial')) {
+        /*
+         * Draw the cards a link preview shows for the blog posts again, out of `blog.json`.
+         * `--force` draws every one again, not only the ones whose banner is newer.
+         */
+        const content: BlogContent = JSON.parse(fs.readFileSync(`${consts.FRONT_END_DIR}blog.json`).toString('utf-8'));
+        const drawn = await blogSocial.build(content, process.argv.includes('--force'));
+        fs.writeFileSync(`${consts.FRONT_END_DIR}blog.json`, JSON.stringify(content, null, 2));
+        console.log(`Done, ${drawn} drawn`);
     } else if (process.argv.includes('--searchIndex')) {
         // fills the Meilisearch index from front-end/public - run it after 8.copyFiles
         await buildSearchIndex();

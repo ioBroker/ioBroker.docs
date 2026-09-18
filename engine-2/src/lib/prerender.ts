@@ -181,6 +181,8 @@ export interface PageDescription {
     file?: string;
     /** a picture for the preview, as a path below the site */
     image?: string;
+    /** the picture is already a wide card, 1200x630, and not a square logo */
+    imageWide?: boolean;
     /** the entry of the index the page comes from - adapters.json or blog.json */
     entry?: JsonPage;
 }
@@ -267,6 +269,13 @@ function describeBlogPost(publicDir: string, lang: Languages, id: string): PageD
         title: text(post.title, lang) || id,
         description: text(post.desc, lang),
         file: path.join(publicDir, lang, 'blog', `${id}.md`),
+        /*
+         * Not the title banner itself: that is three to five times as wide as it is high and would
+         * be cut down the middle. `blogSocial.mts` draws a 1200x630 card out of it at build time
+         * and writes it here.
+         */
+        image: post.social ? `/${post.social}` : undefined,
+        imageWide: !!post.social,
         entry: post,
     };
 }
@@ -802,9 +811,14 @@ export function renderPage(request: RenderRequest): RenderResult {
      * sitemap writes (`sitemap.ts`), and `dateModified` in the structured data below.
      */
     const documentDay = dayOfPage(source, page.entry);
-    // the logo of an adapter is a square and stands beside the text; the fallback is a wide picture
+    /*
+     * The logo of an adapter is a square and stands beside the text, so that page gets the small
+     * card. A blog post brings a card drawn for this purpose, and the fallback is one too, so both
+     * get the large one with their size written out - some readers draw nothing without it.
+     */
     const ownPicture = !!page.image && !/\.svg$/i.test(page.image);
     const picture = ownPicture ? page.image! : DEFAULT_IMAGE;
+    const widePicture = !ownPicture || !!page.imageWide;
     const name = found ? page.title : text(NOT_FOUND_TITLE, lang);
     const title = name.includes('ioBroker') ? name : `${name} | ioBroker`;
     const indexable = found && route !== '/search';
@@ -837,9 +851,9 @@ export function renderPage(request: RenderRequest): RenderResult {
         description ? `<meta data-prerender property="og:description" content="${escapeHtml(description)}">` : '',
         `<meta data-prerender property="og:url" content="${escapeHtml(canonical)}">`,
         `<meta data-prerender property="og:image" content="${escapeHtml(origin + picture)}">`,
-        ownPicture ? '' : '<meta data-prerender property="og:image:width" content="1200">',
-        ownPicture ? '' : '<meta data-prerender property="og:image:height" content="630">',
-        `<meta data-prerender name="twitter:card" content="${ownPicture ? 'summary' : 'summary_large_image'}">`,
+        widePicture ? '<meta data-prerender property="og:image:width" content="1200">' : '',
+        widePicture ? '<meta data-prerender property="og:image:height" content="630">' : '',
+        `<meta data-prerender name="twitter:card" content="${widePicture ? 'summary_large_image' : 'summary'}">`,
         indexable
             ? structuredData(
                   page.kind,

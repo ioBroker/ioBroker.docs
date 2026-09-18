@@ -138,6 +138,8 @@ export interface BlogPage {
     /** Name of the source file in the blog directory */
     originalName: string;
     desc: Translated;
+    /** The 1200x630 card a link preview shows, below the site - see `blogSocial.mts` */
+    social?: string;
 }
 
 export interface BlogContent {

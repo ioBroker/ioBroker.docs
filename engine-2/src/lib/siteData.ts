@@ -104,6 +104,8 @@ export interface JsonPage {
     desc?: Translated;
     content?: string;
     icon?: string;
+    /** blog.json only: the 1200x630 card a link preview shows, below the site */
+    social?: string;
     date?: string;
     authors?: string;
     license?: string;

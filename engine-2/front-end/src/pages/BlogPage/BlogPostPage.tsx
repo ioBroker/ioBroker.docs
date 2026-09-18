@@ -61,7 +61,13 @@ const BlogPostPage = (): React.ReactNode => {
                  * the server writes into the head, and most posts carry it only there.
                  */
                 description={header.description || (entry ? pickText(entry.desc ?? {}, language) : '')}
-                image={logo}
+                /*
+                 * Not the title banner: that is three to five times as wide as it is high and the
+                 * services cut it down the middle, which takes the title off it. The build draws a
+                 * card of 1200 by 630 out of it (`build-lib/blogSocial.mts`) and names it here.
+                 */
+                image={entry?.social ? `/${entry.social}` : undefined}
+                imageWide={!!entry?.social}
             />
             <Box className={classes.pageContainer}>
                 <button

@@ -4,6 +4,7 @@ import path from 'node:path';
 import * as utils from './utils.mts';
 import * as consts from './consts.mts';
 import * as translation from './translation.mts';
+import * as blogSocial from './blogSocial.mts';
 import type { BlogContent, LanguageCode, MarkdownHeader, SyncTask } from './types.mts';
 
 /** Read all blog posts of one language, copy them to the front-end and collect them in `content` */
@@ -243,9 +244,15 @@ export function build(): Promise<BlogContent> {
                 content.pages = {};
                 names.forEach(name => (content.pages[name] = old[name]));
 
-                fs.writeFileSync(`${consts.FRONT_END_DIR}blog.json`, JSON.stringify(contents[0], null, 2));
+                /*
+                 * The card a link preview shows, drawn out of the title banner. It writes `social`
+                 * into every post that has a banner, so it has to run before `blog.json` is written.
+                 */
+                void blogSocial.build(content).then(() => {
+                    fs.writeFileSync(`${consts.FRONT_END_DIR}blog.json`, JSON.stringify(contents[0], null, 2));
 
-                void buildRSS().then(() => resolve(content));
+                    void buildRSS().then(() => resolve(content));
+                });
             });
         });
     });

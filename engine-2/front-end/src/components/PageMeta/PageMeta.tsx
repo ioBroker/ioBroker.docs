@@ -8,6 +8,8 @@ interface PageMetaProps {
     description?: string;
     /** a picture for a link preview, as a path below the site */
     image?: string;
+    /** the picture is already a wide card, 1200 by 630, and not a square logo */
+    imageWide?: boolean;
     /** a page that is of no use in a search index - the search results above all */
     noindex?: boolean;
 }
@@ -71,7 +73,13 @@ function withLanguage(route: string, language: Language): string {
  * that it was the English page, and the German and the Russian version could be dropped from the
  * index as a duplicate of it.
  */
-export default function PageMeta({ title, description: text, image, noindex }: PageMetaProps): React.JSX.Element {
+export default function PageMeta({
+    title,
+    description: text,
+    image,
+    imageWide,
+    noindex,
+}: PageMetaProps): React.JSX.Element {
     const description = shorten(text);
     // the language belongs to the head as much as to the text: it decides the canonical
     const [language, setLanguage] = useState<Language>(I18n.getLanguage());
@@ -84,6 +92,12 @@ export default function PageMeta({ title, description: text, image, noindex }: P
     const ownPicture = !!image && !/\.svg$/i.test(image);
     const source = ownPicture ? image : DEFAULT_IMAGE;
     const picture = source.startsWith('http') ? source : `${origin}${source}`;
+    /*
+     * The logo of an adapter is a square and stands beside the text, so that page gets the small
+     * card. A blog post brings a card drawn for this purpose, and the fallback is one too, so both
+     * get the large one with their size written out - some readers draw nothing without it.
+     */
+    const widePicture = !ownPicture || !!imageWide;
 
     return (
         <>
@@ -153,13 +167,13 @@ export default function PageMeta({ title, description: text, image, noindex }: P
                     content={picture}
                 />
             )}
-            {!ownPicture && (
+            {widePicture && (
                 <meta
                     property="og:image:width"
                     content="1200"
                 />
             )}
-            {!ownPicture && (
+            {widePicture && (
                 <meta
                     property="og:image:height"
                     content="630"
@@ -167,7 +181,7 @@ export default function PageMeta({ title, description: text, image, noindex }: P
             )}
             <meta
                 name="twitter:card"
-                content={ownPicture ? 'summary' : 'summary_large_image'}
+                content={widePicture ? 'summary_large_image' : 'summary'}
             />
         </>
     );

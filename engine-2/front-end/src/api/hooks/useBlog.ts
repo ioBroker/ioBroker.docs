@@ -12,6 +12,8 @@ export interface BlogPageEntry {
     desc?: LocalizedText;
     /** e.g. "de/blog/images/2025_04_04.png" */
     logo?: string;
+    /** the 1200 by 630 card a link preview shows, e.g. "blog-og/2025_04_04.jpg" */
+    social?: string;
     type?: string;
     originalName?: string;
     author?: string;
