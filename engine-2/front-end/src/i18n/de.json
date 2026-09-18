@@ -993,11 +993,8 @@
     "notFound": {
         "title": "Seite nicht gefunden",
         "lead": "Die gesuchte Seite wurde entfernt, umbenannt oder hat es nie gegeben.",
-        "hint": "Auf der Startseite finden Sie alles Wichtige, und die Suche oben führt direkt zu Adaptern und Doku.",
         "home": "Startseite",
-        "adapters": "Adapter",
-        "docs": "Doku",
-        "forum": "Forum",
+        "search": "Suche",
         "jokes": [
             {
                 "line1": "Wir haben wirklich überall gesucht…",

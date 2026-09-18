@@ -3,6 +3,8 @@
 /.vscode
 /node_modules
 /api-key.json
+/design
+.DS_Store
 
 /engine/node_modules
 /engine/config.dist.json
@@ -33,6 +35,7 @@
 /engine-2/front-end/data
 /engine-2/front-end/node_modules
 /engine-2/front-end/public/blog.json
+/engine-2/front-end/public/blog-og
 /engine-2/front-end/public/data/forum.json
 /engine-2/prerender-cache
 /engine-2/prerender-snapshots

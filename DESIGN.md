@@ -147,6 +147,8 @@ The reading scale is a fixed four-step vocabulary — lead 18/1.6, body 16/1.6, 
 
 **The Comment Prefix Rule.** Every section title is preceded by a literal `//`. It is the site's signature marginal mark, not decoration to be dropped.
 
+**The Label-Heading Exception (404 page).** On the 404 page the semantic `h1` is the status line (`// SEITE NICHT GEFUNDEN`) and deliberately wears the small Audiowide **label** style — not the 30px display size. The visually largest line is the randomly drawn joke, set as ordinary Roboto running text (not a heading). Visual and semantic hierarchy diverge here on purpose: the fixed status must own the heading, because the joke changes on every visit and some jokes do not name what happened. This keeps the Rationed Display Rule intact — the `h1` is Audiowide, the joke is Roboto body.
+
 ## Layout
 
 One text column of max 1312px with a per-breakpoint gutter (32px desktop/tablet, 20px phone), so the hero, docs, blog, and legal pages all stand on the same two vertical lines. Vertical section rhythm steps 96 / 64 / 48px (lg/md/sm); cards in a content grid sit 24px apart. The base spacing unit is 8px. Interactive controls are 44px tall (dense/header controls 36px). The layout stacks below the `sm` breakpoint (599px); there is no separate tablet gutter because the column is still wide enough for the full margin between 600–899px.

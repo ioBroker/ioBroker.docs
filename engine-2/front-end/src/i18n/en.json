@@ -993,11 +993,8 @@
     "notFound": {
         "title": "Page not found",
         "lead": "The page you are looking for was removed, renamed or never existed.",
-        "hint": "The home page has everything that matters, and the search above leads straight to adapters and documentation.",
         "home": "Home",
-        "adapters": "Adapters",
-        "docs": "Docs",
-        "forum": "Forum",
+        "search": "Search",
         "jokes": [
             {
                 "line1": "We really did look everywhere…",
