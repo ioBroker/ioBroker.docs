@@ -46,6 +46,14 @@ interface MarkdownViewProps {
     };
     /** anchor icon next to a heading - omit it and the headings carry no anchor link */
     linkImage?: string;
+    /**
+     * Render every heading one level lower, for a page that already carries an H1 of its own.
+     *
+     * The start page of the documentation is the case: its title is the page's H1, and the
+     * document below it opens with a heading of its own, which would be the second H1 on the
+     * page. The look does not change with it, the classes decide that.
+     */
+    demoteHeadings?: boolean;
 }
 
 export const MarkdownView = memo(function MarkdownView({
@@ -56,6 +64,7 @@ export const MarkdownView = memo(function MarkdownView({
     headingIdMap,
     classNames,
     linkImage,
+    demoteHeadings,
 }: MarkdownViewProps): React.ReactNode {
     const { classes: linkClasses } = useMarkdownLinkStyles();
     const markdownForRender = markdown ? normalizeImageTags(markdown) : '';
@@ -129,16 +138,25 @@ export const MarkdownView = memo(function MarkdownView({
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
             components={{
+                /*
+                 * The three levels below carry their own tag since 17.09.2026. They were `Box`
+                 * before, which renders a `div`: the documents kept their look but lost their
+                 * structure, so an adapter page and a documentation page arrived at a search
+                 * engine - and at a screen reader - as one long text without a single heading.
+                 * The look does not change with the tag, the classes decide it; the text inside
+                 * is a `span` because a heading may not hold a `div`.
+                 */
                 h1: ({ children }) => {
                     const text = normalizeText(children);
                     const id = getUniqueId(text);
                     return (
                         <Box
+                            component={demoteHeadings ? 'h2' : 'h1'}
                             id={id}
                             data-md-heading={makeSlug(text)}
                             className={classNames.head}
                         >
-                            <div>{children}</div>
+                            <span>{children}</span>
                             {renderAnchorLink(id, text)}
                         </Box>
                     );
@@ -148,11 +166,12 @@ export const MarkdownView = memo(function MarkdownView({
                     const id = nextContentHeadingId(text);
                     return (
                         <Box
+                            component={demoteHeadings ? 'h3' : 'h2'}
                             id={id}
                             data-md-heading={makeSlug(text)}
                             className={classNames.subhead ?? classNames.head}
                         >
-                            <div>{children}</div>
+                            <span>{children}</span>
                             {renderAnchorLink(id, text)}
                         </Box>
                     );
@@ -162,11 +181,12 @@ export const MarkdownView = memo(function MarkdownView({
                     const id = nextContentHeadingId(text);
                     return (
                         <Box
+                            component={demoteHeadings ? 'h4' : 'h3'}
                             id={id}
                             data-md-heading={makeSlug(text)}
                             className={classNames.heading}
                         >
-                            <div>{children}</div>
+                            <span>{children}</span>
                             {renderAnchorLink(id, text)}
                         </Box>
                     );

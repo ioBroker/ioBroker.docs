@@ -312,7 +312,16 @@ export function crawlerBody(input) {
     let heading = title;
     let content = '';
     let parent = null;
-    if (kind === 'plain') {
+    /*
+     * The address names nothing. The page is answered with 404 and `noindex`, so this is not
+     * written for an index - it is written for the agent that follows a dead link and should
+     * find its way from here, which is what `follow` in that header promises it.
+     */
+    if (input.notFound) {
+        heading = say('notFound.title') || heading;
+        content = `<p>${esc(say('notFound.lead'))}</p><p>${link('/', say('notFound.home') || 'ioBroker')}</p>`;
+    }
+    else if (kind === 'plain') {
         switch (route) {
             case '/':
                 heading = `${say('home.hero.headline')} ${say('home.hero.headlineAccent')}`.trim() || title;

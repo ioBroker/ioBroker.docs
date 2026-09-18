@@ -4,6 +4,14 @@ import { styled, Typography, type SxProps, type Theme } from '@mui/material';
 interface SectionTitleProps {
     children: React.ReactNode;
     sx?: SxProps<Theme>;
+    /**
+     * The element this becomes - `h1` where it is the title of the page.
+     *
+     * The look does not change with it: `variant="h4"` below decides the type, `component` only
+     * the tag. Until 17.09.2026 every one of these was an `h4`, so no page of the site had an H1
+     * at all once the app had drawn it, while the page the server sends for a crawler had one.
+     */
+    component?: React.ElementType;
 }
 
 /**
@@ -57,9 +65,10 @@ const Root = styled(Typography)(({ theme }) => ({
     },
 }));
 
-export const SectionTitle: React.FC<SectionTitleProps> = ({ children, sx }) => (
+export const SectionTitle: React.FC<SectionTitleProps> = ({ children, sx, component }) => (
     <Root
         variant="h4"
+        component={component}
         sx={sx}
     >
         {'//'} {children}

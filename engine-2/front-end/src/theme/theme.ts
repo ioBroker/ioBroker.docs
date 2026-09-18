@@ -183,7 +183,7 @@ declare module '@mui/material/styles' {
  * `h3` lost its rule altogether - it set 16 px on top of 16 px and did nothing.
  */
 const typography = (): Record<string, unknown> => ({
-    fontFamily: ['Roboto', 'Saira', 'Arial', 'sans-serif'].join(','),
+    fontFamily: ['Roboto', 'Arial', 'sans-serif'].join(','),
     fontWeightLight: 400,
     fontWeightRegular: 400,
     fontWeightMedium: 700,

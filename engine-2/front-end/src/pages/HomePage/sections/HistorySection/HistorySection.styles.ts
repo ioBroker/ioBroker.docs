@@ -62,7 +62,7 @@ export const useStyles = makeStyles()(theme => ({
     historySection: {
         textAlign: 'center',
         position: 'relative',
-        background: `url(/image-code.png) no-repeat center center`,
+        background: `url(/image-code.webp) no-repeat center center`,
         backgroundPosition: 'top',
         backgroundColor: theme.palette.background.default,
         // `contain` shows the whole picture, exactly as the platform section above does -

@@ -15,6 +15,7 @@ import { Footer } from '../../components/Footer/Footer';
 import Divider from '../../components/Divider/Divider';
 import HistoryModal from './HistoryModal';
 import { useAdapters } from '../../api/hooks/useAdapters';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import { useAdapterMarkdown } from '../../api/hooks/useAdapterMarkdown';
 import { API_CONFIG, SITE_HOST, buildContentUrl, buildIoBrokerUrl } from '../../config/api';
 import { PageMeta } from '../../components/PageMeta';
@@ -41,7 +42,7 @@ const AdapterPage = (): React.ReactNode => {
     const [isLicenseOpen, setIsLicenseOpen] = useState(false);
     const [isHistoryOpen, setIsHistoryOpen] = useState(false);
     const [language, setLanguage] = useState(I18n.getLanguage());
-    const { data: adaptersData } = useAdapters();
+    const { data: adaptersData, isSuccess: adaptersLoaded } = useAdapters();
     const authorsRef = useRef<HTMLSpanElement>(null);
     const pageGridRef = useRef<HTMLDivElement>(null);
     const [isAuthorsOverflow, setIsAuthorsOverflow] = useState(false);
@@ -181,6 +182,16 @@ const AdapterPage = (): React.ReactNode => {
         });
     };
 
+    /*
+     * The address names an adapter that is not in the index. The server answers such an address
+     * with 404 already; what stood here until 18.09.2026 was the frame of an adapter page with
+     * every field empty, down to "Stabile Version:" with nothing behind it. The list has to be
+     * there before this can be said, otherwise every page would flash the 404 while it loads.
+     */
+    if (adaptersLoaded && !adapterInfo) {
+        return <NotFoundPage />;
+    }
+
     return (
         <Box className={classes.pageRoot}>
             <PageMeta
@@ -204,7 +215,16 @@ const AdapterPage = (): React.ReactNode => {
                     >
                         {(adapterInfo?.categoryTitle || '').toUpperCase()}
                     </span>
-                    <span className={classes.breadcrumbsEnd}> / {(adapterTitle || '').toUpperCase()}</span>
+                    {/*
+                     * The last step of the trail is the name of the adapter, in the size of a
+                     * title - and it is the title of this page, so it is its H1 since 17.09.2026.
+                     * The page had none before: the readme's own first heading is dropped (it
+                     * only repeats the name) and everything else here is a `div`.
+                     */}
+                    <Typography
+                        component="h1"
+                        className={classes.breadcrumbsEnd}
+                    >{` / ${(adapterTitle || '').toUpperCase()}`}</Typography>
                 </Box>
             </Box>
             <Box

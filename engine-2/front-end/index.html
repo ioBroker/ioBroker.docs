@@ -4,8 +4,28 @@
         <meta charset="UTF-8" />
         <link
             rel="icon"
-            type="image/svg+xml"
             href="/favicon.ico"
+            sizes="any"
+        />
+        <!--
+            The two faces the first screen is set in. Without this the browser finds them only
+            after the stylesheet has loaded and parsed, and the text is drawn twice: once in a
+            fallback face, once in ours - which is a part of the layout shift the page was
+            measured with (18.09.2026).
+        -->
+        <link
+            rel="preload"
+            href="/Roboto-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="/Audiowide-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
         />
         <meta
             name="viewport"

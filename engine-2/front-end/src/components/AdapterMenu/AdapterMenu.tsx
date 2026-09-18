@@ -264,14 +264,10 @@ export const AdapterMenu = ({
                                 </Box>
                                 {!isCollapsed && (
                                     <>
-                                        <Box
-                                            className={`${classes.menuText} ${isActive ? classes.activeText : ''}`}
-                                        >
+                                        <Box className={`${classes.menuText} ${isActive ? classes.activeText : ''}`}>
                                             {item.label}
                                         </Box>
-                                        <Box
-                                            className={`${classes.menuCount} ${isActive ? classes.activeCount : ''}`}
-                                        >
+                                        <Box className={`${classes.menuCount} ${isActive ? classes.activeCount : ''}`}>
                                             {item.count}
                                         </Box>
                                     </>

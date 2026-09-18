@@ -164,6 +164,9 @@ export const useStyles = makeStyles()(theme => ({
     },
     breadcrumbsEnd: {
         fontFamily: 'var(--font-display)',
+        // it is an `h1` since 17.09.2026, and a heading brings a weight and a margin of its own
+        fontWeight: 400,
+        margin: 0,
         fontSize: '32px',
         color: theme.palette.primary.main,
         display: 'flex',

@@ -1,50 +1,35 @@
+/*
+ * The faces as WOFF2, not TrueType: the same glyphs in a good half of the bytes, and every browser
+ * that can run this site reads them. `font-display: swap` draws the text in the fallback face
+ * until ours has arrived, instead of leaving the place empty for it.
+ *
+ * Saira stood here in four weights until 18.09.2026 and was named nowhere in the styles - it only
+ * stood behind Roboto in the stacks, where the browser reached for it whenever Roboto lacked a
+ * glyph, and fetched two of its files for that. The text of this site is Roboto, the headings are
+ * Audiowide: those are the two faces, and nothing else is kept.
+ */
 @font-face {
     font-family: 'Audiowide';
-    src: url('/Audiowide-Regular.ttf') format('truetype');
+    src: url('/Audiowide-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'Saira';
-    src: url('/Saira-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Saira';
-    src: url('/Saira-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Saira';
-    src: url('/Saira-ExtraLight.ttf') format('truetype');
-    font-weight: 200;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Saira';
-    src: url('/Saira-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Roboto';
-    src: url('/Roboto-Regular.ttf') format('truetype');
+    src: url('/Roboto-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Roboto';
-    src: url('/Roboto-Bold.ttf') format('truetype');
+    src: url('/Roboto-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
 
 /*
@@ -71,7 +56,7 @@ body {
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
-    font-family: 'Roboto', 'Saira', Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;

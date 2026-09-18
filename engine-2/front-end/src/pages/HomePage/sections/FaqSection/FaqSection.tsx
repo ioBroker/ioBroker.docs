@@ -50,9 +50,7 @@ export const FaqSection: React.FC = () => {
                                     aria-hidden="true"
                                 />
                             </Box>
-                            <Typography className={classes.answer}>
-                                {I18n.t(`home.faq.items.${question}.a`)}
-                            </Typography>
+                            <Typography className={classes.answer}>{I18n.t(`home.faq.items.${question}.a`)}</Typography>
                         </Box>
                     ))}
                 </Box>

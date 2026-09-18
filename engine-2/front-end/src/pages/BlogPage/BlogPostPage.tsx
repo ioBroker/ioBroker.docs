@@ -9,6 +9,7 @@ import { useBlogContent, useBlogMarkdown } from '../../api/hooks/useBlog';
 import { MarkdownView } from '../../components/MarkdownView/MarkdownView';
 import { extractHeader, formatBlogDate, getAuthor, pickText, sortBlogPages } from './blogUtils';
 import { useStyles } from './BlogPostPage.styles';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 const BlogPostPage = (): React.ReactNode => {
     const { classes, cx } = useStyles();
@@ -18,7 +19,9 @@ const BlogPostPage = (): React.ReactNode => {
     const [language, setLanguage] = useState(I18n.getLanguage());
 
     const { data: content } = useBlogContent();
-    const { data: loaded, isLoading, isError } = useBlogMarkdown(pageId, language);
+    const { data: loaded, isLoading, isError, isFetched } = useBlogMarkdown(pageId, language);
+    // the request is through and brought nothing: there is no such post
+    const postMissing = isFetched && (isError || !loaded?.text);
 
     useEffect(() => I18n.subscribe(setLanguage), []);
     useEffect(() => {
@@ -44,11 +47,20 @@ const BlogPostPage = (): React.ReactNode => {
         : window.location.origin;
     const markdownBaseUrl = `${baseOrigin}/${markdownLanguage}/blog/${pageId || ''}.md`;
 
+    // the address names no post of the blog - the same page the site shows for any dead address
+    if (postMissing) {
+        return <NotFoundPage />;
+    }
+
     return (
         <Box className={classes.pageWrapper}>
             <PageMeta
                 title={title}
-                description={header.description}
+                /*
+                 * The post's own line first, then what the index says about it - the same text
+                 * the server writes into the head, and most posts carry it only there.
+                 */
+                description={header.description || (entry ? pickText(entry.desc ?? {}, language) : '')}
                 image={logo}
             />
             <Box className={classes.pageContainer}>

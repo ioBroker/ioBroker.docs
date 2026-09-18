@@ -323,9 +323,17 @@ const ProductOverviewPage = (): React.ReactNode => {
 
     return (
         <Box className={classes.pageWrapper}>
-            <PageMeta title={I18n.t('Licenses')} />
+            <PageMeta
+                title={I18n.t('Licenses')}
+                description={I18n.t('seo.products.description')}
+            />
             <Box className={classes.pageContainer}>
-                <SectionTitle sx={{ marginBottom: '32px' }}>{t('title').toUpperCase()}</SectionTitle>
+                <SectionTitle
+                    component="h1"
+                    sx={{ marginBottom: '32px' }}
+                >
+                    {t('title').toUpperCase()}
+                </SectionTitle>
 
                 <Box className={classes.hero}>
                     <Box className={classes.heroContent}>

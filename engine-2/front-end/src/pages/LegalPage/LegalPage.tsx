@@ -7,6 +7,7 @@ import { useDocsMarkdown } from '../../api/hooks/useDocsMarkdown';
 import { MarkdownView } from '../../components/MarkdownView/MarkdownView';
 import { extractHeader } from '../../utils/markdownHeader';
 import { SectionTitle } from '../../components/SectionTitle/SectionTitle';
+import { summariseMarkdown } from '../../utils/markdown';
 import { useStyles } from './LegalPage.styles';
 
 /**
@@ -65,14 +66,17 @@ const LegalPage = ({ document: doc }: { document: 'imprint' | 'privacy' }): Reac
 
     return (
         <Box className={classes.pageWrapper}>
-            <PageMeta title={doc === 'imprint' ? I18n.t('Imprint') : I18n.t('Privacy')} />
+            <PageMeta
+                title={doc === 'imprint' ? I18n.t('Imprint') : I18n.t('Privacy')}
+                description={summariseMarkdown(content)}
+            />
             <Box className={classes.pageContainer}>
                 {isLoading && <Typography className={classes.message}>{I18n.t('blog.loading')}</Typography>}
                 {isError && <Typography className={classes.message}>{I18n.t('legal.loadError')}</Typography>}
 
                 {!!markdown && (
                     <>
-                        <SectionTitle>{title.toUpperCase()}</SectionTitle>
+                        <SectionTitle component="h1">{title.toUpperCase()}</SectionTitle>
 
                         <Box className={classes.body}>
                             <MarkdownView

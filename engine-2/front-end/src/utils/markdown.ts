@@ -177,3 +177,31 @@ export const buildTocItems = (markdown: string): TocItem[] => {
 
     return items;
 };
+
+/**
+ * The first sentences of a document, for the description of a page that has no own.
+ *
+ * The counterpart of `summarise` in `src/lib/prerender.ts`, which the server runs over the
+ * rendered HTML of the same document: 160 characters, cut at a word, because a search engine
+ * shows about 155 of them. Written here as well because `main.tsx` takes the server's tags out
+ * of the head again, so a page that does not write a description itself ends up without one for
+ * everything that renders the app - Google included.
+ *
+ * @param markdown the document, frontmatter and all
+ */
+export const summariseMarkdown = (markdown: string): string => {
+    const plain = stripHtmlComments(removeFrontmatter(markdown || ''))
+        // fenced code, pictures, HTML and the decoration of the markup itself say nothing here
+        .replace(/```[\s\S]*?```/g, ' ')
+        .replace(/!\[[^\]]*]\([^)]*\)/g, ' ')
+        .replace(/\[([^\]]*)]\([^)]*\)/g, '$1')
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/^\s{0,3}#{1,6}\s+.*$/gm, ' ')
+        .replace(/^\s{0,3}[?!]>\s*/gm, ' ')
+        .replace(/^\s{0,3}[-*+]\s+/gm, ' ')
+        .replace(/[*_`>|]/g, ' ')
+        .replace(/&[a-z]+;/gi, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    return plain.length > 160 ? `${plain.slice(0, 157).replace(/\s+\S*$/, '')}…` : plain;
+};

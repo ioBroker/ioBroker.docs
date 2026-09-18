@@ -1,5 +1,6 @@
 import React from 'react';
 import { PageMeta } from '../../components/PageMeta';
+import { I18n } from '../../utils/i18n';
 import { HeroSection } from './sections/HeroSection/HeroSection';
 import Divider from '../../components/Divider/Divider';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
@@ -17,7 +18,10 @@ export const HomePage: React.FC = () => {
 
     return (
         <>
-            <PageMeta />
+            <PageMeta
+                title={I18n.t('seo.home.title')}
+                description={I18n.t('seo.home.description')}
+            />
             <HeroSection sectionRef={sectionRef} />
             <Divider
                 position={scrollPosition}

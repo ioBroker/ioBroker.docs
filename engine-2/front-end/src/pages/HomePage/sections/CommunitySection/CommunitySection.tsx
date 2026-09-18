@@ -76,39 +76,39 @@ export const CommunitySection: React.FC = () => {
                                  * edge (Denis, 11.09.2026).
                                  */}
                                 <Box className={classes.inner}>
-                                <Box className={classes.statCardContentWrapper}>
-                                    <Typography
-                                        variant="h5"
-                                        className={classes.statTitle}
+                                    <Box className={classes.statCardContentWrapper}>
+                                        <Typography
+                                            variant="h5"
+                                            className={classes.statTitle}
+                                        >
+                                            {item.title}
+                                        </Typography>
+                                        <Typography className={classes.statNumber}>
+                                            {item.count}
+                                            {item.count ? (
+                                                <Box
+                                                    component="span"
+                                                    // Relative to the number, so the plus follows every
+                                                    // size instead of requiring its own breakpoints.
+                                                    sx={{ fontSize: '0.55em', verticalAlign: 'middle' }}
+                                                >
+                                                    {' '}
+                                                    +
+                                                </Box>
+                                            ) : null}
+                                        </Typography>
+                                        <Typography className={classes.statLabel}>
+                                            {I18n.t('home.community.users')}
+                                        </Typography>
+                                    </Box>
+                                    <CustomButton
+                                        variant="secondary"
+                                        className={classes.joinButton}
+                                        href={item.href}
+                                        target="_blank"
                                     >
-                                        {item.title}
-                                    </Typography>
-                                    <Typography className={classes.statNumber}>
-                                        {item.count}
-                                        {item.count ? (
-                                            <Box
-                                                component="span"
-                                                // Relative to the number, so the plus follows every
-                                                // size instead of requiring its own breakpoints.
-                                                sx={{ fontSize: '0.55em', verticalAlign: 'middle' }}
-                                            >
-                                                {' '}
-                                                +
-                                            </Box>
-                                        ) : null}
-                                    </Typography>
-                                    <Typography className={classes.statLabel}>
-                                        {I18n.t('home.community.users')}
-                                    </Typography>
-                                </Box>
-                                <CustomButton
-                                    variant="secondary"
-                                    className={classes.joinButton}
-                                    href={item.href}
-                                    target="_blank"
-                                >
-                                    {I18n.t('home.community.join')}
-                                </CustomButton>
+                                        {I18n.t('home.community.join')}
+                                    </CustomButton>
                                 </Box>
                             </Box>
                             <div className={classes.bracesRight} />

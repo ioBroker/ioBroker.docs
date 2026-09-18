@@ -50,11 +50,17 @@ const BlogPage = (): React.ReactNode => {
 
     return (
         <Box className={classes.pageWrapper}>
-            <PageMeta title={I18n.t('Blog')} />
+            <PageMeta
+                title={I18n.t('Blog')}
+                description={I18n.t('seo.blog.description')}
+            />
             <Box className={classes.pageContainer}>
                 <Box className={classes.header}>
                     <Box className={classes.headerText}>
-                        <SectionTitle sx={{ marginBottom: '12px', textTransform: 'uppercase' }}>
+                        <SectionTitle
+                            component="h1"
+                            sx={{ marginBottom: '12px', textTransform: 'uppercase' }}
+                        >
                             {I18n.t('blog.title')}
                         </SectionTitle>
                         <Typography

@@ -92,9 +92,29 @@ export const AdapterMarkdownView = ({
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
             components={{
+                /*
+                 * The readme repeats the name of the adapter in its first heading, which the page
+                 * already carries - it is dropped, and the page's own title is the H1. The levels
+                 * below it are headings again since 17.09.2026: as `Box` they rendered as `div`
+                 * and the documentation reached a search engine without any structure.
+                 */
                 h1: () => null,
-                h2: ({ children }) => <Box className={classNames.head}>{children}</Box>,
-                h3: ({ children }) => <Box className={classNames.heading}>{children}</Box>,
+                h2: ({ children }) => (
+                    <Box
+                        component="h2"
+                        className={classNames.head}
+                    >
+                        {children}
+                    </Box>
+                ),
+                h3: ({ children }) => (
+                    <Box
+                        component="h3"
+                        className={classNames.heading}
+                    >
+                        {children}
+                    </Box>
+                ),
                 p: ({ children }) => <Box className={classNames.paragraph}>{children}</Box>,
                 a: ({ children, href, ...props }) => (
                     <Box

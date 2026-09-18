@@ -8,8 +8,9 @@ import http2Module from 'node:http2';
 import type { Express, Request, Response, NextFunction } from 'express';
 import express from 'express';
 import { configurePrerender, crawlerName, isCrawler, pickLanguage, renderPage } from './prerender.js';
-import { DEFAULT_LANGUAGE, escapeHtml, isLanguage, readJson } from './siteData.js';
+import { DEFAULT_LANGUAGE, escapeHtml, isLanguage, readJson, walk, type JsonPage } from './siteData.js';
 import { buildSitemap } from './sitemap.js';
+import { legacyTarget } from './legacyPages.js';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import cors from 'cors';
@@ -296,6 +297,30 @@ export default function init(config: AppConfig): {
         });
     });
 
+    /*
+     * The pages of the site that stood on iobroker.com before the relaunch: they answered with
+     * 404 until 17.09.2026, although a search engine still knows them and other sites still link
+     * to them. `legacyPages.ts` says where each of them leads today.
+     *
+     * Before the static handler and before the page handler, because none of those addresses is a
+     * file or a route of the app - and only GET and HEAD, so that nothing that carries a body is
+     * repeated as a GET without it.
+     */
+    app.app.use((req: Request, res: Response, next: NextFunction): void => {
+        if (req.method !== 'GET' && req.method !== 'HEAD') {
+            next();
+            return;
+        }
+        const target = legacyTarget(req.originalUrl);
+        if (!target) {
+            next();
+            return;
+        }
+        // other sites read documents from here - without this their browsers stop at the redirect
+        res.set('Access-Control-Allow-Origin', '*');
+        res.redirect(301, target);
+    });
+
     // CORS for adapterref
     app.app.options('/{*splat}/adapterref/{*rest}', cors());
     app.app.use('/{*splat}/adapterref/{*rest}', cors());
@@ -333,11 +358,43 @@ export default function init(config: AppConfig): {
     // a line for every page sent to a crawler - see `prerender.log` in types.d.ts
     const logCrawlers = !!config.prerender?.log;
     /*
+     * The documents themselves: the markdown the pages are built from and the JSON indexes. Other
+     * sites read them (the CORS header above is for exactly that), so they stay open - but a
+     * search engine that indexes `de/basics/README.md` has the text of a page a second time,
+     * without its layout, its links or its language markers, competing with the page itself.
+     */
+    app.app.use((req: Request, res: Response, next: NextFunction): void => {
+        if (/\.(?:md|json)$/i.test(req.path)) {
+            res.setHeader('X-Robots-Tag', 'noindex');
+        }
+        next();
+    });
+
+    /*
      * `index: false`, so that a request for a directory is not answered with the index.html lying
      * in it. The start page went out that way, before the handler below ever saw it, and so was
      * the one page of the site that carried no title and no description of its own.
+     *
+     * The cache: everything went out with `max-age=0` until 18.09.2026, so a second visit fetched
+     * the whole megabyte again. What carries a hash in its name (`/assets/index-D5QAjf5I.js`) can
+     * never change under that name and is kept for a year; a font the same, by its own name. The
+     * pictures of the site change with a release, the documents and the indexes monthly: a day
+     * and an hour, and the ETag settles the rest.
      */
-    app.app.use(express.static(publicDir, { index: false }));
+    app.app.use(
+        express.static(publicDir, {
+            index: false,
+            setHeaders: (res: Response, filePath: string): void => {
+                if (/[\\/]assets[\\/]/.test(filePath) || /\.(?:woff2?|ttf|eot|otf)$/i.test(filePath)) {
+                    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+                } else if (/\.(?:png|jpe?g|gif|svg|webp|avif|ico|mp4|webm)$/i.test(filePath)) {
+                    res.setHeader('Cache-Control', 'public, max-age=86400');
+                } else if (/\.(?:md|json|txt|xml)$/i.test(filePath)) {
+                    res.setHeader('Cache-Control', 'public, max-age=3600');
+                }
+            },
+        }),
+    );
     // the stylesheets of the snapshots - named by their content, so a file never changes
     app.app.use(
         '/prerender-css',
@@ -425,13 +482,15 @@ export default function init(config: AppConfig): {
     const shellFile = path.join(publicDir, 'index.html');
     let shell: { mtimeMs: number; text: string } | undefined;
 
-    app.app.get('/{*splat}', (req: Request, res: Response, next: NextFunction): void => {
-        const isAppRoute = APP_ROUTES.some(route => req.path === route || req.path.startsWith(`${route}/`));
-        if (!isAppRoute) {
-            next();
-            return;
-        }
-
+    /**
+     * The page of the app for this address, with the head the address deserves.
+     *
+     * Two handlers use it: the one for the routes of the app below, and the last one of all, for
+     * an address that names nothing. An address that names nothing is answered with the page as
+     * well - with 404 and `noindex`, which `renderPage` sets - so that the reader gets the 404
+     * page of the site instead of the bare line of express ("Cannot GET /...").
+     */
+    const sendPage = (req: Request, res: Response): void => {
         try {
             const { mtimeMs } = fs.statSync(shellFile);
             if (shell?.mtimeMs !== mtimeMs) {
@@ -477,6 +536,15 @@ export default function init(config: AppConfig): {
             console.error(`Cannot render ${req.path}: ${String(error)}`);
             res.sendFile(shellFile);
         }
+    };
+
+    app.app.get('/{*splat}', (req: Request, res: Response, next: NextFunction): void => {
+        const isAppRoute = APP_ROUTES.some(route => req.path === route || req.path.startsWith(`${route}/`));
+        if (!isAppRoute) {
+            next();
+            return;
+        }
+        sendPage(req, res);
     });
 
     /** Every page of the site in every language, with the other languages named beside each */
@@ -506,6 +574,25 @@ export default function init(config: AppConfig): {
         cachedProxy('https://iobroker.pro/api/v1/public/accessProducts', PRODUCTS_CACHE_MS),
     );
     app.app.get('/api/iobroker/forum.json', cachedProxy(`${siteOrigin}/data/forum.json`, FORUM_CACHE_MS));
+
+    /*
+     * How many adapters there are, and nothing else.
+     *
+     * The start page shows that number ("800+"), and until 18.09.2026 it took the whole
+     * `adapters.json` for it: 373 kilobytes over the wire, 1.8 megabytes unpacked, on the page
+     * every visitor sees first, for one number. The file is read here anyway and is kept in
+     * memory between requests (`readJson` re-reads it only when it changed on disk).
+     */
+    app.app.get('/api/adapters/count', (_req: Request, res: Response): void => {
+        let total = 0;
+        walk(readJson<JsonPage>(path.join(publicDir, 'adapters.json')), (_key, page) => {
+            if (page.content) {
+                total++;
+            }
+        });
+        res.setHeader('Cache-Control', 'public, max-age=3600');
+        res.json({ total });
+    });
     app.app.use(bodyParser.json({ limit: 50000000, type: 'application/json' }));
 
     // Redirect install scripts
@@ -543,6 +630,31 @@ export default function init(config: AppConfig): {
             fs.writeFileSync(target, typeof req.body === 'object' ? JSON.stringify(req.body) : req.body);
         }
         res.json({ result: 'ok' });
+    });
+
+    /*
+     * Everything that got this far names nothing: no file, no route of the app, none of the
+     * addresses of the old site. Until 18.09.2026 express answered that itself, with a white page
+     * and the line "Cannot GET /whatever" - the first thing a reader saw who followed an old link.
+     * It gets the page of the app now, which shows the 404 page of the site, and the status stays
+     * 404 because `renderPage` sets it for an address it cannot describe.
+     *
+     * A file is left alone: a picture or a stylesheet that is missing is a plain 404, not a page,
+     * and so is a request that does not ask for HTML - the API answers those.
+     */
+    const FILE_ADDRESS =
+        /\.(?:js|mjs|css|map|json|md|txt|xml|png|jpe?g|gif|svg|webp|avif|ico|woff2?|ttf|eot|zip|gz|pdf|mp4|webm|sh)$/i;
+    app.app.use((req: Request, res: Response, next: NextFunction): void => {
+        if (
+            (req.method !== 'GET' && req.method !== 'HEAD') ||
+            req.path.startsWith('/api/') ||
+            FILE_ADDRESS.test(req.path) ||
+            !req.accepts('html')
+        ) {
+            next();
+            return;
+        }
+        sendPage(req, res);
     });
 
     if (!config.secure) {

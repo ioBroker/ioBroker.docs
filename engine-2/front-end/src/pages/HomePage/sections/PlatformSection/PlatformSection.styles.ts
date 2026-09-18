@@ -18,7 +18,7 @@ export const useStyles = makeStyles()(theme => ({
             right: 0,
             width: '55%',
             height: '100%',
-            backgroundImage: 'url(/image-code.png)',
+            backgroundImage: 'url(/image-code.webp)',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'left top',
             // 180 percent of the layer width is roughly the width of the section

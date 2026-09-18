@@ -44,6 +44,8 @@ export interface CrawlerInput {
     publicDir: string;
     /** front-end/src, where the words of the interface and the installation targets are kept */
     frontEndSrc: string | null;
+    /** the address names nothing - the page is the one the app shows for a 404 */
+    notFound?: boolean;
 }
 
 /** The targets of the installation page - the same file `InstallationPage.tsx` reads */
@@ -502,7 +504,15 @@ export function crawlerBody(input: CrawlerInput): string {
     let content = '';
     let parent: [string, string] | null = null;
 
-    if (kind === 'plain') {
+    /*
+     * The address names nothing. The page is answered with 404 and `noindex`, so this is not
+     * written for an index - it is written for the agent that follows a dead link and should
+     * find its way from here, which is what `follow` in that header promises it.
+     */
+    if (input.notFound) {
+        heading = say('notFound.title') || heading;
+        content = `<p>${esc(say('notFound.lead'))}</p><p>${link('/', say('notFound.home') || 'ioBroker')}</p>`;
+    } else if (kind === 'plain') {
         switch (route) {
             case '/':
                 heading = `${say('home.hero.headline')} ${say('home.hero.headlineAccent')}`.trim() || title;

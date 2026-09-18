@@ -964,5 +964,65 @@
             "blog": "Blog"
         },
         "back": "Zurück"
+    },
+    "seo": {
+        "_comment": "Titel und Beschreibungen fuer Suchmaschinen. Dieselben Texte stehen serverseitig in src/lib/prerender.ts (PLAIN_PAGES, PLAIN_DESCRIPTIONS) - beide Seiten muessen uebereinstimmen, sonst widersprechen sich die ausgelieferte und die gerenderte Seite.",
+        "home": {
+            "title": "ioBroker | Open Source Smart Home und Gebäudeautomation",
+            "description": "ioBroker verbindet Geräte, Protokolle und Onlinedienste zu einem Smart Home: hunderte Adapter, freie Automatisierung, eigene Visualisierung."
+        },
+        "adapters": {
+            "description": "Alle ioBroker-Adapter mit ihrer Dokumentation - was jeder anbindet und wie er eingerichtet wird."
+        },
+        "docs": {
+            "description": "Die Dokumentation von ioBroker: Grundlagen, Installation, Konfiguration, Visualisierung, Entwicklung und Hilfe bei Problemen."
+        },
+        "blog": {
+            "description": "Der ioBroker-Blog: monatliche Rückblicke, neue Adapter, Änderungen im Kern und Neuigkeiten aus der Community."
+        },
+        "installation": {
+            "description": "ioBroker installieren - unter Linux, Windows, macOS, Docker und auf dem Raspberry Pi."
+        },
+        "products": {
+            "description": "Die kostenpflichtigen ioBroker-Angebote im Überblick: Fernzugriff, Sprachassistenten und Adapterlizenzen."
+        },
+        "statistics": {
+            "description": "Wie viele ioBroker-Installationen es gibt, welche Adapter verbreitet sind und wie sich das über die Zeit entwickelt."
+        }
+    },
+    "notFound": {
+        "title": "Seite nicht gefunden",
+        "lead": "Die gesuchte Seite wurde entfernt, umbenannt oder hat es nie gegeben.",
+        "hint": "Auf der Startseite finden Sie alles Wichtige, und die Suche oben führt direkt zu Adaptern und Doku.",
+        "home": "Startseite",
+        "adapters": "Adapter",
+        "docs": "Doku",
+        "forum": "Forum",
+        "jokes": [
+            {
+                "line1": "Wir haben wirklich überall gesucht…",
+                "line2": "unter der Couch, hinter dem Server: die Seite ist einfach weg."
+            },
+            {
+                "line1": "Verbindung zur Seite verloren. Bitte Router neu starten…",
+                "line2": "Scherz!"
+            },
+            {
+                "line1": "Diese Seite hat sich wegautomatisiert.",
+                "line2": "Blockly war es nicht, versprochen."
+            },
+            {
+                "line1": "Für diese Seite gibt es keinen Adapter.",
+                "line2": "Und wir haben wirklich hunderte."
+            },
+            {
+                "line1": "Der Datenpunkt zu dieser Seite ist leer.",
+                "line2": "Und ack steht auf false."
+            },
+            {
+                "line1": "Diese Seite läuft komplett lokal.",
+                "line2": "So lokal, dass sie niemand mehr findet."
+            }
+        ]
     }
 }

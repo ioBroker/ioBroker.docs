@@ -964,5 +964,65 @@
             "blog": "Blog"
         },
         "back": "Back"
+    },
+    "seo": {
+        "_comment": "Titles and descriptions for search engines. The same texts stand server side in src/lib/prerender.ts (PLAIN_PAGES, PLAIN_DESCRIPTIONS) - the two have to agree, or the page that was sent and the page that is rendered contradict each other.",
+        "home": {
+            "title": "ioBroker | Open source smart home and building automation",
+            "description": "ioBroker connects devices, protocols and online services into one smart home: hundreds of adapters, free automation, your own visualisation."
+        },
+        "adapters": {
+            "description": "All ioBroker adapters with their documentation - what each one connects to and how it is set up."
+        },
+        "docs": {
+            "description": "The ioBroker documentation: basics, installation, configuration, visualisation, development and help with problems."
+        },
+        "blog": {
+            "description": "The ioBroker blog: monthly reviews, new adapters, changes in the core and news from the community."
+        },
+        "installation": {
+            "description": "How to install ioBroker - on Linux, Windows, macOS, Docker and a Raspberry Pi."
+        },
+        "products": {
+            "description": "The paid ioBroker services at a glance: remote access, voice assistants and adapter licenses."
+        },
+        "statistics": {
+            "description": "How many ioBroker installations there are, which adapters are in use and how that develops over time."
+        }
+    },
+    "notFound": {
+        "title": "Page not found",
+        "lead": "The page you are looking for was removed, renamed or never existed.",
+        "hint": "The home page has everything that matters, and the search above leads straight to adapters and documentation.",
+        "home": "Home",
+        "adapters": "Adapters",
+        "docs": "Docs",
+        "forum": "Forum",
+        "jokes": [
+            {
+                "line1": "We really did look everywhere…",
+                "line2": "under the couch, behind the server: this page is simply gone."
+            },
+            {
+                "line1": "Connection to the page lost. Please restart your router…",
+                "line2": "Only joking!"
+            },
+            {
+                "line1": "This page automated itself away.",
+                "line2": "It was not Blockly, we promise."
+            },
+            {
+                "line1": "There is no adapter for this page.",
+                "line2": "And we really do have hundreds."
+            },
+            {
+                "line1": "The state behind this page is empty.",
+                "line2": "And ack is false."
+            },
+            {
+                "line1": "This page runs entirely locally.",
+                "line2": "So locally that nobody can find it."
+            }
+        ]
     }
 }

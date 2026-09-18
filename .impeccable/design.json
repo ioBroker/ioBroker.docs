@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-18T00:00:00Z",
+  "title": "Design System: ioBroker Docs",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "ioBroker Blue",
+        "canonical": "#1D90CA",
+        "tonalRamp": ["#04263a", "#06405f", "#0a5a86", "#0f74ab", "#1D90CA", "#4dabdc", "#7ec3f3", "#b9e0fa", "#e4f3fd"]
+      },
+      "primary-deep": {
+        "role": "primary",
+        "displayName": "Deep Signal Blue",
+        "canonical": "#005894",
+        "tonalRamp": ["#00243b", "#00344f", "#004670", "#005894", "#1f74ad", "#4a92c4", "#7fb3d8", "#b3d3e9", "#e0eff7"]
+      },
+      "light-surface": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "#E6EEF7",
+        "tonalRamp": ["#c8daec", "#d6e4f2", "#e6eef7", "#eef4fa", "#f5f9fc", "#fafcfe", "#ffffff", "#ffffff", "#ffffff"]
+      },
+      "dark-canvas": {
+        "role": "neutral",
+        "displayName": "Deep Navy Canvas",
+        "canonical": "#080B1C",
+        "tonalRamp": ["#080b1c", "#031d38", "#052e57", "#06386b", "#0a4a86", "#0f5ea3", "#2f7dbf", "#6aa8d8", "#b6d6ef"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Audiowide page titles and section titles (H1-H3). Rationed; never body copy." },
+      "headline": { "displayName": "Headline", "purpose": "Audiowide section headings within a page (H2)." },
+      "title": { "displayName": "Title", "purpose": "Audiowide sub-headings (H3), the smallest display use." },
+      "body": { "displayName": "Body", "purpose": "Roboto running text, the site default." },
+      "label": { "displayName": "Label", "purpose": "Audiowide uppercase button and control labels." }
+    },
+    "shadows": [
+      { "name": "card-light", "value": "0 1px 2px rgba(0,88,148,0.10), 0 14px 32px -20px rgba(0,88,148,0.6)", "purpose": "Resting card/panel on the light theme." },
+      { "name": "card-dark", "value": "inset 0 0 0 1px rgba(126,195,243,0.08), 0 1px 2px rgba(0,0,0,0.4), 0 14px 32px -20px rgba(0,0,0,0.9)", "purpose": "Resting card on dark; inset ring keeps the edge readable against the near-black canvas." },
+      { "name": "raised-light", "value": "0 2px 4px rgba(0,88,148,0.12), 0 22px 44px -22px rgba(0,88,148,0.75)", "purpose": "Hover of large surface panels / lifted groups (light)." },
+      { "name": "overlay-light", "value": "0 1px 2px rgba(0,88,148,0.10), 0 14px 32px -16px rgba(0,88,148,0.45)", "purpose": "Tooltips, menus, floating surfaces (light)." },
+      { "name": "focus-ring", "value": "0 0 0 2px #1D90CA", "purpose": "Keyboard focus on any control, both themes." }
+    ],
+    "motion": [
+      { "name": "control-transition", "value": "background-color 0.2s ease, box-shadow 0.2s ease", "purpose": "Default state transition for buttons and interactive surfaces." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "599px" },
+      { "name": "md", "value": "899px" },
+      { "name": "lg", "value": "1279px" },
+      { "name": "content-max", "value": "1312px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "The compact default action: transparent fill, hairline ring, Audiowide uppercase label, arrow at the right.",
+      "html": "<button class=\"ds-btn-outline\">Alle Adapter entdecken<svg class=\"ds-btn-arrow\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 7h10v10\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M7 17 17 7\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 44px; min-width: 250px; max-width: 100%; padding: 10px 20px; border: none; border-radius: 10px; background: transparent; box-shadow: inset 0 0 0 1px rgba(0,88,148,0.28); color: #005894; font-family: 'Audiowide', 'Roboto', Arial, sans-serif; font-size: 15px; letter-spacing: 0.02em; text-transform: uppercase; cursor: pointer; transition: background-color 0.2s ease, box-shadow 0.2s ease; } .ds-btn-outline .ds-btn-arrow { width: 24px; height: 24px; color: #1D90CA; flex-shrink: 0; } .ds-btn-outline:hover { background: #D6E4F2; } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 2px #1D90CA; }"
+    },
+    {
+      "name": "Surface Panel Button",
+      "kind": "button",
+      "refersTo": "button-surface",
+      "description": "A large clickable content panel: surface fill, card radius, top-left aligned, lifts two steps on hover.",
+      "html": "<button class=\"ds-btn-surface\"><span class=\"ds-btn-surface-title\">Installation</span><span class=\"ds-btn-surface-text\">Von der Einrichtung bis zum laufenden System.</span></button>",
+      "css": ".ds-btn-surface { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; width: 320px; max-width: 100%; padding: 20px; border: none; border-radius: 16px; background: #E6EEF7; box-shadow: 0 1px 2px rgba(0,88,148,0.10), 0 14px 32px -20px rgba(0,88,148,0.6); text-align: left; cursor: pointer; transition: background-color 0.2s ease, box-shadow 0.2s ease; } .ds-btn-surface-title { font-family: 'Audiowide', 'Roboto', Arial, sans-serif; font-size: 16px; letter-spacing: -0.02em; color: #005894; } .ds-btn-surface-text { font-family: 'Roboto', Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #3A678C; } .ds-btn-surface:hover { background: #C8DAEC; box-shadow: 0 2px 4px rgba(0,88,148,0.12), 0 22px 44px -22px rgba(0,88,148,0.75), inset 0 0 0 1px rgba(0,88,148,0.28); } .ds-btn-surface:focus-visible { outline: none; box-shadow: 0 0 0 2px #1D90CA; }"
+    },
+    {
+      "name": "Section Title",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "Audiowide brand-blue section title, always opened with a literal // and a fixed 40px gap below.",
+      "html": "<h2 class=\"ds-section-title\">// Adapter</h2>",
+      "css": ".ds-section-title { font-family: 'Audiowide', 'Roboto', Arial, sans-serif; font-size: 30px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: #1D90CA; margin: 0 0 40px 0; } @media (max-width: 899px) { .ds-section-title { font-size: 24px; } } @media (max-width: 599px) { .ds-section-title { font-size: 20px; } }"
+    },
+    {
+      "name": "Bracket Frame",
+      "kind": "card",
+      "refersTo": "brace",
+      "description": "The signature square-bracket motif: thin 10px arms in brand blue wrapping a statistic or field. Reads as a mark, not a container.",
+      "html": "<div class=\"ds-bracket\"><span class=\"ds-bracket-left\"></span><div class=\"ds-bracket-inner\"><span class=\"ds-bracket-number\">400+</span><span class=\"ds-bracket-label\">Adapter</span></div><span class=\"ds-bracket-right\"></span></div>",
+      "css": ".ds-bracket { display: inline-flex; align-items: stretch; } .ds-bracket-left, .ds-bracket-right { width: 10px; flex-shrink: 0; border-top: 1px solid #1D90CA; border-bottom: 1px solid #1D90CA; } .ds-bracket-left { border-left: 1px solid #1D90CA; } .ds-bracket-right { border-right: 1px solid #1D90CA; } .ds-bracket-inner { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 20px; } .ds-bracket-number { font-family: 'Audiowide', 'Roboto', Arial, sans-serif; font-size: 30px; line-height: 1; color: #1D90CA; } .ds-bracket-label { font-family: 'Roboto', Arial, sans-serif; font-size: 15px; color: #3A678C; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "button-surface",
+      "description": "Standard content card: surface step, card radius, soft blue-tinted shadow, no framing border.",
+      "html": "<article class=\"ds-card\"><h3 class=\"ds-card-title\">// Blog</h3><p class=\"ds-card-body\">Neuigkeiten und Anleitungen aus der ioBroker-Community.</p></article>",
+      "css": ".ds-card { display: block; border-radius: 16px; background: #E6EEF7; padding: 24px; box-shadow: 0 1px 2px rgba(0,88,148,0.10), 0 14px 32px -20px rgba(0,88,148,0.6); transition: background-color 0.2s ease, box-shadow 0.2s ease; } .ds-card-title { font-family: 'Audiowide', 'Roboto', Arial, sans-serif; font-size: 16px; letter-spacing: -0.02em; color: #1D90CA; margin: 0 0 12px 0; } .ds-card-body { font-family: 'Roboto', Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #005894; margin: 0; } .ds-card:hover { background: #D6E4F2; }"
+    },
+    {
+      "name": "Search Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Text field sitting on the surface step; brand-blue focus ring, no hard border.",
+      "html": "<input class=\"ds-input\" type=\"search\" placeholder=\"Dokumentation durchsuchen\" />",
+      "css": ".ds-input { width: 320px; max-width: 100%; height: 44px; padding: 0 16px; border: none; border-radius: 10px; background: #E6EEF7; box-shadow: inset 0 0 0 1px rgba(0,88,148,0.14); color: #005894; font-family: 'Roboto', Arial, sans-serif; font-size: 16px; transition: box-shadow 0.2s ease; } .ds-input::placeholder { color: #3A678C; } .ds-input:focus-visible { outline: none; box-shadow: 0 0 0 2px #1D90CA; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Calm Control Room",
+    "overview": "ioBroker is an engineer's platform, and this documentation site reads like a well-kept control room: quiet, tonal surfaces carry the content, and the technical character lives entirely in a few precise marks - the wide Audiowide display face, the // that opens every section title, and the square [ ] brackets that frame a statistic. Nothing shouts. The brand blue is the single accent, and depth is built from lightness steps rather than lines or heavy shadows. The system is deliberately restrained: one accent hue, one hairline value instead of hard borders, one spacing and radius scale, and a four-step reading vocabulary. Both a light and a dark theme are first-class; the dark theme is the atmospheric default, the light theme a bright reading ground. Precision is the personality.",
+    "keyCharacteristics": [
+      "One accent (brand blue #1D90CA), used as the only voice of color.",
+      "Depth from tonal surface steps + hairlines, not borders or hard shadows.",
+      "Audiowide display face rationed to H1-H3, section titles, and buttons.",
+      "Two signature marks: the // section-title prefix and the [ ] bracket frame.",
+      "Dual light/dark themes, both held to a real reading-contrast floor."
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Blue is the only accent on the site. There is no secondary or tertiary color role - distinctions come from the surface ladder and hairlines, not a new hue.", "section": "colors" },
+      { "name": "The Steps-Not-Borders Rule", "body": "Separation is a lightness step plus a single hairline. A hard, framing border is a defect; the hairline separates, it does not frame.", "section": "colors" },
+      { "name": "The Rationed Display Rule", "body": "Audiowide appears only in H1-H3, section titles, buttons, and statistic numbers. Body copy, table cells, and side notes are always Roboto.", "section": "typography" },
+      { "name": "The Comment Prefix Rule", "body": "Every section title is preceded by a literal //. It is the site's signature marginal mark, not decoration to be dropped.", "section": "typography" },
+      { "name": "The Edge-Light Rule", "body": "On dark, every elevated surface carries a 1px brand-blue inset ring. It keeps the card readable where the drop shadow vanishes into the canvas.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep brand blue (#1D90CA / deep #005894) as the only accent; build every other distinction from the surface ladder and hairlines.",
+      "Do convey depth with tonal steps first and soft blue-tinted shadows second; on dark, always include the 1px inset edge light on elevated surfaces.",
+      "Do ration Audiowide to H1-H3, section titles, buttons, and statistic numbers; set everything else in Roboto.",
+      "Do prefix every section title with '// ' and keep the fixed 40px gap below it.",
+      "Do use the [ ] bracket frame for statistics, the newsletter field, and footer columns - and keep the arms short (10px) so it reads as a mark.",
+      "Do hold running text to the four-step reading scale and to at least 4.5:1 contrast in both themes."
+    ],
+    "donts": [
+      "Don't introduce a second accent color or a purple/gradient scheme; there is one voice.",
+      "Don't wrap cards in hard framing borders - use a step + hairline.",
+      "Don't set body copy, table cells, or side notes in Audiowide, and don't use Audiowide for Russian (no Cyrillic glyphs).",
+      "Don't invent radii, spacings, or text sizes outside the documented scales without a stated reason.",
+      "Don't drop the // prefix or the [ ] brackets - they are the identity, not ornament."
+    ]
+  }
+}

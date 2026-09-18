@@ -202,7 +202,10 @@ const AdaptersPage = (): JSX.Element => {
 
     return (
         <Box className={classes.pageRoot}>
-            <PageMeta title={I18n.t('Adapters')} />
+            <PageMeta
+                title={I18n.t('Adapters')}
+                description={I18n.t('seo.adapters.description')}
+            />
             <Box className={classes.titleContainer}>
                 {selectedMenuItem ? (
                     <Box className={classes.breadcrumbsContainer}>
@@ -214,6 +217,7 @@ const AdaptersPage = (): JSX.Element => {
                     </Box>
                 ) : (
                     <SectionTitle
+                        component="h1"
                         sx={theme => ({
                             // the page's side margin comes from the layout token, like
                             // everywhere else - the three hand-written values here were a

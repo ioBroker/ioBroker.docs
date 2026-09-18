@@ -72,7 +72,7 @@ export const useStyles = makeStyles()(theme => ({
         transform: 'translate(-50%, -50%)',
         width: '100%',
         height: '55%',
-        backgroundImage: 'url(/clippedBackground.jpg)',
+        backgroundImage: 'url(/clippedBackground.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'top',
         backgroundRepeat: 'no-repeat',

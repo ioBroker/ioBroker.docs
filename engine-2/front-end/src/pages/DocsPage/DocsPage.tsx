@@ -19,12 +19,13 @@ import Divider from '../../components/Divider/Divider';
 import { useDocsMarkdown } from '../../api/hooks/useDocsMarkdown';
 import { API_CONFIG } from '../../config/api';
 import { MarkdownView } from '../../components/MarkdownView/MarkdownView';
-import { buildTocItems, makeSlug, removeFrontmatter } from '../../utils/markdown';
+import { buildTocItems, makeSlug, removeFrontmatter, summariseMarkdown } from '../../utils/markdown';
 import { getAnchorFromHash } from '../../utils/anchor';
 import { normalizeImageTags } from '../../components/MarkdownView/markdownViewUtils';
 import { useDocsContent } from '../../api/hooks/useDocsContent';
 import { findDocsTrail, type DocsTrailItem } from '../../components/DocsMenu/DocsMenu.utils';
 import { extractHeader } from '../../utils/markdownHeader';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 const DocsPage = (): React.ReactNode => {
     const [isTocOpen, setIsTocOpen] = useState(false);
@@ -50,7 +51,9 @@ const DocsPage = (): React.ReactNode => {
     // into costs more than it says: only the first and the last step remain.
     const isNarrowTrail = useMediaQuery('(max-width:900px)');
     const markdownUrl = `${API_CONFIG.IOBROKER_BASE_URL}/${language}/${docPath}`;
-    const { data: markdown } = useDocsMarkdown(markdownUrl);
+    const { data: markdown, isFetched: documentSettled, isError: documentFailed } = useDocsMarkdown(markdownUrl);
+    // the request is through and brought nothing: the address names no document
+    const documentMissing = documentSettled && (documentFailed || !markdown);
     // Pictures and links of a document are resolved against this origin. Under the dev server the
     // base URL is relative - then the own origin is meant and not the live site, otherwise newly
     // added pictures point nowhere although they lie right beside the document (as in LegalPage).
@@ -185,11 +188,34 @@ const DocsPage = (): React.ReactNode => {
         return (fromHeader || fromHeading || docPath.split('/').pop() || '').replace(/^"|"$/g, '');
     }, [markdown, docPath]);
 
+    /*
+     * What a search engine shows under the title. The start page has words of its own; a document
+     * is summarised the way the server summarises it, because the tags the server wrote are gone
+     * by the time this renders.
+     */
+    const documentDescription = useMemo(
+        () => (isStartDocument ? I18n.t('seo.docs.description') : summariseMarkdown(markdown)),
+        [isStartDocument, markdown],
+    );
+
+    /*
+     * The address names no document. The menu and the frame around it used to stay, with nothing
+     * in the place of the text, which reads as a page that failed to load rather than as one that
+     * does not exist. The server answers such an address with 404, and this is the page for it.
+     */
+    if (documentMissing) {
+        return <NotFoundPage />;
+    }
+
     return (
         <Box className={classes.pageRoot}>
-            <PageMeta title={documentTitle} />
+            <PageMeta
+                title={documentTitle}
+                description={documentDescription}
+            />
             {isStartDocument ? (
                 <SectionTitle
+                    component="h1"
                     sx={{
                         marginLeft: { xs: '16px', sm: '24px', lg: '32px' },
                         marginBottom: '12px',
@@ -373,7 +399,10 @@ const DocsPage = (): React.ReactNode => {
                             data-docs-scroll="true"
                         >
                             <Box className={classes.content}>
+                                {/* the page's title is its own H1 already, so on the start page
+                                    the document below it begins at h2 */}
                                 <MarkdownView
+                                    demoteHeadings={isStartDocument}
                                     markdown={markdown}
                                     baseUrl={markdownBaseUrl}
                                     origin={baseOrigin}

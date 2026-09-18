@@ -6,6 +6,14 @@
 
 User-agent: Google
 User-agent: Googlebot
+# the crawlers Google runs beside Googlebot: without them there are no pictures of ours in the
+# image search, no articles in Google News, and the live test of the Search Console fails, because
+# it fetches the page as Google-InspectionTool and is turned away (added 18.09.2026)
+User-agent: Googlebot-Image
+User-agent: Googlebot-News
+User-agent: Googlebot-Video
+User-agent: Google-InspectionTool
+User-agent: Storebot-Google
 User-agent: bingbot
 User-agent: yandex
 User-agent: yandexbot
@@ -50,6 +58,19 @@ User-agent: Claude-SearchBot
 User-agent: anthropic-ai
 # DeepSeek
 User-agent: DeepSeekBot
+# The agents that fetch a page to show a preview of the link. The server renders a full page for
+# every one of them (`CRAWLERS` in src/lib/prerender.ts), and until 18.09.2026 the rule below sent
+# them away again: LinkedIn and Slack keep to robots.txt, so a link posted there arrived without
+# title and without picture.
+User-agent: Twitterbot
+User-agent: LinkedInBot
+User-agent: Slackbot
+User-agent: Slackbot-LinkExpanding
+User-agent: Discordbot
+User-agent: WhatsApp
+User-agent: TelegramBot
+User-agent: Mastodon
+User-agent: redditbot
 Crawl-delay: 1
 Allow: /
 # /docu/, the old documentation, is deliberately not disallowed: it is answered with

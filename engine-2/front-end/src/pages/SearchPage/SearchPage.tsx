@@ -122,7 +122,10 @@ const SearchPage = (): React.ReactNode => {
 
     return (
         <Box className={classes.pageWrapper}>
-            <PageMeta title={I18n.t('Search')} />
+            <PageMeta
+                title={I18n.t('Search')}
+                noindex
+            />
             <Box className={classes.pageContainer}>
                 {/* Title on the left, the way back to the right of it - the same button as on the
                     sign-in pages of ioBroker.pro. The search is opened from the documentation, from
@@ -130,7 +133,12 @@ const SearchPage = (): React.ReactNode => {
                     the step back in the history. Whoever opens the address directly has no history in
                     this app and lands in the documentation (Denis, 15.09.2026). */}
                 <Box className={classes.headerRow}>
-                    <SectionTitle sx={{ marginBottom: 0 }}>{I18n.t('search.title').toUpperCase()}</SectionTitle>
+                    <SectionTitle
+                        component="h1"
+                        sx={{ marginBottom: 0 }}
+                    >
+                        {I18n.t('search.title').toUpperCase()}
+                    </SectionTitle>
                     <Box
                         component="button"
                         type="button"

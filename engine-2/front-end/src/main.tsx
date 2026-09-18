@@ -28,6 +28,12 @@ normalizeEntryUrl();
 // tags itself as soon as the page has its data, and does not see the ones already standing there;
 // two titles in one document leave the browser to pick, and it picks the first. They go here,
 // right before the app takes over.
+//
+// Everything taken out here has to be written again by `PageMeta`, and with the same values: a
+// search engine that runs the app - Google does - reads what stands in the document afterwards,
+// not what was sent. Until 17.09.2026 the canonical lost the `?lang=` of the page and the
+// `hreflang` links were not written at all, so every German and Russian page called itself the
+// English one.
 document.head.querySelectorAll('[data-prerender]').forEach(element => element.remove());
 
 const queryClient = new QueryClient({

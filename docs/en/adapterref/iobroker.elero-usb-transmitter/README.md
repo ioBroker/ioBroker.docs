@@ -101,7 +101,6 @@ setState('elero-usb-transmitter.0.channel_1.controlCommand', 16); // STOP comman
 - Retry control commands and reconnect the stick on failure; update `info.connection`
 - Adjust burst polling after commands (10s interval, 6 runs)
 - Update dependencies
->>>>>>> origin/main
 
 ### 1.0.5 (2025-12-31)
 

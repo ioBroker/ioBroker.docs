@@ -5,8 +5,8 @@ import { Box, Typography } from '@mui/material';
 import { useStyles } from './HeroSection.styles';
 import AmazonIcon from '../../../../assets/img/amazonBlue.svg';
 import PayPalIcon from '../../../../assets/img/paypalBlue.svg';
-import HousesGroup from '../../../../assets/img/Houses.png';
-import SmallHousesGroup from '../../../../assets/img/Houses-small.png';
+import HousesGroup from '../../../../assets/img/Houses.webp';
+import SmallHousesGroup from '../../../../assets/img/Houses-small.webp';
 import { SupportModal } from '../../../../components/SupportModal/SupportModal';
 import { CustomButton } from '../../../../components/Button/Button';
 import { I18n } from '../../../../utils/i18n';
@@ -51,8 +51,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ sectionRef }) => {
                             but it answers none of those questions.
                         */}
                         <Box className={classes.heroClaim}>
+                            {/* the claim is the H1 of the page: one heading, the page's subject */}
                             <Typography
-                                component="p"
+                                component="h1"
                                 className={classes.heroHeadline}
                             >
                                 {I18n.t('home.hero.headline')}

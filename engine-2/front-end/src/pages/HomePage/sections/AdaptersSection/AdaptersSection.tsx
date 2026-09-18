@@ -3,31 +3,31 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
 import { useStyles } from './AdaptersSection.styles';
 import { StyledButton } from '../../../../components/StyledButton/StyledButton';
-import { useAdapters } from '../../../../api/hooks/useAdapters';
+import { useAdapterCount } from '../../../../api/hooks/useAdapterCount';
 import { I18n } from '../../../../utils/i18n';
 
 import icon1 from '../../../../assets/img/Alexa.svg';
-import icon2 from '../../../../assets/img/Pillips_hue.svg';
-import icon3 from '../../../../assets/img/javascript_1.svg';
-import icon4 from '../../../../assets/img/telegram.svg';
-import icon5 from '../../../../assets/img/image_418.svg';
+import icon2 from '../../../../assets/img/Pillips_hue.webp';
+import icon3 from '../../../../assets/img/javascript_1.webp';
+import icon4 from '../../../../assets/img/telegram.webp';
+import icon5 from '../../../../assets/img/image_418.webp';
 import icon6 from '../../../../assets/img/image_422.svg';
 import icon7 from '../../../../assets/img/image_415.svg';
 import icon8 from '../../../../assets/img/image_416.svg';
-import icon9 from '../../../../assets/img/image_419.svg';
-import icon10 from '../../../../assets/img/image_417.svg';
-import icon11 from '../../../../assets/img/image_412.svg';
-import icon12 from '../../../../assets/img/image_420.svg';
-import icon13 from '../../../../assets/img/image_413.svg';
-import icon14 from '../../../../assets/img/image_414.svg';
-import icon15 from '../../../../assets/img/image_421.svg';
-import icon16 from '../../../../assets/img/image_424.svg';
-import icon17 from '../../../../assets/img/image_425.svg';
-import icon18 from '../../../../assets/img/image_426.svg';
-import icon19 from '../../../../assets/img/image_427.svg';
-import icon20 from '../../../../assets/img/image_428.svg';
-import icon21 from '../../../../assets/img/image_429.svg';
-import icon22 from '../../../../assets/img/image_430.svg';
+import icon9 from '../../../../assets/img/image_419.webp';
+import icon10 from '../../../../assets/img/image_417.webp';
+import icon11 from '../../../../assets/img/image_412.webp';
+import icon12 from '../../../../assets/img/image_420.webp';
+import icon13 from '../../../../assets/img/image_413.webp';
+import icon14 from '../../../../assets/img/image_414.webp';
+import icon15 from '../../../../assets/img/image_421.webp';
+import icon16 from '../../../../assets/img/image_424.webp';
+import icon17 from '../../../../assets/img/image_425.webp';
+import icon18 from '../../../../assets/img/image_426.webp';
+import icon19 from '../../../../assets/img/image_427.webp';
+import icon20 from '../../../../assets/img/image_428.webp';
+import icon21 from '../../../../assets/img/image_429.webp';
+import icon22 from '../../../../assets/img/image_430.webp';
 // The mobile grid needs 25 tiles, but only 22 icons existed, so the final three showed
 // the same image three times. These come from the adapter-logo collection
 // (public/<lang>/adapterref/) and fill the gap with actual adapters.
@@ -45,20 +45,13 @@ interface AdapterIcon {
 export const AdaptersSection: React.FC = () => {
     const { classes } = useStyles();
     const navigate = useNavigate();
-    const { data: adapters } = useAdapters();
+    const { data: adapterCount } = useAdapterCount();
 
     /*
      * The number carries a plus behind it, so it is a lower bound and not a count. Rounded down to
      * full tens it is true in any case and reads calmer: 798 becomes 790+ (Denis, 11.09.2026).
      */
-    const totalAdapters = React.useMemo(() => {
-        const counted = adapters?.pages
-            ? Object.values(adapters.pages).reduce((sum, category) => {
-                  return sum + (category?.pages ? Object.keys(category.pages).length : 0);
-              }, 0)
-            : 680;
-        return Math.floor(counted / 10) * 10;
-    }, [adapters]);
+    const totalAdapters = React.useMemo(() => Math.floor((adapterCount || 680) / 10) * 10, [adapterCount]);
 
     const adapterIcons: AdapterIcon[] = [
         { src: icon1, width: 48, height: 48, alt: 'Alexa' },

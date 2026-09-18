@@ -33,7 +33,10 @@ const RankTable = ({ rows, base, head }: { rows: Entry[]; base: number; head: st
     const { classes, cx } = useStyles();
     return (
         <Box className={classes.tableScroll}>
-            <PageMeta title={I18n.t('Statistics')} />
+            <PageMeta
+                title={I18n.t('Statistics')}
+                description={I18n.t('seo.statistics.description')}
+            />
             <table className={classes.table}>
                 <thead>
                     <tr>
@@ -93,7 +96,12 @@ const StatisticsPage = (): React.ReactNode => {
         return (
             <Box className={classes.pageWrapper}>
                 <Box className={classes.pageContainer}>
-                    <SectionTitle sx={{ marginBottom: '8px' }}>{I18n.t('statistics.title')}</SectionTitle>
+                    <SectionTitle
+                        component="h1"
+                        sx={{ marginBottom: '8px' }}
+                    >
+                        {I18n.t('statistics.title')}
+                    </SectionTitle>
                     <Typography className={classes.message}>
                         {isError ? I18n.t('statistics.error') : I18n.t('statistics.loading')}
                     </Typography>
@@ -121,7 +129,12 @@ const StatisticsPage = (): React.ReactNode => {
     return (
         <Box className={classes.pageWrapper}>
             <Box className={classes.pageContainer}>
-                <SectionTitle sx={{ marginBottom: '8px' }}>{I18n.t('statistics.title')}</SectionTitle>
+                <SectionTitle
+                    component="h1"
+                    sx={{ marginBottom: '8px' }}
+                >
+                    {I18n.t('statistics.title')}
+                </SectionTitle>
                 <Typography className={classes.subtitle}>{I18n.t('statistics.subtitle')}</Typography>
 
                 {/* Four unrelated headline numbers - tiles, not a chart. */}

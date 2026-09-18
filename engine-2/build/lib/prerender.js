@@ -12,6 +12,130 @@ import rehypeStringify from 'rehype-stringify';
 import { crawlerBody } from './crawlerPages.js';
 import { LANGUAGES, contentVersionOf, documentTitle, escapeHtml, readJson, text, versionOf, walk, withLanguage, } from './siteData.js';
 /**
+ * What the page is, in the form a search engine reads as data.
+ *
+ * JSON-LD, written into the head and - unlike everything else the server writes there - kept when
+ * the app starts: `main.tsx` takes out `[data-prerender]`, and this carries `data-structured-data`
+ * instead, so a search engine that runs the app still finds it. A reader who walks on to the next
+ * page keeps the block of the page they came in through; nothing reads it but a crawler, and a
+ * crawler fetches every address of its own.
+ *
+ * The site itself and who is behind it stand on the start page; every other kind of page says
+ * what it is and where it sits in the site.
+ */
+function structuredData(kind, route, lang, origin, title, description, picture, entry, day) {
+    const url = `${origin}${withLanguage(route, lang)}`;
+    const name = title.replace(/ \| ioBroker$/, '');
+    const publisher = {
+        '@type': 'Organization',
+        name: 'ioBroker',
+        url: `${origin}/`,
+        logo: `${origin}/brand/iobroker-bildmarke-512.png`,
+    };
+    const blocks = [];
+    if (route === '/') {
+        blocks.push({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'ioBroker',
+            url: `${origin}/`,
+            logo: `${origin}/brand/iobroker-bildmarke-512.png`,
+            description,
+            sameAs: [
+                'https://github.com/ioBroker',
+                'https://forum.iobroker.net/',
+                'https://www.facebook.com/iobroker1/',
+                'https://www.instagram.com/iobroker.gmbh/',
+            ],
+        });
+        blocks.push({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'ioBroker',
+            url: `${origin}/`,
+            inLanguage: lang,
+            potentialAction: {
+                '@type': 'SearchAction',
+                target: {
+                    '@type': 'EntryPoint',
+                    urlTemplate: `${origin}/search?q={search_term_string}`,
+                },
+                'query-input': 'required name=search_term_string',
+            },
+        });
+    }
+    else if (kind === 'adapter') {
+        const adapter = entry;
+        blocks.push({
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name,
+            url,
+            description,
+            applicationCategory: 'UtilitiesApplication',
+            applicationSubCategory: 'ioBroker adapter',
+            operatingSystem: 'Linux, Windows, macOS, Docker',
+            softwareVersion: adapter?.latestVersion,
+            author: adapter?.authors
+                ? { '@type': 'Person', name: adapter.authors.replace(/\s*<[^>]*>/g, '') }
+                : undefined,
+            license: adapter?.license,
+            image: picture,
+            inLanguage: lang,
+            publisher,
+        });
+    }
+    else if (kind === 'post') {
+        blocks.push({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: name,
+            url,
+            description,
+            image: picture,
+            datePublished: day,
+            dateModified: day,
+            inLanguage: lang,
+            author: publisher,
+            publisher,
+        });
+    }
+    else if (kind === 'document') {
+        blocks.push({
+            '@context': 'https://schema.org',
+            '@type': 'TechArticle',
+            headline: name,
+            url,
+            description,
+            dateModified: day,
+            inLanguage: lang,
+            author: publisher,
+            publisher,
+        });
+    }
+    // where the page sits: the start page, the section, the page itself
+    const section = /^\/(adapters|docs|blog)\//.exec(route)?.[1];
+    if (section) {
+        blocks.push({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'ioBroker', item: `${origin}${withLanguage('/', lang)}` },
+                {
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: text(PLAIN_PAGES[`/${section}`], lang),
+                    item: `${origin}${withLanguage(`/${section}`, lang)}`,
+                },
+                { '@type': 'ListItem', position: 3, name, item: url },
+            ],
+        });
+    }
+    return blocks
+        .map(block => `<script data-structured-data type="application/ld+json">${JSON.stringify(block).replace(/</g, '\\u003c')}</script>`)
+        .join('\n        ');
+}
+/**
  * The agents that get a rendered page.
  *
  * Googlebot and Bing execute JavaScript and would manage without, only slowly and not reliably;
@@ -96,10 +220,15 @@ function describeBlogPost(publicDir, lang, id) {
  * change under the reader the moment the app starts and writes its own.
  */
 const PLAIN_DESCRIPTIONS = {
+    /*
+     * Since the relaunch this is the site itself, not the documentation of a program that lives
+     * elsewhere, and the description says so. The old one began with "Documentation of ioBroker",
+     * which is what a reader looking for the platform reads as "not what I was looking for".
+     */
     '/': {
-        en: 'Documentation of ioBroker, the open source platform for home and building automation: installation, adapters, tutorials and the blog.',
-        de: 'Dokumentation von ioBroker, der Open-Source-Plattform für Haus- und Gebäudeautomatisierung: Installation, Adapter, Anleitungen und Blog.',
-        ru: 'Документация ioBroker, платформы с открытым исходным кодом для автоматизации дома и здания: установка, адаптеры, руководства и блог.',
+        en: 'ioBroker connects devices, protocols and online services into one smart home: hundreds of adapters, free automation, your own visualisation.',
+        de: 'ioBroker verbindet Geräte, Protokolle und Onlinedienste zu einem Smart Home: hunderte Adapter, freie Automatisierung, eigene Visualisierung.',
+        ru: 'ioBroker объединяет устройства, протоколы и онлайн-сервисы в умный дом: сотни адаптеров, свободная автоматизация, своя визуализация.',
     },
     '/adapters': {
         en: 'All ioBroker adapters with their documentation - what each one connects to and how it is set up.',
@@ -111,9 +240,51 @@ const PLAIN_DESCRIPTIONS = {
         de: 'ioBroker installieren - unter Linux, Windows, macOS, Docker und auf dem Raspberry Pi.',
         ru: 'Установка ioBroker - в Linux, Windows, macOS, Docker и на Raspberry Pi.',
     },
+    '/docs': {
+        en: 'The ioBroker documentation: basics, installation, configuration, visualisation, development and help with problems.',
+        de: 'Die Dokumentation von ioBroker: Grundlagen, Installation, Konfiguration, Visualisierung, Entwicklung und Hilfe bei Problemen.',
+        ru: 'Документация ioBroker: основы, установка, настройка, визуализация, разработка и помощь при проблемах.',
+    },
+    '/blog': {
+        en: 'The ioBroker blog: monthly reviews, new adapters, changes in the core and news from the community.',
+        de: 'Der ioBroker-Blog: monatliche Rückblicke, neue Adapter, Änderungen im Kern und Neuigkeiten aus der Community.',
+        ru: 'Блог ioBroker: месячные обзоры, новые адаптеры, изменения в ядре и новости сообщества.',
+    },
+    '/productoverview': {
+        en: 'The paid ioBroker services at a glance: remote access, voice assistants and adapter licenses.',
+        de: 'Die kostenpflichtigen ioBroker-Angebote im Überblick: Fernzugriff, Sprachassistenten und Adapterlizenzen.',
+        ru: 'Платные услуги ioBroker: удаленный доступ, голосовые помощники и лицензии на адаптеры.',
+    },
+    '/statistics': {
+        en: 'How many ioBroker installations there are, which adapters are in use and how that develops over time.',
+        de: 'Wie viele ioBroker-Installationen es gibt, welche Adapter verbreitet sind und wie sich das über die Zeit entwickelt.',
+        ru: 'Сколько установок ioBroker существует, какие адаптеры распространены и как это меняется со временем.',
+    },
+};
+/**
+ * What a page calls itself when the address names nothing.
+ *
+ * The same words as `notFound.title` in `front-end/src/i18n`, where the page itself takes them
+ * from. Until 18.09.2026 such an address carried the bare name of the site as its title, which
+ * said nothing to a reader with several tabs open and nothing to a log either.
+ */
+const NOT_FOUND_TITLE = {
+    en: 'Page not found',
+    de: 'Seite nicht gefunden',
+    ru: 'Страница не найдена',
 };
 const PLAIN_PAGES = {
-    '/': { en: 'ioBroker', de: 'ioBroker', ru: 'ioBroker' },
+    /*
+     * The title of the home page carries the words a reader searches for. Until 17.09.2026 it was
+     * the bare name, eight characters on the most important page of the site, in all three
+     * languages the same. Kept short enough that a search engine shows it whole (about 60
+     * characters); the name stands first, so a result list still begins with "ioBroker".
+     */
+    '/': {
+        en: 'ioBroker | Open source smart home and building automation',
+        de: 'ioBroker | Open Source Smart Home und Gebäudeautomation',
+        ru: 'ioBroker | Платформа для умного дома с открытым кодом',
+    },
     '/adapters': { en: 'Adapters', de: 'Adapter', ru: 'Адаптеры' },
     '/docs': { en: 'Docs', de: 'Doku', ru: 'Документация' },
     '/blog': { en: 'Blog', de: 'Blog', ru: 'Блог' },
@@ -190,14 +361,47 @@ function toHtml(source) {
         return '';
     }
 }
-/** The first sentences of a document, for a page that brings no description of its own */
-function summarise(html) {
-    const plain = html
-        .replace(/<[^>]*>/g, ' ')
-        .replace(/&[a-z]+;/gi, ' ')
+/**
+ * The day a page names for itself, as YYYY-MM-DD, or nothing.
+ *
+ * `lastChanged: "07.09.2026"` in the frontmatter of a document comes first - it is maintained by
+ * hand and is what the page itself shows. Otherwise the date of the entry in the index: the
+ * release of an adapter (`latestVersionDate`), the day of a blog post (`2026.08.25`).
+ */
+function dayOfPage(source, entry) {
+    const written = source ? /^lastChanged:\s*"?(\d{2})\.(\d{2})\.(\d{4})"?/m.exec(source.slice(0, 600)) : null;
+    if (written) {
+        return `${written[3]}-${written[2]}-${written[1]}`;
+    }
+    const value = entry?.latestVersionDate ?? entry?.date;
+    const iso = value ? /^(\d{4})-(\d{2})-(\d{2})/.exec(value) : null;
+    if (iso) {
+        return `${iso[1]}-${iso[2]}-${iso[3]}`;
+    }
+    const dotted = value ? /^(\d{4})\.(\d{2})\.(\d{2})/.exec(value) : null;
+    return dotted ? `${dotted[1]}-${dotted[2]}-${dotted[3]}` : undefined;
+}
+/**
+ * A description as long as a search engine shows it: 160 characters, cut at a word.
+ *
+ * Applies to the text a page brings with it as much as to one made from its document. The
+ * descriptions in `blog.json` are whole paragraphs - one of them ran to 640 characters, of which
+ * a result list showed the first 155 and a preview even fewer.
+ */
+function shorten(text) {
+    // 49 of the descriptions in blog.json carry a literal "\n" - two characters, not a line break
+    const plain = text
+        .replace(/\\[rn]/g, ' ')
         .replace(/\s+/g, ' ')
         .trim();
-    return plain.length > 300 ? `${plain.slice(0, 297).replace(/\s+\S*$/, '')}…` : plain;
+    return plain.length > 160 ? `${plain.slice(0, 157).replace(/\s+\S*$/, '')}…` : plain;
+}
+/** The first sentences of a document, for a page that brings no description of its own */
+function summarise(html) {
+    return shorten(html
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/&[a-z]+;/gi, ' ')
+        .replace(/\s+/g, ' '));
 }
 /**
  * The pages that were built, by address and language.
@@ -373,6 +577,17 @@ function withHead(page, lang, title, head) {
 }
 const OG_LOCALES = { de: 'de_DE', en: 'en_GB', ru: 'ru_RU' };
 /**
+ * The picture a link preview shows when the page brings none of its own.
+ *
+ * Until 18.09.2026 only adapter pages carried an `og:image`, so a link to the site posted in the
+ * forum, on Facebook or in a chat arrived as a bare line of text. This one is 1200 by 630, the
+ * size those services ask for.
+ *
+ * An adapter whose logo is an SVG falls back to it as well: Facebook, WhatsApp and X do not
+ * render SVG and show nothing at all rather than the logo.
+ */
+const DEFAULT_IMAGE = '/og-default.png';
+/**
  * The page for a request, with the head filled in - and, for a crawler, with the content in it.
  *
  * A visitor gets the shell as before, only with a title and a description that name this page:
@@ -424,9 +639,19 @@ export function renderPage(request) {
         return { html: cached.html, fromCache: true, status: cached.status, version, snapshot: cached.snapshot };
     }
     const documentHtml = source ? toHtml(source) : '';
-    const description = page.description || (documentHtml ? summarise(documentHtml) : '');
+    const description = shorten(page.description) || (documentHtml ? summarise(documentHtml) : '');
     const canonical = `${origin}${withLanguage(route, lang)}`;
-    const title = page.title.includes('ioBroker') ? page.title : `${page.title} | ioBroker`;
+    /*
+     * The day the page names for itself: a documentation page carries `lastChanged` in its
+     * frontmatter, a blog post and an adapter their date in the index. The same values the
+     * sitemap writes (`sitemap.ts`), and `dateModified` in the structured data below.
+     */
+    const documentDay = dayOfPage(source, page.entry);
+    // the logo of an adapter is a square and stands beside the text; the fallback is a wide picture
+    const ownPicture = !!page.image && !/\.svg$/i.test(page.image);
+    const picture = ownPicture ? page.image : DEFAULT_IMAGE;
+    const name = found ? page.title : text(NOT_FOUND_TITLE, lang);
+    const title = name.includes('ioBroker') ? name : `${name} | ioBroker`;
     const indexable = found && route !== '/search';
     /*
      * Every tag written here carries `data-prerender`, and `main.tsx` takes them out again the
@@ -452,8 +677,13 @@ export function renderPage(request) {
         `<meta data-prerender property="og:title" content="${escapeHtml(title)}">`,
         description ? `<meta data-prerender property="og:description" content="${escapeHtml(description)}">` : '',
         `<meta data-prerender property="og:url" content="${escapeHtml(canonical)}">`,
-        page.image ? `<meta data-prerender property="og:image" content="${escapeHtml(origin + page.image)}">` : '',
-        '<meta data-prerender name="twitter:card" content="summary">',
+        `<meta data-prerender property="og:image" content="${escapeHtml(origin + picture)}">`,
+        ownPicture ? '' : '<meta data-prerender property="og:image:width" content="1200">',
+        ownPicture ? '' : '<meta data-prerender property="og:image:height" content="630">',
+        `<meta data-prerender name="twitter:card" content="${ownPicture ? 'summary' : 'summary_large_image'}">`,
+        indexable
+            ? structuredData(page.kind, route, lang, origin, title, description, origin + picture, page.entry, documentDay)
+            : '',
     ]
         .filter(Boolean)
         .join('\n        ');
@@ -486,6 +716,7 @@ export function renderPage(request) {
                 entry: page.entry,
                 publicDir,
                 frontEndSrc,
+                notFound: !found,
             });
             html = html.replace('<div id="root"></div>', `<div id="root">${body}</div>`);
         }
