@@ -593,7 +593,12 @@ const OG_LOCALES = { de: 'de_DE', en: 'en_GB', ru: 'ru_RU' };
  * An adapter whose logo is an SVG falls back to it as well: Facebook, WhatsApp and X do not
  * render SVG and show nothing at all rather than the logo.
  */
-const DEFAULT_IMAGE = '/og-default.png';
+/*
+ * The name carries the month the picture was drawn in, and it is bumped whenever the picture
+ * changes. Telegram, WhatsApp and Facebook keep the file they once fetched for an address and do
+ * not ask again: a new picture under the old name reached nobody who had already shared a link.
+ */
+const DEFAULT_IMAGE = '/og-default-2026-09.png';
 /**
  * The page for a request, with the head filled in - and, for a crawler, with the content in it.
  *

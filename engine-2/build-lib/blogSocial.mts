@@ -32,12 +32,11 @@ const CARD_DIR = 'social/og/';
 const PUBLIC_DIR = 'blog-og/';
 
 const CANVAS = '#080B1C';
-const PRIMARY = '29, 144, 202';
 
-/** the round mark of the site, in the light blue that carries on a dark surface */
+/** the round mark, the same file the header of the site uses */
 const LOGO = '../front-end/src/assets/img/logo_net_small.svg';
-/** the word mark, light, the same file the social media templates use */
-const WORDMARK = '../../blog/social/iobroker-wortmarke-hell.png';
+/** the word mark, the same file the first screen of the site uses */
+const WORDMARK = '../front-end/src/assets/img/ioBroker-Title2.svg';
 
 const MIME: Record<string, string> = {
     '.png': 'image/png',
@@ -92,7 +91,6 @@ function card(banner: string, logo: string, wordmark: string): string {
         width: ${WIDTH}px;
         height: ${HEIGHT}px;
         overflow: hidden;
-        position: relative;
         background: ${CANVAS};
         box-sizing: border-box;
         padding: 46px;
@@ -102,19 +100,7 @@ function card(banner: string, logo: string, wordmark: string): string {
         justify-content: center;
         gap: 40px;
     }
-    .light {
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-            ellipse 300px 580px at 104% 50%,
-            rgba(${PRIMARY}, 0.58) 0%,
-            rgba(${PRIMARY}, 0.26) 30%,
-            rgba(${PRIMARY}, 0.08) 60%,
-            rgba(${PRIMARY}, 0) 86%
-        );
-    }
     .banner {
-        position: relative;
         display: block;
         max-width: 1108px;
         max-height: 368px;
@@ -123,7 +109,6 @@ function card(banner: string, logo: string, wordmark: string): string {
         border-radius: 10px;
     }
     .mark {
-        position: relative;
         display: flex;
         align-items: center;
         gap: 22px;
@@ -132,7 +117,6 @@ function card(banner: string, logo: string, wordmark: string): string {
     .mark img.words { width: 230px; }
 </style></head>
 <body>
-    <div class="light"></div>
     <img class="banner" src="${banner}">
     <div class="mark"><img class="round" src="${logo}"><img class="words" src="${wordmark}"></div>
 </body></html>`;
@@ -166,10 +150,8 @@ export async function build(content: BlogContent, force?: boolean): Promise<numb
 
     if (todo.length) {
         const here = import.meta.dirname;
-        const logo = dataUrl(path.join(here, LOGO), text =>
-            // the mark is drawn for a light surface; on ours it needs the light blues
-            text.replace(/#164477/g, '#1D90CA').replace(/#3399CC/g, '#7EC3F3'),
-        );
+        // both as the site draws them, no colours of our own
+        const logo = dataUrl(path.join(here, LOGO));
         const wordmark = dataUrl(path.join(here, WORDMARK));
 
         const browser = await puppeteer.launch({

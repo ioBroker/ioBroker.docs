@@ -26,10 +26,11 @@ const OG_LOCALES: Record<Language, string> = { de: 'de_DE', en: 'en_GB', ru: 'ru
 
 /**
  * The picture a link preview shows when the page brings none of its own - 1200 by 630, the size
- * Facebook, WhatsApp and the forum ask for. The same file the server names (`src/lib/prerender.ts`).
- * An SVG falls back to it too: none of those services renders one.
+ * Facebook, WhatsApp and the forum ask for. The same file the server names (`src/lib/prerender.ts`),
+ * with the month it was drawn in in its name, because those services keep the file they once
+ * fetched for an address. An SVG falls back to it too: none of those services renders one.
  */
-const DEFAULT_IMAGE = '/og-default.png';
+const DEFAULT_IMAGE = '/og-default-2026-09.png';
 
 /**
  * A description as long as a search engine shows it: 160 characters, cut at a word.
