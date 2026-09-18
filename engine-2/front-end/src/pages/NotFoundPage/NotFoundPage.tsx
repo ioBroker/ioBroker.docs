@@ -67,8 +67,8 @@ const NotFoundPage = (): React.ReactNode => {
                     </Box>
                 </Box>
 
-                {/* Bottom zone: how the page speaks, one plain sentence, and the two ways on. */}
-                <Box className={classes.bottom}>
+                {/* Middle zone: how the page speaks. It stands between the status and the way on. */}
+                <Box className={classes.middle}>
                     <Typography
                         component="p"
                         className={classes.jokeLine}
@@ -81,7 +81,10 @@ const NotFoundPage = (): React.ReactNode => {
                     >
                         {I18n.t(`notFound.jokes.${joke}.line2`)}
                     </Typography>
+                </Box>
 
+                {/* Bottom zone: one plain sentence and the two ways on. */}
+                <Box className={classes.bottom}>
                     <Typography className={classes.lead}>{I18n.t('notFound.lead')}</Typography>
 
                     <Box className={classes.actions}>

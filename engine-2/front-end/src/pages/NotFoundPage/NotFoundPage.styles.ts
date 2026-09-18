@@ -56,7 +56,14 @@ export const useStyles = makeStyles()(theme => ({
         alignItems: 'center',
         width: '100%',
     },
-    /* bottom zone: the joke, the one plain sentence, the two buttons */
+    /* middle zone: the joke alone, so it sits between the status above and the way on below */
+    middle: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+    },
+    /* bottom zone: the one plain sentence and the two buttons */
     bottom: {
         display: 'flex',
         flexDirection: 'column',
@@ -72,11 +79,16 @@ export const useStyles = makeStyles()(theme => ({
         fontFamily: 'var(--font-display)',
         fontSize: '13px',
         lineHeight: 1,
-        letterSpacing: '0.16em',
+        // the label tracking of the system; Audiowide is a wide face already and needs little more
+        letterSpacing: '0.04em',
         textTransform: 'uppercase',
-        // blue like the // that opens it: textAccent is the brand blue on dark and steps down to
-        // the readable deep blue on light, so the label stays legible in both themes
-        color: theme.custom.textAccent,
+        /*
+         * The brand blue, the same in both themes, so the line and the `//` that opens it are one
+         * mark and never fall apart into two blues. On white that blue reaches about 3.6:1, under
+         * the 4.5:1 a reading text is held to; it is carried here as a short signature line above
+         * the number, not as running text, and the lead below says the same thing in full contrast.
+         */
+        color: theme.palette.primary.main,
         marginBottom: theme.spacing(2.25),
         [theme.breakpoints.down('sm')]: {
             fontSize: '12px',
@@ -92,9 +104,14 @@ export const useStyles = makeStyles()(theme => ({
         fontSize: 'clamp(80px, 15vw, 180px)',
         lineHeight: 1,
         letterSpacing: '0.02em',
-        // one step up from the canvas on dark, so the number reads as a quiet surface, not a shout
-        color: theme.palette.mode === 'light' ? theme.palette.primary.main : theme.custom.surfaces.overlay,
-        opacity: theme.palette.mode === 'light' ? 0.22 : 1,
+        /*
+         * The brand blue of the `//` that opens the heading, worn thin. The number is the same voice
+         * as the mark above it, only far back: a surface the eye passes over on the way to the
+         * words, not a line it has to read. One value for both themes: the blue carries about as
+         * far on white as it does on the dark canvas once it is this far back.
+         */
+        color: theme.palette.primary.main,
+        opacity: 0.1,
         userSelect: 'none',
     },
     /*
@@ -104,29 +121,30 @@ export const useStyles = makeStyles()(theme => ({
     jokeLine: {
         fontFamily: "'Roboto', Arial, sans-serif",
         fontWeight: 400,
-        fontSize: '24px',
-        lineHeight: 1.2,
+        fontSize: '20px',
+        lineHeight: 1.3,
         color: theme.custom.textHeading,
         maxWidth: '760px',
         [theme.breakpoints.down('md')]: {
-            fontSize: '20px',
+            fontSize: '18px',
         },
         [theme.breakpoints.down('sm')]: {
-            fontSize: '17px',
-            lineHeight: 1.25,
+            fontSize: '16px',
         },
     },
     jokePunchline: {
         marginTop: theme.spacing(1),
-        marginBottom: theme.spacing(5),
-        [theme.breakpoints.down('sm')]: {
-            marginBottom: theme.spacing(3.5),
-        },
     },
+    /*
+     * The plain sentence stands a step back from the joke above it: it says what happened for
+     * whoever wants to know, and should not compete with the line that carries the tone. That is
+     * the subtle reading tone of the system, not an opacity of its own, so it turns with the theme
+     * and keeps its contrast floor in both.
+     */
     lead: {
         fontSize: '16px',
         lineHeight: 1.6,
-        color: theme.custom.textMuted,
+        color: theme.custom.textSubtle,
         maxWidth: '620px',
     },
     /* the two ways on: the home page in full, the search still beside it. They stack on a phone. */
@@ -170,7 +188,8 @@ export const useStyles = makeStyles()(theme => ({
         display: 'inline-flex',
         alignItems: 'center',
     },
+    /* the mark and the words behind it are one line, so the colour lives on the heading itself */
     slash: {
-        color: theme.palette.primary.main,
+        color: 'inherit',
     },
 }));
