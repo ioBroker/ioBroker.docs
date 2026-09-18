@@ -27,8 +27,10 @@ interface SectionTitleProps {
  *
  * If this ever moves back to `makeStyles`, the overrides in DocsPage, BlogPage,
  * StatisticsPage, InstallationPage, AdaptersPage and ProductOverviewPage stop working.
+ *
+ * `styled` drops the `component` prop from Typography's type, so it is declared again here.
  */
-const Root = styled(Typography)(({ theme }) => ({
+const Root = styled(Typography)<{ component?: React.ElementType }>(({ theme }) => ({
     fontFamily: 'var(--font-display)',
     color: theme.palette.primary.main,
     letterSpacing: '-0.02em',

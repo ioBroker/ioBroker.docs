@@ -187,9 +187,9 @@ export const buildTocItems = (markdown: string): TocItem[] => {
  * of the head again, so a page that does not write a description itself ends up without one for
  * everything that renders the app - Google included.
  *
- * @param markdown the document, frontmatter and all
+ * @param markdown the document, frontmatter and all - nothing while it is still loading
  */
-export const summariseMarkdown = (markdown: string): string => {
+export const summariseMarkdown = (markdown: string | undefined): string => {
     const plain = stripHtmlComments(removeFrontmatter(markdown || ''))
         // fenced code, pictures, HTML and the decoration of the markup itself say nothing here
         .replace(/```[\s\S]*?```/g, ' ')

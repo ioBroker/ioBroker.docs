@@ -18,8 +18,11 @@ const languages: Record<Language, Record<string, string>> = {
  * of the JSON files would have been a type error nobody could read. A JSON import is an anonymous
  * object type, which TypeScript lets stand in for an index signature, so the files below fit this
  * without a cast.
+ *
+ * A level may also be a list, like `notFound.jokes`: its entries are addressed by their index,
+ * `notFound.jokes.0.line1`.
  */
-export type Words = { [key: string]: string | Words };
+export type Words = { [key: string]: string | Words | Words[] };
 
 function flatWords(words: Words): Record<string, string> {
     const result: Record<string, string> = {};
@@ -30,6 +33,8 @@ function flatWords(words: Words): Record<string, string> {
             const newKey = prefix ? `${prefix}.${key}` : key;
             if (typeof value === 'string') {
                 result[newKey] = value;
+            } else if (Array.isArray(value)) {
+                value.forEach((item, i) => traverse(`${newKey}.${i}`, item));
             } else {
                 traverse(newKey, value);
             }
