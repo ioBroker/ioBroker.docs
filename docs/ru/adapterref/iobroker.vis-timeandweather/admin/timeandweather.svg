@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="-410 -410 820 820">
+  <!-- The analog clock of the widget "Svg Clock" (tplSvgClock) at 4:35, like the former timeandweather.png -->
+  <style>
+    .M { stroke: #333; stroke-width: 24; }
+    .m { stroke: #555; stroke-width: 7; stroke-linecap: round; }
+    text { font-family: Verdana, 'DejaVu Sans', sans-serif; text-anchor: middle; dominant-baseline: central; }
+    .min text { font-size: 28px; fill: #555; }
+    .quad text { font-size: 64px; font-weight: 700; fill: #333; }
+  </style>
+  <circle r="404" fill="#fff" stroke="#d6d6d6" stroke-width="6"/>
+  <g><line x1="0" y1="-360" x2="0" y2="-330" class="M"/>
+    <line x1="37.63" y1="-358.03" x2="36.06" y2="-343.11" class="m"/>
+    <line x1="74.85" y1="-352.13" x2="71.73" y2="-337.46" class="m"/>
+    <line x1="111.25" y1="-342.38" x2="106.61" y2="-328.11" class="m"/>
+    <line x1="146.43" y1="-328.88" x2="140.32" y2="-315.17" class="m"/>
+    <line x1="180" y1="-311.77" x2="165" y2="-285.79" class="M"/>
+    <line x1="211.6" y1="-291.25" x2="202.79" y2="-279.11" class="m"/>
+    <line x1="240.89" y1="-267.53" x2="230.85" y2="-256.38" class="m"/>
+    <line x1="267.53" y1="-240.89" x2="256.38" y2="-230.85" class="m"/>
+    <line x1="291.25" y1="-211.6" x2="279.11" y2="-202.79" class="m"/>
+    <line x1="311.77" y1="-180" x2="285.79" y2="-165" class="M"/>
+    <line x1="328.88" y1="-146.43" x2="315.17" y2="-140.32" class="m"/>
+    <line x1="342.38" y1="-111.25" x2="328.11" y2="-106.61" class="m"/>
+    <line x1="352.13" y1="-74.85" x2="337.46" y2="-71.73" class="m"/>
+    <line x1="358.03" y1="-37.63" x2="343.11" y2="-36.06" class="m"/>
+    <line x1="360" y1="0" x2="330" y2="0" class="M"/>
+    <line x1="358.03" y1="37.63" x2="343.11" y2="36.06" class="m"/>
+    <line x1="352.13" y1="74.85" x2="337.46" y2="71.73" class="m"/>
+    <line x1="342.38" y1="111.25" x2="328.11" y2="106.61" class="m"/>
+    <line x1="328.88" y1="146.43" x2="315.17" y2="140.32" class="m"/>
+    <line x1="311.77" y1="180" x2="285.79" y2="165" class="M"/>
+    <line x1="291.25" y1="211.6" x2="279.11" y2="202.79" class="m"/>
+    <line x1="267.53" y1="240.89" x2="256.38" y2="230.85" class="m"/>
+    <line x1="240.89" y1="267.53" x2="230.85" y2="256.38" class="m"/>
+    <line x1="211.6" y1="291.25" x2="202.79" y2="279.11" class="m"/>
+    <line x1="180" y1="311.77" x2="165" y2="285.79" class="M"/>
+    <line x1="146.43" y1="328.88" x2="140.32" y2="315.17" class="m"/>
+    <line x1="111.25" y1="342.38" x2="106.61" y2="328.11" class="m"/>
+    <line x1="74.85" y1="352.13" x2="71.73" y2="337.46" class="m"/>
+    <line x1="37.63" y1="358.03" x2="36.06" y2="343.11" class="m"/>
+    <line x1="0" y1="360" x2="0" y2="330" class="M"/>
+    <line x1="-37.63" y1="358.03" x2="-36.06" y2="343.11" class="m"/>
+    <line x1="-74.85" y1="352.13" x2="-71.73" y2="337.46" class="m"/>
+    <line x1="-111.25" y1="342.38" x2="-106.61" y2="328.11" class="m"/>
+    <line x1="-146.43" y1="328.88" x2="-140.32" y2="315.17" class="m"/>
+    <line x1="-180" y1="311.77" x2="-165" y2="285.79" class="M"/>
+    <line x1="-211.6" y1="291.25" x2="-202.79" y2="279.11" class="m"/>
+    <line x1="-240.89" y1="267.53" x2="-230.85" y2="256.38" class="m"/>
+    <line x1="-267.53" y1="240.89" x2="-256.38" y2="230.85" class="m"/>
+    <line x1="-291.25" y1="211.6" x2="-279.11" y2="202.79" class="m"/>
+    <line x1="-311.77" y1="180" x2="-285.79" y2="165" class="M"/>
+    <line x1="-328.88" y1="146.43" x2="-315.17" y2="140.32" class="m"/>
+    <line x1="-342.38" y1="111.25" x2="-328.11" y2="106.61" class="m"/>
+    <line x1="-352.13" y1="74.85" x2="-337.46" y2="71.73" class="m"/>
+    <line x1="-358.03" y1="37.63" x2="-343.11" y2="36.06" class="m"/>
+    <line x1="-360" y1="0" x2="-330" y2="0" class="M"/>
+    <line x1="-358.03" y1="-37.63" x2="-343.11" y2="-36.06" class="m"/>
+    <line x1="-352.13" y1="-74.85" x2="-337.46" y2="-71.73" class="m"/>
+    <line x1="-342.38" y1="-111.25" x2="-328.11" y2="-106.61" class="m"/>
+    <line x1="-328.88" y1="-146.43" x2="-315.17" y2="-140.32" class="m"/>
+    <line x1="-311.77" y1="-180" x2="-285.79" y2="-165" class="M"/>
+    <line x1="-291.25" y1="-211.6" x2="-279.11" y2="-202.79" class="m"/>
+    <line x1="-267.53" y1="-240.89" x2="-256.38" y2="-230.85" class="m"/>
+    <line x1="-240.89" y1="-267.53" x2="-230.85" y2="-256.38" class="m"/>
+    <line x1="-211.6" y1="-291.25" x2="-202.79" y2="-279.11" class="m"/>
+    <line x1="-180" y1="-311.77" x2="-165" y2="-285.79" class="M"/>
+    <line x1="-146.43" y1="-328.88" x2="-140.32" y2="-315.17" class="m"/>
+    <line x1="-111.25" y1="-342.38" x2="-106.61" y2="-328.11" class="m"/>
+    <line x1="-74.85" y1="-352.13" x2="-71.73" y2="-337.46" class="m"/>
+    <line x1="-37.63" y1="-358.03" x2="-36.06" y2="-343.11" class="m"/>
+    </g>
+  <g class="min"><text x="0" y="-378">0</text>
+    <text x="189" y="-327.36">5</text>
+    <text x="327.36" y="-189">10</text>
+    <text x="378" y="0">15</text>
+    <text x="327.36" y="189">20</text>
+    <text x="189" y="327.36">25</text>
+    <text x="0" y="378">30</text>
+    <text x="-189" y="327.36">35</text>
+    <text x="-327.36" y="189">40</text>
+    <text x="-378" y="0">45</text>
+    <text x="-327.36" y="-189">50</text>
+    <text x="-189" y="-327.36">55</text>
+    </g>
+  <g class="quad"><text x="0" y="-288">12</text>
+    <text x="288" y="0">3</text>
+    <text x="0" y="288">6</text>
+    <text x="-288" y="0">9</text>
+    </g>
+  <g stroke-linecap="round">
+    <g transform="rotate(137.5)">
+      <line y2="-234" stroke="#111" stroke-width="20"/>
+      <line y1="-136.8" y2="-205.2" stroke="#666" stroke-width="7"/>
+    </g>
+    <g transform="rotate(210.0)">
+      <line y2="-298.8" stroke="#111" stroke-width="15"/>
+      <line y1="-201.6" y2="-270" stroke="#666" stroke-width="6"/>
+    </g>
+  </g>
+  <circle r="17" fill="#e18728"/>
+  <circle r="8.5" fill="#e0a197"/>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <!-- the dark glossy button of the MFD look -->
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b5b5b"/>
+      <stop offset="0.48" stop-color="#303030"/>
+      <stop offset="0.52" stop-color="#232323"/>
+      <stop offset="1" stop-color="#171717"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="4" y="4" width="120" height="120" rx="16" fill="url(#tile)" stroke="#0e0e0e" stroke-width="2"/>
+  <path d="M5 62V20A15 15 0 0 1 20 5H108A15 15 0 0 1 123 20V62Z" fill="url(#gloss)"/>
+
+  <!-- the socket of the OpenAutomation iconset (message_socket_on), scaled from its 361x361 canvas -->
+  <g transform="translate(-9.2 -7.4) scale(0.4)" fill="none" stroke="#ffffff" stroke-width="10" stroke-miterlimit="10">
+    <path d="M212.221 283.259c0 2.025-1.789 3.667-3.994 3.667H78.838c-2.207 0-3.995-1.642-3.995-3.667V153.214c0-2.025 1.789-3.667 3.995-3.667h129.388c2.205 0 3.994 1.642 3.994 3.667z"/>
+    <path d="M186.965 258.728c0 1.268-1.118 2.295-2.5 2.295h-80.971c-1.381 0-2.5-1.027-2.5-2.295v-81.382c0-1.268 1.119-2.295 2.5-2.295h80.971c1.382 0 2.5 1.027 2.5 2.295z"/>
+    <path d="M126.805 221.416c0 .094-.082.169-.184.169h-5.954c-.102 0-.185-.075-.185-.169v-5.984c0-.094.083-.169.185-.169h5.954c.102 0 .184.075.184.169z"/>
+    <path d="M166.956 221.416c0 .094-.083.169-.184.169h-5.955c-.101 0-.184-.075-.184-.169v-5.984c0-.094.083-.169.184-.169h5.955c.101 0 .184.075.184.169z"/>
+    <path d="M145.965 260.509c0 .036-.07.065-.157.065h-5.093c-.086 0-.157-.029-.157-.065V258.2c0-.036.07-.065.157-.065h5.093c.087 0 .157.029.157.065z"/>
+    <path d="M146.181 177.618c0 .036-.07.065-.157.065h-5.092c-.086 0-.157-.03-.157-.065v-2.308c0-.036.071-.066.157-.066h5.092c.087 0 .157.03.157.066z"/>
+    <!-- the corner marks of the frame -->
+    <path d="M102.6 191.7l-.1-15.3 15.3.1M170.7 176.4l15.3-.1-.1 15.3M185.3 244.5l.1 15.3-15.3-.1M117.8 259.7l-15.3.1.1-15.3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- the "on" indicator in the top right corner -->
+  <g transform="translate(-9.2 -7.4) scale(0.4)" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round">
+    <rect x="229" y="73.3" width="59.7" height="56.7" rx="10"/>
+    <path d="M257 86.6v37.1"/>
+  </g>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <!-- brushed metal ring -->
+    <linearGradient id="bezel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5f7f9"/>
+      <stop offset="0.45" stop-color="#c3cad1"/>
+      <stop offset="0.55" stop-color="#aab3bc"/>
+      <stop offset="1" stop-color="#5f6973"/>
+    </linearGradient>
+    <!-- dark dial, a little lighter in the upper half -->
+    <radialGradient id="face" cx="64" cy="52" r="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3b4857"/>
+      <stop offset="1" stop-color="#18202a"/>
+    </radialGradient>
+    <linearGradient id="needle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff6b5e"/>
+      <stop offset="1" stop-color="#d32f2f"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="64" cy="64" r="62" fill="url(#bezel)"/>
+  <circle cx="64" cy="64" r="55.5" fill="url(#face)"/>
+  <circle cx="64" cy="64" r="55.5" fill="none" stroke="#0e141b" stroke-opacity="0.5" stroke-width="1.2"/>
+
+  <!-- the scale: 270 degrees in four coloured zones -->
+  <g fill="none" stroke-width="8">
+    <path d="M31.82 94.01A44 44 0 0 1 31.82 33.99" stroke="#43a047"/>
+    <path d="M33.99 31.82A44 44 0 0 1 87.96 27.1" stroke="#fdd835"/>
+    <path d="M90.48 28.86A44 44 0 0 1 107.67 58.64" stroke="#fb8c00"/>
+    <path d="M107.94 61.7A44 44 0 0 1 96.18 94.01" stroke="#e53935"/>
+  </g>
+
+  <!-- major ticks -->
+  <g stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-opacity="0.9">
+    <path d="M37.84 90.16L42.08 85.92M29.82 49.84L35.36 52.14M64 27V33M98.18 49.84L92.64 52.14M90.16 90.16L85.92 85.92"/>
+  </g>
+
+  <!-- needle with its shadow -->
+  <path d="M96.64 40.29L68.57 69.06L58.34 72.43L63.43 62.94Z" fill="#000000" fill-opacity="0.35"/>
+  <path d="M94.64 38.29L66.57 67.06L56.34 70.43L61.43 60.94Z" fill="url(#needle)"/>
+  <circle cx="64" cy="64" r="7.5" fill="#e9edf1" stroke="#0e141b" stroke-opacity="0.4"/>
+  <circle cx="64" cy="64" r="3" fill="#8e99a4"/>
+
+  <!-- value window -->
+  <rect x="47" y="86" width="34" height="13" rx="3" fill="#0e141b" fill-opacity="0.75" stroke="#ffffff" stroke-opacity="0.25"/>
+  <g fill="#7cd67f">
+    <rect x="51" y="89.5" width="5" height="6" rx="1"/>
+    <rect x="58" y="89.5" width="5" height="6" rx="1"/>
+    <rect x="65" y="89.5" width="5" height="6" rx="1"/>
+    <rect x="72" y="89.5" width="5" height="6" rx="1" fill-opacity="0.35"/>
+  </g>
+</svg>

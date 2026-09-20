@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="78" height="78" viewBox="0 0 78 78">
+  <defs>
+    <!-- light metal ring around the button -->
+    <radialGradient id="bezel" cx="39" cy="39" r="38.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0.84" stop-color="#fbfbf9"/>
+      <stop offset="0.93" stop-color="#f1f1ed"/>
+      <stop offset="1" stop-color="#dcdcd6"/>
+    </radialGradient>
+    <!-- the face: the lamp lights up most of it, only the rim fades into grey -->
+    <radialGradient id="disc" cx="39" cy="32" r="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffb45"/>
+      <stop offset="0.38" stop-color="#f7f35a"/>
+      <stop offset="0.7" stop-color="#dddbb6"/>
+      <stop offset="1" stop-color="#c2c2ba"/>
+    </radialGradient>
+    <!-- the light inside the glass -->
+    <radialGradient id="light" cx="39" cy="31.5" r="15" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffc0"/>
+      <stop offset="0.6" stop-color="#fffb55" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#fff64a" stop-opacity="0.5"/>
+    </radialGradient>
+    <!-- screw base: dark metal with a highlight on the right -->
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1c1c1c"/>
+      <stop offset="0.45" stop-color="#3b3b3b"/>
+      <stop offset="0.72" stop-color="#b0b0b0"/>
+      <stop offset="0.86" stop-color="#5a5a5a"/>
+      <stop offset="1" stop-color="#262626"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="39" cy="39" r="38.5" fill="url(#bezel)"/>
+  <circle cx="39" cy="39" r="33.5" fill="url(#disc)" stroke="#5e5e56" stroke-opacity="0.6" stroke-width="0.7"/>
+
+  <!-- glass -->
+  <path d="M33.5 51.5C33.5 46.5 25 42.5 25 33.5A14 14 0 0 1 53 33.5C53 42.5 44.5 46.5 44.5 51.5Z"
+        fill="url(#light)" stroke="#ffffff" stroke-opacity="0.75" stroke-width="1" stroke-linejoin="round"/>
+  <!-- reflection on the glass -->
+  <path d="M28.7 30A11 11 0 0 1 34.3 23.4" fill="none" stroke="#ffffff" stroke-opacity="0.7"
+        stroke-width="1.1" stroke-linecap="round"/>
+
+  <!-- glass stem and filament -->
+  <path d="M37.3 52L38 42H40L40.7 52Z" fill="#fffde6" fill-opacity="0.85"/>
+  <g fill="none" stroke="#6b6843" stroke-opacity="0.85" stroke-width="0.55" stroke-linecap="round"
+     stroke-linejoin="round">
+    <path d="M38.3 42.3L33.9 30.4M39.7 42.3L44.1 30.4M39 42.3V34"/>
+    <path d="M33.9 30.4Q36.5 32.7 39 30.4Q41.5 32.7 44.1 30.4"/>
+  </g>
+
+  <!-- screw base with its thread and the contact -->
+  <rect x="33" y="52" width="12" height="13.5" rx="1.5" fill="url(#metal)"/>
+  <g fill="none" stroke-width="0.8">
+    <path d="M33.3 55.5H44.7M33.3 58.8H44.7M33.3 62.1H44.7" stroke="#000000" stroke-opacity="0.45"/>
+    <path d="M33.3 56.3H44.7M33.3 59.6H44.7M33.3 62.9H44.7" stroke="#ffffff" stroke-opacity="0.18"/>
+  </g>
+  <path d="M35.8 65.3H42.2L41 68.2Q39 69.5 37 68.2Z" fill="#141414"/>
+</svg>
