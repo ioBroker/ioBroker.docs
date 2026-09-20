@@ -54,7 +54,11 @@ export interface PrerenderConfig {
     snapshotTabs?: number;
     /** a snapshot older than this is drawn again even if its page did not change - 7 when not set */
     snapshotMaxAgeDays?: number;
-    /** a Chrome to use instead of the one puppeteer brings along */
+    /**
+     * A Chrome to use instead of the one puppeteer brings along - it is taken by both steps that
+     * draw with a browser, the snapshots and the social cards of the blog. On a server where the
+     * downloaded Chrome cannot start for want of its libraries, `/usr/bin/google-chrome`.
+     */
     chromePath?: string;
     /**
      * A line in the log for every page sent to a crawler: which crawler, status, language, address,

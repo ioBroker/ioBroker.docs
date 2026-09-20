@@ -11,12 +11,13 @@
  * banner costs nothing. The path of the card goes into `blog.json` as `social`, and `prerender.ts`
  * and `PageMeta.tsx` read it from there.
  *
- * It draws with the Chrome that puppeteer brings for the snapshots, so there is no image library.
+ * It draws with the same headless Chrome as the snapshots (`chrome.mts`), so there is no image
+ * library - and `prerender.chromePath` in config.json moves this step onto another Chrome too.
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import puppeteer from 'puppeteer';
 
+import * as chrome from './chrome.mts';
 import * as consts from './consts.mts';
 import type { BlogContent } from './types.mts';
 
@@ -154,10 +155,7 @@ export async function build(content: BlogContent, force?: boolean): Promise<numb
         const logo = dataUrl(path.join(here, LOGO));
         const wordmark = dataUrl(path.join(here, WORDMARK));
 
-        const browser = await puppeteer.launch({
-            headless: true,
-            args: ['--no-sandbox', '--disable-dev-shm-usage'],
-        });
+        const browser = await chrome.launch();
         try {
             const page = await browser.newPage();
             await page.setViewport({ width: WIDTH, height: HEIGHT, deviceScaleFactor: 1 });

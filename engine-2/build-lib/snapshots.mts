@@ -25,7 +25,9 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import puppeteer, { type Browser, type BrowserContext, type Page } from 'puppeteer';
+import { type Browser, type BrowserContext, type Page } from 'puppeteer';
+
+import * as chrome from './chrome.mts';
 
 interface PrerenderSettings {
     snapshotDir?: string;
@@ -386,11 +388,7 @@ export async function buildSnapshots(options: SnapshotOptions = {}): Promise<voi
         `Snapshots: ${addresses.length} addresses from ${settings.base}, ${settings.tabs} tabs, into ${settings.dir}`,
     );
 
-    const browser = await puppeteer.launch({
-        headless: true,
-        executablePath: settings.chromePath,
-        args: ['--no-sandbox', '--disable-dev-shm-usage'],
-    });
+    const browser = await chrome.launch(settings.chromePath);
     const counts = { drawn: 0, unchanged: 0, gone: 0, failed: 0, retried: 0 };
     const queue = [...addresses];
     const started = Date.now();
