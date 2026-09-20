@@ -1,6 +1,6 @@
 ---
 title:       "JavaScript"
-lastChanged: "10.09.2026"
+lastChanged: "20.09.2026"
 ---
 
 # JavaScript
@@ -131,8 +131,8 @@ Unterstützt werden OpenAI, Anthropic Claude, Google Gemini und DeepSeek. Dazu
 kommt ein Feld für einen eigenen, OpenAI-kompatiblen Endpunkt: darüber lässt
 sich ein Modell ansprechen, das im eigenen Netz läuft, oder ein anderer Dienst,
 der dieselbe Schnittstelle spricht. Der Schlüssel wird in den
-Instanzeinstellungen hinterlegt oder aus der zentralen Zugangsdatenverwaltung
-geholt. Welche Modelle zur Auswahl stehen, holt der Adapter beim Anbieter ab.
+Instanzeinstellungen hinterlegt oder aus der zentralen
+[Zugangsdatenverwaltung](/docs/admin/credentials.md) geholt. Welche Modelle zur Auswahl stehen, holt der Adapter beim Anbieter ab.
 
 ### Was dabei nach draußen geht
 

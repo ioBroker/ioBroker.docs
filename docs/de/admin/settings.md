@@ -1,6 +1,6 @@
 ---
 title:       "Systemeinstellungen"
-lastChanged: "10.09.2026"
+lastChanged: "20.09.2026"
 ---
 
 # Systemeinstellungen
@@ -151,4 +151,5 @@ Plattformen wirklich benutzt werden.
   hinterlegt. Welche Adapter eine brauchen und woran die Lizenz gebunden ist,
   steht unter [Adapterlizenzen](/docs/licenses/adapter.md).
 * **Zugangsdaten**: zentrale Anmeldedaten, auf die mehrere Adapter zugreifen
-  können, statt sie jeweils einzeln zu speichern.
+  können, statt sie jeweils einzeln zu speichern. Wie das geht, steht unter
+  [Zugangsdaten](/docs/admin/credentials.md).

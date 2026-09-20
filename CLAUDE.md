@@ -113,6 +113,27 @@ The core orchestrator. It and its helpers in `engine-2/build-lib/` are ESM TypeS
 
 `engine-2/config.json` - Server port (5001), supported languages, static file paths, upload secret.
 
+## Design
+
+Anything visual follows `DESIGN.md` in this directory. It is the design system of the site,
+written out: the surface ladder, the one accent colour, the two signature marks (`//` before a
+section title, the `[ ]` bracket frame), the four-step reading scale, radii, spacing and the
+component specs. `.impeccable/design.json` carries the same thing machine-readable, and
+`PRODUCT.md` says what the site is for. Read `DESIGN.md` before building or changing a screen.
+
+In code the values come from the theme, never from a literal:
+
+- `engine-2/front-end/src/theme/theme.ts` holds them under `theme.custom.*` -
+  `surfaces.{canvas,surface,raised,overlay}`, `textHeading/textMuted/textSubtle/textAccent`,
+  `hairline/hairlineStrong`, `glow.{soft,strong}`, `radius.*`, `layout.*`, plus
+  `theme.palette.primary/secondary` and `theme.spacing()`.
+- Both themes are first class. A colour written as `#...` in a component is a defect: it does not
+  turn with the theme. This is the single most common finding in reviews of this front-end.
+
+Use what exists instead of rebuilding it: `CustomButton` (`components/Button`), `StyledButton`,
+`SectionTitle`, `PageMeta` for the document head, `MarkdownView`, `Divider`, and the icons under
+`components/icons`. Header and footer come from `app/AppContent.tsx`, not from a page.
+
 ## Code Style
 
 - ESLint via `@iobroker/eslint-config` (shared ioBroker config)

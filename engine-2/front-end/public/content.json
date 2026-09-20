@@ -381,6 +381,15 @@
           },
           "content": "admin/settings.md"
         },
+        "Credentials": {
+          "title": {
+            "en": "Credentials",
+            "de": "Zugangsdaten",
+            "ru": "Учётные данные",
+            "zh-cn": "凭据"
+          },
+          "content": "admin/credentials.md"
+        },
         "AI assistant": {
           "title": {
             "en": "AI assistant",
