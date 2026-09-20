@@ -378,8 +378,15 @@ export default function init(config: AppConfig): {
      * The cache: everything went out with `max-age=0` until 18.09.2026, so a second visit fetched
      * the whole megabyte again. What carries a hash in its name (`/assets/index-D5QAjf5I.js`) can
      * never change under that name and is kept for a year; a font the same, by its own name. The
-     * pictures of the site change with a release, the documents and the indexes monthly: a day
-     * and an hour, and the ETag settles the rest.
+     * pictures of the site change with a release: a day.
+     *
+     * The documents and the indexes are a different matter. `blog.json`, `content.json` and the
+     * markdown behind them are the content of the site, and they change with every deployment.
+     * They went out with an hour until 20.09.2026, and an hour is long enough for a new blog post
+     * to be invisible to everybody who had been on the site shortly before: the browser did not
+     * ask, it answered out of its own copy. `no-cache` does not forbid the copy, it only says the
+     * browser has to ask first - and the ETag then turns nearly every one of those questions into
+     * a 304 of a few bytes.
      */
     app.app.use(
         express.static(publicDir, {
@@ -389,7 +396,9 @@ export default function init(config: AppConfig): {
                     res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
                 } else if (/\.(?:png|jpe?g|gif|svg|webp|avif|ico|mp4|webm)$/i.test(filePath)) {
                     res.setHeader('Cache-Control', 'public, max-age=86400');
-                } else if (/\.(?:md|json|txt|xml)$/i.test(filePath)) {
+                } else if (/\.(?:md|json)$/i.test(filePath)) {
+                    res.setHeader('Cache-Control', 'public, no-cache');
+                } else if (/\.(?:txt|xml)$/i.test(filePath)) {
                     res.setHeader('Cache-Control', 'public, max-age=3600');
                 }
             },
