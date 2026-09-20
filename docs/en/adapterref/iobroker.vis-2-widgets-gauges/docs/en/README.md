@@ -58,14 +58,14 @@ existing projects keep their settings. A few things look different:
 
 ### Settings shared by all widgets
 
-| Setting | Attribute | Default | Description |
-|---|---|---|---|
-| Without card | `noCard` | off | Draws the gauge directly on the view. Without it, the gauge sits in a card like the other vis-2 widgets. |
-| Title | `widgetTitle` | | Title of the card. |
-| Object ID | `oid` | | The state to show. Selecting an object takes over its unit and, if the object defines them, its minimum and maximum. Instead of an ID the field also takes a constant: a number is shown as value, a word without a dot as text. |
-| Minimum value / Maximum value | `min` / `max` | 0 / 100 | Range of the scale. Values outside the range stop at its end. |
-| Unit | `unit` | | Shown after the value. |
-| Digits after comma | `digitsAfterComma` | | Empty: as many as needed, at most two. The decimal separator follows the system settings of ioBroker. |
+| Setting                       | Attribute          | Default | Description                                                                                                                                                                                                                      |
+|-------------------------------|--------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Without card                  | `noCard`           | off     | Draws the gauge directly on the view. Without it, the gauge sits in a card like the other vis-2 widgets.                                                                                                                         |
+| Title                         | `widgetTitle`      |         | Title of the card.                                                                                                                                                                                                               |
+| Object ID                     | `oid`              |         | The state to show. Selecting an object takes over its unit and, if the object defines them, its minimum and maximum. Instead of an ID the field also takes a constant: a number is shown as value, a word without a dot as text. |
+| Minimum value / Maximum value | `min` / `max`      | 0 / 100 | Range of the scale. Values outside the range stop at its end.                                                                                                                                                                    |
+| Unit                          | `unit`             |         | Shown after the value.                                                                                                                                                                                                           |
+| Digits after comma            | `digitsAfterComma` |         | Empty: as many as needed, at most two. The decimal separator follows the system settings of ioBroker.                                                                                                                            |
 
 The text color of the style of a widget (`color`) is used for the value if the widget has no text color of its own.
 
@@ -73,19 +73,19 @@ The text color of the style of a widget (`color`) is used for the value if the w
 
 Most gauges color their scale or their value by **levels**. All widgets describe the levels the same way:
 
-| Setting | Attribute | Description |
-|---|---|---|
-| Number of levels | `levelsCount` | Number of levels. For each level there is a group *Level 1*, *Level 2*, ... |
-| Color | `color1` ... `colorN` | Color of the level. If not every level has a color, the colors run from the first to the last one that is set; without any color from green over yellow to red. |
-| Level threshold | `levelThreshold1` ... `levelThreshold(N-1)` | Absolute value where this level ends. The last level always ends at the maximum. An empty threshold shares the rest of the scale equally. |
+| Setting          | Attribute                                   | Description                                                                                                                                                     |
+|------------------|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Number of levels | `levelsCount`                               | Number of levels. For each level there is a group *Level 1*, *Level 2*, ...                                                                                     |
+| Color            | `color1` ... `colorN`                       | Color of the level. If not every level has a color, the colors run from the first to the last one that is set; without any color from green over yellow to red. |
+| Level threshold  | `levelThreshold1` ... `levelThreshold(N-1)` | Absolute value where this level ends. The last level always ends at the maximum. An empty threshold shares the rest of the scale equally.                       |
 
 The arc, linear gauge, thermometer and tank also have a **Coloring** (`colorMode`):
 
-| Value | Description |
-|---|---|
-| One color (`fixed`) | The value is always drawn in *Color* (`valueColor`). |
-| Color of the level (`levels`) | The value gets the color of the level it is in. |
-| Gradient of the levels (`gradient`) | The colors of the levels blend into each other. |
+| Value                               | Description                                          |
+|-------------------------------------|------------------------------------------------------|
+| One color (`fixed`)                 | The value is always drawn in *Color* (`valueColor`). |
+| Color of the level (`levels`)       | The value gets the color of the level it is in.      |
+| Gradient of the levels (`gradient`) | The colors of the levels blend into each other.      |
 
 ![Levels](../img/levels.png)
 
@@ -115,24 +115,24 @@ A half circle of colored segments with a needle.
 
 ![Color gauge](../img/color.png)
 
-| Setting | Attribute | Default | Description |
-|---|---|---|---|
-| Number of levels | `levelsCount` | 3 | Number of colored segments, see [Colors and levels](#colors-and-levels). Without colors they run from green over yellow to red. |
-| Digits after comma | `digitsAfterComma` | 2 *(new widget)* | |
-| Unit | `unit` | `%` if never set | |
-| Needle color | `needleColor` | text color | |
-| Color of the needle base | `needleBaseColor` | text color | |
-| Needle length | `needleScale` | 0.55 | Length as part of the radius. |
-| Margin | `marginInPercent` | 0.05 | Space around the gauge as part of the widget size. |
-| Corner radius | `cornerRadius` | 6 | Rounding of the segments in px. |
-| Arc padding | `arcPadding` | 0.05 | Gap between the segments, in radians. |
-| Arc width | `arcWidth` | 0.2 | Thickness of the arc as part of the radius. |
-| Hide value | `hideText` | off | |
-| Text color | `textColor` | text color | Color of the value. |
-| Show minimum and maximum | `showMinMax` | on *(new widget)* | Minimum and maximum at the ends of the arc. |
-| Animate | `animate` | on *(new widget)* | The needle swings to the new value. |
-| Animation delay | `animDelay` | 500 | Wait in ms before the needle moves. |
-| Animation duration | `animateDuration` | 3000 | Duration in ms. |
+| Setting                  | Attribute          | Default           | Description                                                                                                                     |
+|--------------------------|--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Number of levels         | `levelsCount`      | 3                 | Number of colored segments, see [Colors and levels](#colors-and-levels). Without colors they run from green over yellow to red. |
+| Digits after comma       | `digitsAfterComma` | 2 *(new widget)*  |                                                                                                                                 |
+| Unit                     | `unit`             | `%` if never set  |                                                                                                                                 |
+| Needle color             | `needleColor`      | text color        |                                                                                                                                 |
+| Color of the needle base | `needleBaseColor`  | text color        |                                                                                                                                 |
+| Needle length            | `needleScale`      | 0.55              | Length as part of the radius.                                                                                                   |
+| Margin                   | `marginInPercent`  | 0.05              | Space around the gauge as part of the widget size.                                                                              |
+| Corner radius            | `cornerRadius`     | 6                 | Rounding of the segments in px.                                                                                                 |
+| Arc padding              | `arcPadding`       | 0.05              | Gap between the segments, in radians.                                                                                           |
+| Arc width                | `arcWidth`         | 0.2               | Thickness of the arc as part of the radius.                                                                                     |
+| Hide value               | `hideText`         | off               |                                                                                                                                 |
+| Text color               | `textColor`        | text color        | Color of the value.                                                                                                             |
+| Show minimum and maximum | `showMinMax`       | on *(new widget)* | Minimum and maximum at the ends of the arc.                                                                                     |
+| Animate                  | `animate`          | on *(new widget)* | The needle swings to the new value.                                                                                             |
+| Animation delay          | `animDelay`        | 500               | Wait in ms before the needle moves.                                                                                             |
+| Animation duration       | `animateDuration`  | 3000              | Duration in ms.                                                                                                                 |
 
 ## Water gauge - `tplGauge2Water`
 
@@ -140,36 +140,36 @@ A circle that fills with a wavy liquid.
 
 ![Water gauge](../img/water.png)
 
-| Setting | Attribute | Default | Description |
-|---|---|---|---|
-| Size | `size` | | Diameter in px. Empty: fits the widget. |
-| Digits after comma | `digitsAfterComma` | | Empty: at most two. |
-| Text size | `textSize` | 1 | Relative size of the value; 1 is half of the radius. The unit is 60% of it. |
-| Text offset x / y | `textOffsetX` / `textOffsetY` | 0 / diameter ÷ 15 | Moves the value in px. |
-| Rise animation | `riseAnimation` | on *(new widget)* | The liquid rises to the new level; the number counts along. |
-| Rise animation time | `riseAnimationTime` | 2000 | In ms. |
-| Rise animation easing | `riseAnimationEasing` | `cubicInOut` | See [Animation](#animation). |
-| Wave animation | `waveAnimation` | on *(new widget)* | The waves move. |
-| Wave animation time | `waveAnimationTime` | 2000 | Time in ms for one whole wave. |
-| Wave animation easing | `waveAnimationEasing` | `linear` | |
-| Wave frequency | `waveFrequency` | 2 | Number of waves across the circle. |
-| Wave amplitude | `waveAmplitude` | 1 | Height of the waves in percent of the filling height. The waves are highest at 50% and flat when empty or full. |
-| Inner radius / Outer radius | `innerRadius` / `outerRadius` | 0.9 / 1 | The ring around the liquid, as part of the radius. |
-| Margin | `margin` | 0.025 | Gap between the ring and the liquid. |
-| Text color | `textColor` | text color | Value above the liquid. |
-| Text color in the liquid | `textWaveColor` | white | The part of the value the liquid covers. |
-| Circle color | `circleColor` | blue | Color of the ring. |
-| Liquid color | `waveColor` | blue | Color of the liquid, if no gradient is used. |
-| Gradient | `gradient` | off | Fills the liquid with a vertical gradient. |
-| Number of levels | `levelsCount` | | Number of gradient stops. |
+| Setting                     | Attribute                     | Default           | Description                                                                                                     |
+|-----------------------------|-------------------------------|-------------------|-----------------------------------------------------------------------------------------------------------------|
+| Size                        | `size`                        |                   | Diameter in px. Empty: fits the widget.                                                                         |
+| Digits after comma          | `digitsAfterComma`            |                   | Empty: at most two.                                                                                             |
+| Text size                   | `textSize`                    | 1                 | Relative size of the value; 1 is half of the radius. The unit is 60% of it.                                     |
+| Text offset x / y           | `textOffsetX` / `textOffsetY` | 0 / diameter ÷ 15 | Moves the value in px.                                                                                          |
+| Rise animation              | `riseAnimation`               | on *(new widget)* | The liquid rises to the new level; the number counts along.                                                     |
+| Rise animation time         | `riseAnimationTime`           | 2000              | In ms.                                                                                                          |
+| Rise animation easing       | `riseAnimationEasing`         | `cubicInOut`      | See [Animation](#animation).                                                                                    |
+| Wave animation              | `waveAnimation`               | on *(new widget)* | The waves move.                                                                                                 |
+| Wave animation time         | `waveAnimationTime`           | 2000              | Time in ms for one whole wave.                                                                                  |
+| Wave animation easing       | `waveAnimationEasing`         | `linear`          |                                                                                                                 |
+| Wave frequency              | `waveFrequency`               | 2                 | Number of waves across the circle.                                                                              |
+| Wave amplitude              | `waveAmplitude`               | 1                 | Height of the waves in percent of the filling height. The waves are highest at 50% and flat when empty or full. |
+| Inner radius / Outer radius | `innerRadius` / `outerRadius` | 0.9 / 1           | The ring around the liquid, as part of the radius.                                                              |
+| Margin                      | `margin`                      | 0.025             | Gap between the ring and the liquid.                                                                            |
+| Text color                  | `textColor`                   | text color        | Value above the liquid.                                                                                         |
+| Text color in the liquid    | `textWaveColor`               | white             | The part of the value the liquid covers.                                                                        |
+| Circle color                | `circleColor`                 | blue              | Color of the ring.                                                                                              |
+| Liquid color                | `waveColor`                   | blue              | Color of the liquid, if no gradient is used.                                                                    |
+| Gradient                    | `gradient`                    | off               | Fills the liquid with a vertical gradient.                                                                      |
+| Number of levels            | `levelsCount`                 |                   | Number of gradient stops.                                                                                       |
 
 Each gradient stop (group *Level*):
 
-| Setting | Attribute | Description |
-|---|---|---|
-| Color of the gradient stop | `stopColor1` ... | |
-| Opacity of the gradient stop | `stopOpacity1` ... | 0 is transparent, 1 opaque (default). |
-| Level threshold | `levelThreshold2` ... | Position of the stop as absolute value. The first stop is always at the bottom, the last at the top. |
+| Setting                      | Attribute             | Description                                                                                          |
+|------------------------------|-----------------------|------------------------------------------------------------------------------------------------------|
+| Color of the gradient stop   | `stopColor1` ...      |                                                                                                      |
+| Opacity of the gradient stop | `stopOpacity1` ...    | 0 is transparent, 1 opaque (default).                                                                |
+| Level threshold              | `levelThreshold2` ... | Position of the stop as absolute value. The first stop is always at the bottom, the last at the top. |
 
 ## Battery gauge - `tplGauge2Battery`
 
@@ -178,26 +178,26 @@ A battery with its charge. All lengths are in units of the drawing, which is 100
 
 ![Battery gauge](../img/battery.png)
 
-| Setting | Attribute | Default | Description |
-|---|---|---|---|
-| Charging object ID | `charging-oid` | | While this state is `true`, the battery shows a flash and fills again and again. |
-| Orientation | `orientation` | horizontal | `vertical` turns the battery; the text stays horizontal. |
-| Padding | `padding` | 0 | Space around the battery. |
-| Size | `size` | | Length of the battery in px. Empty: fits the widget. |
-| Aspect ratio | `aspectRatio` | 0.52 | Height as part of the length: D = 0.56, C = 0.52, AA = 0.28, AAA = 0.23. |
-| Animated | `animated` | off | The charge grows from 0 when the widget appears. |
+| Setting            | Attribute      | Default    | Description                                                                      |
+|--------------------|----------------|------------|----------------------------------------------------------------------------------|
+| Charging object ID | `charging-oid` |            | While this state is `true`, the battery shows a flash and fills again and again. |
+| Orientation        | `orientation`  | horizontal | `vertical` turns the battery; the text stays horizontal.                         |
+| Padding            | `padding`      | 0          | Space around the battery.                                                        |
+| Size               | `size`         |            | Length of the battery in px. Empty: fits the widget.                             |
+| Aspect ratio       | `aspectRatio`  | 0.52       | Height as part of the length: D = 0.56, C = 0.52, AA = 0.28, AAA = 0.23.         |
+| Animated           | `animated`     | off        | The charge grows from 0 when the widget appears.                                 |
 
 The text shows the charge in percent of the range *Minimum* ... *Maximum*.
 
 **Battery body**, **Battery pole**
 
-| Setting | Attribute | Default |
-|---|---|---|
-| Corner radius | `batteryBodyCornerRadius` / `batteryCapCornerRadius` | 6 / 2 |
-| Fill | `batteryBodyFill` / `batteryCapFill` | none |
-| Stroke color | `batteryBodyStrokeColor` / `batteryCapStrokeColor` | text color |
-| Stroke width | `batteryBodyStrokeWidth` / `batteryCapStrokeWidth` | 4 / 4 |
-| Pole to body ratio | `batteryCapCapToBodyRatio` | 0.4 |
+| Setting            | Attribute                                            | Default    |
+|--------------------|------------------------------------------------------|------------|
+| Corner radius      | `batteryBodyCornerRadius` / `batteryCapCornerRadius` | 6 / 2      |
+| Fill               | `batteryBodyFill` / `batteryCapFill`                 | none       |
+| Stroke color       | `batteryBodyStrokeColor` / `batteryCapStrokeColor`   | text color |
+| Stroke width       | `batteryBodyStrokeWidth` / `batteryCapStrokeWidth`   | 4 / 4      |
+| Pole to body ratio | `batteryCapCapToBodyRatio`                           | 0.4        |
 
 **Battery meter**
 

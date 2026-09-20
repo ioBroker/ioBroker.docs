@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
         <link>https://www.iobroker.com/#ru/blog</link>
-        <lastBuildDate>Tue, 25 Aug 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 20 Sep 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Управляйте данными доступа централизованно, а не в каждом скрипте.]]></title>
+            <description><![CDATA[
+                <p>Любой, кто пользуется камерой, ключом с искусственным интеллектом или отправляет электронные письма, знает: один и тот же пароль хранится в трех местах. Если он меняется, третий пароль можно найти только тогда, когда что-то перестает работать.</p>
+            ]]></description>
+            <link>https://www.iobroker.com/#ru/blog/2026_09_20</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2026_09_20</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 20 Sep 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Ежемесячный обзор ioBroker – июль/август 2026 г.]]></title>
             <description><![CDATA[

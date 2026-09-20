@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-gauges/docs/en/README.md
 title: Messgeräte für Vis-2
-hash: 8u/EiZ68Nep8u0YkheHDIm0PetgX+4oTUmGOE7buOX0=
+hash: wZ3SQSaH0a/ZdMLfarODUKUXEZzNny2Q4QeKY1hPJzI=
 ---
 # Messgeräte für Vis-2
 
@@ -44,7 +44,7 @@ In den folgenden Tabellen ist **„Einstellung“** die Bezeichnung im vis-2-Edi
 
 Version 2.0 nutzte die Bibliotheken react-gauge-chart, react-liquid-gauge und react-battery-gauge (alle basierend auf d3), um Farbe, Wasserstand und Akkustand anzuzeigen. Diese Bibliotheken sind nicht mehr vorhanden; die Widgets sind jetzt reine SVG-Grafiken – kleiner, schneller und kompatibel mit der React-Version von vis-2. Die Widget-IDs und alle Attributnamen blieben unverändert, sodass bestehende Projekte ihre Einstellungen beibehalten. Einige Dinge sehen anders aus:
 
-- **Farbanzeige** : Der Wert wird unterhalb der Nadelachse anstatt dahinter angezeigt. Minimum und Maximum können an den Skalenenden angezeigt werden. _Die Nadellänge_ ist nun anpassbar. Ein Eckradius, ein Bogenabstand oder ein Rand von `0` ist jetzt wirklich 0 - vorher `0` bedeutete die Standardeinstellung.
+- **Farbanzeige** : Der Wert wird unterhalb der Nadelachse anstatt dahinter angezeigt. Minimum und Maximum können an den Skalenenden angezeigt werden. _Die Nadellänge_ ist nun anpassbar. Ein Eckradius, ein Bogenabstand oder ein Rand von `0` ist jetzt tatsächlich 0 - vorher `0` bedeutete die Standardeinstellung.
 - **Farbanzeige** : Eine leere _Einheit_ zeigt keine Einheit an. Nur ein Widget, dessen Einheit nie festgelegt wurde, zeigt sie an. `%`, wie zuvor.
 - **Wasserstandsanzeige** : Der Wert wurde zuvor mit allen Ziffern angezeigt; jetzt werden maximal zwei oder so viele angezeigt, wie unter _„Ziffern nach dem Komma“_ eingestellt sind. Während der Anstiegsanimation zählt die Zahl mit dem Flüssigkeitsstand hoch.
 - **Akkuanzeige** : Bei einem vertikalen Akku bleibt der Text horizontal, die Ladeanzeige steht aufrecht.
@@ -138,7 +138,7 @@ Ein Kreis, der sich mit einer wellenförmigen Flüssigkeit füllt.
 | Ziffern nach dem Komma          | `digitsAfterComma`           |                      | Leer: höchstens zwei.                                                                                                                                |
 | Textgröße                       | `textSize`                   | 1                    | Relative Größe des Wertes; 1 entspricht der Hälfte des Radius. Die Einheit beträgt 60 % davon.                                                       |
 | Textversatz x / y               | `textOffsetX` /`textOffsetY` | 0 / Durchmesser ÷ 15 | Verschiebt den Wert in Pixeln.                                                                                                                       |
-| Aufstiegsanimation              | `riseAnimation`              | auf _(neues Widget)_ | Der Flüssigkeitsstand steigt bis zum neuen Pegel; die Zahl zählt weiter.                                                                             |
+| Aufstiegsanimation              | `riseAnimation`              | auf _(neues Widget)_ | Der Flüssigkeitsstand steigt auf das neue Niveau; die Zahl zählt weiter.                                                                             |
 | Animationszeit des Aufstiegs    | `riseAnimationTime`          | 2000                 | In Frau                                                                                                                                              |
 | Animationsverlauf beschleunigen | `riseAnimationEasing`        | `cubicInOut`         | Siehe [Animation](#animation) .                                                                                                                      |
 | Wellenanimation                 | `waveAnimation`              | auf _(neues Widget)_ | Die Wellen bewegen sich.                                                                                                                             |
@@ -283,25 +283,25 @@ Ein horizontaler oder vertikaler Balken mit einer Skala.
 
 ![Lineare Messlehre](../../../../../en/adapterref/iobroker.vis-2-widgets-gauges/docs/img/linear.png)
 
-| Einstellung                         | Attribut                                        | Standard             | Beschreibung                                                                                                                              |
-| ----------------------------------- | ----------------------------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Orientierung                        | `orientation`                                   | horizontal           | `vertical` Das Minimum befindet sich ganz unten.                                                                                          |
-| Anzeige                             | `displayMode`                                   | Bar                  | `bar`: ein gefüllter Balken. `pointer` Die Stufen werden auf der gesamten Skala angezeigt, und ein Dreieck zeigt auf den jeweiligen Wert. |
-| Stabdicke                           | `barSize`                                       | 0.8                  | Als Teil des freien Platzes.                                                                                                              |
-| Gerundet                            | `rounded`                                       | An                   | Runde Enden des Stabes.                                                                                                                   |
-| Spurfarbe                           | `trackColor`                                    | hellgrau             | Der leere Teil der Bar.                                                                                                                   |
-| Beginnen wir bei Null.              | `fromZero`                                      | aus                  | Siehe das Lichtbogenmessgerät.                                                                                                            |
-| Maßstab anzeigen                    | `showScale`                                     | An                   | Unterhalb des Balkens, oder rechts davon, falls dieser vertikal ist.                                                                      |
-| Hauptabteilungen / Nebenabteilungen | `majorTicks` /`minorTicks`                      | 5 / 4                |                                                                                                                                           |
-| Skalenfarbe                         | `scaleColor`                                    | grau                 |                                                                                                                                           |
-| Färbung                             | `colorMode`                                     | Gradient der Niveaus | Durch den Farbverlauf werden die Farben der Skala sichtbar.                                                                               |
-| Farbe                               | `valueColor`                                    | Blau                 |                                                                                                                                           |
-| Anzahl der Ebenen                   | `levelsCount`                                   | 3                    |                                                                                                                                           |
-| Wert anzeigen                       | `showValue`                                     | An                   | Über der Leiste, rechts.                                                                                                                  |
-| Textfarbe                           | `textColor`                                     | Textfarbe            | Auch die Farbe des Mauszeigers.                                                                                                           |
-| Zielwertobjekt-ID                   | `targetOid`                                     |                      | Optional: ein Strich durch den Balken an dieser Stelle.                                                                                   |
-| Markerfarbe                         | `targetColor`                                   | Textfarbe            |                                                                                                                                           |
-| Animation                           | `animate`, `animateDuration`, `animationEasing` | auf 800 `cubicOut`    |                                                                                                                                           |
+| Einstellung             | Attribut                                        | Standard             | Beschreibung                                                                                                                              |
+| ----------------------- | ----------------------------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Orientierung            | `orientation`                                   | horizontal           | `vertical` Das Minimum befindet sich ganz unten.                                                                                          |
+| Anzeige                 | `displayMode`                                   | Bar                  | `bar`: ein gefüllter Balken. `pointer` Die Stufen werden auf der gesamten Skala angezeigt, und ein Dreieck zeigt auf den jeweiligen Wert. |
+| Stabdicke               | `barSize`                                       | 0.8                  | Als Teil des freien Platzes.                                                                                                              |
+| Gerundet                | `rounded`                                       | An                   | Runde Enden des Stabes.                                                                                                                   |
+| Spurfarbe               | `trackColor`                                    | hellgrau             | Der leere Teil der Bar.                                                                                                                   |
+| Beginnen wir bei Null.  | `fromZero`                                      | aus                  | Siehe das Lichtbogenmessgerät.                                                                                                            |
+| Maßstab anzeigen        | `showScale`                                     | An                   | Unterhalb des Balkens, oder rechts davon, falls dieser vertikal ist.                                                                      |
+| Hauptligen / Nebenligen | `majorTicks` /`minorTicks`                      | 5 / 4                |                                                                                                                                           |
+| Skalenfarbe             | `scaleColor`                                    | grau                 |                                                                                                                                           |
+| Färbung                 | `colorMode`                                     | Gradient der Niveaus | Durch den Farbverlauf werden die Farben der Skala sichtbar.                                                                               |
+| Farbe                   | `valueColor`                                    | Blau                 |                                                                                                                                           |
+| Anzahl der Ebenen       | `levelsCount`                                   | 3                    |                                                                                                                                           |
+| Wert anzeigen           | `showValue`                                     | An                   | Über der Leiste, rechts.                                                                                                                  |
+| Textfarbe               | `textColor`                                     | Textfarbe            | Auch die Farbe des Mauszeigers.                                                                                                           |
+| Zielwertobjekt-ID       | `targetOid`                                     |                      | Optional: ein Strich durch den Balken an dieser Stelle.                                                                                   |
+| Markerfarbe             | `targetColor`                                   | Textfarbe            |                                                                                                                                           |
+| Animation               | `animate`, `animateDuration`, `animationEasing` | auf 800 `cubicOut`    |                                                                                                                                           |
 
 ## Thermometer -`tplGauge2Thermometer`
 
@@ -320,7 +320,7 @@ Ein Glasthermometer mit Skala.
 | Glasfarbe                           | `tubeColor`                                     | grau                  |                                                                                                                                                 |
 | Färbung                             | `colorMode`                                     | Eine Farbe            | Bei der _Einstellung „Farbe des Niveaus“_ oder _„Farbverlauf“_ ändert die Spalte ihre Farbe mit der Temperatur (Standardniveaus: blau bis rot). |
 | Farbe                               | `valueColor`                                    | Rot                   |                                                                                                                                                 |
-| Wert anzeigen / Textfarbe           | `showValue` /`textColor`                        | an / Textfarbe        | Der Wert über dem Thermometer.                                                                                                                  |
+| Wert anzeigen / Textfarbe           | `showValue` /`textColor`                        | ein / Textfarbe       | Der Wert über dem Thermometer.                                                                                                                  |
 | Animation                           | `animate`, `animateDuration`, `animationEasing` | an, 1000, `cubicInOut` |                                                                                                                                                 |
 
 ## Kompass -`tplGauge2Compass`

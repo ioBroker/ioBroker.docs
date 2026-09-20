@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.com/#de/blog</link>
-        <lastBuildDate>Tue, 25 Aug 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 20 Sep 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Zugangsdaten zentral verwalten statt in jedem Skript]]></title>
+            <description><![CDATA[
+                <p>Wer eine Kamera abfragt, einen KI-Schlüssel benutzt oder Mails verschickt, kennt das:\nDasselbe Passwort steht an drei Stellen. Ändert es sich, findet man die dritte erst,\nwenn etwas nicht mehr geht.</p>
+            ]]></description>
+            <link>https://www.iobroker.com/#de/blog/2026_09_20</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#de/blog/2026_09_20</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sun, 20 Sep 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker Monatsrückblick – Juli/August 2026]]></title>
             <description><![CDATA[

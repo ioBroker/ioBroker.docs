@@ -95,6 +95,9 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 | `tib_darkmode` | `true` | Dark (default) or light theme |
 
 ## Changelog
+### 0.4.14 (2026-09-20)
+* (ssbingo) Update dev dependencies (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) and rebuild the widget bundle
+
 ### 0.4.13 (2026-09-12)
 * (ssbingo) Remove four unused React dev dependencies from src-widgets; the published widget bundle is unchanged
 

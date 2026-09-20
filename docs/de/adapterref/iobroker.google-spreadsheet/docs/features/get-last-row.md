@@ -1,41 +1,39 @@
 ---
 chapters: {"pages":{"en/adapterref/iobroker.google-spreadsheet/README.md":{"title":{"en":"ioBroker.google-spreadsheet"},"content":"en/adapterref/iobroker.google-spreadsheet/README.md"},"en/adapterref/iobroker.google-spreadsheet/docs/sendTo-API.md":{"title":{"en":"sendTo API for ioBroker.google-spreadsheet"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/sendTo-API.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/append.md":{"title":{"en":"Append"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/append.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-rows.md":{"title":{"en":"Delete Rows"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-rows.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/create-sheet.md":{"title":{"en":"Create-Sheet"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/create-sheet.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheet.md":{"title":{"en":"Delete Sheet"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheet.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheets.md":{"title":{"en":"Delete multiple sheets"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/delete-sheets.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/duplicate-sheet.md":{"title":{"en":"Duplicate Sheet"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/duplicate-sheet.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/get-last-row.md":{"title":{"en":"Get Last Row"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/get-last-row.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/read-cell.md":{"title":{"en":"Read Cell"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/read-cell.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/write-cell.md":{"title":{"en":"Write Cell"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/write-cell.md"},"en/adapterref/iobroker.google-spreadsheet/docs/features/write-cells.md":{"title":{"en":"Write multiple cells"},"content":"en/adapterref/iobroker.google-spreadsheet/docs/features/write-cells.md"}}}
+translatedFrom: en
+translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.google-spreadsheet/docs/features/get-last-row.md
+title: Letzte Zeile abrufen
+hash: aeHuJEQUuKiSXSFYd7xwfAs+Ylm1l+uorgXmPU2VmrE=
 ---
-# Append
+# Letzte Zeile abrufen
 
-➡️ See the [sendTo API documentation](/#/docs/adapterref/iobroker.google-spreadsheet/docs/sendTo-API.md) for general usage and all available commands.
-The append feature allows you to append data to a Google spreadsheet.
+Die [Dokumentation zur sendTo-API](/#/docs/adapterref/iobroker.google-spreadsheet/docs/sendTo-API.md) enthält allgemeine Informationen zur Verwendung und alle verfügbaren Befehle.
 
-Used API endpoint: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/append
+Die Funktion „Letzte Zeile abrufen“ gibt die Nummer der letzten nicht leeren Zeile in einem Google Sheets-Tabellenblatt zurück. Sie ermittelt lediglich die Zeilennummer; das Auslesen der Werte aus dieser Zeile erfolgt in einem separaten Vorgang.
 
-The feature accepts the following parameters:
-- `sheetName`: The name of the sheet to append to.
-- `data`: The data to append (single value or one-dimensional array).
-- `alias` (optional): The spreadsheet alias if you have multiple spreadsheets configured.
+Verwendeter API-Endpunkt: <https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets.values/get>
 
-**Callback result:** `{ success: true }` on success, or `{ error: string }` on failure.
+Die Funktion akzeptiert folgende Parameter:
+
+- `sheet`: Der Name des Blattes.
+- `alias` (optional): Der Tabellenalias, wenn mehrere Tabellen konfiguriert sind.
+
+**Callback-Ergebnis:** Die Zeilennummer als Zahl. Ein leeres Tabellenblatt wird zurückgegeben. `0` Im Fehlerfall empfängt der Callback `{ error: string }` Die
 
 ## Blockly
 
-![Blockly](../img/blockly-append.png)
+Der Blockly-Block gibt die letzte nicht leere Zeilennummer als numerischen Wert zurück. Er kann als Eingabe für andere Blöcke verwendet werden, beispielsweise um einen Bereich für einen späteren Lesevorgang zu erstellen.
 
-In Blockly, the parameter sheetname is always passed as the range-parameter to the Google API. However, the range-parameter can accept not only a sheet name but also a cell in A1 notation. If you need to append data to a specific cell, you can specify the cell using the range-parameter. For instance, you can use 'Sheet1!A1:A1' to target a specific cell.
+## JavaScript
 
-## Javascript
-
-The given code snippet adds a new row to the spreadsheet. Each of the three array values will create a distinct cell in the spreadsheet.
+Das folgende Beispiel liest die Nummer der letzten nicht leeren Zeile aus:
 
 ```javascript
-
 sendTo(
-  "google-spreadsheet", 
-  "append", {  
-    "sheetName": "nameOfTab", 
-    "data":[
-      formatDate(new Date(), 'hh:mm'), 
-      getState('mqtt.0.inverter.total.YieldDay').val, 
-      getState('mqtt.0.inverter.total.P_AC').val
-    ]
-  }
+  'google-spreadsheet.0',
+  'getLastRow',
+  { sheet: 'Sheet1' },
+  (response) => console.log('Last row:', response),
 );
 ```
