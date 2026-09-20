@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_get-started.md
 title: Installation
-hash: rNTtappA8fXXYATIaWye0tuTHGPMI7JooCj9lsGt2EY=
+hash: jCA4DDAD9oA2R16xeKvRL0KUZ7Py/d+CTTRgXelFRmo=
 ---
 # Installation
 
@@ -93,10 +93,10 @@ In unserem Beispiel wird Zigbee2MQTT über Docker/Docker Compose eingerichtet. W
 
 3. Wie ersichtlich, wird ein MQTT-Server benötigt, der aktuell für diesen Adapter keine Funktion bietet, aber für den Start erforderlich ist. Hierfür kann ein solcher Server im Adapter in ioBroker konfiguriert oder ein zusätzlicher Docker-Container ( <https://www.zigbee2mqtt.io/guide/getting-started/#_2-setup-and-start-zigbee2mqtt> ) wie in der Originaldokumentation beschrieben verwendet werden.
 
-4. Sobald all dies erledigt ist, können wir verwenden`docker-compose up -d` Die Docker-Konfiguration wird übernommen und der Container entworfen. Nach kurzer Zeit kann dann über <http://Dockerhost-IP:8080> eine Verbindung zur Weboberfläche von Zigbee2MQTT hergestellt werden.
+4. Sobald all dies erledigt ist, können wir verwenden `docker-compose up -d` Die Docker-Konfiguration wird übernommen und der Container entworfen. Nach kurzer Zeit kann dann über <http://Dockerhost-IP:8080> eine Verbindung zur Weboberfläche von Zigbee2MQTT hergestellt werden.
 
 5. Installation des Zigbee2MQTT-Adapters über die Registerkarte „Adapter“ in ioBroker
 
-6. Konfiguration des Adapters Siehe [Adapterkonfiguration](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/EN/EN/EN_AdapterConfig.md)
+6. Konfiguration des Adapters Siehe [Adapterkonfiguration](/#/docs/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_AdapterConfig.md)
 
 7. Jetzt sollte alles funktionieren und die Geräte können gekoppelt werden. Hier finden Sie eine detaillierte Anleitung: <https://www.zigbee2mqtt.io/guide/usage/pairing_devices.html>

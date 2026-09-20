@@ -200,7 +200,7 @@ der Tastenkombination "STRG + F".
     setState('settings.launchTitle', '2340236c', false); // Starte Red Dead Redemption 2
     ```
   
-   * `launchStoreTitle` erlaubt das Setzen von sprechenden Namen*
+   *`launchStoreTitle` erlaubt das Setzen von sprechenden Namen*
 
 * settings.inputText
 

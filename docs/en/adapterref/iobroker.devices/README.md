@@ -131,6 +131,20 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.2.2 (2026-09-17)
+* (@GermanBluefox) Sliders, dials and swipeable tiles in the widget GUI no longer change their value when a finger only scrolls the page across them. A touch becomes a drag when it starts sideways or after the finger has rested for a moment; a touch the browser takes over for scrolling changes nothing
+* (@GermanBluefox) Tooltips no longer catch the mouse: they close as soon as the pointer leaves the control and do not block clicks on what lies underneath
+* (@krobipd) Cancel in the editor that opens right after creating a device now removes the new device again, together with its states and its room and function assignments. Save is enabled right away, so a new device can be kept without changing anything
+* (@krobipd) Fixed the devices tab staying on its loading spinner when a device without mandatory states (e.g. a chart of the echarts adapter) is assigned to a room or function
+* (@krobipd) Fixed the import grouped by room or function stopping halfway when a room or function object is not found
+* (@krobipd) Fixed the value list editor: "+" no longer adds a "NaN" row to a list of text values, dragging a row moves it instead of swapping two rows, and OK is only enabled after a change
+* (@krobipd) The search now finds a device by its name regardless of upper and lower case
+* (@krobipd) Fixed device icons that are stored as a bare file name not being shown in the device list
+* (@krobipd) The folders are expanded when the device list is opened for the first time, instead of all being collapsed
+* (@krobipd) The warning about the web instance configuration is no longer logged when no web instance is installed
+* (@krobipd) The widget notification timer is cleared when the adapter stops, so it does not stay behind in compact mode
+* (@GermanBluefox) The build takes the version of the GUI packages from the adapter's `package.json`, and `common.welcomeScreen` is written as the array the current io-package schema expects
+
 ### 4.2.1 (2026-09-09)
 * (@GermanBluefox) Fixed layout
 
@@ -160,32 +174,6 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 * (@GermanBluefox) Datapoints added to an alias device by hand now reach the widget GUI, so a tank can show the litres it has left next to its fill level
 * (@GermanBluefox) The tank tile shows that second reading where it used to print its fill level a second time
 * (@GermanBluefox) Fixed the settings button of a 2x0.5 tank tile sitting in the middle of the tile instead of in its top-right corner
-
-### 4.0.2 (2026-08-10)
-* (@SimonFischer04) Added WindowTilt support in the widgets GUI (#609)
-* (@GermanBluefox) Added min/max values (last 24 hours or today) for widgets with history (#610)
-* (@GermanBluefox) Reworked the "Blue dark" theme into a deep navy look and gave the category icons a coloured round badge
-* (@GermanBluefox) Added role icons for UV index, knots, rpm, operating hours and W/kW/Wh
-* (@GermanBluefox) The device list now shows the icon configured for a widget, and falls back to the role icon instead of the generic type icon
-* (@GermanBluefox) Info devices are no longer hidden by default; the "i" button in the toolbar now shows whether the filter is active
-* (@GermanBluefox) Fixed widgets vanishing from the GUI when they were assigned to a category that no longer exists
-* (@GermanBluefox) Fixed categories being dropped as empty although widgets had been moved into them
-* (@GermanBluefox) Fixed the "record history" switch: it now follows the alias to the recorded source and is highlighted while recording
-* (@GermanBluefox) Fixed clipped values in the wind widget
-* (@GermanBluefox) Fixed emoji icons sitting off-centre in the category badges and header
-* (@GermanBluefox) Fixed an alias assignment being dropped silently when saving a device whose state was not cached yet
-* (@GermanBluefox) Implemented user-specific views
-* (@Apollon77) Added widgets for button, buttonSensor, camera and vacuumCleaner, which were shown as "Widget type not supported" before
-* (@Apollon77) Added mute and the separate volume feedback state (`VOLUME_ACTUAL`) to the media player widget
-* (@Apollon77) Added the missing tilt controls to the blind widgets: tilt now works for button blinds too, has a stop button, and uses the min/max of the state instead of assuming percent
-* (@Apollon77) Added an active icon for windowTilt
-* (@Apollon77) The light widget now shows the real state from `ON_ACTUAL` instead of echoing the commanded value
-* (@Apollon77) Fixed image widgets: the configured defaults were ignored until the settings dialog was opened once, and the refresh button was answered from the cache
-* (@Apollon77) Fixed newer device types (windowTilt, camera, percentage, fillLevel, …) landing in the "other" group when auto-grouping is switched on
-* (@Apollon77) Fixed the type of created alias states: `defaultType` is now honoured, so the ERROR state is no longer created as boolean
-* (@Apollon77) Fixed the air conditioner editor showing the swing state twice and writing it twice on save
-* (@Apollon77) Fixed the enum assignment of created devices: it ran once per state and not at all for devices with only optional states
-* (@Apollon77) Fixed the build and the CI (unresolvable react-input-color dependency, out-of-sync lock files, node versions)
 
 ## License
 MIT License

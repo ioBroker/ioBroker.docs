@@ -1,7 +1,9 @@
 # ioBroker VIS 2 Technic Widgets
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.vis-2-widgets-technic.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-technic)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-technic.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-technic)
+[![Installations](https://iobroker.live/badges/iobroker.vis-2-widgets-technic.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-technic)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Technic widgets for ioBroker VIS 2 with a consistent dark teal design language for smart home visualization.
 
@@ -35,6 +37,15 @@ All widgets use a consistent color palette:
 - Text `#c8e6e3` – Labels and text
 
 ## Changelog
+
+### 0.1.22 (2026-09-20)
+- New widget "Clock - Date": configurable time and date display
+- Granular date formatting (language, order, separator, month format, year format, leading zero, weekday)
+- Full translation in all supported languages
+
+### 0.1.21 (2026-09-19)
+- feat: rename RaumKachel widget label to "Room - Overlay", add widget preview image
+- fix: empty placeholder rows (rows without an assigned data point) no longer collapse to 0px height
 
 ### 0.1.20 (2026-06-28)
 - fix: complete translations for all news entries

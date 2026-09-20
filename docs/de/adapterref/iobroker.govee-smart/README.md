@@ -100,39 +100,27 @@ wächst aus Nutzer-Meldungen, und niemand muss Hardware verschicken.
     ### **WORK IN PROGRESS**
 -->
 
+### 2.38.3 (2026-09-17)
+
+- Changed: Internal cleanup. No user-facing changes.
+
+### 2.38.2 (2026-09-17)
+
+- Changed: Internal refactoring. No user-facing changes.
+
+### 2.38.1 (2026-09-16)
+
+- Fixed: Repairing a dropdown is now a single write — until 2.38.0 it was emptied first, so a restart in that moment left the datapoint with nothing to pick from until the next start
+
+### 2.38.0 (2026-09-16)
+
+- Fixed: Repairing a dropdown no longer deletes and re-creates the datapoint — it used to throw away the datapoint's value and its room and function assignment
+- Changed: A device renamed in the Govee app now gets the new name in an existing object tree too — a name you change in the tree itself is reset at the next start
+- Fixed: An error the adapter reports as an object now reads properly in the log instead of "[object Object]", and a connection problem reported that way is recognised as one
+
 ### 2.37.1 (2026-09-15)
 
 - Fixed: The instance settings open on the Configuration tab again also when the admin keeps its settings on the server — 2.37.0 handled the browser storage only, so every open still landed on Expert
-
-### 2.37.0 (2026-09-15)
-
-- Changed: The two folders "snapshots" and "diagnostics" at the top of the object tree are gone — a saved local snapshot is kept with its device, and no diagnostics report is stored any more
-- Changed: A diagnostics report is generated and downloaded from the Expert tab only — the adapter keeps no copy in the instance, and the copies left by earlier versions are removed at the first start
-- Changed: Local snapshots saved by earlier versions are carried over into their device objects at the first start, so nothing you saved is lost when the folder disappears
-- Fixed: The instance settings open on the Configuration tab again — the admin remembered the last tab you used, and once you had visited the Expert tab every later visit started there
-- Fixed: The device icons in the object tree are visible on the dark themes again — they were drawn in plain black, invisible on a dark background, and now take the row's text colour
-- Fixed: A group's "membersUnreachable" datapoint is created together with the group — it used to appear only with the first reachability check, up to 20 seconds after the rest of the group
-- Changed: The admin warns when another adapter on the same host takes the LAN port 4002 — the port shows as a fixed field in the adapter settings next to the network interface
-
-### 2.36.0 (2026-09-14)
-
-- Fixed: A command the adapter could not send is no longer confirmed — no cloud connection, or a light reachable on neither channel — the datapoint used to claim the device had taken the value
-- Fixed: Music sensitivity and auto-colour are no longer confirmed on a light or group that cannot apply them — the datapoint keeps the old value and the log says why, instead of claiming success
-- Fixed: The segment wizard restores the brightness the strip had before it ran — it turns the strip to full while measuring, and a dimmed strip stayed bright afterwards
-- Fixed: The segment wizard no longer stays locked for five minutes when the strip cannot be reached at start — it stops with the reason, and can be started again right away
-- Fixed: Sensor values update again on an installation that removed its API key but kept the Govee account — they had frozen at the last reading, and the adapter took a minute to report ready
-- Changed: A sensor reading that has not changed is no longer written again every two minutes — the datapoint keeps its timestamp until the value itself changes
-- Changed: The three summary datapoints under `info` exist right after the start instead of appearing twenty seconds later
-- New: Seven datapoints real devices report now carry a translated name — main light, background light, fan, fan speed, reverse airflow, pillar light and base light
-- New: Explanations where the name alone does not say it — reverse airflow, pillar and base light, warm mist, the preset-scene dropdown and the unreachable members of a group
-
-### 2.35.2 (2026-09-11)
-
-- Fixed: A light that is unplugged no longer shows as switched on after a start — Govee's answer for a device it cannot reach carries the values of the last contact, and those are no longer written
-
-### 2.35.1 (2026-09-11)
-
-- Fixed: The values Govee reports for a device at start no longer wait behind the loading of the scene libraries — on an installation with a dozen lights they arrived seven minutes after the start
 
 ## License
 

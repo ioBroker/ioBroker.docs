@@ -34,7 +34,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.backitup.png?downloads=true
 **************************************************************************************************************
 
 ## Haftungsausschluss
-** `ioBroker.backitup` ist ein Backup-Plugin nur für die Smart Home Software ioBroker.**
+**`ioBroker.backitup` ist ein Backup-Plugin nur für die Smart Home Software ioBroker.**
 
 **Es steht in keiner Verbindung zu [Nero BackItUp](https://www.nero.com/deu/products/nero-backitup/?vlang=de) (ein Tool zur Datensicherung unter Windows-Systemen) und wird auch nicht von diesem unterstützt.**
 

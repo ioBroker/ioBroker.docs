@@ -214,8 +214,7 @@ If you enjoyed this project – or are just feeling generous – consider buying
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.7.0 (2026-09-18)
 
 - (typhosj) admin: the wallbox list now explains that its order is the ChargeManager priority - the first entry receives the PV surplus first, later entries only the remainder
 - (typhosj) ChargeManager: the PV surplus is now shared between all wallboxes instead of being offered to each one in full; wallboxes are served in configuration order, so the first entry has priority and later ones only receive the remaining surplus
@@ -252,13 +251,6 @@ If you enjoyed this project – or are just feeling generous – consider buying
 
 - (typhosj) refactored the ChargeManager control decision into a deterministic, unit-tested function (#846); behavior unchanged
 - (hombach) fixed vulnerabilities
-- (hombach) updated dependencies
-
-### 1.4.0 (2026-08-10)
-
-- (hombach) added info.unlockedByRFIDName with the name of the current session's RFID card, in parallel to unlockedByRFIDNo (#634)
-- (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
-- (hombach) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
 - (hombach) updated dependencies
 
 ## License

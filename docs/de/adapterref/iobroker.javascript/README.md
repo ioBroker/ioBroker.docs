@@ -4,7 +4,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.javascript.svg
 BADGE-Test and Release: https://github.com/ioBroker/ioBroker.javascript/workflows/Test%20and%20Release/badge.svg
 BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/javascript/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.javascript.svg
-chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de":"ioBroker.javascript"},"content":"de/adapterref/iobroker.javascript/README.md"},"de/adapterref/iobroker.javascript/blockly.md":{"title":{"de":"Inhalt"},"content":"de/adapterref/iobroker.javascript/blockly.md"},"de/adapterref/iobroker.javascript/usage.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.javascript/usage.md"}}}
+chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de":"ioBroker.javascript"},"content":"de/adapterref/iobroker.javascript/README.md"},"de/adapterref/iobroker.javascript/blockly.md":{"title":{"de":"Inhalt"},"content":"de/adapterref/iobroker.javascript/blockly.md"},"de/adapterref/iobroker.javascript/usage.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.javascript/usage.md"},"de/adapterref/iobroker.javascript/javascript.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.javascript/javascript.md"}}}
 ---
 <img src="../../admin/javascript.svg" alt="ioBroker.javascript" width="100" />
 
@@ -14,7 +14,7 @@ chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de"
 
 - [Blockly](/#/docs/adapterref/iobroker.javascript/blockly.md)
 - [Benutzung](/#/docs/adapterref/iobroker.javascript/usage.md)
-- [JavaScript-Referenz](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/javascript.md) (nur auf Englisch verfügbar)
+- [JavaScript-Referenz](/#/docs/adapterref/iobroker.javascript/javascript.md)
 - [Upgrade-Anleitung](https://github.com/iobroker/ioBroker.javascript/blob/master/docs/en/upgrade-guide.md) (nur auf Englisch verfügbar)
 
 ## KI-Codegenerator - Unterstützung eigener API-Endpunkte
@@ -88,8 +88,8 @@ Alle API-Key-Felder werden als Passwortfelder dargestellt (maskiert). Es müssen
 
 Die API-Keys werden durch zwei von der ioBroker-Plattform bereitgestellte Schutzebenen abgesichert:
 
-1. ** `encryptedNative` ** — Die Keys werden vor dem Schreiben in die Object-Datenbank automatisch mit dem System-Secret verschlüsselt. Datenbank-Dumps oder Object-Backups enthalten die Keys nicht mehr im Klartext.
-2. ** `protectedNative` ** — Die Keys werden niemals an Admin-Oberflächen oder fremde Adapter übertragen. Nur die `javascript`-Instanz selbst kann sie über `this.config` lesen (die ioBroker-Runtime liefert sie dort transparent entschlüsselt).
+1. **`encryptedNative`** — Die Keys werden vor dem Schreiben in die Object-Datenbank automatisch mit dem System-Secret verschlüsselt. Datenbank-Dumps oder Object-Backups enthalten die Keys nicht mehr im Klartext.
+2. **`protectedNative`** — Die Keys werden niemals an Admin-Oberflächen oder fremde Adapter übertragen. Nur die `javascript`-Instanz selbst kann sie über `this.config` lesen (die ioBroker-Runtime liefert sie dort transparent entschlüsselt).
 
 Daraus folgt: Das KI-Chat-Panel, die Inline-Completion und alle anderen Frontend-Komponenten **greifen nicht mehr direkt auf die Keys zu**. Stattdessen wird jede KI-Anfrage per `sendTo` an den Adapter geschickt, und das Backend setzt den passenden Key ein:
 
@@ -164,6 +164,13 @@ Wenn der API-Endpunkt nicht erreichbar ist oder einen Fehler zurückgibt, werden
 Bei fehlgeschlagenem Modellabruf wird ein **Erneut versuchen**-Button angezeigt, sodass ein erneuter Versuch ohne Schließen des Dialogs möglich ist.
 
 ## Changelog
+### 10.3.0 (2026-09-20)
+* (@GermanBluefox) The code editor (Monaco), Blockly and the Rules blocks are loaded only when a script of that kind is opened, so the editor starts faster
+* (@GermanBluefox) Added function block diagrams (FBD, in the style of CFC): timers, counters, flip-flops, edges, comparison, arithmetic, conversions, control, calendar (cron, sun events), log and messages, and a block with own JavaScript - wired to ioBroker states. See [the description](docs/en/fbd.md)
+
+### 10.2.5 (2026-09-17)
+* (@GermanBluefox) Added the functions help dialog in editor
+
 ### 10.2.4 (2026-09-14)
 * (@GermanBluefox) Rules: selection of state fixed
 * (@GermanBluefox) Fixed debugger
@@ -189,27 +196,6 @@ Bei fehlgeschlagenem Modellabruf wird ein **Erneut versuchen**-Button angezeigt,
 * (@GermanBluefox) A folded "or"/"else" section of a rule still occupied the 64px every section reserves as a drop target, and showed the top 64px of the very cards it was supposed to hide - clipped, and out of reach of the scrollbar. Being the last thing in the rule, that looked like a rule that could not be scrolled to its end
 * (@GermanBluefox) The 1px line between the script tabs and the toolbar stopped 10px short of the left edge and 40px short of the right one: the tab row carried a margin and a `calc(100% - 50px)` width to leave room for the "close all but current" button. Both are padding on the tab strip now, so the line reaches the edges of the pane
 * (@GermanBluefox) Blockly was grey in every dark theme - workspace, toolbox and flyout were hard-coded colours, which left a grey block sitting in the middle of, for instance, the navy "modernDark" admin. They follow the colours of the active ioBroker theme now, in light themes as well. The blocks themselves keep the colour of their category
-
-### 10.1.3 (2026-08-30)
-* (@GermanBluefox) The plain text export named its files after the script ID instead of the script name, so every dot of a name came out as an underscore - `HK-Balkontuer_v0.1` was exported as `HK-Balkontuer_v0_1.js`, and importing it back renamed the script to that. The files are now named after the script (#2364)
-* (@GermanBluefox) Importing a plain text export treated a dot inside a file name as a folder level, so `PW-TV-Control_v0.6.js` created a folder `PW-TV-Control_v0` containing a script named `6`. Only the directories of the ZIP are folders now (#2364)
-* (@GermanBluefox) The folder icons in the script tree were drawn at less than half the size of the script icons next to them: they spaced themselves with a padding, and since `CssBaseline` sets `box-sizing: border-box` that padding was subtracted from their 20px instead of being added to them. They use a margin now, like the script icons always did (#2360)
-* (@GermanBluefox) The log below the editor could not be resized while a script was open: the editor area guessed its height from the height the tabs and the toolbar were expected to have, hung over the bottom edge of its pane and covered the 8px splitter with the horizontal scrollbar of the editor, which swallowed the mouse click. The three parts now share the height as a flex column (#2351)
-* (@GermanBluefox) The script list cut off long names, although there was still free space next to them: the space for the buttons at the end of a row was a fixed 185px, which is more than the three buttons occupy, and it did not account for the icon column
-* (@GermanBluefox) Fixed the Blockly comment block: the text was written in white on the yellow block and could not be read, the editor opened somewhere else on the page instead of over the block, and on a smartphone or tablet it did not open at all and left the whole workspace unusable until the page was reloaded (#2348)
-* (@GermanBluefox) Fixed the script mirror for folder names containing regular expression characters: a folder called e.g. `Lampen (Flur` aborted the synchronization with a `SyntaxError`, a folder called e.g. `[ab]` silently synchronized the scripts of another folder (#2239)
-* (@GermanBluefox) The Blockly block "http (POST)" got a "content type" selector, so an API that insists on `Content-Type: application/json` no longer needs an `exec` block. "automatic" is the default and behaves exactly as before, "own" allows any other type (#1983)
-* (@GermanBluefox) `getSchedules()` returned the schedules of the time wizard of **all** scripts, even without the argument `true`. Now only the schedules of the own script are returned (#2164)
-* (@GermanBluefox) `clearSchedule()` did not accept the objects that `getSchedules()` returns for schedules of the time wizard, so such a schedule stayed in the script and in the schedule counter (#2164)
-* (@GermanBluefox) `clearSchedule()` can now clear the CRON jobs of other scripts too, as documented for `getSchedules(true)` (#2164)
-* (@GermanBluefox) `getSchedules()` no longer lists the already canceled schedules of the own script in an `onStop` callback (#2164)
-
-### 10.1.2 (2026-08-24)
-* (@GermanBluefox) Added new rule blocks
-* (@krobipd) Fixed saving of Blockly scripts under Blockly 13: a script containing a named timeout, interval or schedule could not be saved anymore - the save button did not appear (#2349)
-* (@krobipd) Fixed saving of Blockly scripts containing a function with a return value and no statements (#1958)
-* (@krobipd) The Blockly regression tests now also cover saving: every block is serialized the way the editor does it and reloaded to the same code
-* (@krobipd) When a block fails while the script is regenerated after a change, the editor now shows the error instead of silently never offering the save button; a failing export shows its error too
 
 ## License
 The MIT License (MIT)

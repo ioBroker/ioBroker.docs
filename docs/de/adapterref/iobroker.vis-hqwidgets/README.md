@@ -1,28 +1,76 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.vis-hqwidgets/README.md":{"title":{"en":"ioBroker.vis-hqWidgets"},"content":"en/adapterref/iobroker.vis-hqwidgets/README.md"},"en/adapterref/iobroker.vis-hqwidgets/docs/en/README.md":{"title":{"en":"hqWidgets for vis-2"},"content":"en/adapterref/iobroker.vis-hqwidgets/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-hqwidgets/README.md
 title: ioBroker.vis-hqWidgets
-hash: EcsR8zmcWvDBdmYw6fLwiJDNqSqjZprugf7ii9A7zlw=
+hash: uYdJXfLTOqC5JmNDqq+U8SLVs0BC9U1k45UEEDfGqOM=
 ---
-![Logo](../../../en/adapterref/iobroker.vis-hqwidgets/admin/hqwidgets.png)
+![Logo](../../../en/adapterref/iobroker.vis-hqwidgets/admin/hqwidgets.svg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/vis-hqwidgets-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-hqwidgets.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-hqwidgets.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-hqwidgets.png?downloads=true)
 
-# IoBroker.vis-hqWidgets
-`hqWidgets` - Hochwertige Widgets für [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis) ![Beispiel](../../../en/adapterref/iobroker.vis-hqwidgets/img/widgets.png)
+# ioBroker.vis-hqWidgets
 
-Für ein Widget wird das `jQuery.knob` Plugin (MIT) von Anthony Terrien verwendet.
-http://anthonyterrien.com/knob/ oder https://github.com/aterrien/jQuery-Knob
+`hqWidgets` - Hochwertige Widgets für [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis) und [ioBroker.vis-2](https://github.com/ioBroker/ioBroker.vis-2)![Beispiel](../../../en/adapterref/iobroker.vis-hqwidgets/img/widgets.png)
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+## vis und vis-2
 
-### **ARBEIT IN ARBEIT** -->
+Der Adapter liefert jedes Widget zweimal aus:
+
+- **vis (vis-1)** verwendet das EJS/jQuery-Widget-Set in `widgets/hqwidgets.html` Die
+- **vis-2** verwendet das React-Widget-Set in `widgets/vis-2-widgets-hqwidgets/`, gebaut aus `src-widgets/` Die
+
+Beide deklarieren die gleichen Widget-IDs (`tplHqButton`, `tplHqDimmer`, …) und dieselben Attributnamen, und vis-2 bevorzugt ein React-Widget gegenüber einem EJS-Widget. Daher funktioniert ein mit vis erstelltes Projekt auch nach dem Wechsel zu vis-2 weiterhin – die Widgets werden einfach mit der React-Implementierung gerendert, ohne jQuery, jQuery UI, `jquery.knob` oder `odometer.js` Die
+
+Die React-Widgets benötigen vis-2 Version 2.12.8 oder neuer. Bei älteren vis-2-Versionen werden die EJS-Widgets verwendet.
+
+Für ein Widget des **vis-1-** Satzes `jQuery.knob` Es wird das Plugin (MIT-Lizenz) von Anthony Terrien verwendet. <http://anthonyterrien.com/knob/> oder <https://github.com/aterrien/jQuery-Knob>
+
+## Dokumentation
+
+Alle Widgets mit ihren Einstellungen und Screenshots: [Englisch](/#/docs/adapterref/iobroker.vis-hqwidgets/docs/en/README.md) | [Deutsch](https://github.com/ioBroker/ioBroker.vis-hqwidgets/blob/master/docs/de/README.md)
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) All widgets were ported to vis-2 as React widgets, without any jQuery based library
+* (bluefox) The vis-2 palette shows a sharp preview and a short description for every widget
+* (bluefox) Added documentation for every vis-2 widget with screenshots (English and German)
+* (bluefox) Corrected spelling mistakes in the German labels of the widget settings
+* (bluefox) The dimmer, the inner temperature and the circle knob now offer "Read only"
+* (bluefox) The door widget now offers the signal object ID and the colour of the doorway
+* (bluefox) The circle knob now shows the working, battery and signal indicators
+* (bluefox) The odometer now offers the duration of the animation
+* (bluefox) "Value for ON" / "Value for OFF" of the On/Off widget are used now - they were ignored before
+* (bluefox) The control popup of the shutter widget is as big as in vis-1 again and stays inside the window
+* (bluefox) Both sliders take the value of the position where the pointer is released
+* (bluefox) The sashes of the shutter widget open like in vis-1 again, and a tilted window has a yellow handle
+* (bluefox) The arc of the temperature widgets runs from blue to red now instead of through violet
+* (bluefox) The frame colour of the shutter widget and the frame and leaf colour of the door widget can be set
+* (bluefox) The buttons of the shutter popup got a flat, modern look
+* (bluefox) Fixed the handle of an opened door, it was placed too far away from the edge
+* (bluefox) The widgets follow the dark theme of vis-2: descriptions, the arc track, the signal and both popups
+  adapt, the surfaces of the widgets themselves keep their colours
+* (bluefox) The popups of the shutter and the lock close when clicking somewhere else in the view
+* (bluefox) The adapter icon is an SVG now
+
+### 1.6.1 (2026-04-11)
+* (oweitman) Repair decimal places in odometer when leadingzeros=false
+
+### 1.6.0 (2025-09-21)
+* (bluefox) Optimization of button de-bouncing
+
+### 1.5.1 (2024-03-07)
+* (bluefox) Removed vis dependency and replaced with a message by installation or update if vis is not installed
+
 ### 1.4.0 (2023-05-03)
 * (bluefox) Behavior of the dimmer was changed. If the current value is over 5% and the user clicks on dimmer, the dimmer will be set to 0%. If the current value is less than 5%, the dimmer will be set to 100%.
 
@@ -155,5 +203,5 @@ http://anthonyterrien.com/knob/ oder https://github.com/aterrien/jQuery-Knob
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2023 bluefox <dogafox@gmail.com>
+ Copyright (c) 2013-2026 bluefox <dogafox@gmail.com>
  MIT

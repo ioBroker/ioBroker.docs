@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_get-started.md
 title: Установка
-hash: rNTtappA8fXXYATIaWye0tuTHGPMI7JooCj9lsGt2EY=
+hash: jCA4DDAD9oA2R16xeKvRL0KUZ7Py/d+CTTRgXelFRmo=
 ---
 # Установка
 
@@ -93,10 +93,10 @@ hash: rNTtappA8fXXYATIaWye0tuTHGPMI7JooCj9lsGt2EY=
 
 3. Как видно, требуется MQTT-сервер, который в настоящее время не имеет функции для этого адаптера, но необходим для запуска. Для этой цели его можно настроить в адаптере в ioBroker или использовать дополнительный контейнер Docker ( <https://www.zigbee2mqtt.io/guide/getting-started/#_2-setup-and-start-zigbee2mqtt> ), как описано в оригинальной документации.
 
-4. После того, как все это будет сделано, мы сможем использовать`docker-compose up -d` Чтобы получить доступ к конфигурации Docker и создать контейнер, через некоторое время мы сможем подключиться к веб-интерфейсу Zigbee2MQTT по адресу <http://Dockerhost-IP:8080> .
+4. После того, как все это будет сделано, мы сможем использовать `docker-compose up -d` Чтобы получить доступ к конфигурации Docker и создать контейнер, через некоторое время мы сможем подключиться к веб-интерфейсу Zigbee2MQTT по адресу <http://Dockerhost-IP:8080> .
 
 5. Установка адаптера Zigbee2MQTT через вкладку «Адаптер» в ioBroker.
 
-6. Настройка адаптера. См. [раздел «Настройка адаптера».](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/EN/EN/EN_AdapterConfig.md)
+6. Настройка адаптера. См. [раздел «Настройка адаптера».](/#/docs/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_AdapterConfig.md)
 
 7. Теперь всё должно работать, и устройства можно настроить. Вот подробная инструкция: <https://www.zigbee2mqtt.io/guide/usage/pairing_devices.html>

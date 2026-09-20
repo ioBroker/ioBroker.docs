@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de":"ioBroker.javascript"},"content":"de/adapterref/iobroker.javascript/README.md"},"de/adapterref/iobroker.javascript/blockly.md":{"title":{"de":"Inhalt"},"content":"de/adapterref/iobroker.javascript/blockly.md"},"de/adapterref/iobroker.javascript/usage.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.javascript/usage.md"}}}
+chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de":"ioBroker.javascript"},"content":"de/adapterref/iobroker.javascript/README.md"},"de/adapterref/iobroker.javascript/blockly.md":{"title":{"de":"Inhalt"},"content":"de/adapterref/iobroker.javascript/blockly.md"},"de/adapterref/iobroker.javascript/usage.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.javascript/usage.md"},"de/adapterref/iobroker.javascript/javascript.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.javascript/javascript.md"}}}
 ---
 # Inhalt
 
@@ -2638,7 +2638,7 @@ Im Funktionsblock kann zusätzlich ein spezielles Return-Element verwendet werde
                           <block type="procedures_ifreturn" id=")htNPjBWw1J/gp-Y5#Kg">
                             <mutation value="1"></mutation>
                             <value name="CONDITION">
-                              <block type="logic_compare" id="nFZ;s `3ij0v|.wQqw` AB">
+                              <block type="logic_compare" id="nFZ;s`3ij0v|.wQqw`AB">
                                 <field name="OP">EQ</field>
                                 <value name="A">
                                   <block type="variables_get" id="Q^3OKKD]aGa0/qxWf%*g">

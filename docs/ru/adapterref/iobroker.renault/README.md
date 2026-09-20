@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.renault/README.md
 title: ioBroker.renault
-hash: llVIoTkjL3Ql9To9H/IJMTEUOEUi0geKx+sN/ZIsLCU=
+hash: iCdnJKPv4U+LlUosI8GWPIMFLTB+VSgIuww+Ansy67Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.renault/admin/renault.png)
 
@@ -55,6 +55,13 @@ hash: llVIoTkjL3Ql9To9H/IJMTEUOEUi0geKx+sN/ZIsLCU=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (typhosj) requests to the Renault cloud time out after 30 seconds, so one unanswered request no longer stalls polling
+- (typhosj) the adapter icon and readme links point to the `main` branch again
+- (typhosj) timers are managed by the adapter, so none survives a stop of the instance
+- (typhosj) lint uses the shared `@iobroker/eslint-config`; dependencies updated
 
 ### 0.0.25
 

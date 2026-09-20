@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/docs/en/cards_and_ui.md
 title: Benutzerdefinierte Karten, Designs & UI-Tipps
-hash: IOe7fcMZHqY9K2xXaFAsWJB2ASric2LtJg7lK0EpCoo=
+hash: xyLqm57g95iMos0AENiG657fcHpcI4SVOSIUhUBF1uE=
 ---
 ![Logo](../../../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -14,23 +14,23 @@ hash: IOe7fcMZHqY9K2xXaFAsWJB2ASric2LtJg7lK0EpCoo=
 
 ## Benutzerdefinierte Karten
 
-Lovelace kann mit selbstgemachten Karten erweitert werden (`custom cards` Sie werden als JavaScript-Datei (\*.js) bereitgestellt, die über die Lovelace-Konfiguration hochgeladen werden muss (`Files` (Registerkarte im Adminbereich oder per Drag & Drop in den Instanzeinstellungen).
+Lovelace kann mit selbstgemachten Karten erweitert werden (`custom cards` Sie werden als JavaScript-Datei (\*.js) bereitgestellt, die auf den Server hochgeladen wird. `Custom Cards` Registerkarte der Instanzeinstellungen oder in `lovelace.<instance>/cards` durch die `Files` Im Adminbereich werden auf der Registerkarte die installierten Karten mit der jeweiligen Versionsnummer aufgelistet.
 
 Zum Hochladen über die Kommandozeile, wo iobroker installiert ist:
 
 `iobroker file write PATH_TO_FILE\bignumber-card.js /lovelace.0/cards/`
 
-Nach einem Neustart des Lovelace-Adapters wurden alle Dateien von`cards` Die Verzeichnisse werden automatisch eingebunden.
+Alle Dateien aus dem `cards` Die Verzeichnisse werden automatisch eingebunden und vom Adapter überwacht: Eine hinzugefügte, ersetzte oder gelöschte Karte (hier im ioBroker-Dateibrowser oder über die Kommandozeile) wird automatisch erkannt. Laden Sie den Browser anschließend neu, um eine neu hinzugefügte Karte zu verwenden – ein Neustart des Adapters ist nicht erforderlich. `Reload cards` Der entsprechende Tab ermöglicht bei Bedarf die gleiche Funktion, falls eine Änderung einmal verpasst werden sollte.
 
-Falls eine Karte zusätzliche Ressourcen (CSS- oder JS-Dateien) benötigt, erstellen Sie die Ordnerstruktur im folgenden Verzeichnis neu:`cards` Verzeichnis und die Dateien werden dort abgelegt. Der Adapter erkennt URLs, die mit beginnen.`/hacsfiles/` und leitet sie um zu`cards` Verzeichnis. Wenn Sie also sehen`404` Fehler für URLs einschließlich`/hacsfiles/` Passen Sie die Ordnerstruktur entsprechend an. Zum Beispiel eine Karte, die Folgendes benötigt`/hacsfiles/folder1/folder2/file3.json` muss platziert werden bei`/lovelace.0/cards/folder1/folder2/file3.json` Die
+Falls eine Karte zusätzliche Ressourcen (CSS- oder JS-Dateien) benötigt, erstellen Sie die Ordnerstruktur im folgenden Verzeichnis neu: `cards` Verzeichnis und die Dateien werden dort abgelegt. Der Adapter erkennt URLs, die mit beginnen. `/hacsfiles/` und leitet sie um zu `cards` Verzeichnis. Wenn Sie also sehen `404` Fehler für URLs einschließlich `/hacsfiles/` Passen Sie die Ordnerstruktur entsprechend an. Zum Beispiel eine Karte, die Folgendes benötigt `/hacsfiles/folder1/folder2/file3.json` muss platziert werden bei `/lovelace.0/cards/folder1/folder2/file3.json` Die
 
-Oft werden benutzerdefinierte Karten als Quellcode auf GitHub gespeichert und müssen vor der Verwendung kompiliert werden. Überprüfen Sie die`Releases` Menü auf GitHub für kompilierte Dateien, z. B. [Mini-Graph-Karten-Releases](https://github.com/kalkih/mini-graph-card/releases) (suchen Sie nach`mini-graph-card-bundle.js` ).
+Oft werden benutzerdefinierte Karten als Quellcode auf GitHub gespeichert und müssen vor der Verwendung kompiliert werden. Überprüfen Sie die `Releases` Menü auf GitHub für kompilierte Dateien, z. B. [Mini-Graph-Karten-Releases](https://github.com/kalkih/mini-graph-card/releases) (suchen Sie nach `mini-graph-card-bundle.js`).
 
 ### Getestete Karten
 
 Die folgenden Karten wurden vom Entwickler oder der Community getestet und funktionieren. Im Allgemeinen sollten die meisten Karten funktionieren; Probleme entstehen oft durch Inkompatibilität zwischen der verwendeten Lovelace-Version und der Karte. Verwenden Sie daher möglichst die neuesten Kartenversionen.
 
-- **[Clockwork Card](https://github.com/barleybobs/ha-clockwork-card)** – ein funktionierender Fork (das Original wird nicht mehr weiterentwickelt). Konfiguration: siehe [Uhr](#clock) . Es gibt keinen Zeitsensor; die Zeit wird vom Browser bezogen, daher muss die Konfiguration ohne Zeitsensor erfolgen.`entity_id` und mit Zeitzonen.
+- **[Clockwork Card](https://github.com/barleybobs/ha-clockwork-card)** – ein funktionierender Fork (das Original wird nicht mehr weiterentwickelt). Konfiguration: siehe [Uhr](#clock) . Es gibt keinen Zeitsensor; die Zeit wird vom Browser bezogen, daher muss die Konfiguration ohne Zeitsensor erfolgen. `entity_id` und mit Zeitzonen.
 - **[Mini Media Player](https://github.com/kalkih/mini-media-player)** – ein sehr vielseitig konfigurierbarer Mediaplayer, der auch [Text-to-Speech und Schnellzugriffstasten](#mini-media-card-with-tts-and-shortcuts) unterstützt.
 - **[Mini Graph Card](https://github.com/kalkih/mini-graph-card)** – eine sehr flexibel konfigurierbare Karte für Sensordaten, die verschiedene Entitäten als Graphen oder Balkendiagramme darstellt.
 
@@ -70,19 +70,19 @@ midnight:
   paper-item-icon-active-color: '#F9C536'
 ```
 
-(Ein vollständiges Beispiel ist das [Mitternachtsthema](https://community.home-assistant.io/t/midnight-theme/28598/2) . Beachten Sie, dass viele`paper-*` Die Variablen des alten Themensystems sind veraltet – siehe die Migrationshinweise.)
+(Ein vollständiges Beispiel ist das [Mitternachtsthema](https://community.home-assistant.io/t/midnight-theme/28598/2) . Beachten Sie, dass viele `paper-*` Die Variablen des alten Themensystems sind veraltet – siehe die Migrationshinweise.
 
 ## Symbole
 
-Verwenden Sie Symbole in der Form`mdi:NAME` , wie`mdi:play-network` Die Namen finden Sie hier: <https://pictogrammers.com/library/mdi/>
+Verwenden Sie Symbole in der Form `mdi:NAME`, wie `mdi:play-network` Die Namen finden Sie hier: <https://pictogrammers.com/library/mdi/>
 
 ## UI-Tipps
 
 ### Sprache, Zahlen- und Datumsformat
 
-Die Sprache des Dashboards stammt vom Adapter.`Language` Einstellung (`same as ioBroker` (Verwendet die Systemsprache von ioBroker). Dies ist nur eine Standardeinstellung: Die im Frontend unter _Profil_ ausgewählte Sprache ist maßgebend und wird pro Benutzer gespeichert, sodass die Browsersprache nicht mehr verwendet wird.
+Die Sprache des Dashboards stammt vom Adapter. `Language` Einstellung (`same as ioBroker` (verwendet die Systemsprache von ioBroker). Dies ist nur eine Standardeinstellung: Die im Frontend unter _Profil_ ausgewählte Sprache ist maßgebend und wird pro Benutzer gespeichert, sodass die Browsersprache nicht mehr verwendet wird.
 
-Nummer, Datums- und Uhrzeitformat, Zeitzone und erster Wochentag sind separate Einstellungen, die ebenfalls unter _Profil_ vorgenommen werden können. Jede dieser Einstellungen kann aktiviert bleiben.`language` (der UI-Sprache folgen) oder auf ein festes Format eingestellt, sodass das Dashboard beispielsweise Englisch mit deutscher Zahlenformatierung sein kann.
+Nummer, Datums- und Uhrzeitformat, Zeitzone und erster Wochentag sind separate Einstellungen, die ebenfalls unter _Profil_ vorgenommen werden können. Jede dieser Einstellungen kann aktiviert bleiben. `language` (der UI-Sprache folgen) oder auf ein festes Format eingestellt, sodass das Dashboard beispielsweise Englisch mit deutscher Zahlenformatierung sein kann.
 
 Ohne aktivierte Authentifizierung teilen sich alle Browser ein Profil, daher betrifft eine solche Änderung jeden Browser.
 
@@ -116,11 +116,11 @@ Suche, Hilfe und das Punktmenü entfernen:
     ha-icon-button[slot] { display: none; }
 ```
 
-Titelleiste vollständig ausblenden: Status festlegen`lovelace.0.instances.hideHeader` Zu`true` (Nach einem Neuladen wird der Header in allen Browsern entfernt.) Der Zustand existiert zudem pro Instanz und kann daher für jeden Browser individuell festgelegt werden.
+Titelleiste vollständig ausblenden: Status festlegen `lovelace.0.instances.hideHeader` Zu `true` (Nach einem Neuladen wird der Header in allen Browsern entfernt.) Der Zustand existiert zudem pro Instanz und kann daher für jeden Browser individuell festgelegt werden.
 
 #### Ein komplettes Design, das wie das Standarddesign aussieht, aber ohne die Glocke.
 
-Die oben genannten Code-Schnipsel funktionieren nur innerhalb eines Themes. Falls Sie kein eigenes Theme erstellen möchten, finden Sie hier ein kleines, in sich geschlossenes Theme (`no-bell-icon` ) das dem standardmäßigen dunklen Look weitgehend entspricht und die Glocke entfernt. Fügen Sie es in die Designkonfiguration ein und wählen Sie es anschließend aus (z. B. über den Status).`lovelace.0.instances.set_theme` Das Thema kann erst ausgewählt werden, nachdem der Datenpunkt vorhanden ist und der Adapter neu gestartet wurde.
+Die oben genannten Code-Schnipsel funktionieren nur innerhalb eines Themes. Falls Sie kein eigenes Theme erstellen möchten, finden Sie hier ein kleines, in sich geschlossenes Theme (`no-bell-icon`) das dem standardmäßigen dunklen Look weitgehend entspricht und die Glocke entfernt. Fügen Sie es in die Designkonfiguration ein und wählen Sie es anschließend aus (z. B. über den Status). `lovelace.0.instances.set_theme` Das Thema kann erst ausgewählt werden, nachdem der Datenpunkt vorhanden ist und der Adapter neu gestartet wurde.
 
 ```yaml
 no-bell-icon:
@@ -158,7 +158,7 @@ tts:
   entity_id: input_text.multimedia_Alexa_Arbeitszimmer_Commands_speak
 ```
 
-`platform` muss sein`iobroker` Die`entity_id` muss auf einen bestehenden Text verweisen`entity` Anschließend wird der Text eingespielt – so kann jedes ioBroker-Text-to-Speech-System verwendet werden.
+`platform` muss sein `iobroker` Die `entity_id` muss auf einen bestehenden Text verweisen `entity` Diese wird dann mit dem Text gefüllt – so dass jedes ioBroker-Text-to-Speech-System verwendet werden kann.
 
 Über Tastenkombinationen können beliebige Dienste aufgerufen werden; für ioBroker funktioniert beispielsweise Folgendes gut:
 
@@ -180,7 +180,7 @@ shortcuts:
         value: Wie schön dass du geboren bist
 ```
 
-`input_text.set_value` schreibt einen Text in einen Datenpunkt;`entity_id` ist die Textentität und`value` den zu schreibenden Text.
+`input_text.set_value` schreibt einen Text in einen Datenpunkt; `entity_id` ist die Textentität und `value` den zu schreibenden Text.
 
 ![Mini-Mediaplayer mit TTS und Tastenkombinationen](../../../../../en/adapterref/iobroker.lovelace/docs/de/media/mini-media-player.JPG)
 
@@ -196,7 +196,7 @@ other_time:
   - Europe/Berlin
 ```
 
-Um den Block auf der rechten Seite auszublenden, blenden Sie ihn zusammen mit dem Block auf der rechten Seite aus.`card-mod` Karte:
+Um den Block auf der rechten Seite auszublenden, blenden Sie ihn zusammen mit dem Block auf der rechten Seite aus. `card-mod` Karte:
 
 ```yaml
 type: 'custom:clockwork-card'
@@ -212,4 +212,4 @@ other_time:
 
 Die Markdown-Karte kann mit Bindungen wie in [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects) verwendet werden.
 
-Beispiel der Text`Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` produziert`Admin adapter is alive` in einer Markdown-Karte. Darüber hinaus gibt es Home Assistant-Vorlagen (`{{ states("…") }}` ,`is_state` ,`state_attr` ,`now()` , …) können verwendet werden.
+Beispiel der Text `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` produziert `Admin adapter is alive` in einer Markdown-Karte. Darüber hinaus gibt es Home Assistant-Vorlagen (`{{ states("…") }}`, `is_state`, `state_attr`, `now()`, …) können verwendet werden.

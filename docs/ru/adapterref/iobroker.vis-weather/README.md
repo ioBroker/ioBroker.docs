@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-weather/README.md
 title: ioBroker.vis-weather
-hash: 85zGuDwo884/7EFK6dJBZ4m/R1xf3zxTu4Ec8vueMmU=
+hash: pJURSY25VF7HeykHQ0HhE6wv12pTvrLK62BsmqGHOk0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
@@ -31,6 +31,10 @@ hash: 85zGuDwo884/7EFK6dJBZ4m/R1xf3zxTu4Ec8vueMmU=
 
 В WeatherUnderground необходимо включить прогноз на следующие 36 часов. На DasWetter.com необходимо включить одну из четырех структур данных прогноза. Вы можете выбрать ту, которую хотите отобразить.
 
+## ВНИМАНИЕ
+
+Данный набор виджетов в ближайшем будущем будет признан устаревшим. Пожалуйста, используйте вместо него новые наборы виджетов для vis-2.
+
 ## совместимость с vis-2
 
 Этот виджет НЕ совместим с vis-2. Новая версия под названием [vis-2-widgets-weather](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather) находится в разработке.
@@ -55,6 +59,11 @@ hash: 85zGuDwo884/7EFK6dJBZ4m/R1xf3zxTu4Ec8vueMmU=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+This widget set becomes deprecated in the near future. Please use the new widget sets for vis-2 instead. 
+* (René) dependencies update
+
 ### 2.5.13 (2025-10-22)
 * (René) changes based on adapter checker suggestions
 

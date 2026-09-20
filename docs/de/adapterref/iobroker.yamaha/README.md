@@ -211,6 +211,15 @@ dort, was er fragt, was er bekommt und was er nicht abschickt.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 2.11.0 (2026-09-17)
+
+- (krobipd) Fixed: The adapter no longer stops when the object database is briefly unavailable while a receiver reports a change
+- (krobipd) Fixed: A datapoint whose value range a receiver no longer reports keeps its value, its history and its room and function assignments
+- (krobipd) Fixed: A receiver that is switched off keeps its name after a restart
+- (krobipd) Fixed: A name you type on a device card now wins over every name the receiver reports for itself
+- (krobipd) Improved: When something goes wrong, the log names the cause instead of a placeholder
+
 ### 2.10.0 (2026-09-15)
 
 - (krobipd) Fixed: A receiver the search found is searched for again after it moved to another address — until now that only worked for receivers found at start-up
@@ -247,16 +256,6 @@ dort, was er fragt, was er bekommt und was er nicht abschickt.
 - (krobipd) Fixed: A write to a receiver could be dropped without a trace while another of its protocols was reconnecting
 - (krobipd) Fixed: Deleting a device and adding the same one again left it with the wrong icon until the next restart, and a pending write could recreate the deleted device object
 - (krobipd) Changed: A MusicCast receiver's datapoints now update only when their value really changed — automations tied to them stop firing for no reason
-
-### 2.8.0 (2026-09-11)
-
-- (krobipd) Fixed: A volume written to a MusicCast receiver now arrives exactly — the adapter reads the receiver's own step declaration instead of guessing a ratio (#623)
-- (krobipd) Fixed: Every zone of a receiver now carries the same volume scale — a third zone used to show a raw 0…161 count next to decibels in the other two
-- (krobipd) Changed: The volume datapoint now carries the minimum, maximum and step the receiver reports for that zone — a receiver whose zones differ gets a different range per zone
-- (krobipd) New: Setting "Volume as 0–100 %" turns every volume datapoint, in every zone, into a percentage — what most VIS widgets expect. Off by default; the receiver's own scale stays the truth
-- (krobipd) Changed: The datapoints actualVolume, actualVolumeMode and inputText are gone — volume and input carry the same information
-- (krobipd) Changed: After this update every receiver is asked about its abilities once more, so the first start takes a little longer than usual
-- (krobipd) Fixed: A DAB receiver no longer logs a warning on every tuner poll — the frequency datapoint was limited to the FM band while the receiver reported DAB frequencies
 
 ## License
 

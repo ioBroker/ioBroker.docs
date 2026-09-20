@@ -1,28 +1,76 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.vis-hqwidgets/README.md":{"title":{"en":"ioBroker.vis-hqWidgets"},"content":"en/adapterref/iobroker.vis-hqwidgets/README.md"},"en/adapterref/iobroker.vis-hqwidgets/docs/en/README.md":{"title":{"en":"hqWidgets for vis-2"},"content":"en/adapterref/iobroker.vis-hqwidgets/docs/en/README.md"}}}
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-hqwidgets/README.md
 title: ioBroker.vis-hqWidgets
-hash: EcsR8zmcWvDBdmYw6fLwiJDNqSqjZprugf7ii9A7zlw=
+hash: uYdJXfLTOqC5JmNDqq+U8SLVs0BC9U1k45UEEDfGqOM=
 ---
-![Логотип](../../../en/adapterref/iobroker.vis-hqwidgets/admin/hqwidgets.png)
+![Логотип](../../../en/adapterref/iobroker.vis-hqwidgets/admin/hqwidgets.svg)
 
 ![Количество установок](http://iobroker.live/badges/vis-hqwidgets-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.vis-hqwidgets.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-hqwidgets.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-hqwidgets.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-hqwidgets.png?downloads=true)
 
-# IoBroker.vis-hqWidgets
-`hqWidgets` — Высококачественные виджеты для [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis) ![Пример](../../../en/adapterref/iobroker.vis-hqwidgets/img/widgets.png)
+# ioBroker.vis-hqWidgets
 
-Для одного виджета используется плагин `jQuery.knob` (MIT) от Энтони Терриена.
-http://anthonyterrien.com/knob/ или https://github.com/aterrien/jQuery-Knob
+`hqWidgets` - Высококачественные виджеты для [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis) и [ioBroker.vis-2](https://github.com/ioBroker/ioBroker.vis-2)![Пример](../../../en/adapterref/iobroker.vis-hqwidgets/img/widgets.png)
 
-<!-- Заполнитель для следующей версии (в начале строки):
+## вис и вис-2
 
-### **В РАБОТЕ** -->
+Адаптер поставляет каждый виджет в двух экземплярах:
+
+- **vis (vis-1)** использует набор виджетов EJS/jQuery в `widgets/hqwidgets.html`.
+- **vis-2** использует набор виджетов React в `widgets/vis-2-widgets-hqwidgets/` построен из `src-widgets/`.
+
+Оба варианта объявляют одни и те же идентификаторы виджетов (`tplHqButton`, `tplHqDimmer` …) и те же имена атрибутов, а vis-2 предпочитает виджет React виджету EJS. Поэтому проект, созданный с помощью vis, продолжает работать после перехода на vis-2 — виджеты просто отображаются с использованием реализации React, без jQuery, jQuery UI и т. д. `jquery.knob` или `odometer.js`.
+
+Для работы виджетов React требуется vis-2 версии 2.12.8 или новее. При использовании более старых версий vis-2 применяются виджеты EJS.
+
+Для одного из виджетов **vis-1** установите следующее: `jQuery.knob` Используется плагин (MIT) от Энтони Терриена. <http://anthonyterrien.com/knob/> или <https://github.com/aterrien/jQuery-Knob>
+
+## Документация
+
+Все виджеты с настройками и скриншотами: [Английский](/#/docs/adapterref/iobroker.vis-hqwidgets/docs/en/README.md) | [Немецкий](https://github.com/ioBroker/ioBroker.vis-hqwidgets/blob/master/docs/de/README.md)
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) All widgets were ported to vis-2 as React widgets, without any jQuery based library
+* (bluefox) The vis-2 palette shows a sharp preview and a short description for every widget
+* (bluefox) Added documentation for every vis-2 widget with screenshots (English and German)
+* (bluefox) Corrected spelling mistakes in the German labels of the widget settings
+* (bluefox) The dimmer, the inner temperature and the circle knob now offer "Read only"
+* (bluefox) The door widget now offers the signal object ID and the colour of the doorway
+* (bluefox) The circle knob now shows the working, battery and signal indicators
+* (bluefox) The odometer now offers the duration of the animation
+* (bluefox) "Value for ON" / "Value for OFF" of the On/Off widget are used now - they were ignored before
+* (bluefox) The control popup of the shutter widget is as big as in vis-1 again and stays inside the window
+* (bluefox) Both sliders take the value of the position where the pointer is released
+* (bluefox) The sashes of the shutter widget open like in vis-1 again, and a tilted window has a yellow handle
+* (bluefox) The arc of the temperature widgets runs from blue to red now instead of through violet
+* (bluefox) The frame colour of the shutter widget and the frame and leaf colour of the door widget can be set
+* (bluefox) The buttons of the shutter popup got a flat, modern look
+* (bluefox) Fixed the handle of an opened door, it was placed too far away from the edge
+* (bluefox) The widgets follow the dark theme of vis-2: descriptions, the arc track, the signal and both popups
+  adapt, the surfaces of the widgets themselves keep their colours
+* (bluefox) The popups of the shutter and the lock close when clicking somewhere else in the view
+* (bluefox) The adapter icon is an SVG now
+
+### 1.6.1 (2026-04-11)
+* (oweitman) Repair decimal places in odometer when leadingzeros=false
+
+### 1.6.0 (2025-09-21)
+* (bluefox) Optimization of button de-bouncing
+
+### 1.5.1 (2024-03-07)
+* (bluefox) Removed vis dependency and replaced with a message by installation or update if vis is not installed
+
 ### 1.4.0 (2023-05-03)
 * (bluefox) Behavior of the dimmer was changed. If the current value is over 5% and the user clicks on dimmer, the dimmer will be set to 0%. If the current value is less than 5%, the dimmer will be set to 100%.
 
@@ -155,5 +203,5 @@ http://anthonyterrien.com/knob/ или https://github.com/aterrien/jQuery-Knob
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2023 bluefox <dogafox@gmail.com>
+ Copyright (c) 2013-2026 bluefox <dogafox@gmail.com>
  MIT

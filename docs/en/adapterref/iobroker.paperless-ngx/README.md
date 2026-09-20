@@ -27,6 +27,11 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.3 (2026-09-20)
+
+- Add a Paperless-styled Admin tab with global and document search, tag filters, metadata browsing, refresh controls, and a direct Paperless link.
+- Encode search parameters safely, acknowledge requests when Paperless is unavailable, retry connections on the configured cycle, and remove duplicate object cleanup work.
+
 ### 1.0.2 (2026-08-05)
 - (BenAhrdt) Prevent adapter startup failure when no Paperless server is configured
 
@@ -39,14 +44,6 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 
 ### 0.5.1 (2026-02-28)
 * (BenAhrdt) update dependencies
-
-### 0.5.0 (2025-10-19)
-* (BenAhrdt) update Authentication NPM
-* (BenAhrdt) update test to resolve conflicts
-* (BenAhrdt) update testing 5.1.1
-* (BenAhrdt) update dependencie core
-* (BenAhrdt) update dependencie to node >= 20
-* (BenAhrdt) update testing to 24.x
 
 ## DISCLAIMER
 This project is not officially affiliated with Paperless-ngx,

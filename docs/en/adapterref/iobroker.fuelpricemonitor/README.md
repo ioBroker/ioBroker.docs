@@ -13,7 +13,7 @@
 [![NPM](https://nodei.co/npm/iobroker.fuelpricemonitor.png?downloads=true)](https://nodei.co/npm/iobroker.fuelpricemonitor/)
 
 ## fuelpricemonitor adapter for ioBroker
-This adapter retrieves the fuel (Diesel, Super95 and CNG) prices from the offical Austria database based on your configered geo-position. The API delivers the prices only for the first 5 station. For the other 5 stations the prices are not available. Additional locations can be added.
+This adapter retrieves the fuel (Diesel, Super95 and CNG) prices from the [offical Austria database](https://api.e-control.at/sprit/1.0/doc/index.html?url=https://api.e-control.at/sprit/1.0/api-docs%3Fgroup%3Dpublic-api) based on your configered geo-position. The API delivers the prices only for the first 5 station. For the other 5 stations the prices are not available. Additional locations can be added.
 Default schedule is done every 20 minutes as cron job in the instance tab.  
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
@@ -27,6 +27,11 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.4.4 (2026-09-17)
+* (HGlab01) add feature to exclude opening hours (state subtree of hours to be delete one time manually)
+* (HGlab01) Bump axios to 1.20.0
+* (HGlab01) Cleanups
+
 ### 0.4.3 (2026-06-16)
 * (HGlab01) some small improvements
 * (HGlab01) Bump axios to 1.18.0
@@ -44,9 +49,6 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
     - Node.js 18.0 or higher
     - ioBroker host (js-controller) 5.0 or higher
 * (HGlab01) Bump axios to 1.6.2
-
-### 0.3.6 (2023-08-10)
-* (HGlab01) switch to Admin5 UI for configuration
 
 ## License
 MIT License

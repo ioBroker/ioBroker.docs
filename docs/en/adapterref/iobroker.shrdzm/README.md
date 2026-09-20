@@ -63,7 +63,7 @@ Install and setup you SHRZDM interface as described by the manufactures document
 - select a free port at adminUI, default is set to port 9000 but any free prot can be used.
 
 - open SHRZDM configuration interface (using a webbrower) 
-![alt text](./doc/shrzdm-cloud.pgn)
+![alt text](./doc/shrdzm-cloud.png)
 - select cloud configuration
 - enter ip address (IPv4 only) of your ioBroker host and port number selected into field 'Server'
 - aktivate 'UDP send'

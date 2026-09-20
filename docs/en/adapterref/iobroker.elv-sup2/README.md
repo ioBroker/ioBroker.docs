@@ -24,8 +24,11 @@ The format should be e.g.: /dev/ttyUSBx on Linux- or COMx on Windows-based ioBro
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 0.3.0 (2026-09-18) - 2026H2 maintenance release
+
+* (copilot) Adapter requires node.js >= 22 now
+* (pdbjjens) **Fixed**: i18n directory migrated to short format
+* (pdbjjens) **Fixed**: dependency updates and minor bugfixes
 
 ### 0.2.3 (2026-03-04) - 2026H1 maintenance release
 
@@ -45,12 +48,6 @@ The format should be e.g.: /dev/ttyUSBx on Linux- or COMx on Windows-based ioBro
 * (pdbjjens) Change: node>=20, js-controller>=7.0.7 and admin>=7.6.17 required
 * (pdbjjens) Change: Updated to ESLint 9 and serialport 13
 * (pdbjjens) Change: Cleanup devDependencies
-
-### 0.1.1 (2024-11-24) - 2025H1 maintenance release
-
-* (pdbjjens) New: Tested with node.js 22
-* (pdbjjens) Fix: Responsive Design tweaks
-* (pdbjjens) New: Updated dependencies
 
 ## Legal Notices
 

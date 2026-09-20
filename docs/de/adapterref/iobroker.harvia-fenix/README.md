@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: lgsXGtX1IZiRcVY4aN+WxhOiCe86BQRcKxNPJuJ8SPs=
+hash: RR+7J0MlGhQeZ51cNKQ5IbiGjz8f4IU8mFwuZO5AS7c=
 ---
 ![Downloads](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![Knoten](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -163,7 +163,15 @@ Der Adapter bildet die Cloud-Zustände Ihrer Sauna auf strukturierte ioBroker-Da
 | `timeToTargetFormatted`         | Zeichenkette    | `text`                | Nur lesbar      | Formatierte Zeit, die benötigt wird, um die Zieltemperatur zu erreichen (z. B. `39 min 30 sec`).                                                                                                                     |
 | `heatingCurve`                  | Zeichenkette    | `json`                | Nur lesbar      | JSON-Array mit Intervall-Heizsekunden pro 10°C-Abschnitt für Diagramme/VIS.                                                                                                                                          |
 | `profiles`                      | Zeichenkette    | `json`                | Nur lesbar      | JSON-Array mit verfügbaren Saunaprofilen (z. B. Cozy usw.).                                                                                                                                                          |
-| `activeProfile`                 | Nummer          | `level`               | Lesen/Schreiben | Übersicht der aktuell aktiven Saunaprofile.                                                                                                                                                                          |
+| `activeProfile`                 | Nummer          | `level`               | Lesen/Schreiben | Index des aktuell aktiven Saunaprofils (`0` = mild, `1` = gemütlich `2` (heiß).                                                                                                                                        |
+| `events.lastEvent`              | Zeichenkette    | `text`                | Nur lesbar      | Code oder Kennung des zuletzt vom Harvia Events Service empfangenen Ereignisses.                                                                                                                                     |
+| `events.lastEventType`          | Zeichenkette    | `text`                | Nur lesbar      | Kategorie des letzten Ereignisses (`SAFETY`, `ERROR`, `SYSTEM`, usw.).                                                                                                                                              |
+| `events.lastEventSeverity`      | Zeichenkette    | `text`                | Nur lesbar      | Schweregrad des letzten Ereignisses (`info`, `warn`, `error`, `critical`).                                                                                                                                          |
+| `events.lastEventMessage`       | Zeichenkette    | `text`                | Nur lesbar      | Eine für Menschen lesbare Nachricht oder Beschreibung des letzten Ereignisses.                                                                                                                                       |
+| `events.lastEventTime`          | Zeichenkette    | `date`                | Nur lesbar      | ISO-Zeitstempel des letzten Ereignisses.                                                                                                                                                                             |
+| `events.safetyTripped`          | boolescher Wert | `sensor.alarm`        | Nur lesbar      | Zeigt an, ob eine aktive Sicherheitsabschaltung oder eine Verriegelungsauslösung erfolgte.                                                                                                                           |
+| `events.safetyReason`           | Zeichenkette    | `text`                | Nur lesbar      | Grund/Ursache der aktiven Sicherheitsauslösung.                                                                                                                                                                      |
+| `events.history`                | Zeichenkette    | `json`                | Nur lesbar      | JSON-Array mit der jüngsten Ereignishistorie (bis zu 15 Ereignisse).                                                                                                                                                 |
 
 ---
 
@@ -205,6 +213,29 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 
 _Hinweis: Diese Zustände werden automatisch zurückgesetzt auf `false` wenn die Heizung ausgeschaltet wird oder wenn eine neue Heizperiode beginnt._
 
+### 3. Saunaprofile (`profiles` &`activeProfile`)
+
+- **Verfügbare Profile (`profiles`):**\
+  &#x20;Spiegelt die vorkonfigurierten Saunaprogramme Ihrer **MyHarvia 2 App** (z. B. _Mild_ , _Cozy_ , _Hot_ ) als JSON-Array einschließlich voreingestellter Zieltemperaturen und Timer wider.
+- **Wechselprofile (`activeProfile`):**\
+  &#x20;Dieser Datenpunkt wird mithilfe eines nullbasierten Index **gelesen/geschrieben** :
+  - `0` = **mild**
+  - `1` = **gemütlich**
+  - `2` = **heiß**
+  - Eine Zahl schreiben `activeProfile` sendet eine Profiländerungsanfrage direkt an die Harvia-Cloud (`PATCH /devices/profile`), indem die voreingestellte Zieltemperatur und Sitzungsdauer des Profils automatisch auf die Saunakabine angewendet werden.
+  - **Beispiel (Skript):**
+  ```javascript
+  // Switch to the cozy sauna profile
+  setState('harvia-fenix.0.activeProfile', 1);
+  ```
+
+### 4. Veranstaltungs- und Sicherheitszentrale (`events.*`)
+
+- **Sicherheitsüberwachung (`events.safetyTripped` &`events.safetyReason`):**\
+  &#x20;Der Adapter überwacht Türsicherheitsschleifen, thermische Abschaltungen und Sicherheitsschalterverriegelungen des Harvia Events Service. Wenn während des Heizvorgangs eine aktive Sicherheitsauslösung erfolgt, `events.safetyTripped` wechselt zu `true` mit einer klaren Erklärung in `events.safetyReason` Die
+- **Ereignisverlauf (`events.history`):**\
+  &#x20;Speichert eine gleitende Historie der letzten 15 System-, Tür-, Fehler- und Sicherheitsereignisse als strukturiertes JSON-Array für VIS-Dashboards und die Audit-Protokollierung.
+
 ---
 
 ## Fehlerbehebung
@@ -212,7 +243,7 @@ _Hinweis: Diese Zustände werden automatisch zurückgesetzt auf `false` wenn die
 ### Häufige API-Fehler und Statusmeldungen in `errorMsg`
 
 - ** `Action blocked (403 Forbidden). Remote start authorization (Safety Loop) at panel might not be active.` **
-  - **Grund:** Die europäische Sicherheitsnorm verlangt, dass der Fernstart nur aktiviert werden kann, wenn der Sicherheitskreis/Türsensor geschlossen ist und der Fernstart am Saunabedienfeld physisch aktiviert wurde.
+  - **Grund:** Die europäische Sicherheitsnorm verlangt, dass die Fernstartfunktion nur aktiviert werden kann, wenn der Sicherheitskreis/Türsensor geschlossen ist und die Fernstartfunktion am Saunabedienfeld physisch aktiviert wurde.
   - **Lösung:** Schließen Sie die Saunatür und drücken Sie die Taste **„Fernstart“** an Ihrem Harvia-Bedienfeld. Das Fernbedienungssymbol auf dem Bildschirm muss aktiv sein. Anschließend können Sie die Sauna über den Adapter steuern.
 - ** `Cloud lock: Device busy, command discarded.`(Als Debug protokolliert)**
   - **Grund:** Die API von Harvia begrenzt die Anzahl der Befehle, die in schneller Folge gesendet werden (z. B. durch schnelles Klicken in der Benutzeroberfläche), um die Hardware zu schützen.
@@ -228,6 +259,20 @@ _Hinweis: Diese Zustände werden automatisch zurückgesetzt auf `false` wenn die
 ---
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (meistermopper) Document activeProfile standard index mapping (0=mild, 1=cozy, 2=hot)
+
+### 1.1.0 (2026-09-17)
+* (meistermopper) Add Events & Safety Hub with dedicated events channel and states
+* (meistermopper) Add safety trip detection, alarm indicators, and sliding history
+* (meistermopper) Fix activeProfile endpoint to use PATCH /devices/profile per API spec
+* (meistermopper) Document profiles and activeProfile switching behavior in README
+
+### 1.0.0 (2026-09-17)
+* (meistermopper) Add AWS AppSync WebSocket real-time push client
+* (meistermopper) Add token refresh via /auth/refresh using refreshToken
+
 ### 0.6.0 (2026-09-16)
 * (meistermopper) Add readyAt, readyAtMessage, timeToTargetFormatted states
 * (meistermopper) Implement Harvia native 13-interval heating curve calculation
@@ -248,25 +293,6 @@ _Hinweis: Diese Zustände werden automatisch zurückgesetzt auf `false` wenn die
 * (meistermopper) Add bidirectional heating anomaly detection (too slow / fast)
 * (meistermopper) Update @alcalzone/release-script-plugin-license to 5.2.2
 * (meistermopper) Add Node.js 26 to test matrix
-
-### 0.4.0 (2026-08-13)
-* (meistermopper) Add adaptive heating duration prognosis and anomaly detection
-* (meistermopper) Add dev script shortcut for dev-server watch in package.json
-* (meistermopper) Clarify Partner ID and guest account setup instructions
-* (meistermopper) Document adaptive heating prognosis and anomaly detection
-* (meistermopper) Add strict privacy and anonymization rule to AGENTS.md
-* (meistermopper) Clean up To-Do list and add fun future wishlist items
-
-### 0.3.2 (2026-08-11)
-* (meistermopper) Use absolute GitHub URLs for language switching links in README files
-* (meistermopper) Remove latest repository and translation badges from README files
-* (meistermopper) Mark stable repository addition as completed in To-Do list
-* (meistermopper) Remove direct npm installation instructions from README files
-* (dependabot) Bump axios from 1.18.1 to 1.19.0
-* (meistermopper) Center adapter logo in README files
-* (meistermopper) Add Weblate translation status badge to README files
-* (meistermopper) Add npm run translate step to release-before-commit script
-* (meistermopper) Replace static latest badge with dynamic iobroker.live badge
 
 ## License
 MIT License

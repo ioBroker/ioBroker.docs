@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.eusec/README.md
 title: ioBroker.euSec
-hash: xgesXJ9rDwTxAXfgQkTfphizTMC9njHeg3l2pqzIfH0=
+hash: EoqRf/yEagOqrnNE0pySy7GA/XyPYslWRTZXlgP8y5U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.eusec/docs/_media/ioBroker.euSec.png)
 
@@ -43,12 +43,17 @@ hash: xgesXJ9rDwTxAXfgQkTfphizTMC9njHeg3l2pqzIfH0=
 
 Создание этого адаптера было бы невозможно без замечательной работы Патрика Броэтто (brobat) <https://github.com/bropat> , который разработал предыдущие версии этого адаптера.
 
-## ВАЖНАЯ информация при обновлении до Node.js 22
+## Обновление с адаптера версии 2.x или более старой.
 
-Адаптер версии 2.0.3 и более новых поддерживает Node.js 22. Более ранние версии Node.js требовали специальной настройки, которая стала недействительной с выходом Node.js 22. Поэтому при обновлении Node.js с любой версии ниже 22.xx до Node.js 22, пожалуйста, выполните следующие шаги:
+Добавлен адаптер 2.x и более старых версий. `--security-revert=CVE-2023-46809` к параметрам процесса Node.js каждого экземпляра, работающего на Node.js 18 или 20. Node.js 22 и более новые версии отказываются запускать экземпляр с этим флагом, и для этого адаптера требуется Node.js 24.
 
-- Если у вас установлены Node.js версии < 22 и адаптер версии < 2.0.0, сначала обновите Node.js, а затем установите адаптер версии 2.0.3.
-- Если у вас установлен адаптер версии >= 2.0.0 с любой версией Node, предшествующей 22, вам НЕОБХОДИМО переустановить адаптер. Подробное описание (на немецком языке) доступно на нашем форуме ( <https://forum.iobroker.net/topic/82651/test-adapter-eusec-v2-0-x> )
+Установка этого адаптера автоматически удаляет флаг из всех экземпляров eusec; остальные параметры процесса узла сохраняются. Если экземпляр по-прежнему не запускается и в его журнале отображается следующее: `--security-revert=CVE-2023-46809` Удалите параметры вручную и перезапустите экземпляр:
+
+```
+iobroker object set system.adapter.eusec.0 common.nodeProcessParams=[]
+```
+
+Подробное описание (на немецком языке) доступно на нашем форуме ( <https://forum.iobroker.net/topic/82651/test-adapter-eusec-v2-0-x> ).
 
 ## Changelog
 
@@ -56,8 +61,21 @@ hash: xgesXJ9rDwTxAXfgQkTfphizTMC9njHeg3l2pqzIfH0=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (typhosj) Talkback: devices with a speaker get the state `talkback_play`. Writing an http(s) URL or an absolute file path to it plays that audio through the device; a livestream is started for it if none is running and stopped again afterwards (#34)
+- (typhosj) New setting "Battery devices that stay connected": standalone battery devices on permanent power (power supply or solar panel) listed there keep their P2P connection instead of losing it 30 seconds after the last command, and are reconnected when it drops. It drains the battery of a device that is not on permanent power (#33)
+- (typhosj) Installing the adapter now removes only `--security-revert=CVE-2023-46809` from the node process parameters of an instance instead of clearing them all, so parameters such as `--max-old-space-size` survive an update. A failure there no longer aborts the installation
+- (typhosj) Livestreams no longer fail with "RSA_PKCS1_PADDING is no longer supported for private decryption" on node.js builds that refuse RSA PKCS#1 v1.5 decryption; the stream key is now decrypted by node-rsa's own implementation (#144)
+- (typhosj) The eufyCam C31 (T817L) is no longer an unknown device without states; the adapter handles it like the SoloCam Spotlight 1080, which gives it livestream, motion and person detection, light and alarm. Pan and tilt are not available yet (#156)
+
+### 3.2.1 (2026-09-18)
+- (typhosj) An event picture that cannot be decoded no longer replaces the last picture with a `<serial>.unknown` file; `picture_url` and `picture_html` keep the previous picture and a warning names the device, the data length and the image format (#136)
+
+### 3.2.0 (2026-09-15)
+- (typhosj) Pan and tilt cameras expose their four PTZ preset positions: `preset_position` moves the camera to a preset, `save_preset_position` stores the current position in one and `delete_preset_position` clears one. The states are only created for devices that report the matching command (#155)
+
 ### 3.1.0 (2026-09-03)
-- (typhosj) The adapter requires node.js >= 24 now as `eufy-security-client` 4.x requires `node >=24` itself
+- (typhosj) The adapter requires node.js >= 24 now as`eufy-security-client` 4.x requires `node >=24` itself
 - (typhosj) The `livestream`, `livestream_rtsp` and `rtsp_stream_url` states are emptied instead of deleted when a stream ends. 
 - (typhosj) Removed the "HTTPS streaming url" setting. The adapter never configures TLS for go2rtc and go2rtc ignores `api.tls_listen` without a certificate, so the option only ever produced a livestream URL that could not be opened. The URL is built with `http` now
 - (typhosj) The livestream page (`http://<host>:1984/stream.html?src=<serial>`) is now served by the adapter, with the defaults that make a stream unstable on weak clients such as a Fire tablet
@@ -77,20 +95,6 @@ hash: xgesXJ9rDwTxAXfgQkTfphizTMC9njHeg3l2pqzIfH0=
 
 ### 2.0.3 (2025-10-26)
 - (mcm1957) Remove fix for CVE-2023-46809 for node.js 22 and newer
-
-### 2.0.0 (2025-10-26)
-
-- (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
-- (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
-- (mcm1957) Dependencies have been updated
-
-### 1.3.3 (2024-09-28)
-
-* (bropat) Updated version of the package eufy-security-client (3.1.1)
-* (bropat) Further details can be found in the changelog of eufy-security-client (3.1.1)
-
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.eusec/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

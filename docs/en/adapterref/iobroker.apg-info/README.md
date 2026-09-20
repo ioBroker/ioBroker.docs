@@ -59,7 +59,7 @@ With this you can create nice charts like this one (created with echarts adapter
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.1.36-alpha.0 (2026-09-15)
+### 0.1.36 (2026-09-17)
 * (ioBroker-Bot) Adapter requires admin >= 7.8.23 now
 * (SimonFischer04) add raw chart data states
 * (HGlab01) Bump axios to 1.20.0

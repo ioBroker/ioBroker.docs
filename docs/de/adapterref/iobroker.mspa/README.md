@@ -93,9 +93,9 @@ Supports heating, filter, UVC, bubble and jet control with full automation via t
 - Enabled/disabled via `control.winter_mode` (e.g. from VIS) – survives adapter restarts
 - Frost threshold configured in the adapter settings (Admin → Time Control tab)
 - Sends a Telegram notification when frost protection activates or deactivates
-- Runs **independently of `season_enabled` ** – frost protection works even when the season is disabled
+- Runs **independently of `season_enabled`** – frost protection works even when the season is disabled
 
-> ** `season_enabled` vs. `winter_mode` – the difference:**
+> **`season_enabled` vs. `winter_mode` – the difference:**
 >
 > | `season_enabled` | `winter_mode` | Result |
 > |---|---|---|
@@ -113,7 +113,7 @@ Supports heating, filter, UVC, bubble and jet control with full automation via t
 - Set `control.manual_override = true` to pause – the adapter will no longer send any commands to the device
 - **Optional auto-resume:** set `control.manual_override_duration` (minutes) before enabling – the adapter resumes automatically after the configured time (`0` = indefinite)
 - When override is disabled, all automations are **immediately re-evaluated** with the latest device data
-- `control.manual_override` is always **reset to `false` ** on adapter restart
+- `control.manual_override` is always **reset to `false`** on adapter restart
 - Typical use case: control the device via the MSpa app temporarily without the adapter interfering
 
 ---
@@ -168,6 +168,11 @@ Supports heating, filter, UVC, bubble and jet control with full automation via t
 ---
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (arteck) fix pv and heater start
+* (arteck) clean code
+
 ### 0.4.2 (2026-08-22)
 * (arteck) add offline message
 * (arteck) fix app override

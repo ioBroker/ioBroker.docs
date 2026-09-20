@@ -19,32 +19,31 @@ Automatically updates the registered domain name at Cloudflare with your public 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.2.11 (2026-05-16)
-* Fixed #41
-* Update Node.js Version in test-and-release workflow
-* (copilot) Adapter requires node.js >= 22 now
+### 1.2.16 (2026-09-18)
+* Fixed warnings by ioBroker-Bot (W0066)
+* Fixed suggestions by ioBroker-Bot (S4054)
 
-### 1.2.10 (2026-01-25)
-* Updated Workflows
-* Updated Packages
-* Updated Package Lock file
+### 1.2.15 (2026-09-18)
+* Fixed errors by ioBroker-Bot (E0036, E2004)
+* Fixed warnings by ioBroker-Bot (W0066, W1137, alot of W5612)
+* Fixed suggestions by ioBroker-Bot (S4054, S8913)
 
-### 1.2.9 (2025-12-31)
-* Fixed #33
-* Fixed #34
+### 1.2.14 (2026-09-18)
+* Fixed workflow issues
 
-### 1.2.8 (2025-12-31)
-* Fixed #27
-* Fixed #28
+### 1.2.13 (2026-09-18)
+* Fixed some issues with npm
+* Fixed S5004
+* Converted Translations
 
-### 1.2.7 (2025-05-29)
-* Fixed #23
-* Fixed #24
+### 1.2.12 (2026-09-18)
+* Fixed ioBroker Bot issues
+* Updated packages.json
 
 ## License
 MIT License
 
-Copyright (c) 2025-2026 Marco15453 <support@marco15453.dev>
+Copyright (c) 2025-2026 Marco15453 <contact@marco15453.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

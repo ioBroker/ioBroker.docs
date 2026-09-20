@@ -18,24 +18,24 @@ Incoming and Outgoing integrations can be used to send messages to the Synology 
 
 ---
 
-# Manual
+## Manual
 
-## 1. Installation
+### 1. Installation
 The adapter can be instantiated from the adapter section in your ioBroker installation.
 More information can be found in the official [ioBroker documentation](https://www.iobroker.net/#de/documentation/admin/adapter.md).
 
-## 2. Configuration
+### 2. Configuration
 
 <div id="synology-chat-configuration"></div>
 
-### 2.1. Synology chat configuration
+#### 2.1. Synology chat configuration
 - The Synology Chat offers the possibility to handle incoming and outgoing messages. In the following, both options will be examined in more detail.
 
 - To create messages via the Synology Chat interface, an integration must be created in Synology Chat:
 ![SynoChatChannel](./docs/images/diSynoChatChannel.png)
 ![SynoChatIntegrations](./docs/images/diSynoChatIntegrations.png)
 
-  	#### 2.1.1. Incoming integration
+  	##### 2.1.1. Incoming integration
 
 	For the integration of an incoming message in the Synology chat, a token is needed, which can be taken from the URL generated during the creation.
 	![SynoChatIntegrationIncoming](./docs/images/diSynoChatIntegrationIncoming.png)
@@ -43,7 +43,7 @@ More information can be found in the official [ioBroker documentation](https://w
 
 	<div id="synologyChatConfigurationOutgoingIntegration"></div>
 
-  	#### 2.1.2. Outgoing integration
+  	##### 2.1.2. Outgoing integration
 	For the integration of an outgoing message in the Synology chat, a web hook URL needs to be provided. You will get this web hook URL from the instance objects after instantiating the `synochat` adapter. More details can be found in [3. Usage > 3.1 General](#web-hook-location)
 	![SynoChatIntegrationIncoming](./docs/images/diSynoChatIntegrationOutgoing.png)
 	![SynoChatIntegrationIncomingSettings](./docs/images/diSynoChatIntegrationOutgoingSettings.png)
@@ -53,9 +53,9 @@ More information can be found in the official [ioBroker documentation](https://w
 
 For more details on how to handle integrations within Synology chat, please refer to Synology's official documentation [HERE](https://kb.synology.com/DSM/help/Chat/chat_integration)
 
-### 2.2. ioBroker adapter instance configuration
+#### 2.2. ioBroker adapter instance configuration
 - The configuration of this adapter can be done in the instance settings.
-    #### 2.2.1. Main settings:
+    ##### 2.2.1. Main settings:
 	![IobrokerInstanceSettingsMainSettings](./docs/images/diIobrokerInstanceSettingsMainSettings.png)
     
 	* **Synology URL/IP**
@@ -89,7 +89,7 @@ For more details on how to handle integrations within Synology chat, please refe
 
 	<div id="channel-configuration"></div>
 
-    #### 2.2.2. Channel management / configuration:
+    ##### 2.2.2. Channel management / configuration:
 	![IobrokerInstanceSettingsChannelConfiguration](./docs/images/diIobrokerInstanceSettingsChannelConfiguration.png)
 
 	* **Channel enabled**
@@ -168,7 +168,7 @@ For more details on how to handle integrations within Synology chat, please refe
     
 	<div id="message-templates"></div>
 
-	#### 2.2.3. Message templates:
+	##### 2.2.3. Message templates:
     It is possible to define message templates that are processed before sending a message to Synology Chat Server. These templates can contain patterns that are replaced during the sending process.
     
 	![IobrokerInstanceSettingsChannelConfiguration](./docs/images/diIobrokerInstanceSettingsMessageTemplates.png)
@@ -321,13 +321,13 @@ For more details on how to handle integrations within Synology chat, please refe
 
 		The available patterns are related to the customer JSON value that will be provided to the channel message object.
 
-	#### 2.2.4. Help:
+	##### 2.2.4. Help:
    	* This tab usually redirects to the official GitHub page of this project, where detailed help and usage instructions are given.
 	* If there are any open questions, suggestions for changes, unwanted behavior or bugs, please create a [GitHub issue](https://github.com/phoeluga/ioBroker.synochat/issues/new/choose) to ensure the quality of this project.
 
 <div id="configurationWebInstance"></div>
 
-### 2.3. Configuration of the `web` instance
+#### 2.3. Configuration of the `web` instance
 For receiving messages from the Synology chat server an outgoing integration is needed to be configured - See [Outgoing integration](#synologyChatConfigurationOutgoingIntegration).
 
 This requires an instance of the `web` adapter to be running and configures in the [`synochat` adapter instance configured](#configurationAdapterWebInstance).
@@ -338,8 +338,8 @@ The communication will not be established and unfortunately there will be no dir
 
 <div id="usage"></div>
 
-## 3. Usage
-### 3.1 General
+### 3. Usage
+#### 3.1 General
 * After configuring the adapter instance, a folder with the channel name is created for each configured channel in the objects of the respective adapter instance.
 	![IobrokerObjectOverview](./docs/images/diIobrokerObjectOverview.png)
 
@@ -367,7 +367,7 @@ The communication will not be established and unfortunately there will be no dir
 * The web hook URL / address will be provided as an object value in the info folder of the adapter instance and is valid for all channels withing one adapter instance.
 	![IobrokerObjectWebHook](./docs/images/diIobrokerObjectWebHook.png)
 
-### 3.2 Message content type
+#### 3.2 Message content type
 
 Besides sending plain text messages, other content types such as images can also be sent to an incoming channel.\
 To realize this, the content must be available as a web resource. To send an image, just set the URL as the value of the the message object of the Syno-Chat adapter instance mentioned in [3. Usage > 3.1 General](#usage).
@@ -376,7 +376,7 @@ To realize this, the content must be available as a web resource. To send an ima
 Many surveillance cameras provide a stream or interface to retrieve an image that is updated at a specified time interval or when motion is detected.\
 This URL provides image that needs to be set as the value of the the message object.
 
-### 3.3 Debugging in case of issues
+#### 3.3 Debugging in case of issues
 
 To get more detailed information about the adapter behaviors in case of issues, you can increase the log level of the `synochat` adapter instance to `debug`.
 
@@ -389,7 +389,15 @@ Since this adapter is using a `web` adapter instance to provide web hooks to the
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.4.3 (2026-09-16)
+- (iobroker-bot) Adapter requires node.js >= 22 now.
+- *[@phoeluga]* Dropped Node.js 20 support (EOL) and added Node.js 26 to the test matrix; bumped `engines.node` to `>=22` - #79
+- *[@phoeluga]* Added `CHANGELOG_OLD.md` to keep the changelog section of this README concise - #62
+- *[@phoeluga]* Added a Dependabot ignore rule for `@types/node` major version bumps - #64
+- *[@phoeluga]* Fixed README containing two top-level headings and moved the License section to be the last section
+- *[@phoeluga]* Added `prettier.config.mjs` re-exporting the shared `@iobroker/eslint-config` prettier config
+- *[@phoeluga]* Replaced the custom `sleep()`/`setTimeout()` helpers with the lifecycle-managed `this.delay()` from `@iobroker/adapter-core`
+- *[@phoeluga]* Added a Dependabot cooldown period (`cooldown.default-days: 7`) to reduce supply-chain risk
 - *[@phoeluga]* Updated outdated devDependencies (`@alcalzone/release-script*` to v5.x, `@iobroker/testing` to 5.2.2)
 - *[@phoeluga]* Bumped `admin` globalDependency requirement to `>=7.6.20`
 - *[@phoeluga]* Migrated CI/CD to NPM Trusted Publishing (OIDC) — removed long-lived `NPM_TOKEN`
@@ -428,63 +436,15 @@ Since this adapter is using a `web` adapter instance to provide web hooks to the
 - *[@phoeluga]* Fixed special character escaping issue - #16
 - *[@phoeluga]* Added text mapping for 'human readable' descriptions of the message parent objects - #14
 
-### 1.3.0 (2023-07-23)
-- *[@phoeluga]* Added feature to react on messages from Notification-Manager - #9
-- *[@phoeluga]* Added feature to react on general received messages sent to the `synochat` adapter instance.
-- *[@phoeluga]* Added message templates for received messages from other adapters.
-- *[@phoeluga]* Added message templates for object values related to an associated channel.
-
-### 1.2.1 (2022-05-18)
-- *[@phoeluga]* The IP family check to determine the local IP address of the ioBroker instance has been adjusted.
-
-### 1.2.0 (2022-05-17)
-
-- *[@phoeluga]* Added enhancement #6 - Delayed sending of messages has been added to work around the limitations of messages sent to the Synology Chat Server in a certain time interval.
-- *[@phoeluga]* Regarding #6, a message queue has been added to ensure that the order of messages to be sent is respected when the sending of messages is delayed.
-- *[@phoeluga]* Implementation of the [requirements](https://github.com/ioBroker/ioBroker.repositories/pull/1759#issuecomment-1127520995) for adding the adapter in the ioBroker repository - Adding MIT license hint to the Readme.
-- *[@phoeluga]* Implementation of the [requirements](https://github.com/ioBroker/ioBroker.repositories/pull/1759#issuecomment-1127520995) for adding the adapter in the ioBroker repository - Moved adapter instance object subscription after initial connectivity check.
-- *[@phoeluga]* Implementation of the [requirements](https://github.com/ioBroker/ioBroker.repositories/pull/1759#issuecomment-1127520995) for adding the adapter in the ioBroker repository - Added exception handling to cover https://github.com/nodejs/node/issues/43014 in Nodejs 18
-- *[@phoeluga]* Implementation of the [requirements](https://github.com/ioBroker/ioBroker.repositories/pull/1759#issuecomment-1127527703) for adding the adapter in the ioBroker repository - Added axios as dependency in package.json
-
-### 1.1.1 (2022-04-16)
-
-- *[@phoeluga]* Fixed issue #4 - Issue while migrating data from version < 1.1.0
-- *[@phoeluga]* Added collecting and loading of default values when loading the initial configuration of the adapter instance
-- *[@phoeluga]* The channel search behavior has been adjusted to react accordingly to deactivated channels and to query the remaining channels.
-
-### 1.1.0 (2022-04-14)
-
-- *[@phoeluga]* Added the ability to manage multiple channels in one adapter instance per Synology chat server.
-- *[@phoeluga]* A possibility of ioBroker hostname / IP address configuration has been introduced.\
-(May be helpful when using an ioBroker Docker instance).
-- *[@phoeluga]* A functionality to receive incoming messages from the Synology chat server using WebHooks has been added.\
-(An instance of the web adapter is required to use this feature)
-- *[@phoeluga]* The translation of the UI properties was added.
-- *[@phoeluga]* Added function to migrate channel data from an older version to a new channel object in the list approach.
-- *[@phoeluga]* Added possibility for a user to disable dedicated channels from being processed.
-
-### 1.0.1 (2022-04-06)
-
-- *[@phoeluga]* Resolved #1 - Unable to send messages with special characters
-- *[@phoeluga]* Resolved #2 - Send images
-
-### 1.0.0 (2022-04-05)
-
-- *[@phoeluga]* Initial release
-
-### 0.0.1 (2022-04-03) - ALPHA
-
-- *[@phoeluga]* Start of development
+## Other disclosures
+#### Resource attribution
+- [Chat icons created by Pixel perfect - Flaticon](https://www.flaticon.com/free-icons/chat)
 
 ## License
 
 This code is licensed under 'The MIT License (MIT)' license specified in the [LICENSE](https://github.com/phoeluga/ioBroker.synochat/blob/master/LICENSE) file.
 
 Copyright (c) 2025-2026 phoeluga <phoeluga@gmail.com>
-
-## Other disclosures
-#### Resource attribution
-- [Chat icons created by Pixel perfect - Flaticon](https://www.flaticon.com/free-icons/chat)
 
 [donate-badge]:https://img.shields.io/static/v1?label=Treat%20a%20coffee&message=donate%20a%20tip&color=2a9cde&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTcgMjJoMTBhMSAxIDAgMCAwIC45OS0uODU4TDE5Ljg2NyA4SDIxVjZoLTEuMzgybC0xLjcyNC0zLjQ0N0EuOTk4Ljk5OCAwIDAgMCAxNyAySDdjLS4zNzkgMC0uNzI1LjIxNC0uODk1LjU1M0w0LjM4MiA2SDN2MmgxLjEzM0w2LjAxIDIxLjE0MkExIDEgMCAwIDAgNyAyMnptMTAuNDE4LTExSDYuNTgybC0uNDI5LTNoMTEuNjkzbC0uNDI4IDN6bS05LjU1MSA5LS40MjktM2g5LjEyM2wtLjQyOSAzSDcuODY3ek03LjYxOCA0aDguNzY0bDEgMkg2LjYxOGwxLTJ6IiBmaWxsPSIjZWRmMmZhIiBjbGFzcz0iZmlsbC0wMDAwMDAiPjwvcGF0aD48L3N2Zz4=
 [donate-badge2]:https://img.shields.io/static/v1?label=Treat%20a%20coffee&message=donate%20a%20tip&color=2a9cde&logo=data:image/svg+xml;base64,PHN2ZyBkYXRhLW5hbWU9IkxheWVyIDEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjYuNSAxNUgyNnYtMWEyIDIgMCAwIDAtMi0ySDJhMiAyIDAgMCAwLTIgMnY2YTEwLjY0IDEwLjY0IDAgMCAwIDExIDExaDRhMTAuNzkgMTAuNzkgMCAwIDAgOS4zMS01aDIuMTlhNS41IDUuNSAwIDAgMCAwLTExWk0xNSAyN2gtNGE2LjcgNi43IDAgMCAxLTctN3YtNGgxOHY0YTYuNzcgNi43NyAwIDAgMS03IDdabTExLjQ0LTQuNzdoLS43OGExMy43NSAxMy43NSAwIDAgMCAuMi0yLjMxdi0xLjE1aC41OGExLjczIDEuNzMgMCAwIDEgMCAzLjQ2Wk0xMyAxMGEyIDIgMCAwIDAgMi0yVjJhMiAyIDAgMSAwLTQgMHY2YTIgMiAwIDAgMCAyIDJaTTIwIDEwYTIgMiAwIDAgMCAyLTJWN2EyIDIgMCAwIDAtNCAwdjFhMiAyIDAgMCAwIDIgMlpNNiAxMGEyIDIgMCAwIDAgMi0yVjZhMiAyIDAgMCAwLTQgMHYyYTIgMiAwIDAgMCAyIDJaIiBmaWxsPSIjZjBmNWZhIiBjbGFzcz0iZmlsbC1iYTYzYzYiPjwvcGF0aD48L3N2Zz4=

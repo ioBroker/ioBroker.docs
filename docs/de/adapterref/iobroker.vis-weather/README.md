@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-weather/README.md
 title: ioBroker.vis-weather
-hash: 85zGuDwo884/7EFK6dJBZ4m/R1xf3zxTu4Ec8vueMmU=
+hash: pJURSY25VF7HeykHQ0HhE6wv12pTvrLK62BsmqGHOk0=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
@@ -31,6 +31,10 @@ Dieses Widget zeigt Wettervorhersagedaten von DasWetter.com oder weatherundergro
 
 Bei weatherunderground muss die 36-Stunden-Vorhersage aktiviert sein. Bei DasWetter.com muss eine von vier Vorhersagedatenstrukturen aktiviert sein. Sie können die gewünschte auswählen.
 
+## AUFMERKSAMKEIT
+
+Dieses Widget-Set wird in Kürze nicht mehr unterstützt. Bitte verwenden Sie stattdessen die neuen Widget-Sets für vis-2.
+
 ## Kompatibilität mit vis-2
 
 Dieses Widget ist NICHT mit vis-2 kompatibel. Eine neue Version unter dem Namen [vis-2-widgets-weather](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather) ist in Vorbereitung.
@@ -55,6 +59,11 @@ Normalerweise werden OIDs automatisch erstellt, wenn Sie eine Instanz oder Daten
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+This widget set becomes deprecated in the near future. Please use the new widget sets for vis-2 instead. 
+* (René) dependencies update
+
 ### 2.5.13 (2025-10-22)
 * (René) changes based on adapter checker suggestions
 

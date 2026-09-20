@@ -60,12 +60,15 @@ Build on top of the following projects:
   ### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (raintonr) Move castv2-player 'info' logging to 'debug' [#550]
+
 ### 4.2.0 (2026-05-04)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (mcm1957) Logging technical deatils reduced to debug level
 - (mcm1957) Dependencies have been updated
--
 
 ### 4.1.1 (2026-02-16)
 - (mcm1957) Linting has been updated to @iobroker/eslint-config
@@ -88,7 +91,7 @@ Build on top of the following projects:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2015-2022 Vegetto <iobroker@angelnu.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

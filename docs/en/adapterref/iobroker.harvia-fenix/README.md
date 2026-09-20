@@ -143,7 +143,15 @@ The adapter maps your sauna's cloud states into structured ioBroker datapoints u
 | `timeToTargetFormatted` | string | `text` | Read-only | Formatted time required to reach target temperature (e.g., `39 min 30 sec`). |
 | `heatingCurve` | string | `json` | Read-only | JSON array of interval heating seconds per 10°C slice for charts/VIS. |
 | `profiles` | string | `json` | Read-only | JSON array of available sauna profiles (e.g., Cozy, etc.). |
-| `activeProfile` | number | `level` | Read/Write | Index of the currently active sauna profile. |
+| `activeProfile` | number | `level` | Read/Write | Index of the currently active sauna profile (`0` = mild, `1` = cozy, `2` = hot). |
+| `events.lastEvent` | string | `text` | Read-only | Code or identifier of the latest event received from Harvia Events Service. |
+| `events.lastEventType` | string | `text` | Read-only | Category of the latest event (`SAFETY`, `ERROR`, `SYSTEM`, etc.). |
+| `events.lastEventSeverity` | string | `text` | Read-only | Severity level of the latest event (`info`, `warn`, `error`, `critical`). |
+| `events.lastEventMessage` | string | `text` | Read-only | Human-readable message or description of the latest event. |
+| `events.lastEventTime` | string | `date` | Read-only | ISO timestamp of the latest event. |
+| `events.safetyTripped` | boolean | `sensor.alarm` | Read-only | Indicates if an active safety shutoff or interlock trip occurred. |
+| `events.safetyReason` | string | `text` | Read-only | Reason/cause of the active safety trip. |
+| `events.history` | string | `json` | Read-only | JSON array containing recent event history (up to 15 events). |
 
 ---
 
@@ -183,6 +191,27 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 
 *Note: These states will automatically reset to `false` when the heater is turned off or when a new heating session starts.*
 
+### 3. Sauna Profiles (`profiles` & `activeProfile`)
+* **Available Profiles (`profiles`):**  
+  Reflects the pre-configured sauna programs from your **MyHarvia 2 app** (e.g. *Mild*, *Cozy*, *Hot*) as a JSON array including preset target temperatures and timers.
+* **Switching Profiles (`activeProfile`):**  
+  This datapoint is **read/write** using a 0-based index:
+  - `0` = **mild**
+  - `1` = **cozy**
+  - `2` = **hot**
+  - Writing a number to `activeProfile` sends a profile change request directly to the Harvia cloud (`PATCH /devices/profile`), automatically applying the profile's preset target temperature and session duration to the sauna cabin.
+  - **Example (Script):**
+  ```javascript
+  // Switch to the cozy sauna profile
+  setState('harvia-fenix.0.activeProfile', 1);
+  ```
+
+### 4. Events & Safety Hub (`events.*`)
+* **Safety Trip Monitoring (`events.safetyTripped` & `events.safetyReason`):**  
+  The adapter monitors door safety loops, thermal cutoffs, and safety switch interlocks from the Harvia Events Service. If an active safety trip occurs during heating, `events.safetyTripped` switches to `true` with a clear explanation in `events.safetyReason`.
+* **Event History (`events.history`):**  
+  Maintains a sliding history of the last 15 system, door, error, and safety events as a structured JSON array for VIS dashboards and audit logging.
+
 ---
 
 ## Troubleshooting
@@ -205,6 +234,20 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 ---
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (meistermopper) Document activeProfile standard index mapping (0=mild, 1=cozy, 2=hot)
+
+### 1.1.0 (2026-09-17)
+* (meistermopper) Add Events & Safety Hub with dedicated events channel and states
+* (meistermopper) Add safety trip detection, alarm indicators, and sliding history
+* (meistermopper) Fix activeProfile endpoint to use PATCH /devices/profile per API spec
+* (meistermopper) Document profiles and activeProfile switching behavior in README
+
+### 1.0.0 (2026-09-17)
+* (meistermopper) Add AWS AppSync WebSocket real-time push client
+* (meistermopper) Add token refresh via /auth/refresh using refreshToken
+
 ### 0.6.0 (2026-09-16)
 * (meistermopper) Add readyAt, readyAtMessage, timeToTargetFormatted states
 * (meistermopper) Implement Harvia native 13-interval heating curve calculation
@@ -225,25 +268,6 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 * (meistermopper) Add bidirectional heating anomaly detection (too slow / fast)
 * (meistermopper) Update @alcalzone/release-script-plugin-license to 5.2.2
 * (meistermopper) Add Node.js 26 to test matrix
-
-### 0.4.0 (2026-08-13)
-* (meistermopper) Add adaptive heating duration prognosis and anomaly detection
-* (meistermopper) Add dev script shortcut for dev-server watch in package.json
-* (meistermopper) Clarify Partner ID and guest account setup instructions
-* (meistermopper) Document adaptive heating prognosis and anomaly detection
-* (meistermopper) Add strict privacy and anonymization rule to AGENTS.md
-* (meistermopper) Clean up To-Do list and add fun future wishlist items
-
-### 0.3.2 (2026-08-11)
-* (meistermopper) Use absolute GitHub URLs for language switching links in README files
-* (meistermopper) Remove latest repository and translation badges from README files
-* (meistermopper) Mark stable repository addition as completed in To-Do list
-* (meistermopper) Remove direct npm installation instructions from README files
-* (dependabot) Bump axios from 1.18.1 to 1.19.0
-* (meistermopper) Center adapter logo in README files
-* (meistermopper) Add Weblate translation status badge to README files
-* (meistermopper) Add npm run translate step to release-before-commit script
-* (meistermopper) Replace static latest badge with dynamic iobroker.live badge
 
 ## License
 MIT License

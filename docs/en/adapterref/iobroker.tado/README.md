@@ -75,6 +75,8 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 -->
 ### __WORK IN PROGRESS__
 * (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
+* (HGlab01) add attribute 'ownerName'
+* (HGlab01) bump axios to 1.20.0
 
 ### 0.8.5 (2026-06-19)
 * (HGlab01) improve code quality
@@ -107,6 +109,7 @@ If your setup is not working, please raise a [ticket](https://github.com/Drozmot
 * (HGlab01) fix issue 'definition missing for holidayMode' [TadoX]
 * (HGlab01) fix issue 'cannot read properties of undefined (reading 'match')'
 * (HGlab01) fix issue openWindow data not up to date #1086
+
 
 ## License
 MIT License

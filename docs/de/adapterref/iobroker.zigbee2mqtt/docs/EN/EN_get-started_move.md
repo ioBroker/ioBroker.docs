@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_get-started_move.md
 title: Installation inkl. Umstellung vom ioBroker/Zigbee-Adapter
-hash: JqzFY/GWycxVS4kHsgVnpyNlbyYefrQdHy1Tk5lJCZ0=
+hash: 57iKhPmVGBFSLttAh7lsf8BnrlZW6KQLnJfTkul+vl0=
 ---
 # Installation inkl. Umstellung vom ioBroker/Zigbee-Adapter
 
@@ -144,8 +144,8 @@ Bitte beachten Sie, dass NUR die PAN\_ID in das HEX-Format konvertiert werden mu
 The remaining values are already in the correct format, they only have to be converted into the correct notation..     
 ```
 
-- also von ext\_pan\_id:`00124b0237b988`
-- zur ext\_pan\_id:`0x00` ,`0x12` ,`0x4b` ,`0x02` ,`0x37` ,`0xb9` ,`0x88`
+- also von ext\_pan\_id: `00124b0237b988`
+- zur ext\_pan\_id: `0x00`, `0x12`, `0x4b`, `0x02`, `0x37`, `0xb9`, `0x88`
 
 Genau so muss der Netzwerkschlüssel neu codiert werden.
 
@@ -158,11 +158,11 @@ Dies ist wichtig, da der Koordinator sonst falsche Daten erhält und Sie das Net
    - Stoppen Sie den ioBroker/Zigbee-Adapter.
    - Kopieren Sie die Datenbank von ioBroker in den Container und benennen Sie sie um. Quelle: /opt/iobroker/iobroker-data/zigbee\_/shepart.db Ziel: „Docker-Verzeichnis“/zigbee2mqtt/data/database.db
 
-5. Sobald Sie all dies erledigt haben, können Sie verwenden`docker-compose up -d` Um die Docker-Konfiguration anzuwenden und den Container zu erstellen, können wir nach kurzer Zeit die Weboberfläche von Zigbee2MQTT unter <http://Dockerhost-IP:8080> aufrufen. Die Konfiguration sollte sich nun geändert haben und die eingegebenen Hexadezimalwerte sollten konvertiert worden sein. Falls die Weboberfläche nicht erreichbar ist, liegt weiterhin ein Fehler vor, der im Container-Log bis 99 % angezeigt wird.
+5. Sobald Sie all dies erledigt haben, können Sie verwenden `docker-compose up -d` Um die Docker-Konfiguration anzuwenden und den Container zu erstellen, können wir nach kurzer Zeit die Weboberfläche von Zigbee2MQTT unter <http://Dockerhost-IP:8080> aufrufen. Die Konfiguration sollte sich nun geändert haben und die eingegebenen Hexadezimalwerte sollten konvertiert worden sein. Falls die Weboberfläche nicht erreichbar ist, liegt weiterhin ein Fehler vor, der im Container-Log bis 99 % angezeigt wird.
 
 6. Installation des Zigbee2MQTT-Adapters über die Registerkarte „Adapter“ in ioBroker.
 
-7. Konfiguration des Adapters Siehe [Adapterkonfiguration](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/EN/EN/EN_AdapterConfig.md)
+7. Konfiguration des Adapters Siehe [Adapterkonfiguration](/#/docs/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_AdapterConfig.md)
 
 8. Wenn jetzt alles gut gegangen ist, haben wir unser Zigbee-Netzwerk erfolgreich umgestellt und können noch einige Anpassungen am neuen System vornehmen.
    - Gelöschte Gruppen erneut erstellen

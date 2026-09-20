@@ -697,6 +697,12 @@ translations should be submitted as PRs against the respective
 
 ## Changelog
 
+### 0.4.12 (2026-09-17)
+- Fix Issue #138: three robustness/functionality fixes for map handling on newer models with AES-encrypted map payloads (r2253c/w and similar). 1) A silent crash in the room-name fallback path (main.js): when the map file request failed, an unhandled TypeError showed up only as a generic error; now an early return with a clear debug message. 2) A model without an AES-IV table entry can never load its base map — this is now a persistent, recognizable condition (unsupportedMapModel) instead of the generic please-restart-the-adapter hint. 3) The old_map_data (piid 13) property, pushed specifically during active cleaning, could carry the same object_name-plus-AES-key format as the already-working piid 3 path, but was previously only logged as unimplemented and discarded; it now reuses the existing, already-verified decrypt pipeline (confirmed against the Home Assistant reference implementation), with a Debug-level log that masks the key material so it is safe to share in a public issue. Thanks to @luckyheiko for the detailed reports that made all three fixes possible.
+
+### 0.4.11 (2026-09-17)
+- Fix Issue #119: sync REMAP'd common metadata (name, states) to existing state objects at adapter start. In v0.4.8 the REMAP change for SIID 4/PIID 6 was correctly written to the in-memory spec but not to the persisted ioBroker objects, because _lazyCreateState only updates common.states when the cloud sends a get_properties response for that property — which may never happen for infrequently-changing properties. The frischwasser widget's mop-pad-presence detection then fell back to the pulse-only source and displayed permanent not-installed even on REMAP'd devices. A new one-time-per-device migration (_syncRemapObjectMetadata, marker <did>.info.remapMetaSyncV2) now rebuilds the state objects with the correct metadata at adapter start. Thanks to @SilentM1978 for the diagnostic widget test that isolated the root cause to metadata persistence rather than the REMAP logic itself.
+
 ### 0.4.10 (2026-09-12)
 - Fix: axios bumped to 1.20.0 for upstream security fixes; Node.js built-in requires now use the node: prefix (lib/haDecode.js, lib/mapMerge.js)
 

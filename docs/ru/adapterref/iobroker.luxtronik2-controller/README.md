@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.luxtronik2-controller/README.md
 title: ioBroker.luxtronik2-controller
-hash: TiXtgC6NLS2jr2SYAbfuyrUaeFVQk26Prl/bzemFr/M=
+hash: t3/i6E1S+oc0WsXn8RUKRmCiqvoXJph13P2B7SDT/OM=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.luxtronik2-controller.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.luxtronik2-controller.svg)
@@ -63,6 +63,24 @@ Dieses Projekt steht in keinerlei Verbindung zu Alpha Innotec, Novelan, ait-deut
 
 _Данный проект не связан с компаниями Alpha Innotec, Novelan, ait-deutschland GmbH или какой-либо другой компанией. Это личный проект, который поддерживается в свободное время. Использование на свой страх и риск._
 
+"project\_disclaimer": "Этот проект не является ничьим партнером в сфере деятельности Alpha Innotec, Novelan, ait-deutschland GmbH и других изготовителей. Это проект кодирования, который находится в частной собственности и охраняется в свободное время. Использование адаптера - это место, где оно находится."
+
+"project\_disclaimer": "Этот проект не является филиалом Alpha Innotec, Novelan, ait-deutschland GmbH или других производителей. Проект с открытым исходным кодом находится в частной разработке и поддерживается в свободное время. Использование адаптера будет выполнено для вас. риски».
+
+"project\_disclaimer": "Этот проект не является филиалом Alpha Innotec, Novelan, ait-deutschland GmbH или других производителей. Проект с открытым исходным кодом находится в частной разработке и поддерживается в свободное время. Использование адаптера будет выполнено для вас. риски».
+
+"project\_disclaimer": "Этот проект является частью совместной работы с Alpha Innotec, Novelan, ait-deutschland GmbH и другими фабриками. Это частный проект с открытым исходным кодом, который может быть использован в любой момент. Использование адаптера является собственным риском."
+
+"project\_disclaimer": "Ten projekt nie jest w żaden sposób powiązany z Alpha Innotec, Novelan, ait-deutschland GmbH и другими производителями. Jest to Priwatny Project typeu с открытым исходным кодом, развертывание и использование с помощью wolnym. się na własną odpowiedzialność."
+
+"project\_disclaimer": "Этот проект не является партнером альгумской формы Alpha Innotec, Novelan, ait-deutschland GmbH или других производителей. Это проект кода, который находится в частном порядке и не работает в течение длительного времени. Мы используем адаптер для вашего риска."
+
+"project\_disclaimer": "Этот проект никоим образом не связан с компаниями Alpha Innotec, Novelan, ait-deutschland GmbH или другими производителями. Этот частный проект с открытым исходным кодом, который разрабатывается и осуществляется в свободное время. Использование адаптера для обеспечения вашего страха и риска."
+
+"project\_disclaimer": "Этот проект не связан с Alpha Innotec, Novelan, ait-deutschland GmbH с другими разработками. Этот частный проект с непроверенным кодом, который будет раскрыт и будет продлен в ближайшее время. здійснюється на власний ризик."
+
+"project\_disclaimer": "Этот проект не связан с Alpha Innotec, Novelan, ait-deutschland GmbH с другими разработками. Этот частный проект с непроверенным кодом, который будет раскрыт и будет продлен в ближайшее время. здійснюється на власний ризик."
+
 ## Сообщения об ошибках и вклад в разработку
 
 Сообщения об ошибках, примечания о совместимости с конкретными версиями прошивки или запросы на добавление новых функций можно отправлять через систему отслеживания ошибок в [репозитории GitHub](https://github.com/TbsJah/ioBroker.luxtronik2-controller/issues) .
@@ -71,7 +89,7 @@ _Данный проект не связан с компаниями Alpha Innot
 
 [Info Deutsch](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md)
 
-[Информация на английском языке](https://github.com/TbsJah/ioBroker.luxtronik2-controller/blob/main/documentation/readme_en.md)
+[Информация на английском языке](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md)
 
 <img src="documentation/Bilder/Haupteinstellung.png" alt="Haupteinstellung" width="100%">
 <img src="documentation/Bilder/Objekte.png" alt="Objekte" width="100%">
@@ -84,6 +102,10 @@ _Данный проект не связан с компаниями Alpha Innot
 ## Changelog
 
 // ### **WORK IN PROGRESS**
+### 0.8.1 (2026-09-19)
+
+- Resolve issues which are reported by repository checker
+
 ### 0.8.0 (2026-09-14)
 
 **🚀 Features & Enhancements**
@@ -134,19 +156,6 @@ _Данный проект не связан с компаниями Alpha Innot
 - (Fixed) Status Display: Fixed a logical evaluation bug where the operating state "Heating" (Code 0) was incorrectly overwritten and displayed as "No demand" (Code 5). Thanks to @michiproep for reporting!
 
 - (Fixed) Temperature Values: Fixed a related issue where temperature readings of exactly 0 °C (e.g., average temperature, return target temperature, cooling release) were incorrectly replaced by internal fallback values (e.g., 1.5 °C).
-
-### 0.7.0 (2026-09-04)
-
-**Features & Changes**
-
-- **(Changed) Cycle Optimization & Forced Hot Water**: To force a hot water cycle, the adapter now temporarily increases the hot water target temperature instead of modifying the hysteresis. This crucial safety improvement allows users to manually revert changes directly on the heat pump display without needing an installer password.
-- **(Changed) Disable default**: Disabled reset to default values in idle mode by default on initial start
-- **(Removed) Hysteresis Protection**: Removed all dynamic manipulations of the hot water hysteresis (e.g., during idle or active DHW cycles) to ensure installer-level settings remain untouched.
-- **(UI/Docs)**: Added detailed explanations and trigger rules for "Intelligent Cycle Optimization" and "Heating after hot water" directly to the admin configuration page.
-
-**Bugfixes**
-
-- Fixed adapter checker warning [W0066] by downgrading `@types/node` dependency to v22
 
 ## License
 

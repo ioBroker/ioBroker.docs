@@ -1,33 +1,64 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.vis-2-widgets-gauges/README.md":{"title":{"en":"Gauge widgets for ioBroker.vis-2"},"content":"en/adapterref/iobroker.vis-2-widgets-gauges/README.md"},"en/adapterref/iobroker.vis-2-widgets-gauges/docs/en/README.md":{"title":{"en":"Gauges for vis-2"},"content":"en/adapterref/iobroker.vis-2-widgets-gauges/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-gauges/README.md
-title: Mess-Widgets für ioBroker.vis 2.0
-hash: 5iLMGtyB99lRQAK1ONkHMBjo74t5FRqsayjPu8xopns=
+title: Gauge-Widgets für ioBroker.vis-2
+hash: +9afG0nZwNj65LEA6I1pwo175GkaGv6REDYvL6LH1iI=
 ---
-![Logo](../../../en/adapterref/iobroker.vis-2-widgets-gauges/admin/vis-2-widgets-gauges.png)
+![Logo](../../../en/adapterref/iobroker.vis-2-widgets-gauges/admin/vis-2-widgets-gauges.svg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/vis-2-widgets-gauges-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-2-widgets-gauges.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-gauges.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-gauges.png?downloads=true)
 
-# Messgerät-Widgets für ioBroker.vis 2.0
-## Widgets
-### Farbanzeige
-![Farbanzeige](../../../en/adapterref/iobroker.vis-2-widgets-gauges/img/color-gauge.png)
+# Gauge-Widgets für ioBroker.vis-2
 
-### Wasserstandsanzeige
-![Wasserstandsanzeige](../../../en/adapterref/iobroker.vis-2-widgets-gauges/img/water-gauge.png)
+Zehn Widgets für [ioBroker.vis-2](https://github.com/ioBroker/ioBroker.vis-2) , die einen Wert als Messinstrument anzeigen:
 
-### Batterieanzeige
-![Batterieanzeige](../../../en/adapterref/iobroker.vis-2-widgets-gauges/img/battery-gauge.png)
+| Widget               | Ausweis                | Zum Beispiel                                                            |
+| -------------------- | ---------------------- | ----------------------------------------------------------------------- |
+| Farbskala            | `tplGauge2Color`       | ein Halbkreis aus farbigen Segmenten mit einer Nadel                    |
+| Wasserstandsanzeiger | `tplGauge2Water`       | Luftfeuchtigkeit, Füllprozent                                           |
+| Batterieanzeige      | `tplGauge2Battery`     | Batterie eines Sensors, Telefons oder Autos mit Ladeanzeige             |
+| Radiallehre          | `tplGauge2Radial`      | Kraft, Geschwindigkeit, Druck – das klassische Instrument               |
+| Lichtbogenmessgerät  | `tplGauge2Arc`         | jeder Wert mit einer Sollwertmarkierung, auch als LED-Segmente          |
+| Lineare Messlehre    | `tplGauge2Linear`      | horizontaler oder vertikaler Balken, z. B. Netzleistung von -3 bis 6 kW |
+| Thermometer          | `tplGauge2Thermometer` | Innen- und Außentemperatur                                              |
+| Kompass              | `tplGauge2Compass`     | Windrichtung und -geschwindigkeit, Kurs                                 |
+| Tank                 | `tplGauge2Tank`        | Heizöl, Zisterne, Pellets                                               |
+| Ringe                | `tplGauge2Rings`       | bis zu fünf Werte gleichzeitig, z. B. PV, Verbrauch, Batterie           |
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+![Alle Widgets](../../../en/adapterref/iobroker.vis-2-widgets-gauges/docs/img/overview.png)
 
-### **IN ARBEIT** -->
+Die Widgets werden als einfache SVG-Grafiken mit React gezeichnet, ohne Diagramm- oder UI-Bibliotheken, und folgen dem hellen und dunklen Design von vis-2.
+
+## Dokumentation
+
+Alle Widgets mit ihren Einstellungen und Screenshots: [Englisch](/#/docs/adapterref/iobroker.vis-2-widgets-gauges/docs/en/README.md) | [Deutsch](https://github.com/ioBroker/ioBroker.vis-2-widgets-gauges/blob/master/docs/de/README.md)
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Rewrote the color, water and battery gauge as plain SVG without react-gauge-chart, react-liquid-gauge, react-battery-gauge, d3 and MUI - the widget set works with the React 19 version of vis-2 again. Projects keep all their settings
+* (bluefox) Added 7 new widgets: radial gauge, arc gauge, linear gauge, thermometer, compass, tank and rings
+* (bluefox) Color gauge: the value is shown below the needle, minimum and maximum can be shown, the needle length works, `0` for corner radius, padding and margin is really 0
+* (bluefox) Water gauge: digits after comma and color of the liquid; the value counts up during the rise animation
+* (bluefox) Battery gauge: optional medium level, stroke width of the body, percent sign can be hidden, the text stays horizontal in a vertical battery
+* (bluefox) Values that are not numbers are shown as text, a missing value as `–`
+* (bluefox) All widgets follow the dark theme of vis-2
+* (bluefox) Added documentation with screenshots (English and German)
+* (bluefox) The adapter icon is an SVG now
+* (bluefox) Updated packages and the build (vite 8, React 19 types)
+
+### 2.0.3 (2026-06-04)
+* (bluefox) Updated packages
+
 ### 2.0.2 (2025-08-26)
 * (bluefox) Support for older Android devices
 
@@ -81,7 +112,7 @@ hash: 5iLMGtyB99lRQAK1ONkHMBjo74t5FRqsayjPu8xopns=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2022-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

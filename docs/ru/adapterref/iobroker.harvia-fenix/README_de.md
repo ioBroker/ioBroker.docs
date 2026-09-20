@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harvia-fenix/README_de.md
 title: ioBroker.harvia-fenix
-hash: h44gQb/+Sjj/34I1nOAqiDbIbLfijKpXFi44gd2SZ/8=
+hash: gDGRWUA6Gt3YqueeZ/a+FPm7a5nKWes0s/2jOybUQP0=
 ---
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![узел](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -113,7 +113,7 @@ Wenn dein MyHarvia-Konto meherere Steuereinheiten verwaltet (z. B. eine zu Hause
 1. Трагедия в конфигурации адаптера включает в себя данные входа в **систему** (Des Besitzers) и щелчок **мышью** .
 2. Открыт журнал ioBroker-Log. Адаптер обеспечивает удобство сауны и возможность использования следующих вариантов:
    - `Found device: ... (ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)` ➡️ Das ist deine **Geräte-ID** .
-   - `Using partner ID from user token: ORG/prod:0:6656` ➡️ Das ist deine **Partner-ID** (стандарт: `ORG/prod:0:6656` Одер `ORG/prod:0:6656:0`).
+   - `Using partner ID from user token: ORG/prod:0:6656` ➡️ Das ist deine **Partner-ID** (Стандарт: `ORG/prod:0:6656` Одер `ORG/prod:0:6656:0`).
 3. Kopiere beide Werte in die Zwischenablage.
 4. Если вы не хотите использовать Einstellungen, вы увидите, что в Zugangsdaten указан **Gast-Kontos** , вы можете скопировать **Geräte-ID** и **Partner-ID** в необязательных полях и щелкнуть по **Speichern & Schließen** .
 
@@ -146,12 +146,12 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | `doorSafety`                    | логический | `indicator.safety`    | Нур Лесен       | Статус дер Türsicherung (z.B. `true`, wenn die Tür sicher geschlossen ist).                                                                          |
 | `remoteControl`                 | логический | `indicator`           | Нур Лесен       | Статус дер Fernstart-Bereitschaft. Венн `false`, ist das Starten des Ofens aus der Ferne (переходник) заблокирован.                                  |
 | `errorMsg`                      | нить       | `text`                | Нур Лесен       | Aktuelle Fehlermeldungen или Statustexte des Ofens.                                                                                                  |
-| `heatOn`                        | логический | `switch.power`        | Lesen/Chreiben  | Hauptschalter, um den Saunaofen EIN (`true`) или AUS (`false`) zu schalten.                                                                        |
+| `heatOn`                        | логический | `switch.power`        | Lesen/Schreiben | Hauptschalter, um den Saunaofen EIN (`true`) или AUS (`false`) zu schalten.                                                                        |
 | `heaterPower`                   | число      | `value.power`         | Нур Лесен       | _Примечание:_ Dieses Objekt wird von der API bereitgestellt, часто используется `0 kW` (nicht ausgefüllt). Это возможность резервирования обновлений. |
-| `lightOn`                       | логический | `switch.light`        | Lesen/Schreiben | Schalter für die integrierte Saunabeleuchtung.                                                                                                       |
-| `maxDuration`                   | число      | `level.timer`         | Lesen/Schreiben | Maximale Heizdauer für die Saunasitzung in Minuten (`min`).                                                                                         |
+| `lightOn`                       | логический | `switch.light`        | Lesen/Chreiben  | Schalter für die integrierte Saunabeleuchtung.                                                                                                       |
+| `maxDuration`                   | число      | `level.timer`         | Lesen/Chreiben  | Maximale Heizdauer für die Saunasitzung in Minuten (`min`).                                                                                         |
 | `panelTemp`                     | число      | `value.temperature`   | Нур Лесен       | Temperaturmesswert Direct an der Physischen Steuereinheit / Panel.                                                                                   |
-| `targetTemp`                    | число      | `level.temperature`   | Lesen/Chreiben  | Zieltemperatur-Sollwert für die Saunakabine (z.B. `90 °C`).                                                                                          |
+| `targetTemp`                    | число      | `level.temperature`   | Lesen/Schreiben | Zieltemperatur-Sollwert für die Saunakabine (z.B. `90 °C`).                                                                                          |
 | `temp`                          | число      | `value.temperature`   | Нур Лесен       | Актуальная температура в сауне (z.B. `17 °C`).                                                                                                       |
 | `readyNotified10Min`            | логический | `indicator`           | Нур Лесен       | Вирд `true`, wenn die Sauna noch ca. 10 минут при температуре Zieltemperatur (13°C до температуры Ziel).                                             |
 | `targetReachedNotified`         | логический | `indicator`           | Нур Лесен       | Вирд `true`, если в сауне выбрана необходимая температура воздуха в сауне, используйте ее.                                                           |
@@ -163,7 +163,15 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | `timeToTargetFormatted`         | нить       | `text`                | Нур Лесен       | Formatierte verbleibende Aufheizzeit (z.B. `39 min 30 sec`).                                                                                         |
 | `heatingCurve`                  | нить       | `json`                | Нур Лесен       | JSON-Array der Stützstellen-Aufheizzeiten pro 10°C-Intervall für VIS/Diagramme.                                                                      |
 | `profiles`                      | нить       | `json`                | Нур Лесен       | JSON-массив der verfügbaren Saunaprofile (z. B. Cozy и т. д.).                                                                                       |
-| `activeProfile`                 | число      | `level`               | Lesen/Chreiben  | Индекс актуальных активных профилей сауны.                                                                                                           |
+| `activeProfile`                 | число      | `level`               | Lesen/Schreiben | Индекс актуальных активных профилей сауны (`0` = мягкий, `1` = уютный, `2` = горячий).                                                                 |
+| `events.lastEvent`              | нить       | `text`                | Нур Лесен       | Код или Bezeichner des Letzten Ereignisses aus dem Harvia Events Service.                                                                            |
+| `events.lastEventType`          | нить       | `text`                | Нур Лесен       | Kategorie des Letzten Ereignisses (`SAFETY`, `ERROR`, `SYSTEM` и т. д.).                                                                             |
+| `events.lastEventSeverity`      | нить       | `text`                | Нур Лесен       | Schweregrad des Letzten Ereignisses (англ. `info`, `warn`, `error`, `critical`).                                                                     |
+| `events.lastEventMessage`       | нить       | `text`                | Нур Лесен       | Lesbare Beschreibung или Klartextmeldung des Letzten Ereignisses.                                                                                    |
+| `events.lastEventTime`          | нить       | `date`                | Нур Лесен       | ISO-Zeitstempel des Letzten Ereignisses.                                                                                                             |
+| `events.safetyTripped`          | логический | `sensor.alarm`        | Нур Лесен       | Zeigt an, ob eine aktive Sicherheitsabschaltung или Unterbrechung vorliegt.                                                                          |
+| `events.safetyReason`           | нить       | `text`                | Нур Лесен       | Grund / Ursache der aktiven Sicherheitsauslösung.                                                                                                    |
+| `events.history`                | нить       | `json`                | Нур Лесен       | JSON-Array с открытыми строками (до 15 раз).                                                                                                         |
 
 ---
 
@@ -205,6 +213,29 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 
 _Примечание: Diese Zustände werden autotisch auf `false` zurückgesetzt, когда der Ofen ausgeschaltet wird или начало нового Heizvorgang._
 
+### 3. Профиль сауны и программы (`profiles` &`activeProfile`)
+
+- **Доступный профиль (`profiles`):**\
+  &#x20;Harvia Fenix включает заданную и оптимизированную программу сауны (например, _Mild_ , _Cozy_ , _Hot_ ), которая может быть настроена в **приложении MyHarvia 2** . Адаптер отображает список структурированных JSON в `profiles` (включая Zieltemperatur und Dauer).
+- **Profil aktivieren (`activeProfile`):**\
+  &#x20;Dieser Datenpunkt ist **schreibbar** und verwendet einen 0-basierten Index:
+  - `0` = **мягкий**
+  - `1` = **уютный**
+  - `2` = **горячий**
+  - Beim Ändern des Werts (например, VIS, Buttons или Skripte) отправляет адаптер с помощью Befehl непосредственно в Harvia-Cloud (`PATCH /devices/profile`), woraufhin die Sauna die Solltemperatur und Heizdauer des gewählten Profils übernimmt.
+  - **Пример (Skrippt):**
+  ```javascript
+  // Wechselt auf das Cozy-Saunaprofil
+  setState('harvia-fenix.0.activeProfile', 1);
+  ```
+
+### 4. Ereignis- und Sicherheits-Hub (`events.*`)
+
+- **Sicherheitskreis-Überwachung (англ. `events.safetyTripped` &`events.safetyReason`):**\
+  &#x20;Der Adaptor überwacht Türkontakte, Überhitzungssschutz und Sicherheitsschalter-Unterbrechungen от Harvia Events Service. Bei einem aktiven Sicherheitsalarm während des Heizens Schaltet `events.safetyTripped` ауф `true` mit einer verständlichen Begründung в `events.safetyReason`.
+- **Ereignisverlauf (`events.history`):**\
+  &#x20;Führt eine Historie der Letzten 15 System-, Tür-, Fehler- und Sicherheitsereignisse als JSON-Array for VIS-Dashboards und Protokollierung.
+
 ---
 
 ## Fehlerbehebung (Устранение неполадок)
@@ -215,7 +246,7 @@ _Примечание: Diese Zustände werden autotisch auf `false` zurückgeset
   - **Условно:** Die europäische Sicherheitsnorm schreibt vor, dass ein Fernstart nur aktiv sein darf, wenn der Sicherheitskreis/Türsensor geschlossen ist und der Fernstart physch am Saunapanel scharf geschaltet wurde.
   - **Lösung:** Schließe die Saunatür und Drücke am Physischen Harvia-Bedienfeld die **Fernstart** -Taste. Das Fernstart-Symbol auf dem Display muss leuchten. Прежде всего, необходимо использовать бесплатный адаптер.
 - ** `Cloud lock: Device busy, command discarded.`(Als Debug-Log)**
-  - **Ursache:** Блокировка Harvia-API может быть полезна, если вы используете шнеллер, когда он работает (z. B. durch schnelles Klicken in der Vis), um die Hardware zu schützen.
+  - **Ursache:** Блокировка Harvia-API может быть полезна, когда вы используете шнеллер, когда он работает (z. B. durch schnelles Klicken in der Vis), um die Hardware zu schützen.
   - **Изображение:** Warte einige Sekunden zwischen den Befehlen. Адаптер автоматически работает со щелчками мыши, и вы можете использовать API-интерфейс для управления.
 
 ---
@@ -230,6 +261,20 @@ _Примечание: Diese Zustände werden autotisch auf `false` zurückgeset
 ## Änderungsprotokoll (журнал изменений)
 
 ### **РАБОТА В ПРОЦЕССЕ**
+
+- (meistermopper) Standard-Zuordnung fuer activeProfile (0=мягко, 1=уютно, 2=горячо) документация
+
+### 1.1.0 (2026-09-17)
+
+- (meistermopper) Центр событий и безопасности с собственными событиями-Channel und Datenpunkten
+- (meistermopper) Sicherheits-Erkennung, Alarm-Indikatoren und Ereignisverlauf hinzugefügt
+- (meistermopper) Конечный пункт activeProfile в исправлении /devices/profile
+- (meistermopper) Профиль сауны (профили, activeProfile) в документации
+
+### 1.0.0 (2026-09-17)
+
+- (meistermopper) AWS AppSync WebSocket Push-клиент реального времени
+- (meistermopper) Token-Actualisierung ueber /auth/refresh с RefreshToken
 
 ### 0.6.0 (2026-09-16)
 
@@ -254,27 +299,6 @@ _Примечание: Diese Zustände werden autotisch auf `false` zurückgeset
 - (meistermopper) Beidseitige Heizanomalie-Erkennung hinzugefügt (zu langsam/schnell)
 - (meistermopper) Обновите @alcalzone/release-script-plugin-license до версии 5.2.2
 - (meistermopper) Node.js 26 для проверки Testmatrix
-
-### 0.4.0 (2026-08-13)
-
-- (meistermopper) Добавлена адаптивная функция прогнозирования продолжительности нагрева и обнаружения аномалий.
-- (meistermopper) Добавить ярлык скрипта разработчика для отслеживания изменений на сервере разработки в файл package.json
-- (meistermopper) Уточните инструкции по настройке идентификатора партнера и гостевой учетной записи.
-- (meistermopper) Документирование адаптивного прогнозирования нагрева и обнаружения аномалий
-- (meistermopper) Добавить в файл AGENTS.md строгие правила конфиденциальности и анонимизации.
-- (meistermopper) Приведите в порядок список дел и добавьте интересные пункты в список желаний на будущее.
-
-### 0.3.2 (2026-08-11)
-
-- (meistermopper) Используйте абсолютные URL-адреса GitHub для ссылок переключения языка в файлах README.
-- (meistermopper) Удалите значки последнего репозитория и перевода из файлов README.
-- (meistermopper) Отметьте добавление стабильного репозитория как завершенное в списке задач.
-- (meistermopper) Удалить прямые инструкции по установке npm из файлов README.
-- (dependabot) Обновление axios с версии 1.18.1 до 1.19.0
-- (meistermopper) Логотип центрального адаптера в файлах README
-- (meistermopper) Добавить значок статуса перевода Weblate в файлы README
-- (meistermopper) Добавьте шаг npm run translate в скрипт release-before-commit
-- (meistermopper) Замените статический значок "Последняя версия" на динамический значок iobroker.live.
 
 ---
 

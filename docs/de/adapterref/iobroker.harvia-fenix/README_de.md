@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.harvia-fenix/README_de.md
 title: ioBroker.harvia-fenix
-hash: h44gQb/+Sjj/34I1nOAqiDbIbLfijKpXFi44gd2SZ/8=
+hash: gDGRWUA6Gt3YqueeZ/a+FPm7a5nKWes0s/2jOybUQP0=
 ---
 ![Downloads](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![Knoten](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -163,7 +163,15 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | `timeToTargetFormatted`         | Zeichenkette    | `text`                | Nur Lesen       | Formatierte verbleibende Aufheizzeit (z. B. `39 min 30 sec`).                                                                                                     |
 | `heatingCurve`                  | Zeichenkette    | `json`                | Nur Lesen       | JSON-Array der Stützstellen-Aufheizzeiten pro 10°C-Intervall für VIS/Diagramme.                                                                                   |
 | `profiles`                      | Zeichenkette    | `json`                | Nur Lesen       | JSON-Array der verfügbaren Saunaprofile (z. B. Cozy, etc.).                                                                                                       |
-| `activeProfile`                 | Nummer          | `level`               | Lesen/Schreiben | Index des aktuell aktiven Saunaprofils.                                                                                                                           |
+| `activeProfile`                 | Nummer          | `level`               | Lesen/Schreiben | Index des aktuell aktiven Saunaprofils (`0` = mild, `1` = gemütlich `2` (heiß).                                                                                     |
+| `events.lastEvent`              | Zeichenkette    | `text`                | Nur Lesen       | Code oder Bezeichner des letzten Ereignisses aus dem Harvia Events Service.                                                                                       |
+| `events.lastEventType`          | Zeichenkette    | `text`                | Nur Lesen       | Kategorie des letzten Ereignisses (`SAFETY`, `ERROR`, `SYSTEM` usw.).                                                                                             |
+| `events.lastEventSeverity`      | Zeichenkette    | `text`                | Nur Lesen       | Schweregrad des letzten Ereignisses (`info`, `warn`, `error`, `critical`).                                                                                       |
+| `events.lastEventMessage`       | Zeichenkette    | `text`                | Nur Lesen       | Lesbare Beschreibung oder Klartextmeldung des letzten Ereignisses.                                                                                                |
+| `events.lastEventTime`          | Zeichenkette    | `date`                | Nur Lesen       | ISO-Zeitstempel des letzten Ereignisses.                                                                                                                          |
+| `events.safetyTripped`          | boolescher Wert | `sensor.alarm`        | Nur Lesen       | Zeigt an, ob eine aktive Sicherheitsabschaltung oder Unterbrechung vorliegt.                                                                                      |
+| `events.safetyReason`           | Zeichenkette    | `text`                | Nur Lesen       | Grund / Ursache der aktiven Sicherheitsauslösung.                                                                                                                 |
+| `events.history`                | Zeichenkette    | `json`                | Nur Lesen       | JSON-Array mit den letzten Ereignissen (bis zu 15 Einträge).                                                                                                      |
 
 ---
 
@@ -205,6 +213,29 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 
 _Hinweis: Diese Zustände werden automatisch aktiviert `false` zurückgesetzt, wenn der Ofen ausgeschaltet wird oder ein neuer Heizvorgang beginnt._
 
+### 3. Saunaprofil & Programmwahl (`profiles` &`activeProfile`)
+
+- **Verfügbares Profil (`profiles`):**\
+  &#x20;Harvia Fenix unterstützt vordefinierte und benutzerdefinierte Saunaprogramme (z. B. _Mild_ , _Cozy_ , _Hot_ ), die in der **MyHarvia 2 App** konfiguriert werden können. Der Adapter spiegelt diese Liste als strukturiertes JSON wider `profiles` (inklusive Zieltemperatur und Dauer).
+- **Profil aktivieren (`activeProfile`):**\
+  &#x20;Dieser Datenpunkt ist **schreibbar** und verwendet einen 0-basierten Index:
+  - `0` = **mild**
+  - `1` = **gemütlich**
+  - `2` = **heiß**
+  - Beim Ändern des Werts (z. B. über VIS, Buttons oder Skripte) sendet der Adapter den Befehl direkt an die Harvia-Cloud (`PATCH /devices/profile`), woraufhin die Sauna die Solltemperatur und Heizdauer des gewählten Profils übernimmt.
+  - **Beispiel (Skript):**
+  ```javascript
+  // Wechselt auf das Cozy-Saunaprofil
+  setState('harvia-fenix.0.activeProfile', 1);
+  ```
+
+### 4. Ereignis- und Sicherheits-Hub (`events.*`)
+
+- **Sicherheitskreis-Überwachung (`events.safetyTripped` &`events.safetyReason`):**\
+  &#x20;Der Adapter überwacht Türkontakte, Überhitzungsschutz und Sicherheitsschalter-Unterbrechungen aus dem Harvia Events Service. Bei einem aktiven Sicherheitsalarm während des Heizens schaltet sich ein `events.safetyTripped` auf `true` mit einer verständlichen Begründung in `events.safetyReason` Die
+- **Ereignisverlauf (`events.history`):**\
+  &#x20;Führt eine Historie der letzten 15 System-, Tür-, Fehler- und Sicherheitsereignisse als JSON-Array für VIS-Dashboards und Protokollierung.
+
 ---
 
 ## Fehlerbehebung
@@ -231,6 +262,20 @@ _Hinweis: Diese Zustände werden automatisch aktiviert `false` zurückgesetzt, w
 
 ### **IN BEARBEITUNG**
 
+- (meistermopper) Standard-Zuordnung für activeProfile (0=mild, 1=cozy, 2=hot) dokumentiert
+
+### 1.1.0 (2026-09-17)
+
+- (meistermopper) Events & Safety Hub mit eigenem events-Channel und Datenpunkten
+- (meistermopper) Sicherheits-Erkennung, Alarm-Indikatoren und Ereignisverlauf hinzugefügt
+- (meistermopper) Endpunkt activeProfile auf PATCH /devices/profile korrigiert
+- (meistermopper) Saunaprofile (profiles, activeProfile) in Dokumentation erläutert
+
+### 1.0.0 (2026-09-17)
+
+- (meistermopper) AWS AppSync WebSocket Real-Time Push-Client hinzugefügt
+- (meistermopper) Token-Aktualisierung über /auth/refresh mit restartToken
+
 ### 0.6.0 (2026-09-16)
 
 - (meistermopper) Datenpunkte readyAt, readyAtMessage und timeToTargetFormatted ergänzt
@@ -254,27 +299,6 @@ _Hinweis: Diese Zustände werden automatisch aktiviert `false` zurückgesetzt, w
 - (meistermopper) Beidseitige Heizanomalie-Erkennung hinzugefügt (zu langsam/schnell)
 - (meistermopper) Aktualisiere @alcalzone/release-script-plugin-license auf 5.2.2
 - (meistermopper) Node.js 26 zur Testmatrix hinzugefügt
-
-### 0.4.0 (2026-08-13)
-
-- (meistermopper) Adaptive Heizdauerprognose und Anomalieerkennung hinzufügen
-- (meistermopper) Füge eine Verknüpfung für das Entwickler-Skript „dev-server watch“ in package.json hinzu.
-- (meistermopper) Partner-ID und Einrichtungsanweisungen präzisieren
-- (meistermopper) Dokumentierte adaptive Heizungsprognose und Anomalieerkennung
-- (meistermopper) Füge der AGENTS.md-Datei eine strenge Datenschutz- und Anonymisierungsregel hinzu.
-- (meistermopper) Die To-Do-Liste aufräumen und lustige Wunschlistenpunkte hinzufügen
-
-### 0.3.2 (2026-08-11)
-
-- (meistermopper) Verwenden Sie absolute GitHub-URLs für Sprachumschaltlinks in README-Dateien.
-- (meistermopper) Entferne die Badges für das neueste Repository und die Übersetzung aus den README-Dateien
-- (meistermopper) Hinzufügen des stabilen Repositorys in der Aufgabenliste als abgeschlossen markieren
-- (meistermopper) Direkte npm-Installationsanweisungen aus den README-Dateien entfernen
-- (dependabot) Axios von 1.18.1 auf 1.19.0 aktualisieren.
-- (meistermopper) Logo des Mitteladapters in den README-Dateien
-- (meistermopper) Weblate-Übersetzungsstatus-Badge zu README-Dateien hinzufügen
-- (meistermopper) Füge den Schritt „npm run translate“ zum release-before-commit-Skript hinzu.
-- (meistermopper) Statisches „latest“-Badge durch dynamisches iobroker.live-Badge ersetzen
 
 ---
 

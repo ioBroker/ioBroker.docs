@@ -69,6 +69,11 @@ Bitte nutzt den Datenpunkt `system.adapter.octoprint.0.alive` um die Instanz zu 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) Fixed invalid state roles
+* (@klein0r) Adapter requires admin >= 7.8.23 now
+
 ### 7.0.0 (2026-05-05)
 
 * (copilot) Adapter requires node.js >= 22 now

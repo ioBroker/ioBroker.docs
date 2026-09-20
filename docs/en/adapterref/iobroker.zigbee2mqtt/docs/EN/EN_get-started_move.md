@@ -158,7 +158,7 @@ In our example, Zigbee2MQTT is set up via Docker / Docker Compose. More setup me
 
 6. Installation of the Zigbee2MQTT adapter via the adapter tab in ioBroker.
 
-7. Configuration of the adapter See [Adapter configuration](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/EN/EN/EN_AdapterConfig.md)
+7. Configuration of the adapter See [Adapter configuration](/#/docs/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_AdapterConfig.md)
 
 8. If everything went well now, we have successfully converted our Zigbee network and we can still make a few adjustments to the new system.
    - Create deleted groups again

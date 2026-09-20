@@ -60,6 +60,8 @@ At the bottom of the custom dialog the table *Expert: attributes from states* ma
 
 Use it for attributes that have no own setting, e.g. a `battery_level` on a `media_player`. A name with dots writes a nested attribute (`forecast.0.temperature`). An entry overrides an attribute the adapter creates itself, so it is also the way to point an attribute at a different state. Attribute names are not checked, an unknown name is simply ignored by the frontend.
 
+A state of type `array` or `object` is delivered as a real array or object: ioBroker stores those as a JSON string, and the adapter parses it, so cards that iterate an array (e.g. flex-table-card) get their rows. A `mixed` state is parsed too when its value looks like JSON, otherwise it is passed on unchanged.
+
 ### Alarm panel
 ioBroker does not support such a device yet, but it can be simulated. If you create such a script:
 
@@ -268,6 +270,8 @@ createState('location', '39.5681295;2.6432632', false, {
 or two separate objects with roles `value.gps.longitude` and `value.gps.latitude`.
 
 To show a person/presence marker on the map, map an ioBroker object to a manual `device_tracker` or `person` entity (see [Manual configuration](#manual-configuration)).
+
+The base map itself is drawn with tiles from the OpenStreetMap Foundation, which the adapter fetches and caches for the browser. It needs outgoing internet access on the ioBroker host, but no account and no API key. (The tiles used to come from CARTO, which now watermarks them with "API KEY REQUIRED".)
 
 ### Picture entity
 Use a static picture, or any state that delivers a URL:

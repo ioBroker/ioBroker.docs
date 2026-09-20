@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/faq/_010_general/010_what_is_iobroker.md
 title: no title
-hash: +qCCzVjdoY3CumKOPNNuKEhWOfNNr7b8faHpANVnjY8=
+hash: +q32mamFn0DnlQP+HedGHioihKXt/FEmcAnjDCK7rhM=
 ---
 ## What is ioBroker?
 
@@ -11,7 +11,7 @@ ioBroker is software that connects various systems in the home into a unified wh
 
 Technically, ioBroker is a purely software-based solution. It **doesn't** replace a central control unit: HomeMatic still requires a CCU, and Zigbee still requires a USB dongle. ioBroker communicates with these control units and stores all the data they provide in a shared database.
 
-The system is modular. Each connection is a separate program, an **adapter** : there are hundreds of them. Only what is needed is installed.
+The architecture is modular. Each connection is a separate program, an **adapter** : there are hundreds of them. Only what is needed is installed.
 
 This is explained in detail under [ioBroker Basics](/docs/basics/README.md) .
 

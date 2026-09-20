@@ -4,7 +4,7 @@ lastChanged: 07.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/basics/README.md
-hash: h8jiayDdSluehh7UWhw0k5BHRM7PvHAgGEdB48o4JL0=
+hash: j/xHK7VMB2gNjs6dnX8/dlP8eBAtXqb5Ax/QKo+81ro=
 ---
 # Основы работы с ioBroker
 
@@ -47,6 +47,6 @@ ioBroker управляет данными в базе данных. Струк�
 
 <img src="media/objekte_baum_dunkel.png" alt="Der Objektbaum: Adapter, Instanz, Geraet, Kanal, Datenpunkte" width="900" />
 
-В приведенном примере пространство имен принадлежит`hm-rpc.0` к первому экземпляру адаптера HomeMatic. Устройство расположено ниже него.`LEQ0903185` (Дверной замок), включая его каналы и расположенные внутри них отдельные точки данных с их текущими значениями. Более подробная информация находится в разделе [«Объекты](/docs/basics/objects.md) и [состояния»](/docs/basics/states.md) .
+В приведенном примере пространство имен принадлежит `hm-rpc.0` к первому экземпляру адаптера HomeMatic. Устройство расположено ниже него. `LEQ0903185` (Дверной замок), включая его каналы и расположенные внутри них отдельные точки данных с их текущими значениями. Более подробная информация находится в разделе [«Объекты](/docs/basics/objects.md) и [состояния»](/docs/basics/states.md) .
 
 [nodejs]: https://nodejs.org

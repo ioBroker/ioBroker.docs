@@ -87,6 +87,10 @@ Now they could be found in `cloud.X.devices.NAME`:
 -->
 
 ## Changelog
+### 6.2.1 (2026-09-17)
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Clear subscriptions on cloud disconnection
+
 ### 6.1.3 (2026-08-26)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Migrated blockly to TypeScript
@@ -99,11 +103,6 @@ Now they could be found in `cloud.X.devices.NAME`:
 
 ### 6.0.4 (2026-05-17)
 * (bluefox) Respect the types of states if writing from visu app
-
-### 6.0.1 (2026-03-04)
-* (bluefox) Added communication with new android application
-* (bluefox) Dropped support node 18
-* (bluefox) Implemented QR Code for ioBroker.visu app
 
 ## License
 The MIT License (MIT)

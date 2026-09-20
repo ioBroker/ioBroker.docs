@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fuelpricemonitor/README.md
 title: ioBroker.fuelpricemonitor
-hash: PNTNld3qWr/+ojDbLJpdH3UnJMhytkqdJnpYqfLLwm4=
+hash: V+KS9bzLahWFCoXudH1XaJbuoV3UD5Es00OeWSICkKg=
 ---
 ![Logo](../../../en/adapterref/iobroker.fuelpricemonitor/admin/fuelpricemonitor.png)
 
@@ -22,7 +22,7 @@ hash: PNTNld3qWr/+ojDbLJpdH3UnJMhytkqdJnpYqfLLwm4=
 
 ## Fuelpricemonitor-Adapter für ioBroker
 
-Dieser Adapter ruft die Kraftstoffpreise (Diesel, Super 95 und CNG) aus der offiziellen österreichischen Datenbank anhand Ihrer konfigurierten Geoposition ab. Die API liefert die Preise nur für die ersten fünf Tankstellen. Für die übrigen fünf Tankstellen sind keine Preise verfügbar. Weitere Standorte können hinzugefügt werden. Standardmäßig werden die Preise alle 20 Minuten als Cronjob im Instanz-Tab aktualisiert.
+Dieser Adapter ruft die Kraftstoffpreise (Diesel, Super 95 und CNG) aus der [offiziellen österreichischen Datenbank](https://api.e-control.at/sprit/1.0/doc/index.html?url=https://api.e-control.at/sprit/1.0/api-docs%3Fgroup%3Dpublic-api) anhand Ihrer konfigurierten Geoposition ab. Die API liefert die Preise nur für die ersten fünf Tankstellen. Für die übrigen fünf Tankstellen sind keine Preise verfügbar. Weitere Standorte können hinzugefügt werden. Standardmäßig werden die Preise alle 20 Minuten als Cronjob im Instanz-Tab aktualisiert.
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
 
@@ -36,6 +36,11 @@ Dieser Adapter ruft die Kraftstoffpreise (Diesel, Super 95 und CNG) aus der offi
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.4.4 (2026-09-17)
+* (HGlab01) add feature to exclude opening hours (state subtree of hours to be delete one time manually)
+* (HGlab01) Bump axios to 1.20.0
+* (HGlab01) Cleanups
+
 ### 0.4.3 (2026-06-16)
 * (HGlab01) some small improvements
 * (HGlab01) Bump axios to 1.18.0
@@ -53,11 +58,6 @@ Dieser Adapter ruft die Kraftstoffpreise (Diesel, Super 95 und CNG) aus der offi
     - Node.js 18.0 or higher
     - ioBroker host (js-controller) 5.0 or higher
 * (HGlab01) Bump axios to 1.6.2
-
-### 0.3.6 (2023-08-10)
-* (HGlab01) switch to Admin5 UI for configuration
-
-[Older changelogs can be found there](https://github.com/HGlab01/ioBroker.fuelpricemonitor/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License
@@ -81,6 +81,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.fuelpricemonitor.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.fuelpricemonitor?ref=badge_large)

@@ -1,33 +1,64 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.vis-2-widgets-gauges/README.md":{"title":{"en":"Gauge widgets for ioBroker.vis-2"},"content":"en/adapterref/iobroker.vis-2-widgets-gauges/README.md"},"en/adapterref/iobroker.vis-2-widgets-gauges/docs/en/README.md":{"title":{"en":"Gauges for vis-2"},"content":"en/adapterref/iobroker.vis-2-widgets-gauges/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-gauges/README.md
-title: Виджеты индикаторов для ioBroker.vis 2.0
-hash: 5iLMGtyB99lRQAK1ONkHMBjo74t5FRqsayjPu8xopns=
+title: Виджеты индикаторов для ioBroker.vis-2
+hash: +9afG0nZwNj65LEA6I1pwo175GkaGv6REDYvL6LH1iI=
 ---
-![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-gauges/admin/vis-2-widgets-gauges.png)
+![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-gauges/admin/vis-2-widgets-gauges.svg)
 
 ![Количество установок](http://iobroker.live/badges/vis-2-widgets-gauges-stable.svg)
-![версия НПМ](http://img.shields.io/npm/v/iobroker.vis-2-widgets-gauges.svg)
+![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-2-widgets-gauges.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-gauges.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-2-widgets-gauges.png?downloads=true)
 
-# Виджеты индикаторов для ioBroker.vis 2.0
-## Виджеты
-### Цветовая шкала
-![Цветовая шкала](../../../en/adapterref/iobroker.vis-2-widgets-gauges/img/color-gauge.png)
+# Виджеты индикаторов для ioBroker.vis-2
 
-### Датчик уровня воды
-![Водяной манометр](../../../en/adapterref/iobroker.vis-2-widgets-gauges/img/water-gauge.png)
+Десять виджетов для [ioBroker.vis-2](https://github.com/ioBroker/ioBroker.vis-2) , отображающих значение в виде индикатора:
 
-### Индикатор батареи
-![Индикатор заряда батареи](../../../en/adapterref/iobroker.vis-2-widgets-gauges/img/battery-gauge.png)
+| Виджет                          | Идентификатор          | Например                                                                                  |
+| ------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------- |
+| Цветовой индикатор              | `tplGauge2Color`       | полукруг из цветных сегментов со стрелкой                                                 |
+| Уровень воды                    | `tplGauge2Water`       | влажность, заполнение в процентах                                                         |
+| индикатор заряда батареи        | `tplGauge2Battery`     | Аккумулятор датчика, телефона или автомобиля с индикатором зарядки.                       |
+| Радиальный измерительный прибор | `tplGauge2Radial`      | мощность, скорость, давление — классический инструмент                                    |
+| Дуговой калибр                  | `tplGauge2Arc`         | любое значение с маркером заданной точки, также в виде светодиодных сегментов             |
+| Линейная колея                  | `tplGauge2Linear`      | горизонтальная или вертикальная полоса, например, мощность сети от -3 до 6 кВт            |
+| Термометр                       | `tplGauge2Thermometer` | внутренняя и наружная температура                                                         |
+| Компас                          | `tplGauge2Compass`     | Направление и скорость ветра, курс                                                        |
+| Танк                            | `tplGauge2Tank`        | мазут, цистерна, пеллеты                                                                  |
+| Кольца                          | `tplGauge2Rings`       | до пяти значений одновременно, например, фотоэлектрическая система, потребление, батарея. |
 
-<!-- Заполнитель для следующей версии (в начале строки):
+![Все виджеты](../../../en/adapterref/iobroker.vis-2-widgets-gauges/docs/img/overview.png)
 
-### **РАБОТА В ХОДЕ** -->
+Виджеты отрисовываются в виде простых SVG-изображений с использованием React, без библиотек для построения графиков или пользовательского интерфейса, и соответствуют светлой и темной темам vis-2.
+
+## Документация
+
+Все виджеты со всеми настройками и скриншотами: [Английский](/#/docs/adapterref/iobroker.vis-2-widgets-gauges/docs/en/README.md) | [Немецкий](https://github.com/ioBroker/ioBroker.vis-2-widgets-gauges/blob/master/docs/de/README.md)
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Rewrote the color, water and battery gauge as plain SVG without react-gauge-chart, react-liquid-gauge, react-battery-gauge, d3 and MUI - the widget set works with the React 19 version of vis-2 again. Projects keep all their settings
+* (bluefox) Added 7 new widgets: radial gauge, arc gauge, linear gauge, thermometer, compass, tank and rings
+* (bluefox) Color gauge: the value is shown below the needle, minimum and maximum can be shown, the needle length works, `0` for corner radius, padding and margin is really 0
+* (bluefox) Water gauge: digits after comma and color of the liquid; the value counts up during the rise animation
+* (bluefox) Battery gauge: optional medium level, stroke width of the body, percent sign can be hidden, the text stays horizontal in a vertical battery
+* (bluefox) Values that are not numbers are shown as text, a missing value as `–`
+* (bluefox) All widgets follow the dark theme of vis-2
+* (bluefox) Added documentation with screenshots (English and German)
+* (bluefox) The adapter icon is an SVG now
+* (bluefox) Updated packages and the build (vite 8, React 19 types)
+
+### 2.0.3 (2026-06-04)
+* (bluefox) Updated packages
+
 ### 2.0.2 (2025-08-26)
 * (bluefox) Support for older Android devices
 
@@ -81,7 +112,7 @@ hash: 5iLMGtyB99lRQAK1ONkHMBjo74t5FRqsayjPu8xopns=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2022-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md":{"title":{"en":"Direct local poll of Pulse data"},"content":"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md":{"title":{"en":"Direct local poll of Pulse data"},"content":"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"},"en/adapterref/iobroker.tibberlink/info/TibberDataAPI.md":{"title":{"en":"Tibber Data API — research notes"},"content":"en/adapterref/iobroker.tibberlink/info/TibberDataAPI.md"},"en/adapterref/iobroker.tibberlink/info/PulseMeterModes.md":{"title":{"en":"Tibber Pulse — supported meter modes"},"content":"en/adapterref/iobroker.tibberlink/info/PulseMeterModes.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md
 title: Fahrzeug- und Ladegerätekonfiguration
-hash: ies5VlYowDoR7gA1D3YaqIoeiSzFiHE97q6yiQCYItY=
+hash: VZWy5bafKaKmFRJHcxwpjcFB/0/Wx4IHzfUq3Lkc7ao=
 ---
 # Fahrzeug- und Ladegerätekonfiguration
 
@@ -12,12 +12,12 @@ _Teil der [ioBroker.tibberlink-Dokumentation](/#/adapters/tibberlink) ._
 
 Tibber betreibt zwei separate APIs mit unterschiedlichen Zwecken:
 
-- **Developer GraphQL API** (`api.tibber.com` ) – Energiepreise, Verbrauchshistorie und der Pulse-Live-Feed. Darauf hat man mit dem Standard-Tibber-API-Token (von [developer.tibber.com](https://developer.tibber.com) ) Zugriff.
-- **Tibber Data API** (`data-api.tibber.com` ) — IoT-Gerätedaten für gekoppelte Fahrzeuge, Ladegeräte, Wärmepumpen und Wechselrichter. Dies ist eine neuere, separate REST-API, die eine eigene OAuth2-Client-Registrierung erfordert.
+- **Developer GraphQL API** (`api.tibber.com`) – Energiepreise, Verbrauchshistorie und der Pulse-Live-Feed. Darauf hat man mit dem Standard-Tibber-API-Token (von [developer.tibber.com](https://developer.tibber.com) ) Zugriff.
+- **Tibber Data API** (`data-api.tibber.com`) — IoT-Gerätedaten für gekoppelte Fahrzeuge, Ladegeräte, Wärmepumpen und Wechselrichter. Dies ist eine neuere, separate REST-API, die eine eigene OAuth2-Client-Registrierung erfordert.
 
 Die APIs ersetzen einander nicht – sie ergänzen sich. Die hier beschriebene Fahrzeug- und Ladegerätfunktion nutzt die Daten-API und benötigt daher neben dem Haupt-API-Token eigene Zugangsdaten.
 
-> Entwickler-/Forschungsnotizen zur Data API (Endpunkte, Geräteschema, Funktionen) befinden sich in [../Info/TibberDataAPI.md](https://github.com/Hombach/ioBroker.tibberlink/blob/master/Info/TibberDataAPI.md) .
+> Entwickler-/Forschungsnotizen zur Data API (Endpunkte, Geräteschema, Funktionen) befinden sich in [../info/TibberDataAPI.md](/#/docs/adapterref/iobroker.tibberlink/info/TibberDataAPI.md) .
 
 ## Voraussetzungen
 
@@ -25,7 +25,7 @@ Die APIs ersetzen einander nicht – sie ergänzen sich. Die hier beschriebene F
 
  <img src="dataApi1.png" width="938" alt="Tibber Data API Client Management">
 
-2. Geben Sie dem Kunden einen Namen (z. B.`ioBrokerTibber` ), die **Umleitungs-URI** genau auf den Wert setzen.`http://localhost/` (mit abschließendem Schrägstrich) und aktivieren Sie mindestens diese Bereiche:
+2. Geben Sie dem Kunden einen Namen (z. B. `ioBrokerTibber`), die **Umleitungs-URI** genau auf den Wert setzen. `http://localhost/` (mit abschließendem Schrägstrich) und aktivieren Sie mindestens diese Bereiche:
 
    - `data-api-homes-read`
    - `data-api-vehicles-read`
@@ -33,7 +33,7 @@ Die APIs ersetzen einander nicht – sie ergänzen sich. Die hier beschriebene F
 
     <img src="dataApi2.png" width="938" alt="Create client form with scopes">
 
-3. Klicken Sie auf **„Erstellen“** . Kopieren Sie sofort die **Client-ID** und **das Client-Geheimnis** – das Geheimnis wird nur einmal angezeigt.
+3. Klicken Sie auf **„Erstellen“** . Kopieren Sie sofort die **Client-ID** und **den Client-Schlüssel** – der Schlüssel wird nur einmal angezeigt.
 
  <img src="dataApi3.png" width="938" alt="Client created with ID and Secret">
 
@@ -43,7 +43,7 @@ Die APIs ersetzen einander nicht – sie ergänzen sich. Die hier beschriebene F
    [tibberDataAPI]: no auth code configured — please authorize. URL: https://thewall.tibber.com/connect/authorize?client_id=<your-id>&...
    ```
 6. Öffnen Sie diese URL in einem Browser und melden Sie sich mit Ihrem Tibber-Konto an, um Zugriff zu gewähren.
-7. Der Browser wird umleiten zu`http://localhost/` und zeigt einen Verbindungsfehler an – das ist **zu erwarten und korrekt** . Kopieren Sie die vollständige URL aus der Adressleiste (sie enthält`?code=...` ).
+7. Der Browser wird umleiten zu `http://localhost/` und zeigt einen Verbindungsfehler an – das ist **zu erwarten und korrekt** . Kopieren Sie die vollständige URL aus der Adressleiste (sie enthält `?code=...`).
 
  <img src="dataApi4.png" width="938" alt="Browser showing localhost connection refused with code in URL">
 
@@ -54,17 +54,17 @@ Der Adapter speichert das Aktualisierungstoken intern und erneuert das Zugriffst
 
 ## Fehlerbehebung bei der Autorisierung
 
-Wenn das Protokoll anzeigt`initialization failed: HTTP 400 …` Nach dem Einfügen des Autorisierungscodes sind die häufigsten Ursachen:
+Wenn das Protokoll anzeigt `initialization failed: HTTP 400 …` Nach dem Einfügen des Autorisierungscodes sind die häufigsten Ursachen:
 
-- **Der Code ist nur einmal verwendbar und kurzlebig.** Ein Autorisierungscode kann genau einmal ausgetauscht werden und verfällt innerhalb weniger Minuten. Wenn Sie den Ablauf zuvor manuell getestet haben (und dabei den Code verbraucht haben) oder zu lange gewartet haben, lehnt Tibber den Austausch mit HTTP 400 ab.`invalid_grant` Ein Neustart des Adapters hilft **nicht** – er versucht lediglich, den bereits ausgeführten Code erneut auszuführen. Führen Sie die Schritte 5–8 mit **neuem** Code erneut aus und fügen Sie ihn anschließend sofort ein.
-- **Verwenden Sie ausschließlich die vom Adapter protokollierte Autorisierungs-URL.** Diese enthält die vom Adapter erwarteten PKCE-Parameter. Eine selbst erstellte Autorisierungs-URL (andere)`code_challenge` Der Austausch schlägt immer fehl. Bei einem fehlgeschlagenen Austausch protokolliert der Adapter diese URL erneut als Warnung, sodass Sie den Datenfluss direkt neu starten können.
-- **Die Umleitungs-URI muss exakt`http://localhost/`** (mit abschließendem Schrägstrich), entsprechend dem für den Client registrierten Wert.
+- **Der Code ist nur einmal verwendbar und kurzlebig.** Ein Autorisierungscode kann genau einmal ausgetauscht werden und verfällt innerhalb weniger Minuten. Wenn Sie den Ablauf zuvor manuell getestet haben (und dabei den Code verbraucht haben) oder zu lange gewartet haben, lehnt Tibber den Austausch mit HTTP 400 ab. `invalid_grant` Ein Neustart des Adapters hilft **nicht** – er versucht lediglich, den bereits ausgeführten Code erneut auszuführen. Führen Sie die Schritte 5–8 mit **neuem** Code erneut aus und fügen Sie ihn anschließend sofort ein.
+- **Verwenden Sie ausschließlich die vom Adapter protokollierte Autorisierungs-URL.** Diese enthält die vom Adapter erwarteten PKCE-Parameter. Eine selbst erstellte Autorisierungs-URL (andere) `code_challenge` Der Austausch schlägt immer fehl. Bei einem fehlgeschlagenen Austausch protokolliert der Adapter diese URL erneut als Warnung, sodass Sie den Datenfluss direkt neu starten können.
+- **Die Umleitungs-URI muss exakt `http://localhost/` ** (mit abschließendem Schrägstrich), entsprechend dem für den Client registrierten Wert.
 
-Der Adapter protokolliert nun die tatsächliche Tibber-Fehlerantwort (Status + Body, z. B.`invalid_grant` ) anstatt nur "Anfrage fehlgeschlagen mit Statuscode 400", sodass das Protokoll Ihnen mitteilt, welche der oben genannten Optionen zutrifft.
+Der Adapter protokolliert nun die tatsächliche Tibber-Fehlerantwort (Status + Body, z. B. `invalid_grant`) anstatt nur "Anfrage fehlgeschlagen mit Statuscode 400", sodass das Protokoll Ihnen mitteilt, welche der oben genannten Optionen zutrifft.
 
 ## Verfügbare Staaten
 
-Fahrzeugdaten werden geschrieben nach`Vehicles.<VIN>.*` :
+Fahrzeugdaten werden geschrieben nach `Vehicles.<VIN>.*`:
 
 | Zustand               | Beschreibung                                                 |
 | --------------------- | ------------------------------------------------------------ |
@@ -77,7 +77,7 @@ Fahrzeugdaten werden geschrieben nach`Vehicles.<VIN>.*` :
 | `StateOfCharge`       | Batterieladestand in %                                       |
 | `TargetStateOfCharge` | Zielladezustand in %                                         |
 
-Die Daten des Ladegeräts werden geschrieben an`Chargers.<id>.*` Da die Ladefunktionen je nach Hersteller variieren können (z. B. go-e, Wallbox Pulsar Plus), wird jede gemeldete Funktion als eigener Zustand definiert, benannt nach der Funktion-ID der Data API (Punkte werden durch Unterstriche ersetzt) und mit der von der API bereitgestellten Beschreibung versehen. Typische Zustände sind:
+Die Daten des Ladegeräts werden geschrieben an `Chargers.<id>.*` Da die Ladefunktionen je nach Hersteller variieren können (z. B. go-e, Wallbox Pulsar Plus), wird jede gemeldete Funktion als eigener Zustand definiert, benannt nach der Funktion-ID der Data API (Punkte werden durch Unterstriche ersetzt) und mit der von der API bereitgestellten Beschreibung versehen. Typische Zustände sind:
 
 | Zustand                            | Beschreibung                                                 |
 | ---------------------------------- | ------------------------------------------------------------ |

@@ -29,6 +29,9 @@ You need DasWetter-Adpater or weatherunderground-Adapter running as well...
 In weatherunderground you need forecast of next 36 hours enabled.
 In DasWetter.com you need one of four forecast data structures enabled. You can select the one you want to display. 
 
+## ATTENTION
+This widget set becomes deprecated in the near future. Please use the new widget sets for vis-2 instead. 
+
 ## compatibility with vis-2
 
 This widget is NOT compatible with vis-2.
@@ -51,6 +54,11 @@ You might need to enable "NextDaysDetailed".
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+This widget set becomes deprecated in the near future. Please use the new widget sets for vis-2 instead. 
+* (René) dependencies update
+
 ### 2.5.13 (2025-10-22)
 * (René) changes based on adapter checker suggestions
 

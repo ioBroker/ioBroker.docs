@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.schlueter-thermostat/README.md
 title: ioBroker.schlueter-thermostat
-hash: 9tcRgjLCZfK53bfl2ilvpFK2nb520IbV5bBxy2jb44U=
+hash: r70RbQDBD2D5iiMp2bmhbGgKt4wxTQXgwz4S/N3Z/dQ=
 ---
 # ioBroker.schlueter-thermostat
 
@@ -27,7 +27,7 @@ hash: 9tcRgjLCZfK53bfl2ilvpFK2nb520IbV5bBxy2jb44U=
 
 ## 🌍 Übersicht
 
-<img align="left" src="admin/schlueter-thermostat.png" alt="image" width="128" /><p> Dieser Adapter integriert<strong> Schlüter / OJ Microline OWD5 Thermostate</strong> über den ioBroker<strong> offizielle Cloud-APIs</strong> Die
+<img align="left" src="admin/schlueter-thermostat.jpg" alt="image" width="128" /><p> Dieser Adapter integriert<strong> Schlüter / OJ Microline OWD5 Thermostate</strong> über den ioBroker<strong> offizielle Cloud-APIs</strong> Die
 
 Es basiert auf der HA-Integration von @robbinjanssen. Weitere Informationen finden Sie in der Dokumentation.
 
@@ -116,6 +116,12 @@ flowchart TB
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (patricknitsch) Add Node.js 26 in test-and-release.yml
+* (patricknitsch) Update Dependencies
+* (patricknitsch) Change icon from png to jpg
+
 ### 0.7.4 (2026-06-05)
 * (copilot) Fixes for Repo Checker
 
@@ -133,7 +139,7 @@ flowchart TB
 
 - (claude) Add Notification Manager
 
-**Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/patricknitsch/ioBroker.schlueter-thermostat/blob/main/CHANGELOG_OLD.md).**
+**Older changelog entries can be found in CHANGELOG_OLD.md.**
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.synochat/README.md
 title: <img src="docs/images/synochatLogo.png" alt="drawing"/> Адаптер Synology-Chat для ioBroker
-hash: 20DEkKy27LEMqCm47y74ii8fIDHvP90Z+BOxGqA/+4M=
+hash: fblfULLEDIMa0yEl+R35Cs3h+jLx3WB+9TowvVuYQ2M=
 ---
 # <img src="docs/images/synochatLogo.png" alt="drawing"/> Адаптер Synology-Chat для ioBroker
 
@@ -22,39 +22,39 @@ hash: 20DEkKy27LEMqCm47y74ii8fIDHvP90Z+BOxGqA/+4M=
 
 ---
 
-# Руководство
-## 1. Установка
+## Руководство
+### 1. Установка
 Адаптер можно создать в разделе адаптеров в вашей установке ioBroker.
 Более подробную информацию можно найти в официальном документе [документация ioBroker](https://www.iobroker.net/#de/documentation/admin/adapter.md).
 
-## 2. Конфигурация
+### 2. Конфигурация
 <div id="synology-chat-configuration"></div>
 
-### 2.1. Настройка чата Synology
+#### 2.1. Настройка чата Synology
 - В Synology Chat есть возможность обрабатывать входящие и исходящие сообщения. Далее обе опции будут рассмотрены более подробно.
 
 Для создания сообщений через интерфейс Synology Chat необходимо создать интеграцию в Synology Chat:
 
 ![SynoChatChannel](./docs/images/diSynoChatChannel.png) ![Интеграции SynoChat](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatIntegrations.png)
 
-#### 2.1.1. Входящая интеграция
-Для интеграции входящего сообщения в чат Synology необходим токен, который можно получить из URL-адреса, сгенерированного при создании.
+##### 2.1.1. Входящая интеграция
+Для интеграции входящего сообщения в чат Synology необходим токен, который можно получить из URL-адреса, сгенерированного при создании устройства.
 
 ![SynoChatIntegrationIncoming](./docs/images/diSynoChatIntegrationIncoming.png) ![SynoChatIntegrationIncomingSettings](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatIntegrationIncomingSettings.png)
 
 <div id="synologyChatConfigurationOutgoingIntegration"></div>
 
-#### 2.1.2. Исходящая интеграция
+##### 2.1.2. Исходящая интеграция
 Для интеграции исходящего сообщения в чат Synology необходимо указать URL-адрес веб-перехватчика. Этот URL-адрес веб-перехватчика вы получите из объектов экземпляра после создания адаптера `synochat`. Более подробную информацию можно найти в [3. Использование > 3.1 Общие положения](#web-hook-location) ![SynoChatIntegrationIncoming](./docs/images/diSynoChatIntegrationOutgoing.png) ![SynoChatIntegrationIncomingSettings](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatIntegrationOutgoingSettings.png)
 
 ***ПРИМЕЧАНИЕ:*** *Тип канала (входящий; исходящий) указывается с точки зрения чата Synology. Например, «Входящий» означает, что сообщения будут отправляться на сервер чата Synology.*
 
 Для получения более подробной информации о том, как работать с интеграциями в чате Synology, обратитесь к официальной документации Synology [ЗДЕСЬ](https://kb.synology.com/DSM/help/Chat/chat_integration)
 
-### 2.2. Конфигурация экземпляра адаптера ioBroker
+#### 2.2. Конфигурация экземпляра адаптера ioBroker
 - Настройка этого адаптера может быть выполнена в параметрах экземпляра.
 
-#### 2.2.1. Основные настройки:
+##### 2.2.1. Основные настройки:
 	![IobrokerInstanceSettingsMainSettings](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerInstanceSettingsMainSettings.png)
 
 * **URL/IP-адрес Synology**
@@ -89,7 +89,7 @@ hash: 20DEkKy27LEMqCm47y74ii8fIDHvP90Z+BOxGqA/+4M=
 
 <div id="channel-configuration"></div>
 
-#### 2.2.2. Управление каналами / настройка:
+##### 2.2.2. Управление каналами / настройка:
 	![IobrokerInstanceSettingsChannelConfiguration](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerInstanceSettingsChannelConfiguration.png)
 
 * **Канал включен**
@@ -166,7 +166,7 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 
 <div id="message-templates"></div>
 
-#### 2.2.3. Шаблоны сообщений:
+##### 2.2.3. Шаблоны сообщений:
 Можно определить шаблоны сообщений, которые обрабатываются перед отправкой сообщения на Synology Chat Server. Эти шаблоны могут содержать шаблоны, которые заменяются в процессе отправки.
 
 	![IobrokerInstanceSettingsChannelConfiguration](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerInstanceSettingsMessageTemplates.png)
@@ -320,13 +320,13 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 
 Доступные шаблоны связаны со значением JSON клиента, которое будет передано объекту сообщения канала.
 
-#### 2.2.4. Помощь:
+##### 2.2.4. Помощь:
 * Эта вкладка обычно перенаправляет на официальную страницу проекта на GitHub, где представлены подробные справки и инструкции по использованию.
 * Если у вас есть какие-либо открытые вопросы, предложения по изменениям, нежелательное поведение или ошибки, пожалуйста, создайте [проблему на GitHub](https://github.com/phoeluga/ioBroker.synochat/issues/new/choose), чтобы обеспечить качество этого проекта.
 
 <div id="configurationWebInstance"></div>
 
-### 2.3. Конфигурация экземпляра `web`
+#### 2.3. Конфигурация экземпляра `web`
 Для получения сообщений с чат-сервера Synology необходимо настроить исходящую интеграцию - см. [Исходящая интеграция](#synologyChatConfigurationOutgoingIntegration).
 
 Для этого необходимо, чтобы был запущен экземпляр адаптера `web`, конфигурация которого находится в файле [Настроен экземпляр адаптера `synochat`](#configurationAdapterWebInstance).
@@ -336,8 +336,8 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 
 <div id="usage"></div>
 
-## 3. Использование
-### 3.1 Общие положения
+### 3. Использование
+#### 3.1 Общие положения
 * После настройки экземпляра адаптера для каждого настроенного канала в объектах соответствующего экземпляра адаптера создается папка с именем канала.
 
 	![IobrokerObjectOverview](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerObjectOverview.png)
@@ -364,12 +364,12 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 
 	![IobrokerObjectWebHook](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerObjectWebHook.png)
 
-### 3.2 Тип содержимого сообщения
+#### 3.2 Тип содержимого сообщения
 Помимо отправки обычных текстовых сообщений, во входящий канал можно отправлять и другие типы контента, например, изображения. Для этого контент должен быть доступен в качестве веб-ресурса. Чтобы отправить изображение, просто установите URL-адрес в качестве значения объекта сообщения экземпляра адаптера Syno-Chat, упомянутого в [3. Использование > 3.1 Общие положения](#usage).
 
 **Пример использования камеры видеонаблюдения:** Многие камеры видеонаблюдения предоставляют поток или интерфейс для получения изображения, которое обновляется через заданный интервал времени или при обнаружении движения. Этот URL-адрес предоставляет изображение, которое необходимо установить в качестве значения объекта сообщения.
 
-### 3.3 Отладка в случае возникновения проблем
+#### 3.3 Отладка в случае возникновения проблем
 Для получения более подробной информации о поведении адаптера в случае возникновения проблем можно повысить уровень логирования экземпляра адаптера `synochat` до `debug`.
 
 Поскольку этот адаптер использует экземпляр адаптера `web` для предоставления веб-хуков серверу чата Synology, настроенный экземпляр `web` выполняет некоторые функции. Для получения более подробной информации в случае проблем с получением сообщений необходимо также повысить уровень логирования настроенного экземпляра `web` до `debug`. Сообщения журнала, относящиеся к адаптеру `synochat`, можно идентифицировать по префиксу сообщения журнала `synochat.<INSTANCE_NUMBER>`.
@@ -380,18 +380,20 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 #### Атрибуция ресурсов
 - [Иконки чата созданы Pixel perfect - Flaticon](https://www.flaticon.com/free-icons/chat)
 
-[donate-badge]:https://img.shields.io/static/v1?label=Treat%20a%20coffee&message=donate%20a%20tip&color=2a9cde&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTcgMjJoMTBhMSAxIDAgMCAwIC45OS0uODU4TDE5Ljg2NyA4SDIxVjZoLTEuMzgybC0xLjcyNC0zLjQ0N0EuOTk4Ljk5OCAwIDAgMCAxNyAySDdjLS4zNzkgMC0uNzI1LjIxNC0uODk1LjU1M0w0LjM4MiA2SDN2MmgxLjEzM0w2LjAxIDIxLjE0MkExIDEgMCAwIDAgNyAyMnptMTAuNDE4LTExSDYuNTgybC0uNDI5LTNoMTEuNjkzbC0uNDI4IDN6bS05LjU1MSA5LS40MjktM2g5LjEyM2wtLjQyOSAzSDcuODY3ek03LjYxOCA0aDguNzY0bDEgMkg2LjYxOGwxLTJ6IiBmaWxsPSIjZWRmMmZhIiBjbGFzcz0iZmlsbC0wMDAwMDAiPjwvcGF0aD48L3N2Zz4=
-
-[donate-badge2]:https://img.shields.io/static/v1?label=Treat%20a%20coffee&message=donate%20a%20tip&color=2a9cde&logo=data:image/svg+xml;base64,PHN2ZyBkYXRhLW5hbWU9IkxheWVyIDEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjYuNSAxNUgyNnYtMWEyIDIgMCAwIDAtMi0ySDJhMiAyIDAgMCAwLTIgMnY2YTEwLjY0IDEwLjY0IDAgMCAwIDExIDExaDRhMTAuNzkgMTAuNzkgMCAwIDAgOS4zMS01aDIuMTlhNS41IDUuNSAwIDAgMCAwLTExWk0xNSAyN2gtNGE2LjcgNi43IDAgMCAxLTctN3YtNGgxOHY0YTYuNzcgNi43NyAwIDAgMS03IDdabTExLjQ0LTQuNzdoLS43OGExMy43NSAxMy43NSAwIDAgMCAuMi0yLjMxdi0xLjE1aC41OGExLjczIDEuNzMgMCAwIDEgMCAzLjQ2Wk0xMyAxMGEyIDIgMCAwIDAgMi0yVjJhMiAyIDAgMSAwLTQgMHY2YTIgMiAwIDAgMCAyIDJaTTIwIDEwYTIgMiAwIDAgMCAyLTJWN2EyIDIgMCAwIDAtNCAwdjFhMiAyIDAgMCAwIDIgMlpNNiAxMGEyIDIgMCAwIDAgMi0yVjZhMiAyIDAgMCAwLTQgMHYyYTIgMiAwIDAgMCAyIDJaIiBmaWxsPSIjZjBmNWZhIiBjbGFzcz0iZmlsbC1iYTYzYzYiPjwvcGF0aD48L3N2Zz4=
-
-[donate-link]: https://www.paypal.com/donate/?hosted_button_id=9MLB29CKX5674
-
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.4.3 (2026-09-16)
+- (iobroker-bot) Adapter requires node.js >= 22 now.
+- *[@phoeluga]* Dropped Node.js 20 support (EOL) and added Node.js 26 to the test matrix; bumped `engines.node` to `>=22` - #79
+- *[@phoeluga]* Added `CHANGELOG_OLD.md` to keep the changelog section of this README concise - #62
+- *[@phoeluga]* Added a Dependabot ignore rule for `@types/node` major version bumps - #64
+- *[@phoeluga]* Fixed README containing two top-level headings and moved the License section to be the last section
+- *[@phoeluga]* Added `prettier.config.mjs` re-exporting the shared `@iobroker/eslint-config` prettier config
+- *[@phoeluga]* Replaced the custom `sleep()`/`setTimeout()` helpers with the lifecycle-managed `this.delay()` from `@iobroker/adapter-core`
+- *[@phoeluga]* Added a Dependabot cooldown period (`cooldown.default-days: 7`) to reduce supply-chain risk
 - *[@phoeluga]* Updated outdated devDependencies (`@alcalzone/release-script*` to v5.x, `@iobroker/testing` to 5.2.2)
 - *[@phoeluga]* Bumped `admin` globalDependency requirement to `>=7.6.20`
 - *[@phoeluga]* Migrated CI/CD to NPM Trusted Publishing (OIDC) — removed long-lived `NPM_TOKEN`
@@ -430,56 +432,12 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 - *[@phoeluga]* Fixed special character escaping issue - #16
 - *[@phoeluga]* Added text mapping for 'human readable' descriptions of the message parent objects - #14
 
-### 1.3.0 (2023-07-23)
-- *[@phoeluga]* Added feature to react on messages from Notification-Manager - #9
-- *[@phoeluga]* Added feature to react on general received messages sent to the `synochat` adapter instance.
-- *[@phoeluga]* Added message templates for received messages from other adapters.
-- *[@phoeluga]* Added message templates for object values related to an associated channel.
-
-### 1.2.1 (2022-05-18)
-- *[@phoeluga]* The IP family check to determine the local IP address of the ioBroker instance has been adjusted.
-
-### 1.2.0 (2022-05-17)
-
-- *[@phoeluga]* Added enhancement #6 - Delayed sending of messages has been added to work around the limitations of messages sent to the Synology Chat Server in a certain time interval.
-- *[@phoeluga]* Regarding #6, a message queue has been added to ensure that the order of messages to be sent is respected when the sending of messages is delayed.
-- *[@phoeluga]* Implementation of the [requirements](https://github.com/ioBroker/ioBroker.repositories/pull/1759#issuecomment-1127520995) for adding the adapter in the ioBroker repository - Adding MIT license hint to the Readme.
-- *[@phoeluga]* Implementation of the [requirements](https://github.com/ioBroker/ioBroker.repositories/pull/1759#issuecomment-1127520995) for adding the adapter in the ioBroker repository - Moved adapter instance object subscription after initial connectivity check.
-- *[@phoeluga]* Implementation of the [requirements](https://github.com/ioBroker/ioBroker.repositories/pull/1759#issuecomment-1127520995) for adding the adapter in the ioBroker repository - Added exception handling to cover https://github.com/nodejs/node/issues/43014 in Nodejs 18
-- *[@phoeluga]* Implementation of the [requirements](https://github.com/ioBroker/ioBroker.repositories/pull/1759#issuecomment-1127527703) for adding the adapter in the ioBroker repository - Added axios as dependency in package.json
-
-### 1.1.1 (2022-04-16)
-
-- *[@phoeluga]* Fixed issue #4 - Issue while migrating data from version < 1.1.0
-- *[@phoeluga]* Added collecting and loading of default values when loading the initial configuration of the adapter instance
-- *[@phoeluga]* The channel search behavior has been adjusted to react accordingly to deactivated channels and to query the remaining channels.
-
-### 1.1.0 (2022-04-14)
-
-- *[@phoeluga]* Added the ability to manage multiple channels in one adapter instance per Synology chat server.
-- *[@phoeluga]* A possibility of ioBroker hostname / IP address configuration has been introduced.\
-(May be helpful when using an ioBroker Docker instance).
-- *[@phoeluga]* A functionality to receive incoming messages from the Synology chat server using WebHooks has been added.\
-(An instance of the web adapter is required to use this feature)
-- *[@phoeluga]* The translation of the UI properties was added.
-- *[@phoeluga]* Added function to migrate channel data from an older version to a new channel object in the list approach.
-- *[@phoeluga]* Added possibility for a user to disable dedicated channels from being processed.
-
-### 1.0.1 (2022-04-06)
-
-- *[@phoeluga]* Resolved #1 - Unable to send messages with special characters
-- *[@phoeluga]* Resolved #2 - Send images
-
-### 1.0.0 (2022-04-05)
-
-- *[@phoeluga]* Initial release
-
-### 0.0.1 (2022-04-03) - ALPHA
-
-- *[@phoeluga]* Start of development
-
 ## License
 
 This code is licensed under 'The MIT License (MIT)' license specified in the [LICENSE](https://github.com/phoeluga/ioBroker.synochat/blob/master/LICENSE) file.
 
 Copyright (c) 2025-2026 phoeluga <phoeluga@gmail.com>
+
+[donate-badge]:https://img.shields.io/static/v1?label=Treat%20a%20coffee&message=donate%20a%20tip&color=2a9cde&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTcgMjJoMTBhMSAxIDAgMCAwIC45OS0uODU4TDE5Ljg2NyA4SDIxVjZoLTEuMzgybC0xLjcyNC0zLjQ0N0EuOTk4Ljk5OCAwIDAgMCAxNyAySDdjLS4zNzkgMC0uNzI1LjIxNC0uODk1LjU1M0w0LjM4MiA2SDN2MmgxLjEzM0w2LjAxIDIxLjE0MkExIDEgMCAwIDAgNyAyMnptMTAuNDE4LTExSDYuNTgybC0uNDI5LTNoMTEuNjkzbC0uNDI4IDN6bS05LjU1MSA5LS40MjktM2g5LjEyM2wtLjQyOSAzSDcuODY3ek03LjYxOCA0aDguNzY0bDEgMkg2LjYxOGwxLTJ6IiBmaWxsPSIjZWRmMmZhIiBjbGFzcz0iZmlsbC0wMDAwMDAiPjwvcGF0aD48L3N2Zz4=
+[donate-badge2]:https://img.shields.io/static/v1?label=Treat%20a%20coffee&message=donate%20a%20tip&color=2a9cde&logo=data:image/svg+xml;base64,PHN2ZyBkYXRhLW5hbWU9IkxheWVyIDEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjYuNSAxNUgyNnYtMWEyIDIgMCAwIDAtMi0ySDJhMiAyIDAgMCAwLTIgMnY2YTEwLjY0IDEwLjY0IDAgMCAwIDExIDExaDRhMTAuNzkgMTAuNzkgMCAwIDAgOS4zMS01aDIuMTlhNS41IDUuNSAwIDAgMCAwLTExWk0xNSAyN2gtNGE2LjcgNi43IDAgMCAxLTctN3YtNGgxOHY0YTYuNzcgNi43NyAwIDAgMS03IDdabTExLjQ0LTQuNzdoLS43OGExMy43NSAxMy43NSAwIDAgMCAuMi0yLjMxdi0xLjE1aC41OGExLjczIDEuNzMgMCAwIDEgMCAzLjQ2Wk0xMyAxMGEyIDIgMCAwIDAgMi0yVjJhMiAyIDAgMSAwLTQgMHY2YTIgMiAwIDAgMCAyIDJaTTIwIDEwYTIgMiAwIDAgMCAyLTJWN2EyIDIgMCAwIDAtNCAwdjFhMiAyIDAgMCAwIDIgMlpNNiAxMGEyIDIgMCAwIDAgMi0yVjZhMiAyIDAgMCAwLTQgMHYyYTIgMiAwIDAgMCAyIDJaIiBmaWxsPSIjZjBmNWZhIiBjbGFzcz0iZmlsbC1iYTYzYzYiPjwvcGF0aD48L3N2Zz4=
+[donate-link]: https://www.paypal.com/donate/?hosted_button_id=9MLB29CKX5674

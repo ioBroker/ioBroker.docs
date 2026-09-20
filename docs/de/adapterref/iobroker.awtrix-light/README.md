@@ -211,6 +211,14 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) Adapter requires admin >= 7.8.23 now
+
+### 4.0.1 (2026-09-16)
+
+* (@klein0r) Improved state object role definitions
+
 ### 4.0.0 (2026-07-30)
 
 * (@Brainbug01) Added option/setting for global overlay
@@ -233,12 +241,6 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
 * (@klein0r) Improved error handling when adapter is not ready (starting)
 * (@klein0r) Added scroll speed to expert apps
 * (@klein0r) Added icons for custom apps in object tree
-
-### 1.6.0 (2025-01-27)
-
-Updated recommended firmware version to 0.98
-
-* (@klein0r) Updated dependencies
 
 ## License
 

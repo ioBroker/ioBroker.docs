@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tr-064/README.md
 title: ioBroker.tr-064
-hash: 2luliso5zChnaA7F2sWvOkaLGs6jXzhuE76dxvuqpL8=
+hash: 3NAmar9gzVTvklMV7BV3G0LPjqC0hxoqiLmlkxDCbjs=
 ---
 ![Количество установок](http://iobroker.live/badges/tr-064-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.tr-064.svg)
@@ -37,10 +37,12 @@ hash: 2luliso5zChnaA7F2sWvOkaLGs6jXzhuE76dxvuqpL8=
 
 - Включайте и выключайте Wi-Fi на частотах 2,4 ГГц и 5 ГГц.
 - Включайте и выключайте гостевой Wi-Fi.
+- Переключите все сети Wi-Fi с помощью `states.wlan` Как и кнопка WLAN на Fritz!Box: снова включаются только те сети Wi-Fi, которые были активны ранее, а не гостевая сеть Wi-Fi или диапазон, который вы отключили.
 - Перезагрузите Fritz!Box
-- Запустить процесс WPS
+- Запустите процесс WPS
 - Восстановите интернет-соединение.
 - Прочитайте внешний IP-адрес
+- Прочитайте информацию о подключении к интернету: `states.wanAccessType` (`DSL`, `Ethernet`, `Fiber`, `Cable`, `LTE`, `UMTS`), `states.wanLinkStatus` (`Up`, `Down`, ...), `states.wanProvider` скорость линии `states.wanDownstreamMax` /`states.wanUpstreamMax` (бит/с) — количество байтов, отправленных и полученных с момента установления соединения. `states.wanBytesSent` /`states.wanBytesReceived` и текущие ставки `states.wanSendRate` /`states.wanReceiveRate` (байт в секунду). Изменение `wanAccessType` показывает, например, резервное подключение к мобильному соединению.
 
 ### звонить (набрать номер)
 
@@ -52,7 +54,7 @@ hash: 2luliso5zChnaA7F2sWvOkaLGs6jXzhuE76dxvuqpL8=
 ### toPauseState
 
 - Возможные значения: `ring`, `connect`, `end`
-- Вы можете использовать это состояние, чтобы приостановить воспроизведение видеоплеера при входящем звонке. `ring`), или когда кто-то поднимает трубку телефона (`connect`).
+- Это состояние можно использовать для приостановки воспроизведения видео при входящем звонке. `ring`), или когда кто-то поднимает трубку телефона (`connect`).
 - Вы можете продолжить воспроизведение с этого значения. `end`.
 
 ### Присутствие
@@ -63,6 +65,12 @@ hash: 2luliso5zChnaA7F2sWvOkaLGs6jXzhuE76dxvuqpL8=
 - Добавьте все устройства членов вашей семьи или соседей по комнате, например, их смартфоны, и подтвердите, нажав кнопку «Сохранить».
 - Для каждого устройства адаптер создает структуру папок в объектах адаптера. Обычно это папка. `tr-064.0.devices`.
 - Как только кто-то приходит или уходит, адаптер получает эту информацию. Состояние `tr-064.0.devices.xxx.active`, где `xxx` — это название устройства, указывающее, доступно ли это устройство, и, следовательно, находится ли человек дома.
+
+Параметр "Показывать точки доступа устройств" (включен по умолчанию) считывает топологию сети Fritz!Box раз в минуту: `devices.xxx.accessPoint` Это устройство Fritz!Box или ретранслятор, к которому оно подключено? `devices.xxx.connection` группа (`2.4 GHz`, `5 GHz`, `6 GHz`) или `LAN` С его помощью скрипт может реагировать только тогда, когда смартфон подключен к ретранслятору на входе. Вкладка «Сетка» в настройках отображает всю топологию сетки в графическом виде во время работы экземпляра.
+
+По умолчанию `xxx` Это имя устройства в Fritz!Box, а не имя в таблице. Включите параметр «Называть объекты по этой таблице» на вкладке «Устройства», чтобы получить имена из таблицы. Тогда два устройства с одинаковым именем в Fritz!Box получат отдельные объекты, и эти объекты не будут перемещаться при переименовании устройства в Fritz!Box. При включении этой опции объекты, созданные с именем Fritz!Box, будут удалены при следующем запуске, поэтому скрипты, псевдонимы или представления VIS, использующие их, должны быть скорректированы. Имя, которое встречается в таблице дважды, получает число в конце. `Guest`, `Guest_2`).
+
+Смартфон с частным Wi-Fi-адресом имеет еще один MAC-адрес в каждой сети Wi-Fi, например, в гостевой сети Wi-Fi. Введите все его адреса в столбец MAC, разделяя их запятыми: устройство считается присутствующим, как только один из них активен, и `lastMAC-address` показывает, какой именно. Вращающийся частный адрес (iOS 18: "Rotating") регулярно меняется, и отслеживать его таким способом невозможно.
 
 Также можно включить опцию «Использовать mDNS для обнаружения новых устройств». При использовании mDNS адаптеру не нужно опрашивать Fritz!Box, и он быстрее обнаруживает изменения.
 
@@ -78,12 +86,18 @@ hash: 2luliso5zChnaA7F2sWvOkaLGs6jXzhuE76dxvuqpL8=
 
 Монитор вызовов в режиме реального времени создает состояния для каждого входящего и исходящего вызова. Если телефонная книга включена (что является настройкой по умолчанию), адаптер преобразует номера в имена. Также есть состояние, отображающее звонок телефона.
 
+- `callmonitor.connected` показывает, подключен ли адаптер к монитору вызовов устройства Fritz!Box.
+- `extension` Это телефонный порт, через который принимается или совершается звонок. `device` его название, например `Mobilteil Küche` Fritz!Box сообщает только номер порта; адаптер получает имя каждого порта из списков вызовов, поэтому `device` Эта запись заполняется только тогда, когда списки вызовов включены и телефон использовался хотя бы один раз. Fritz!Box определяет номер телефона входящего вызова только тогда, когда с него снята трубка: `callmonitor.connect.device`.
+- Устройство Fritz!Box не регистрирует внутренние вызовы, например, звонки от дверного звонка. `**9` ни для монитора вызовов, ни по каналу TR-064.
+
 ### Телефонный справочник
 
 - Если телефонная книга включена, адаптер использует её для поиска имени абонента по номеру телефона.
 - Для определения номера или имени доступны еще три состояния. Если доступно изображение, вы также получите URL-адрес изображения контакта.
 
 Пример: если вы зададите состояние `phonebook.number` Адаптер устанавливает все 3 состояния. `name`, `number` и `image` к значениям найденного контакта. Примечание: при поиске по имени адаптер сначала сравнивает полное имя. Если контакт не найден, адаптер ищет часть имени.
+
+Если один номер есть в нескольких телефонных книгах с разными названиями, то в настройках таблицы «Телефонная книга для вашего номера» определяется, какое название будет отображаться в мониторе вызовов: введите свой номер (достаточно последних цифр) и название телефонной книги в поле Fritz!Box. При звонке на ваш номер или с вашего номера сначала будет отображаться название из этой телефонной книги.
 
 ### Списки звонков
 
@@ -102,6 +116,33 @@ hash: 2luliso5zChnaA7F2sWvOkaLGs6jXzhuE76dxvuqpL8=
 Счетчик звонков: вы можете установить счетчик звонков на 0. Следующий звонок увеличит счетчик на 1.
 
 Вы можете настроить вывод HTML-кода с помощью шаблона.
+
+### Журнал событий
+
+Опция "Чтение журнала событий FRITZ!Box" считывает журнал событий Fritz!Box раз в минуту:
+
+- `deviceLog.json` - Последние 50 событий, начиная с самых новых: `[{"id": 506, "group": "sys", "date": "18.09.26", "time": "10:05:00", "msg": "..."}]`. `group` является `sys`, `net`, `fon`, `wlan` или `usb`.
+- `deviceLog.newEvents` - События, произошедшие с момента последнего чтения, записываются только при появлении новых. После перезапуска содержат события, произошедшие с момента последнего запуска.
+
+С помощью этого скрипта можно отправить сообщение о входе в систему в пользовательский интерфейс Fritz!Box («Anmeldung des Benutzers ... an der FRITZ!Box-Benutzeroberfläche»). Текст сообщений зависит от языка Fritz!Box. Действие `GetDeviceLog` из `states.command` Возвращает сокращенный лог без этих событий.
+
+### Запишите неизмененные значения
+
+По умолчанию адаптер записывает значение только при его изменении. При использовании опции "Записывать также неизмененные значения" каждое опрашиваемое значение записывается с новой меткой времени, поэтому скрипт может использовать "было обновлено" вместо "было изменено". Это увеличивает нагрузку на базу данных.
+
+### Виджеты для vis-2 и ioBroker.devices
+
+Адаптер предоставляет виджеты, отображающие состояние Fritz!Box. Щелчок по плитке открывает диалоговое окно с топологией сетки в полноэкранном режиме на телефоне.
+
+vis-2 (набор виджетов "FRITZ!Box"):
+
+- **FRITZ!Box** (`Tr064FritzBox`): плитка, как в ioBroker.devices, с отображением состояния подключения, модели, типа соединения, текущего объема загрузки и выгрузки, внешнего IP-адреса, WLAN и гостевой WLAN, новых сообщений и пропущенных вызовов. Ее макет выбирается размером от маленького квадрата до большой карточки с помощью линии. Опционально чипы WLAN и гостевой WLAN переключаются между собой (`switchWlan`).
+- **Сетчатая топология** (`Tr064Mesh`): топология сетки в виде графического изображения или таблицы, заполняющей виджет и обновляющейся, пока она видна.
+- **Присутствие** (`Tr064Presence`): сконфигурированные устройства с параметрами "присутствует/отсутствует", "точка доступа" и "диапазон".
+
+ioBroker.devices: виджет **FRITZ!Box** можно добавить в категорию во всех четырех размерах (1x1, 2x0.5, 2x1, 2x2); в настройках виджета выбирается экземпляр адаптера.
+
+Для работы виджетов необходимы состояния версии адаптера, используемой с этими виджетами (`states.boxModel`, `states.wan*`, ...) и запущенный экземпляр для топологии сетки.
 
 ### Командование штатов и результат командования
 
@@ -159,13 +200,37 @@ command = {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 5.1.0 (2026-09-19)
+- (@GermanBluefox) New widgets for vis-2 ("FRITZ!Box", "Mesh topology", "Presence") and for ioBroker.devices ("FRITZ!Box"): the state of the box as a tile, a click shows the mesh topology
+- (@GermanBluefox) New states `boxModel` and `boxFirmware`
+- (@GermanBluefox) The table in the tab "Devices" uses the whole width again: in 5.0.2 it was so narrow that name, IP and MAC could not be read
+- (@GermanBluefox) "Search for devices" works with many devices: the adapter reads the list of all devices in one request (`X_AVM-DE_GetHostListPath`) instead of one request per device, which took longer than the 20 seconds of the button. The search is always answered, also when a request fails, the box has no devices or the adapter is not connected
 - (@GermanBluefox) Fixed the crash `systemData.save is not a function` on start when a call list is generated: installations which ran an adapter version from 2017 to 2020 still had an invalid attribute `save` in the object `tr-064.<instance>`, which is removed now
 - (@GermanBluefox) `wlanGuest` switches the guest WLAN again on boxes with three bands (e.g. FRITZ!Box 5690 Pro, 4060) instead of the third band: the guest WLAN is always the last WLAN configuration of the box
 - (@GermanBluefox) New states `wlan60` and `wlan60Password` for the 6 GHz WLAN, and `wlan52` and `wlan52Password` for the second 5 GHz WLAN (e.g. FRITZ!Box 4060). The adapter asks the box which band its third WLAN uses
 - (@GermanBluefox) The call lists do not stop updating after some hours any more: the call monitor detects a connection which the box dropped unnoticed (e.g. by a restart) with TCP keepalive and reconnects, and the call lists are also read once a minute - that way they are updated without call monitor, too
 - (@GermanBluefox) A call list download which the box does not answer is given up after 10 seconds with a warning
+- (@GermanBluefox) `states.wlan` switches all WLANs like the WLAN button of the FRITZ!Box (`X_AVM-DE_SetWLANGlobalEnable`) and shows its state: switching on does not switch on the guest WLAN and bands which were off any more
+- (@GermanBluefox) New states for the internet connection: `wanAccessType` (e.g. `LTE` during a fallback to a mobile connection), `wanLinkStatus`, `wanProvider`, `wanDownstreamMax`, `wanUpstreamMax`, and the traffic `wanBytesSent`, `wanBytesReceived` (64 bit counters), `wanSendRate`, `wanReceiveRate`
+- (@GermanBluefox) New states `devices.xxx.accessPoint` and `devices.xxx.connection`: the FRITZ!Box or repeater a device is connected to and the band, read from the mesh topology. The new tab "Mesh" in the settings shows the mesh topology as a graphic. Admin 8 is required now
+- (@GermanBluefox) New option "Read the event log of the FRITZ!Box": the complete event log including the logins to the user interface in `deviceLog.json`, new events in `deviceLog.newEvents`
+- (@GermanBluefox) New state `callmonitor.connected` shows whether the call monitor is connected, and `callmonitor.*.device` the name of the telephone of a call
+- (@GermanBluefox) New table "Phone book per own number": a number which is in several phone books gets its name from the phone book of the own number of the call
+- (@GermanBluefox) New option "Write unchanged values too": every polled value is written with a new time stamp
+- (@GermanBluefox) A single call forwarding of the FRITZ!Box is shown in `callForwarding` now - before, the states were only created from the second call forwarding on. With only one phone number the name of the number is added to the name of the state again, and a box without call forwardings does not delay the poll cycle by 3 seconds any more
+- (@GermanBluefox) The call monitor does not lose events any more when the FRITZ!Box sends two of them in one network packet (e.g. `RING` and `DISCONNECT` of a very short call) or one event in two packets: the received data is split into lines now
+- (@GermanBluefox) The call lists do not freeze for good any more when the FRITZ!Box numbers its calls from the beginning again, e.g. after exchanging the box, a factory reset or a restart: the adapter asked only for the calls after the last known call ID and got an empty list forever. It now checks an empty answer against the newest call of the box and builds the lists again from the call list of the box; only calls after the newest known call increase the counters. The meta object `tr-064.<instance>` is only written when the lists changed, not with every refresh
 - (@GermanBluefox) New state `states.abNewMessages`: number of new (not yet listened) messages on the answering machines
+- (@GermanBluefox) The MAC addresses of the configured devices are sent to the box in its own format `AA:BB:CC:DD:EE:FF`, so addresses entered in lower case, with dashes or without separators are found
+- (@GermanBluefox) A configured device which the box does not know (or which is offline since the start) is logged once with a hint to check its MAC address and listed as inactive in `jsonDeviceList`, instead of silently being left out
+- (@GermanBluefox) New option "Name the objects after this table" in the tab "Devices": the objects below `devices` get the names of the table instead of the names in the Fritz!Box, so two devices with the same name in the box are not mixed up any more. When the option is switched on, the objects which were created with the name of the box are deleted. mDNS writes into the same objects as the poll now - before it created additional objects with the name of the table
+- (@GermanBluefox) A device can have several MAC addresses, separated by commas (e.g. a smartphone with a private Wi-Fi address in the home and the guest Wi-Fi): it is present if one of them is active. Changing the spelling of a MAC address does not delete the objects of the device any more, and "Search for devices" does not add a device of the table a second time
+- (@GermanBluefox) A device request which the box does not answer does not stop the presence detection and the polling any more
+- (@GermanBluefox) An info message tells when "Create JSON device list" is switched on, but no devices are configured
+- (@GermanBluefox) The adapter connects to a FRITZ!Box whose WLAN is switched off: the check of the login used the WLAN, which the box answers with an error then, so the adapter restarted (4.x) or retried forever without creating its objects (5.0). A refused login is reported with a hint to check user, password and rights of the user instead of the advice to restart the box
+- (@GermanBluefox) The adapter does not hang silently any more when the FRITZ!Box does not deliver the description of a service (e.g. `x_speedtestSCPD.xml` with FRITZ!OS 8.24 Labor): after 10 seconds the service is skipped with a warning, and the connection is limited to 60 seconds and retried
+- (@GermanBluefox) The debug log does not contain sensitive data any more, so it can be shared to analyze problems: phone numbers, names, phone book and call data, host names, MAC and IP addresses, values of states and results of `states.command` are only logged with level `silly`, and the session ID in URLs of the box is never logged. The result of `states.command` is no longer logged with level info - it is still written into `states.commandResult`
+- (@GermanBluefox) The call monitor does not stop any more when the FRITZ!Box refuses the connection, e.g. while it restarts after a firmware update: it retries every 60 seconds and reconnects on its own. The hint to open port 1012 with `#96*5*` is only logged if the call monitor was never connected
 
 ### 5.0.2 (2026-09-10)
 - (@GermanBluefox) Fixed the crash `Cannot read properties of undefined (reading 'safe')` in `getWLAN` right after the start: the WLAN states are read again in every poll cycle
@@ -192,10 +257,6 @@ command = {
 
 ### 4.2.18 (2023-01-04)
 * (Apollon77) Prepare for future js-controller versions
-
-### 4.2.17 (2022-09-16)
-* (simatec/Apollon77) Prevent duplication of entries in configuration
-* (Apollon77) Make sure the active status of devices in jsonDeviceList is correct
 
 ## License
 The MIT License (MIT)

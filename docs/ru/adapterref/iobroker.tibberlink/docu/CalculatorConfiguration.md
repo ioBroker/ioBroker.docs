@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en":"ioBroker.tibberlink"},"content":"en/adapterref/iobroker.tibberlink/README.md"},"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md":{"title":{"en":"Calculator Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md"},"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md":{"title":{"en":"Graph Output Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/GraphOutput.md"},"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md":{"title":{"en":"Vehicles & Chargers Configuration"},"content":"en/adapterref/iobroker.tibberlink/docu/VehiclesAndChargers.md"},"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md":{"title":{"en":"Direct local poll of Pulse data"},"content":"en/adapterref/iobroker.tibberlink/docu/LocalPulse.md"},"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.tibberlink/docu/TemplateFlexChart01.md"},"en/adapterref/iobroker.tibberlink/info/TibberDataAPI.md":{"title":{"en":"Tibber Data API — research notes"},"content":"en/adapterref/iobroker.tibberlink/info/TibberDataAPI.md"},"en/adapterref/iobroker.tibberlink/info/PulseMeterModes.md":{"title":{"en":"Tibber Pulse — supported meter modes"},"content":"en/adapterref/iobroker.tibberlink/info/PulseMeterModes.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tibberlink/docu/CalculatorConfiguration.md
 title: Настройка калькулятора
-hash: ALAKrvm4LZwaGNZfSon0Ign4K3ntPLzqp8SQ5gLfj4Y=
+hash: RvvdaJQhcR5nSHbkdyN3dAxbC+qkqowxt/22nLQED9M=
 ---
 # Настройка калькулятора
 Часть [документация ioBroker.tibberlink](/#/adapters/tibberlink)._
@@ -24,6 +24,9 @@ hash: ALAKrvm4LZwaGNZfSon0Ign4K3ntPLzqp8SQ5gLfj4Y=
 - Выходные данные:
 - "Оптимальная стоимость": Использует состояние "Цена срабатывания" в качестве входных данных, выдавая "ДА" каждый час, когда текущая стоимость энергии Tibber ниже цены срабатывания.
 - "Лучшие часы": Генерирует вывод "ДА" в течение наименее затратных часов, при этом число определяется в состоянии "AmountHours".
+
+При желании можно включить параметр "Включать ценовые совпадения на границе" в настройках канала: после выбора слотов "AmountHours" все последующие слоты, имеющие ту же цену, что и последний выбранный (граничный) слот, также включаются. Это позволяет охватить весь ценовой период - например, все четвертьчасовые интервалы с нулевой ценой во время фазы низких цен - вместо того, чтобы обрывать его на заданном уровне. По умолчанию отключено, поэтому существующие каналы сохраняют свое точное поведение в рамках параметра "AmountHours".
+
 - "Блок оптимального времени": Выводит "ДА" в течение наиболее экономически эффективного блока времени, при этом количество часов указано в состоянии "AmountHours".
 
 Кроме того, средняя общая стоимость в определенном блоке записывается в состояние "AverageTotalCost", расположенное рядом с входными состояниями этого канала. Также в результате вычислений в состояния "BlockStartFullHour" и "BlockEndFullHour" записываются время начала и окончания блока.

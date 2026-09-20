@@ -126,7 +126,7 @@ genutzt werden, um die Konfiguration zu ändern.
     |string|R|
 
    *Nur lesbarer JSON String, mit Konfigurationsinformationen der sonnenBatterie.*
-   *Nur in API v1, v2 hat hierfür den channel `configurations` *
+   *Nur in API v1, v2 hat hierfür den channel `configurations`*
    
    
 * info.powerMeter

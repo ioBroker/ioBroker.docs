@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.eusec/README.md
 title: ioBroker.euSec
-hash: xgesXJ9rDwTxAXfgQkTfphizTMC9njHeg3l2pqzIfH0=
+hash: EoqRf/yEagOqrnNE0pySy7GA/XyPYslWRTZXlgP8y5U=
 ---
 ![Logo](../../../en/adapterref/iobroker.eusec/docs/_media/ioBroker.euSec.png)
 
@@ -43,12 +43,17 @@ Informationen zu unterstützten Geräten finden Sie [hier](https://github.com/br
 
 Dieser Adapter wäre ohne die großartige Arbeit von Patrick Broetto (brobat) <https://github.com/bropat> , der frühere Versionen dieses Adapters erstellt hat, nicht möglich gewesen.
 
-## WICHTIGE Informationen zum Upgrade auf Node.js 22
+## Upgrade von Adapter 2.x oder älter
 
-Adapter 2.0.3 und neuere Versionen unterstützen Node.js 22. Ältere Node.js-Versionen erfordern eine spezielle Konfiguration, die mit Node.js 22 nicht mehr erforderlich ist. Gehen Sie daher beim Aktualisieren von Node.js von einer Version unter 22.xx auf Node.js 22 wie folgt vor:
+Adapter 2.x und älter hinzugefügt `--security-revert=CVE-2023-46809` zu den Node-Prozessparametern jeder Instanz, die unter Node.js 18 oder 20 ausgeführt wird. Node.js 22 und neuer weigern sich, eine Instanz mit diesem Flag zu starten, und dieser Adapter benötigt Node.js 24.
 
-- Falls Sie node.js < 22 und adapter < 2.0.0 installiert haben, aktualisieren Sie bitte zuerst node.js und installieren Sie anschließend adapter 2.0.3.
-- Wenn Sie einen Adapter ab Version 2.0.0 mit einer Node-Version vor 22 installiert haben, müssen Sie den Adapter neu installieren. Eine detaillierte Beschreibung (auf Deutsch) finden Sie in unserem Forum ( <https://forum.iobroker.net/topic/82651/test-adapter-eusec-v2-0-x> ).
+Durch die Installation dieses Adapters wird das Flag automatisch von allen EUSEC-Instanzen entfernt; andere Knotenprozessparameter bleiben erhalten. Falls eine Instanz dennoch nicht startet und deren Protokoll Folgendes anzeigt: `--security-revert=CVE-2023-46809` Entfernen Sie die Parameter manuell und starten Sie die Instanz neu:
+
+```
+iobroker object set system.adapter.eusec.0 common.nodeProcessParams=[]
+```
+
+Eine detaillierte Beschreibung (in deutscher Sprache) finden Sie in unserem Forum ( <https://forum.iobroker.net/topic/82651/test-adapter-eusec-v2-0-x> ).
 
 ## Changelog
 
@@ -56,8 +61,21 @@ Adapter 2.0.3 und neuere Versionen unterstützen Node.js 22. Ältere Node.js-Ver
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (typhosj) Talkback: devices with a speaker get the state `talkback_play`. Writing an http(s) URL or an absolute file path to it plays that audio through the device; a livestream is started for it if none is running and stopped again afterwards (#34)
+- (typhosj) New setting "Battery devices that stay connected": standalone battery devices on permanent power (power supply or solar panel) listed there keep their P2P connection instead of losing it 30 seconds after the last command, and are reconnected when it drops. It drains the battery of a device that is not on permanent power (#33)
+- (typhosj) Installing the adapter now removes only `--security-revert=CVE-2023-46809` from the node process parameters of an instance instead of clearing them all, so parameters such as `--max-old-space-size` survive an update. A failure there no longer aborts the installation
+- (typhosj) Livestreams no longer fail with "RSA_PKCS1_PADDING is no longer supported for private decryption" on node.js builds that refuse RSA PKCS#1 v1.5 decryption; the stream key is now decrypted by node-rsa's own implementation (#144)
+- (typhosj) The eufyCam C31 (T817L) is no longer an unknown device without states; the adapter handles it like the SoloCam Spotlight 1080, which gives it livestream, motion and person detection, light and alarm. Pan and tilt are not available yet (#156)
+
+### 3.2.1 (2026-09-18)
+- (typhosj) An event picture that cannot be decoded no longer replaces the last picture with a `<serial>.unknown` file; `picture_url` and `picture_html` keep the previous picture and a warning names the device, the data length and the image format (#136)
+
+### 3.2.0 (2026-09-15)
+- (typhosj) Pan and tilt cameras expose their four PTZ preset positions: `preset_position` moves the camera to a preset, `save_preset_position` stores the current position in one and `delete_preset_position` clears one. The states are only created for devices that report the matching command (#155)
+
 ### 3.1.0 (2026-09-03)
-- (typhosj) The adapter requires node.js >= 24 now as `eufy-security-client` 4.x requires `node >=24` itself
+- (typhosj) The adapter requires node.js >= 24 now as`eufy-security-client` 4.x requires `node >=24` itself
 - (typhosj) The `livestream`, `livestream_rtsp` and `rtsp_stream_url` states are emptied instead of deleted when a stream ends. 
 - (typhosj) Removed the "HTTPS streaming url" setting. The adapter never configures TLS for go2rtc and go2rtc ignores `api.tls_listen` without a certificate, so the option only ever produced a livestream URL that could not be opened. The URL is built with `http` now
 - (typhosj) The livestream page (`http://<host>:1984/stream.html?src=<serial>`) is now served by the adapter, with the defaults that make a stream unstable on weak clients such as a Fire tablet
@@ -77,20 +95,6 @@ Adapter 2.0.3 und neuere Versionen unterstützen Node.js 22. Ältere Node.js-Ver
 
 ### 2.0.3 (2025-10-26)
 - (mcm1957) Remove fix for CVE-2023-46809 for node.js 22 and newer
-
-### 2.0.0 (2025-10-26)
-
-- (mcm1957) Adapter has been migrated to iobroker-community-adapters organisation
-- (mcm1957) Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
-- (mcm1957) Dependencies have been updated
-
-### 1.3.3 (2024-09-28)
-
-* (bropat) Updated version of the package eufy-security-client (3.1.1)
-* (bropat) Further details can be found in the changelog of eufy-security-client (3.1.1)
-
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.eusec/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

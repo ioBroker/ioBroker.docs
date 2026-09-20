@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.schlueter-thermostat/README.md
 title: ioBroker.schlueter-thermostat
-hash: 9tcRgjLCZfK53bfl2ilvpFK2nb520IbV5bBxy2jb44U=
+hash: r70RbQDBD2D5iiMp2bmhbGgKt4wxTQXgwz4S/N3Z/dQ=
 ---
 # ioBroker.schlueter-thermostat
 
@@ -27,7 +27,7 @@ hash: 9tcRgjLCZfK53bfl2ilvpFK2nb520IbV5bBxy2jb44U=
 
 ## 🌍 Обзор
 
-<img align="left" src="admin/schlueter-thermostat.png" alt="image" width="128" /><p> Этот адаптер интегрирует<strong> Термостаты Schlüter/OJ Microline OWD5</strong> в ioBroker через<strong> официальные облачные API</strong> .
+<img align="left" src="admin/schlueter-thermostat.jpg" alt="image" width="128" /><p> Этот адаптер интегрирует<strong> Термостаты Schlüter/OJ Microline OWD5</strong> в ioBroker через<strong> официальные облачные API</strong> .
 
 Он основан на интеграции с Home Assistant от @robbinjanssen. Для получения дополнительной информации см. документацию.
 
@@ -116,6 +116,12 @@ flowchart TB
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (patricknitsch) Add Node.js 26 in test-and-release.yml
+* (patricknitsch) Update Dependencies
+* (patricknitsch) Change icon from png to jpg
+
 ### 0.7.4 (2026-06-05)
 * (copilot) Fixes for Repo Checker
 
@@ -133,7 +139,7 @@ flowchart TB
 
 - (claude) Add Notification Manager
 
-**Older changelog entries can be found in [CHANGELOG_OLD.md](https://github.com/patricknitsch/ioBroker.schlueter-thermostat/blob/main/CHANGELOG_OLD.md).**
+**Older changelog entries can be found in CHANGELOG_OLD.md.**
 
 ## License
 

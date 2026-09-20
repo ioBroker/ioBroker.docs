@@ -30,7 +30,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.5.4-alpha.0 (2026-09-14)
+### 0.5.4 (2026-09-17)
 * (HGlab01) Improved accuracy (check https://github.com/mourner/suncalc/releases/tag/v2.0.0)
 * (HGlab01) Update suncalc to 2.0.2
 
@@ -50,6 +50,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     - ioBroker host (js-controller) 5.0 or higher
 * (HGlab01) Coordinates can be configured on instance level (optional)
 * (HGlab01) Bump iobroker-jsonexplorer to v0.1.14
+
 
 ## License
 MIT License

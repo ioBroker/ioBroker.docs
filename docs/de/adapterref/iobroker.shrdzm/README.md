@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.shrdzm/README.md
 title: ioBroker.shrdzm
-hash: iRWCqOWvS2jbUtjPgJM4btr3XrbJGmNELnLc+GkFVRY=
+hash: lYGyoRorQ1ep9u/UBtuNogYdVwbxYQjimUbwkjfw68U=
 ---
 ![Logo](../../../en/adapterref/iobroker.shrdzm/admin/shrdzm.png)
 
@@ -67,7 +67,7 @@ Installieren und konfigurieren Sie Ihre SHRZDM-Schnittstelle gemäß der Dokumen
 
 - Wählen Sie in der Admin-Oberfläche einen freien Port aus. Standardmäßig ist Port 9000 eingestellt, es kann aber jeder freie Port verwendet werden.
 
-- SHRZDM-Konfigurationsoberfläche öffnen (über einen Webbrowser)![Alternativtext](../../../en/adapterref/iobroker.shrdzm/doc/shrzdm-cloud.pgn)
+- SHRZDM-Konfigurationsoberfläche öffnen (über einen Webbrowser)![Alternativtext](../../../en/adapterref/iobroker.shrdzm/doc/shrdzm-cloud.png)
 
 - Cloud-Konfiguration auswählen
 

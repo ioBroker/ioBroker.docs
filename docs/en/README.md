@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/README.md
-hash: 8llWiVghv0Bp7RrLBeDd+JTE+alyUdgDYlL5qG6GFm0=
+hash: hS87kFjKYgd8NeF8BCaI8tOnR64d1OnMg97smP8JwO4=
 ---
 # What is ioBroker?
 

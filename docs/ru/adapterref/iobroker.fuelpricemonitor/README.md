@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fuelpricemonitor/README.md
 title: ioBroker.fuelpricemonitor
-hash: PNTNld3qWr/+ojDbLJpdH3UnJMhytkqdJnpYqfLLwm4=
+hash: V+KS9bzLahWFCoXudH1XaJbuoV3UD5Es00OeWSICkKg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fuelpricemonitor/admin/fuelpricemonitor.png)
 
@@ -22,7 +22,7 @@ hash: PNTNld3qWr/+ojDbLJpdH3UnJMhytkqdJnpYqfLLwm4=
 
 ## адаптер fuelpricemonitor для ioBroker
 
-Этот адаптер получает цены на топливо (дизельное топливо, Super95 и сжатый природный газ) из официальной австрийской базы данных на основе заданного вами географического положения. API предоставляет цены только для первых 5 станций. Для остальных 5 станций цены недоступны. Можно добавить дополнительные местоположения. По умолчанию расписание составляется каждые 20 минут в виде задания cron на вкладке экземпляра.
+Этот адаптер получает цены на топливо (дизельное топливо, Super95 и сжатый природный газ) из [официальной австрийской базы данных](https://api.e-control.at/sprit/1.0/doc/index.html?url=https://api.e-control.at/sprit/1.0/api-docs%3Fgroup%3Dpublic-api) на основе заданного вами географического положения. API предоставляет цены только для первых 5 станций. Для остальных 5 станций цены недоступны. Можно добавить дополнительные местоположения. По умолчанию расписание составляется каждые 20 минут в виде задания cron на вкладке экземпляра.
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
 
@@ -36,6 +36,11 @@ hash: PNTNld3qWr/+ojDbLJpdH3UnJMhytkqdJnpYqfLLwm4=
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.4.4 (2026-09-17)
+* (HGlab01) add feature to exclude opening hours (state subtree of hours to be delete one time manually)
+* (HGlab01) Bump axios to 1.20.0
+* (HGlab01) Cleanups
+
 ### 0.4.3 (2026-06-16)
 * (HGlab01) some small improvements
 * (HGlab01) Bump axios to 1.18.0
@@ -53,11 +58,6 @@ hash: PNTNld3qWr/+ojDbLJpdH3UnJMhytkqdJnpYqfLLwm4=
     - Node.js 18.0 or higher
     - ioBroker host (js-controller) 5.0 or higher
 * (HGlab01) Bump axios to 1.6.2
-
-### 0.3.6 (2023-08-10)
-* (HGlab01) switch to Admin5 UI for configuration
-
-[Older changelogs can be found there](https://github.com/HGlab01/ioBroker.fuelpricemonitor/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License
@@ -81,6 +81,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.fuelpricemonitor.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.fuelpricemonitor?ref=badge_large)

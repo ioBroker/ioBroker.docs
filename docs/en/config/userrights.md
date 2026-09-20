@@ -4,7 +4,7 @@ lastChanged: 08.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/userrights.md
-hash: 0zifA4l0dVi27+yJhZvwnVifoxseabCNGuVgMCkgDUE=
+hash: sr/OqLGdhH1JQzehkcxlNz1MetVyJT4uO8Nnd/tEHMQ=
 ---
 # Access management with users and groups
 
@@ -16,8 +16,8 @@ These users are not the operating system users. They only apply within ioBroker:
 
 | group                                             | Intended for                                                  |
 | ------------------------------------------------- | ------------------------------------------------------------- |
-| **Administrator** (`system.group.administrator` ) | Full access. This is where the user is located.`admin` .      |
-| **Users** (`system.group.user` )                  | Daily operation: switching and reading, but no modifications. |
+| **Administrator** (`system.group.administrator`) | Full access. This is where the user is located. `admin`.      |
+| **Users** (`system.group.user`)                  | Daily operation: switching and reading, but no modifications. |
 
 A user can belong to multiple groups. Their rights are then the sum of all group rights.
 
@@ -34,7 +34,7 @@ Five blocks, each with the same five rights:
 | **Object permissions**    | The description of a data point: name, role, unit, assignments. |
 | **Status authorizations** | The value itself. Switching is a write access to the state.     |
 | **User permissions**      | Manage users and groups.                                        |
-| **Other permissions**     | `http-Anfragen` ,`Shell-Ausführung` and`sendTo` .               |
+| **Other permissions**     | `http-Anfragen`, `Shell-Ausführung` and `sendTo`.               |
 | **File permissions**      | The file storage, i.e., everything in the Files tab.            |
 
 The five rights mean: **read (** retrieve individually), **list** (see that something exists), **write** (change), **delete (** remove), **create (** create a new one).
@@ -46,10 +46,10 @@ The _user_ group is set by default to cover everyday use:
 | objects    | read, list                |
 | Conditions | read, list, write, create |
 | user       | read, list                |
-| Other      | only`http-Anfragen`       |
+| Other      | only `http-Anfragen`       |
 | files      | read, list                |
 
-This allows such a user to see everything and control devices, but not to modify objects or run scripts.`sendTo` Do not initiate the process and do not issue any shell commands.
+This allows such a user to see everything and control devices, but not to modify objects or run scripts. `sendTo` Do not initiate the process and do not issue any shell commands.
 
 !>`Shell-Ausführung` This means that scripts from this user are allowed to execute commands on the operating system. This right belongs only to the Administrators group.
 
@@ -57,7 +57,9 @@ This allows such a user to see everything and control devices, but not to modify
 
 Group permissions define what a user is **generally** allowed to do. Object permissions define **which data point this applies to** . Both are checked, and the stricter permission always prevails. A user whose group has write permissions can still encounter problems with a single data point.
 
-These rights to the object are called **ACLs** , short for _Access Control List_ . They are structured the same way as file permissions in Linux: a three-digit number, for example:`664` .
+These rights to the object are called **ACLs** , short for _Access Control List_ . They are structured like file permissions in Linux: a three-digit number, for example: `664` However, it is read **in hexadecimal** , not octal as under Linux. In the admin interface and on the command line, you type it exactly as it appears here; only in scripts and in JSON must it be read differently. `0x664` Stand still, otherwise something completely different will happen.
+
+This page shows what to do in everyday use. How ioBroker makes individual decisions – regarding objects, states, and files, with all operations and the meaning of each digit – is explained [in detail under Access Rights (ACL)](/docs/config/acl.md) .
 
 The three numbers represent three roles, in this order:
 
@@ -76,7 +78,7 @@ Each digit is made up of two actions: **reading counts as 4** , **writing counts
 | `666`  | Anyone is allowed to write.                                                                 |
 | `600`  | Only the owner, nobody else.                                                                |
 
-An example that occurs exactly like this in everyday life: A user in the group _"Users"_ is allowed to write states. The data point`alias.0.Licht` stands up`664` and belongs to the owner`admin` in the _administrator_ group. The user is neither one nor the other, so the third digit applies to him:`4` He can only read. He sees the lamp, but he can't switch it on. The problem isn't the group, but the object's ACL.
+An example that occurs exactly like this in everyday life: A user in the group _"Users"_ is allowed to write states. The data point `alias.0.Licht` stands up `664` and belongs to the owner `admin` in the _administrator_ group. The user is neither one nor the other, so the third digit applies to him: `4` He can only read. He sees the lamp, but he can't switch it on. The problem isn't the group, but the object's ACL.
 
 Objects and states have **separate** permissions. The object is the description, the state the value. Anyone who only needs to be able to toggle the state needs write permissions for the state, not the object.
 
@@ -90,11 +92,11 @@ At the top are **owner-user** and **owner group** , below are the rights, separa
 - **Group** : who is in the registered group.
 - **Everyone** : all other registered users.
 
-The three numbers represent precisely these three roles. Reading counts.`4` , Write`2` , together therefore`6` .`664` This means that the owner and group are allowed to read and write, everyone else can only read.
+The three numbers represent precisely these three roles. Reading counts. `4`, Write `2`, together therefore `6`. `664` This means that the owner and group are allowed to read and write, everyone else can only read.
 
 The **"Apply to object and its sub-objects"** switch applies the setting to the entire subtree. This is a convenient way to, for example, set an entire adapter namespace to read-only.
 
-The permissions assigned to **newly created** objects are specified in the [system settings](/docs/admin/settings.md) under _Default ACL_ . This setting does not affect existing objects.
+The permissions assigned to **newly created** objects are defined in the [system settings](/docs/admin/settings.md) under _Default ACL_ . Objects that already have an ACL remain unaffected. Objects **without** an ACL will receive the new values retroactively.
 
 Objects that an adapter creates itself belong to it. If it recreates them during an update, the permissions are restored as the adapter intended. Where a restriction needs to be permanent, an [alias](/docs/basics/alias.md) is the more reliable approach: it belongs to you, and the adapter doesn't touch it.
 

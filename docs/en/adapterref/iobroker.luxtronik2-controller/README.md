@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md"}}}
 ---
 <img src="admin/luxtronik2-controller.png" alt="Projekt Logo" width="20%">
 
@@ -61,6 +61,24 @@ Dieses Projekt steht in keinerlei Verbindung zu Alpha Innotec, Novelan, ait-deut
 
 _This project is not affiliated with Alpha Innotec, Novelan, ait-deutschland GmbH, or any other company. It is a personal project that is maintained in spare time. Use at your own risk._
 
+"project_disclaimer": "Este proyecto no está afiliado de ninguna manera con Alpha Innotec, Novelan, ait-deutschland GmbH u otros fabricantes. Es un proyecto de código abierto privado desarrollado y mantenido en el tiempo libre. El uso del adaptador es bajo su propio riesgo."
+
+"project_disclaimer": "Ce projet n'est en aucun cas affilié à Alpha Innotec, Novelan, ait-deutschland GmbH ou à d'autres fabricants. Il s'agit d'un projet open source privé développé et maintenu pendant le temps libre. L'utilisation de l'adaptateur se fait à vos propres risques."
+
+"project_disclaimer": "Ce projet n'est en aucun cas affilié à Alpha Innotec, Novelan, ait-deutschland GmbH ou à d'autres fabricants. Il s'agit d'un projet open source privé développé et maintenu pendant le temps libre. L'utilisation de l'adaptateur se fait à vos propres risques."
+
+"project_disclaimer": "Dit project is op geen enkele wijze verbonden met Alpha Innotec, Novelan, ait-deutschland GmbH of andere fabrikanten. Het is een privé open-sourceproject dat in de vrije tijd wordt ontwikkeld en onderhouden. Het gebruik van de adapter is op eigen risico."
+
+"project_disclaimer": "Ten projekt nie jest w żaden sposób powiązany z Alpha Innotec, Novelan, ait-deutschland GmbH ani innymi producentami. Jest to prywatny projekt typu open-source, rozwijany i utrzymywany w czasie wolnym. Korzystanie z adaptera odbywa się na własną odpowiedzialność."
+
+"project_disclaimer": "Este projeto não está afiliado de forma alguma à Alpha Innotec, Novelan, ait-deutschland GmbH ou a outros fabricantes. É um projeto de código aberto privado desenvolvido e mantido no tempo livre. O uso do adaptador é por sua conta e risco."
+
+"project_disclaimer": "Этот проект никоим образом не связан с компаниями Alpha Innotec, Novelan, ait-deutschland GmbH или другими производителями. Это частный проект с открытым исходным кодом, который разрабатывается и поддерживается в свободное время. Использование адаптера осуществляется на свой страх и риск."
+
+"project_disclaimer": "Цей проєкт жодним чином не пов'язаний з Alpha Innotec, Novelan, ait-deutschland GmbH чи іншими виробниками. Це приватний проєкт з відкритим кодом, який розробляється та підтримується у вільний час. Використання адаптера здійснюється на власний ризик."
+
+"project_disclaimer": "Цей проєкт жодним чином не пов'язаний з Alpha Innotec, Novelan, ait-deutschland GmbH чи іншими виробниками. Це приватний проєкт з відкритим кодом, який розробляється та підтримується у вільний час. Використання адаптера здійснюється на власний ризик."
+
 ## Reporting Bugs & Contributing
 
 Bug reports, compatibility notes for specific firmware versions, or feature requests can be submitted via the issue tracker in the [GitHub-Repository](https://github.com/TbsJah/ioBroker.luxtronik2-controller/issues).
@@ -69,7 +87,7 @@ Bug reports, compatibility notes for specific firmware versions, or feature requ
 
 [Info Deutsch](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md)
 
-[Info English](https://github.com/TbsJah/ioBroker.luxtronik2-controller/blob/main/documentation/readme_en.md)
+[Info English](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md)
 
 <img src="documentation/Bilder/Haupteinstellung.png" alt="Haupteinstellung" width="100%">
 <img src="documentation/Bilder/Objekte.png" alt="Objekte" width="100%">
@@ -82,6 +100,10 @@ Bug reports, compatibility notes for specific firmware versions, or feature requ
 ## Changelog
 
 // ### **WORK IN PROGRESS**
+### 0.8.1 (2026-09-19)
+
+- Resolve issues which are reported by repository checker
+
 ### 0.8.0 (2026-09-14)
 
 **🚀 Features & Enhancements**
@@ -132,19 +154,6 @@ Bug reports, compatibility notes for specific firmware versions, or feature requ
 - (Fixed) Status Display: Fixed a logical evaluation bug where the operating state "Heating" (Code 0) was incorrectly overwritten and displayed as "No demand" (Code 5). Thanks to @michiproep for reporting!
 
 - (Fixed) Temperature Values: Fixed a related issue where temperature readings of exactly 0 °C (e.g., average temperature, return target temperature, cooling release) were incorrectly replaced by internal fallback values (e.g., 1.5 °C).
-
-### 0.7.0 (2026-09-04)
-
-**Features & Changes**
-
-- **(Changed) Cycle Optimization & Forced Hot Water**: To force a hot water cycle, the adapter now temporarily increases the hot water target temperature instead of modifying the hysteresis. This crucial safety improvement allows users to manually revert changes directly on the heat pump display without needing an installer password.
-- **(Changed) Disable default**: Disabled reset to default values in idle mode by default on initial start
-- **(Removed) Hysteresis Protection**: Removed all dynamic manipulations of the hot water hysteresis (e.g., during idle or active DHW cycles) to ensure installer-level settings remain untouched.
-- **(UI/Docs)**: Added detailed explanations and trigger rules for "Intelligent Cycle Optimization" and "Heating after hot water" directly to the admin configuration page.
-
-**Bugfixes**
-
-- Fixed adapter checker warning [W0066] by downgrading `@types/node` dependency to v22
 
 ## License
 

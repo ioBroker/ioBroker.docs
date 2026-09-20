@@ -4,11 +4,11 @@ lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/adapter.md
-hash: AdufgdBC05k2+5hnQqcXAm90gst2dCV/ZOuLQ9yT/kE=
+hash: txxeaJ+DGHuJ25aeslmDwswXl/F5+hIAv2vV/cKPVG0=
 ---
 # Rider Adapter
 
-This page lists all available adapters for ioBroker: the installed ones and the hundreds of available ones. Adapters are installed, updated, and removed from here.
+This is where you'll find all the adapters available for ioBroker: the installed ones and the hundreds that are available. From here, you can install, update, and remove adapters.
 
 An adapter is initially just the program. For it to do anything, it needs an **instance** . This is also created here and then configured in the [Instances](/docs/admin/instances.md) tab.
 

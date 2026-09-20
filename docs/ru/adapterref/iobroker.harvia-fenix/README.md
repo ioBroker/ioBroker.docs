@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harvia-fenix/README.md
 title: ioBroker.harvia-fenix
-hash: lgsXGtX1IZiRcVY4aN+WxhOiCe86BQRcKxNPJuJ8SPs=
+hash: RR+7J0MlGhQeZ51cNKQ5IbiGjz8f4IU8mFwuZO5AS7c=
 ---
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![узел](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -163,7 +163,15 @@ _Примечание: Мы рекомендуем создать отдельн
 | `timeToTargetFormatted`         | нить       | `text`                | Только для чтения | Отформатированное время, необходимое для достижения целевой температуры (например, `39 min 30 sec`).                                                                                                                                  |
 | `heatingCurve`                  | нить       | `json`                | Только для чтения | JSON-массив с интервалами нагрева в секундах на каждые 10 °C для построения графиков/визуализации.                                                                                                                                    |
 | `profiles`                      | нить       | `json`                | Только для чтения | JSON-массив доступных профилей саун (например, Cozy и т. д.).                                                                                                                                                                         |
-| `activeProfile`                 | число      | `level`               | Чтение/Запись     | Указатель профиля действующих саун.                                                                                                                                                                                                   |
+| `activeProfile`                 | число      | `level`               | Чтение/Запись     | Указатель профиля текущей активной сауны (`0` = мягкий, `1` = уютный, `2` = горячий).                                                                                                                                                   |
+| `events.lastEvent`              | нить       | `text`                | Только для чтения | Код или идентификатор последнего события, полученного от службы организации мероприятий Harvia Events Service.                                                                                                                        |
+| `events.lastEventType`          | нить       | `text`                | Только для чтения | Категория последнего события (`SAFETY`, `ERROR`, `SYSTEM`, и т. д.).                                                                                                                                                                 |
+| `events.lastEventSeverity`      | нить       | `text`                | Только для чтения | Уровень серьезности последнего инцидента (`info`, `warn`, `error`, `critical`).                                                                                                                                                      |
+| `events.lastEventMessage`       | нить       | `text`                | Только для чтения | Удобочитаемое сообщение или описание последнего события.                                                                                                                                                                              |
+| `events.lastEventTime`          | нить       | `date`                | Только для чтения | ISO-метка времени последнего события.                                                                                                                                                                                                 |
+| `events.safetyTripped`          | логический | `sensor.alarm`        | Только для чтения | Указывает, произошло ли срабатывание активного защитного отключения или блокировки.                                                                                                                                                   |
+| `events.safetyReason`           | нить       | `text`                | Только для чтения | Причина/основание срабатывания системы активной безопасности.                                                                                                                                                                         |
+| `events.history`                | нить       | `json`                | Только для чтения | Массив JSON, содержащий историю последних событий (до 15 событий).                                                                                                                                                                    |
 
 ---
 
@@ -205,6 +213,29 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 
 _Примечание: Эти состояния будут автоматически сброшены до исходного состояния. `false` когда обогреватель выключен или когда начинается новый сеанс обогрева._
 
+### 3. Профили саун (`profiles` &`activeProfile`)
+
+- **Доступные профили (`profiles`):**\
+  &#x20;Отображает предварительно настроенные программы сауны из вашего **приложения MyHarvia 2** (например, _«Мягкий»_ , _«Уютный»_ , _«Горячий»_ ) в виде массива JSON, включающего предустановленные целевые температуры и таймеры.
+- **Профили переключения (`activeProfile`):**\
+  &#x20;Данные доступны **для чтения/записи** с использованием индекса, начинающегося с 0:
+  - `0` = **мягкий**
+  - `1` = **уютный**
+  - `2` = **горячий**
+  - Написание числа для `activeProfile` отправляет запрос на изменение профиля непосредственно в облако Harvia (`PATCH /devices/profile`), автоматически применяя заданную в профиле целевую температуру и продолжительность сеанса к сауне.
+  - **Пример (скрипта):**
+  ```javascript
+  // Switch to the cozy sauna profile
+  setState('harvia-fenix.0.activeProfile', 1);
+  ```
+
+### 4. Центр мероприятий и безопасности (`events.*`)
+
+- **Система контроля аварийной остановки (`events.safetyTripped` &`events.safetyReason`):**\
+  &#x20;Адаптер отслеживает работу защитных контуров дверей, термопредохранителей и блокировок предохранительных выключателей от службы Harvia Events Service. Если во время обогрева срабатывает активный предохранительный выключатель, `events.safetyTripped` переключается на `true` с четким объяснением в `events.safetyReason`.
+- **История событий (`events.history`):**\
+  &#x20;Сохраняет историю последних 15 событий, связанных с системой, дверями, ошибками и безопасностью, в виде структурированного массива JSON для панелей мониторинга VIS и ведения журналов аудита.
+
 ---
 
 ## Поиск неисправностей
@@ -228,6 +259,20 @@ _Примечание: Эти состояния будут автоматиче
 ---
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (meistermopper) Document activeProfile standard index mapping (0=mild, 1=cozy, 2=hot)
+
+### 1.1.0 (2026-09-17)
+* (meistermopper) Add Events & Safety Hub with dedicated events channel and states
+* (meistermopper) Add safety trip detection, alarm indicators, and sliding history
+* (meistermopper) Fix activeProfile endpoint to use PATCH /devices/profile per API spec
+* (meistermopper) Document profiles and activeProfile switching behavior in README
+
+### 1.0.0 (2026-09-17)
+* (meistermopper) Add AWS AppSync WebSocket real-time push client
+* (meistermopper) Add token refresh via /auth/refresh using refreshToken
+
 ### 0.6.0 (2026-09-16)
 * (meistermopper) Add readyAt, readyAtMessage, timeToTargetFormatted states
 * (meistermopper) Implement Harvia native 13-interval heating curve calculation
@@ -248,25 +293,6 @@ _Примечание: Эти состояния будут автоматиче
 * (meistermopper) Add bidirectional heating anomaly detection (too slow / fast)
 * (meistermopper) Update @alcalzone/release-script-plugin-license to 5.2.2
 * (meistermopper) Add Node.js 26 to test matrix
-
-### 0.4.0 (2026-08-13)
-* (meistermopper) Add adaptive heating duration prognosis and anomaly detection
-* (meistermopper) Add dev script shortcut for dev-server watch in package.json
-* (meistermopper) Clarify Partner ID and guest account setup instructions
-* (meistermopper) Document adaptive heating prognosis and anomaly detection
-* (meistermopper) Add strict privacy and anonymization rule to AGENTS.md
-* (meistermopper) Clean up To-Do list and add fun future wishlist items
-
-### 0.3.2 (2026-08-11)
-* (meistermopper) Use absolute GitHub URLs for language switching links in README files
-* (meistermopper) Remove latest repository and translation badges from README files
-* (meistermopper) Mark stable repository addition as completed in To-Do list
-* (meistermopper) Remove direct npm installation instructions from README files
-* (dependabot) Bump axios from 1.18.1 to 1.19.0
-* (meistermopper) Center adapter logo in README files
-* (meistermopper) Add Weblate translation status badge to README files
-* (meistermopper) Add npm run translate step to release-before-commit script
-* (meistermopper) Replace static latest badge with dynamic iobroker.live badge
 
 ## License
 MIT License

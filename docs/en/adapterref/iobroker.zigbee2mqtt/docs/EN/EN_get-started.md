@@ -98,6 +98,6 @@ As a prerequisite here is a submitted Docker server give!
 
 5. Installation of the Zigbee2MQTT adapter via the Adapter Tab in ioBroker
 
-6. Configuration of the adapter See [Adapter configuration](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/EN/EN/EN_AdapterConfig.md)
+6. Configuration of the adapter See [Adapter configuration](/#/docs/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_AdapterConfig.md)
 
 7. Now everything should run and the devices can be tuned in. Here is a detailed instruction: https://www.zigbee2mqtt.io/guide/usage/pairing_devices.html

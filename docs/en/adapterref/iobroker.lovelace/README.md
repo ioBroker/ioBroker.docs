@@ -32,14 +32,14 @@ Used sources are here https://github.com/GermanBluefox/home-assistant-polymer .
 Security must be taken from the current user and not from default_user.
 
 ### Version
-Used version of home-assistant-frontend@20260527.7
-Version of Browser Mod: 2.13.5
+Used version of home-assistant-frontend@20260826.7
+Version of Browser Mod: 3.2.3
 
 ### How to build the new Lovelace version
 First of all, the actual https://github.com/home-assistant/frontend (dev branch) must be **manually** merged into https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** branch!).
 
 All changes for ioBroker are marked with comment `// IoB`.
-For now (20260527.1) following files were modified:
+For now (20260826.7) following files were modified:
 - `build-scripts/gulp/app.js` - Add new gulp task develop-iob
 - `build-scripts/gulp/rspack.js` - Add new gulp task rspack-dev-app
 - `build-scripts/rspack.cjs` - disable source maps in prod build to reduce emitted file count.
@@ -57,9 +57,9 @@ For now (20260527.1) following files were modified:
 - `src/panels/lovelace/hui-root.ts` - added notification button, disable manage dashboards link, hide add (device/automation/area/person) button, open edit-panel dialog for lovelace boards, live dashboard title from hass.panels
 - `src/layouts/hass-router-page.ts` - guard updatePageEl against undefined route during rebuild (panel rename crash).
 - `src/panels/config/dashboard/ha-config-dashboard.ts` - hide settings sections (automations, apps, voice assistants, system, people, tip).
-- `src/panels/config/ha-panel-config.ts` - hide integrations tab in devices & services, land devices & services tile on /config/devices.
-- `src/panels/config/developer-tools/ha-panel-developer-tools.ts` - remove yaml, events and assist tabs from developer tools.
-- `src/panels/config/developer-tools/developer-tools-router.ts` - default to states tab (yaml removed).
+- `src/panels/config/config-sections.ts` - hide integrations tab in devices & services, land devices & services tile on /config/devices.
+- `src/panels/config/tools/ha-panel-tools.ts` - remove yaml, events and assist tabs from developer tools.
+- `src/panels/config/tools/tools-router.ts` - default to states tab (yaml removed).
 - `src/panels/config/info/ha-config-info.ts` - hide doc/credits/community/license links in about (keep keyboard shortcuts).
 - `src/panels/config/lovelace/dashboards/ha-config-lovelace-dashboards.ts` - show fixed panels (incl. browser-mod) in built-in dashboards list.
 - `src/panels/profile/ha-panel-profile.ts` - hide security tab in user profile.
@@ -76,7 +76,7 @@ After that checkout modified version in `./build` folder. Then.
 5. `yarn install`
 6. `gulp build-app` for release or `gulp develop-iob` for the debugging version. To build web after changes you can call `webpack-dev-app` for faster build, but you need to call `build-app` anyway after the version is ready for use.
 7. run script `hass_frontend/static_cards/newFrontend.sh` in adapter repo to update frontend (it assumes that the two repositories are next to each other in the same folder, if not, please adjust script, preferably with some parameter handling and make a PR, thanks :smile: )
-8. Run `gulp rename` task.
+8. Run `npm run rename` (renames and rewrites the copied frontend for ioBroker; it replaced the former `gulp rename` task).
 9. Update the version in `README.md`.
 
 ## Changelog
@@ -86,12 +86,35 @@ After that checkout modified version in `./build` folder. Then.
 	### **WORK IN PROGRESS**
     ### for next frontend update, update of auto entities card will be necessary!
 -->
-### **WORK IN PROGRESS**
+### 7.0.0 (2026-09-18)
 * (Garfonso/Claude) Fixed custom cards that fetch history directly (e.g. the windrose card) crashing with "TypeError: t.callback is not a function": a one-shot history request was answered like a subscription. (#722)
 * (Garfonso/Claude) `instances.hideSidebar` / `hideHeader` no longer fall back to the default on an adapter restart. (#733)
 * (Garfonso/Claude) User names from ioBroker (person list, logbook user list) are resolved like every other name, so a multilingual `common.name` cannot break those views. (#731)
 * (Garfonso/Claude) The dashboard now uses the configured adapter language instead of the browser language. A language picked in the frontend profile still wins.
 * (Garfonso/Claude) Custom entities: new expert table at the end of the custom dialog that fills any attribute from a freely picked state.
+* (@GermanBluefox) Security: fixed a path traversal in the card and icon routes (`/cards/`, `/hacsfiles/`, `/local/custom_ui/`, `/static/icons/`) that allowed reading arbitrary files without authentication. All static file routes now verify that the resolved path stays inside the served folder.
+* (Garfonso/Claude) The map no longer shows an "API KEY REQUIRED" watermark: CARTO now requires a key for its tiles, so the base map comes from OpenStreetMap through the adapter (which caches the tiles).
+* (Garfonso/Claude) Expert attributes: a state of type `array`/`object` now arrives as an array/object instead of its JSON string, so cards like flex-table-card can iterate it.
+* (Garfonso/Claude) Custom cards: uploading a new version of a card over the old file works now. Their url carries the file's timestamp, so the browser loads the new one instead of its cached copy.
+* (Garfonso/Claude) Custom cards: the admin page shows the version a card reports about itself.
+* (Garfonso/Claude) The frontend is served precompressed (brotli) and cached for good, its entry points (index, service worker) are revalidated instead. This cuts the traffic of a remote connection (e.g. ioBroker.pro) roughly to a quarter and no longer hides a frontend update.
+* (Garfonso/Claude) Everything else (custom cards, the index page, api answers) is compressed on the fly now.
+* (Garfonso/Claude) The instance settings were rebuilt with jsonConfig: a real YAML editor for the themes, working theme dropdowns, upload/delete of custom cards with their version, and a searchable entity list. Needs admin 7.9.11 or newer. (#587)
+* (Garfonso/Claude) The new frontend draws its map with vector tiles: the adapter serves them, together with the TileJSON, the label fonts and the icon sprites, and answers the access-token request the frontend makes for them.
+* (Garfonso/Claude) Vacuums no longer claim the battery feature Home Assistant removed. A manually configured vacuum now gets the same battery sensor entity as an auto-detected one, so the charge level stays visible.
+* (Garfonso/Claude) Updated Browser Mod to 3.2.3 (from 2.13.5). Its settings are split in two pages now: the sidebar entry holds the settings of this browser, the registered browsers and the global/user settings moved to a page of their own behind it.
+* (Garfonso/Claude) Fixed global and per-user Browser Mod settings never being stored: those requests carry no browser id and were dropped.
+* (Garfonso/Claude) A default dashboard set in Browser Mod is honored now, for a user, for one browser or globally.
+* (Garfonso/Claude) Energy dashboard: the costs of import and export are calculated from the price configured for a source, so a fixed price (or a price entity) no longer shows 0.00.
+* (Garfonso/Claude) Custom cards: the adapter watches its cards folder, so a card added, replaced or deleted anywhere (file browser, settings page, command line) is picked up without pressing anything - a browser reload still imports a brand new card.
+* (Garfonso/Claude) Updated the dependencies (TypeScript 6, type-detector 6, webserver 3, suncalc 2, …) and replaced gulp with a plain node script.
+* (Garfonso/Claude) New device types of type-detector 6 become entities: fans and air purifiers (`fan`), pumps (a switch plus its measurements), air quality monitors (one sensor per value), contact sensors, CO alarms, pressure and flow sensors.
+* (Garfonso/Claude) Thermostats that only heat or only cool keep their target temperature: type-detector 6 reports that setpoint as `SET_HEATING` / `SET_COOLING` instead of `SET`.
+* (Garfonso/Claude) Fixed the sun entity's elevation and azimuth with suncalc 2, which answers in degrees and measures the azimuth from north.
+* (Garfonso/Claude) Custom cards: the file selector deletes a card now, the table is titled as the overview of the installed cards, and a link leads to the cards folder in the ioBroker file browser.
+* (Garfonso/Claude) Updated the Home Assistant frontend to 20260826.7: new alert card, date on the clock card, search in the media browser, more tile features (vacuum fan speed, light effects, thermostat humidity) and the map now uses sharper vector tiles.
+* (Garfonso/Claude) Statistics are converted into the unit the frontend asks for: an energy meter counting in Wh is no longer drawn as if it counted kWh, and the same for a power sensor in W. (#741)
+* (Garfonso/Claude) Repository checker: the missing translations of the expert attribute settings were added in all languages, the license section links to the LICENSE file, and the history timeout uses the adapter's own timer. (#725)
 
 ### 6.1.3 (2026-09-01)
 * (Garfonso/Claude) Fixed auto-generated entity_ids growing longer and longer within a single start for devices sharing a generated display name and having no own readable state (e.g. several buttons named the same): they no longer collapse onto the same internal registry key and overwrite each other's name.
@@ -128,12 +151,9 @@ After that checkout modified version in `./build` folder. Then.
 * (Garfonso/Claude) Vacuum can show its map (URL or base64 state) as the entity picture.
 * (Garfonso/Claude) Removed `plant`, `weblink` and `history_graph` from the manual entity types (no longer Home Assistant entity domains).
 
-### 6.0.4 (2026-06-18)
-* (Garfonso/Claude) Bound the number of history points fetched per request, so a large history graph can no longer overload the states database.
-* (Garfonso/Claude) Manual entities on `system.*`/`script.*` objects (e.g. a JavaScript adapter state) no longer disappear after a restart. (#709)
-* (Garfonso/Claude) Manual entities now honor the friendly name and icon set via the frontend's entity settings, and editing them no longer briefly reverts the change.
-
 ## License
+
+The full license text is in [LICENSE](https://github.com/ioBroker/ioBroker.lovelace/blob/master/LICENSE).
 
 Copyright (c) 2019-2026, bluefox <dogafox@gmail.com>
 

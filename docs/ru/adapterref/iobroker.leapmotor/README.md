@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.leapmotor/README.md
 title: ioBroker.leapmotor
-hash: 8QA3uSUcwt1tMocORl/MHsGWw3rsaX8QAGTM4T485Cw=
+hash: gGdn2qHFvbAGy6jyC9gNdJh2nX+3UZamxI7bmviOj64=
 ---
 ![Логотип](../../../en/adapterref/iobroker.leapmotor/admin/leapmotor.png)
 
-![Версия](https://img.shields.io/badge/version-0.6.0-blue.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.leapmotor.svg)
 ![Лицензия: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-# IoBroker.leapmotor
-Неофициальная интеграция электромобилей [Леапмотор](https://www.leapmotor.com/) для ioBroker. Протестировано на T03.
+# ioBroker.leapmotor
 
-## ⚠️ Важно: Используйте второй аккаунт
+Неофициальная интеграция электромобиля [Leapmotor](https://www.leapmotor.com/) с ioBroker. Протестировано на T03.
+
+## ⚠️ Важно: используйте второй аккаунт
+
 **Не используйте свой основной аккаунт Leapmotor!**
 
 Адаптер поддерживает постоянную сессию с облаком Leapmotor. Если одна и та же учетная запись используется одновременно в приложении Leapmotor, обе сессии будут конфликтовать и приведут к выходу из системы друг друга.
@@ -21,10 +23,7 @@ hash: 8QA3uSUcwt1tMocORl/MHsGWw3rsaX8QAGTM4T485Cw=
 **Рекомендуемая конфигурация:**
 
 1. Создайте вторую учетную запись Leapmotor (например, с дополнительным адресом электронной почты).
-2. В приложении Leapmotor перейдите по следующему пути:
-
-**Личный кабинет → Мой автомобиль → [Название автомобиля] → Участники общего доступа → Добавить участника общего доступа**
-
+2. В приложении Leapmotor перейдите по следующему пути: **Личный кабинет → Мой автомобиль → \[Название автомобиля] → Участники общего доступа → Добавить участника общего доступа**
 3. Введите адрес электронной почты второй учетной записи и предоставьте все права.
 4. Используйте вторые учетные данные в конфигурации адаптера.
 
@@ -33,15 +32,16 @@ hash: 8QA3uSUcwt1tMocORl/MHsGWw3rsaX8QAGTM4T485Cw=
 ---
 
 ## Функции
-— Административная панель на основе React с вкладками «Панель управления», «Потребление», «Поездки», «Точки данных» и «Диагностика».
-- Опрос состояния транспортного средства каждые 1–60 минут (настраивается)
+
+- Административная панель на основе React с вкладками «Панель управления», «Потребление», «Поездки», «Точки данных» и «Диагностика».
+- Опрос состояния транспортного средства каждые 1–60 минут (настраивается).
 - Уровень заряда батареи, запас хода, температура, давление в шинах, GPS, двери, окна
-- Пульт дистанционного управления: климат-контроль (обогрев/охлаждение/вентиляция), блокировка/разблокировка дверей, окна, солнцезащитная шторка, багажник, поиск.
-- Планирование климатических отключений (регулярное, по дням недели) и ограничение/планирование зарядки.
+- Пульт дистанционного управления: климат-контроль (обогрев/охлаждение/вентиляция), блокировка/разблокировка дверей, стеклоподъемники, солнцезащитная шторка, багажник, поиск.
+- Планирование климатических отключений (регулярное, по дням недели) и лимит/планирование зарядки.
 - Функции комфорта, поддерживаемые автомобилем: режим охраны, подогрев/вентиляция сидений, подогрев рулевого колеса, ограничение скорости, подогрев зеркал.
 - Отслеживание поездок с ежедневным подсчетом пройденного расстояния и историей отдельных поездок.
 - Расчет стоимости зарядки на основе настраиваемой цены на электроэнергию.
-- Количество сообщений и непрочитанных сообщений в автомобиле
+- Количество сообщений от транспортных средств и число непрочитанных сообщений
 - Система поддержки функций, специфичных для конкретной модели автомобиля (неподдерживаемые функции автоматически скрываются).
 - Статистика потребления с еженедельной историей
 - Динамическая приборная панель автомобиля (композитный HTML-виджет для VIS)
@@ -49,21 +49,26 @@ hash: 8QA3uSUcwt1tMocORl/MHsGWw3rsaX8QAGTM4T485Cw=
 - Кэш изображений (загружается один раз, хранится локально)
 
 ## Испытанные автомобили
-- Leapmotor T03 ✅ (полностью протестирован)
-- Leapmotor B10 / C10 / C16 – должен работать, наличие функции комфорта пока не подтверждено.
+
+- Leapmotor T03 ✅ (полностью протестирован, включая все команды дистанционного управления)
+- Leapmotor B10 — отображение состояния/данных тщательно проверено реальным владельцем (батарея, запас хода, пробег, скорость, зажигание, все двери, все окна, давление в шинах, люк, GPS, план зарядки, лимит зарядки, направление вентиляционных отверстий кондиционера); дистанционные команды (блокировка, климат-контроль и т. д.) не подтверждаются отдельно с помощью кнопок адаптера, но ожидается, что они будут работать (та же подсистема управления, что и у T03).
+- Leapmotor C10 / C16 — должен работать, пока не проверено.
 
 ## Установка
+
 Установка через административный интерфейс ioBroker.
 
 ## Конфигурация
-| Настройки | Описание |
-|---------|-------------|
-| Электронная почта | Адрес электронной почты учетной записи Leapmotor (рекомендуется использовать отдельную вторую учетную запись) |
-| Пароль | Пароль от аккаунта Leapmotor |
-| PIN-код автомобиля | 4-значный PIN-код автомобиля – необходим для всех дистанционных команд |
-| Интервал опроса | Интервал обновления статуса в минутах (по умолчанию: 5) |
+
+| Параметр           | Описание                                                                                                       |
+| ------------------ | -------------------------------------------------------------------------------------------------------------- |
+| Электронная почта  | Адрес электронной почты учетной записи Leapmotor (рекомендуется использовать отдельную вторую учетную запись). |
+| Пароль             | пароль учетной записи Leapmotor                                                                                |
+| ПИН-код автомобиля | 4-значный PIN-код автомобиля — необходим для всех дистанционных команд.                                        |
+| Интервал опроса    | Интервал обновления статуса в минутах (по умолчанию: 5)                                                        |
 
 ## Точки данных
+
 ```
 leapmotor.0.<VIN>.status.*                → Vehicle status (read-only)
 leapmotor.0.<VIN>.consumption.*           → Consumption & statistics (read-only)
@@ -76,69 +81,130 @@ leapmotor.0.messages.*                    → Vehicle messages from the Leapmoto
 leapmotor.0.config.*                      → Electricity price / battery capacity used for cost estimation
 ```
 
-Полный набор доступных точек данных, включая все состояния команд, допускающие запись, лучше всего просматривать непосредственно в дереве объектов ioBroker или на вкладке **Точки данных** в административном интерфейсе адаптера — там отображается каждая точка данных с ее текущим значением и кратким описанием.
+Полный набор доступных точек данных, включая все состояния команд, допускающие запись, лучше всего просматривать непосредственно в дереве объектов ioBroker или на вкладке **«Точки данных»** в административном интерфейсе адаптера — там отображается каждая точка данных с ее текущим значением и кратким описанием.
 
 ### Панель администратора
-Адаптер поставляется со своей собственной вкладкой администратора на основе React (щелкните значок адаптера в списке экземпляров) с пятью подвкладками: **Панель управления** (текущий статус и удаленное управление), **Потребление** (еженедельное потребление энергии и оценка стоимости), **Поездки** (ежедневный пробег и отдельные обнаруженные поездки), **Точки данных** (полный браузер точек данных) и **Диагностика**.
+
+Адаптер поставляется со своей собственной вкладкой администратора на основе React (щелкните значок адаптера в списке экземпляров) с пятью подвкладками: **Панель управления** (текущий статус и удаленное управление), **Потребление** (еженедельное потребление энергии и оценка стоимости), **Поездки** (ежедневное количество километров и отдельные обнаруженные поездки), **Точки данных** (полный браузер точек данных) и **Диагностика** .
 
 ### Анимированное изображение транспортного средства для VIS
-`leapmotor.0.<VIN>.pictures.composite_html` теперь содержит простое, встраиваемое анимированное изображение автомобиля (прозрачный фон, без кнопок или элементов приборной панели — оно перемещено во вкладку администрирования). Добавьте **базовый виджет (неэкранированный)** в VIS или встройте его через `<iframe>` и установите идентификатор объекта следующим образом:
+
+`leapmotor.0.<VIN>.pictures.composite_html` Теперь содержит простое, встраиваемое анимированное изображение автомобиля (прозрачный фон, без кнопок или элементов приборной панели — оно перемещено во вкладку администрирования). Добавьте **базовый виджет (неэкранированный)** в VIS или встройте его через `<iframe>` и установите идентификатор объекта следующим образом:
 
 ```
 leapmotor.0.<VIN>.pictures.composite_html
 ```
 
 ### Доступные команды (выбор)
-Простые кнопки включения/выключения в разделе `cmd.*` (роль `button`, для срабатывания установите значение `true`):
 
-| Команда | Описание | Требуется PIN-код |
-|---------|-------------|:------------:|
-| cmd.ac_heat | Начать нагрев | ✅ |
-| cmd.ac_cool | Начать охлаждение | ✅ |
-| cmd.ac_vent | Запустить вентиляцию | ✅ |
-| cmd.ac_off | Остановить климат | ✅ |
-| cmd.defrost | Размораживание лобового стекла | ✅ |
-| cmd.windows_open | Открыть окна | – |
-| cmd.windows_close | Закрыть окна | – |
-| cmd.find | Найти транспортное средство (гудок/фары) | – |
-| cmd.battery_preheat | Предварительный нагрев батареи включен | ✅ |
-| cmd.battery_preheat_off | Предварительный нагрев батареи отключен | ✅ |
-| cmd.lock | Блокировка транспортного средства | ✅ |
-| cmd.unlock | Разблокировать транспортное средство | ✅ |
-| cmd.trunk_open | Открыть транк | ✅ |
-| cmd.trunk_close | Закрыть транк | ✅ |
-| cmd.refresh | Запустить немедленное обновление статуса | – |
+Простые кнопки включения/выключения расположены снизу. `cmd.*` (роль `button`, установлен на `true` для запуска):
+
+| Командование                     | Описание                                                                                  | Требуется ПИН-код | Работает над                                                                                                                                                        |
+| -------------------------------- | ----------------------------------------------------------------------------------------- | :---------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| cmd.ac\_heat                     | Начать нагрев                                                                             |         ✅         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.ac\_cool                     | Начать охлаждение                                                                         |         ✅         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.ac\_vent                     | Начать вентиляцию                                                                         |         ✅         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.ac\_off                      | Остановить изменение климата                                                              |         ✅         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.defrost                      | Обогрев лобового стекла                                                                   |         ✅         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.windows\_open                | Открытые окна                                                                             |         –         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.windows\_close               | Закрыть окна                                                                              |         –         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.find                         | Найти транспортное средство (гудок/фары)                                                  |         –         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.battery\_preheat             | Предварительный нагрев батареи включен.                                                   |         ✅         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.battery\_preheat\_off        | Предварительный нагрев батареи отключен                                                   |         ✅         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.lock                         | Заблокировать транспортное средство                                                       |         ✅         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.unlock                       | Разблокировать транспортное средство                                                      |         ✅         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.trunk\_open                  | Открытый багажник                                                                         |         ✅         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.trunk\_close                 | Закрыть багажник                                                                          |         ✅         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.refresh                      | Запустить немедленное обновление статуса                                                  |         –         | Все модели (подтверждено T03)                                                                                                                                       |
+| cmd.charge\_start / charge\_stop | Запуск/остановка зарядки напрямую (а не только по расписанию)                             |         ✅         | Не тестировалось — та же подсистема зарядки, что и у cmd.charge\_limit\_set (подтверждено), поэтому ожидается на всех моделях.                                      |
+| cmd.unlock\_charger              | Разблокируйте разъем для зарядки дистанционно.                                            |         ✅         | Не тестировалось — одинаковая подсистема зарядки, ожидается на всех моделях.                                                                                        |
+| cmd.healthy\_charging\_on / off  | Переключить режим зарядки для контроля состояния батареи.                                 |         ✅         | Не тестировалось — одинаковая подсистема зарядки, ожидается на всех моделях.                                                                                        |
+| cmd.fuel\_heating\_on / off      | Включение/выключение подогревателя топлива                                                |         ✅         | Не тестировалось — **только для комплектаций с REEV/увеличением запаса хода** (например, C10 EREV); не применимо для T03 (BEV).                                     |
+| cmd.destination\_send            | Отправьте указанные ниже адрес/координаты во встроенную навигационную систему автомобиля. |         –         | Не тестировалось — ожидается на моделях с навигацией (C10/B10/B11); неясно, принимает ли встроенная навигация T03 вообще пункты назначения, передаваемые из облака. |
 
 Команды, основанные на значениях:
 
-| Команда | Описание |
-|---------|-------------|
-| cmd.ac_temp | Целевая температура, 16–30 °C |
-| cmd.ac_fan_speed | Скорость вентилятора, 1–7 |
-| cmd.ac_position | Положение воздуха: все / вверх / вниз / перед / назад |
-| cmd.windows_set | Положение окна, 0–100 % |
-| cmd.sunshade_set / sunshade_open / sunshade_close | Положение солнцезащитного козырька (T03), 0–10 |
-| cmd.charge_limit_set | Ограничение заряда, 50–100 % |
-| cmd.charge_schedule_enable / start / end / apply | График зарядки |
-| cmd.climate_schedule_enable / mode / time / days / apply / cancel | Повторяющееся расписание климатических мероприятий |
-| cmd.speed_limit_set | Ограничение скорости, если поддерживается транспортным средством |
+| Командование                                                              | Описание                                                                                                                         | Работает над                                                                                                                                                                                                                                                  |
+| ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| cmd.ac\_temp                                                              | Целевая температура: 16–30 °C                                                                                                    | Все модели (подтверждено T03)                                                                                                                                                                                                                                 |
+| cmd.ac\_fan\_speed                                                        | Скорость вращения вентилятора, 1–7                                                                                               | Все модели (подтверждено T03)                                                                                                                                                                                                                                 |
+| cmd.ac\_position                                                          | Положение пневмоподвески: все / вверх / вниз / передняя / задняя                                                                 | Все модели (подтверждено T03). На B10 корректность сообщаемого автомобилем направления была независимо подтверждена в ходе испытаний, проведенных реальным владельцем до и после (2026-09) — отправка этой конкретной команды не проверялась отдельно на B10. |
+| cmd.windows\_set                                                          | Положение окна, 0–100 %                                                                                                          | Все модели (подтверждено T03; масштаб автоматически корректируется для каждой модели, см. список изменений в разделе «В разработке»)                                                                                                                          |
+| cmd.sunshade\_set / sunshade\_open / sunshade\_close                      | Положение солнцезащитного козырька (T03), 0–10                                                                                   | T03 (подтверждено); у B10 вместо этого электрический люк (подтверждено)                                                                                                                                                                                       |
+| cmd.charge\_limit\_set                                                    | Ограничение заряда: 50–100 %.                                                                                                    | Все модели (подтверждено T03)                                                                                                                                                                                                                                 |
+| cmd.charge\_schedule\_enable / start / end / apply                        | график зарядки                                                                                                                   | Все модели (подтверждено T03)                                                                                                                                                                                                                                 |
+| cmd.climate\_schedule\_enable / mode / time / days / apply / cancel       | Повторяющийся климатический график                                                                                               | Все модели (подтверждено T03)                                                                                                                                                                                                                                 |
+| cmd.speed\_limit\_set                                                     | Ограничение скорости, если оно поддерживается транспортным средством.                                                            | Подтверждено, **что отсутствует** на модели T03; неизвестно, будет ли она на других моделях.                                                                                                                                                                  |
+| cmd.destination\_address / destination\_latitude / destination\_longitude | Адрес назначения для отправки через cmd.destination\_send (укажите адрес или координаты широты/долготы, затем запустите команду) | Аналогично cmd.destination\_send выше — не тестировалось, ожидается на моделях с навигацией.                                                                                                                                                                  |
 
 Команды управления комфортом (создаются/отображаются только в том случае, если данная модель автомобиля поддерживает эту функцию):
 
-| Команда | Описание |
-|---------|-------------|
-| cmd.sentry_mode_on / off | Режим охраны |
-| cmd.seat_heat_driver / copilot | Подогрев сидений |
-| cmd.seat_ventilation_driver / copilot | Вентиляция сидений |
-| cmd.steering_wheel_heat_on / off | Подогрев рулевого колеса |
-| cmd.mirror_heat_on / off | Подогрев зеркала |
-| cmd.hotspot_on / off | Точка доступа Wi-Fi (не влияет на T03) |
+| Командование                            | Описание                | Работает над                                                                                                                                                                                                         |
+| --------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| cmd.sentry\_mode\_on / off              | Режим охраны            | Подтверждено, **что отсутствует** на модели T03; неизвестно, будет ли она на других моделях.                                                                                                                         |
+| cmd.seat\_heat\_driver / copilot        | Подогрев сидений        | Не проверено — возможно на B10, B11/C10 (зависит от комплектации: по крайней мере, в одном из технических описаний C10 подогрев сидений не был включен в стандартную комплектацию). Подтверждено, что **не** на T03. |
+| cmd.seat\_ventilation\_driver / copilot | Вентиляция сиденья      | Аналогично подогреву сидений.                                                                                                                                                                                        |
+| cmd.steering\_wheel\_heat\_on / off     | обогрев рулевого колеса | Аналогично подогреву сидений. Подтверждено, что на T03 такого **нет** .                                                                                                                                              |
+| cmd.mirror\_heat\_on / off              | обогрев зеркал          | Непроверено — возможно на B10, B11/C10, B05. Подтверждено, что на этом T03 **вообще не предоставляется через API/приложение** .                                                                                      |
+| cmd.hotspot\_on / off                   | Точка доступа Wi-Fi     | Подтверждено, **что отсутствует** на моделях T03 и B10; неизвестно, встречается ли она на других моделях.                                                                                                            |
 
-Какие именно команды комфорта будут отображаться, зависит от обнаруженной модели автомобиля — см. `admin-tab/src/vehicleCapabilities.js` в репозитории для получения текущей матрицы возможностей для каждой модели.
+`sunroof` /`sunshade` Обрабатываются одинаково — см. `admin-tab/src/vehicleCapabilities.js` подтвержденная разница между B10 и T03.
+
+Какие именно команды комфорта будут отображаться, зависит от обнаруженной модели автомобиля — см. `admin-tab/src/vehicleCapabilities.js` в репозитории находится текущая матрица возможностей для каждой модели.
 
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- Fix: vehicles west of Greenwich (UK, Ireland, Portugal, parts of Spain/France) showed their GPS position mirrored into the wrong hemisphere; latitude/longitude now use the signed signal values instead of the absolute-value-only fields (community-confirmed via leapmotor-ha)
+- Fix: window open/close/set-to-percent commands now scale to each model's native range - B05/B10/C10 expect a 0-10 scale, not 0-100 like T03; commands sent to those models previously moved the window far less than requested
+- Fix: the "charging" status could get stuck showing active from a stale/phantom cloud flag while the car was actually being driven or just powered on and ready; it's now cross-checked against gear position, speed and ignition before being reported
+- Fix: on T03, the binary window-open flags could remain at 0 even with the window actually open; open/closed status on this model now falls back to the live position percentage
+- Fix: steering-wheel heating and seat heating/ventilation commands used a payload format the cloud silently ignored; both now send the numeric level/position format confirmed correct against two independent community reverse-engineering projects - not live-tested here, as this T03 doesn't have this hardware
+- Known limitation: mirror heating is not controllable via the API on this T03 - confirmed non-functional even via the official Leapmotor app, so likely not exposed to the API/app for this vehicle at all. Payload sent matches the community-verified format; left in for other models/regions where it may work.
+- Chore: cross-checked the tire-pressure signal ID mapping (front-left/front-right/rear-left/rear-right) against leapmotor-ha's independently corrected mapping - confirmed correct, no code change
+- New: added B11 handling - not a separate model, it's Leapmotor's internal platform code for the C10 itself (confirmed via ADAC vehicle database); some cloud responses surface this code as carType instead of "C10", now mapped to the same endpoint and window scale.
+- New (untested, community feedback welcome): start/stop charging, unlock charging connector, healthy-charging-mode toggle, fuel-heater toggle (REEV/range-extender models only), and sending a navigation destination (address or coordinates) to the vehicle. Payloads verified against two independent community reverse-engineering projects, not against real hardware - none of this is testable on this T03 (no REEV fuel heater; the other commands need a vehicle where charging/nav can safely be tried). Please open a GitHub issue with your model and result if you test any of these.
+- Fix: trip tracking lives entirely in memory and gets wiped on every adapter restart, but trips.current_trip_active kept whatever value it last had - if a trip was active when the adapter restarted (or crashed), it stayed stuck showing "in progress" forever, since nothing afterward re-evaluated it without a matching in-memory entry. Now cleared at startup if left over from before the restart (the original trip's exact end time/mileage can't be recovered at that point).
+- Improved: every remote command now logs a "Command: ..." line before sending and a "successful"/"failed" line after, at debug level - previously several commands (ac_temp/fan/position, speed limit, seat heat/ventilation, destination send, charge limit, refresh, defrost cycle) sent silently on success, making it impossible to tell from the log whether anything actually happened without also checking the raw status. Commands that only stage a value for a later command (ac_temp, climate/charge schedule fields, defrost level) now log that explicitly instead, so they're not mistaken for a command that was actually sent to the vehicle.
+- Fix: cmd.charge_limit_set never synced with the vehicle's actual charge limit unless changed through this adapter's own control - if you changed it via the official app instead (e.g. to 100%), the internal control stayed frozen at its creation-time default of 80. cmd.charge_schedule_apply would then silently send that stale 80 back to the vehicle, overwriting your real setting. Now synced from the vehicle's actual reported limit on every poll, and charge_schedule_apply falls back to the vehicle's current schedule value instead of a hardcoded 80 if the control was never touched.
+- Improved: trip detection now closes a trip immediately once the vehicle is locked and the ignition is explicitly off, instead of always waiting the full 10-minute grace period. The 10-minute grace period still applies for ambiguous cases (e.g. ignition status not reported, or car left unlocked with ignition off). Also added a second, independent fast-path signal: a completed lock → unlock → lock cycle since the trip started (the car auto-locks while driving, so getting out requires unlocking, then it's locked again afterward) is treated as equally definitive proof the trip is over, even on models where ignition status isn't reliably reported.
+- Fix: a token expiry hitting exactly during cmd.refresh (or the delayed status fetch after certain commands) crashed the whole adapter process with an unhandled promise rejection, instead of re-logging in like the regular polling cycle already does. Both paths now catch the error and retry after a fresh login, same as the poller.
+- Confirmed via a real B10 owner (extensive status field testing, 2026-07): battery/range/mileage/speed/ignition/doors/windows/tire pressure/sunroof/GPS/charge plan/charge limit status all report correctly; the hotspot status field doesn't exist on B10, same as T03. Also confirmed the vehicle's reported AC vent direction is decoded correctly (2026-09 dumps). Battery preheat was attempted but inconclusive (vehicle declined to activate in warm weather) - still untested.
+
+### 0.6.8 (2026-09-19)
+- Fix: the 0.6.7 re-login fix correctly detected an expired session token, but retried login using the same device identity every time - which the cloud started rejecting after the first failure, leaving the adapter stuck until a manual restart. A fresh device identity is now generated on every login attempt.
+- Fix: remote pre-conditioning (heating/cooling the car before getting in, which turns the ignition on without the car moving) no longer gets misdetected as the start of a trip
+- Fix: a completed trip's recorded end time now uses the vehicle's own reported timestamp instead of when our next poll happened to notice the stop, giving more accurate trip duration and a better match for the cloud's energy-breakdown time window
+- Chore: added diagnostic logging of raw login/energy-breakdown responses to aid future troubleshooting
+
+### 0.6.7 (2026-09-18)
+- Fix: the automatic re-login on an expired session token was case-sensitive and never triggered for the cloud's "TOKEN_NOT_AVAILABLE" error, causing all polling to silently fail until a manual adapter restart
+- Fix: a trip now only ends once the ignition is actually off (not just when speed reaches 0), and only after a 10-minute confirmation grace period - a brief stop at a light or curb no longer splits one drive into several
+- Fix: the trip energy-breakdown retry queue now survives adapter restarts instead of leaving trips stuck showing "not yet available" forever; trips whose data never arrives are now clearly marked unavailable after the retry budget is exhausted
+- Chore: raw status/energy-breakdown debug logging improvements to aid future diagnosis
+
+### 0.6.6 (2026-09-17)
+- Fix: B05 vehicles now use the shared C10 status endpoint (community-confirmed via leapmotor-ha), resolving the HTTP 404 status error (#38)
+- Fix: right-side door overlays now render correctly behind the vehicle body/hood for proper depth ordering
+- Chore: added ESLint config, tsconfig.json, VSCode JSON schema hints, converted i18n files to short format, bumped several dependencies, added Node.js 26 to the test matrix
+
+### 0.6.5 (2026-09-02)
+- New: on adapter start, the raw (pre-parsing) status response is logged once per vehicle at debug level, to help diagnose unsupported or under-tested vehicle models (e.g. B05)
+- New: status request errors now also include the requested URL and the server's response body (if any)
+
+### 0.6.4 (2026-09-02)
+- Chore: migrated Admin Tab to adapter-react-v5 8.x and MUI v6 (React stays on 18, no breaking change for users)
+- Fix: corrected Grid layout usage after the MUI v6 update, which had caused overlapping text on the Diagnostics tab
+- Fix: unified card spacing/padding across all Admin Tab pages for a consistent look
+- Fix: pinned react-dom to 18.3.1 to avoid a dependency resolution conflict
+- Chore: minor CI workflow fix
+
+### 0.6.3 (2026-09-01)
+- Fix: preserve the existing charge schedule (enabled state, recurrence, start/end time) when changing the charge limit, instead of resetting it every time
+- Fix: corrected door z-order and window-closed overlay logic on both vehicle sides
+- Fix: clarified that the "Language" setting only affects Leapmotor cloud API text, not the Admin Tab UI (renamed to "Cloud API Language")
+- Chore: bumped axios to 1.19.0
+- Adapter is now available in the ioBroker stable repository
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
 ### 0.6.2 (2026-07-08)
@@ -160,12 +226,12 @@ leapmotor.0.<VIN>.pictures.composite_html
 ### 0.5.7 (2026-06-29)
 - Fix: avoid npm transparency log conflict from a previous failed publish attempt (no functional changes vs. 0.5.5)
 
-Older changes can be found in [CHANGELOG_OLD.md](CHANGELOG_OLD.md).
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+Older changes can be found in CHANGELOG_OLD.md.
 
 ## License
 
 MIT License
 
-Copyright (c) 2026 Henrik Schönhofen (backfisch88)
+Copyright (c) 2026 Henrik Schönhofen (backfisch88) <henrik.schoenhofen@icloud.com>
+
+See [LICENSE](https://github.com/backfisch88/ioBroker.leapmotor/blob/main/LICENSE) for the full license text.

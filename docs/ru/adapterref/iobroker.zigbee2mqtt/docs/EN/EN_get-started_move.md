@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_get-started_move.md
 title: Установка, включая перенос данных с адаптера ioBroker/Zigbee.
-hash: JqzFY/GWycxVS4kHsgVnpyNlbyYefrQdHy1Tk5lJCZ0=
+hash: 57iKhPmVGBFSLttAh7lsf8BnrlZW6KQLnJfTkul+vl0=
 ---
 # Установка, включая перенос данных с адаптера ioBroker/Zigbee.
 
@@ -144,8 +144,8 @@ advanced:
 The remaining values are already in the correct format, they only have to be converted into the correct notation..     
 ```
 
-- Итак, из ext\_pan\_id:`00124b0237b988`
-- к ext\_pan\_id:`0x00` ,`0x12` ,`0x4b` ,`0x02` ,`0x37` ,`0xb9` ,`0x88`
+- Итак, из ext\_pan\_id: `00124b0237b988`
+- к ext\_pan\_id: `0x00`, `0x12`, `0x4b`, `0x02`, `0x37`, `0xb9`, `0x88`
 
 Именно так необходимо переписать параметр network\_key.
 
@@ -158,11 +158,11 @@ The remaining values are already in the correct format, they only have to be con
    - Остановить ioBroker/Zigbee-адаптер
    - Скопируйте базу данных из ioBroker в контейнер и переименуйте её. Источник: /opt/iobroker/iobroker-data/zigbee\_/shepart.db Назначение: "каталог Docker"/zigbee2mqtt/data/database.db
 
-5. После того, как вы всё это сделаете, вы сможете использовать`docker-compose up -d` Чтобы применить конфигурацию Docker и настроить контейнер, через некоторое время можно подключиться к веб-интерфейсу Zigbee2MQTT по адресу <http://Dockerhost-IP:8080> . Конфигурация также должна измениться, и введенные шестнадцатеричные значения должны быть преобразованы. Если веб-интерфейс не запускается/недоступен, значит, есть ошибка, и она отобразится в логе контейнера (99%).
+5. После того, как вы всё это сделаете, вы сможете использовать `docker-compose up -d` Чтобы применить конфигурацию Docker и настроить контейнер, через некоторое время можно подключиться к веб-интерфейсу Zigbee2MQTT по адресу <http://Dockerhost-IP:8080> . Конфигурация также должна измениться, и введенные шестнадцатеричные значения должны быть преобразованы. Если веб-интерфейс не запускается/недоступен, значит, есть ошибка, и она отобразится в логе контейнера (99%).
 
 6. Установка адаптера Zigbee2MQTT через вкладку «Адаптеры» в ioBroker.
 
-7. Настройка адаптера. См. [раздел «Настройка адаптера».](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/EN/EN/EN_AdapterConfig.md)
+7. Настройка адаптера. См. [раздел «Настройка адаптера».](/#/docs/adapterref/iobroker.zigbee2mqtt/docs/EN/EN_AdapterConfig.md)
 
 8. Если все прошло успешно, то мы успешно перевели нашу сеть Zigbee на новую систему, и нам еще предстоит внести несколько корректировок в новую систему.
    - Создать удаленные группы заново

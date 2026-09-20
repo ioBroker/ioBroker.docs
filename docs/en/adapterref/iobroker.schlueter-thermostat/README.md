@@ -22,7 +22,7 @@ chapters: {"pages":{"en/adapterref/iobroker.schlueter-thermostat/README.md":{"ti
 
 ## 🌍 Overview
 
-<img align="left" src="admin/schlueter-thermostat.png" alt="image" width="128" /><p>
+<img align="left" src="admin/schlueter-thermostat.jpg" alt="image" width="128" /><p>
 This adapter integrates <strong>Schlüter / OJ Microline OWD5 thermostats</strong> into ioBroker via the <strong>official cloud APIs</strong>.
 
 It is based on the HA Integration from @robbinjanssen. For more informations see the documentation.
@@ -122,6 +122,7 @@ flowchart TB
 ### **WORK IN PROGRESS**
 * (patricknitsch) Add Node.js 26 in test-and-release.yml
 * (patricknitsch) Update Dependencies
+* (patricknitsch) Change icon from png to jpg
 
 ### 0.7.4 (2026-06-05)
 * (copilot) Fixes for Repo Checker

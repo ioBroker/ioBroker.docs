@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.agent-dvr/README.md
 title: ioBroker.agent-dvr
-hash: dr75B9u2HX5NzWSUHWM9Xte9P0HAg1wZthWZamajoDA=
+hash: 1YxfO3T4Ts/pjnklvOMZpcs+YtVBbpv4iQ63lzFnChE=
 ---
 ![Logo](../../../en/adapterref/iobroker.agent-dvr/admin/agent-dvr.png)
 
@@ -19,6 +19,8 @@ hash: dr75B9u2HX5NzWSUHWM9Xte9P0HAg1wZthWZamajoDA=
 ## Agent-DVR-Adapter für ioBroker
 
 Verbindet ioBroker mit [AgentDVR](https://www.ispyconnect.com) : Erkennt automatisch alle Kameras, spiegelt jede Geräteeigenschaft als Datenpunkte wider, bietet Schaltflächen für alle gängigen Befehle (Aufnahme, Scharfschalten, PTZ, …), liefert Push-getriggerte Galerie-Updates bei neuen Aufnahmen, generiert ein responsives HTML-Galerie-Widget pro Kamera und beinhaltet ein integriertes Live-Dashboard mit Stream-Auswahl pro Kamera (MJPEG, MP4/FLV mit Audio oder go2rtc WebRTC).
+
+> Dies ist eine von der Community gepflegte Integration, die nicht mit iSpyConnect verbunden ist und von diesem auch nicht unterstützt wird. Bitte melden Sie Probleme über [den GitHub-Tracker dieses Repositorys](https://github.com/ipod86/ioBroker.agent-dvr/issues) und nicht über die Supportkanäle von iSpyConnect.
 
 ## Anforderungen
 
@@ -104,11 +106,11 @@ Verbindet ioBroker mit [AgentDVR](https://www.ispyconnect.com) : Erkennt automat
 
 **Standardansicht**
 
-| Einstellung                         | Beschreibung                                                                                                        | Standard |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- |
-| Standardansicht                     | Welcher Tab öffnet sich beim Laden des Dashboards: Live oder Aufzeichnungen?                                        | `Live`   |
-| Offline-Kameras anzeigen            | Kamerakacheln auch dann anzeigen, wenn die Kamera offline ist                                                       | `true`   |
-| Maximale Anzahl Aufnahmen insgesamt | Maximale Anzahl der im Dashboard angezeigten Aufnahmen aller Kameras (neueste zuerst). Unabhängig vom Widget-Limit. | `200`    |
+| Einstellung                     | Beschreibung                                                                                                        | Standard |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- |
+| Standardansicht                 | Welcher Tab öffnet sich beim Laden des Dashboards: Live oder Aufzeichnungen?                                        | `Live`   |
+| Offline-Kameras anzeigen        | Kamerakacheln auch dann anzeigen, wenn die Kamera offline ist                                                       | `true`   |
+| Maximale Gesamtanzahl Aufnahmen | Maximale Anzahl der im Dashboard angezeigten Aufnahmen aller Kameras (neueste zuerst). Unabhängig vom Widget-Limit. | `200`    |
 
 **Kameraraster**
 
@@ -277,6 +279,10 @@ FLV und go2rtc laufen unabhängig von den Einstellungen immer über ioBroker –
 - Direkte Verbindung ist schneller – kein zusätzlicher Zwischenknoten, geringere Latenz.
 - Geringere Belastung des ioBroker-Servers – Streams werden nicht über Node.js geleitet.
 
+### Sicherheit
+
+Dieser Adapter speichert Ihre AgentDVR-Administratoranmeldeinformationen und stellt sie zur Verfügung `system.control.purge`, `system.control.restart` Und `system.control.unblockExternal` Da diese Zustände mit einem Klick beschreibbar sind, kann jeder, der den Webport von ioBroker erreichen kann, Aufnahmen löschen, AgentDVR neu starten oder die Sperre für externen Zugriff deaktivieren. **Stellen Sie sicher, dass `iobroker.web` Die Authentifizierung muss aktiviert sein, bevor ioBroker außerhalb Ihres LANs (direkt oder über einen Reverse-Proxy) zugänglich gemacht wird** – dies ist bei vielen ioBroker-Konfigurationen nicht die Standardeinstellung.
+
 > Die Einstellung wird sofort nach dem Speichern wirksam – ein Neustart ist nicht erforderlich.
 
 ## Datenpunkte
@@ -359,13 +365,13 @@ FLV und go2rtc laufen unabhängig von den Einstellungen immer über ioBroker –
 
 | Datenpunkt                    | Typ      | R/W | Beschreibung                                                                                                                                                  |
 | ----------------------------- | -------- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<cam>.control.ptz.left`      | schalten | R/W | Schwenken Sie nach links (halten, um die Bewegung fortzusetzen)                                                                                               |
+| `<cam>.control.ptz.left`      | schalten | R/W | Schwenken Sie nach links (halten Sie gedrückt, um die Bewegung fortzusetzen)                                                                                  |
 | `<cam>.control.ptz.right`     | schalten | R/W | Schwenken Sie nach rechts                                                                                                                                     |
 | `<cam>.control.ptz.up`        | schalten | R/W | Neigen nach oben                                                                                                                                              |
 | `<cam>.control.ptz.down`      | schalten | R/W | Neigen nach unten                                                                                                                                             |
 | `<cam>.control.ptz.upLeft`    | schalten | R/W | Diagonal oben links                                                                                                                                           |
 | `<cam>.control.ptz.upRight`   | schalten | R/W | Diagonal nach oben rechts                                                                                                                                     |
-| `<cam>.control.ptz.downLeft`  | schalten | R/W | Diagonal nach unten links                                                                                                                                     |
+| `<cam>.control.ptz.downLeft`  | schalten | R/W | Diagonal unten links                                                                                                                                          |
 | `<cam>.control.ptz.downRight` | schalten | R/W | Diagonal nach unten rechts                                                                                                                                    |
 | `<cam>.control.ptz.zoomIn`    | schalten | R/W | Vergrößern                                                                                                                                                    |
 | `<cam>.control.ptz.zoomOut`   | schalten | R/W | Herauszoomen                                                                                                                                                  |
@@ -479,8 +485,6 @@ Rücksendungen `{"ok":true}` auf Erfolg.
 * (ipod86) feat: native browser fullscreen button in live view modal with correct aspect ratio
 * (ipod86) feat: live view modal header auto-hides after 3 s of inactivity; reappears on mouse/touch
 * (ipod86) fix: add fsEnter, fsExit, filterByLabel, timelineView, closePanel i18n keys in all 10 languages
-
-[Older changelog entries in CHANGELOG_OLD.md](https://github.com/ipod86/ioBroker.agent-dvr/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

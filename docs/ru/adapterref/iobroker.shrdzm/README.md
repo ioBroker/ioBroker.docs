@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shrdzm/README.md
 title: ioBroker.shrdzm
-hash: iRWCqOWvS2jbUtjPgJM4btr3XrbJGmNELnLc+GkFVRY=
+hash: lYGyoRorQ1ep9u/UBtuNogYdVwbxYQjimUbwkjfw68U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.shrdzm/admin/shrdzm.png)
 
@@ -67,7 +67,7 @@ hash: iRWCqOWvS2jbUtjPgJM4btr3XrbJGmNELnLc+GkFVRY=
 
 - Выберите свободный порт в административном интерфейсе; по умолчанию установлен порт 9000, но можно использовать любой свободный порт.
 
-- Откройте интерфейс конфигурации SHRZDM (используя веб-браузер).![альтернативный текст](../../../en/adapterref/iobroker.shrdzm/doc/shrzdm-cloud.pgn)
+- Откройте интерфейс конфигурации SHRZDM (используя веб-браузер).![альтернативный текст](../../../en/adapterref/iobroker.shrdzm/doc/shrdzm-cloud.png)
 
 - выберите конфигурацию облака
 

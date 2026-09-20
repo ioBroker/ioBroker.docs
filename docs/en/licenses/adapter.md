@@ -1,10 +1,10 @@
 ---
 title: Adapter licenses
-lastChanged: 16.09.2026
+lastChanged: 17.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/licenses/adapter.md
-hash: fGZOJeWa09BHTKYq+LyYQu/O3UWGiRfV/6xBB4B1gx0=
+hash: qNRKhrcpdGst6t/+1NYrLezDftEd2xYZtTOfbj/5wM4=
 ---
 # Adapter licenses
 
@@ -16,9 +16,9 @@ Of the hundreds of adapters, **three** currently require a license to even funct
 | **KNX**                 | The integration of KNX systems     |
 | **JägerDesign Widgets** | A set of widgets for visualization |
 
-All further adapters licensed through ioBroker are free. An adapter license applies to the adapter on your own server; it has nothing to do with the cloud.
+All other adapters licensed via ioBroker are free of charge. An adapter license applies to the adapter on your own server; it has nothing to do with the cloud.
 
-?> This does not cover adapters that their developer offers under their own terms. Individual community adapters are paid or limited in use. Such licenses do not run through ioBroker but directly with the developer in question. What applies to an adapter is stated in its description.
+This does not affect adapters offered by their developers under their own terms. Some community-developed adapters may be subject to a fee or have limited functionality. These licenses are not handled through ioBroker, but directly by the respective developer. The specific terms and conditions for each adapter are detailed in its description.
 
 ## Linked to the serial number
 

@@ -43,6 +43,9 @@ SRP (Secure Remote Password) login is not supported. There are currently no publ
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (bolliy) add Nissan Townstar support.
+
 ### 0.1.19 (2026-09-13)
 - (iobroker-bot) Adapter requires node.js >= 22 now.
 - (bolliy/claude) Implemented MyNISSAN OneID authentication
