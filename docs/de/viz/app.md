@@ -60,7 +60,7 @@ Mobile Verbindung
 Sie können die Spracherkennung in der Anwendung aktivieren. Wenn diese Option aktiviert ist, wird von der App kontinuierlich versucht Befehle zu erkennen. Um festzustellen, ob Sie mit der App oder mit jemand anderem sprechen, kann ein Schlüsselwort festgelegt werden.
 Bitte wählen Sie ein Wort, das gut erkannt werden kann und nicht im täglichen Gebrauch verwendet wird.
 
-Zur Erkennung von Befehlen im erkannten Text wird der text2command Adapter verwendet. Bitte lesen Sie die Beschreibungen dieses Adapters auf [github] (https://github.com/ioBroker/ioBroker.text2command) oder (iobroker.net)[http://iobroker.net].
+Zur Erkennung von Befehlen im erkannten Text wird der text2command Adapter verwendet. Bitte lesen Sie die Beschreibungen dieses Adapters auf [github] (https://github.com/ioBroker/ioBroker.text2command) oder [iobroker.com](https://www.iobroker.com).
 Natürlich muss eine Instanz des text2command Adapters installiert werden.
 
 *Hinweis*: In diesem Fall werden alle Stimmen auf die Google-Server gesendet, wenn keine Offline-Spracherkennung aktiviert ist. Aktivierungsanweisung finden Sie hier:(http://stackandroid.com/tutorial/how-to ... n-android/).

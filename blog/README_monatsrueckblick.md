@@ -242,7 +242,7 @@ Neben wichtigen Aktualisierungen für zentrale Komponenten stehen diesmal N neue
 den Bereichen A, B und C bereit.
 
 Blog lesen:
-https://www.iobroker.net/#de/blog/JJJJ_MM_TT
+https://www.iobroker.com/blog/JJJJ_MM_TT
 
 Wichtige Updates
 🔐 Name – ein bis zwei ganze Sätze, was die Neuerung dem Nutzer bringt.
