@@ -1,6 +1,6 @@
 ---
 title:       "Rundgang durch die Oberfläche"
-lastChanged: "08.09.2026"
+lastChanged: "21.09.2026"
 ---
 
 # Rundgang durch die Oberfläche
@@ -64,6 +64,16 @@ nichts, was vorher verboten war. Er ist eine Brille, keine Tür. Ausgeschaltet
 zeigt der Admin das, was im Alltag gebraucht wird; eingeschaltet zeigt er
 zusätzlich alles, was sonst nur im Weg stünde.
 
+<img src="media/admin_expert_ohne.webp" width="900" alt="Der Objektbaum mit ausgeschaltetem Expertenmodus" />
+
+*Ohne Expertenmodus: die Adapter mit ihren Daten, sonst nichts.*
+
+<img src="media/admin_expert_mit.webp" width="900" alt="Derselbe Objektbaum mit eingeschaltetem Expertenmodus" />
+
+*Derselbe Baum mit Expertenmodus. Dazugekommen sind der Namensraum `enum`, die
+Spalte mit den Zugriffsrechten (`664`) und der Bleistift, der den Objekteditor
+öffnet. Weiter unten steht dann auch `system.`*
+
 Was dazukommt, je nach Reiter:
 
 | Reiter | Was der Expertenmodus zusätzlich zeigt |
@@ -80,6 +90,10 @@ Es gibt den Schalter zweimal, und das verwirrt regelmäßig:
   Systemeinstellungen vorgeben.
 * In den [Systemeinstellungen](/docs/admin/settings.md)
   legt *Expertenmodus* fest, wie der Admin beim Öffnen startet.
+
+Beim ersten Einschalten sagt der Admin genau das noch einmal:
+
+<img src="media/admin_expert_hinweis.webp" width="700" alt="Der Hinweis, der beim ersten Einschalten des Expertenmodus erscheint" />
 
 ?> Faustregel für die Fehlersuche: Wenn eine Anleitung eine Einstellung nennt,
 die Sie nirgends finden, schalten Sie zuerst den Expertenmodus ein. In neun von
