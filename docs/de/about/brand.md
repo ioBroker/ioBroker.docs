@@ -1,6 +1,6 @@
 ---
 title:       "Marke und Erscheinungsbild"
-lastChanged: "15.09.2026"
+lastChanged: "21.09.2026"
 ---
 # Marke und Erscheinungsbild
 
@@ -35,12 +35,14 @@ Drei Bestandteile, die getrennt verwendet werden dürfen:
 
 ### Herunterladen
 
-| | Datei | Format |
+Ein Klick auf das Format lädt die Datei herunter.
+
+| | Marke | Format |
 |---|---|---|
-| <img src="media/logo-bildmarke.webp" width="44" alt="Die Bildmarke" /> | [Bildmarke](/brand/iobroker-bildmarke.svg) | SVG, [PNG 512 px](/brand/iobroker-bildmarke-512.png) |
-| <img src="media/logo-wortmarke-zweifarbig.webp" width="112" alt="Die Wortmarke" /> | [Wortmarke](/brand/iobroker-wortmarke-zweifarbig.svg) | SVG, [PNG 1200 px](/brand/iobroker-wortmarke-zweifarbig-1200.png) |
-| <img src="media/logo-kombiniert.webp" width="117" alt="Die kombinierte Marke" /> | [Kombinierte Marke](/brand/iobroker-kombiniert.svg) | SVG, [PNG 1200 px](/brand/iobroker-kombiniert-1200.png) |
-| | [Alles zusammen](/brand/iobroker-logos.zip) | ZIP |
+| <img src="media/logo-bildmarke.webp" width="44" alt="Die Bildmarke" /> | Bildmarke | <a href="/brand/iobroker-bildmarke.svg" download="iobroker-bildmarke.svg">SVG</a>, <a href="/brand/iobroker-bildmarke-512.png" download="iobroker-bildmarke-512.png">PNG 512 px</a> |
+| <img src="media/logo-wortmarke-zweifarbig.webp" width="112" alt="Die Wortmarke" /> | Wortmarke | <a href="/brand/iobroker-wortmarke-zweifarbig.svg" download="iobroker-wortmarke-zweifarbig.svg">SVG</a>, <a href="/brand/iobroker-wortmarke-zweifarbig-1200.png" download="iobroker-wortmarke-zweifarbig-1200.png">PNG 1200 px</a> |
+| <img src="media/logo-kombiniert.webp" width="117" alt="Die kombinierte Marke" /> | Kombinierte Marke | <a href="/brand/iobroker-kombiniert.svg" download="iobroker-kombiniert.svg">SVG</a>, <a href="/brand/iobroker-kombiniert-1200.png" download="iobroker-kombiniert-1200.png">PNG 1200 px</a> |
+| | Alles zusammen | <a href="/brand/iobroker-logos.zip" download="iobroker-logos.zip">ZIP</a> |
 
 ## Farben
 
