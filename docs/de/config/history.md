@@ -1,6 +1,6 @@
 ---
 title:       "Datenaufzeichnung"
-lastChanged: "08.09.2026"
+lastChanged: "21.09.2026"
 ---
 
 # Datenaufzeichnung
@@ -77,6 +77,12 @@ sondern auf einer SSD oder in einer Datenbank auf einem anderen Rechner.
 Der Adapter wird installiert, eine Instanz angelegt, und danach wird **je
 Datenpunkt** entschieden, ob er aufgezeichnet wird. Das geschieht im Reiter
 [Objekte](/docs/admin/objects.md) über das Zahnrad am Ende der Zeile.
+
+<img src="media/history_aufzeichnung_einschalten.webp" width="900" alt="Der Dialog Benutzerdefinierte Einstellungen mit eingeschalteter Aufzeichnung" />
+
+*Das Zahnrad öffnet diesen Dialog. Jede installierte Aufzeichnungsinstanz
+bekommt hier einen eigenen Abschnitt; der Haken bei **Aktiviert** schaltet den
+Datenpunkt ein und blendet die Einstellungen darunter ein.*
 
 In der Konfiguration der Instanz stehen die Voreinstellungen, die für jeden neu
 eingeschalteten Datenpunkt gelten. Am Datenpunkt selbst lassen sie sich
@@ -190,8 +196,159 @@ gesetzt.
 zusätzlich ein. Sonst steht nach einem Restore ein vollständig eingerichtetes
 System da, in dem alle Diagramme leer sind.
 
-## Ansehen
+## Wo Sie den Verlauf benutzen
 
-Aufgezeichnete Werte werden als Diagramm ausgewertet, üblicherweise mit
-`echarts`. Der Weg dorthin steht unter
-[Diagramme](/docs/tutorial/flot.md).
+Aufzeichnen ist die eine Hälfte, ihn wieder herauszuholen die andere. Dafür gibt
+es mehrere Wege, und alle stellen dieselbe Frage: **aus welcher Quelle**. Wer
+mehr als einen Aufzeichnungsadapter betreibt, gibt jedes Mal an, ob die Werte
+aus `history`, `influxdb` oder `sql` kommen. Welche Instanz vorgeschlagen wird,
+steht in den [Systemeinstellungen](/docs/admin/settings.md) unter
+*Standard-Historie*.
+
+### Als Diagramm im Admin
+
+Der übliche Weg. Der Adapter `echarts` bringt einen eigenen Reiter in den Admin
+mit. Dort stellen Sie ein Diagramm zusammen, weisen jeder Linie einen
+aufgezeichneten Datenpunkt zu und speichern das Ergebnis als **Voreinstellung**.
+Diese Voreinstellung ist es, die alle weiteren Wege wiederverwenden.
+
+<img src="media/history_echarts.webp" width="900" alt="Der Reiter Diagramme mit der Liste der aufgezeichneten Datenpunkte und dem Verlauf" />
+
+*Links stehen alle Datenpunkte, für die eine Aufzeichnung läuft, gruppiert nach
+der Instanz, die sie schreibt. Ein Klick darauf zeichnet den Verlauf. Oben
+rechts stellen Sie Zeitraum, Aggregation und Aktualisierung ein.*
+
+?> Solange nichts aufgezeichnet wird, ist die Liste links leer. Das ist der
+häufigste Grund für ein Diagramm, das sich nicht bauen lässt.
+
+Schritt für Schritt steht das unter [Diagramme](/docs/tutorial/flot.md).
+
+### Auf einer eigenen Seite
+
+Eine gespeicherte Voreinstellung lässt sich ohne Visualisierung direkt aufrufen,
+über den `web`-Adapter:
+
+```
+http://IP:8082/echarts/index.html?preset=echarts.0.MEINE-VOREINSTELLUNG
+```
+
+Das genügt für ein Wandtablet, das nur ein Diagramm zeigen soll, oder für ein
+Lesezeichen am Rechner.
+
+### In der Visualisierung
+
+Für [vis und vis-2](/docs/viz/vis-2.md) gibt es ein Widget, das eine
+Voreinstellung anzeigt. Sie wählen sie aus einer Liste aus, mehr ist nicht zu
+tun.
+
+Daneben gibt es Widgets, die den Verlauf nebenbei zeigen, ohne eigenes Diagramm.
+In den [Material-Widgets](/docs/viz/widgets-material.md) etwa *Istwert mit
+Diagramm*: zwei Messwerte groß, darunter der Verlauf als Fläche. Solche Widgets
+bleiben leer, solange der Datenpunkt nicht aufgezeichnet wird.
+
+### Im Skript
+
+Der [JavaScript-Adapter](/docs/logic/javascript.md) liest den Verlauf mit
+`getHistory`:
+
+```javascript
+const ende = Date.now();
+
+getHistory(
+    'history.0',
+    {
+        id: 'hm-rpc.0.ABC123.1.TEMPERATURE',
+        start: ende - 24 * 3600000,
+        end: ende,
+        aggregate: 'average',
+        step: 3600000,
+    },
+    (fehler, werte) => {
+        if (fehler) {
+            console.error(fehler);
+            return;
+        }
+        werte.forEach(w => log(`${new Date(w.ts).toLocaleString()}: ${w.val}`));
+    },
+);
+```
+
+Lassen Sie die Instanz weg, wird die Standard-Historie aus den
+Systemeinstellungen genommen. So kommen Sie an Werte, die kein Diagramm zeichnen
+soll: der Verbrauch des Vormonats für eine Meldung, das Tagesmaximum für einen
+Vergleich, der Zählerstand von Mitternacht.
+
+### In Blockly
+
+Dasselbe geht ohne Code. In [Blockly](/docs/logic/blockly.md) nehmen Sie den
+Baustein **sendTo** und geben als Befehl `getHistory` an, als Ziel die Instanz
+und als Parameter dieselben Angaben wie oben. Das Ergebnis kommt als Liste
+zurück.
+
+### Als Bild verschicken
+
+`echarts` kann eine Voreinstellung **auf dem Server** zeichnen und als Bild
+zurückgeben, ohne dass ein Browser beteiligt ist. Damit landet ein Diagramm in
+einer Telegram-Nachricht oder in einer E-Mail:
+
+```javascript
+sendTo(
+    'echarts.0',
+    {
+        preset: 'echarts.0.MEINE-VOREINSTELLUNG',
+        renderer: 'png',
+        width: 1024,
+        height: 300,
+        theme: 'dark',
+    },
+    ergebnis => {
+        if (ergebnis.error) {
+            console.error(ergebnis.error);
+            return;
+        }
+        // ergebnis.data ist das Bild als Base64-Adresse
+    },
+);
+```
+
+Als Format stehen `svg`, `png`, `jpg` und `pdf` zur Wahl. Mit `fileName` legt
+der Adapter das Bild stattdessen im Dateispeicher ab, mit `fileOnDisk` auf der
+Festplatte.
+
+### Mit anderen Programmen
+
+Wer `influxdb` oder `sql` aufzeichnet, hat die Werte in einer gewöhnlichen
+Datenbank liegen. **Grafana** liest sie direkt von dort, ohne ioBroker
+dazwischen, und lohnt sich, sobald es um viele Auswertungen geht.
+
+Für alle, die das Diagramm lieber selbst schreiben, gibt es den Adapter
+[flexcharts](/adapters/flexcharts). Er stellt Apache ECharts ohne Oberfläche
+bereit: die Diagrammbeschreibung entsteht im Skript oder als JSON in einem
+Datenpunkt.
+
+### Die Aggregation
+
+Jeder dieser Wege fragt danach, und sie entscheidet, ob ein Diagramm lesbar ist
+oder den Browser lahmlegt. Der Gedanke dahinter: der Zeitraum wird in gleich
+große Abschnitte geteilt, und je Abschnitt kommt **ein** Wert zurück statt
+aller.
+
+| Aggregation | Ergebnis je Abschnitt |
+| --- | --- |
+| `average` | der Mittelwert. Die übliche Wahl für Temperaturen |
+| `min`, `max` | der kleinste oder größte Wert |
+| `minmax` | Anfang, Ende, Minimum und Maximum. Zeichnet Ausreißer mit, ohne alle Werte zu holen |
+| `total` | die Summe. Für Verbräuche |
+| `count` | die Anzahl der Werte |
+| `none` | keine Zusammenfassung, alle Rohwerte |
+
+Die Größe der Abschnitte geben Sie mit `step` in Millisekunden an oder mit
+`count` als gewünschte Anzahl. Ohne beides sind es 500 Abschnitte.
+
+?> `none` ist verlockend, weil es die echten Werte liefert. Bei einem Jahr
+Temperaturen im Minutentakt sind das über eine halbe Million Punkte, und daran
+scheitert jeder Browser. Für lange Zeiträume gehört eine Zusammenfassung dazu.
+
+!> Bei jeder Aggregation außer `none` sind der erste und der letzte Punkt aus
+Werten **außerhalb** des Zeitraums berechnet. Wer die Zahlen weiterrechnet,
+etwa für eine Monatssumme, lässt diese beiden weg.
