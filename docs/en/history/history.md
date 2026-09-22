@@ -1616,8 +1616,20 @@ https://github.com/ipod86/ioBroker.agent-dvr
 
 Connects ioBroker to AgentDVR: auto-discovers all cameras, mirrors every device property as data points, provides buttons for all common commands (record, arm, PTZ, …), delivers push-triggered gallery updates on new recordings, generates a responsive HTML gallery widget per camera, and includes a built-in live dashboard with per-camera stream selection (MJPEG, MP4/FLV with audio, or go2rtc WebRTC).
 
+## sigenergy (22.9.2026) – new adapter at stable repository
+https://github.com/ssbingo/ioBroker.sigenergy
 
+<img src="https://raw.githubusercontent.com/ssbingo/ioBroker.sigenergy/main/admin/sigenergy.png" width="100" height="100" />
 
+Adapter for Sigenergy solar energy systems via Modbus TCP/RTU
+Supports the Sigenergy Modbus Protocol V2.9 (released 2026-05-13).
+
+## navimow (22.9.2026) – new adapter at stable repository
+https://github.com/TA2k/ioBroker.navimow
+
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.navimow/blob/main/admin/navimow.png" width="100" height="100" />
+
+ioBroker adapter for Segway Navimow robotic mowers. Uses the official Navimow SDK REST API and MQTT for real-time updates.
 
 
 
