@@ -97,6 +97,13 @@ export const API_ENDPOINTS = {
 export const BLOG_LINK = '/blog';
 
 /**
+ * The id of the newest blog post, written by the build beside `blog.json`. The header reads it to
+ * decide whether the dot beside `Blog` is due. An app without a blog of its own leaves this
+ * undefined, and then there is no dot and no request.
+ */
+export const BLOG_LATEST_URL = '/blog-latest.json';
+
+/**
  * Imprint and privacy policy. Both are rendered by this SPA, and the address is the path itself -
  * the same one the old site used.
  */

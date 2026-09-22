@@ -251,6 +251,15 @@ export function build(): Promise<BlogContent> {
                 void blogSocial.build(content).then(() => {
                     fs.writeFileSync(`${consts.FRONT_END_DIR}blog.json`, JSON.stringify(contents[0], null, 2));
 
+                    /*
+                     * The newest post, in a file of its own. The header of the site shows a dot
+                     * beside `Blog` while a post has appeared that this reader has not been to yet,
+                     * and the header is on every page: it may not pull the whole `blog.json` for
+                     * that, which is fifty kilobytes and grows with every post. `names` is sorted
+                     * descending, so the first one is the newest.
+                     */
+                    fs.writeFileSync(`${consts.FRONT_END_DIR}blog-latest.json`, JSON.stringify({ id: names[0] || '' }));
+
                     void buildRSS().then(() => resolve(content));
                 });
             });

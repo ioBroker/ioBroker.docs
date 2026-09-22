@@ -162,6 +162,19 @@ export const useHeaderStyles = makeStyles<{ dark: boolean }>()((theme, { dark })
             backgroundColor: bar.custom.surfaces.raised,
             cursor: 'default',
         },
+        /**
+         * The dot beside `Blog` while a post is there that the reader has not been to. The link is
+         * a flex row, so the dot simply stands next to the word and covers nothing. `bar` and not
+         * `theme`, because the bar keeps the dark palette even in the light theme.
+         */
+        newsDot: {
+            width: 6,
+            height: 6,
+            flexShrink: 0,
+            marginLeft: 5,
+            borderRadius: '50%',
+            backgroundColor: bar.palette.primary.main,
+        },
         iconButton: {
             padding: theme.spacing(0.5),
             borderRadius: theme.custom.radius.control,

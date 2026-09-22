@@ -7,6 +7,7 @@ import { I18n } from '../../utils/i18n';
 import { buildIoBrokerUrl } from '../../config/api';
 import { useBlogContent } from '../../api/hooks/useBlog';
 import { formatBlogDate, getAuthor, pickText, sortBlogPages } from './blogUtils';
+import { markBlogPostsSeen } from '../../utils/blogNews';
 import { useStyles } from './BlogPage.styles';
 
 const RssIcon = (): React.ReactNode => (
@@ -47,6 +48,17 @@ const BlogPage = (): React.ReactNode => {
      * tag on every card.
      */
     const pageIds = useMemo(() => (data?.pages ? sortBlogPages(data.pages) : []), [data]);
+
+    /*
+     * Whoever is here has been offered what there is, so the dot in the header goes out. Noted
+     * with the newest post of the list, not with the date: the file the header reads holds that
+     * same id, and two sides comparing the same thing cannot drift apart.
+     */
+    useEffect(() => {
+        if (pageIds.length) {
+            markBlogPostsSeen(pageIds[0]);
+        }
+    }, [pageIds]);
 
     return (
         <Box className={classes.pageWrapper}>

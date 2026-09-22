@@ -477,6 +477,7 @@
     "languages.en": "EN",
     "languages.ru": "RU",
     "menu": {
+        "blogNews": "Neuer Blogbeitrag",
         "title": "Menü"
     },
     "menu-adapters": "Adapter",

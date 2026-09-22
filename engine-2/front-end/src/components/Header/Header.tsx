@@ -12,6 +12,7 @@ import MenuModal, { type MenuItems, type MenuItemsSmall } from '../Menu/Menu';
 import { I18n } from '../../utils/i18n';
 import {
     ADAPTERS_LINK,
+    BLOG_LATEST_URL,
     BLOG_LINK,
     DOCS_LINK,
     getLink,
@@ -22,6 +23,7 @@ import {
 } from '../../config/api';
 import { logout } from '../../config/auth';
 import { EXTERNAL_LINKS } from '../../config/links';
+import { useNewBlogPost } from '../../utils/blogNews';
 
 export interface HeaderProps {
     selected: string;
@@ -52,6 +54,7 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
     const [language, setLanguage] = useState(I18n.getLanguage());
     const [showProfileMenu, setShowProfileMenu] = useState<HTMLElement | null>(null);
     const [menuOpen, setMenuOpen] = useState(false);
+    const hasBlogNews = useNewBlogPost(BLOG_LATEST_URL);
 
     // Ctrl+K, and ⌘K on a Mac, open the search wherever the reader is - the browser's own
     // "search in page" is not what somebody expects from a documentation site.
@@ -201,6 +204,15 @@ export const Header = ({ selected, noSearch, onLanguageUpdate, loggedIn, dark }:
                     className={`${classes.link} ${selected === 'blog' ? classes.linkSelected : ''}`}
                 >
                     {tt('menu-blog', 'Blog')}
+                    {/* a post has appeared that this reader has not been to - see `blogNews.ts` */}
+                    {hasBlogNews && (
+                        <Box
+                            component="span"
+                            className={classes.newsDot}
+                            aria-label={I18n.t('menu.blogNews')}
+                            role="status"
+                        />
+                    )}
                 </Box>
                 <Box
                     component="a"
