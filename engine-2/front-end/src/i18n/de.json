@@ -426,6 +426,10 @@
             }
         }
     },
+    "image": {
+        "close": "Bild schließen",
+        "enlarged": "Vergrößertes Bild"
+    },
     "installation": {
         "docker": {
             "details": "Details:",
@@ -941,6 +945,7 @@
         }
     },
     "search": {
+        "close": "Suche schließen",
         "title": "Suche",
         "placeholder": "Dokumentation durchsuchen …",
         "clear": "Eingabe löschen",

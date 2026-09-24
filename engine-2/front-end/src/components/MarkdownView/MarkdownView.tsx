@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
@@ -7,6 +7,8 @@ import { createSlugger, makeSlug } from '../../utils/markdown';
 import { buildAnchorHref, getAnchorFromHash, scrollToAnchor, updateAnchorInUrl } from '../../utils/anchor';
 import { isExternalLink, normalizeImageTags, normalizeText, resolveMarkdownUrl } from './markdownViewUtils';
 import { useMarkdownLinkStyles } from '../markdownLink.styles';
+import { ImageLightbox } from '../ImageLightbox';
+import { MarkdownImage } from './MarkdownImage';
 
 interface MarkdownViewProps {
     markdown?: string;
@@ -133,238 +135,249 @@ export const MarkdownView = memo(function MarkdownView({
             </a>
         ) : null;
 
+    /* the picture a click has opened, nothing while none is open */
+    const [zoomed, setZoomed] = useState<{ src: string; alt: string } | undefined>(undefined);
+
     return markdownForRender ? (
-        <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeRaw]}
-            components={{
-                /*
-                 * The three levels below carry their own tag since 17.09.2026. They were `Box`
-                 * before, which renders a `div`: the documents kept their look but lost their
-                 * structure, so an adapter page and a documentation page arrived at a search
-                 * engine - and at a screen reader - as one long text without a single heading.
-                 * The look does not change with the tag, the classes decide it; the text inside
-                 * is a `span` because a heading may not hold a `div`.
-                 */
-                h1: ({ children }) => {
-                    const text = normalizeText(children);
-                    const id = getUniqueId(text);
-                    return (
-                        <Box
-                            component={demoteHeadings ? 'h2' : 'h1'}
-                            id={id}
-                            data-md-heading={makeSlug(text)}
-                            className={classNames.head}
-                        >
-                            <span>{children}</span>
-                            {renderAnchorLink(id, text)}
-                        </Box>
-                    );
-                },
-                h2: ({ children }) => {
-                    const text = normalizeText(children);
-                    const id = nextContentHeadingId(text);
-                    return (
-                        <Box
-                            component={demoteHeadings ? 'h3' : 'h2'}
-                            id={id}
-                            data-md-heading={makeSlug(text)}
-                            className={classNames.subhead ?? classNames.head}
-                        >
-                            <span>{children}</span>
-                            {renderAnchorLink(id, text)}
-                        </Box>
-                    );
-                },
-                h3: ({ children }) => {
-                    const text = normalizeText(children);
-                    const id = nextContentHeadingId(text);
-                    return (
-                        <Box
-                            component={demoteHeadings ? 'h4' : 'h3'}
-                            id={id}
-                            data-md-heading={makeSlug(text)}
-                            className={classNames.heading}
-                        >
-                            <span>{children}</span>
-                            {renderAnchorLink(id, text)}
-                        </Box>
-                    );
-                },
-                h4: ({ children }) => (
-                    <Box
-                        component="h4"
-                        className={classNames.subheading}
-                    >
-                        {children}
-                    </Box>
-                ),
-                p: ({ children }) => <Box className={classNames.paragraph}>{children}</Box>,
-                a: ({ children, href, ...props }) => {
+        <>
+            <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                components={{
                     /*
-                     * A link to a heading of the same page, written in the markdown as
-                     * `[iobroker start](#iobroker-start)`. The address is right and stays as it
-                     * is - it used to have to be rewritten, because under the hash router such a
-                     * link replaced the whole hash and took the route with it. What is still
-                     * needed is the click: these pages scroll inside a column of their own, not
-                     * in the window, so the jump the browser would make lands nowhere and
-                     * `scrollToHeading` has to move the right container instead. The in-page
-                     * tables of contents are full of these links - `config/cli.md` alone has 60.
+                     * The three levels below carry their own tag since 17.09.2026. They were `Box`
+                     * before, which renders a `div`: the documents kept their look but lost their
+                     * structure, so an adapter page and a documentation page arrived at a search
+                     * engine - and at a screen reader - as one long text without a single heading.
+                     * The look does not change with the tag, the classes decide it; the text inside
+                     * is a `span` because a heading may not hold a `div`.
                      */
-                    if (href?.startsWith('#') && !href.startsWith('#/')) {
-                        const id = decodeURIComponent(href.slice(1));
+                    h1: ({ children }) => {
+                        const text = normalizeText(children);
+                        const id = getUniqueId(text);
+                        return (
+                            <Box
+                                component={demoteHeadings ? 'h2' : 'h1'}
+                                id={id}
+                                data-md-heading={makeSlug(text)}
+                                className={classNames.head}
+                            >
+                                <span>{children}</span>
+                                {renderAnchorLink(id, text)}
+                            </Box>
+                        );
+                    },
+                    h2: ({ children }) => {
+                        const text = normalizeText(children);
+                        const id = nextContentHeadingId(text);
+                        return (
+                            <Box
+                                component={demoteHeadings ? 'h3' : 'h2'}
+                                id={id}
+                                data-md-heading={makeSlug(text)}
+                                className={classNames.subhead ?? classNames.head}
+                            >
+                                <span>{children}</span>
+                                {renderAnchorLink(id, text)}
+                            </Box>
+                        );
+                    },
+                    h3: ({ children }) => {
+                        const text = normalizeText(children);
+                        const id = nextContentHeadingId(text);
+                        return (
+                            <Box
+                                component={demoteHeadings ? 'h4' : 'h3'}
+                                id={id}
+                                data-md-heading={makeSlug(text)}
+                                className={classNames.heading}
+                            >
+                                <span>{children}</span>
+                                {renderAnchorLink(id, text)}
+                            </Box>
+                        );
+                    },
+                    h4: ({ children }) => (
+                        <Box
+                            component="h4"
+                            className={classNames.subheading}
+                        >
+                            {children}
+                        </Box>
+                    ),
+                    p: ({ children }) => <Box className={classNames.paragraph}>{children}</Box>,
+                    a: ({ children, href, ...props }) => {
+                        /*
+                         * A link to a heading of the same page, written in the markdown as
+                         * `[iobroker start](#iobroker-start)`. The address is right and stays as it
+                         * is - it used to have to be rewritten, because under the hash router such a
+                         * link replaced the whole hash and took the route with it. What is still
+                         * needed is the click: these pages scroll inside a column of their own, not
+                         * in the window, so the jump the browser would make lands nowhere and
+                         * `scrollToHeading` has to move the right container instead. The in-page
+                         * tables of contents are full of these links - `config/cli.md` alone has 60.
+                         */
+                        if (href?.startsWith('#') && !href.startsWith('#/')) {
+                            const id = decodeURIComponent(href.slice(1));
+                            return (
+                                <Box
+                                    component="a"
+                                    href={buildAnchorHref(id)}
+                                    className={classNames.link || linkClasses.link}
+                                    onClick={scrollToHeading(id)}
+                                    {...props}
+                                >
+                                    {children}
+                                </Box>
+                            );
+                        }
+                        // a link out of the documentation opens beside it, not instead of it
+                        const external = isExternalLink(href);
                         return (
                             <Box
                                 component="a"
-                                href={buildAnchorHref(id)}
+                                href={href}
                                 className={classNames.link || linkClasses.link}
-                                onClick={scrollToHeading(id)}
+                                target={external ? '_blank' : undefined}
+                                rel={external ? 'noopener noreferrer' : undefined}
                                 {...props}
                             >
                                 {children}
                             </Box>
                         );
-                    }
-                    // a link out of the documentation opens beside it, not instead of it
-                    const external = isExternalLink(href);
-                    return (
+                    },
+                    ul: ({ children }) => (
                         <Box
-                            component="a"
-                            href={href}
-                            className={classNames.link || linkClasses.link}
-                            target={external ? '_blank' : undefined}
-                            rel={external ? 'noopener noreferrer' : undefined}
-                            {...props}
+                            component="ul"
+                            className={classNames.list}
                         >
                             {children}
                         </Box>
-                    );
-                },
-                ul: ({ children }) => (
-                    <Box
-                        component="ul"
-                        className={classNames.list}
-                    >
-                        {children}
-                    </Box>
-                ),
-                ol: ({ children }) => (
-                    <Box
-                        component="ol"
-                        className={classNames.list}
-                    >
-                        {children}
-                    </Box>
-                ),
-                li: ({ children }) => (
-                    <Box
-                        component="li"
-                        className={classNames.listItem}
-                    >
-                        {children}
-                    </Box>
-                ),
-                img: ({ src, alt, width }) => {
-                    const declaredWidth = typeof width === 'string' ? parseInt(width, 10) : width;
-                    const hasWidth =
-                        typeof declaredWidth === 'number' && Number.isFinite(declaredWidth) && declaredWidth > 0;
-                    return (
-                        <Box className={classNames.image}>
-                            <img
-                                src={resolveMarkdownUrl(src, baseUrl, origin)}
-                                alt={alt ?? ''}
-                                /* A picture without a declared width keeps its own size and is
+                    ),
+                    ol: ({ children }) => (
+                        <Box
+                            component="ol"
+                            className={classNames.list}
+                        >
+                            {children}
+                        </Box>
+                    ),
+                    li: ({ children }) => (
+                        <Box
+                            component="li"
+                            className={classNames.listItem}
+                        >
+                            {children}
+                        </Box>
+                    ),
+                    img: ({ src, alt, width }) => {
+                        const declaredWidth = typeof width === 'string' ? parseInt(width, 10) : width;
+                        const hasWidth =
+                            typeof declaredWidth === 'number' && Number.isFinite(declaredWidth) && declaredWidth > 0;
+                        return (
+                            <Box className={classNames.image}>
+                                <MarkdownImage
+                                    src={resolveMarkdownUrl(src, baseUrl, origin) || ''}
+                                    alt={alt ?? ''}
+                                    onZoom={(zoomSrc, zoomAlt) => setZoomed({ src: zoomSrc, alt: zoomAlt })}
+                                    /* A picture without a declared width keeps its own size and is
                                    only ever made smaller - by the 600 px cap or by a column
                                    narrower than that. It used to carry `width: 100%`, which
                                    blew every small picture up to whatever space it stood in:
                                    the 90 px widget previews in the vis tables came out at
                                    333 px, blurred and taller than the row they describe.
                                    A declared width is an instruction and is still honoured. */
-                                style={
-                                    hasWidth
-                                        ? { width: `${declaredWidth}px`, maxWidth: '100%', height: 'auto' }
-                                        : { maxWidth: 'min(600px, 100%)', height: 'auto' }
-                                }
-                            />
-                        </Box>
-                    );
-                },
-                table: ({ children }) => (
-                    <Box
-                        component="table"
-                        className={classNames.table}
-                    >
-                        {children}
-                    </Box>
-                ),
-                thead: ({ children }) => (
-                    <Box
-                        component="thead"
-                        className={classNames.tableHead}
-                    >
-                        {children}
-                    </Box>
-                ),
-                tbody: ({ children }) => <Box component="tbody">{children}</Box>,
-                tr: ({ children }) => (
-                    <Box
-                        component="tr"
-                        className={classNames.tableRow}
-                    >
-                        {children}
-                    </Box>
-                ),
-                th: ({ children }) => (
-                    <Box
-                        component="th"
-                        className={classNames.tableHeaderCell}
-                    >
-                        {children}
-                    </Box>
-                ),
-                td: ({ children }) => (
-                    <Box
-                        component="td"
-                        className={classNames.tableCell}
-                    >
-                        {children}
-                    </Box>
-                ),
-                blockquote: ({ children }) => (
-                    <Box
-                        component="blockquote"
-                        className={classNames.blockquote}
-                    >
-                        {children}
-                    </Box>
-                ),
-                pre: ({ children }) => (
-                    <Box className={classNames.codeBlockContainer}>
+                                    style={
+                                        hasWidth
+                                            ? { width: `${declaredWidth}px`, maxWidth: '100%', height: 'auto' }
+                                            : { maxWidth: 'min(600px, 100%)', height: 'auto' }
+                                    }
+                                />
+                            </Box>
+                        );
+                    },
+                    table: ({ children }) => (
                         <Box
-                            component="pre"
-                            className={classNames.codeBlockContent}
+                            component="table"
+                            className={classNames.table}
                         >
                             {children}
                         </Box>
-                    </Box>
-                ),
-                code: ({ children, ...props }) => {
-                    const inline = !props.className?.includes('language-');
-                    return inline ? (
+                    ),
+                    thead: ({ children }) => (
                         <Box
-                            component="code"
-                            className={classNames.inlineCode}
+                            component="thead"
+                            className={classNames.tableHead}
                         >
                             {children}
                         </Box>
-                    ) : (
-                        <code>{children}</code>
-                    );
-                },
-                hr: () => null,
-            }}
-        >
-            {markdownForRender}
-        </ReactMarkdown>
+                    ),
+                    tbody: ({ children }) => <Box component="tbody">{children}</Box>,
+                    tr: ({ children }) => (
+                        <Box
+                            component="tr"
+                            className={classNames.tableRow}
+                        >
+                            {children}
+                        </Box>
+                    ),
+                    th: ({ children }) => (
+                        <Box
+                            component="th"
+                            className={classNames.tableHeaderCell}
+                        >
+                            {children}
+                        </Box>
+                    ),
+                    td: ({ children }) => (
+                        <Box
+                            component="td"
+                            className={classNames.tableCell}
+                        >
+                            {children}
+                        </Box>
+                    ),
+                    blockquote: ({ children }) => (
+                        <Box
+                            component="blockquote"
+                            className={classNames.blockquote}
+                        >
+                            {children}
+                        </Box>
+                    ),
+                    pre: ({ children }) => (
+                        <Box className={classNames.codeBlockContainer}>
+                            <Box
+                                component="pre"
+                                className={classNames.codeBlockContent}
+                            >
+                                {children}
+                            </Box>
+                        </Box>
+                    ),
+                    code: ({ children, ...props }) => {
+                        const inline = !props.className?.includes('language-');
+                        return inline ? (
+                            <Box
+                                component="code"
+                                className={classNames.inlineCode}
+                            >
+                                {children}
+                            </Box>
+                        ) : (
+                            <code>{children}</code>
+                        );
+                    },
+                    hr: () => null,
+                }}
+            >
+                {markdownForRender}
+            </ReactMarkdown>
+            <ImageLightbox
+                src={zoomed?.src}
+                alt={zoomed?.alt}
+                onClose={() => setZoomed(undefined)}
+            />
+        </>
     ) : null;
 });

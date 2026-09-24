@@ -210,6 +210,17 @@ export default function SearchPalette({
     const nothing = !isFetching && !isError && !tooShort && debounced.trim().length >= MIN_QUERY_LENGTH && !flat.length;
     let index = -1;
 
+    /*
+     * Die Fusszeile spricht ueber die Trefferliste, also darf sie nur erscheinen, wenn es eine
+     * gibt. `data` behaelt nach dem Leeren des Feldes die Zahlen der letzten Suche, und die
+     * Zeile "Alle 137 Treffer anzeigen" stand dann ueber einer leeren Liste und tat auf einen
+     * Klick nichts (Denis, 24.09.2026). Gefragt wird deshalb nach der aktuellen Eingabe, nicht
+     * nach dem, was zuletzt geantwortet wurde.
+     */
+    const queryIsLongEnough = debounced.trim().length >= MIN_QUERY_LENGTH;
+    const canShowAll = queryIsLongEnough && !!data?.total && !!flat.length;
+    const showFooter = !!flat.length || canShowAll;
+
     return (
         <Box
             className={classes.overlay}
@@ -254,7 +265,16 @@ export default function SearchPalette({
                             ✕
                         </Box>
                     )}
-                    <Box className={classes.escHint}>ESC</Box>
+                    {/* sieht aus wie ein Knopf, also tut es auch, was ein Knopf hier tut */}
+                    <Box
+                        component="button"
+                        type="button"
+                        className={classes.escHint}
+                        aria-label={I18n.t('search.close')}
+                        onClick={onClose}
+                    >
+                        ESC
+                    </Box>
                 </Box>
 
                 <Box
@@ -328,22 +348,24 @@ export default function SearchPalette({
                     ))}
                 </Box>
 
-                <Box className={classes.footer}>
-                    <Box className={classes.footerHints}>
-                        <span>↑ ↓ {I18n.t('search.hintMove')}</span>
-                        <span>↵ {I18n.t('search.hintOpen')}</span>
-                    </Box>
-                    {!!data?.total && (
-                        <Box
-                            component="button"
-                            type="button"
-                            className={classes.allButton}
-                            onClick={showAll}
-                        >
-                            {I18n.t('search.showAll', String(data.total))}
+                {showFooter && (
+                    <Box className={classes.footer}>
+                        <Box className={classes.footerHints}>
+                            <span>↑ ↓ {I18n.t('search.hintMove')}</span>
+                            <span>↵ {I18n.t('search.hintOpen')}</span>
                         </Box>
-                    )}
-                </Box>
+                        {canShowAll && (
+                            <Box
+                                component="button"
+                                type="button"
+                                className={classes.allButton}
+                                onClick={showAll}
+                            >
+                                {I18n.t('search.showAll', String(data.total))}
+                            </Box>
+                        )}
+                    </Box>
+                )}
             </Box>
         </Box>
     );

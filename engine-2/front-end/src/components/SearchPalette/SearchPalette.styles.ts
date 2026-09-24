@@ -83,8 +83,15 @@ export const useStyles = makeStyles()(theme => ({
         '&:hover': { color: theme.palette.text.primary, background: theme.custom.surfaces.raised },
         '&:focus-visible': { boxShadow: theme.custom.focusRing },
     },
+    /**
+     * Das Zeichen für die Escape-Taste. Es sieht aus wie ein Knopf, also ist es auch einer:
+     * wer darauf klickt, will die Suche schließen, und ein Etikett, das auf einen Klick nicht
+     * reagiert, liest sich als Fehler (Denis, 24.09.2026).
+     */
     escHint: {
+        all: 'unset',
         flex: '0 0 auto',
+        cursor: 'pointer',
         fontSize: '11px',
         fontWeight: 700,
         letterSpacing: '0.04em',
@@ -92,6 +99,11 @@ export const useStyles = makeStyles()(theme => ({
         border: `1px solid ${theme.custom.hairline}`,
         borderRadius: `${theme.custom.radius.chip}px`,
         padding: '3px 6px',
+        '&:hover': {
+            color: theme.custom.textHeading,
+            borderColor: theme.custom.hairlineStrong,
+        },
+        '&:focus-visible': { boxShadow: theme.custom.focusRing },
         [theme.breakpoints.down('sm')]: { display: 'none' },
     },
 
