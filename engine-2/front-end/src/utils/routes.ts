@@ -143,6 +143,17 @@ export function normalizeEntryUrl(): void {
             return;
         }
 
+        /*
+         * The start page under the name of the file that carries it. `/index.html` was the address
+         * of the old site and is still linked and bookmarked; the router knows "/" and not
+         * "/index.html" and drew its "not found" over the start page (25.09.2026). The server
+         * redirects it (`lib/legacyPages.ts`), the dev server hands the file out as it lies.
+         */
+        if (/^\/index\.(?:html?|php)$/i.test(pathname)) {
+            window.history.replaceState(null, '', `/${search}${hash}`);
+            return;
+        }
+
         // a plain path with an anchor, or nothing to do at all
         const route = pathToRoute(pathname, search, hash);
         if (route && route !== `${pathname}${search}${hash}`) {

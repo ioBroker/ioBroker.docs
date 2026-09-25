@@ -16,6 +16,20 @@
  * counts for as little as the 404 did.
  */
 export const LEGACY_PAGES: Record<string, string> = {
+    /*
+     * The start page under the name a file has. The old site was a set of files, so the address
+     * that was handed around and bookmarked was `/index.html`, and plenty of links still carry it.
+     * `express.static` handed that file out as it lies on disk - the shell, with the head that
+     * belongs to no page - and the router, which knows "/" and not "/index.html", then drew its
+     * own "not found" over it: a 404 on the start page (25.09.2026). `/index.htm` and
+     * `/index.php` never were files here and reached the 404 of the server directly.
+     *
+     * Redirected before `express.static` sees them, so the file itself is no longer an address of
+     * its own - the start page is "/", once, and that is what a search engine gets to keep.
+     */
+    '/index.html': '/',
+    '/index.htm': '/',
+    '/index.php': '/',
     // what ioBroker is, and what it is used for - the start page says that now
     '/integrationsplattform': '/',
     '/scope': '/',
