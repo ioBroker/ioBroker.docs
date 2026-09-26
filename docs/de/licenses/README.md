@@ -1,6 +1,6 @@
 ---
 title:       "Lizenzen im Überblick"
-lastChanged: "16.09.2026"
+lastChanged: "24.09.2026"
 ---
 
 # Lizenzen im Überblick
@@ -16,26 +16,31 @@ nichts.
 
 ## Zwei Arten von Lizenzen
 
-Sie unterscheiden sich in allem: wofür sie gelten, woran sie gebunden sind und
-wo sie verwaltet werden.
+Sie unterscheiden sich in fast allem: wofür sie gelten, was sie betreffen und
+woran sie gebunden sind. Verwaltet werden sie an derselben Stelle.
 
 | | [Adapterlizenz](/docs/licenses/adapter.md) | [Zugangslizenz](/docs/licenses/cloud.md) |
 | --- | --- | --- |
 | Wofür | Einen bestimmten Adapter auf dem eigenen Server nutzen | Dienste in der Cloud nutzen |
 | Betrifft | vis-2, KNX, JägerDesign-Widgets | Sprachassistenten, Fernzugriff |
 | Gebunden an | Die Seriennummer (UUID) der Installation | Das Konto |
-| Verwaltet auf | [ioBroker.net](https://iobroker.net) | [ioBroker.pro](https://iobroker.pro) |
 
-## Warum zwei Server
+## Beides steht im selben Profil
 
-Das verwirrt am Anfang zuverlässig, folgt aber der Aufteilung oben:
+Verwaltet werden beide Lizenzarten an einer Stelle. Sie erreichen das Profil
+über das Personensymbol oben rechts auf jeder Seite, und die alten Adressen
+[ioBroker.net](https://iobroker.net) und [ioBroker.pro](https://iobroker.pro)
+führen ebenfalls dorthin.
 
-* **ioBroker.net** ist der kostenfreie Zugang. Dort werden Adapterlizenzen
-  verwaltet, und dort liegt auch das Konto für den kostenfreien Fernzugriff.
-* **ioBroker.pro** ist die kostenpflichtige Cloud, also Sprachassistenten und
-  der erweiterte Fernzugriff.
+Im Menü links stehen **Adapterlizenzen** und **Zugangslizenzen** untereinander,
+dazu Ihre Installation, die App-Schlüssel, die Gastzugänge und die
+Kontoeinstellungen. Sie sehen dieselbe Liste, unabhängig davon, auf welchem der
+beiden Server Sie angemeldet sind.
 
-Ein Konto auf dem einen Server ist nicht automatisch eines auf dem anderen.
+Dahinter liegen weiterhin zwei Server, und das hat einen Grund: **ioBroker.net**
+trägt den kostenfreien Zugang, **ioBroker.pro** die kostenpflichtige Cloud mit
+Sprachassistenten und erweitertem Fernzugriff. Für die Bedienung spielt das
+keine Rolle mehr.
 
 ## Wo die Konditionen stehen
 

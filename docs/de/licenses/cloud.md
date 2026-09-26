@@ -1,6 +1,6 @@
 ---
 title:       "Zugangslizenzen"
-lastChanged: "16.09.2026"
+lastChanged: "24.09.2026"
 ---
 
 # Zugangslizenzen
@@ -69,6 +69,9 @@ Assistenten-Lizenz nicht zusätzlich.
 | Kostenfreier Fernzugriff | [ioBroker.net](https://iobroker.net) |
 | Sprachassistenten oder erweiterter Fernzugriff | [ioBroker.pro](https://iobroker.pro) |
 | MCP-Zugang | [ioBroker.pro](https://iobroker.pro) |
+
+Verwaltet werden beide im selben Profil, siehe
+[Lizenzen im Überblick](/docs/licenses/README.md).
 
 Eingerichtet wird je nach Zweck ein anderer Adapter: der **cloud**-Adapter für
 den [Fernzugriff](/docs/cloud/viz.md), der **iot**-Adapter für
