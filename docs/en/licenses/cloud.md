@@ -1,10 +1,10 @@
 ---
 title: Access licenses
-lastChanged: 16.09.2026
+lastChanged: 24.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/licenses/cloud.md
-hash: fYFWm5OkhtmDwL4fCW/6WMrJXxHBFJ9SdiDNqCXjsAQ=
+hash: /2/tFainpZrZ7pyuzamL5o14VFbmYUqQQc369qEO8+0=
 ---
 # Access licenses
 
@@ -47,6 +47,8 @@ The Pro version of remote access includes the Assistant license, which also cove
 | Free remote access                         | [ioBroker.net](https://iobroker.net) |
 | Voice assistants or enhanced remote access | [ioBroker.pro](https://iobroker.pro) |
 | MCP access                                 | [ioBroker.pro](https://iobroker.pro) |
+
+Both are managed in the same profile; see [Licenses Overview](/docs/licenses/README.md) .
 
 Depending on the purpose, a different adapter is set up: the **cloud** adapter for [remote access](/docs/cloud/viz.md) , the **IoT** adapter for [assistants and services](/docs/cloud/iot.md) . Users who use both operate both.
 

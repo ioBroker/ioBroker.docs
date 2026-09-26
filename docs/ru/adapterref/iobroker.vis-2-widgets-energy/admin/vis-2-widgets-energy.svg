@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="100" height="100" role="img" aria-label="Vis 2 energy widgets">
+    <rect
+        x="10"
+        y="10"
+        width="236"
+        height="236"
+        rx="15"
+        ry="15"
+        fill="none"
+        stroke="#BEBEBE"
+        stroke-width="4"
+    />
+    <path
+        fill="#68FF54"
+        d="M140 18h12l-11.7 85h50L115.8 238h-12l11.7-85h-50z"
+    />
+</svg>

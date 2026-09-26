@@ -83,8 +83,11 @@ This adapter authenticates on the official MQTT servers using the Cloud Authoriz
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
 ## Changelog
+
+### 5.3.1 (2026-09-21)
+
+- Fixed an issue to ignore empty properties
 
 ### 5.3.0 (2026-09-02)
 
@@ -112,10 +115,6 @@ This adapter authenticates on the official MQTT servers using the Cloud Authoriz
 
 - Fix flickering Save button in Settings.
 - Add function to detect zenSDK devices with mDNS and fill missing IP-address if found.
-
-### 5.0.3 (2026-08-18)
-
-- Fix `wifiState` not being created/updated correctly for devices using local zenSDK polling (Solarflow 2400 AC/AC Plus/Pro, 1600 AC Plus), as their local status payload does not report a `wifiState` property
 
 For older changes see CHANGELOG_OLD.md.
 

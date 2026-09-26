@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="340" viewBox="0 0 920 340">
+  <title>Erweitert: Basis-URL (Schema, Beispieldomain)</title>
+  <rect fill="#f4f6f8" width="920" height="340"/>
+  <rect x="24" y="24" width="872" height="44" rx="6" fill="#e2e8f0"/>
+  <text x="48" y="53" fill="#334155" font-family="Segoe UI,sans-serif" font-size="18" font-weight="600">Erweitert (vereinfacht)</text>
+  <rect x="24" y="84" width="872" height="220" rx="6" fill="#fff" stroke="#cbd5e1"/>
+  <text x="48" y="118" fill="#475569" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">ioBroker Basis-URL (Beispieldarstellung)</text>
+  <rect x="48" y="128" width="600" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="60" y="154" fill="#92400e" font-family="Consolas,monospace" font-size="13">https://example.home:8443</text>
+  <text x="48" y="198" fill="#64748b" font-family="Segoe UI,sans-serif" font-size="12">Nach Aenderung: Dokumentation generieren erneut ausfuehren.</text>
+  <text x="48" y="226" fill="#64748b" font-family="Segoe UI,sans-serif" font-size="12">Datenpunkt Platzhalter: info.htmlUrl*</text>
+  <rect x="48" y="242" width="320" height="36" rx="4" fill="#ecfdf5" stroke="#10b981"/>
+  <text x="60" y="265" fill="#065f46" font-family="Segoe UI,sans-serif" font-size="12">OK: keine echten IPs in dieser Abbildung</text>
+</svg>

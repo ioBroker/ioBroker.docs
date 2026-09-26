@@ -1,10 +1,10 @@
 ---
 title: Brand and appearance
-lastChanged: 15.09.2026
+lastChanged: 21.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/about/brand.md
-hash: 1+FmSFqeLJ/xgoCGeIhixneqgRwTQyvmjSWun2Yc62M=
+hash: 2mQ9N66BqjQP7pTQmmx/H5qTQWPS4MuW7KpeuejPV/s=
 ---
 # Brand and appearance
 
@@ -19,7 +19,7 @@ Name, logo, colors and font of ioBroker, for everyone who designs something with
 | ioBroker                   | IoBroker, IOBroker, Iobroker, io broker, io broker |
 | ioBroker.vis, ioBroker.iot | ioBroker VIS, IoBroker-IoT                         |
 
-In domains and package names, everything is lowercase:`iobroker.net` ,`iobroker.pro` ,`npm i iobroker.javascript` Adapter names are displayed as they appear in the repository, i.e., in lowercase:`javascript` ,`node-red` ,`scenes` .
+In domains and package names, everything is lowercase: `iobroker.net`, `iobroker.pro`, `npm i iobroker.javascript` Adapter names are displayed as they appear in the repository, i.e., in lowercase: `javascript`, `node-red`, `scenes`.
 
 ## logo
 
@@ -32,12 +32,14 @@ Three components that may be used separately:
 
 ### Download
 
-|                                                                                    | file                                                 | format                                                            |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------- |
-| <img src="media/logo-bildmarke.webp" width="44" alt="Die Bildmarke" />             | [logo](/brand/iobroker-bildmarke.svg)                | SVG, [PNG 512 px](/brand/iobroker-bildmarke-512.png)              |
-| <img src="media/logo-wortmarke-zweifarbig.webp" width="112" alt="Die Wortmarke" /> | [Wordmark](/brand/iobroker-wortmarke-zweifarbig.svg) | SVG, [PNG 1200 px](/brand/iobroker-wortmarke-zweifarbig-1200.png) |
-| <img src="media/logo-kombiniert.webp" width="117" alt="Die kombinierte Marke" />   | [Combined brand](/brand/iobroker-kombiniert.svg)     | SVG, [PNG 1200 px](/brand/iobroker-kombiniert-1200.png)           |
-|                                                                                    | [Everything together](/brand/iobroker-logos.zip)     | ZIP                                                               |
+Clicking on the format will download the file.
+
+|                                                                                    | brand               | format                                                                                                                                                                                                                                |
+| ---------------------------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="media/logo-bildmarke.webp" width="44" alt="Die Bildmarke" />             | logo                | <a href="/brand/iobroker-bildmarke.svg" download="iobroker-bildmarke.svg"> SVG</a> ,<a href="/brand/iobroker-bildmarke-512.png" download="iobroker-bildmarke-512.png"> PNG 512 px </a>                                                |
+| <img src="media/logo-wortmarke-zweifarbig.webp" width="112" alt="Die Wortmarke" /> | Wordmark            | <a href="/brand/iobroker-wortmarke-zweifarbig.svg" download="iobroker-wortmarke-zweifarbig.svg"> SVG</a> ,<a href="/brand/iobroker-wortmarke-zweifarbig-1200.png" download="iobroker-wortmarke-zweifarbig-1200.png"> PNG 1200 px </a> |
+| <img src="media/logo-kombiniert.webp" width="117" alt="Die kombinierte Marke" />   | Combined brand      | <a href="/brand/iobroker-kombiniert.svg" download="iobroker-kombiniert.svg"> SVG</a> ,<a href="/brand/iobroker-kombiniert-1200.png" download="iobroker-kombiniert-1200.png"> PNG 1200 px</a>                                          |
+|                                                                                    | Everything together | <a href="/brand/iobroker-logos.zip" download="iobroker-logos.zip"> ZIP</a>                                                                                                                                                            |
 
 ## Colors
 

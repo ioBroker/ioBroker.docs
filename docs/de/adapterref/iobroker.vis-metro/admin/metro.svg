@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <!-- the strip at the bottom of a tile: steel with lighter diagonal stripes, like `ribbed-steel` -->
+    <pattern id="ribbed" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <rect width="12" height="12" fill="#647687"/>
+      <rect width="6" height="12" fill="#ffffff" fill-opacity="0.18"/>
+    </pattern>
+  </defs>
+
+  <!-- the wide dimmer tile: lamp, switch and slider -->
+  <rect x="4" y="4" width="120" height="58" fill="#6a00ff"/>
+  <g fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round">
+    <path d="M17 29a8 8 0 1 1 10 0v4h-10z"/>
+    <path d="M18 37h8"/>
+    <path d="M22 7v2M10 19h2M32 19h2M13.5 10.5l1.5 1.5M30.5 10.5l-1.5 1.5"/>
+  </g>
+  <rect x="80" y="15" width="30" height="13" fill="#00828b" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="101" y="14" width="10" height="15" fill="#333333"/>
+  <rect x="12" y="41" width="104" height="5" fill="#c6c6c6"/>
+  <rect x="12" y="41" width="62" height="5" fill="#00828b"/>
+  <rect x="72" y="39" width="6" height="9" fill="#000000"/>
+  <rect x="4" y="51" width="120" height="11" fill="url(#ribbed)"/>
+
+  <!-- a switched-on tile: checkmark and badge -->
+  <rect x="4" y="66" width="58" height="58" fill="#00aba9"/>
+  <path d="M19 89l9 9 17-19" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="square"/>
+  <rect x="4" y="113" width="58" height="11" fill="url(#ribbed)"/>
+  <rect x="49" y="113" width="11" height="11" fill="#1ba1e2"/>
+
+  <!-- a navigation tile -->
+  <rect x="66" y="66" width="58" height="58" fill="#d80073"/>
+  <circle cx="95" cy="89" r="14" fill="#ffffff"/>
+  <path d="M95 81v16M87 89h16" stroke="#d80073" stroke-width="4"/>
+  <rect x="66" y="113" width="58" height="11" fill="url(#ribbed)"/>
+</svg>

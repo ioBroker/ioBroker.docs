@@ -1,10 +1,10 @@
 ---
 title: Licenses overview
-lastChanged: 16.09.2026
+lastChanged: 24.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/licenses/README.md
-hash: 3jP067p3nv6HvjNla9A93S55m3u9tWdnbyTixR2dsMc=
+hash: Ql6PdV8sxd6anL/7Axa4YXTNAX2rjGM3KML6GQN7RQ4=
 ---
 # Licenses overview
 
@@ -14,23 +14,21 @@ Almost everything about ioBroker is free. The JS controller, the admin panel, an
 
 ## Two types of licenses
 
-They differ in every way: what they are valid for, what they are bound to, and where they are administered.
+They differ in almost everything: what they apply to, what they concern, and what they are bound to. They are administered in the same place.
 
-|            | [Adapter license](/docs/licenses/adapter.md) | [Access license](/docs/licenses/cloud.md) |
-| ---------- | -------------------------------------------- | ----------------------------------------- |
-| For what   | Use a specific adapter on your own server    | Using services in the cloud               |
-| Regards    | vis-2, KNX, JägerDesign widgets              | Voice assistants, remote access           |
-| Bound to   | The serial number (UUID) of the installation | The account                               |
-| Managed on | [ioBroker.net](https://iobroker.net)         | [ioBroker.pro](https://iobroker.pro)      |
+|          | [Adapter license](/docs/licenses/adapter.md) | [Access license](/docs/licenses/cloud.md) |
+| -------- | -------------------------------------------- | ----------------------------------------- |
+| For what | Use a specific adapter on your own server    | Using services in the cloud               |
+| Regards  | vis-2, KNX, JägerDesign widgets              | Voice assistants, remote access           |
+| Bound to | The serial number (UUID) of the installation | The account                               |
 
-## Why two servers
+## Both are in the same profile.
 
-This is reliably confusing at first, but follows the division above:
+Both license types are managed in one place. You can access the profile via the person icon in the top right corner of every page, and the old addresses [ioBroker.net](https://iobroker.net) and [ioBroker.pro](https://iobroker.pro) also lead there.
 
-- **ioBroker.net** is the free access point. Adapter licenses are managed there, and the account for free remote access is also located there.
-- **ioBroker.pro** is the paid cloud service, which includes voice assistants and extended remote access.
+The menu on the left lists **adapter licenses** and **access licenses** , along with your installation, app keys, guest access, and account settings. You will see the same list regardless of which of the two servers you are logged into.
 
-Having an account on one server does not automatically mean having one on the other.
+Behind the scenes, there are still two servers, and there's a reason for that: **ioBroker.net** handles the free access, **while ioBroker.pro** provides the paid cloud service with voice assistants and enhanced remote access. This distinction no longer affects how the system is used.
 
 ## Where the conditions are stated
 

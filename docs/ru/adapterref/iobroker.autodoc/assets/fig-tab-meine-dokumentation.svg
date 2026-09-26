@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="460" viewBox="0 0 920 460">
+  <title>Meine Dokumentation: Freitext und Mermaid (Schema)</title>
+  <rect fill="#f4f6f8" width="920" height="460"/>
+  <rect x="24" y="24" width="872" height="48" rx="6" fill="#e2e8f0"/>
+  <text x="48" y="56" fill="#334155" font-family="Segoe UI,sans-serif" font-size="18" font-weight="600">Meine Dokumentation (vereinfacht)</text>
+  <rect x="24" y="88" width="872" height="340" rx="6" fill="#fff" stroke="#cbd5e1"/>
+  <text x="48" y="126" fill="#475569" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">Hilfe &amp; Notfall / Routinen / Playbook</text>
+  <rect x="48" y="136" width="824" height="72" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="60" y="165" fill="#94a3b8" font-family="Segoe UI,sans-serif" font-size="12">mehrzeiliger Platzhalter-Textbereich ...</text>
+  <text x="48" y="238" fill="#475569" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">Mermaid (optional)</text>
+  <rect x="48" y="248" width="824" height="100" rx="4" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="60" y="278" fill="#64748b" font-family="Consolas,monospace" font-size="12">flowchart LR</text>
+  <text x="60" y="298" fill="#64748b" font-family="Consolas,monospace" font-size="12">    DEMOROOM --&gt; DEMOGW</text>
+  <text x="48" y="372" fill="#94a3b8" font-family="Segoe UI,sans-serif" font-size="11">Graublaues Feld = UI-Platzhalter, kein echtes Diagramm.</text>
+</svg>

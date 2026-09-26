@@ -37,14 +37,15 @@ uses everything that answers.
 ## Setting it up
 
 1. Install the adapter and create an instance.
-2. Open the instance settings. The **Devices** tab lists your receivers as cards.
+2. Open the instance settings. The **Devices** section lists your receivers as cards.
 3. Leave the list empty and the adapter searches the network by itself and runs whatever it
    finds — or press **+** and enter the IP address of a receiver. You can do both: devices you
    entered and devices the search found run side by side.
 
-Every card carries a small icon for where its address came from: a pencil for one you entered,
-a magnifier for one the search found. A found device can be edited too — give it the fixed
-address you assigned the receiver, and it becomes one of your entered devices.
+Every card shows a speaker symbol for the volume: a speaker with a percent sign and the main
+zone's current volume under it while **Volume as 0–100 %** is on, the plain speaker otherwise.
+Every card can be edited, found ones included — give a found device the fixed address you
+assigned the receiver, and it becomes one of your entered devices.
 
 A receiver from before 2010 does not answer a network search and always has to be added by
 hand. The same is true for any device your router keeps in a different network segment.
@@ -57,9 +58,12 @@ adapter is not running is only found again by the next network search.
 
 - **Search the network for devices** — _Automatically_ searches while the device list is empty,
   which is what the adapter has always done. _Always_ keeps searching next to the devices you
-  entered. _Never_ runs your list alone. A device that was found earlier and is not searched for
+  entered. _Never_ runs your list alone and opens no listener on UDP port 1900. A device that
+  was found earlier and is not searched for
   any more keeps its datapoints — they are simply marked offline. Only the delete button on its
-  card removes a device for good.
+  card removes a device for good. A list holding only the row carried over from the previous
+  adapter (its name is an IP address) counts as empty: nobody typed that address, so the search
+  stays on and follows that receiver to a new address.
 - **Network interface** — leave it empty and the search leaves through every network card of
   your ioBroker machine. Only set it if your server sits in several networks and the search
   should use a particular one. It has no effect on the receivers themselves.
@@ -80,8 +84,8 @@ adapter is not running is only found again by the next network search.
 
   It belongs to the device, not to the instance: one receiver wanting percent says nothing
   about the others. You set it where you set the device's name and address: in the add/edit
-  dialog on its card — and while it is on, the card shows a small **0–100 %** badge next to the
-  protocol labels, so you can see what a receiver's volume carries without opening anything.
+  dialog on its card — and while it is on, the card's speaker symbol carries a percent sign, so
+  you can see what a receiver's volume carries without opening anything.
 
 ## What you get in the object tree
 
@@ -129,27 +133,29 @@ recreates them at the next connection.
 **Switch on and choose a source**
 
 ```javascript
-setState("yamaha.0.living.power", true);
-setState("yamaha.0.living.input", "HDMI1");
+setState("yamaha.0.rx-v6a-1a2b.power", true);
+setState("yamaha.0.rx-v6a-1a2b.input", "HDMI1");
 ```
 
-**Set the volume** — in decibels, exactly as the receiver shows it:
+**Set the volume** — in the scale the receiver shows (decibels or its own steps), within the
+limits of its `volume` datapoint; with **Volume as 0–100 %** on, in percent. On a receiver
+that shows decibels:
 
 ```javascript
-setState("yamaha.0.living.volume", -35.5);
+setState("yamaha.0.rx-v6a-1a2b.volume", -35.5);
 ```
 
 **Recall a scene** — by number or by the name shown on the device:
 
 ```javascript
-setState("yamaha.0.living.scene.recall", "Movie Viewing");
+setState("yamaha.0.rx-v6a-1a2b.scene.recall", "Movie Viewing");
 ```
 
 **Press a key on the on-screen remote** — `up`, `down`, `left`, `right`, `select`, `return`,
 `home`:
 
 ```javascript
-setState("yamaha.0.living.remote.cursor", "left");
+setState("yamaha.0.rx-v6a-1a2b.remote.cursor", "left");
 ```
 
 The words are the same on all three protocols, so a script keeps working when you replace the
@@ -169,19 +175,50 @@ remembered per device and survive a restart, so every later start brings the dev
 seconds and refreshes the values in the background. A firmware update or a different device
 at the same address is noticed and asked again.
 
-**The MusicCast port can only belong to one program.** MusicCast devices send their updates
-to port 41100 on your ioBroker machine, and only one program can hold it. If the old
-`musiccast` adapter is still installed and running, it holds that port, and this adapter
-falls back to asking every five minutes instead of being told. YNCA devices are unaffected.
-Uninstall or stop the old adapter to get instant updates back.
+**MusicCast updates need UDP port 41100.** MusicCast devices send their updates to port 41100
+on your ioBroker machine, and only one program can hold it. If the old `musiccast` adapter is
+still installed and running, it holds that port. The updates also stay away when ioBroker runs
+in Docker without that UDP port published, or when a second MusicCast program on the same
+machine registers for them. The adapter notices a change that came without an update: after
+two of them it says so once in the log, reads every write back and asks for everything every
+five minutes. YNCA devices are unaffected. Free or publish the port to get instant updates
+back — the log says so when they arrive again.
 
 **Zone 2 is a full zone.** It has its own volume, input, player block and scenes under
 `multiroom.zone2`. Recalling a favourite switches the zone that is listening to that source,
 not always the main zone.
 
+**A device's object ID is its model and the end of its serial number** — for example
+`yamaha.0.rx-v6a-1a2b`. Two devices of the same model therefore get two object trees, and a
+device keeps its ID whatever you or the app call it: the name next to the ID comes from the
+device and can be changed on its card. Should two devices of one model share the last four
+characters, the second one gets the whole serial number. A device that reports no serial number
+— a YNCA receiver whose XML control does not answer — is known by its model: `rx-v473`,
+`rx-v473-2`. A device you add by hand while it is switched off starts under the name you typed;
+once it has answered, its objects move to its model ID at the next start.
+
+**A receiver is known by its serial number, not by its address.** The adapter learns the
+serial (and the MAC) from the receiver itself — from its network announcement, from MusicCast,
+from the XML control. A device that gets a new IP address or a new name keeps its objects:
+found devices and the row carried over from the previous adapter are moved to the new address,
+usually within seconds, because a receiver announces itself when it comes up — and at the
+latest by the search a lost connection triggers. A device you entered by hand stays at the
+address you typed; when the search sees it answering elsewhere, the log says so once — edit
+the card to move it. The listener shares port 1900 with other UPnP services on your machine;
+if it cannot use the port, one warning says so and the adapter falls back to searching
+periodically.
+
+**Deleting is final.** The delete button on a card asks first and tells you what goes with
+the device: all of its datapoints, their history and every visualisation binding. A device the
+network search found is not added again — it is on the exclusion list until you either add it
+by hand or tick it in **Excluded devices…** above the device list, which lets the next search
+take it back.
+
 **A refused command shows up in the log.** If a receiver rejects something — a scene its
 generation does not support, a function that is unavailable in standby — you will find it as
-a warning in the adapter log instead of nothing happening silently.
+a warning in the adapter log instead of nothing happening silently. A MusicCast device's answer
+comes with its meaning, e.g. `Guarded` for "not possible in the current state". The datapoint
+then shows the device's value again.
 
 ## When something does not work
 
@@ -190,7 +227,11 @@ a warning in the adapter log instead of nothing happening silently.
   network interface explicitly.
 - **The device stays offline.** Check the address, and whether the receiver is reachable at
   all (its own web page usually answers on `http://<address>`). The adapter retries by
-  itself, with growing pauses.
+  itself, with growing pauses. If the receiver got a new address, a found device follows it
+  on its own; a device you entered by hand has to be edited — the log names the new address.
+- **I deleted a device and it came back / I want it back.** A deleted device stays out of the
+  search until you let it back in: add it by hand, or open **Excluded devices…** above the
+  list and tick it.
 - **A datapoint stays empty.** The device does not report that value — the adapter only
   creates what it was told about, so an empty datapoint usually means the feature exists on
   other models but not on yours.
@@ -207,7 +248,45 @@ what it asks, what it gets, and what it refuses to send.
     ### **WORK IN PROGRESS**
 -->
 
-### 2.11.0 (2026-09-17)
+### 3.0.0 (2026-09-26)
+
+- (krobipd) Changed: Every device gets a new object ID once — its model and the end of its serial number, e.g. `wx-030-2b3c`; scripts and VIS need the new IDs
+- (krobipd) Changed: The move carries values, recording settings, rooms, functions and aliases along, and recorded history continues in its old series
+- (krobipd) Fixed: A second device of the same model and name is no longer skipped — every device gets its own object tree
+- (krobipd) Fixed: After a restart, the input list of a YNCA receiver offers only the sources the receiver has again, not the whole catalog
+- (krobipd) New: A device added by hand is asked for its model and serial number, and the name you type is its display name from the start
+- (krobipd) New: The device card shows the object ID, the MAC address and the serial number under its details
+
+### 2.13.0 (2026-09-25)
+
+- (krobipd) Fixed: A value a receiver refuses no longer stays on the datapoint — every write is read back, and the log names the device's reason
+- (krobipd) Fixed: MusicCast values stay current in Docker or next to a second MusicCast app — missing events are noticed, then the adapter polls and reads writes back
+- (krobipd) New: MusicCast devices write every setting the specification gives a setter for: dialogue level, 3D surround, tone mode, speaker A/B, dimmer, group name and more
+- (krobipd) Fixed: MusicCast Link groups are built and left as Yamaha specifies — the joining zone switches to MusicCast Link, multiroom.group.status shows the progress
+- (krobipd) Fixed: Names you give inputs, sound programs and zones in the app or on the receiver show up at the next connection instead of staying frozen
+- (krobipd) Fixed: Umlauts in names and titles arrive intact on all three protocols, and YNCA zone names are written in the character set the receiver expects
+- (krobipd) Fixed: When one protocol of a receiver drops, a live one takes over every datapoint it serves the same way, so power and volume keep working
+- (krobipd) Fixed: true, a hex string or "1e2" written to a level, preset or scene no longer reaches the receiver; in percent mode "50" counts like 50
+- (krobipd) Fixed: Back and Home work on 2012-and-later YNCA receivers, and a refused key no longer switches the remote pad to another command set for good
+- (krobipd) Fixed: YNCA reads every word the official lists declare — an attenuated mute reads as muted, and repeat-one is written in the receiver's own word
+- (krobipd) Fixed: A deleted device carried over from yamaha 0.5.x stays deleted, and a hostname in the device list works like an IP address
+- (krobipd) New: Menus on the 2008 XML receivers (RX-V3900 generation); XML zones write tone and dialogue level the way the receiver declares them
+- (krobipd) Changed: The first start after this update asks every receiver again what it can do — up to half a minute on a YNCA receiver, as on a first contact
+- (krobipd) Improved: The README lists the ports the adapter uses; with the network search set to Never it opens no listener on UDP port 1900
+- (krobipd) Changed: Settings left over from older versions are removed from the instance once after the update; the instance restarts once for it
+
+### 2.12.0 (2026-09-22)
+
+- (krobipd) Fixed: Deleting a device is final: the card asks first and names the datapoints, the device stays out of the search until you admit it again, and the log says how many datapoints went
+- (krobipd) New: A device is known by its serial number: a receiver with a new IP address or a new name keeps its objects and is reconnected at the new address within seconds
+- (krobipd) New: "Excluded devices…" above the device list shows the deleted devices and lets the network search admit a ticked one again — it says what it looks for and what it found
+- (krobipd) Improved: A receiver that lost power is offline in about 90 seconds instead of up to 15 minutes: the first protocol that notices asks the others at once
+- (krobipd) Improved: The adapter hears devices announcing themselves on the network, and while no device runs it keeps searching every five minutes
+- (krobipd) Changed: A row carried over from the old adapter (name = IP) follows the receiver to a new address; a device entered by hand stays where it was typed, the log says if it answers elsewhere
+- (krobipd) Improved: Switching a receiver off no longer fills the log with warnings, and every search the log announces also tells you what it found — or that nothing answered
+- (krobipd) Improved: Less network noise while a receiver stays unreachable: the retries knock only on the protocols that device actually speaks, not on all three
+
+### 2.11.0 (2026-09-17) — stable
 
 - (krobipd) Fixed: The adapter no longer stops when the object database is briefly unavailable while a receiver reports a change
 - (krobipd) Fixed: A datapoint whose value range a receiver no longer reports keeps its value, its history and its room and function assignments
@@ -230,27 +309,6 @@ what it asks, what it gets, and what it refuses to send.
 - (krobipd) Changed: The device card shows a speaker symbol; with the percent switch on it also shows the current volume as a percentage. The pencil and magnifier markers are gone
 - (krobipd) Fixed: The adapter logo is readable in the Admin's dark themes as well — until now its dark strokes vanished on a dark background
 - (krobipd) Changed: The instance settings show the fixed MusicCast event port, so the Admin warns when a second instance on the same host would take it
-
-### 2.9.2 (2026-09-12)
-
-- (krobipd) New: The device card shows a 0–100 % badge while that receiver's volume is in percent, so you can tell the two scales apart at a glance
-- (krobipd) Fixed: The percent setting is made in one place again — the device's edit dialog; the extra switch on the card showed the wrong position and is gone
-
-### 2.9.1 (2026-09-12)
-
-- (krobipd) Fixed: A receiver the network search found keeps its datapoints when you add a device by hand — they stay with their history and are marked offline instead of deleted
-
-### 2.9.0 (2026-09-12)
-
-- (krobipd) New: Devices you enter by hand and devices the network search finds now run side by side — entering one receiver no longer takes every found one out of the instance
-- (krobipd) New: Setting "Search the network for devices" — automatically while your device list is empty (as before), always next to it, or never
-- (krobipd) New: Every device card can be edited. Give a found receiver the fixed address you assigned it and it becomes one of your entered devices, keeping its whole object tree
-- (krobipd) New: Each card shows where its address came from, and "Volume as 0–100 %" is now set per device instead of once for the whole instance — every receiver keeps what it had
-- (krobipd) Fixed: hdmi.aspect and hdmi.resolution were missing on every receiver from 2012 on — the models moved those settings to another subunit and the adapter only ever asked the old one
-- (krobipd) Fixed: Receivers from 2010/2011 were offered a 4K video resolution their model does not support
-- (krobipd) Fixed: A write to a receiver could be dropped without a trace while another of its protocols was reconnecting
-- (krobipd) Fixed: Deleting a device and adding the same one again left it with the wrong icon until the next restart, and a pending write could recreate the deleted device object
-- (krobipd) Changed: A MusicCast receiver's datapoints now update only when their value really changed — automations tied to them stop firing for no reason
 
 ## License
 

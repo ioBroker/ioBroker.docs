@@ -72,7 +72,7 @@ Following settings are active only if some SSID specified and the device is curr
 You can activate speech recognition from the application. If this option is activated, the app will constantly try to recognise some commands. To determine if you are speaking with app or with someone else the key word or key phrase can be specified.
 Please select some word that can be good recognised and not used in everyday use.
 
-To detect commands in recognised text the text2command adapter will be used. Please read description of this adapter on [github](https://github.com/ioBroker/ioBroker.text2command) or on [iobroker.com](https://www.iobroker.com).
+To detect commands in recognised text the text2command adapter will be used. Please read description of this adapter on [github](https://github.com/ioBroker/ioBroker.text2command) or on (iobroker.net)[http://iobroker.net].
 Of course one instance of text2command adapter must be installed.
 
 *Note*: in this case all voices will be sent to Google servers if no offline recognition activated. Activation instruction can be found [here](http://stackandroid.com/tutorial/how-to-enable-offline-speech-to-text-in-android/).

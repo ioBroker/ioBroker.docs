@@ -1,10 +1,10 @@
 ---
 title: Бренд и внешний вид
-lastChanged: 15.09.2026
+lastChanged: 21.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/about/brand.md
-hash: 1+FmSFqeLJ/xgoCGeIhixneqgRwTQyvmjSWun2Yc62M=
+hash: 2mQ9N66BqjQP7pTQmmx/H5qTQWPS4MuW7KpeuejPV/s=
 ---
 # Бренд и внешний вид
 
@@ -12,14 +12,14 @@ hash: 1+FmSFqeLJ/xgoCGeIhixneqgRwTQyvmjSWun2Yc62M=
 
 ## написание
 
-**ioBroker** пишется одним словом, с маленькой буквы i и заглавной B. Всегда, даже в начале предложения.
+**ioBroker** пишется одним словом, с маленькой буквой i и заглавной B. Всегда, даже в начале предложения.
 
 | Правильный                 | Неверно                                            |
 | -------------------------- | -------------------------------------------------- |
 | ioBroker                   | IoBroker, IOBroker, Iobroker, io broker, io broker |
 | ioBroker.vis, ioBroker.iot | ioBroker VIS, IoBroker-IoT                         |
 
-В доменных именах и именах пакетов все пишется строчными буквами:`iobroker.net` ,`iobroker.pro` ,`npm i iobroker.javascript` Названия адаптеров отображаются так, как они указаны в репозитории, то есть строчными буквами:`javascript` ,`node-red` ,`scenes` .
+В доменных именах и именах пакетов все пишется строчными буквами: `iobroker.net`, `iobroker.pro`, `npm i iobroker.javascript` Названия адаптеров отображаются так, как они указаны в репозитории, то есть строчными буквами: `javascript`, `node-red`, `scenes`.
 
 ## логотип
 
@@ -32,12 +32,14 @@ hash: 1+FmSFqeLJ/xgoCGeIhixneqgRwTQyvmjSWun2Yc62M=
 
 ### Скачать
 
-|                                                                                    | файл                                                       | формат                                                                  |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------- |
-| <img src="media/logo-bildmarke.webp" width="44" alt="Die Bildmarke" />             | [логотип](/brand/iobroker-bildmarke.svg)                   | SVG, [PNG 512 пикселей](/brand/iobroker-bildmarke-512.png)              |
-| <img src="media/logo-wortmarke-zweifarbig.webp" width="112" alt="Die Wortmarke" /> | [Словесный знак](/brand/iobroker-wortmarke-zweifarbig.svg) | SVG, [PNG 1200 пикселей](/brand/iobroker-wortmarke-zweifarbig-1200.png) |
-| <img src="media/logo-kombiniert.webp" width="117" alt="Die kombinierte Marke" />   | [Объединенный бренд](/brand/iobroker-kombiniert.svg)       | SVG, [PNG 1200 пикселей](/brand/iobroker-kombiniert-1200.png)           |
-|                                                                                    | [Всё вместе](/brand/iobroker-logos.zip)                    | ZIP                                                                     |
+Нажатие на выбранный формат загрузит файл.
+
+|                                                                                    | бренд              | формат                                                                                                                                                                                                                                |
+| ---------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="media/logo-bildmarke.webp" width="44" alt="Die Bildmarke" />             | логотип            | <a href="/brand/iobroker-bildmarke.svg" download="iobroker-bildmarke.svg"> SVG</a> ,<a href="/brand/iobroker-bildmarke-512.png" download="iobroker-bildmarke-512.png"> PNG 512 px </a>                                                |
+| <img src="media/logo-wortmarke-zweifarbig.webp" width="112" alt="Die Wortmarke" /> | Словесный знак     | <a href="/brand/iobroker-wortmarke-zweifarbig.svg" download="iobroker-wortmarke-zweifarbig.svg"> SVG</a> ,<a href="/brand/iobroker-wortmarke-zweifarbig-1200.png" download="iobroker-wortmarke-zweifarbig-1200.png"> PNG 1200 px </a> |
+| <img src="media/logo-kombiniert.webp" width="117" alt="Die kombinierte Marke" />   | Объединенный бренд | <a href="/brand/iobroker-kombiniert.svg" download="iobroker-kombiniert.svg"> SVG</a> ,<a href="/brand/iobroker-kombiniert-1200.png" download="iobroker-kombiniert-1200.png"> PNG 1200 px</a>                                          |
+|                                                                                    | Всё вместе         | <a href="/brand/iobroker-logos.zip" download="iobroker-logos.zip"> ZIP</a>                                                                                                                                                            |
 
 ## Цвета
 
