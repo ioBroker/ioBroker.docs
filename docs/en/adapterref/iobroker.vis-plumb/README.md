@@ -41,5 +41,5 @@ Plumb widget sets for ioBroker.vis
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2015 smiling_Jack https://github.com/smiling-Jack
+ Copyright (c) 2013-2026 smiling_Jack https://github.com/smiling-Jack
  MIT

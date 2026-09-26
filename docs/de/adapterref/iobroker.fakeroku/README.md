@@ -14,10 +14,10 @@ BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg
 # fakeroku — emulierte Roku-Geräte für deine Fernbedienung
 
 Dieser Adapter lässt ioBroker im Heimnetz wie ein oder mehrere **Roku-Streaming-Geräte**
-aussehen. Eine Fernbedienung, die das Roku-Protokoll spricht — ein Logitech-Harmony-Hub
-oder eine Sofabaton X1/X2 — findet das emulierte Gerät, und jeder Tastendruck darauf
-wird zu einem Datenpunkt in ioBroker, auf den Skripte und Visualisierungen reagieren
-können.
+aussehen. Eine Fernbedienung oder Steuerung, die das Roku-Protokoll spricht — ein
+Logitech-Harmony-Hub, eine Sofabaton X1/X2, die Roku-Integration von Home Assistant,
+openHAB — findet das emulierte Gerät, und jeder Tastendruck darauf wird zu einem
+Datenpunkt in ioBroker, auf den Skripte und Visualisierungen reagieren können.
 
 Er ist das **Eingabe**-Gegenstück zum Logitech-Harmony-Adapter: Statt dass ioBroker
 ein Gerät steuert, steuert ein Gerät den ioBroker.
@@ -43,27 +43,40 @@ bereits einen emulierten Roku mit, Name „Roku", Anschluss 8060.
 
 ### 2. Netzwerkschnittstelle wählen (meistens: nicht)
 
-Lass **Netzwerkschnittstelle** auf „alle Schnittstellen". Der Adapter ermittelt dann selbst
-die erreichbare Adresse deines ioBroker-Rechners und kündigt diese an.
+Lass **Netzwerkschnittstelle** auf „alle Schnittstellen". Der Adapter bedient dann jedes
+Netz, in dem dein ioBroker-Rechner hängt, und antwortet einer Fernbedienung in jedem davon
+mit der Adresse des Rechners in genau diesem Netz — eine Fernbedienung in einem eigenen
+VLAN bekommt die Adresse, die sie erreicht.
 
-Eine bestimmte Adresse wählst du nur, wenn dein ioBroker-Rechner in **mehreren
-Netzen** hängt und die Fernbedienung nur eines davon erreicht.
+Eine bestimmte Adresse wählst du nur, wenn die emulierten Rokus **nur in einem Netz**
+existieren sollen. Dann bleibt alles in diesem Netz: Beantwortet werden nur
+Fernbedienungen daraus, in den anderen Netzen wird nichts angeboten. Gibt es die Adresse
+beim Start der Instanz auf dem Rechner nicht, wartet der Adapter bis zu zwei Minuten
+darauf (ein Netz, das erst nach ioBroker hochkommt), meldet es dann im Protokoll und
+startet nichts — er weicht nie auf ein anderes Netz aus.
 
 ### 3. Emulierte Rokus anlegen oder ändern
 
 Jede Karte unter **Emulierte Roku-Geräte** ist ein Roku, den deine Fernbedienung
 finden kann.
 
-- **Name** — erscheint als Gerätename auf der Fernbedienung und als Ordner im
-  Objektbaum. Nimm etwas Wiedererkennbares, zum Beispiel den Raum.
+- **Name** — der Name des Geräts in ioBroker und in der Geräteauskunft des emulierten
+  Roku. Ob eine Fernbedienung ihn anzeigt, hängt von der Fernbedienung ab: Eine Harmony
+  benennt das Gerät selbst. Nimm etwas Wiedererkennbares, zum Beispiel den Raum.
+  **Eine Karte später umzubenennen behält ihre Datenpunkte** — der Ordner im Objektbaum,
+  seine Raum- und Funktionszuordnung und seine Aufzeichnungs-Einstellungen bleiben, wo sie
+  sind; nur der angezeigte Name ändert sich.
 - **ECP-Port** — der Netzwerk-Port, auf dem dieser Roku antwortet. `8060`
   ist der Port eines echten Roku. Jeder emulierte Roku braucht **seinen eigenen**;
-  der Dialog schlägt einen freien vor und weist einen bereits belegten ab.
+  der Dialog schlägt einen freien vor und lässt einen bereits belegten nicht bestätigen.
+  Eine Harmony oder Sofabaton liest den Port aus der Erkennung; **Home Assistant und
+  Homey nutzen immer 8060** — gib 8060 dem Roku, den sie steuern sollen.
 - **Typ**
   - **Player** (eine Streaming-Box) bietet die 16 üblichen Navigations- und
     Wiedergabetasten.
-  - **TV** bietet zusätzlich Lautstärke, Programm und Eingangswahl sowie eine
-    Ausschalt-Taste. Wähle das nur, wenn du diese zusätzlichen Tasten wirklich als
+  - **TV** bietet zusätzlich Lautstärke-, Ein/Aus-, Kanal- und Eingangstasten
+    (`VolumeUp`, `PowerOn`, `PowerOff`, `Power`, `Sleep`, `ChannelUp`, `InputTuner`,
+    `InputHDMI1` …). Wähle das nur, wenn du diese zusätzlichen Tasten wirklich als
     Auslöser in ioBroker haben willst.
 
 ### 4. Fernbedienung anlernen
@@ -74,8 +87,11 @@ Roku von selbst und liest den Anschluss aus der Ankündigung — du musst ihn ni
 eintippen.
 
 **Sofabaton X1/X2:** In der Sofabaton-App ein Roku-Gerät hinzufügen, während die App
-im selben Netz ist. Der Adapter meldet eine aktuelle Roku-Version — genau das prüfen
-diese Fernbedienungen, bevor sie ein Gerät annehmen.
+im selben Netz ist; sie findet den emulierten Roku über die Erkennung.
+
+**Home Assistant:** Die Roku-Integration hinzufügen — sie findet den emulierten Roku,
+oder du gibst den ioBroker-Rechner an. Home Assistant spricht immer Port 8060 an (siehe
+oben).
 
 ## Was im Objektbaum entsteht
 
@@ -94,7 +110,10 @@ Je emuliertem Roku, unterhalb von `fakeroku.0.<Name>`:
 | `keys.<Taste>` | boolean, nur lesbar | Ein Datenpunkt je Taste. Ein Tastendruck setzt ihn kurz auf `true` und wieder auf `false`; eine gehaltene Taste bleibt `true`, bis sie losgelassen wird. |
 
 Tastatureingaben der Fernbedienung (`Lit_a`) und App-Starts erscheinen nur in
-`command` — sie bekommen keine eigenen Datenpunkte.
+`command` — sie bekommen keine eigenen Datenpunkte. Die App-Taste einer Fernbedienung,
+die App-Starts sendet (eine Sofabaton, Home Assistant), kommt als `launch:<id>` an, mit
+ihren Parametern, falls sie welche trägt (`launch:12?contentId=…`). Tastennamen werden in
+jeder Schreibweise erkannt: `home` und `HOME` sind die Taste `Home`.
 
 ## Verwendung im Skript
 
@@ -128,12 +147,14 @@ wäre die Flutbremse das, was eine Taste hängen lässt.
   emulierten Rokus findet. Dieser Anschluss ist vom Standard vorgegeben und wird von
   allen gemeinsam genutzt.
 
-Beantwortet werden nur Geräte aus deinem eigenen Heimnetz. Eine Anfrage aus dem
-Internet wird abgewiesen, eine Suche von außen ignoriert.
+Beantwortet werden nur Geräte aus einem der eigenen Netze des ioBroker-Rechners — mit
+gewählter Netzwerkschnittstelle nur aus deren Netz. Eine Anfrage von anderswo (Internet,
+anderes VLAN, VPN) wird abgewiesen, eine Suche von dort ignoriert.
 
-Beim Stoppen der Instanz melden sich die emulierten Rokus im Netz ab. Die Fernbedienung
-kann sie damit aus ihrer Liste nehmen, statt noch eine Stunde lang Tastendrücke ins
-Leere zu schicken.
+Beim Stoppen der Instanz melden sich die emulierten Rokus im Netz ab. Eine Steuerung,
+die ihre Geräteliste aus der Erkennung führt, nimmt sie damit heraus, statt sie bis zu
+einer Stunde zu behalten; eine Harmony, die ein gekoppeltes Gerät selbst behält,
+betrifft das nicht.
 
 Du kannst mehrere Instanzen auf demselben Rechner betreiben — gib jeder eigene
 ECP-Ports. UDP 1900 teilen sie sich: Der Adapter öffnet den Anschluss mit
@@ -156,12 +177,21 @@ richtige unter **Netzwerkschnittstelle** auswählen. Ist die Erkennung nicht ver
 schreibt der Adapter das ins Protokoll und arbeitet für bereits gekoppelte
 Fernbedienungen weiter.
 
-**Die Fernbedienung findet nichts, und im Protokoll steht „advertising on 172.17.x.x".**
-Diese Adresse gehört zu einer Docker-Brücke auf dem Rechner, nicht zu deinem
-Heimnetz — keine Fernbedienung erreicht sie. Der Adapter bevorzugt von sich aus eine
-echte Netzwerkadresse; das taucht also nur auf, wenn der Rechner in dem Moment keine
-andere zu bieten hat. Wähle unter **Netzwerkschnittstelle** die richtige aus und starte die
-Instanz neu.
+**Die Fernbedienung findet nichts, und ioBroker läuft in Docker.**
+Im Standard-Bridge-Netz von Docker hat der Container nur eine interne Adresse, die keine
+Fernbedienung erreicht, und Suchanfragen aus deinem Heimnetz kommen nie an. Starte den
+ioBroker-Container mit `network_mode: host` oder gib ihm über ein `macvlan`-Netz eine
+Adresse im Heimnetz. Brücken von Docker, libvirt, VirtualBox und WSL auf dem Rechner
+selbst erkennt der Adapter und kündigt sie nicht an.
+
+**Im Protokoll steht „The network interface address … does not exist on this host".**
+Die in den Einstellungen gewählte Adresse gibt es auf dem Rechner nicht mehr — neue
+Netzwerkkarte, geänderte DHCP-Adresse, eine Sicherung auf anderer Hardware
+zurückgespielt. Wähle die aktuelle Schnittstelle (oder „alle Schnittstellen") und
+speichere; die Instanz startet neu.
+
+**Home Assistant erreicht einen von mehreren emulierten Rokus nicht.**
+Home Assistant nutzt immer Port 8060. Gib 8060 dem emulierten Roku, den es steuern soll.
 
 **Die Instanz bleibt „nicht verbunden".**
 Mindestens ein konfigurierter Roku konnte nicht starten. Das Protokoll nennt Gerät
@@ -190,12 +220,14 @@ Wiedergabe und Pause **denselben** Befehl, die beiden sind hier also nicht
 unterscheidbar.
 
 **Die App-Tasten meiner Harmony bewirken nichts.**
-Die App-Tasten der Harmony (Netflix, YouTube …) hängen an Harmony-Aktivitäten und
-werden nie an das Gerät gesendet — der Adapter sieht sie also nie.
+Ein Harmony-Hub hat seine App-Tasten (Netflix, YouTube …) nicht an den emulierten Roku
+gesendet — sie hängen an Harmony-Aktivitäten, der Adapter sieht sie also nie.
+Fernbedienungen, die App-Starts senden (eine Sofabaton, Home Assistant), zeigen sie in
+`command` als `launch:<id>`.
 
 ## Datenschutz
 
-Der Adapter spricht ausschließlich mit Geräten im Heimnetz. Er kontaktiert keinen
+Der Adapter spricht ausschließlich mit Geräten in deinen eigenen Netzen. Er kontaktiert keinen
 Cloud-Dienst und sendet nirgendwohin Daten. Die optionale Fehlerberichterstattung
 über Sentry ist aus, solange du in den ioBroker-Systemeinstellungen die Diagnose
 nicht eingeschaltet hast; sie überträgt eine anonyme Installations-Kennung und den
@@ -207,9 +239,22 @@ Fehler selbst, keine personenbezogenen Daten.
 	### **WORK IN PROGRESS**
 -->
 
-### 1.7.1 (2026-09-16)
+### 1.8.0 (2026-09-25)
 
-- (krobipd) Fixed: a second instance on the same host is possible again — an instance carried over from an older version still claimed the whole machine.
+- (krobipd) Fixed: Home Assistant and openHAB can set up the emulated Roku again — it now answers the active-app, media-player and TV-channel queries they send.
+- (krobipd) Fixed: keys sent in any upper or lower case (home, POWERON) press the right button, and spaces typed in Home Assistant arrive as spaces.
+- (krobipd) Fixed: an upgrade from the old adapter keeps every object tree with its rooms and history, also for names with an umlaut, a bracket or a double space.
+- (krobipd) Fixed: renaming a device only changes its displayed name; its datapoints and scripts pointing at them stay where they are.
+- (krobipd) Fixed: an instance started before the network is up starts its devices and adds discovery as soon as the host has an address.
+- (krobipd) Fixed: the device dialog greys out OK for a taken name or port and says why.
+- (krobipd) Changed: only devices in the host's own networks are answered; a chosen network interface keeps everything in its network and is never swapped for another.
+- (krobipd) Changed: a chosen network interface that does not exist is waited for up to two minutes at start, then reported, instead of being replaced.
+- (krobipd) New: the TV profile adds the PowerOn, Power, Sleep and InputTuner keys and announces itself the way real Roku TVs do.
+- (krobipd) New: every new emulated Roku gets its own network identity instead of one every installation with the same name would share.
+
+### 1.7.1 (2026-09-16) — stable
+
+- (krobipd) Changed: the instance restarts once after this update to clear a setting left behind by an older version; nothing else changes for you.
 
 ### 1.7.0 (2026-09-16)
 
@@ -219,7 +264,7 @@ Fehler selbst, keine personenbezogenen Daten.
 - (krobipd) Fixed: a key you hold right after a short press stays pressed instead of being released early.
 - (krobipd) Fixed: the device dialog now also refuses a name that would collide with an existing device in the object tree.
 - (krobipd) Improved: after the host gets a new IP address, remotes find the emulated Rokus again without restarting the instance.
-- (krobipd) Improved: the admin now warns you when a port you enter is already used by another adapter on this host; the instance restarts once after this update.
+- (krobipd) Changed: the network interface setting moved to the standard settings key (bind); the instance restarts once after this update.
 
 ### 1.6.1 (2026-09-07) — stable
 
@@ -237,12 +282,6 @@ Fehler selbst, keine personenbezogenen Daten.
 - (krobipd) Changed: the device dialog refuses a reserved or colliding name right away instead of reporting it after saving.
 - (krobipd) Changed: the adapter can now run in compact mode, sharing one process with other adapters instead of claiming its own.
 - (krobipd) Changed: more than one instance may run on the same machine again; only the ports have to differ.
-
-### 1.5.0 (2026-09-03)
-
-- (krobipd) Fixed: deleting the last emulated Roku left all of its datapoints behind for good. They are now removed whenever the configuration says a device is gone.
-- (krobipd) Fixed: on a host running Docker the adapter could announce itself under a container address no remote can reach. A real network address is preferred now.
-- (krobipd) Fixed: an emulated Roku whose server died while running left the instance showing "connected". It now reports the failure and names the device.
 
 ## License
 

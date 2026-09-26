@@ -35,6 +35,24 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 Enter username and password
 
+**17TRACK API:**
+
+Write a tracking number as text to `parcel.0.17t.register` with **ack / acknowledged disabled**.
+Keep leading zeros and use one number per write. The adapter logs the request and the API's
+acceptance or rejection (including its error code and message). Only an accepted request
+is acknowledged by the adapter. API registrations use the account associated with the configured API key.
+
+The read-only state `parcel.0.17t.quotaRemaining` shows the remaining shipment registration
+quota returned by `getquota`. It is refreshed during each provider update and after a successful
+registration or deletion. API errors preserve the last known value.
+
+Enable **Telegram warning when fewer than 20 17TRACK shipments remain** in the notification
+settings to receive a quota alert. This switch defaults to off and is independent of shipment
+change notifications. It uses the configured Telegram instances and recipients; other notification
+services are ignored. With no recipient specified, Telegram uses its default recipients.
+The alert is sent once while the quota is below 20, including when first enabled with low quota.
+The sent flag survives adapter restarts and resets once the quota returns to at least 20.
+
 **Telegram notification for parcels and letters**
 
 Enable in instance settings and enter e.g. `telegram.0`

@@ -16,9 +16,48 @@
 
 Adapter for Warema WMS Webcontrol
 
+## Setup
+
+The adapter supports two connection paths and prefers the local one:
+
+- **Local (recommended):** the adapter finds the WMS controller on the local network
+  automatically (**Auto-discovery**, on by default). The scan runs in the background and does
+  not delay startup. A discovered IP is written back to **Local IP** so later starts skip the
+  scan. You can also enter the controller's IP directly under **Local IP**. Local status is
+  polled every **Local polling interval** seconds (default 15). The controller's local API
+  needs no login, and this path keeps working even when the Warema cloud or its IoT hub is
+  unavailable.
+- **Cloud:** enter your Warema **username** and **password**. Used as a fallback when the
+  controller cannot be reached on the LAN, and to look up the controller when the local path
+  is not configured.
+
+You can configure both: the adapter drives the controller locally when it is reachable and
+falls back to the cloud otherwise. The cloud fallback is only used for a single-controller
+account (the local controller cannot be matched to a specific one otherwise).
+
 ## Usage
 
-To control your device change the \*Convert values.
+### Local mode (commonCommand)
+
+When the controller is reachable, the adapter builds a `local.*` tree from its configuration.
+Every controllable action of a device is exposed as its own state:
+
+- `local.<device>.position` - target position 0..100 % (writable; awning/roller/slat drives).
+- `local.<device>.valance` - target position of a separate valance drive, if present (writable).
+- `local.<device>.slatAngle` - target slat angle, range per device (writable, blinds only).
+- `local.<device>.dimming` - brightness 0..100 % for dimmable lights (writable).
+- `local.<device>.light` / `.load` / `.switch` - on/off switch (writable).
+- `local.<device>.stop` - button, stops the current movement (writable).
+- `local.<device>.identify` - button, identifies the device (writable).
+- `local.<device>.drivingCause` / `.heartbeatError` / `.blocking` - status (read-only).
+- `local.scenes.<scene>` - button, runs the scene (writable).
+
+The exact set of states per device depends on the actions the controller reports for it.
+
+### Cloud mode (legacy)
+
+When only the cloud path is available, the adapter exposes the controller's devices, scenes
+and channels. To control a channel change the `*Convert` values, e.g.:
 
 `wmswebcontrol.0.Markise+XXXX.setting0Convert`
 
@@ -26,9 +65,17 @@ To control your device change the \*Convert values.
 
 `wmswebcontrol.0.Markise.setting2Convert`
 
-Hint: The password which is set in adapter settings shall not have special characters.
-
 ## Changelog
+
+### 1.0.0 (2026-09-23)
+
+- add local commonCommand control (IP or auto-discovery), preferred over the cloud with a
+  cloud fallback
+- expose every controllable action per device in the `local.*` tree (position, valance,
+  slat angle, dimming, switch, stop, identify) plus scenes
+- use axios for all HTTP calls, drop @esm2cjs/got
+- resolve service endpoints from the discovery service
+
 ### 0.1.4 (2025-01-27)
 
 - ignore certificate errors

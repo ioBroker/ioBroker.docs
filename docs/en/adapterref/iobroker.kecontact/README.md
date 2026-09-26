@@ -124,6 +124,10 @@ A german description of how the adapter works can be found [here](/#/docs/adapte
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Sneak-L8) push test script from 6.1.2 to 6.2.1, fix error [S0064]
+* (Sneak-L8) add email address to license information, fix [S4050] and [S4051]
+
 ### 3.8.0 (2026-07-22)
 * (Sneak-L8) possibility to regulate max grid power not only in settings but also dynamically by seperate state
 * (Sneak-L8) fix missing Tests for addPower setting due to label change
@@ -349,7 +353,7 @@ Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2021-2025 UncleSamSwiss, Sneak-L8
+   Copyright 2021-2025 UncleSamSwiss, Sneak-L8 (git@sengler.de)
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

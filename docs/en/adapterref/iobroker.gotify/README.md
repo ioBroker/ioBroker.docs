@@ -112,7 +112,7 @@ When the ioBroker-adapter wants to push a notification it send a POST request to
 
 ## License
 
-Licensed under the Apache License, Version 2.0 (the "License");
+Licensed under the [Apache License, Version 2.0 (the "License")](https://github.com/ThomasPohl/ioBroker.gotify/blob/master/LICENSE);
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 

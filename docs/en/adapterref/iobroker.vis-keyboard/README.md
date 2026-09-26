@@ -31,5 +31,5 @@ Additionally, you can add to widget class `keyboard-num` to force using numeric 
 - (smiling_Jack) initial checkin
 
 ## License
- Copyright (c) 2015-2025 smiling_Jack
+ Copyright (c) 2015-2026 smiling_Jack
  MIT

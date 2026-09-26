@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.harvia-fenix/README_de.md
 title: ioBroker.harvia-fenix
-hash: gDGRWUA6Gt3YqueeZ/a+FPm7a5nKWes0s/2jOybUQP0=
+hash: bwVEY/NAaGhhEopUt1RtCU8XGg/LGflI/r19IknUj2k=
 ---
 ![Downloads](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![Knoten](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -262,6 +262,11 @@ _Hinweis: Diese Zustände werden automatisch aktiviert `false` zurückgesetzt, w
 
 ### **IN BEARBEITUNG**
 
+- (meistermopper) Endlosschleifen-Risiko in Auth-Retry-Logik behoben
+
+### 1.1.1 (2026-09-21)
+
+- (meistermopper) Flackern von remoteControl bei Push-Messwert-Updates behoben
 - (meistermopper) Standard-Zuordnung für activeProfile (0=mild, 1=cozy, 2=hot) dokumentiert
 
 ### 1.1.0 (2026-09-17)
@@ -293,12 +298,6 @@ _Hinweis: Diese Zustände werden automatisch aktiviert `false` zurückgesetzt, w
 - (meistermopper) Adapter-Logo durch MyFenix-Hommage ersetzt
 - (meistermopper) Aktualisierte @iobroker/adapter-core auf 3.4.3 und @iobroker/testing auf 6.2.1
 - (meistermopper) Behebe Mocha 12 Instanziierung im Unit-Test Runner unter Node 22
-
-### 0.5.0 (2026-09-09)
-
-- (meistermopper) Beidseitige Heizanomalie-Erkennung hinzugefügt (zu langsam/schnell)
-- (meistermopper) Aktualisiere @alcalzone/release-script-plugin-license auf 5.2.2
-- (meistermopper) Node.js 26 zur Testmatrix hinzugefügt
 
 ---
 

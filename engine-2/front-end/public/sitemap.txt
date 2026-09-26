@@ -43,6 +43,7 @@ https://www.iobroker.com/blog/2026_04_13
 https://www.iobroker.com/blog/2026_07_10
 https://www.iobroker.com/blog/2026_08_25
 https://www.iobroker.com/blog/2026_09_20
+https://www.iobroker.com/blog/2026_09_26
 https://www.iobroker.com/docs/about/brand.md
 https://www.iobroker.com/docs/about/story.md
 https://www.iobroker.com/docs/admin/adapter.md
@@ -225,6 +226,7 @@ https://www.iobroker.com/adapters/amtronwallbox
 https://www.iobroker.com/adapters/anelhut
 https://www.iobroker.com/adapters/anker-solix
 https://www.iobroker.com/adapters/ankersolix2
+https://www.iobroker.com/adapters/anthbot
 https://www.iobroker.com/adapters/anthbot-genie
 https://www.iobroker.com/adapters/apcups
 https://www.iobroker.com/adapters/apg-info
@@ -239,6 +241,7 @@ https://www.iobroker.com/adapters/atlas-scientific-ezo-i2c
 https://www.iobroker.com/adapters/aura
 https://www.iobroker.com/adapters/aurora-nowcast
 https://www.iobroker.com/adapters/autodarts
+https://www.iobroker.com/adapters/autodoc
 https://www.iobroker.com/adapters/automatic-feeder
 https://www.iobroker.com/adapters/awattar
 https://www.iobroker.com/adapters/awtrix-light
@@ -295,6 +298,7 @@ https://www.iobroker.com/adapters/cloudflare
 https://www.iobroker.com/adapters/cloudless-homeconnect
 https://www.iobroker.com/adapters/cmicoe
 https://www.iobroker.com/adapters/codesys-nvl
+https://www.iobroker.com/adapters/cometvisu
 https://www.iobroker.com/adapters/comfoair
 https://www.iobroker.com/adapters/comfoairq
 https://www.iobroker.com/adapters/consumption
@@ -362,6 +366,7 @@ https://www.iobroker.com/adapters/enpal
 https://www.iobroker.com/adapters/envertech-pv
 https://www.iobroker.com/adapters/epson_ecotank_et_2750
 https://www.iobroker.com/adapters/epson_stylus_px830
+https://www.iobroker.com/adapters/esmobil
 https://www.iobroker.com/adapters/esphome
 https://www.iobroker.com/adapters/espresense
 https://www.iobroker.com/adapters/eusec
@@ -395,6 +400,7 @@ https://www.iobroker.com/adapters/fronius-solarweb
 https://www.iobroker.com/adapters/fronius-wattpilot
 https://www.iobroker.com/adapters/frontier_silicon
 https://www.iobroker.com/adapters/fuelpricemonitor
+https://www.iobroker.com/adapters/fujitsu-airstage
 https://www.iobroker.com/adapters/fullcalendar
 https://www.iobroker.com/adapters/fullybrowser
 https://www.iobroker.com/adapters/fyta
@@ -774,6 +780,7 @@ https://www.iobroker.com/adapters/simple-api
 https://www.iobroker.com/adapters/simple-proxy-manager
 https://www.iobroker.com/adapters/skiinfo
 https://www.iobroker.com/adapters/skoda-order-status
+https://www.iobroker.com/adapters/skoda-public-api
 https://www.iobroker.com/adapters/sky-remote
 https://www.iobroker.com/adapters/slideshow
 https://www.iobroker.com/adapters/sma-em

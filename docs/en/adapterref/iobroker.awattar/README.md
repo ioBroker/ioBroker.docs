@@ -48,6 +48,10 @@ According to the <a href="https://www.awattar.de/services/api" target="_blank">a
     ### **WORK IN PROGRESS**
 -->
 
+### 1.3.0
+* Dropped Node.js 20 support (reached end of life on 2026-04-30); Node.js 22 is now the minimum required version
+* (repository maintenance) Pinned chai/chai-as-promised/sinon-chai below their new ESM-only major versions in Dependabot config, since the test suite is CommonJS
+
 ### 1.2.0
 * (repository maintenance) Fixed: admin/i18n translations were excluded from the npm package (missing languages in Admin UI for installed users)
 * (repository maintenance) Fixed: Admin UI translations (words.js) never matched the actual field labels; corrected and completed for all supported languages

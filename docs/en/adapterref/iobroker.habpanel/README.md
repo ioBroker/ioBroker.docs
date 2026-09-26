@@ -1,4 +1,4 @@
-![Logo](admin/habpanel.png)
+![Logo](admin/habpanel.svg)
 # ioBroker.habpanel
 
 ![Number of Installations](http://iobroker.live/badges/habpanel-installed.svg) ![Number of Installations](http://iobroker.live/badges/habpanel-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.habpanel.svg)](https://www.npmjs.com/package/iobroker.habpanel)
@@ -49,13 +49,14 @@ This adapter cannot be installed directly from GitHub. Only from npm.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-
-### **WORK IN PROGRESS**
-- (iobroker-bot) Adapter requires node.js >= 20 now.
+### 1.0.0 (2026-09-25)
+- (nowrap) Chart series are no longer truncated to 500 values (#149)
+- (nowrap) getHistory no longer invokes its callback twice on a late answer
+- (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
-- (mcm1957) Adapter requires nodeJS >=18 now.
 - (mcm1957) Dependencies have been updated.
+- (@GermanBluefox) SVG Logo
 
 ### 0.5.0 (2022-02-16)
 * (jogibear9988) added on support for new websockets
@@ -68,37 +69,6 @@ This adapter cannot be installed directly from GitHub. Only from npm.
 
 ### 0.3.5 (2019-04-15)
 * (yaming116) bugfix i18n
-
-### 0.3.4 (2019-02-04)
-* (janfromberlin) button widget did not handle primitive boolean commands
-* (matthiasgasser) fix time series query start date, adapted end date
-
-### 0.3.3 (2019-02-02)
-* (janfromberlin) fix button toggle functionality for true/false
-
-### 0.3.2 (2019-01-30)
-* (foxthefox) chart and timeline functionality fixed
-
-### 0.3.1 (2019-01-27)
-* (foxthefox) chart and timeline functionality added
-
-### 0.2.6 (2019-01-14)
-* (jogibear9988) bugfix selection element
-
-### 0.2.5 (2019-01-14)
-* (jogibear9988) bugfix format strings
-
-### 0.2.4 (2019-01-13)
-* (jogibear9988) bugfix template widget
-
-### 0.2.3 (2019-01-11)
-* (jogibear9988) upgrade to current openhab version
-
-### 0.1.7 (2017-05-20)
-* (bluefox) add to welcome screen
-
-### 0.1.6 (2017-05-15)
-* (bluefox) initial commit
 
 ## License
 Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>

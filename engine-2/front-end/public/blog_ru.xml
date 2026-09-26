@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
         <link>https://www.iobroker.com/#ru/blog</link>
-        <lastBuildDate>Sun, 20 Sep 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 26 Sep 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Помещения и функции в одном месте, ассистент в Admin 8]]></title>
+            <description><![CDATA[
+                <p>В зрелой системе ioBroker быстро накапливается несколько сотен объектов. Большинство из них имеют имя, присвоенное адаптером, и больше ничего. Невозможно определить, управляет ли конкретная точка данных освещением или находится на кухне. Эти два параметра представляют собой комнаты и функции, и именно из-за них система либо выглядит аккуратной, либо через год о ней уже никто не помнит. `alias.0.Etage2.Sw3` Действительно.</p>
+            ]]></description>
+            <link>https://www.iobroker.com/#ru/blog/2026_09_26</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#ru/blog/2026_09_26</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 26 Sep 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Управляйте данными доступа централизованно, а не в каждом скрипте.]]></title>
             <description><![CDATA[

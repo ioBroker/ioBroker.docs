@@ -450,9 +450,9 @@ Enable **Objects → Tagesstatistiken** for kWh tiles; enable **Leistungsflüsse
 
 ### 0.10.105
 
-- **Repo checker (#9):** removed forbidden `prepare` script (E0094); `common.news` lists npm-published versions only (E2004); enable local hooks with `npm run setup:githooks`
-- **CI (#10):** adapter tests on Node.js **22 / 24 / 26**; `@iobroker/adapter-core` → 3.4.3; Modbus TCP read timeout uses `adapter.setTimeout` (S5005)
-- News translations expanded for remaining npm versions (W1145)
+- **npm release:** publishes GitHub improvements since 0.10.90 (VIS widgets/HTML dashboards, SB4 daily kWh, Node 22/24/26 CI, repo-checker fixes)
+- **Repo checker (#12):** `common.news` for current version (E1036); tagging clears W2002/W3032
+- **Stable path (#13):** prepares adapter for first inclusion in the stable repository
 
 ### 0.10.104
 
@@ -835,7 +835,7 @@ Older release notes: CHANGELOG_OLD.md and git history.
 
 1. Bump `version` in `package.json` and `io-package.json` (must match).
 2. Add a `### x.y.z` section to this README changelog (E6006).
-3. Add **one** new `common.news` entry for that version **only when publishing to npm** (tag `v*`); keep **at most 7** news keys — only versions already on npm (plus the version you are about to publish). GitHub-only interim versions must **not** appear in `common.news` (E2004). Move removed text to CHANGELOG_OLD.md. Document all versions in this README changelog.
+3. Add **one** new `common.news` entry for the version you are about to tag/publish; keep **at most 7** news keys — npm-published versions plus that release version (E1036/E2004). GitHub-only interim versions must **not** appear in `common.news`. Move removed text to CHANGELOG_OLD.md. Document all versions in this README changelog.
 4. Admin `jsonConfig.json`: header `size` must be **≤ 5** (use `5` for smallest heading).
 5. Do not add root files to npm `files` unless needed (`CHANGELOG_OLD.md` stays out of the package).
 6. `package.json` `os` must match the OS matrix in `test-and-release.yml` (E3027). Keep admin `i18n/*.json` in sync with `en.json` (W5604/W5605).

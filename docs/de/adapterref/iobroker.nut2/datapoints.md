@@ -7,7 +7,7 @@ Der Adapter bringt keine feste Liste an Datenpunkten mit. Er fragt den NUT-Serve
 und baut den Baum aus der Antwort — zwei verschiedene USV-Modelle ergeben also zwei verschiedene Bäume. Was folgt,
 erklärt die Teile, die immer gleich sind, und wie aus einer NUT-Variablen ein ioBroker-Datenpunkt wird.
 
-Jeder Datenpunkt trägt eine kurze Erklärung in `common.desc`, und Wertelisten, Statustexte und Schweregrade erscheinen
+Jeder Datenpunkt, dessen Name nicht schon alles sagt, trägt eine kurze Erklärung in `common.desc`, und Wertelisten, Statustexte und Schweregrade erscheinen
 in Ihrer ioBroker-Systemsprache.
 
 ## Vom NUT-Namen zur Objekt-ID
@@ -19,8 +19,8 @@ der Adapter das ab:
 - jeder weitere Punkt wird zum Bindestrich — `charge-low`
 
 `battery.charge.low` landet damit unter `ups0.battery.charge-low`, und der Befehl `test.battery.start` unter
-`ups0.commands.test-battery-start`. Eine Variable ganz ohne Punkt (manche Treiber melden ein blankes `ALARM`) hat
-keinen Kanal und wird direkt unter dem Gerät angelegt.
+`ups0.commands.test-battery-start`. Eine Variable ganz ohne Punkt hat keinen Kanal und wird direkt unter dem Gerät
+angelegt.
 
 Den echten NUT-Namen behält der Adapter intern, damit ein Schreibvorgang den richtigen Namen an den Server
 zurückschickt — auch dort, wo die Abbildung nicht umkehrbar ist (Dreiphasen-Namen wie `input.L1-L2.voltage` enthalten
@@ -56,8 +56,8 @@ schlecht arbeiten, deshalb zerlegt der Adapter sie:
 | Datenpunkt        | Bedeutung                                                                                                                                                                                                                            |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `raw`             | Die Originalzeichenkette, unverändert.                                                                                                                                                                                               |
-| `display`         | Dieselbe Information als lesbarer Text in Ihrer Sprache, z. B. „Am Netz, Lädt".                                                                                                                                                      |
-| `severity`        | Eine einzige Zahl, 0–4 (siehe unten).                                                                                                                                                                                                |
+| `display`         | Dieselbe Information als lesbarer Text in Ihrer Sprache, z. B. „Netzbetrieb, Wird geladen".                                                                                                                                          |
+| `severity`        | Eine einzige Zahl, 0–4, oder leer (siehe unten).                                                                                                                                                                                     |
 | 19 Wahrheitswerte | Je einer pro bekanntem Statusflag: `online`, `onBattery`, `lowBattery`, `charging`, `discharging`, `replaceBattery`, `overloaded`, `bypass`, `calibrating`, `forcedShutdown`, `alarm`, `ecoMode`, `testing`, `overheat` und weitere. |
 
 `charging` und `discharging` werden zusätzlich aus `battery.charger.status` gefüllt, weil manche USV-Modelle den
@@ -76,10 +76,12 @@ geraten.
 | 2     | Warnung   | Auf Batterie, Batterie tauschen, Bypass       |
 | 3     | Kritisch  | Auf Batterie **und** Batterie schwach         |
 | 4     | Notfall   | Erzwungene Abschaltung                        |
+| leer  | —         | Keine Stromquelle im Status                   |
 
 Der Schweregrad beschreibt ausschließlich die **Stromversorgungslage**. Störungsflags wie `overloaded`, `alarm` und
 `off` heben ihn bewusst nicht an — sie haben eigene Wahrheitswerte, und sie einzurechnen würde eine einzige Zahl zwei
-verschiedene Dinge bedeuten lassen.
+verschiedene Dinge bedeuten lassen. Ein Status, der gar keine Stromquelle nennt (`OFF` allein, `WAIT` beim Start des
+Treibers, eine PDU ohne Status), lässt den Schweregrad leer, statt „OK“ zu behaupten.
 
 ### Die Messkanäle
 
@@ -97,9 +99,11 @@ Welche davon existieren, hängt ganz von Ihrem USV-Treiber ab:
 | `ambient` | Umgebungssensoren, falls die USV oder ein angeschlossener EMP sie liefert |
 
 Werte werden in dem Typ gespeichert, der sie wirklich sind: Zahlen als Zahlen mit Einheit (V, Hz, A, Ah, %, W, VA, s,
-°C), Ja/Nein-Angaben als Wahrheitswerte, feste Vokabulare (`enabled`/`disabled`/`muted`, `charging`/`discharging`/…)
-als Auswahllisten. Ein Wert, der numerisch sein soll und es nicht ist, wird mit einer Warnung verworfen statt als Müll
-gespeichert — mit `Infinity` kann kein Diagramm etwas anfangen.
+min, °C, °), Ja/Nein-Angaben als Wahrheitswerte, feste Vokabulare (`enabled`/`disabled`/`muted`,
+`charging`/`discharging`/…) als Auswahllisten. Ein Messwert, der ohne Zahl ankommt, bleibt ein Zahl-Datenpunkt und ist
+**leer**: Treiber schreiben Wörter wie `LoadTooLow` oder `NA` hinein (oder gar nichts), um „gerade kein Messwert“ zu
+sagen — ein Zustand, kein Fehler. Alles andere, das keine Zahl ist — etwa `26,9` mit Komma —, bleibt mit einer Warnung
+leer, statt als Müll gespeichert zu werden; mit Text kann kein Diagramm etwas anfangen.
 
 Countdowns (`ups.timer.shutdown` und Geschwister) sind **leer**, solange kein Countdown läuft. Treiber sagen das
 unterschiedlich — die einen melden `-1`, die anderen das Wort `NotActive` —, und weder „minus eine Sekunde" noch ein
@@ -107,15 +111,29 @@ Textfehler wären brauchbar.
 
 ### `commands`
 
-Je eine Taste pro Befehl, den die USV anbietet — angelegt nur, wenn **Befehle aktivieren** an ist _und_ Zugangsdaten
-hinterlegt sind. Ein Tastendruck schickt `INSTCMD` und setzt sich selbst zurück.
+Je eine Taste pro Befehl, den die USV anbietet — angelegt nur, wenn **Sofortbefehle aktivieren** an ist _und_ Zugangsdaten
+hinterlegt sind. Ein Tastendruck schickt `INSTCMD` und setzt sich selbst zurück. Eine USV ohne Befehle bekommt keinen
+Kanal `commands`; eine Taste, deren Befehl der Treiber nicht mehr listet, wird entfernt.
 
-Befehle, die Strom wegnehmen (`load.off`, `shutdown.*`, `bypass.*`), tragen ein Warnzeichen am Anfang ihrer Erklärung.
+`commands.execute` führt einen Befehl **mit Wert** aus, geschrieben wie bei `upscmd`: `load.off.delay 120`. Es gelten
+dieselben Regeln wie für die Tasten, und der Wert ist ein einzelnes Wort.
+
+Ein Warnzeichen am Anfang der Erklärung markiert jeden Befehl, der angeschlossenen Geräten den Strom nehmen, sie
+ungeschützt lassen oder den NUT-Treiber beenden kann: die Last, eine Steckdose oder eine Steckdosengruppe abschalten
+oder neu starten, jedes `shutdown.*` außer `shutdown.stop`, `bypass.start`, `experimental.bypass.ecomode.start`, `input.off`, die Treiberbefehle, die den Treiber beenden, und das rohe
+Register-Schreiben `experimental.ve-direct.set`. Etwas
+**ein**schalten ist nie markiert.
 
 ## Wem diese Objekte gehören
 
 Name, Beschreibung, Typ, Rolle und Einheit aller Datenpunkte gehören dem Adapter — eine Umbenennung im Objektbaum wird
-beim nächsten Abgleich zurückgesetzt. Ihre **Aufzeichnungseinstellungen** sind die Ausnahme: Die gehören Ihnen, werden
-nie angefasst, und wenn der Adapter einen eigenen Datenpunkt umbenennt, wandert die Aufzeichnung mit.
+beim nächsten Abgleich zurückgesetzt. Ihre **Aufzeichnungseinstellungen** und Ihre **Raum- und Funktionszuordnungen**
+sind die Ausnahme: Die gehören Ihnen, werden nie angefasst, und wenn der Adapter einen eigenen Datenpunkt umbenennt,
+wandern beide mit.
 
-Eine USV, die vom NUT-Server verschwindet, verliert ihre Objekte; kommt sie zurück, werden sie neu angelegt.
+Jedes Gerät zeigt ein Piktogramm für seinen NUT-Gerätetyp (USV, PDU, Solar-Laderegler, Netzteil, Umschalter); ein
+Gerätetyp, den NUT nicht dokumentiert, lässt das Symbol, wie es ist.
+
+Eine USV, die vom NUT-Server verschwindet, wird sofort als nicht erreichbar markiert und verliert ihre Objekte nach drei
+Abfragen ohne sie — ein Neustart des Servers oder eine neu geladene `ups.conf` kostet nicht ihre Historie. Beim Start des
+Adapters wird eine USV, die der Server nicht listet, sofort entfernt.

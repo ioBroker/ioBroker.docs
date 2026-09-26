@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harvia-fenix/README_de.md
 title: ioBroker.harvia-fenix
-hash: gDGRWUA6Gt3YqueeZ/a+FPm7a5nKWes0s/2jOybUQP0=
+hash: bwVEY/NAaGhhEopUt1RtCU8XGg/LGflI/r19IknUj2k=
 ---
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![узел](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -113,7 +113,7 @@ Wenn dein MyHarvia-Konto meherere Steuereinheiten verwaltet (z. B. eine zu Hause
 1. Трагедия в конфигурации адаптера включает в себя данные входа в **систему** (Des Besitzers) и щелчок **мышью** .
 2. Открыт журнал ioBroker-Log. Адаптер обеспечивает удобство сауны и возможность использования следующих вариантов:
    - `Found device: ... (ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)` ➡️ Das ist deine **Geräte-ID** .
-   - `Using partner ID from user token: ORG/prod:0:6656` ➡️ Das ist deine **Partner-ID** (Стандарт: `ORG/prod:0:6656` Одер `ORG/prod:0:6656:0`).
+   - `Using partner ID from user token: ORG/prod:0:6656` ➡️ Das ist deine **Partner-ID** (стандарт: `ORG/prod:0:6656` Одер `ORG/prod:0:6656:0`).
 3. Kopiere beide Werte in die Zwischenablage.
 4. Если вы не хотите использовать Einstellungen, вы увидите, что в Zugangsdaten указан **Gast-Kontos** , вы можете скопировать **Geräte-ID** и **Partner-ID** в необязательных полях и щелкнуть по **Speichern & Schließen** .
 
@@ -146,12 +146,12 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | `doorSafety`                    | логический | `indicator.safety`    | Нур Лесен       | Статус дер Türsicherung (z.B. `true`, wenn die Tür sicher geschlossen ist).                                                                          |
 | `remoteControl`                 | логический | `indicator`           | Нур Лесен       | Статус дер Fernstart-Bereitschaft. Венн `false`, ist das Starten des Ofens aus der Ferne (переходник) заблокирован.                                  |
 | `errorMsg`                      | нить       | `text`                | Нур Лесен       | Aktuelle Fehlermeldungen или Statustexte des Ofens.                                                                                                  |
-| `heatOn`                        | логический | `switch.power`        | Lesen/Schreiben | Hauptschalter, um den Saunaofen EIN (`true`) или AUS (`false`) zu schalten.                                                                        |
+| `heatOn`                        | логический | `switch.power`        | Lesen/Chreiben  | Hauptschalter, um den Saunaofen EIN (`true`) или AUS (`false`) zu schalten.                                                                        |
 | `heaterPower`                   | число      | `value.power`         | Нур Лесен       | _Примечание:_ Dieses Objekt wird von der API bereitgestellt, часто используется `0 kW` (nicht ausgefüllt). Это возможность резервирования обновлений. |
 | `lightOn`                       | логический | `switch.light`        | Lesen/Chreiben  | Schalter für die integrierte Saunabeleuchtung.                                                                                                       |
 | `maxDuration`                   | число      | `level.timer`         | Lesen/Chreiben  | Maximale Heizdauer für die Saunasitzung in Minuten (`min`).                                                                                         |
 | `panelTemp`                     | число      | `value.temperature`   | Нур Лесен       | Temperaturmesswert Direct an der Physischen Steuereinheit / Panel.                                                                                   |
-| `targetTemp`                    | число      | `level.temperature`   | Lesen/Schreiben | Zieltemperatur-Sollwert für die Saunakabine (z.B. `90 °C`).                                                                                          |
+| `targetTemp`                    | число      | `level.temperature`   | Lesen/Schreiben | Zieltemperatur-Sollwert für die Saunakabine (z. B. `90 °C`).                                                                                         |
 | `temp`                          | число      | `value.temperature`   | Нур Лесен       | Актуальная температура в сауне (z.B. `17 °C`).                                                                                                       |
 | `readyNotified10Min`            | логический | `indicator`           | Нур Лесен       | Вирд `true`, wenn die Sauna noch ca. 10 минут при температуре Zieltemperatur (13°C до температуры Ziel).                                             |
 | `targetReachedNotified`         | логический | `indicator`           | Нур Лесен       | Вирд `true`, если в сауне выбрана необходимая температура воздуха в сауне, используйте ее.                                                           |
@@ -163,7 +163,7 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | `timeToTargetFormatted`         | нить       | `text`                | Нур Лесен       | Formatierte verbleibende Aufheizzeit (z.B. `39 min 30 sec`).                                                                                         |
 | `heatingCurve`                  | нить       | `json`                | Нур Лесен       | JSON-Array der Stützstellen-Aufheizzeiten pro 10°C-Intervall für VIS/Diagramme.                                                                      |
 | `profiles`                      | нить       | `json`                | Нур Лесен       | JSON-массив der verfügbaren Saunaprofile (z. B. Cozy и т. д.).                                                                                       |
-| `activeProfile`                 | число      | `level`               | Lesen/Schreiben | Индекс актуальных активных профилей сауны (`0` = мягкий, `1` = уютный, `2` = горячий).                                                                 |
+| `activeProfile`                 | число      | `level`               | Lesen/Chreiben  | Индекс актуальных активных профилей сауны (`0` = мягкий, `1` = уютный, `2` = горячий).                                                                 |
 | `events.lastEvent`              | нить       | `text`                | Нур Лесен       | Код или Bezeichner des Letzten Ereignisses aus dem Harvia Events Service.                                                                            |
 | `events.lastEventType`          | нить       | `text`                | Нур Лесен       | Kategorie des Letzten Ereignisses (`SAFETY`, `ERROR`, `SYSTEM` и т. д.).                                                                             |
 | `events.lastEventSeverity`      | нить       | `text`                | Нур Лесен       | Schweregrad des Letzten Ereignisses (англ. `info`, `warn`, `error`, `critical`).                                                                     |
@@ -246,7 +246,7 @@ _Примечание: Diese Zustände werden autotisch auf `false` zurückgeset
   - **Условно:** Die europäische Sicherheitsnorm schreibt vor, dass ein Fernstart nur aktiv sein darf, wenn der Sicherheitskreis/Türsensor geschlossen ist und der Fernstart physch am Saunapanel scharf geschaltet wurde.
   - **Lösung:** Schließe die Saunatür und Drücke am Physischen Harvia-Bedienfeld die **Fernstart** -Taste. Das Fernstart-Symbol auf dem Display muss leuchten. Прежде всего, необходимо использовать бесплатный адаптер.
 - ** `Cloud lock: Device busy, command discarded.`(Als Debug-Log)**
-  - **Ursache:** Блокировка Harvia-API может быть полезна, когда вы используете шнеллер, когда он работает (z. B. durch schnelles Klicken in der Vis), um die Hardware zu schützen.
+  - **Ursache:** Блокировка Harvia-API может быть полезна, если вы используете шнеллер, когда он работает (z. B. durch schnelles Klicken in der Vis), um die Hardware zu schützen.
   - **Изображение:** Warte einige Sekunden zwischen den Befehlen. Адаптер автоматически работает со щелчками мыши, и вы можете использовать API-интерфейс для управления.
 
 ---
@@ -262,6 +262,11 @@ _Примечание: Diese Zustände werden autotisch auf `false` zurückgeset
 
 ### **РАБОТА В ПРОЦЕССЕ**
 
+- (meistermopper) Endlosschleifen-Risiko в Auth-Retry-Logik behoben
+
+### 1.1.1 (2026-09-21)
+
+- (meistermopper) Флакерн от пульта дистанционного управления с помощью Push-Messwert-Updates
 - (meistermopper) Standard-Zuordnung fuer activeProfile (0=мягко, 1=уютно, 2=горячо) документация
 
 ### 1.1.0 (2026-09-17)
@@ -293,12 +298,6 @@ _Примечание: Diese Zustände werden autotisch auf `false` zurückgeset
 - (meistermopper) Адаптер-логотип durch MyFenix-Hommage ersetzt
 - (meistermopper) Актуальные @iobroker/adapter-core для версии 3.4.3 и @iobroker/testing для версии 6.2.1
 - (meistermopper) Behebe Mocha 12 Создание модуля Unit-Test Runner для узла 22
-
-### 0.5.0 (2026-09-09)
-
-- (meistermopper) Beidseitige Heizanomalie-Erkennung hinzugefügt (zu langsam/schnell)
-- (meistermopper) Обновите @alcalzone/release-script-plugin-license до версии 5.2.2
-- (meistermopper) Node.js 26 для проверки Testmatrix
 
 ---
 

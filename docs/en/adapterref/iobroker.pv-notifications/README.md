@@ -314,6 +314,15 @@ sadam6752@gmail.com
 	### **WORK IN PROGRESS**
 -->
 
+### 1.2.31 (2026-09-21)
+* (ADD) CI: Node.js 26 in the test matrix and a new deploy job using npm Trusted Publishing (OIDC) with provenance
+* (FIX) Added the missing changelog entry for 1.2.30
+* (FIX) Completed the short 1.2.29 news translations (es, it, nl, pl, pt, uk)
+* (FIX) Dependencies: @iobroker/testing 6.2.x, @alcalzone/release-script-plugin-license 5.2.2
+
+### 1.2.30
+* (ADD) Optional data point for the current house consumption in W - battery full/empty messages now use this live value instead of the daily kWh total (fixes #74); fallback: PV power minus feed-in
+
 ### 1.2.29
 * (FIX) Corrupted UTF-8 separator lines in the monthly stats message (showed as question marks in Telegram)
 * (FIX) Corrupted Russian translations for "Current charge level" and "Own consumption"

@@ -14,7 +14,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hassemu/README.md
 title: hassemu - отображает любую веб-страницу на экране, который принимает только Home Assistant.
-hash: ReMV9KpBdvTQtcnbLbirt954EbkCKwZ+wfECnWUVb9I=
+hash: g/knc8JG/dy0b2NHJrTxYCJGI4ilqXnEBNtgy0JSH9U=
 ---
 # hassemu — отображает любую веб-страницу на экране, который принимает только Home Assistant.
 
@@ -26,12 +26,21 @@ hash: ReMV9KpBdvTQtcnbLbirt954EbkCKwZ+wfECnWUVb9I=
 
 ## Требования
 
-- Node.js 22 или новее
+- Node.js 22 или более поздняя версия
 - ioBroker js-controller 7.2.2 или новее
 - ioBroker Admin 8.0.11 или более поздняя версия
 - Дисплей и ioBroker находятся в одной сети.
 
-В сети может быть только один экземпляр Hassemu. Адаптер прослушивает порт 8123, поскольку именно этот порт ожидают клиенты HA, и он не подлежит настройке — два экземпляра будут конкурировать за него.
+Адаптер прослушивает порт 8123, поскольку именно этот порт ожидают клиенты HA, и он не подлежит настройке. Поэтому на каждом хосте ioBroker обычно работает один экземпляр — второй экземпляр на том же хосте работает только в том случае, если каждый из них привязан к собственному интерфейсу. Несколько хостов ioBroker в сети могут запускать по одному экземпляру; в этом случае дисплеи видят отдельные серверы.
+
+## Настенная витрина Shelly
+
+Семейство настенных дисплеев Shelly включает в себя как устаревшие модели (Stargate, X2), так и современные (XL, X2i, X1i, U1, D1). Дисплей можно приобрести у Hassemu двумя способами:
+
+- **Встроенная страница Home Assistant** — оригинальный способ; в прошивке 2.7.0 эта функция была снята с поддержки.
+- **Приложение Home Assistant, установленное на устройстве и** имеющее прошивку версии 2.6.0 и выше, проходит ту же процедуру регистрации, что и сопутствующее приложение на телефоне.
+
+hassemu обслуживает оба варианта. В прошивке 2.7.0 также добавлена _функция очистки кэша WebView_ (Настройки → Home Assistant). Это удаляет cookie-файл, по которому идентифицируется дисплей: после этого он отображается один раз под новым идентификатором и снова запускается процесс регистрации. Удалите старую запись с ее идентификатором. `remove` кнопка.
 
 ## Настройка
 
@@ -39,7 +48,7 @@ hash: ReMV9KpBdvTQtcnbLbirt954EbkCKwZ+wfECnWUVb9I=
 
 Установите адаптер и запустите экземпляр 0. В настройках экземпляра обычно ничего не нужно менять: mDNS включен, аутентификация отключена, и адаптер подключается ко всем интерфейсам.
 
-Если ваш хост ioBroker имеет несколько сетевых карт, установите **параметр Bind to interface** to the one one your displays connected. Адаптер объявляет себя по этому адресу, поэтому объявление адреса, к которому дисплей не может получить доступ, является наиболее распространенной причиной того, что обнаружение «работает», но дисплей затем не может подключиться.
+Если на вашем хосте ioBroker установлено несколько сетевых карт, установите **параметр «Привязать к интерфейсу** » на ту, к которой подключены ваши дисплеи. Адаптер объявляет себя по этому адресу, поэтому объявление адреса, к которому дисплей не может подключиться, является наиболее распространенной причиной того, что обнаружение «работает», но дисплей затем не может подключиться.
 
 ### 2. Добавьте сервер на экран.
 
@@ -47,6 +56,8 @@ hash: ReMV9KpBdvTQtcnbLbirt954EbkCKwZ+wfECnWUVb9I=
 
 - **При включенном mDNS** сервер обнаруживается автоматически. Он отображается под именем в поле **«Имя службы»** (по умолчанию). `ioBroker`).
 - **Без mDNS** или если поиск на экране не выполняется, введите адрес вручную: `http://<ip-of-your-ioBroker>:8123`. Так должно быть `http` — См. раздел [«Аутентификация и ваша сеть»](#authentication-and-your-network) .
+
+**В Android 17 и более новых версиях:** разрешите _доступ к локальной сети,_ когда приложение Home Assistant запросит это. Без этого приложение не найдет hassemu и не сможет связаться с ним в вашей сети — hassemu работает только по локальной сети, резервного копирования в облако нет.
 
 ### 3. Завершите процесс адаптации.
 
@@ -151,7 +162,7 @@ hassemu.0.
 - Рассматривайте порт 8123 как локальный для вашей сети. Не перенаправляйте на него трафик из интернета.
 - При включенной аутентификации имя пользователя, пароль и токены передаются по вашей сети в незашифрованном виде. Аутентификация предотвращает использование интерфейса высокой доступности другими устройствами в вашей сети — она не обеспечивает защиту от доступа из интернета.
 
-**Функция Trust Proxy** должна оставаться отключенной, если перед адаптером действительно не находится обратный прокси-сервер, который завершает TLS и удаляет его. `X-Forwarded-*` Заголовки, отправленные клиентом. При включении без них любое устройство может запрашивать разный адрес при каждом запросе. В этом случае адаптер регистрирует неверные адреса, и его ограничение на количество новых записей о дисплеях для каждого адреса больше ничего не ограничивает. Начиная с версии 1.40.0, существует второе ограничение, которое не зависит от адреса — максимум 100 новых записей о дисплеях в час в общей сложности — поэтому неправильная конфигурация больше не может заполнить базу данных. Дисплеи продолжают работать, пока действует это ограничение; они просто не получают сохраненный идентификатор до тех пор, пока не закончится всплеск активности. Ограничение ограничивает ущерб, но не делает настройку безопасной.
+**Заголовки Trust Reverse Proxy Headers** должны оставаться отключенными, если перед адаптером действительно не находится обратный прокси-сервер, который завершает TLS и удаляет эти заголовки. `X-Forwarded-*` Заголовки, отправленные клиентом. При включении без них любое устройство может запрашивать разный адрес при каждом запросе. В этом случае адаптер регистрирует неверные адреса, и его ограничение на количество новых записей о дисплеях для каждого адреса больше ничего не ограничивает. Начиная с версии 1.40.0, существует второе ограничение, которое не зависит от адреса — максимум 100 новых записей о дисплеях в час в общей сложности — поэтому неправильная конфигурация больше не может заполнить базу данных. Дисплеи продолжают работать, пока действует это ограничение; они просто не получают сохраненный идентификатор до тех пор, пока не закончится всплеск активности. Ограничение ограничивает ущерб, но не делает настройку безопасной.
 
 ## Порты
 
@@ -160,15 +171,17 @@ hassemu.0.
 | 8123 / TCP | входящий    | интерфейс HA, с которым взаимодействует дисплей      |
 | 5353 / UDP | входящий    | mDNS, поэтому дисплеи самостоятельно находят сервер. |
 
+Для мониторинга времени безотказной работы и проверки работоспособности контейнеров используйте `http://<ip-of-your-ioBroker>:8123/health` Оно отвечает, ничего не создавая. `GET /` Это то, что дисплей отправляет при первом посещении, поэтому монитор, направленный на него, отобразится как новый дисплей; `HEAD /` ничего не создает.
+
 ## Возникающие вопросы
 
-**Можно ли запустить два экземпляра?** Нет. Порт 8123 занят клиентами HA, поэтому Hassemu работает только на одном хосте в сети.
+**Можно ли запустить два экземпляра?** Не на одном интерфейсе. Порт 8123 занят клиентами HA, поэтому два экземпляра на одном хосте работают только в том случае, если каждый привязан к своему собственному интерфейсу. На двух хостах ioBroker можно запустить по одному экземпляру; в этом случае дисплеи будут видеть два отдельных сервера.
 
-**Должен ли дисплей оставаться подключенным к адаптеру?** Да. Он получает страницу через адаптер, и от него зависят отображение страницы в автономном режиме и проверка целевого объекта. Если адаптер останавливается, дисплей продолжает отображать последнюю загруженную страницу, пока не попытается снова.
+**Обязательно ли постоянно подключать дисплей к адаптеру?** Да. Он получает страницу через адаптер, и от этого зависят страница с информацией об отключенном устройстве и проверка целевого объекта. Если адаптер отключается, панель управления остается на экране около 1,5 минут; затем дисплей отображает страницу с информацией об отключенном устройстве и самостоятельно возвращается к панели управления, как только адаптер снова подключается.
 
 **Можно ли переименовать дисплей?** Да — переименовать `clients.<id>` Объект отображается в обозревателе объектов. Адаптер сохраняет ваше имя и не перезаписывает его, даже если изменяется адрес отображения или имя хоста.
 
-**Почему для одного и того же дисплея появилась вторая запись?** Дисплей не отправил обратно свой cookie — обычно это происходит из-за сброса к заводским настройкам, очистки кэша браузера или режима конфиденциальности, который удаляет cookie. Удалите старую запись вместе с ней. `remove` кнопка. Причина в дисплее, а не в адаптере.
+**Почему для одного и того же дисплея появилась вторая запись?** Дисплей не отправил обратно свой cookie — обычно это происходит из-за сброса к заводским настройкам, очистки кэша браузера или WebView (прошивка Shelly 2.7.0 и новее: Настройки → Home Assistant) или режима конфиденциальности, который удаляет cookie. Удалите старую запись вместе с ней. `remove` кнопка. Причина в дисплее, а не в адаптере.
 
 **Нужно ли устанавливать Home Assistant?** Нет. Адаптер сам отвечает на запросы протокола HA. В этой конфигурации Home Assistant отсутствует.
 
@@ -180,6 +193,8 @@ hassemu.0.
 
 Если mDNS включен, но в журнале нет `mDNS: Broadcasting` Сообщение не дошло до адресата — обычно потому, что что-то другое занимает порт 5353. Отключите mDNS и введите адрес на дисплее вручную; всё остальное работает так же.
 
+Если приложение Home Assistant на Android 17 или более поздних версиях ничего не находит и не может подключиться даже с адресом, введенным вручную, значит, у него отсутствует _доступ к локальной сети_ — разрешите его в настройках приложения.
+
 ## Changelog
 
 <!--
@@ -187,35 +202,41 @@ hassemu.0.
     ### **WORK IN PROGRESS**
 -->
 
+### 1.46.1 (2026-09-25)
+
+- Improved: switching the master switch and refreshing the dashboard list now log their result — how many displays changed and how many dashboards were found
+
+### 1.46.0 (2026-09-25)
+
+- Fixed: a start that fails (port briefly in use, database not up yet) now restarts after 30 seconds instead of leaving the instance off until someone starts it by hand
+- Fixed: displays are no longer all removed after the adapter or its host was off for more than 30 days — the cleanup now counts from the most recently seen display
+- Fixed: an update from 1.0 or 1.1 no longer resets the global URL choice on every start — the URL you had set before the update stays in place for good
+- Fixed: on iOS the Home Assistant app no longer keeps its loading screen over the dashboard, and on Android the bottom of the dashboard no longer hides behind the navigation bar
+- Fixed: uptime monitors and container health checks no longer create display entries, and the adapter settings name the /health address meant for them
+- Fixed: stopping the adapter no longer waits on open connections or hangs while a display is mid-request, and a stop during the start no longer brings the server up
+- Fixed: room and function assignments move along reliably when an old datapoint is replaced, and a read error no longer gives the server a new identity
+- Changed: the sign-in hands its code to an unknown address only after a click on Continue, and a signed-in app is disconnected when its display is removed
+- Improved: mDNS announces an address the displays can reach — no link-local, container or VPN address — and announces again when the host's address changes
+- Improved: the reverse proxy option in the settings and the offline card on the display explain themselves in plain words, in all eleven languages
+
+### 1.45.0 (2026-09-17) — stable
+
+- Fixed: refreshing the dashboard list no longer removes a display's mode datapoint from its rooms and functions, and the datapoint no longer disappears for a moment while it is rewritten
+- Fixed: a failed request or migration now names its cause instead of "[object Object]", and an unexpected error inside the web server no longer breaks its own error answer to the display
+- Improved: when updating from a version before 1.37.0, the room and function assignments of the renamed URL datapoints move to their successors instead of being lost
+
+### 1.44.0 (2026-09-15)
+
+- Fixed: writing the master switch with the value it already has (a script re-asserting it) no longer resets every display's own choice — only a real change reaches the displays
+- Fixed: a disabled web instance no longer adds dashboard entries pointing at a port nobody listens on, and labels get an instance suffix only when more than one web server runs
+- Fixed: a display that signed in while the new-display throttle was active got a login that failed on its next request — the sign-in is now refused and works once the throttle lifts
+- Improved: a restart no longer rewrites every display's last-seen stamp and target address, and an instance with many displays comes up faster
+- Changed: the listen address moved to the standard setting key; an existing value is carried over automatically and the instance restarts once after the update
+- Changed: the instance settings now show the fixed port 8123, so the admin can warn when another instance on the same host already holds it
+
 ### 1.43.1 (2026-09-07)
 
 - Changed: the button that removes a display now carries a description — it deletes the display's folder and all its states, and the display returns as a new entry on its next request
-
-### 1.43.0 (2026-09-06)
-
-- Fixed: taking a display's choice back (mode `---`, or turning the master switch off) now reaches the display — until now it kept the dashboard it had until someone reloaded it by hand
-- Fixed: a display that lost power no longer holds up the adapter's shutdown for 30 seconds
-- Fixed: VIS projects are found on every VIS instance, not only on `vis.0` / `vis-2.0`
-- Fixed: upgrading from a pre-1.1.1 version no longer overwrites the whole instance configuration while removing the old URL setting
-- New: every display now shows the address it was actually sent to, so you can see at a glance where a display landed without walking through the global and per-display settings yourself
-- Changed: `info.serverUuid` and `global.enabled` carry clearer labels, and the per-display manual URL now has a description
-
-### 1.42.0 (2026-09-04)
-
-- Fixed: a leftover setting from older versions is now removed from the instance completely instead of only being switched off — switched off, it stayed behind for good
-
-### 1.41.0 (2026-09-03)
-
-- Fixed: renamed datapoints now reach installations that already exist — until now a changed name or description only ever showed up on a fresh install
-- Fixed: the object tree kept outdated labels ("Known display clients", "Client IP", "Forget this client") and showed a developer note in the global manual URL name
-- Changed: datapoint names now appear in your ioBroker language throughout the object tree, including the names the displays report for themselves
-- New: full user documentation in English and German covering setup, the object tree and troubleshooting, shown by the ioBroker documentation portal
-
-### 1.40.0 (2026-09-02)
-
-- Fixed: with trustProxy enabled but no sanitising reverse proxy in front, a single device could create unlimited display entries — a global ceiling now caps this
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

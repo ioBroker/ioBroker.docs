@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: JObNb3mH6TBuZRVR6M2DrrvThbhFPoFbcGhlET5N+pU=
+hash: 0/nY3jGltFsA+s5WRDQkjWCSBKaLlIQJt31xUrvWi9U=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/web-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.web.svg)
@@ -29,6 +29,12 @@ Bei einigen WebSocket-Clients kann es zu Leistungsproblemen bei der Kommunikatio
 [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates) lesen
 
 Eine Zertifizierungsstelle validiert eine HTTP-01-Anfrage auf Port 80, sodass diese Anfrage auf einem Host mit einer öffentlichen IP-Adresse an dem Adapter landet, der diesen Port belegt. Wenn **Answer ACME HTTP-01-Anfragen** aktiviert sind (`acmeChallenge` (Standardeinstellung) Diese Instanz dient den Tokens. `acme` Adapter veröffentlicht unter `/.well-known/acme-challenge/` und die `acme` Der Adapter muss den Zugriff auf den Port nicht unterbrechen. Nur Anfragen nach einem veröffentlichten Token werden hier beantwortet, alle anderen Anfragen werden unverändert weitergeleitet. Deaktivieren Sie diese Option, um den Pfad ausschließlich zur Webanwendung zu belassen.
+
+## HTTP/2
+
+Mit aktiviertem HTTPS verwendet der Webserver HTTP/2: Der Browser lädt die Seite und alle zugehörigen Dateien über eine einzige Verbindung mit vielen parallelen Anfragen. Clients, die HTTP/2 nicht unterstützen, greifen automatisch auf HTTP/1.1 zurück, und WebSockets funktionieren weiterhin – Browser öffnen sie über eine separate HTTP/1.1-Verbindung. Ohne HTTPS hat diese Option keine Auswirkung, da Browser ausschließlich HTTP/2 über TLS verwenden.
+
+Wenn ein Client oder eine Web-Erweiterung Probleme damit hat, schalten Sie die Option **"HTTP/2 verwenden** " um. `http2`) um bei HTTP/1.1 zu bleiben.
 
 ## Erweiterungen
 
@@ -168,12 +174,12 @@ Weitere Informationen finden Sie hier: <https://github.com/ioBroker/webserver?ta
 
 ## Autorisierung von Drittanbieterclients (OAuth)
 
-Der oben genannte Token-Endpunkt erfordert, dass der Client das ioBroker-Passwort des Benutzers verarbeitet. Clients, die außerhalb Ihrer Kontrolle laufen – MCP-Clients oder Web-Erweiterungen, die diese bereitstellen – dürfen dies nicht tun. Durch Aktivieren von **„Drittanbieter-Clients zulassen“** in den Einstellungen wird zusätzlich der browserbasierte OAuth2-Autorisierungscode-Flow mit PKCE bereitgestellt: Der Client wird auf eine Anmelde- und Zustimmungsseite weitergeleitet, der Benutzer bestätigt die Eingabe, und der Client erhält ein Token, das an die angeforderte Ressource gebunden ist.
+Der oben genannte Token-Endpunkt erfordert, dass der Client das ioBroker-Passwort des Benutzers verarbeitet. Clients, die außerhalb Ihrer Kontrolle laufen – MCP-Clients oder Web-Erweiterungen, die diese bereitstellen – dürfen dies nicht tun. Durch Aktivieren **von „Drittanbieter-Clients zulassen“** in den Einstellungen wird zusätzlich der browserbasierte OAuth2-Autorisierungscode-Flow mit PKCE bereitgestellt: Der Client wird auf eine Anmelde- und Zustimmungsseite weitergeleitet, der Benutzer bestätigt die Eingabe, und der Client erhält ein Token, das an die angeforderte Ressource gebunden ist.
 
 Diese Funktion ist standardmäßig deaktiviert. Wenn sie aktiviert ist:
 
 - Clients entdecken den Server durch `/.well-known/oauth-authorization-server` und sich selbst registrieren, es sei denn, **die Option „Selbstregistrierung von Kunden zulassen“** ist deaktiviert.
-- Nicht authentifizierte Anfragen, die _nicht_ danach fragen `text/html` werden beantwortet mit `401` und ein `WWW-Authenticate` Anstelle einer Weiterleitung zur Anmeldeseite wird eine Abfrage durchgeführt – eine Weiterleitung ist für einen API-Client nutzlos. Browser sind davon nicht betroffen.
+- Nicht authentifizierte Anfragen, die _nicht_ nachfragen `text/html` werden beantwortet mit `401` und ein `WWW-Authenticate` Anstelle einer Weiterleitung zur Anmeldeseite wird eine Abfrage durchgeführt – eine Weiterleitung ist für einen API-Client nutzlos. Browser sind davon nicht betroffen.
 - Web-Erweiterungen veröffentlichen ihre eigenen Ressourcenmetadaten unter `/.well-known/oauth-protected-resource/<path>` Diese Dokumente bleiben auch ohne Zugangsdaten lesbar.
 - **Legen Sie die öffentliche URL fest** , wenn der Server hinter einem Reverse-Proxy läuft, und verwenden Sie HTTPS: Remote-Clients lehnen unverschlüsselte Daten ab. `http://` Die
 
@@ -182,6 +188,24 @@ Diese Funktion ist standardmäßig deaktiviert. Wenn sie aktiviert ist:
 	### **WORK IN PROGRESS**
 -->
 
+### 9.1.8 (2026-09-24)
+
+- (@GermanBluefox) Ein leerer Körper für `cloud.X.remote.command` wird mit einem 400-Fehler abgelehnt, anstatt einen leeren Befehl zu schreiben, der ohne Wort verworfen wird.
+
+### 9.1.7 (2026-09-21)
+
+- (@joltcoke) Behoben: Nach dem Login landete der Benutzer erneut auf der angeforderten Seite, selbst wenn die URL einen Query-String enthielt. Das Ziel wurde nach der Dekodierung anhand einer Zeichenliste ohne "=" validiert, sodass jeder gültige Query-Parameter den Benutzer stattdessen zur Root-Seite weiterleitete. Ein Fragment der angeforderten URL wurde ebenfalls gespeichert.
+- (@GermanBluefox) Behoben: Bei einem Tippfehler im Passwort wird man nun mit einer Fehlermeldung zur Anmeldeseite weitergeleitet, anstatt einen 404-Fehler zu erhalten. Die angeforderte Seite geht dabei nicht verloren.
+- (@GermanBluefox) Behoben: Ein Deep Link, der mit einer JavaScript-Datei beantwortet wurde, behielt seine gesamte Abfragezeichenfolge bei – sie war beim ersten „&“ abgeschnitten worden.
+- (@GermanBluefox) Ein Ziel mit einem Steuerzeichen wird erneut abgelehnt: Browser entfernen Tabulatoren und Zeilenumbrüche, bevor sie eine URL lesen, die zu "/" wurde.<TAB> /host" in einen Link umwandeln, der diesen Server verlässt
+
+### 9.1.5 (2026-09-20)
+
+- (@GermanBluefox) Ergänzung: Die Instanzeinstellungen zeigen einen QR-Code für die ioBroker.visu-App an. Dieser enthält die Adressen und den Port dieser Instanz sowie die ioBroker.pro-Zugangsdaten einer Cloud- oder IoT-Instanz, falls vorhanden. Ohne eine solche Instanz kann die App diesen Server nur im lokalen Netzwerk erreichen.
+- (@GermanBluefox) Ergänzung: Mit aktiviertem HTTPS verwendet der Webserver HTTP/2 – der Browser lädt die Seite und alle zugehörigen Dateien über eine einzige Verbindung. Clients ohne HTTP/2 greifen automatisch auf HTTP/1.1 zurück; die neue Option „HTTP/2 verwenden“ in den Instanzeinstellungen deaktiviert diese Funktion.
+- (@GermanBluefox) `POST /state/<id>` Erstellt den Zustand, in den es für die sechs IDs schreibt, an die eine visuelle App meldet: `vis.<X>.<device>.` Plus `battery.level`, `battery.state`, `brightness`, `currentLocation`, `alive` oder `instanceId`, zusammen mit dem Gerät, zu dem sie gehören. Sie werden aus den Definitionen im Adapter erstellt, niemals aus der Anfrage, und jede andere ID wird wie zuvor mit einem 404-Fehler beantwortet.
+- (@GermanBluefox) Ein Befehl, den eine visuelle Anwendung schreibt in `cloud.<X>.remote.command` wird umgewandelt in `cloud.<X>.devices.<device>.*` Dies geschieht, wenn der Cloud-Adapter nicht ausgeführt wird. Die App meldete währenddessen nichts, obwohl der Wert empfangen wurde. Solange der Adapter läuft, ändert sich nichts – er erledigt dies automatisch. Der Befehlsstatus wird erstellt, wenn der Adapter fehlt, sodass auch eine Installation ohne Cloud-Adapter gemeldet werden kann.
+
 ### 9.1.4 (2026-08-31)
 
 - (@GermanBluefox) Aktualisierte Pakete
@@ -189,21 +213,6 @@ Diese Funktion ist standardmäßig deaktiviert. Wenn sie aktiviert ist:
 ### 9.1.3 (2026-08-28)
 
 - (@GermanBluefox) Aktualisierte Pakete
-
-### 9.1.2 (2026-08-27)
-
-- (@GermanBluefox) Die Einstellung wurde hinzugefügt. `acmeChallenge` (standardmäßig aktiviert): Der Webserver beantwortet die vom ACME-Adapter veröffentlichten ACME HTTP-01-Herausforderungen, sodass der ACME-Adapter diese Instanz nicht mehr stoppen muss, um Port 80 zu erreichen.
-
-### 9.1.1 (2026-08-26)
-
-- (@GermanBluefox) Die fehlenden CORS-Header wurden für alle Routen behoben, die antworten, ohne die Anfrage weiterzuleiten – dies betraf den gesamten OAuth2-Server. Das Abrufen eines Tokens von einem Browser einer anderen Domain schlug fehl. `No Access-Control-Allow-Origin header is present` Die CORS-Middleware ist nun vor allen Routen anstatt dahinter registriert.
-- (@GermanBluefox) Ein reflektierter Ursprung wird nun zusammen mit gesendet `Vary: Origin` und eine nicht festgelegte Ursprungs-, Methoden- oder Headerliste wird nicht mehr als Literalzeichenkette zurückgegeben. `undefined` in der Antwort
-
-### 9.1.0 (2026-08-04)
-
-- (@GermanBluefox) Der OAuth2-Autorisierungscode-Flow wurde mit PKCE hinzugefügt, sodass Drittanbieter-Clients (z. B. MCP-Clients) autorisiert werden können, ohne das Benutzerpasswort einzusehen.
-- (@GermanBluefox) Nicht authentifizierte Nicht-HTML-Anfragen erhalten jetzt eine `401` Eine Authentifizierungsanfrage anstelle einer Anmeldeumleitung ist erforderlich, wenn OAuth aktiviert ist.
-- (@GermanBluefox) Aktualisiert `@iobroker/webserver` bis 2.0.1
 
 ## License
 The MIT License (MIT)

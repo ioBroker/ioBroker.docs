@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cloud/README.md
 title: ioBroker Cloud-Adapter
-hash: D4/31oNNg8hFbzAZM2/B9qkJ3cSrn58qXixte5ZRV0s=
+hash: O1e25HdQqdwUOxkcQgeXtotAsysHeauu4N30s+pBTlI=
 ---
 ![Logo](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
@@ -17,7 +17,7 @@ hash: D4/31oNNg8hFbzAZM2/B9qkJ3cSrn58qXixte5ZRV0s=
 
 Dieser Adapter ermöglicht die Verbindung vom Internet über die ioBroker-Cloud zur lokalen Installation von ioBroker.
 
-**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Informationen und Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
 ## Einstellungen
 
@@ -67,7 +67,7 @@ Reservierte Namen sind `ifttt`, `text2command`, `simpleApi`, `swagger` Diese mü
 
 ### text2command
 
-Sie können schreiben `text2command` In der Whitelist können Sie POST-Anfragen senden an `https://iobroker.net/service/text2command/<user-app-key>` Daten schreiben in `text2command.X.text` Variable.
+Sie können schreiben `text2command` In der Whitelist können Sie POST-Anfragen senden an `https://iobroker.net/service/text2command/<user-app-key>` um Daten zu schreiben in `text2command.X.text` Variable.
 
 "X" kann in den Einstellungen über die Option "Text2Command-Instanz verwenden" definiert werden.
 
@@ -76,7 +76,7 @@ Sie können schreiben `text2command` In der Whitelist können Sie POST-Anfragen 
 Folgende Befehle können verwendet werden (nur Pro-Version):
 
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - Zustandswert lesen =>`{"val":103.516,"ack":true,"ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - um den Statuswert zu lesen =>`103.641`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - Zustandswert lesen =>`103.641`
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - um den Statuswert festzulegen =>`{"result":"OK"}`
 
 **Vergessen Sie nicht, Folgendes hinzuzufügen `simpleApi` zu den in der Konfiguration zulässigen Diensten.**
@@ -86,6 +86,30 @@ Folgende Befehle können verwendet werden (nur Pro-Version):
 Wenn HTTPS (Sicherheit) oder Authentifizierung auf einer bestimmten Webinstanz aktiviert ist, funktioniert es nicht.
 
 Sie können HTTPS und die Authentifizierung für diese Webinstanz deaktivieren, es ist jedoch besser, eine neue Webinstanz zu erstellen, die an … gebunden ist. `localhost` und wählen Sie diese Instanz in den Cloud-Einstellungen aus.
+
+## Remote-Shell (SSH)
+
+Auf **der Pro-Version** kann die Cloud als SSH-Jump-Host fungieren, sodass Sie von überall aus auf eine Shell (oder einen beliebigen TCP-Dienst) auf diesem Rechner zugreifen können. Die Authentifizierung erfolgt mit Ihrer Cloud-E-Mail-Adresse und Ihrem Passwort. Die interne SSH-Verbindung ist zwischen Ihrem Client und dem lokalen Server Ende-zu-Ende-verschlüsselt. `sshd` Die Cloud leitet also nur Bytes weiter.
+
+Aktivieren Sie es unter **„Remote Shell“** in den Adaptereinstellungen:
+
+- **Remote-Shell aktivieren** – standardmäßig deaktiviert.
+- **Zulässige Ziele** – eine Regeltabelle; ein Ziel ist zulässig, wenn es in einer Zeile übereinstimmt. Dies ist die maßgebliche Zulassungsliste; die Cloud öffnet nur Ziele, die der Adapter erlaubt. Jede Zeile enthält:
+
+  - **Host** – eine einzelne IP-Adresse oder ein Hostname (`127.0.0.1`, `localhost`), ein Joker (`192.168.*`), ein CIDR (`192.168.1.0/24`), oder ein Bereich (`192.168.1.10-192.168.1.50`).
+  - **Ports** — eine Liste und/oder Bereiche (`22`, `22, 8081`, `8000-8100`), oder leer /`*` /`all` für jeden beliebigen Hafen.
+
+  Standard: `127.0.0.1` Und `localhost`, ein beliebiger Port (nur auf diesem Rechner). So kann eine Zeile nur SSH auf dem ioBroker-Server freigeben, während eine andere ein ganzes Subnetz öffnet, z. B. `127.0.0.1 → 22` Plus `192.168.1.0/24 → *` Die
+
+Stellen Sie dann eine Verbindung her (wobei Ihr eigener SSHD-Server von Port 22 verschoben wird, und `pi` (Benutzer dieses Rechners):
+
+```bash
+ssh -J <email>@iobroker.pro pi@localhost
+```
+
+`-L 8081:localhost:8081` tunnelt die Admin-Benutzeroberfläche, `scp` /`sftp` Dateien kopieren usw. UDP wird nicht übertragen (daher benötigt KNXnet/IP über UDP ein TCP-fähiges Gateway oder ein VPN).
+
+Beim Start prüft der Adapter, ob ein SSH-Server erreichbar ist. `127.0.0.1:22` und veröffentlicht das Ergebnis im Staa&#x74;** `info.sshAvailable` ** Die Einstellungsseite zeigt diesen Status live an: Wenn kein SSH-Server gefunden wird (oder das Konto nicht pro ist), wird ein Hinweis angezeigt und **die Remote-Shell-Einstellungen werden vollständig ausgeblendet** , sodass sie erst dann angezeigt werden, wenn durch deren Aktivierung tatsächlich eine Shell erreicht werden kann.
 
 ## Android-Anwendung
 
@@ -104,25 +128,23 @@ Nun waren sie zu finden in `cloud.X.devices.NAME`:
 -->
 
 ## Changelog
+### 6.2.5 (2026-09-24)
+* (@GermanBluefox) A POST body that arrives as a buffer is decoded instead of stringified, so the telemetry of the visu apps is no longer lost on its way through the cloud
+* (@GermanBluefox) An empty body for a reported value, and a command without `deviceName`/`name`, are logged instead of being dropped silently
+
+### 6.2.4 (2026-09-21)
+* (@GermanBluefox) Updated packages
+
+### 6.2.1 (2026-09-17)
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Clear subscriptions on cloud disconnection
+
 ### 6.1.3 (2026-08-26)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Migrated blockly to TypeScript
 
 ### 6.1.2 (2026-06-13)
 * (@GermanBluefox) Added support of credentials manager
-
-### 6.0.5 (2026-06-01)
-* (bluefox) Corrected the command object to be writable
-
-### 6.0.4 (2026-05-17)
-* (bluefox) Respect the types of states if writing from visu app
-
-### 6.0.1 (2026-03-04)
-* (bluefox) Added communication with new android application
-* (bluefox) Dropped support node 18
-* (bluefox) Implemented QR Code for ioBroker.visu app
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.cloud/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

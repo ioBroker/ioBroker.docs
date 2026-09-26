@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tibberlink/docu/LocalPulse.md
 title: Прямой локальный опрос данных Pulse.
-hash: CP19A9ONpbl1e/8o9XfMfDciz3IWfuSGv+4HQueVRj8=
+hash: ZtVO750w7BC0LluIZpk+58xMpeCEJoUdD+2dIQFyy84=
 ---
 # Прямой локальный опрос данных Pulse.
 
@@ -15,6 +15,17 @@ _Часть [документации ioBroker.tibberlink](/#/adapters/tibberlin
 <https://github.com/marq24/ha-tibber-pulse-local>
 
 Если всё работает корректно, данные с счётчика будут записываться в состояния ioBroker каждые 2 секунды.
+
+## Конечные точки прошивки моста
+
+Прошивка Tibber Bridge `1794-…` Переименованы локальные пути HTTP JSON:
+
+| Цель                               | Наследие                  | Новый (FW ≥1794)               |
+| ---------------------------------- | ------------------------- | ------------------------------ |
+| Необработанная телеграмма счетчика | `/data.json?node_id=N`    | `/node_data.json?node_id=N`    |
+| Метрики / режим\_счетчика          | `/metrics.json?node_id=N` | `/node_metrics.json?node_id=N` |
+
+Адаптер сначала пытается использовать новые пути, а при ошибке HTTP 404 возвращается к устаревшим, поэтому обе версии прошивки продолжают работать. См. также [ha-tibber-pulse-local#129](https://github.com/marq24/ha-tibber-pulse-local/discussions/129) и issue #947.
 
 ## Поддерживаемые режимы работы счетчика
 

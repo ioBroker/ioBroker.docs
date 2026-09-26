@@ -49,7 +49,10 @@ From version 0.9.0 on, the adapter also supports to connect to serial devices re
 * **Update unchanged states**: When a telegram arrives all states will be updated, even if their value did not change. (default: on)
 * **Force energy units to kWh**: All energy units (Wh and J) will be converted to kWh. (default: off)
 * **Temporarily block device after consecutive failures**: If 10 consecutive telegrams of the same device are not parsed successfully the device will be ignored until adapter restart (default: on)
-* **Only handle devices that already have an object tree**: Telegrams of devices that do not have an object tree yet are ignored, so no new devices are created - useful once every meter you care about has been set up. Telegrams that cannot be decoded at all are ignored just as well: they do not add a device to the AES key list and they are not written to `info.rawdata`. The automatic block list still counts them, so that an unwanted device stops costing a decoding attempt - it just does not say so in the log. The devices are looked up when the adapter starts, so a device you delete from the object tree is gone for good after the next restart, and a device that should be picked up again needs one as well. (default: off)
+* **Only handle devices that already have an object tree**: Telegrams of devices that do not have an object tree yet are ignored, so no new devices are created - useful once every meter you care about has been set up. Telegrams that cannot be decoded at all are ignored just as well: they do not add a device to the AES key list and they are not written to `info.rawdata`. The automatic block list still counts them, so that an unwanted device stops costing a decoding attempt - it just does not say so in the log. A device you delete from the object tree is gone for good right away. The devices are looked up when the adapter starts, so a device that should be picked up again needs a restart. (default: off)
+* **Overwrite name, unit and role of the data states**: Name, unit and role of a data state follow the decoded telegram - after an update of the parser, or when "Force energy units to kWh" is switched - but only as long as they are what the adapter wrote itself. A name you gave a state, or a role you changed for another adapter, stays as it is, and so does everything of a state an earlier version of the adapter created. Switch this on to set every data state back to what the adapter would create it with at its next telegram, your own names included, and off again once that has happened. (default: off)
+
+Every data state remembers which data record it was created for - its storage number, tariff, sub-unit, function field (instantaneous, maximum, minimum, error state) and VIF extensions. The id of a state only names the position of a record in the telegram, its storage number and its type, so a meter that sends its records in different orders, or telegrams of different layouts, can put another record at the same id. Such a value is skipped instead of being written to a state that describes a different record, and the log says so once per state. A state created by an earlier version of the adapter takes the first record that arrives after the update as the one it stands for.
 
 Compact telegrams (used by some Kamstrup devices) are supported automatically: the structure of a full telegram is remembered - with the device, so that it survives a restart of the adapter - and reused to decode the compact ones. Only the compact telegrams a device sends before it has sent a full one for the first time cannot be decoded and are silently skipped.
 
@@ -134,6 +137,24 @@ Two things are worth knowing:
 * **A description replaces the one the parser ships** for that manufacturer, rather than adding to
   it. Describing one value of an Itron smoke detector means its other 25 are no longer written.
 
+### Telegram variants
+
+Most meters send telegrams of one layout. Some send a second one now and then - the values of the
+last billing period, or setup data - and a few alternate between several. The adapter counts every
+layout of a device as a variant, named by the checksum of its record headers (e.g. `3A7F`). The full
+and the compact telegrams of a layout are the same variant. What it has seen is kept with the device
+object, so it survives a restart; the counters are written at most once an hour, and a new variant
+right away.
+
+The "Telegram variants" tab shows them: "Show the telegram variants" lists every variant of every
+device, with the kind of frames, how many telegrams were seen, when it was seen first and last, and
+the states its records are written to. None of the variants is treated as the better one - a value
+of each goes to the state of its own record. If you do not want the values of a variant at all,
+enter the device address and the variant in the list of ignored telegram variants: its telegrams
+are dropped once they are decoded, and they are still counted in the table. The device address is
+the full one, with the manufacturer code (`LSE-58511882`, not `58511882`); the log says so at the
+start for a row that can never match.
+
 ## Updating from 0.11.x
 
 Version 0.12.0 replaces the built-in telegram parser with the
@@ -180,6 +201,20 @@ battery life of a PRIOS meter is reported in months rather than in years.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (ChL) Every data state remembers the data record it was created for, and a value of a different record at the same position of a telegram is skipped instead of being written to it
+* (ChL) Name, unit and role of the data states follow the decoded telegram as long as nobody changed them; names you gave a state and states of earlier versions stay as they are, and the new option "Overwrite name, unit and role of the data states" sets them all back
+* (ChL) Fix the states of data records that a device did not have in its first telegram after a start of the adapter: they were written without being created
+* (ChL) Fix states, and devices, that were deleted in the object tree while the adapter was running: they were written without an object until the next start, and are created again by the next telegram now
+* (ChL) Count the telegram variants of every device - the layouts of data records a meter sends - and show them in the new "Telegram variants" tab of the admin UI
+* (ChL) Telegram variants can be ignored per device, so that the values of a layout nobody wants are not written; the log says at the start which entries of the list can never match
+
+### 0.13.1 (2026-09-22)
+* (ChL) Convert the adapter to TypeScript
+* (ChL) Fix the "Simple Hexstring" receiver rejecting a telegram that carries its block CRCs without announcing them with a leading "Z": the parser is left to look for them rather than being told there are none, which made it read the first CRC byte as the CI field (#276)
+* (ChL) The "Simple Hexstring" receiver drops a line that is no telegram instead of turning it into one, takes a lower case "z" as the CRC marker as well, and reports the frame type of the configured mode again
+* (ChL) Fix the instance reporting the connection of the receiver as its connection to the ioBroker databases: a receiver that was away showed an instance as disconnected that was talking to them, and a connected one kept js-controller from stopping an adapter that had lost the states database
+
 ### 0.13.0 (2026-09-09)
 * (ChL) Describe the manufacturer specific data records of a meter in the admin UI, the result become states of their own
 * (ChL) Update wireless-mbus-parser to 1.5.0: support for decoding manufacturer specific blobs - description for Itron smoke detector included.
@@ -197,21 +232,6 @@ battery life of a PRIOS meter is reported in months rather than in years.
 * (ChL) Fix Techem and Diehl (PRIOS) meters, which 0.12.0 decoded wrongly or not at all - the states it wrote for them carry wrong names and values and can be deleted
 * (ChL) Fix the adapter stopping instead of blocking a device whose telegrams keep failing to decode
 * (ChL) A 64 bit measured value with a scaling factor is a number now, like every other measured value
-
-### 0.12.0 (2026-09-03)
-* (ChL) Replace the built-in telegram parser with the wireless-mbus-parser library
-* (ChL) New admin configuration UI (JSON config); a serial port can now simply be typed in, the separate "custom port" field is gone
-* (ChL) Fix shutdown of the adapter: a serial connection over TCP was not closed properly and could reconnect itself while the adapter was stopping
-* (ChL) Measured values are now stored as numbers instead of preformatted strings - a history adapter that stored them as text starts a new series
-* (ChL) Fix decoding of the tariff and device unit of a data record
-* (ChL) Compact telegrams are now supported without a separate option; the option "Cache for compact frames support" was removed
-* (ChL) Follow further ioBroker repository recommendations: move the test code below `test/`, use the short `admin/i18n/<lang>.json` layout and clean up the keywords
-* (ChL) Run the adapter tests only after linting and type checking succeeded
-* (ChL) Use the adapter's own timer functions, so pending timers are cleared when the adapter is unloaded
-* (ChL) Fix receivers getting stuck after disturbed reception: a damaged telegram no longer takes the following ones with it, and no longer leaves the adapter yellow until it is restarted by hand (#308, #309)
-* (ChL) The adapter reconnects to the receiver instead of staying idle or stopping when the connection fails
-* (ChL) Fix telegrams getting lost when several meters transmit at once, and damaged data being reported as readings of devices that do not exist
-* (ChL) Declare the state that holds the raw data of an unreadable telegram as text rather than as a numeric value
 
 ## License
 

@@ -350,6 +350,9 @@ There are some programs in folder `test` to test the TCP communication:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 9.2.0 (2026-09-25)
+- (@GermanBluefox) The adapter reports the resources it really occupies to js-controller 8, which keeps a per-host registry of them (`system.host.<name>.usedResources`): the serial port in RTU mode - as master and as slave - and the port a TCP slave or the proxy listens on. A master over TCP, UDP or SSL reports nothing, because the endpoint belongs to the device on the other side. Before a port is opened, the log names the other instance that has declared it, instead of only "Resource temporarily unavailable" or EADDRINUSE. The reporting itself lives in `@iobroker/modbus`, so it needs the next release of that package; an older js-controller is unaffected
+
 ### 9.1.2 (2026-09-20)
 - (@GermanBluefox) Added explanations of timings in GUI
 - (@GermanBluefox) Corrected proxy mode with multiple DeviceIDs
@@ -371,13 +374,6 @@ There are some programs in folder `test` to test the TCP communication:
 ### 9.0.1 (2026-08-06)
 - (@GermanBluefox) Node.js 22 is required or higher
 - (@GermanBluefox) GUI migrated to React 19/MUI9
-
-### 8.3.1 (2026-07-13)
-- (@GermanBluefox) Fixed repeated `Can not set value: The value of "offset" is out of range` errors when a device answers a combined read block with fewer registers than requested (issue #502, via `@iobroker/modbus`): the short response is now reported with a single clear warning and the values that were returned are still stored. Workaround without the update: set "Max address gap to combine" to 0
-- (@GermanBluefox) Added Modbus/UDP support as a master (issue #222): select "UDP (Master)" as the connection type. Requires `@iobroker/modbus` >= 7.6.0
-- (@GermanBluefox) The register table export/import dialog can now use CSV (`;`-separated, quoted) or JSON in addition to TSV, and the data can be saved to / loaded from a file (issue #249): pick the format in the dialog to mass-edit the data points in Excel or a text editor. Empty columns (e.g. an unused "name") are preserved, so a round-trip export→edit→import no longer breaks the format
-- (@GermanBluefox) Register tables with many data points are now much faster to edit (issue #249): rows are virtualized (only the visible ones are rendered), and a new "freeze order" toolbar button keeps rows from re-sorting/jumping while you type
-- (@GermanBluefox) When "Multi device IDs" is enabled, register tables can be shown as a tree grouped by slave/device ID with collapsible sections (issue #249): toggle it with the new "Group by device ID" toolbar button
 
 ## License
 The MIT License (MIT)

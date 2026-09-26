@@ -90,6 +90,10 @@ After the first start, the devices must be scanned. It can be done in the config
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 3.0.1 (2025-03-24)
 * (bluefox) License was changed to MIT. The adapter is now free of charge.
 
@@ -161,7 +165,7 @@ After the first start, the devices must be scanned. It can be done in the config
 The MIT License (MIT)
 
 Copyright (c) 2018-2024 Denis Haev <dogafox@gmail.com> Private License
-Copyright (c) 2025 Denis Haev <dogafox@gmail.com> MIT License
+Copyright (c) 2025-2026 Denis Haev <dogafox@gmail.com> MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

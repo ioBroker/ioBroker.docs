@@ -55,4 +55,4 @@ Before using you must first connect all devices to MAX! Cube via MAX! Firmware.
 
 ## License
 
-MIT Copyright (c) 2017-2021 bluefox
+MIT Copyright (c) 2017-2026 bluefox

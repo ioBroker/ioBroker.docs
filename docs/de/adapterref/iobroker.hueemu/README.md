@@ -14,10 +14,12 @@ BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-
 # hueemu — eine Philips-Hue-Bridge für Geräte, die nur Hue sprechen
 
 Dieser Adapter lässt ioBroker im lokalen Netz wie eine **Philips-Hue-Bridge**
-aussehen (eine v2-Bridge, Modell BSB002). Alles, was Hue-Lampen steuern kann — ein
-Logitech-Harmony-Hub, ein älterer Echo, ein Wandpanel, eine eingestellte
-Dashboard-App — findet die Bridge, sieht die von dir veröffentlichten Lampen und
-schaltet sie. Hinter jeder dieser „Lampen" steckt ein ioBroker-Datenpunkt deiner Wahl.
+aussehen (eine v2-Bridge, Modell BSB002). Alles, was Hue-Lampen über die Hue-API
+steuern kann — ein Logitech-Harmony-Hub, ein älterer Echo, ein Wandpanel, eine
+eingestellte Dashboard-App — sieht die von dir veröffentlichten Lampen und schaltet sie.
+Clients, die das Netz per SSDP absuchen (Alexa, Harmony), finden die Bridge selbst;
+jedem anderen Client gibst du ihre IP-Adresse. Hinter jeder dieser „Lampen" steckt ein
+ioBroker-Datenpunkt deiner Wahl.
 
 Es ist das Gegenstück zu einer echten Bridge: statt Philips-Hardware antwortet deine
 ioBroker-Instanz — und die Lampen, die sie anbietet, können alles sein, was der
@@ -40,8 +42,9 @@ Heizungssteuerung.
 
 ### 1. Instanz anlegen
 
-Adapter installieren, eine Instanz anlegen. Sie läuft auf Port 8080 und meldet sich
-sofort im Netz an — vor dem ersten Start ist nichts einzustellen.
+Adapter installieren, eine Instanz anlegen. Die Instanz wird **gestoppt** angelegt:
+erst Host / IP-Adresse und Port wählen (Schritte 2 und 3), dann starten. Sie lauscht auf
+Port 8080, solange du keinen anderen wählst.
 
 ### 2. Host / IP-Adresse
 
@@ -52,14 +55,19 @@ diese den Clients an.
 Eine feste Adresse trägst du nur ein, wenn dein Rechner in **mehreren Netzen** hängt
 und der Client ihn nur über eines davon erreicht.
 
-### 3. HTTP-Port
+### 3. Port
 
 `8080` ist die Vorgabe und funktioniert mit einem Harmony-Hub.
 
-**Manche Alexa-Firmware-Stände finden eine Bridge nur auf Port 80.** Findet Alexa die
-Bridge nicht, stell den Port auf `80`. Unter Linux braucht ein Port unter 1024
-üblicherweise zusätzliche Rechte für den ioBroker-Prozess — daran liegt es, wenn der
-Adapter Port 80 nicht belegen kann.
+**Alexa braucht Port 80, und aktuelle Echo-Geräte versuchen zusätzlich HTTPS auf 443.**
+Für Alexa stellst du **Port** auf `80` und **HTTPS-Port** auf `443`; die Bridge antwortet
+auf HTTPS mit ihrem eigenen, selbst signierten Zertifikat. Ein Port unter 1024 braucht
+das Recht, ihn zu belegen — der ioBroker-Installer gibt es Node.js unter Linux; meldet
+das Protokoll, dass der Port nicht belegt werden kann, fehlt dieses Recht.
+
+**X-Forwarded-\* Header vertrauen** bleibt aus, außer der Adapter steht hinter einem
+Reverse-Proxy, dem du vertraust und der vom Client mitgeschickte Weiterleitungs-Header
+entfernt. Es ändert nur, welche Client-Adresse das Debug-Protokoll zeigt.
 
 ### 4. Lampen veröffentlichen
 
@@ -74,12 +82,12 @@ steht anschließend als Anzahl in der Meldung — es verschwindet also nichts st
 **Von Hand** — auf **Licht hinzufügen** klicken, Namen vergeben, Lampentyp wählen und
 jedes Feld per Objektauswahl auf einen ioBroker-Datenpunkt zeigen lassen.
 
-| Lampentyp          | Was der Client sieht                |
-| ------------------ | ----------------------------------- |
-| **Ein/Aus**        | ein und aus                         |
-| **Dimmbar**        | ein/aus und Helligkeit              |
-| **Farbtemperatur** | ein/aus, Helligkeit, Warm-/Kaltweiß |
-| **Farbe**          | ein/aus, Helligkeit, volle Farbe    |
+| Lampentyp          | Was der Client sieht                     |
+| ------------------ | ---------------------------------------- |
+| **Ein/Aus**        | ein und aus (als dimmbare Lampe gezeigt) |
+| **Dimmbar**        | ein/aus und Helligkeit                   |
+| **Farbtemperatur** | ein/aus, Helligkeit, Warm-/Kaltweiß      |
+| **Farbe**          | ein/aus, Helligkeit, volle Farbe         |
 
 Jede Lampe behält ihre Nummer dauerhaft: Lampen löschen oder umsortieren ändert für die
 anderen nichts, Alexas Routinen zeigen weiter auf die Lampen, mit denen sie eingerichtet
@@ -96,8 +104,14 @@ entspricht dem Knopfdruck auf einer echten Bridge.
 2. Innerhalb von **50 Sekunden** die Gerätesuche im Client starten
 3. Ein neuer Eintrag unter `hueemu.0.clients.` bestätigt die Kopplung
 
-**Alexa (älterer Echo):** Alexa-App → Geräte → `+` → Philips Hue.
-**Harmony:** Harmony-Einrichtung → Gerät hinzufügen → Beleuchtung → Philips Hue → Bridge suchen.
+**Alexa (älterer Echo):** Alexa-App → Geräte → `+` → Philips Hue → **Philips Hue V1**.
+Hast du mehrere Echos, lass nur einen suchen. Echo-Geräte der ersten Generation können
+diesen Weg nicht mehr. Alexa verwaltet höchstens 49 Lampen je Bridge — bei mehr findet
+sie keine. Nimm eine emulierte Bridge je Alexa-Konto: zwei Instanzen melden ihre Lampen
+unter denselben Kennungen, und Alexa verwechselt sie.
+
+**Harmony:** MyHarmony-Desktop-Software → Geräte → Gerät hinzufügen → Nach Geräten
+suchen (oder Beleuchtung → Philips Hue).
 
 ## Werteskalen — was du prüfst, wenn eine Farbe falsch aussieht
 
@@ -118,10 +132,13 @@ springt sie auf volle Helligkeit: öffne ihre Karte und stell die Skala von Hand
 „Automatisch (aus dem Datenpunkt)" ist die Einstellung, mit der der Adapter entscheidet.
 
 - **Helligkeit / Sättigung** — `Prozent (0..100)` bei einem üblichen `level.dimmer`,
-  `Normalisiert (0..1)`, oder `Roh (1..254)` bei einer Quelle im Hue-eigenen Bereich
+  `Normalisiert (0..1)`, `Hue-Roh (1..254)` bei einer Quelle im Hue-eigenen Bereich,
+  oder `Byte (0..255)`
 - **Farbton** — `Grad (0..360)` bei einem normalen ioBroker-Farbdatenpunkt,
-  `Nativ` bei 0–65535
-- **Farbtemperatur** — `Kelvin` bei Werten wie 2700–6500, `Nativ` bei Mired (etwa 153–500)
+  `Nativ (keine Umrechnung)` bei 0–65535
+- **Farbtemperatur** — `Kelvin` bei Werten wie 2700–6500, `Nativ (keine Umrechnung)`
+  bei Mired (etwa 153–500), `Prozent (0..100, 0 = kalt)` bei einem Datenpunkt, der in
+  Prozent von kalt nach warm läuft
 
 ## Lampen ohne Ein/Aus-Datenpunkt
 
@@ -145,9 +162,13 @@ hueemu.0.
 ```
 
 `info.connection` ist die schnelle Antwort auf „läuft es überhaupt?". Ein Start kann aus
-Gründen scheitern, die man der Instanzliste nicht ansieht — der HTTP-Port ist belegt, oder
-es gibt keine brauchbare Netzwerkadresse — und dann steht die Ursache im Klartext in
-`info.error`.
+Gründen scheitern, die man der Instanzliste nicht ansieht. Ein Fehler des Systems — etwa
+ein schon belegter Port — steht dann unverändert in `info.error`; bei einem Problem, das
+der Adapter selbst erkennt (kein Port gesetzt, keine brauchbare Netzwerkadresse), zeigt
+`info.error` `Unknown`, und das Protokoll trägt die Erklärung.
+
+Einen gekoppelten Client entfernst du, indem du seinen Eintrag unter `hueemu.0.clients`
+löschst — sein Schlüssel gilt ab sofort nicht mehr.
 
 `disableAuth` ist eine Wartungshilfe, keine Dauereinstellung: damit kann jedes Gerät in
 deinem Netz deine Lampen ohne Kopplung steuern. Neue Clients sind ohnehin auf 100 pro
@@ -155,11 +176,11 @@ Stunde begrenzt; eine einzelne Warnung im Protokoll sagt dir, wann diese Grenze 
 
 ## Ports, die der Adapter benutzt
 
-| Port | Protokoll | Wofür                                | Einstellbar                            |
-| ---- | --------- | ------------------------------------ | -------------------------------------- |
-| 8080 | TCP       | die Hue-Schnittstelle selbst         | ja — Clients erfahren ihn per SSDP     |
-| 1900 | UDP       | Erkennung, damit Clients dich finden | nein — vom UPnP-Standard festgelegt    |
-| —    | TCP       | optionales HTTPS                     | ja, aus, solange kein Port gesetzt ist |
+| Port | Protokoll | Wofür                                    | Einstellbar                            |
+| ---- | --------- | ---------------------------------------- | -------------------------------------- |
+| 8080 | TCP       | die Hue-Schnittstelle selbst (Alexa: 80) | ja — Clients erfahren ihn per SSDP     |
+| 1900 | UDP       | Erkennung, damit Clients dich finden     | nein — vom UPnP-Standard festgelegt    |
+| —    | TCP       | optionales HTTPS (Alexa: 443)            | ja, aus, solange kein Port gesetzt ist |
 
 ## Wenn etwas nicht geht
 
@@ -167,11 +188,13 @@ Stunde begrenzt; eine einzelne Warnung im Protokoll sagt dir, wann diese Grenze 
 ioBroker-Rechner offen ist und beide im selben Netzsegment liegen — ein Gastnetz oder
 ein eigenes VLAN funktioniert ohne zusätzliche Wegeleitung nicht. Hat der Rechner
 mehrere Netzwerkkarten, trag unter **Host / IP** die konkrete Adresse ein statt
-`0.0.0.0`. Bei Alexa: Port 80 probieren.
+`0.0.0.0`. Für Alexa siehe Port 80 und HTTPS 443 oben.
 
 **Die Kopplung schlägt fehl.** `startPairing` muss `true` sein, **bevor** du die Suche
-im Client startest, und das Fenster ist nur 50 Sekunden offen. Nach einer erfolgreichen
-Kopplung schließt es sich wieder — genau wie bei einer echten Bridge.
+im Client startest, und das Fenster ist nur 50 Sekunden offen. Ein Client, der sich per
+Schlüsselanfrage koppelt, schließt es wieder — genau wie bei einer echten Bridge; ein
+Client, der beim Abfragen der Lampen aufgenommen wird, lässt es bis zum Ende der 50
+Sekunden offen.
 
 **Eine Lampe erscheint, reagiert aber nicht.** Prüfe, ob der angebundene Datenpunkt
 überhaupt beschreibbar ist. Ein Status-Datenpunkt (eine Rückmeldung dessen, was ein
@@ -179,6 +202,10 @@ Gerät berichtet) lässt sich lesen, aber nicht schreiben — die Lampe zeigt da
 Wert an und ignoriert jeden Befehl.
 
 **Eine Lampe zeigt die falsche Farbe oder Helligkeit.** Siehe „Werteskalen" oben.
+
+**Zurück auf eine Version unter 1.18.0** wird nicht unterstützt: die ältere Version
+findet die Lauschadresse unter ihrem neuen Schlüssel nicht mehr und nummeriert die
+Lampen neu, Alexa sieht dann andere Lampen.
 
 **Du kommst vom alten `createLight`-Aufbau.** Deine Lampen werden beim ersten Start
 automatisch umgestellt, der Adapter startet dabei einmal neu. Von Hand ist nichts zu
@@ -191,11 +218,7 @@ jede Lampe jetzt direkt auf den Gerätedatenpunkt zeigen lassen und dieses Skrip
 Der Adapter spricht ausschließlich mit Geräten in deinem eigenen Netz; er hat keine
 Cloud-Anbindung und schickt von sich aus nichts ins Internet.
 
-Die einzige Ausnahme ist die Fehlermeldung über Sentry, und auch die nur, wenn du in
-den **ioBroker-Systemeinstellungen → Diagnose und Fehlerberichte** die Diagnose
-eingeschaltet hast. Übertragen werden dann bei einem Absturz eine anonyme
-Installations-Kennung und der technische Fehler — kein Name, keine E-Mail-Adresse,
-keine IP-Adresse, keiner deiner Datenpunkte.
+Die Fehlermeldung über Sentry ist ab Werk aktiv; was sie sendet und wie man sie abschaltet, steht im [Abschnitt Sentry der Haupt-README](https://github.com/krobipd/ioBroker.hueemu/blob/main/README.md#sentry--error-reporting).
 
 ## Changelog
 
@@ -204,7 +227,19 @@ keine IP-Adresse, keiner deiner Datenpunkte.
     ### **WORK IN PROGRESS**
 -->
 
-### 1.18.0 (2026-09-15)
+### 1.19.0 (2026-09-25)
+
+- Fixed: With an HTTPS port the instance no longer restarts endlessly — the certificate key is now really stored encrypted, and a key that does not fit its certificate is replaced.
+- Fixed: Clients that send no or another content type (phue, curl) can pair and switch again instead of getting error 901 from the bridge.
+- Fixed: The number of a deleted light is never handed out again, not even the highest one — Alexa no longer mistakes a new lamp for the old one.
+- New: Color temperature in percent (e.g. tradfri) and brightness from 0 to 255 are recognized and converted, and both can be chosen by hand on the light's card.
+- Improved: Values are fitted to the target datapoint — clamped to its range, never written into a read-only state, and a text switch gets its own ON/OFF.
+- Fixed: Switching off with a brightness in the same command now stays off for every light, and a group the bridge does not have no longer switches all lights.
+- Fixed: Deleting a paired client in the admin now revokes its access at once instead of only at the next restart of the instance.
+- Improved: The light search also finds relays and dimmers assigned to the function Light, and offers a lamp with a device and channel level only once.
+- Fixed: openHAB's Hue binding can read the bridge again (time stamps in the bridge's format), and a color set by hue and saturation is shown as such in apps.
+
+### 1.18.0 (2026-09-15) — stable
 
 - Changed: The listen address and port are now stored under the standard keys the admin's port-conflict check reads — another adapter set to the bridge's port is warned before it collides.
 - Improved: Your configured Host / IP address survives the update unchanged — nothing to re-enter, and the bridge keeps listening where it did before.
@@ -235,10 +270,6 @@ keine IP-Adresse, keiner deiner Datenpunkte.
 ### 1.16.0 (2026-09-03)
 
 - Fixed: If an action in the devices tab fails, you now get a message saying what went wrong instead of a dialog that never finishes.
-
-### 1.15.2 (2026-09-03)
-
-- Fixed: When a very old setup is upgraded, its already paired clients now get their proper name and explanation right away instead of after the next restart.
 
 ## License
 

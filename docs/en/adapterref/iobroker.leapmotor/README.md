@@ -32,7 +32,15 @@ This way your main account stays logged in to the app at all times.
 - Remote control: climate (heat/cool/vent), lock/unlock, windows, sunshade, trunk, find
 - Climate scheduling (recurring, by weekday) and charge limit / charge scheduling
 - Comfort features where supported by the vehicle: sentry mode, seat heat/ventilation, steering wheel heat, speed limit, mirror heat
-- Trip detection with daily kilometer tracking and individual trip history
+- Trip detection with daily kilometer tracking and individual trip history, GPS route recording (opt-in), trip merge/undo, elevation gain, min/max outdoor temperature and a regen estimate per trip
+- CSV and PDF (table + summary) trip-log export for a chosen date range
+- Configurable trip/GPS-route history retention (days, 0 = forever, with a hard safety cap)
+- Prepare-to-Drive: auto climate (heat/cool/vent) on ignition-on, based on outdoor temperature thresholds, with lock-state and self-triggered-command guards against false positives
+- Prepare-to-Work: same climate-prep core, triggered via a datapoint instead of an ignition edge (for shift-schedule/calendar automations)
+- Sunshade/sunroof automation for both Prepare-to-Drive/Work, with separate positions for heat/cool/vent and a "open when dark" rule (except when heating for cold protection)
+- Outdoor temperature from Open-Meteo (not the vehicle's own sensor - missing on some models, e.g. B10, and misleading when parked in a garage), 30-minute cache with fallback to the last known value on API errors
+- Estimated battery health (SoH) from official per-trip cloud energy vs. SoC used, median of the last 30 trips
+- Home/public charging cost split by GPS distance to a configurable home location (address search via Nominatim + map with draggable marker/radius), with separate electricity prices - home can use a dynamic price datapoint (e.g. Tibber), public is always a fixed manual price
 - Charging cost estimation based on configurable electricity price
 - Vehicle messages and unread count
 - Vehicle-model-specific feature capability system (unsupported features are hidden automatically)
@@ -40,6 +48,7 @@ This way your main account stays logged in to the app at all times.
 - Dynamic vehicle dashboard (composite HTML widget for VIS)
 - Automatic token refresh
 - Picture cache (downloaded once, stored locally)
+- Notifications (adapter-agnostic via `sendTo`, incl. telegrammenu2 severity/area and email): trip done, charge done, OTA update, window-left-open warning, Prepare-to-Drive/Work triggered - with a test-notification button in the Settings tab
 
 ## Tested Vehicles
 
@@ -58,7 +67,12 @@ Install via ioBroker Admin UI.
 | Email | Leapmotor account email (recommend using a dedicated second account) |
 | Password | Leapmotor account password |
 | Vehicle PIN | 4-digit vehicle PIN – required for all remote commands |
-| Polling interval | Status update interval in minutes (default: 5) |
+| Cloud API Language | Affects Leapmotor cloud API text only (e.g. schedule day names) |
+
+Everything else (polling intervals, GPS route recording, notifications,
+electricity prices, home location, Prepare-to-Drive/Work, data retention) has
+moved out of the native instance config into the **Settings tab** inside the
+Leapmotor admin dashboard itself.
 
 ## Datapoints
 
@@ -71,7 +85,10 @@ leapmotor.0.<VIN>.pictures.*              → Vehicle images, including an anima
 leapmotor.0.<VIN>.cmd.*                   → Commands (writable)
 leapmotor.0.<VIN>.info.*                  → Static vehicle info (read-only)
 leapmotor.0.messages.*                    → Vehicle messages from the Leapmotor app (read-only)
-leapmotor.0.config.*                      → Electricity price / battery capacity used for cost estimation
+leapmotor.0.config.*                      → Electricity price / battery capacity, Prepare-to-Drive/Work,
+                                             home location & radius, notification targets, and
+                                             trip/route history retention settings
+leapmotor.0.<VIN>.battery.soh_percent     → Estimated battery health (State of Health, read-only)
 ```
 
 The full set of available datapoints, including all writable command states, is best explored
@@ -121,6 +138,9 @@ Simple on/off buttons under `cmd.*` (role `button`, set to `true` to trigger):
 | cmd.healthy_charging_on / off | Toggle battery-health charging mode | ✅ | Untested - same charging subsystem, expected on all models |
 | cmd.fuel_heating_on / off | Fuel heater on/off | ✅ | Untested - **REEV/range-extender trims only** (e.g. C10 EREV); not applicable on T03 (BEV) |
 | cmd.destination_send | Send the address/coordinates set below to the vehicle's built-in nav | – | Untested - expected on nav-equipped models (C10/B10/B11); unclear whether T03's built-in nav accepts cloud-pushed destinations at all |
+| cmd.prepare_to_work | Trigger Prepare-to-Work climate prep externally (e.g. from a shift-schedule/calendar script) | – | All models (uses same climate commands as Prepare-to-Drive) |
+| cmd.trips_merge | Merge a trip with the immediately preceding one (write the trip's start time in ms) - for a real trip split by a false stop detection | – | All models |
+| cmd.trips_merge_undo | Revert the last trip merge (one slot, lost on adapter restart) | – | All models |
 
 Value-based commands:
 
@@ -130,7 +150,7 @@ Value-based commands:
 | cmd.ac_fan_speed | Fan speed, 1–7 | All models (confirmed T03) |
 | cmd.ac_position | Air position: all / up / down / front / rear | All models (confirmed T03). On B10, the vehicle's reported direction status was independently confirmed correct via a real owner's before/after tests (2026-09) - sending this specific command wasn't separately re-tested on B10 |
 | cmd.windows_set | Window position, 0–100 % | All models (confirmed T03; scale auto-adjusted per model, see WORK IN PROGRESS changelog) |
-| cmd.sunshade_set / sunshade_open / sunshade_close | Sunshade position (T03), 0–10 | T03 (confirmed); B10 has an electric sunroof instead (confirmed) |
+| cmd.sunshade_set / sunshade_open / sunshade_close | Sunshade position, 0–10 | Confirmed working on T03, but only after the vehicle has been woken from standby by a **physical door open** - locked/unlocked/ignition/climate/remote trunk-open alone don't wake the needed subsystem (confirmed on two separate test sessions, 2026-09-23). No remote workaround exists. B10 has an electric sunroof instead (confirmed working) |
 | cmd.charge_limit_set | Charge limit, 50–100 % | All models (confirmed T03) |
 | cmd.charge_schedule_enable / start / end / apply | Charging schedule | All models (confirmed T03) |
 | cmd.climate_schedule_enable / mode / time / days / apply / cancel | Recurring climate schedule | All models (confirmed T03) |
@@ -156,6 +176,43 @@ Which comfort commands actually appear depends on the detected vehicle model —
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- New: optional comfort extras for Prepare-to-Drive/Work, opt-in and off by default since not every model/trim has them (confirmed absent on T03; unconfirmed on B10/C10/B05/C16):
+  - Driver seat heat (level 1-3) when heating (cold)
+  - Steering wheel heat when heating (cold)
+  - Windshield defrost (`cmd.defrost` - the working "max defrost" command, not the ineffective `cmd.defrost_level`) below its own separate, independently configurable temperature threshold (icing risk, distinct from the general heat/cool/vent split)
+- Fix: sunshade cold-protection close now has its own separate, stricter threshold (default 5°C) instead of triggering for the entire "heat" range - confirmed in practice that the general heat threshold alone closed the roof at 14°C, which doesn't need insulating against. Still applies day or night once genuinely cold enough (heat loss through the glass roof is real at night too)
+- New: official, cloud-metered charging session history cross-check (Diagnostics tab) - synced once daily against the manufacturer's own device-metered log (community-documented endpoint), classified home/public by GPS the same way as live tracking. Comparison only for now; live-tracked totals still drive the cost figures shown elsewhere
+
+### 0.7.2 (2026-09-24)
+- New: notification for new vehicle inbox messages (service reminders, recalls, etc.), separate from the existing software-update notification
+- Fix: outdoor temperature (used for trip min/max temp and Prepare-to-Drive/Work) now falls back to Open-Meteo not just when the vehicle doesn't report a value at all, but also when its reported value has stopped updating (confirmed on T03: the cloud keeps serving the same reading once parked long enough) - same 30min staleness threshold as the existing data-age indicator, cached for 10min so this never polls Open-Meteo more than necessary
+- Fix: the Cloud API Language field's help text (and its translations, which didn't exist in any language) referenced settings under wording that predated their move to the Settings tab
+- Note: 0.7.1 was pushed to GitHub but never tagged/published to npm - its changes are included here in 0.7.2 instead
+
+### 0.7.0 (2026-09-24)
+- New: trip merge undo (`cmd.trips_merge_undo`, one slot, lost on adapter restart)
+- Fix: merging a trip's GPS route now works correctly - previously the merged route was deleted right after being written, due to an off-by-one in the route-key handling during merge
+- New: elevation gain per trip (via Open-Meteo, no API key)
+- New: min/max outdoor temperature per trip
+- New: regen estimate per trip (voltage x current integration), now correctly excluded from charging sessions
+- New: CSV export for a chosen date range
+- New: PDF trip-log export (table + summary row, chosen date range)
+- New: configurable trip and GPS-route history retention, independently, in days (0 = forever, with a hard count-based safety cap)
+- New: Prepare-to-Drive - auto heat/cool/vent on ignition-on based on outdoor-temperature thresholds, with a lock-state check and a guard against self-triggered commands causing false positives
+- New: Prepare-to-Work - same climate-prep core, triggered via `cmd.prepare_to_work` instead of an ignition edge, for shift-schedule/calendar automation
+- New: sunshade automation for both Prepare-to-Drive/Work, with separate position for heat/cool/vent and an "open when dark" rule (kept closed when heating for cold protection)
+- New: outdoor temperature now sourced from Open-Meteo instead of the vehicle's own sensor (missing entirely on some models, e.g. B10, and misleading when parked in a garage) - 30-minute cache, falls back to the last known value on API errors
+- New: estimated battery health (SoH), derived from official per-trip cloud energy vs. SoC used (median of the last 30 trips, deliberately not derived from the adapter's own charging-cost estimate to avoid a circular "always ~100%" result)
+- New: home/public charging cost split by GPS distance to a configurable home location (address search via Nominatim, map with draggable marker and radius circle); home charging can use a dynamic price datapoint (e.g. Tibber/aWATTar), public charging always uses a separate fixed manual price
+- New: notifications (trip done, charge done, OTA update, window-left-open warning, Prepare-to-Drive/Work triggered) via `sendTo`, with telegrammenu2 severity levels/area support and a dedicated email payload; test-notification button in the Settings tab
+- Fix: Prepare-to-Drive missed real drive starts after a long idle period, because the vehicle auto-relocks itself while driving - now also gates on movement (speed/gear), not lock state alone
+- Fix: Prepare-to-Drive could misfire from a transient ignition-on reading caused by any remote command (its own or an external script's) waking the vehicle - now ignores an ignition edge within 2 minutes of any command sent
+- Fix: `bcmKeyPositionOn1` staying on during charging previously kept a trip open and counted charging current as regen - now correctly separated
+- Fix: Leaflet's default marker showed as a broken "?" under Vite (bundler doesn't serve `leaflet/dist/images/*.png` automatically) - now explicitly imported and overridden
+- Fix: several `{condition && <JSX>}` renders showing a literal "0" instead of nothing, when `condition` was the number `0` rather than `false`
+- Improved: Datapoints tab moved to the end of the tab order
+- Improved: full i18n coverage across all 11 languages - fixed several previously silent gaps (category group headings, tab names, "Parked")
+- Fix: battery color threshold corrected (turns yellow at 20%, was incorrectly 50%)
 - Fix: vehicles west of Greenwich (UK, Ireland, Portugal, parts of Spain/France) showed their GPS position mirrored into the wrong hemisphere; latitude/longitude now use the signed signal values instead of the absolute-value-only fields (community-confirmed via leapmotor-ha)
 - Fix: window open/close/set-to-percent commands now scale to each model's native range - B05/B10/C10 expect a 0-10 scale, not 0-100 like T03; commands sent to those models previously moved the window far less than requested
 - Fix: the "charging" status could get stuck showing active from a stale/phantom cloud flag while the car was actually being driven or just powered on and ready; it's now cross-checked against gear position, speed and ignition before being reported

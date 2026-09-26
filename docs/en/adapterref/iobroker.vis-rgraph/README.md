@@ -18,5 +18,5 @@ Later the license of RGraph was changed to CC-NC-BY and then to GPL.
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2015 bluefox https://github.com/GermanBluefox
+ Copyright (c) 2013-2026 bluefox https://github.com/GermanBluefox
  MIT

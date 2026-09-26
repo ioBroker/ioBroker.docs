@@ -67,6 +67,7 @@ Every widget with its settings and screenshots: [English](/#/docs/adapterref/iob
 ### **WORK IN PROGRESS**
 * (bluefox) Made widgets to be compatible with vis2
 * (bluefox) All widgets were ported to vis-2 as React widgets, without jQuery and without the vis-1 libraries
+* (bluefox) vis-2: the palette shows the icon of the widget set and a description of every widget in its tooltip
 * (bluefox) The widgets print the names of week days and months in all languages of vis-2, not only in en/de/ru
 * (bluefox) Weather: known weather conditions are translated into all languages of vis-2; a text that is not known is shown as it is instead of being replaced by a similar condition (e.g., "Rain" was shown as "Mixed rain and snow" and an empty text as "Tornado")
 * (bluefox) Weather: values that are not set do not leave empty lines like "High: ° Low: °" any more

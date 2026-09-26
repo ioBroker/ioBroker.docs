@@ -160,7 +160,9 @@ Added:
 ### 0.1.0 (2019-01-16)
 * (bluefox) initial commit
 
+[Older changelogs can be found there](https://github.com/iobroker/ioBroker.tileboard/blob/master/CHANGELOG_OLD.md)
+
 ## License
-Copyright (c) 2019-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2026 bluefox <dogafox@gmail.com>
  
 MIT License

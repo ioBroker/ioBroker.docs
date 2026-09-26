@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hannah/README.md
 title: ioBroker.hannah
-hash: jDJ06/JYKY3amaPoGfrGdRu2U8z+/+VOEby1vEdXScw=
+hash: lv3tiAs3MlX+B/jgV/Rl9WApdYRp1HGmoXPm0nubE1Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.hannah/admin/hannah.png)
 
@@ -55,6 +55,8 @@ Installation über die ioBroker-Admin-Oberfläche
 
 Wählen Sie aus, über welche **Räume** und **Funktionen** Hannah informiert sein sollte. Wenn Sie beide Listen leer lassen, umfasst dies alles.
 
+Weitere Informationen zur Raum-/Funktionszuordnung und zur Strukturierung von Geräten, damit Hannah sie finden kann, finden Sie im [Leitfaden zur Smart-Home-Integration.](https://hannah-docs.leonie.network/manual/smart-home-integration/)
+
 **Zusätzliche Statuspräfixe** – zusätzliche ioBroker-Status-ID-Präfixe, die an Hannah gestreamt werden sollen, z. B.:
 
 | Anwendungsfall                     | Präfix                            |
@@ -85,6 +87,23 @@ Der Adapter erwartet `HannahService.AgentConnect` Die Verfügbarkeit auf dem kon
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2026-09-24)
+- Added: the adapter sends its logs to the Hannah log collector as well, as soon as Hannah reports one, so they are included when you download the logs of all Hannah components. The ioBroker log stays exactly as it is, and without a log collector nothing changes. Passwords and tokens from the adapter settings are masked before a line is sent
+
+### 1.1.6 (2026-09-21)
+- Fixed: a device whose room was assigned directly to its state instead of the parent channel/device was never discovered — Hannah never learned about it at all
+
+### 1.1.5 (2026-09-18)
+- Changed: when Hannah pushes a presence update, the adapter can now set the individual "away"/"home"/"asleep" flag instead of always overwriting the combined presence state — avoids Hannah accidentally clobbering an unrelated flag (e.g. clearing "asleep" while only meaning to update "away"). No visible change until Hannah Core starts sending the new, more precise update.
+- Changed: satellite online/offline log messages downgraded from "info" to "debug" — too noisy for the default log level
+
+### 1.1.4 (2026-09-13)
+- Fixed: the residents snapshot sent on every reconnect reported a resident as "away" whenever their presence state couldn't be read as a number, instead of leaving it unset — collapsing "genuinely away" and "no value read" into the same signal
+- Changed: updated to hannah-proto 4.0.0 — no functional change for this adapter, just keeping the protocol-version check in lockstep with Hannah Core
+
+### 1.1.3 (2026-09-09)
+- Added: new "Inverted Rolladen/Markise" custom setting for Rolladen/Markise (blind) devices — enable it for actors whose raw percentage means 0%=open/100%=closed instead of Hannah's default (e.g. some Homematic/KNX actors), so voice commands and status announcements stay correct
+
 ### 1.1.2 (2026-09-08)
 - Fixed: a satellite disconnected at adapter startup could end up with a duplicate, permanently "offline" entry on the Hannah Satellites page (and in the object tree) once it reconnected, for rooms whose display name differs in formatting from its technical room ID (e.g. umlauts, or "Hobbyraum" vs. "hobbyroom")
 
@@ -421,7 +440,7 @@ Der Adapter erwartet `HannahService.AgentConnect` Die Verfügbarkeit auf dem kon
 - Extra state prefix support for arbitrary state trees
 - Snapshot-on-connect replaces MQTT retained messages
 
-For older entries see [CHANGELOG_OLD.md](https://github.com/NurPech/ioBroker.hannah/blob/main/CHANGELOG_OLD.md).
+For older entries see CHANGELOG_OLD.md.
 
 ## License
 

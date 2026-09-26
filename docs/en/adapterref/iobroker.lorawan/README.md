@@ -28,6 +28,12 @@ For numeric sensor entities, the bridge assigns Home Assistant `device_class` an
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.22.35 (2026-09-23)
+- (codex) Update adapter-core and test dependencies to the current recommended versions.
+
+### 1.22.34 (2026-09-23)
+- (BenAhrdt) Process Bridge entity availability on discovery and normal messages and keep existing state types for incompatible values.
+
 ### 1.22.33 (2026-08-19)
 - (BenAhrdt) Add Home Assistant wind direction and angle measurement classification
 
@@ -36,13 +42,6 @@ For numeric sensor entities, the bridge assigns Home Assistant `device_class` an
 
 ### 1.22.31 (2026-07-09)
 - (BenAhrdt) Add selection of ToIob source id
-
-### 1.22.30 (2026-07-07)
-- (BenAhrdt) Add PIR Mini device Profile
-- (BenAhrdt) Add possibillity to ad states to downlink numbers
-
-### 1.22.29 (2026-07-06)
-- (BenAhrdt) Add some roles and units to assignhandler
 
 ## DISCLAIMER
 The rights of the trademarks and company names, remain with their owners and have no relation to this adapter. The fairuse policy must continue to be adhered to by the operator of the adapter. If this repository is forked, it must be cited as the source.

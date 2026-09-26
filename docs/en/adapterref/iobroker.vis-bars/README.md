@@ -33,5 +33,5 @@ bars widget sets for ioBroker.vis
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2016 bluefox https://github.com/GermanBluefox
+ Copyright (c) 2013-2026 bluefox https://github.com/GermanBluefox
  MIT

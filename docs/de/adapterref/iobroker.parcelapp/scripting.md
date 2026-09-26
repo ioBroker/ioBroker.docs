@@ -47,7 +47,8 @@ schedule("0 7 * * *", () => {
 ## `lastUpdated` ist eine Änderungsmarke
 
 `lastUpdated` wird nur geschrieben, wenn sich die Sendungsdaten wirklich geändert haben, nicht bei
-jeder Abfrage. Damit taugt es als „da ist etwas passiert"-Auslöser — und ein alter Zeitstempel ist
+jeder Abfrage — eine von Tag zu Tag weiterrückende Schätzung, ein neuer Anzeigename des Zustellers
+oder eine andere Systemsprache zählen nicht, ein neuer Zusteller-Code schon. Damit taugt es als „da ist etwas passiert"-Auslöser — und ein alter Zeitstempel ist
 eine Information, kein Fehler:
 
 ```javascript
@@ -96,7 +97,9 @@ sendTo(
 ### Die Antwort
 
 Der Rückruf bekommt immer ein Objekt mit `success` und, im Fehlerfall, `error_message`. Diese Form
-ist stabil — Skripte, die dagegen geschrieben sind, funktionieren weiter.
+ist stabil — Skripte, die dagegen geschrieben sind, funktionieren weiter. Der Rückruf ist optional:
+ein `sendTo` ohne ihn fügt die Sendung genauso hinzu, das Ergebnis steht dann im Log auf Stufe info
+(`addDelivery: added '…'` oder `addDelivery: parcel.app rejected '…': …`).
 
 `success: false` kann mehrere Ursachen haben, und `error_message` sagt welche: ein unbekanntes
 `carrier_code`, eine Sendungsnummer, die der Zusteller nicht kennt, eine fehlende `postcode` oder
@@ -107,22 +110,26 @@ Beispiel `HTTP 400: Unknown carrier code` — und nicht nur die Statuszeile.
 
 ### Was der Adapter vor dem Senden prüft
 
-| Regel                                                                           | Antwort                                                      |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| `tracking_number`, `carrier_code` und `description` sind Pflicht und nicht leer | `tracking_number, carrier_code and description are required` |
-| Jedes Feld höchstens 512 Zeichen                                                | `each field must be at most 512 characters`                  |
-| Höchstens 20 Aufrufe je Minute                                                  | `too many addDelivery requests; max 20 per 60s`              |
+| Regel                                                                                     | Antwort                                                              |
+| ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `tracking_number`, `carrier_code` und `description` sind Pflicht und nicht leer           | `tracking_number, carrier_code and description are required`         |
+| Jedes Feld höchstens 512 Zeichen                                                          | `each field must be at most 512 characters`                          |
+| Höchstens 20 Aufrufe in beliebigen 24 Stunden — das POST-Tageslimit von parcel.app selbst | `daily limit of 20 addDelivery requests reached; next possible at …` |
 
-Diese Wächter gibt es, damit ein außer Kontrolle geratenes Skript weder dein Tagesbudget verbrennt
-noch eine mehrere Megabyte große Anfrage an parcel.app schickt. Sie greifen vor dem Netzwerkaufruf,
-ein abgelehnter Aufruf kostet also nichts.
+Diese Wächter gibt es, damit ein außer Kontrolle geratenes Skript das POST-Tagesbudget von parcel.app
+nicht mit Aufrufen verbraucht, die parcel.app ohnehin abweisen würde, und keine mehrere Megabyte
+große Anfrage dorthin schickt. Sie greifen vor dem Netzwerkaufruf, ein abgelehnter Aufruf kostet also
+nichts. Die erste Abweisung in einem 24-Stunden-Fenster erscheint als Warnung, jede weitere auf
+Debug-Stufe.
 
 ### Was nach dem erfolgreichen Hinzufügen passiert
 
-Der Adapter fragt sofort ab, die Sendung erscheint also binnen Sekunden im Objektbaum. Ihre
-Sendungsdaten sind aber meist noch leer — parcel.app selbst braucht **45 bis 90 Minuten**, bis eine
-frisch hinzugefügte Sendung Ereignisse trägt. Das ist eine Verzögerung auf parcel.app-Seite, kein
-Fehler des Adapters.
+Der Adapter fragt sofort noch einmal ab — höchstens einmal je Abfrageintervall, frühestens 60
+Sekunden nach der vorigen Abfrage und nur, solange das Stundenbudget es erlaubt; sonst holt die
+nächste reguläre Abfrage die Sendung ab. Ihre Sendungsdaten sind aber meist noch leer — parcel.app
+selbst liegt im Schnitt **45 und höchstens etwa 90 Minuten** hinter der Website des Zustellers, vorher
+trägt eine frisch hinzugefügte Sendung keine Ereignisse. Das ist eine Verzögerung auf parcel.app-Seite,
+kein Fehler des Adapters.
 
 ### Zustellerkürzel
 
@@ -146,4 +153,6 @@ sendTo("parcelapp.0", "checkConnection", { apiKey: "dein-schluessel" }, reply =>
 
 Die Form unterscheidet sich absichtlich von `addDelivery`: die `sendTo`-Komponente des ioBroker-
 Admins liest genau `result`/`error`. `checkConnection` gehört nicht in einen Zeitplan — jeder Aufruf
-verbraucht eine der 20 Anfragen pro Stunde.
+verbraucht eine der 20 Anfragen pro Stunde. Mit dem eingestellten Schlüssel antwortet der Adapter
+selbst, solange die Abkühlzeit einer parcel.app-Anfragegrenze läuft oder das Stundenbudget verbraucht
+ist.

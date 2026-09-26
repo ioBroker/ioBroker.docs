@@ -53,7 +53,7 @@ to be done in admin
 - pushing new sensor to config, then visible in admin/config page
 - HMS100TF Temp below 0°C and battery low to be implemented
 
-## Changelog:
+## Changelog
 
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now

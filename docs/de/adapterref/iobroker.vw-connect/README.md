@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: ufgRuCnEIGRaW4y00UFq5YPOEugQU5lnN7AJDh2cQuQ=
+hash: mPHwtk8y9nXS+Npq8NhpAhSpDGoo+6bIxfz90lYtUvQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -97,7 +97,7 @@ Objektbaum pro Fahrzeugidentifikationsnummer (VIN), sobald die EU-Datenschutzges
 ### Fehlerbehebung (nur EU-Datenschutzgesetz – diese blockieren niemals den klassischen Datenfluss)
 
 - ** `EU Data Act ... no data request configured` ** Sie haben die oben beschriebenen Einstellungen auf der Portalseite noch nicht vorgenommen. Die klassische Anmeldung funktioniert in der Zwischenzeit weiterhin.
-- ** `portal has N dataset(s) but all are '_no_content_found'` ** Das Fahrzeug befand sich bei jeder Messung im Ruhemodus. Erzwingen Sie die Synchronisierung über die VW-App oder fahren Sie einfach einmal.
+- ** `portal has N dataset(s) but all are '_no_content_found'` ** Das Auto befand sich bei jeder Messung im Ruhemodus. Synchronisieren Sie das Auto über die VW-App oder fahren Sie einfach einmal.
 - ** `<vin>.statuseudata` Kanal fehlt** : Das Portal verfügt noch über keine Inhaltsdatensätze – gleiche Lösung wie oben.
 - **HTTP 400 direkt nach der Aktivierung** : Das Portal verarbeitet Ihre Datenanfrage noch. Behebt sich nach einigen Stunden von selbst.
 - **Veraltete Werte** : Das Portal führt mehrere Berichts-Snapshots pro Datensatz zu einem flachen Array zusammen. Wenn dasselbe Feld mehrfach mit unterschiedlichen Werten vorkommt, wählt der Adapter deterministisch den Eintrag mit der kleinsten UUID aus (stabil über Aktualisierungen hinweg – gleiches Vorgehen wie bei der Home Assistant-Integration).
@@ -113,7 +113,7 @@ Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.conte
 
 <https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-seat-skoda>
 
-## Erklärung der Statusfelder
+## Erläuterung der Statusfelder
 
 ### Liste der Einträge
 
@@ -122,7 +122,7 @@ Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.conte
 
 ### **IN BEARBEITUNG**
 
-### 0.9.11 (2026-09-10)
+### 0.9.11 (2026-09-23)
 
 - Skoda (Typ=skodae, MyŠKODA): Abfragen und Fernbefehle laufen jetzt über die offizielle öffentliche API (public.api.connect.skoda-auto.cz); ein API-Schlüssel wird automatisch mit dem bestehenden Login generiert und in info.skodaApiKeys gespeichert, die Daten landen unter `<vin>.statusApi.*` Der klassische MySmob-Pfad bleibt als Fallback bestehen (Ratenbegrenzung 20/h pro VIN, Abfrageintervall auf >=5 min begrenzt).
 - Audi (type=audi / audietron): Klassische myAudi-Anmeldung deaktiviert – myAudi verwendet jetzt Auth0 mit Google Play-Integritätszertifizierung, die ein Node.js-Adapter nicht generieren kann. Nutzen Sie stattdessen das EU-Datenschutzportal (brand=AUDI) oder die Tibber Data API.

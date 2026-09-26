@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-mbus
-hash: nirYBZZ9Yv7+X+LV6sNAgGgioXho7QVRb4orJYklBsk=
+hash: UTUPF4VCGlqBEEFT8DU2lu8fukM4O0YAx5zCw7Mi7kE=
 ---
 ![Logo](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
 
@@ -59,7 +59,10 @@ Ab Version 0.9.0 unterstützt der Adapter auch die Verbindung zu seriellen Gerä
 - **Unveränderte Zustände aktualisieren** : Beim Eintreffen eines Telegramms werden alle Zustände aktualisiert, auch wenn sich ihr Wert nicht geändert hat. (Standard: aktiviert)
 - **Energieeinheiten auf kWh umrechnen** : Alle Energieeinheiten (Wh und J) werden in kWh umgerechnet. (Standard: Aus)
 - **Gerät nach aufeinanderfolgenden Fehlern vorübergehend sperren** : Wenn 10 aufeinanderfolgende Telegramme desselben Geräts nicht erfolgreich verarbeitet werden können, wird das Gerät bis zum Neustart des Adapters ignoriert (Standard: aktiviert).
-- **Es werden nur Geräte mit bereits vorhandenem Objektbaum verarbeitet** : Telegramme von Geräten ohne Objektbaum werden ignoriert, sodass keine neuen Geräte erstellt werden – dies ist nützlich, sobald alle relevanten Zähler eingerichtet sind. Telegramme, die überhaupt nicht dekodiert werden können, werden ebenfalls ignoriert: Sie fügen kein Gerät zur AES-Schlüsselliste hinzu und werden nicht geschrieben. `info.rawdata` Die automatische Sperrliste zählt die Geräte weiterhin, sodass ein unerwünschtes Gerät keinen Dekodierungsversuch mehr verursacht – dies wird nur nicht im Protokoll vermerkt. Die Geräte werden beim Start des Adapters neu gesucht. Ein Gerät, das Sie aus der Objektliste löschen, ist nach dem nächsten Neustart endgültig entfernt, und ein Gerät, das wieder erkannt werden soll, muss ebenfalls neu geladen werden. (Standard: deaktiviert)
+- **Es werden nur Geräte mit bereits vorhandenem Objektbaum verarbeitet** : Telegramme von Geräten ohne Objektbaum werden ignoriert, sodass keine neuen Geräte erstellt werden – dies ist nützlich, sobald alle relevanten Zähler eingerichtet sind. Telegramme, die überhaupt nicht dekodiert werden können, werden ebenfalls ignoriert: Sie fügen kein Gerät zur AES-Schlüsselliste hinzu und werden nicht geschrieben. `info.rawdata` Die automatische Sperrliste zählt die Geräte weiterhin, sodass ein unerwünschtes Gerät keinen Dekodierungsversuch mehr verursacht – dies wird nur nicht im Protokoll vermerkt. Ein Gerät, das Sie aus der Objektstruktur löschen, ist sofort und endgültig entfernt. Die Geräte werden beim Start des Adapters neu gesucht, daher ist ein Neustart erforderlich, um ein Gerät wiederzuerkennen. (Standard: deaktiviert)
+- **Name, Einheit und Rolle der Datenzustände überschreiben** : Name, Einheit und Rolle eines Datenzustands werden nach einem Parser-Update oder bei Aktivierung von „Energieeinheiten auf kWh umstellen“ gemäß dem dekodierten Telegramm übernommen – jedoch nur solange, wie sie vom Adapter selbst geschrieben wurden. Ein von Ihnen vergebener Name oder eine für einen anderen Adapter geänderte Rolle bleibt unverändert, ebenso wie alle Datenzustände, die von einer früheren Version des Adapters erstellt wurden. Aktivieren Sie diese Option, um alle Datenzustände auf die Werte zurückzusetzen, mit denen der Adapter sie beim nächsten Telegramm erstellen würde (einschließlich Ihrer eigenen Namen), und deaktivieren Sie sie anschließend wieder. (Standard: Aus)
+
+Jeder Datenstatus speichert, für welchen Datensatz er erstellt wurde – seine Speichernummer, seinen Tarif, seine Untereinheit, sein Funktionsfeld (Momentanwert, Maximalwert, Minimalwert, Fehlerzustand) und seine VIF-Erweiterungen. Die ID eines Status gibt lediglich die Position eines Datensatzes im Telegramm, seine Speichernummer und seinen Typ an. Daher kann ein Zähler, der seine Datensätze in unterschiedlicher Reihenfolge oder Telegramme mit unterschiedlichem Layout sendet, einen anderen Datensatz unter derselben ID ablegen. Ein solcher Wert wird übersprungen, anstatt in einen Status geschrieben zu werden, der einen anderen Datensatz beschreibt. Dies wird einmal pro Status protokolliert. Ein Status, der von einer früheren Version des Adapters erstellt wurde, verwendet den ersten Datensatz, der nach dem Update eintrifft.
 
 Kompakttelegramme (die von einigen Kamstrup-Geräten verwendet werden) werden automatisch unterstützt: Die Struktur eines vollständigen Telegramms wird – zusammen mit dem Gerät, sodass sie auch nach einem Neustart des Adapters erhalten bleibt – gespeichert und zum Dekodieren der Kompakttelegramme wiederverwendet. Lediglich die Kompakttelegramme, die ein Gerät sendet, bevor es zum ersten Mal ein vollständiges Telegramm gesendet hat, können nicht dekodiert werden und werden stillschweigend übersprungen.
 
@@ -126,6 +129,12 @@ Zwei Dinge sind es wert, bekannt zu sein:
 - **Die Status-ID wird aus der Beschreibung ihres Feldes abgeleitet** , also `"description": "Battery"` wird `…-VIF_BATTERY` Die Korrektur eines Tippfehlers in einer Beschreibung führt daher zu einer Umbenennung des Bundesstaates. `legacyName` Setzt diesen Teil der ID direkt und hält ihn stabil, was für jeden Wert, den Sie behalten möchten, sinnvoll ist.
 - **Eine Beschreibung ersetzt die vom Parser für diesen Hersteller bereitgestellte Beschreibung** , anstatt sie zu ergänzen. Die Beschreibung eines Wertes eines Itron-Rauchmelders bedeutet, dass die anderen 25 Werte nicht mehr beschrieben werden.
 
+### Telegram-Varianten
+
+Die meisten Zähler senden Telegramme mit einem einheitlichen Layout. Einige senden gelegentlich ein zweites Layout – beispielsweise die Werte der letzten Abrechnungsperiode oder Konfigurationsdaten – und wenige wechseln zwischen mehreren Layouts. Der Adapter zählt jedes Layout eines Geräts als Variante, benannt durch die Prüfsumme seiner Datensatzköpfe (z. B. 1234). `3A7F` Die vollständigen und kompakten Telegramme eines Layouts entsprechen derselben Variante. Die erfassten Daten werden mit dem Geräteobjekt gespeichert und bleiben somit auch nach einem Neustart erhalten; die Zähler werden höchstens einmal pro Stunde beschrieben, und es wird sofort eine neue Variante erstellt.
+
+Der Tab „Telegrammvarianten“ zeigt sie an: „Telegrammvarianten anzeigen“ listet jede Variante jedes Geräts auf, mit der Art der Frames, der Anzahl der empfangenen Telegramme, dem Zeitpunkt des ersten und letzten Empfangs sowie den Zuständen, in die die Datensätze geschrieben werden. Keine der Varianten wird als die bessere behandelt – der Wert jeder Variante wird dem Zustand ihres eigenen Datensatzes zugeordnet. Wenn Sie die Werte einer Variante gar nicht benötigen, geben Sie die Geräteadresse und die Variante in die Liste der ignorierten Telegrammvarianten ein: Ihre Telegramme werden nach dem Dekodieren verworfen, aber weiterhin in der Tabelle gezählt. Die Geräteadresse ist die vollständige Adresse inklusive Herstellercode (`LSE-58511882`, nicht `58511882`); das Protokoll sagt das am Anfang einer Zeile, die niemals übereinstimmen kann.
+
 ## Aktualisierung von Version 0.11.x
 
 Version 0.12.0 ersetzt den integrierten Telegram-Parser durch die Bibliothek [wireless-mbus-parser](https://github.com/lvogt/wireless-mbus-parser) . Die Objekt-IDs bleiben unverändert, aber vier Dinge ändern sich:
@@ -153,6 +162,20 @@ Zwei ihrer Zustände sind anders benannt als in Version 0.11.x, da die Werte der
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (ChL) Every data state remembers the data record it was created for, and a value of a different record at the same position of a telegram is skipped instead of being written to it
+* (ChL) Name, unit and role of the data states follow the decoded telegram as long as nobody changed them; names you gave a state and states of earlier versions stay as they are, and the new option "Overwrite name, unit and role of the data states" sets them all back
+* (ChL) Fix the states of data records that a device did not have in its first telegram after a start of the adapter: they were written without being created
+* (ChL) Fix states, and devices, that were deleted in the object tree while the adapter was running: they were written without an object until the next start, and are created again by the next telegram now
+* (ChL) Count the telegram variants of every device - the layouts of data records a meter sends - and show them in the new "Telegram variants" tab of the admin UI
+* (ChL) Telegram variants can be ignored per device, so that the values of a layout nobody wants are not written; the log says at the start which entries of the list can never match
+
+### 0.13.1 (2026-09-22)
+* (ChL) Convert the adapter to TypeScript
+* (ChL) Fix the "Simple Hexstring" receiver rejecting a telegram that carries its block CRCs without announcing them with a leading "Z": the parser is left to look for them rather than being told there are none, which made it read the first CRC byte as the CI field (#276)
+* (ChL) The "Simple Hexstring" receiver drops a line that is no telegram instead of turning it into one, takes a lower case "z" as the CRC marker as well, and reports the frame type of the configured mode again
+* (ChL) Fix the instance reporting the connection of the receiver as its connection to the ioBroker databases: a receiver that was away showed an instance as disconnected that was talking to them, and a connected one kept js-controller from stopping an adapter that had lost the states database
+
 ### 0.13.0 (2026-09-09)
 * (ChL) Describe the manufacturer specific data records of a meter in the admin UI, the result become states of their own
 * (ChL) Update wireless-mbus-parser to 1.5.0: support for decoding manufacturer specific blobs - description for Itron smoke detector included.
@@ -170,21 +193,6 @@ Zwei ihrer Zustände sind anders benannt als in Version 0.11.x, da die Werte der
 * (ChL) Fix Techem and Diehl (PRIOS) meters, which 0.12.0 decoded wrongly or not at all - the states it wrote for them carry wrong names and values and can be deleted
 * (ChL) Fix the adapter stopping instead of blocking a device whose telegrams keep failing to decode
 * (ChL) A 64 bit measured value with a scaling factor is a number now, like every other measured value
-
-### 0.12.0 (2026-09-03)
-* (ChL) Replace the built-in telegram parser with the wireless-mbus-parser library
-* (ChL) New admin configuration UI (JSON config); a serial port can now simply be typed in, the separate "custom port" field is gone
-* (ChL) Fix shutdown of the adapter: a serial connection over TCP was not closed properly and could reconnect itself while the adapter was stopping
-* (ChL) Measured values are now stored as numbers instead of preformatted strings - a history adapter that stored them as text starts a new series
-* (ChL) Fix decoding of the tariff and device unit of a data record
-* (ChL) Compact telegrams are now supported without a separate option; the option "Cache for compact frames support" was removed
-* (ChL) Follow further ioBroker repository recommendations: move the test code below `test/`, use the short `admin/i18n/<lang>.json` layout and clean up the keywords
-* (ChL) Run the adapter tests only after linting and type checking succeeded
-* (ChL) Use the adapter's own timer functions, so pending timers are cleared when the adapter is unloaded
-* (ChL) Fix receivers getting stuck after disturbed reception: a damaged telegram no longer takes the following ones with it, and no longer leaves the adapter yellow until it is restarted by hand (#308, #309)
-* (ChL) The adapter reconnects to the receiver instead of staying idle or stopping when the connection fails
-* (ChL) Fix telegrams getting lost when several meters transmit at once, and damaged data being reported as readings of devices that do not exist
-* (ChL) Declare the state that holds the raw data of an unreadable telegram as text rather than as a numeric value
 
 ## License
 

@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.com/#de/blog</link>
-        <lastBuildDate>Sun, 20 Sep 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 26 Sep 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Räume und Funktionen in einem Durchlauf, der Assistent in Admin 8]]></title>
+            <description><![CDATA[
+                <p>Eine gewachsene ioBroker-Installation hat schnell ein paar hundert Objekte. Die meisten davon\ntragen einen Namen, den der Adapter vergeben hat, und sonst nichts. Ob dieser Datenpunkt ein\nLicht schaltet und ob er in der Küche hängt, steht nirgends. Diese beiden Angaben sind Räume und\nFunktionen, und sie sind der Grund, warum eine Installation entweder aufgeräumt wirkt oder nach\neinem Jahr niemand mehr weiß, was `alias.0.Etage2.Sw3` eigentlich tut.</p>
+            ]]></description>
+            <link>https://www.iobroker.com/#de/blog/2026_09_26</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#de/blog/2026_09_26</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Sat, 26 Sep 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Zugangsdaten zentral verwalten statt in jedem Skript]]></title>
             <description><![CDATA[

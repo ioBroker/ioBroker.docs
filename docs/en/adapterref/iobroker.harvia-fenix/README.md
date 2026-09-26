@@ -236,6 +236,10 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 ## Changelog
 
 ### **WORK IN PROGRESS**
+* (meistermopper) Fix potential infinite loop in auth retry logic
+
+### 1.1.1 (2026-09-21)
+* (meistermopper) Fix remoteControl flapping on push measurement updates
 * (meistermopper) Document activeProfile standard index mapping (0=mild, 1=cozy, 2=hot)
 
 ### 1.1.0 (2026-09-17)
@@ -263,11 +267,6 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 * (meistermopper) Replace adapter logo with custom MyFenix homage logo
 * (meistermopper) Update @iobroker/adapter-core to 3.4.3 and @iobroker/testing to 6.2.1
 * (meistermopper) Fix Mocha 12 instantiation in unit test runner on Node 22
-
-### 0.5.0 (2026-09-09)
-* (meistermopper) Add bidirectional heating anomaly detection (too slow / fast)
-* (meistermopper) Update @alcalzone/release-script-plugin-license to 5.2.2
-* (meistermopper) Add Node.js 26 to test matrix
 
 ## License
 MIT License

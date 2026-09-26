@@ -44,6 +44,12 @@ OnlyCat® is a registered trademarks of [VirtualV Trading Ltd.](https://www.only
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 0.6.3 (2026-09-22)
+
+* (Sickboy78) dependency updates
+* (Sickboy78) add node.js 26 to test matrix
+
 ### 0.6.2 (2026-08-29)
 
 * (Sickboy78) dependency updates
@@ -64,11 +70,6 @@ OnlyCat® is a registered trademarks of [VirtualV Trading Ltd.](https://www.only
 
 * (Sickboy78) added removal of deleted or renamed devices and transit policies
 * (Sickboy78) fixed bug if device has no events
-
-### 0.5.3 (2026-01-09)
-
-* (Sickboy78) dependency updates
-* (Sickboy78) add AlCalzone's Release Script
 
 ## License
 

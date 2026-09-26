@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sunenergyxt500/README.de.md
 title: ioBroker.sunenergyxt500
-hash: kF9dSqhhzwMXBcJgjaVvg3xNZYAXPFNayY508qdKhzQ=
+hash: uUZqmdI/Z+ZUCY59p4jDyRktnRYMZYv3k0Kd0yrAR0c=
 ---
 ![Logo](../../../en/adapterref/iobroker.sunenergyxt500/admin/sunenergyxt500.png)
 
@@ -30,7 +30,7 @@ Integration und Eigenverbrauchsregelung für **[SunEnergyXT 500 / 500 PRO](https
 
 - Verwaltet **einen bis drei Köpfe** in einer Instanz, jeden unter eigenem Teilbaum `heads.<n>.*`, plus eingeführte `total.*` -Aggregat.
 - Pollt die lokale API (`GET /read`) und spiegelt alle stabilen Felder in States wider: SoC, Batterie-/Netz-/Last-/PV-Leistung, Strom/Spannung je MPPT, Tagesenergiezähler, SoC je Pack, Geräte-/Firmware-Infos und Zählerstatus.
-- Schreibbare Steuerfelder (`POST /write`, durch Rücklesen bestätigt), passend zur Bedienoberfläche der offiziellen Integration – außer den in der API-Doku als _reserviert_ markierten Feldern: Netz-Sollwert `GS`, max. Einspeisung `IS`, SoC-Grenzen `SI` /`SA` /`SO` Eigenverbrauchsmodus `MM` Zählerkonfiguration `MD`, Zeitzone `TZ` Neustart `RT`, max. Netzausgang `MG`, die Schalter `LFB` /`LPS` /`PM` sowie lokaler Modus `LM` (⚠️`LM=1` blockiert die Cloud-/App-Steuerung bis zum Zurücksetzen). Reservierte Felder (z. B. `PT`, `SI1`, `SA1`) sind nur schreibgeschützt verfügbar.
+- Schreibbare Steuerfelder (`POST /write`, durch Rücklesen bestätigt), passend zur Bedienoberfläche der offiziellen Integration – außer den in der API-Doku als _reserviert_ markierten Feldern: Netz-Sollwert `GS`, Wechselrichter-Ausgangsgrenze `IS`, SoC-Grenzen `SI` /`SA` /`SO` Eigenverbrauchsmodus `MM` Zählerkonfiguration `MD`, Zeitzone `TZ` Neustart `RT`, max. Netzausgang `MG`, die Schalter `LFB` /`LPS` /`PM` sowie lokaler Modus `LM` (⚠️`LM=1` blockiert die Cloud-/App-Steuerung bis zum Zurücksetzen). SoC-Hysterese `SI1` /`SA1` (vom Hersteller als schreibbar dokumentiert, je 5 % Standard, zulässiger Bereich 0…100 %) behalten ihre etablierten `heads.<n>.battery.*` -IDs, damit bestehende Aufzeichnungen erhalten bleiben. Felder, die die API-Doku weiterhin als reserviert führt (z. B. `PT`), sind schreibgeschützt.
 - Zwei umschaltbare **Steuermodi** : ein adapterseitiger Eigenverbrauchs- **Regler** (schreibt `GS` aus _einem beliebigen_ ioBroker-Zähler-State, Feedforward + P, mit Watchdog/Failsafe), der **einen Netz-Sollwert auf alle Köpfe verteilt** , oder **Geräte-Eigenregelung** (bindet einen unterstützten Zähler in einen einzelnen Speicher ein und lässt das Gerät selbst regeln) – plus ein **Aus-** Modus für reines Monitoring.
 - Ein **„Test all head“** -Knopf im Admin prüft die Erreichbarkeit jedes konfigurierten Kopfes (Modell + SoC) vor dem Speichern.
 - Verbindungsanzeige (`info.connection`) plus `info.lastUpdate` sowie pro Kopf `online` /`lastError` Die
@@ -40,13 +40,13 @@ Integration und Eigenverbrauchsregelung für **[SunEnergyXT 500 / 500 PRO](https
 
 Dieser Adapter steuert den Speicher **lokal** , ohne Hersteller-Cloud. Eine Instanz verwaltet **einen bis drei Köpfe** (Speichertürme). Der Eigenverbrauch lässt sich auf **zwei sich gegenseitig ausschließende Arten** umsetzen – du wählst eine über die Einstellung **Steuermodus** :
 
-**Modus B – Adapter-Regler (Standard-Empfehlung, mit jedem Zähler, 1–3 Köpfe).** ioBroker liest die aktuelle Netzleistung aus **einem beliebigen Staat** , auf den du ihn zeigen lässt (`gridPowerStateId`), und der Adapter schreibt den Netz-Sollwert `GS` (Feedforward + P-Korrektur, mit Watchdog). Der Zähler kann _alles_ sein, was ioBroker unterstützt — Shelly, Tasmota, ein Smartmeter-/Modbus-Adapter — **auch Zähler, die der Speicher selbst nicht lesen kann** . Du lieferst einen Zustand mit der **Netto-Netzleistung in Watt** (`>0` = Bezug, `<0` = Einspeisung; _Vorzeichen invertieren_ fällt umgekehrt; bei kW / getrennten Bezug-/Einspeisezählern / pro Phase zunächst einen sauberen Nettowert in einem kleinen ioBroker-State berechnen). Bei mehr als einem Kopf berechnet der Regler **einen** Gesamt-Sollwert und **verteilt ihn auf die Online-Köpfe** – gleichmäßig, auf die Leistung jedes Kopfes begrenzt, und überspringt einen Kopf, der voll (beim Laden) bzw. leer (beim Entladen) ist; Dessen Anteil wird auf die anderen umgelegt. Der Adapter erzwingt `MM=0` auf jedem Kopf, damit die Geräte `GS` ausführen; Der Zähler bleibt voll im ioBroker nutzbar.
+**Modus B – Adapter-Regler (Standard-Empfehlung, mit jedem Zähler, 1–3 Köpfe).** ioBroker liest die aktuelle Netzleistung aus **einem beliebigen Staat** , auf den du ihn zeigen lässt (`gridPowerStateId`), und der Adapter schreibt den Netz-Sollwert `GS` (Feedforward + P-Korrektur, mit Watchdog). Der Zähler kann _alles_ sein, was ioBroker unterstützt — Shelly, Tasmota, ein Smartmeter-/Modbus-Adapter — **auch Zähler, die der Speicher selbst nicht lesen kann** . Du lieferst einen Zustand mit der **Netto-Netzleistung in Watt** (`>0` = Bezug, `<0` = Einspeisung; _Vorzeichen invertieren_ fällt umgekehrt; bei kW / getrennten Bezug-/Einspeisezählern / pro Phase zunächst einen sauberen Nettowert in einem kleinen ioBroker-State berechnen). Bei mehr als einem Kopf berechnet der Regler **einen** Gesamt-Sollwert und **verteilt ihn auf die Online-Köpfe** — gleichmäßig, beim Entladen auf die netzgekoppelte Ausgangsgrenze (`MG`) jedes Kopfes begrenzt und beim Laden auf dessen Ladegrenze, und überspringt einen Kopf, der voll (beim Laden) bzw. leer (beim Entladen) ist; Dessen Anteil wird auf die anderen umgelegt. Der Adapter erzwingt `MM=0` auf jedem Kopf, damit die Geräte `GS` ausführen; Der Zähler bleibt voll im ioBroker nutzbar.
 
 **Modus A – Geräte-Eigenregelung (unterstützte Zähler, nur Einzelkopf).** Der Adapter bindet einen unterstützten Zähler **in den Speicher** ein (`MM=1` +`MD`) und lässt das **Gerät selbst regeln** — der herstellereigene Eigenverbrauch, der evtl. schneller reagiert als eine externe Schleife. Dieser Modus ist **nur mit einem einzelnen Kopf** verfügbar; mit zwei oder drei konfigurierten Köpfen ist er nicht wählbar – verwenden Sie stattdessen den Adapter-Regler. Es werden nur vier Zählertypen unterstützt (EcoTracker, Shelly 3EM, Shelly Pro 3EM, Tasmota), und der Zähler muss für den Speicher im LAN erreichbar sein. In diesem Modus schreibt der Adapter **kein** `GS`. Die Anbindung ist nur mDNS-/HTTP-Polling, der Zähler **bleibt in ioBroker nutzbar** – anders als die Zähler-Einrichtung der Hersteller-App, die den Zähler umkonfigurieren und aus ioBroker entfernen kann; Dieser Adapter bindet direkt und vermeidet das.
 
 **Aus (Standard, nur Überwachung).** Der Adapter schreibt nie `MM` /`MD` /`GS`; er pollt nur. `control.*` -States kannst du weiterhin manuell befehlen.
 
-In beiden Steuermodi **besitzt der Adapter `MM` ** : bei jeder Umfrage prüft er das `MM` Jedes Kopfes gegen den gewählten Modus und setzt es (mit Warnung) wieder, falls etwas anderes es geändert hat – so kann eine versehentliche Zählerbindung oder ein externes Skript die Steuerung nicht stillschweigend lahmlegen. Hinweis: Ein Kopf führt eingeschriebenes `GS` nur bei `MM=0` aus; mit gebundenem Zähler (`MM=1`) regiert er selbst und ignoriert `GS` Die
+In beiden Steuermodi **besitzt der Adapter `MM` ** : bei jeder Umfrage prüft er das `MM` Jedes Kopfes gegen den gewählten Modus und setzt es (mit Warnung) wieder, falls etwas anderes es geändert hat – so kann eine versehentliche Zählerbindung oder ein externes Skript die Steuerung nicht stillschweigend lahmlegen. Hinweis: Ein Kopf führt ein geschriebenes `GS` nur bei `MM=0` aus; mit gebundenem Zähler (`MM=1`) regiert er selbst und ignoriert `GS` Die
 
 **Mehrere Köpfe müssen auf unterschiedlichen Phasen liegen.** Das liegt in der elektrischen Verantwortung des Betreibers – der Adapter prüft (und kann) das nicht. Der Regler regelt die **Netto-(Summen-)Netzleistung** , die dein Zähler meldet, also genau das, was ein üblicher saldierender deutscher Zweirichtungszähler abbrechnet; Eine Per-Phasen-Optimierung ist nicht vorgesehen.
 
@@ -79,14 +79,16 @@ _Aus_ (Standard) – nur Überwachung; der Adapter schreibt nie `MM` /`MD` /`GS`
 
 _Adapter-Regler_ (Modus B) — Felder:
 
-- **Quell-State Netzleistung** – ein Fremd-State mit der Netzleistung deines Hauszählers. Konvention: `>0` = Netzbezug, `<0` = Einspeisung. **Vorzeichen invertieren** aktivieren, wenn dein Zähler die umgekehrte Konvention nutzt.
-- **Adaptive Regelung** (Standard): Regelt in drei herstellerspezifischen Stufen – kleine Abweichungen sanft (alle 7 s, 20-W-Schritte), mittlere alle 2,5 s (120 W), große Lastsprünge sofort (450 W), mit festem 5-W-Gesamtband. Deaktivieren, um den Regler manuell über die Felder Verstärkung / Totband / Schreibintervall / Schritt-Limit einzustellen (erscheinen nur dann).
+- **Quell-State Netzleistung** – ein Fremd-State mit der Netzleistung deines Hauszählers. Konvention: `>0` = Netzbezug, `<0` = Einspeisung. **Vorzeichen invertieren** aktivieren, falls Ihr Zähler die umgekehrte Konvention nutzt.
+- **Adaptive Regelung** (Standard an): Regelt in drei herstellerspezifischen Stufen – kleine Abweichungen sanft (alle 7 s, 20-W-Schritte), mittlere alle 2,5 s (120 W), große Lastsprünge sofort (450 W), mit festem 5-W-Netz-Totband. Beachte, dass das _Pro-Kopf-Schreib-Totband_ (Standard 10 W) zusätzlich greift: eine kleinere Korrektur wird nicht geschrieben, solange der Gesamt-Sollwert sich nicht mindestens so weit bewegt hat — in der Praxis bleiben Abweichungen unter etwa 10 W ebenfalls unangetastet. Deaktivieren, um den Regler manuell über die Felder Verstärkung / Totband / Schreibintervall / Schritt-Limit einzustellen (erscheinen nur dann).
 - **Ziel-Netzleistung** (W, Standard 0): 0 = Nulleinspeisung; positive Werte halten bewusst einen kleinen Netzbezug (nie einspeisen), negative eine kleine Einspeisung – gleiche Vorzeichenkonvention wie der Quell-State (`>0` = Bezug).
 - **Max. Änderung pro Korrektur** (W, Standard 500, 0 = unbegrenzt): begrenzt, wie weit sich der Sollwert pro Regelschritt bewegt – hohe Verstärkung kann so bei Zähler-Ausreißern nicht überschwingen.
 - **Verstärkung** (Standard 0,3), **Gesamtband** (W), **Min. Schreibintervall** (ms), **Per-Kopf-Schreib-Totband** (W — minimale Änderung des Kopf-Sollwerts, bevor er erneut geschrieben wird, gegen Zappeln bei sich verschiebender Aufteilung). Die Maximalleistung jedes Kopfes wird **automatisch** vom Gerät erkannt (800 W beim 500, 2400 W beim 500 PRO), Mischbetrieb funktioniert auch ohne Zusatzkonfiguration.
-- **Watchdog Warnung / Failsafe(s)** – wird die Netzquelle zu alt, loggt der Regler eine Warnung und erzwingt schließlich `GS=0` auf **allen Köpfen** (sicherer Neutralzustand), bis die Quelle zurück ist. Watchdog-Telemetrie liegt unter `controller.*` Die
+- **Zähler-Einschwingzeit (ms)** (Standard 0) — Messwerte, die _vor_ dem letzten Sollwert-Schreibvorgang entstanden sind, werden immer verworfen, weil sie noch den Zustand davor beschreiben. Bei Zählern, deren Wert der physikalischen Änderung unmittelbar folgt, 0 lassen; bei Zählern, die frische Zeitstempel liefern, deren Wert aber nachhinkt, etwas über die gemessene Inhaltsverzögerung setzen.
+- **Auch die Wechselrichter-Grenze (IS) steuern** (Standard aus) — zusätzlich zu `GS` Der Regler setzt die maximale Wechselrichter-Ausgangsleistung: den Entladeanteil von `GS` Plus das, was der Last-Port zieht, begrenzt auf die PV-Leistung, sobald ein Kopf seine Entladegrenze erreicht hat. Nur sinnvoll, wenn am Last-Port ein Last hängt; Ohne eine solche erzeugt die Option nur zusätzliche Schreibvorgänge. Bei Failsafe und beim Herunterfahren des Adapters wird die Grenze nach bestem Bemühen wieder auf das Gerätemaximum gesetzt (innerhalb des Shutdown-Budgets und nur bei Köpfen, die antworten). Ein hartes Abwürgen des Prozesses kann das nicht leisten – siehe Einschränkungen. Bei aktiver Option werden manuell `IS` -Schreibvorgänge ignoriert; für eine dauerhafte Begrenzung ist `MG` das richtige Feld.
+- **Watchdog Warnung / Failsafe(s)** – wird die Netzquelle zu alt, loggt der Regler eine Warnung und erzwingt schließlich `GS=0` Auf jedem erreichbaren Kopf (sicherer Neutralzustand), bis die Quelle zurück ist. Watchdog-Telemetrie liegt unter `controller.*` Die
 
-Der Regler liegt vor jeder Korrektur der tatsächlichen Netzleistung (`GP`) jedes Geräts zurück – das ergibt natürliches Anti-Windup, wenn ein Gerät intern begrenzt ist (z. B. durch SoC).
+Der Regler arbeitet vom zuletzt kommandierten Sollwert aus, nicht von einer frischen Geräteabfrage. Die gepolte Netzleistung (`GP`) wirkt als Korrektur: folgt ein Gerät seinem Sollwert länger als 10 s sichtbar nicht (interne Begrenzung durch SoC oder Temperatur), wird der gemeldete Wert als neue Feedforward-Basis übernommen — Anti-Windup ohne zusätzliche Abfrage pro Zyklus. Außerdem vergleicht er das von jedem Gerät zurückgemeldete `GS` mit dem kommandierten und warnt bei Abweichung — dann schreibt ein zweiter Steuerpfad (Hersteller-App oder eine andere Automatisierung) ebenfalls `GS`. Schreibvorgänge an verschiedenen Köpfen gehen gleichzeitig raus, sodass ein langsamer Kopf die anderen innerhalb eines Zyklus nicht aufhält.
 
 _Geräte-Eigenregelung_ (Modus A, **nur Einzelkopf** ) — Felder:
 
@@ -123,7 +125,7 @@ Der Adapter bindet den Zähler (`MM=1` +`MD`) und das Gerät reguliert sich selb
 
 - `GP` (Netzleistung): `>0` = Einspeisung, `<0` = Bezug — **entgegengesetzt zu einem Shelly-Zähler** (`api.GP ≈ −shelly.gridPower`).
 - `BP` (Batterieleistung): `>0` = Laden, `<0` = Entladen.
-- `GS` (Netz-Sollwert): `>0` = Einspeisung/Entladen, `<0` = Netzladen (±2400 W beim Pro, 1-W-Auflösung).
+- `GS` (Netz-Sollwert): `>0` = Einspeisung/Entladen, `<0` = Netzladen (1-W-Auflösung). Beim Standard-500 ist die Grenze nicht symmetrisch: Er darf bis 800 W einspeisen, aber weiterhin bis 2400 W beziehen —`MG` begrenzt nur die Abgabe.
 
 ## Objektbaum
 
@@ -131,7 +133,7 @@ Jeder Kopf erhält seinen eigenen Teilbaum unte&#x72;** `heads.<n>.*` ** (`n` = 
 
 | Kanal                 | Inhalt                                                                                                                                          |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heads.<n>.battery.*` | SoC (`SC`), Batterieleistung (`BP`), SoC je Pack (`SC0` –`SC5`), Pakete online (`ON`), SoC-Hysterese (`SI1` /`SA1`)                        |
+| `heads.<n>.battery.*` | SoC (`SC`), Batterieleistung (`BP`), SoC je Pack (`SC0` –`SC5`), Pakete online (`ON`), SoC-Hysterese (`SI1` /`SA1`, schreibbar)            |
 | `heads.<n>.grid.*`    | Netzleistung (`GP`), Tages-Lade-/Einspeiseenergie (`GD1` /`GD2`)                                                                              |
 | `heads.<n>.load.*`    | Lastleistung (`LP`), Tages-Inselbetriebs-Lastenergie (`LD`)                                                                                   |
 | `heads.<n>.pv.*`      | PV gesamt (`PV`), Tages-PV-Erzeugungsenergie (`PD`) und Leistung/Strom/Spannung je MPPT (`mppt1` –`mppt4`)                                   |
@@ -153,8 +155,8 @@ Per ioBroker-Konvention liegen alle beschreibbaren Felder unter dem `control.*` 
 | Objekt        | Feld | Gehört zu | Beschreibung                                                                            |
 | ------------- | ---- | --------- | --------------------------------------------------------------------------------------- |
 | `control.GS`  | GS   | Netz      | Netzleistungs-Sollwert (`>0` Einspeisung /`<0` Netzladen)                               |
-| `control.IS`  | IST  | Netz      | Max. Netzeinspeisung / WR-Ausgangsgrenze                                                |
-| `control.MG`  | MG   | Netz      | Max. netzgekoppelte Ausgangsleistung                                                    |
+| `control.IS`  | IST  | Netz      | Wechselrichter-Ausgangsgrenze (`1` …`2400` W bei beiden Modellen)                       |
+| `control.MG`  | MG   | Netz      | Max. netzgekoppelte Ausgangsleistung (`1` …`800` W beim 500, `1` …`2400` W beim 500 PRO) |
 | `control.SI`  | SI   | Batterie  | Min. Entlade-SoC (Netzbetrieb)                                                          |
 | `control.SA`  | SA   | Batterie  | Max. Lade-SoC (Netzbetrieb)                                                             |
 | `control.SO`  | ALSO | Batterie  | Min. Entlade-SoC (Inselbetrieb)                                                         |
@@ -169,23 +171,24 @@ Per ioBroker-Konvention liegen alle beschreibbaren Felder unter dem `control.*` 
 
 > Tipp: Im ioBroker-Admin kannst du die Objektliste auch nach dem _beschreibbar_ -Flag filtern, um alle Steuerfelder auf einmal zu finden.
 
-`device.PK` wird aus `DevType` abgeleitet, wenn die Firmware `PK` nicht mehr liefert. Reservierte Felder (`PT`, `SI1`, `SA1`) sind schreibgeschützt. Vom Hersteller entfernte (`UP`) oder reine Doku-Artefakte (`WT`, `BN`) werden nicht angelegt; Alles Ungemappte steht weiterhin in `heads.<n>.info.rawResponse` Die
+`device.PK` wird aus `DevType` abgeleitet, wenn die Firmware `PK` nicht mehr liefert. `SI1` /`SA1` sind schreibbar (SoC-Hysterese, Standard 5 %); weiterhin reservierte Felder (`PT`) sind schreibgeschützt. Vom Hersteller entfernte (`UP`) oder reine Doku-Artefakte (`WT`, `BN`) werden nicht angelegt; Alles Ungemappte steht weiterhin in `heads.<n>.info.rawResponse` Die
 
 ## Manuelle Zähler-/Modus-Felder (MM / MD)
 
-`MM`/`MD` sind die geräteeigene zählerbasierte Eigenverbrauchsregelung eines Kopfes. Wenn Sie einen **Steuermodus** wählen, verwaltet der Adapter sie für Sie (Modus A setzt). `MM=1` +`MD` auf dem einzelnen Kopf; Modus B erzwingt `MM=0` auf jedem Kopf), und sein Guard setzt das modusgerechte `MM` Beim nächsten Poll wieder — eine manuelle Änderung in einem Steuermodus ist also nur vorübergehend.
+`MM` /`MD` sind die geräteeigene zählerbasierte Eigenverbrauchsregelung eines Kopfes. Wenn Sie einen **Steuermodus** wählen, verwaltet der Adapter sie für Sie (Modus A setzt). `MM=1` +`MD` auf dem einzelnen Kopf; Modus B erzwingt `MM=0` auf jedem Kopf), und sein Guard setzt das modusgerechte `MM` Beim nächsten Poll wieder — eine manuelle Änderung in einem Steuermodus ist also nur vorübergehend.
 
 Die Roh-Felder bleiben für Experten-/Handbetrieb schreibbar (z. B. im _Aus-_ Modus). Sie folgen der offiziellen Kopplung: `MM` ausschalten löscht auch `MD` und das Schreiben von `MD` aktiviert `MM` (nicht-leer) bzw. deaktiviert es (leer). Sterben `MD` -JSON-Formate der vier unterstützten Zähler stehen in der lokalen API-Referenz des Geräts; Im Modus _Geräte-Eigenregelung_ baut der Adapter sie aus Zählertyp und SN/IP für dich.
 
 ## Einschränkungen
 
-- **Bis zu drei Köpfe pro Instanz.** Der Einzelkopf-Betrieb ist an echte Hardware validiert; die Mehrkopf-Aufteilung ist durch Unit-Tests abgesichert, zum jetzigen Zeitpunkt aber **an einer echten 2–3-Kopf-Anlage ungetestet** – Rückmeldungen aus Mehrkopf-Setups sind sehr willkommen. _Geräte-Eigenregelung_ nur mit Einzelkopf.
+- **Bis zu drei Köpfe pro Instanz.** Der Einzelkopf-Betrieb ist an echte Hardware validiert; die Mehrkopf-Aufteilung ist durch Unit-Tests abgesichert, zum jetzigen Zeitpunkt aber **an einer echten 2–3-Kopf-Anlage ungetestet** — Rückmeldungen aus Mehrkopf-Setups sind sehr willkommen. _Geräte-Eigenregelung_ nur mit Einzelkopf.
 - **Köpfe müssen auf unterschiedlichen Phasen liegen** (Verantwortung des Betreibers). Der Adapter regelt die **Netto-Summen** -Netzleistung, nicht pro Phase.
 - Das Balancing der einzelnen Packs übernimmt das BMS jedes Kopfes – der Adapter steuert nur die Gesamtleistung des Kopfes und nutzt `battery.SC` (gesamt) zur Regelung; Einzelne Packs werden nicht verwaltet.
 - Tagesenergiezähler (`PD` /`GD1` /`GD2` /`LD`) sind rohe **Wh** , nicht kWh. `PD` benötigt Steuermodul-Firmware `ES 1.1.14` (öffentlich als „1.1.4“ vermarktet — die öffentliche Zählweise weicht von der internen in `ES` ab); Ältere Firmware liefert das Feld schlicht nicht, der Zustand bleibt dann leer.
 - Die Tageszähler werden vom Gerät beim Neustart zurückgesetzt – ein Firmwareupdate mitten am Tag setzt sie also auf 0.
 - `MD` und `TZ` wirken sofort, werden vom Gerät aber nicht garantiert wortgleich zurückgemeldet – über die Wirkung bestätigen, nicht über das Echo.
-- **PV-Eingänge sind ungetestet mit Hardware** (die Referenzanlage läuft ohne PV-Module, daher sind `PV1–4` immer 0). Integration und Regler sind PV-agnostisch und vollständig, aber PV-Firmware-Edge-Cases (z. B. Akku voll + PV-Überschuss, USV-/Bypass-Felder `FP` /`UG`) sind unverifiziert — Feedback willkommen.
+- **Ein harter Ausfall des ioBroker-Hosts lässt den letzten Sollwert laufen.** Die Köpfe haben keinen eigenen Sollwert-Timeout: Das zuletzt geschriebene `GS` wird weiter ausgeführt, bis eine SoC-Grenze greift. Ein normaler Stopp, Neustart oder Moduswechsel ist abgedeckt – der Adapter neutralisiert die Köpfe und merkt sich, falls das nicht gelingt (`info.gsOwned`), um es beim nächsten Start nachzuholen. Ein Stromausfall oder ein hart beendeter Prozess lässt sich so nicht abfangen.
+- **PV-Eingänge sind ungetestet mit Hardware** (die Referenzanlage läuft ohne PV-Module, daher sind `PV1–4` immer 0). Integration und Regler sind PV-agnostisch und vollständig, aber PV-Firmware-Edge-Cases (z. B. Akku voll + PV-Überschuss, USV-/Bypass-Felder `FP` /`UG`) sind unverifiziert — Feedback willkommen. Strom und Spannung je MPPT werden als Zehntel gelesen und mit 0,1 skaliert, wie in der Hersteller-Integration; zeigt eine echte PV-Anlage sie um den Faktor zehn daneben, ist das die Stelle zum Nachsehen.
 
 ## Implementierung
 
@@ -195,7 +198,7 @@ Die Roh-Felder bleiben für Experten-/Handbetrieb schreibbar (z. B. im _Aus-_ Mo
 - **Der Regler ist zu langsam / erreicht nie exakt 0:** siehe _Regelverhalten, Genauigkeit und Grenzen_ — die Messkette bringt \~1–3 s Latenz mit und der Zähler misst mit endlicher Genauigkeit, ein Band von ±10–20 W um das Ziel ist das physikalische Optimum. Für die schnellste Reaktion das _Präzise_ -Profil nutzen (Verstärkung 0,8–1,0, Totband 0, min. Schreibintervall 1000 ms); Wer nie einspeisen will, setzt die **Ziel-Netzleistung** auf einen kleinen positiven Bezug.
 - **Zeitstempel von States wirken alt / Quality-Flag 32:** Der Adapter schreibt einen State nur bei Wertänderung (Standard-Praxis — schützt die States-DB vor Millionen identischer Schreibvorgänge). Der Zeitstempel zeigt auch die letzte _Wertänderung_ , nicht den letzten Poll. Die Datenfrische zeigt `info.lastUpdate` (bei jeder erfolgreichen Umfrage aktualisiert) bzw. `heads.<n>.info.online`. Qualität 32 („Ersatz-Initialwert“) bleibt nur auf Staaten, die das Gerät nie liefert (z. B. SoC nicht vorhandener Erweiterungspacks); Nach jedem Adapterstart werden alle gelieferten Werte einmal geschrieben – ihre Zeitstempel sind auch mindestens so frisch wie der Start.
 - **Zwei Regler kämpfen um den Akku:** Nur einen laufen lassen. Der Adapter erzwingt `MM` für den gewählten Modus — deaktiviere ein externes `GS` -Skript (oder den geräteeigenen `MM` mit Zähler), bevor du einen Steuermodus nutzt.
-- **Manche Staaten bleiben leer (`0` /`""`):** ein Gerät liefert nur die Felder, die seine Firmware/Topologie tatsächlich bereitstellt (z. B. weitere Packs `SC2` –`SC5` oder Fehler-Bitmasks nur im Fehlerfall). Die Roh kompletteantwort steht immer in `heads.<n>.info.rawResponse` Die
+- **Manche Staaten bleiben leer (`0` /`""`):** Ein Gerät liefert nur die Felder, die seine Firmware/Topologie tatsächlich bereitstellt (z. B. weitere Packs `SC2` –`SC5` oder Fehler-Bitmasks nur im Fehlerfall). Die Roh kompletteantwort steht immer in `heads.<n>.info.rawResponse` Die
 - **Nach dem Update einer Einzelkopf-Version sieht der Baum falsch aus:** der Objektbaum wurde in 0.2.0 auf `heads.<n>.*` umgestellt. Der Adapter entfernt veraltete Objekte beim Start automatisch; Bleibt doch etwas übrig, die alten Objekte löschen (oder die Instanz neu anlegen).
 - **Köpfe fallen sporadisch aus / Ping-Timeouts:** das WLAN-Modul im Kopf ist schwach, und gestapelte Geräte setzen ein Metallgehäuse direkt über die Antenne. Prüfe `heads.<n>.device.network.WR` (Signalstärke in dB) — unterhalb von −75 dB wird die Verbindung unzulässig. Gestapelte Geräte trennen und das **Abfrageintervall** auf 10–15 Sekunden erhöhen (die Regelgüte leidet kaum: der Regler reagiert auf die Netzleistungsquelle, nicht auf diese Abfrage). Um den Adapter auszuschließen: Instanz stoppen und den Kopf einige Minuten anpingen – bleiben die Ausfälle, liegt es nicht an der Abfrage. Der Adapter wird selbst verschickt `/read` pro Kopf und Intervall, fragt mehrere Köpfe zeitversetzt ab, schließt jede Verbindung nach Gebrauch und bremst nach fehlgeschlagenen Abfragen automatisch ab.
 
@@ -207,7 +210,7 @@ Die Änderungshistorie wird im Haupt- [README.md](/#/adapters/sunenergyxt500#cha
 
 MIT-Lizenz
 
-Copyright (c) 2026 Marcus Bortel (Creekhail)
+Copyright (c) 2026 Marcus Bortel (Creekhail) <marcus@bortel.de>
 
 Die Erlaubnis wird hiermit unentgeltlich jeder Person erteilt, die eine Kopie dieser Software und der zugehörigen Dokumentationsdateien (die „Software“) erhält, mit der Software uneingeschränkt zu handeln, einschließlich und ohne Einschränkung der Rechte, sie zu nutzen, zu kopieren, zu ändern, zusammenzuführen, zu veröffentlichen, zu verbreiten, zu unterlizenzieren und/oder zu verkaufen, und Personen, denen die Software überlassen wird, dies zu gestatten, unter den folgenden Bedingungen:
 

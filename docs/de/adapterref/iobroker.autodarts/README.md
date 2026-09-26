@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.autodarts/README.md
 title: ioBroker-Adapter für AUTODARTS
-hash: KYaeq07pHKclZ08zRgY/YoIOWyYRAC+s3Csw9GQe2iU=
+hash: v0Su7Jd8M7ei+YUSJHKWV67lR80GJuUkQN19WIX6O2M=
 ---
 ![Logo](../../../en/adapterref/iobroker.autodarts/admin/autodarts.svg)
 
@@ -22,13 +22,22 @@ hash: KYaeq07pHKclZ08zRgY/YoIOWyYRAC+s3Csw9GQe2iU=
 
 ## Was dieser Adapter bewirkt
 
-Verbindet sich mit Ihrem lokalen Autodarts Board Manager (über IP und Port, z. B. `192.168.x.x:3180`) und stellt ioBroker-Zustände für die Hausautomation bereit:
+Verbindet sich mit Autodarts und stellt ioBroker-Zustände für die Hausautomation bereit:
 
 - Schalte das Licht ein, wenn ein Spiel beginnt
 - Spiele einen Ton auf die Zielscheibe
 - Den nächsten Wurf per Text-zu-Sprache (TTS) ankündigen
 - Hardware der Steuerplatine (Beleuchtung, Stromversorgung)
 - Löse beliebige andere ioBroker-Automatisierungen basierend auf Dart-Ereignissen aus.
+
+## Kompatibilität
+
+| Modus                | Autodarts-Version                        | Wie es zusammenhängt                         |
+| -------------------- | ---------------------------------------- | -------------------------------------------- |
+| **Lokal** (Standard) | Board Client / Desktop **vor Version 2** | Umfragen vor Ort `IP:3180` (`/api/state`)    |
+| **Wolke**            | Autodarts **v2.0+** (Desktop / Terminal) | Autodarts Cloud WebSocket (Login + Board-ID) |
+
+**Autodarts v2.0+:** Die Web-Oberfläche des Board-Managers ist veraltet. Die lokale API auf Port `3180` Es kann weiterhin Anfragen beantworten (Verbindung, Kameras, Boardstatus), **liefert aber keine Wurfdaten mehr** (`throws` /`numThrows` Verwenden Sie **den Cloud** -Verbindungsmodus für die Wurferkennung in Version 2.
 
 ## Dokumentation
 
@@ -74,17 +83,19 @@ Verbindet sich mit Ihrem lokalen Autodarts Board Manager (über IP und Port, z. 
 ### Tools-Addon-Integration
 
 - ** `tools.RAW` ** : Eingabestatus, der zum Empfangen von Ereignissen von Browser-Tools verwendet wird (z. B. busted, gameon, gameshot, 180, matchshot, takeout).
-- ** `trigger.is180/isBusted/isGameon/isGameshot/isMatchshot/isTakeout` ** : Schreibgeschützte Trigger-Flags werden gesetzt, wenn entsprechende Ereignisse empfangen werden über `tools.RAW` Die
+- ** `trigger.is180/isBusted/isGameon/isGameshot/isMatchshot/isTakeout` ** : Schreibgeschützte Trigger-Flags werden gesetzt, wenn entsprechende Ereignisse über empfangen werden `tools.RAW` Die
 - ** `tools.config.url*` ** : Vorgefertigte HTTP-URLs (einfache API-Aufrufe), die in die Browsererweiterung Tools for Autodarts kopiert werden können.
 
 ## Was dieser Adapter NICHT leistet
 
-- ❌ Es werden keine Daten an das Internet oder an Server von Drittanbietern gesendet.
-- ❌ Es werden weder Verlaufsdaten, Statistiken noch personenbezogene Daten gespeichert oder weitergegeben.
-- ❌ Kein Zugriff auf die Boards anderer Nutzer oder entfernte Boards über das Internet
-- ❌ Keine Cloud-Funktionen oder Analysen
+- ❌ Es werden keine Verlaufsdaten, Statistiken oder personenbezogenen Daten gespeichert, die über die von ioBroker in den Zuständen gespeicherten Daten hinausgehen.
+- ❌ Kein Zugriff auf die Boards anderer Nutzer.
+- ❌ Keine Analysefunktionen
 
-Alle Daten bleiben lokal auf Ihrem ioBroker-System.
+**Datenschutz nach Modus**
+
+- **Lokaler Modus:** Alle Boarddaten bleiben in Ihrem Netzwerk; von diesem Adapter werden keine Daten an die Autodarts-Server gesendet.
+- **Cloud-Modus:** Der Adapter authentifiziert sich mit Ihrem Autodarts-Konto und empfängt Spielereignisse von den Autodarts-Servern. Die Anmeldeinformationen bleiben in der Adapterkonfiguration gespeichert; aktivieren Sie die Zwei-Faktor-Authentifizierung für dieses Konto nicht, wenn Sie sich mit einem Passwort anmelden.
 
 ## Konfiguration
 
@@ -94,13 +105,22 @@ Alle Daten bleiben lokal auf Ihrem ioBroker-System.
 
 ### Registerkarte: OPTIONEN
 
-Unter **OPTIONEN** konfigurieren Sie, wie der Adapter eine Verbindung zu Ihrem lokalen Autodarts Board Manager herstellt und wie oft er Daten abfragt:
+Unter **OPTIONEN** konfigurieren Sie, wie der Adapter eine Verbindung zu Autodarts herstellt:
 
-- **Board Manager IP**\
-  &#x20;IP-Adresse Ihres Autodarts Board Managers (z. B. `192.168.178.50` oder `127.0.0.1`).
+- **Verbindungsmodus**
+  - `local` — den Board-Client in Ihrem LAN abfragen (`IP:port` (Standardeinstellung für Autodarts vor Version 2)
+  - `cloud` — Autodarts-Konto + Board-ID (erforderlich für die Wurferkennung von Autodarts v2)
 
-- **Hafen**\
-  &#x20;TCP-Port des Board Managers (normalerweise `3180`).
+- **Board-Host/IP** (lokaler Modus)\
+  &#x20;IP-Adresse Ihres Autodarts-PCs (z. B. `192.168.178.50` oder `127.0.0.1`).
+
+- **Port** (lokaler Modus)\
+  &#x20;TCP-Port des Board-Clients (normalerweise `3180`).
+
+- **Cloud-E-Mail / Passwort / Board-ID** (Cloud-Modus)\
+  &#x20;Ihre Autodarts-Anmeldedaten und die Board-ID von **„Meine Boards“** auf [play.autodarts.io](https://play.autodarts.io) .\
+  &#x20;So finden Sie die Board-ID: Anmelden → **Boards** / **Meine Boards** → Ihr Board öffnen → UUID der Board-ID kopieren.\
+  &#x20;Details: [Englische FAQ](./docs/en/faq.md) / [Deutsche FAQ](./docs/de/faq.md) . Deaktivieren Sie die Zwei-Faktor-Authentifizierung, falls die Passwortanmeldung fehlschlägt.
 
 - **Dreifacher Abzugsbereich**\
   &#x20;Zwei Dropdown-Menüs zur Festlegung der **minimalen** und **maximalen** Feldanzahl (1–20), die berücksichtigt werden soll für `trigger.isTriple` Die\
@@ -138,15 +158,20 @@ Unter **HILFE & FAQ** finden Sie allgemeine Informationen und Hilfestellungen zu
 
 ## Datenschutz und Datenverarbeitung
 
-- Dieser Adapter liest Daten nur von Ihrem **lokalen** Autodarts Board Manager in Ihrem eigenen Netzwerk.
-- Es werden keine personenbezogenen Daten an externe Server gesendet oder in der Cloud gespeichert.
-- Alle Daten verbleiben auf Ihrem eigenen System; es werden weder Statistiken noch Wurfhistorien erfasst oder weitergegeben.
-- Dieser Adapter ist nur für die Verwendung mit Ihrer eigenen Dartscheibe konzipiert, nicht mit Fernbedienungen oder Dartscheiben anderer Personen.
+- **Lokaler Modus:** Der Adapter liest Daten nur von Ihrem Autodarts-Board-Client in Ihrem eigenen Netzwerk.
+- **Cloud-Modus:** Der Adapter verbindet sich mit den Autodarts-Servern über Ihr Konto, um Board-/Match-Ereignisse zu empfangen (erforderlich für Autodarts v2).
+- Über die ioBroker-Zustände hinaus werden von diesem Adapter keine Statistiken oder Wurfhistorien erfasst oder weitergegeben.
+- Dieser Adapter ist nur für die Verwendung mit Ihrer eigenen Dartscheibe konzipiert.
 
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2026-09-26)
+- (skvarel) Documented Autodarts v2 incompatibility for local throw detection
+- (skvarel) Added optional cloud connection mode for Autodarts v2 throw events
+- (skvarel) Documented how to find the Autodarts board ID for cloud / v2 setup
+
 ### 1.0.12 (2026-06-28)
 - (skvarel) Fixed admin i18n labels flagged as untranslated by the repository checker (fixes #67)
 
@@ -162,10 +187,6 @@ Unter **HILFE & FAQ** finden Sie allgemeine Informationen und Hilfestellungen zu
 - (skvarel) Adapter requires node.js >= 22 now
 - (skvarel) Updated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)
 - (skvarel) Downgraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)
-
-### 1.0.8 (2026-04-13)
-- (skvarel) Removed react and mui
-- (skvarel) Removed admin/style.css
 
 ## License
 MIT License

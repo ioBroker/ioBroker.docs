@@ -32,6 +32,10 @@ Some kind of WAF/proxy/entry Server should be put before ioBroker. (e.g. nginx i
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 1.2.4 (2022-10-08)
 * (Apollon77) Fix atHome states
 * (Apollon77) Catch errors when creating webserver
@@ -118,7 +122,7 @@ Some kind of WAF/proxy/entry Server should be put before ioBroker. (e.g. nginx i
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 dschaedl <daniel.schaedler@gmail.com>, iobroker-community
+Copyright (c) 2015-2026 dschaedl <daniel.schaedler@gmail.com>, iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

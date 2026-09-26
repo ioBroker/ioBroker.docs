@@ -86,6 +86,9 @@ sendTo('wattcycle.0', 'scan', { duration: 8000 }, res => console.log(res.devices
 - Bluetooth adapter must support Bluetooth 5.0 (LE long range).
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 22 now.
 <!--
    Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**

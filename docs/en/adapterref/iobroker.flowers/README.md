@@ -83,6 +83,14 @@ Only one watering cycle runs at a time per plant. Configure the duration in Sett
 
 ## Changelog
 
+### 0.4.6
+- (sadam6752-tech) Fix E6029/W6030: add the missing changelog entry for 0.4.5
+- (sadam6752-tech) Fix W6034: complete MIT license text in the README
+- (sadam6752-tech) CI: Node.js 26 in the test matrix and a new deploy job using npm Trusted Publishing (OIDC) with provenance
+
+### 0.4.5
+- (sadam6752-tech) Fix S0064: update @alcalzone/release-script-plugin-license to 5.2.2
+
 ### 0.4.4
 - (sadam6752-tech) Fix S0082: update @tsconfig/node22 devDependency to 22.0.5
 
@@ -142,5 +150,24 @@ For older changelog entries see CHANGELOG_OLD.md.
 
 ## License
 
-MIT License  
+MIT License
+
 Copyright (c) 2025-2026 sadam6752-tech <sadam6752@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

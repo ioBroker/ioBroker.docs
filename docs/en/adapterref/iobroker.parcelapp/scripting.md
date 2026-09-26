@@ -46,9 +46,10 @@ schedule("0 7 * * *", () => {
 
 ## `lastUpdated` is a change marker
 
-`lastUpdated` is written only when the tracking data actually changed, not on every poll. That makes
-it usable as a "something happened" trigger — and it means a stale timestamp is information, not a
-fault:
+`lastUpdated` is written only when the tracking data actually changed, not on every poll — the
+estimate moving on from day to day, a new carrier display name or another system language do not
+count, a new carrier code does. That makes it usable as a "something happened" trigger — and it
+means a stale timestamp is information, not a fault:
 
 ```javascript
 // Warn about a shipment that has not moved for four days.
@@ -95,7 +96,9 @@ sendTo(
 ### The reply
 
 The callback always receives an object with `success` and, on failure, `error_message`. This shape
-is stable — scripts written against it keep working.
+is stable — scripts written against it keep working. The callback is optional: a `sendTo` without
+one adds the delivery all the same, and the result appears in the log at info level
+(`addDelivery: added '…'` or `addDelivery: parcel.app rejected '…': …`).
 
 `success: false` can mean several things, and `error_message` says which: an unknown
 `carrier_code`, a tracking number the carrier does not recognise, a missing `postcode` or `email`
@@ -106,20 +109,24 @@ the request, `error_message` carries parcel.app's own reason behind the HTTP sta
 
 ### Rules the adapter enforces before sending
 
-| Rule                                                                                | Reply                                                        |
-| ----------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| `tracking_number`, `carrier_code` and `description` are required, non-empty strings | `tracking_number, carrier_code and description are required` |
-| Every field is at most 512 characters                                               | `each field must be at most 512 characters`                  |
-| At most 20 calls per minute                                                         | `too many addDelivery requests; max 20 per 60s`              |
+| Rule                                                                                | Reply                                                                |
+| ----------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `tracking_number`, `carrier_code` and `description` are required, non-empty strings | `tracking_number, carrier_code and description are required`         |
+| Every field is at most 512 characters                                               | `each field must be at most 512 characters`                          |
+| At most 20 calls in any 24 hours — parcel.app's own daily POST limit                | `daily limit of 20 addDelivery requests reached; next possible at …` |
 
-These guards exist so a runaway script cannot burn your daily POST budget or push a multi-megabyte
-request to parcel.app. They are checked before the network call, so a rejected call costs nothing.
+These guards exist so a runaway script cannot spend parcel.app's daily POST budget on calls
+parcel.app would refuse anyway, or push a multi-megabyte request to it. They are checked before the
+network call, so a rejected call costs nothing. The first refusal in a 24-hour window is logged as a
+warning, every further one at debug level.
 
 ### What happens after a successful add
 
-The adapter polls right away, so the package appears in the object tree within seconds. Its tracking
-states will usually still be empty — parcel.app itself needs **45 to 90 minutes** before a freshly
-added shipment carries events. That is a parcel.app-side delay, not a fault in the adapter.
+The adapter polls once more right away — at most once per poll interval, at least 60 seconds after
+the previous poll, and only while the hourly request budget allows it; otherwise the next regular
+poll picks the package up. Its tracking states will usually still be empty — parcel.app itself is on
+average **45 and at most about 90 minutes** behind the carrier's website, so a freshly added shipment
+carries no events before that. That is a parcel.app-side delay, not a fault in the adapter.
 
 ### Carrier codes
 
@@ -143,4 +150,5 @@ sendTo("parcelapp.0", "checkConnection", { apiKey: "your-key" }, reply => {
 
 Note the different shape from `addDelivery` — that is deliberate, because the ioBroker admin's
 `sendTo` component reads exactly `result`/`error`. Do not use `checkConnection` on a schedule: it
-spends one of the 20 hourly requests each time.
+spends one of the 20 hourly requests each time. With the configured key the adapter answers locally
+while parcel.app's rate-limit cooldown runs or the hour's budget is used up.

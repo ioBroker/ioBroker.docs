@@ -14,10 +14,11 @@ BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg?style=for-the-
 # hueemu — a Philips Hue bridge for devices that only speak Hue
 
 This adapter makes ioBroker look like a **Philips Hue Bridge** (a v2 bridge, model
-BSB002) on your local network. Anything that can control Hue lights — a Logitech
-Harmony hub, an older Echo, a wall panel, an abandoned dashboard app — finds the
-bridge, sees the lights you published, and switches them. Behind each of those
-"lights" sits an ioBroker state of your choosing.
+BSB002) on your local network. Anything that can control Hue lights through the Hue
+API — a Logitech Harmony hub, an older Echo, a wall panel, an abandoned dashboard app —
+sees the lights you published and switches them. Clients that search the network via
+SSDP (Alexa, Harmony) find the bridge by themselves; any other client is given its IP
+address. Behind each of those "lights" sits an ioBroker state of your choosing.
 
 It is the counterpart to a real bridge: instead of Philips hardware answering, your
 ioBroker instance does — and the lights it offers can be anything the object tree
@@ -39,8 +40,9 @@ knows, from a Zigbee bulb to a KNX dimmer to a relay in a heating controller.
 
 ### 1. Create the instance
 
-Install the adapter and create one instance. It comes up on port 8080 and announces
-itself on the network straight away — there is nothing to configure before it runs.
+Install the adapter and create one instance. The instance is created **stopped**:
+choose the Host / IP address and the port (steps 2 and 3) first, then start it. It
+listens on port 8080 unless you choose another one.
 
 ### 2. Host / IP address
 
@@ -50,34 +52,39 @@ out the routable address of your ioBroker host and announces that one to clients
 Set a concrete address only if your host sits on **several networks** and the client
 can reach it on just one of them.
 
-### 3. HTTP port
+### 3. Port
 
 `8080` is the default and works with a Harmony hub.
 
-**Some Alexa firmware versions only find a bridge on port 80.** If Alexa does not
-discover the bridge, set the port to `80`. On Linux a port below 1024 usually needs
-extra privileges for the ioBroker process — if the adapter cannot bind port 80, that
-is why.
+**Alexa needs port 80, and current Echo devices also try HTTPS on 443.** For Alexa set
+**Port** to `80` and **HTTPS Port** to `443`; the bridge answers HTTPS with its own
+self-signed certificate. A port below 1024 needs the right to bind it — the ioBroker
+installer grants that to Node.js on Linux; if the log says the port cannot be bound,
+that right is missing.
+
+**Trust X-Forwarded-\* headers** stays off unless the adapter sits behind a reverse
+proxy you trust that strips client-supplied forwarding headers. It only changes which
+client address the debug log shows.
 
 ### 4. Publish your lights
 
 Open the **Devices** tab. Each card is one light the bridge offers.
 
 **Automatically** — click **Search lights**. The adapter looks through your object
-tree for things that behave like lights (a switch, a dimmer, a colour-temperature
-lamp, a colour lamp) and shows what it found as a checklist. Tick the ones you want;
+tree for things that behave like lights (a switch, a dimmer, a color-temperature
+lamp, a color lamp) and shows what it found as a checklist. Tick the ones you want;
 only those are added. Anything it found but could not map is counted in the message
 afterwards, so nothing disappears silently.
 
 **By hand** — click **Add light**, give it a name, pick a light type and point each
 field at an ioBroker state with the object browser.
 
-| Light type            | What the client sees                |
-| --------------------- | ----------------------------------- |
-| **On/Off**            | on and off                          |
-| **Dimmable**          | on/off and brightness               |
-| **Color Temperature** | on/off, brightness, warm–cool white |
-| **Color**             | on/off, brightness, full colour     |
+| Light type            | What the client sees                   |
+| --------------------- | -------------------------------------- |
+| **On/Off**            | on and off (shown as a dimmable light) |
+| **Dimmable**          | on/off and brightness                  |
+| **Color Temperature** | on/off, brightness, warm–cool white    |
+| **Color**             | on/off, brightness, full color         |
 
 Every light keeps its number for good: deleting or reordering lights changes nothing
 for the others, so Alexa's routines keep pointing at the lamps they were set up with.
@@ -93,31 +100,40 @@ of pressing the button on a real bridge.
 2. Within **50 seconds**, start the device search in your client
 3. A new entry under `hueemu.0.clients.` confirms the pairing
 
-**Alexa (older Echo):** Alexa app → Devices → `+` → Philips Hue.
-**Harmony:** Harmony setup → Add Device → Lighting → Philips Hue → search for bridge.
+**Alexa (older Echo):** Alexa app → Devices → `+` → Philips Hue → **Philips Hue V1**.
+Let only one Echo search if you have several. First-generation Echo devices no longer
+support this path. Alexa handles at most 49 lights per bridge — with more, it finds
+none. Use one emulated bridge per Alexa account: two instances announce their lights
+under the same identifiers and Alexa mixes them up.
 
-## Value scales — what to check when a colour looks wrong
+**Harmony:** MyHarmony desktop software → Devices → Add Device → Scan for devices (or
+Lighting → Philips Hue).
+
+## Value scales — what to check when a color looks wrong
 
 ioBroker adapters store the same value in different units. A hue is kept in degrees
-(0–360) by one adapter and in the Hue-native 0–65535 by another; a colour temperature
+(0–360) by one adapter and in the Hue-native 0–65535 by another; a color temperature
 is Kelvin here and mired there; a brightness is a percentage or a raw 0–254.
 
 The adapter reads the unit and the value range from the state it binds and settles the
 scale itself at every start — for lights the search found AND for lights you added by
 hand, and it applies to reading and writing alike. Where a state says nothing about its
-unit or its range — which happens, for instance, with the Zigbee adapter's colour
+unit or its range — which happens, for instance, with the Zigbee adapter's color
 temperature — the adapter falls back to reading the value itself, and writes it back
 the same way it read it.
 
-So if a light responds but shows the wrong colour, the wrong white tone or jumps to
+So if a light responds but shows the wrong color, the wrong white tone or jumps to
 full brightness, open its card and set the scale by hand — "Automatic (from the
 datapoint)" is the setting that lets the adapter decide:
 
 - **Brightness / Saturation** — `Percent (0..100)` for a typical `level.dimmer`,
-  `Normalized (0..1)`, or `Raw (1..254)` for a source that already uses Hue's own range
-- **Hue** — `Degrees (0..360)` for a normal ioBroker colour state, `Native` for 0–65535
-- **Colour temperature** — `Kelvin` for a state holding values like 2700–6500,
-  `Native` for mired (roughly 153–500)
+  `Normalized (0..1)`, `Raw (1..254 Hue)` for a source that already uses Hue's own
+  range, or `Byte (0..255)`
+- **Hue** — `Degrees (0..360)` for a normal ioBroker color state, `Native (no conversion)`
+  for 0–65535
+- **Color temperature** — `Kelvin` for a state holding values like 2700–6500,
+  `Native (no conversion)` for mired (roughly 153–500), `Percent (0..100, 0 = cold)` for
+  a state that runs from coldest to warmest in percent
 
 ## Lights that have no on/off state
 
@@ -140,8 +156,13 @@ hueemu.0.
 ```
 
 `info.connection` is the quick answer to "is it running at all?". A start can fail for
-reasons the instance list does not show — the HTTP port already taken, or no usable
-network address — and then `info.error` carries the cause in plain words.
+reasons the instance list does not show. An error from the system — the port already
+taken, for example — then appears in `info.error` as it is; for a problem the adapter
+diagnoses itself (no port set, no usable network address) `info.error` shows `Unknown`
+and the log carries the explanation.
+
+A paired client is removed by deleting its entry under `hueemu.0.clients` — its key
+stops working at once.
 
 `disableAuth` is a maintenance aid, not a setting to leave on: with it every device on
 your network can control your lights without pairing. New clients are limited to 100
@@ -151,9 +172,9 @@ per hour in any case; a single log warning tells you when that limit was reached
 
 | Port | Protocol | What for                       | Configurable                    |
 | ---- | -------- | ------------------------------ | ------------------------------- |
-| 8080 | TCP      | the Hue API itself             | yes — clients learn it via SSDP |
+| 8080 | TCP      | the Hue API itself (Alexa: 80) | yes — clients learn it via SSDP |
 | 1900 | UDP      | discovery, so clients find you | no — fixed by the UPnP standard |
-| —    | TCP      | optional HTTPS                 | yes, off unless you set a port  |
+| —    | TCP      | optional HTTPS (Alexa: 443)    | yes, off unless you set a port  |
 
 ## Troubleshooting
 
@@ -161,17 +182,22 @@ per hour in any case; a single log warning tells you when that limit was reached
 between client and ioBroker host, and that both are on the same network segment — a
 guest network or a separate VLAN will not work without extra routing. On a host with
 several network cards, set **Host / IP** to the concrete LAN address instead of
-`0.0.0.0`. With Alexa, try port 80.
+`0.0.0.0`. For Alexa, see port 80 and HTTPS 443 above.
 
 **Pairing fails.** `startPairing` must be `true` **before** you start the search in the
-client, and the window is only 50 seconds. It closes again after a successful pairing —
-that is what a real bridge does too.
+client, and the window is only 50 seconds. A client that pairs by asking for a key
+closes the window again — that is what a real bridge does too; a client that is
+admitted while it looks up lights leaves it open until the 50 seconds are over.
 
 **A light appears but does not react.** Check that the state you bound is actually
 writable. A status state (a sensor mirroring what a device reports) can be read but not
 written, so the light will show a value and ignore every command.
 
-**A light shows the wrong colour or brightness.** See "Value scales" above.
+**A light shows the wrong color or brightness.** See "Value scales" above.
+
+**Going back to a version below 1.18.0** is not supported: the older version no longer
+finds the listen address under its new key and numbers the lights anew, so Alexa sees
+different lamps.
 
 **You come from the old `createLight` setup.** Your lights are converted automatically
 on the first start and the adapter restarts once. Nothing to do by hand. Worth doing
@@ -184,10 +210,7 @@ state and drop that script.
 The adapter speaks only to devices on your own network; it has no cloud connection and
 sends nothing to the internet on its own.
 
-The one exception is error reporting via Sentry, and only if you have switched on
-diagnostics in **ioBroker system settings → Diagnostics and error reporting**. What is
-then transmitted on a crash is an anonymous installation ID and the technical error —
-no name, no e-mail address, no IP address, none of your states.
+Error reporting via Sentry is active by default; what it sends and how to switch it off is described in the [Sentry section of the main README](https://github.com/krobipd/ioBroker.hueemu/blob/main/README.md#sentry--error-reporting).
 
 ## Changelog
 
@@ -196,7 +219,19 @@ no name, no e-mail address, no IP address, none of your states.
     ### **WORK IN PROGRESS**
 -->
 
-### 1.18.0 (2026-09-15)
+### 1.19.0 (2026-09-25)
+
+- Fixed: With an HTTPS port the instance no longer restarts endlessly — the certificate key is now really stored encrypted, and a key that does not fit its certificate is replaced.
+- Fixed: Clients that send no or another content type (phue, curl) can pair and switch again instead of getting error 901 from the bridge.
+- Fixed: The number of a deleted light is never handed out again, not even the highest one — Alexa no longer mistakes a new lamp for the old one.
+- New: Color temperature in percent (e.g. tradfri) and brightness from 0 to 255 are recognized and converted, and both can be chosen by hand on the light's card.
+- Improved: Values are fitted to the target datapoint — clamped to its range, never written into a read-only state, and a text switch gets its own ON/OFF.
+- Fixed: Switching off with a brightness in the same command now stays off for every light, and a group the bridge does not have no longer switches all lights.
+- Fixed: Deleting a paired client in the admin now revokes its access at once instead of only at the next restart of the instance.
+- Improved: The light search also finds relays and dimmers assigned to the function Light, and offers a lamp with a device and channel level only once.
+- Fixed: openHAB's Hue binding can read the bridge again (time stamps in the bridge's format), and a color set by hue and saturation is shown as such in apps.
+
+### 1.18.0 (2026-09-15) — stable
 
 - Changed: The listen address and port are now stored under the standard keys the admin's port-conflict check reads — another adapter set to the bridge's port is warned before it collides.
 - Improved: Your configured Host / IP address survives the update unchanged — nothing to re-enter, and the bridge keeps listening where it did before.
@@ -227,10 +262,6 @@ no name, no e-mail address, no IP address, none of your states.
 ### 1.16.0 (2026-09-03)
 
 - Fixed: If an action in the devices tab fails, you now get a message saying what went wrong instead of a dialog that never finishes.
-
-### 1.15.2 (2026-09-03)
-
-- Fixed: When a very old setup is upgraded, its already paired clients now get their proper name and explanation right away instead of after the next restart.
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.teltonika/README.md
 title: ioBroker Teltonika
-hash: 9ZIxJ+G0tIVJGirXC63gxC/02+dzW2Ys848YeRH9/AQ=
+hash: jHMkGchEZhcITwlP76moTBo6t38VvSfPZMBhx/HsKSk=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/teltonika-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.teltonika.svg)
@@ -26,7 +26,7 @@ Router verbinden sich selbst über MQTT mit dem Adapter. Geräte ohne MQTT-Publi
 - Temperatur ('RUT2', 'RUT9', 'RUTX', 'RUT3', 'RUT1', 'TRB2', 'TRB5', 'OTD', 'RUTM', 'RUTC')
 - Signalstärke
 - Mobilfunkanbieter
-- Netzwerkstatus
+- Netzwerkzustand
 - Verbindungstyp (2G/3G/4G/5G)
 - WAN-IP-Adresse
 - Betriebszeit
@@ -92,11 +92,20 @@ Wenn eine Schreib-Community konfiguriert ist, kann ein Port über das Bedienfeld
 
 Die Widgets erkennen Geräte aus dem Objektbaum und nicht aus der Adapterkonfiguration, da MQTT-Router sich selbst ankündigen und SNMP-Geräte bei ihrer ersten Abfrage erscheinen.
 
+### Widgets für vis-2
+
+Die gleichen beiden Ansichten sind als Widget-Set für **vis-2** (Set _Teltonika_ ) verfügbar:
+
+- **Teltonika-Geräte** – alle Geräte einer Instanz werden als Übersicht (Online-Geräte, Portbelegung), als einzelne Kachel pro Gerät oder mit allen Details direkt im Widget angezeigt. Durch Klicken auf die Übersicht oder eine Kachel wird der Detaildialog geöffnet.
+- **Teltonika-Ports** – die Frontblende eines Geräts, ausgewählt aus einer Liste der Geräte der Instanz, oder dessen vollständige Details innerhalb des Widgets.
+
+Das Umschalten von Ports über die Widgets ist standardmäßig deaktiviert und muss in den Widget-Einstellungen aktiviert werden.
+
 ### Fallen
 
 Der Adapter kann SNMP-Traps empfangen. Aktivieren Sie diese Funktion im _SNMP-_ Tab und legen Sie den Host unter _„Dienste“ → „SNMP“ → „Trap-Einstellungen“_ fest. Beachten Sie, dass Port 162 unter Linux ein privilegierter Port ist; gegebenenfalls ist ein höherer Port erforderlich.
 
-Jede Benachrichtigung wird angezeigt als `<device>.traps.<name>` Die Zeit der letzten Ankunft wird gespeichert, und `<device>.traps.last` nennt die aktuellste. Die meisten Teltonika-Benachrichtigungen weisen keine Nutzdaten aus – von den sieben, die ein RUTC definiert, nur `signalChangeNotification` Es speichert beliebige Daten – daher wird eine Trap aufgezeichnet und anschließend eine sofortige Abfrage des entsprechenden Geräts ausgelöst, woher die tatsächlichen Werte stammen. Ein TSW202 definiert überhaupt keine Traps.
+Jede Benachrichtigung wird angezeigt als `<device>.traps.<name>` Die Uhrzeit der letzten Ankunft wird gespeichert, und `<device>.traps.last` nennt die aktuellste. Die meisten Teltonika-Benachrichtigungen weisen keine Nutzdaten aus – von den sieben, die ein RUTC definiert, nur `signalChangeNotification` Es speichert beliebige Daten – daher wird eine Trap aufgezeichnet und anschließend eine sofortige Abfrage des entsprechenden Geräts ausgelöst, woher die tatsächlichen Werte stammen. Ein TSW202 definiert überhaupt keine Traps.
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -104,6 +113,11 @@ Jede Benachrichtigung wird angezeigt als `<device>.traps.<name>` Die Zeit der le
 -->
 
 ## Changelog
+### 1.0.1 (2026-09-23)
+* (iobroker-bot) Adapter requires node.js >= 22 now.
+* (@GermanBluefox) Added vis-2 widgets: overview of all devices and front panel of one device
+* (@GermanBluefox) Fixed the device manager widgets failing to load now and then with React error #527
+
 ### 1.0.0 (2026-08-10)
 * (bluefox) Added SNMP support for devices without an MQTT publisher, such as the TSW switches
 * (bluefox) Added a network scan that finds Teltonika devices and fills the device table

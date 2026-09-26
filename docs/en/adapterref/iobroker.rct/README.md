@@ -77,6 +77,7 @@ None
 ### **WORK IN PROGRESS**
 - (Andreas Ruttkamp) Update dependencies
 - (Andreas Ruttkamp) Nodejs 26 for testiung included
+- (Andreas Ruttkamp) correct email in licence
 
 ### 1.2.29 (2026-08-10)
 - (Andreas Ruttkamp) Update dependencies

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: ReLEKv245cIhYjwxe85LVmSsgtje35VZtkOmKfxTUGI=
+hash: if8JP8cQ+85HAv1tSDadJePE9guYw/SREWFxAsnKjE8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
@@ -21,7 +21,7 @@ hash: ReLEKv245cIhYjwxe85LVmSsgtje35VZtkOmKfxTUGI=
 
 Позволяет определить состояния, которые должны быть зарегистрированы в списке событий.
 
-Список можно отображать в админке, на веб-сайте, в визуализации, сохранять в формате PDF, использовать в материалах (пока не реализовано).
+Список можно отображать в административной панели, на веб-сайте, в визуализации, сохранять в формате PDF, использовать в материалах (пока не реализовано).
 
 Кроме того, вы можете отправлять информацию о мероприятиях через Telegram или WhatsApp.
 
@@ -51,9 +51,38 @@ hash: ReLEKv245cIhYjwxe85LVmSsgtje35VZtkOmKfxTUGI=
 
 Не путайте это с описанным выше режимом тревоги. Режим тревоги — это переключатель постановки на охрану, сообщение означает неисправность.
 
-### Уровни
+### Уровни и классы сигнализации
 
-`fatal`, `error`, `warning` и `info` Два наиболее серьезных предупреждения должны быть подтверждены по умолчанию, два других — нет; любое сообщение может это переопределить.
+Четыре уровня `fatal`, `alarm`, `warning` и `info` Они существуют всегда, и каждый из них содержит три подуровня. `high`, `normal` и `low` Эта сетка представляет собой двенадцать встроенных **классов тревожных сигналов** , обозначенных следующим образом: `fatal.high` до `info.low`.
+
+В основе этого лежат цифры из стандарта OPC UA (часть 9, «Сигналы тревоги и условия»): уровень серьезности от 1 до 1000, а также правило спецификации, согласно которому уровень тревоги превышает 400. Таким образом, диапазоны следующие:
+
+| уровень   | тяжесть    | подтверждено по умолчанию                | стенды                                       |
+| --------- | ---------- | ---------------------------------------- | -------------------------------------------- |
+| `fatal`   | 801 – 1000 | Его нельзя выключить, он всегда включен. | да                                           |
+| `alarm`   | 601 – 800  | да                                       | да                                           |
+| `warning` | 401 – 600  | нет                                      | да                                           |
+| `info`    | 1 – 400    | нет                                      | Нет, это всего лишь запись в списке событий. |
+
+Каждый уровень разделен на три подуровня, разделенных на три части. `alarm high` Например, это 731–800.
+
+В административной панели вкладка «Классы **оповещений»** отображает всю сетку в виде дерева и позволяет растению добавлять под ней свои собственные классы: имя, цвет, значок, уровень серьезности в пределах полосы его подуровня, необходимость подтверждения и наличие или отсутствие оповещения. Классы экземпляра хранятся в `native.alarmClasses`; записывается только то, что отличается от встроенного класса, поэтому в неизмененной установке список остается пустым.
+
+```json
+{
+    "id": "boiler_pressure",
+    "name": "Boiler pressure",
+    "level": "alarm",
+    "subLevel": "high",
+    "severity": 770,
+    "standing": true,
+    "requiresAck": true,
+    "color": "#B3122B",
+    "icon": ""
+}
+```
+
+Класс, который не существует, записывает в список событий только свои входящие сообщения: ничего для подтверждения, ничего, что оставалось бы в списке сообщений. Вот что делает `info` Классы делают это по умолчанию, и это та же линия, которую проводит спецификация OPC UA на уровне серьезности 400.
 
 ### Четыре состояния сообщения
 
@@ -72,7 +101,7 @@ hash: ReLEKv245cIhYjwxe85LVmSsgtje35VZtkOmKfxTUGI=
 
 ```json
 {
-    "level": "error",
+    "alarmClass": "alarm.normal",
     "text": "%n too hot: %s%u",
     "condition": { "operator": ">", "limit": 90 },
     "requiresAck": true,
@@ -84,9 +113,38 @@ hash: ReLEKv245cIhYjwxe85LVmSsgtje35VZtkOmKfxTUGI=
 }
 ```
 
-`condition` либо сравнение с `operator` и `limit` для чисел или `value` Это поднимает вопрос о логических значениях и текстовых данных. В тексте используются шаблоны. `%s`, `%u`, `%n` и `%l` может быть использован.
+`alarmClass` — это идентификатор одного из указанных выше классов. `condition` либо сравнение с `operator` и `limit` для чисел или `value` Это поднимает вопрос о логических значениях и текстовых данных. В тексте используются шаблоны. `%s`, `%u`, `%n`, `%l` и `%c` может использоваться последний вариант в качестве названия класса.
 
-Для состояний с перечислением каждое отдельное значение может содержать `level` Вместо этого. Тогда каждое значение представляет собой отдельное сообщение, и сохраняется только значение текущего значения. Текст, группа и задержки являются общими для всех них.
+### Несколько границ одного штата
+
+Число редко имеет один предел. Вместо этого `alarmClass` и `condition` В одном штате может быть целая лестница таких штатов, и в настройках штата в административной панели это отображается в виде небольшой таблицы:
+
+```json
+{
+    "text": "%n: %s%u",
+    "limits": [
+        { "alarmClass": "warning.normal", "operator": ">", "limit": 200 },
+        {
+            "alarmClass": "fatal.normal",
+            "operator": ">",
+            "limit": 300,
+            "hysteresis": 20,
+            "text": "%n dangerously high: %s%u",
+            "requiresAck": true,
+            "priority": 90
+        },
+        { "alarmClass": "warning.normal", "operator": "<", "limit": 50 }
+    ]
+}
+```
+
+Государство выдает **одно** сообщение, а не по одному на каждый предел, и его класс определяется значением: побеждает тот предел, достижение которого сопряжено с наибольшей степенью опасности. Таким образом, давление 250 служит предупреждением и становится смертельным при 320, без второго пункта в списке.
+
+Каждое ограничение может повлечь за собой свои собственные. `text`, `requiresAck` и `priority`; без них учитываются государственные нормы, а без них – то, что говорит класс, – поэтому предупреждение о лестнице проходит мимо, и ее роковая опасность должна быть подтверждена, ничего не устанавливая.
+
+Изменение уровня — это новое событие: оно записывается в список событий, считается повторением и должно быть подтверждено снова — подтверждение предупреждения не должно распространяться на следующее за ним фатальное событие. Обратно обязанность также следует за новым уровнем, поэтому сообщение, возвращающее к предупреждению, перестает запрашивать его. Гистерезис предела сохраняет свою чувствительность: с `> 300` При гистерезисе 20 сообщение остается критическим, пока значение не опустится ниже 280.
+
+Для состояний с перечислением каждое отдельное значение может содержать `alarmClass` Вместо этого. Тогда каждое значение представляет собой отдельное сообщение, и сохраняется только значение текущего значения. Текст, группа и задержки являются общими для всех них.
 
 ### Тишина в списке
 
@@ -100,6 +158,8 @@ hash: ReLEKv245cIhYjwxe85LVmSsgtje35VZtkOmKfxTUGI=
 | хлопающая защита | Эта настройка применяется ко всему экземпляру, по умолчанию — более десяти переходов за пять минут.                                                                                                 |
 
 Сообщение о том, что лопасти остаются в списке, помечается символом `flapping` и не вносит никаких дальнейших записей в список событий, пока не успокоится. Записываются только начало и конец беспокойства, поэтому неявный контакт стоит две строки, а не двести.
+
+Состояние, за которым следят только ради сообщений, вообще не нуждается в сохранении своей истории в списке событий. Настройка `Only the message in the event list` (`messagesOnly`) записывает только время поступления и выбытия сообщения, поэтому температура, считываемая каждые десять секунд, выдает одну строку при превышении лимита и одну при возвращении, вместо одной строки за каждое считывание.
 
 ### Группы
 
@@ -116,16 +176,16 @@ setState('eventlist.0.messages.ack', 'boiler');
 
 ```js
 sendTo('eventlist.0', 'message', {
-    id:    'heating.flow',
-    level: 'error',
-    text:  'Flow too cold although the pump runs',
+    id:         'heating.flow',
+    alarmClass: 'alarm.normal',
+    text:       'Flow too cold although the pump runs',
 });
 
 // the same message goes again
 sendTo('eventlist.0', 'message', { id: 'heating.flow', state: 'gone' });
 ```
 
-Сообщение из чужой системы может вызвать `severity` Вместо уровня, как в OPC UA, значения отображаются от 1 до 1000. Здесь же уровень соответствует значению выше 800. `fatal` выше 500 `error` выше 200 `warning`, остальные `info`.
+Вместо `alarmClass` В сценарии может быть указано имя `level` или принести `severity` от 1 до 1000, как это бывает в чужеродных системах. Степень серьезности находится в диапазоне своего уровня: от 801. `fatal` с 601 `alarm`, от 401 `warning`, всё ниже `info`.
 
 ### Подтверждение
 
@@ -157,13 +217,80 @@ setState('eventlist.0.messages.suppress', 'boiler:0');
 
 Без указания продолжительности используется значение из настроек экземпляра, по умолчанию — час, а подавление длится максимум месяц. Это имеет значение: сообщение, подавленное навсегда, — это ошибка, о которой никто больше не знает. Подавленное сообщение продолжает работать внутри системы, оно просто вычеркивается из списка, из счетчиков и из списка событий; начало и конец подавления записываются в список событий, поэтому пробел в истории имеет свою причину.
 
+### Журнал тревог
+
+Список сообщений показывает текущее состояние дел, список событий — то, что произошло в определенный момент. Журнал — это третий вид отображения: одна запись на каждый **цикл оповещения** , от момента его появления до закрытия.
+
+Цикл начинается, когда срабатывает сигнал тревоги, и от него ничего не осталось. Он накапливает все, что с ним происходит — повторения, повышение уровня опасности до более серьезного, подтверждение, уход — и замыкается, когда сигнал тревоги стихает **и** кто-то его подтверждает. Сигнал тревоги, который срабатывает после этого, запускает **новый** цикл: два события — это два события на предприятии, а не одно.
+
+```json
+{
+    "id": "my.0.boiler#1780736137474",
+    "messageId": "my.0.boiler",
+    "stateId": "my.0.boiler",
+    "alarmName": "Boiler pressure",
+    "level": "fatal",
+    "severity": 900,
+    "text": "Boiler pressure too high",
+    "state": "CLOSED",
+    "activatedAt": 1780736137474,
+    "acknowledgedAt": 1780736142000,
+    "ackUser": "admin",
+    "clearedAt": 1780736401000,
+    "closedAt": 1780736401000,
+    "count": 3
+}
+```
+
+государство `messages.journal` хранит циклы, начиная с самых старых; количество сохраняемых циклов задается в настройках экземпляра. `Alarm cycles in the journal` (0 отключает журнал). Незавершенный цикл никогда не отбрасывается, независимо от того, насколько заполнен журнал.
+
+Скрипт может запросить его часть:
+
+```js
+sendTo('eventlist.0', 'journal', { level: 'fatal', openOnly: false, limit: 50 }, result =>
+    console.log(result),
+);
+```
+
+`from`, `to`, `level`, `stateId`, `openOnly` и `limit` Все фильтры отфильтрованы, и ответ отсортирован по дате добавления (сначала самые новые).
+
+#### Ежемесячный архив
+
+Государство хранит только последние циклы. Чтобы история на этом не заканчивалась, замкнутый цикл также записывается в файл с данными за соответствующий месяц. `journal/2026-09.jsonl` В файловой памяти адаптера — один цикл на строку. Коммутатор `Archive the journal monthly` В настройках экземпляра эта функция включена, и она включена по умолчанию.
+
+Запись файлов происходит через несколько секунд после завершения цикла и еще раз при остановке адаптера, поэтому перезапуск ничего не теряет. Если файл записывается повторно — например, после перезапуска — каждый цикл сохраняется только один раз: файл считывается, объединяется и записывается обратно.
+
+К ним обращается запрос с `archive`:
+
+```js
+sendTo('eventlist.0', 'journal', { archive: true, from: Date.now() - 90 * 86400000 }, result =>
+    console.log(`${result.length} alarm cycles in the last three months`),
+);
+```
+
+Без `from` Каждый месяц, который там есть, читается, с `from` и `to` Только месяцы, охватывающие весь ареал. То, что еще открыто, находится в пределах одного штата, поэтому оба периода всегда объединяются, и цикл не повторяется.
+
+#### Экспорт в формате CSV
+
+Тот же самый запрос отвечает так же, как и таблица, открываемая в электронной таблице:
+
+```js
+sendTo('eventlist.0', 'journalCsv', { archive: true, level: 'fatal' }, result =>
+    console.log(result.csv),
+);
+```
+
+Ответ `{ csv, fileName, count }` В столбцах указаны моменты времени цикла: пришло, подтверждено, ушло, закрыто, а также уровень, класс, состояние, сообщение, значение, единица измерения, пользователь, количество, источник и группа, разделенные точками с запятой и на языке установки. `ids` Экспортирует именно циклы этого списка, что и передают кнопки в графическом интерфейсе: они экспортируют то, что отображается в таблице, с ее фильтром и поиском.
+
+На вкладке «Журнал» есть переключатель **«С архивными месяцами»** и кнопка для сохранения CSV-файла.
+
 ### Таблица в админке
 
 В настройках экземпляра есть вкладка **«Сообщения»** , содержащая все данные: уровень, общее состояние. `K` /`KQ` /`KG` Задается информация о том, как долго сообщение находилось в сети, его текст, значение, частота появления, группа и идентификатор состояния. Первое сообщение группы и сообщение, находящееся в состоянии "внезапного появления", помечаются, то, что в данный момент подавлено, указывается над таблицей, и оттуда можно подтвердить получение отдельных сообщений или всех сразу. Порядок соответствует порядку в диспетчерской: уровень, затем приоритет, затем время.
 
 ### Рог
 
-`messages.horn` Это верно, пока сохраняется неподтвержденное сообщение настраиваемого уровня или более высокого уровня, по умолчанию. `error` Включено. Оно предназначено для сирены, лампы или цвета плитки и замолкает при подтверждении, а не при ремонте. Сообщения, на которые никто не обязан отвечать, никогда не звучат.
+`messages.horn` Это верно, пока сохраняется неподтвержденное сообщение настраиваемого уровня или более серьезного уровня, по умолчанию. `error` Включено. Оно предназначено для сирены, лампы или цвета плитки и замолкает при подтверждении, а не при ремонте. Сообщения, на которые никто не обязан отвечать, никогда не звучат.
 
 ### Штаты
 
@@ -196,11 +323,17 @@ setState('eventlist.0.messages.suppress', 'boiler:0');
 
 ### Виджет Vis
 
-Список событий можно отобразить в виде виджета vis.
+Два виджета для vis-2:
+
+- В **разделе «События»** отображается список событий с указанием столбцов, текста и ширины виджета vis-1.
+- В **разделе «Тревоги и события»** отображаются текущие тревоги и список событий, расположенные один над другим. Его атрибуты `Show` решает, будут ли отображаться только сигналы тревоги или только события. `Height of the alarms in %` как разделено пространство. Сигналы тревоги можно фильтровать по уровню, события по идентификатору состояния, а также с помощью `Acknowledge with a click` Нажатие на кнопку будильника подтверждает его срабатывание. Группа `Journal` размещает циклы оповещений под ними; `With the archived months` позволяет им обратиться к ежемесячным файлам и `Allow the CSV export` Отображается кнопка, позволяющая сохранить отображаемый контент.
 
 ### Диспетчер устройств
 
-Диспетчер устройств отображает плитку с последним событием. Щелчок по ней открывает весь список в диалоговом окне. Плитку можно ограничить событиями одного состояния, поэтому каждое устройство может иметь свою собственную плитку.
+Два виджета для диспетчера устройств:
+
+- **Последнее событие** : плитка с самым новым событием. Щелчок по ней открывает весь список в диалоговом окне. Плитка может содержать только события одного состояния, поэтому каждое устройство может иметь свою собственную плитку.
+- **Сигналы тревоги** : плитка с самым неблагоприятным сигналом тревоги — его класс, текст и значение, цвет уровня, а также количество других сигналов тревоги. Щелчок открывает большое окно с сигналами тревоги и событиями; настройки определяют, что там отображается и подтверждается ли щелчок. `Show` =`Journal` В диалоговом окне отображаются циклы будильника, при необходимости выполняется доступ к архивированным месяцам, и отображаемые данные экспортируются в CSV-файл.
 
 ### генерация PDF
 
@@ -212,8 +345,8 @@ setState('eventlist.0.messages.suppress', 'boiler:0');
 
 Доступ к PDF-файлу можно получить по следующему адресу:
 
-- веб: `http://<IP>:8082/eventlist/eventlist/report.pdf` (для случаев > 0: `http://<IP>:8082/eventlist/eventlist/report-X.pdf` где X — номер экземпляра)
-- администратор: `http://<IP>:8081/files/eventlist/report.pdf` (для случаев > 0: `http://<IP>:8081/files/eventlist/report-X.pdf` где X — номер экземпляра)
+- веб: `http://<IP>:8082/eventlist/eventlist/report.pdf` (для экземпляров > 0: `http://<IP>:8082/eventlist/eventlist/report-X.pdf` где X — номер экземпляра)
+- администратор: `http://<IP>:8081/files/eventlist/report.pdf` (для экземпляров > 0: `http://<IP>:8081/files/eventlist/report-X.pdf` где X — номер экземпляра)
 
 **Иконки не удалось отобразить в формате PDF.**
 
@@ -239,7 +372,7 @@ setState('eventlist.0.insert', 'My custom text');
 setState('eventlist.0.insert', JSON.stringify({event: 'My custom text %s', val: 5}));
 ```
 
-Пользователь может запросить отформатированный JSON-список для определенного ID. Разумеется, для этого ID должен быть активирован. `eventlist` до.
+Пользователь может запросить отформатированный JSON-список для определенного ID. Разумеется, для этого ID необходимо включить соответствующую функцию. `eventlist` до.
 
 ```js
 // add custom event to event list
@@ -315,6 +448,35 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 * (@GermanBluefox) Added delays, hysteresis, groups, flapping protection, suppression and horn for the messages
 * (@GermanBluefox) Added the tab with the standing messages and the acknowledgement in the admin
 * (@GermanBluefox) Brought the settings of a state back into the custom tab of the objects, as a JSON config component
+* (@GermanBluefox) Added several limits per state: `> 200` a warning, `> 300` a fatal. One message whose level follows the value, every limit with its own text, acknowledgement duty and priority
+* (@GermanBluefox) The messages can be set in the custom tab of the objects as well, not only in the instance settings
+* (@GermanBluefox) Added `Only the message in the event list`: a state that is watched for its message writes only the coming and the going of it, not every value it takes
+* (@GermanBluefox) Durations are written with a space and with proper unit words in all languages (`15 Sek.` instead of `15Sekunde`)
+* (@GermanBluefox) Fixed: a message that does not have to be acknowledged is no longer shown as `not acknowledged`, it says `came` or `gone`
+* (@GermanBluefox) The values in the GUI follow the setting `Comma as decimal separator` of ioBroker
+* (@GermanBluefox) Added the alarm classes: four levels with three sub-levels each, the severity of OPC UA (1 to 1000), and own classes with name, colour, icon, acknowledgement duty and severity. The selection of a class is a tree
+* (@GermanBluefox) The level `error` is called `alarm` now, as OPC UA and PCS 7 call it
+* (@GermanBluefox) A class below the alarm line of OPC UA (severity 400) does not stand: it writes only its coming into the event list. That is what the `info` classes do
+* (@GermanBluefox) The ID of an own alarm class can be changed, and every state that uses it is changed with it. Two classes cannot carry the same name any more
+* (@GermanBluefox) The event list shows the coming, the going and the acknowledgement as `K`, `G` and `Q` in a column of their own, and the name of the state with its ID below it
+* (@GermanBluefox) The alarm view follows the SCADA concept: unacknowledged alarms sort before acknowledged ones of the same severity, the table shows the acknowledgement time, the going time and the priority, and a counter strip says how many are unacknowledged, active and how many events there are
+* (@GermanBluefox) Added the states `messages.active` (alarms whose condition is true right now) and `eventCount`
+* (@GermanBluefox) Fixed: the times in the admin were written in English (`Sep 7th`) although the admin speaks another language - the locale of moment was registered on a copy of it that nobody used
+* (@GermanBluefox) The alarm journal and the table of the standing messages show the name of the state with its ID under it, the way the event list does
+* (@GermanBluefox) A relative time like `a few seconds ago` says the exact time in its tooltip - in the event list, in both vis-2 widgets and in the widgets of the device manager
+* (@GermanBluefox) The tab view divides its height between the three sections and carries a line to drag between every two of them, so the alarm journal gets its own space
+* (@GermanBluefox) The journal is archived in one file per month (`journal/2026-09.jsonl`), so the history does not end at the length of the state. `sendTo('eventlist.0', 'journal', { archive: true, from, to })` reads them, `journalCsv` answers with a CSV table, and the journal tab, the vis-2 widget and the device manager widget can show the archived months and save what they show
+* (@GermanBluefox) Added the alarm journal: one entry per alarm cycle with the times of its coming, its acknowledgement, its going and its closing, in the state `messages.journal`, as a tab and as a section of the tab view, in the vis-2 widget and in the device manager widget. A new occurrence starts a new cycle, and `sendTo('eventlist.0', 'journal', { level, stateId, from, to, openOnly, limit })` asks for it
+* (@GermanBluefox) Fixed: a line of the event list lost its state and its `K`/`G` until the adapter wrote the list again, depending on which of the two states arrived first
+* (@GermanBluefox) The tab shows the event list and the standing messages one above the other, both can be folded away and the line between them can be dragged
+* (@GermanBluefox) The table of the messages shows the value the state has now next to the value that raised the message, if they are not the same
+* (@GermanBluefox) Added the vis-2 widget `Alarms and events`: the standing alarms and the event list in one widget, and the attributes decide what is shown and how much of each
+* (@GermanBluefox) Added the device manager widget `Alarms`: the tile shows the worst standing alarm, the click opens the alarms and the events
+* (@GermanBluefox) Fixed: a message kept standing after its limits were changed. The messages of a state are looked at again as soon as its settings change, and not only at its next value
+* (@GermanBluefox) The value column of the event list and of the message table shows the unit of the state
+* (@GermanBluefox) Added a closeable info box that explains how a standing message works, and tooltips for `Only changes` and `Only in alarm state`
+* (@GermanBluefox) Translated the whole GUI into all eleven languages, the words of the messages included
+* (@GermanBluefox) Fixed: a click into the first rows of the event list opened the dialog of a toolbar button instead of selecting the row. The text of the button had a line box of 336 pixels and hung invisibly over the table
 * (@GermanBluefox) Fixed the alarm mode, that was switched off by every restart
 
 ### 3.0.0 (2026-09-04)

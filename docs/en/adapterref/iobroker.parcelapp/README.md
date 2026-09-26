@@ -59,15 +59,16 @@ Press **Test Connection**. The button performs one real request against the API 
 actual result — a wrong key, an expired subscription or a network problem is named, not hidden
 behind a green "Ok". Save afterwards; the instance starts and the first poll follows immediately.
 
-> Note: the test uses the same request budget as polling (20 requests per hour). Pressing it a few
-> times while setting up is fine; hammering it is not.
+> Note: the test uses the same request budget as polling (20 requests per hour). The adapter keeps
+> count: when the hour's budget is used up, the button says so instead of asking parcel.app.
 
 ### Choosing a poll interval
 
-parcel.app serves the delivery list from a server-side cache that is roughly **45 to 90 minutes**
-old. A shorter interval therefore does not make tracking data fresher — it only shortens the delay
-between parcel.app refreshing its cache and ioBroker noticing. The default of 10 minutes is a good
-compromise; anything below 5 minutes would break the hourly request budget and is refused.
+parcel.app itself is, by its own FAQ, on average **45 and at most about 90 minutes** behind the
+carrier's website. A shorter interval therefore does not make tracking data fresher — it only
+shortens the delay between parcel.app learning something and ioBroker noticing. The default of
+10 minutes is a good compromise; anything below 5 minutes would break the hourly request budget and
+is refused.
 
 ---
 
@@ -121,23 +122,23 @@ stick — for a label of your own use an alias or a datapoint in `0_userdata`.
 
 Every package also carries the **pictogram of its carrier** in the object tree, so you can see who
 is delivering before you read the name: DHL, Deutsche Post, Hermes/Evri, DPD, GLS, UPS, Amazon,
-USPS, TNT, Apple, Vinted and DoorDash have their own mark, national postal operators share an
-envelope, and every other carrier gets a delivery van. The marks are drawn monochrome and follow
-your admin theme.
+USPS, TNT, FedEx, InPost, Apple, Vinted and DoorDash have their own mark, national postal operators
+and their express arms share an envelope, and every other carrier gets a delivery van. The marks are
+drawn monochrome and follow your admin theme.
 
 | Datapoint          | Type   | Meaning                                                                                                                                                                                                                                                                                                                   |
 | ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `carrier`          | string | Display name of the carrier (e.g. `DHL Express`). Falls back to the uppercase carrier code when parcel.app has no name for it.                                                                                                                                                                                            |
 | `status`           | string | The status as readable text, in your ioBroker system language.                                                                                                                                                                                                                                                            |
-| `statusCode`       | number | The status as a number — **this is the datapoint to use in scripts**, because it does not change with the language. See the table below.                                                                                                                                                                                  |
+| `statusCode`       | number | The status as a number — **this is the datapoint to use in scripts**, because it does not change with the language. The admin shows the meaning of every code next to it. See the table below.                                                                                                                            |
 | `description`      | string | The description from parcel.app — the same text the device name carries.                                                                                                                                                                                                                                                  |
 | `trackingNumber`   | string | The tracking number.                                                                                                                                                                                                                                                                                                      |
 | `extraInfo`        | string | Additional detail the carrier needs, such as a postal code or e-mail address. Empty for most shipments.                                                                                                                                                                                                                   |
 | `deliveryWindow`   | string | Expected delivery time window, e.g. `14:00 - 16:00`. A window spanning several days carries the date on both sides (`12-06 14:30 - 12-08 18:30`). Empty when there is no usable window — either the carrier reports none, or it reports a date in a format the adapter does not read (a debug line then names the value). |
-| `deliveryEstimate` | string | The same information in words: _today_, _tomorrow_, _in 3 days_, _overdue_. Rendered in the system language.                                                                                                                                                                                                              |
+| `deliveryEstimate` | string | The same information in words: _today_, _tomorrow_, _in 3 days_, _overdue_. Rendered in the system language. Every day of a reported range counts as _today_; the value moves on right after midnight, without a request.                                                                                                 |
 | `lastEvent`        | string | The most recent tracking event with its date, e.g. `Arrived at delivery depot - 2026-09-02`.                                                                                                                                                                                                                              |
 | `lastLocation`     | string | Where that event happened, when the carrier reports a location.                                                                                                                                                                                                                                                           |
-| `lastUpdated`      | string | When the tracking data last **changed** — not when the adapter last polled. A package that sits still for two days keeps a two-day-old timestamp; that is intentional.                                                                                                                                                    |
+| `lastUpdated`      | string | When the tracking data last **changed** — not when the adapter last polled. A package that sits still for two days keeps a two-day-old timestamp; that is intentional. The estimate moving on, a new carrier display name or another system language do not count; a new carrier code does.                               |
 
 ### Status codes
 
@@ -189,7 +190,25 @@ parcel.app account.
     ### **WORK IN PROGRESS**
 -->
 
-### 0.13.0 (2026-09-15)
+### 0.14.0 (2026-09-25)
+
+- Fixed: A package expected over several days turned overdue after the first one — every day of the range now counts as today.
+- Fixed: A parcel out for delivery with an outdated date counts as today when the carrier scanned it today.
+- Improved: Scan dates in the weekday form of all app languages and the UPS dotted form are read, so today's deliveries are recognised more often.
+- New: Tomorrow turns into today right after midnight, without waiting for the next poll.
+- Fixed: lastUpdated no longer moves every day — a moving estimate or a renamed carrier is not a tracking change; a new carrier code is.
+- Fixed: Three packages with the same tracking number no longer overwrite each other, and a restart never swaps the ids of two packages.
+- Improved: Correcting the carrier of a shipment in parcel.app keeps its datapoints instead of deleting and recreating them.
+- New: statusCode shows the meaning of every code in the admin, and an unknown status is shown in your language.
+- Changed: The adapter keeps parcel.app's limits itself — at most 20 addDelivery calls a day and never more than 20 requests an hour.
+- Changed: A network outage shows in the connection indicator only, not as a warning; a rejected API key is retried less and less often.
+- Fixed: addDelivery without a callback now adds the delivery; the result is written to the log.
+- Fixed: One damaged entry from parcel.app no longer stops the whole poll, and a garbled status is never taken for delivered.
+- Improved: The carrier list is refreshed daily; FedEx and InPost have their own pictogram, PostNL, PostNord and Bring the envelope.
+- Fixed: A start that keeps failing no longer restarts the instance every second — the host now stops it after three attempts.
+- Fixed: The documentation said error reporting is off by default — it is on unless switched off in the system settings.
+
+### 0.13.0 (2026-09-15) — stable
 
 - Fixed: Every package showed the carrier's short code instead of its name — parcel.app changed the format of its carrier list, and the adapter could no longer read it.
 - New: Each package now carries the pictogram of its carrier in the object tree, drawn to read in the light and the dark theme.
@@ -216,14 +235,6 @@ parcel.app account.
 ### 0.11.1 (2026-09-04)
 
 - Fixed: The last-changed timestamp of a package kept its old label and had no description as long as the package did not move.
-
-### 0.11.0 (2026-09-04)
-
-- Fixed: Since version 0.10.3 the Test Connection button gave no response at all, and packages added from a script never showed up — both work again.
-- Fixed: On installations that already existed, the summary datapoints and the connection state kept their old English names — an update now reaches every datapoint.
-- New: Datapoints whose name alone does not explain them now carry a short description in the object tree, in all eleven languages.
-- New: Detailed user documentation in English and German, shown in the ioBroker documentation portal.
-- Fixed: Two settings from much older versions were still listed in the instance configuration although nothing used them any more.
 
 ## License
 

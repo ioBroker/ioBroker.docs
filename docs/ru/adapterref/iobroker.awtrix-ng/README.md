@@ -16,7 +16,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.awtrix-ng/README.md
 title: ioBroker.awtrix-ng
-hash: hk0DFueJeZH3nqvIW3FQF2/seg6h/2V02wbQcWQVmX4=
+hash: FJ8Kf5roOXc83tuv9o3f/wIuUbv45uJe+qulwJ6MUCw=
 ---
 ![логотип](../../../de/admin/awtrix-ng.png)
 
@@ -27,7 +27,7 @@ hash: hk0DFueJeZH3nqvIW3FQF2/seg6h/2V02wbQcWQVmX4=
 - Node.js 22 (или более новая версия)
 - js-controller 6.0.11 (или более новая версия)
 - Административный адаптер 7.6.20 (или более новая версия)
-- Устройство _Awtrix NG_ с версией прошивки _1.1.1_ (или новее) — например, Ulanzi TC001.
+- Устройство _Awtrix NG_ с версией прошивки _1.1.2_ (или новее) — например, Ulanzi TC001.
 
 Купить можно здесь: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) , здесь: [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) или здесь: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (партнерские ссылки)
 
@@ -164,7 +164,7 @@ sendTo('awtrix-ng.0', 'audio', { rtttl: 'beep:d=4,o=5,b=120:c,e,g' }, (res) => {
 ### Пользовательские приложения
 
 - `%s` является заполнителем для значения состояния.
-- `%u` является заполнителем для обозначения единицы измерения государства (например, `°C`)
+- `%u` является заполнителем для обозначения государственной единицы (например, `°C`)
 
 Эти заполнители можно использовать в тексте пользовательских приложений (например, `Außentemperatur: %s %u`).
 
@@ -208,7 +208,7 @@ sendTo('awtrix-ng.0', 'audio', { rtttl: 'beep:d=4,o=5,b=120:c,e,g' }, (res) => {
 
 ### **WORK IN PROGRESS**
 
-* (@klein0r) Recommended Awtrix NG version is now 1.1.1
+* (@klein0r) Recommended Awtrix NG version is now 1.1.2
 * (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
 ### 0.1.0 (2026-08-11)

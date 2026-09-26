@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.anker-solix/README.md
 title: ioBroker.anker-solix
-hash: caxr18UL2EqV79kpxvHMeALCnOt2przZ3fJTNw8tRqA=
+hash: 4wyV4kzopHajyroIy43jm6D7Y1nWQUylVRbtO3c9WhY=
 ---
 # IoBroker.anker-solix
 
@@ -21,7 +21,7 @@ ioBroker-Adapter für **Anker Solix**-Stromversorgungssysteme (Solarbank, Smart 
 > | **Windows** | **Unterstützt und getestet** auf ioBroker für Windows (Python 3.12+)
 
 
-| **macOS** | **Nicht unterstützt** - automatische Python/venv-Installation wurde nicht verifiziert |
+> | **macOS** | **Nicht unterstützt** - automatische Python/venv-Installation wurde nicht verifiziert |
 
 > > npm / `package.json` Kataloginstallation: ** `linux` ** und ** `win32` ** nur. Details: [Unterstützte Plattformen](#supported-platforms).
 
@@ -88,7 +88,7 @@ Das Abfrageintervall sollte **60-180 s** betragen (gleiche Empfehlung wie bei HA
 - **macOS:** **nicht unterstützt** (automatische Python-Installation nicht verifiziert)
 **Ausnahme (nach bestem Bemühen):** Linux-Docker-Container basierend auf **Debian 12 Bookworm** (z. B. `buanet/iobroker:latest-v11`) verwenden möglicherweise System-Python 3.11, wenn 3.12 nicht über apt verfügbar ist. Bare-Metal-Bookworm, andere Distributionen und Nicht-Bookworm-Container benötigen weiterhin **3.12+**. Installieren Sie Python 3.12+ nach Möglichkeit in einem permanenten Pfad und setzen Sie **pythonPath** entsprechend.
 
-Die Python-Abhängigkeiten werden im Adapterordner (`python/.venv` oder `python/site-packages`) installiert. Seit Version 0.2.0: automatisch beim Start (**Optionen** → `autoInstallPython`) oder über die Schaltfläche **Python-Abhängigkeiten installieren**.
+Python-Abhängigkeiten werden im Adapterordner (`python/.venv` oder `python/site-packages`) installiert. Seit Version 0.2.0: automatisch beim Start (**Optionen** → `autoInstallPython`) oder über die Schaltfläche **Python-Abhängigkeiten installieren**.
 
 Installation über ioBroker (empfohlen):
 
@@ -114,7 +114,7 @@ python3 -m venv python/.venv && python/.venv/bin/pip install -r python/requireme
 ```
 
 ### Home Assistant (ioBroker-Add-on)
-Die offizielle **ioBroker**-App für Home Assistant OS enthält oft `python3`, aber **kein `pip` ** und **kein `python3-venv` **. Installieren oder aktualisieren Sie den Adapter über den ioBroker-Katalog/npm (`iobroker install anker-solix`). Ab **Version 0.10.72** erkennt das Installationsprogramm dieses Profil und versucht Folgendes:
+Die offizielle **ioBroker**-App für Home Assistant OS enthält oft `python3`, aber **keine `pip` ** und **keine `python3-venv` **. Installieren oder aktualisieren Sie den Adapter über den ioBroker-Katalog/npm (`iobroker install anker-solix`). Ab **Version 0.10.72** erkennt das Installationsprogramm dieses Profil und versucht Folgendes:
 
 1. virtualenv in `python/.venv` (oder `--without-pip` + pip innerhalb von venv)
 2. `get-pip.py` mit `--break-system-packages`, wenn das System-Python PEP 668 ist
@@ -147,7 +147,7 @@ Neuere Anker-Geräte (Solarbank 4 / Max AC / Max, Smart Meter Gen 2, Smart Plug 
 Ohne **nur Modbus** wird für ältere Geräte und MQTT weiterhin die Cloud-Anmeldung verwendet. Solarbank 3 ist **nicht** in Ankers offizieller Modbus-Liste enthalten. Wenn ein anderer Modbus-Client das Gerät gerade abgefragt hat, kann die erste Abfrage mit **Verbindung abgelehnt** werden, bis die Wartezeit dieses Clients abgelaufen ist; beim nächsten Abfrageintervall wird ein erneuter Versuch unternommen.
 
 ### Docker (`buanet/iobroker`)
-Das offizielle Image enthält **Python 3.11**. Ab Version **0.10.87** akzeptiert der Adapter dies auf Debian 12 Bookworm-Containern nach dem **bestmöglichen Aufwand** - ein benutzerdefiniertes Image ist nicht erforderlich. **3.12+** wird weiterhin empfohlen (Upstream) und ist auf Bare-Metal-Systemen und Nicht-Bookworm-Hosts weiterhin erforderlich. Anleitung: **[docs/docker-buanet.md](/#/docs/adapterref/iobroker.anker-solix/docs/docker-buanet.md)** (optionale Dateien 3.12 unter [`docs/docker/`](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
+Das offizielle Image enthält **Python 3.11**. Ab Version **0.10.87** akzeptiert der Adapter dies auf Debian 12 Bookworm-Containern nach dem **besten Willen** - ein benutzerdefiniertes Image ist nicht erforderlich. **3.12+** wird weiterhin empfohlen (Upstream) und ist auf Bare-Metal-Systemen und Nicht-Bookworm-Hosts weiterhin erforderlich. Anleitung: **[docs/docker-buanet.md](/#/docs/adapterref/iobroker.anker-solix/docs/docker-buanet.md)** (optionale Dateien 3.12 unter [`docs/docker/`](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/docker/), PDF: [docs/Anker-Solix-buanet-Docker-Anleitung.pdf](https://github.com/MatthiasUlrich1/ioBroker.anker-solix/blob/main/docs/Anker-Solix-buanet-Docker-Anleitung.pdf)).
 
 ---
 
@@ -234,7 +234,7 @@ Typische Pfade (Instanz `anker-solix.0`):
 ## MQTT-verwaltete Geräte
 Aktivieren Sie **MQTT** in den **Optionen**, wenn Sie Live-Daten oder Steuerelemente benötigen, die die Cloud-API nicht bereitstellt (viele PPS/EV/Ladegerätefunktionen).
 
-- Zusätzliche Sensoren/Steuerungen stammen aus MQTT-Maps in solixapi (Community-decodiert pro Modell).
+- Zusätzliche Sensoren/Steuerungen stammen aus MQTT-Maps in solixapi (von der Community pro Modell dekodiert).
 - **Echtzeit-Trigger** und **Statusabfrage** verhalten sich wie HA-Tasten - deren Automatisierung rund um die Uhr erhöht den Datenverkehr und hält die Geräte aktiv ([HA MQTT-Abschnitt](https://github.com/thomluther/ha-anker-solix#mqtt-managed-devices)).
 - **Hybridsteuerungen** (Stations-SOC-Reserve, AC-Grenzwerte, Netzexport bei Mehrsystem) benötigen MQTT + API wie HA.
 - Geräte im **MQTT-Lokalmodus** (z. B. E10 hinter Power Dock) werden über das Hub-Gerät als Proxy verwendet - siehe [HA INFO - MQTT-Lokalmodus](https://github.com/thomluther/ha-anker-solix/blob/main/INFO.md#devices-in-mqtt-local-mode).
@@ -244,7 +244,7 @@ Neue Modelle dekodieren: [MQTT-Richtlinien](https://github.com/thomluther/anker-
 ---
 
 ## Besondere Hinweise zu Geräten
-Zusammenfassung aus [HA-Integrations-README](https://github.com/thomluther/ha-anker-solix); das Verhalten von Cloud/MQTT ist über die SolixAPI identisch. Hinweise zu lokalem Modbus sind adapterspezifisch.
+Zusammenfassung aus [HA-Integrations-README](https://github.com/thomluther/ha-anker-solix); das Verhalten von Cloud/MQTT ist über solixapi identisch. Lokale Modbus-Hinweise sind adapterspezifisch.
 
 ### Solarbank 4 E5000 Pro / Solarbank Max / Max AC
 Cloud: Gleicher Abfragepfad wie bei anderen Solarbanken (API + optionales MQTT). **Tägliche kWh** (`statistics.daily_*`) werden bei **detaillierten Abfragen** (alle `deviceDetailMultiplier` Zyklen, Standard ~10) abgerufen, nicht minütlich - siehe Protokoll für `Daily kWh statistics updated`. **Mit Power Dock/Combiner:** Werte befinden sich nur unter `combiner_box.<SN>.statistics.*`, nicht unter jedem `solarbank.*`. Starten Sie den Adapter neu, nachdem Sie **Objekte → Tagesstatistiken** aktiviert haben. Wochen-/Monats-/Jahressummen werden abends berechnet (23:00 / 23:15 / 23:30 Uhr MEZ/Berlin).
@@ -257,7 +257,7 @@ Wenn ein anderer Modbus-Client das Gerät gerade abgefragt hat, kann die erste A
 Cloud-Entitäten wie bei anderen Zählern/Steckdosen. **Lokaler Modbus:** Der Gen 2-Zähler ist **nur lesbar** (Leistung/Spannung/Strom pro Phase). Smart Plug Gen 2 stellt `power_switch` bereit. Jedes Gerät benötigt eine eigene IP-Adresse (Port 502).
 
 ### Standalone-Wechselrichter (MI80)
-Es handelt sich nicht um eine vollständige App für das Stromversorgungssystem, aber die Cloud erfasst die Erträge. Die API erstellt einen **virtuellen Standort**. Der WLAN-Status des Wechselrichters in der API ist oft fehlerhaft; der Status der Cloud-Verbindung ist zuverlässiger. **Ändern Sie die** Wechselrichtergrenzen nicht dauerhaft (Hardware-Schreibzyklen).
+Es handelt sich nicht um eine vollständige App für das Stromversorgungssystem, aber die Cloud erfasst die Erträge. Die API erstellt einen **virtuellen Standort**. Der WLAN-Status des Wechselrichters in der API ist oft fehlerhaft; der Cloud-Verbindungsstatus ist zuverlässiger. **Ändern Sie die** Wechselrichtergrenzen nicht dauerhaft (Hardware-Schreibzyklen).
 
 ### Solarbank 1 (E1600)
 Cloud-Aktualisierungen erfolgen während der Produktion/Entladung etwa alle **60 Sekunden**; im Standby-Modus etwa stündlich. **Planungsfehler:** Ein einzelner ganztägiger API-Slot kann die Exportleistung auf **0 W** setzen - verwenden Sie in der App mindestens 2 Slots, wenn Sie eine voreingestellte Ausgabeleistung nutzen. Die tägliche Entladestatistik seit Mitte 2024 beinhaltet umgangene PV-Anlagen (auch in der App fehlerhaft). MQTT-Überwachung/-Steuerung ab HA v3.4+/3.5+.
@@ -337,14 +337,14 @@ Verwendet `selectedDeviceId` / `selectedSiteId` aus der Konfiguration. Siehe Reg
 ## Quellenangaben & weiterführende Literatur
 | Ressource | Inhalt |
 |----------|---------|
-| [thomluther/ha-anker-solix](https://github.com/thomluther/ha-anker-solix) | Vollständige README-Datei, **INFO.md** (Konfiguration, MQTT, Export, Tarife) |
+| [thomluther/ha-anker-solix](https://github.com/thomluther/ha-anker-solix) | Vollständige README, **INFO.md** (Konfiguration, MQTT, Export, Tarife) |
 | [HA-Diskussionen](https://github.com/thomluther/ha-anker-solix/discussions) | Energie-Dashboard, Null-Export, Effizienz |
 | [SolixBLE](https://github.com/flip-dots/SolixBLE) | Lokales BLE (nicht Cloud) |
 | [ha-anker-solix-official](https://github.com/anker-charging/ha-anker-solix-official) | Offizieller Modbus (lokale Geräte) |
 | [ioBroker.pvforecast](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md) | PV-Prognose (optionale Eingabe zur Vermeidung von Abregelung) |
 | [ioBroker.pvforecast](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md) | PV-Prognose (optionale Eingabe zur Vermeidung von Abregelung) |
 
-Deutsche Anleitungen/Videos, die unter [HA README](https://github.com/thomluther/ha-anker-solix#additional-resources) verlinkt sind, beziehen sich konzeptionell auf Daten und Grenzwerte; die Verkabelung erfolgt über ioBroker-Zustände anstelle von HA-Entitäten.
+Die in [HA README](https://github.com/thomluther/ha-anker-solix#additional-resources) verlinkten deutschen Anleitungen/Videos beziehen sich konzeptionell auf Daten und Grenzwerte; die Verkabelung erfolgt über ioBroker-Zustände anstelle von HA-Entitäten.
 
 ---
 
@@ -407,7 +407,7 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 `<siteKey>` sind die ersten 8 Zeichen der Anker-Site-ID (dasselbe Prinzip wie bei solix4).
 
-**VIS / VIS-2:** Fügen Sie das Widget **HTML Dashboard** hinzu (setzen Sie **anker-solix** ein) und binden Sie es z. B. an `anker-solix.0.dashboard.sites.<siteKey>.dashboard.html` oder verwenden Sie das generische VIS **HTML**-Widget. Passen Sie die Größe an Tablet-Größe (~900×700 px) an. Der HTML-Code wird bei jeder Adapterabfrage aktualisiert.
+**VIS / VIS-2:** Fügen Sie das Widget **HTML Dashboard** hinzu (setzen Sie **anker-solix** ein) und binden Sie es z. B. an `anker-solix.0.dashboard.sites.<siteKey>.dashboard.html` oder verwenden Sie das generische VIS-Widget **HTML**. Passen Sie die Größe an Tablet-Größe (~900×700 px) an. Der HTML-Code wird bei jeder Adapterabfrage aktualisiert.
 
 **Objekte → Tagesstatistiken** für kWh-Kacheln aktivieren; Aktivieren Sie **Leistungsflüsse** für Live-Leistungswerte.
 
@@ -420,7 +420,7 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 1. Erhöhen Sie die Versionsangabe in `package.json` und `io-package.json` (muss übereinstimmen).
 2. Fügen Sie diesem README-Changelog einen Abschnitt `### x.y.z` hinzu (E6006).
-3. Füge **nur beim Veröffentlichen auf npm** einen neuen Eintrag in `common.news` für diese Version hinzu (Tag `v*`). Behalte **maximal 7** News-Schlüssel - nur Versionen, die bereits auf npm verfügbar sind (plus die Version, die du veröffentlichen möchtest). GitHub-exklusive Zwischenversionen dürfen **nicht** in `common.news` erscheinen (E2004). Verschiebe entfernten Text in CHANGELOG_OLD.md. Dokumentiere alle Versionen im Changelog dieser README-Datei.
+3. Fügen Sie **einen** neuen Eintrag in `common.news` für die Version hinzu, die Sie taggen/veröffentlichen möchten. Behalten Sie **maximal 7** News-Schlüssel bei - die über npm veröffentlichten Versionen plus die jeweilige Release-Version (E1036/E2004). Nur auf GitHub verfügbare Zwischenversionen dürfen **nicht** in `common.news` erscheinen. Verschieben Sie entfernten Text in die Datei CHANGELOG_OLD.md. Dokumentieren Sie alle Versionen im Änderungsprotokoll dieser README-Datei.
 4. Admin `jsonConfig.json`: Die Überschrift `size` muss **≤ 5** sein (verwenden Sie `5` für die kleinste Überschrift).
 5. Fügen Sie keine Root-Dateien zu npm `files` hinzu, es sei denn, dies ist erforderlich (`CHANGELOG_OLD.md` bleibt außerhalb des Pakets).
 6. Die Angabe `os` in `package.json` muss mit der Betriebssystemmatrix in `test-and-release.yml` übereinstimmen (E3027). Halten Sie die administrativen Dateien `i18n/*.json` mit `en.json` synchron (W5604/W5605).
@@ -432,9 +432,9 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 ### 0.10.105
 
-- **Repo checker (#9):** removed forbidden `prepare` script (E0094); `common.news` lists npm-published versions only (E2004); enable local hooks with `npm run setup:githooks`
-- **CI (#10):** adapter tests on Node.js **22 / 24 / 26**; `@iobroker/adapter-core` → 3.4.3; Modbus TCP read timeout uses `adapter.setTimeout` (S5005)
-- News translations expanded for remaining npm versions (W1145)
+- **npm release:** publishes GitHub improvements since 0.10.90 (VIS widgets/HTML dashboards, SB4 daily kWh, Node 22/24/26 CI, repo-checker fixes)
+- **Repo checker (#12):** `common.news` for current version (E1036); tagging clears W2002/W3032
+- **Stable path (#13):** prepares adapter for first inclusion in the stable repository
 
 ### 0.10.104
 
@@ -535,7 +535,7 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 ### 0.10.81
 
-- **Repository review (mcm1957):** restore standard `test-and-release` workflow — adapter tests on every push/tag (Linux + Windows matrix), deploy only after all jobs succeed (no `always()` / no skipped-tests workaround); declare ** `linux` + `win32` ** in `package.json`; README: Windows supported & tested, **macOS not supported**
+- **Repository review (mcm1957):** restore standard `test-and-release` workflow — adapter tests on every push/tag (Linux + Windows matrix), deploy only after all jobs succeed (no `always()` / no skipped-tests workaround); declare **`linux` + `win32`** in `package.json`; README: Windows supported & tested, **macOS not supported**
 
 ### 0.10.80
 
@@ -582,7 +582,7 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 - **Python install:** detects host profile (Linux server, **Home Assistant** ioBroker add-on, **Windows**, container)
 - **HA:** venv-first, `get-pip.py` with `--break-system-packages` / `PIP_BREAK_SYSTEM_PACKAGES` for PEP 668
-- **Windows:** tries `py -3.13`, `py -3.12`, Program Files paths; parses `--version` (no broken shell `-c` check); adds ** `tzdata` ** for `Europe/Berlin`
+- **Windows:** tries `py -3.13`, `py -3.12`, Program Files paths; parses `--version` (no broken shell `-c` check); adds **`tzdata`** for `Europe/Berlin`
 - **Bridge:** uses resolved Python spawn spec (`py -3.12` args) consistently in daemon and one-shot mode
 - Deps check: `aiohttp` + `ZoneInfo("Europe/Berlin")` before skipping install
 
@@ -680,26 +680,26 @@ Nach jeder erfolgreichen Abfrage schreibt der Adapter **in sich geschlossenes HT
 
 ### 0.10.16
 
-- Combiner sensor ** `total_state_of_charge` **: cloud total or capacity-weighted average of all site solarbanks (poll + ioBroker state)
+- Combiner sensor **`total_state_of_charge`**: cloud total or capacity-weighted average of all site solarbanks (poll + ioBroker state)
 - Curtailment uses total SOC for `missing_charge_wh`, `max_charge_w`, and `soc_percent`
 
 ### 0.10.15
 
-- Curtailment: ** `ac_output_limit` via API only** (no MQTT) to avoid station side effects
+- Curtailment: **`ac_output_limit` via API only** (no MQTT) to avoid station side effects
 - Fix SOC handling when combiner had no SOC (`max_charge_w` wrong); ensure `missing_charge_wh` state exists on upgrade
 
 ### 0.10.14
 
-- Curtailment: **only** manual mode + ** `ac_output_limit` ** (no `grid_export_limit`, `allow_grid_export`, home load preset, AC charge limit)
+- Curtailment: **only** manual mode + **`ac_output_limit`** (no `grid_export_limit`, `allow_grid_export`, home load preset, AC charge limit)
 - New state `curtailment.missing_charge_wh`; active phase: export = live PV − calculated max charge
 
 ### 0.10.12
 
-- Curtailment combiner: export via ** `ac_output_limit` ** (`max_load`); home load preset 0 W (superseded by 0.10.14+)
+- Curtailment combiner: export via **`ac_output_limit`** (`max_load`); home load preset 0 W (superseded by 0.10.14+)
 
 ### 0.10.11
 
-- Curtailment: prefer ** `system.{siteId}.sensors.total_pv_power` ** for live PV
+- Curtailment: prefer **`system.{siteId}.sensors.total_pv_power`** for live PV
 
 ### 0.10.10
 

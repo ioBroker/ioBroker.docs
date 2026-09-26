@@ -16,8 +16,8 @@ chapters: {"pages":{"en/adapterref/iobroker.hm-rpc/README.md":{"title":{"en":"io
 This adapter connects HomeMatic interface processes (BidCos services, Homegear and CUxD) to ioBroker.
 The communication uses XML-RPC or BIN-RPC.
 
-**This adapter uses the service [Sentry.io](https://sentry.io). It reports exceptions, code errors and new device schemas automatically to the developer.**
-You find more information in the chapter [What is Sentry.io](#what-is-sentryio).
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** It also reports new device schemas.
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) and the chapter [What is Sentry.io](#what-is-sentryio).
 
 ## What is Homematic?
 
@@ -118,7 +118,8 @@ Two protocols are available for the communication: XML-RPC and BIN-RPC.
 BIN-RPC is faster, but some devices do not support it, or they support it incorrectly.
 In this case select the XML-RPC protocol.
 
-**Note:** CUxD works only with BIN-RPC. Homematic IP and `rfd` work only with XML-RPC.
+**Note:** CUxD works only with BIN-RPC. Homematic IP and Virtual Devices work only with XML-RPC.
+For these daemons the adapter uses the right protocol automatically.
 
 #### Synchronize objects (once)
 
@@ -146,17 +147,18 @@ The adapter sends a ping to the CCU in this interval.
 
 The adapter waits this time before it starts the next connection attempt.
 
-#### Don't delete devices on adapter start
+#### Don't delete devices
 
-By default, the adapter removes a device from the object tree if it does not find this device on the CCU at the adapter start.
+By default, the adapter removes a device from the object tree if it does not find this device on the CCU at the adapter start,
+or if the CCU reports the device as deleted while the adapter is running.
 Enable this option to keep such devices, for example if you removed a device from the CCU only temporarily.
 
 This option also avoids a problem on the CCU side:
-Homematic IP devices are sometimes not transferred correctly to ioBroker.
-In this case they are deleted at the adapter start, and they are created again some milliseconds later.
+Homematic IP devices are sometimes not transferred correctly to ioBroker, and the CCU reports them as deleted, e.g. during a firmware update, although they still exist.
+Without this option their objects are deleted, and they are created again only after a restart of the adapter.
 For this reason the option is enabled automatically as soon as you select Homematic IP as daemon.
 
-If you delete a device while the adapter is running, the CCU informs the adapter, and the adapter removes this device in any case.
+With this option enabled, delete the objects of a device that you removed from the CCU manually in the object tree.
 
 #### Use https
 
@@ -166,7 +168,8 @@ This works only with the XML-RPC protocol.
 #### Username and Password
 
 If the option "Use https" is enabled, enter the user name and the password of a CCU user here.
-Enter these credentials also if the API of the CCU requires an authentication.
+Enter these credentials also if the API of the CCU requires an authentication, the adapter sends them with XML-RPC with and without HTTPS.
+BIN-RPC does not support an authentication.
 
 ### Device manager
 
@@ -316,6 +319,35 @@ npm run update-images
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.1.2 (2026-09-22)
+* (bluefox) Philips Hue and Osram Lightify lamps of the CCU lighting gateway: the color temperature `WHITE` is handled in kelvin (2000 - 6500 K), also if the CCU declares it as percent (#694)
+* (bluefox) `HUE` and `SATURATION` are sent together in one `putParamset`, HMIP devices like HmIP-RGBW rejected a single value with `MISSING_NON_OPTIONAL_PARAMETER` (#1108)
+* (bluefox) Values which the CCU delivers as text for a number are converted (the name of an ENUM to its index, e.g. `STATE_NOT_AVAILABLE` of a `VALVE_STATE`), invalid values become `null` instead of a wrong type (#1342, #1358)
+* (bluefox) Events of deleted devices do not warn about missing objects until the next start of the adapter anymore (#1419)
+
+### 4.1.1 (2026-09-22)
+* (bluefox) `CONTROL_MODE` and `SET_POINT_MODE` of HmIP thermostats show the mode names (auto, manual, party)
+* (bluefox) `SET_TEMPERATURE` of BidCos heating groups accepts 4.5 (OFF) and 30.5 (ON)
+* (bluefox) CUxD always uses BIN-RPC, Homematic IP and Virtual Devices always use XML-RPC
+* (bluefox) Username and password are sent with XML-RPC also without HTTPS
+* (bluefox) Better error message if the CCU answers with an HTML page instead of XML-RPC
+* (bluefox) Read-only datapoints do not get the writable roles `level.*` and `switch.*` anymore
+* (bluefox) HmIP shutters and blinds: the control channels get `level.blind`/`level.tilt`, the status channel `value.blind`/`value.tilt`; `LEVEL` and `VALVE_STATE` of HmIP thermostats got better roles
+* (bluefox) The option "Don't delete devices" also ignores devices that the CCU reports as deleted while the adapter is running (e.g. HmIP during firmware updates)
+
+### 4.1.0 (2026-09-22)
+* (krobipd) The device icons were invisible in the object browser: its ID cell sets `width: initial` on every element of an inlined SVG, which collapses the icon's `rect` to 0px. The size is now carried as an inline style as well.
+* (bluefox) Updated `binrpc` to 4.x and `homematic-xmlrpc` to 2.x (no dependency on a GitHub tarball anymore)
+* (bluefox) If the RPC server cannot listen (e.g. the configured IP address is not available), the error is logged and the adapter restarts after 30 seconds instead of crashing
+* (bluefox) On stop, the RPC server and client are closed properly, also for XML-RPC and if the CCU is not reachable
+* (bluefox) Updated packages
+* (bluefox) Fixed writing of the lines and icons of HM-Dis-EP-WM55: an invalid tone interval (`0xE-1`) was sent if no interval was set
+* (bluefox) The device manager does not crash anymore on devices without `native` and does not report the same control twice
+* (bluefox) Added icon for HmIP-RFUSB
+* (bluefox) PONG events and requests without method are logged only in debug mode
+* (bluefox) Replaced the deprecated `deleteDevice` and `deleteChannel` calls
+* (bluefox) Fixed issues reported by the repository checker (responsive design of the settings, lint and type check in CI)
+
 ### 4.0.0 (2026-08-15)
 * (bluefox) Device icons are now delivered as theme-adaptive SVGs and stay visible on the dark admin theme
 * (krobipd) Generated the device icon set and the device type map from the OCCU device database
@@ -327,27 +359,15 @@ npm run update-images
 * (bluefox) Migrated to TypeScript 6
 * (bluefox) Corrected device manager
 
-### 3.0.1 (2025-10-22)
-* (bluefox) Renamed role of `STICKY_UNREACH` to `indicator.unreach.sticky` for the better typing detection
-
-### 3.0.0 (2025-10-21)
-* (bluefox) Updated packages and used `@iobroker/eslint-config`
-* (bluefox) Renamed some roles for the better typing detection
-* (bluefox) Removed support of Node.js 18
-
-### 2.0.2 (2024-08-26)
-* (bluefox) Updated packages
-
-### Older entries
+### Older changelog
 [here](/#/docs/adapterref/iobroker.hm-rpc/OLD_CHANGELOG.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>
-
-Copyright (c) 2014 hobbyquaker
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>  
+Copyright (c) 2014 hobbyquaker <hq@ccu.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

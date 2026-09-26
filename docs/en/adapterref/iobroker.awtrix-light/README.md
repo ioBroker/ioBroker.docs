@@ -211,9 +211,10 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.0.2 (2026-09-24)
 
 * (@klein0r) Adapter requires admin >= 7.8.23 now
+* (@klein0r) Added EOL notice on startup
 
 ### 4.0.1 (2026-09-16)
 
@@ -235,12 +236,6 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
 
 * (@klein0r) Added base object for expert apps to allow all options
 * (@klein0r) Added responsive design for admin config
-
-### 1.7.0 (2025-04-08)
-
-* (@klein0r) Improved error handling when adapter is not ready (starting)
-* (@klein0r) Added scroll speed to expert apps
-* (@klein0r) Added icons for custom apps in object tree
 
 ## License
 

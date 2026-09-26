@@ -49,6 +49,9 @@ You can find API description [here](https://www.pushsafer.com/en/pushapi)
 You can use blockly too.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 22 now.
 ### 1.1.0 (2024-04-21)
 * IMPORTANT: This adapter now requires Node.js 18.x+
 * (ChrMaass) Fix Blockly priority and answer

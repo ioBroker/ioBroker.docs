@@ -629,6 +629,9 @@ This adapter supports the following types of authentication:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 22 now.
 ### 3.0.7 (2025-06-16)
 * (@GermanBluefox) corrected reading of history data
 
@@ -813,7 +816,7 @@ This adapter supports the following types of authentication:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2025 bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

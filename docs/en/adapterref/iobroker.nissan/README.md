@@ -43,10 +43,10 @@ SRP (Secure Remote Password) login is not supported. There are currently no publ
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.20 (2026-09-21)
 - (bolliy) dependency and configuration updates
-- (bolliy) add Nissan Townstar support.
-- (bolliy) add data of pressure status 
+- (bolliy) add Nissan Townstar support [#164](https://github.com/TA2k/ioBroker.nissan/issues/164).
+- (bolliy) add data of pressure status
 
 ### 0.1.19 (2026-09-13)
 - (iobroker-bot) Adapter requires node.js >= 22 now.
@@ -61,10 +61,6 @@ SRP (Secure Remote Password) login is not supported. There are currently no publ
 ### 0.1.17-alpha.0 (2025-11-22)
 - (bolliy) dependency and configuration updates
 - (bolliy) NPM: migration to trusted publishing
-
-### 0.1.16 (2025-07-03)
-- (bolliy) dependency and configuration updates
-- (bolliy) ConnectEV: update API endpoint and enhance password encryption method
 
 ## License
 

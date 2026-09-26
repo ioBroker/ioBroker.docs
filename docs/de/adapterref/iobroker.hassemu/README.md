@@ -32,8 +32,25 @@ Diese Seite ist die ausführliche Anleitung. Die [README](https://github.com/kro
 - ioBroker Admin 8.0.11 oder neuer
 - Display und ioBroker im selben Netz
 
-Nur eine hassemu-Instanz je Netz. Der Adapter lauscht auf Port 8123, weil HA-Clients genau
-diesen Port erwarten; er ist nicht einstellbar — zwei Instanzen würden sich darum streiten.
+Der Adapter lauscht auf Port 8123, weil HA-Clients genau diesen Port erwarten; er ist nicht
+einstellbar. Deshalb läuft je ioBroker-Rechner normalerweise eine Instanz — eine zweite auf
+demselben Rechner geht nur, wenn jede an eine eigene Schnittstelle gebunden ist. Mehrere
+ioBroker-Rechner im Netz dürfen je eine betreiben; die Displays sehen dann getrennte Server.
+
+## Shelly Wall Display
+
+Die Shelly-Wall-Display-Familie gibt es als ältere Modelle (Stargate, X2) und als neuere (XL,
+X2i, X1i, U1, D1). Ein Display erreicht hassemu auf einem von zwei Wegen:
+
+- **über die eingebaute Home-Assistant-Seite** — der ursprüngliche Weg; Firmware 2.7.0 hat
+  sie nicht mehr als veraltet markiert
+- **über die Home-Assistant-App auf dem Gerät** ab Firmware 2.6.0 — sie durchläuft dieselbe
+  Einrichtung wie die Companion-App auf einem Handy
+
+hassemu bedient beide. Firmware 2.7.0 hat außerdem _WebView-Cache leeren_ gebracht
+(Einstellungen → Home Assistant). Das löscht das Erkennungsmerkmal des Displays: Danach
+erscheint es einmal unter einer neuen Kennung und durchläuft die Einrichtung erneut. Den alten
+Eintrag über seinen `remove`-Knopf entfernen.
 
 ## Einrichtung
 
@@ -43,7 +60,7 @@ Adapter installieren, Instanz 0 starten. In den Instanz-Einstellungen musst du z
 nichts ändern: mDNS ist an, die Anmeldung ist aus, und der Adapter lauscht auf allen
 Schnittstellen.
 
-Hat dein ioBroker-Rechner mehrere Netzwerkkarten, stell **Auf Schnittstelle binden** auf die,
+Hat dein ioBroker-Rechner mehrere Netzwerkkarten, stell **Interface binden** auf die,
 in der deine Displays hängen. Der Adapter kündigt sich unter dieser Adresse an — kündigt er
 eine an, die das Display nicht erreicht, ist das der häufigste Grund dafür, dass die
 Erkennung scheinbar klappt, die Verbindung danach aber nicht.
@@ -53,10 +70,14 @@ Erkennung scheinbar klappt, die Verbindung danach aber nicht.
 Am Display einen Home-Assistant-Server hinzufügen.
 
 - **Mit mDNS** findet das Display den Server von allein. Er erscheint unter dem Namen aus
-  **Dienstname** (Vorgabe `ioBroker`).
+  **Service-Name** (Vorgabe `ioBroker`).
 - **Ohne mDNS** — oder wenn das Display nicht sucht — die Adresse von Hand eintragen:
   `http://<IP-deines-ioBroker>:8123`. Es muss `http` sein, siehe
   [Anmeldung und dein Netz](#anmeldung-und-dein-netz).
+
+**Android 17 und neuer:** Erlaube der Home-Assistant-App den _Zugriff auf das lokale Netzwerk_,
+wenn sie danach fragt. Ohne ihn findet die App hassemu nicht und erreicht es in deinem Netz
+auch nicht — hassemu läuft nur im Heimnetz, einen Umweg über eine Cloud gibt es nicht.
 
 ### 3. Einrichtung abschließen
 
@@ -206,9 +227,9 @@ folgen zwei Dinge, die man klar sagen sollte:
   durch dein Netz. Die Anmeldung hält andere Geräte in deinem Netz von der HA-Schnittstelle
   fern — sie ist kein Schutz gegen eine Öffnung ins Internet.
 
-**Reverse-Proxy-Kopfzeilen vertrauen** bleibt aus, solange nicht wirklich ein Reverse-Proxy
+**Reverse-Proxy-Header vertrauen** bleibt aus, solange nicht wirklich ein Reverse-Proxy
 davor steht, der die Verschlüsselung beendet und die vom Client mitgeschickten
-`X-Forwarded-*`-Kopfzeilen entfernt. Ohne einen solchen eingeschaltet, kann jedes Gerät bei
+`X-Forwarded-*`-Header entfernt. Ohne einen solchen eingeschaltet, kann jedes Gerät bei
 **jeder einzelnen Anfrage** eine andere Adresse behaupten. Der Adapter protokolliert dann
 falsche Adressen, und seine Grenze für neue Display-Einträge je Adresse begrenzt nichts mehr.
 Seit Version 1.40.0 gibt es deshalb eine zweite Grenze, die nicht an der Adresse hängt —
@@ -224,15 +245,22 @@ deckelt den Schaden — sie macht die Einstellung nicht sicher.
 | 8123 / TCP | eingehend | die HA-Schnittstelle, mit der das Display spricht |
 | 5353 / UDP | eingehend | mDNS, damit Displays den Server von allein finden |
 
+Für Uptime-Monitore und Container-Healthchecks `http://<IP-deines-ioBroker>:8123/health`
+nehmen. Diese Adresse antwortet, ohne etwas anzulegen. Ein `GET /` ist das, was ein Display
+bei seinem ersten Besuch schickt — ein Monitor dort erschiene als neues Display; ein `HEAD /`
+legt nichts an.
+
 ## Häufige Fragen
 
-**Kann ich zwei Instanzen betreiben?** Nein. Port 8123 ist von den HA-Clients vorgegeben,
-also betreibt ein Rechner im Netz hassemu.
+**Kann ich zwei Instanzen betreiben?** Nicht auf derselben Schnittstelle. Port 8123 ist von
+den HA-Clients vorgegeben, also gehen zwei Instanzen auf einem Rechner nur, wenn jede an eine
+eigene Schnittstelle gebunden ist. Zwei ioBroker-Rechner dürfen je eine betreiben; die
+Displays sehen dann zwei getrennte Server.
 
 **Muss das Display dauerhaft mit dem Adapter verbunden bleiben?** Ja. Es holt seine Seite
 über den Adapter, und die Offline-Seite wie auch die Ziel-Prüfung hängen daran. Stoppt der
-Adapter, zeigt das Display die zuletzt geladene Seite weiter, bis es das nächste Mal
-nachfragt.
+Adapter, bleibt das Dashboard noch etwa 1,5 Minuten stehen; dann zeigt das Display die
+Offline-Seite und kehrt von selbst zum Dashboard zurück, sobald der Adapter wieder da ist.
 
 **Kann ich ein Display umbenennen?** Ja — das Objekt `clients.<Kennung>` im Objektbaum
 umbenennen. Der Adapter behält deinen Namen und überschreibt ihn nicht, auch nicht, wenn sich
@@ -240,7 +268,8 @@ Adresse oder Hostname des Displays ändern.
 
 **Warum gibt es zwei Einträge für dasselbe Display?** Das Display hat sein Erkennungsmerkmal
 nicht zurückgeschickt — meist nach einem Zurücksetzen auf Werkseinstellungen, einem geleerten
-Browser-Speicher oder in einem Privatmodus, der Cookies verwirft. Den alten Eintrag über
+Browser- oder WebView-Speicher (Shelly ab Firmware 2.7.0: Einstellungen → Home Assistant)
+oder in einem Privatmodus, der Cookies verwirft. Den alten Eintrag über
 seinen `remove`-Knopf entfernen. Die Ursache liegt am Display, nicht am Adapter.
 
 **Brauche ich ein installiertes Home Assistant?** Nein. Der Adapter beantwortet das
@@ -261,6 +290,10 @@ Ist mDNS an, im Protokoll steht aber keine Zeile `mDNS: Broadcasting`, ging die 
 nicht raus — meist, weil etwas anderes Port 5353 belegt. Dann mDNS ausschalten und die
 Adresse am Display von Hand eintragen; alles Übrige bleibt gleich.
 
+Findet die Home-Assistant-App unter Android 17 oder neuer nichts und verbindet sich auch mit
+von Hand eingetragener Adresse nicht, fehlt ihr der _Zugriff auf das lokale Netzwerk_ — in den
+App-Einstellungen erlauben.
+
 ## Changelog
 
 <!--
@@ -268,7 +301,24 @@ Adresse am Display von Hand eintragen; alles Übrige bleibt gleich.
     ### **WORK IN PROGRESS**
 -->
 
-### 1.45.0 (2026-09-17)
+### 1.46.1 (2026-09-25)
+
+- Improved: switching the master switch and refreshing the dashboard list now log their result — how many displays changed and how many dashboards were found
+
+### 1.46.0 (2026-09-25)
+
+- Fixed: a start that fails (port briefly in use, database not up yet) now restarts after 30 seconds instead of leaving the instance off until someone starts it by hand
+- Fixed: displays are no longer all removed after the adapter or its host was off for more than 30 days — the cleanup now counts from the most recently seen display
+- Fixed: an update from 1.0 or 1.1 no longer resets the global URL choice on every start — the URL you had set before the update stays in place for good
+- Fixed: on iOS the Home Assistant app no longer keeps its loading screen over the dashboard, and on Android the bottom of the dashboard no longer hides behind the navigation bar
+- Fixed: uptime monitors and container health checks no longer create display entries, and the adapter settings name the /health address meant for them
+- Fixed: stopping the adapter no longer waits on open connections or hangs while a display is mid-request, and a stop during the start no longer brings the server up
+- Fixed: room and function assignments move along reliably when an old datapoint is replaced, and a read error no longer gives the server a new identity
+- Changed: the sign-in hands its code to an unknown address only after a click on Continue, and a signed-in app is disconnected when its display is removed
+- Improved: mDNS announces an address the displays can reach — no link-local, container or VPN address — and announces again when the host's address changes
+- Improved: the reverse proxy option in the settings and the offline card on the display explain themselves in plain words, in all eleven languages
+
+### 1.45.0 (2026-09-17) — stable
 
 - Fixed: refreshing the dashboard list no longer removes a display's mode datapoint from its rooms and functions, and the datapoint no longer disappears for a moment while it is rewritten
 - Fixed: a failed request or migration now names its cause instead of "[object Object]", and an unexpected error inside the web server no longer breaks its own error answer to the display
@@ -286,19 +336,6 @@ Adresse am Display von Hand eintragen; alles Übrige bleibt gleich.
 ### 1.43.1 (2026-09-07)
 
 - Changed: the button that removes a display now carries a description — it deletes the display's folder and all its states, and the display returns as a new entry on its next request
-
-### 1.43.0 (2026-09-06)
-
-- Fixed: taking a display's choice back (mode `---`, or turning the master switch off) now reaches the display — until now it kept the dashboard it had until someone reloaded it by hand
-- Fixed: a display that lost power no longer holds up the adapter's shutdown for 30 seconds
-- Fixed: VIS projects are found on every VIS instance, not only on `vis.0` / `vis-2.0`
-- Fixed: upgrading from a pre-1.1.1 version no longer overwrites the whole instance configuration while removing the old URL setting
-- New: every display now shows the address it was actually sent to, so you can see at a glance where a display landed without walking through the global and per-display settings yourself
-- Changed: `info.serverUuid` and `global.enabled` carry clearer labels, and the per-display manual URL now has a description
-
-### 1.42.0 (2026-09-04)
-
-- Fixed: a leftover setting from older versions is now removed from the instance completely instead of only being switched off — switched off, it stayed behind for good
 
 ## License
 

@@ -121,7 +121,7 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 | **hkrmode**                | array   |           x            | 0=AUTO/1=OFF/2=ON state of thermostat         |         | DECT3x0 |         |         |         |        |         |
 | **lasttarget**             | number  |           -            | last target temperature in °C                 |         | DECT3x0 |         |         |         |        |         |
 | errorcode                  | number  |           -            | errorcode                                     |         | DECT3x0 |         |         |         |        |         |
-| **operationList**          | number- | list of possible modes |                                               | DECT3x0 |         |         |         |         |        |
+| **operationList**          | number  |           -            | list of possible modes                        |         | DECT3x0 |         |         |         |        |         |
 | **operationMode**          | number  |           -            | actual mode                                   |         | DECT3x0 |         |         |         |        |         |
 | _windowopenendtime_        | time    |           -            | time when open window status ends             |         | DECT3x0 |         |         |         |        |         |
 | _windowopenactiv_          | boolean |           x            | status and cmd of window open detection       |         | DECT3x0 |         |         |         |        |         |

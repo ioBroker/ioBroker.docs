@@ -43,6 +43,10 @@ Der Adapter wird stündlich ausgeführt (kann beispielsweise als Zeitplan festge
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 0.1.1 (2023-03-12)
 * (Maverick78de) URL was corrected
 * (bluefox) Randomize the minutes of the schedule
@@ -57,7 +61,7 @@ Der Adapter wird stündlich ausgeführt (kann beispielsweise als Zeitplan festge
 ## License
 MIT License
 
-Copyright (c) 2019-2023 bluefox
+Copyright (c) 2019-2026 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

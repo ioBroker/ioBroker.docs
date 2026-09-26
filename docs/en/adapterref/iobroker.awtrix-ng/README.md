@@ -22,7 +22,7 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-ng-installed.svg
 - nodejs 22 (or later)
 - js-controller 6.0.11 (or later)
 - Admin Adapter 7.6.20 (or later)
-- _Awtrix NG_ device with firmware _1.1.1_ (or later) - e.g. Ulanzi TC001
+- _Awtrix NG_ device with firmware _1.1.2_ (or later) - e.g. Ulanzi TC001
 
 Buy here: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001), here: [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) or here: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
@@ -203,7 +203,7 @@ See [documentation](https://blueforcer.github.io/awtrix-ng/reference/payload/) f
 
 ### **WORK IN PROGRESS**
 
-* (@klein0r) Recommended Awtrix NG version is now 1.1.1
+* (@klein0r) Recommended Awtrix NG version is now 1.1.2
 * (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
 ### 0.1.0 (2026-08-11)

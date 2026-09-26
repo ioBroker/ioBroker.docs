@@ -31,6 +31,10 @@ Actually only finger hash is supported. To help to decode more data from device 
 <!--
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 1.2.3 (2022-11-22)
 * (bluefox) Added `net` protocol support
 * (bluefox) Added serial port support
@@ -52,7 +56,7 @@ Actually only finger hash is supported. To help to decode more data from device 
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 ioBroker <dogafox@gmail.com>
+Copyright (c) 2018-2026 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

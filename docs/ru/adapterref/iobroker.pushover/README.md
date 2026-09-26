@@ -1,29 +1,34 @@
 ---
 BADGE-Number of Installations: http://iobroker.live/badges/pushover-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.pushover.svg
+BADGE-Test and Release: https://github.com/ioBroker/iobroker.pushover/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/pushover/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.pushover.svg
 translatedFrom: en
-translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translatedFrom», в противном случае этот документ будет снова автоматически переведен
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pushover/README.md
 title: ioBroker.pushover
-hash: TPAyzEDw5p3Prh33C7Gu/sfALjyHt59qWdA0psxUAFY=
+hash: EZHsab2p2VAuyiKlJzHsrpUH4kff2JwFVRVa/UbQNHY=
 ---
-![Логотип](./admin/pushover.png)
+![Логотип](../../../en/admin/pushover.png)
 
-# IoBroker.pushover
+# ioBroker.pushover
+
 ## Конфигурация
+
 1. Создайте новую учетную запись на [pushover.net](https://pushover.net/)
-2. Создайте новое приложение
-3. Настройте токен приложения и токен пользователя в промежуточном экземпляре.
+2. Создать новое приложение
+3. Настройте токен приложения и токен пользователя в вашем экземпляре Pushover.
 
-![Конфигурация pushover](../../../en/adapterref/iobroker.pushover/./img/pushover-applications.png)
+![конфигурация «проталкивания»](../../../en/adapterref/iobroker.pushover/img/pushover-applications.png)
 
-![Токен API](../../../en/adapterref/iobroker.pushover/./img/pushover-appkey.png)
+![API-токен](../../../en/adapterref/iobroker.pushover/img/pushover-appkey.png)
 
-![Токен группы или пользователя](../../../en/adapterref/iobroker.pushover/./img/pushover-userkey.png)
+![Групповой или пользовательский токен](../../../en/adapterref/iobroker.pushover/img/pushover-userkey.png)
 
-## Применение
-Отправить уведомление с помощью адаптера JavaScript:
+## Использование
+
+Отправка уведомлений с помощью JavaScript-адаптера:
 
 ```javascript
 // send notification to all instances of pushover adapter
@@ -45,7 +50,7 @@ sendTo('pushover', {
                            //    1 to display as high-priority and bypass the user's quiet hours, or
                            //    2 to also require confirmation from the user
     token: 'API/KEY token' // optional
-                           // add other than configured token to the call
+                           // add other than configured token to the call  
     url,                   // optional  - a supplementary URL to show with your message
     url_title,             // optional  - a title for your supplementary URL, otherwise just the URL is shown
     device,                // optional  - your user's device name to send the message directly to that device, rather than all of the user's devices
@@ -53,8 +58,8 @@ sendTo('pushover', {
     html,                  // optional  - 1 to enable parsing of HTML formatting for bold, italic, underlined and font color
     monospace,             // optional  - 1 to display the message in monospace font
                            //    either html or monospace is allowed
-    file:                  '/opt/picture.png', // optional - attachment
-    file:                  { name: '/opt/picture.png', data: fs.readFileSync('/opt/picture.png') }, // optional - attachment
+    file:                  '/opt/picture.png', // optional - attachment 
+    file:                  { name: '/opt/picture.png', data: fs.readFileSync('/opt/picture.png') }, // optional - attachment 
 });
 
 // Example for HTML format in the message
@@ -70,14 +75,19 @@ sendTo('pushover', {
 });
 ```
 
+## Системные уведомления
+
+Адаптер может получать системные уведомления от ioBroker (например, «адаптер слишком часто перезапускался» или «диск переполнен») через менеджер уведомлений. Выберите экземпляр pushover в конфигурации адаптера менеджера уведомлений. Сообщение содержит имя и описание категории, хост и самое новое сообщение для каждого затронутого экземпляра.
+
 ## Взгляды
-С помощью Pushover's Glances вы можете передавать небольшие фрагменты данных непосредственно на постоянно обновляемый экран, называемый виджетом, например расширением на ваших умных часах или виджетом на экране блокировки вашего телефона.
+
+С помощью функции Glances от Pushover вы можете передавать небольшие фрагменты данных непосредственно на постоянно обновляемый экран, называемый виджетом, например, на экран умных часов или на экран блокировки телефона.
 
 ```javascript
 sendTo('pushover', 'glances', {
     message:  'Test text',    // mandatory - (100 characters) - the main line of data, used on most screens
     title:    'SweetHome',    // optional  - (100 characters) - a description of the data being shown, such as "Widgets Sold"
-    token:    'API/KEY token' // optional  - add other than configured token to the call
+    token:    'API/KEY token' // optional  - add other than configured token to the call  
     subtext:  'Second line',  // optional  - (100 characters) - a second line of data
     count:    3,              // optional  - (integer, may be negative) - shown on smaller screens; useful for simple counts
     percent:  90,             // optional  - (integer 0 through 100, inclusive) - shown on some screens as a progress bar/circle
@@ -89,35 +99,40 @@ sendTo('pushover', 'glances', {
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
+### 6.1.0 (2026-09-23)
+* (BenAhrdt) Added support for the system notifications (notification-manager)
+* (BenAhrdt) `user` and `token` can be overwritten per message
+* (BenAhrdt) Unsupported commands are answered with the command name instead of `send`
+* (@GermanBluefox) Invalid notifications are rejected instead of crashing the message handler
+* (@GermanBluefox) Fixed: empty `title`/`sound`/`priority` (e.g. from Blockly) fall back to the instance settings again, an explicit priority 0 is kept
+* (@GermanBluefox) Added documentation and tests for the system notifications
 
-### 3.0.3 (2022-07-27)
-* (Apollon77) Fix crash cases reported by Sentry
+### 6.0.1 (2026-08-18)
+* (@GermanBluefox) Blockly migrated to TypeScript
+* (@GermanBluefox) Dropped support for Node.js lower than 22
 
-### 3.0.2 (2022-07-14)
-* (bluefox) Added log output of sent messages
-* (bluefox) Added custom sound to blockly
+### 5.0.0 (2026-03-12)
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Dropped support for node 18
+* (@GermanBluefox) Migrated to TypeScript
+* (@GermanBluefox) Added the lowest priority to messages
 
-### 3.0.0 (2022-07-05)
-* (klein0r) Added app limits as states
-* (klein0r) Changed to class definition
-* (klein0r) Updated logo
-* (klein0r) Updated testing
+### 4.1.1 (2025-05-19)
+* (robseh) Added a field "tags" to hand over a tag to pushover-service
+* (@GermanBluefox) Updated packages
 
-### 2.1.0 (2022-02-20)
-* Important: js-controller 3.0+ required! 
-* (Apollon77) Remove some legacy code
-* (Apollon77) Prevent potential crash case when error occurs
-
-### 2.0.5 (2021-06-29)
-* (bluefox) Corrected error with token
+### 4.1.0 (2024-08-17)
+* (isi07) added HTML/monospace options to blockly
+* (isi07) fixed issue that blockly block is invalid when different priority other than normal is selected
+* (isi07) fixed the error when log level selected by duplicate quotes
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

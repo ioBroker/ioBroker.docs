@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hm-rpc/README.md
 title: ioBroker HomeMatic RPC Adapter
-hash: FUxiVZIXxwTsZIFVC/mQBesMGLvTMybJOOkR6LBcmI4=
+hash: qbx82r748fNIMD7JogRm5wOGF0bf3QP3TStxV/dPmpA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hm-rpc/admin/homematic.png)
 
@@ -18,7 +18,7 @@ hash: FUxiVZIXxwTsZIFVC/mQBesMGLvTMybJOOkR6LBcmI4=
 
 Этот адаптер соединяет процессы интерфейса HomeMatic (сервисы BidCos, Homegear и CUxD) с ioBroker. Для обмена данными используется XML-RPC или BIN-RPC.
 
-**Этот адаптер использует сервис [Sentry.io](https://sentry.io) . Он автоматически сообщает разработчику об исключениях, ошибках в коде и новых схемах устройств.** Более подробную информацию вы найдете в главе [«Что такое Sentry.io»](#what-is-sentryio) .
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Он также сообщает о новых схемах устройств. Для получения более подробной информации и сведений о том, как отключить отправку сообщений об ошибках, см. [документацию по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry) и главу [«Что такое Sentry.io»](#what-is-sentryio) .
 
 ## Что такое Homematic?
 
@@ -103,7 +103,7 @@ CCU поддерживает различные типы устройств (р�
 
 Для обмена данными доступны два протокола: XML-RPC и BIN-RPC. BIN-RPC быстрее, но некоторые устройства его не поддерживают или поддерживают некорректно. В этом случае выберите протокол XML-RPC.
 
-**Примечание:** CUxD работает только с BIN-RPC. Homematic IP и `rfd` Работает только с XML-RPC.
+**Примечание:** CUxD работает только с BIN-RPC. Homematic IP и виртуальные устройства работают только с XML-RPC. Для этих демонов адаптер автоматически использует правильный протокол.
 
 #### Синхронизация объектов (один раз)
 
@@ -127,13 +127,13 @@ CCU поддерживает различные типы устройств (р�
 
 Адаптер ожидает это время, прежде чем предпринять следующую попытку подключения.
 
-#### Не удаляйте устройства при запуске адаптера.
+#### Не удаляйте устройства.
 
-По умолчанию адаптер удаляет устройство из дерева объектов, если не находит его в CCU при запуске адаптера. Включите эту опцию, чтобы сохранить такие устройства, например, если вы удалили устройство из CCU только временно.
+По умолчанию адаптер удаляет устройство из дерева объектов, если не находит его в CCU при запуске адаптера или если CCU сообщает об удалении устройства во время работы адаптера. Включите эту опцию, чтобы сохранить такие устройства, например, если вы удалили устройство из CCU только временно.
 
-Эта опция также позволяет избежать проблемы на стороне CCU: устройства Homematic IP иногда некорректно передаются в ioBroker. В этом случае они удаляются при запуске адаптера и создаются заново через несколько миллисекунд. По этой причине опция автоматически включается, как только вы выбираете Homematic IP в качестве демона.
+Эта опция также позволяет избежать проблемы на стороне CCU: устройства Homematic IP иногда некорректно передаются в ioBroker, и CCU сообщает о них как об удаленных, например, во время обновления прошивки, хотя они по-прежнему существуют. Без этой опции их объекты удаляются и создаются заново только после перезапуска адаптера. По этой причине опция автоматически включается, как только вы выбираете Homematic IP в качестве демона.
 
-Если вы удаляете устройство во время работы адаптера, CCU сообщает об этом адаптеру, и адаптер в любом случае удаляет это устройство.
+При включении этой опции можно вручную удалить объекты устройства, которое вы ранее удалили из CCU, в дереве объектов.
 
 #### Используйте https
 
@@ -141,7 +141,7 @@ CCU поддерживает различные типы устройств (р�
 
 #### Имя пользователя и пароль
 
-Если включена опция "Использовать HTTPS", введите здесь имя пользователя и пароль пользователя CCU. Введите эти учетные данные также, если API CCU требует аутентификации.
+Если включена опция «Использовать HTTPS», введите здесь имя пользователя и пароль пользователя CCU. Введите эти учетные данные также, если API CCU требует аутентификации; адаптер отправляет их с помощью XML-RPC с HTTPS и без него. BIN-RPC не поддерживает аутентификацию.
 
 ### Диспетчер устройств
 
@@ -173,8 +173,8 @@ CCU поддерживает различные типы устройств (р�
 | Конфигурация (ожидающие подтверждения / ожидающие подтверждения тревоги) | Ожидающая конфигурация                                        |
 | Служебный велосипед / Сигнализация для служебного велосипеда             | Время передачи данных устройств Homematic                     |
 | RSSI (Устройство / Партнер)                                              | Уровень сигнала между устройством и центральным блоком.       |
-| Низкий заряд батареи / Сигнализация низкого заряда батареи               | Низкий заряд батареи                                          |
-| Залипание кнопки "Недоступно" / Сигнализация о недоступности             | Системное сообщение об ошибке связи (ошибка произошла ранее). |
+| Низкий уровень летучей мыши / Сигнализация низкого уровня летучей мыши   | Низкий заряд батареи                                          |
+| Залипание кнопки "Недоступно" / сигнализация о недоступности             | Системное сообщение об ошибке связи (ошибка произошла ранее). |
 | Сигнализация о недостижении                                              | Системное сообщение об ошибке связи (текущее состояние)       |
 
 ### Каналы с 1 по 6
@@ -221,7 +221,7 @@ sendTo('hm-rpc.0', 'listDevices', {}, res => {
 });
 ```
 
-Установите значение, как это делает адаптер. `stateChange`:
+Задайте значение, как это делает адаптер. `stateChange`:
 
 ```javascript
 sendTo('hm-rpc.1', 'setValue', {ID: '000453D77B9EDF:1', paramType: 'SET_POINT_TEMPERATURE', params: 15}, res => {
@@ -274,6 +274,35 @@ npm run update-images
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.1.2 (2026-09-22)
+* (bluefox) Philips Hue and Osram Lightify lamps of the CCU lighting gateway: the color temperature `WHITE` is handled in kelvin (2000 - 6500 K), also if the CCU declares it as percent (#694)
+* (bluefox) `HUE` and `SATURATION` are sent together in one `putParamset`, HMIP devices like HmIP-RGBW rejected a single value with `MISSING_NON_OPTIONAL_PARAMETER` (#1108)
+* (bluefox) Values which the CCU delivers as text for a number are converted (the name of an ENUM to its index, e.g. `STATE_NOT_AVAILABLE` of a `VALVE_STATE`), invalid values become `null` instead of a wrong type (#1342, #1358)
+* (bluefox) Events of deleted devices do not warn about missing objects until the next start of the adapter anymore (#1419)
+
+### 4.1.1 (2026-09-22)
+* (bluefox) `CONTROL_MODE` and `SET_POINT_MODE` of HmIP thermostats show the mode names (auto, manual, party)
+* (bluefox) `SET_TEMPERATURE` of BidCos heating groups accepts 4.5 (OFF) and 30.5 (ON)
+* (bluefox) CUxD always uses BIN-RPC, Homematic IP and Virtual Devices always use XML-RPC
+* (bluefox) Username and password are sent with XML-RPC also without HTTPS
+* (bluefox) Better error message if the CCU answers with an HTML page instead of XML-RPC
+* (bluefox) Read-only datapoints do not get the writable roles `level.*` and `switch.*` anymore
+* (bluefox) HmIP shutters and blinds: the control channels get `level.blind`/`level.tilt`, the status channel `value.blind`/`value.tilt`; `LEVEL` and `VALVE_STATE` of HmIP thermostats got better roles
+* (bluefox) The option "Don't delete devices" also ignores devices that the CCU reports as deleted while the adapter is running (e.g. HmIP during firmware updates)
+
+### 4.1.0 (2026-09-22)
+* (krobipd) The device icons were invisible in the object browser: its ID cell sets `width: initial` on every element of an inlined SVG, which collapses the icon's `rect` to 0px. The size is now carried as an inline style as well.
+* (bluefox) Updated `binrpc` to 4.x and `homematic-xmlrpc` to 2.x (no dependency on a GitHub tarball anymore)
+* (bluefox) If the RPC server cannot listen (e.g. the configured IP address is not available), the error is logged and the adapter restarts after 30 seconds instead of crashing
+* (bluefox) On stop, the RPC server and client are closed properly, also for XML-RPC and if the CCU is not reachable
+* (bluefox) Updated packages
+* (bluefox) Fixed writing of the lines and icons of HM-Dis-EP-WM55: an invalid tone interval (`0xE-1`) was sent if no interval was set
+* (bluefox) The device manager does not crash anymore on devices without `native` and does not report the same control twice
+* (bluefox) Added icon for HmIP-RFUSB
+* (bluefox) PONG events and requests without method are logged only in debug mode
+* (bluefox) Replaced the deprecated `deleteDevice` and `deleteChannel` calls
+* (bluefox) Fixed issues reported by the repository checker (responsive design of the settings, lint and type check in CI)
+
 ### 4.0.0 (2026-08-15)
 * (bluefox) Device icons are now delivered as theme-adaptive SVGs and stay visible on the dark admin theme
 * (krobipd) Generated the device icon set and the device type map from the OCCU device database
@@ -285,29 +314,15 @@ npm run update-images
 * (bluefox) Migrated to TypeScript 6
 * (bluefox) Corrected device manager
 
-### 3.0.1 (2025-10-22)
-* (bluefox) Renamed role of `STICKY_UNREACH` to `indicator.unreach.sticky` for the better typing detection
-
-### 3.0.0 (2025-10-21)
-* (bluefox) Updated packages and used `@iobroker/eslint-config`
-* (bluefox) Renamed some roles for the better typing detection
-* (bluefox) Removed support of Node.js 18
-
-### 2.0.2 (2024-08-26)
-* (bluefox) Updated packages
-
-### Older entries
+### Older changelog
 [here](/#/docs/adapterref/iobroker.hm-rpc/OLD_CHANGELOG.md)
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.hm-rpc/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>
-
-Copyright (c) 2014 hobbyquaker
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>  
+Copyright (c) 2014 hobbyquaker <hq@ccu.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

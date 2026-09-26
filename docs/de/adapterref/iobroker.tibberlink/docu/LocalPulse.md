@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/docu/LocalPulse.md
 title: Direkte lokale Umfrage zu Pulse-Daten
-hash: CP19A9ONpbl1e/8o9XfMfDciz3IWfuSGv+4HQueVRj8=
+hash: ZtVO750w7BC0LluIZpk+58xMpeCEJoUdD+2dIQFyy84=
 ---
 # Direkte lokale Umfrage zu Pulse-Daten
 
@@ -15,6 +15,17 @@ Damit das funktioniert, müssen Sie die Weboberfläche der Bridge so anpassen, d
 <https://github.com/marq24/ha-tibber-pulse-local>
 
 Wenn alles korrekt funktioniert, werden die Messdaten alle 2 Sekunden in die ioBroker-Zustände geschrieben.
+
+## Bridge-Firmware-Endpunkte
+
+Tibber Bridge Firmware ungefähr `1794-…` Die lokalen HTTP-JSON-Pfade wurden umbenannt:
+
+| Zweck                  | Vermächtnis               | Neu (FW ≥1794)                 |
+| ---------------------- | ------------------------- | ------------------------------ |
+| Rohzähler-Telegramm    | `/data.json?node_id=N`    | `/node_data.json?node_id=N`    |
+| Metriken / Meter-Modus | `/metrics.json?node_id=N` | `/node_metrics.json?node_id=N` |
+
+Der Adapter versucht zunächst die neuen Pfade und greift bei HTTP 404 auf die alten zurück, sodass beide Firmware-Generationen weiterhin funktionieren. Siehe auch [ha-tibber-pulse-local#129](https://github.com/marq24/ha-tibber-pulse-local/discussions/129) und Issue #947.
 
 ## Unterstützte Messmodi
 

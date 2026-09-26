@@ -16,6 +16,10 @@ This adapter is based on homebridge-wemo plugin.
 Read more about it here https://www.npmjs.com/package/homebridge-wemo
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 3.0.2 (2022-09-15)
 * (Apollon77) update to latest ham version
 
@@ -56,7 +60,7 @@ Read more about it here https://www.npmjs.com/package/homebridge-wemo
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

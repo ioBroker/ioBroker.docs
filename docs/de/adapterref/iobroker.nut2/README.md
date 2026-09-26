@@ -63,8 +63,8 @@ schalten (Befehle) und Variablen schreiben. Eintrag in `/etc/nut/upsd.users`:
 
 Zwei Zeilen mit verschiedenen Aufgaben:
 
-- `upsmon secondary` ist das, was eine **Anmeldung** überhaupt möglich macht. Der Adapter meldet sich einmal beim Start
-  an, auf einer kurzen zweiten Verbindung, ausschließlich um Ihnen zu sagen, ob die Zugangsdaten funktionieren. Ohne
+- `upsmon secondary` ist das, was eine **Anmeldung** überhaupt möglich macht. Der Adapter meldet sich bei jedem
+  (Wieder-)Verbinden an, auf einer kurzen zweiten Verbindung, ausschließlich um Ihnen zu sagen, ob die Zugangsdaten funktionieren. Ohne
   diese Zeile wird die Anmeldung abgelehnt — siehe die häufigen Fragen, das ist kein Fehler.
 - `actions` und `instcmds` entscheiden, was der Benutzer tatsächlich **tun** darf. `upsd` prüft sie je Befehl,
   unabhängig von der Anmeldung.
@@ -77,7 +77,7 @@ Adapter installieren, Instanz anlegen, Reiter **Verbindung** ausfüllen:
 
 | Einstellung           | Was hineingehört                                                                                          |
 | --------------------- | --------------------------------------------------------------------------------------------------------- |
-| NUT-Server-Adresse    | Hostname oder IP des Rechners, auf dem `upsd` läuft                                                       |
+| NUT-Server-Host       | Hostname oder IP des Rechners, auf dem `upsd` läuft                                                       |
 | Port                  | `3493`, sofern nicht geändert                                                                             |
 | Netzwerkschnittstelle | Auf „alle" lassen, außer der ioBroker-Host hängt in mehreren Netzen und nur eines erreicht den NUT-Server |
 | Abfrageintervall      | `15` Sekunden sind ein guter Ausgangswert — siehe unten                                                   |
@@ -92,8 +92,8 @@ Danach speichern. Der Adapter verbindet sich, erkennt jede USV am Server und leg
 
 Schneller als der NUT-Treiber seine Daten auffrischt, bringt nichts. In `/etc/nut/ups.conf` hat der Treiber zwei
 Einstellungen: `pollinterval` (wie oft der Status aufgefrischt wird, Vorgabe 2 s) und `pollfreq` (der ganze Wertesatz,
-Vorgabe 30 s bei USB-Treibern). Alle 15 Sekunden ist ein sinnvoller Mittelweg; unter 2 Sekunden liest der Adapter nur
-noch Werte erneut, die sich nicht geändert haben.
+Vorgabe 30 s bei USB-Treibern). Alle 15 Sekunden ist ein sinnvoller Mittelweg; deshalb beginnt die Einstellung bei 2 Sekunden —
+schneller würde nur Werte erneut lesen, die sich nicht geändert haben.
 
 Wer von einem Stromausfall _im Moment des Geschehens_ erfahren will statt beim nächsten Abruf, senkt nicht das
 Intervall, sondern nutzt die Ereignis-Klingel aus den häufigen Fragen.
@@ -109,7 +109,7 @@ TLS-Unterstützung gebaut werden und bietet dann **STARTTLS**:
 In der Voreinstellung prüft der Adapter das Zertifikat nicht — das verschlüsselt gegen Mitlesen, erkennt aber keinen
 Mann-in-der-Mitte, weil fast jeder NUT-Server ein selbstsigniertes Zertifikat verwendet.
 
-Für echten Schutz zusätzlich **Gültiges Zertifikat verlangen** anhaken und bei **CA-Zertifikatsdatei** eine PEM-Datei
+Für echten Schutz zusätzlich **Gültiges Zertifikat erfordern** anhaken und bei **CA-Zertifikatsdatei** eine PEM-Datei
 auf dem ioBroker-Host angeben, gegen die geprüft werden kann — die eigene Zertifizierungsstelle oder das
 selbstsignierte Serverzertifikat selbst. Die Datei wird nur gelesen, solange die strenge Prüfung an ist; ein Pfad, der
 von einem früheren Versuch übrig geblieben ist, schadet nicht.
@@ -120,10 +120,11 @@ Wurde der NUT-Server ohne TLS gebaut, sagt der Verbindungstest das, statt still 
 
 Zwei Schalter im Reiter **Erweitert** öffnen die Schreibrichtung, beide sind bewusst aus:
 
-- **Befehle aktivieren** legt je Befehl, den die USV anbietet, eine Taste an (Signalton, Selbsttest, Last abschalten …).
+- **Sofortbefehle aktivieren** legt je Befehl, den die USV anbietet, eine Taste an (Signalton, Selbsttest, Last abschalten …).
   Der Kanal `commands` erscheint erst, wenn das an ist **und** Zugangsdaten hinterlegt sind — `upsd` prüft
-  Befehlsrechte gegen einen benannten Benutzer.
-- **SET VAR aktivieren** macht die USV-Variablen, die der Server als schreibbar meldet, auch in ioBroker schreibbar.
+  Befehlsrechte gegen einen benannten Benutzer. Sein Text-Datenpunkt `commands.execute` führt einen Befehl mit Wert
+  aus, etwa `load.off.delay 120`.
+- **Beschreibbare Variablen aktivieren** macht die USV-Variablen, die der Server als schreibbar meldet, auch in ioBroker schreibbar.
 
 Beides braucht die passenden Rechte in der `upsd.users` (Schritt 3). Mit den Last-Befehlen vorsichtig umgehen:
 `load.off` nimmt allem den Strom, was an der USV hängt.
@@ -140,7 +141,26 @@ Beides braucht die passenden Rechte in der `upsd.users` (Schritt 3). Mit den Las
     ### **WORK IN PROGRESS**
 -->
 
-### 0.16.0 (2026-09-15)
+### 0.17.0 (2026-09-25)
+
+- New: a UPS command that needs a value, such as a delay, can be sent through the new `commands.execute` data point, written the way upscmd takes it
+- New: when the NUT server tracks commands, the log says whether the driver really carried out a command or a new setting, not only that it was sent
+- New: every device shows a pictogram for its NUT device type in the object tree — UPS, PDU, solar charge controller, power supply or transfer switch
+- Fixed: the connection to the NUT server no longer drops during long poll intervals — the adapter keeps it alive while it is idle
+- Fixed: apparent power, real power and percentages carry the right unit and role, and writable temperatures, voltages and currents are settable levels
+- Fixed: text values such as test results, contact states or ups.conf settings stay text instead of turning into numbers or being discarded
+- Fixed: a word or an empty value in a measurement, such as LoadTooLow, leaves the data point empty instead of keeping an old number, without a warning
+- Fixed: renamed data points keep the rooms and functions you assigned them to, and a unit or explanation that no longer applies is removed
+- Fixed: a UPS that is missing from the NUT server for a moment keeps its data points and history; it is removed only after three polls without it
+- Fixed: the status severity stays empty when the status names no power source, instead of claiming OK for a UPS that is off or still starting
+- Fixed: command buttons follow the driver's command list — buttons of commands it no longer offers disappear, and a UPS without commands gets none
+- Fixed: values containing #, quotes or backslashes are read correctly; writing a value with # is refused with an explanation, as NUT drivers cannot report it back
+- Fixed: a TLS certificate problem stops the retries with one clear message, and a UPS reporting several value ranges shows the full range
+- Improved: names and explanations for every variable and command of the NUT 2.8.5 catalog in all eleven languages, including outlets, groups and sensors
+- Improved: the warning sign marks exactly the commands that can cut power or stop the driver; switching something on is never marked
+- Changed: the upsmon connection is documented as a small helper script, which keeps working with the NUT releases after 2.8.5
+
+### 0.16.0 (2026-09-15) — stable
 
 - Fixed: every adapter start silently removed the status severity, the device type, every dropdown and every bounded value from the rooms and functions the user had assigned them to
 - Fixed: when a dropdown list or a value range really shrinks, the data point keeps its value, its recording settings and its room and function assignments
@@ -182,17 +202,6 @@ Beides braucht die passenden Rechte in der `upsd.users` (Schritt 3). Mit den Las
 - Fixed: renamed data points of the adapter itself now reach existing installations instead of only new ones
 - Fixed: enabling instant commands without credentials no longer fails silently — the adapter now explains why no command buttons are created
 - New: detailed user documentation in English and German is now part of the repository and shown in the ioBroker documentation portal
-
-### 0.13.0 (2026-09-02)
-
-- New: every data point now carries a short explanation in your language — what it means, not just what it is called
-- New: status text, severity levels and selection lists are shown in your language instead of English
-- Changed: wrong credentials no longer stop the monitoring — the adapter warns, keeps reading the UPS values, and only refuses commands and writable variables
-- Fixed: during a power failure, machines protected by the same UPS now shut down without waiting for this adapter
-- Fixed: a countdown that is not running is now empty instead of showing "-1 seconds", on every UPS brand
-- Fixed: model and other text values no longer carry the padding some UPS models send along
-- Fixed: channel names from older adapter versions are corrected instead of staying as they were
-- Fixed: the connection test answers in your language now, like the rest of the settings page
 
 ## License
 

@@ -21,6 +21,7 @@ With _n8n Adapter_ you can edit and execute [n8n](https://n8n.io/) workflows dir
 -->
 ## Changelog
 ### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
 * (@GermanBluefox) Updated packages
 
 ### 0.3.0 (2025-09-06)
@@ -47,7 +48,7 @@ With _n8n Adapter_ you can edit and execute [n8n](https://n8n.io/) workflows dir
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2025, Denis Haev (dogafox@gmail.com)
+Copyright (c) 2025-2026, Denis Haev (dogafox@gmail.com)
 
 All third party components incorporated into the ioBroker.n8n Software are licensed under the original license
 provided by the owner of the applicable component.

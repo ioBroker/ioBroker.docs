@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hm-rpc/README.md
 title: ioBroker HomeMatic RPC-Adapter
-hash: FUxiVZIXxwTsZIFVC/mQBesMGLvTMybJOOkR6LBcmI4=
+hash: qbx82r748fNIMD7JogRm5wOGF0bf3QP3TStxV/dPmpA=
 ---
 ![Logo](../../../en/adapterref/iobroker.hm-rpc/admin/homematic.png)
 
@@ -18,7 +18,7 @@ hash: FUxiVZIXxwTsZIFVC/mQBesMGLvTMybJOOkR6LBcmI4=
 
 Dieser Adapter verbindet HomeMatic-Schnittstellenprozesse (BidCos-Dienste, Homegear und CUxD) mit ioBroker. Die Kommunikation erfolgt über XML-RPC oder BIN-RPC.
 
-**Dieser Adapter nutzt den Dienst [Sentry.io](https://sentry.io) . Er meldet Ausnahmen, Codefehler und neue Geräteschemas automatisch an den Entwickler.** Weitere Informationen finden Sie im Kapitel [„Was ist Sentry.io?“](#what-is-sentryio) .
+**Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Er meldet außerdem neue Geräteschemata. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) , insbesondere im Kapitel [„Was ist Sentry.io?“](#what-is-sentryio) .
 
 ## Was ist Homematic?
 
@@ -103,7 +103,7 @@ Eine CCU unterstützt verschiedene Gerätetypen (Funk, Kabel, Homematic IP, CUxD
 
 Für die Kommunikation stehen zwei Protokolle zur Verfügung: XML-RPC und BIN-RPC. BIN-RPC ist schneller, wird aber von einigen Geräten nicht oder nur fehlerhaft unterstützt. Wählen Sie in diesem Fall das XML-RPC-Protokoll.
 
-**Hinweis:** CUxD funktioniert nur mit BIN-RPC. Homematic IP und `rfd` Funktioniert nur mit XML-RPC.
+**Hinweis:** CUxD funktioniert nur mit BIN-RPC. Homematic IP und virtuelle Geräte funktionieren nur mit XML-RPC. Für diese Dienste verwendet der Adapter automatisch das richtige Protokoll.
 
 #### Objekte (einmalig) synchronisieren
 
@@ -127,13 +127,13 @@ Der Adapter sendet in diesem Intervall einen Ping an die CCU.
 
 Der Adapter wartet diese Zeit ab, bevor er den nächsten Verbindungsversuch startet.
 
-#### Geräte beim Start des Adapters nicht löschen.
+#### Geräte nicht löschen
 
-Standardmäßig entfernt der Adapter ein Gerät aus der Objektstruktur, wenn er es beim Start des Adapters nicht auf der CCU findet. Aktivieren Sie diese Option, um solche Geräte beizubehalten, beispielsweise wenn Sie ein Gerät nur vorübergehend von der CCU entfernt haben.
+Standardmäßig entfernt der Adapter ein Gerät aus der Objektstruktur, wenn er es beim Start des Adapters nicht auf der CCU findet oder wenn die CCU das Gerät während des Betriebs des Adapters als gelöscht meldet. Aktivieren Sie diese Option, um solche Geräte beizubehalten, beispielsweise wenn Sie ein Gerät nur vorübergehend von der CCU entfernt haben.
 
-Diese Option behebt auch ein Problem auf der CCU-Seite: Homematic IP-Geräte werden manchmal nicht korrekt an ioBroker übertragen. In diesem Fall werden sie beim Start des Adapters gelöscht und einige Millisekunden später neu erstellt. Daher wird die Option automatisch aktiviert, sobald Sie Homematic IP als Daemon auswählen.
+Diese Option behebt auch ein Problem auf der CCU-Seite: Homematic IP-Geräte werden manchmal nicht korrekt an ioBroker übertragen, und die CCU meldet sie beispielsweise während eines Firmware-Updates als gelöscht, obwohl sie noch vorhanden sind. Ohne diese Option werden ihre Objekte gelöscht und erst nach einem Neustart des Adapters neu erstellt. Daher ist die Option automatisch aktiviert, sobald Sie Homematic IP als Daemon auswählen.
 
-Wenn Sie ein Gerät löschen, während der Adapter in Betrieb ist, informiert die CCU den Adapter, und der Adapter entfernt dieses Gerät in jedem Fall.
+Wenn diese Option aktiviert ist, werden die Objekte eines Geräts, das Sie manuell aus der CCU entfernt haben, im Objektbaum gelöscht.
 
 #### Verwenden Sie https
 
@@ -141,7 +141,7 @@ Wenn diese Option aktiviert ist, verwendet der Adapter HTTPS anstelle von HTTP. 
 
 #### Benutzername und Passwort
 
-Wenn die Option „https verwenden“ aktiviert ist, geben Sie hier den Benutzernamen und das Passwort eines CCU-Benutzers ein. Geben Sie diese Anmeldeinformationen auch ein, wenn die API der CCU eine Authentifizierung erfordert.
+Wenn die Option „https verwenden“ aktiviert ist, geben Sie hier den Benutzernamen und das Passwort eines CCU-Benutzers ein. Geben Sie diese Anmeldeinformationen auch ein, wenn die API der CCU eine Authentifizierung erfordert; der Adapter sendet sie per XML-RPC mit und ohne HTTPS. BIN-RPC unterstützt keine Authentifizierung.
 
 ### Gerätemanager
 
@@ -257,7 +257,7 @@ Sie können ein einziges Dummy-Programm für mehrere Schaltflächen verwenden. F
 
 ## Was ist Sentry.io?
 
-Sentry.io ist ein Dienst für Entwickler. Er bietet einen Überblick über die Fehler ihrer Anwendungen. Genau dies wird in diesem Adapter implementiert.
+Sentry.io ist ein Dienst für Entwickler. Er bietet einen Überblick über die Fehler ihrer Anwendungen. Genau dies ist in diesem Adapter implementiert.
 
 Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird die Fehlermeldung an Sentry gesendet. Dieselbe Meldung erscheint auch im ioBroker-Protokoll. Wenn Sie der ioBroker GmbH die Erlaubnis erteilt haben, Diagnosedaten zu erfassen, wird auch Ihre Installations-ID übermittelt. Diese Installations-ID ist lediglich eine eindeutige Kennung **ohne** weitere Informationen über Sie, wie Ihre E-Mail-Adresse oder Ihren Namen. Sie ermöglicht es Sentry, die Fehler zu gruppieren und anzuzeigen, wie viele Benutzer von einem Fehler betroffen sind. All dies hilft dem Entwickler, fehlerfreie und im Grunde absturzsichere Adapter bereitzustellen.
 
@@ -274,6 +274,35 @@ npm run update-images
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.1.2 (2026-09-22)
+* (bluefox) Philips Hue and Osram Lightify lamps of the CCU lighting gateway: the color temperature `WHITE` is handled in kelvin (2000 - 6500 K), also if the CCU declares it as percent (#694)
+* (bluefox) `HUE` and `SATURATION` are sent together in one `putParamset`, HMIP devices like HmIP-RGBW rejected a single value with `MISSING_NON_OPTIONAL_PARAMETER` (#1108)
+* (bluefox) Values which the CCU delivers as text for a number are converted (the name of an ENUM to its index, e.g. `STATE_NOT_AVAILABLE` of a `VALVE_STATE`), invalid values become `null` instead of a wrong type (#1342, #1358)
+* (bluefox) Events of deleted devices do not warn about missing objects until the next start of the adapter anymore (#1419)
+
+### 4.1.1 (2026-09-22)
+* (bluefox) `CONTROL_MODE` and `SET_POINT_MODE` of HmIP thermostats show the mode names (auto, manual, party)
+* (bluefox) `SET_TEMPERATURE` of BidCos heating groups accepts 4.5 (OFF) and 30.5 (ON)
+* (bluefox) CUxD always uses BIN-RPC, Homematic IP and Virtual Devices always use XML-RPC
+* (bluefox) Username and password are sent with XML-RPC also without HTTPS
+* (bluefox) Better error message if the CCU answers with an HTML page instead of XML-RPC
+* (bluefox) Read-only datapoints do not get the writable roles `level.*` and `switch.*` anymore
+* (bluefox) HmIP shutters and blinds: the control channels get `level.blind`/`level.tilt`, the status channel `value.blind`/`value.tilt`; `LEVEL` and `VALVE_STATE` of HmIP thermostats got better roles
+* (bluefox) The option "Don't delete devices" also ignores devices that the CCU reports as deleted while the adapter is running (e.g. HmIP during firmware updates)
+
+### 4.1.0 (2026-09-22)
+* (krobipd) The device icons were invisible in the object browser: its ID cell sets `width: initial` on every element of an inlined SVG, which collapses the icon's `rect` to 0px. The size is now carried as an inline style as well.
+* (bluefox) Updated `binrpc` to 4.x and `homematic-xmlrpc` to 2.x (no dependency on a GitHub tarball anymore)
+* (bluefox) If the RPC server cannot listen (e.g. the configured IP address is not available), the error is logged and the adapter restarts after 30 seconds instead of crashing
+* (bluefox) On stop, the RPC server and client are closed properly, also for XML-RPC and if the CCU is not reachable
+* (bluefox) Updated packages
+* (bluefox) Fixed writing of the lines and icons of HM-Dis-EP-WM55: an invalid tone interval (`0xE-1`) was sent if no interval was set
+* (bluefox) The device manager does not crash anymore on devices without `native` and does not report the same control twice
+* (bluefox) Added icon for HmIP-RFUSB
+* (bluefox) PONG events and requests without method are logged only in debug mode
+* (bluefox) Replaced the deprecated `deleteDevice` and `deleteChannel` calls
+* (bluefox) Fixed issues reported by the repository checker (responsive design of the settings, lint and type check in CI)
+
 ### 4.0.0 (2026-08-15)
 * (bluefox) Device icons are now delivered as theme-adaptive SVGs and stay visible on the dark admin theme
 * (krobipd) Generated the device icon set and the device type map from the OCCU device database
@@ -285,29 +314,15 @@ npm run update-images
 * (bluefox) Migrated to TypeScript 6
 * (bluefox) Corrected device manager
 
-### 3.0.1 (2025-10-22)
-* (bluefox) Renamed role of `STICKY_UNREACH` to `indicator.unreach.sticky` for the better typing detection
-
-### 3.0.0 (2025-10-21)
-* (bluefox) Updated packages and used `@iobroker/eslint-config`
-* (bluefox) Renamed some roles for the better typing detection
-* (bluefox) Removed support of Node.js 18
-
-### 2.0.2 (2024-08-26)
-* (bluefox) Updated packages
-
-### Older entries
+### Older changelog
 [here](/#/docs/adapterref/iobroker.hm-rpc/OLD_CHANGELOG.md)
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.hm-rpc/blob/master/CHANGELOG_OLD.md)
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>
-
-Copyright (c) 2014 hobbyquaker
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>  
+Copyright (c) 2014 hobbyquaker <hq@ccu.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

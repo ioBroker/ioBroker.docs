@@ -1,10 +1,10 @@
 ---
 title: Лицензии доступа
-lastChanged: 16.09.2026
+lastChanged: 24.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/licenses/cloud.md
-hash: fYFWm5OkhtmDwL4fCW/6WMrJXxHBFJ9SdiDNqCXjsAQ=
+hash: /2/tFainpZrZ7pyuzamL5o14VFbmYUqQQc369qEO8+0=
 ---
 # Лицензии доступа
 
@@ -47,6 +47,8 @@ hash: fYFWm5OkhtmDwL4fCW/6WMrJXxHBFJ9SdiDNqCXjsAQ=
 | Бесплатный удаленный доступ                          | [ioBroker.net](https://iobroker.net) |
 | Голосовые помощники или расширенный удаленный доступ | [ioBroker.pro](https://iobroker.pro) |
 | доступ к MCP                                         | [ioBroker.pro](https://iobroker.pro) |
+
+Оба сервиса управляются в рамках одного профиля; см. [Обзор лицензий](/docs/licenses/README.md) .
 
 В зависимости от назначения устанавливается различный адаптер: **облачный** адаптер для [удаленного доступа](/docs/cloud/viz.md) , **IoT-** адаптер для [помощников и сервисов](/docs/cloud/iot.md) . Пользователи, использующие оба адаптера, работают с обоими.
 

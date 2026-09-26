@@ -1,4 +1,4 @@
-![Logo](admin/victron-cerbo.png)
+![Logo](admin/victron-cerbo.svg)
 # ioBroker Victron Cerbo
 
 ![Number of Installations](http://iobroker.live/badges/victron-cerbo-installed.svg)
@@ -24,6 +24,11 @@ The Victron Cerbo GX is an advanced monitoring and control hub for Victron Energ
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (iobroker-bot) Adapter requires node.js >= 22 now.
+* (copilot) Adapter requires node.js >= 22 now
+
 ### 0.2.1 (2026-04-12)
 * (@GermanBluefox) Implemented the tests
 

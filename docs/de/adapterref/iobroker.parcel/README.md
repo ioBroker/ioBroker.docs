@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: jancsh7Wf9A71kdT0DLl83tcUx+0AdmeELDJFVOENUE=
+hash: RerI70eYM27smpyOaQnovPCsmuHLn3LTFazAQiGaL0Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
@@ -38,7 +38,15 @@ Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 
 **DPD, GLS, UPS, 17Track-Nutzer:**
 
-Geben Sie Benutzernamen und Passwort ein.
+Geben Sie Benutzername und Passwort ein.
+
+**17TRACK API:**
+
+Schreiben Sie eine Sendungsnummer als Text an `parcel.0.17t.register` **Bestätigung deaktiviert** . Führende Nullen beibehalten und pro Schreibvorgang eine Zahl verwenden. Der Adapter protokolliert die Anfrage und die Annahme oder Ablehnung durch die API (einschließlich Fehlercode und -meldung). Nur angenommene Anfragen werden vom Adapter bestätigt. API-Registrierungen verwenden das Konto, das mit dem konfigurierten API-Schlüssel verknüpft ist.
+
+Der schreibgeschützte Zustand `parcel.0.17t.quotaRemaining` zeigt das verbleibende Kontingent für die Sendungsregistrierung an, das von zurückgegeben wurde `getquota` Die Variable wird bei jeder Aktualisierung des Anbieters sowie nach erfolgreicher Registrierung oder Löschung aktualisiert. Bei API-Fehlern bleibt der zuletzt bekannte Wert erhalten.
+
+Aktivieren Sie in den Benachrichtigungseinstellungen **die Telegram-Warnung, um eine Benachrichtigung über das verbleibende Kontingent zu erhalten, sobald weniger als 20 17TRACK-Sendungen verfügbar sind** . Diese Option ist standardmäßig deaktiviert und unabhängig von Benachrichtigungen über Sendungsänderungen. Es werden die konfigurierten Telegram-Instanzen und -Empfänger verwendet; andere Benachrichtigungsdienste werden ignoriert. Wenn kein Empfänger angegeben ist, verwendet Telegram seine Standardempfänger. Die Benachrichtigung wird einmalig gesendet, solange das Kontingent unter 20 liegt, auch bei erstmaliger Aktivierung mit niedrigem Kontingent. Der Status „gesendet“ bleibt auch nach einem Neustart des Adapters erhalten und wird zurückgesetzt, sobald das Kontingent wieder mindestens 20 erreicht.
 
 **Telegram-Benachrichtigung für Pakete und Briefe**
 

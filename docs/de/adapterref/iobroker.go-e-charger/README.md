@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.go-e-charger/README.md
 title: ioBroker.go-eCharger
-hash: nIAiw/W3xMF6OdiLr4XEyot2SE7Zz0EYWXoAdWLBot0=
+hash: nUwqvcTyzk6dU1uc3YpLqSj0elLKhGq07q0pMs3e/WM=
 ---
 ![Logo](../../../en/adapterref/iobroker.go-e-charger/admin/go-eCharger.png)
 
@@ -92,7 +92,7 @@ Konfigurieren Sie die Objekt-IDs der folgenden Zustände:
 
 | Eingang                      | Erwartungswert                | Einheit | Zeichen             |
 | ---------------------------- | ----------------------------- | ------- | ------------------- |
-| Solarenergie                 | Aktuelle PV-Gesamterzeugung   | W       | Positive Generation |
+| Solarenergie                 | Gesamtstrom-PV-Erzeugung      | W       | Positive Generation |
 | Stromverbrauch im Haushalt   | Gesamtnachfrage der Haushalte | W       | Positiver Konsum    |
 | Ladezustand der Heimbatterie | Aktueller Batterieladestand   | %       | 0 bis 100           |
 
@@ -125,7 +125,7 @@ Sechs Einstellungen auf der Konfigurationsseite von ChargeManager beeinflussen d
 
 - **Heimbatteriemodus** (Standardeinstellung: _Batteriepriorität_ ) – wie die Heimbatterie berücksichtigt wird:
   - _Deaktiviert_ – es wird keine Heimbatterie verwendet. Es muss kein SoC-Status konfiguriert werden, und dem Fahrzeug wird keine Batterieleistung zugewiesen.
-  - _Mindest-SOC_ – Das Laden von Elektrofahrzeugen ist unterhalb dieses Wertes blockiert. `Settings.Setpoint_HomeBatSoC` Die Batterie trägt jedoch niemals zur Stromversorgung des Autos bei.
+  - _Mindest-SOC_ – Das Laden von Elektrofahrzeugen ist blockiert, wenn dieser Wert nicht erreicht ist. `Settings.Setpoint_HomeBatSoC` Die Batterie trägt jedoch niemals zur Stromversorgung des Autos bei.
   - _Batteriepriorität_ – wie oben, zuzüglich des unten beschriebenen Batteriebonus.
 - **SoC-Hysterese** \[%] (Standard 0) – wie weit der SoC unter den Mindestwert fallen darf, bevor ein _laufender_ Controller stoppt. Dadurch wird verhindert, dass ein Akku, der sich nahe seinem Mindestwert befindet, die Ladefreigabe in jedem Zyklus umschaltet; zum Starten ist weiterhin der volle Mindest-SoC erforderlich.
 - **Maximales Batterie-SoC-Alter** \[s] (Standard 0 = aus) – Die Überschusssteuerung stoppt, wenn der SoC-Zustand innerhalb dieser Zeit nicht aktualisiert wurde, sodass ein toter Hilfszustand das Auto nicht stillschweigend weiter aufladen kann.
@@ -205,7 +205,17 @@ Bevor Sie sich auf die automatische Abrechnung verlassen, überprüfen Sie die a
 
 Der Ladevorgang kann mehrere Abfragezyklen benötigen, da der interne Zielwert pro Zyklus nur um 1 A ansteigt. Bei einem standardmäßigen Zyklus von 10 Sekunden und einem anfänglichen Zielwert von 0 A kann es etwa 100 Sekunden dauern, bis der standardmäßige Startwert von 10 A erreicht ist.
 
-Wenn ChargeManager mehrere Wallboxen gleichzeitig betreibt, wird der PV-Überschuss in der Reihenfolge der Wallbox-Liste aufgeteilt. Die erste Wallbox hat Priorität, die nachfolgenden erhalten nur den verbleibenden Überschuss (siehe [„PV-Überschussladung mit ChargeManager“](#pv-surplus-charging-with-chargemanager) oben). Der Adapter begrenzt derzeit noch **nicht** den Gesamtstrom aller Wallboxen an einer gemeinsamen Sicherung oder Zuleitung. Stellen Sie daher sicher, dass die Summe der maximalen Ströme pro Wallbox die Kapazität Ihrer Anlage nicht überschreitet.
+Wenn ChargeManager mehrere Wallboxen gleichzeitig betreibt, wird der PV-Überschuss in der Reihenfolge der Wallbox-Liste zwischen ihnen aufgeteilt, wobei der erste Eintrag Priorität hat und die nachfolgenden nur den verbleibenden Überschuss erhalten (siehe [PV-Überschuss-Aufladung mit ChargeManager](#pv-surplus-charging-with-chargemanager) oben).
+
+#### Gesamtstrombudget (Sicherungsschutz)
+
+Um eine gemeinsame Sicherung oder Zuleitung für mehrere Wallboxen zu schützen, legen Sie den **maximalen Gesamtladestrom** \[A] auf der Seite mit den Standardeinstellungen fest. Dieser Wert gilt für die gesamte Anlage: Der summierte Ladestrom **aller** Wallboxen überschreitet ihn weder in ChargeManager **noch** in ChargeNOW. Im Gegensatz zum PV-Überschuss (der in Watt gemessen wird) ist die Sicherung in **Ampere** abgesichert, da eine Zuleitung mit einer Nennleistung von z. B. 20 A unabhängig davon, ob eine Wallbox ein- oder dreiphasig lädt, 20 A führt.
+
+Das Budget wird priorisiert zugeteilt: Zuerst die ChargeNOW-Wallboxen, dann die ChargeManager-Wallboxen in der Reihenfolge der Wallbox-Liste. Eine Wallbox, die nicht mehr ins Ladevolumen passt, drosselt ihren Ladestrom auf die verbleibende Leistung oder schaltet sich ab, wenn selbst die Mindestleistung nicht ausreicht. Solange das Budget aktiv ist, bleibt eine Wallbox ohne angeschlossenes Fahrzeug ausgeschaltet und reserviert keinen Strom. So wird sichergestellt, dass mehrere gleichzeitig angeschlossene, ungenutzte Wallboxen die Sicherung nicht überschreiten, bevor der nächste Ladezyklus neu geplant wird, und dass eine ungenutzte Wallbox niemals eine bereits ladende Wallbox unterbricht.
+
+Ein Wert von `0` (Standardeinstellung) deaktiviert das Budget; der Adapter erzwingt dann kein kombiniertes Limit, stellen Sie also sicher, dass die Summe der maximalen Ströme pro Wanddose innerhalb der Kapazität Ihrer Installation bleibt.
+
+> Dies ist ein konservatives Modell: Jedes Ampere zählt zu einem Budget, unabhängig davon, auf welcher Phase es anliegt. Die Nennleistung der Sicherung wird nie überschritten, aber bei Lasten, die auf mehrere Phasen verteilt sind, kann ein Teil der Kapazität ungenutzt bleiben.
 
 ## Sentry
 
@@ -223,6 +233,12 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 -->
 
 ### **WORK IN PROGRESS**
+
+- (hombach) added an installation-wide total current budget (maximum total charging current) that caps the summed current of all wallboxes to protect a shared fuse, serving ChargeNOW before ChargeManager and keeping a wallbox without a connected vehicle off so idle wallboxes neither trip the fuse nor starve one that is already charging
+- (hombach) added concise debug logging for the ChargeManager control loops (surplus sharing, phase switching, total current budget)
+- (hombach) docs: documented the total current budget
+
+### 1.7.0 (2026-09-18)
 
 - (typhosj) admin: the wallbox list now explains that its order is the ChargeManager priority - the first entry receives the PV surplus first, later entries only the remainder
 - (typhosj) ChargeManager: the PV surplus is now shared between all wallboxes instead of being offered to each one in full; wallboxes are served in configuration order, so the first entry has priority and later ones only receive the remaining surplus
@@ -259,13 +275,6 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 
 - (typhosj) refactored the ChargeManager control decision into a deterministic, unit-tested function (#846); behavior unchanged
 - (hombach) fixed vulnerabilities
-- (hombach) updated dependencies
-
-### 1.4.0 (2026-08-10)
-
-- (hombach) added info.unlockedByRFIDName with the name of the current session's RFID card, in parallel to unlockedByRFIDNo (#634)
-- (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
-- (hombach) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
 - (hombach) updated dependencies
 
 ## License

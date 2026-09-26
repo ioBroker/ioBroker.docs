@@ -63,14 +63,14 @@ Ergebnis — ein falscher Schlüssel, ein abgelaufenes Abo oder ein Netzwerkprob
 nicht hinter einem grünen „Ok" versteckt. Danach speichern; die Instanz startet und die erste
 Abfrage folgt sofort.
 
-> Hinweis: der Test verbraucht dasselbe Anfragebudget wie das Abfragen (20 Anfragen pro Stunde). Ein
-> paar Klicks bei der Einrichtung sind unproblematisch, Dauerklicken nicht.
+> Hinweis: der Test verbraucht dasselbe Anfragebudget wie das Abfragen (20 Anfragen pro Stunde). Der
+> Adapter zählt mit: ist das Stundenbudget verbraucht, sagt der Knopf das, statt parcel.app zu fragen.
 
 ### Das richtige Abfrageintervall
 
-parcel.app liefert die Sendungsliste aus einem serverseitigen Zwischenspeicher, der rund **45 bis 90
-Minuten** alt ist. Ein kürzeres Intervall macht die Sendungsdaten deshalb nicht frischer — es
-verkürzt nur die Zeit zwischen dem Auffrischen bei parcel.app und dem Bemerken in ioBroker. Die
+parcel.app selbst liegt laut eigener FAQ im Schnitt **45 und höchstens etwa 90 Minuten** hinter
+der Website des Zustellers. Ein kürzeres Intervall macht die Sendungsdaten deshalb nicht frischer —
+es verkürzt nur die Zeit zwischen dem, was parcel.app erfährt, und dem Bemerken in ioBroker. Die
 Vorgabe von 10 Minuten ist ein guter Kompromiss; unter 5 Minuten wäre das Stundenbudget gesprengt
 und wird abgelehnt.
 
@@ -127,23 +127,23 @@ in `0_userdata`.
 
 Jede Sendung trägt im Objektbaum außerdem das **Zeichen ihres Zustellers**, damit du siehst, wer
 liefert, bevor du den Namen liest: DHL, Deutsche Post, Hermes/Evri, DPD, GLS, UPS, Amazon, USPS,
-TNT, Apple, Vinted und DoorDash haben ihr eigenes Zeichen, nationale Postgesellschaften einen
-Briefumschlag, alle übrigen Zusteller einen Lieferwagen. Die Zeichen sind einfarbig gezeichnet und
-folgen deinem Admin-Thema.
+TNT, FedEx, InPost, Apple, Vinted und DoorDash haben ihr eigenes Zeichen, nationale
+Postgesellschaften und ihre Express-Töchter einen Briefumschlag, alle übrigen Zusteller einen
+Lieferwagen. Die Zeichen sind einfarbig gezeichnet und folgen deinem Admin-Thema.
 
-| Datenpunkt         | Typ    | Bedeutung                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `carrier`          | string | Anzeigename des Zustellers (z. B. `DHL Express`). Ersatzweise das Zustellerkürzel in Großbuchstaben, wenn parcel.app keinen Namen kennt.                                                                                                                                                                                                                      |
-| `status`           | string | Der Status als lesbarer Text, in deiner ioBroker-Systemsprache.                                                                                                                                                                                                                                                                                               |
-| `statusCode`       | number | Der Status als Zahl — **das ist der Datenpunkt für Skripte**, weil er sich nicht mit der Sprache ändert. Siehe Tabelle unten.                                                                                                                                                                                                                                 |
-| `description`      | string | Die Beschreibung aus parcel.app. Anders als der Gerätename zeigt sie immer den aktuellen Wert.                                                                                                                                                                                                                                                                |
-| `trackingNumber`   | string | Die Sendungsnummer.                                                                                                                                                                                                                                                                                                                                           |
-| `extraInfo`        | string | Zusatzangabe, die der Zusteller benötigt, etwa Postleitzahl oder E-Mail-Adresse. Bei den meisten Sendungen leer.                                                                                                                                                                                                                                              |
-| `deliveryWindow`   | string | Erwartetes Zustellfenster, z. B. `14:00 - 16:00`. Ein über mehrere Tage reichendes Fenster trägt auf beiden Seiten das Datum (`12-06 14:30 - 12-08 18:30`). Leer, wenn kein brauchbares Fenster vorliegt — entweder meldet der Zusteller keins, oder er meldet ein Datum in einem Format, das der Adapter nicht liest (eine Debug-Zeile nennt dann den Wert). |
-| `deliveryEstimate` | string | Dieselbe Information in Worten: _heute_, _morgen_, _in 3 Tagen_, _überfällig_. In der Systemsprache.                                                                                                                                                                                                                                                          |
-| `lastEvent`        | string | Die jüngste Sendungsmeldung mit Datum, z. B. `Im Zustellstützpunkt eingetroffen - 2026-09-02`.                                                                                                                                                                                                                                                                |
-| `lastLocation`     | string | Wo diese Meldung entstanden ist, sofern der Zusteller einen Ort nennt.                                                                                                                                                                                                                                                                                        |
-| `lastUpdated`      | string | Wann sich die Sendungsdaten zuletzt **geändert** haben — nicht, wann der Adapter zuletzt abgefragt hat. Eine Sendung, die zwei Tage stillsteht, behält einen zwei Tage alten Zeitstempel; das ist so gewollt.                                                                                                                                                 |
+| Datenpunkt         | Typ    | Bedeutung                                                                                                                                                                                                                                                                                                                                                      |
+| ------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `carrier`          | string | Anzeigename des Zustellers (z. B. `DHL Express`). Ersatzweise das Zustellerkürzel in Großbuchstaben, wenn parcel.app keinen Namen kennt.                                                                                                                                                                                                                       |
+| `status`           | string | Der Status als lesbarer Text, in deiner ioBroker-Systemsprache.                                                                                                                                                                                                                                                                                                |
+| `statusCode`       | number | Der Status als Zahl — **das ist der Datenpunkt für Skripte**, weil er sich nicht mit der Sprache ändert. Der Admin zeigt die Bedeutung jedes Codes daneben. Siehe Tabelle unten.                                                                                                                                                                               |
+| `description`      | string | Die Beschreibung aus parcel.app. Anders als der Gerätename zeigt sie immer den aktuellen Wert.                                                                                                                                                                                                                                                                 |
+| `trackingNumber`   | string | Die Sendungsnummer.                                                                                                                                                                                                                                                                                                                                            |
+| `extraInfo`        | string | Zusatzangabe, die der Zusteller benötigt, etwa Postleitzahl oder E-Mail-Adresse. Bei den meisten Sendungen leer.                                                                                                                                                                                                                                               |
+| `deliveryWindow`   | string | Erwartetes Zustellfenster, z. B. `14:00 - 16:00`. Ein über mehrere Tage reichendes Fenster trägt auf beiden Seiten das Datum (`12-06 14:30 - 12-08 18:30`). Leer, wenn kein brauchbares Fenster vorliegt — entweder meldet der Zusteller keins, oder er meldet ein Datum in einem Format, das der Adapter nicht liest (eine Debug-Zeile nennt dann den Wert).  |
+| `deliveryEstimate` | string | Dieselbe Information in Worten: _heute_, _morgen_, _in 3 Tagen_, _überfällig_. In der Systemsprache. Jeder Tag eines gemeldeten Bereichs gilt als _heute_; der Wert rückt direkt nach Mitternacht weiter, ohne Anfrage.                                                                                                                                        |
+| `lastEvent`        | string | Die jüngste Sendungsmeldung mit Datum, z. B. `Im Zustellstützpunkt eingetroffen - 2026-09-02`.                                                                                                                                                                                                                                                                 |
+| `lastLocation`     | string | Wo diese Meldung entstanden ist, sofern der Zusteller einen Ort nennt.                                                                                                                                                                                                                                                                                         |
+| `lastUpdated`      | string | Wann sich die Sendungsdaten zuletzt **geändert** haben — nicht, wann der Adapter zuletzt abgefragt hat. Eine Sendung, die zwei Tage stillsteht, behält einen zwei Tage alten Zeitstempel; das ist so gewollt. Eine weiterrückende Schätzung, ein neuer Anzeigename des Zustellers oder eine andere Systemsprache zählen nicht; ein neuer Zusteller-Code schon. |
 
 ### Status-Codes
 
@@ -196,7 +196,25 @@ deinem parcel.app-Konto.
     ### **WORK IN PROGRESS**
 -->
 
-### 0.13.0 (2026-09-15)
+### 0.14.0 (2026-09-25)
+
+- Fixed: A package expected over several days turned overdue after the first one — every day of the range now counts as today.
+- Fixed: A parcel out for delivery with an outdated date counts as today when the carrier scanned it today.
+- Improved: Scan dates in the weekday form of all app languages and the UPS dotted form are read, so today's deliveries are recognised more often.
+- New: Tomorrow turns into today right after midnight, without waiting for the next poll.
+- Fixed: lastUpdated no longer moves every day — a moving estimate or a renamed carrier is not a tracking change; a new carrier code is.
+- Fixed: Three packages with the same tracking number no longer overwrite each other, and a restart never swaps the ids of two packages.
+- Improved: Correcting the carrier of a shipment in parcel.app keeps its datapoints instead of deleting and recreating them.
+- New: statusCode shows the meaning of every code in the admin, and an unknown status is shown in your language.
+- Changed: The adapter keeps parcel.app's limits itself — at most 20 addDelivery calls a day and never more than 20 requests an hour.
+- Changed: A network outage shows in the connection indicator only, not as a warning; a rejected API key is retried less and less often.
+- Fixed: addDelivery without a callback now adds the delivery; the result is written to the log.
+- Fixed: One damaged entry from parcel.app no longer stops the whole poll, and a garbled status is never taken for delivered.
+- Improved: The carrier list is refreshed daily; FedEx and InPost have their own pictogram, PostNL, PostNord and Bring the envelope.
+- Fixed: A start that keeps failing no longer restarts the instance every second — the host now stops it after three attempts.
+- Fixed: The documentation said error reporting is off by default — it is on unless switched off in the system settings.
+
+### 0.13.0 (2026-09-15) — stable
 
 - Fixed: Every package showed the carrier's short code instead of its name — parcel.app changed the format of its carrier list, and the adapter could no longer read it.
 - New: Each package now carries the pictogram of its carrier in the object tree, drawn to read in the light and the dark theme.
@@ -223,14 +241,6 @@ deinem parcel.app-Konto.
 ### 0.11.1 (2026-09-04)
 
 - Fixed: The last-changed timestamp of a package kept its old label and had no description as long as the package did not move.
-
-### 0.11.0 (2026-09-04)
-
-- Fixed: Since version 0.10.3 the Test Connection button gave no response at all, and packages added from a script never showed up — both work again.
-- Fixed: On installations that already existed, the summary datapoints and the connection state kept their old English names — an update now reaches every datapoint.
-- New: Datapoints whose name alone does not explain them now carry a short description in the object tree, in all eleven languages.
-- New: Detailed user documentation in English and German, shown in the ioBroker documentation portal.
-- Fixed: Two settings from much older versions were still listed in the instance configuration although nothing used them any more.
 
 ## License
 

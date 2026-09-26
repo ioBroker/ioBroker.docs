@@ -47,6 +47,8 @@ Install via the ioBroker admin interface
 
 Select which **rooms** and **functions** Hannah should be aware of. Leaving both lists empty includes everything.
 
+See the [Smart Home Integration guide](https://hannah-docs.leonie.network/manual/smart-home-integration/) for more on how room/function assignment works and how to structure devices so Hannah can find them.
+
 **Extra State Prefixes** — additional ioBroker state ID prefixes to stream to Hannah, e.g.:
 
 | Use case | Prefix |
@@ -77,6 +79,12 @@ The adapter expects `HannahService.AgentConnect` to be available on the configur
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2026-09-24)
+- Added: the adapter sends its logs to the Hannah log collector as well, as soon as Hannah reports one, so they are included when you download the logs of all Hannah components. The ioBroker log stays exactly as it is, and without a log collector nothing changes. Passwords and tokens from the adapter settings are masked before a line is sent
+
+### 1.1.6 (2026-09-21)
+- Fixed: a device whose room was assigned directly to its state instead of the parent channel/device was never discovered — Hannah never learned about it at all
+
 ### 1.1.5 (2026-09-18)
 - Changed: when Hannah pushes a presence update, the adapter can now set the individual "away"/"home"/"asleep" flag instead of always overwriting the combined presence state — avoids Hannah accidentally clobbering an unrelated flag (e.g. clearing "asleep" while only meaning to update "away"). No visible change until Hannah Core starts sending the new, more precise update.
 - Changed: satellite online/offline log messages downgraded from "info" to "debug" — too noisy for the default log level

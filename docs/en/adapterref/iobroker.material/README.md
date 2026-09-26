@@ -169,6 +169,6 @@ Better if every device belongs to both categories. Because every device has the 
 ## License
 CC-BY-NC
 
-Copyright (c) 2017-2023, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2026, bluefox <dogafox@gmail.com>
 
 Commercial use is not allowed without permission.

@@ -15,7 +15,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.beszel/README.md
 title: ioBroker.beszel - Пользовательская документация
-hash: IKFlX8baZa/8BDLY1o4ziOMA6ErM0Z6kP032NFqbKmM=
+hash: JvnX5b/pc5wz/fSLabJHtGruK4AkVG3i24IAre2NHEE=
 ---
 # IoBroker.beszel - Пользовательская документация
 Этот адаптер зеркалирует [Безель](https://beszel.dev) Hub в ioBroker. Beszel - это легковесный монитор серверов: небольшие агенты запускаются на машинах, за которыми вы хотите следить, и отправляют отчеты в центральный хаб; адаптер считывает данные из этого хаба через свой REST API и записывает данные об одном устройстве для каждой отслеживаемой системы.
@@ -27,21 +27,20 @@ hash: IKFlX8baZa/8BDLY1o4ziOMA6ErM0Z6kP032NFqbKmM=
 
 ## Перед началом
 Для работы вам потребуется запущенный Beszel Hub с подключенным как минимум одним агентом и учетной записью для этого Hub.
-Адаптер аутентифицируется как обычный пользователь Beszel - с использованием того же адреса электронной почты и пароля, что и для веб-интерфейса Beszel. Административная учетная запись не требуется.
+Адаптер аутентифицируется как обычный пользователь Beszel - с использованием того же адреса электронной почты и пароля, что и для веб-интерфейса Beszel; Beszel не принимает там имя пользователя. Административная учетная запись не требуется, но многофакторная аутентификация для этого пользователя должна быть отключена: адаптер не сможет ответить на одноразовый код.
 
-Если вам нужны данные контейнера, этому пользователю также необходим доступ на чтение к коллекции `containers` в хабе.
-Без этого все остальные метрики по-прежнему будут работать; адаптер выдаст предупреждение один раз и сохранит уже созданные точки данных контейнера.
+Пользователь видит только те системы, к которым он привязан: те, которые он добавил сам, те, к которым его добавил администратор Hub (панель администратора PocketBase в `/_/`, коллекция `systems`, поле `users`), или все системы, если Hub работает с `SHARE_ALL_SYSTEMS=true`. Пользователь, которому ничего не привязано, входит в систему без проблем и видит пустой список - это подтверждает проверка соединения.
 
 ## Настройка
 1. **Установите и создайте экземпляр.** В ioBroker установите `beszel` и откройте настройки экземпляра.
 2. **Введите URL-адрес хаба** в поле _URL-адрес хаба Beszel_ - тот же адрес, по которому вы открываете веб-сайт Beszel.
 
-Интерфейс, например, с использованием `http://192.168.1.100:8090`. IPv6-адрес указывается в скобках: `http://[fd00::1]:8090`. Работают также `http` и `https`.
+Интерфейс, например, с `http://192.168.1.100:8090`. IPv6-адрес указывается в скобках: `http://[fd00::1]:8090`. Работают как `http`, так и `https`; HTTPS-хаб требует сертификата, которому доверяет хост ioBroker. Хаб за обратным прокси сохраняет свой путь (`https://example.org/beszel`). Пробелы и косая черта в конце удаляются; URL-адрес, содержащий `?`, `#` или имя пользователя и пароль, отклоняется.
 
-3. **Введите имя пользователя и пароль.** Имя пользователя - это адрес электронной почты, который вы используете для входа в Beszel.
-4. **Нажмите _Проверить соединение_.** Программа выполнит реальный вход в систему Hub и сообщит фактическое соединение.
+3. **Введите адрес электронной почты и пароль** вашей учетной записи Beszel.
+4. **Нажмите _Проверить соединение_.** Программа выполнит реальный вход в систему Hub и сообщит количество подключений.
 
-Ошибка возникает, если что-то не так - неверный пароль, недоступный хост, опечатка в URL-адресе.
+системы, которые может видеть ваш пользователь, - или фактическую ошибку, если что-то не так: отказ в авторизации, недоступный хост, опечатка в URL-адресе.
 
 5. **Выберите метрики** на вкладке _Метрики_ (см. [Точки данных и переключатели метрик](/#/docs/adapterref/iobroker.beszel/datapoints.md)).
 
@@ -65,7 +64,9 @@ beszel.0.
 └── systems.<name>.      one device per monitored system
 ```
 
-Имя устройства - это системное имя из концентратора, записанное строчными буквами, при этом все, что не является буквой или цифрой, заменяется на `_`. Две системы, имена которых сводятся к одному и тому же идентификатору, получают короткий хеш-суффикс, чтобы предотвратить перезапись друг друга, и адаптер выдает предупреждение в случае такой перезаписи.
+Имя устройства - это системное имя от концентратора, записанное строчными буквами, при этом все, что не является буквой или цифрой, заменяется на `_`. Две системы, имена которых сводятся к одному и тому же идентификатору, получают короткий хеш-суффикс, чтобы предотвратить перезапись друг друга, и адаптер выдает предупреждение в этом случае. Имя без латинских букв или цифр (кириллица, китайская и т. д.) становится `sys_` плюс короткий хеш системного идентификатора концентратора, поэтому оно остается неизменным после перезагрузки.
+
+Переименование системы на хабе перемещает её к новому идентификатору устройства: адаптер записывает в журнал `System renamed on the Hub: systems.a → systems.b`, и старая структура данных удаляется - включая историю и другие настройки, которые вы внесли в её параметры. Удаление системы регистрируется аналогичным образом.
 
 ## Как ведет себя адаптер при отсутствии чего-либо
 - **Система выходит из строя или приостанавливается.** Значение `info.online` становится false, а `info.status` показывает следующее.
@@ -76,13 +77,21 @@ beszel.0.
 
 `info.online: false` и `info.status: unknown`, и счетчики флота падают до нуля. То же самое происходит, когда вы останавливаете экземпляр, поэтому ничто не продолжает показывать, что находится в сети, пока никто не читает.
 
-- **Хаб отвечает пустым списком.** Ничего не удаляется. Сбой не должен привести к удалению вашего объекта.
+- **Хаб отвечает пустым списком.** Ничего не удалено. PocketBase отвечает на запрос входа в систему, но не отвечает.
 
-Таким образом, список устройств исчезает только тогда, когда Hub действительно сообщает о более коротком списке.
+Если список запросов (измененный пароль, удаленный пользователь, восстановленная база данных Hub) больше не принимается, а выдается ошибка, адаптер сначала выполняет повторный вход в систему и запрашивает подтверждение еще раз. Если список остается пустым, дерево остается в исходном виде, и в журнале один раз указывается, что пользователь не видит систем.
 
-- **Датчик, вентилятор, графический процессор, файловая система или контейнер исчезают.** Их данные удаляются. Если
+- **Вход в систему отклонен.** В журнале указано, почему - неверный адрес электронной почты или пароль, многофакторная аутентификация.
 
-Вся группа очищается мгновенно, адаптер ждет второго подряд опроса, прежде чем удалить - единичный сбой не приводит к очистке дерева.
+Аутентификация или ввод пароля отключены на хабе. После трех неудачных попыток адаптер повторяет попытку с увеличивающимися интервалами, максимум каждые 15 минут, вместо того, чтобы отправлять пароль при каждом запросе.
+
+- **Исчезает датчик, вентилятор, графический процессор, файловая система, контейнер или любой другой член группы.**
+
+Данные удаляются, если они отсутствуют в двух последовательных опросах - одна небольшая ошибка ничего не исправляет.
+
+- **Длина списка превышает возможности адаптера.** Адаптер считывает максимум 50 страниц на один список (1000).
+
+(записей для каждого из списков систем, контейнеров, блоков и устройств). На хабе, достаточно большом, чтобы превысить этот размер, список отсечения сообщается один раз и оставляет дерево как есть, вместо того чтобы удалять системы в его конце.
 
 ## Обновление
 Обновление повторно применяет имена и описания к уже имеющимся у вас точкам данных, поэтому исправленные формулировки и новые переводы будут применяться к существующим установкам, а не только к новым. В результате точка данных, которую вы переименовали самостоятельно в административной панели, получит обратно имя адаптера при следующем запуске.
@@ -94,7 +103,31 @@ beszel.0.
     ### **WORK IN PROGRESS**
 -->
 
-### 0.18.0 (2026-09-15)
+### 0.19.0 (2026-09-25)
+
+- New: network monitors (Beszel 0.20.0) as an opt-in metric — response time, hourly average/fastest/slowest and loss for every ping, TCP, HTTP and DNS monitor set up on the Hub
+- New: containers show whether an image update is available (Beszel 0.20.0)
+- New: btrfs filesystems appear next to the ZFS pools (Beszel 0.20.0), with their own name, the pool type and a flag for raw physical sizes
+- New: the connection test tells how many systems your user can see, and says so when it is none
+- Fixed: after a password change, a deleted user or a restored Hub database the adapter kept every system green without new values for up to a day — it now logs in again right away
+- Fixed: a refused login says why — wrong e-mail or password, multi-factor authentication, or password login switched off on the Hub — and the adapter stops retrying every poll
+- Fixed: a paused or never-connected system no longer shows uptime 0 or empty system details; its last values stay
+- Fixed: on current Hubs, swap, ZFS cache, GPU memory and GPU package power appeared on hosts that do not have them — they are removed
+- Fixed: drives without a temperature or capacity reading showed 0; they now get no such datapoint
+- Fixed: a storage pool that was removed came back with the next detail refresh and stayed until the next restart
+- Fixed: a system whose name has no Latin letters or digits (e.g. Cyrillic or Chinese) got no object tree; it now gets a stable fallback id
+- Fixed: two containers or group members whose names turn into the same id could swap their datapoints after a restart, and a container's id suffix changed with every re-create
+- Fixed: a member of a group (sensor, container, unit, …) that was missing from a single poll was deleted at once; it now has to be missing twice
+- Fixed: spaces and a trailing slash around the Hub URL are removed; a URL with `?`, `#` or a user name and password in it is rejected with a clear message, also in the connection test
+- Fixed: on a very large Hub, the systems at the end of a long list lost their datapoints — a cut-off list now leaves the tree as it is and is reported once
+- Fixed: a request that trickled in slowly could run far past the configured timeout
+- Changed: a Hub URL that does not lead to the Beszel API (e.g. a missing reverse-proxy path) is named as such in the log and in the connection test
+- Changed: a renamed or removed system on the Hub is reported in the log
+- Changed: the login field is called E-mail — Beszel does not accept a username
+- Changed: the SMART verdict also knows WARNING and UNKNOWN, the pool health UNKNOWN and the vdev state MISSING
+- Changed: help texts, descriptions and translations corrected; drive model, serial number, firmware and host name carry more specific roles
+
+### 0.18.0 (2026-09-15) — stable
 
 - New: every system carries a pictogram of its operating system in the object tree — the same icons the Beszel web UI uses, readable in the light and the dark theme
 - Fixed: network upload/download were always empty against a Beszel Hub 0.19.0 or newer; they carry values again, and older Hubs keep working
@@ -138,10 +171,6 @@ beszel.0.
 - Changed: a container's health is now a proper status datapoint with its list of possible values, like the system status next to it
 - Improved: starting up puts far less load on the ioBroker database, which shows most with many systems or many metrics switched off
 - Changed: user documentation now covers the ZFS pools, the root disk name and the read/write totals
-
-### 0.15.0 (2026-09-05)
-
-- New: ZFS pools with usage, throughput and health as an opt-in metric, the root disk's custom name and cumulative read/write totals for disks and filesystems on Beszel 0.19.0.
 
 ## License
 

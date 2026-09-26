@@ -100,27 +100,55 @@ wächst aus Nutzer-Meldungen, und niemand muss Hardware verschicken.
     ### **WORK IN PROGRESS**
 -->
 
-### 2.38.3 (2026-09-17)
+### 2.41.0 (2026-09-26)
 
-- Changed: Internal cleanup. No user-facing changes.
+- Changed: Discovery follows the selected network interface only — the additional scan addresses setting is gone, and the broadcast goes to the network of the chosen card
+- Fixed: `info.cloudConnected` turns false while the Govee Cloud stays unreachable and true again with its next answer — until now only a rejected API key cleared it
 
-### 2.38.2 (2026-09-17)
+### 2.40.0 (2026-09-25)
 
-- Changed: Internal refactoring. No user-facing changes.
+- New: Optional additional scan addresses — lights in another subnet or behind a router that blocks multicast are found by asking them directly
+- New: Heaters with an auto-stop setting get `control.auto_stop` — stop heating at the target temperature or keep it
+- New: Models that report the cloud temperature in °F are converted to °C — the H5179 by default, 14 further models with the experimental switch
+- Fixed: Cloud events such as lack of water, presence or a full ice bucket now reach their datapoints — until now none did
+- Fixed: The segment count of strips that report in groups of three is measured correctly — H61A8 and H7020 no longer grow phantom or lose real segments
+- Fixed: A strip nothing had measured yet accepts segment commands, uses its scenes over LAN and works in the wizard and in snapshots
+- Fixed: A device the account still lists is no longer deleted when the cached device list misses it
+- Fixed: A fresh account login is kept for the next reconnect, and successful logins are capped per hour — repeated logins can make Govee lock the account for 24 hours
+- Fixed: After an account change the saved login of the previous account is no longer reused
+- Fixed: Dropdowns send the value Govee declared, and a LAN light's colour-temperature range follows what the device reports
+- Fixed: Group music plays the same mode on every member, and a member without music or without the scene no longer counts as reached
+- Fixed: A Govee snapshot is activated by its name — reordering snapshots in the app no longer triggers the wrong one
+- Fixed: A command that could not be sent is no longer confirmed, and a day whose cloud budget is spent refuses commands instead of queueing them until midnight
+- Fixed: With the account connected, lights are still asked for their status once a minute and after every LAN command, so a lost command is corrected
+- Fixed: Port 4002 taken by another program is now reported instead of silently losing the lights' replies, and `info.connection` turns false when the last device goes quiet
+- Improved: Leftovers of very old versions, including emptied login fields, no longer linger in the instance settings — expect one extra restart right after the update
+- Fixed: Stopping the adapter during its start no longer leaves parts of it running, and a message sent during the start is answered
+- Fixed: The segment wizard is cancelled when you leave the card, and the connection card shows Govee's reason instead of a raw text key
+- Fixed: The diagnostics report hides Govee account topics and the device's LAN address in number form, and a device name only replaces whole words
+- Improved: Temperature, humidity, battery, air quality and filter life carry translated names — the cloud path wrote Govee's English wording in every language
+- Improved: Bluetooth-only models are no longer listed as supported, and the Wi-Fi meat thermometer H5610 was added
 
-### 2.38.1 (2026-09-16)
+### 2.39.2 (2026-09-22)
 
-- Fixed: Repairing a dropdown is now a single write — until 2.38.0 it was emptied first, so a restart in that moment left the datapoint with nothing to pick from until the next start
+- Fixed: App groups are no longer asked for a device state at every start — Govee answered each call with an error that only filled the diagnostics report
+- Fixed: A scene request Govee refuses is no longer taken as "no scenes" — the cached scenes and snapshots stay, and the report names the reason once
 
-### 2.38.0 (2026-09-16)
+### 2.39.1 (2026-09-22)
 
-- Fixed: Repairing a dropdown no longer deletes and re-creates the datapoint — it used to throw away the datapoint's value and its room and function assignment
-- Changed: A device renamed in the Govee app now gets the new name in an existing object tree too — a name you change in the tree itself is reset at the next start
-- Fixed: An error the adapter reports as an object now reads properly in the log instead of "[object Object]", and a connection problem reported that way is recognised as one
+- Fixed: The diagnostics report no longer contains your Wi-Fi network name, the Govee app's device number or a group's id — they appeared in clear in every exported file
+- Improved: The diagnostics report keeps Govee's complete account-list entry and shows commands waiting for an offline device and when the adapter started
 
-### 2.37.1 (2026-09-15)
+### 2.39.0 (2026-09-22)
 
-- Fixed: The instance settings open on the Configuration tab again also when the admin keeps its settings on the server — 2.37.0 handled the browser storage only, so every open still landed on Expert
+- New: A device that has gone quiet is asked for its status over the Govee account connection — a bulb or purifier that works but showed as unreachable now stays reachable
+- Improved: The cloud budget follows Govee's per-device limits — a command for one light no longer waits for another light's calls or for library downloads
+- New: A command Govee refused because the device was offline is delivered once the device reports back (within five minutes), instead of being lost
+- Fixed: Scenes and libraries that arrived after a busy start now reach the scene dropdown and the cache — they used to stay at `---` and were fetched again on every start
+- Fixed: A scene list that shrank no longer leaves withdrawn scenes in the dropdown
+- Fixed: The diagnostics report no longer lists a reachability refresh for appliances, which never get one
+- New: 28 more Govee models are recognised — meat thermometers, motion and pressure sensors, heaters, kettles, a composter and the gateways that carry battery sensors
+- New: H1771 Table Lamp reported working by a user
 
 ## License
 

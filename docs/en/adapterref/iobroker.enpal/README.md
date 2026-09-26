@@ -136,6 +136,11 @@ enpal.0.wallbox_control.<state>
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.4.4 (2026-09-24)
+- (skvarel) Updated @iobroker/adapter-core to 3.4.3 (repository checker W0034)
+- (skvarel) Updated CI check action to testing-action-check@v2 (repository checker W3028)
+- (skvarel) Updated @iobroker/testing to 6.2.2 and release-script-plugin-license to 5.2.2
+
 ### 0.4.3 (2026-07-21)
 - (skvarel) Sync wallbox_control.mode from status when charge mode is changed via the Enpal app
 
@@ -152,11 +157,6 @@ enpal.0.wallbox_control.<state>
 - (skvarel) Fixed connectorStatus normalization for OCPP values (e.g. SuspendedEV instead of Suspendedev)
 - (skvarel) Documented wallbox connector status values in README
 - (skvarel) Added conditional wallbox help tab with data point and status documentation
-
-### 0.3.0 (2026-06-07)
-- (skvarel) Added optional wallbox control via Enpal Box web interface (Blazor SignalR)
-- (skvarel) New config option: wallbox_enabled (checkbox); Enpal Box URL is derived automatically from InfluxDB URL
-- (skvarel) New states under wallbox_control: start, stop, mode, currentMode, connectorStatus
 
 ## License
 MIT License

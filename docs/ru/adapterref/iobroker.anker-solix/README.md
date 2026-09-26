@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.anker-solix/README.md
 title: ioBroker.anker-solix
-hash: caxr18UL2EqV79kpxvHMeALCnOt2przZ3fJTNw8tRqA=
+hash: 4wyV4kzopHajyroIy43jm6D7Y1nWQUylVRbtO3c9WhY=
 ---
 # IoBroker.anker-solix
 
@@ -16,9 +16,12 @@ hash: caxr18UL2EqV79kpxvHMeALCnOt2przZ3fJTNw8tRqA=
 
 > |----|--------|
 > | **Linux** | Основная целевая платформа для производства - **протестировано в CI** (Docker, NAS, Raspberry Pi, …) |
+
 > | **Windows** | **Поддерживается и протестировано** на ioBroker для Windows (Python 3.12+) |
+
 > | **macOS** | **Не поддерживается** - автоматическая установка Python/venv не была проверена |
-> > Установка из каталога npm / `package.json`: только ** `linux` ** и ** `win32` **. Подробности: [Поддерживаемые платформы](#supported-platforms).
+
+> > Установка каталога npm / `package.json`: только ** `linux` ** и ** `win32` **. Подробности: [Поддерживаемые платформы](#supported-platforms).
 
 Небольшой **мост на Python** (постоянный демон, как в Home Assistant) опрашивает облако Anker и, при необходимости, MQTT, а затем предоставляет значения в виде состояний ioBroker. Дополнительные группы сущностей (начиная с версии 0.9.0) повторяют область действия Home Assistant: по умолчанию включен только **Core** для ограничения нагрузки на API.
 
@@ -65,7 +68,7 @@ hash: caxr18UL2EqV79kpxvHMeALCnOt2przZ3fJTNw8tRqA=
 |-------|------|
 | **Адаптер Node.js** | Конфигурация экземпляра, планирование, состояния ioBroker, очередь управления |
 | **Мост Python** (`python/bridge.py`) | Длительная сессия: API + опционально MQTT (в стиле Home Assistant) |
-| **кэш аутентификации** | `iobroker-data/<instance>/authcache/<email>.json` - используется повторно после успешного входа через API |
+| **кэш аутентификации** | `iobroker-data/<instance>/authcache/<email>.json` - повторно используется после успешного входа через API |
 | **authcache** | `iobroker-data/<instance>/authcache/<email>.json` - повторно используется после успешного входа через API |
 
 Интервал опроса должен составлять **60-180 с** (та же рекомендация, что и для HA). Список сайтов обновляется каждый цикл; данные об устройствах/сайтах и данные об энергопотреблении обновляются с более медленным интервалом (`deviceDetailMultiplier`, по умолчанию каждые 10 опросов).
@@ -152,7 +155,7 @@ iobroker restart anker-solix.0
 3. **Учетная запись:** разрешить использование неофициального API (флажок внизу вкладки)
 4. **Параметры:** интервал опроса 60-180 с, **MQTT** при необходимости, `deviceDetailMultiplier` (по умолчанию в Home Assistant: 10)
 5. **Устройства:** **Загрузка устройств**, дополнительный фильтр идентификатора сайта / серийного номера устройства.
-6. **Объекты** (v0.9.0+): включить необязательные группы; по умолчанию включен только **Ядро** → **перезапустить адаптер** после внесения изменений
+6. **Объекты** (v0.9.0+): включить необязательные группы; по умолчанию включен только **ядро** → **перезапустить адаптер** после внесения изменений
 
 Не используйте функцию **Очистка кэша входа в Anker**, если вам не требуется преднамеренный повторный вход (неверная учетная запись, поврежденный файл). Очистка принудительно выполняет новый вход в облако и часто запускает капчу на серверах - см. [Поиск неисправностей](#troubleshooting-login--poll).
 
@@ -214,7 +217,7 @@ iobroker restart anker-solix.0
 Типичные пути (экземпляр `anker-solix.0`):
 
 - `anker-solix.0.solarbank.<deviceId>.sensors.*` - мощность, уровень заряда батареи и т. д.
-- `anker-solix.0.solarbank.<deviceId>.control.*` - доступные для записи элементы управления, где это поддерживается.
+- `anker-solix.0.solarbank.<deviceId>.control.*` - доступные для записи элементы управления там, где это поддерживается.
 - `anker-solix.0.<device>.<id>.statistics.*` - суточная выработка кВт·ч (включить **Объекты** → статистика энергопотребления)
 - `…statistics.week.*` / `statistics.month.*` / `statistics.year.*` - итоговые данные за календарную неделю, месяц и год в кВт·ч (отдельные группы объектов; опрос производится при обновлении подробных данных, а не в каждом цикле)
 - Статистика **сайта-комбинатора:** доступна только в `combiner_box.<id>.statistics.*` (не дублируется в `system.*` или каждом `solarbank.*`). **Без combiner:** для каждого `solarbank.*` (и `smartmeter.*` для метрик сетки). Запросы к API выполняются **один раз для каждого сайта**.
@@ -229,9 +232,9 @@ iobroker restart anker-solix.0
 ## Устройства, управляемые по протоколу MQTT
 Включите **MQTT** в **Настройках**, если вам нужны данные в реальном времени или элементы управления, которые не предоставляются облачным API (многие функции PPS/EV/зарядных устройств).
 
-- Дополнительные датчики/элементы управления получаются из MQTT-карт в solixapi (декодируются сообществом для каждой модели).
+- Дополнительные датчики/элементы управления загружаются из MQTT-карт в solixapi (декодируются сообществом для каждой модели).
 - **Триггер в реальном времени** и **запрос статуса** работают как кнопки Home Assistant - автоматизация их круглосуточного использования увеличивает трафик и поддерживает устройства в активном состоянии ([раздел Home Assistant MQTT](https://github.com/thomluther/ha-anker-solix#mqtt-managed-devices)).
-- Для **гибридного управления** (резерв SOC станции, ограничения переменного тока, экспорт электроэнергии из сети в нескольких системах) требуется MQTT + API, как в Home Assistant.
+- Для **гибридного управления** (резерв SOC станции, ограничения переменного тока, экспорт электроэнергии из сети в многосистемном режиме) требуется MQTT + API, как в Home Assistant.
 - Устройства в режиме локального подключения MQTT (например, E10 за Power Dock) подключаются через центральный блок управления - см. [ИНФОРМАЦИЯ О HA - Локальный режим MQTT](https://github.com/thomluther/ha-anker-solix/blob/main/INFO.md#devices-in-mqtt-local-mode).
 
 Расшифровка новых моделей: [[Рекомендации MQTT](https://github.com/thomluther/anker-solix-api/discussions/222), инструмент `mqtt_monitor.py` в [anker-solix-api]](https://github.com/thomluther/anker-solix-api).
@@ -287,7 +290,7 @@ iobroker restart anker-solix.0
 ### Панель питания и HES (X1)
 Ограниченные возможности API; обходное решение использует **~5-минутные средние значения** из статистики энергопотребления (**~80 МБ/день** дополнительного трафика на систему, если включено). При необходимости отключите категории с высокой нагрузкой в **объектах**.
 
-**Локальный Modbus (X1):** включите Modbus TCP в приложении **Anker Solix Professional**, затем Администрирование → **Modbus (локальный)** → профиль **SOLIX X1 HES** (или автоматическое определение). Параметры находятся в разделе `modbus.<name>.sensors.*` и управляют режимом работы / заданным значением заряда батареи (VPP / режим стороннего поставщика). X1 принимает **только один клиент Modbus TCP** одновременно.
+**Локальный Modbus (X1):** включите Modbus TCP в приложении **Anker Solix Professional**, затем Admin → **Modbus (локальный)** → профиль **SOLIX X1 HES** (или автоматическое определение). Параметры находятся в разделе `modbus.<name>.sensors.*` и управляют режимом работы / заданным значением заряда батареи (VPP / режим стороннего поставщика). X1 принимает **только один клиент Modbus TCP** одновременно.
 
 ### Интеллектуальное зарядное устройство для электромобилей V1 (локальный Modbus)
 При использовании учетной записи Anker облачные/MQTT-объекты остаются доступными. Для управления только локально включите Modbus TCP в разделе «Интеграции» в приложении Anker и добавьте профиль «V1 Smart EV Charger». Управление: запуск/остановка зарядки, максимальный ток (6-32 А). Зарядное устройство поддерживает одновременное подключение до **двух** Modbus-клиентов.
@@ -321,7 +324,7 @@ Anker блокирует некоторые входы через API **серв
 ---
 
 ## Услуги
-Штаты, указанные в `anker-solix.0.services.*` (для срабатывания установите значение `true`):
+Штаты, подпадающие под действие `anker-solix.0.services.*` (для срабатывания установите значение `true`):
 
 - `get_schedule`, `clear_schedule`, `export_systems`, `get_system_info`, `refresh_devices`
 
@@ -329,14 +332,14 @@ Anker блокирует некоторые входы через API **серв
 
 ---
 
-## Благодарности и дополнительная информация
+## Благодарности и дополнительная литература
 | Ресурс | Содержание |
 |----------|---------|
 | [thomluther/ha-anker-solix](https://github.com/thomluther/ha-anker-solix) | Полный файл README, **INFO.md** (конфигурация, MQTT, экспорт, тарифы) |
 | [Обсуждения HA](https://github.com/thomluther/ha-anker-solix/discussions) | Панель мониторинга энергопотребления, нулевой экспорт, эффективность |
 | [SolixBLE](https://github.com/flip-dots/SolixBLE) | Локальный BLE (не облачный) |
 | [ha-anker-solix-official](https://github.com/anker-charging/ha-anker-solix-official) | Официальный Modbus (локальные устройства) |
-| [ioBroker.pvforecast](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md) | Прогноз PV (необязательный параметр для предотвращения сокращения производства) |
+| [ioBroker.pvforecast](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md) | Прогноз PV (необязательный ввод для предотвращения сокращения производства) |
 | [ioBroker.pvforecast](https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md) | Прогноз PV (необязательный параметр для предотвращения сокращения) |
 
 Немецкие руководства/видеоролики, ссылки на которые приведены в разделе [HA README](https://github.com/thomluther/ha-anker-solix#additional-resources), концептуально относятся к данным и ограничениям; подключение осуществляется через состояния ioBroker, а не через сущности HA.
@@ -415,7 +418,7 @@ iobroker restart vis-2
 
 1. Увеличьте значение параметра `version` в файлах `package.json` и `io-package.json` (они должны совпадать).
 2. Добавьте раздел `### x.y.z` в этот список изменений README (E6006).
-3. Добавьте **одну** новую запись в `common.news` для этой версии **только при публикации в npm** (тег `v*`); сохраните **не более 7** ключей новостей - только версии, уже размещенные в npm (плюс версия, которую вы собираетесь опубликовать). Промежуточные версии, доступные только на GitHub, **не** должны появляться в `common.news` (E2004). Переместите удаленный текст в CHANGELOG_OLD.md. Задокументируйте все версии в этом файле README с изменениями.
+3. Добавьте **одну** новую запись в `common.news` для версии, которую вы собираетесь пометить/опубликовать; сохраните **не более 7** ключей новостей - версии, опубликованные через npm, плюс версию релиза (E1036/E2004). Промежуточные версии, доступные только на GitHub, **не** должны появляться в `common.news`. Переместите удаленный текст в CHANGELOG_OLD.md. Задокументируйте все версии в этом файле README с изменениями.
 4. Администрирование `jsonConfig.json`: размер заголовка `size` должен быть **≤ 5** (используйте `5` для самого маленького заголовка).
 5. Не добавляйте корневые файлы в npm `files`, если это не требуется (файл `CHANGELOG_OLD.md` не входит в состав пакета).
 6. Файл `package.json` с параметром `os` должен соответствовать матрице ОС в файле `test-and-release.yml` (E3027). Поддерживайте синхронизацию файла `i18n/*.json` в административной панели с файлом `en.json` (W5604/W5605).
@@ -427,9 +430,9 @@ iobroker restart vis-2
 
 ### 0.10.105
 
-- **Repo checker (#9):** removed forbidden `prepare` script (E0094); `common.news` lists npm-published versions only (E2004); enable local hooks with `npm run setup:githooks`
-- **CI (#10):** adapter tests on Node.js **22 / 24 / 26**; `@iobroker/adapter-core` → 3.4.3; Modbus TCP read timeout uses `adapter.setTimeout` (S5005)
-- News translations expanded for remaining npm versions (W1145)
+- **npm release:** publishes GitHub improvements since 0.10.90 (VIS widgets/HTML dashboards, SB4 daily kWh, Node 22/24/26 CI, repo-checker fixes)
+- **Repo checker (#12):** `common.news` for current version (E1036); tagging clears W2002/W3032
+- **Stable path (#13):** prepares adapter for first inclusion in the stable repository
 
 ### 0.10.104
 
@@ -530,7 +533,7 @@ iobroker restart vis-2
 
 ### 0.10.81
 
-- **Repository review (mcm1957):** restore standard `test-and-release` workflow — adapter tests on every push/tag (Linux + Windows matrix), deploy only after all jobs succeed (no `always()` / no skipped-tests workaround); declare ** `linux` + `win32` ** in `package.json`; README: Windows supported & tested, **macOS not supported**
+- **Repository review (mcm1957):** restore standard `test-and-release` workflow — adapter tests on every push/tag (Linux + Windows matrix), deploy only after all jobs succeed (no `always()` / no skipped-tests workaround); declare **`linux` + `win32`** in `package.json`; README: Windows supported & tested, **macOS not supported**
 
 ### 0.10.80
 
@@ -577,7 +580,7 @@ iobroker restart vis-2
 
 - **Python install:** detects host profile (Linux server, **Home Assistant** ioBroker add-on, **Windows**, container)
 - **HA:** venv-first, `get-pip.py` with `--break-system-packages` / `PIP_BREAK_SYSTEM_PACKAGES` for PEP 668
-- **Windows:** tries `py -3.13`, `py -3.12`, Program Files paths; parses `--version` (no broken shell `-c` check); adds ** `tzdata` ** for `Europe/Berlin`
+- **Windows:** tries `py -3.13`, `py -3.12`, Program Files paths; parses `--version` (no broken shell `-c` check); adds **`tzdata`** for `Europe/Berlin`
 - **Bridge:** uses resolved Python spawn spec (`py -3.12` args) consistently in daemon and one-shot mode
 - Deps check: `aiohttp` + `ZoneInfo("Europe/Berlin")` before skipping install
 
@@ -675,26 +678,26 @@ iobroker restart vis-2
 
 ### 0.10.16
 
-- Combiner sensor ** `total_state_of_charge` **: cloud total or capacity-weighted average of all site solarbanks (poll + ioBroker state)
+- Combiner sensor **`total_state_of_charge`**: cloud total or capacity-weighted average of all site solarbanks (poll + ioBroker state)
 - Curtailment uses total SOC for `missing_charge_wh`, `max_charge_w`, and `soc_percent`
 
 ### 0.10.15
 
-- Curtailment: ** `ac_output_limit` via API only** (no MQTT) to avoid station side effects
+- Curtailment: **`ac_output_limit` via API only** (no MQTT) to avoid station side effects
 - Fix SOC handling when combiner had no SOC (`max_charge_w` wrong); ensure `missing_charge_wh` state exists on upgrade
 
 ### 0.10.14
 
-- Curtailment: **only** manual mode + ** `ac_output_limit` ** (no `grid_export_limit`, `allow_grid_export`, home load preset, AC charge limit)
+- Curtailment: **only** manual mode + **`ac_output_limit`** (no `grid_export_limit`, `allow_grid_export`, home load preset, AC charge limit)
 - New state `curtailment.missing_charge_wh`; active phase: export = live PV − calculated max charge
 
 ### 0.10.12
 
-- Curtailment combiner: export via ** `ac_output_limit` ** (`max_load`); home load preset 0 W (superseded by 0.10.14+)
+- Curtailment combiner: export via **`ac_output_limit`** (`max_load`); home load preset 0 W (superseded by 0.10.14+)
 
 ### 0.10.11
 
-- Curtailment: prefer ** `system.{siteId}.sensors.total_pv_power` ** for live PV
+- Curtailment: prefer **`system.{siteId}.sensors.total_pv_power`** for live PV
 
 ### 0.10.10
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sunenergyxt500/README.de.md
 title: ioBroker.sunenergyxt500
-hash: kF9dSqhhzwMXBcJgjaVvg3xNZYAXPFNayY508qdKhzQ=
+hash: uUZqmdI/Z+ZUCY59p4jDyRktnRYMZYv3k0Kd0yrAR0c=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sunenergyxt500/admin/sunenergyxt500.png)
 
@@ -19,7 +19,7 @@ hash: kF9dSqhhzwMXBcJgjaVvg3xNZYAXPFNayY508qdKhzQ=
 
 ## sunenergyxt500-Адаптер для ioBroker
 
-Интеграция и дополнительная настройка для **[SunEnergyXT 500 / 500 PRO](https://www.sunenergyxt.com/details-500-series)** с гибридными аккумуляторами переменного тока (производитель: [SunEnergyXT](https://www.sunenergyxt.com/) ) с использованием **локального HTTP-API** вашего устройства — не забудьте об облачном хранилище. Eine Instanz verwaltet **bis zu drei Köpfe** (Speichertürme).
+Интеграция и дополнительная настройка для **[SunEnergyXT 500 / 500 PRO](https://www.sunenergyxt.com/details-500-series)** гибридных аккумуляторов переменного тока (производитель: [SunEnergyXT](https://www.sunenergyxt.com/) ) с использованием **локального HTTP-API** вашего устройства — не забудьте об облачном хранилище. Eine Instanz verwaltet **bis zu drei Köpfe** (Speichertürme).
 
 ## Язык / Language
 
@@ -30,7 +30,7 @@ hash: kF9dSqhhzwMXBcJgjaVvg3xNZYAXPFNayY508qdKhzQ=
 
 - Verwaltet **einen bis drei Köpfe** in einer Instantz, jeden unter eigenem Teilbaum `heads.<n>.*`, plus zusammengefasste `total.*` -Совокупность.
 - Pollt die lokale API (`GET /read`) и отображать все стабильные устройства Felder в штатах: SoC, Batterie-/Netz-/Last-/PV-Leistung, Strom/Spannung je MPPT, Tagesenergiezähler, SoC je Pack, Geräte-/Firmware-Infos und Zählerstatus.
-- Schreibbare Steuerfelder (`POST /write`, durch Rücklesen bestätigt), passend zur Bedienoberfläche der offiziellen Integration — außer den in der API-Doku также _зарезервировано_ для маркировки Feldern: Netz-Sollwert `GS`, max. Einspeisung `IS`, SoC-Grenzen `SI` /`SA` /`SO`, Eigenverbrauchsmodus `MM`, Zählerkonfiguration `MD`, Цайтзона `TZ`, Нойстарт `RT` макс. Нетцаусганг `MG`, die Schalter `LFB` /`LPS` /`PM` sowie lokaler Modus `LM` (⚠️`LM=1` Blockiert die Cloud-/App-Steuerung bis zum Zurücksetzen). Reservierte Felder (z.B. `PT`, `SI1`, `SA1`) и не имеет доступной только для чтения панели.
+- Schreibbare Steuerfelder (`POST /write`, durch Rücklesen bestätigt), passend zur Bedienoberfläche der offiziellen Integration — außer den in der API-Doku также зарезервировано для _отметок_ Feldern: Netz-Sollwert `GS`, Вексельрихтер-Аусгангсгренце `IS`, SoC-Grenzen `SI` /`SA` /`SO`, Eigenverbrauchsmodus `MM`, Zählerkonfiguration `MD`, Цайтзона `TZ`, Нойстарт `RT` макс. Нетцаусганг `MG`, die Schalter `LFB` /`LPS` /`PM` sowie lokaler Modus `LM` (⚠️`LM=1` Blockiert die Cloud-/App-Steuerung bis zum Zurücksetzen). SoC-гистерезис `SI1` /`SA1` (из Hersteller в стандартной документации, je 5 % Standard, zulässiger Bereich 0…100 %) behalten ihre etablierten `heads.<n>.battery.*` -IDs, damit bestehende Aufzeichnungen erhalten bleiben. Фельдер, die die API-Doku weiterhin als reserviert führt (z. B. `PT`), sind только для чтения.
 - Zwei umschaltbare **Steuemodi** : ein адаптерseitiger Eigenverbrauchs- **Regler** (schreibt `GS` _когда вы используете_ ioBroker-Zähler-State, Feedforward + P, mit Watchdog/Failsafe), der **einen Netz-Sollwert auf alle Köpfe verteilt** , или **Geräte-Eigenregelung** (bindet einen unterstützten Zähler in einen einzelnen Speicher ein und lässt das Gerät selbst regeln) — плюс ein **Aus** -Modus für reines Monitoring.
 - **«Проверить все головы»** — нажмите кнопку администратора, чтобы настроить настройки Kopfes (Modell + SoC) для dem Speichern.
 - Verbindungsanzeige (`info.connection`) плюс `info.lastUpdate`, sowie pro Kopf `online` /`lastError`.
@@ -40,13 +40,13 @@ hash: kF9dSqhhzwMXBcJgjaVvg3xNZYAXPFNayY508qdKhzQ=
 
 Дизер-адаптер можно использовать **локально** , без Hersteller-Cloud. Eine Instanz verwaltet **einen bis drei Köpfe** (Speichertürme). Der Eigenverbrauch lässt sich auf **zwei sich gegenseitig ausschließende Arten** umsetzen — du wählst eine über die Einstellung **Steuermodus** :
 
-**Modus B — Адаптер-реглер (Standard-Empfehlung, mit jedem Zähler, 1–3 Köpfe).** ioBroker ist die aktuelle Netzleistung aus **einem beliebigen State** , auf den du ihn zeigen lässt (`gridPowerStateId`), и адаптер schreibt den Netz-Sollwert `GS` (Упреждение + П-Коррекция, с Сторожевым таймером). Der Zähler cann _alles_ sein, был ioBroker unterstützt — Shelly, Tasmota, ein Smartmeter-/Modbus-Adapter — **auch Zähler, die der Speicher selbst nicht lesen kann** . Du Lieferst Einen State mit der **Netto-Netzleistung в Ватте** (`>0` = Безуг, `<0` = Эйнспейсунг; _Vorzeichen invertieren_ Falls umgekehrt; bei кВт / getrennten Bezug-/Einspeisezählern / pro Phase zunächst einen sauberen Nettowert in einem kleinen ioBroker-State berechnen). Bei mehr als einem Kopf berechnet der Regler **einen** Gesamt-Sollwert und **verteilt ihn auf die Online-Köpfe** — gleichmäßig, auf die Leistung jedes Kopfes begrenzt, und überspringt einen Kopf, der voll (beim Laden) bzw. leer (beim Entladen) ist; Dessen Anteil wird auf die anderen umgelegt. Использование адаптера `MM=0` auf jedem Kopf, damit die Geräte `GS` аусфюрен; der Zähler bleibt voll в нуцбаре ioBroker.
+**Modus B — Адаптер-реглер (Standard-Empfehlung, mit jedem Zähler, 1–3 Köpfe).** ioBroker ist die aktuelle Netzleistung aus **einem beliebigen State** , auf den du ihn zeigen lässt (`gridPowerStateId`), и адаптер schreibt den Netz-Sollwert `GS` (Упреждение + П-Коррекция, с Сторожевым таймером). Der Zähler cann _alles_ sein, был ioBroker unterstützt — Shelly, Tasmota, ein Smartmeter-/Modbus-Adapter — **auch Zähler, die der Speicher selbst nicht lesen kann** . Du Lieferst Einen State mit der **Netto-Netzleistung в Ватте** (`>0` = Безуг, `<0` = Эйнспейсунг; _Vorzeichen invertieren_ Falls umgekehrt; bei кВт / getrennten Bezug-/Einspeisezählern / pro Phase zunächst einen sauberen Nettowert in einem kleinen ioBroker-State berechnen). Bei mehr als einem Kopf berechnet der Regler **einen** Gesamt-Sollwert und **verteilt ihn auf die Online-Köpfe** — gleichmäßig, beim Entladen auf die netzgekoppelte Ausgangsgrenze (`MG`) jedes Kopfes begrenzt und beim Laden auf dessen Ladegrenze, und überspringt einen Kopf, der voll (beim Laden) bzw. leer (beim Entladen) ist; Dessen Anteil wird auf die anderen umgelegt. Использование адаптера `MM=0` auf jedem Kopf, damit die Geräte `GS` аусфюрен; der Zähler bleibt voll в нуцбаре ioBroker.
 
-**Modus A — Geräte-Eigenregelung (unterstützte Zähler, nur Einzelkopf).** Der Adaptorbindet einen unterstützten Zähler **in den Speicher** ein (`MM=1` +`MD`) und lässt das **Gerät selbst regeln** — der herstellereigene Eigenverbrauch, der evtl. Шнеллер передвигается как eine externe Schleife. Dieser Modus ist **nur mit einem einzelnen Kopf** verfügbar; mit zwei oder drei configurierten Köpfen ist er nicht wählbar — nutze stattdessen den Adaptor-Regler. Это значит, что тип Zählertype unterstützt (EcoTracker, Shelly 3EM, Shelly Pro 3EM, Tasmota) и Zähler должен быть доступен для использования в локальной сети. В этом разделе описаны способы адаптера **.** `GS`. Die Anbindung ist nur mDNS-/HTTP-Polling, der Zähler **bleibt в ioBroker nutzbar** — а также Zähler-Einrichtung der Hersteller-App, die den Zähler umconfigurieren und aus ioBroker entfernen kann; адаптер для прямого связывания и фиксации.
+**Modus A — Geräte-Eigenregelung (unterstützte Zähler, nur Einzelkopf).** Der Adaptorbindet einen unterstützten Zähler **in den Speicher** ein (`MM=1` +`MD`) und lässt das **Gerät selbst regeln** — der herstellereigene Eigenverbrauch, der evtl. Шнеллер передвигается как eine externe Schleife. Dieser Modus ist **nur mit einem einzelnen Kopf** verfügbar; mit zwei oder drei configurierten Köpfen ist er nicht wählbar — nutze stattdessen den Adaptor-Regler. Это значит, что тип неиспользуемого типа (EcoTracker, Shelly 3EM, Shelly Pro 3EM, Tasmota) и Zähler должен быть доступен для использования в локальной сети. В этом разделе описаны способы адаптера **.** `GS`. Die Anbindung ist nur mDNS-/HTTP-Polling, der Zähler **bleibt в ioBroker nutzbar** — а также Zähler-Einrichtung der Hersteller-App, die den Zähler umconfigurieren und aus ioBroker entfernen kann; адаптер для прямого связывания и фиксации.
 
 **Aus (Стандартный, без мониторинга).** Адаптер не доступен `MM` /`MD` /`GS`; er pollt nur. `control.*` -States kannst du weiterhin manuell befehlen.
 
-В beiden Steuermodi **besitzt der Adaptor `MM` ** : bei jedem Опрос prüft er das `MM` jedes Kopfes gegen den gewählten Modus und setzt es (mit Warnung) wieder, падает etwas anderes es geändert Hat — так что cann eine versehentliche Zählerbindung oder ein externes Skript die Steuerung nicht Stillschweigend lahmlegen. Примечание: Ein Kopf führt ein geschriebenes `GS` нур бей `MM=0` aus; mit gebundemen Zähler (`MM=1`) regelt er selbst und ignoriert `GS`.
+В beiden Steuermodi **besitzt der Adaptor `MM` ** : bei jedem Опрос prüft er das `MM` jedes Kopfes gegen den gewählten Modus und setzt es (mit Warnung) Wieder, падает etwas anderes es geändert Hat — так что cann eine versehentliche Zählerbindung oder ein externes Skript die Steuerung nicht Stillschweigend lahmlegen. Примечание: Ein Kopf führt ein geschriebenes `GS` нур бей `MM=0` aus; mit gebundemen Zähler (`MM=1`) regelt er selbst und ignoriert `GS`.
 
 **Mehrere Köpfe müssen auf unterschiedlichen Phasen Ligen.** Das ist die elektrische Verantwortung des Betreibers — адаптер prüft (und kann) das nicht. Der Regler regelt die **Netto-(Summen-)Netzleistung** , die dein Zähler meldet, также genau das, был ein üblicher saldierender deutscher Zweirichtungszähler abrechnet; eine Per-Phasen-Optimierung ist nicht vorgesehen.
 
@@ -80,13 +80,15 @@ _Aus_ (Standard) — нур-мониторинг; адаптер не испол
 _Адаптер-Реглер_ (Модус Б) — Фельдера:
 
 - **Quell-State Netzleistung** — ein Fremd-State mit der Netzleistung deines Hauszählers. Конвенция: `>0` = Netzbezug, `<0` = Эйнспейсунг. Чтобы активировать **инвертирование** , необходимо, чтобы Zähler умер от участия в конференции.
-- **Адаптивная подзарядка** (стандартная и стандартная): повторное использование в течение длительного времени — kleine Abweichungen Sanft (все 7 с, 20-W-Schritte), Mittlere alle 2,5 s (120 W), große Lastsprünge soft (450 W), с праздничным 5-W-Totband. Деактивируйте режим регулирования вручную, используя Felder Verstärkung / Totband / Schreibintervall / Schritt-Limit einzustellen (erscheinen nur dann).
+- **Адаптивная подзарядка** (Стандартная и стандартная): повторное использование в течение 7 с, 20 Вт, минимальная длительность 2,5 с (120 Вт), большая максимальная мощность (450 Вт), с праздничным 5-W-Netz-Totband. Beachte, dass das _Per-Kopf-Schreib-Totband_ (Standard 10 W) zusätzlich greift: eine kleinere Korrektur wird nicht Geschrieben, solange der Gesamt-Sollwert sich nicht Mindestens so weit bewegt Hat — в der Praxis bleiben Abweichungen unter etwa 10 W также unangetastet. Деактивируйте режим регулирования вручную, используя Felder Verstärkung / Totband / Schreibintervall / Schritt-Limit einzustellen (erscheinen nur dann).
 - **Ziel-Netzleistung** (W, стандарт 0): 0 = Nulleinspeisung; позитивные Wertehalten bewusst einen kleinen Netzbezug (nie einspeisen), негативные eine kleine Einspeisung — gleiche Vorzeichenknvention wie der Quell-State (`>0` = Безуг).
 - **Макс. Änderung pro Korrektur** (W, Standard 500, 0 = unbegrenzt): begrenzt, wie weit sich der Sollwert pro Regelschritt bewegt — hohe Verstärkung kann so bei Zähler-Ausreißern nicht überschwingen.
 - **Verstärkung** (Стандарт 0,3), **Общий диапазон** (W), **Мин. Schreibintervall** (ms), **Per-Kopf-Schreib-Totband** (W — минимальный Änderung des Kopf-Sollwerts, bevor erneut geschrieben wird, gegen Zappeln bei sich verschiebender Aufteilung). Die Maximalleistung jedes Kopfes wird **autotisch** vom Gerät erkannt (800 Вт для 500, 2400 Вт для 500 PRO), функция Mischbetrieb также без дополнительной конфигурации.
-- **Watchdog Warnung / Failsafe (s)** — wird die Netzquelle zu alt, loggt der Regler eine Warnung und erzwingt schließlich `GS=0` auf **allen Köpfen** (sicherer Neutralzustand), bis die Quelle zurück ist. Сторожевая телеметрия лежит под `controller.*`.
+- **Zähler-Einschwingzeit (ms)** (Standard 0) — Messwerte, die _vor_ dem letzten Sollwert-Schreibvorgang entstanden sind, werden immer verworfen, weil sie noch den Zustand davor beschreiben. Bei Zählern, deren Wert der phykalischen Änderung unmittelbar folgt, 0 уроков; bei Zählern, die frische Zeitstempel Lifern, deren Wert aber nachhinkt, etwas über die gemessene Inhaltsverzögerung setzen.
+- **Auch die Wechselrichter-Grenze (IS) steuern** (Standard aus) — zusätzlich zu `GS` setzt der Regler die Maxime Wechselrichter-Ausgangsleistung: den Entladeanteil von `GS` плюс дас, был der Last-Port zieht, begrenzt auf die PV-Leistung, sobald ein Kopf seine Entladegrenze erreicht Hat. Nur sinnvoll, wenn am Last-Port eine Last hängt; ohne eine solche erzeugt die Option nur zusätzliche Schreibvorgänge. Bei Failsafe и beim Herunterfahren des Adapters wird die Grenze nach bestem Bemühen wieder auf das Gerätemaximum gsetzt (innerhalb des Shutdown-Budgets und nur bei Köpfen, die antworten). Ein hartes Abwürgen des Prozesses kann das nicht leisten — siehe Einschränkungen. Bei aktiver Option работает вручную `IS` -Шрайбворгенге игнорируется; для лучшего начала работы `MG` das richtige Feld.
+- **Watchdog Warnung / Failsafe (s)** — wird die Netzquelle zu alt, loggt der Regler eine Warnung und erzwingt schließlich `GS=0` auf jedem erreichbaren Kopf (sicherer Neutralzustand), bis die Quelle zurück ist. Сторожевая телеметрия лежит под `controller.*`.
 
-Der Regler ist vor jed Korrektur die tatsächliche Netzleistung (`GP`) jedes Geräts zurück — das ergibt natürlichen Anti-Windup, когда вы начинаете стажировку (z. B. durch SoC).
+Der Regler arbeitet vom zuletzt kommandierten Sollwert aus, nicht von einer frischen Geräteabfrage. Die gepollte Netzleistung (`GP`) можно исправить: если в течение 10 с не будет отключена полоса пропускания (внутреннее начало работы при температуре SoC или температуре), то будет использоваться новый режим Feedforward übernommen — Anti-Windup ohne zusätzliche Abfrage pro Zyklus. Außerdem vergleicht er das von jedem Gerät zurückgemeldete `GS` mit dem kommandierten und alert bei Abweichung — dann schreibt ein zweiter Steuerpfad (Hersteller-App oder eine andere Automatisierung) ebenfalls `GS`. Если вы хотите, чтобы напиток был разнообразным, газировка должна быть легкой и легкой, а другие внутренние компоненты Zyklus nicht aufhält.
 
 _Geräte-Eigenregelung_ (Modus A, **nur Einzelkopf** ) — Фельдер:
 
@@ -122,8 +124,8 @@ _Geräte-Eigenregelung_ (Modus A, **nur Einzelkopf** ) — Фельдер:
 ## Vorzeichenkonventionen
 
 - `GP` (Netzleistung): `>0` = Einspeisung, `<0` = Bezug — **entgegengesetzt zu einem Shelly-Zähler** (`api.GP ≈ −shelly.gridPower`).
-- `BP` (Батарейная тяга): `>0` = Нагруженный, `<0` = Entladen.
-- `GS` (Нец-Соллверт): `>0` = Einspeisung/Entladen, `<0` = Netzladen (±2400 Вт для Pro, 1 Вт для Auflösung).
+- `BP` (Батарейная мощность): `>0` = Нагруженный, `<0` = Entladen.
+- `GS` (Нец-Соллверт): `>0` = Einspeisung/Entladen, `<0` = Нетцладен (1-W-Auflösung). Beim Standard-500 ist die Grenze nicht symmetrisch: er darf bis 800 Weinspeisen, aber weiterhin bis 2400 W beziehen —`MG` begrenzt nur die Abgabe.
 
 ## Объектбаум
 
@@ -131,14 +133,14 @@ _Geräte-Eigenregelung_ (Modus A, **nur Einzelkopf** ) — Фельдер:
 
 | Канал                 | Инхальт                                                                                                                                                                                           |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heads.<n>.battery.*` | SoC (`SC`), Батарейная мощность (`BP`), SoC je Pack (`SC0` –`SC5`), Пакеты онлайн (`ON`), SoC-Hysterese (`SI1` /`SA1`)                                                                       |
+| `heads.<n>.battery.*` | SoC (`SC`), Батарейная мощность (`BP`), SoC je Pack (`SC0` –`SC5`), Пакеты онлайн (`ON`), SoC-Hysterese (`SI1` /`SA1`, schreibbar)                                                           |
 | `heads.<n>.grid.*`    | Netzleistung (`GP`), Tages-Lade-/Einspeiseenergie (`GD1` /`GD2`)                                                                                                                                |
 | `heads.<n>.load.*`    | Lastleistung (`LP`), Tages-Inselbetriebs-Lastenergie (`LD`)                                                                                                                                     |
 | `heads.<n>.pv.*`      | PV gesamt (`PV`), Tages-PV-Erzeugungsenergie (`PD`) и Leistung/Strom/Spannung je MPPT (`mppt1` –`mppt4`)                                                                                       |
 | `heads.<n>.system.*`  | Gesamt-Ein-/Ausgangsleistung (`IW` /`OP`)                                                                                                                                                        |
 | `heads.<n>.device.*`  | Тип/Модель/Серийный номер/Статус; `network.*` (IP-адрес, порт, беспроводная сеть); `firmware.*` (`ES` /`AS` /`DS` Программное обеспечение, `EH` /`AH` /`DH` Аппаратное обеспечение, `BS0` –`BS5` BMS) |
 | `heads.<n>.meter.*`   | Status des externen Zählers (`MS`)                                                                                                                                                               |
-| `heads.<n>.ups.*`     | USV-Modus/Netzladen/Обход (`UO` /`UG` /`FP`)                                                                                                                                                     |
+| `heads.<n>.ups.*`     | USV-Modus / Netzladen / Байпас (`UO` /`UG` /`FP`)                                                                                                                                                |
 | `heads.<n>.fault.*`   | Битовые маски Фелера (`TF` /`EF` /`DF1` /`DF2` /`AF1` /`AF2` /`BF`) — nur im aktiven Fehlerfall befüllt                                                                                          |
 | `heads.<n>.control.*` | alle **schreibbaren** Felder (siehe unten)                                                                                                                                                        |
 | `heads.<n>.info.*`    | про Копф `online`, `lastError`, `rawResponse` (полная версия) `/read` (Рохантворт)                                                                                                                  |
@@ -150,30 +152,30 @@ _Geräte-Eigenregelung_ (Modus A, **nur Einzelkopf** ) — Фельдер:
 
 Согласно ioBroker-Konvention, все ваши действия будут проходить под ними `control.*` Джедес Копфес. Das die thematische Zuordnung verflacht, zeigt diese Tabelle, wozu jedes Feld gehört:
 
-| Объект        | Поле            | Gehört zu  | Описание                                                                                |
-| ------------- | --------------- | ---------- | --------------------------------------------------------------------------------------- |
-| `control.GS`  | ГС              | сетка      | Netzleistungs-Sollwert (`>0` Einspeisung /`<0` Netzladen)                               |
-| `control.IS`  | ЯВЛЯЕТСЯ        | сетка      | Макс. Netzeinspeisung / WR-Ausgangsgrenze                                               |
-| `control.MG`  | МГ              | сетка      | Макс. netzgekoppelte Ausgangsleistung                                                   |
-| `control.SI`  | СИ              | батарея    | Мин. Enlade-SoC (Netzbetrieb)                                                           |
-| `control.SA`  | ЮАР             | батарея    | Max. Lade-SoC (Netzbetrieb)                                                             |
-| `control.SO`  | ТАК             | батарея    | Мин. Энтладе-SoC (Inselbetrieb)                                                         |
-| `control.MM`  | ММ              | режим      | Lokale Nulleinspeisung / Eigenverbrauch (gekoppelt mit `MD`)                            |
-| `control.MD`  | МД              | метр       | Zählerverbindung как JSON (используется с `MM`)                                         |
-| `control.LM`  | ЛМ              | режим      | Lokaler Modus (⚠️`1` Blockiert Cloud/App-Steuerung)                                     |
-| `control.LFB` | LFB             | режим      | Lastprioritäts-Schalter                                                                 |
-| `control.LPS` | ЛПС             | режим      | Инселаусганг-Шальтер                                                                    |
-| `control.PM`  | Премьер-министр | режим      | Параллельный режим                                                                      |
-| `control.TZ`  | TZ              | устройство | POSIX-Zeitzone                                                                          |
-| `control.RT`  | РТ              | устройство | Gerät neu starten (Кнопка — ein Soft-Restart, **kein** vollständiger Stromlos-Neustart) |
+| Объект        | Поле            | Gehört zu  | Описание                                                                                 |
+| ------------- | --------------- | ---------- | ---------------------------------------------------------------------------------------- |
+| `control.GS`  | ГС              | сетка      | Netzleistungs-Sollwert (`>0` Einspeisung /`<0` Netzladen)                                |
+| `control.IS`  | ЯВЛЯЕТСЯ        | сетка      | Вексельрихтер-Аусгангсгренце (англ. `1` …`2400` W bei beiden Modellen)                    |
+| `control.MG`  | МГ              | сетка      | Макс. netzgekoppelte Ausgangsleistung (`1` …`800` W beim 500, `1` …`2400` W beim 500 PRO) |
+| `control.SI`  | СИ              | батарея    | Мин. Enlade-SoC (Netzbetrieb)                                                            |
+| `control.SA`  | ЮАР             | батарея    | Max. Lade-SoC (Netzbetrieb)                                                              |
+| `control.SO`  | ТАК             | батарея    | Мин. Энтладе-SoC (Inselbetrieb)                                                          |
+| `control.MM`  | ММ              | режим      | Lokale Nulleinspeisung / Eigenverbrauch (gekoppelt mit `MD`)                             |
+| `control.MD`  | МД              | метр       | Zählerverbindung как JSON (используется с `MM`)                                          |
+| `control.LM`  | ЛМ              | режим      | Lokaler Modus (⚠️`1` Blockiert Cloud/App-Steuerung)                                      |
+| `control.LFB` | ЛФБ             | режим      | Lastprioritäts-Schalter                                                                  |
+| `control.LPS` | ЛПС             | режим      | Инселаусганг-Шальтер                                                                     |
+| `control.PM`  | Премьер-министр | режим      | Параллельный режим                                                                       |
+| `control.TZ`  | TZ              | устройство | POSIX-Zeitzone                                                                           |
+| `control.RT`  | РТ              | устройство | Gerät neu starten (Кнопка — ein Soft-Restart, **kein** vollständiger Stromlos-Neustart)  |
 
 > Совет: Im ioBroker-Admin может сделать список объектов, который вы хотите найти, - _пометить_ фильтр и все Steuerfelder auf einmal zu finden.
 
-`device.PK` wird aus `DevType` abgeleitet, wenn die Firmware `PK` nicht mehr Liefert. Резервье Фельдер (`PT`, `SI1`, `SA1`) доступен только для чтения. Vom Hersteller entfernte (`UP`) или reine Doku-Artefakte (`WT`, `BN`) werden nicht angelegt; alles Ungemappte steht weiterhin in `heads.<n>.info.rawResponse`.
+`device.PK` wird aus `DevType` abgeleitet, wenn die Firmware `PK` nicht mehr liefert. `SI1` /`SA1` синд шрейббар (SoC-гистерезис, стандарт 5 %); weiterhin reservierte Felder (`PT`) доступен только для чтения. Vom Hersteller entfernte (`UP`) или reine Doku-Artefakte (`WT`, `BN`) werden nicht angelegt; alles Ungemappte steht weiterhin in `heads.<n>.info.rawResponse`.
 
-## Мануэль Целер-/Модус-Фельдер (ММ/МД)
+## Мануэль Целер-/Модус-Фельдер (MM / MD)
 
-`MM`/`MD` Sind die geräteeeigene zählerbasierte Eigenverbrauchsregelung eines Kopfes. Когда вы используете **Steuermodus** , убедитесь, что адаптер установлен для вас (Modus A setzt). `MM=1` +`MD` auf dem einzelnen Kopf; Модус Берцвингт `MM=0` auf jedem Kopf), и sein Guard setzt das modusgerechte `MM` beim nächsten Poll wieder — eine manuelle Änderung in einem Steuermodus ist также nur vorübergehend.
+`MM` /`MD` Sind die geräteeeigene zählerbasierte Eigenverbrauchsregelung eines Kopfes. Когда вы используете **Steuermodus** , убедитесь, что адаптер установлен для вас (Modus A setzt). `MM=1` +`MD` auf dem einzelnen Kopf; Модус Берцвингт `MM=0` auf jedem Kopf), и sein Guard setzt das modusgerechte `MM` beim nächsten Poll wieder — eine manuelle Änderung in einem Steuermodus ist также nur vorübergehend.
 
 Die Roh-Felder bleiben für Experten-/Handbetrieb schreibbar (z.B. im _Aus_ -Modus). Sie folgen der offiziellen Kopplung: `MM` ausschalten löscht auch `MD`, und das Schreiben von `MD` актививерт `MM` (nicht-leer) bzw. deaktiviert es (ухмыляясь). умереть `MD` -JSON-Formate der vier unterstützten Zähler stehen в локальном API-Referenz des Geräts; Im Modus _Geräte-Eigenregelung_ baut der Adaptor sie aus Zählertyp und SN/IP für dich.
 
@@ -184,12 +186,13 @@ Die Roh-Felder bleiben für Experten-/Handbetrieb schreibbar (z.B. im _Aus_ -Mod
 - Балансировка дополнительных пакетов используется для BMS Jedes Kopfes — der Adaptor steuert nur die Gesamtleistung des Kopfes und Nutzt `battery.SC` (gesamt) zur Regelung; Einzelne Packs действительно бесполезен.
 - Tagesenergiezähler (`PD` /`GD1` /`GD2` /`LD`) sind rohe **Wh** , nicht kWh. `PD` benötigt Steuermodul-Прошивка `ES 1.1.14` (öffentlich als „1.1.4" vermarktet — die öffentliche Zählweise weicht von der internen in `ES` аб); Если прошивка не используется, der State bleibt dann leer.
 - Die Tageszähler werden vom Gerät beim Neustart zurückgesetzt — ein Firmwareupdate mitten am Tag setzt sie также auf 0.
-- `MD` унд `TZ` Если вы хотите, чтобы ваша работа не была гарантированной, вы можете быть уверены в том, что это будет лучше всего, если вы не получите эха.
-- **PV-Eingänge не подлежит проверке с оборудованием** (die Referenzanlage läuft ohne PV-Module, daher sind `PV1–4` погрузиться 0). Интеграция и регулирование с PV-agnostisch и volllständig, а также PV-Firmware-Edge-Cases (z. B. Akku voll + PV-Überschuss, USV-/Bypass-Felder `FP` /`UG`) sind unverifiziert — Отзыв будет отправлен.
+- `MD` унд `TZ` Если вы хотите, чтобы ваша работа не была гарантированной, вы можете быть уверены в том, что это будет лучше всего, если вы не получите эхо.
+- **Ein Harter Ausfall des ioBroker-Hosts lässt Den Letzten Sollwert Laufen.** Die Köpfe haben keinen eigenen Sollwert-Timeout: Das zuletzt Geschriebene `GS` вы будете получать больше удовольствия от использования SoC-Grenze Greeft. При нормальной остановке, Neustart или Moduswechsel ist abgedeckt — der Neutralisiert адаптера die Köpfe und merkt sich, Falls das nicht gelingt (`info.gsOwned`), um es beim nächsten Start nachzuholen. Ein Stromausfall или ein hart bedeter Prozess lässt sich so nicht abfangen.
+- **PV-Eingänge не подлежит проверке с оборудованием** (die Referenzanlage läuft ohne PV-Module, daher sind `PV1–4` погрузиться 0). Интеграция и регулирование с PV-agnostisch и volllständig, а также PV-Firmware-Edge-Cases (z. B. Akku voll + PV-Überschuss, USV-/Bypass-Felder `FP` /`UG`) sind unverifiziert — Отзыв будет отправлен. Strom und Spannung je MPPT werden als Zehntel gelesen und mit 0,1 skaliert, то есть в дер Steller-Integration; Zeigt eine echte PV-Anlage sie um den Faktor zehn daneben, ist das die Stelle zum Nachsehen.
 
 ## Fehlerbehebung
 
-- ** `info.connection` bleibt `false` / keine Daten:** stelle zuerst sicher, dass der **lokale Modus (`LM=1`)** am Gerät aktiviert ist — ohne ihn Lifert die lokale API keine Werte. Прюфе Данн, об. `http://<geräte-ip>/read` vom ioBroker-Host доступен (с браузером или `curl` тесты). Pro Kopf показать `heads.<n>.info.online` унд `heads.<n>.info.lastError`, welcher ausfällt.
+- ** `info.connection` bleibt `false` / keine Daten:** stelle zuerst sicher, dass der **lokale Modus (`LM=1`)** am Gerät aktiviert ist — ohne ihn Lifert die lokale API keine Werte. Прюфе Данн, об. `http://<geräte-ip>/read` vom ioBroker-Host доступен (с браузером или `curl` тестировать). Pro Kopf показать `heads.<n>.info.online` унд `heads.<n>.info.lastError`, welcher ausfällt.
 - **Es wird nichts gesteuert:** prüfe den **Steuermodus** — _Aus_ schreibt nie. Im _Adaptor-Regler_ einen gültigen **Quell-State Netzleistung** setzen; в _Geräte-Eigenregelung_ einen unterstützten **Zählertyp** und **SN/IP** .
 - **Gerät ignoriert `GS` / Akku reagiert nicht:** ein Kopf führt ein geschriebenes `GS` нур бей `MM=0` аус. Im _Adaptor-Regler_ -Modus erzwingt der Adaptor das; Венн Ду `GS` Мануэль Шрайбст, stelle sicher, dass kein Zähler gebunden ist (`MM=0`). Mit gebundenem Zähler (`MM=1`) regelt das Gerät selbst und ignoriert `GS`.
 - **Der Regler ist zu langsam / erreicht nie exakt 0:** siehe _Regelverhalten, Genauigkeit und Grenzen_ — die Messkette Bringt \~1–3 с Latenz mit und der Zähler Misst mit Endlicher Genauigkeit, ein Band von ±10–20 Вт um das Ziel ist das phykalische Оптимально. Für die schnellste Reaktion das _Präzise_ -Profil nutzen (Verstärkung 0,8–1,0, Totband 0, мин. интервал 1000 мс); Если это не так, установите **Ziel-Netzleistung** auf einen kleinen позитивный Bezug.
@@ -197,7 +200,7 @@ Die Roh-Felder bleiben für Experten-/Handbetrieb schreibbar (z.B. im _Aus_ -Mod
 - **Zwei Regler kämpfen um den Akku:** nur einen laufen lassen. Использование адаптера `MM` für den gewählten Modus — деактивация внешнего режима `GS` -Скрипт (или созданный `MM` mit anderem Zähler), bevor du einen Steuermodus nutzt.
 - **Manche States bleiben leer (`0` /`""`):** ein Gerät Liefert nur die Felder, die seine Firmware/Topologie tatsächlich bereitstellt (z. B. weitere Packs `SC2` –`SC5` или Fehler-Bitmasks nur im Fehlerfall). Die komplette Rohantwort steht immer in `heads.<n>.info.rawResponse`.
 - **Nach dem Update von einer Einzelkopf-Version sieht der Baum falsch aus:** der Objektbaum wurde в версии 0.2.0 auf `heads.<n>.*` умгестеллт. Адаптер обеспечивает автоматический запуск объекта; bleibt doch etwas übrig, die alten Objekte löschen (oder die Instanz neu anlegen).
-- **Время от времени зависало время ожидания / время ожидания Ping:** модуль WLAN в момент отключения отключался и был установлен в Металлгехаусе непосредственно через антенну. Прюфе `heads.<n>.device.network.WR` (Стартовый сигнал в дБ) — значение минус 75 дБ при отключенном сигнале. Gestapelte Geräte trennen und das **Abfrageintervall** auf 10–15 s erhöhen (die Regelgüte leidet kaum: der Regler regiert auf die Netzleistungsquelle, nicht auf diese Abfrage). Um den Adaptor auszuschließen: Instant stoppen und den Kopf einige Minuten anpingen — bleiben die Ausfälle, Liegt es nicht an der Abfrage. Der Adaptor selbst sendet ein `/read` pro Kopf und Intervall, fragt mehrere Köpfe zeitversetzt ab, schließt jede Verbindung nach Gebrauch und bremst nach fehlgeschlagenen Abfragen autotisch ab.
+- **Время от времени зависало время ожидания/таймауты Ping:** модуль WLAN в момент отключения отключался и был установлен в Металлгехаусе непосредственно через антенну. Прюфе `heads.<n>.device.network.WR` (Стартовый сигнал в дБ) — значение минус 75 дБ при отключенном сигнале. Gestapelte Geräte trennen und das **Abfrageintervall** auf 10–15 s erhöhen (die Regelgüte leidet kaum: der Regler regiert auf die Netzleistungsquelle, nicht auf diese Abfrage). Um den Adaptor auszuschließen: Instant stoppen und den Kopf einige Minuten anpingen — bleiben die Ausfälle, Liegt es nicht an der Abfrage. Der Adaptor selbst sendet ein `/read` pro Kopf und Intervall, fragt mehrere Köpfe zeitversetzt ab, schließt jede Verbindung nach Gebrauch und bremst nach fehlgeschlagenen Abfragen autotisch ab.
 
 ## Änderungshistorie (Журнал изменений)
 
@@ -207,7 +210,7 @@ Die Änderungshistorie wird im Haupt- [README.md](/#/adapters/sunenergyxt500#cha
 
 Лицензия MIT
 
-Авторские права (c) 2026 Маркус Бортель (Creekhail)
+Авторские права (c) 2026 Маркус Бортель (Creekhail) <marcus@bortel.de>
 
 Die Erlaubnis wird hiermit unentgeltlich jeder Person erteilt, die eine Kopie dieser Software und der zugehörigen Dokumentationsdateien («Программное обеспечение») erhält, mit der Software uningeschränkt zu Handeln, einschließlich und ohne Einschränkung der Rechte, sie zu utzen, zu kopieren, zu ändern, zusammenzuführen, zu veröffentlichen, zu verbreiten, zu unterlizenzieren und/oder zu verkaufen, und Personen, denen die Software überlassen wird, dies zu gestatten, unter den folgenden Bedingungen:
 

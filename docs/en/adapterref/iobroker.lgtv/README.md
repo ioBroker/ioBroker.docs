@@ -17,7 +17,7 @@ Remote controlling an LG WebOS SmartTV (2013 models and higher) from [ioBroker](
 
 ---
 
-## Usage:
+## Usage: 
 
 Install the adapter through the ioBroker admin interface.
 In the adapter config input the ip address of your LG WebOS TV.

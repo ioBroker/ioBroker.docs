@@ -25,6 +25,10 @@ Maximum number of individual modules:
    A residential ventilation unit of the CWL Excellent series can also be evaluated and operated with the ISM8i.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 1.7.0 (2023-01-26)
 * (fred0815) added missing ISM8i states
 * (fred0815) optimized channel object naming

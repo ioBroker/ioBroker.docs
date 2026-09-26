@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lgtv/README.md
 title: ioBroker.lgtv
-hash: jYMPqusiwKH5s9tU/srLYj5JF0oLHaYXgGuAbDpiX8s=
+hash: 4F8gdOURNwbc2lrjtWPVoXlC6QnCgmTRow4DWnY94kw=
 ---
 ![Logo](../../../en/adapterref/iobroker.lgtv/admin/lgtv.png)
 
@@ -205,7 +205,7 @@ Installieren Sie diesen Adapter mithilfe der ioBroker-Repositories.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 3.0.4 (2026-09-07)
+### 3.0.5 (2026-09-10)
 - (GermanBluefox) The instance settings have a second tab with a remote control, so the TV can be operated directly from the admin
 - (krobipd) `states.scroll` and `states.drag` no longer ignore a movement whose horizontal or vertical part is zero, so plain vertical scrolling (`0,5`) works
 - (krobipd) The configuration dialog is fully translated in all eleven languages; the minimum-value hints no longer show up as untranslated raw text
@@ -242,8 +242,6 @@ Installieren Sie diesen Adapter mithilfe der ioBroker-Repositories.
 - (GermanBluefox) The admin translations moved from `admin/i18n/<lang>/translations.json` to the flat `admin/i18n/<lang>.json`
 - (GermanBluefox) The unit tests use `node:assert` instead of `chai`
 - (GermanBluefox) Added a "Control TV" remote-control widget for the `ioBroker.devices` adapter
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.lgtv/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

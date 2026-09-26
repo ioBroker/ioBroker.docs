@@ -118,10 +118,12 @@ on({id: 'sonus.0.data.detected', change: 'any'), obj => {
 ### 0.1.0 (2019-05-20)
 * (bluefox) initial release
 
+[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.sonus/blob/master/CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
-Copyright (c) 2019 bluefox
+Copyright (c) 2019-2026 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

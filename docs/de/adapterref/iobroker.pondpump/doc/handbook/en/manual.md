@@ -4,7 +4,7 @@ chapters: {"pages":{"en/adapterref/iobroker.pondpump/README.md":{"title":{"en":"
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pondpump/doc/handbook/en/manual.md
-hash: tSrzkH4jdde5qzZR7jBSw0AyFX7ES5BjhchCeF1RyCM=
+hash: rYGo9Id4/OEawkyzI5nQR+oQFlSu5l7FRPS2n1EFu78=
 ---
 <div class="cover">
   <img src="../assets/logo.png" alt="pondpump logo" />
@@ -49,16 +49,16 @@ Jede Pumpe behält den Namen, den Sie ihr in der OASE-App gegeben haben (z. B. _
 
 ## 3. Installation des Adapters
 
-Der Adapter wird auf npm veröffentlicht al&#x73;**`iobroker.pondpump`** Bis es Teil des offiziellen ioBroker-Repositorys ist, installieren Sie es bitte aus dem Quellcode:
+Der Adapter wird auf npm veröffentlicht al&#x73;** `iobroker.pondpump` ** Bis es Teil des offiziellen ioBroker-Repositorys ist, installieren Sie es bitte aus dem Quellcode:
 
 1. Öffnen Sie die ioBroker- **Admin-** Benutzeroberfläche.
 2. Gehen Sie zu **Adapter** und schalten Sie **den Expertenmodus** ein (das Zauberhut-Symbol, oben rechts).
 3. Klicken Sie auf das **Katzen-/Oktokatzen-Symbol „Von eigener URL installieren“** .
 4. Geben Sie eines der folgenden Felder ein:
-   - der npm-Paketnam&#x65;**`iobroker.pondpump`** , oder
+   - der npm-Paketnam&#x65;** `iobroker.pondpump` ** , oder
    - die GitHub-URL eines Release-Tarballs, falls Ihnen einer mitgeteilt wurde.
 5. Bestätigen Sie die Eingabe und warten Sie, bis der Adapter in der Liste erscheint.
-6. Klicken Sie auf das **+** auf der Kachel „Teichpumpe“, um eine **Instanz** zu erstellen (`pondpump.0` ).
+6. Klicken Sie auf das **+** auf der Kachel „Teichpumpe“, um eine **Instanz** zu erstellen (`pondpump.0`).
 
 Die Instanzkonfiguration öffnet sich automatisch. Lassen Sie sie einen Moment in Ruhe – wir benötigen zuerst ein Aktualisierungstoken (nächstes Kapitel).
 
@@ -83,12 +83,12 @@ mitmproxy ist ein kleines, kostenloses Programm. Wir verwenden die Browserversio
 
 1. Öffnen Sie Ihren Webbrowser und gehen Sie zu **<https://mitmproxy.org/downloads/>** .
 
-2. Laden Sie das **Windows-** Paket herunter (die neueste Version – normalerweise ein&#x65;**`.msi`** Installer).
+2. Laden Sie das **Windows-** Paket herunter (die neueste Version – normalerweise ein&#x65;** `.msi` ** Installer).
 
 3. Öffnen Sie die heruntergeladene Datei und klicken Sie sich durch das Installationsprogramm: **Weiter → Weiter → Installieren → Fertigstellen** .
 
 4. Öffnen Sie nun **PowerShell** :
-   - Drücken Sie die **Windows-Taste** und geben Sie Folgendes ein:**`PowerShell`** und klicken Sie in der Liste **auf Windows PowerShell** .
+   - Drücken Sie die **Windows-Taste** und geben Sie Folgendes ein:** `PowerShell` ** und klicken Sie in der Liste **auf Windows PowerShell** .
    - Es erscheint ein dunkles Fenster mit einem blinkenden Textcursor – dies ist die Befehlszeile.
 
 5. Geben Sie diesen Befehl ein und drücken Sie **die Eingabetaste** (dadurch wird der Proxy-Port auf **8080** festgelegt):
@@ -101,18 +101,18 @@ mitmproxy ist ein kleines, kostenloses Programm. Wir verwenden die Browserversio
 
 7. **Lassen Sie dieses PowerShell-Fenster die ganze Zeit geöffnet** – durch Schließen wird mitmproxy beendet. Um es später zu beenden, klicken Sie auf das Fenster und drücken Sie **Strg + C.**
 
-> **"mitmweb wird nicht erkannt"?** Schließen Sie PowerShell und öffnen Sie sie erneut (damit das neu installierte Programm erkannt wird). Wenn Sie die Datei heruntergeladen haben, ...**`.zip`** Verwenden Sie anstelle des Installationsprogramms die Versionsnummer, entpacken Sie diese und geben Sie dann in PowerShell Folgendes ein:`cd ` gefolgt vom Ordnerpfad und führen Sie die folgenden Schritte aus:**`.\mitmweb.exe`** Die
+> **"mitmweb wird nicht erkannt"?** Schließen Sie PowerShell und öffnen Sie sie erneut (damit das neu installierte Programm erkannt wird). Wenn Sie die Datei heruntergeladen haben, ...** `.zip` ** Verwenden Sie anstelle des Installationsprogramms die Versionsnummer, entpacken Sie diese und geben Sie dann in PowerShell Folgendes ein: `cd ` gefolgt vom Ordnerpfad und führen Sie die folgenden Schritte aus:** `.\mitmweb.exe` ** Die
 
 #### macOS
 
-1. **Terminal** öffnen ( **Cmd + Leertaste** drücken, eingeben)**`Terminal`** (, drücken Sie die Eingabetaste).
-2. Am einfachsten geht es mit [Homebrew](https://brew.sh) : Ausführen`brew install mitmproxy` (Kein Homebrew installiert? Laden Sie die macOS-Version von **<https://mitmproxy.org/downloads/>** herunter und entpacken Sie sie.)
-3. Laufe&#x6E;**`mitmweb --listen-port 8080`** Ein Browser-Tab öffnet sich unter **<http://127.0.0.1:8081>** .
+1. **Terminal** öffnen ( **Cmd + Leertaste** drücken, eingeben)** `Terminal` ** (Eingabetaste drücken).
+2. Am einfachsten geht es mit [Homebrew](https://brew.sh) : Ausführen `brew install mitmproxy` (Kein Homebrew installiert? Laden Sie die macOS-Version von **<https://mitmproxy.org/downloads/>** herunter und entpacken Sie sie.)
+3. Laufe&#x6E;** `mitmweb --listen-port 8080` ** Ein Browser-Tab öffnet sich unter **<http://127.0.0.1:8081>** .
 
 #### Linux
 
-1. Installieren Sie es mi&#x74;**`pipx install mitmproxy`** (oder das Paket Ihrer Distribution oder die Binärdateien von der Downloadseite).
-2. Laufe&#x6E;**`mitmweb --listen-port 8080`** in einem Terminal und öffnen Sie **<http://127.0.0.1:8081>** .
+1. Installieren Sie es mi&#x74;** `pipx install mitmproxy` ** (oder das Paket Ihrer Distribution oder die Binärdateien von der Downloadseite).
+2. Laufe&#x6E;** `mitmweb --listen-port 8080` ** in einem Terminal und öffnen Sie **<http://127.0.0.1:8081>** .
 
 In jedem Fall gilt: Die Browserseite auf **Port 8081** ist das Kontrollfeld, das Sie beobachten werden, und **Port 8080** ist der Port, an den Ihr Telefon seinen Datenverkehr sendet (nächster Schritt).
 
@@ -120,7 +120,7 @@ In jedem Fall gilt: Die Browserseite auf **Port 8081** ist das Kontrollfeld, das
 
 Ihr Telefon und Ihr Computer müssen sich im **selben WLAN-Netzwerk** befinden.
 
-1. Ermitteln Sie **die lokale IP-Adresse Ihres Computers** (z. B.`192.168.1.20` Windows`ipconfig` macOS/Linux`ip addr` /`ifconfig` Die
+1. Ermitteln Sie **die lokale IP-Adresse Ihres Computers** (z. B. `192.168.1.20` Windows `ipconfig` macOS/Linux `ip addr` /`ifconfig` Die
 2. Auf dem Telefon: **WLAN-Einstellungen → Ihr Netzwerk → Proxy → Manuell** und geben Sie **Server = die IP-Adresse Ihres Computers** und **Port = 8080** ein. Speichern.
 3. Öffnen Sie den Browser Ihres Telefons und besuchen Sie **<http://mitm.it>** . Wählen Sie Ihr Telefonsystem aus, **installieren Sie** das angebotene Zertifikat **und vertrauen Sie ihm** .
 
@@ -141,24 +141,24 @@ Ihr Telefon und Ihr Computer müssen sich im **selben WLAN-Netzwerk** befinden.
    | ---------------------- | ----------------------------------------- |
    | `~u token`             | nur Anfragen, deren URL "token" enthält   |
    | `~d account.oase.com`  | nur Anfragen an den OASE-Anmeldeserver    |
-   | `~b refresh_token`     | nur Anfragen, deren Inhalt`refresh_token` |
+   | `~b refresh_token`     | nur Anfragen, deren Inhalt `refresh_token` |
 
-4. Klicken Sie auf die **POST-** Anfrage, die mit folgendem endet:**`/oauth2/v2.0/token`** Die
+4. Klicken Sie auf die **POST-** Anfrage, die mit folgendem endet:** `/oauth2/v2.0/token` ** Die
 
-5. Öffnen Sie den Reiter **„Anfrage“** und sehen Sie sich den Formularinhalt an.**`refresh_token=`** und kopiere den nachfolgenden Long-Wert (bis zum nächsten).`&` ).
-   - **Zusätzlicher Tipp:** Drücke&#x6E;**`/`** in mitmweb und suchen Sie nach`refresh_token` um es sofort hervorzuheben.
+5. Öffnen Sie den Reiter **„Anfrage“** und sehen Sie sich den Formularinhalt an. Suchen Si&#x65;** `refresh_token=` ** und kopiere den nachfolgenden Long-Wert (bis zum nächsten). `&`).
+   - **Zusätzlicher Tipp:** Drücke&#x6E;** `/` ** in mitmweb und suchen Sie nach `refresh_token` um es sofort hervorzuheben.
 
-6. Fügen Sie diesen Wert in die Adaptereinstellung **„Cloud-Refresh-Token“** (Kapitel 5) ein.
+6. Fügen Sie diesen Wert in die Adaptereinstellung **„Cloud-Refresh-Token“** ein (Kapitel 5).
 
 > Das Aktualisierungstoken ist lang (Hunderte von Zeichen) – kopieren Sie es **vollständig** . Behandeln Sie es wie ein Passwort: Geben Sie es niemals weiter. Sie können es jederzeit widerrufen, indem Sie sich in der OASE-App überall abmelden. **Ihr Kontopasswort wird niemals im Adapter eingegeben.**
 
 ### 4.4 (Erweitert) Gerätepasswort für den lokalen Modus ermitteln
 
-Nur erforderlich, wenn Sie den Verbindungsmodus verwenden möchten.**`local`** (Kapitel 8). Während mitmproxy noch läuft:
+Nur erforderlich, wenn Sie den Verbindungsmodus verwenden möchten.** `local` ** (Kapitel 8). Während mitmproxy noch läuft:
 
 1. Öffne in der App deinen Teich, damit die Pumpen geladen werden (dadurch wird der Inventar-Download ausgelöst).
-2. Geben Sie im Filterfeld von mitmweb Folgendes ein:**`~u Inventory`** um die Anfrage anzuzeige&#x6E;**`/User/Inventory`** Die
-3. Klicken Sie darauf und öffnen Sie den Tab **„Antwort“** . Suchen Sie in der JSON-Datei die **benutzerdefinierten Attribute** der Pumpe; den Eintrag mit **`Id`= 101** enthält das **Gerätepasswort** – einen **64-stelligen** Wert (er kann Folgendes enthalten):`\uXXXX` Fluchtsequenzen, das ist in Ordnung).
+2. Geben Sie im Filterfeld von mitmweb Folgendes ein:** `~u Inventory` ** um die Anfrage anzuzeige&#x6E;** `/User/Inventory` ** Die
+3. Klicken Sie darauf und öffnen Sie den Tab **„Antwort“** . Suchen Sie in der JSON-Datei die **benutzerdefinierten Attribute** der Pumpe; den Eintrag mit ** `Id`= 101** enthält das **Gerätepasswort** – einen **64-stelligen** Wert (er kann Folgendes enthalten): `\uXXXX` Fluchtsequenzen, das ist in Ordnung).
 4. Kopieren Sie diesen Wert in die Adaptereinstellung **„Gerätepasswort“** . Der Adapter dekodiert ihn und verwendet ihn für den lokalen TLS-Handshake.
 
 > **Falls mitm.it nicht geladen wird:** Überprüfen Sie, ob der Proxy Ihres Telefons auf die IP-Adresse Ihres Computers auf Port 8080 verweist und ob der Datenverkehr funktioniert. Unter iOS müssen Sie das Zertifikat **installieren** _und_ **ihm vertrauen** (zwei separate Schritte).
@@ -173,7 +173,7 @@ Nur erforderlich, wenn Sie den Verbindungsmodus verwenden möchten.**`local`** (
 
 | Einstellung          | Was einzutragen ist                                                                                                   |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| **Verbindungsmodus** | `cloud` für den Internetweg,`local` für den internen LAN-Pfad (Kapitel 8). Die beiden schließen sich gegenseitig aus. |
+| **Verbindungsmodus** | `cloud` für den Internetweg, `local` für den internen LAN-Pfad (Kapitel 8). Die beiden schließen sich gegenseitig aus. |
 | **Umfrageintervall** | Wie oft (in Sekunden) der Adapter seinen Status abfragt. Standardwert: **30.** Mindestwert: 5.                        |
 
 ### Wolke
@@ -183,7 +183,7 @@ Nur erforderlich, wenn Sie den Verbindungsmodus verwenden möchten.**`local`** (
 | **Cloud-Aktualisierungstoken**                         | Das Token aus Kapitel 4 (verschlüsselt gespeichert).                                             |
 | _Erweitert (Basis-URL, Token-URL, Client-ID, Bereich)_ | Die Standardeinstellungen bleiben unverändert, es sei denn, OASE ändert die Cloud-Einstellungen. |
 
-### Lokal (nur für`local` )
+### Lokal (nur für `local`)
 
 | Einstellung             | Was einzutragen ist                                                                                          |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------ |
@@ -191,13 +191,13 @@ Nur erforderlich, wenn Sie den Verbindungsmodus verwenden möchten.**`local`** (
 | **Gerätepasswort**      | Das 64-stellige Gerätepasswort (fortgeschritten; siehe Kapitel 8).                                           |
 | **Adresse/Port binden** | Die ioBroker-Hostadresse und der TCP-Port, zu dem der Controller eine Verbindung herstellt (Standard: 5999). |
 
-Klicken Sie auf **Speichern** . Die Instanz startet und nach einigen Sekunden…**`info.connection`** sollte **wahr** werden.
+Klicken Sie auf **Speichern** . Die Instanz startet und nach einigen Sekunden…** `info.connection` ** sollte **wahr** werden.
 
 ---
 
 ## 6. Die vom Adapter erstellten Objekte
 
-Nach der ersten erfolgreichen Umfrage finden Sie diese unte&#x72;**`pondpump.0`** :
+Nach der ersten erfolgreichen Umfrage finden Sie diese unte&#x72;** `pondpump.0` ** :
 
 ```
 pondpump.0
@@ -224,11 +224,11 @@ pondpump.0
 
 ## 7. Pumpen steuern und ablesen
 
-**Pumpe ein-/ausschalten** – einstellen`pumps.<deviceNumber>.control.on` Zu`true` /`false` Die
+**Pumpe ein-/ausschalten** – einstellen `pumps.<deviceNumber>.control.on` Zu `true` /`false` Die
 
-**Geschwindigkeit einstellen** – einen Prozentsatz (0–100) eingeben`pumps.<deviceNumber>.control.speed` Der Adapter sendet den Befehl, bestätigt ihn und liest die Pumpe kurz darauf erneut aus, sodass die Zustände die Realität widerspiegeln.
+**Geschwindigkeit einstellen** – einen Prozentsatz (0–100) eingeben `pumps.<deviceNumber>.control.speed` Der Adapter sendet den Befehl, bestätigt ihn und liest die Pumpe kurz darauf erneut aus, sodass die Zustände die Realität widerspiegeln.
 
-**Telemetriedaten lesen** – die Werte unter`telemetry` Die Daten werden bei jeder Abfrage live aktualisiert (schnelle Werte wie Leistung und Drehzahl in jedem Zyklus, langsamere Werte wie Temperatur alle paar Zyklen, um die Cloud-Funktionalität zu gewährleisten). Sie können die Daten in Visualisierungen, Diagrammen oder Skripten verwenden.
+**Telemetriedaten lesen** – die Werte unter `telemetry` Die Daten werden bei jeder Abfrage live aktualisiert (schnelle Werte wie Leistung und Drehzahl in jedem Zyklus, langsamere Werte wie Temperatur alle paar Zyklen, um die Cloud-Funktionalität zu gewährleisten). Sie können die Daten in Visualisierungen, Diagrammen oder Skripten verwenden.
 
 Beispiel (JavaScript-Adapter):
 
@@ -246,7 +246,7 @@ on('pondpump.0.pumps.1234567.telemetry.power', (obj) => {
 
 ## 8. Lokaler Modus (hauseigenes LAN)
 
-Der Adapter kann **vollständig über Ihr lokales Netzwerk** , ohne Internetverbindung, betrieben werden. Stellen Sie **den Verbindungsmodus** auf ein.**`local`** und das wird es auch:
+Der Adapter kann **vollständig über Ihr lokales Netzwerk** , ohne Internetverbindung, betrieben werden. Stellen Sie **den Verbindungsmodus** auf ein.** `local` ** und das wird es auch:
 
 - Starten Sie einen kleinen **TLS-Server** und senden Sie ein **UDP-Wake-** Paket an den Controller.
 - Der Controller **stellt die Verbindung über TLS wieder her** und authentifiziert sich mit dem **Gerätepasswort** .
@@ -258,9 +258,9 @@ Der Adapter kann **vollständig über Ihr lokales Netzwerk** , ohne Internetverb
 - **Gerätepasswort** – der 64-stellige Wert (siehe Kapitel 4.4 für Informationen zum Auslesen).
 - Ein offener Netzwerkpfad muss vorhanden sein: **UDP 5959** zum Controller und **TCP 5999** zurück zum ioBroker. Befinden sich Controller und ioBroker in unterschiedlichen Subnetzen/VLANs, müssen diese beiden Richtungen zugelassen werden.
 
-Bitte hinterlassen Sie **die Bind-Adresse** bei`0.0.0.0` — Der Adapter erkennt automatisch die Hostadresse, mit der der Controller eine Verbindung herstellen soll.
+Bitte hinterlassen Sie **die Bind-Adresse** bei `0.0.0.0` — Der Adapter erkennt automatisch die Hostadresse, mit der der Controller eine Verbindung herstellen soll.
 
-> **Hinweis:** Der aktuelle **Drehzahlsollwert** (der Prozentwert) wird nicht über den lokalen Kanal zurückgelesen.`control.speed` Der Status spiegelt den zuletzt in ioBroker festgelegten Wert wider. **Der Ein-/Aus-Status wird live ausgelesen** (abgeleitet vom Stromverbrauch der Pumpe) und spiegelt daher auch Änderungen wider, die Sie in der OASE-App vornehmen.
+> **Hinweis:** Der aktuelle **Drehzahlsollwert** (der Prozentwert) wird nicht über den lokalen Kanal zurückgelesen. `control.speed` Der Status spiegelt den zuletzt in ioBroker festgelegten Wert wider. **Der Ein-/Aus-Status wird live ausgelesen** (abgeleitet vom Stromverbrauch der Pumpe) und spiegelt daher auch Änderungen wider, die Sie in der OASE-App vornehmen.
 
 ---
 
@@ -273,7 +273,7 @@ Der Adapter enthält **drei vorkonfigurierte vis-2-Widgets** – es ist keine zu
 ### 9.1 Hinzufügen eines Widgets und Verknüpfen mit einer Pumpe
 
 1. Öffnen Sie den **vis-2-Editor** und ziehen Sie eines der beiden Widgets aus der Gruppe **„Teichpumpe“** in Ihre Ansicht.
-2. Wählen Sie rechts in den Widget-Einstellungen Ihre Option aus.`pondpump` Instanz unter **Instanz** (z. B.`pondpump.0` ).
+2. Wählen Sie rechts in den Widget-Einstellungen Ihre Option aus. `pondpump` Instanz unter **Instanz** (z. B. `pondpump.0`).
 3. Darunter wählen Sie unter **„Pumpe“** die gewünschte Pumpe aus – die Liste zeigt automatisch alle erkannten Pumpen nach Namen an.
 
 Das ist alles, was Sie konfigurieren müssen: Die Widgets kennen die passenden Objekt-IDs selbst und verbinden sich automatisch mit der ausgewählten Pumpe.
@@ -286,7 +286,7 @@ Dieses Widget stellt die Pumpe grafisch dar:
 - Wenn die Pumpe **ausgeschaltet** ist, steht das Laufrad still und ist mit einem **roten Kreuz** versehen.
 - Wenn **die saisonale Durchflussregelung (SFC)** aktiv ist, wird das Laufrad durch einen rotierenden **Eiskristall** ersetzt.
 - Unterhalb der Grafik werden die Live-Werte angezeigt: **Leistung** (W), **Drehzahl** (U/min) und **Leistung** (Sollwert in %).
-- Wenn eine **Wassertemperatur** verfügbar ist (Zustand)`telemetry.waterTemperature` ), verschiebt sich das Laufrad nach links, und rechts erscheint ein **gefülltes Thermometer** mit dem Messwert. Die Farbe folgt den **Komfortzonen der Koi** (kein einfacher Kalt-Warm-Rhythmus): Das **Wachstumsoptimum von 23–26 °C** ist kräftig **grün** , bei kälteren Temperaturen türkis/blau und bei wärmeren bernsteinfarben/rot – und das Kältefenster **von 8–13 °C („Aeromonas-Fenster“)** ist bewusst **bernsteinfarben (Vorsicht)** , da dort Krankheitserreger aktiv sind, während das Immunsystem geschwächt ist. Grundlage: **Anhang 2.** Ohne Messwert bleibt die Anzeige unverändert.
+- Wenn eine **Wassertemperatur** verfügbar ist (Zustand) `telemetry.waterTemperature`), verschiebt sich das Laufrad nach links, und rechts erscheint ein **gefülltes Thermometer** mit dem Messwert. Die Farbe folgt den **Komfortzonen der Koi** (kein einfacher Kalt-Warm-Rhythmus): Das **Wachstumsoptimum von 23–26 °C** ist kräftig **grün** , bei kälteren Temperaturen türkis/blau und bei wärmeren bernsteinfarben/rot – und das Kältefenster **von 8–13 °C („Aeromonas-Fenster“)** ist bewusst **bernsteinfarben (Vorsicht)** , da dort Krankheitserreger aktiv sind, während das Immunsystem geschwächt ist. Grundlage: **Anhang 2.** Ohne Messwert bleibt die Anzeige unverändert.
 
 Ein farbiges Symbol oben rechts zeigt den Status an: **Aktiv** , **Aus** oder **Saisonalmodus** .
 
@@ -310,9 +310,11 @@ Dieses Widget zeigt auf einen Blick **, was der integrierte Zeitplan-/Regelplane
 - Das **aktive Zeitfenster** , der **nächste** Wechselzeitpunkt und der **Sonnenaufgang/Sonnenuntergang** der Pumpe.
 - **Aktoren:** Enthält der Zeitplan **Aktorfenster** (Wasserfall, Bachlauf, Belüfter usw.), wird jeder Aktor **oberhalb der Telemetriedaten** in einer eigenen Zeile mit der Reihenfolge **Symbol – Name – Laufrad** aufgelistet. Name und Symbol werden im Zeitplan-Editor (Modus „Aktor“) festgelegt; ohne Namen werden „Aktor 1“, „Aktor 2“ usw. angezeigt. Das kleine **hellgrüne Laufrad** dreht sich (optional animiert), solange der Aktor **eingeschaltet** ist, und steht still (abgedunkelt), solange er ausgeschaltet ist. In den Widget-Einstellungen (Abschnitt **„Aktoren“** ) können Sie **jeden Aktor einzeln** ein- oder ausblenden und die **Farbe des Laufrads** für den Ein- und Aus-Zustand auswählen (Standardeinstellungen entsprechen dem vorherigen Erscheinungsbild).
 - **Wassertemperatur** (farbcodiert), **Leistung** (W) und **Drehzahl** (U/min).
-- Eine **Bedienleiste** mit den Grundfunktionen (Ein/Aus, Schnellstart, SFC). Ein Hinweis erinnert Sie daran, dass der Scheduler sein Ziel beim nächsten Durchlauf möglicherweise erneut anwendet.
+- Eine **Bedienleiste** mit den Grundfunktionen (Ein/Aus, Schnellstart, SFC).
 
-Die Werte stammen aus neuen, schreibgeschützten Daten.`pumps.<n>.schedule.*` Der Scheduler hält sich bei jeder Auswertung auf dem Laufenden – Sie können diese Daten auch in Ihren eigenen Skripten oder im Verlauf verwenden.
+Die Werte stammen aus neuen, schreibgeschützten Daten. `pumps.<n>.schedule.*` Der Scheduler hält sich bei jeder Auswertung auf dem Laufenden – Sie können diese Daten auch in Ihren eigenen Skripten oder im Verlauf verwenden.
+
+> **Automatisch vs. Manuell:** Solange für eine Pumpe ein **Zeitplan/eine Kurve aktiviert** ist, übernimmt der Scheduler die Steuerung. Eine **manuelle Änderung** der Leistung oder des SFC (hier oder im Steuerungs-Widget) schaltet die Pumpe in **den manuellen Modus** : Der Scheduler **pausiert** für diese Pumpe, Ihr Wert **bleibt erhalten** und die Anzeige zeigt **„Manuell“** an. Drücken Sie jederzeit die grüne Schaltfläche **„▶ Automatisch“** , um die Steuerung wieder an den Scheduler zu übergeben – dieser wendet sein Ziel **sofort** wieder an. Für **eine dauerhafte** manuelle Steuerung können Sie den Pumpenzeitplan auch in den Instanzeinstellungen deaktivieren. Der Modus ist auch als **beschreibbarer** Zustand verfügbar. `pumps.<n>.schedule.manual` (true = manuell), sodass Sie es über ein Skript oder ein Widget umschalten können.
 
 ### 9.5 Anpassen des Erscheinungsbildes
 
@@ -336,9 +338,9 @@ Der Adapter kann jede Pumpe nach einem **Tagesplan** anstatt mit einer festen Ei
 - Die Tabelle enthält die **Zeitfenster** . Fügen Sie eine Zeile mit **„Zeitplan hinzufügen“** hinzu und legen Sie Folgendes fest:
   - **Start** / **Ende** – tägliche Uhrzeiten (HH:MM). Ein Zeitfenster darf Mitternacht nicht überschreiten – teilen Sie es in zwei Hälften.
   - **Modus** — **Leistung %** (das Fenster stellt eine feste Leistung ein), **SFC** (das Fenster schaltet die saisonale Flusssteuerung ein oder aus) oder **Aktor** (das Fenster steuert einen **externen Zustand** , z. B. einen Wasserfall/UVC — kombinieren Sie dies mit Astro-Grenzen, siehe 10.4).
-  - **Wert** – der Leistungsprozentsatz oder Ein/Aus bei SFC; bei einem **Aktor** die **Zielobjekt-ID** plus ein Ein **-Wert** und ein **Aus-Wert** . Beides sind **Dropdown-Menüs** :`true` ,`false` , A`number` (z. B. für einen Dimmer), und auch für den Aus-Wert gilt: „unberührt lassen“. Der **Ein-Wert** wird geschrieben, solange das Fenster **aktiv** ist, der **Aus-Wert,** solange es **inaktiv** ist. Ein Schalteraktor hat daher typischerweise **den Ein-Wert =`true` , Off-Wert =`false`** ; "unberührt lassen" schreibt nichts aus dem Fenster.
+  - **Wert** – der Leistungsprozentsatz oder Ein/Aus bei SFC; bei einem **Aktor** die **Zielobjekt-ID** plus ein Ein **-Wert** und ein **Aus-Wert** . Beides sind **Dropdown-Menüs** : `true`, `false`, A `number` (z. B. für einen Dimmer), und auch für den Aus-Wert gilt: „unberührt lassen“. Der **Ein-Wert** wird geschrieben, solange das Fenster **aktiv** ist, der **Aus-Wert,** solange es **inaktiv** ist. Ein Schalteraktor hat daher typischerweise **den Ein-Wert =`true`, Off-Wert =`false` ** ; "unberührt lassen" schreibt nichts aus dem Fenster.
 
-    > **Verwechseln Sie Folgendes nicht:** den Widget-Status`pumps.<n>.schedule.actuators` hat ein`"on"` Feld pro Aktor. Das ist **nicht** Ihr Ein-/Aus-Wert – es ist der **aktuelle Status** (ist das Fenster gerade aktiv?), den das Widget zum Drehen/Dimmen des Laufrads verwendet.
+    > **Verwechseln Sie Folgendes nicht:** den Widget-Status `pumps.<n>.schedule.actuators` hat ein `"on"` Feld pro Aktor. Das ist **nicht** Ihr Ein-/Aus-Wert – es ist der **aktuelle Status** (ist das Fenster gerade aktiv?), den das Widget zum Drehen/Dimmen des Laufrads verwendet.
 - Fenster **dürfen sich nicht überlappen.** Der Editor prüft dies live und zeigt eine rote Meldung an, wenn zwei Fenster kollidieren; der Adapter prüft dies ebenfalls vor der Anwendung, sodass ein ungültiger Zeitplan niemals ausgeführt wird.
 
 Nicht vergessen zu **speichern** .
@@ -357,7 +359,7 @@ Es wird nur geschrieben, wenn sich das Ziel tatsächlich ändert, sodass die Pla
 
 Der Beginn und das Ende eines Zeitfensters müssen nicht auf eine feste Uhrzeit festgelegt sein. Für jede Grenze können Sie anstelle **der Uhrzeit** **Sonnenaufgang** oder **Sonnenuntergang** wählen und einen **Versatz in Minuten** angeben (auch negativ möglich). Beispiele: „Start = Sonnenuntergang + 0“, „Ende = Sonnenaufgang + 120“ ist ein **Nachtzeitfenster** , das über Mitternacht hinausgeht; „Sonnenaufgang − 30“ beginnt eine halbe Stunde vor Sonnenaufgang. Die Sonnenzeiten werden täglich neu berechnet.
 
-> **Anmerkung (Forschung):** Eine nächtliche **Durchflussreduzierung ist im Sommer kontraproduktiv** (das Sauerstoffminimum liegt nachts). Astrofenster eignen sich am besten als **Schutzfenster** (Durchfluss nicht reduzieren) und für seitliche Aktuatoren (Wasserfall). Siehe`doc/research/` Die
+> **Anmerkung (Forschung):** Eine nächtliche **Durchflussreduzierung ist im Sommer kontraproduktiv** (das Sauerstoffminimum liegt nachts). Astrofenster eignen sich am besten als **Schutzfenster** (Durchfluss nicht reduzieren) und für seitliche Aktuatoren (Wasserfall). Siehe `doc/research/` Die
 
 **Standort:** Die Sonnenzeiten benötigen einen Standort. Wählen Sie auf der Registerkarte **„Verbindung“** im Abschnitt **„Zeitpläne** “ den **Standortmodus** aus:
 
@@ -369,9 +371,9 @@ Der Beginn und das Ende eines Zeitfensters müssen nicht auf eine feste Uhrzeit 
 
 ## 11. Temperatur- und wetterbasierte Steuerung
 
-Neben festen Zeitfenstern kann jede Pumpe auch durch **Wassertemperatur und Wetterbedingungen** gesteuert werden. Die Idee stammt aus der Teichströmungsforschung (siehe`doc/research/` ): Die **Strömung folgt der Wassertemperatur** (kälteres Wasser = geringere Zirkulation, wärmeres Wasser = höhere Zirkulation), und **das Wetter kann die Strömung nur erhöhen** , niemals verringern (z. B. Hitze → mehr Belüftung).
+Neben festen Zeitfenstern kann jede Pumpe auch durch **Wassertemperatur und Wetterbedingungen** gesteuert werden. Die Idee stammt aus der Teichströmungsforschung (siehe `doc/research/`): Die **Strömung folgt der Wassertemperatur** (kälteres Wasser = geringere Zirkulation, wärmeres Wasser = höhere Zirkulation), und **das Wetter kann die Strömung nur erhöhen** , niemals verringern (z. B. Hitze → mehr Belüftung).
 
-> **Wichtig:** der Pumpenzustand`telemetry.temperature` Es handelt sich um die **Gerätetemperatur** , nicht um die Wassertemperatur. Verwenden Sie einen **realen Wassersensor** als Kurvenquelle (z. B. eine Teichsonde von einem anderen Adapter).
+> **Wichtig:** der Pumpenzustand `telemetry.temperature` Es handelt sich um die **Gerätetemperatur** , nicht um die Wassertemperatur. Verwenden Sie einen **realen Wassersensor** als Kurvenquelle (z. B. eine Teichsonde von einem anderen Adapter).
 
 Öffnen Sie die Registerkarte **„Zeitplaner** “ der Pumpe und scrollen Sie zum Abschnitt **„Temperatur-/Wettersteuerung“** .
 
@@ -384,7 +386,7 @@ Die Auswahlmöglichkeit oben legt fest, wie die Kurve mit den Zeitfenstern zusam
 
 ### 11.2 Wassertemperatursensor und Kennlinie
 
-Wählen Sie oben den **Wassertemperatursensor** aus: Im Dropdown-Menü werden die pumpeneigenen Temperatursensoren **mit ihren aktuellen Werten** aufgelistet. Vergleichen Sie diese mit einem Thermometer Ihres Vertrauens und wählen Sie denjenigen aus, der die Wassertemperatur korrekt misst. Ihre Auswahl wird an den neuen Sensor übermittelt.`telemetry.waterTemperature` Der Status wird festgelegt und **die Kurvenquelle vorab ausgefüllt** . Bei einer **externen** Sonde lassen Sie diese Option auf „Keine“ und geben Sie deren Objekt als Kurvenquelle unten ein (Lupensymbol). In jedem Fall`telemetry.waterTemperature` spiegelt die **effektive Kurvenquelle** wider – zeigt also auch den Wert Ihres externen Sensors an, nicht nur den eines On-Device-Sensors.
+Wählen Sie oben den **Wassertemperatursensor** aus: Im Dropdown-Menü werden die pumpeneigenen Temperatursensoren **mit ihren aktuellen Werten** aufgelistet. Vergleichen Sie diese mit einem Thermometer Ihres Vertrauens und wählen Sie denjenigen aus, der die Wassertemperatur korrekt misst. Ihre Auswahl wird an den neuen Sensor übermittelt. `telemetry.waterTemperature` Der Status wird festgelegt und **die Kurvenquelle vorab ausgefüllt** . Bei einer **externen** Sonde lassen Sie diese Option auf „Keine“ und geben Sie deren Objekt als Kurvenquelle unten ein (Lupensymbol). In jedem Fall `telemetry.waterTemperature` spiegelt die **effektive Kurvenquelle** wider – zeigt also auch den Wert Ihres externen Sensors an, nicht nur den eines On-Device-Sensors.
 
 Um die Kurve einzulegen:
 
@@ -400,13 +402,13 @@ Unterhalb der Kurve befinden sich optionale Grenzwerte. In der Admin-Benutzerobe
 
 - **Mindestleistung in Prozent** – eine Untergrenze; der Durchfluss sinkt nie darunter. Empfohlener Wert: **35–40 %** .
 - **Maximale Leistung in Prozent** – eine Obergrenze; der Durchfluss überschreitet diese nie (auch nicht im Boost- oder Notlaufmodus). Z. B. **90 %** für eine Pumpe, die nur mit dieser maximalen Leistung arbeitet.
-- **Temperaturglättung (Stunden)** – mittelt die Temperatur, sodass kurze Temperaturspitzen die Pumpe nicht ständig nachjustieren. Empfohlen: **12–24 Stunden** .`0` = aus.
-- **Hysterese (°C)** – Die Kurve wird erst neu berechnet, nachdem sich die Temperatur um diesen Wert geändert hat. Empfohlener Wert: **0,5–1 °** C.`0` = aus.
-- **Maximale Änderung (% pro Stunde)** – begrenzt die Geschwindigkeit der Leistungsänderung (sanfte Rampe). Empfohlener Wert: **10–20 %** .`0` = sofort.
+- **Temperaturglättung (Stunden)** – mittelt die Temperatur, sodass kurze Temperaturspitzen die Pumpe nicht ständig nachjustieren. Empfohlen: **12–24 Stunden** . `0` = aus.
+- **Hysterese (°C)** – Die Kurve wird erst neu berechnet, nachdem sich die Temperatur um diesen Wert geändert hat. Empfohlener Wert: **0,5–1 °** C. `0` = aus.
+- **Maximale Änderung (% pro Stunde)** – begrenzt die Geschwindigkeit der Leistungsänderung (sanfte Rampe). Empfohlener Wert: **10–20 %** . `0` = sofort.
 
 ### 11.4 Wetterregeln
 
-Die untenstehende Regeltabelle kann zusätzlich den Durchfluss **erhöhen** oder Aktoren ansteuern. Jede Regel vergleicht eine **Quelle** (eine beliebige Zustands-ID, z. B. eine Außentemperatur oder eine Regen-OID) mit einem **Schwellenwert** und einem Operator (`<` ,`≤` ,`>` ,`≥` ,`=` ,`≠` Wenn eine Übereinstimmung vorliegt, tritt der entsprechende **Effekt** ein:
+Die untenstehende Regeltabelle kann zusätzlich den Durchfluss **erhöhen** oder Aktoren ansteuern. Jede Regel vergleicht eine **Quelle** (eine beliebige Zustands-ID, z. B. eine Außentemperatur oder eine Regen-OID) mit einem **Schwellenwert** und einem Operator (`<`, `≤`, `>`, `≥`, `=`, `≠` Wenn eine Übereinstimmung vorliegt, tritt der entsprechende **Effekt** ein:
 
 - **Potenz %** — erhöht den Exponenten mindestens auf diesen Wert (verringert ihn niemals).
 - **Auf 100 % steigern** – volle Leistung (z. B. Hitze).
@@ -424,27 +426,27 @@ Vergiss nicht zu **speichern** .
 
 ## 12. Fehlerbehebung
 
-| Symptom                                                    | Was zu überprüfen ist                                                                                                                                                                                                            |
-| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `info.connection` bleibt **falsch**                        | Wurde ein **Aktualisierungstoken** eingegeben? Besorgen Sie sich ein neues (Kapitel 4) – Tokens können ablaufen, wenn Sie sich woanders anmelden.                                                                                |
-| Das Protokoll meldet: **Authentifizierung fehlgeschlagen** | Das Aktualisierungstoken ist ungültig/abgelaufen → ein neues anfordern.                                                                                                                                                          |
-| Es erscheinen keine Pumpen.                                | Sind die Pumpen in der **OASE-App** online? Der Adapter spiegelt den Cloud-Bestand wider.                                                                                                                                        |
-| Befehle bewirken nichts.                                   | Warten Sie auf die **erste erfolgreiche Abfrage** (der Adapter lernt dann die Pumpenadressierung). Überprüfen Sie das Protokoll.                                                                                                 |
-| Möchten Sie mehr Details?                                  | Legen Sie den **Protokollierungsgrad der Instanz fest auf`debug`** — jeder Schritt wird mit einem Tag wie`[poll]` ,`[cloud/auth]` ,`[cloud/cmd]` ,`[schedule]` ,`[astro]` ,`[geocode]` Geheimnisse werden niemals protokolliert. |
-| Eine Pumpe läuft mit unerwarteter Leistung                 | An`debug` Bei jedem Scheduler-Tick wird die **vollständige Entscheidungskette** für die Pumpe protokolliert – siehe unten.                                                                                                       |
+| Symptom                                                                | Was zu überprüfen ist                                                                                                                                                                                                            |
+| ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `info.connection` bleibt **falsch**                                    | Wurde ein **Aktualisierungstoken** eingegeben? Besorgen Sie sich ein neues (Kapitel 4) – Tokens können ablaufen, wenn Sie sich woanders anmelden.                                                                                |
+| Im Protokoll steht, dass **die Authentifizierung fehlgeschlagen ist.** | Das Aktualisierungstoken ist ungültig/abgelaufen → ein neues anfordern.                                                                                                                                                          |
+| Es erscheinen keine Pumpen.                                            | Sind die Pumpen in der **OASE-App** online? Der Adapter spiegelt den Cloud-Bestand wider.                                                                                                                                        |
+| Befehle bewirken nichts.                                               | Warten Sie auf die **erste erfolgreiche Abfrage** (der Adapter lernt dann die Pumpenadressierung). Überprüfen Sie das Protokoll.                                                                                                 |
+| Möchten Sie mehr Details?                                              | Legen Sie den **Protokollierungsgrad der Instanz fest auf `debug` ** — jeder Schritt wird mit einem Tag wie `[poll]`, `[cloud/auth]`, `[cloud/cmd]`, `[schedule]`, `[astro]`, `[geocode]` Geheimnisse werden niemals protokolliert. |
+| Eine Pumpe läuft mit unerwarteter Leistung                             | An `debug` Bei jedem Scheduler-Tick wird die **vollständige Entscheidungskette** für die Pumpe protokolliert – siehe unten.                                                                                                       |
 
 Die Logzeilen sind nach Komponenten kategorisiert, sodass jedes Problem genau lokalisiert werden kann. Wenn Sie ein Problem melden, fügen Sie bitte den Debug-Log des betreffenden Bereichs bei.
 
 ### Lesen des Scheduler-Entscheidungsprotokolls
 
-An`debug` Jede Auswertung des Zeitplaners gibt pro Pumpe genau an, warum er die gewählte Leistungsaufnahme/den gewählten SFC-Wert gewählt hat:
+An `debug` Jede Auswertung des Zeitplaners gibt pro Pumpe genau an, warum er die gewählte Leistungsaufnahme/den gewählten SFC-Wert gewählt hat:
 
 - eine **Achse** mit der aktuellen Uhrzeit und allen Rohdaten der Quelle,
 - **Eingabezeile** : Roh-/geglättete/kartierte Wassertemperatur (mit Glättungsparameter τ und Hysterese K), aufgelöster Sonnenaufgang/Sonnenuntergang und Tag/Nacht sowie Priorität/Minimal-/Maximalleistung,
 - eine **Entscheidungslinie** : die Basis (aus der Kurve oder dem aktiven Fenster), der Q\_min-Unterwert, der Nachtschutz, jede übereinstimmende Wetterregel, die Aktuatorfenster und der Q\_max-Oberwert, die in der endgültigen Leistung/SFC endet,
 - der **Rampen-/Haltezustand** und der **nächste Neubewertungszeitpunkt** .
 
-Also ein einzelnes`[schedule] pump 1 decision: …` Die Zeile liefert Ihnen die vollständige Begründung – Sie müssen nicht raten, warum eine Pumpe bei einem bestimmten Prozentsatz steht.
+Also ein einzelnes `[schedule] pump 1 decision: …` Die Zeile liefert Ihnen die vollständige Begründung – Sie müssen nicht raten, warum eine Pumpe bei einem bestimmten Prozentsatz steht.
 
 ---
 
@@ -459,7 +461,7 @@ Also ein einzelnes`[schedule] pump 1 decision: …` Die Zeile liefert Ihnen die 
 
 ## 14. Wissenschaftlicher Hintergrund (Anhänge)
 
-Die Temperatur-/Wettersteuerung und die **Farbskala für die Koi-Temperaturanzeige** der Widgets basieren auf zwei ausführlichen Forschungsarbeiten. Diese sind in deutscher Sprache verfasst und dem deutschen Handbuch als **Anhang 1** und **Anhang 2** **vollständig** beigefügt; sie sind außerdem im Projekt als durchsuchbare Markdown-Dateien verfügbar.`doc/research/` ) und als die Original-PDFs (`doc/` ):
+Die Temperatur-/Wettersteuerung und die **Farbskala für die Koi-Temperaturanzeige** der Widgets basieren auf zwei ausführlichen Forschungsarbeiten. Diese sind in deutscher Sprache verfasst und dem deutschen Handbuch als **Anhang 1** und **Anhang 2** **vollständig** beigefügt; sie sind außerdem im Projekt als durchsuchbare Markdown-Dateien verfügbar. `doc/research/` und als die Original-PDFs (`doc/`):
 
 - **Anhang 1 — Teichpumpenleistung vs. Wassertemperatur und Wetter:** die Grundlage der Kurve, die Wetterregeln und die Tag/Nacht-Logik (Sauerstoff, Ammonium, Nitrifikation, SFC-Vergleich).
 - **Anhang 2 – Wassertemperaturen im Koiteich:** die biologischen Temperaturbereiche, Krankheitsfenster, Jahres-/Tageszyklus, Wärmephysik und die Grundlage der **Farbskala** (Wachstumsoptimum 23–26 °C = grün, das kalte "Aeromonas-Fenster" 8–13 °C = gelb/Vorsicht).

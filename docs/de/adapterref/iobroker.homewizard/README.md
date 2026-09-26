@@ -18,7 +18,7 @@ Echtzeit-Energiedaten von HomeWizard-Energy-Geräten über die lokale **API v2**
 ## Voraussetzungen
 
 - Ein HomeWizard-Gerät mit API v2: **P1-Meter** (HWE-P1), **kWh-Meter** 1-phasig (HWE-KWH1 / SDM230) oder 3-phasig (HWE-KWH3 / SDM630), **Plug-In Battery** (HWE-BAT).
-- Eine Firmware, die die lokale API v2 kann, und die lokale API in der HomeWizard-App eingeschaltet.
+- Eine Firmware mit lokaler API v2 (siehe die [Kompatibilitätsliste](https://api-documentation.homewizard.com/docs/introduction) von HomeWizard). In der HomeWizard-App muss dafür nichts eingeschaltet werden: Der Schalter „Lokale API“ dort gehört zur alten v1-API und sollte aus bleiben.
 - Node.js >= 22, js-controller >= 7.2.2, Admin >= 8.0.11.
 
 Energy Socket, Watermeter und Energy Display sprechen nur die abgekündigte v1-API. Sie liegen außerhalb des Adapters und kommen auch nicht mehr dazu.
@@ -30,7 +30,7 @@ Der Adapter hat keine Gerätetabelle in den Einstellungen — Geräte stehen im 
 **Mit automatischer Suche (Normalfall)**
 
 1. Im Reiter **Objekte** `homewizard.0.startPairing` auf `true` setzen.
-2. Innerhalb von 60 Sekunden den Knopf am HomeWizard-Gerät drücken.
+2. Innerhalb von 60 Sekunden den Knopf am HomeWizard-Gerät drücken (kWh-Meter: 1–3 Sekunden gedrückt halten).
 3. Das Gerät erscheint mit einem eigenen Ordner unter der Instanz.
 
 Das Fenster bleibt die vollen 60 Sekunden offen — mehrere Geräte lassen sich also in einem Durchgang hinzufügen.
@@ -42,16 +42,16 @@ Das Fenster bleibt die vollen 60 Sekunden offen — mehrere Geräte lassen sich 
 
 ## Was angelegt wird
 
-Jedes Gerät bekommt einen Ordner `<Produkttyp>_<Seriennummer>` mit:
+Jedes Gerät bekommt einen Ordner `<Produkttyp>_<Seriennummer>`. Er trägt den Produktnamen, den das Gerät meldet (z. B. „P1 Meter“) — den Namen aus der HomeWizard-App liefert die API nicht. Logzeilen nennen das Gerät als `P1 Meter (hwe-p1_5c2fafaabbcc)`, so lassen sich zwei gleiche Geräte unterscheiden. Der Ordner enthält:
 
-| Ordner                 | Inhalt                                                                                             |
-| ---------------------- | -------------------------------------------------------------------------------------------------- |
-| `info`                 | Produktname und -typ, Firmware, WLAN und Signalstärke, Laufzeit, Verbindungszustand                |
-| `measurement`          | Leistung, Spannung, Strom, Frequenz, Energiezähler je Tarif, Zeitstempel                           |
-| `measurement.quality`  | Spannungseinbrüche und -überhöhungen, Ausfallzähler (nur P1)                                       |
-| `measurement.external` | Gas-, Wasser- und Wärmezähler, die über das P1-Meter melden                                        |
-| `system`               | Cloud-Verbindung, Helligkeit der Status-LED, alte v1-API, Knöpfe für Neustart und Identifizieren   |
-| `battery`              | Lademodus, Berechtigungen, Zielleistung und Zähler — am Zähler, mit dem die Batterie gekoppelt ist |
+| Ordner                 | Inhalt                                                                                                                                                         |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `info`                 | Produktname und -typ, Firmware, WLAN und Signalstärke, Laufzeit, Verbindungszustand                                                                            |
+| `measurement`          | Leistung, Spannung, Strom, Frequenz, Energiezähler je Tarif, Zeitstempel                                                                                       |
+| `measurement.quality`  | Spannungseinbrüche und -überhöhungen, Ausfallzähler (nur P1)                                                                                                   |
+| `measurement.external` | Gas-, Wasser- und Wärmezähler, die über das P1-Meter melden; ein Zähler, der einen Tag lang nicht mehr gemeldet wird (etwa nach einem Tausch), wird entfernt   |
+| `system`               | Cloud-Verbindung, Helligkeit der Status-LED (nicht am kWh-Meter), alte v1-API und Neustart (nicht an der Plug-In Battery), Identifizieren (nicht am kWh-Meter) |
+| `battery`              | Lademodus, Berechtigungen, Zielleistung und Zähler — am Zähler, mit dem die Batterie gekoppelt ist                                                             |
 
 `remove` entfernt ein Gerät samt aller Datenpunkte.
 
@@ -67,7 +67,8 @@ Messwerte kommen normalerweise etwa jede Sekunde als Push. Bricht diese Verbindu
 
 Die Batterie wird als eigenes Gerät gekoppelt, die Bedienung sitzt aber am **P1- oder kWh-Meter**, mit dem sie zusammenarbeitet — dort stellt HomeWizard sie bereit:
 
-- `battery.mode` — `zero`, `to_full`, `standby` oder `predictive`.
+- `battery.mode` — `zero` (hält das Haus bei Netto-Null, lädt oder entlädt dafür) oder `predictive`. `to_full` und `standby` sind laut HomeWizard veraltet: stattdessen `charge_to_full` bzw. `permissions` nutzen.
+- `battery.power_w` / `battery.target_power_w` — positiv heißt Laden, negativ Entladen.
 - `battery.charge_to_full` — einmalig auf 100 % laden.
 - `battery.permissions` — ein JSON-Array, als Text geschrieben.
 
@@ -77,11 +78,11 @@ Die Batterie wird als eigenes Gerät gekoppelt, die Bedienung sitzt aber am **P1
 
 **Die Kopplung findet das Gerät nicht.** Die automatische Suche kommt oft nicht über VLAN-Grenzen oder Docker-Brücken. Dann den Weg über die feste IP nehmen.
 
-**Die Kopplung scheitert direkt nach dem Knopfdruck.** Der Adapter zieht den eben ausgestellten Zugang wieder zurück und bittet um einen neuen Versuch. Prüfen, ob die lokale API in der HomeWizard-App eingeschaltet ist.
+**Die Kopplung scheitert direkt nach dem Knopfdruck.** Der Adapter zieht den eben ausgestellten Zugang wieder zurück und bittet um einen neuen Versuch. Beim kWh-Meter den Knopf 1–3 Sekunden gedrückt halten; ein kurzer Druck reicht nicht.
 
 **Ein Gerät steht auf nicht verbunden.** Der Adapter gibt nie auf: Er versucht die Echtzeit-Verbindung in wachsenden Abständen (bis zu 5 Minuten), sucht etwa stündlich per mDNS nach einer geänderten IP-Adresse und schaltet bei Geräten mit erkennbar schwachem Empfang auf einen schnelleren Rhythmus. Ein Zähler im Kellerflur kann stundenlang weg sein; damit er zurückkommt, ist nichts zu tun.
 
-**„token invalid — re-pair device to fix".** Das Gerät nimmt den Zugang des Adapters nicht mehr an, meist nach einem Werksreset. Einfach neu koppeln — die vorhandenen Datenpunkte bleiben erhalten.
+**„token invalid — re-pair device to fix".** Das Gerät nimmt den Zugang des Adapters nicht mehr an, meist nach einem Werksreset. Einfach neu koppeln (`startPairing` und Knopf, notfalls mit `pairingIp`) — der Adapter nimmt ein Gerät mit ungültigem Zugang an, die vorhandenen Datenpunkte bleiben erhalten.
 
 **Meldungen über das ablaufende mitgelieferte Zertifikat.** Der Adapter bringt das HomeWizard-Stammzertifikat mit, um Gerätezertifikate zu prüfen. Lange vor dessen Ablauf liefert ein Adapter-Update ein frisches nach.
 
@@ -90,6 +91,7 @@ Die Batterie wird als eigenes Gerät gekoppelt, die Bedienung sitzt aber am **P1
 - Die Zugänge der Geräte liegen verschlüsselt im Geräte-Objekt, nie in der Adapter-Konfiguration.
 - Der Adapter prüft das Zertifikat jedes Geräts gegen dessen bekannte Identität — er spricht also nicht mit einem anderen Gerät, das zufällig ein HomeWizard-Zertifikat besitzt.
 - Beim Entfernen eines Geräts zieht der Adapter seinen Zugang auch auf dem Gerät selbst zurück.
+- Jedes ioBroker-System und jede Instanz meldet sich unter einem eigenen Namen am Gerät an — ein Test- und ein Produktivsystem am selben Zähler stören sich nicht.
 - `system.api_v1_enabled` schaltet die alte v1-API am Gerät wieder ein. Diese API hat keine Verschlüsselung und keinen Zugangsschutz — jeder im Netz kann das Gerät dann lesen und steuern. Der Adapter warnt beim Einschalten.
 
 ## Changelog
@@ -99,7 +101,26 @@ Die Batterie wird als eigenes Gerät gekoppelt, die Bedienung sitzt aber am **P1
     ### **WORK IN PROGRESS**
 -->
 
-### 0.19.0 (2026-09-15)
+### 0.20.0 (2026-09-24)
+
+- Fixed: on Node.js 26 a device no longer stops updating for good after an oversized or interrupted reply from it — the adapter now gives up on that reply and carries on.
+- Changed: the device folder keeps the product name the device reports; the HomeWizard API does not provide the name you give the device in the app, so renaming it there does not reach ioBroker.
+- Fixed: writing the text "false" into cloud_enabled, api_v1_enabled or charge_to_full switched it on, and writing false to reboot restarted the device — values are now read strictly.
+- Fixed: the battery descriptions now say that positive power means charging and that the zero mode charges or discharges to keep your home at net zero.
+- Fixed: the setup notes no longer ask for the Local API switch in the app, which belongs to the old v1 API, and tell you to hold the button of a kWh Meter for 1–3 seconds.
+- Fixed: another program using the network search port no longer stops the adapter; it says so and points you to pairing the device by its IP address instead.
+- Fixed: a device that answers while the adapter restores its live connection no longer flips between online and offline with every attempt.
+- Fixed: a device showing "token invalid" can be paired again by pressing its button, and a second device that needs a new address during a running search is found as well.
+- Changed: a kWh Meter no longer shows an identify button or an LED brightness setting — the device has neither, and pressing them only ever failed.
+- Fixed: one device whose stored entry is damaged no longer stops the other devices from starting — they come up and update as usual.
+- New: every ioBroker system and instance pairs under its own name on the device, so a test and a production system can use the same meter side by side.
+- New: a gas, water or heat meter the P1 Meter has not reported for a day is removed together with its data points, instead of keeping its last reading forever.
+- Improved: when the pairing window closes, the adapter tells you how many devices were paired, or that none was found and what to try next.
+- Fixed: when a different device answers at a paired device's address, the adapter now tells you that the address has probably changed.
+- Fixed: the battery folder is removed completely when no battery is connected any more, including entries that had lost their folder.
+- Improved: the WiFi signal strength is marked as a signal strength value, so visualisations and other adapters recognise it correctly.
+
+### 0.19.0 (2026-09-15) — stable
 
 - Fixed: a device that changed its IP address is found again — the reply to the adapter's own network search was discarded, leaving the device unreachable until it was paired anew.
 - Fixed: removing a device now really withdraws its access on the device itself — the request was cut off before it left, so the adapter's user stayed behind on every device removed so far.
@@ -136,15 +157,6 @@ Die Batterie wird als eigenes Gerät gekoppelt, die Bedienung sitzt aber am **P1
 - Fixed: the battery data points are removed once the meter reports that no battery is connected any more, instead of showing its last values forever.
 - New: the data points under `info` explain what they mean in all eleven languages, and a user guide is now part of the documentation portal.
 - Changed: for security, an address announced over the network is only accepted when it belongs to a private range, so pairing can no longer be directed at a host outside your own network.
-
-### 0.17.0 (2026-09-02)
-
-- Fixed: the connection status is now reset on every stop, even when the adapter is stopped right after it started — before, such a stop could leave it showing as connected.
-- Fixed: a device that repeats the same error after reconnecting is warned about again, instead of staying silent for the rest of the adapter's run.
-- Fixed: switching cloud access, the legacy v1 API or charge-to-full from a script now confirms the actual on or off value, not the raw text that was written.
-- Fixed: two rare cases where a log line could show undefined or an object instead of the error now show the real text, and a malformed device error keeps a readable code.
-- Fixed: an external gas or water meter whose reported type contains unusual characters now gets a clean name in the object tree instead of a broken one.
-- Changed: ioBroker Admin 8.0.11 or newer is now required — the same minimum version that the current ioBroker stable repository ships with.
 
 ## License
 

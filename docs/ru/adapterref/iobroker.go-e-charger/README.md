@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.go-e-charger/README.md
 title: ioBroker.go-eCharger
-hash: nIAiw/W3xMF6OdiLr4XEyot2SE7Zz0EYWXoAdWLBot0=
+hash: nUwqvcTyzk6dU1uc3YpLqSj0elLKhGq07q0pMs3e/WM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.go-e-charger/admin/go-eCharger.png)
 
@@ -62,7 +62,7 @@ hash: nIAiw/W3xMF6OdiLr4XEyot2SE7Zz0EYWXoAdWLBot0=
 
 ## Конфигурация
 
-Добавьте по одной записи для каждого зарядного устройства go-e в список настенных зарядных устройств и укажите его IP-адрес. При желании присвойте каждому зарядному устройству имя.
+Добавьте по одной записи для каждого зарядного устройства go-e в список настенных зарядных устройств и укажите его IP-адрес. При желании можно присвоить каждому зарядному устройству имя.
 
 Включите **режим только для чтения** для зарядного устройства, если адаптер должен только считывать данные и никогда не записывать их. В режиме только для чтения адаптер не отправляет никаких команд управления — ни команды разблокировки заряда, ни команды зарядного тока, ни команды переключения фаз. Состояния ChargeNOW и ChargeManager по-прежнему можно переключать, но они не влияют на работу зарядного устройства в режиме только для чтения. Используйте этот режим, если зарядка данного настенного зарядного устройства контролируется другой системой или управляется локально с помощью RFID-меток.
 
@@ -205,7 +205,17 @@ target current = floor(available power / 230 V / active phases)
 
 Для начала зарядки может потребоваться несколько циклов опроса, поскольку внутреннее целевое значение увеличивается всего на 1 А за цикл. При стандартном 10-секундном цикле и начальном целевом значении 0 А достижение стандартного начального значения 10 А может занять приблизительно 100 секунд.
 
-Когда ChargeManager одновременно управляет несколькими настенными зарядными устройствами, избыток солнечной энергии распределяется между ними в порядке следования элементов в списке, поэтому первое устройство имеет приоритет, а последующие получают только оставшийся избыток (см. [зарядку избытка солнечной энергии с помощью ChargeManager](#pv-surplus-charging-with-chargemanager) выше). Адаптер пока **не** устанавливает суммарный лимит тока для всех зарядных устройств, подключенных к общему предохранителю или линии питания, поэтому убедитесь, что сумма максимальных токов для каждого зарядного устройства остается в пределах мощности вашей установки.
+Когда ChargeManager одновременно управляет несколькими настенными зарядными устройствами, избыток солнечной энергии распределяется между ними в порядке следования элементов в списке устройств, поэтому первое устройство имеет приоритет, а последующие получают только оставшийся избыток (см. [зарядку избытка солнечной энергии с помощью ChargeManager](#pv-surplus-charging-with-chargemanager) выше).
+
+#### Общий текущий бюджет (защита предохранителями)
+
+Для защиты общего предохранителя или линии электропитания, питающей несколько зарядных устройств, установите **максимальный суммарный зарядный ток** \[А] на странице стандартных настроек. Это общий бюджет для всей системы: суммарный зарядный ток **всех** зарядных устройств никогда не превышает его **ни** в ChargeManager, ни в ChargeNOW. В отличие от избытка солнечной энергии (измеряемого в ваттах), предохранитель защищается в **амперах** , поскольку линия электропитания, рассчитанная, например, на 20 А, пропускает 20 А независимо от того, заряжает ли зарядное устройство однофазное или трехфазное питание.
+
+Бюджет распределяется в порядке приоритета: сначала зарядные устройства ChargeNOW, затем зарядные устройства ChargeManager в порядке списка зарядных устройств. Зарядное устройство, которое больше не подходит, ограничивается оставшимся током или отключается, если даже его минимальное количество не помещается. Пока бюджет активен, зарядное устройство без подключенного транспортного средства остается выключенным и ничего не резервирует, поэтому несколько неактивных зарядных устройств, подключенных одновременно, никогда не превысят лимит до следующего цикла перепланирования, и неактивное зарядное устройство никогда не будет лишать питания то, которое уже заряжается.
+
+Значение `0` (по умолчанию) отключает ограничение бюджета; в этом случае адаптер не устанавливает суммарный лимит, поэтому убедитесь, что сумма максимальных токов каждого настенного блока остается в пределах мощности вашей установки.
+
+> Это консервативная модель: каждый ампер учитывается в рамках одного бюджета независимо от того, к какой фазе он относится. Он никогда не превышает номинал предохранителя, но при распределении нагрузок по фазам может остаться неиспользованная часть мощности.
 
 ## Sentry
 
@@ -223,6 +233,12 @@ target current = floor(available power / 230 V / active phases)
 -->
 
 ### **WORK IN PROGRESS**
+
+- (hombach) added an installation-wide total current budget (maximum total charging current) that caps the summed current of all wallboxes to protect a shared fuse, serving ChargeNOW before ChargeManager and keeping a wallbox without a connected vehicle off so idle wallboxes neither trip the fuse nor starve one that is already charging
+- (hombach) added concise debug logging for the ChargeManager control loops (surplus sharing, phase switching, total current budget)
+- (hombach) docs: documented the total current budget
+
+### 1.7.0 (2026-09-18)
 
 - (typhosj) admin: the wallbox list now explains that its order is the ChargeManager priority - the first entry receives the PV surplus first, later entries only the remainder
 - (typhosj) ChargeManager: the PV surplus is now shared between all wallboxes instead of being offered to each one in full; wallboxes are served in configuration order, so the first entry has priority and later ones only receive the remaining surplus
@@ -259,13 +275,6 @@ target current = floor(available power / 230 V / active phases)
 
 - (typhosj) refactored the ChargeManager control decision into a deterministic, unit-tested function (#846); behavior unchanged
 - (hombach) fixed vulnerabilities
-- (hombach) updated dependencies
-
-### 1.4.0 (2026-08-10)
-
-- (hombach) added info.unlockedByRFIDName with the name of the current session's RFID card, in parallel to unlockedByRFIDNo (#634)
-- (hombach) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
-- (hombach) projectUtils: fixed min/max/step value of 0 being dropped from number state definitions
 - (hombach) updated dependencies
 
 ## License

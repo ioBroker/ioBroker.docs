@@ -101,6 +101,10 @@ Select:
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 1.0.0 (2023-09-13)
 * (bluefox) Fixed pie chart
 

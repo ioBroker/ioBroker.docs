@@ -37,6 +37,10 @@ You can read more about context [here](https://www.npmjs.com/package/http-proxy-
 Additionally the user can define the route path for proxy requests.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 1.3.2 (2022-10-01)
 * (Apollon77) Allow to also proxy files directly
 
@@ -82,7 +86,7 @@ Additionally the user can define the route path for proxy requests.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2026 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

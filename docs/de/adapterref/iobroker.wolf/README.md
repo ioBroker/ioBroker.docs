@@ -26,6 +26,10 @@ Der Adapter kann über das ISM8i maximal 4  von den nachfolgenden Heizgeräten a
   Ein Wohnraumlüftungsgerät der Baureihe CWL Excellent kann mit dem ISM8i ebenfalls ausgewertet und bedient werden.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 1.7.0 (2023-01-26)
 * (fred0815) added missing ISM8i states
 * (fred0815) optimized channel object naming

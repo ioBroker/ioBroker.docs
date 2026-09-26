@@ -41,6 +41,53 @@ The created preset can be accessed in web adapter too. URL: `http://IP:8082/echa
 
 For `vis` there is a special widget with easy selection of presets.
 
+### Time range widget
+
+Beside the chart widget there is the widget "E-Charts time range". It shows the same three fields as
+the "Time" tab of the preset editor - type (relative or static), end and range - and hands the choice
+of the user to the chart widgets of the same view. Every one of the three fields can be switched off
+in the settings of the widget; a field that is switched off keeps the value that stands in its
+attribute. As long as no chart is picked under "Charts", every E-Charts widget of the view follows it.
+
+The same works without the widget: a chart that is opened with a preset takes the range out of the
+URL hash, e.g. `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID#range=60&relativeEnd=now`.
+`range`, `relativeEnd`, `timeType`, `start`, `start_time`, `end` and `end_time` are read there, and
+they override what the preset brings without changing the preset itself.
+
+### Chart modes
+
+The "Options" tab of the preset editor opens with a "Chart mode", which says what the whole chart is:
+
+- **Mixed** - the chart as it always was: a time axis, and every line brings its own type.
+- **Donut** - one ring, one slice per line with the current value of its state. The size of the hole,
+  the labels on the slices, the text in the hole and the order of the slices are set beside it. The
+  values come in through a subscription, so the ring follows the states without a refresh.
+- **Bar (current value)** - one bar per line instead of one bar per time interval. This is what the
+  checkbox "One bar per line" did; an old preset is read as this mode and keeps working.
+- **Radar** - the polar chart. It used to be a type a single line could take, which then forced every
+  other line to it; an old preset is read as this mode.
+- **Gauge** - in the shape "Circles" the scale is bent into a full circle and a ring is stacked per
+  line, with the names and the values in the middle; in the shape "Gauge" the open scale stays and
+  every line gets a pointer, with the names and the values in a row underneath.
+
+Donut and "Bar (current value)" read the states and never the history, so they need no time range and
+no aggregation.
+
+### Chart without an iframe (experimental)
+
+The vis-2 chart widget draws the chart in an iframe: every chart on a view brings its own React app,
+its own echarts and above all its own socket connection. The attribute "Without iframe" draws it into
+the widget instead - the model then uses the connection the vis runtime already holds, and the chart
+lives in the theme of vis-2.
+
+The widget for ioBroker.devices carries the same setting. Both embed `ChartEmbed` of `src-chart`,
+which is the only place that ties the chart model to the chart view.
+
+The chart code is loaded on demand (about 1.5 MB, 480 kB gzipped) the first time a widget with this
+setting is shown, because neither vis-2 nor the devices host shares echarts. A page without such a
+widget loads nothing extra. The iframe stays the default and remains the only way for the stand-alone
+URL and for the preview in the editor.
+
 ### Tooltip
 
 Lower case `i` indicates that the value was interpolated from the 2-neighbour values, and it does not exist at this time stamp.
@@ -125,6 +172,40 @@ You can debug view charts locally with:
   -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (@GermanBluefox) A value of a line without a unit does not end in the word "undefined" any more. The unit was hung onto the value whether the line carried one or not, which a gauge showed as "0,00undefined"
+- (@GermanBluefox) The names and the values in the middle of the rings of a gauge do not lie on each other any more. They stood at a share of the radius, while both of them are of a size given in pixels, so they ran into each other as soon as the chart was drawn big
+- (@GermanBluefox) Every axis of a radar is labelled with the name of its line again. A series of the type "polar" is built without a name, and the radar read exactly that, so every axis stood there as "undefined"
+- (@GermanBluefox) A gauge reads the "Max" and the "Min" of a line, as the radar reads the "Max" as the end of its axis. Only where a line says nothing do the ends of the whole gauge count, and after them the values. Where the lines end at different places every one of them is drawn as how full it is and the scale counts percent - the badges keep showing what the states really say
+- (@GermanBluefox) Of the axis settings of a line a gauge shows only "Min" and "Max". Position, ticks and offsets belong to an axis a line runs along, which a gauge does not have - the radar has narrowed the same group from the beginning
+- (@GermanBluefox) A gauge shows the current value of a line whatever aggregation the line carries. A line on "unprocessed" or "max" read the history instead, which left every ring and every pointer at zero
+- (@GermanBluefox) The aggregation of a line is hidden in the donut and in the gauge, as the chart type already is. Neither of them reads the history, so the setting had no effect there
+- (@GermanBluefox) The ends of a gauge scale that are left empty follow the values instead of standing at 0..100, where every pointer sat at the stop. The badge under a value is as wide as the value needs
+- (@GermanBluefox) The label of a slider is translated. "Percentile", "Fill (from 0 to 1)" and the thickness of a ring stood in English in every language
+- (@GermanBluefox) New chart mode "Gauge", in two shapes: "Circles" stacks a ring per line with the names and the values in the middle, "Gauge" keeps the open scale and gives every line a pointer. The ends of the scale and the thickness of a ring are configurable
+- (@GermanBluefox) The radar stands in the "Chart mode" as well and is not a type of a single line any more. An old preset whose lines carry "polar" is read as that mode, in the chart and in the editor
+- (@GermanBluefox) A chart drawn without an iframe does not grow any more. It measures the box it stands in, and in a layout whose rows follow their content it kept measuring itself; it now sits in a box of its own that is out of the flow
+- (@GermanBluefox) A chart drawn without an iframe does not crash any more when a time range is handed to it while the preset is still being read
+- (@GermanBluefox) A switch of the chart mode redraws the chart instead of merging the new one into the old. Switching from the bars to the donut left the axes, the grid and the old bars standing under the ring
+- (@GermanBluefox) The ID of a line is reported when it is done - on Enter or when the field is left. Every single keystroke used to rebuild the whole line, which took the focus out of the field after the first letter, and asked the server for an object that cannot exist yet
+- (@GermanBluefox) The source of a line offers no history instances any more where none is read - only "standard" and "JSON" are left for a donut, a radar or a line with the aggregation "current". A source that is already stored stays in the list, so no preset changes behind the back of the user
+- (@GermanBluefox) A JSON source works in a chart that shows one value per line: its last entry is taken as the current value, which used to happen only when the legend showed actual values
+- (@GermanBluefox) Any state can be picked for a line that shows only its current value - a donut, a radar or a line with the aggregation "current" never reads the history, so the object dialog does not limit itself to the states a history adapter logs any more
+- (@GermanBluefox) The chart type of a line is hidden in the modes that draw one value per line. A donut knows no line types, and with "Bar (current value)" every series ends up as a bar whatever the line says
+- (@GermanBluefox) The "Chart mode" stands over the list of the data sources as well, not only in the options - it decides what a line even means
+- (@GermanBluefox) The tooltip of a dropdown stays away while its list is open. It used to lie over exactly the entries the user wanted to read
+- (@GermanBluefox) The widget for ioBroker.devices can draw the chart without an iframe too, with the same setting as the vis-2 widget
+- (@GermanBluefox) The setting "After comma" of a chart is used again. It has always been written into the preset but was read by nobody, so a line without its own "Digits after comma" printed whatever the aggregation produced - down to 434.32000000000005. An axis leaves a value alone that would round away to zero
+- (@GermanBluefox) The vis-2 chart widget can draw the chart without an iframe (attribute "Without iframe", experimental). One socket connection for the whole view instead of one per chart, and the theme of vis-2; the chart code is loaded on demand
+- (@GermanBluefox) New chart mode "Donut": one ring with one slice per line, showing the current value of its state. Hole size, labels, the text in the hole and the order of the slices are configurable
+- (@GermanBluefox) The whole chart has a "Chart mode" now: Mixed, Donut or Bar (current value). The checkbox "One bar per line" became the mode "Bar (current value)"; old presets are migrated when they are read
+- (@GermanBluefox) New vis-2 widget "E-Charts time range": type, end and range as in the preset editor, each field switchable, for one or more chart widgets of the same view
+- (@GermanBluefox) A chart that is opened with a preset reads the time range out of the URL hash, and not only `range` and `relativeEnd` any more but `timeType`, `start`, `start_time`, `end` and `end_time` as well. A range that arrives later is taken over without reloading the chart
+- (@GermanBluefox) The source "standard" can be selected in the opened settings of a line too. Only the closed line offered it, so a line that was set to a certain history instance could not be handed back to the default history adapter there
+- (@GermanBluefox) The source of a line shows the icon of the history adapter beside its name, in the closed line as well as in the opened one. "standard" carries the icon of the adapter it stands for
+- (@GermanBluefox) The buttons "Expand all" and "Collapse all" are shown for a single line and a single marking as well. They were hidden below two entries, although one line can be opened and closed like any other
+- (@GermanBluefox) Added description of the vis-2 widget to the palette tooltip
+
 ### 5.1.1 (2026-08-31)
 - (@GermanBluefox) Many GUI fixes
 

@@ -40,6 +40,10 @@ Before you must create the directory */mnt/1wire* with command `mkdir /mnt/1wire
 http://sourceforge.net/projects/owfs/
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 0.7.0 (2022-04-25)
 * IMPORTANT: Requires now at least js-controller 2.0
 * (boellner) ignore 85 degree error value for file system too
@@ -103,7 +107,7 @@ http://sourceforge.net/projects/owfs/
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2024, bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2026, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.xtream-monitor/README.md
 title: ioBroker.xtream-monitor
-hash: S1QeSlkID8F4XQbVHGpILmja2/0/se0ZnbVHlaeALXE=
+hash: p62IrAbDJCtPI5BQEKjdU1x/rSCnW9gJbl3/q9EmaiU=
 ---
 # ioBroker.xtream-monitor
 
@@ -21,13 +21,13 @@ hash: S1QeSlkID8F4XQbVHGpILmja2/0/se0ZnbVHlaeALXE=
 - Отметки времени последней проверки, последнего подключения к сети и отключения от сети.
 - Классификация ошибок, связанных с таймаутом, DNS, HTTP, недействительным ответом и неактивными учетными записями.
 - Ведение журнала является необязательным и происходит только при фактическом изменении состояния онлайн/офлайн.
-- Сводные данные о состоянии визуализации для VIS, Grafana и других приложений ioBroker.
+- Сводные данные о состоянии визуализаций для VIS, Grafana и других приложений ioBroker.
 
 ## Требования
 
-- Node.js 22 или более поздняя версия
-- js-controller 7.0.7 или новее
-- Администратор 7.6.20 или более поздняя версия
+- Node.js 22 или новее
+- js-controller 7.0.7 или более поздняя версия
+- Администратор 7.8.23 или более поздняя версия
 
 ## Конфигурация
 
@@ -76,7 +76,7 @@ xtream-monitor.0
 - Адаптер взаимодействует только с конечными точками, явно указанными пользователем.
 - Учетные данные никогда намеренно не записываются в журнал ioBroker.
 - В таблице Admin столбцы с паролями настроены для зашифрованного хранения.
-- Полная конфигурация сервера защищена от доступа других сетевых адаптеров через `protectedNative`.
+- Полная конфигурация сервера защищена от доступа со стороны других сетевых адаптеров. `protectedNative`.
 - Для мониторинга медиаконтент не загружается; адаптер запрашивает метаданные учетной записи/статуса через совместимую конечную точку API.
 
 ## Разработка
@@ -170,4 +170,4 @@ npx @iobroker/repochecker https://github.com/chrvidal/ioBroker.xtream-monitor ma
 
 MIT License. See [LICENSE](https://github.com/chrvidal/ioBroker.xtream-monitor/blob/main/LICENSE).
 
-Copyright (c) 2026 chrvidal
+Copyright (c) 2026 Christian Vidal <christian_vidal@icloud.com>

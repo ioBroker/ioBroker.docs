@@ -98,6 +98,9 @@ Global Homebridge Config Directory Path:
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### __WORK IN PROGRESS__
 * (Apollon77) Optimize value determination on accessory initialization
 
@@ -221,7 +224,7 @@ Global Homebridge Config Directory Path:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2018-2026 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

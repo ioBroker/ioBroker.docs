@@ -102,6 +102,17 @@ does not exist.
 The widgets discover devices from the object tree rather than the adapter configuration, because MQTT routers
 announce themselves and SNMP devices appear on their first poll.
 
+### Widgets for vis-2
+The same two views are available as a widget set for **vis-2** (set *Teltonika*):
+
+- **Teltonika devices** — all devices of an instance, shown as a summary (devices online, port strips), as one
+  tile per device, or with the full detail of every device right inside the widget. Clicking the summary or a
+  tile opens the detail dialog.
+- **Teltonika ports** — the front panel of one device, picked from a list of the instance's devices, or its full
+  detail inside the widget.
+
+Switching ports from the widgets is off by default and has to be enabled in the widget's settings.
+
 ### Traps
 The adapter can listen for SNMP traps. Enable it under the *SNMP* tab and point the device at this host under
 *Services → SNMP → Trap Settings*. Note that port 162 is privileged on Linux, so a higher port may be needed.
@@ -116,6 +127,11 @@ device, which is where the actual values come from. A TSW202 defines no traps at
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.0.1 (2026-09-23)
+* (iobroker-bot) Adapter requires node.js >= 22 now.
+* (@GermanBluefox) Added vis-2 widgets: overview of all devices and front panel of one device
+* (@GermanBluefox) Fixed the device manager widgets failing to load now and then with React error #527
+
 ### 1.0.0 (2026-08-10)
 * (bluefox) Added SNMP support for devices without an MQTT publisher, such as the TSW switches
 * (bluefox) Added a network scan that finds Teltonika devices and fills the device table

@@ -38,6 +38,13 @@ All widgets use a consistent color palette:
 
 ## Changelog
 
+### 0.1.23 (2026-09-20)
+- New widget "Thermostat - Temperature": heating/cooling circuit regulator with
+  setpoint dial, actual temperature, humidity, and actuator status (flame/snowflake)
+- InfluxDB-based history overlay (24h/7 days) with setpoint, actual-temperature and
+  actuator series, independently configurable line colors
+- Full translation in all supported languages
+
 ### 0.1.22 (2026-09-20)
 - New widget "Clock - Date": configurable time and date display
 - Granular date formatting (language, order, separator, month format, year format, leading zero, weekday)

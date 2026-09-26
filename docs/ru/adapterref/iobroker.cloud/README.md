@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cloud/README.md
 title: облачный адаптер ioBroker
-hash: D4/31oNNg8hFbzAZM2/B9qkJ3cSrn58qXixte5ZRV0s=
+hash: O1e25HdQqdwUOxkcQgeXtotAsysHeauu4N30s+pBTlI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
@@ -67,7 +67,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 
 ### текст2команда
 
-Вы можете написать `text2command` В белом списке можно отправлять POST-запросы на `https://iobroker.net/service/text2command/<user-app-key>` записывать данные в `text2command.X.text` переменная.
+Вы можете написать `text2command` В белом списке можно отправлять POST-запросы. `https://iobroker.net/service/text2command/<user-app-key>` записывать данные в `text2command.X.text` переменная.
 
 Параметр "X" можно задать в настройках с помощью опции "Использовать экземпляр text2command".
 
@@ -87,6 +87,30 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 
 Вы можете отключить HTTPS и аутентификацию на этом экземпляре веб-сайта, но лучше создать новый экземпляр веб-сайта, привязанный к... `localhost` и выберите этот экземпляр в настройках облака.
 
+## Удалённая оболочка (SSH)
+
+В версии **Pro** облако может выступать в качестве SSH-сервера, поэтому вы можете получить доступ к командной оболочке (или любой службе TCP) на этой машине из любой точки мира, авторизовавшись с помощью своего облачного адреса электронной почты и пароля. Внутреннее SSH-соединение между вашим клиентом и локальным сервером зашифровано сквозным шифрованием. `sshd` Таким образом, облако пересылает только байты.
+
+Включите эту функцию в разделе **«Удалённая оболочка»** в настройках адаптера:
+
+- **Включить удалённую оболочку** — по умолчанию отключено.
+- **Разрешенные адреса** — таблица правил; адрес разрешен, если ему соответствует хотя бы одна строка. Это авторитетный список разрешенных адресов, облако не открывает ничего, что адаптер не разрешает. Каждая строка содержит:
+
+  - **Хост** — отдельный IP-адрес или имя хоста (`127.0.0.1`, `localhost`), подстановочный знак (`192.168.*`), CIDR (`192.168.1.0/24`), или диапазон (`192.168.1.10-192.168.1.50`).
+  - **Порты** — список и/или диапазоны (`22`, `22, 8081`, `8000-8100`), или пустой /`*` /`all` для любого порта.
+
+  По умолчанию: `127.0.0.1` и `localhost` любой порт (только на этом устройстве). Таким образом, одна строка может открывать только SSH на устройстве ioBroker, в то время как другая открывает целую подсеть, например. `127.0.0.1 → 22` плюс `192.168.1.0/24 → *`.
+
+Затем подключитесь (с помощью вашего собственного sshd, переместив его с порта 22) и `pi` являясь пользователем этого компьютера:
+
+```bash
+ssh -J <email>@iobroker.pro pi@localhost
+```
+
+`-L 8081:localhost:8081` туннелирует административный интерфейс. `scp` /`sftp` копирование файлов и так далее. UDP не передается (поэтому для KNXnet/IP по UDP требуется шлюз с поддержкой TCP или VPN).
+
+При запуске адаптер проверяет, доступен ли SSH-сервер. `127.0.0.1:22` и публикует результат в штат&#x435;** `info.sshAvailable` ** На странице настроек это состояние отображается в режиме реального времени: если SSH-сервер не найден (или учетная запись не является профессиональной), отображается подсказка, и **настройки удаленной оболочки полностью скрываются** , поэтому они появляются только тогда, когда их включение позволяет фактически получить доступ к оболочке.
+
 ## Android-приложение
 
 В новом приложении для Android изменено расположение переменных, отвечающих за яркость и местоположение.
@@ -104,25 +128,23 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 -->
 
 ## Changelog
+### 6.2.5 (2026-09-24)
+* (@GermanBluefox) A POST body that arrives as a buffer is decoded instead of stringified, so the telemetry of the visu apps is no longer lost on its way through the cloud
+* (@GermanBluefox) An empty body for a reported value, and a command without `deviceName`/`name`, are logged instead of being dropped silently
+
+### 6.2.4 (2026-09-21)
+* (@GermanBluefox) Updated packages
+
+### 6.2.1 (2026-09-17)
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Clear subscriptions on cloud disconnection
+
 ### 6.1.3 (2026-08-26)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Migrated blockly to TypeScript
 
 ### 6.1.2 (2026-06-13)
 * (@GermanBluefox) Added support of credentials manager
-
-### 6.0.5 (2026-06-01)
-* (bluefox) Corrected the command object to be writable
-
-### 6.0.4 (2026-05-17)
-* (bluefox) Respect the types of states if writing from visu app
-
-### 6.0.1 (2026-03-04)
-* (bluefox) Added communication with new android application
-* (bluefox) Dropped support node 18
-* (bluefox) Implemented QR Code for ioBroker.visu app
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.cloud/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

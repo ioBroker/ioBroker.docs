@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.open-meteo-weather/README.md
 title: ioBroker.open-meteo-weather
-hash: jv3ttk83cxuOA8HlG2ofJyMidxI/QHm6BjBwzC1t6F0=
+hash: TLK82H0b3s6DkF0hNAy7iK7jUBRC63o1B0IZkP9lMpY=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.open-meteo-weather.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.open-meteo-weather.svg)
@@ -144,6 +144,10 @@ Der Adapter stellt dynamische Symbolpfade bereit, die direkt in Visualisierungen
 | `weather.forecast.dayX`         | Tagesvorhersage für Tag X                            |
 | `weather.forecast.hourly.hourX` | Stündliche Details pro voller Stunde                 |
 | `info.lastUpdate_weather`       | Zeigt Datum und Uhrzeit des letzten Wetterupdates an |
+
+## Verschiedenes
+
+- **Um es mir und Ihnen zu erleichtern:** Automatische Rollenmigration: Wann [`role_mapping.ts` Zeile 7](https://github.com/H5N1v2/ioBroker.open-meteo-weather/blob/main/src/lib/role_mapping.ts) wird aktualisiert, vorhandene ioBroker-Objekte werden beim nächsten Adapterstart automatisch mit den neuen Rollen aktualisiert – ein manuelles Löschen des Objektbaums ist nicht erforderlich. Die Migration betrifft ausschließlich API-Datenpunkte (z. B. `temperature_2m`, `wind_speed_10m`) und überspringt alle benutzerdefinierten Zustände (z. B. `icon_url`, `weather_text`, `wind_direction_icon` Die aktuelle Version der Rollenzuordnung wird verfolgt in `info.roleMappingVersion` Die
 
 ---
 
@@ -316,6 +320,13 @@ Die in diesem Adapter enthaltenen statischen Wetter- und Windrichtungssymbole un
 - **Wetterdaten:** Alle Wetterdaten werden von [Open-Meteo.com](https://open-meteo.com/) bereitgestellt. Bitte beachten Sie deren Nutzungsbedingungen für kommerzielle Zwecke.
 
 ## Changelog
+### 3.3.0 (2026-09-20)
+* (H5N1v2) Adding some weather keys, in hourly: showers, in daily: showers_sum, in current: rain, showers, snowfall
+* (H5N1v2) Automatic role migration: When `role_mapping.ts` is updated, existing 
+  ioBroker objects are automatically updated with the new roles on the next adapter start – 
+  no manual deletion of the object tree required.
+* (H5N1v2) Update dependencies
+
 ### 3.2.1 (2026-09-12)
 * (H5N1v2) add 'diffuse_radiation' to 15 min weather forecast.
 * (H5N1v2) add node.js 26.x testmatrix
@@ -339,11 +350,7 @@ Die in diesem Adapter enthaltenen statischen Wetter- und Windrichtungssymbole un
 ### 3.1.3 (2026-06-20)
 * (H5N1v2) Fixed an issue with object creation caused by an accidental change.
 
-### 3.1.2 (2026-06-20)
-* (mcuiobroker) fix: after adapter update, automatically adjust type and role if they have been changed in new versions.
-* (H5N1v2) Update dependencies
-
 ## License
-This project is licensed under the **MIT License** - see the `LICENSE` file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](https://github.com/H5N1v2/ioBroker.open-meteo-weather/blob/main/LICENSE) file for details.
 
 Copyright (c) 2026 H5N1v2 <h5n1@iknox.de>

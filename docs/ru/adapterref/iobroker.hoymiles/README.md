@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.hoymiles/README.md":{"title":{"en":"ioBroker.hoymiles"},"content":"en/adapterref/iobroker.hoymiles/README.md"},"en/adapterref/iobroker.hoymiles/docs/en/README.md":{"title":{"en":"ioBroker.hoymiles — Hoymiles HMS-xxxW-xT / HMS-xxx-xWB"},"content":"en/adapterref/iobroker.hoymiles/docs/en/README.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.hoymiles/README.md":{"title":{"en":"ioBroker.hoymiles"},"content":"en/adapterref/iobroker.hoymiles/README.md"},"en/adapterref/iobroker.hoymiles/docs/en/README.md":{"title":{"en":"ioBroker.hoymiles — Hoymiles HMS microinverters and HAT hybrid inverters"},"content":"en/adapterref/iobroker.hoymiles/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hoymiles/README.md
 title: ioBroker.hoymiles
-hash: 3/00a3Nl/r46QPXTvSHWyaX/Tp+g2LoVkE5Lu2MDcAI=
+hash: wbXYszzn/9E8KsEImOoPrxPK+ITlhq/pekorPXjOwlk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hoymiles/admin/hoymiles.png)
 
@@ -32,7 +32,7 @@ hash: 3/00a3Nl/r46QPXTvSHWyaX/Tp+g2LoVkE5Lu2MDcAI=
 
 ## Описание
 
-Адаптер ioBroker для микроинверторов [**Hoymiles**](https://www.hoymiles.com/) **HMS-xxxW-xT** и **HMS-xxx-xWB** со встроенным модулем WiFi/Bluetooth DTU (DTUBI).
+Адаптер ioBroker для микроинверторов [**Hoymiles**](https://www.hoymiles.com/) **HMS-xxxW-xT** и **HMS-xxx-xWB** со встроенным модулем DTU (DTUBI) WiFi/Bluetooth — локально или через облако S-Miles — а также, через облако, для гибридных инверторов **HAT** с батареей.
 
 Два режима подключения (настраиваемые независимо друг от друга):
 
@@ -46,7 +46,8 @@ hash: 3/00a3Nl/r46QPXTvSHWyaX/Tp+g2LoVkE5Lu2MDcAI=
 
 ## Функции
 
-- Двойной режим: локальный TCP/Protobuf и/или API облака S-Miles.
+- Три пути подключения: локальный TCP/Protobuf, локальный Bluetooth (BLE) через Bluetooth-прокси ESPHome и/или API облака S-Miles.
+- Локальный BLE для серии WB (например, HMS-800-2WB, без локального TCP-порта): автоматическое обнаружение шлюза (mDNS), автоматический выбор шлюза с наилучшим сигналом и импорт обнаруженных инверторов одним щелчком мыши.
 - Постоянное TCP-соединение с протобуф-сигналом (автоматическое подтверждение активности в режиме ожидания каждые 20 секунд)
 - Настраиваемый интервал передачи данных (0 = максимально быстрый, \~1 с за цикл)
 - Облачная ретрансляция: пересылает данные инвертора в облако Hoymiles от имени DTU, благодаря чему локальное соединение больше не блокирует загрузку данных в облако.
@@ -73,13 +74,15 @@ hash: 3/00a3Nl/r46QPXTvSHWyaX/Tp+g2LoVkE5Lu2MDcAI=
 
 ### Локальное соединение (TCP)
 
-| Параметр                                         | По умолчанию | Описание                                                                                                                                             |
-| ------------------------------------------------ | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Включить локальный**                           | на           | Включить прямое соединение TCP/Protobuf                                                                                                              |
-| **устройства DTU**                               | (пустой)     | Таблица IP-адресов/имен хостов DTU. Добавьте по одной строке для каждого DTU.                                                                        |
-| **Интервал запроса данных**                      | 5с           | Секунды между запросами данных (0-300). Установите 0 для максимально быстрой обработки (без задержки между запросами).                               |
-| **Коэффициент опроса конфигурации/сигнализации** | 6            | Конфигурационные данные и сигналы тревоги запрашиваются каждые N циклов передачи данных.                                                             |
-| **Облачная ретрансляция**                        | на           | Пересылка данных в режиме реального времени в облако Hoymiles от имени DTU. Предотвращает блокировку загрузки данных в облако локальным соединением. |
+| Параметр                                         | По умолчанию | Описание                                                                                                                                                             |
+| ------------------------------------------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Включить локальный**                           | на           | Включить прямое соединение TCP/Protobuf                                                                                                                              |
+| **устройства DTU**                               | (пустой)     | Таблица IP-адресов/имен хостов DTU. Добавьте по одной строке для каждого DTU.                                                                                        |
+| **Интервал запроса данных**                      | 5с           | Секунды между запросами данных (0-300). Установите 0 для максимально быстрой обработки (без задержки между запросами).                                               |
+| **Коэффициент опроса конфигурации/сигнализации** | 6            | Конфигурационные данные и сигналы тревоги запрашиваются каждые N циклов передачи данных.                                                                             |
+| **Мертвая зона ограничения мощности**            | 1 %          | Незначительные изменения ограничения мощности не отправляются на устройство. Каждая операция записи стирает два сектора флэш-памяти внутри инвертора. 0 = выключено. |
+| **Минимальный интервал ограничения мощности**    | 60 с         | Кратчайший промежуток между двумя операциями записи ограничения мощности. Защищает флэш-память инвертора. 0 = выключено.                                             |
+| **Облачная ретрансляция**                        | на           | Пересылка данных в режиме реального времени в облако Hoymiles от имени DTU. Предотвращает блокировку загрузки данных в облако локальным соединением.                 |
 
 ### Подключение к облаку (S-Miles)
 
@@ -91,39 +94,47 @@ hash: 3/00a3Nl/r46QPXTvSHWyaX/Tp+g2LoVkE5Lu2MDcAI=
 
 Все инверторы в вашей облачной учетной записи обнаруживаются автоматически. Ручная настройка серийного номера не требуется.
 
-Оба соединения могут быть включены одновременно. Локальные данные имеют приоритет — облачные данные заполняют данные, когда DTU отключен (например, ночью).
+### BLE-шлюз (ESPHome)
+
+Для инверторов **серии WB** (например, HMS-800-2WB), которые подключаются только по Bluetooth, вы можете добавить в свою сеть небольшой и недорогой Bluetooth-мост (например [, ESPHome Bluetooth Proxy](https://esphome.io/projects/?type=bluetooth) ), и адаптер будет подключаться к вашему инвертору через него — без использования облака.
+
+Откройте вкладку **BLE** , включите **параметр «Включить шлюз BLE»** и сохраните изменения. Затем нажмите **«Добавить обнаруженные инверторы»** , введите **PIN-код** каждого инвертора, поставьте галочку **«Активный»** и сохраните. Пошаговое руководство см. в [документации](/#/docs/adapterref/iobroker.hoymiles/docs/en/README.md#ble-gateway-esphome) .
+
+Настройки сгруппированы по вкладкам **«Локальный / Облачный / BLE»** ; можно включить любую комбинацию одновременно.
 
 ## Поддерживаемые инверторы
 
 Этот адаптер предназначен для **микроинверторов Hoymiles HMS со встроенным модулем DTU (DTUBI) Wi-Fi (или Wi-Fi + Bluetooth)** .
 
-**Локальный доступ** = прямое TCP/Protobuf-соединение на порту 10081. **Облачный доступ** = API S-Miles Cloud — автоматическое обнаружение, данные в реальном времени (быстрый пакетный канал \~1,5–3 с), агрегированные данные об энергопотреблении, профиль сети, включение/выключение инвертора + перезагрузка, перезагрузка DTU.
+**Локальное соединение (TCP)** = прямое TCP/Protobuf-соединение на порту 10081 (модели WiFi). **Локальное соединение (BLE)** = локальное соединение Bluetooth через [Bluetooth-прокси ESPHome](https://esphome.io/projects/?type=bluetooth) (серия WB). **Облачное соединение** = API S-Miles Cloud — автоматическое обнаружение, данные в реальном времени (быстрый пакетный канал \~1,5–3 с), агрегированные данные об энергопотреблении, профиль сети, включение/выключение инвертора + перезагрузка, перезагрузка DTU.
 
-| Модель        | Строки | Локальный (TCP) | Облако | Статус                                                                                                                                |
-| ------------- | :----: | :-------------: | :----: | ------------------------------------------------------------------------------------------------------------------------------------- |
-| HMS-300W-1T   |    1   |        ✅        |    ✅   | Непроверенный                                                                                                                         |
-| HMS-350W-1T   |    1   |        ✅        |    ✅   | Непроверенный                                                                                                                         |
-| HMS-400W-1T   |    1   |        ✅        |    ✅   | Непроверенный                                                                                                                         |
-| HMS-450W-1T   |    1   |        ✅        |    ✅   | Непроверенный                                                                                                                         |
-| HMS-500W-1T   |    1   |        ✅        |    ✅   | Непроверенный                                                                                                                         |
-| HMS-600W-2T   |    2   |        ✅        |    ✅   | Непроверенный                                                                                                                         |
-| HMS-700W-2T   |    2   |        ✅        |    ✅   | Непроверенный                                                                                                                         |
-| HMS-800W-2T   |    2   |        ✅        |    ✅   | **Протестировано** (локально + в облаке)                                                                                              |
-| HMS-900W-2T   |    2   |        ✅        |    ✅   | Непроверенный                                                                                                                         |
-| HMS-1000W-2T  |    2   |        ✅        |    ✅   | **Протестировано** (локально)                                                                                                         |
-| HMS-1600DW-4T |    4   |        ✅        |    ✅   | Непроверенный                                                                                                                         |
-| HMS-1800DW-4T |    4   |        ✅        |    ✅   | Непроверенный                                                                                                                         |
-| HMS-2000DW-4T |    4   |        ✅        |    ✅   | Непроверенный                                                                                                                         |
-| HMS-600-2WB   |    2   |        ❌¹       |    ✅   | Непроверенный                                                                                                                         |
-| HMS-700-2WB   |    2   |        ❌¹       |    ✅   | Непроверенный                                                                                                                         |
-| HMS-800-2WB   |    2   |        ❌¹       |    ✅   | **Протестировано** (облако: пиковая нагрузка в реальном времени, профиль сети, включение/выключение + перезагрузка, перезагрузка DTU) |
-| HMS-900-2WB   |    2   |        ❌¹       |    ✅   | Непроверенный                                                                                                                         |
-| HMS-1000-2WB  |    2   |        ❌¹       |    ✅   | Непроверенный                                                                                                                         |
-| HMS-1600-4WB  |    4   |        ❌¹       |    ✅   | Непроверенный                                                                                                                         |
-| HMS-1800-4WB  |    4   |        ❌¹       |    ✅   | Непроверенный                                                                                                                         |
-| HMS-2000-4WB  |    4   |        ❌¹       |    ✅   | Непроверенный                                                                                                                         |
+| Модель        | Строки | Локальный (TCP) | Локальный (BLE)² | Облако | Статус                                                                       |
+| ------------- | :----: | :-------------: | :--------------: | :----: | ---------------------------------------------------------------------------- |
+| HMS-300W-1T   |    1   |        ✅        |         —        |    ✅   | Непроверенный                                                                |
+| HMS-350W-1T   |    1   |        ✅        |         —        |    ✅   | Непроверенный                                                                |
+| HMS-400W-1T   |    1   |        ✅        |         —        |    ✅   | Непроверенный                                                                |
+| HMS-450W-1T   |    1   |        ✅        |         —        |    ✅   | Непроверенный                                                                |
+| HMS-500W-1T   |    1   |        ✅        |         —        |    ✅   | Непроверенный                                                                |
+| HMS-600W-2T   |    2   |        ✅        |         —        |    ✅   | Непроверенный                                                                |
+| HMS-700W-2T   |    2   |        ✅        |         —        |    ✅   | Непроверенный                                                                |
+| HMS-800W-2T   |    2   |        ✅        |         —        |    ✅   | **Протестировано** (локально + в облаке)                                     |
+| HMS-900W-2T   |    2   |        ✅        |         —        |    ✅   | Непроверенный                                                                |
+| HMS-1000W-2T  |    2   |        ✅        |         —        |    ✅   | **Протестировано** (локально)                                                |
+| HMS-1600DW-4T |    4   |        ✅        |         —        |    ✅   | Непроверенный                                                                |
+| HMS-1800DW-4T |    4   |        ✅        |         —        |    ✅   | Непроверенный                                                                |
+| HMS-2000DW-4T |    4   |        ✅        |         —        |    ✅   | Непроверенный                                                                |
+| HMS-600-2WB   |    2   |        ❌¹       |         ✅        |    ✅   | Непроверенный                                                                |
+| HMS-700-2WB   |    2   |        ❌¹       |         ✅        |    ✅   | Непроверенный                                                                |
+| HMS-800-2WB   |    2   |        ❌¹       |         ✅        |    ✅   | **Протестировано** (облако; в процессе тестирования использовался BLE-шлюз). |
+| HMS-900-2WB   |    2   |        ❌¹       |         ✅        |    ✅   | Непроверенный                                                                |
+| HMS-1000-2WB  |    2   |        ❌¹       |         ✅        |    ✅   | Непроверенный                                                                |
+| HMS-1600-4WB  |    4   |        ❌¹       |         ✅        |    ✅   | Непроверенный                                                                |
+| HMS-1800-4WB  |    4   |        ❌¹       |         ✅        |    ✅   | Непроверенный                                                                |
+| HMS-2000-4WB  |    4   |        ❌¹       |         ✅        |    ✅   | Непроверенный                                                                |
 
-¹ **Серия WB** (продающаяся как **"HiFlow Pro"** ) не имеет локального TCP-порта — её единственный локальный канал — Bluetooth LE, и все данные передаются в облако Hoymiles. Поэтому эти инверторы работают **только с облаком** : активируйте облачное соединение, и адаптер считывает данные через API S-Miles (импульс в реальном времени, энергия, профиль сети) и может отправлять команды включения/выключения инвертора, перезагрузки и перезагрузки DTU. Все модели WB используют одну и ту же платформу; пока протестирована только модель HMS-800-2WB.
+¹ **Серия WB** (продающаяся как **"HiFlow Pro"** ) не имеет локального TCP-порта — её единственный локальный канал — Bluetooth LE. Доступ к ней можно получить либо **локально через Bluetooth** (см. столбец _"Локальный (BLE)"_ ), либо через **облако** . Все модели WB используют одну и ту же платформу; пока протестирована только модель HMS-800-2WB.
+
+² Для работы **локального режима (BLE)** требуется [Bluetooth-прокси ESPHome](https://esphome.io/projects/?type=bluetooth) (недорогой ESP32) в вашей сети; адаптер затем считывает данные с инвертора и управляет им локально по Bluetooth, без использования облака. Модели с Wi-Fi (T) в этом не нуждаются — они используют локальный TCP-путь. См. раздел _«BLE-шлюз (ESPHome)»_ в [документации](/#/docs/adapterref/iobroker.hoymiles/docs/en/README.md#ble-gateway-esphome) .
 
 **Работа только в облаке:** любой поддерживаемый инвертор в вашей учетной записи S-Miles также работает без локального подключения — адаптер автоматически обнаруживает его и предоставляет данные о мощности в реальном времени (пакет пиковой нагрузки), сводные данные об энергопотреблении, профиль сети, а также команды включения/выключения инвертора + перезагрузки и перезагрузки DTU через облако. Для остальных команд (ограничение мощности, блокировка, предупреждения об очистке и т. д.) требуется локальное TCP-соединение.
 
@@ -139,19 +150,20 @@ hash: 3/00a3Nl/r46QPXTvSHWyaX/Tp+g2LoVkE5Lu2MDcAI=
 
 Этот адаптер поддерживает одновременное подключение нескольких инверторов:
 
-- **Локальный режим:** Добавьте несколько IP-адресов DTU в таблицу устройств.
+- **Локально:** Добавьте несколько IP-адресов DTU в таблицу устройств.
 - **Облачное хранилище:** Все инверторы и станции в вашей учетной записи обнаруживаются автоматически.
 
 Каждый DTU создает узел устройства, используя свой серийный номер в качестве идентификатора (например, `hoymiles.0.4143A01CEDE4.*` Облачные станции создают агрегированные узлы устройств (например, `hoymiles.0.station-12345.*`).
 
 ## Changelog
+### 0.5.0 (2026-09-25)
 
-### **WORK IN PROGRESS**
-- (@Eistee82) Cloud: inverters whose model name does not end in "T" (e.g. HMS-2000-4WB) no longer lose their extra PV strings — voltage and current were only polled for the first two strings, so strings 3 and 4 showed power but nothing else. The number of PV inputs is now taken from Hoymiles' own rule dictionary, looked up by inverter serial number prefix, which is the same source the S-Miles app uses; the model name and the number of strings seen in the live data remain as fallbacks
-- (@Eistee82) Cloud: support inverters with more than six PV strings (up to 12), matching the port counts the cloud actually publishes
-- (@Eistee82) CI/tests: upgraded the coverage tool (c8 11 → 12) so the unit-test coverage step runs on Node 26 as well, and added Node 26 to the test matrix (now 22 / 24 / 26)
-- (@Eistee82) Security (dev dependencies only): cleared several advisories in the development toolchain — js-yaml and brace-expansion via `npm audit fix`, plus targeted same-major overrides for brace-expansion (1.1.16) and adm-zip (0.6.0). No change to the shipped adapter (these packages are not part of the published npm package)
-- (@Eistee82) Device Manager: inverters and cloud stations now appear on the ioBroker Device Manager tab, each inverter titled after its cloud station (the name given in the S-Miles app) plus its DTU serial, with live status, original per-type device icons (also used for the device objects in the object tree, replacing the generic adapter icon), live values right on the card (current power, today's energy, per-PV-string power and inverter temperature), per-device controls (on/off, power limit, power factor, reactive power, lock, reboot inverter/DTU, clear warnings/grounding fault, persistent power limit, cloud send interval), a settings dialog and a read-only details view. Cloud-only inverters show just the cloud-actuatable controls; instance actions cover network scan and cloud-login test. Controls reuse the existing command path, so no behaviour changes for the underlying states
+- (@Eistee82) **DTUs with firmware V01.01.01 work locally again.** That firmware encrypts the local connection and moves the DTU's cloud link to TLS on port 10083; the adapter now speaks both. DTUs with older firmware are unaffected
+- (@Eistee82) **Hybrid inverters with a battery (HAT series, e.g. HAT-6.0HV-EUG1) can be read through the cloud** — experimental, needs an installer-type S-Miles account. Everything about the battery is in one place below the inverter (`<dtuSerial>.battery.*`); the plant gets its live power flow, its energy balance for today, month, year and lifetime including the self-sufficiency rate (the figures of the app's "Production & Consumption" tab), income and cost, its measuring points (grid meter, loads, PV meter, generator), day curves, the cloud's alarm list and the relay settings. Read-only; power on/off and reboot are sent in the form such a device expects. Many thanks to BastiBerlin for providing access to a real system for development and testing
+- (@Eistee82) **WB-series inverters (e.g. HMS-800-2WB) can be used locally over Bluetooth** through a cheap ESP32 running an ESPHome Bluetooth Proxy, found automatically. A Shelly or ecotracker meter can be connected to such an inverter, either to read it out or so the inverter itself keeps the grid feed-in at zero. Nightly reconnect attempts no longer flood the log
+- (@Eistee82) **Your inverters and plants appear on the Config Manager tab** with live values, controls and a settings dialog, and the adapter settings are split into Local, Cloud and Bluetooth tabs with links to the S-Miles portal and the Bluetooth-proxy instructions. In the adapter list it now appears as "Hoymiles Inverters"
+- (@Eistee82) **More accurate readings, less wear:** the inverter's full daily power curve (`history.powerJson`) is read locally, the plant total keeps up with the individual inverters, energy counters no longer jump backwards after a restart, `inverter.activePowerLimit` no longer shows 0 % while producing, and the DTU's network, meter, zero-export and lock settings become states. Power-limit writes are rate-limited because every write wears the inverter's flash memory, and a single setting no longer overwrites the rest of the configuration
+- (@Eistee82) **Renamed and removed states:** the WiFi signal is a 0–100 quality, not dBm, and is now called `dtu.signalQuality` / `config.wifiSignalQuality` (was "rssi"). `inverter.modulationIndexSignal`, `dtu.searchResult` and `pvN.errorCode` never held usable data and disappear from existing installations by themselves
 
 ### 0.4.1 (2026-07-18)
 - (@Eistee82) Packaging: removed the npm `prepare` install script — installs from GitHub now use the committed `build/` output directly, so no dev dependencies are downloaded onto the target system; npm releases are still built freshly via `prepublishOnly`
@@ -181,16 +193,13 @@ hash: 3/00a3Nl/r46QPXTvSHWyaX/Tp+g2LoVkE5Lu2MDcAI=
 - (@Eistee82) Fix disabled property type in jsonConfig table items (string, not boolean)
 - (@Eistee82) Add local repochecker script (`npm run test:repo`)
 
-### 0.3.3 (2026-04-08)
-- (@Eistee82) Fix jsonConfig schema warnings: button color, remove unsupported table properties
-
-Older entries: see [CHANGELOG_OLD.md](https://github.com/Eistee82/ioBroker.hoymiles/blob/main/CHANGELOG_OLD.md).
+Older entries: see CHANGELOG_OLD.md.
 
 ## License
 
 MIT License
 
-Copyright (c) 2026 Eistee82
+Copyright (c) 2026 Eistee82 (t.me/AMEistee)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

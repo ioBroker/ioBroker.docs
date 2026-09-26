@@ -760,6 +760,9 @@ lg-thinq.0.xxx.area must be filled!
     ![weather.png](img/weather.png)
 
 ## Changelog
+### 1.2.3 (2026-09-24)
+
+- (TA2k) Login flow changed
 
 ### 1.2.2 (2026-08-22)
 
@@ -777,11 +780,6 @@ lg-thinq.0.xxx.area must be filled!
 
 ### 1.1.6 (2025-12-17)
 
-- (Lucky-ESA) Fixed: Address Root-CA certificate has changed
-
-### 1.1.5 (2025-12-15)
-
-- (Lucky-ESA) Fixed adapter crash (thinq1 only)
 - (Lucky-ESA) Fixed: Address Root-CA certificate has changed
 
 ## License

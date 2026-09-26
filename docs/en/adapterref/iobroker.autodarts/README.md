@@ -16,13 +16,22 @@
 
 ## What this adapter does
 
-Connects to your local Autodarts Board Manager (via IP and port, e.g. `192.168.x.x:3180`) and exposes ioBroker states for home automation:
+Connects to Autodarts and exposes ioBroker states for home automation:
 
 - Turn on lights when a game starts
 - Play a sound on a bullseye
 - Announce the next throw via text-to-speech (TTS)
 - Control board hardware (lighting, power)
 - Trigger any other ioBroker automation based on dart events
+
+## Compatibility
+
+| Mode | Autodarts version | How it connects |
+|------|-------------------|-----------------|
+| **Local** (default) | Board Client / Desktop **before v2** | Polls local `IP:3180` (`/api/state`) |
+| **Cloud** | Autodarts **v2.0+** (Desktop / Terminal) | Autodarts cloud WebSocket (login + board ID) |
+
+**Autodarts v2.0+:** The Board Manager web UI is deprecated. The local API on port `3180` may still answer (connection, cameras, board status), but it **no longer provides throw data** (`throws` / `numThrows`). Use **Cloud** connection mode for throw detection on v2.
 
 ## Documentation
 
@@ -67,12 +76,14 @@ Connects to your local Autodarts Board Manager (via IP and port, e.g. `192.168.x
 
 ## What this adapter does NOT do
 
-- ❌ No data is sent to the internet or to third-party servers
-- ❌ No history, statistics, or personal data is stored or shared
-- ❌ No access to other people's boards or remote boards over the internet
-- ❌ No cloud features or analytics
+- ❌ No history, statistics, or personal data is stored beyond what ioBroker keeps in states
+- ❌ No access to other people's boards
+- ❌ No analytics
 
-All data stays local on your ioBroker system.
+**Privacy by mode**
+
+- **Local mode:** All board data stays on your network; nothing is sent to Autodarts servers by this adapter.
+- **Cloud mode:** The adapter authenticates with your Autodarts account and receives board/match events from Autodarts servers. Credentials stay in the adapter config; do not enable 2FA for that account if password login is used.
 
 ## Configuration
 
@@ -82,13 +93,22 @@ All data stays local on your ioBroker system.
 
 ### Tab: OPTIONS
 
-In **OPTIONS** you configure how the adapter connects to your local Autodarts Board Manager and how often it polls data:
+In **OPTIONS** you configure how the adapter connects to Autodarts:
 
-- **Board Manager IP**  
-  IP address of your Autodarts Board Manager (e.g. `192.168.178.50` or `127.0.0.1`).
+- **Connection mode**  
+  - `local` — poll the board client on your LAN (`IP:port`, default for Autodarts before v2)  
+  - `cloud` — Autodarts account + board ID (required for Autodarts v2 throw detection)
 
-- **Port**  
-  TCP port of the Board Manager (usually `3180`).
+- **Board host/IP** (local mode)  
+  IP address of your Autodarts PC (e.g. `192.168.178.50` or `127.0.0.1`).
+
+- **Port** (local mode)  
+  TCP port of the board client (usually `3180`).
+
+- **Cloud email / password / board ID** (cloud mode)  
+  Your Autodarts login and the board ID from **My Boards** on [play.autodarts.io](https://play.autodarts.io).  
+  How to find the board ID: sign in → **Boards** / **My Boards** → open your board → copy the UUID board ID.  
+  Details: [English FAQ](./docs/en/faq.md) / [German FAQ](./docs/de/faq.md). Disable 2FA if password login fails.
 
 - **Triple trigger range**  
   Two dropdowns to define the **minimum** and **maximum** field number (1–20) that should be considered for `trigger.isTriple`.  
@@ -126,15 +146,20 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 
 ## Privacy & Data Handling
 
-- This adapter only reads data from your **local** Autodarts Board Manager in your own network.
-- No personal data is sent to external servers or stored in the cloud.
-- All data stays on your own system; no statistics or throw history are collected or shared.
-- This adapter is designed to work only with your own dartboard, not with remote or other people’s boards.
+- **Local mode:** The adapter only reads data from your Autodarts board client on your own network.
+- **Cloud mode:** The adapter connects to Autodarts servers with your account to receive board/match events (needed for Autodarts v2).
+- No statistics or throw history are collected or shared by this adapter beyond ioBroker states.
+- This adapter is designed to work only with your own dartboard.
 
 ## Changelog
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2026-09-26)
+- (skvarel) Documented Autodarts v2 incompatibility for local throw detection
+- (skvarel) Added optional cloud connection mode for Autodarts v2 throw events
+- (skvarel) Documented how to find the Autodarts board ID for cloud / v2 setup
+
 ### 1.0.12 (2026-06-28)
 - (skvarel) Fixed admin i18n labels flagged as untranslated by the repository checker (fixes #67)
 
@@ -150,10 +175,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 - (skvarel) Adapter requires node.js >= 22 now
 - (skvarel) Updated @alcalzone/release-script und Plugins auf 5.2.0 aktualisiert (fixes #56)
 - (skvarel) Downgraded @types/node auf ^22.0.0 heruntergestuft (fixes #56)
-
-### 1.0.8 (2026-04-13)
-- (skvarel) Removed react and mui
-- (skvarel) Removed admin/style.css
 
 ## License
 MIT License

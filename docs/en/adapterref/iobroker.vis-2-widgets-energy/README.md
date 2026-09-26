@@ -1,4 +1,7 @@
-![Logo](admin/vis-2-widgets-energy.png)
+---
+chapters: {"pages":{"en/adapterref/iobroker.vis-2-widgets-energy/README.md":{"title":{"en":"Vis 2 Energy widgets"},"content":"en/adapterref/iobroker.vis-2-widgets-energy/README.md"},"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/README.md":{"title":{"en":"Energy widgets for vis-2"},"content":"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/README.md"},"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/distribution.md":{"title":{"en":"Distribution"},"content":"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/distribution.md"},"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/consumption.md":{"title":{"en":"Consumption"},"content":"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/consumption.md"},"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/consumption-comparison.md":{"title":{"en":"Consumption comparison"},"content":"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/consumption-comparison.md"},"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/interval-selector.md":{"title":{"en":"Interval selector"},"content":"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/interval-selector.md"},"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/self-sufficiency.md":{"title":{"en":"Self-sufficiency"},"content":"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/self-sufficiency.md"},"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/battery.md":{"title":{"en":"Battery storage"},"content":"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/battery.md"},"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/energy-costs.md":{"title":{"en":"Energy costs"},"content":"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/energy-costs.md"},"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/dynamic-price.md":{"title":{"en":"Dynamic electricity price"},"content":"en/adapterref/iobroker.vis-2-widgets-energy/docs/en/dynamic-price.md"}}}
+---
+![Logo](admin/vis-2-widgets-energy.svg)
 # Vis 2 Energy widgets
 
 ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-energy-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-energy-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.vis-2-widgets-energy.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-energy)
@@ -21,6 +24,31 @@ This widget set consists of the following widgets:
 - Energy consumption per day/week/month
 ![Energy consumption](img/consumption.png)
 
+- Self-sufficiency and self-consumption as two ring gauges
+![Self-sufficiency](img/selfSufficiency.png)
+
+- Battery storage with state of charge, power and remaining time
+![Battery storage](img/battery.png)
+
+- Energy costs of the selected period, including base fee and feed-in revenue
+![Energy costs](img/energyCosts.png)
+
+- Dynamic electricity price as an hourly bar chart
+![Dynamic electricity price](img/dynamicPrice.png)
+
+## Documentation
+
+One page per widget, with every configuration field, recipes and troubleshooting:
+
+- [English](/#/docs/adapterref/iobroker.vis-2-widgets-energy/docs/en/README.md)
+- [Deutsch](https://github.com/ioBroker/ioBroker.vis-2-widgets-energy/blob/master/docs/de/README.md)
+
+## Requirements
+
+The widget set is built with **React 19** and needs a vis-2 that runs on React 19 as well (2.20.1 and newer).
+An older vis-2 still runs on React 18 and cannot render these widgets — update vis-2 together with this
+adapter.
+
 <!--
     ### **WORK IN PROGRESS**
 -->
@@ -28,6 +56,35 @@ This widget set consists of the following widgets:
 ## Changelog
 
 ### **WORK IN PROGRESS**
+* (@GermanBluefox) **BREAKING:** the widget set is now built with React 19 and MUI 9, and needs a vis-2 that runs on React 19 (2.20.1 and newer). A vis-2 on React 19 refuses widget sets that were built for React 18, and this build cannot run on an older vis-2 either
+* (@GermanBluefox) Replaced `@iobroker/adapter-react-v5` with `@iobroker/gui-components` and took the shared module list from `@iobroker/types-vis-2`, so `react/jsx-runtime` is shared as vis-2 requires
+* (@GermanBluefox) New widget "Self-sufficiency": two ring gauges for the self-sufficiency and the self-consumption quota, calculated from production, grid and house consumption
+* (@GermanBluefox) New widget "Battery storage": state of charge, charge/discharge power, estimated remaining time and stored energy
+* (@GermanBluefox) New widget "Energy costs": consumption x price plus base fee minus feed-in revenue, either from the value of a data point or summed over the period from the history
+* (@GermanBluefox) New widget "Dynamic electricity price": hourly exchange prices as a bar chart with the cheapest and most expensive hours highlighted, reads the JSON arrays of tibberlink, awattar, epex-spot and similar adapters
+* (@GermanBluefox) Added a tooltip to every configuration field of every widget, in all 11 languages
+* (@GermanBluefox) Every widget now has a description in the vis-2 palette (`visHelp`), shown in the tooltip under its preview, in all 11 languages
+* (@GermanBluefox) Added documentation in docs/en and docs/de: one page per widget with all fields, recipes and troubleshooting
+* (@GermanBluefox) Distribution widget: the moving dots are animated by the browser instead of a state change every 50 ms, which re-rendered the whole widget 20 times a second even when nothing changed
+* (@GermanBluefox) Distribution widget: new options for the line width, for switching the animation off and for showing values without the automatic Wh to kWh conversion
+* (@GermanBluefox) Distribution widget: fixed the per-circle font size, which never had any effect because the default font size won over it
+* (@GermanBluefox) Distribution widget: a Wh data point no longer shows the divided value with the unit "Wh"; the unit is corrected together with the value
+* (@GermanBluefox) Distribution widget: the power line is now always counted into the segments of the house ring, not only when its circle happened to be the largest one
+* (@GermanBluefox) Consumption widget: fixed the number of bars of a month, which was taken from the previous month - every February was drawn with 31 bars
+* (@GermanBluefox) Consumption widget: fixed the last bar of the period being dropped in "Calculate difference" mode, so the current hour/day was missing
+* (@GermanBluefox) Consumption widget: new chart types (line, area), options for legend and toolbox, decimals, and a tooltip that shows the unit of each series
+* (@GermanBluefox) Comparison widget: fixed the units being mixed up between the devices as soon as more than one unit was in play
+* (@GermanBluefox) Comparison widget: new options for sorting, decimals, vertical bars and value labels
+* (@GermanBluefox) Interval selector: new options for which periods are offered, for hiding the "Now" button and for the date format
+* (@GermanBluefox) Consumption widget: fixed the bucket edges being one millisecond short, which made the hourly axis print one hour twice and never reach 23:00
+* (@GermanBluefox) Battery widget: the text next to the symbol is sized by the space it actually has, so the remaining time is no longer cut off on a large widget
+* (@GermanBluefox) Self-sufficiency widget: the caption under a ring no longer grows into the value table on a large widget
+* (@GermanBluefox) Self-sufficiency and energy costs widgets: the names in the value table are left aligned instead of floating in the middle of their column
+* (@GermanBluefox) Dynamic price widget: the label of the average line is drawn inside the chart instead of being clipped at its edge
+* (@GermanBluefox) All chart widgets follow the size of their container now instead of keeping the height of their first render
+* (@GermanBluefox) Replaced the screenshots in the documentation with new ones taken from a running vis-2, and added one for each of the four new widgets
+* (@GermanBluefox) Ported tasks.js to TypeScript (tasks.ts, executed with tsx) and taught the zrender workaround to tell a hoisted function declaration from a real use-before-definition
+* (@GermanBluefox) The federation manifest is shipped with the widget set now, so vis-2 can verify its shared modules
 * (hombach) Fixed missing translation for the "default radius size" field in the distribution widget config (#527)
 * (hombach) Addressed repository checker findings: added a concurrency block and a dedicated adapter-tests job to the CI workflow, dropped the custom test-command, and removed the redundant mocha/@types/mocha devDependencies (provided by @iobroker/testing) (#526)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: xYw4vbc66b/+RjCnO0Ul6tJ16riI2jKqN1iaDxMNWcc=
+hash: DolZHLStFSCoAenhihSd+s6bo9eKaCsYzX0xwJsDWA8=
 ---
 ![Logo](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -39,6 +39,32 @@ Fügen Sie nach dem Neustart den Tab im Adminbereich hinzu:![Administrator](../.
 Die erstellte Voreinstellung kann auch im Webadapter aufgerufen werden. URL: `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID` Die
 
 Für `vis` Es gibt ein spezielles Widget mit einfacher Auswahl von Voreinstellungen.
+
+### Zeitbereich-Widget
+
+Neben dem Diagramm-Widget befindet sich das Widget „E-Charts-Zeitbereich“. Es zeigt dieselben drei Felder wie der Tab „Zeit“ des Preset-Editors – Typ (relativ oder statisch), Ende und Bereich – und überlässt die Auswahl dem Benutzer für die Diagramm-Widgets derselben Ansicht. Jedes der drei Felder kann in den Widget-Einstellungen deaktiviert werden; ein deaktiviertes Feld behält den Wert seines Attributs bei. Solange unter „Diagramme“ kein Diagramm ausgewählt ist, folgen alle E-Charts-Widgets der Ansicht dieser Auswahl.
+
+Das Gleiche funktioniert auch ohne das Widget: Ein Diagramm, das mit einer Voreinstellung geöffnet wird, extrahiert den Bereich aus dem URL-Hash, z. B. `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID#range=60&relativeEnd=now` Die `range`, `relativeEnd`, `timeType`, `start`, `start_time`, `end` Und `end_time` werden dort gelesen und überschreiben die Ergebnisse der Voreinstellung, ohne die Voreinstellung selbst zu verändern.
+
+### Diagrammmodi
+
+Der Reiter „Optionen“ des Preset-Editors öffnet sich mit einem „Diagrammmodus“, der anzeigt, wie das gesamte Diagramm aussieht:
+
+- **Gemischt** – das Diagramm, wie es immer war: eine Zeitachse, und jede Linie hat ihren eigenen Typ.
+- **Donut** -Diagramm – ein Ring, jede Zeile enthält ein Segment mit dem aktuellen Zustand. Größe des Lochs, Beschriftungen der Segmente, Text im Loch und Reihenfolge der Segmente werden daneben festgelegt. Die Werte werden per Abonnement aktualisiert, sodass das Diagramm den Zuständen ohne Neuladen folgt.
+- **Balken (aktueller Wert)** – ein Balken pro Zeile anstatt eines Balkens pro Zeitintervall. Dies ist die Funktion des Kontrollkästchens „Ein Balken pro Zeile“; eine alte Voreinstellung wird als dieser Modus interpretiert und bleibt aktiv.
+- **Radar** – die Polarkarte. Früher gab es einen Typ, den eine einzelne Linie annehmen konnte, wodurch dann alle anderen Linien entsprechend angepasst wurden; eine alte Voreinstellung wird als dieser Modus gelesen.
+- **Gauge** - bei der Form "Circles" ist die Skala zu einem vollständigen Kreis gebogen und pro Zeile wird ein Ring übereinander gestapelt, wobei sich die Namen und die Werte in der Mitte befinden; bei der Form "Gauge" bleibt die Skala offen und jede Zeile erhält einen Zeiger, wobei sich die Namen und die Werte in einer Zeile darunter befinden.
+
+Donut und "Bar (aktueller Wert)" lesen die Zustände und niemals die Historie, daher benötigen sie keinen Zeitbereich und keine Aggregation.
+
+### Diagramm ohne iFrame (experimentell)
+
+Das vis-2-Diagramm-Widget zeichnet das Diagramm in einem iFrame: Jedes Diagramm in einer Ansicht bringt seine eigene React-Anwendung, seine eigenen ECharts und vor allem seine eigene Socket-Verbindung mit. Das Attribut „Without iframe“ zeichnet es stattdessen im Widget – das Modell verwendet dann die bereits von der vis-Laufzeitumgebung bereitgestellte Verbindung, und das Diagramm wird im vis-2-Theme angezeigt.
+
+Das Widget für ioBroker.devices verwendet dieselben Einstellungen. Beide betten ein `ChartEmbed` von `src-chart`, was die einzige Stelle ist, die das Diagrammmodell mit der Diagrammansicht verbindet.
+
+Der Diagrammcode wird bei Bedarf geladen (ca. 1,5 MB, 480 kB gezippt), sobald ein Widget mit dieser Einstellung zum ersten Mal angezeigt wird, da weder vis-2 noch der Host des Geräts eCharts gemeinsam nutzen. Eine Seite ohne ein solches Widget lädt keine zusätzlichen Daten. Der iFrame bleibt die Standardeinstellung und die einzige Möglichkeit für die eigenständige URL und die Vorschau im Editor.
 
 ### Tooltip
 
@@ -121,6 +147,40 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
   -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (@GermanBluefox) A value of a line without a unit does not end in the word "undefined" any more. The unit was hung onto the value whether the line carried one or not, which a gauge showed as "0,00undefined"
+- (@GermanBluefox) The names and the values in the middle of the rings of a gauge do not lie on each other any more. They stood at a share of the radius, while both of them are of a size given in pixels, so they ran into each other as soon as the chart was drawn big
+- (@GermanBluefox) Every axis of a radar is labelled with the name of its line again. A series of the type "polar" is built without a name, and the radar read exactly that, so every axis stood there as "undefined"
+- (@GermanBluefox) A gauge reads the "Max" and the "Min" of a line, as the radar reads the "Max" as the end of its axis. Only where a line says nothing do the ends of the whole gauge count, and after them the values. Where the lines end at different places every one of them is drawn as how full it is and the scale counts percent - the badges keep showing what the states really say
+- (@GermanBluefox) Of the axis settings of a line a gauge shows only "Min" and "Max". Position, ticks and offsets belong to an axis a line runs along, which a gauge does not have - the radar has narrowed the same group from the beginning
+- (@GermanBluefox) A gauge shows the current value of a line whatever aggregation the line carries. A line on "unprocessed" or "max" read the history instead, which left every ring and every pointer at zero
+- (@GermanBluefox) The aggregation of a line is hidden in the donut and in the gauge, as the chart type already is. Neither of them reads the history, so the setting had no effect there
+- (@GermanBluefox) The ends of a gauge scale that are left empty follow the values instead of standing at 0..100, where every pointer sat at the stop. The badge under a value is as wide as the value needs
+- (@GermanBluefox) The label of a slider is translated. "Percentile", "Fill (from 0 to 1)" and the thickness of a ring stood in English in every language
+- (@GermanBluefox) New chart mode "Gauge", in two shapes: "Circles" stacks a ring per line with the names and the values in the middle, "Gauge" keeps the open scale and gives every line a pointer. The ends of the scale and the thickness of a ring are configurable
+- (@GermanBluefox) The radar stands in the "Chart mode" as well and is not a type of a single line any more. An old preset whose lines carry "polar" is read as that mode, in the chart and in the editor
+- (@GermanBluefox) A chart drawn without an iframe does not grow any more. It measures the box it stands in, and in a layout whose rows follow their content it kept measuring itself; it now sits in a box of its own that is out of the flow
+- (@GermanBluefox) A chart drawn without an iframe does not crash any more when a time range is handed to it while the preset is still being read
+- (@GermanBluefox) A switch of the chart mode redraws the chart instead of merging the new one into the old. Switching from the bars to the donut left the axes, the grid and the old bars standing under the ring
+- (@GermanBluefox) The ID of a line is reported when it is done - on Enter or when the field is left. Every single keystroke used to rebuild the whole line, which took the focus out of the field after the first letter, and asked the server for an object that cannot exist yet
+- (@GermanBluefox) The source of a line offers no history instances any more where none is read - only "standard" and "JSON" are left for a donut, a radar or a line with the aggregation "current". A source that is already stored stays in the list, so no preset changes behind the back of the user
+- (@GermanBluefox) A JSON source works in a chart that shows one value per line: its last entry is taken as the current value, which used to happen only when the legend showed actual values
+- (@GermanBluefox) Any state can be picked for a line that shows only its current value - a donut, a radar or a line with the aggregation "current" never reads the history, so the object dialog does not limit itself to the states a history adapter logs any more
+- (@GermanBluefox) The chart type of a line is hidden in the modes that draw one value per line. A donut knows no line types, and with "Bar (current value)" every series ends up as a bar whatever the line says
+- (@GermanBluefox) The "Chart mode" stands over the list of the data sources as well, not only in the options - it decides what a line even means
+- (@GermanBluefox) The tooltip of a dropdown stays away while its list is open. It used to lie over exactly the entries the user wanted to read
+- (@GermanBluefox) The widget for ioBroker.devices can draw the chart without an iframe too, with the same setting as the vis-2 widget
+- (@GermanBluefox) The setting "After comma" of a chart is used again. It has always been written into the preset but was read by nobody, so a line without its own "Digits after comma" printed whatever the aggregation produced - down to 434.32000000000005. An axis leaves a value alone that would round away to zero
+- (@GermanBluefox) The vis-2 chart widget can draw the chart without an iframe (attribute "Without iframe", experimental). One socket connection for the whole view instead of one per chart, and the theme of vis-2; the chart code is loaded on demand
+- (@GermanBluefox) New chart mode "Donut": one ring with one slice per line, showing the current value of its state. Hole size, labels, the text in the hole and the order of the slices are configurable
+- (@GermanBluefox) The whole chart has a "Chart mode" now: Mixed, Donut or Bar (current value). The checkbox "One bar per line" became the mode "Bar (current value)"; old presets are migrated when they are read
+- (@GermanBluefox) New vis-2 widget "E-Charts time range": type, end and range as in the preset editor, each field switchable, for one or more chart widgets of the same view
+- (@GermanBluefox) A chart that is opened with a preset reads the time range out of the URL hash, and not only `range` and `relativeEnd` any more but `timeType`, `start`, `start_time`, `end` and `end_time` as well. A range that arrives later is taken over without reloading the chart
+- (@GermanBluefox) The source "standard" can be selected in the opened settings of a line too. Only the closed line offered it, so a line that was set to a certain history instance could not be handed back to the default history adapter there
+- (@GermanBluefox) The source of a line shows the icon of the history adapter beside its name, in the closed line as well as in the opened one. "standard" carries the icon of the adapter it stands for
+- (@GermanBluefox) The buttons "Expand all" and "Collapse all" are shown for a single line and a single marking as well. They were hidden below two entries, although one line can be opened and closed like any other
+- (@GermanBluefox) Added description of the vis-2 widget to the palette tooltip
+
 ### 5.1.1 (2026-08-31)
 - (@GermanBluefox) Many GUI fixes
 

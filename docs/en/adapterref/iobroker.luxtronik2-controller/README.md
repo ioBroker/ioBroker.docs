@@ -28,21 +28,19 @@ This project builds upon the preliminary work of existing open-source projects. 
 
 Innovations in this version: The luxtronik2-controller natively integrates TCP communication (Port 8888 / 8889) and does not rely on external libraries. Additionally, controlling macros, a logic for compressor protection, and automated datapoint management were implemented.
 
-## Features
+### Features
 
-- Native TCP communication: Direct connection to the heat pump without additional overhead.
-
-- Compressor protection (Cycle optimization): Combining heating and domestic hot water cycles to reduce compressor starts.
-
-- Integrated actions (Macros): Predefined control logics for forced heating, hot water requests, and the circulation pump (ZIP) incl. automatic fallback to default values.
-
-- Custom datapoints: Measured values (Index 3004) and parameters (Index 3003) can be added via the adapter configuration. Unix timestamps are formatted automatically.
-
-- Automatic object management: Deselected or deleted datapoints and empty folder structures are automatically removed from ioBroker upon an adapter restart.
-
-- Notification system: Heat pump error codes can be sent directly to Telegram or the ioBroker notification system.
-
-- Motion detector coupling: Option for demand-driven activation of the circulation pump via existing ioBroker motion sensors.
+- **Native TCP Communication:** Direct connection to the heat pump without any additional overhead.
+- **Compressor Protection (Cycle Optimization):** Intelligent merging of heating and domestic hot water (DHW) cycles to significantly reduce compressor starts.
+- **Dynamic HUP Control:** Automatic voltage adjustment of the heating circulation pump (HUP) based on the flow and return temperature spread for maximum efficiency.
+- **Integrated Actions (Macros):** Pre-defined control logic for forced heating, DHW requests, and the circulation pump (ZIP) – including an automatic fallback to safe default values.
+- **Demand-Driven Circulation (ZIP):** Control your circulation pump via existing ioBroker motion sensors or directly via external actuators (e.g., Shelly) – entirely without hardware modifications to the heat pump.
+- **Custom Datapoints:** Measured values (Index 3004) and parameters (Index 3003) can be flexibly added via the adapter configuration. Unix timestamps are automatically parsed into human-readable formats.
+- **Extended Status Texts & Calculations:** Live calculation of temperature spread, thermal energy, and detailed text outputs of current system states (including offsets, frost protection, and cooling status).
+- **Intelligent Notification System:** Send error codes and critical shutdowns (like flow rate issues) directly to Telegram or the ioBroker notification system – complete with cooldown spam protection.
+- **Automated DTA Backup:** Scheduled downloads of DTA diagnostic logs directly from the heat pump to your ioBroker storage for easy analysis (e.g., in OpenDTA).
+- **Automatic Object Management:** Deselected or deleted datapoints, as well as empty folder structures, are automatically and cleanly removed from ioBroker upon an adapter restart.
+- **Broad Compatibility:** Full support for older (V2.x) and newer (V3.x) firmware generations (e.g., Alpha Innotec, Novelan) utilizing dynamic scaling factors.
 
 ## ⚠️ Warning
 
@@ -55,29 +53,9 @@ This project aims to protect your heat pump by restricting the configuration opt
 The integration allows you to monitor and control heat pumps with a Luxtronik2 controller. It works locally without internet access.
 It was and is being tested with an LWD50A (LD5) from Alpha Innotec.
 
-## ⚠️ Disclaimer / Haftungsausschluss ⚠️
-
-Dieses Projekt steht in keinerlei Verbindung zu Alpha Innotec, Novelan, ait-deutschland GmbH oder anderen Herstellern. Es handelt sich um ein privates Open-Source-Projekt, das in der Freizeit entwickelt und gepflegt wird. Die Nutzung des Adapters geschieht auf eigene Gefahr.
+## ⚠️ Disclaimer ⚠️
 
 _This project is not affiliated with Alpha Innotec, Novelan, ait-deutschland GmbH, or any other company. It is a personal project that is maintained in spare time. Use at your own risk._
-
-"project_disclaimer": "Este proyecto no está afiliado de ninguna manera con Alpha Innotec, Novelan, ait-deutschland GmbH u otros fabricantes. Es un proyecto de código abierto privado desarrollado y mantenido en el tiempo libre. El uso del adaptador es bajo su propio riesgo."
-
-"project_disclaimer": "Ce projet n'est en aucun cas affilié à Alpha Innotec, Novelan, ait-deutschland GmbH ou à d'autres fabricants. Il s'agit d'un projet open source privé développé et maintenu pendant le temps libre. L'utilisation de l'adaptateur se fait à vos propres risques."
-
-"project_disclaimer": "Ce projet n'est en aucun cas affilié à Alpha Innotec, Novelan, ait-deutschland GmbH ou à d'autres fabricants. Il s'agit d'un projet open source privé développé et maintenu pendant le temps libre. L'utilisation de l'adaptateur se fait à vos propres risques."
-
-"project_disclaimer": "Dit project is op geen enkele wijze verbonden met Alpha Innotec, Novelan, ait-deutschland GmbH of andere fabrikanten. Het is een privé open-sourceproject dat in de vrije tijd wordt ontwikkeld en onderhouden. Het gebruik van de adapter is op eigen risico."
-
-"project_disclaimer": "Ten projekt nie jest w żaden sposób powiązany z Alpha Innotec, Novelan, ait-deutschland GmbH ani innymi producentami. Jest to prywatny projekt typu open-source, rozwijany i utrzymywany w czasie wolnym. Korzystanie z adaptera odbywa się na własną odpowiedzialność."
-
-"project_disclaimer": "Este projeto não está afiliado de forma alguma à Alpha Innotec, Novelan, ait-deutschland GmbH ou a outros fabricantes. É um projeto de código aberto privado desenvolvido e mantido no tempo livre. O uso do adaptador é por sua conta e risco."
-
-"project_disclaimer": "Этот проект никоим образом не связан с компаниями Alpha Innotec, Novelan, ait-deutschland GmbH или другими производителями. Это частный проект с открытым исходным кодом, который разрабатывается и поддерживается в свободное время. Использование адаптера осуществляется на свой страх и риск."
-
-"project_disclaimer": "Цей проєкт жодним чином не пов'язаний з Alpha Innotec, Novelan, ait-deutschland GmbH чи іншими виробниками. Це приватний проєкт з відкритим кодом, який розробляється та підтримується у вільний час. Використання адаптера здійснюється на власний ризик."
-
-"project_disclaimer": "Цей проєкт жодним чином не пов'язаний з Alpha Innotec, Novelan, ait-deutschland GmbH чи іншими виробниками. Це приватний проєкт з відкритим кодом, який розробляється та підтримується у вільний час. Використання адаптера здійснюється на власний ризик."
 
 ## Reporting Bugs & Contributing
 
@@ -100,60 +78,38 @@ Bug reports, compatibility notes for specific firmware versions, or feature requ
 ## Changelog
 
 // ### **WORK IN PROGRESS**
-### 0.8.1 (2026-09-19)
+### 0.11.1 (2026-09-22)
 
 - Resolve issues which are reported by repository checker
 
-### 0.8.0 (2026-09-14)
+### 0.11.0 (2026-09-21)
 
-**🚀 Features & Enhancements**
+- **Improvements:**
+    - Added global rounding to 2 decimal places for all calculated telemetry values (e.g., converting operating seconds to hours). This provides a cleaner ioBroker state tree and prevents excessively long floating-point numbers from cluttering history databases (like InfluxDB).
 
-- **[Admin UI]** Completely redesigned the adapter configuration interface (`jsonConfig.json`). Settings are now cleanly organized into logical tabs (Connection, Cycle Optimization, Idle Defaults, HUP, Circulation pump, etc.).
-- **[HUP Control]** Added a new dynamic hardware voltage scale factor for the heating circulating pump (HUP). Users can now toggle between factor 100 (for Firmware V2.x) and factor 10 (for Firmware V3.x) to ensure full compatibility across different hardware generations.
-- **[Safety]** Added a confirmation warning dialog to the Admin UI that alerts users to the importance of entering correct values when enabling "Force default values during idle".
+### 0.10.4 (2026-09-21)
 
-**🐛 Bugfixes**
+- Update Readme
 
-- **[HUP Control]** Fixed an incorrect conversion factor for registers 867 and 868 (nominal and minimal HUP voltage). This previously caused newer setups (like the Alpha Innotec LWCV series with FW V3.x) to calculate 1.0V instead of 10.0V, resulting in continuous "less than min" boundary warnings in the ioBroker log.
+### 0.10.3 (2026-09-21)
 
-**🛠 Refactoring & Under the Hood**
+- **Features & Improvements:**
+    - Optimized the automated DTA backup process by directly utilizing the `/NewProc` file stream, eliminating unnecessary artificial delays and stabilizing the heat pump controller.
+    - Streamlined the backup configuration: Removed the custom file path input to prevent file system conflicts. Backups are now securely stored in the universally accessible global `0_userdata.0/luxtronik_backups/` directory.
+    - Added a clear information box in the adapter configuration, explaining where to find the generated backup files within the ioBroker UI.
 
-- **[Architecture]** Extracted the heating circulating pump (HUP) logic from `main.ts` into a dedicated, isolated `hupManager.ts` file to improve code modularity and maintainability.
-- **[CI/CD]** Added Node.js 26 to the GitHub Actions test matrix (`test-and-release.yml`) to ensure future compatibility.
-- **[TypeScript]** Added the `"rootDir": "./src"` compiler option to `tsconfig.json` to resolve TS5011 build errors with newer TypeScript versions.
+- **Fixes:**
+    - Fixed the persistent `not an object of type "meta"` crash during DTA backups. The storage architecture was migrated away from isolated adapter namespaces to the robust, native `0_userdata.0` global storage, completely resolving folder creation permission issues on existing instances.
+    - Corrected the dynamic file naming logic (`dta_live_...` vs. `dta_history_...`) to accurately reflect whether a live memory dump or a fallback history log was downloaded.
 
-### 0.7.3 (2026-09-07)
+### 0.10.2 (2026-09-21)
 
-**Bugfixes**
--(Fixed) Timer Table Register Conflict: Resolved conflicting Luxtronik register IDs for Domestic Hot Water (DHW) Monday–Sunday schedules (WW_MoSo_Start1 to End5). These were previously mapped to registers 507–516 (colliding with Circulation timer registers) and have now been corrected to registers 406–415.
+- **🚀 Features:**
+    - Implemented automated DTA file backup management with customizable cron schedules and automatic meta-directory creation in the ioBroker file system.
 
--(Fixed) Time-String Conversion on State Change: Fixed a parsing bug where manual updates to time strings (HH:MM / HH:MM:SS) on states marked with isDurationFormat or time-related roles were passed directly as strings instead of converting to seconds since midnight, preventing user-entered schedule values from persisting in the controller.
-
-### 0.7.2 (2026-09-07)
-
-**Bugfixes**
-
-- (Fixed) Unintended Configuration Overwrites: Fixed a critical architectural flaw where the adapter blindly forced default values (e.g., hot water target temperature, heating curve) to the heat pump on every startup. The adapter is now 100% passive (read-only) upon installation until features are explicitly enabled.
-
-- (Fixed) Strict Opt-In Logic: All internal condition checks for background automations (cycle optimization, ZIP optimization, idle resets) were refactored to strict opt-in logic (=== true), preventing unintended actions when settings have never been saved.
-
-- (Fixed) Live Toggle for Cycle Optimization: Fixed an issue where the ioBroker switch Actions.Regelung_Aktiv was ignored during runtime. The optimization loop now evaluates this switch dynamically, allowing users to toggle the feature live via their dashboard.
-
-- (Fixed) Hardware ZIP Timer Disable: Fixed a bug where a mismatched configuration key (zip_hardware_timer_disable instead of zip_lWP_aktiv) prevented the adapter from correctly disabling the hardware circulation pump timer for flash memory protection.
-
-- (Fixed) "Heating after hot water" Reset: Restored missing logic that properly resets the "Heating after water" status back to false at the end of a cycle, preventing the system from getting stuck in this mode.
-
-**Features & Change**
-
-- (Changed) Forced DHW Safety Limit: Reduced the internal safety limit for temporary hot water target adjustments during forced DHW runs from 75°C to 70°C to better protect the system's high-pressure switch.
-
-### 0.7.1 (2026-09-07)
-
-**Bugfixes**
-
-- (Fixed) Status Display: Fixed a logical evaluation bug where the operating state "Heating" (Code 0) was incorrectly overwritten and displayed as "No demand" (Code 5). Thanks to @michiproep for reporting!
-
-- (Fixed) Temperature Values: Fixed a related issue where temperature readings of exactly 0 °C (e.g., average temperature, return target temperature, cooling release) were incorrectly replaced by internal fallback values (e.g., 1.5 °C).
+- **🛠 Chores / Under the Hood**
+    - Enhanced TypeScript type checking, resolved strict ESLint warnings, and upgraded Node.js type definitions to support Node.js version 22.
+    - Optimized image scaling and layout rendering in `jsonConfig.json` for cleaner adapter settings presentation.
 
 ## License
 

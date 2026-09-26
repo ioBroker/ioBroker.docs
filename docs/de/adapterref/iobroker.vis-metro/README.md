@@ -1,28 +1,63 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.vis-metro/README.md":{"title":{"en":"ioBroker.vis-metro"},"content":"en/adapterref/iobroker.vis-metro/README.md"},"en/adapterref/iobroker.vis-metro/docs/en/README.md":{"title":{"en":"Metro widgets"},"content":"en/adapterref/iobroker.vis-metro/docs/en/README.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-metro/README.md
 title: ioBroker.vis-metro
-hash: 199uq1Vc+KU1C7rb0bNEPsZ6iUeI0SBj2bF8cBja78k=
+hash: bnf/xVEm9Juvh5lnXH0aj1yotvIGuMcb7akO/ELWPzM=
 ---
-![Logo](../../../en/adapterref/iobroker.vis-metro/admin/metro.png)
+![Logo](../../../en/adapterref/iobroker.vis-metro/admin/metro.svg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/vis-metro-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-metro.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-metro.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-metro.png?downloads=true)
 
-# IoBroker.vis-Metro
-Metro-Widget-Sets für ioBroker.vis. Widgets sind als Windows Metro-Oberfläche gestaltet.
-![Bildschirmfoto](../../../en/adapterref/iobroker.vis-metro/img/Demo2.png)
+# ioBroker.vis-metro
 
-Erstellen Sie mit http://metroui.org.ua/.
+Metro-Widget-Sets für [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis) und [ioBroker.vis-2](https://github.com/ioBroker/ioBroker.vis-2) . Die Widgets sind im Stil der Windows Metro-Oberfläche gestaltet.![Screenshot](../../../en/adapterref/iobroker.vis-metro/img/Demo2.png)
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+Erstellt mit <http://metroui.org.ua/> .
 
-### __LAUFENDE ARBEIT__ -->
+## vis und vis-2
+
+Der Adapter liefert jedes Widget zweimal aus:
+
+- **vis (vis-1)** verwendet das EJS/jQuery-Widget-Set in `widgets/metro.html` Die
+- **vis-2** verwendet das React-Widget-Set in `widgets/vis-2-widgets-metro/`, gebaut aus `src-widgets/` Die
+
+Beide deklarieren die gleichen Widget-IDs (`tplMetroTileBool`, `tplMetroTileDimmer`, …) und dieselben Attributnamen, und vis-2 bevorzugt ein React-Widget gegenüber einem EJS-Widget. Daher funktioniert ein mit vis erstelltes Projekt auch nach dem Wechsel zu vis-2 weiterhin – die Widgets werden einfach mit der React-Implementierung gerendert, die wie die von vis-1 aussieht und sich auch so verhält, ohne jQuery, jQuery UI oder CanJS.
+
+Die React-Widgets benötigen vis-2 Version 2.12.8 oder neuer. Bei älteren vis-2-Versionen werden die EJS-Widgets verwendet.
+
+## Dokumentation
+
+Alle Widgets mit ihren Einstellungen und Bildern: [Englisch](/#/docs/adapterref/iobroker.vis-metro/docs/en/README.md) | [Deutsch](https://github.com/ioBroker/ioBroker.vis-metro/blob/master/docs/de/README.md)
+
+## Entwicklung
+
+- `npm run build` erstellt das Vis-2-Widget-Set in `widgets/vis-2-widgets-metro/` Die
+- `npm run check-widgets` Prüft die React-Widgets anhand der vis-1-Vorlagen: IDs, Attribute, Größen, Bilder und Übersetzungen.
+- `npm run preview` öffnet eine Seite, auf der jede vis-1-Vorlage neben ihrem React-Widget angezeigt wird; `npm run preview:diff` vergleicht die beiden Pixel für Pixel und Klick für Klick (benötigt einen lokalen Chrome- oder Edge-Browser), und `npm run preview:images` rendert die Bilder der Farbpalette und der Dokumentation.
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### __WORK IN PROGRESS__
+-->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (bluefox) All widgets were ported to vis-2 as React widgets; vis-2 uses them instead of the vis-1 widgets, and
+  projects keep working unchanged
+* (bluefox) The vis-2 palette shows a picture and a short description for every widget
+* (bluefox) Added documentation for every widget with pictures (English and German)
+* (bluefox) Choosing the set temperature of a heating tile fills the other states of the thermostat in vis-2 as well
+* (bluefox) Corrected the German labels of the widget settings and translated the missing ones
+* (bluefox) The adapter no longer requires vis; it shows a message if neither vis nor vis-2 is installed
+* (bluefox) The fonts Open Sans and PT Serif Caption are shipped with the adapter and no longer loaded from Google
+* (bluefox) The adapter icon is an SVG now
+* (bluefox) Updated the GitHub Actions to Node.js 24 and npm trusted publishing
+
 ### 1.2.0 (2022-02-12)
 * (bluefox) Updated build process
 
@@ -91,5 +126,15 @@ Erstellen Sie mit http://metroui.org.ua/.
 * (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2022 hobbyquaker https://github.com/hobbyquaker, bluefox https://github.com/GermanBluefox
+ Copyright (c) 2013-2026 hobbyquaker https://github.com/hobbyquaker, bluefox https://github.com/GermanBluefox
  MIT
+
+### Third-party fonts
+Both widget sets ship these fonts unmodified, so that nothing is loaded from Google. They are used on devices
+without Segoe UI and Cambria; the license texts ship next to them in `widgets/metro/fonts/` and
+`widgets/vis-2-widgets-metro/fonts/`.
+
+- Open Sans 1.10 - Regular, Light and Bold. Digitized data copyright (c) 2010-2011 Google
+  Corporation, licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+- PT Serif Caption 1.000W - Copyright (c) 2010 ParaType Ltd., with Reserved Font Names "PT Sans", "PT Serif" and
+  "ParaType", licensed under the [SIL Open Font License, Version 1.1](https://openfontlicense.org).

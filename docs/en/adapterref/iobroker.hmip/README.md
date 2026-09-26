@@ -71,6 +71,16 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 4.0.2 (2026-09-26)
+- (@GermanBluefox) The adapter was refactored to TypeScript. The sources now live in src/ and are compiled to build/, which is what the npm package ships; nothing about the objects, states or commands changed
+- (@GermanBluefox) uuid was replaced by the randomUUID built into Node, which removes a dependency that could no longer be required from this build at all
+- (@GermanBluefox) Fixed an unusable dependency tree: package.json asked for a TypeScript no version of the eslint stack accepts, so npm ci installed nothing at all
+- (@petermeter2000) coolingEnabled on the home can now be written, so the cooling of the whole installation is switched from ioBroker the way the app does it
+- (@petermeter2000) coolingIgnored on a heating group can now be written, so a room can be left out of cooling. Note that true means the room is **not** cooled, matching what the app shows
+- (@petermeter2000) Every heating group now has a profiles folder with the names of its six profiles, so a profile can be recognised by the name it carries in the app instead of by its index. Profiles 1-3 are the heating profiles, 4-6 the cooling profiles
+- (@petermeter2000) Added activeProfileName next to activeProfile, so the name of the profile that is active now is readable without looking it up (closes #437)
+- (@GermanBluefox) A profile nobody renamed answers with an empty name, so the adapter publishes the default name the app shows for it, in German or English following the ioBroker system language
+
 ### 3.2.0 (2026-09-08)
 - (@Apollon77) Added the DISTANCE_SENSOR_CHANNEL, so the ELV-SH-DUSI ultrasonic distance sensor interface reports distance, calculatedHeight and referenceHeight in cm, measuringInterval in minutes, heightActivated and distanceSensorVoltage
 - (@Apollon77) Added the FLOOR_TERMINAL_BLOCK_CHANNEL of the floor heating actuators (HmIP-FAL230-C6/C10, HmIP-FALMOT-C12), reporting valvePosition and the humidity limiter, dew point, external clock, emergency operation and frost protection states
@@ -135,13 +145,6 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 - (copilot) Adapter requires admin >= 8.0.0 now
 - (mcm1957) Dependencies have been updated.
 - (@GermanBluefox) Migrated to admin 8
-
-### 1.27.0 (2025-03-24)
-* (mcm1957) Adapter requires admin 7.6.3, js-controller 6.0.11 and node.js 20 now.
-* (@GermanBluefox) GUI was migrated to TypeScript (Admin 7.6)
-* (SliX185) Support to control opticalSignalBehaviour for HMIP-BSL has been added.
-* (SliX185) Logging of PIN has been removed
-* (mcm1957) Dependencies have been updated.
 
 ## License
 The MIT License (MIT)

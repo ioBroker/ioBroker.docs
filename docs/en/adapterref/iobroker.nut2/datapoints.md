@@ -7,7 +7,7 @@ The adapter does not ship a fixed list of states. It asks the NUT server what yo
 the tree from the answer, so two different UPS models produce two different trees. What follows explains the parts that
 are always the same, and how a NUT variable turns into an ioBroker state.
 
-Every data point carries a short explanation in `common.desc`, and value lists, status texts and severity levels appear
+Every data point whose name does not already say it all carries a short explanation in `common.desc`, and value lists, status texts and severity levels appear
 in your ioBroker system language.
 
 ## From a NUT name to a state ID
@@ -18,8 +18,8 @@ NUT names its variables with dots: `battery.charge.low`. ioBroker uses dots for 
 - every further dot becomes a dash — `charge-low`
 
 `battery.charge.low` therefore lands at `ups0.battery.charge-low`, and the instant command `test.battery.start` at
-`ups0.commands.test-battery-start`. A variable without any dot (some drivers expose a bare `ALARM`) has no channel and
-is created directly under the device.
+`ups0.commands.test-battery-start`. A variable without any dot has no channel and is created directly under the
+device.
 
 The adapter keeps the real NUT name internally, so writing to a state sends the correct name back to the server even
 where the mapping is not reversible (three-phase names such as `input.L1-L2.voltage` contain a dash of their own).
@@ -55,7 +55,7 @@ splits it:
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `raw`       | The original string, unchanged.                                                                                                                                                                                            |
 | `display`   | The same information as readable text in your language, e.g. "On line power, Charging".                                                                                                                                    |
-| `severity`  | A single number, 0–4 (see below).                                                                                                                                                                                          |
+| `severity`  | A single number, 0–4, or empty (see below).                                                                                                                                                                                |
 | 19 booleans | One per known status flag: `online`, `onBattery`, `lowBattery`, `charging`, `discharging`, `replaceBattery`, `overloaded`, `bypass`, `calibrating`, `forcedShutdown`, `alarm`, `ecoMode`, `testing`, `overheat`, and more. |
 
 `charging` and `discharging` are also filled from `battery.charger.status`, because some UPS models report the charge
@@ -73,9 +73,12 @@ explicitly allows drivers to invent their own tokens, and inventing a boolean fo
 | 2     | Warning   | On battery, replace battery, bypass |
 | 3     | Critical  | On battery **and** low battery      |
 | 4     | Emergency | Forced shutdown                     |
+| empty | —         | No power source in the status       |
 
 Severity describes the **power situation** only. Fault flags such as `overloaded`, `alarm` and `off` deliberately do
 not raise it — they have their own booleans, and mixing them in would make a single number mean two different things.
+A status that names no power source at all (`OFF` alone, `WAIT` while the driver starts, a PDU without a status)
+leaves the severity empty instead of claiming "OK".
 
 ### The measurement channels
 
@@ -92,10 +95,12 @@ Which of these exist depends entirely on your UPS driver:
 | `outlet`  | Switchable outlets and outlet groups, if the model has them           |
 | `ambient` | Environment sensors, if the UPS or an attached EMP provides them      |
 
-Values are stored as the type they really are: numbers as numbers with a unit (V, Hz, A, Ah, %, W, VA, s, °C), yes/no
-readings as booleans, fixed vocabularies (`enabled`/`disabled`/`muted`, `charging`/`discharging`/…) as selection lists.
-A value that claims to be numeric but is not gets discarded with one warning rather than stored as junk — a chart
-cannot do anything with `Infinity`.
+Values are stored as the type they really are: numbers as numbers with a unit (V, Hz, A, Ah, %, W, VA, s, min, °C,
+°), yes/no readings as booleans, fixed vocabularies (`enabled`/`disabled`/`muted`, `charging`/`discharging`/…) as
+selection lists. A measurement that arrives without a number stays a number data point and is left **empty**: drivers
+put words such as `LoadTooLow` or `NA` there (or nothing at all) to say "no reading right now", which is a state, not
+an error. Anything else that is not a number — `26,9` with a comma, say — is left empty with one warning rather than
+stored as junk; a chart cannot do anything with text.
 
 Countdowns (`ups.timer.shutdown` and friends) are **empty** while no countdown is running. Drivers say that in
 different ways — some report `-1`, others the word `NotActive` — and neither "minus one second" nor a text error would
@@ -103,15 +108,29 @@ be useful.
 
 ### `commands`
 
-One button per instant command the UPS offers, created only when **Enable commands** is on _and_ credentials are
-configured. Pressing a button sends `INSTCMD` and resets itself.
+One button per instant command the UPS offers, created only when **Enable instant commands** is on _and_ credentials are
+configured. Pressing a button sends `INSTCMD` and resets itself. A UPS that offers no command gets no `commands`
+channel; a button whose command the driver no longer lists is removed.
 
-Commands that cut power (`load.off`, `shutdown.*`, `bypass.*`) carry a warning sign at the start of their explanation.
+`commands.execute` runs a command **with a value**, written the way `upscmd` takes it: `load.off.delay 120`. The same
+rules apply as for the buttons, and the value is a single word.
+
+A warning sign at the start of the explanation marks every command that can take power away from the connected
+equipment, leave it unprotected or stop the NUT driver: switching the load, an outlet or an outlet group off or
+restarting it, every `shutdown.*` except `shutdown.stop`, `bypass.start`, `experimental.bypass.ecomode.start`, `input.off`, the driver commands that end the driver and the raw register write
+`experimental.ve-direct.set`. Switching
+something **on** is never marked.
 
 ## Who owns these objects
 
 The adapter owns name, description, type, role and unit of everything it creates — a rename in the object tree is
-reset at the next sync. Your **recording settings** are the exception: they belong to you, they are never touched, and
-when the adapter renames one of its own data points the recording moves along with it.
+reset at the next sync. Your **recording settings** and your **room and function assignments** are the exception:
+they belong to you, they are never touched, and when the adapter renames one of its own data points both move along
+with it.
 
-A UPS that disappears from the NUT server has its objects removed; one that comes back is rebuilt.
+Every device shows a pictogram for its NUT device type (UPS, PDU, solar charge controller, power supply, transfer
+switch); a device type NUT does not document leaves the icon as it is.
+
+A UPS that disappears from the NUT server is marked unreachable at once and has its objects removed after three polls
+without it — a server restart or a reloaded `ups.conf` does not cost its history. At an adapter start a UPS the server
+does not list is removed right away.

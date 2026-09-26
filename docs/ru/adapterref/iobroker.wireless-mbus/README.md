@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-mbus
-hash: nirYBZZ9Yv7+X+LV6sNAgGgioXho7QVRb4orJYklBsk=
+hash: UTUPF4VCGlqBEEFT8DU2lu8fukM4O0YAx5zCw7Mi7kE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
 
@@ -26,7 +26,7 @@ hash: nirYBZZ9Yv7+X+LV6sNAgGgioXho7QVRb4orJYklBsk=
 
 Если адаптер получает зашифрованные телеграммы, на вкладке конфигурации ключа AES идентификатор устройства должен отображаться автоматически.
 
-Если парсер выдаст ошибку, необработанные данные телеграммы будут сохранены в состоянии info.rawdata.
+Если парсер выдаст ошибку, необработанные данные Telegram будут сохранены в состоянии info.rawdata.
 
 _Внимание:_ Приёмник Amber, похоже, зависает через некоторое время (или после получения определённого количества сообщений) в режиме C? Аппаратная неисправность?
 
@@ -59,7 +59,10 @@ sudo bash -c "echo \$'ACTION==\"add\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduc
 - **Обновление неизмененных состояний** : При получении телеграммы все состояния будут обновлены, даже если их значение не изменилось. (по умолчанию: включено)
 - **Принудительный перевод единиц энергии в кВт·ч** : Все единицы энергии (Вт·ч и Дж) будут переведены в кВт·ч. (по умолчанию: выключено)
 - **Временно блокировать устройство после нескольких неудачных попыток** : если 10 последовательных телеграмм от одного и того же устройства не будут успешно обработаны, устройство будет игнорироваться до перезагрузки адаптера (по умолчанию: включено).
-- **Обрабатывайте только устройства, у которых уже есть дерево объектов** : телеграммы от устройств, у которых еще нет дерева объектов, игнорируются, поэтому новые устройства не создаются — это полезно после того, как все интересующие вас счетчики настроены. Телеграммы, которые вообще не могут быть расшифрованы, также игнорируются: они не добавляют устройство в список ключей AES и не записываются в `info.rawdata` Автоматический список блокировки по-прежнему учитывает их, поэтому нежелательное устройство перестает требовать попытки декодирования — просто в журнале об этом не сообщается. Поиск устройств выполняется при запуске адаптера, поэтому устройство, удаленное из дерева объектов, исчезнет навсегда после следующего перезапуска, а устройство, которое должно быть обнаружено снова, также потребует добавления в список блокировки. (по умолчанию: выключено)
+- **Обрабатывайте только устройства, у которых уже есть дерево объектов** : телеграммы от устройств, у которых еще нет дерева объектов, игнорируются, поэтому новые устройства не создаются — это полезно после того, как все интересующие вас счетчики настроены. Телеграммы, которые вообще не могут быть расшифрованы, также игнорируются: они не добавляют устройство в список ключей AES и не записываются в `info.rawdata` Автоматический список блокировки по-прежнему учитывает их, поэтому нежелательное устройство перестает требовать попытки декодирования — просто в журнале об этом не сообщается. Устройство, удаленное из дерева объектов, исчезает навсегда сразу же. Поиск устройств выполняется при запуске адаптера, поэтому для устройства, которое должно быть обнаружено снова, требуется перезапуск. (по умолчанию: выключено)
+- **Перезапись имени, единицы измерения и роли состояний данных** : Имя, единица измерения и роль состояния данных следуют за декодированной телеграммой — после обновления парсера или при включении параметра «Принудительное преобразование единиц энергии в кВтч» — но только до тех пор, пока они соответствуют тому, что записал сам адаптер. Имя, которое вы присвоили состоянию, или роль, которую вы изменили для другого адаптера, остаются неизменными, как и все состояния, созданные более ранней версией адаптера. Включите эту опцию, чтобы вернуть все состояния данных к тому состоянию, с которым адаптер создал бы их в своей следующей телеграмме, включая ваши собственные имена, и снова выключите после этого. (по умолчанию: выключено)
+
+Каждое состояние данных запоминает, для какой записи данных оно было создано — номер хранилища, тариф, подразделение, поле функции (мгновенное, максимальное, минимальное, состояние ошибки) и расширения VIF. Идентификатор состояния указывает только позицию записи в телеграмме, ее номер хранилища и тип, поэтому счетчик, отправляющий записи в разном порядке или телеграммы разной структуры, может поместить другую запись под тот же идентификатор. Такое значение пропускается, а не записывается в состояние, описывающее другую запись, и в журнале это указывается один раз для каждого состояния. Состояние, созданное более ранней версией адаптера, принимает за свою запись первую запись, поступившую после обновления.
 
 Автоматически поддерживаются компактные телеграммы (используемые некоторыми устройствами Kamstrup): структура полной телеграммы запоминается устройством, чтобы она сохранялась после перезагрузки адаптера, и используется для декодирования компактных телеграмм. Только компактные телеграммы, отправленные устройством до первой отправки полной телеграммы, не могут быть декодированы и молча пропускаются.
 
@@ -126,13 +129,19 @@ sudo bash -c "echo \$'ACTION==\"add\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduc
 - **Идентификатор штата определяется на основе описания его поля** , поэтому `"description": "Battery"` становится `…-VIF_BATTERY`. Таким образом, исправление опечатки в описании приводит к переименованию штата. `legacyName` Эта часть идентификатора устанавливается напрямую и остается стабильной, что стоит делать для каждого значения, которое вы собираетесь сохранить.
 - **Описание заменяет собой то, которое поставляется парсером** для данного производителя, а не добавляет к нему что-либо новое. Описание одного параметра дымового извещателя Itron означает, что остальные 25 параметров больше не будут записаны.
 
+### Варианты Telegram
+
+Большинство счетчиков отправляют телеграммы с одним вариантом компоновки. Некоторые время от времени отправляют и второй вариант — значения за последний расчетный период или данные настройки, — а некоторые чередуют несколько вариантов. Адаптер считает каждый вариант компоновки устройства как вариант, названный по контрольной сумме заголовков его записей (например, `3A7F` Полная и компактная телеграммы макета представляют собой один и тот же вариант. Полученная информация сохраняется вместе с объектом устройства, поэтому она сохраняется после перезапуска; счетчики записываются не чаще одного раза в час, и новый вариант записывается немедленно.
+
+Вкладка «Варианты Telegram» отображает их: «Показать варианты Telegram» перечисляет все варианты каждого устройства с указанием типа кадров, количества увиденных телеграмм, времени первого и последнего увиденного события, а также состояний, в которые записываются его записи. Ни один из вариантов не рассматривается как лучший — значение каждого из них относится к состоянию его собственной записи. Если вы вообще не хотите видеть значения варианта, введите адрес устройства и вариант в список игнорируемых вариантов Telegram: его телеграммы отбрасываются после декодирования, но всё равно учитываются в таблице. Адрес устройства — полный, с кодом производителя (`LSE-58511882`, нет `58511882` В начале журнала это указано для строки, которая никогда не сможет совпасть.
+
 ## Обновление с версии 0.11.x
 
 В версии 0.12.0 встроенный парсер Telegram заменен библиотекой [wireless-mbus-parser](https://github.com/lvogt/wireless-mbus-parser) . Идентификаторы объектов остаются прежними, но меняются четыре вещи:
 
 - **Измеренные значения теперь представляют собой числа** , а не предварительно отформатированный текст. `"474.240"` стал `474.24` Штаты всегда были определенного типа. `mixed` Таким образом, сам ioBroker не возражает, но бэкэнд истории, хранящий данные в текстовом формате, — нет: InfluxDB отклоняет числовые значения для поля, содержащего строки, а SQL-адаптер хранит один тип данных для каждой точки данных, поэтому эти серии начинаются заново. После обновления просмотрите лог вашего адаптера истории и решите для каждой серии, следует ли удалить старые данные или сохранить их рядом с новыми.
 - Необходимо обратить внимание **на скрипты и визуализации, которые сравнивают или форматируют этот текст** : `state.val === '474.240'` Теперь данные не совпадают, и виджет, который использовал фиксированное количество десятичных знаков, отображает простое число.
-- **Первоначально данные о тарифе и устройстве были считаны из неправильных битов** , теперь они корректны, поэтому _названия_ состояний счетчика с несколькими тарифами меняются. Их идентификаторы остаются неизменными.
+- **Данные о тарифе и устройстве были считаны из неправильных битов** , теперь они корректны, поэтому _названия_ состояний счетчика с несколькими тарифами меняются. Их идентификаторы остаются неизменными.
 - **Зарезервированные и неизвестные VIF-файлы могут иметь разные имена** в библиотеке, поэтому некоторые необычные значения счетчиков отображаются под новым идентификатором. Старые значения остаются и могут быть удалены — все остальное записывается как прежде.
 
 Опция "Кэширование для поддержки компактных кадров" также исчезла: теперь компактные телеграммы поддерживаются всегда, и первая телеграмма из метра больше не учитывается в списке автоматической блокировки.
@@ -141,7 +150,7 @@ sudo bash -c "echo \$'ACTION==\"add\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduc
 
 В версии 0.12.0 были допущены две ошибки: распределитель затрат на отопление Techem выдавал бессмысленные данные под такими названиями, как... `VIF_RETURN_TEMP` Счетчик тепла Techem вообще не считывался и попал в список автоматической блокировки, а счетчик воды PRIOS показал свой объем в единицах стоимости тепла. Версия 0.12.1 снова считывает их корректно — созданные для них в версии 0.12.0 состояния сохраняются и могут быть удалены, а правильные записываются в следующей телеграмме.
 
-Два из их состояний названы иначе, чем в версии 0.11.x, потому что значения предыдущего периода теперь содержат номер хранилища, к которому они относятся. `1-1-…` скорее, чем `1-0-…`), а оставшийся срок службы батареи счетчика PRIOS указывается в месяцах, а не в годах.
+Два из их состояний названы иначе, чем в версии 0.11.x, поскольку значения предыдущего периода теперь содержат номер хранилища, к которому они относятся. `1-1-…` скорее, чем `1-0-…`), а оставшийся срок службы батареи счетчика PRIOS указывается в месяцах, а не в годах.
 
 ## Список дел
 
@@ -153,6 +162,20 @@ sudo bash -c "echo \$'ACTION==\"add\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduc
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (ChL) Every data state remembers the data record it was created for, and a value of a different record at the same position of a telegram is skipped instead of being written to it
+* (ChL) Name, unit and role of the data states follow the decoded telegram as long as nobody changed them; names you gave a state and states of earlier versions stay as they are, and the new option "Overwrite name, unit and role of the data states" sets them all back
+* (ChL) Fix the states of data records that a device did not have in its first telegram after a start of the adapter: they were written without being created
+* (ChL) Fix states, and devices, that were deleted in the object tree while the adapter was running: they were written without an object until the next start, and are created again by the next telegram now
+* (ChL) Count the telegram variants of every device - the layouts of data records a meter sends - and show them in the new "Telegram variants" tab of the admin UI
+* (ChL) Telegram variants can be ignored per device, so that the values of a layout nobody wants are not written; the log says at the start which entries of the list can never match
+
+### 0.13.1 (2026-09-22)
+* (ChL) Convert the adapter to TypeScript
+* (ChL) Fix the "Simple Hexstring" receiver rejecting a telegram that carries its block CRCs without announcing them with a leading "Z": the parser is left to look for them rather than being told there are none, which made it read the first CRC byte as the CI field (#276)
+* (ChL) The "Simple Hexstring" receiver drops a line that is no telegram instead of turning it into one, takes a lower case "z" as the CRC marker as well, and reports the frame type of the configured mode again
+* (ChL) Fix the instance reporting the connection of the receiver as its connection to the ioBroker databases: a receiver that was away showed an instance as disconnected that was talking to them, and a connected one kept js-controller from stopping an adapter that had lost the states database
+
 ### 0.13.0 (2026-09-09)
 * (ChL) Describe the manufacturer specific data records of a meter in the admin UI, the result become states of their own
 * (ChL) Update wireless-mbus-parser to 1.5.0: support for decoding manufacturer specific blobs - description for Itron smoke detector included.
@@ -170,21 +193,6 @@ sudo bash -c "echo \$'ACTION==\"add\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduc
 * (ChL) Fix Techem and Diehl (PRIOS) meters, which 0.12.0 decoded wrongly or not at all - the states it wrote for them carry wrong names and values and can be deleted
 * (ChL) Fix the adapter stopping instead of blocking a device whose telegrams keep failing to decode
 * (ChL) A 64 bit measured value with a scaling factor is a number now, like every other measured value
-
-### 0.12.0 (2026-09-03)
-* (ChL) Replace the built-in telegram parser with the wireless-mbus-parser library
-* (ChL) New admin configuration UI (JSON config); a serial port can now simply be typed in, the separate "custom port" field is gone
-* (ChL) Fix shutdown of the adapter: a serial connection over TCP was not closed properly and could reconnect itself while the adapter was stopping
-* (ChL) Measured values are now stored as numbers instead of preformatted strings - a history adapter that stored them as text starts a new series
-* (ChL) Fix decoding of the tariff and device unit of a data record
-* (ChL) Compact telegrams are now supported without a separate option; the option "Cache for compact frames support" was removed
-* (ChL) Follow further ioBroker repository recommendations: move the test code below `test/`, use the short `admin/i18n/<lang>.json` layout and clean up the keywords
-* (ChL) Run the adapter tests only after linting and type checking succeeded
-* (ChL) Use the adapter's own timer functions, so pending timers are cleared when the adapter is unloaded
-* (ChL) Fix receivers getting stuck after disturbed reception: a damaged telegram no longer takes the following ones with it, and no longer leaves the adapter yellow until it is restarted by hand (#308, #309)
-* (ChL) The adapter reconnects to the receiver instead of staying idle or stopping when the connection fails
-* (ChL) Fix telegrams getting lost when several meters transmit at once, and damaged data being reported as readings of devices that do not exist
-* (ChL) Declare the state that holds the raw data of an unreadable telegram as text rather than as a numeric value
 
 ## License
 

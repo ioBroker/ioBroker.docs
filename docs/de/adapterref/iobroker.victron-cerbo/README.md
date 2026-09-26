@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.victron-cerbo/README.md
 title: ioBroker Victron Cerbo
-hash: sZZrgXsAcuaKETNNrCl7v2rUAfmj94VcDZqhFlLe1WM=
+hash: p/8rV+FNqEoII/pnmIeMSvy40EmvA9VsiSwJeWdV6kM=
 ---
-![Logo](../../../en/adapterref/iobroker.victron-cerbo/admin/victron-cerbo.png)
+![Logo](../../../en/adapterref/iobroker.victron-cerbo/admin/victron-cerbo.svg)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/victron-cerbo-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.victron-cerbo.svg)
@@ -33,6 +33,11 @@ Der Victron Cerbo GX ist eine fortschrittliche Überwachungs- und Steuerungszent
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (iobroker-bot) Adapter requires node.js >= 22 now.
+* (copilot) Adapter requires node.js >= 22 now
+
 ### 0.2.1 (2026-04-12)
 * (@GermanBluefox) Implemented the tests
 

@@ -72,6 +72,34 @@ If HTTPs (Security) or authentication is enabled on a defined web-instance, it d
 
 You can deactivate HTTPS and authentication on this web instance, but better is to create a new web instance that is bound to `localhost` and select this instance in cloud-settings.
 
+## Remote shell (SSH)
+On **pro** the cloud can act as an SSH jump host so you reach a shell (or any TCP service) on this machine
+from anywhere, authenticated with your cloud e-mail and password. The inner SSH connection is end-to-end
+encrypted between your client and the local `sshd`, so the cloud only forwards bytes.
+
+Turn it on under **Remote shell** in the adapter settings:
+- **Enable remote shell** — off by default.
+- **Allowed destinations** — a table of rules; a destination is allowed when any row matches it. This is
+  the authoritative allow-list, the cloud opens nothing the adapter does not permit. Each row has:
+  - **Host** — a single IP or hostname (`127.0.0.1`, `localhost`), a wildcard (`192.168.*`), a CIDR
+    (`192.168.1.0/24`), or a range (`192.168.1.10-192.168.1.50`).
+  - **Ports** — a list and/or ranges (`22`, `22, 8081`, `8000-8100`), or empty / `*` / `all` for any port.
+
+  Default: `127.0.0.1` and `localhost`, any port (this machine only). So one row can expose only SSH on
+  the ioBroker box while another opens a whole subnet, e.g. `127.0.0.1 → 22` plus `192.168.1.0/24 → *`.
+
+Then connect (with your own sshd moved off port 22, and `pi` being a user on this machine):
+```bash
+ssh -J <email>@iobroker.pro pi@localhost
+```
+`-L 8081:localhost:8081` tunnels the admin UI, `scp`/`sftp` copy files, and so on. UDP is not carried
+(so KNXnet/IP over UDP needs a TCP-capable gateway or a VPN).
+
+On start the adapter probes whether an SSH server is reachable on `127.0.0.1:22` and publishes the result
+in the state **`info.sshAvailable`**. The settings page reads that state live: when no SSH server is found
+(or the account is not pro) it shows a hint and **hides the remote-shell settings entirely**, so they only
+appear when enabling them can actually reach a shell.
+
 ## Android application
 With the new android application the location of variables for brightness and location has been changed.
 
@@ -87,6 +115,13 @@ Now they could be found in `cloud.X.devices.NAME`:
 -->
 
 ## Changelog
+### 6.2.5 (2026-09-24)
+* (@GermanBluefox) A POST body that arrives as a buffer is decoded instead of stringified, so the telemetry of the visu apps is no longer lost on its way through the cloud
+* (@GermanBluefox) An empty body for a reported value, and a command without `deviceName`/`name`, are logged instead of being dropped silently
+
+### 6.2.4 (2026-09-21)
+* (@GermanBluefox) Updated packages
+
 ### 6.2.1 (2026-09-17)
 * (@GermanBluefox) Updated packages
 * (@GermanBluefox) Clear subscriptions on cloud disconnection
@@ -97,12 +132,6 @@ Now they could be found in `cloud.X.devices.NAME`:
 
 ### 6.1.2 (2026-06-13)
 * (@GermanBluefox) Added support of credentials manager
-
-### 6.0.5 (2026-06-01)
-* (bluefox) Corrected the command object to be writable
-
-### 6.0.4 (2026-05-17)
-* (bluefox) Respect the types of states if writing from visu app
 
 ## License
 The MIT License (MIT)

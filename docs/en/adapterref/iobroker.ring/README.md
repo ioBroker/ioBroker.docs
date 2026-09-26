@@ -102,6 +102,9 @@ Install this adapter using ioBroker repositories.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 7.0.2 (2026-09-20)
+- (mcm1957) dependencies have been corrected
+
 ### 7.0.1 (2026-09-04)
 - (mcm1957) **BREAKING:** enhanced security (added encryption) requires that you enter the access refreshtoken one more time 
 - (bluefox) The admin tab was rewritten in React (`src-tab/`), replacing the materialize page - doorbell cameras are listed now, they were silently skipped before
@@ -141,12 +144,6 @@ Install this adapter using ioBroker repositories.
 
 * (simatec) Settings for responsive Design
 * (theimo1221) Update some developer packages
-
-### 6.2.3 (2024-10-31)
-
-* (theimo1221) Fix License-Info object in io-package.json
-* (theimo1221) Update iobroker test package
-* (theimo1221) Update some test packages regarding mocha
 
 ## License
 

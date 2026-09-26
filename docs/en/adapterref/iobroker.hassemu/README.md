@@ -32,8 +32,24 @@ This page is the detailed guide. The [README](https://github.com/krobipd/ioBroke
 - ioBroker Admin 8.0.11 or newer
 - The display and ioBroker on the same network
 
-Only one hassemu instance per network. The adapter listens on port 8123 because that is the
-port HA clients expect, and it is not configurable — two instances would fight over it.
+The adapter listens on port 8123 because that is the port HA clients expect, and it is not
+configurable. So each ioBroker host normally runs one instance — a second one on the same host
+only works when each is bound to its own interface. Several ioBroker hosts in the network may
+each run one; the displays then see separate servers.
+
+## Shelly Wall Display
+
+The Shelly Wall Display family comes in legacy models (Stargate, X2) and modern ones (XL,
+X2i, X1i, U1, D1). A display reaches hassemu in one of two ways:
+
+- **the built-in Home Assistant page** — the original way; firmware 2.7.0 lifted its
+  deprecation
+- **the on-device Home Assistant app** of firmware 2.6.0 and newer — it runs the same
+  onboarding as the Companion App on a phone
+
+hassemu serves both. Firmware 2.7.0 also added _clear WebView cache_ (Settings → Home
+Assistant). That deletes the cookie the display is identified by: afterwards it shows up once
+under a new id and runs the onboarding again. Remove the old entry with its `remove` button.
 
 ## Setting it up
 
@@ -43,7 +59,7 @@ Install the adapter and start instance 0. In the instance settings you normally 
 nothing to begin with: mDNS is on, authentication is off, and the adapter binds to all
 interfaces.
 
-If your ioBroker host has several network cards, set **Bind to interface** to the one your
+If your ioBroker host has several network cards, set **Bind to Interface** to the one your
 displays are on. The adapter announces itself under that address, so announcing an address
 the display cannot reach is the most common reason discovery "works" but the display then
 fails to connect.
@@ -57,6 +73,10 @@ On the display, add a Home Assistant server.
 - **Without mDNS**, or when the display does not search, enter the address by hand:
   `http://<ip-of-your-ioBroker>:8123`. It has to be `http` — see
   [Authentication and your network](#authentication-and-your-network).
+
+**Android 17 and newer:** allow _local network access_ when the Home Assistant app asks.
+Without it the app neither finds hassemu nor can reach it on your network — hassemu is
+LAN-only, there is no cloud fallback.
 
 ### 3. Complete the onboarding
 
@@ -202,7 +222,7 @@ clear about:
   unencrypted. Authentication stops other devices on your network from using the HA
   interface — it is not protection against exposure to the internet.
 
-**Trust Proxy** should stay off unless a reverse proxy really is in front of the adapter,
+**Trust Reverse Proxy Headers** should stay off unless a reverse proxy really is in front of the adapter,
 terminating TLS and removing the `X-Forwarded-*` headers a client sent. Switched on without
 one, any device can claim a different address on every single request. The adapter then logs
 the wrong addresses, and its per-address limit on new display entries no longer limits
@@ -219,23 +239,29 @@ the setting safe.
 | 8123 / TCP | inbound   | the HA interface the display talks to          |
 | 5353 / UDP | inbound   | mDNS, so displays find the server on their own |
 
+For uptime monitors and container health checks use `http://<ip-of-your-ioBroker>:8123/health`.
+It answers without creating anything. A `GET /` is what a display sends on its first visit,
+so a monitor pointed there would show up as a new display; a `HEAD /` creates nothing.
+
 ## Questions that come up
 
-**Can I run two instances?** No. Port 8123 is fixed by the HA clients, so one host on the
-network runs hassemu.
+**Can I run two instances?** Not on the same interface. Port 8123 is fixed by the HA clients,
+so two instances on one host only work when each is bound to its own interface. Two ioBroker
+hosts may each run one; the displays then see two separate servers.
 
 **Does the display have to stay connected to the adapter?** Yes. It fetches its page through
 the adapter, and the offline page and the target check depend on it. If the adapter stops,
-the display keeps showing the last page it loaded until it tries again.
+the dashboard stays on screen for about 1.5 minutes; then the display shows the offline page
+and returns to the dashboard by itself once the adapter is back.
 
 **Can I rename a display?** Yes — rename the `clients.<id>` object in the object browser.
 The adapter keeps your name and will not overwrite it, even when the display's address or
 host name changes.
 
 **Why is there a second entry for the same display?** The display did not send back its
-cookie — usually a factory reset, a cleared browser cache, or a privacy mode that discards
-cookies. Remove the old entry with its `remove` button. The cause is on the display, not in
-the adapter.
+cookie — usually a factory reset, a cleared browser or WebView cache (Shelly firmware 2.7.0 and
+newer: Settings → Home Assistant), or a privacy mode that discards cookies. Remove the old
+entry with its `remove` button. The cause is on the display, not in the adapter.
 
 **Do I need Home Assistant installed?** No. The adapter answers the HA protocol itself.
 There is no Home Assistant anywhere in this setup.
@@ -253,6 +279,9 @@ If mDNS is on but the log has no `mDNS: Broadcasting` line, the announcement did
 — usually because something else holds port 5353. Turn mDNS off and enter the address on the
 display by hand; everything else works the same.
 
+If the Home Assistant app on Android 17 or newer finds nothing and cannot connect even with
+the address entered by hand, it lacks _local network access_ — allow it in the app settings.
+
 ## Changelog
 
 <!--
@@ -260,7 +289,24 @@ display by hand; everything else works the same.
     ### **WORK IN PROGRESS**
 -->
 
-### 1.45.0 (2026-09-17)
+### 1.46.1 (2026-09-25)
+
+- Improved: switching the master switch and refreshing the dashboard list now log their result — how many displays changed and how many dashboards were found
+
+### 1.46.0 (2026-09-25)
+
+- Fixed: a start that fails (port briefly in use, database not up yet) now restarts after 30 seconds instead of leaving the instance off until someone starts it by hand
+- Fixed: displays are no longer all removed after the adapter or its host was off for more than 30 days — the cleanup now counts from the most recently seen display
+- Fixed: an update from 1.0 or 1.1 no longer resets the global URL choice on every start — the URL you had set before the update stays in place for good
+- Fixed: on iOS the Home Assistant app no longer keeps its loading screen over the dashboard, and on Android the bottom of the dashboard no longer hides behind the navigation bar
+- Fixed: uptime monitors and container health checks no longer create display entries, and the adapter settings name the /health address meant for them
+- Fixed: stopping the adapter no longer waits on open connections or hangs while a display is mid-request, and a stop during the start no longer brings the server up
+- Fixed: room and function assignments move along reliably when an old datapoint is replaced, and a read error no longer gives the server a new identity
+- Changed: the sign-in hands its code to an unknown address only after a click on Continue, and a signed-in app is disconnected when its display is removed
+- Improved: mDNS announces an address the displays can reach — no link-local, container or VPN address — and announces again when the host's address changes
+- Improved: the reverse proxy option in the settings and the offline card on the display explain themselves in plain words, in all eleven languages
+
+### 1.45.0 (2026-09-17) — stable
 
 - Fixed: refreshing the dashboard list no longer removes a display's mode datapoint from its rooms and functions, and the datapoint no longer disappears for a moment while it is rewritten
 - Fixed: a failed request or migration now names its cause instead of "[object Object]", and an unexpected error inside the web server no longer breaks its own error answer to the display
@@ -278,19 +324,6 @@ display by hand; everything else works the same.
 ### 1.43.1 (2026-09-07)
 
 - Changed: the button that removes a display now carries a description — it deletes the display's folder and all its states, and the display returns as a new entry on its next request
-
-### 1.43.0 (2026-09-06)
-
-- Fixed: taking a display's choice back (mode `---`, or turning the master switch off) now reaches the display — until now it kept the dashboard it had until someone reloaded it by hand
-- Fixed: a display that lost power no longer holds up the adapter's shutdown for 30 seconds
-- Fixed: VIS projects are found on every VIS instance, not only on `vis.0` / `vis-2.0`
-- Fixed: upgrading from a pre-1.1.1 version no longer overwrites the whole instance configuration while removing the old URL setting
-- New: every display now shows the address it was actually sent to, so you can see at a glance where a display landed without walking through the global and per-display settings yourself
-- Changed: `info.serverUuid` and `global.enabled` carry clearer labels, and the per-display manual URL now has a description
-
-### 1.42.0 (2026-09-04)
-
-- Fixed: a leftover setting from older versions is now removed from the instance completely instead of only being switched off — switched off, it stayed behind for good
 
 ## License
 

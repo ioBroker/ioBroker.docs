@@ -70,6 +70,13 @@ sendTo('pushover', {
 });
 ```
 
+## Systembenachrichtigungen
+
+Der Adapter kann die Systembenachrichtigungen von ioBroker (z. B. "Adapter wurde zu oft neu gestartet"
+oder "Festplatte läuft voll") über den Notification-Manager empfangen. Dazu wird die Pushover-Instanz
+in der Konfiguration des Notification-Manager-Adapters ausgewählt. Die Nachricht enthält Name und
+Beschreibung der Kategorie, den Host und die neueste Meldung jeder betroffenen Instanz.
+
 ## Glances
 
 Mit Pushover Glances können dauerhaft sichtbare Informationen versendet werden. Diese können zum Beispiel auf einer Apple Watch dargestellt werden.
@@ -92,6 +99,14 @@ sendTo('pushover', 'glances', {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 6.1.0 (2026-09-23)
+* (BenAhrdt) Added support for the system notifications (notification-manager)
+* (BenAhrdt) `user` and `token` can be overwritten per message
+* (BenAhrdt) Unsupported commands are answered with the command name instead of `send`
+* (@GermanBluefox) Invalid notifications are rejected instead of crashing the message handler
+* (@GermanBluefox) Fixed: empty `title`/`sound`/`priority` (e.g. from Blockly) fall back to the instance settings again, an explicit priority 0 is kept
+* (@GermanBluefox) Added documentation and tests for the system notifications
+
 ### 6.0.1 (2026-08-18)
 * (@GermanBluefox) Blockly migrated to TypeScript
 * (@GermanBluefox) Dropped support for Node.js lower than 22
@@ -110,12 +125,6 @@ sendTo('pushover', 'glances', {
 * (isi07) added HTML/monospace options to blockly
 * (isi07) fixed issue that blockly block is invalid when different priority other than normal is selected
 * (isi07) fixed the error when log level selected by duplicate quotes
-
-### 4.0.0 (2024-07-13)
-* Breaking changes: NodeJS >= 18.x and js-controller >= 5 are required
-* (@klein0r) Updated dependencies
-* (@klein0r) Fixed blockly definitions
-* (@klein0r) Updated translations
 
 ## License
 

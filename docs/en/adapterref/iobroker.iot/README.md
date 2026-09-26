@@ -419,6 +419,10 @@ setState('iot.0.app.message', JSON.stringify({
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 7.1.2 (2026-09-20)
+- (@GermanBluefox) The cloud connection is now closed gracefully, so the cloud does not report a duplicate connection after a restart of the adapter
+- (@GermanBluefox) Only one reconnection attempt can be pending, so two connections cannot overlap anymore
+
 ### 7.1.1 (2026-09-16)
 - (@GermanBluefox) Corrected validTill request
 
@@ -433,11 +437,6 @@ setState('iot.0.app.message', JSON.stringify({
 
 ### 6.1.3 (2026-06-12)
 - (@GermanBluefox) Added support of credentials manager
-
-### 6.1.0 (2026-06-02)
-- (@GermanBluefox) Implemented new feature to select devices from the list and not by enumeration
-- (@GermanBluefox) Possibility to send messages to the app directly from the state
-- (@GermanBluefox) Migrated Google and Alisa to TypeScript
 
 ## License
 

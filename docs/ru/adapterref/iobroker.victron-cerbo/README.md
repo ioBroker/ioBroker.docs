@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.victron-cerbo/README.md
 title: ioBroker Victron Cerbo
-hash: sZZrgXsAcuaKETNNrCl7v2rUAfmj94VcDZqhFlLe1WM=
+hash: p/8rV+FNqEoII/pnmIeMSvy40EmvA9VsiSwJeWdV6kM=
 ---
-![Логотип](../../../en/adapterref/iobroker.victron-cerbo/admin/victron-cerbo.png)
+![Логотип](../../../en/adapterref/iobroker.victron-cerbo/admin/victron-cerbo.svg)
 
 ![Количество установок](http://iobroker.live/badges/victron-cerbo-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.victron-cerbo.svg)
@@ -33,6 +33,11 @@ Victron Cerbo GX — это современный центр мониторин
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (iobroker-bot) Adapter requires node.js >= 22 now.
+* (copilot) Adapter requires node.js >= 22 now
+
 ### 0.2.1 (2026-04-12)
 * (@GermanBluefox) Implemented the tests
 

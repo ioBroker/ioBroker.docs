@@ -20,6 +20,9 @@ Please use it only for administration purposes.
 ![Screenshot](img/screen1.png)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (iobroker-bot) Adapter requires node.js >= 22 now.
 ### 1.0.0 (2022-10-08)
 * (bluefox) Check only port of the interface and not of all interfaces
 * (Apollon77) Fix some crash cases reported by Sentry

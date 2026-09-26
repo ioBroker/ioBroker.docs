@@ -95,6 +95,12 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 | `tib_darkmode` | `true` | Dark (default) or light theme |
 
 ## Changelog
+### 0.5.0 (2026-09-25)
+* (ssbingo) Switch the widget build from @originjs/vite-plugin-federation to @module-federation/vite, the Module Federation 2 runtime vis-2 itself uses. The bundle now ships mf-manifest.json and shares react and react/jsx-runtime with vis-2 instead of bundling its own copy, which is what vis-2 checks before it loads a widget set
+
+### 0.4.15 (2026-09-25)
+* (ssbingo) Fix: widgets could not be loaded in VIS-2 since 0.4.12 ("e.forEach is not a function"). Vite 8's oxc minifier rewrites string literals to template literals, so the federation plugin left its CSS placeholder unreplaced. The build now pins the esbuild minifier and a new test guards against it
+
 ### 0.4.14 (2026-09-20)
 * (ssbingo) Update dev dependencies (@iobroker/testing 6.2.1, React 19.3.0, Vite 8.3.0) and rebuild the widget bundle
 

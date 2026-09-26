@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.xtream-monitor/README.md
 title: ioBroker.xtream-monitor
-hash: S1QeSlkID8F4XQbVHGpILmja2/0/se0ZnbVHlaeALXE=
+hash: p62IrAbDJCtPI5BQEKjdU1x/rSCnW9gJbl3/q9EmaiU=
 ---
 # ioBroker.xtream-monitor
 
@@ -27,7 +27,7 @@ Der Adapter dient lediglich der Überwachung. Er stellt keine Mediendaten bereit
 
 - Node.js 22 oder neuer
 - js-controller 7.0.7 oder neuer
-- Admin 7.6.20 oder neuer
+- Admin 7.8.23 oder neuer
 
 ## Konfiguration
 
@@ -170,4 +170,4 @@ npx @iobroker/repochecker https://github.com/chrvidal/ioBroker.xtream-monitor ma
 
 MIT License. See [LICENSE](https://github.com/chrvidal/ioBroker.xtream-monitor/blob/main/LICENSE).
 
-Copyright (c) 2026 chrvidal
+Copyright (c) 2026 Christian Vidal <christian_vidal@icloud.com>

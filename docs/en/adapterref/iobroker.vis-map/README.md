@@ -65,5 +65,5 @@ You can bind longitude and latitude apart or just place into **longitude** the O
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2016-2024 bluefox <dogafox@gmail.com>
+ Copyright (c) 2016-2026 bluefox <dogafox@gmail.com>
  MIT

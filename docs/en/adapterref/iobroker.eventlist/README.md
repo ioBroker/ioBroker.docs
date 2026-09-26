@@ -49,9 +49,46 @@ something the event list alone cannot do.
 Do not confuse it with the alarm mode above. The alarm mode is an arming switch, a message is a
 fault.
 
-### Levels
-`fatal`, `error`, `warning` and `info`. The two severe ones have to be acknowledged by default, the
-other two do not; every message can override that.
+### Levels and alarm classes
+The four levels `fatal`, `alarm`, `warning` and `info` always exist, and every one of them carries
+the three sub-levels `high`, `normal` and `low`. That grid is the twelve built-in **alarm classes**,
+addressed as `fatal.high` down to `info.low`.
+
+The numbers behind it are the ones of OPC UA (part 9, "Alarms & Conditions"): a severity from 1 to
+1000, and the specification's rule that an alarm lives above 400. So the bands are
+
+| level | severity | acknowledged by default | stands |
+|---|---|---|---|
+| `fatal` | 801 – 1000 | always, it cannot be switched off | yes |
+| `alarm` | 601 – 800 | yes | yes |
+| `warning` | 401 – 600 | no | yes |
+| `info` | 1 – 400 | no | no, it is only an entry in the event list |
+
+Every level is split into its three sub-levels in thirds, `alarm high` for example is 731 – 800.
+
+In the admin, the tab **Alarm classes** shows the whole grid as a tree and lets the plant add its
+own classes under it: a name, a colour, an icon, the severity inside the band of its sub-level,
+whether it has to be acknowledged, and whether it stands at all. The classes of the instance are
+stored in `native.alarmClasses`; only what differs from a built-in class is written, so an untouched
+installation keeps an empty list.
+
+```json
+{
+    "id": "boiler_pressure",
+    "name": "Boiler pressure",
+    "level": "alarm",
+    "subLevel": "high",
+    "severity": 770,
+    "standing": true,
+    "requiresAck": true,
+    "color": "#B3122B",
+    "icon": ""
+}
+```
+
+A class that does not stand writes only its coming into the event list: nothing to acknowledge,
+nothing that stays in the message list. That is what the `info` classes do by default, and it is the
+same line the OPC UA specification draws at severity 400.
 
 ### The four states of a message
 | code | active | acknowledged | in the list |
@@ -70,7 +107,7 @@ The message settings sit next to the other settings of a state, in
 
 ```json
 {
-    "level": "error",
+    "alarmClass": "alarm.normal",
     "text": "%n too hot: %s%u",
     "condition": { "operator": ">", "limit": 90 },
     "requiresAck": true,
@@ -82,11 +119,50 @@ The message settings sit next to the other settings of a state, in
 }
 ```
 
-`condition` is either a comparison with `operator` and `limit` for numbers, or a `value` that raises
-the message for booleans and texts. In the text the patterns `%s`, `%u`, `%n` and `%l` may be used.
+`alarmClass` is the id of one of the classes above, `condition` is either a comparison with
+`operator` and `limit` for numbers, or a `value` that raises the message for booleans and texts. In
+the text the patterns `%s`, `%u`, `%n`, `%l` and `%c` may be used, the last one for the name of the
+class.
 
-For states with an enumeration, every single value can carry a `level` instead. Then every value is
-its own message and only the one of the current value stands. Text, group and the delays are shared
+### Several limits of one state
+A number rarely has one limit. Instead of `alarmClass` and `condition` a state can carry a ladder of
+them, and the state settings in the admin show it as a small table:
+
+```json
+{
+    "text": "%n: %s%u",
+    "limits": [
+        { "alarmClass": "warning.normal", "operator": ">", "limit": 200 },
+        {
+            "alarmClass": "fatal.normal",
+            "operator": ">",
+            "limit": 300,
+            "hysteresis": 20,
+            "text": "%n dangerously high: %s%u",
+            "requiresAck": true,
+            "priority": 90
+        },
+        { "alarmClass": "warning.normal", "operator": "<", "limit": 50 }
+    ]
+}
+```
+
+The state raises **one** message, not one per limit, and its class follows the value: the limit with
+the highest severity that is reached wins. So a pressure of 250 stands as a warning and becomes fatal at 320,
+without a second entry in the list.
+
+Every limit may bring its own `text`, `requiresAck` and `priority`; without them the ones of the
+state count, and without those what the class says - so the warning of a ladder passes by and its
+fatal has to be confirmed, without setting anything.
+
+A changed level is a new occurrence: it is written into the event list, it counts as a repetition,
+and it has to be acknowledged again - an acknowledgement of the warning must not cover the fatal that
+follows it. The other way round the duty follows the new level as well, so a message that falls back
+to a warning stops asking for one. The hysteresis of a limit holds its band: with `> 300` and a
+hysteresis of 20 the message stays fatal until the value is below 280.
+
+For states with an enumeration, every single value can carry an `alarmClass` instead. Then every
+value is its own message and only the one of the current value stands. Text, group and the delays are shared
 by all of them.
 
 ### Quiet in the list
@@ -103,6 +179,11 @@ A message that flaps stays in the list, is marked with `flapping` and writes no 
 the event list until it has calmed down. Only the beginning and the end of the restlessness are
 written, so a loose contact costs two lines and not two hundred.
 
+A state that is only watched for its message does not need its history in the event list at all. The
+setting `Only the message in the event list` (`messagesOnly`) writes only the coming and the going of
+the message, so a temperature that is read every ten seconds gives one line when it goes over the
+limit and one when it comes back, instead of one line per reading.
+
 ### Groups
 `group` is a free name. Messages of the same group are acknowledged together, and the one that came
 first is marked with `first` in the list — usually the fault, while the rest is its consequence.
@@ -118,18 +199,18 @@ chosen `id` holds it together over its life cycle:
 
 ```js
 sendTo('eventlist.0', 'message', {
-    id:    'heating.flow',
-    level: 'error',
-    text:  'Flow too cold although the pump runs',
+    id:         'heating.flow',
+    alarmClass: 'alarm.normal',
+    text:       'Flow too cold although the pump runs',
 });
 
 // the same message goes again
 sendTo('eventlist.0', 'message', { id: 'heating.flow', state: 'gone' });
 ```
 
-A message from a foreign system may bring a `severity` from 1 to 1000 instead of a level, as OPC UA
-does. It is mapped onto a level: above 800 `fatal`, above 500 `error`, above 200 `warning`, the rest
-`info`.
+Instead of `alarmClass` a script may name a `level`, or bring a `severity` from 1 to 1000 as a
+foreign system does. The severity lands in the band of its level: from 801 `fatal`, from 601
+`alarm`, from 401 `warning`, everything below `info`.
 
 ### Acknowledging
 ```js
@@ -163,6 +244,87 @@ lasts a month at most. That end matters: a message that is suppressed for ever i
 knows about any more. A suppressed message keeps working internally, it is only out of the list, out
 of the counters and out of the event list; the beginning and the end of the suppression are written
 into the event list, so the gap in the history has a reason.
+
+### Alarm journal
+The message list says what stands right now, the event list says what happened at one moment. The
+journal is the third view: one entry per **alarm cycle**, from its coming until it is closed.
+
+A cycle begins when an alarm comes and nothing of it was standing. It collects what happens to it -
+repetitions, the escalation to a more severe class, the acknowledgement, the going - and it is
+closed when the alarm has gone **and** somebody has acknowledged it. An alarm that comes back after
+that starts a **new** cycle: two occurrences are two events in the plant, not one.
+
+```json
+{
+    "id": "my.0.boiler#1780736137474",
+    "messageId": "my.0.boiler",
+    "stateId": "my.0.boiler",
+    "alarmName": "Boiler pressure",
+    "level": "fatal",
+    "severity": 900,
+    "text": "Boiler pressure too high",
+    "state": "CLOSED",
+    "activatedAt": 1780736137474,
+    "acknowledgedAt": 1780736142000,
+    "ackUser": "admin",
+    "clearedAt": 1780736401000,
+    "closedAt": 1780736401000,
+    "count": 3
+}
+```
+
+The state `messages.journal` holds the cycles, oldest first; how many it keeps is set in the
+instance settings (`Alarm cycles in the journal`, 0 switches the journal off). A cycle that is not
+closed yet is never thrown away, however full the journal is.
+
+A script can ask for a part of it:
+
+```js
+sendTo('eventlist.0', 'journal', { level: 'fatal', openOnly: false, limit: 50 }, result =>
+    console.log(result),
+);
+```
+
+`from`, `to`, `level`, `stateId`, `openOnly` and `limit` all filter, and the answer is newest first.
+
+#### The monthly archive
+The state keeps the last cycles only. So that the history does not end there, a closed cycle is
+written into a file of its month as well - `journal/2026-09.jsonl` in the file storage of the
+adapter, one cycle per line. The switch `Archive the journal monthly` in the instance settings turns
+it on, and it is on by default.
+
+The files are written a few seconds after a cycle closes and once more when the adapter stops, so a
+restart loses nothing. A month that is written again - after a restart, for example - keeps every
+cycle only once: the file is read, merged and written back.
+
+A query reaches into them with `archive`:
+
+```js
+sendTo('eventlist.0', 'journal', { archive: true, from: Date.now() - 90 * 86400000 }, result =>
+    console.log(`${result.length} alarm cycles in the last three months`),
+);
+```
+
+Without `from` every month that is there is read, with `from` and `to` only the months of the range.
+What is still open stands in the state alone, so both are always put together, and no cycle comes
+twice.
+
+#### Export as CSV
+The same query answers as a table that a spreadsheet opens:
+
+```js
+sendTo('eventlist.0', 'journalCsv', { archive: true, level: 'fatal' }, result =>
+    console.log(result.csv),
+);
+```
+
+The answer is `{ csv, fileName, count }`. The columns are the times of the cycle - came,
+acknowledged, gone, closed - with level, class, state, message, value, unit, user, count, source and
+group, separated by semicolons and in the language of the installation. `ids` exports exactly the
+cycles of that list, which is what the buttons in the GUI send: they export what the table shows,
+with its filter and its search.
+
+The journal tab has the switch **With the archived months** and the button that saves the CSV.
 
 ### The table in the admin
 The instance settings have a tab **Messages** with everything that stands: level, the combined state
@@ -210,11 +372,26 @@ You can enable the event list as a tab in the admin.
 Event list could be shown under `http://<IP>:8082/eventlist/index.html`. (for instances > 0: `http://<IP>:8082/eventlist/index.html?X`, where X is the instance number)
 
 ### Vis Widget
-Event list can be displayed as a vis widget. 
+Two widgets for vis-2:
+
+- **Events** shows the event list, with the columns, texts and widths of the vis-1 widget.
+- **Alarms and events** shows the standing alarms and the event list, one above the other. Its
+  attribute `Show` decides whether both, only the alarms or only the events are drawn, and
+  `Height of the alarms in %` how the space is divided. The alarms can be filtered by level, the
+  events by state ID, and with `Acknowledge with a click` a click on an alarm acknowledges it. The
+  group `Journal` puts the alarm cycles under them; `With the archived months` lets them reach back
+  into the monthly files and `Allow the CSV export` shows a button that saves what is shown.
 
 ### Device manager
-The device manager shows a tile with the newest event. A click on it opens the whole list in a
-dialog. The tile can be limited to the events of one state, so every device can have its own tile.
+Two widgets for the device manager:
+
+- **Last event**: a tile with the newest event. A click on it opens the whole list in a dialog. The
+  tile can be limited to the events of one state, so every device can have its own tile.
+- **Alarms**: a tile with the worst standing alarm - its class, its text and its value, in the
+  colour of the level, and how many more alarms stand. The click opens the big view with the alarms
+  and the events; the settings decide what is shown there and whether a click acknowledges. With
+  `Show` = `Journal` the dialog shows the alarm cycles, reaches into the archived months if it is
+  allowed to, and exports what it shows as a CSV file.
 
 ### PDF generation
 There is a possibility to generate a PDF document with all events.
@@ -320,6 +497,35 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 * (@GermanBluefox) Added delays, hysteresis, groups, flapping protection, suppression and horn for the messages
 * (@GermanBluefox) Added the tab with the standing messages and the acknowledgement in the admin
 * (@GermanBluefox) Brought the settings of a state back into the custom tab of the objects, as a JSON config component
+* (@GermanBluefox) Added several limits per state: `> 200` a warning, `> 300` a fatal. One message whose level follows the value, every limit with its own text, acknowledgement duty and priority
+* (@GermanBluefox) The messages can be set in the custom tab of the objects as well, not only in the instance settings
+* (@GermanBluefox) Added `Only the message in the event list`: a state that is watched for its message writes only the coming and the going of it, not every value it takes
+* (@GermanBluefox) Durations are written with a space and with proper unit words in all languages (`15 Sek.` instead of `15Sekunde`)
+* (@GermanBluefox) Fixed: a message that does not have to be acknowledged is no longer shown as `not acknowledged`, it says `came` or `gone`
+* (@GermanBluefox) The values in the GUI follow the setting `Comma as decimal separator` of ioBroker
+* (@GermanBluefox) Added the alarm classes: four levels with three sub-levels each, the severity of OPC UA (1 to 1000), and own classes with name, colour, icon, acknowledgement duty and severity. The selection of a class is a tree
+* (@GermanBluefox) The level `error` is called `alarm` now, as OPC UA and PCS 7 call it
+* (@GermanBluefox) A class below the alarm line of OPC UA (severity 400) does not stand: it writes only its coming into the event list. That is what the `info` classes do
+* (@GermanBluefox) The ID of an own alarm class can be changed, and every state that uses it is changed with it. Two classes cannot carry the same name any more
+* (@GermanBluefox) The event list shows the coming, the going and the acknowledgement as `K`, `G` and `Q` in a column of their own, and the name of the state with its ID below it
+* (@GermanBluefox) The alarm view follows the SCADA concept: unacknowledged alarms sort before acknowledged ones of the same severity, the table shows the acknowledgement time, the going time and the priority, and a counter strip says how many are unacknowledged, active and how many events there are
+* (@GermanBluefox) Added the states `messages.active` (alarms whose condition is true right now) and `eventCount`
+* (@GermanBluefox) Fixed: the times in the admin were written in English (`Sep 7th`) although the admin speaks another language - the locale of moment was registered on a copy of it that nobody used
+* (@GermanBluefox) The alarm journal and the table of the standing messages show the name of the state with its ID under it, the way the event list does
+* (@GermanBluefox) A relative time like `a few seconds ago` says the exact time in its tooltip - in the event list, in both vis-2 widgets and in the widgets of the device manager
+* (@GermanBluefox) The tab view divides its height between the three sections and carries a line to drag between every two of them, so the alarm journal gets its own space
+* (@GermanBluefox) The journal is archived in one file per month (`journal/2026-09.jsonl`), so the history does not end at the length of the state. `sendTo('eventlist.0', 'journal', { archive: true, from, to })` reads them, `journalCsv` answers with a CSV table, and the journal tab, the vis-2 widget and the device manager widget can show the archived months and save what they show
+* (@GermanBluefox) Added the alarm journal: one entry per alarm cycle with the times of its coming, its acknowledgement, its going and its closing, in the state `messages.journal`, as a tab and as a section of the tab view, in the vis-2 widget and in the device manager widget. A new occurrence starts a new cycle, and `sendTo('eventlist.0', 'journal', { level, stateId, from, to, openOnly, limit })` asks for it
+* (@GermanBluefox) Fixed: a line of the event list lost its state and its `K`/`G` until the adapter wrote the list again, depending on which of the two states arrived first
+* (@GermanBluefox) The tab shows the event list and the standing messages one above the other, both can be folded away and the line between them can be dragged
+* (@GermanBluefox) The table of the messages shows the value the state has now next to the value that raised the message, if they are not the same
+* (@GermanBluefox) Added the vis-2 widget `Alarms and events`: the standing alarms and the event list in one widget, and the attributes decide what is shown and how much of each
+* (@GermanBluefox) Added the device manager widget `Alarms`: the tile shows the worst standing alarm, the click opens the alarms and the events
+* (@GermanBluefox) Fixed: a message kept standing after its limits were changed. The messages of a state are looked at again as soon as its settings change, and not only at its next value
+* (@GermanBluefox) The value column of the event list and of the message table shows the unit of the state
+* (@GermanBluefox) Added a closeable info box that explains how a standing message works, and tooltips for `Only changes` and `Only in alarm state`
+* (@GermanBluefox) Translated the whole GUI into all eleven languages, the words of the messages included
+* (@GermanBluefox) Fixed: a click into the first rows of the event list opened the dialog of a toolbar button instead of selecting the row. The text of the button had a line box of 336 pixels and hung invisibly over the table
 * (@GermanBluefox) Fixed the alarm mode, that was switched off by every restart
 
 ### 3.0.0 (2026-09-04)

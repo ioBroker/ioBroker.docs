@@ -21,20 +21,22 @@ Modell auf, ändert beim Anbieter nichts und schickt deine Daten nirgendwohin.
 
 ## Was er überwachen kann
 
-| Konto                               | Was du bekommst                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Wie es verbunden wird                                                                                                                                                                                     |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Claude-Abo** (Pro / Max)          | 5-Stunden- und Wochen-Fenster mit Prozent und Reset-Zeit, Modell-Fenster, Extra-Guthaben und die dafür ausgegebenen Kosten                                                                                                                                                                                                                                                                                                                                             | Anmeldung mit deinem eigenen Anthropic-Konto: Link öffnen, anmelden, Code zurück einfügen                                                                                                                 |
-| **ChatGPT-Abo** (Plus / Pro, Codex) | 5-Stunden- und Wochen-Fenster, zusätzliche Fenster je Oberfläche, Guthaben, kaufbare Limit-Reset-Gutscheine                                                                                                                                                                                                                                                                                                                                                            | Der Adapter zeigt einen kurzen Code, den du auf der OpenAI-Seite eintippst. Deine eigene Codex-Anmeldung wird nicht angefasst                                                                             |
-| **Google-Gemini-Abo** (Pro / Ultra) | Die Modell-Kontingente, die Google meldet                                                                                                                                                                                                                                                                                                                                                                                                                              | Link öffnen und anmelden. Google leitet auf `localhost` zurück, **dein Browser zeigt also eine Fehlerseite — das ist so gewollt**. Die komplette Adresse aus der Adresszeile kopieren und zurück einfügen |
-| **OpenRouter**                      | Verbrauchtes Guthaben, Grenze, Rest, Prozent                                                                                                                                                                                                                                                                                                                                                                                                                           | Gespeicherten Schlüssel aus dem zentralen Admin-Speicher wählen                                                                                                                                           |
-| **DeepSeek**                        | Guthaben (gewährt und aufgeladen getrennt) und ob es noch für Anfragen reicht                                                                                                                                                                                                                                                                                                                                                                                          | Gespeicherten Schlüssel wählen                                                                                                                                                                            |
-| **OpenAI-Organisation**             | Kosten heute und diesen Monat, Monatsend-Prognose, heutige Token je Modell                                                                                                                                                                                                                                                                                                                                                                                             | Braucht einen **Admin-Schlüssel** deiner Organisation                                                                                                                                                     |
-| **Anthropic-Organisation**          | Kosten heute und diesen Monat, Monatsend-Prognose, heutige Token — Anthropic meldet ungecachte Eingabe-Token, Treffer aus dem Prompt-Cache stehen also nicht darin. Die Kosten kommen bei Anthropic in Cent und werden umgerechnet (laut API-Referenz des Anbieters; nie an einem echten Organisationskonto geprüft). Priority Tier wird anders abgerechnet und steht nicht in diesem Bericht — eine Organisation auf dieser Stufe gibt mehr aus, als die Zahlen sagen | Braucht einen **Admin-Schlüssel** deiner Organisation                                                                                                                                                     |
+| Konto                               | Was du bekommst                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Wie es verbunden wird                                                                                                                                                                                     |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Claude-Abo** (Pro / Max)          | 5-Stunden- und Wochen-Fenster mit Prozent und Reset-Zeit, Modell-Fenster, Extra-Guthaben und die dafür ausgegebenen Kosten, in der Währung, in der dein Konto abgerechnet wird                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Anmeldung mit deinem eigenen Anthropic-Konto: Link öffnen, anmelden, Code zurück einfügen                                                                                                                 |
+| **ChatGPT-Abo** (Plus / Pro, Codex) | 5-Stunden- und Wochen-Fenster; für jedes Modell mit eigenem Limit (etwa GPT-5.3-Codex-Spark) ein eigenes 5-Stunden- und Wochen-Fenster; Codex-Guthaben (eine eigene Einheit, kein Geld); kaufbare Limit-Reset-Gutscheine. Ein Workspace, dessen Guthaben oder Ausgabengrenze ihn gestoppt hat, gilt als Limit erreicht                                                                                                                                                                                                                                                                                                                                                                   | Der Adapter zeigt einen kurzen Code, den du auf der OpenAI-Seite eintippst. Deine eigene Codex-Anmeldung wird nicht angefasst                                                                             |
+| **Google-Gemini-Abo** (Pro / Ultra) | Die Kontingent-Pools von Antigravity (5 Stunden und Woche, höchstens alle 15 Minuten neu gelesen), wo Google sie meldet, und die Modell-Kontingente                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Link öffnen und anmelden. Google leitet auf `localhost` zurück, **dein Browser zeigt also eine Fehlerseite — das ist so gewollt**. Die komplette Adresse aus der Adresszeile kopieren und zurück einfügen |
+| **OpenRouter**                      | Verbrauch im laufenden Limit-Zeitraum, Grenze, Rest, Prozent; Ausgaben heute, diesen Monat und über die Lebenszeit des Schlüssels, Monatsend-Prognose                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Gespeicherten Schlüssel aus dem zentralen Admin-Speicher wählen                                                                                                                                           |
+| **DeepSeek**                        | Guthaben (gewährt und aufgeladen getrennt) und ob es noch für Anfragen reicht                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Gespeicherten Schlüssel wählen                                                                                                                                                                            |
+| **OpenAI-Organisation**             | Kosten heute und diesen Monat, Monatsend-Prognose, heutige Token je Modell                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Braucht einen **Admin-Schlüssel** deiner Organisation                                                                                                                                                     |
+| **Anthropic-Organisation**          | Kosten heute und diesen Monat, Monatsend-Prognose, heutige Token — Anthropic meldet ungecachte Eingabe-Token, Treffer aus dem Prompt-Cache stehen also nicht darin. Die Kosten kommen bei Anthropic in Cent und werden umgerechnet. Am 1. eines Monats wird der Kostenbericht nicht abgefragt (er lehnt einen Zeitraum ab, der am offenen Tag beginnt), der Monat beginnt also bei 0. Eine andere Integration berichtet, dass der Kostenbericht nur abgeschlossene Tage führt; dann bleibt „heute“ bei 0, bis der Tag vorbei ist. Priority Tier wird anders abgerechnet und steht nicht in diesem Bericht — eine Organisation auf diesem Tarif gibt also mehr aus, als die Zahlen zeigen | Braucht einen **Admin-Schlüssel** deiner Organisation                                                                                                                                                     |
 
 Die drei Abo-Endpunkte sind die, die auch die Programme der Anbieter selbst benutzen. Sie
-sind **nicht offiziell dokumentiert** und können sich jederzeit ändern. Claude wurde an
-einem echten Abo getestet; ChatGPT und Google sind quellen-belegt gebaut, liefen aber nie
-an einem echten Konto — melde dich bitte über ein Issue, wenn etwas nicht stimmt.
+sind **nicht offiziell dokumentiert** und können sich jederzeit ändern. Nur das Claude-Abo
+wurde an einem echten Konto getestet. ChatGPT, Google, OpenRouter, DeepSeek und die Berichte
+der OpenAI- und Anthropic-Organisation sind nach den Referenzen der Anbieter und den
+Quelltexten ihrer eigenen Programme gebaut, liefen aber nie an einem echten Konto — melde dich
+bitte über ein Issue, wenn etwas nicht stimmt.
 
 ---
 
@@ -118,8 +120,9 @@ und ein ausgeschaltetes Konto verliert seinen Knoten vollständig.
 Nur ein **plan-weites** Fenster löst die Warnung eines Kontos aus. Ein Modell-Kontingent
 bekommt eigene Datenpunkte, aber nie den Alarm: ein Modell, das du nie anfasst, kann
 dauerhaft auf 100 % stehen, und ein Alarm, der nie ausgeht, ist schlimmer als keiner.
-Google ist die Ausnahme — dort gibt es überhaupt kein plan-weites Fenster, also spricht
-das vollste Modell-Kontingent fürs Konto, und die Meldung nennt das Modell.
+Google ist ein Sonderfall: wo es seine Kontingent-Pools meldet, sind die Pools die
+plan-weiten Fenster; wo nicht, SIND die Modell-Kontingente der Plan — dann spricht das vollste
+fürs Konto, und die Meldung nennt das Modell.
 
 Das gewährte Budget konkurriert mit den Fenstern: ein Konto, dessen Geld fast verbraucht
 ist, steht genauso still wie eines mit vollem Zeitfenster. Die höhere der beiden Seiten
@@ -132,16 +135,19 @@ gibt der Warnung ihre Beschriftung.
 `info.unreach` heißt **„dieses Konto liefert nicht"** und steuert das Verbindungssymbol
 neben dem Konto im Objektbaum:
 
-| Lage                                                    | Symbol                                 | `info.error`                            |
-| ------------------------------------------------------- | -------------------------------------- | --------------------------------------- |
-| Alles läuft                                             | grün                                   | leer                                    |
-| Vom Anbieter gedrosselt                                 | grün — die letzten Werte gelten weiter | sagt es, mit der Wartezeit              |
-| Anmeldung abgelehnt                                     | rot                                    | „Sign-in rejected — …"                  |
-| Der Dienst meldet einen Defekt                          | rot                                    | „The AI service reports a fault — …"    |
-| Die Antwort ist nicht verwertbar                        | rot, sofort                            | „The answer could not be processed — …" |
-| Gar nicht erreichbar                                    | rot, nach drei Versuchen               | „Not reachable after N attempts — …"    |
-| Abgemeldet, oder kein Schlüssel hinterlegt              | rot, keine Alarme dieses Kontos        | „Not signed in — …"                     |
-| Instanz gestoppt, oder gestartet und noch nicht gefragt | rot                                    | `Unknown`                               |
+| Lage                                                    | Symbol                                 | `info.error`                                     |
+| ------------------------------------------------------- | -------------------------------------- | ------------------------------------------------ |
+| Alles läuft                                             | grün                                   | leer                                             |
+| Vom Anbieter gedrosselt                                 | grün — die letzten Werte gelten weiter | sagt es, mit der Wartezeit                       |
+| Anmeldung abgelehnt                                     | rot                                    | „Sign-in rejected — …"                           |
+| Der Dienst meldet einen Defekt                          | rot                                    | „The AI service reports a fault — …"             |
+| Die Antwort ist nicht verwertbar                        | rot, sofort                            | „The answer could not be processed — …"          |
+| Gar nicht erreichbar                                    | rot, nach drei Versuchen               | „Not reachable after N attempts — …"             |
+| Abgemeldet                                              | rot, keine Alarme dieses Kontos        | „Not signed in — …"                              |
+| Kein Schlüssel ausgewählt                               | rot, keine Alarme dieses Kontos        | „No API key selected — …"                        |
+| Der gewählte Schlüssel wurde im Speicher gelöscht       | rot, keine Alarme dieses Kontos        | „The selected key no longer exists — …"          |
+| Der gewählte Eintrag trägt keinen Schlüssel             | rot, keine Alarme dieses Kontos        | „The selected credential carries no API key — …" |
+| Instanz gestoppt, oder gestartet und noch nicht gefragt | rot                                    | `Unknown`                                        |
 
 Wo der Anbieter einen eigenen Grund mitschickt („invalid API key", „rate limit exceeded"), steht
 dieser in `info.error` statt einer nackten Statusnummer.
@@ -197,7 +203,36 @@ Fragen, Fehler und Ideen: <https://github.com/krobipd/ioBroker.ai-usage/issues>
     Placeholder for the next version (at the beginning of the line):
 -->
 
-### 0.15.0 (2026-09-16)
+### 0.16.0 (2026-09-25)
+
+- Fixed: ChatGPT limits of a single model (such as GPT-5.3-Codex-Spark) were never shown — each now gets its own 5-hour and weekly window
+- Fixed: An OpenRouter key with a monthly limit counted its whole lifetime spend against that limit and could stay at "limit reached" for good
+- Changed: OpenRouter `credits.used` now shows the use in the running limit period; the lifetime spend stays in `costs.total`, so the history jumps once
+- New: OpenRouter spend today and this month, with a month-end projection, now also counted in the cost totals
+- Fixed: Claude extra usage billed in euros was counted as dollars in the cost totals — it now keeps the account's own currency
+- Fixed: Alarms of an account stayed on for good when its API key was removed, or when the last account was switched off
+- Fixed: After a restart the totals no longer drop to 0 for a moment, and `total.limitReached` no longer flips while the first query fails
+- Fixed: Last month's costs of an account that stopped delivering no longer stay in this month's totals
+- Fixed: A model limit alone no longer raises the account's warning when the plan-wide windows are still unused
+- Fixed: Signing out now clears the account's alarms at once instead of with the next query
+- Fixed: The ChatGPT sign-in no longer breaks off while you are still typing the code
+- New: The adapter picks up a key that was changed or deleted in the credential storage while it runs
+- New: A workspace stopped by its used-up credits or its spend control counts as "limit reached" for ChatGPT
+- New: Google's plan-wide quota pools (5-hour and weekly) are shown where Google reports them, and they decide the account's warning
+- Improved: `info.error` says why a key account has no key — none selected, deleted from the storage, or holding no key
+- Improved: Google accounts without a Code Assist project show Google's own reason, and a refused quota query no longer reports a rejected sign-in
+- Fixed: An Anthropic organisation account no longer fails for the whole 1st of every month
+- Fixed: The settings page no longer spins forever when the instance does not answer, and shows a key row whose stored key is gone
+- Fixed: Copying the sign-in code or link now works on plain http:// as well
+- Improved: Several notifications of different accounts are kept instead of the newest replacing the previous one
+- Improved: After a throttle the next query waits as long as the provider asks, instead of retrying too early
+- Fixed: An instance stopped during its start no longer overwrites the stopped state of its accounts afterwards
+
+Only the Claude subscription runs against a real account here. The ChatGPT, OpenRouter, Google,
+DeepSeek and organisation changes follow the providers' references and their own tools' sources
+and are covered by tests, but were not seen on a real account.
+
+### 0.15.0 (2026-09-16) — stable
 
 - Fixed: Model channels of an organisation account no longer vanish at the turn of a month — a model with no usage yet was deleted with its history and re-created on its next use
 - Fixed: Stopping the instance right after it started no longer leaves the accounts showing as connected while the instance is switched off
@@ -246,25 +281,6 @@ OpenRouter, DeepSeek, OpenAI or Anthropic account.
 
 - Fixed: The last-update stamp of an account no longer moves forward while the provider is only throttling — it dates the values standing next to it, so you can see how old they really are
 - Improved: Twenty-five more datapoints explain themselves in the object tree — what "today" means (the provider counts it in UTC), and why the cost totals can be lower than the accounts show
-
-### 0.12.0 (2026-09-06)
-
-- Fixed: An account that has not been signed in yet no longer reports a rejected sign-in — no warning, no notification, and the settings page keeps offering the sign-in button
-- Fixed: An account whose API key is missing or unreadable is now shown as not delivering, instead of leaving its old values standing as though they were current
-- Fixed: An answer arriving while the adapter shuts down can no longer mark an account as online again after the shutdown wrote it offline
-- Fixed: A throttled account counts as delivering everywhere now — the connection icon and the "reachable accounts" total no longer contradict each other
-- Fixed: A limit the provider reports as empty is no longer shown as 0 % used, and a Google quota without a value no longer reads as completely used up
-- Fixed: A rejected ChatGPT sign-in now says so at once instead of leaving you waiting for a quarter of an hour, and a Google account keeps delivering when one route is unavailable
-- Fixed: A Google account without an AI subscription says so, instead of asking for a sign-in that cannot change the answer
-- New: Every limit window shows whether it is the limit currently in force — with Claude the provider states it, elsewhere it is the window that speaks for the account
-- Improved: An account is reported as at its limit when the provider says the window is closed, not only when the percentage happens to reach 100
-- Improved: A window's reset time is written to the minute, so a recording of it no longer gains an entry on every single query, only on real changes
-- Improved: An account that is delivering again says so in the log, instead of leaving the warning about its outage standing as the last word on it
-- Improved: The settings page no longer asks the adapter for every status every four seconds — the values now arrive on their own as they change
-- Changed: "Balance sufficient for calls" now sits under credits, where it belongs; the datapoint at the old place is removed automatically
-- Changed: Each account node shows the readable provider name instead of the internal one — "Claude Max (Claude)" instead of "Claude Max (claude-sub)"
-- Fixed: A per-model folder is now named in your ioBroker language as well, instead of carrying the provider's bare model identifier as its only name
-- New: The datapoints whose meaning is not obvious from their name now carry a short explanation in eleven languages, shown in the object tree
 
 ## License
 

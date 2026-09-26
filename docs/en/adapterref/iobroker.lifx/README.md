@@ -57,7 +57,7 @@ Lifx adapter for ioBroker
 
 - values outside of range cause crash of adapter
 
-## Changelog:
+## Changelog
 
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now

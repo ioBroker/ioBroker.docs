@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lgtv/README.md
 title: ioBroker.lgtv
-hash: jYMPqusiwKH5s9tU/srLYj5JF0oLHaYXgGuAbDpiX8s=
+hash: 4F8gdOURNwbc2lrjtWPVoXlC6QnCgmTRow4DWnY94kw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lgtv/admin/lgtv.png)
 
@@ -185,7 +185,7 @@ hash: jYMPqusiwKH5s9tU/srLYj5JF0oLHaYXgGuAbDpiX8s=
 Клавиши переключения каналов, медиа-клавиши, цветовые клавиши и цифровая клавиатура могут быть отключены в настройках виджета.
 
 ## Удаленное управление в административной панели
-В настройках экземпляра есть две вкладки. **Настройки** содержат конфигурацию; **Пульт дистанционного управления** - это полноценный пульт для телевизора, поэтому им можно управлять непосредственно из административной панели без скрипта или представления `devices`.
+В настройках экземпляра есть две вкладки. Вкладка **Настройки** содержит конфигурацию; **Пульт дистанционного управления** - это полноценный пульт для телевизора, поэтому им можно управлять непосредственно из административной панели без скрипта или представления `devices`.
 
 Он записывает те же состояния `remote.*`, что и виджет выше, и отображает состояние питания телевизора, запущенное приложение, текущий вход и громкость, которую также можно перетаскивать. Клавиши действуют немедленно - это запись состояния, а не настроек, поэтому кнопка *Сохранить* в диалоговом окне к ним не имеет никакого отношения.
 
@@ -205,7 +205,7 @@ hash: jYMPqusiwKH5s9tU/srLYj5JF0oLHaYXgGuAbDpiX8s=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 3.0.4 (2026-09-07)
+### 3.0.5 (2026-09-10)
 - (GermanBluefox) The instance settings have a second tab with a remote control, so the TV can be operated directly from the admin
 - (krobipd) `states.scroll` and `states.drag` no longer ignore a movement whose horizontal or vertical part is zero, so plain vertical scrolling (`0,5`) works
 - (krobipd) The configuration dialog is fully translated in all eleven languages; the minimum-value hints no longer show up as untranslated raw text
@@ -242,8 +242,6 @@ hash: jYMPqusiwKH5s9tU/srLYj5JF0oLHaYXgGuAbDpiX8s=
 - (GermanBluefox) The admin translations moved from `admin/i18n/<lang>/translations.json` to the flat `admin/i18n/<lang>.json`
 - (GermanBluefox) The unit tests use `node:assert` instead of `chai`
 - (GermanBluefox) Added a "Control TV" remote-control widget for the `ioBroker.devices` adapter
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/iobroker.lgtv/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

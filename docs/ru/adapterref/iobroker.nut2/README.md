@@ -15,7 +15,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nut2/README.md
 title: ioBroker.nut2 - Настройка
-hash: xkV+eb0Z/cxiNvp3chl0JghMnj3UDkCF3WJtm9oKaH4=
+hash: QIrC7SxUyMi+bYle+YpJ2cGb7K1anMTKsMvNnWOG2k4=
 ---
 # ioBroker.nut2 — Настройка
 
@@ -62,7 +62,7 @@ LISTEN 0.0.0.0 3493
 
 Две линии с разными задачами:
 
-- `upsmon secondary` Именно эта строка делает возможным **вход в систему** . Адаптер использует данные для входа один раз при запуске, в рамках короткого дополнительного соединения, исключительно для того, чтобы сообщить вам, работают ли учетные данные. Без этой строки вход в систему будет отклонен — см. раздел часто задаваемых вопросов, это не ошибка.
+- `upsmon secondary` Именно эта строка делает возможным **вход в систему** . Адаптер использует вход в систему при каждом (повторном) подключении, при коротком дополнительном соединении, исключительно для того, чтобы сообщить вам, работают ли учетные данные. Без этой строки вход в систему будет отклонен — см. FAQ, это не ошибка.
 - `actions` и `instcmds` определить, что пользователь может фактически **сделать** . `upsd` Проверяет их по команде, независимо от авторизации.
 
 Перезапуск `upsd` после редактирования файла.
@@ -85,7 +85,7 @@ LISTEN 0.0.0.0 3493
 
 ### С какой скоростью должен осуществляться опрос?
 
-Скорость обновления данных драйвером NUT ничего не даст. `/etc/nut/ups.conf` У драйвера есть две настройки: `pollinterval` (Как часто обновляется статус, по умолчанию 2 секунды) и `pollfreq` (полный набор значений, по умолчанию 30 секунд для драйверов USB). Опрос каждые 15 секунд — разумный компромиссный вариант; при интервале менее 2 секунд адаптер просто повторно считывает значения, которые не изменились.
+Скорость обновления данных драйвером NUT ничего не даст. `/etc/nut/ups.conf` У драйвера есть две настройки: `pollinterval` (Как часто обновляется статус, по умолчанию 2 секунды) и `pollfreq` (полный набор значений, по умолчанию 30 секунд для драйверов USB). Опрос каждые 15 секунд — разумный компромиссный вариант; именно поэтому настройка начинается с 2 секунд — более быстрый вариант будет только повторно считывать значения, которые не изменились.
 
 Если вы хотите получать уведомления о сбое электропитания _мгновенно,_ а не при следующем опросе, не уменьшайте интервал — используйте триггер событий, описанный в разделе часто задаваемых вопросов.
 
@@ -106,8 +106,8 @@ LISTEN 0.0.0.0 3493
 
 Два переключателя на вкладке **«Дополнительно»** открывают направление записи, и оба намеренно выключены:
 
-- **Включение команд** создает состояние кнопки для каждой мгновенной команды, предлагаемой ИБП (звуковой сигнал, самодиагностика, отключение нагрузки и т. д.). `commands` Канал отображается только после включения этой функции **и** настройки учетных данных. `upsd` Проверяет права доступа к командам у указанного пользователя.
-- **Включение параметра SET VAR** делает переменные ИБП, которые сервер сообщает как доступные для записи, доступными для записи и в ioBroker.
+- Функция **«Включить мгновенные команды»** создает состояние кнопки для каждой мгновенной команды, предлагаемой ИБП (звуковой сигнал, самодиагностика, отключение нагрузки и т. д.). `commands` Канал отображается только после включения этой функции **и** настройки учетных данных. `upsd` Проверяет права доступа к командам у указанного пользователя. Текстовые данные указывают на это. `commands.execute` выполняет команду, которая принимает значение, например: `load.off.delay 120`.
+- **Включение возможности записи переменных** делает переменные ИБП, которые сервер сообщает как доступные для записи, доступными для записи и в ioBroker.
 
 Обеим сторонам необходимы соответствующие права. `upsd.users` (шаг 3). Обращайтесь с командами загрузки с осторожностью: `load.off` Отключает питание всех устройств, подключенных к ИБП.
 
@@ -122,6 +122,38 @@ LISTEN 0.0.0.0 3493
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 0.17.0 (2026-09-25)
+
+- New: a UPS command that needs a value, such as a delay, can be sent through the new `commands.execute` data point, written the way upscmd takes it
+- New: when the NUT server tracks commands, the log says whether the driver really carried out a command or a new setting, not only that it was sent
+- New: every device shows a pictogram for its NUT device type in the object tree — UPS, PDU, solar charge controller, power supply or transfer switch
+- Fixed: the connection to the NUT server no longer drops during long poll intervals — the adapter keeps it alive while it is idle
+- Fixed: apparent power, real power and percentages carry the right unit and role, and writable temperatures, voltages and currents are settable levels
+- Fixed: text values such as test results, contact states or ups.conf settings stay text instead of turning into numbers or being discarded
+- Fixed: a word or an empty value in a measurement, such as LoadTooLow, leaves the data point empty instead of keeping an old number, without a warning
+- Fixed: renamed data points keep the rooms and functions you assigned them to, and a unit or explanation that no longer applies is removed
+- Fixed: a UPS that is missing from the NUT server for a moment keeps its data points and history; it is removed only after three polls without it
+- Fixed: the status severity stays empty when the status names no power source, instead of claiming OK for a UPS that is off or still starting
+- Fixed: command buttons follow the driver's command list — buttons of commands it no longer offers disappear, and a UPS without commands gets none
+- Fixed: values containing #, quotes or backslashes are read correctly; writing a value with # is refused with an explanation, as NUT drivers cannot report it back
+- Fixed: a TLS certificate problem stops the retries with one clear message, and a UPS reporting several value ranges shows the full range
+- Improved: names and explanations for every variable and command of the NUT 2.8.5 catalog in all eleven languages, including outlets, groups and sensors
+- Improved: the warning sign marks exactly the commands that can cut power or stop the driver; switching something on is never marked
+- Changed: the upsmon connection is documented as a small helper script, which keeps working with the NUT releases after 2.8.5
+
+### 0.16.0 (2026-09-15) — stable
+
+- Fixed: every adapter start silently removed the status severity, the device type, every dropdown and every bounded value from the rooms and functions the user had assigned them to
+- Fixed: when a dropdown list or a value range really shrinks, the data point keeps its value, its recording settings and its room and function assignments
+- Fixed: a data point that is renamed by an update keeps its room and function assignments, exactly as it already kept its recording settings
+- Fixed: a UPS without a `desc` in ups.conf lost its manufacturer + model name on the first reconnect and was called by its config name until the next restart
+- Fixed: after a fatal TLS error on a reconnect the adapter kept polling a connection that no longer existed and promised a retry that never came
+- Fixed: stopping the instance while the NUT server was unreachable could leave two error lines in the log
+- Improved: dropdown lists and value ranges are no longer rewritten on every start and every reconnect when nothing changed — less load on the object database and on every adapter listening to it
+- Improved: the adapter reads its object tree once per discovery instead of once per data point — a lighter start on large installations
+- Improved: a value written to a data point the UPS reports as read-only is ignored quietly instead of producing an error
+- Improved: a UPS reported without a description by a non-standard NUT server no longer goes missing
 
 ### 0.15.1 (2026-09-07)
 
@@ -152,23 +184,6 @@ LISTEN 0.0.0.0 3493
 - Fixed: renamed data points of the adapter itself now reach existing installations instead of only new ones
 - Fixed: enabling instant commands without credentials no longer fails silently — the adapter now explains why no command buttons are created
 - New: detailed user documentation in English and German is now part of the repository and shown in the ioBroker documentation portal
-
-### 0.13.0 (2026-09-02)
-
-- New: every data point now carries a short explanation in your language — what it means, not just what it is called
-- New: status text, severity levels and selection lists are shown in your language instead of English
-- Changed: wrong credentials no longer stop the monitoring — the adapter warns, keeps reading the UPS values, and only refuses commands and writable variables
-- Fixed: during a power failure, machines protected by the same UPS now shut down without waiting for this adapter
-- Fixed: a countdown that is not running is now empty instead of showing "-1 seconds", on every UPS brand
-- Fixed: model and other text values no longer carry the padding some UPS models send along
-- Fixed: channel names from older adapter versions are corrected instead of staying as they were
-- Fixed: the connection test answers in your language now, like the rest of the settings page
-
-### 0.12.1 (2026-09-02)
-
-- Fixed: the "Test connection" button in the settings stayed silent — clicking it produced no result at all. It answers again, on every instance updated from 0.9.0 or later
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 
