@@ -1631,6 +1631,14 @@ https://github.com/TA2k/ioBroker.navimow
 
 ioBroker adapter for Segway Navimow robotic mowers. Uses the official Navimow SDK REST API and MQTT for real-time updates.
 
+## anker-solix (27.9.2026) – new adapter at stable repository
+https://github.com/MatthiasUlrich1/ioBroker.anker-solix
+
+<img src="https://raw.githubusercontent.com/MatthiasUlrich1/ioBroker.anker-solix/main/admin/anker-solix.png" width="100" height="100" />
+
+ioBroker adapter for Anker Solix power systems (Solarbank, Smart Meter, PPS, EV charger, and more). It is based on the Home Assistant integration thomluther/ha-anker-solix and uses the same unofficial solixapi Python library.
+
+
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
