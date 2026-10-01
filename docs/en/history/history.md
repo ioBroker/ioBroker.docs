@@ -1639,6 +1639,13 @@ https://github.com/MatthiasUlrich1/ioBroker.anker-solix
 ioBroker adapter for Anker Solix power systems (Solarbank, Smart Meter, PPS, EV charger, and more). It is based on the Home Assistant integration thomluther/ha-anker-solix and uses the same unofficial solixapi Python library.
 
 
+## fairland (1.10.2026) – new adapter at stable repository
+https://github.com/dude2k/ioBroker.fairland
+
+<img src="https://raw.githubusercontent.com/dude2k/ioBroker.fairland/blob/main/admin/fairland.png" width="100" height="100" />
+
+Unofficial ioBroker adapter for Fairland pool heat pumps and pool pumps that use the Fairland iGarden cloud API.
+
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
