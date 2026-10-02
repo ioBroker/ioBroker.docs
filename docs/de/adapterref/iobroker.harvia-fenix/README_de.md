@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.harvia-fenix/README_de.md
 title: ioBroker.harvia-fenix
-hash: bwVEY/NAaGhhEopUt1RtCU8XGg/LGflI/r19IknUj2k=
+hash: q4T9LDM8xwHBmjuw7owV8NMwiMpDK13TeOrC3Dwg+lE=
 ---
 ![Downloads](https://img.shields.io/npm/dm/iobroker.harvia-fenix.svg)
 ![Knoten](https://img.shields.io/node/v/iobroker.harvia-fenix.svg)
@@ -262,7 +262,11 @@ _Hinweis: Diese Zustände werden automatisch aktiviert `false` zurückgesetzt, w
 
 ### **IN BEARBEITUNG**
 
+### 1.1.2 (2026-10-02)
+
 - (meistermopper) Endlosschleifen-Risiko in Auth-Retry-Logik behoben
+- (meistermopper) @iobroker/testing auf Version 6.3.0 aktualisiert (W0037)
+- (meistermopper) Adapter-sichere Timer-Methoden im Push-Client genutzt (S5005)
 
 ### 1.1.1 (2026-09-21)
 
@@ -292,12 +296,6 @@ _Hinweis: Diese Zustände werden automatisch aktiviert `false` zurückgesetzt, w
 - (meistermopper) check:repo Skript hinzugefügt und in test:local integriert
 - (meistermopper) E-Mail in Lizenz-Copyrightzeilen wie gespeichert (S4050, S4051)
 - (meistermopper) Lizenzabschnitt in README gemäß Repochecker-Regel W6034 korrigiert
-
-### 0.5.1 (2026-09-12)
-
-- (meistermopper) Adapter-Logo durch MyFenix-Hommage ersetzt
-- (meistermopper) Aktualisierte @iobroker/adapter-core auf 3.4.3 und @iobroker/testing auf 6.2.1
-- (meistermopper) Behebe Mocha 12 Instanziierung im Unit-Test Runner unter Node 22
 
 ---
 

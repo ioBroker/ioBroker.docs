@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md
 title: kein Titel
-hash: bdeubyo8ZiCPq/IqLfNhVGk4ilLnm+zlrW1EXUHHEGw=
+hash: M9R2/Fcwk7GYUehwuh34/QtffgWlQumvD1KA3/4f5J4=
 ---
 ## Konfiguration der Adapterinstanz
 
@@ -22,7 +22,7 @@ Diese Seite enthält die grundlegenden Netzwerkeinstellungen für die Kommunikat
   - `8214` = WebSocket-Port (in der Regel erforderlich für neuere Systeme ab Firmware-Version V3.81x).
 - **Abfrageintervall (Sekunden):** Gibt das Zeitintervall an, in dem der Adapter neue Messwerte und Parameter von der Wärmepumpe abruft (Standard: 45 Sekunden).
 
-> 💡 **WICHTIGER HINWEIS ZUM ABGESTIMMUNGSINTERVALL:** Wählen Sie **keinen** zu niedrigen Wert! Zu häufiges Abfragen (z. B. alle 10 Sekunden) überlastet den internen Prozessor des Luxtronik-Controllers permanent mit Anfragen. Dies führt zu einer hohen CPU-Last der Wärmepumpe und macht den Controller (sowohl auf dem Touchscreen als auch im Netzwerk) extrem träge. Empfohlen werden Werte zwischen 45 und 60 Sekunden.
+> 💡 **WICHTIGER HINWEIS ZUM ABFORDERUNGSINTERVALL:** Wählen Sie **keinen** zu niedrigen Wert! Zu häufiges Abfragen (z. B. alle 10 Sekunden) überlastet den internen Prozessor des Luxtronik-Controllers permanent mit Anfragen. Dies führt zu einer hohen CPU-Last der Wärmepumpe und macht den Controller (sowohl auf dem Touchscreen als auch im Netzwerk) extrem träge. Wir empfehlen Werte zwischen 45 und 60 Sekunden.
 
 ---
 
@@ -70,7 +70,7 @@ Dieser Adapter löst das Problem durch **dynamische Regelung auf Basis der Tempe
 > 2. **Spannungsfaktor (Firmware):** Ältere Firmware-Versionen der Version 2.x erwarten die Steuerspannung in einem anderen Datenformat als neuere Firmware-Versionen der Version 3.x (z. B. beim LWCV 82). Stellen Sie sicher, dass Sie in der Konfiguration den korrekten Hardwarefaktor für Ihr System auswählen (`100` für V2.x vs. `10` für V3.x).
 > 3. **Sicherheitsreset (Leerlauf):** Aktivieren Sie unbedingt die Funktion _„Standardwerte im Leerlauf erzwingen“_ im Reiter „Leerlauf“. Dadurch wird sichergestellt, dass die Pumpe am Ende des Heizzyklus auf ihre feste Standardspannung zurückfällt, anstatt auf dem eingestellten Wert zu verharren.
 
-#### Systemkonfiguration
+#### Konfigurieren Ihres Systems
 
 Die optimale Temperaturverteilung ist für jedes Haus extrem individuell und hängt vom Heizsystem ab:
 
@@ -95,3 +95,21 @@ Dieser Adapter bietet intelligente Automatisierungen, damit die ZIP-Datei nur da
 **💡 Tipp! Hardwareschutz (EEPROM-Flash-Verschleiß – Bitte beachten!)** Um ständiges Schreiben in den Controller zu minimieren, tragen Sie die regulären Postleitzahlenzeiten einmalig in die Tabelle „Mo–So“ ein und geben Sie dort 00:00–00:00 ein. Stellen Sie die Zykluszeiten auf „Aus: 60 Minuten“ und „Ein: 0 Minuten“ ein.
 
 **Um die Schreibvorgänge auf dem Controller zu reduzieren, wird empfohlen, die ZIP(s) über einen externen Aktor zu steuern ➔ 0 Schreibvorgänge im Controller!** **Zum Vergleich:** Die Aktivierung über den Luxtronik2-Controller erfordert 4 Schreibvorgänge für das Entlüftungsprogramm. Die Verwendung der ZIP-Steuertabelle erfordert zwischen 4 (im besten Fall) und 14 (im schlimmsten Fall) Schreibvorgänge im Flash-Speicher pro ZIP-Zyklus.
+
+### Rohes TCP-Testskript (`Test_Script.ts`)
+
+In seltenen Fällen (insbesondere bei älteren Firmware-Versionen wie V1.x) können beim Schreiben von Werten (z. B. `Timeout writing TCP parameter 105`).
+
+Um festzustellen, ob das Problem am Adapter oder an der Wärmepumpe selbst liegt, enthält dieses Repository ein isoliertes Testskript (`Test_Script.ts` im `Scripte` Dieses Skript umgeht den Adapter vollständig und kommuniziert direkt über unverschlüsselte TCP-Sockets mit dem Luxtronik-Controller. Es testet den Lese- und Schreibzugriff, indem es den Sollwert für das Warmwasser ausliest, ihn testweise leicht erhöht und sofort wieder auf den ursprünglichen Wert zurücksetzt.
+
+#### Ausführung in ioBroker:
+
+1. 🛑 **WICHTIG:** Sie müssen **alle** laufenden Luxtronik-Adapterinstanzen in ioBroker stoppen (auf „Rot“ setzen)! Ältere Luxtronik-Controller erlauben nur eine einzige gleichzeitige Netzwerkverbindung. Wenn ein Adapter im Hintergrund weiterläuft, wird der Port blockiert und das Skript stößt unweigerlich auf ein Timeout.
+2. Kopieren Sie den Inhalt der `Test_Script.ts` Datei in ein neues Skript im ioBroker **JavaScript-Adapter** einfügen (Typ auswählen: _TypeScript_ ).
+3. Passen Sie die `HOST` Eine Konstante ganz oben im Skript muss die IP-Adresse Ihrer Wärmepumpe enthalten.
+4. Starten Sie das Skript und überprüfen Sie die ioBroker-Protokollausgabe.
+
+#### Ergebnisauswertung:
+
+- **✅ ERFOLG:** Das Skript wurde schnell abgeschlossen und die Wärmepumpe hat den Schreibbefehl bestätigt. Dies bedeutet, dass Ihr System (und dessen Firmware) Schreibbefehle fehlerfrei akzeptiert.
+- **❌ TIMEOUT / FEHLER:** Das Skript hängt sich beim Lesen/Schreiben auf oder wird abgelehnt. Dies bedeutet, dass das System die TCP-Kommunikation physisch verweigert. Häufige Ursachen hierfür sind blockierte Ports (durch Loxone, FHEM oder andere Smart-Home-Systeme), Firmware-Schutzmechanismen oder eine defekte Netzwerkkarte in der Wärmepumpe (ein Neustart der Wärmepumpe hilft hier oft). Der Adapter kann dieses tiefgreifende Netzwerkproblem nicht umgehen.

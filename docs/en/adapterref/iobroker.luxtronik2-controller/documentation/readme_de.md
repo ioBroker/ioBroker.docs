@@ -95,3 +95,23 @@ Um das ständige Schreiben im Regler zu minimieren, stellen Sie die regulären Z
 
 **Um die Schreibvorgänge auf dem Regler zu reduzieren, ist es empfehlenswert, die ZIP(s) über einen externen Aktor zu steuern ➔ 0 Schreibvorgänge im Regler!
 Zum Vergleich: Eine Aktivierung per Luxtronik2 Regler benötigt für das Entlüftungsprogramm 4 Schreibvorgänge. Über die ZIP-Steuertabelle sind es im besten Fall 4 und im schlechtesten Fall 14 Schreibvorgänge im Flash-Speicher pro Zip Durchlauf.**
+
+## 🛠️️ Fehleranalyse / Troubleshooting
+
+### Raw TCP Test-Skript (`Test_Script.ts`)
+
+In seltenen Fällen (insbesondere bei älteren Firmware-Versionen wie V1.x) kann es zu Verbindungsabbrüchen oder Timeouts beim Schreiben von Werten kommen (z.B. `Timeout writing TCP parameter 105`).
+
+Um herauszufinden, ob das Problem am Adapter oder an der Wärmepumpe selbst liegt, liegt diesem Repository ein isoliertes Test-Skript (`Test_Script.ts` im Ordner `Scripte`) bei. Dieses Skript kommuniziert komplett am Adapter vorbei direkt über rohe TCP-Sockets mit der Luxtronik-Steuerung. Es testet den Schreib- und Lesezugriff, indem es den Warmwasser-Sollwert ausliest, ihn testweise minimal erhöht und sofort wieder den Originalwert herstellt.
+
+#### Ausführung im ioBroker:
+
+1. 🛑 **WICHTIG:** Stoppe zwingend **alle** laufenden Luxtronik-Adapter-Instanzen im ioBroker (auf "Rot" stellen)! Alte Luxtronik-Steuerungen lassen nur eine einzige gleichzeitige Netzwerkverbindung zu. Läuft ein Adapter im Hintergrund weiter, ist der Port blockiert und das Skript rennt unweigerlich in einen Timeout.
+2. Kopiere den Inhalt der Datei `Test_Script.ts` in ein neues Skript im ioBroker **JavaScript-Adapter** (Typ: _TypeScript_ auswählen).
+3. Passe ganz oben im Skript die Konstante `HOST` an die IP-Adresse deiner Wärmepumpe an.
+4. Starte das Skript und prüfe die Log-Ausgabe des ioBrokers.
+
+#### Ergebnis-Auswertung:
+
+- **✅ ERFOLG:** Das Skript läuft zügig durch und die Wärmepumpe bestätigt den Schreibbefehl. Das bedeutet, deine Anlage (und die Firmware) akzeptieren Schreibbefehle fehlerfrei.
+- **❌ TIMEOUT / FEHLER:** Das Skript bleibt beim Lesen/Schreiben hängen oder wird abgewiesen. Dies bedeutet, dass die Anlage die TCP-Kommunikation physisch verweigert. Ursachen hierfür sind oft blockierte Ports (durch Loxone, FHEM, oder andere Smart-Home-Systeme), Firmware-Schutzmechanismen oder aufgehängte Netzwerkkarten in der Wärmepumpe (hier hilft oft ein Strom-Reset der Anlage). Der Adapter kann dieses tiefliegende Netzwerkproblem nicht umgehen.

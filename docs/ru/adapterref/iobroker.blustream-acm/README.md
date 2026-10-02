@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.blustream-acm/README.md
 title: ioBroker.blustream-acm
-hash: HEXOSZ39ecqEqEztmQZTeoMadL/a0xA+eQUoSd2r83Q=
+hash: huOTemN6O/hSJplIPM+ABBvoTtma4r4C2TKDT2mN7cY=
 ---
 # IoBroker.blustream-acm
 
@@ -43,6 +43,8 @@ hash: HEXOSZ39ecqEqEztmQZTeoMadL/a0xA+eQUoSd2r83Q=
 ## Установка
 Установите адаптер через административный интерфейс ioBroker (Адаптеры → найдите "blustream").
 
+Требуется Node.js версии 22 или новее.
+
 ## Конфигурация
 ### Основные настройки
 - **Модель контроллера**: Выберите модель вашего контроллера ACM (ACM200 / ACM210 / ACM500 / ACM1000). Это определяет, какие команды и состояния будут доступны.
@@ -81,7 +83,7 @@ hash: HEXOSZ39ecqEqEztmQZTeoMadL/a0xA+eQUoSd2r83Q=
 - `transmitters.<id>.edid` - настройка EDID
 - `transmitters.<id>.audioSource` - Выбор источника звука (HDMI/ANA)
 - `transmitters.<id>.audioMatrixMode` - _(ACM210/1000)_ Входной аудиоматричный тракт (HDMI/Аналоговый/Dante)
-- `transmitters.<id>.previewUrl` - URL для предварительного просмотра изображения (если служба предварительного просмотра включена)
+- `transmitters.<id>.previewUrl` - URL-адрес для предварительного просмотра изображения (если служба предварительного просмотра включена)
 
 ### Приемники (на один приемник)
 - `receivers.<id>.id` - Идентификатор получателя
@@ -123,8 +125,15 @@ setState('blustream-acm.0.system.commands.routeAll', '003');
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 0.3.3 (2026-09-27)
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+- (Alan Paris) Tested with Node.js 26
+- (Alan Paris) Updated @iobroker/adapter-core to 3.4.3
+- (Alan Paris) An unreachable controller no longer floods the log: reconnects back off to 5 minutes and each outage is logged once
+- (Alan Paris) Device states now refresh at the configured Polling Interval; the 10 s heartbeat only checks the connection
+- (Alan Paris) Objects are created once per start instead of re-checked on every status poll
+- (Alan Paris) Split audio/video and breakaway routes are read back from the controller instead of being overwritten by the next status poll
+- (Alan Paris) Fixed: a controller that went offline while connected was not detected
 
 ### 0.3.2 (2026-08-07)
 - (Alan Paris) Fixed: the adapter stopped retrying for good if the controller was unreachable at start or when a cable was pulled
@@ -157,10 +166,7 @@ setState('blustream-acm.0.system.commands.routeAll', '003');
 - (Alan Paris) Validate and clamp polling interval and command timeout to safe ranges
 - (Alan Paris) Add Blustream product/manufacturer links to the documentation
 
-### 0.2.3 (2026-07-03)
-- (Alan Paris) Resolve adapter-checker errors: use framework-managed timers, add missing config help translations, and clean up redundant devDependencies
-
-**Older changes have been moved to [CHANGELOG_OLD.md](https://github.com/AlanSRU/ioBroker.blustream-acm/blob/main/CHANGELOG_OLD.md)**
+**Older changes have been moved to CHANGELOG_OLD.md**
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.unifi/README.md
 title: ioBroker.unifi
-hash: TTW2nHsM7XdfqKl3Pj83+8zqiccTDN6PF2+tYNSbctA=
+hash: mACqgNr1I+e5HoyNTBZcor/mpXy/15SGun6eik4l9Js=
 ---
 ![Количество установок](http://iobroker.live/badges/unifi-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.unifi.svg)
@@ -14,6 +14,8 @@ hash: TTW2nHsM7XdfqKl3Pj83+8zqiccTDN6PF2+tYNSbctA=
 <img height="100px" src="admin/unifi.svg" align="left"><br/>
 
 # ioBroker.unifi
+
+> \[!ВАЖНО] Этот адаптер нельзя установить из GitHub
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 

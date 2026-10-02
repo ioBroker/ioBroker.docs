@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.leapmotor/README.md
 title: ioBroker.leapmotor
-hash: wSpVZQB+3/cD5hFo2c3K4ekt/nhTeXBrGJsezPKae0Q=
+hash: 4PsIulQV8iwIzr96RmOvtIKBus50lU3xakWyGGB7VuQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.leapmotor/admin/leapmotor.png)
 
@@ -14,7 +14,7 @@ hash: wSpVZQB+3/cD5hFo2c3K4ekt/nhTeXBrGJsezPKae0Q=
 
 Inoffizielle Integration [von Leapmotor-](https://www.leapmotor.com/) Elektrofahrzeugen für ioBroker. Getestet auf T03.
 
-## ⚠️ Wichtig: Verwenden Sie ein zweites Konto
+## ⚠️ Wichtig: Verwenden Sie ein Zweitkonto.
 
 **Verwenden Sie nicht Ihr Hauptkonto von Leapmotor!**
 
@@ -117,7 +117,7 @@ Einfache Ein-/Ausschalter unter `cmd.*` (Rolle `button`, eingestellt auf `true` 
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | cmd.ac\_heat                     | Heizen starten                                                                                                                                                                    |         ✅        | Alle Modelle (bestätigt T03)                                                                                                                                                     |
 | cmd.ac\_cool                     | Kühlung starten                                                                                                                                                                   |         ✅        | Alle Modelle (bestätigt T03)                                                                                                                                                     |
-| cmd.ac\_vent                     | Belüftung einschalten                                                                                                                                                             |         ✅        | Alle Modelle (bestätigt T03)                                                                                                                                                     |
+| cmd.ac\_vent                     | Belüftung starten                                                                                                                                                                 |         ✅        | Alle Modelle (bestätigt T03)                                                                                                                                                     |
 | cmd.ac\_off                      | Klima stoppen                                                                                                                                                                     |         ✅        | Alle Modelle (bestätigt T03)                                                                                                                                                     |
 | cmd.defrost                      | Windschutzscheibenenteisung                                                                                                                                                       |         ✅        | Alle Modelle (bestätigt T03)                                                                                                                                                     |
 | cmd.windows\_open                | Fenster öffnen                                                                                                                                                                    |         –        | Alle Modelle (bestätigt T03)                                                                                                                                                     |
@@ -165,9 +165,9 @@ Komfortbefehle (werden nur erstellt/angezeigt, wenn das Fahrzeugmodell die Funkt
 | cmd.mirror\_heat\_on / off              | Spiegelheizung | Ungetestet – plausibel auf B10, B11/C10, B05. Bestätigt, dass diese Funktion auf diesem T03 **weder über die API noch über die App verfügbar ist.**                              |
 | cmd.hotspot\_on / off                   | WLAN-Hotspot   | Bestätigt, dass **es nicht** auf T03 oder B10 funktioniert; bei anderen Modellen ist dies unbekannt.                                                                             |
 
-`sunroof` /`sunshade` werden auf die gleiche Weise behandelt – siehe `admin-tab/src/vehicleCapabilities.js` für den bestätigten Unterschied zwischen B10 und T03.
+`sunroof` /`sunshade` werden auf die gleiche Weise behandelt – siehe `src-admin/src/vehicleCapabilities.js` für den bestätigten Unterschied zwischen B10 und T03.
 
-Welche Komfortfunktionen tatsächlich angezeigt werden, hängt vom erkannten Fahrzeugmodell ab – siehe `admin-tab/src/vehicleCapabilities.js` im Repository für die aktuelle Fähigkeitsmatrix pro Modell.
+Welche Komfortfunktionen tatsächlich angezeigt werden, hängt vom erkannten Fahrzeugmodell ab – siehe `src-admin/src/vehicleCapabilities.js` im Repository für die aktuelle Fähigkeitsmatrix pro Modell.
 
 ## Changelog
 
@@ -178,6 +178,10 @@ Welche Komfortfunktionen tatsächlich angezeigt werden, hängt vom erkannten Fah
   - Windshield defrost (`cmd.defrost` - the working "max defrost" command, not the ineffective `cmd.defrost_level`) below its own separate, independently configurable temperature threshold (icing risk, distinct from the general heat/cool/vent split)
 - Fix: sunshade cold-protection close now has its own separate, stricter threshold (default 5°C) instead of triggering for the entire "heat" range - confirmed in practice that the general heat threshold alone closed the roof at 14°C, which doesn't need insulating against. Still applies day or night once genuinely cold enough (heat loss through the glass roof is real at night too)
 - New: official, cloud-metered charging session history cross-check (Diagnostics tab) - synced once daily against the manufacturer's own device-metered log (community-documented endpoint), classified home/public by GPS the same way as live tracking. Comparison only for now; live-tracked totals still drive the cost figures shown elsewhere
+- Chore: enabled CI linting (previously off). main.js, lib/leapmotor-crypto.js and lib/leapmotor-client.js reformatted with Prettier and a handful of real findings fixed (dead code, unused params/vars, empty catch blocks) - verified via full AST comparison that no logic changed. Fixed the eslint config's admin-tab ignore list, which excluded the built output but not its React/Vite source, causing the frontend to be linted against rules meant for the backend
+- Known limitation (T03): `cmd.charge_limit_set` and the charge-schedule commands (cmd_id=190) have no verified effect on the T03, even while awake - community-confirmed (leapmotor-ha #70/#72, 2026-09). The cloud accepts and echoes back the write (the official app and this adapter's own schedule readback will show the new value), but the vehicle silently keeps charging to whatever limit it already had. Confirmed in practice: schedule readback said 100%, official app said 100%, but the vehicle's live status kept reporting 80% regardless. Commands are still sent (other models/firmware may differ) but now log a clear warning on T03 - check the actual behavior in the official app rather than trusting a successful write
+- Fix: an in-progress charging session's accumulated cost/kWh is now persisted and restored across an adapter restart (update, crash, manual restart mid-charge) - previously this lived only in memory and silently reset to 0, undercounting the total for that session
+- New: optional extended trip-done notification (own toggle, off by default) - includes the total kWh and driving/climate/other split when official cloud energy data is available for that trip, falls back to the plain "Xkm in Ymin" message otherwise
 
 ### 0.7.2 (2026-09-24)
 - New: notification for new vehicle inbox messages (service reminders, recalls, etc.), separate from the existing software-update notification

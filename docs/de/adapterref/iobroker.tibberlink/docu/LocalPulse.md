@@ -4,15 +4,15 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/docu/LocalPulse.md
 title: Direkte lokale Umfrage zu Pulse-Daten
-hash: ZtVO750w7BC0LluIZpk+58xMpeCEJoUdD+2dIQFyy84=
+hash: NcnxUD+dbX+iSpw4vdZmbmx/YSsZ9jhMfloSYtrkQmc=
 ---
 # Direkte lokale Umfrage zu Pulse-Daten
 
 _Teil der [ioBroker.tibberlink-Dokumentation](/#/adapters/tibberlink) ._
 
-Damit das funktioniert, müssen Sie die Weboberfläche der Bridge so anpassen, dass sie dauerhaft aktiviert bleibt. marq24 beschreibt hier ausführlich, wie das für seine Home-Assistant-Integration funktioniert:
+Damit das funktioniert, müssen Sie die Weboberfläche der Bridge so modifizieren, dass sie dauerhaft aktiviert bleibt. marq24 bietet eine hervorragende Schritt-für-Schritt-Anleitung dazu (für seine Home-Assistant-Integration, aber die Vorbereitung der Bridge ist identisch):
 
-<https://github.com/marq24/ha-tibber-pulse-local>
+📖 **[Vorbereitungsleitfaden für die Tibberbrücke](https://github.com/marq24/ha-tibber-pulse-local/blob/main/preparation.md)** (siehe auch die [Projektübersicht](https://github.com/marq24/ha-tibber-pulse-local) ).
 
 Wenn alles korrekt funktioniert, werden die Messdaten alle 2 Sekunden in die ioBroker-Zustände geschrieben.
 
@@ -26,6 +26,8 @@ Tibber Bridge Firmware ungefähr `1794-…` Die lokalen HTTP-JSON-Pfade wurden u
 | Metriken / Meter-Modus | `/metrics.json?node_id=N` | `/node_metrics.json?node_id=N` |
 
 Der Adapter versucht zunächst die neuen Pfade und greift bei HTTP 404 auf die alten zurück, sodass beide Firmware-Generationen weiterhin funktionieren. Siehe auch [ha-tibber-pulse-local#129](https://github.com/marq24/ha-tibber-pulse-local/discussions/129) und Issue #947.
+
+Firmware ≥1794 hat auch die Metrik-JSON-Datei **umstrukturiert** : die ehemalige `node_status` /`hub_attachments` Objekte wurden ersetzt durch `node`, `ir` Und `hub`, Und `node_uptime_ms` wurde umbenannt in `node_uptime` (immer noch in Millisekunden). Der Adapter verarbeitet die umbenannte Betriebszeit und schreibt die Zustände unter den neuen Baum. Der alte `PulseInfo.node_status.*` /`PulseInfo.hub_attachments.*` Zustände werden zu Waisen; der Adapter entfernt beim Start automatisch alle PulseInfo-Zustände, die seit mehr als 14 Tagen nicht aktualisiert wurden (und löscht die leeren Ordner), sodass keine manuelle Bereinigung erforderlich ist.
 
 ## Unterstützte Messmodi
 

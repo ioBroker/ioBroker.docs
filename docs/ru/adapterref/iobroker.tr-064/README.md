@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tr-064/README.md
 title: ioBroker.tr-064
-hash: 3NAmar9gzVTvklMV7BV3G0LPjqC0hxoqiLmlkxDCbjs=
+hash: HyI+LHcbvZtGlIX+dcsQjvUUJJ2WnIzoVtsEWhRUfsw=
 ---
 ![Количество установок](http://iobroker.live/badges/tr-064-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.tr-064.svg)
@@ -14,6 +14,8 @@ hash: 3NAmar9gzVTvklMV7BV3G0LPjqC0hxoqiLmlkxDCbjs=
 <img src="admin/tr-064.svg" width="128" height="128">
 
 # ioBroker.tr-064
+
+> \[!ВАЖНО] Этот адаптер нельзя установить из GitHub
 
 **Этот адаптер использует библиотеки Sentry. Эти библиотеки автоматически сообщают разработчикам об исключениях и ошибках в коде.** Для получения более подробной информации, а также о том, как отключить отправку сообщений об ошибках, см. [документацию плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Система отчетности Sentry используется начиная с версии js-controller 3.0.
 
@@ -54,7 +56,7 @@ hash: 3NAmar9gzVTvklMV7BV3G0LPjqC0hxoqiLmlkxDCbjs=
 ### toPauseState
 
 - Возможные значения: `ring`, `connect`, `end`
-- Это состояние можно использовать для приостановки воспроизведения видео при входящем звонке. `ring`), или когда кто-то поднимает трубку телефона (`connect`).
+- Вы можете использовать это состояние, чтобы приостановить воспроизведение видеоплеера при входящем звонке. `ring`), или когда кто-то поднимает трубку телефона (`connect`).
 - Вы можете продолжить воспроизведение с этого значения. `end`.
 
 ### Присутствие
@@ -87,7 +89,7 @@ hash: 3NAmar9gzVTvklMV7BV3G0LPjqC0hxoqiLmlkxDCbjs=
 Монитор вызовов в режиме реального времени создает состояния для каждого входящего и исходящего вызова. Если телефонная книга включена (что является настройкой по умолчанию), адаптер преобразует номера в имена. Также есть состояние, отображающее звонок телефона.
 
 - `callmonitor.connected` показывает, подключен ли адаптер к монитору вызовов устройства Fritz!Box.
-- `extension` Это телефонный порт, через который принимается или совершается звонок. `device` его название, например `Mobilteil Küche` Fritz!Box сообщает только номер порта; адаптер получает имя каждого порта из списков вызовов, поэтому `device` Эта запись заполняется только тогда, когда списки вызовов включены и телефон использовался хотя бы один раз. Fritz!Box определяет номер телефона входящего вызова только тогда, когда с него снята трубка: `callmonitor.connect.device`.
+- `extension` Это телефонный порт, через который принимается или совершается звонок. `device` его название, например `Mobilteil Küche` Fritz!Box сообщает только номер порта; адаптер получает имя каждого порта из списков вызовов, поэтому `device` Эта запись заполняется только тогда, когда списки вызовов включены и телефон использовался хотя бы один раз. Fritz!Box узнает номер телефона входящего вызова только тогда, когда с него снимают трубку: `callmonitor.connect.device`.
 - Устройство Fritz!Box не регистрирует внутренние вызовы, например, звонки от дверного звонка. `**9` ни для монитора вызовов, ни по каналу TR-064.
 
 ### Телефонный справочник
@@ -200,15 +202,32 @@ command = {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.1.3 (2026-10-02)
+- (@GermanBluefox) New look of the devices in the mesh topology: every device carries the symbol of its kind (computer, smartphone, camera, lamp, printer, ...) next to its name, below it the manufacturer and the IP address, and on the right side the band and the signal. The kind comes from the FRITZ!Box (`device_class`, or the kind which was set for the device in the box), an unknown one gets a generic symbol
+- (@GermanBluefox) A card of the mesh topology whose devices have no signal - a switch, a repeater with LAN devices only - uses compact devices: the manufacturer and the IP address stand next to each other below the name instead of below each other
+- (@GermanBluefox) The table of the mesh topology shows the same symbol in front of the name, and the bars of the signal carry the color of the band - only a signal below -80 dBm, or one which the box itself calls too far away, turns red
+
+### 5.1.2 (2026-10-01)
+- (@GermanBluefox) The mesh topology shows the signal strength of a WLAN device: four bars and the value in dBm (`rx_rcpi`/`tx_rcpi` of the mesh list), the signal to noise and the rating of the FRITZ!Box itself ("too far away from the access point", `client_position`) in the tooltip and in the new column "Signal" of the table
+- (@GermanBluefox) A device which is not connected any more shows when it was connected last (`last_connected`)
+- (@GermanBluefox) The manufacturer of a device is taken from the FRITZ!Box (`device_manufacturer`, which it knows from LLDP or the DHCP request) and only looked up in the IEEE registries if the box does not name one
+- (@GermanBluefox) The data rates of the mesh topology were shown as download and upload the wrong way round for every link whose first node is the access point - the FRITZ!Box reports `rx`/`tx` from the view of its own node 1, which is not always the upstream side
+- (@GermanBluefox) A click on the missed calls of the tiles ("FRITZ!Box" widget of vis-2 and of `ioBroker.devices`) asks whether the counter is reset and sets `calllists.missed.count` to 0. The counter belongs to the adapter, not to the FRITZ!Box - it counts every missed call since the installation, including the complete call list which is read on the first start. The adapter now confirms a written counter right away instead of at the next poll
+
+### 5.1.1 (2026-09-29)
+- (@GermanBluefox) The mesh topology shows the manufacturer of a device below its name. It is resolved from the MAC address with the registries of the IEEE, which the adapter brings with it - no request leaves the network. A device with a randomized (locally administered) address, as many phones use it, is marked as such. The manufacturer can be switched off in the toolbar and in the attributes of the vis-2 widget
+- (@GermanBluefox) A device can be renamed in the mesh topology: a click on its name asks for the new name and writes it into the FRITZ!Box (`X_AVM-DE_SetHostNameByMACAddress`), which uses it everywhere. A firmware without that action says so. Note: the objects below `devices` follow the name of the box, as long as the option "Use the configured names" is switched off
+- (@GermanBluefox) New message `setHostName` (`sendTo('tr-064.0', 'setHostName', { mac, name })`) which renames a device in the FRITZ!Box
+
 ### 5.1.0 (2026-09-19)
-- (@GermanBluefox) New widgets for vis-2 ("FRITZ!Box", "Mesh topology", "Presence") and for ioBroker.devices ("FRITZ!Box"): the state of the box as a tile, a click shows the mesh topology
+- (@GermanBluefox) New widgets for vis-2 ("FRITZ!Box", "Mesh topology", "Presence") and for `ioBroker.devices` ("FRITZ!Box"): the state of the box as a tile, a click shows the mesh topology
 - (@GermanBluefox) New states `boxModel` and `boxFirmware`
 - (@GermanBluefox) The table in the tab "Devices" uses the whole width again: in 5.0.2 it was so narrow that name, IP and MAC could not be read
 - (@GermanBluefox) "Search for devices" works with many devices: the adapter reads the list of all devices in one request (`X_AVM-DE_GetHostListPath`) instead of one request per device, which took longer than the 20 seconds of the button. The search is always answered, also when a request fails, the box has no devices or the adapter is not connected
 - (@GermanBluefox) Fixed the crash `systemData.save is not a function` on start when a call list is generated: installations which ran an adapter version from 2017 to 2020 still had an invalid attribute `save` in the object `tr-064.<instance>`, which is removed now
 - (@GermanBluefox) `wlanGuest` switches the guest WLAN again on boxes with three bands (e.g. FRITZ!Box 5690 Pro, 4060) instead of the third band: the guest WLAN is always the last WLAN configuration of the box
 - (@GermanBluefox) New states `wlan60` and `wlan60Password` for the 6 GHz WLAN, and `wlan52` and `wlan52Password` for the second 5 GHz WLAN (e.g. FRITZ!Box 4060). The adapter asks the box which band its third WLAN uses
-- (@GermanBluefox) The call lists do not stop updating after some hours any more: the call monitor detects a connection which the box dropped unnoticed (e.g. by a restart) with TCP keepalive and reconnects, and the call lists are also read once a minute - that way they are updated without call monitor, too
+- (@GermanBluefox) The call lists do not stop updating after some hours anymore: the call monitor detects a connection which the box dropped unnoticed (e.g. by a restart) with TCP keepalive and reconnects, and the call lists are also read once a minute - that way they are updated without call monitor, too
 - (@GermanBluefox) A call list download which the box does not answer is given up after 10 seconds with a warning
 - (@GermanBluefox) `states.wlan` switches all WLANs like the WLAN button of the FRITZ!Box (`X_AVM-DE_SetWLANGlobalEnable`) and shows its state: switching on does not switch on the guest WLAN and bands which were off any more
 - (@GermanBluefox) New states for the internet connection: `wanAccessType` (e.g. `LTE` during a fallback to a mobile connection), `wanLinkStatus`, `wanProvider`, `wanDownstreamMax`, `wanUpstreamMax`, and the traffic `wanBytesSent`, `wanBytesReceived` (64 bit counters), `wanSendRate`, `wanReceiveRate`
@@ -235,28 +254,6 @@ command = {
 ### 5.0.2 (2026-09-10)
 - (@GermanBluefox) Fixed the crash `Cannot read properties of undefined (reading 'safe')` in `getWLAN` right after the start: the WLAN states are read again in every poll cycle
 - (@GermanBluefox) A box without a separate 5 GHz configuration does not delay the polling by 3 seconds any more
-
-### 5.0.1 (2026-09-09)
-- (@GermanBluefox) **Breaking change:** the adapter requires node.js >= 22 now
-- (@GermanBluefox) Adapter requires admin >= 7.7.22 now
-- (@GermanBluefox) Adapter requires js-controller >= 6.0.11 now
-- (@GermanBluefox) The adapter does not stop any more if the Fritz!Box cannot be reached. The connection is retried every 30 seconds, and the new state `info.connection` shows whether the box answers
-- (@justr1) Expected disconnects of the call monitor (`ETIMEDOUT`, `ECONNRESET`, `EPIPE`) are logged as info now, because the adapter reconnects on its own
-- (@GermanBluefox) The mDNS socket is closed when the adapter stops, so a restart does not leave a listener behind
-- (@GermanBluefox) A phone book with only one contact is read now
-- (@GermanBluefox) The hint how to open port 1012 is shown again if the call monitor is refused by the Fritz!Box
-- (@GermanBluefox) The adapter was refactored to TypeScript. The sources are in `src/`, the adapter runs from `build/`
-- (@GermanBluefox) The configuration dialog was rewritten as JsonConfig. Admin 7.7.22 or newer is required for it
-- (@GermanBluefox) The adapter can only be installed from npm now, no longer directly from GitHub (`common.nogit`)
-- (@GermanBluefox) The options "Use call forwarding options", "Use mDNS" and "Create JSON device list" have a default value in `io-package.json` now
-- (@GermanBluefox) The command `dumpservices.fs` writes the file again instead of stopping the adapter
-
-### 4.3.0 (2024-04-30)
-* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
-* (mcm1957) Dependencies have been updated
-
-### 4.2.18 (2023-01-04)
-* (Apollon77) Prepare for future js-controller versions
 
 ## License
 The MIT License (MIT)

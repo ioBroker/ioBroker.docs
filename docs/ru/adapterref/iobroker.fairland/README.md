@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.fairland/README.md":{"title":{"en":"ioBroker Fairland Adapter"},"content":"en/adapterref/iobroker.fairland/README.md"},"en/adapterref/iobroker.fairland/THIRD_PARTY_NOTICES.md":{"title":{"en":"Third-Party Notices"},"content":"en/adapterref/iobroker.fairland/THIRD_PARTY_NOTICES.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fairland/README.md
 title: ioBroker Fairland Adapter
-hash: CkQtNE3tZaqs8SCFH20ZiDPHS2MLgk4UtooDnHe8/6g=
+hash: qnlg5l+vThqKJxqSfrABrYPC8Kwz1TGyIf1APbtQGHM=
 ---
 # ioBroker Fairland Adapter
 
@@ -140,13 +141,13 @@ npm run build
 
 ## Атрибуция
 
-Этот адаптер создан на основе интеграции Home Assistant Fairland, распространяемой по лицензии MIT, от пользователя @siedi:
+Этот адаптер создан на основе интеграции Home Assistant Fairland, распространяемой по лицензии MIT, автором которой является @siedi:
 
 ```text
 https://github.com/siedi/ha-fairland
 ```
 
-Оригинальное уведомление о лицензировании проекта сохранено в `LICENSE` Дополнительные уведомления от третьих лиц указаны в `THIRD_PARTY_NOTICES.md`.
+Полный текст оригинальной лицензии и уведомления об авторских правах проекта сохранен в [файле THIRD\_PARTY\_NOTICES.md](/#/docs/adapterref/iobroker.fairland/THIRD_PARTY_NOTICES.md) , который включен в опубликованный пакет.
 
 ## Changelog
 
@@ -289,6 +290,6 @@ Older changelog entries may be moved to CHANGELOG_OLD.md.
 MIT.
 
 Copyright (c) 2026 dude2k <gh@mr-mailer.de>.
-Portions derived from ha-fairland: Copyright (c) 2025 @siedi.
 
-See [LICENSE](https://github.com/dude2k/ioBroker.fairland/blob/main/LICENSE) for details.
+See [LICENSE](https://github.com/dude2k/ioBroker.fairland/blob/main/LICENSE) for details and [THIRD_PARTY_NOTICES.md](/#/docs/adapterref/iobroker.fairland/THIRD_PARTY_NOTICES.md)
+for the license and attribution of portions derived from ha-fairland by @siedi.

@@ -20,6 +20,9 @@
 ![Stable](http://iobroker.live/badges/mqtt-client-stable.svg)
 ![Installed](http://iobroker.live/badges/mqtt-client-installed.svg)
 
+> [!IMPORTANT]
+> This adapter cannot be installed from github
+
 Publish and subscribe ioBroker states to MQTT Brokers
 
 ## Sentry

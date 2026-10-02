@@ -1,6 +1,6 @@
 ---
 title:       "Zugriffsrechte (ACL) im Detail: Objekte, Zustände und Dateien"
-lastChanged: "17.09.2026"
+lastChanged: "02.10.2026"
 ---
 
 # Zugriffsrechte (ACL) im Detail
@@ -511,6 +511,149 @@ dritte Stelle eine `0`, etwa `0x660`. Dann fehlen sie in seinem Objektbaum.
 Web-Adapters die Anmeldung einschalten, sonst arbeitet jeder als `admin`. Dann
 mit *gast* anmelden und prüfen, ob wirklich nur das geht, was gehen soll.
 
+## Beispiel: eine Gruppe vis-2-tauglich machen
+
+Ziel: Die Mitglieder einer eigenen Gruppe melden sich am web-Adapter an, öffnen
+[vis-2](/docs/viz/vis-2.md) und sehen dort nur, was für sie gedacht ist — ohne in
+der Administratorgruppe zu sein.
+
+### Warum eine neue Gruppe mit „404 – index.html" scheitert
+
+Eine im Admin **neu angelegte Gruppe hat kein einziges Recht**. In allen fünf
+Blöcken ist jedes Häkchen leer, auch *Dateien: lesen*. Wer nur in dieser Gruppe
+ist, darf damit nichts.
+
+vis-2 liegt vollständig im Dateispeicher von ioBroker. Fordert der Browser
+`/vis-2/index.html` an, liest der web-Adapter diese Datei **im Namen des
+angemeldeten Benutzers**. Scheitert das an den Rechten, unterscheidet er nicht
+zwischen „verboten" und „nicht vorhanden", sondern liefert seine 404-Seite. Die
+Meldung lautet also *index.html nicht gefunden*, obwohl die Datei da ist.
+
+!> Die naheliegende Abhilfe, den Benutzer **zusätzlich** in die
+Administratorgruppe aufzunehmen, wirkt — nimmt ihm aber jede Einschränkung, denn
+Mitglieder dieser Gruppe sind von jeder ACL ausgenommen. Dass die
+gruppenabhängige Sichtbarkeit in vis-2 danach trotzdem funktioniert, täuscht:
+sie prüft nur die Mitgliedschaft, nicht die Rechte. Der eigenen Gruppe die
+Rechte unten zu geben ist der kürzere **und** der sichere Weg.
+
+### Die Rechte, die eine vis-2-Gruppe braucht
+
+Für das reine Ansehen einer Ansicht:
+
+| Block        | Recht            | Wofür vis-2 es braucht                                                                                                            |
+|--------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| **Dateien**  | lesen            | alles im Namensraum `vis-2`, also `index.html`, Bibliotheken und Widget-Sätze, und das Projekt `vis-2.0/<Projekt>/vis-views.json` |
+| **Dateien**  | auflisten        | die Projektliste, falls vis-2 nach dem Projekt fragen muss                                                                        |
+| **Objekte**  | lesen            | `system.user.<name>`, `system.adapter.vis-2.0` und die Objekte aller Datenpunkte in den Ansichten                                 |
+| **Objekte**  | auflisten        | die Liste der Gruppen, die vis-2 beim Start holt                                                                                  |
+| **Benutzer** | lesen            | das eigene Benutzerobjekt — Benutzer- und Gruppenobjekte verlangen zusätzlich dieses Recht                                        |
+| **Zustände** | lesen, auflisten | die Werte in den Ansichten und `vis-2.0.info.uploaded`                                                                            |
+| **Zustände** | schreiben        | nur, wenn in der Ansicht auch geschaltet werden soll                                                                              |
+
+Das ist die Ausstattung der mitgelieferten Gruppe *Benutzer*, erweitert um
+*Benutzer: lesen*. Alles andere bleibt leer: keine Dateirechte zum Schreiben,
+kein *Shell-Ausführung*, kein *sendTo*.
+
+?> Ohne *Objekte: auflisten* bekommt vis-2 die Gruppenliste nicht. Ohne
+*Benutzer: lesen* scheitert schon das Lesen des eigenen Benutzerobjekts. Beide
+Fehler sehen im Browser gleich aus: die Ansicht baut sich nicht fertig auf,
+während die Anmeldung selbst funktioniert hat.
+
+### Die Dateien selbst
+
+Die ACL der Dateien muss meist **nicht** angefasst werden. Was `iobroker upload
+vis-2` und der vis-2-Editor anlegen, gehört `admin` und der Gruppe
+*administrator*, mit einer `4` an der dritten Stelle: *Jeder* darf lesen. Es
+fehlt an der Gruppe, nicht an der Datei.
+
+Nur wer verschiedene Projekte verschiedenen Gruppen zuordnen will, greift zur
+Datei-ACL. Das erste Pfadstück ist der Namensraum: `vis-2` enthält den
+Programmcode für alle, `vis-2.0` die Projekte.
+
+```bash
+# Projekt "haupt" nur noch für die Gruppe "haupt" lesbar
+iobroker chown admin haupt /vis-2.0/haupt/*
+iobroker chmod 640 /vis-2.0/haupt/*
+```
+
+### Die control-Datenpunkte
+
+Navigationsbefehle und `sendCommand` laufen in vis-2 über drei eigene Zustände:
+
+| Datenpunkt                 | Wofür                   |
+|----------------------------|-------------------------|
+| `vis-2.0.control.instance` | Zielinstanz des Befehls |
+| `vis-2.0.control.data`     | Nutzdaten               |
+| `vis-2.0.control.command`  | der Befehl selbst       |
+
+Sie stehen ab Werk auf `0x664`, *Jeder* darf dort also nur lesen. Solange der
+Benutzer nicht in der Besitzergruppe ist, laufen solche Befehle ins Leere — ohne
+Meldung in der Ansicht, nur mit einem Fehler in der Browser-Konsole. Wer sie
+braucht, gibt die Datenpunkte der Gruppe:
+
+```bash
+iobroker object chown admin haupt vis-2.0.control.*
+```
+
+Bei mehreren Gruppen bleibt nur die dritte Stelle: `iobroker object chmod 664 666
+vis-2.0.control.*`. Die `666` ist die Zustandszahl, *Jeder* darf dann schreiben.
+
+### Ansehen oder bearbeiten
+
+| Aufgabe                       | Zusätzlich nötig                                     |
+|-------------------------------|------------------------------------------------------|
+| Ansicht öffnen, `index.html`  | nichts weiter                                        |
+| Editor öffnen, `edit.html`    | Dateien: schreiben und erstellen, Objekte: schreiben |
+| Projekte oder Dateien löschen | derzeit nur in der Administratorgruppe möglich       |
+
+!> Der vis-2-**Editor** gehört damit praktisch den Administratoren. Das Löschen
+von Dateien scheitert außerhalb der Administratorgruppe (siehe den Hinweis bei
+den Dateien), und wer ein Projekt speichern darf, ändert es für alle anderen mit.
+Eigene Gruppen bekommen nur das Nötige für die Laufzeit.
+
+### Sichtbarkeit nach Gruppe in vis-2
+
+Im Editor lässt sich beides nach Gruppe einschränken, die Ansicht und das
+einzelne Widget:
+
+| Wo                                      | Felder                                                                                            |
+|-----------------------------------------|---------------------------------------------------------------------------------------------------|
+| **Ansicht**, Attribute, *CSS allgemein* | **Nur für Gruppen**, **Wenn der Benutzer nicht in der Gruppe ist** (*Ausblenden* / *Deaktiviert*)  |
+| **Widget**, Attribute, *Sichtbarkeit*   | **Nur für Gruppen**, **Falls Anwender nicht in der Gruppe** (*Ausblenden* / *Deaktiviert*)         |
+
+vis-2 vergleicht dafür den angemeldeten Benutzer mit `common.members` der
+genannten Gruppen. Die Gruppen muss es dazu lesen können, siehe *Objekte:
+auflisten* oben: ohne Gruppenliste gilt niemand als Mitglied, und es bleibt alles
+ausgeblendet.
+
+!> Diese Sichtbarkeit ist **Oberfläche, kein Schutz**. Das Projekt geht als ganze
+Datei an den Browser, gefiltert wird erst dort. Wer die Entwicklerwerkzeuge
+öffnet, sieht auch die ausgeblendeten Widgets samt ihren Datenpunkt-IDs. Einen
+Zugriff verhindert nur die ACL der Zustände.
+
+?> Aus demselben Grund sieht jeder angemeldete vis-Benutzer die Namen aller
+Gruppen und ihre Mitglieder: vis-2 holt beim Start die vollständige
+Gruppenliste.
+
+### Die Schritte
+
+```bash
+iobroker group add haupt
+iobroker user add max --ingroup haupt
+```
+
+1. Im Admin, Reiter **Benutzer**, an der Gruppe *haupt* die Rechte aus der
+   Tabelle oben setzen. Eine neue Gruppe startet leer.
+2. In der [Authentifizierung](/docs/config/login.md) der Instanz *web.0* die
+   Anmeldung einschalten. Ohne sie arbeitet jeder als `admin`.
+3. Die Instanz *web.0* neu starten, damit sie die Gruppenrechte neu einliest.
+4. Im vis-2-Editor an Ansichten und Widgets **Nur für Gruppen** setzen.
+5. Mit *max* anmelden, am besten in einem privaten Fenster, und prüfen: lädt die
+   Ansicht, fehlen die fremden Widgets, lässt sich schalten, was sich schalten
+   soll.
+6. Was nicht geht, steht im Log der Instanz *web.0*, in den Zeilen, die mit
+   `Permission error for user` beginnen.
+
 ## Fehlersuche
 
 | Beobachtung                                             | Wahrscheinliche Ursache                                                    | Abhilfe                                                 |
@@ -523,6 +666,10 @@ mit *gast* anmelden und prüfen, ob wirklich nur das geht, was gehen soll.
 | Nach einem Adapter-Update sind die Rechte zurückgesetzt | Der Adapter hat seine Objekte neu angelegt                                 | Alias verwenden                                         |
 | Eine Änderung an Benutzer oder Gruppe wirkt nicht       | Die Instanz hat die Rechte zwischengespeichert                             | betroffene Instanz neu starten, etwa *web* oder *admin* |
 | Ein Benutzer kann keine Datei löschen                   | Löschen von Dateien geht derzeit nur für die Administratorgruppe           | siehe Hinweis bei Dateien                               |
+| vis-2 meldet „404 – index.html nicht gefunden"          | Der Gruppe fehlt *Dateien: lesen*, der web-Adapter kann die Datei nicht lesen | siehe *eine Gruppe vis-2-tauglich machen*             |
+| vis-2 lädt endlos oder bleibt leer                      | *Objekte: auflisten* oder *Benutzer: lesen* fehlt                          | beide Rechte an der Gruppe setzen                       |
+| vis-2 fragt nach einem Projekt, obwohl eines da ist     | `vis-2.0/<Projekt>/vis-views.json` ist für den Benutzer nicht lesbar       | Datei-ACL und *Dateien: lesen* prüfen                   |
+| In vis-2 wirken Navigation und Befehle nicht            | `vis-2.0.control.*` ist für den Benutzer nur lesbar                        | Datenpunkte der Gruppe geben                            |
 
 !> Vor größeren Umstellungen ein [Backup](/docs/config/backup.md) anlegen. Wer
 sich mit zu strengen Rechten selbst aussperrt, kommt nur noch über die

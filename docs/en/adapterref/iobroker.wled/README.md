@@ -148,6 +148,12 @@ When the adapter crashes or another Code error happens, this error message that 
 * (DutchmanNL) **CI/CD**: Fixed deployment failure by adding missing sentry-version-prefix parameter to GitHub Actions workflow
 * (DutchmanNL) **CI/CD**: Updated GitHub Copilot instructions template from v0.4.2 to v0.5.6 - adds ESLint configuration, translation management, lint-first CI/CD workflow guidance
 * (DutchmanNL) Dependencies updated to current versions
+* (arteck) **FIXED**: The `_online` state of a device that cannot be reached is written as boolean `false` again instead of a text, which logged "has to be type boolean but received type string" ([#788](https://github.com/DrozmotiX/ioBroker.wled/issues/788), [#794](https://github.com/DrozmotiX/ioBroker.wled/issues/794), [#792](https://github.com/DrozmotiX/ioBroker.wled/pull/792))
+* (DutchmanNL) **FIXED**: A device that stays offline logs "Unable to initialise" as a warning once, further attempts are logged at debug level ([#788](https://github.com/DrozmotiX/ioBroker.wled/issues/788))
+* (DutchmanNL) **FIXED**: Devices that are offline can be deleted from the instance settings again ([#787](https://github.com/DrozmotiX/ioBroker.wled/issues/787))
+* (DutchmanNL) **ENHANCED**: Tests now also run on Node.js 26 ([#872](https://github.com/DrozmotiX/ioBroker.wled/issues/872))
+* (DutchmanNL) **ENHANCED**: Updated @iobroker/testing to 6.3.0
+* (DutchmanNL) Removed a broken README link ([#876](https://github.com/DrozmotiX/ioBroker.wled/issues/876))
 
 ### 0.9.2 (2026-02-16)
 * (DutchmanNL) solve auto deployment issues
@@ -184,11 +190,7 @@ When the adapter crashes or another Code error happens, this error message that 
 
 This adapter uses GitHub Actions with **NPM Trusted Publishing** for automated deployment.
 
-For maintainers troubleshooting deployment issues, see [docs/DEPLOYMENT_SETUP.md](https://github.com/DrozmotiX/ioBroker.wled/blob/main/docs/DEPLOYMENT_SETUP.md) for:
-- Verifying trusted publishing configuration on npmjs.com
-- Required workflow and job name settings
-- Troubleshooting authentication errors
-- Testing deployment with pre-release versions
+Releases are published by the `deploy` job of `.github/workflows/test-and-release.yml` when a version tag is pushed. The npm package must list this repository and that workflow as a trusted publisher on npmjs.com, no `NPM_TOKEN` secret is needed. See the [npm trusted publishing documentation](https://docs.npmjs.com/trusted-publishers) for setup and troubleshooting.
 
 ## License
 MIT License

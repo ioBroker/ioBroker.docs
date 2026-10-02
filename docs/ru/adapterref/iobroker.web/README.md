@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: 0/nY3jGltFsA+s5WRDQkjWCSBKaLlIQJt31xUrvWi9U=
+hash: yUQrKpg0uisMqBT2yoRF5/2uoB4+oNrFvuyaSYMhl5M=
 ---
 ![Количество установок](http://iobroker.live/badges/web-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.web.svg)
@@ -179,7 +179,7 @@ http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<passwo
 По умолчанию эта функция отключена. При включении:
 
 - Клиенты обнаруживают сервер через `/.well-known/oauth-authorization-server` и зарегистрироваться самостоятельно, если **параметр "Разрешить саморегистрацию клиентов"** не отключен.
-- Неаутентифицированные запросы, которые _не_ запрашивают `text/html` на них отвечают следующим образом `401` и а `WWW-Authenticate` Вместо перенаправления на страницу входа в систему используется запрос подтверждения — перенаправление бесполезно для клиента API. Браузеры не затрагиваются.
+- Неаутентифицированные запросы, которые _не_ содержат запроса `text/html` на них отвечают следующим образом `401` и а `WWW-Authenticate` Вместо перенаправления на страницу входа в систему используется запрос подтверждения — перенаправление бесполезно для клиента API. Браузеры не затрагиваются.
 - Веб-расширения публикуют собственные метаданные ресурсов в разделе `/.well-known/oauth-protected-resource/<path>` Эти документы остаются читаемыми и без ввода учетных данных.
 - **Укажите публичный URL-адрес,** если сервер работает за обратным прокси-сервером, и используйте HTTPS: удаленные клиенты отказываются от использования обычного протокола. `http://`.
 
@@ -187,6 +187,10 @@ http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<passwo
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 9.1.9 (2026-09-28)
+
+- (@GermanBluefox) Добавлено состояние onScreen для приложения
 
 ### 9.1.8 (2026-09-24)
 
@@ -207,10 +211,6 @@ http://ip:8082//oauth/token?grant_type=password&username=<user>&password=<passwo
 - (@GermanBluefox) Команда, которую приложение Visual Studio записывает в `cloud.<X>.remote.command` превращается в `cloud.<X>.devices.<device>.*` Здесь, когда облачный адаптер не запущен. Приложение вообще ничего не сообщало, пока адаптер был остановлен, хотя значение и поступило. Ничего не меняется, пока адаптер работает — он делает это сам. Состояние команды создается, когда оно отсутствует, поэтому можно сообщить и об установке без облачного адаптера.
 
 ### 9.1.4 (2026-08-31)
-
-- (@GermanBluefox) Обновлены пакеты
-
-### 9.1.3 (2026-08-28)
 
 - (@GermanBluefox) Обновлены пакеты
 

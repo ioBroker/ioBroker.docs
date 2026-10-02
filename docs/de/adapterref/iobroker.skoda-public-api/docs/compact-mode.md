@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.skoda-public-api/docs/compact-mode.md
 title: Kompaktmodus
-hash: knfo6uhdKbnGj9riQx3L0uN7BgfXnT1py2xP0rh8aRc=
+hash: xQKSTbv/NJPVzEOgf6xQkWhDrImb9giEk1bAKVot888=
 ---
 # Kompaktmodus
 
@@ -66,11 +66,11 @@ Bei einer temporären ioBroker-Installation mit installierter, unterstützter Ad
 
 1. Aktivieren Sie den Kompaktmodus für den Host über seine ioBroker-Konfiguration/CLI.
 2. Weisen Sie der Kompaktgruppe 1 zwei Adapterinstanzen zu und aktivieren Sie die Ausführung im Kompaktmodus. Konfigurieren Sie separate autorisierte VIN/Schlüsselpaare. Konfigurieren Sie keine API-Umleitung für die Produktion.
-3. Bestätigen Sie, dass beide Instanzprotokolle Folgendes anzeigen: `COMPACT` beide `compactMode` Die Zustände sind wahr, und beide laufen im selben Kompaktgruppenprozess (nicht in separaten Ausweichprozessen).
+3. Bestätigen Sie, dass beide Instanzprotokolle dies anzeigen. `COMPACT` beide `compactMode` Die Zustände sind wahr, und beide laufen im selben Kompaktgruppenprozess (nicht in separaten Ausweichprozessen).
 4. Prüfen Sie Fahrzeugobjekte, Kontingent- und Ablaufstatus, normale Abfragen, Verbindungstestmeldungen und einen entsprechenden Befehl sowie dessen Verifizierungsabfrage.
 5. Die erste Instanz wird gestoppt, solange sie eine Anfrage oder einen ausstehenden Befehl hat. Es wird sichergestellt, dass die Beendigung ordnungsgemäß abgeschlossen wird, keine neuen Adapter-Schreibvorgänge nach dem Stopp erfolgen, keine weiteren Anfragen eingehen, keine irreführenden API-Fehler/unbehandelten Ablehnungen auftreten und der Betrieb der zweiten Instanz fortgesetzt wird.
 6. Starten Sie den ersten Prozess erneut. Stellen Sie sicher, dass die Gruppen-PID und die zweite Instanz stabil bleiben, das gespeicherte Kontingent eingehalten wird und der normale Betrieb wieder aufgenommen wird.
 
 Gruppe 0, Live-Fahrzeugausführung, der vollständige Pfad zur Gruppenerzeugung auf dem Host, andere Node-/Controller-Versionen und andere Betriebssysteme erfordern einen eigenen Akzeptanzlauf. Sie werden nicht durch einen erfolgreichen lokalen Gruppe-1-/Mock-Test impliziert.
 
-Die eigentliche Compact-Group-Controller-Suite läuft unter Linux. Der Entwicklungs-JS-Controller wurde installiert von `@iobroker/testing` Der direkt gestartete Compact-Group-Controller kann unter macOS und Windows beendet werden, bevor die Timer für den Instanzstart ohne Verzögerung ausgeführt werden. Auf beiden Plattformen wird weiterhin die vollständige Testsuite ausgeführt, einschließlich der Abdeckung des Compact-Lebenszyklus und der Isolation sowie der üblichen Adapterintegrationstests.
+Die eigentliche Compact-Group-Controller-Suite läuft unter Linux und macOS. Ein lokaler macOS-Lauf mit Node 26 war am 28.09.2026 erfolgreich. Der Entwurf des Pull Requests #5 bestand anschließend die GitHub Actions Matrix unter macOS mit Node 22, 24 und 26; jeder Job führte diese Suite aus und meldete 14 bestandene Integrationstests. Der Entwicklungs-JS-Controller wurde installiert von `@iobroker/testing` Der direkt gestartete Compact-Group-Controller kann unter Windows beendet werden, bevor seine Instanzstarttimer ohne Verzögerung ausgeführt werden. Windows führt weiterhin die gesamte Unit-Suite aus, einschließlich der Testabdeckung des Compact-Lebenszyklus und der Isolation sowie der üblichen Adapterintegrationstests.

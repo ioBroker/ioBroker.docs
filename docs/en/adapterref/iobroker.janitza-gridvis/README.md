@@ -27,6 +27,22 @@ Implemented are the following times:
 	ThisYear
 	LastYear
 	Flexible Timebases
+
+## Disclaimer
+
+> [!IMPORTANT]
+> **ioBroker.janitza-gridvis is a private and independently developed open-source project
+> and is not an official product of Janitza electronics GmbH.**
+>
+> This adapter is neither developed, maintained, nor supported by Janitza electronics GmbH.
+>
+> The names "Janitza" and "GridVis" are used solely to indicate the technical relationship
+> and compatibility with Janitza GridVis. All trademarks and product names are the property
+> of their respective owners.
+>
+> For questions, issues, or bug reports related to this adapter, please use the GitHub
+> issue tracker of this project and do not contact Janitza support.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):

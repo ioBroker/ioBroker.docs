@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: mPHwtk8y9nXS+Npq8NhpAhSpDGoo+6bIxfz90lYtUvQ=
+hash: f2RHlzuluKvO+MUeFWyDHteqWQJz3MKJzc1iNKxwchY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -26,7 +26,7 @@ hash: mPHwtk8y9nXS+Npq8NhpAhSpDGoo+6bIxfz90lYtUvQ=
 
 VW Hat Den Den Klassischen App-Login для **VW ID, CUPRA и SEAT** abgeschaltet. Для работы этой маркировки в любое время суток — на панели конфигурации, нажмите на несколько параллельных строк:
 
-- **Портал Закона о данных ЕС** — автоматически активируется в браузере на портале, включает подробный пакет данных **за все 15 минут** и **не** используется в процессе работы: das Auto Lifert nur Daten wenn es gerade aktiv ist (fahren, laden, Klima), Parkende Autos erzeugen leere Datasets. Außerdem hat das Portal selbst öfter 5xx-Aussetzer.
+- **Портал Закона о данных ЕС** — автоматически активируется в браузере на портале, включает подробный пакет данных **за все 15 минут** и **не включается** в практику: das Auto Lifert nur Daten wenn es gerade aktiv ist (fahren, laden, Klima), Parkende Autos erzeugen leere Datasets. Außerdem hat das Portal selbst öfter 5xx-Aussetzer.
 - **API данных Tibber (empfohlen)** — стоимость, **актуальность данных** (SoC, Reichweite, Lade-Status). **Если вы хотите использовать Tibber-Stromkunde** , вы можете добавить Tibber-аккаунт в новом приложении. Beim Anlegen verlangt die App eine deutsche Adresse — die muss **nicht korrekt sein** , irgendeine pusible Straße/PLZ reicht. Включите приложение и используйте OAuth-клиент для <https://data-api.tibber.com/clients/manage> registrieren (подробности см. в адаптере-UI).
 
 Для других марок (Audi, MyŠKODA, Seat Elli, ŠKODA Powerpass, Audi DataPlug, ŠKODA Alt, VW Connect Go) функционирует классический вход в систему.
@@ -68,9 +68,9 @@ VW Hat Den Den Klassischen App-Login для **VW ID, CUPRA и SEAT** abgeschalte
 3. Нажмите **«Подключить свой автомобиль»,** если VIN-номер вашего автомобиля еще не указан, и следуйте инструкциям по сопряжению/подтверждению на экране.
 4. Klicke **Benutzerdefinierte Daten anfragen** («Получить персонализированные данные»). Совет от портала: es kann immer nur eine benutzerdefinierte Datenanfrage gleichzeitig aktiv sein.
 5. **Vereinbarung gemäß Artikel 4 EU Data Act** ankreuzen («Ich bestätige, dass ich die Vereinbarung gemäß Artikel 4 EU Data Act gelesen und akzeptiert habe.») → **Weiter** .
-6. **Кластер данных auswählen** : **Все данные** anhaken («Все точки данных, соответствующие Закону ЕС о данных»). Andere Cluster nur wenn du gezielt einschränken willst — выбор только некоторых ограничивает то, что `<vin>.statuseudata.*` будет содержать.
+6. **Кластер данных auswählen** : **Все данные** anhaken («Все данные, соответствующие Закону ЕС о данных»). Andere Cluster nur wenn du gezielt einschränken willst — выбор только некоторых ограничивает то, что `<vin>.statuseudata.*` будет содержать.
 7. **Название пакета Datenpakets** vergeben (frei wählbar, zB «ioBroker»). Erscheint später als `_dataset_name` -Префикс в именах файлов den.
-8. **Частота показов** : **Все 15 минут** . Другие варианты (täglich) не могут быть включены в Auflösung für Live-Werte.
+8. **Частота просмотра** : **Все 15 минут** . Другие варианты (täglich) не могут быть включены в Auflösung für Live-Werte.
 9. **Дауэр** : **Kein Enddatum** (fortlaufend ohne Enddatum).
 10. Запрос отсутствует. Наборы данных обычно начинают появляться через **15 минут или несколько часов** . Первая партия может появиться как `*_no_content_found.zip` пока ваш автомобиль не «проснется». Принудительная синхронизация через приложение Volkswagen или однократная поездка активируют заводскую часть системы.
 
@@ -121,6 +121,11 @@ VW Hat Den Den Klassischen App-Login для **VW ID, CUPRA и SEAT** abgeschalte
 ```
 
 ### **РАБОТА В ПРОЦЕССЕ**
+
+### 0.9.12 (2026-09-29)
+
+- Закон ЕС о данных: нагрузка на портал резко снижается — после каждой загрузки следующая запись планируется на ожидаемый 15-минутный интервал данных (из набора данных createdOn) вместо записи каждую минуту; при отсутствии createdOn происходит возврат к опросу с интервалом в 1 минуту, и запись ограничивается максимум одним интервалом.
+- Закон ЕС о данных: принят собственный запрос VW #456 — удален устаревший запрос на предварительное подключение к порталу и установлен пользовательский агент на основе версии (ioBroker.VW\_Connect/).<version> )
 
 ### 0.9.11 (2026-09-23)
 
@@ -215,7 +220,7 @@ VW Hat Den Den Klassischen App-Login для **VW ID, CUPRA и SEAT** abgeschalte
 
 ### 0.7.14 (2025-11-25)
 
-- исправить вход в систему с использованием идентификатора vw
+- исправить вход в систему с использованием идентификатора VW
 
 ### 0.7.13 (2025-11-09)
 

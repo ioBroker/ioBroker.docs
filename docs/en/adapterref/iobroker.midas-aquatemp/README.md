@@ -58,6 +58,10 @@ If you have problems, contact us.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.3.5 (2026-09-27)
+
+- FIX: Detected issues by repository checker
+- FIX: #163 Add faktor input for power consumption calculation (default: 1.0)
 
 ### 1.3.4 (2026-09-13)
 
@@ -77,18 +81,6 @@ If you have problems, contact us.
 ### 1.3.1 (2026-06-15)
 
 - FIX: Object Structure Check
-
-### 1.3.0 (2026-06-15)
-
-- FIX: Compatibility with the updated Linked-Go cloud API (API level 3 with new endpoint paths and camelCase parameters)
-- FIX: Device discovery now tries both deviceList payload formats (default and legacy) to ensure devices are found
-  regardless of API behaviour
-- FIX: Numerous control and polling issues (mode, silent mode, set temperature, fault detection)
-- FIX: Product-specific protocol codes for Poolsana vs. other devices
-- FIX: TLS certificate validation enabled by default; optional insecure mode via adapter config or environment variable
-- FIX: Invalid or missing sensor values are no longer written as NaN
-- FEAT: Add online state — boolean datapoint that indicates whether the device is currently reachable via the cloud API
-- CHORE: Update dependencies
 
 ## License
 

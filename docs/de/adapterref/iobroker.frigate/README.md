@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.frigate/README.md
 title: ioBroker.frigate
-hash: je7IJHxC7k4NayJFVoQmf4FGrVX92EEfSl/Vxib+Va4=
+hash: JKzFmLXBgRPhcmnQZNF8yjhw5+IJPYdrMgamvBwuTkw=
 ---
 ![Logo](../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
@@ -16,6 +16,8 @@ hash: je7IJHxC7k4NayJFVoQmf4FGrVX92EEfSl/Vxib+Va4=
 ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.frigate/workflows/Test%20and%20Release/badge.svg)
 
 # ioBroker.frigate
+
+> \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
@@ -39,30 +41,24 @@ Adapter für [Frigate NVR](https://frigate.video/) – ein Open-Source-Videoübe
     Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.2.1 (2026-09-28)
+- (@GermanBluefox) In broker mode the adapter reports the port of its built-in MQTT broker to js-controller 8, which keeps a per-host registry of the occupied ports (`system.host.<name>.usedResources`). The default 1883 is also the default of the MQTT adapter, so the log now names the instance that already declared the port instead of only reporting "port is already in use". The port is taken from the running server and given back when it closes. In client mode nothing is reported: the broker is on another machine. An older js-controller is unaffected
+- (@GermanBluefox) The fullscreen dialog of the camera widgets for `ioBroker.devices` opened as a bare strip with some cameras: the dialog takes its height from the picture in it, and a picture that has not arrived yet is zero pixels high. The dialog now keeps a place for it and shows that it is on its way. The live widget also stops the stream of the tile for as long as the dialog is open - a browser grants about six connections per server, every camera tile holds one of them for as long as its stream runs, and the stream of the dialog was therefore the one that never got a turn. A stream that still brings no frame within ten seconds is given up on, and the pictures come over the socket instead, as they already did when a stream reported an error
+
+### 3.2.0 (2026-09-22)
+- (@GermanBluefox) The live widget for `ioBroker.devices` still tried the stream relative to admin (port 8081) when the adapter did not report the address of the web instance in time. Without an address the widget now takes single pictures over the socket and tells the reason in the browser console; an address that arrives late still switches to the stream
+- (@GermanBluefox) Added the names Frigate recognizes (face recognition, known license plates): `<zone>.sub_labels` lists the names in a zone right now, and `sub_labels.<name>` is `true` as long as a running event carries that name. With face recognition enabled, the names of the face library are created on start, so automations can be set up before somebody is recognized for the first time (#277)
+- (@GermanBluefox) Fixed repochecker warnings: literal placeholders of the settings dialog are in the translation files, and dependabot also watches `src-devices`
+
+### 3.1.5 (2026-09-22)
+- (@GermanBluefox) The live widget for `ioBroker.devices` did not show the stream in admin: before the adapter had reported the address of the web instance, the widget already loaded the stream relative to admin (port 8081), and the error of that attempt stayed on the tile even after the right address had arrived. The widget now waits for the address, and if the stream still cannot be loaded (web instance not reachable, http stream inside an https admin), it switches to single pictures over the socket
+
+### 3.1.4 (2026-09-14)
+- (@GermanBluefox) The live widget for `ioBroker.devices` switches to single pictures over the socket by itself when the page is opened through the ioBroker cloud (iobroker.pro / iobroker.net): the cloud cannot relay the MJPEG stream, and the address of the web instance is not reachable from outside anyway
+
 ### 3.1.3 (2026-09-09)
 - (@GermanBluefox) The camera name in the device manager tile moved below the picture: at the top of the tile the drag handle and the favourite star of the widget manager were drawn over it
-- (@GermanBluefox) The build helper is written in TypeScriptpes itself now.
-  
-### 3.1.2 (2026-08-28)
-- (@GermanBluefox) The Frigate directory can no longer be left empty by accident: the validator complained but did not stop the dialog from being saved. With an empty directory the plugin mounts named volumes instead of the chosen directory, while the adapter writes `config.yml` into the ioBroker data directory - Frigate then starts without its configuration
-- (@GermanBluefox) Removed the `iobBackup=frigate_data` label: no volume of that name exists, so it never marked anything. The label works for named volumes only, and everything worth keeping lives in the bind-mounted Frigate directory - `config.yml` is generated from the instance settings, which an ioBroker backup contains anyway, and recordings and clips are far too large for one
-
-### 3.1.1 (2026-08-24)
-- (@GermanBluefox) Fixed the clip download failing with `Request failed with status code 400`: Frigate answers that while the recording segments of the event are not written yet, so the download is now retried with a growing delay and the message Frigate sent is written to the log instead of only the status code. The default wait time after the event end was raised from 5 to 10 seconds
-- (@GermanBluefox) Added the missing translations for the LPR settings, the go2rtc restream column and the event history header, and corrected translations where the product name `Frigate`, state IDs and the `{{source}}`/`{{type}}` placeholders had been translated as words
-- (@GermanBluefox) Fixed stale `.jpg` / `.mp4` files in the tmp folder: the cleanup no longer depends on `notificationActive`, aborted downloads and failed notifications no longer leave files behind, and every instance now uses its own tmp folder (`iobroker-frigate.<instance>`)
-- (@GermanBluefox) Added a web extension: every camera is now served under `/frigate.0/<camera>/snapshot.jpg` and `/frigate.0/<camera>/stream.mjpeg` of the web adapter, behind the ioBroker authentication and without exposing Frigate itself
-- (@GermanBluefox) Added two widgets for ioBroker.devices: a snapshot tile that works everywhere, and a live MJPEG tile
-- (@GermanBluefox) Added the `snapshot` message, which returns the current picture of a camera as base64
-- (Eistee82) Fixed zone object counters (e.g. `<zone>.person`) staying at their last value after the object left the zone. Per-zone object counts are now sourced solely from the Frigate MQTT occupancy topics, and the zone aggregator resets its active/stationary states to 0 and uses `current_zones` instead of the cumulative `entered_zones`.
-
-### 3.0.3 (2026-06-09)
-- (@GermanBluefox) Added a button to re-create the docker container
-
-### 3.0.2 (2026-05-30)
-- (@GermanBluefox) Replaced the track of objects with a drop down menu
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.frigate/blob/main/CHANGELOG_OLD.md)
+- (@GermanBluefox) The build helper is written in TypeScript itself now.
 
 ## License
 

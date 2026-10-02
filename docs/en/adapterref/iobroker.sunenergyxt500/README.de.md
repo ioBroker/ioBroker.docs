@@ -67,6 +67,7 @@ In beiden Steuermodi **besitzt der Adapter `MM`**: bei jedem Poll prüft er das 
 * **Test all heads** — fragt jeden konfigurierten Kopf ab und meldet Modell + SoC (oder einen Fehler), damit du die Adressen vor dem Speichern prüfen kannst.
 * **Abfrageintervall (s)** — wie oft jeder Kopf per `/read` abgefragt wird (Standard 5 s).
 * **Anfrage-Timeout (ms)** — HTTP-Timeout (Standard 8000 ms).
+* **Einstellungen nach Kopf-Neustart wiederherstellen** (Standard an) — siehe *Einstellungen nach einem Kopf-Neustart* weiter unten.
 
 **Steuerung** — einen **Steuermodus** wählen:
 
@@ -76,6 +77,7 @@ In beiden Steuermodi **besitzt der Adapter `MM`**: bei jedem Poll prüft er das 
 * **Quell-State Netzleistung** — ein Fremd-State mit der Netzleistung deines Hauszählers. Konvention: `>0` = Netzbezug, `<0` = Einspeisung. **Vorzeichen invertieren** aktivieren, falls dein Zähler die umgekehrte Konvention nutzt.
 * **Adaptive Regelung** (Standard an): regelt in drei herstellererprobten Stufen — kleine Abweichungen sanft (alle 7 s, 20-W-Schritte), mittlere alle 2,5 s (120 W), große Lastsprünge sofort (450 W), mit festem 5-W-Netz-Totband. Beachte, dass das *Per-Kopf-Schreib-Totband* (Standard 10 W) zusätzlich greift: eine kleinere Korrektur wird nicht geschrieben, solange der Gesamt-Sollwert sich nicht mindestens so weit bewegt hat — in der Praxis bleiben Abweichungen unter etwa 10 W also unangetastet. Deaktivieren, um den Regler manuell über die Felder Verstärkung / Totband / Schreibintervall / Schritt-Limit einzustellen (erscheinen nur dann).
 * **Ziel-Netzleistung** (W, Standard 0): 0 = Nulleinspeisung; positive Werte halten bewusst einen kleinen Netzbezug (nie einspeisen), negative eine kleine Einspeisung — gleiche Vorzeichenkonvention wie der Quell-State (`>0` = Bezug).
+* **Entladegrenze des Reglers** (%, Standard 0 = aus): Der Regler beendet das Entladen eines Kopfes, sobald dessen *leerster* Pack diesen Wert erreicht, während die eigene Grenze des Kopfes (`SI`) niedriger bleibt. Der Kopf erreicht dann nie seine eigene Entladeabschaltung, an der Firmware 1.1.5 hängen bleiben und das Laden verweigern kann, bis sie vom Netz getrennt wird. Gemessen am leersten Pack, weil die Packs eines Kopfes auseinanderlaufen; Entladen wird wieder freigegeben, sobald der Ladestand um die Hysterese des Kopfes (`SI1`) gestiegen ist. Nur im Reglermodus.
 * **Max. Änderung pro Korrektur** (W, Standard 500, 0 = unbegrenzt): begrenzt, wie weit sich der Sollwert pro Regelschritt bewegt — hohe Verstärkung kann so bei Zähler-Ausreißern nicht überschwingen.
 * **Verstärkung** (Standard 0.3), **Totband** (W), **Min. Schreibintervall** (ms), **Per-Kopf-Schreib-Totband** (W — minimale Änderung des Kopf-Sollwerts, bevor er erneut geschrieben wird, gegen Zappeln bei sich verschiebender Aufteilung). Die Maximalleistung jedes Kopfes wird **automatisch** vom Gerät erkannt (800 W beim 500, 2400 W beim 500 PRO), Mischbetrieb funktioniert also ohne Zusatzkonfiguration.
 * **Zähler-Einschwingzeit (ms)** (Standard 0) — Messwerte, die *vor* dem letzten Sollwert-Schreibvorgang entstanden sind, werden immer verworfen, weil sie noch den Zustand davor beschreiben. Bei Zählern, deren Wert der physikalischen Änderung unmittelbar folgt, 0 lassen; bei Zählern, die frische Zeitstempel liefern, deren Wert aber nachhinkt, etwas über die gemessene Inhaltsverzögerung setzen.
@@ -136,7 +138,7 @@ Jeder Kopf erhält seinen eigenen Teilbaum unter **`heads.<n>.*`** (`n` = 1…3)
 | `heads.<n>.ups.*` | USV-Modus / Netzladen / Bypass (`UO`/`UG`/`FP`) |
 | `heads.<n>.fault.*` | Fehler-Bitmasks (`TF`/`EF`/`DF1`/`DF2`/`AF1`/`AF2`/`BF`) — nur im aktiven Fehlerfall befüllt |
 | `heads.<n>.control.*` | alle **schreibbaren** Felder (siehe unten) |
-| `heads.<n>.info.*` | pro Kopf `online`, `lastError`, `rawResponse` (komplette `/read`-Rohantwort) |
+| `heads.<n>.info.*` | pro Kopf `online`, `lastError`, `rawResponse` (komplette `/read`-Rohantwort), `desiredSettings` (über einen Kopf-Neustart gehaltene Einstellungen, JSON) |
 | `total.*` | Gesamtsicht: kapazitätsgewichteter `soc`, summierte `batteryPower` / `gridPower` / `maxPower`, `onlineCount` |
 | `controller.*` | Telemetrie des Eigenverbrauchsreglers (`status`, Alter der Netzquelle) |
 | `info.*` | `connection` (mind. ein Kopf erreichbar) und `lastUpdate` |
@@ -165,6 +167,14 @@ Per ioBroker-Konvention liegen alle schreibbaren Felder unter dem `control.*` je
 > Tipp: Im ioBroker-Admin kannst du die Objektliste auch nach dem *beschreibbar*-Flag filtern, um alle Steuerfelder auf einmal zu finden.
 
 `device.PK` wird aus `DevType` abgeleitet, wenn die Firmware `PK` nicht mehr liefert. `SI1`/`SA1` sind schreibbar (SoC-Hysterese, Standard 5 %); weiterhin reservierte Felder (`PT`) sind read-only. Vom Hersteller entfernte (`UP`) oder reine Doku-Artefakte (`WT`, `BN`) werden nicht angelegt; alles Ungemappte steht weiterhin in `heads.<n>.info.rawResponse`.
+
+### Einstellungen nach einem Kopf-Neustart
+
+Firmware 1.1.5 (gemeldet als `ES` 1.1.15) behält über die lokale API geschriebene Werte nicht: Nach einem Neustart meldet sich der Kopf mit einem älteren gespeicherten Stand zurück, und nachts fällt er auch ohne Neustart von selbst darauf zurück (beobachtet um 03:00). Im lokalen Modus kann auch die Hersteller-App sie nicht ändern, eine über diesen Adapter gesetzte Einstellung fiele also still zurück und bliebe so.
+
+Der Adapter merkt sich deshalb, was du über ihn setzt — `SI`, `SA`, `SO`, `SI1`, `SA1`, `IS`, `MG` sowie die Schalter `LFB`, `LPS`, `PM` — in `heads.<n>.info.desiredSettings` und schreibt einen Wert erneut, sobald der Kopf einen anderen meldet (Log-Stufe info). Verweigert ein Kopf einen Wert dauerhaft, versucht der Adapter es seltener und meldet nach drei Versuchen eine Warnung. `GS`, `MM` und `MD` regelt der Steuermodus, `RT` ist ein Auslöser, `LM` wird nie erzwungen, und `TZ` bleibt außen vor, weil der Kopf es in anderer Form zurückmelden kann, als es geschrieben wurde.
+
+Gemerkt werden nur Werte, die nach dem Update auf eine Version mit dieser Funktion gesetzt wurden — setze sie also einmal über den Adapter. Auf Firmware, die ihre Einstellungen behält, weicht nie etwas ab, und es wird nichts geschrieben. Schalte die Option aus, wenn ein anderes Werkzeug diese Einstellungen verwaltet.
 
 ## Manuelle Zähler-/Modus-Felder (MM / MD)
 

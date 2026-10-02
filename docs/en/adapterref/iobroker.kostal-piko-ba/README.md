@@ -59,6 +59,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (HombachC) updated dependencies
+
 ### 7.0.7 (2026-09-12)
 
 - (HombachC) switch to iobroker testing 6.x

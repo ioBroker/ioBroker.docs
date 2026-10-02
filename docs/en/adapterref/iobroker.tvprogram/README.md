@@ -52,27 +52,47 @@ channel data before configuring the widgets.
 
 Create one TV configuration for each independent channel selection, favorites
 list and switch target. Each TV gets its own set of data points below the
-adapter instance.
+adapter instance. The readonly device key is derived from the configured TV
+name. It uses lowercase letters and digits without spaces; German umlauts are
+written as `ae`, `oe` and `ue`. For example, `Wohnzimmer Süd` becomes
+`wohnzimmersued`. Reordering table entries does not change their device keys.
+TV names must produce unique keys.
+
+At startup, the adapter synchronizes these devices with the configuration.
+Missing TV devices are created and surplus devices are removed together with
+their data points. When a legacy `tv1`, `tv2`, ... key is replaced for the
+first time, its existing state values are copied to the new device key.
 
 ### Programme sources
 
-The adapter supports these programme sources:
+Select the programme source separately for every TV configuration. The adapter
+supports:
 
 - **TV für alle**
 - **IPTV-EPG.org**
 
-For IPTV-EPG.org, select the required country and a local daily download time
-in `HH:mm` format. The download starts at a stable random offset of up to
-60 minutes after that time. This distributes requests from separate ioBroker
-installations.
+For IPTV-EPG.org, select the required country in the corresponding TV row. The
+daily download time applies to all IPTV-EPG sources and uses `HH:mm` format.
+The download starts at a stable random offset of up to 60 minutes after that
+time. This distributes requests from separate ioBroker installations.
 
 At startup, the adapter checks whether the configured source contains usable
 channel data and programme data for the current broadcast day. Missing data is
 downloaded immediately. Failed downloads are retried after one hour.
 
 Programmes between midnight and 04:59 belong to the previous broadcast day.
-Changing the source or IPTV-EPG country clears the programme cache and all
-saved channel selections. Select the channels again after the new guide loads.
+Downloaded data is stored separately for each source and country. Switching a
+TV to another source does not delete an existing cache. Channel selections are
+stored as files in the adapter cache per TV and source identity. The active
+selection is copied to `channelfilter` after a source change and before the
+widgets receive their reload command. Programme data for today and the four
+previous calendar days remains cached even when a later provider response no
+longer contains those days.
+
+Set `info.reset` to `true` to delete all source data and saved channel
+selections from the adapter cache. The adapter acknowledges the button, clears
+the active TV selections and immediately downloads the configured sources
+again.
 
 ### Alternative channel logos
 
@@ -281,8 +301,8 @@ All longer examples are maintained in [docs/EXAMPLES.md](/#/docs/adapterref/iobr
 ## Planned work
 
 - Consider an additional widget for highlighted programmes.
-- Evaluate other programme sources or hardware sources when there is sufficient
-  demand.
+- ~~Evaluate other programme sources or hardware sources when there is sufficient
+  demand.~~
 
 ## Changelog
 
@@ -290,6 +310,20 @@ All longer examples are maintained in [docs/EXAMPLES.md](/#/docs/adapterref/iobr
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 6.1.0 (2026-09-28)
+
+- more fixes and adjustments
+- add reset button under datapoint info/reset
+
+### 6.0.0 (2026-09-28)
+
+- improve and extend translation
+- improve configuration dialog
+- improve and fix dataloading
+- improve seperation of data
+- Improving the management of the selected channels
+- reduce amount of data transfered to widgets
+
 ### 5.0.1 (2026-09-23)
 
 - fix tests
@@ -304,17 +338,6 @@ All longer examples are maintained in [docs/EXAMPLES.md](/#/docs/adapterref/iobr
 - update dependencies
 - fix repochecker
 - tranform translation files
-
-### 4.0.3 (2026-02-27)
-
-- update dependencies
-- improve error handling
-
-### 4.0.2 (2026-01-27)
-
-- improve position of dialogs
-- reduce requests to data provider
-- test remove node 18,extend to node 24
 
 ## License
 

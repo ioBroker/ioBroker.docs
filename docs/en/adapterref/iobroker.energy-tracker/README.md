@@ -12,6 +12,8 @@ It periodically transfers values from configured ioBroker states using the publi
 
 ## Requirements
 
+Requires Node.js 22 or newer, ioBroker js-controller 6.0.11 or newer and ioBroker Admin 7.6.20 or newer.
+
 1. **Register an account:**  
    👉 [Create your account](https://www.energy-tracker.best-ios-apps.de/en-US/register)
 
@@ -25,11 +27,15 @@ It periodically transfers values from configured ioBroker states using the publi
 
 The following fields must be configured in the adapter:
 
-- **Personal Access Token**
+- **Personal Access Token** with permission to create meter readings
 - **Device list** with:
     - `deviceId` (Energy Tracker device ID)
     - `sourceState` (ioBroker state that provides the reading)
-    - Enable rounding of values
+    - Enable server-side rounding of values
+- **Retries after timeout:** 0 (disabled), 1 or 2, with a configurable delay of 1–60 seconds. Requests still time out after 10 seconds. A conflict after a timeout requires checking the reading in Energy Tracker.
+
+Source states may contain numbers or plain decimal strings. Use decimal strings when exact decimal precision is required.
+Values are truncated to the API limit of six decimal places before sending; `allowRounding` controls server-side rounding to the meter's precision.
 
 **Additionally, you must create a schedule in ioBroker to trigger the adapter at regular intervals.**  
 Without a schedule, the adapter will not fetch or transmit any data automatically.
@@ -40,6 +46,18 @@ Without a schedule, the adapter will not fetch or transmit any data automaticall
 - Data is only **sent** – no readings are retrieved.
 
 ## Changelog
+
+### 1.0.0
+
+**Before upgrading:** Node.js 22 or newer, ioBroker js-controller 6.0.11 or newer and ioBroker Admin 7.6.20 or newer are required.
+
+- Send readings through the Energy Tracker SDK and API v3.
+- Truncate readings to six decimal places before sending.
+- Fix connection status for failed or incomplete batches.
+- Add optional timeout retries with a fixed reading timestamp.
+- Require Node.js 22 or newer and test on Node.js 22, 24 and 26.
+- Update dependencies, release tools and adapter metadata.
+- Publish releases through npm trusted publishing.
 
 ### 0.3.1
 
@@ -59,54 +77,9 @@ Without a schedule, the adapter will not fetch or transmit any data automaticall
 
 - Updated ESLint to v9, fixed repository URL in package.json, and improved test coverage.
 
-### 0.2.6
-
-- Added README note: schedule required in ioBroker.
-
-### 0.2.5
-
-- Updated dependencies for testing and added Node.js v24 to adapter tests.
-
-### 0.2.4
-
-- Removed old news entries (fix W132 warning)
-
-### 0.2.3
-
-- Reduced build size
-
-### 0.2.2
-
-- Improved support for integration testing
-
-### 0.2.1
-
-- Added default schedule configuration for scheduled adapter mode
-
-### 0.2.0
-
-- Changed adapter type to 'schedule' to reflect intended usage. Fixed repository metadata and added missing GitHub test workflows.
-
-### 0.1.3
-
-- Fixed repository metadata and performed required minor adjustments
-
-### 0.1.2
-
-- Fixed repository metadata and performed required minor adjustments
-
-### 0.1.1
-
-- Fixed repository metadata
-
-### 0.1.0
-
-- Initial version with full Admin UI configuration
-- Supports multiple devices and configurable intervals
-
 ## License
 
 MIT – see [LICENSE](https://github.com/energy-tracker/ioBroker.energy-tracker/blob/main/LICENSE).
 
-Copyright (c) 2017-2025 Bluefox <dogafox@gmail.com>  
-Copyright (c) 2015-2025 energy-tracker support@best-ios-apps.de
+Copyright (c) 2017-2026 Bluefox <dogafox@gmail.com>  
+Copyright (c) 2015-2026 energy-tracker support@energy-tracker.app

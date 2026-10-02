@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.heatingcontrol/README.md":{"title":{"en":"ioBroker.HeatingControl"},"content":"en/adapterref/iobroker.heatingcontrol/README.md"},"en/adapterref/iobroker.heatingcontrol/doc/en/FAQ.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.heatingcontrol/doc/en/FAQ.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: 2LKAcKP+hH/o6ctMDcfoEcbFP+NBzpM0DgYhKLrrmao=
+hash: plYMiskmU8DrFQSJcV0aIEcGLEinB7gUZpFBUx2pZV8=
 ---
 ![Logo](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -52,7 +53,7 @@ Merkmale:
 - Besteht keine direkte Verbindung zwischen Thermostat und Stellantrieb, kann der Stellantrieb direkt aus dem Adapter herausgeschaltet werden.
 - Aktuell wird der Aktor direkt abgeschaltet, sobald die Solltemperatur erreicht ist. Sobald die Solltemperatur unter die Isttemperatur sinkt, schaltet sich der Aktor wieder ein. (Zu erledigen: verbesserte Steuerung implementieren)
 - Eine unbegrenzte Anzahl von Thermostaten, Aktoren und Sensoren pro Raum wird unterstützt.
-- Thermostat, Stellantrieb und Sensor können raumweise automatisch erkannt werden (nur bei Homematic-Geräten). Hierfür wird die jeweilige Funktion (z. B. „Heizung“) verwendet.
+- Thermostat, Stellantrieb und Sensor können raumweise automatisch erkannt werden (nur bei Homematic-Geräten). Hierfür wird die Funktion (z. B. „Heizung“) verwendet.
 - Räume können in der Administrationsoberfläche ausgeschlossen werden, wenn ein Raum zwar ein Thermostat enthält, aber nicht gesteuert werden soll.
 - Der Sensor dient zur Reduzierung der Zieltemperatur (z. B. bei geöffnetem Fenster); optional mit SensorDelay.
 - Schnittstelle zum Feiertag-Adapter oder anderen Adaptern zur Erkennung von Feiertagen. Ein Feiertag kann ein normaler Wochentag oder ein Sonntag sein. (Administratoreinstellung)
@@ -62,7 +63,7 @@ Merkmale:
 - Die Visualisierung mit [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) wird unterstützt. Vielen Dank!
 - Vis-2-Unterstützung mit [vis-2-widgets-weather-and-heating](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating)
 
-[Häufig gestellte Fragen](https://github.com/rg-engineering/ioBroker.heatingcontrol/blob/master/doc/FAQ.md)
+[Häufig gestellte Fragen](/#/docs/adapterref/iobroker.heatingcontrol/doc/en/FAQ.md)
 
 ## Installation
 

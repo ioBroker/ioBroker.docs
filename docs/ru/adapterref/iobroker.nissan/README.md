@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nissan/README.md
 title: ioBroker.nissan
-hash: fHaq67WTcGdx6gX9HJ/2bSHnCYDxG24GXLelW9Zh4Uc=
+hash: aQ9W4ksdJqwhXgJmywl5XgXBBAJw4NWfAVRqoiqCNlU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.nissan/admin/nissan.png)
 
@@ -25,15 +25,15 @@ hash: fHaq67WTcGdx6gX9HJ/2bSHnCYDxG24GXLelW9Zh4Uc=
 
 [Информация о приложении Nissan Connect](https://www.nissan.de/kunden/nissan-connect-apps.html)
 
+Обратите внимание, что этот адаптер подходит только для автомобилей, использующих приложение NissanConnect Services, а не для NissanConnect EV.
+
 ## Форум
 
 Приглашаем вас следить за обсуждениями на немецком [форуме iobroker.](https://forum.iobroker.net/topic/46700/test-adapter-nissan-v-0-0-x)
 
-Обратите внимание, что этот адаптер предназначен только для автомобилей, использующих приложение NissanConnect Services, а не для NissanConnect EV или любого другого приложения.
-
 ## Поддерживаемые регионы
 
-Европа
+- Европа
 
 В настоящее время поддерживаются только автомобили Nissan, находящиеся в Европе.
 
@@ -49,6 +49,11 @@ hash: fHaq67WTcGdx6gX9HJ/2bSHnCYDxG24GXLelW9Zh4Uc=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.20 (2026-09-21)
+- (bolliy) dependency and configuration updates
+- (bolliy) add Nissan Townstar support [#164](https://github.com/TA2k/ioBroker.nissan/issues/164).
+- (bolliy) add data of pressure status
+
 ### 0.1.19 (2026-09-13)
 - (iobroker-bot) Adapter requires node.js >= 22 now.
 - (bolliy/claude) Implemented MyNISSAN OneID authentication
@@ -62,10 +67,6 @@ hash: fHaq67WTcGdx6gX9HJ/2bSHnCYDxG24GXLelW9Zh4Uc=
 ### 0.1.17-alpha.0 (2025-11-22)
 - (bolliy) dependency and configuration updates
 - (bolliy) NPM: migration to trusted publishing
-
-### 0.1.16 (2025-07-03)
-- (bolliy) dependency and configuration updates
-- (bolliy) ConnectEV: update API endpoint and enhance password encryption method
 
 ## License
 

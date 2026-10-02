@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/widgets/calendar-widget.md
 title: Kalender-Widget
-hash: NaiTGr6PZnusisihoRTaOkIDnGt24YCLGyLGmbhezvA=
+hash: 82tJB08p7x8yknTYyc2qHlFhgtIV03bEptlNZ/3duTs=
 ---
 > 🌐 **Englisch** | [Deutsch](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/blob/master/docs/de/widgets/calendar-widget.md)
 
@@ -13,8 +13,6 @@ hash: NaiTGr6PZnusisihoRTaOkIDnGt24YCLGyLGmbhezvA=
 Das Kalender-Widget zeigt eine vollständige Monatsansicht basierend auf [dem Datumskalender von MUI](https://mui.com/x/react-date-pickers/date-calendar/) . Es kann als Datumsauswahl (Lesen und Schreiben eines Datums von/bis zu einem Datenpunkt), als schreibgeschützte Datumsanzeige oder einfach zur Hervorhebung des heutigen Datums verwendet werden – alle drei gleichzeitig, wenn Sie möchten.
 
 Möchten Sie stattdessen Ereignisse/Termine (z. B. aus einem iCal-Kalender) anzeigen? Verwenden Sie das [Ereigniskalender-Widget](https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo/blob/master/docs/en/widgets/event-calendar-widget.md) .
-
-![Kalender-Widget](../../../../../../en/adapterref/iobroker.vis-2-widgets-inventwo/docs/en/img/widget-calendar.png)
 
 ---
 
@@ -35,7 +33,7 @@ Möchten Sie stattdessen Ereignisse/Termine (z. B. aus einem iCal-Kalender) anze
 | Einstellung                        | Was es tut                                                                                                                                                                                                                                                             |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Objekt-ID**                      | Der Datenpunkt, aus dem dieser Kalender das ausgewählte Datum liest. Er wird auch beschrieben, es sei denn **, der Schreibschutz** ist aktiviert.                                                                                                                      |
-| **Datenpunktwertformat**           | Wie der Datenpunktwert gelesen/geschrieben wird: **Zeitstempel** (Zahl, Millisekunden seit der Unix-Epoche) oder **ISO-Datum** (Zeichenkette,`YYYY-MM-DD` ).                                                                                                           |
+| **Datenpunktwertformat**           | Wie der Datenpunktwert gelesen/geschrieben wird: **Zeitstempel** (Zahl, Millisekunden seit der Unix-Epoche) oder **ISO-Datum** (Zeichenkette, `YYYY-MM-DD`).                                                                                                           |
 | **Nur lesen**                      | Wenn diese Option aktiviert ist, zeigt der Kalender nur das Datum des Datenpunkts an – durch Klicken auf einen Tag wird nichts geschrieben.                                                                                                                            |
 | **Highlight des Tages**            | Markiert das heutige Datum mit einem deutlichen Rahmen/Hintergrund in den Farben von **inventwo - Calendar today** .                                                                                                                                                   |
 | **Vergangene Daten deaktivieren**  | Tage vor heute können nicht ausgewählt werden.                                                                                                                                                                                                                         |
@@ -79,7 +77,7 @@ Die regulären, nicht ausgewählten Tageszellen.
 | Einstellung                                | Was es tut                                                                                                                                                               |
 | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Vom Widget**                             | Tageseinstellungen aus einem anderen Kalender-Widget kopieren.                                                                                                           |
-| **Textfarbe für den Tag**                  | Textfarbe an einem normalen Tag.                                                                                                                                         |
+| **Textfarbe für den Tag**                  | Textfarbe eines normalen Tages.                                                                                                                                          |
 | **Tages-Hover-Farbe**                      | Die Hintergrundfarbe wird beim Überfahren eines Tages mit der Maus angezeigt (im Bearbeitungsmodus / schreibgeschützt hat das Überfahren mit der Maus keine Auswirkung). |
 | **Tagesgrenzradius**                       | Wie rund die Zelle ist (0–100 %). 50 % ergeben einen Kreis, 0 % ein Quadrat.                                                                                             |
 | **Textfarbe für Tag außerhalb des Monats** | Die Textfarbe für die führenden/nachfolgenden Tage des vorherigen/nächsten Monats wird angezeigt, um das Raster auszufüllen.                                             |

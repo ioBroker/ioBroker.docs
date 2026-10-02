@@ -227,7 +227,7 @@ Die Fehlermeldung über Sentry ist ab Werk aktiv; was sie sendet und wie man sie
     ### **WORK IN PROGRESS**
 -->
 
-### 1.19.0 (2026-09-25)
+### 1.19.0 (2026-09-25) — stable
 
 - Fixed: With an HTTPS port the instance no longer restarts endlessly — the certificate key is now really stored encrypted, and a key that does not fit its certificate is replaced.
 - Fixed: Clients that send no or another content type (phue, curl) can pair and switch again instead of getting error 901 from the bridge.

@@ -22,15 +22,16 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-ng-installed.svg
 - nodejs 22 (oder neuer)
 - js-controller 6.0.11 (oder neuer)
 - Admin Adapter 7.6.20 (oder neuer)
-- _Awtrix NG_ Gerät mit Firmware-Version _1.1.2_ (oder neuer) - z.B. Ulanzi TC001
+- _Awtrix NG_ Gerät mit Firmware-Version _1.1.4_ (oder neuer) - z.B. Ulanzi TC001, Ulanzi TC002
 
-Hier kaufen: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001), hier: [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) oder hier: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
+- TC001 kaufen: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001), [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) oder [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) *(Affiliate-Links)*
+- TC002 kaufen: [Amazon.de](https://haus-auto.com/p/amz/UlanziTC002) oder [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC002) *(Affiliate-Links)*
 
 ## Erste Schritte
 
 1. Flashe die Firmware auf das Gerät und füge es zu deinem lokalen Netzwerk per WLAN hinzu - siehe [Dokumentation](https://blueforcer.github.io/awtrix-ng/getting-started/flashing/)
 2. Installiere den awtrix-ng Adapter im ioBroker (und erstelle eine neue Instanz)
-3. Öffne die Instanz-Konfiguration und hinterlege die IP-Adresse des Gerätes im lokalen Netzwerk
+3. Öffne die Instanz-Konfiguration und hinterlege die IP-Adresse des Gerätes im lokalen Netzwerk (und den Port, falls dieser am Gerät geändert wurde - Standard ist 80)
 
 ## FAQ (häufig gestellte Fragen)
 
@@ -145,16 +146,57 @@ sendTo('awtrix-ng.0', 'audio', { rtttl: 'beep:d=4,o=5,b=120:c,e,g' }, (res) => {
 });
 ```
 
+## Radio
+
+Geräte mit Internetradio (z.B. Ulanzi TC002) erhalten den Kanal `audio.radio`. Die Funktion wird automatisch erkannt (Capabilities des Gerätes) - auf Geräten ohne Radio (z.B. TC001) werden diese Objekte nicht angelegt.
+
+- `audio.radio.<Sender>.playing` - `true` spielt den Sender ab, `false` stoppt ihn (falls dieser Sender gerade läuft). Der Zustand zeigt außerdem an, ob der Sender gerade abgespielt wird.
+- `audio.radio.<Sender>.url` - Stream-URL des Senders (nur lesend)
+- `audio.radio.playing` / `audio.radio.station` / `audio.radio.title` - aktueller Wiedergabestatus (nur lesend)
+- `audio.radio.stop` - stoppt das Radio
+
+Die Sender werden in der Weboberfläche des Gerätes gepflegt. Werden dort Sender hinzugefügt oder entfernt, werden die Objekte automatisch angelegt bzw. gelöscht (Prüfung alle 60 Sekunden). In ioBroker können keine Sender hinzugefügt oder entfernt werden.
+
+## MP3-Dateien
+
+Geräte, die MP3-Dateien abspielen können (z.B. Ulanzi TC002), erhalten den Kanal `audio.mp3`. Die Funktion wird automatisch erkannt (Capabilities des Gerätes).
+
+- `audio.mp3.<Datei>.playing` - `true` spielt die Datei ab, `false` stoppt sie (falls diese Datei gerade läuft). Der Zustand zeigt außerdem an, ob die Datei gerade abgespielt wird.
+- `audio.mp3.<Datei>.size` - Dateigröße in Bytes (nur lesend)
+- `audio.mp3.playing` / `audio.mp3.file` - aktueller Wiedergabestatus (nur lesend)
+- `audio.mp3.stop` - stoppt die Wiedergabe
+
+Die Dateien werden in der Weboberfläche des Gerätes hochgeladen und gelöscht. Die Objekte werden automatisch angelegt bzw. gelöscht (Prüfung alle 60 Sekunden). Töne von Skripten werden nicht aufgelistet.
+
+## Melodien
+
+Geräte mit Summer erhalten den Kanal `audio.melody` mit allen auf dem Gerät gespeicherten Melodien (RTTTL).
+
+- `audio.melody.<Melodie>.play` - spielt die Melodie ab
+- `audio.melody.<Melodie>.rtttl` / `audio.melody.<Melodie>.duration` - RTTTL und Dauer in ms (nur lesend)
+- `audio.melody.stop` - stoppt die Wiedergabe
+
+Das Gerät meldet nicht, ob eine Melodie gerade abgespielt wird - daher gibt es einen Button `play` statt eines Schalters `playing`. Die Melodien werden in der Weboberfläche des Gerätes gepflegt (ungültige Melodien werden nicht aufgelistet). Die Objekte werden automatisch angelegt bzw. gelöscht (Prüfung alle 60 Sekunden).
+
+**Hinweis:** Das Stoppen einer Melodie oder einer MP3-Datei stoppt alle Töne (Melodien und MP3-Dateien).
+
 ## Apps
 
-**App-Namen dürfen nur Kleinbuchstaben (a-z) enthalten und müssen eindeutig sein. Keine Zahlen, keine Sonderzeichen, keine Leerzeichen.**
+**App-Namen müssen eindeutig sein und dürfen Buchstaben (A-Z, a-z), Ziffern (0-9), `_` und `-` enthalten (max. 32 Zeichen). Keine Leerzeichen oder andere Sonderzeichen.**
 
-Die folgenden App-Namen sind von den internen apps reserviert und können nicht verwendet werden: `Time`, `Date`, `Temperature`, `Humidity`, `Battery`.
+Die folgenden Namen sind von internen Apps oder dem Gerät reserviert und können nicht verwendet werden: `Time`, `Date`, `Temperature`, `Humidity`, `Battery`, `Status`, `active`, `next`, `prev`, `previous`, `order`.
 
-- Mit dem `activate`-Zustand jeder App kann diese in den Vordergrund geholt werden
-- Diese Zustände haben die Rolle `button` und erlauben nur den boolschen Wert `true` (andere Werte führen zu einer Warnung im Log)
+Jede App hat die folgenden Zustände:
 
-Jede selbst angelegte App hat einen Zustand mit der ID `apps.<name>.visible`. Wenn dieser Zustand auf `false` (falsch) gesetzt wird, wird die App vom Gerät entfernt und nicht mehr dargestellt. Dies ist nützlich, um bestimmte Apps z.B. nur tagsüber oder in bestimmten Zeiträumen darzustellen.
+- `apps.<name>.enabled` - wenn dieser Zustand auf `false` (falsch) gesetzt wird, wird die App auf dem Gerät deaktiviert und nicht mehr dargestellt. Dies ist nützlich, um bestimmte Apps z.B. nur tagsüber oder in bestimmten Zeiträumen darzustellen.
+- `apps.<name>.slot` - Position der App in der Schleife (0 = erste App). Um die Reihenfolge zu ändern, einfach die neue Position einer App setzen - alle anderen Apps werden automatisch verschoben (wie bei Drag & Drop). Die Positionen aller Apps sind immer fortlaufend nummeriert.
+- `apps.<name>.activate` - holt die App in den Vordergrund. Dieser Zustand hat die Rolle `button` und erlaubt nur den boolschen Wert `true` (andere Werte führen zu einer Warnung im Log)
+- `apps.<name>.present` - `true`, wenn die App auf dem Gerät vorhanden ist (nur lesend)
+- `apps.<name>.lastError` - letzte Fehlermeldung des Gerätes beim Übertragen oder Entfernen der App (nur lesend)
+
+Die Reihenfolge und der Aktiviert-Zustand der Apps werden von ioBroker verwaltet. Änderungen am Gerät (z.B. über die Weboberfläche) werden bei der nächsten Synchronisation überschrieben. Die Reihenfolge des Gerätes wird nur für neue Apps verwendet. Instanzen, welche die Einstellungen einer anderen Instanz verwenden, übernehmen deren Reihenfolge.
+
+Ist die Option "Apps löschen, wenn die Instanz gestoppt wird" aktiviert, werden benutzerdefinierte Apps und Experten-Apps mit einer Lebensdauer übertragen und alle 5 Minuten erneut gesendet. So verschwinden diese Apps auch dann vom Gerät, wenn die Instanz nicht mehr läuft (z.B. nach einem Absturz).
 
 ### Benutzerdefinierte Apps
 
@@ -200,9 +242,41 @@ Siehe [Dokumentation](https://blueforcer.github.io/awtrix-ng/reference/payload/)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
 
+* (@klein0r) **Breaking change:** Renamed settings states to the names of the device settings (e.g. `settings.brightness.value` -> `settings.brightness.brightness`, `settings.apps.transitionSpeed` -> `settings.apps.transitionDurationMs`) - old objects are deleted automatically
+* (@klein0r) Sleep mode (`device.sleep`) is blocked on devices without timed sleep (e.g. TC002 would not wake up again)
+* (@klein0r) Scroll speed setting (`settings.text.scroll.speed`) allows up to 500 % now
+* (@klein0r) Recommended Awtrix NG version is now 1.1.4
+
+### 0.3.0 (2026-09-30)
+
+* (@klein0r) Added playback of MP3 files (`audio.mp3.*`) for devices which support it (e.g. TC002)
+* (@klein0r) Added playback of melodies (`audio.melody.*`)
+* (@klein0r) Screen content (`display.content`) is a much smaller SVG now (about 95 % less data) and just written when it has changed
+
+### 0.2.0 (2026-09-30)
+
+* (@klein0r) Port of the device is configurable now (default: 80)
+* (@klein0r) Apps are transferred again when a reboot of the device has been detected
+* (@klein0r) App order (enabled / slot) is transferred to the device on connect
+* (@klein0r) Custom apps are transferred even if disabled (visibility is controlled by the device)
+* (@klein0r) Fixed custom apps with invalid object ID being transferred as background-only apps
+* (@klein0r) History apps keep refreshing after errors and retry if the history instance was unavailable
+* (@klein0r) Custom and expert apps get a lifetime if "Delete apps when instance is stopped" is enabled (removed from device if the adapter is not running anymore)
+* (@klein0r) App names may contain digits, `_` and `-` now
+* (@klein0r) Added states `apps.<name>.present` and `apps.<name>.lastError`
+* (@klein0r) Failed steps when transferring data to the device (settings, apps, indicators, ...) are retried with the next refresh
+* (@klein0r) Apps which have been removed from the device (e.g. scripts) are cleaned up properly
+* (@klein0r) Apps are removed in parallel when the instance is stopped (and not at all if the device is not reachable)
+* (@klein0r) Changing `apps.<name>.slot` moves the app to the new position (other apps are shifted) - order and enabled state are managed by ioBroker
+* (@klein0r) Added internet radio (`audio.radio.*`) for devices which support it (e.g. TC002)
+* (@klein0r) Fixed display duration of custom and history apps (setting was ignored)
+* (@klein0r) Scroll speed of custom apps is a percentage of the default speed now (up to 500 %) and does not force scrolling of short texts anymore
+* (@klein0r) Improved instance configuration (dependencies between fields, validation, labels and help texts)
+* (@klein0r) Migrated all HTTP requests to the new library [awtrix-ng-api](https://www.npmjs.com/package/awtrix-ng-api)
+* (@klein0r) Fixed screen content download (`display.content`)
+* (@klein0r) Added additional meta information (soc and board type)
 * (@klein0r) Recommended Awtrix NG version is now 1.1.2
 * (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
@@ -221,17 +295,6 @@ Siehe [Dokumentation](https://blueforcer.github.io/awtrix-ng/reference/payload/)
 
 * (@klein0r) Removed option to automatically delete other apps
 * (@klein0r) Updated logo
-
-### 0.0.8 (2026-08-06)
-
-* (@klein0r) Added more settings
-* (@klein0r) Fixed Blockly code generation
-
-### 0.0.7 (2026-08-05)
-
-* (@klein0r) Removed device update state and notification
-* (@klein0r) Fixed rtttl endpoint
-* (@klein0r) Improved error handling
 
 ## License
 

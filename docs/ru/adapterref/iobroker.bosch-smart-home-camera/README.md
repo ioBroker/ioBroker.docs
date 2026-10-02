@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bosch-smart-home-camera/README.md
 title: ioBroker.bosch-smart-home-camera
-hash: RDr3O0gf0d/t02Aw84Y+b17ynD5zNABiKmixQVxNuPU=
+hash: ooTH2kNAZDGBdbuMATe4N18Gutd4WdTsT5IOF0U13IQ=
 ---
 # ioBroker.bosch-smart-home-camera
 
@@ -24,7 +24,7 @@ hash: RDr3O0gf0d/t02Aw84Y+b17ynD5zNABiKmixQVxNuPU=
 
 **Поддерживаемые модели:** Eyes Outdoor (Gen1), Eyes Outdoor II (Gen2), 360 Indoor (Gen1), Eyes Indoor II (Gen2) — настройка времени и параметров для каждой модели выполняется автоматически.
 
-> **Официального API нет.** Этот адаптер использует API Bosch Cloud, полученный путем обратного проектирования и обнаруженный с помощью анализа трафика mitmproxy в официальном приложении Bosch Smart Camera.
+> **Официального API нет.** Этот адаптер использует API Bosch Cloud, полученный методом обратного проектирования и обнаруженный с помощью анализа трафика mitmproxy в официальном приложении Bosch Smart Camera.
 
 ---
 
@@ -43,6 +43,7 @@ hash: RDr3O0gf0d/t02Aw84Y+b17ynD5zNABiKmixQVxNuPU=
 - [Мост MQTT](#mqtt-bridge)
 - [Анализ камер с помощью ИИ](#ai-camera-analysis)
 - [RTSP Front-Door без учетных данных](#credential-free-rtsp-front-door) — флагманская функция, блок-схема и конфигурация.
+- [Локальный интерфейс данных](#local-data-interface)
 - [Внешние регистраторы (BlueIris, Frigate)](#external-recorders-blueiris-frigate)
 - [Разработка](#development)
 - [Существующая ландшафтная конфигурация адаптеров](#existing-adapter-landscape)
@@ -91,7 +92,7 @@ API, полученный методом обратного проектиров
 | **Мост событий MQTT (движение / звук / человек)**                                                | н/д _(собственная шина событий HA)_                                                                               | н/д _(однократный запуск)_                                                                                  | ✅ admin-config                                                                                     | н/д                                                                                                                  | ❌                                                                                              | ❌                                                                            |
 | **Apple HomeKit (через мост HA Core)**                                                           | ✅ документировано                                                                                                 | н/д                                                                                                         | н/д                                                                                                | н/д                                                                                                                  | н/д                                                                                            | н/д                                                                          |
 | **Планировщик моментальных снимков / замедленная съемка**                                        | ✅ примеры/YAML                                                                                                    | ✅ Примеры использования cron + ffmpeg                                                                       | ✅ Пример Blockly                                                                                   | н/д                                                                                                                  | ❌                                                                                              | ❌                                                                            |
-| **Встроенная карточка/виджет панели управления**                                                 | ✅ 2 карты Lovelace (одна + сетка)                                                                                 | н/д                                                                                                         | ✅ 2 виджета vis-2 — BoschCamera + BoschOverview многокамерная система                              | н/д                                                                                                                  | ✅ _(сама по себе является веб-панелью управления)_                                             | ❌                                                                            |
+| **Встроенная карточка/виджет панели управления**                                                 | ✅ 2 карты Лавлейс (одна + сетка)                                                                                  | н/д                                                                                                         | ✅ 2 виджета vis-2 — BoschCamera + BoschOverview многокамерная система                              | н/д                                                                                                                  | ✅ _(сама по себе является веб-панелью управления)_                                             | ❌                                                                            |
 | **Режим «картинка в картинке» сохраняется во вкладке, работающей в фоновом режиме.**             | ✅`hass-suspend-when-hidden` keep-alive _(v14.0.0)_                                                                | н/д (без пользовательского интерфейса)                                                                      | ✅ Собственная функция PiP + восстановление после зависания, пульсация Web-Worker _(v1.7.2/v1.7.3)_ | н/д (без пользовательского интерфейса)                                                                               | ✅ reconnect-timeout + freeze-recovery _(v0.4.0-alpha)_                                         | н/д (без пользовательского интерфейса)                                       |
 | **Резервный вариант удаленного облачного ретранслятора**                                         | ✅ Автоматическое переключение при недоступности локальной сети                                                    | ✅ удаленный режим                                                                                           | ❌ _(Предназначено только для местного рынка)_                                                      | ❌ _(Только по локальной сети; статус/события через облако)_                                                          | ◑ наследует интерфейс командной строки                                                         | ◑ Дистанционное управление (ручное)                                          |
 | **Интерфейс администратора/конфигурации на основе браузера**                                     | ✅ Схема конфигурации высокой доступности                                                                          | н/д (CLI)                                                                                                   | ✅ Вкладки JSON-конфигурации                                                                        | н/д (с использованием LLM; настройка через CLI / MCP-клиент)                                                         | ✅ Страница настроек                                                                            | ◑ узел конфигурации редактора                                                |
@@ -227,7 +228,7 @@ sequenceDiagram
     Note over Tick,DP: reactive re-fetch (5 min cooldown) on any 5xx
 ```
 
-### В случае отключения облачных сервисов может потребоваться резервное подключение к локальной сети.
+### Резервное подключение к локальной сети во время отключения облачных сервисов.
 
 ```mermaid
 sequenceDiagram
@@ -304,7 +305,7 @@ sequenceDiagram
 | `ai_score`                                                                                                          | число                       | Анализ с помощью ИИ: оценка степени подозрения 1 (доброкачественный) – 10 (высокая степень подозрения)                                                                                                                |
 | `ai_last_analysis`                                                                                                  | число                       | Анализ с использованием ИИ: временная метка epoch-ms последнего завершенного анализа.                                                                                                                                 |
 | `ai_analyze`                                                                                                        | кнопка                      | Запустить анализ ИИ на основе последнего снимка состояния системы.                                                                                                                                                    |
-| `image_rotation_180`                                                                                                | логический                  | Переворот изображения на 180°                                                                                                                                                                                         |
+| `image_rotation_180`                                                                                                | логический                  | Отражение изображения на 180°                                                                                                                                                                                         |
 | `livestream_enabled`                                                                                                | логический                  | Включение/отключение прямой трансляции RTSP                                                                                                                                                                           |
 | `stream_url`                                                                                                        | нить                        | `rtsp://user:pwd@host:port/rtsp_tunnel?inst=1&…`                                                                                                                                                                      |
 | `stream_url_sub`                                                                                                    | нить                        | URL подпотока (`inst=2` экспериментальный)                                                                                                                                                                            |
@@ -369,6 +370,7 @@ sequenceDiagram
 | `firmware_update_available`                                                                                         | логический                  | Доступно обновление прошивки                                                                                                                                                                                          |
 | `firmware_updating`                                                                                                 | логический                  | В данный момент выполняется установка прошивки.                                                                                                                                                                       |
 | `firmware_install`                                                                                                  | кнопка                      | **v1.8.0** — запись `true` установить ожидающее обновление прошивки (защищено от двойного нажатия или уже выполняющейся установки)                                                                                     |
+| `local_data_interface`                                                                                              | нить                        | Состояние локального интерфейса данных: `active` /`inactive` /`unsupported` /`unknown` Запрос выполняется только для камер Gen2 с прошивкой 9.40.105 или более новой версии.                                           |
 | `commissioned`                                                                                                      | логический                  | `GET /commissioned` — Камера настроена, подключена и введена в эксплуатацию                                                                                                                                           |
 | `unread_events_count`                                                                                               | число                       | Непрочитанные облачные события (из `GET /v11/events`)                                                                                                                                                                 |
 | `mark_all_read`                                                                                                     | кнопка                      | Помечает все облачные события как прочитанные.                                                                                                                                                                        |
@@ -393,7 +395,7 @@ sequenceDiagram
 | `wifi_ssid`                                                                                                         | нить                        | SSID Wi-Fi камеры                                                                                                                                                                                                     |
 | `lens_elevation`                                                                                                    | число                       | Gen2 Outdoor II — параметр высоты установки                                                                                                                                                                           |
 
-Данные, доступные в масштабе всего адаптера, находятся в разделе `info.*`:
+Данные, относящиеся ко всему адаптеру, находятся в пределах `info.*`:
 
 | Точка данных                    | Описание                                                              |
 | ------------------------------- | --------------------------------------------------------------------- |
@@ -509,7 +511,7 @@ iobroker restart vis-2
 - **Статус и безопасность** — оповещение об отключении камеры, мониторинг износа FCM-push, срабатывание аварийной сирены, подавление оповещений в зависимости от погодных условий, отключение звука в спящем режиме, координация с гаражными воротами, расписание ночного режима.
 - **Планировщик моментальных снимков / замедленная съемка** —[`docs/examples/snapshot-blockly.md`](./docs/examples/snapshot-blockly.md) : ежечасный планировщик Blockly XML + JavaScript (cron с 06:00 до 22:00), а также вариант, срабатывающий при обнаружении движения, с ограничением по времени в 15 минут. Запись `snapshot_trigger`, перечитывает в ответ `snapshot_path` Включает в себя однострочный скрипт ffmpeg для сборки собранных JPEG-файлов в таймлапс в формате mp4.
 
-Откройте JavaScript-адаптер → Скрипты → Создать новый Blockly (или JavaScript) → Вставьте. Замените `<CAM_UUID>` /`<PRESENCE_OID>` В папке /lux-sensor/Telegram-bot находятся заполнители с вашими фактическими идентификаторами объектов из вкладки «Объекты». В [файле README](./docs/examples/README.md) этой папки содержится полный индекс, необходимые компоненты и шаблоны вызовов адаптеров уведомлений (Telegram, signal-cmb, Pushover, email).
+Откройте JavaScript-адаптер → Скрипты → Создать новый Blockly (или JavaScript) → Вставьте. Замените `<CAM_UUID>` /`<PRESENCE_OID>` / lux-sensor / Telegram-bot placeholders with your actual object IDs from the Objects tab. The folder's [README](./docs/examples/README.md) has the full index, prerequisites, and notification-adapter call patterns (Telegram, signal-cmb, Pushover, email).
 
 → **Внесите свой вклад** : разместите рабочий скрипт в виде блока кода в [теме форума ioBroker](https://forum.iobroker.net/topic/84538) или создайте запрос на слияние (PR) — примеры от сообщества приветствуются.
 
@@ -537,7 +539,7 @@ flowchart TD
 Прямая трансляция **по умолчанию отключена и активна по желанию** — каждая открытая сессия учитывается в квоте локальных сессий Bosch и поддерживает работу TLS-прокси и сторожевого таймера круглосуточно, поэтому адаптер никогда не запускает их самостоятельно. В отключенном состоянии прокси для каждой камеры не прослушивает запросы. `cameras.<id>.stream_url` остается пустым, и любой go2rtc/рекордер, направленный на этот порт, получает `connection refused` Снимки экрана и события движения работают и без него.
 
 1. Набор `cameras.<id>.livestream_enabled = true` (для каждой камеры). Сессия открывается, прокси-сервер начинает прослушивание, и `cameras.<id>.stream_url` заселен.
-2. Скопируйте этот URL-адрес в go2rtc /`iobroker.cameras` / ваш диктофон.
+2. Скопируйте этот URL в go2rtc /`iobroker.cameras` / ваш диктофон.
 3. Если go2rtc (или программа записи) работает на **другом хосте** , отличном от ioBroker, то используется значение по умолчанию. `127.0.0.1` Связать оттуда невозможно → всё ещё`connection
    refused ` Включите параметр **«Предоставить доступ к RTSP-прокси в локальной сети»** в настройках адаптера и укажите **внешнее имя хоста / IP-адрес локальной сети** (см. шаги по настройке LAN-рекордера ниже); в этом случае URL-адрес будет использовать IP-адрес вашей локальной сети хоста ioBroker вместо внешнего имени хоста.` 127.0.0.1`.
 
@@ -694,6 +696,22 @@ sequenceDiagram
 
 ---
 
+## Локальный интерфейс данных
+
+Камеры Gen2 с прошивкой 9.40.105 или более новой версии могут предоставлять доступ к локальному интерфейсу передачи данных (его необходимо включить в настройках камеры в приложении Bosch; пароль указан на наклейке камеры). Адаптер считывает свое состояние в `cameras.<id>.local_data_interface` Облако никогда не возвращает пароль.
+
+Для прямой трансляции с камеры введите пароль от наклейки в разделе «Настройки» → «RTSP / Трансляция» → _«Пароли камер»_ , как указано ниже. `<camera id or its first 8 characters>=<password>` (несколько записей, разделенных пробелом или запятой). Поле хранится в зашифрованном виде. Когда статус равен `active` и для этой камеры установлен пароль:
+
+- `stream_url` (и `stream_host` /`stream_port` /`stream_path`) направить прямо в камеру (`rtsps://localuser:<password>@<camera LAN IP>:9554/rtsp_tunnel?line=1&inst=<1|2>&enableaudio=1`), со звуковой дорожкой AAC. `inst` следует `stream_quality` (`high` = 1, `low` = 2). `stream_url_sub` остается пустым.
+- Камера позволяет одновременно вести лишь несколько (около 3) сеансов RTSP.
+- Для этой камеры не открыта сессия потоковой передачи в облако Bosch. Если LAN-адрес камеры неизвестен или не является частным адресом, потоковая передача не запускается (нет резервного варианта с облаком), и в журнале указывается причина.
+- Камера прерывает трансляцию, когда включен режим конфиденциальности.
+- В URL-адресе содержится пароль, поэтому относитесь к нему с осторожностью. `stream_url` как учетные данные. Адаптер никогда не записывает пароль в свой журнал.
+
+Без пароля или при отсутствии пароля. `active` Потоковая передача работает точно так же, как и раньше. Статус обновляется на этапе медленной диагностики и всякий раз, когда включается прямая трансляция для камеры, защищенной паролем. Выключите и снова включите прямую трансляцию после изменения интерфейса или пароля.
+
+---
+
 ## Внешние регистраторы (BlueIris, Frigate)
 
 ```mermaid
@@ -819,6 +837,23 @@ HA остается **эталонной реализацией** — функц
 
 ## Changelog
 
+### 1.10.1 (2026-09-30)
+- Fixed: the direct local stream URL now uses `/rtsp_tunnel?line=1&inst=<1|2>&enableaudio=1` instead of `/live`, so the stream carries audio and follows the `stream_quality` setting (high = inst 1, low = inst 2).
+
+### 1.10.0 (2026-09-30)
+- New: local data interface. Read-only `local_data_interface` status state per camera (Gen2, firmware 9.40.105 or newer). With an optional per-camera password (Settings → RTSP / Stream) and an active interface, `stream_url` points directly at the camera and no cloud stream session is used.
+- Fixed: the FCM `Invalid EC key` fix (multi-segment crypto-key/salt headers) is now applied at runtime by wrapping the push decryption in the adapter itself; the `patch-package` postinstall step is removed.
+- CI: adapter tests also run on Node 26.
+
+### 1.9.0 (2026-08-20)
+- New: AI camera analysis. Writing `true` to `cameras.<id>.ai_analyze` posts the latest snapshot to a user-configured HTTPS endpoint and stores the returned description and score (opt-in, AI tab in the settings).
+- New: camera soft reset, hard reset (with expiring confirmation) and rename states.
+- New: Gen2 LED and white-balance tuning states.
+- Fixed: SSRF hole in the AI endpoint configuration (private, loopback and link-local targets are rejected) and a hard-reset confirmation that never expired.
+
+### 1.8.4 (2026-08-19)
+- Fixed: FCM push notifications could be dropped or crash on a malformed message (`Invalid EC key`) because multi-segment crypto-key/salt headers were extracted incorrectly.
+
 ### 1.8.3 (2026-07-15)
 Docs-only release: fixed the MCP row in the shared Integration Comparison table (shares the Python CLI's `bosch_config.json` rather than its own OAuth2 PKCE flow) and a broader README accuracy pass (state tree, config options, RTSP front-door emphasis). No functional changes.
 
@@ -931,7 +966,7 @@ Security: TLS certificate verification for Bosch cloud and proxy connections.
 Fixes motion silently freezing, plus a configurable stream session length and an opt-in idle-stream reaper.
 
 - **Fix — motion / snapshots no longer silently freeze after a while** (forum #84538): the cameras kept detecting motion in the Bosch app, but `last_motion_at` / `last_event_image_at` stopped updating and only an adapter restart brought them back. Root cause: the FCM push library does not surface a raw TCP socket death (its health check stays "connected"), and event polling was only ever started when FCM *failed at startup* — so a silently-dead push connection left motion frozen indefinitely. Like Home Assistant, the adapter now runs an always-on safety-net event poll: it fetches events roughly every 5 minutes while FCM looks healthy, and every poll interval once FCM is known to be down, so motion is never missed for longer than the safety window regardless of FCM.
-- **New setting — stream `maxSessionDuration` ** (RTSP / Stream tab, `0` = camera default, range 600–21600 s): a continuous go2rtc / recorder pull could drop with a timeout at the camera's 3600 s session boundary before the adapter's renewed session took over. Raise this (e.g. 5000) to keep the stream running longer between renewals, without editing the URL by hand.
+- **New setting — stream `maxSessionDuration`** (RTSP / Stream tab, `0` = camera default, range 600–21600 s): a continuous go2rtc / recorder pull could drop with a timeout at the camera's 3600 s session boundary before the adapter's renewed session took over. Raise this (e.g. 5000) to keep the stream running longer between renewals, without editing the URL by hand.
 - **New setting — turn off unwatched live streams** (API requests / Power saving tab, opt-in, default off, experimental): an enabled live stream keeps occupying one of the 3 shared Bosch sessions even when nobody is watching. When enabled, the adapter reads how many clients are actually pulling the local RTSP proxy and, after the configured idle timeout with none, turns the live stream off to free the session. A stream that something is really watching is never stopped.
 - **New settings — diagnostic polling** (API requests / Power saving tab): a *Poll diagnostic datapoints* switch (default on) and a separate *Diagnostic poll interval* (default 300 s, range 60–7200 s). The rarely-changing diagnostics — motion zones, light/ambient config, alarm settings, ONVIF/RCP info and cloud feature flags — can now be slowed down or turned off entirely to cut cloud requests, independently of the main poll interval. The core states (online, privacy, motion, snapshots, light, livestream) are unaffected.
 - **Quieter log:** the RTSP Digest-rotation `401` (expected, self-healing churn when Bosch rotates the stream credentials and the client reconnects) is now logged at debug instead of warn.
@@ -940,8 +975,8 @@ Fixes motion silently freezing, plus a configurable stream session length and an
 Options to reduce load on the shared Bosch session limit, plus dependency updates.
 
 - **New "API requests / Power saving" settings tab.** Your cameras share a hard limit of only 3 simultaneous Bosch sessions across the Bosch app, Home Assistant, this adapter and any recorder, and the cloud is polled per camera — the new options let you cut that load. Request-heavy options are off by default on a fresh install; motion, manual snapshots and on-demand live streams keep working regardless.
-- ** `startup_snapshot` (default off):** the adapter no longer opens a Bosch session per camera at start just to learn the online state. Online/offline is now resolved the cheap, session-less way (a LAN TCP ping, falling back to the cloud `/ping` and `/commissioned` checks). Turn it on to fetch a real boot image per camera.
-- ** `poll_interval` (default 60 s, range 30–3600 s):** configurable cloud poll cadence. Each tick is several cloud requests per camera, so raising it reduces request volume roughly proportionally; motion push (FCM) stays near-instant.
+- **`startup_snapshot` (default off):** the adapter no longer opens a Bosch session per camera at start just to learn the online state. Online/offline is now resolved the cheap, session-less way (a LAN TCP ping, falling back to the cloud `/ping` and `/commissioned` checks). Turn it on to fetch a real boot image per camera.
+- **`poll_interval` (default 60 s, range 30–3600 s):** configurable cloud poll cadence. Each tick is several cloud requests per camera, so raising it reduces request volume roughly proportionally; motion push (FCM) stays near-instant.
 - **Widget "Auto-refresh indoor snapshot" (default off):** the indoor snapshot pulse (360° every 5 s, Gen2 indoor every 10 s) is now opt-in per widget, so a dashboard tile no longer repeatedly opens a Bosch session unless you ask it to.
 - **Dependencies:** `axios` 1.16.1 → 1.17.0 (security hardening) and `@aracna/core` 1.4.4 → 1.5.0 (matches the `@aracna/fcm` peer requirement).
 
@@ -1078,12 +1113,12 @@ Hotfix — `upsertState` cache / DB divergence.
 ### 0.7.14 (2026-05-24)
 Live-audit pass on the Indoor II camera surfaced eight latent bugs in the data plane, all fixed in one round.
 
-- ** `wifi_signal_pct` stuck at 0**: the `wifiinfo` endpoint returns `signalStrength` as a percent (0–100), not dBm — verified live against firmware 9.40.102. v0.7.7 had assumed dBm semantics and looked for a `signalStrengthPercentage` field that does not exist. The percent now maps to `wifi_signal_pct` directly.
-- ** `wifi_signal_strength` DP retired**: it was labelled "dBm" but always received percent values from v0.7.7 onward. v0.7.14 migration removes the DP from existing instances so users don't see two contradictory readings.
-- ** `trouble_disconnect` no longer classified as motion**: pre-v0.7.14 the `fetchAndProcessEvents` polling fallback wrote every cloud event — including connectivity status events (`trouble_disconnect`, `trouble_reconnect`) — into `last_motion_at` / `last_motion_event_type` and flipped `motion_active=true`. v0.7.14 limits motion DPs to an allowlist (`motion`, `person`, `audio_alarm`); status events are info-logged and skipped.
+- **`wifi_signal_pct` stuck at 0**: the `wifiinfo` endpoint returns `signalStrength` as a percent (0–100), not dBm — verified live against firmware 9.40.102. v0.7.7 had assumed dBm semantics and looked for a `signalStrengthPercentage` field that does not exist. The percent now maps to `wifi_signal_pct` directly.
+- **`wifi_signal_strength` DP retired**: it was labelled "dBm" but always received percent values from v0.7.7 onward. v0.7.14 migration removes the DP from existing instances so users don't see two contradictory readings.
+- **`trouble_disconnect` no longer classified as motion**: pre-v0.7.14 the `fetchAndProcessEvents` polling fallback wrote every cloud event — including connectivity status events (`trouble_disconnect`, `trouble_reconnect`) — into `last_motion_at` / `last_motion_event_type` and flipped `motion_active=true`. v0.7.14 limits motion DPs to an allowlist (`motion`, `person`, `audio_alarm`); status events are info-logged and skipped.
 - **Stale events no longer replay on every restart**: `_lastSeenEventId` is in-memory only, so after each adapter restart the newest cached cloud event was re-processed — including four-week-old `trouble_disconnect` events from offline Gen1 cameras. Side effects (motion_active flip, auto-snapshot, MQTT publish) are now skipped for events older than 15 minutes; `last_motion_at` still updates as a historical "last motion seen" record.
-- ** `lan_reachable` refreshes per poll**: pre-v0.7.14 the TCP-ping only fired during cloud outages, so `lan_reachable` stayed at its `false` default during normal operation. v0.7.14 fires a fire-and-forget per-camera TCP-ping inside every `_pollSingleCameraState` tick (no impact on poll latency).
-- ** `online` flips true under privacy mode**: the snapshot-based reachability check fails when the camera is in privacy mode, so `online` stayed at the default `false` even when the camera was clearly alive (TCP-pings succeed, cloud state syncs). v0.7.14 also flips `online=true` whenever the new periodic TCP-ping succeeds.
+- **`lan_reachable` refreshes per poll**: pre-v0.7.14 the TCP-ping only fired during cloud outages, so `lan_reachable` stayed at its `false` default during normal operation. v0.7.14 fires a fire-and-forget per-camera TCP-ping inside every `_pollSingleCameraState` tick (no impact on poll latency).
+- **`online` flips true under privacy mode**: the snapshot-based reachability check fails when the camera is in privacy mode, so `online` stayed at the default `false` even when the camera was clearly alive (TCP-pings succeed, cloud state syncs). v0.7.14 also flips `online=true` whenever the new periodic TCP-ping succeeds.
 - **Intrusion DPs mirror real cloud values**: `intrusion_sensitivity` and `intrusion_distance` were never read from `/intrusionDetectionConfig` — they showed only the DP defaults (3, 5). New `_pollIntrusionConfig` runs in every Gen2 state poll, caches the full body, and mirrors `sensitivity` + `distance` to the DPs.
 - **Intrusion writes succeed**: Bosch's `intrusionDetectionConfig` endpoint rejects DELTA PUTs with HTTP 400 — pre-v0.7.14 sent `{sensitivity: N}` or `{detectionDistance: N}`. v0.7.14 reads the full config from the write-cache (or fetches it on first write), merges the user's change, and PUTs the full body. Also: the `distance` field is named `distance`, not `detectionDistance`. Verified live with `{"enabled":true,"sensitivity":4,"detectionMode":"ALL_MOTIONS","distance":8}` → HTTP 204.
 - **HTTP 443 surfaces clearly**: Bosch returns 443 ("non-standard") on every config-write while the camera is in privacy mode. HA already maps this to a `privacy_blocked` error; v0.7.14 mirrors that and throws "cam is in privacy mode, disable privacy first" instead of a generic axios error.
@@ -1128,7 +1163,7 @@ MQTT Bridge.
 
 - **MQTT Bridge** (`src/lib/mqtt_bridge.ts`): optional publisher that connects to any MQTT broker on adapter ready and publishes `motion` / `person` / `audio_alarm` events as JSON payloads under configurable topic prefixes. Supports plain MQTT and TLS (`mqtts://`), optional username/password auth. Wired into all three event paths: FCM push, polling fallback, synthetic triggers.
 - **Admin UI tab "MQTT Bridge"**: 6 config fields — enable toggle, broker host, port, TLS, username, password, topic prefix. All broker-detail fields hidden when bridge is disabled.
-- **npm dep `mqtt@^5.15.1` ** added to `dependencies`.
+- **npm dep `mqtt@^5.15.1`** added to `dependencies`.
 - **+13 tests** in `test/unit/main_mqtt_bridge.spec.ts`.
 - **VIS-2 Camera Tile widget (alpha)**: custom `bosch-camera-tile` widget for VIS-2 dashboards — displays `snapshot_path` image with auto-refresh, privacy-mode overlay badge, and stream URL copy button. See `widgets/bosch-camera-tile/` and `## VIS-2 Camera Tile widget (alpha)` section.
 
@@ -1143,7 +1178,7 @@ LAN-fallback feature set.
 
 - **Coordinator outage-ping sweep**: when the state-poll GET returns 5xx or fails, a throttled (once per 30 s) fan-out TCP-connect probe runs against every known camera on port 443 so `cameras.<id>.lan_reachable` has a fresh value during cloud outages.
 - **Persistent LAN-IP map**: `cameras.<id>.lan_ip` is written on every successful live-session open (`upsertSession`). On adapter start the map is reloaded from these states so the TCP-ping path has a working address book even before the first successful cloud refresh.
-- ** `cameras.<id>.lan_reachable` state**: boolean DP (read-only). Always reflects the last TCP-probe result; honors the post-write grace period.
+- **`cameras.<id>.lan_reachable` state**: boolean DP (read-only). Always reflects the last TCP-probe result; honors the post-write grace period.
 - **Post-write grace period (30 s)**: after a successful local RCP write the camera briefly rotates Digest creds and tears down its HTTPS endpoint. `_localWriteAt` is stamped on every successful local write; `isLanReachable()` treats the camera as reachable during the 30 s window so the DP does not flap to `false` after every privacy/light toggle.
 - **Cloud-degraded startup**: when `fetchCameras()` fails on startup (Bosch cloud 5xx), the adapter now rehydrates known camera IDs from the ioBroker object DB and kicks an immediate LAN-ping sweep instead of silently returning. Adapter stays alive and becomes fully operational once the cloud recovers.
 - **Front-light Gen2 LOCAL RCP fallback**: `_applyLightingState()` now catches cloud errors and retries via `_localWriteFrontLight()` (RCP `0x0c22`, T_WORD, num=1, brightness 0–100).
@@ -1161,9 +1196,9 @@ Notification hooks for maintenance lifecycle and camera availability changes.
 ### 0.7.0 (2026-05-19)
 Cloud maintenance / outage discovery.
 
-- ** `info.maintenance.state` ** — string DP: `active` / `scheduled` / `past` / `recent` / `unknown` / `idle`. Classifies the latest announcement relative to the current time.
-- ** `info.maintenance.title`, `.link`, `.scheduled_start`, `.scheduled_end`, `.summary`, `.source`, `.camera_relevant` ** — full parsed announcement fields.
-- ** `info.maintenance.last_fetched` ** — ISO 8601 timestamp of the last successful community site contact.
+- **`info.maintenance.state`** — string DP: `active` / `scheduled` / `past` / `recent` / `unknown` / `idle`. Classifies the latest announcement relative to the current time.
+- **`info.maintenance.title`, `.link`, `.scheduled_start`, `.scheduled_end`, `.summary`, `.source`, `.camera_relevant`** — full parsed announcement fields.
+- **`info.maintenance.last_fetched`** — ISO 8601 timestamp of the last successful community site contact.
 - **Fetch cadence**: one immediate fetch at adapter startup, then every 3 600 s. Reactive re-fetch (5 min cooldown) on any 5xx from the camera cloud API.
 - **Fallback chain**: primary RSS (Wartungsarbeiten → Statusmeldungen) → HTML board page.
 - **Berlin TZ** (MEZ/MESZ, DST-aware) parsed from German DD.MM.YYYY HH:MM–HH:MM text.
@@ -1178,9 +1213,9 @@ FCM push channel now self-heals after transient socket drops.
 ### 0.6.1 (2026-05-18)
 Cleanup: removed legacy iOS FCM code paths.
 
-- ** `FCM_IOS_APP_ID` constant removed** — the adapter has used only the Android Firebase key since its first release; the constant was dead code.
-- ** `mode: "ios"` dispatch chain removed** — `FcmListenerOptions.mode`, `FcmCredentials.mode`, and `FcmRawCredentials.mode` now accept `"android" | "auto"` only.
-- ** `_registerWithCbs()` always posts `deviceType: "ANDROID"` ** — the `"IOS"` branch is gone.
+- **`FCM_IOS_APP_ID` constant removed** — the adapter has used only the Android Firebase key since its first release; the constant was dead code.
+- **`mode: "ios"` dispatch chain removed** — `FcmListenerOptions.mode`, `FcmCredentials.mode`, and `FcmRawCredentials.mode` now accept `"android" | "auto"` only.
+- **`_registerWithCbs()` always posts `deviceType: "ANDROID"`** — the `"IOS"` branch is gone.
 - **Legacy-creds back-compat**: users who stored credentials with `mode: "ios"` from a hypothetical pre-cleanup install will have their persisted mode rewritten to `"android"` on first start — no re-registration triggered.
 
 ### 0.6.0 (2026-05-16)
@@ -1190,13 +1225,13 @@ Security hardening + reliability round.
 - **FCM credentials persisted across restarts** (`info.fcm_creds`, encrypted). Previously every adapter start triggered a full re-registration.
 - **Camera-state poll runs per-camera in parallel** (`Promise.all`). With 4 cameras the per-tick wall-clock drops from ~N × 250 ms to ~250 ms.
 - **Timer hygiene**: `motion_active` auto-clear (90 s) and snapshot-idle teardown (60 s) now use adapter-core's `this.setTimeout` / `this.clearTimeout`, so adapter unload cancels them reliably.
-- **Snapshot-saved log line is now `debug` ** (was `info`) — it was firing on every motion event and flooding logs on busy installations.
+- **Snapshot-saved log line is now `debug`** (was `info`) — it was firing on every motion event and flooding logs on busy installations.
 - **+51 unit tests** covering the new encryption paths, FCM credential persistence, livestream toggle teardown, event processing dedup, siren / wallwasher handlers, idle teardown window, and reachability tracker. 436 tests total, 0 failing.
 
 ### 0.5.5 (2026-05-16)
 Two forum-driven bugfixes reported against v0.5.4.
 
-- ** `motion_active` now flips on the FCM-polling-fallback path** (`info.fcm_active="polling"`). The shared post-event helper (`_onMotionFired()`) was only being called by the real FCM event handler and the synthetic motion trigger — not by `fetchAndProcessEvents()`. Affected users saw `last_motion_at` update correctly while `motion_active` stayed permanently `false`.
+- **`motion_active` now flips on the FCM-polling-fallback path** (`info.fcm_active="polling"`). The shared post-event helper (`_onMotionFired()`) was only being called by the real FCM event handler and the synthetic motion trigger — not by `fetchAndProcessEvents()`. Affected users saw `last_motion_at` update correctly while `motion_active` stayed permanently `false`.
 - **Light state now syncs back from the Bosch app**. The 30 s state poll now derives `front_light_enabled` from `frontLightSettings.brightness > 0` and `wallwasher_enabled` from `max(topLed, bottomLed) brightness > 0`, so app toggles propagate within ~30 s.
 
 ### 0.5.4 (2026-05-15)
@@ -1205,24 +1240,24 @@ Login UX overhaul plus three small quality fixes.
 - **One-click Bosch login button** in the instance settings. The browser-OAuth URL is also published as the `info.login_url` datapoint and rendered as a clickable link in the Admin UI.
 - **No more terminate/restart loop while waiting for login**. If a stale `redirect_url` or an expired PKCE pair causes the code exchange to fail, the adapter now clears the stale state, regenerates a fresh login URL, sets `info.connection_status=auth_error`, and stays alive in awaiting-login mode.
 - **Reset-login button**: new `Reset login (clear tokens & restart)` button in the instance settings.
-- ** `info.connection_status` text state** (`logged_out` | `awaiting_login` | `connected` | `auth_error`).
-- ** `info.last_login_at` ISO timestamp** of the most recent successful token mint.
-- **Privacy mode no longer flips `online=false` **: an indoor camera in permanent privacy mode used to drift offline after a few startup-snapshot retries.
-- ** `last_motion_at` is now valid ISO 8601**: strips the trailing `[zone-id]` from Bosch's `ZonedDateTime#toString` format so Blockly scripts and VIS widgets can parse the field with standard tooling.
+- **`info.connection_status` text state** (`logged_out` | `awaiting_login` | `connected` | `auth_error`).
+- **`info.last_login_at` ISO timestamp** of the most recent successful token mint.
+- **Privacy mode no longer flips `online=false`**: an indoor camera in permanent privacy mode used to drift offline after a few startup-snapshot retries.
+- **`last_motion_at` is now valid ISO 8601**: strips the trailing `[zone-id]` from Bosch's `ZonedDateTime#toString` format so Blockly scripts and VIS widgets can parse the field with standard tooling.
 
 ### 0.5.3 (2026-05-14)
 Five forum-driven improvements focused on the BlueIris / NVR-recorder integration.
 
 - **RTSP-aware proxy with transparent Digest auth**: the TLS proxy now speaks RTSP and handles the Bosch Digest auth dance itself. Clients (BlueIris, iobroker.cameras, Frigate) connect to a clean `rtsp://host:port/rtsp_tunnel?inst=1&…` URL — no credentials in the URL anymore.
 - **Snapshot session keep-alive (60 s idle window)**: rapid `snapshot_trigger` bursts reuse the warm Bosch session instead of paying `PUT /v11/.../connection` on every snap.
-- ** `cameras.<id>.motion_active` ** (new, boolean, read-only): edge-trigger DP, flips `true` on every motion / person / audio event, auto-clears to `false` after 90 s.
-- ** `cameras.<id>.last_event_image` ** + **Auto-snapshot on motion**: every FCM motion / person / audio_alarm event now fetches a fresh JPEG and writes it as a `data:image/jpeg;base64,…` string.
-- ** `cameras.<id>.stream_url_sub` ** (new, experimental): sub-stream URL via `inst=2` alongside the main `inst=1` `stream_url`.
+- **`cameras.<id>.motion_active`** (new, boolean, read-only): edge-trigger DP, flips `true` on every motion / person / audio event, auto-clears to `false` after 90 s.
+- **`cameras.<id>.last_event_image`** + **Auto-snapshot on motion**: every FCM motion / person / audio_alarm event now fetches a fresh JPEG and writes it as a `data:image/jpeg;base64,…` string.
+- **`cameras.<id>.stream_url_sub`** (new, experimental): sub-stream URL via `inst=2` alongside the main `inst=1` `stream_url`.
 
 ### 0.5.2 (2026-05-14)
 Per-camera livestream switch — default OFF.
 
-- ** `cameras.<id>.livestream_enabled` ** (new, boolean, writable, default `false`): explicit on/off switch for the continuous RTSP livestream. Streaming is now opt-in.
+- **`cameras.<id>.livestream_enabled`** (new, boolean, writable, default `false`): explicit on/off switch for the continuous RTSP livestream. Streaming is now opt-in.
 - **Snapshots remain unaffected**: every `snapshot_trigger` still opens a session, fetches the JPEG, and then — when `livestream_enabled` is `false` — closes the session right after.
 
 ### 0.5.1 (2026-05-14)

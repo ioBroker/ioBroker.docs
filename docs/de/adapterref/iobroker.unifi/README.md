@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.unifi/README.md
 title: ioBroker.unifi
-hash: TTW2nHsM7XdfqKl3Pj83+8zqiccTDN6PF2+tYNSbctA=
+hash: mACqgNr1I+e5HoyNTBZcor/mpXy/15SGun6eik4l9Js=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/unifi-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.unifi.svg)
@@ -14,6 +14,8 @@ hash: TTW2nHsM7XdfqKl3Pj83+8zqiccTDN6PF2+tYNSbctA=
 <img height="100px" src="admin/unifi.svg" align="left"><br/>
 
 # ioBroker.unifi
+
+> \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
@@ -93,7 +95,7 @@ Der Adapter verwendet [node-unifi,](https://github.com/jens-maus/node-unifi) um 
 
 ## Bekannte Probleme
 
-- Der Verbindungsstatus (is\_wired) von Clients ist nach dem Offline-Gehen eines Clients fehlerhaft. Dies ist ein bekanntes Problem des UniFi-Controllers und steht nicht im Zusammenhang mit dem Adapter. (Siehe <https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1> )
+- Der Verbindungsstatus (is\_wired) von Clients ist nach dem Offline-Gehen eines Clients fehlerhaft. Dies ist ein bekanntes Problem des UniFi Controllers und steht nicht im Zusammenhang mit dem Adapter. (Siehe <https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1> )
 
 ## Referenzen
 

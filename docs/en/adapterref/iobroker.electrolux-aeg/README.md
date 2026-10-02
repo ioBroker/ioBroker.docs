@@ -19,6 +19,15 @@ Supported appliances are managed through the official [Electrolux](https://www.e
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
+## Login
+
+1. Enter the email and password of the account you use in the Electrolux or AEG app.
+2. Under **App name**, pick the app the account belongs to. An Electrolux account does not log in with AEG selected, and the other way round.
+3. Click **Test login**. It checks the values on the page without saving and says whether email or password are wrong, the account service refused the login for another reason, or it did not answer. The instance must be running for the button to work.
+4. Save. **Connection** next to the button shows whether the instance is connected.
+
+If the login fails at start, the log says what to check. The adapter does not retry a failed first login; restart the instance after fixing the cause.
+
 ## Control
 
 electrolux-aeg.0.XXXX.remote
@@ -52,6 +61,10 @@ The adapter computes a few convenience states from the raw payload, so scripts d
 | `cycleFinished` | `true` for the single update in which a program finished. Trigger on the change to `true`. |
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- A failed login now says what to check instead of "Login failed #1" or "Login failed #2": a wrong email or password or the wrong app, another account problem, or no answer from the account service, each with the restart that follows.
+- Added a **Test login** button to the settings page. It checks email, password and the app with the values on the page before saving. The page also shows whether the instance is connected.
 
 ### 1.0.0 (2026-09-04)
 

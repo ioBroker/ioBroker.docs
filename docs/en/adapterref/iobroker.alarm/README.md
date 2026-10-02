@@ -29,6 +29,9 @@ This adapter allows you to set up a home alarm system without extensive programm
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.0.2 (2026-09-28)
+* (@misanorot) fixed little issues at other alarms
+
 ### 5.0.1 (2026-08-07)
 * (@misanorot) update
 
@@ -42,9 +45,6 @@ This adapter allows you to set up a home alarm system without extensive programm
 
 ### 4.0.5 (2026-06-23)
 * (@misanorot) fixed checker issues
-
-### 4.0.4 (2026-05-17)
-* (@misanorot) fixed little JSON Ui issues
 
 ## License
 MIT License

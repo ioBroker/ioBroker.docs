@@ -9,7 +9,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: KnbvHIYrY//KIW1KyopYdYdRfLpYXveDYaTIHogNATA=
+hash: Tu0eYoIhdF9MG3e+pvRH6nwI+3XgKnJqWhMW0XSEUJE=
 ---
 ![Логотип](../../../en/admin/lg-thinq.png)
 
@@ -19,7 +19,7 @@ hash: KnbvHIYrY//KIW1KyopYdYdRfLpYXveDYaTIHogNATA=
 
 # Введение
 
-Адаптер создает все точки данных, используя шаблон, полученный из точки данных. `modelJsonUri` (отклонение для устройств) и использует перевод с помощью шаблона из точки данных. `langPackModelUri` (Отклонение для устройств). Поэтому возможно, что в режиме REMOTE создаются точки данных, которые не имеют функции или недоступны для устройства.
+Адаптер создает все точки данных, используя шаблон, полученный из исходной точки данных. `modelJsonUri` (отклонение для устройств) и использует перевод с помощью шаблона из точки данных. `langPackModelUri` (Отклонение для устройств). Поэтому возможно, что в режиме REMOTE создаются точки данных, которые не имеют функции или недоступны для устройства.
 
 # Краткое содержание
 
@@ -41,6 +41,10 @@ hash: KnbvHIYrY//KIW1KyopYdYdRfLpYXveDYaTIHogNATA=
     - [Удалённая статистика](#202-remote-statistic-thinq2)
     - [Удаленные базовые команды](#202-remote-control-thinq1--thinq2)
     - [Снимок](#202-snapshot-thinq1--thinq2)
+  - [Посудомоечная машина State Device 204](#device-dishwasher-204-thinq2)
+    - [Удалённая статистика](#204-remote-statistic-thinq2)
+    - [Удаленные базовые команды](#204-remote-control-thinq2)
+    - [Снимок](#204-snapshot-thinq2)
   - [Кондиционер State Device 401 thinq2](#device-401-air-conditioner-thinq2)
     - [Удалённая статистика](#401-remote-statistic-thinq2)
     - [Удаленные базовые команды](#401-remote-control-thinq2)
@@ -89,7 +93,7 @@ hash: KnbvHIYrY//KIW1KyopYdYdRfLpYXveDYaTIHogNATA=
   - `Fail - 0106` Устройство не подключено — идентификатор рабочего места создан заново.
   - `Error` Ошибка WorkID - WorkID создан заново.
   - `Error <code>` Неизвестная ошибка — идентификатор работы создан заново.
-  - `Result Error` Получена ошибка - идентификатор рабочего места создан заново.
+  - `Result Error` Получена ошибка - идентификатор работы создан заново.
   - `Parse error` Ошибка синтаксического анализа — идентификатор работы создан заново.
   - `Unknown` Неизвестная ошибка — идентификатор работы создан заново.
   - `Request` Получение неизвестно — идентификатор работы создан заново.
@@ -253,7 +257,7 @@ hash: KnbvHIYrY//KIW1KyopYdYdRfLpYXveDYaTIHogNATA=
 - `remote.Statistic.startDate` Указывайте дату ежемесячно - Формат: 2023.10.01
 - `remote.Statistic.period` Выберите период
 - `remote.Statistic.sendRequest` Отправить выбор
-- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пусты, значит, ваше устройство их не поддерживает или указана неверная дата.
+- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пусты, значит, ваше устройство их не поддерживает или указана некорректная дата.
 
   ![201\_remote\_statistic.png](../../../en/adapterref/iobroker.lg-thinq/img/201_remote_statistic.png)
 
@@ -436,6 +440,92 @@ hash: KnbvHIYrY//KIW1KyopYdYdRfLpYXveDYaTIHogNATA=
 
 ![201\_snapshot\_1.png](img/201_snapshot_1.png)![201\_snapshot\_2.png](img/201_snapshot_2.png)![201\_snapshot\_3.png](../../../en/adapterref/iobroker.lg-thinq/img/201_snapshot_3.png)
 
+### Посудомоечная машина 204 thinq2
+
+[Краткое содержание](#summary)
+
+### 204 Все папки thinq2
+
+![204\_folder.png](../../../en/adapterref/iobroker.lg-thinq/img/204_folder.png)
+
+### 204 Удалённая папка thinq2
+
+![204\_remote.png](../../../en/adapterref/iobroker.lg-thinq/img/204_remote.png)
+
+### 204 Удалённая статистика thinq2
+
+[Краткое содержание](#summary)
+
+- почасово
+- `remote.Statistic.endDate` Введите дату для почасового отображения; начало и конец должны совпадать. Формат: 2023.12.01
+- `remote.Statistic.startDate` Введите дату для почасового отображения; начало и конец должны совпадать. Формат: 2023.12.01
+- Или ежедневно
+- `remote.Statistic.endDate` Ежедневный ввод даты - Формат: 2023.12.06
+- `remote.Statistic.startDate` Ежедневный ввод даты - Формат: 2023.12.01
+- Или ежемесячно
+- `remote.Statistic.endDate` Указывайте дату ежемесячно - Формат: 2023.12.01
+- `remote.Statistic.startDate` Указывайте дату ежемесячно - Формат: 2023.10.01
+- `remote.Statistic.period` Выберите период
+- `remote.Statistic.sendRequest` Отправить выбор
+- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пусты, значит, ваше устройство их не поддерживает или указана неверная дата.
+
+  ![204\_remote\_statistic.png](../../../en/adapterref/iobroker.lg-thinq/img/204_remote_statistic.png)
+
+```json
+{
+    "count": 0,
+    "power": 0,
+    "energyWater": 0,
+    "energyDetergent": 0,
+    "energySoftener": 0,
+    "powerWh": 0,
+    "periodicEnergyData": 0,
+    "item": [
+        {
+            "usedDate": "2026-09",
+            "count": 0,
+            "power": 0,
+            "energyWater": 0,
+            "energyDetergent": 0,
+            "energySoftener": 0,
+            "powerWh": 0,
+            "periodicEnergyData": 1507
+        },
+        {
+            "usedDate": "2026-10",
+            "count": 0,
+            "power": 0,
+            "energyWater": 0,
+            "energyDetergent": 0,
+            "energySoftener": 0,
+            "powerWh": 0,
+            "periodicEnergyData": 0
+        }
+    ]
+}
+```
+
+### 204 Пульт дистанционного управления thinq2
+
+[Краткое содержание](#summary)
+
+- `remote.airFilterInit` Сбросить счетчик воздушного фильтра
+- `remote.cancelCourse` Отменить программу мойки
+- `remote.pauseCourse` Приостановить программу стирки
+- `remote.powerOff` Выключите посудомоечную машину
+- `remote.powerOn` Включите посудомоечную машину
+- `remote.resumeCourse` Возобновить программу мойки
+- `remote.sendJSON` Отправьте пользовательский JSON.
+- `remote.sendJSONNoSync` Отправка пользовательского JSON (GET без noSync)
+
+![204\_remote.png](../../../en/adapterref/iobroker.lg-thinq/img/204_remote.png)
+
+### 204 Снимок thinq2
+
+[Краткое содержание](#summary)
+
+![204\_snapshot\_1.png](img/204_snapshot_1.png)![204\_snapshot\_2.png](img/204_snapshot_2.png)![204\_snapshot\_3.png](img/204_snapshot_3.png)![204\_snapshot\_4.png](../../../en/adapterref/iobroker.lg-thinq/img/204_snapshot_4.png)
+
 ### Устройство 401 Кондиционер thinq2
 
 [Краткое содержание](#summary)
@@ -464,7 +554,7 @@ hash: KnbvHIYrY//KIW1KyopYdYdRfLpYXveDYaTIHogNATA=
 - `remote.Statistic.startDate` Указывайте дату ежемесячно - Формат: 2023.10.01
 - `remote.Statistic.period` Выберите период
 - `remote.Statistic.sendRequest` Отправить выбор
-- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пусты, значит, ваше устройство их не поддерживает или указана некорректная дата.
+- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пусты, значит, ваше устройство их не поддерживает или указана неверная дата.
 
   ![401\_thinq2\_remote\_statistic.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_remote_statistic.png)
 
@@ -551,7 +641,7 @@ hash: KnbvHIYrY//KIW1KyopYdYdRfLpYXveDYaTIHogNATA=
 - `remote.Statistic.startDate` Указывайте дату ежемесячно - Формат: 2023.10.01
 - `remote.Statistic.period` Выберите период
 - `remote.Statistic.sendRequest` Отправить выбор
-- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пусты, значит, ваше устройство их не поддерживает или указана некорректная дата.
+- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пусты, значит, ваше устройство их не поддерживает или указана неверная дата.
 - `remote.Statistic.ownrequest` Собственный запрос к данным. Откройте файл из `modelJsonUri` связать и применить cmd, cmdOpt и значение.
 - `remote.Statistic.ownresponse` Результат `remote.Statistic.ownrequest`
 
@@ -754,6 +844,15 @@ hash: KnbvHIYrY//KIW1KyopYdYdRfLpYXveDYaTIHogNATA=
   ![погода.png](../../../en/adapterref/iobroker.lg-thinq/img/weather.png)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Added dishwasher type 204
+
+### 1.2.3 (2026-09-24)
+
+- (TA2k) Login flow changed
+
 ### 1.2.2 (2026-08-22)
 
 - (Lucky-ESA) Added default header for login
@@ -771,13 +870,6 @@ hash: KnbvHIYrY//KIW1KyopYdYdRfLpYXveDYaTIHogNATA=
 ### 1.1.6 (2025-12-17)
 
 - (Lucky-ESA) Fixed: Address Root-CA certificate has changed
-
-### 1.1.5 (2025-12-15)
-
-- (Lucky-ESA) Fixed adapter crash (thinq1 only)
-- (Lucky-ESA) Fixed: Address Root-CA certificate has changed
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

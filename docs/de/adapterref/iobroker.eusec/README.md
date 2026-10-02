@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.eusec/README.md":{"title":{"en":"ioBroker.euSec"},"content":"en/adapterref/iobroker.eusec/README.md"},"en/adapterref/iobroker.eusec/docs/devices.md":{"title":{"en":"Supported devices"},"content":"en/adapterref/iobroker.eusec/docs/devices.md"},"en/adapterref/iobroker.eusec/docs/debugging.md":{"title":{"en":"Debugging"},"content":"en/adapterref/iobroker.eusec/docs/debugging.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.eusec/README.md
 title: ioBroker.euSec
-hash: EoqRf/yEagOqrnNE0pySy7GA/XyPYslWRTZXlgP8y5U=
+hash: Mstau96X0SbJF3LGV9+Jb1hJr3/Edhw6iFo8lpRfquU=
 ---
 ![Logo](../../../en/adapterref/iobroker.eusec/docs/_media/ioBroker.euSec.png)
 
@@ -19,6 +20,8 @@ hash: EoqRf/yEagOqrnNE0pySy7GA/XyPYslWRTZXlgP8y5U=
 
 # ioBroker.euSec
 
+> \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
+
 Dies ist ein [ioBroker-](https://www.iobroker.net) Adapter, der die [eufy-security-client-](https://github.com/bropat/eufy-security-client) Bibliothek zur Kommunikation mit Eufy-Geräten verwendet.
 
 **Dieses Projekt steht in keiner Verbindung zu Anker und Eufy (Eufy Security). Es handelt sich um ein privates Projekt, das in der Freizeit betreut wird.**
@@ -33,11 +36,11 @@ Eine Adapterinstanz zeigt alle Geräte eines Eufy Cloud-Kontos an und ermöglich
 
 ## Dokumentation
 
-Die Dokumentation finden Sie [hier](https://iobroker-community-adapters.github.io/ioBroker.eusec/) .
+Die Dokumentation finden Sie [hier](https://github.com/iobroker-community-adapters/ioBroker.eusec/tree/master/docs) .
 
 ## Bekannte funktionierende Geräte
 
-Informationen zu unterstützten Geräten finden Sie [hier](https://github.com/bropat/eufy-security-client#known-working-devices) .
+Informationen zu unterstützten Geräten finden Sie [hier](/#/docs/adapterref/iobroker.eusec/docs/devices.md) .
 
 ## Credits
 
@@ -61,12 +64,34 @@ Eine detaillierte Beschreibung (in deutscher Sprache) finden Sie in unserem Foru
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.4.0 (2026-10-02)
+- (typhosj) Floodlight Cam E30 (T8426): preset positions are now sent to the camera (before, writing `preset_position`, `save_preset_position` or `delete_preset_position` had no effect), and the livestream is no longer rejected with `ERROR_INVALID_ACCOUNT`. The camera now gets the commands of the Floodlight Cam E340, which the library already defines it like (reported in the forum)
+- (hdering) **Changed URLs:** without a configured host name, the livestream URLs (states `livestream`, `livestream_rtsp`) now use the IPv4 address in the LAN of the ioBroker host the instance runs on instead of the name of the first ioBroker host (e.g. `http://192.168.1.10:1984/...` instead of `http://iobroker:1984/...`). Tablets, phones and dashboards often cannot resolve the name, and with several hosts the first one is not necessarily the one that runs go2rtc. Visualizations and scripts that store the URL get the new one with the next livestream; to keep a name, enter it in the setting "Hostname"
+- (hdering) New setting "Start livestreams on demand": the livestream of a camera starts as soon as its player page or RTSP URL is opened and stops shortly after the last viewer left, so `start_stream` is no longer needed and a dashboard shows a picture right away. A livestream that ends at the maximum duration is started again while somebody still watches. A station carries one livestream at a time: while one of its cameras is watched, the player of another one says which camera that is and starts by itself once the station is free, and a paused player releases the station. Starts the camera acknowledges without sending anything are retried. The states `livestream` and `livestream_rtsp` always carry the URL in this mode. go2rtc's player page and API port have no authentication, so every device in the network that reaches them can wake the cameras. Off by default
+- (hdering) New tab "Streams" in the instance settings: every device with a livestream with its station, the player URL to open and the RTSP URL - no need to look the streams up in go2rtc anymore
+- (hdering) New setting "Livestream quality": sets the streaming quality of every camera to low, medium or high before its livestream starts, so no camera streams at "Auto", where it changes the resolution mid-stream and browsers show a green or frozen picture. The encoding of battery doorbells ("Medium / Low Encoding") is kept, devices that name their qualities by resolution ("1080P", "2K HD") are left alone. Off by default. The warning about the "Auto" quality is now logged once per device instead of at every livestream start, and names the state to change and the fixed qualities the device offers
+- (hdering) New setting "Wait for camera data (sec)", 15 seconds by default: a livestream is no longer given up after 5 seconds without data. Battery cameras that first have to wake up often need longer, and their livestream then ended with "we haven't received any data for 5 seconds" before the first frame
+- (hdering) The maximum livestream duration counts from the first picture instead of from the start command, so a camera that needs a minute to wake up no longer loses that minute of its livestream
+- (hdering) Livestream: the audio track (or, with a slow camera, the whole stream) no longer breaks after 5 seconds with `socket hang up`. go2rtc drops connections whose request header does not arrive within 5 seconds, and the adapter only sent it with the first data. A livestream that already ended is no longer stopped a second time, which logged a misleading warning
+
+### 3.3.0 (2026-09-21)
+- (typhosj) **Breaking:** the tilt down button of pan and tilt cameras is renamed from `titl_down` to `tilt_down`. The update moves the existing object with its name and custom settings (e.g. history); scripts and visualizations that use the old id have to be changed to `tilt_down`
+- (typhosj) New setting "Devices with a compatibility stream": the livestream of a camera listed there is re-encoded to 720p H.264, keeping the aspect ratio of the camera, before it reaches the player, which makes it playable on old WebViews, kiosk tablets and hardware decoders that cannot handle the resolution the camera sends. The states `livestream` and `livestream_rtsp` of that camera point at the transcoded stream, the untouched one stays available under the serial number. Transcoding costs CPU on the ioBroker host while such a stream is watched, which is why it is off by default and set per device (#153)
 - (typhosj) Talkback: devices with a speaker get the state `talkback_play`. Writing an http(s) URL or an absolute file path to it plays that audio through the device; a livestream is started for it if none is running and stopped again afterwards (#34)
 - (typhosj) New setting "Battery devices that stay connected": standalone battery devices on permanent power (power supply or solar panel) listed there keep their P2P connection instead of losing it 30 seconds after the last command, and are reconnected when it drops. It drains the battery of a device that is not on permanent power (#33)
-- (typhosj) Installing the adapter now removes only `--security-revert=CVE-2023-46809` from the node process parameters of an instance instead of clearing them all, so parameters such as `--max-old-space-size` survive an update. A failure there no longer aborts the installation
-- (typhosj) Livestreams no longer fail with "RSA_PKCS1_PADDING is no longer supported for private decryption" on node.js builds that refuse RSA PKCS#1 v1.5 decryption; the stream key is now decrypted by node-rsa's own implementation (#144)
 - (typhosj) The eufyCam C31 (T817L) is no longer an unknown device without states; the adapter handles it like the SoloCam Spotlight 1080, which gives it livestream, motion and person detection, light and alarm. Pan and tilt are not available yet (#156)
+- (typhosj) Installing the adapter now removes only `--security-revert=CVE-2023-46809` from the node process parameters of an instance instead of clearing them all, so parameters such as `--max-old-space-size` survive an update. A failure there no longer aborts the installation
+- (typhosj) Event pictures that arrive in a format the adapter cannot decrypt (e.g. `v8_eufysecurity`) are now loaded from the HomeBase over P2P instead, the way the picture is loaded when the adapter starts. The picture appears about a minute after the event, once the station has stored it (#136)
+- (typhosj) Livestreams no longer fail with "RSA_PKCS1_PADDING is no longer supported for private decryption" on node.js builds that refuse RSA PKCS#1 v1.5 decryption; the stream key is now decrypted by node-rsa's own implementation (#144)
+- (typhosj) Error messages in the log show the actual error again; before, an error passed along with a log line was written as `{}`, and an error with circular references could not be logged at all
+- (typhosj) A device or station property whose state had no value yet now receives its updates; before, such a state stayed empty until the adapter was restarted
+- (typhosj) The adapter no longer rewrites the object of every property state on each start, only the ones whose definition actually changed
+- (typhosj) A station that disconnects no longer causes warnings about missing `livestream` states for sensors, locks and other devices without a livestream
+- (typhosj) The `chime` message command now always answers exactly once: with an error if parameters are missing (before: no answer at all) and only with "not supported" for a station without chime (before: also "chime command sent")
+- (typhosj) The state `set_privacy_angle` is named "Set Privacy Angle" instead of "Set Default Angle"; existing objects are renamed on update unless their name was changed by hand
+- (typhosj) A channel named "unknown" is no longer deleted on start while it still holds states that have no value yet; only channels without any object below them are removed
+- (typhosj) Update migrations compare adapter versions correctly beyond x.9 (3.10.0 was treated as older than 3.9.0)
+- (typhosj) Removed unused code and the no longer needed dependencies `@bropat/fluent-ffmpeg` and `fs-extra`
 
 ### 3.2.1 (2026-09-18)
 - (typhosj) An event picture that cannot be decoded no longer replaces the last picture with a `<serial>.unknown` file; `picture_url` and `picture_html` keep the previous picture and a warning names the device, the data length and the image format (#136)
@@ -81,20 +106,6 @@ Eine detaillierte Beschreibung (in deutscher Sprache) finden Sie in unserem Foru
 - (typhosj) The livestream page (`http://<host>:1984/stream.html?src=<serial>`) is now served by the adapter, with the defaults that make a stream unstable on weak clients such as a Fire tablet
 - (typhosj) The `livestream` state now carries `&background=false`, so the player disconnects while its page is not visible. Without it the browser keeps decoding behind a switched off display and leaves a consumer attached that never recovers once the producer is gone
 - (typhosj) go2rtc serves its web pages from the adapter directory now (`api.static_dir`). That replaces the files embedded in go2rtc, so the stream list, the log page, the link list and the WebRTC viewer are shipped along and keep answering.
-
-### 3.0.2 (2026-09-02)
-- (copilot) Adapter requires node.js >= 22 now
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (@GermanBluefox) Refactoring
-- (@GermanBluefox) Fixed login failing with `Get passport profile - Response code not ok` since the eufy cloud started answering successful requests with code 200 instead of 0 (see [bropat/eufy-security-client#975](https://github.com/bropat/eufy-security-client/pull/975))
-- (typhosj) Fixed livestreaming being broken when go2rtc is configured to use an API port other than 1984, and the eufy livestream is now stopped when streaming into go2rtc fails ([#151](https://github.com/iobroker-community-adapters/ioBroker.eusec/pull/151), [#160](https://github.com/iobroker-community-adapters/ioBroker.eusec/issues/160))
-- (typhosj) go2rtc is now supervised and restarted if it terminates unexpectedly, the livestream states are cleared when a station disconnects, and a warning is logged when a camera streams at "Auto" quality ([#152](https://github.com/iobroker-community-adapters/ioBroker.eusec/pull/152))
-- (@GermanBluefox) The warning about the "Auto" streaming quality now also covers devices where "Auto" is not value 0 (eufyCam 3, Professional models and battery doorbells)
-- (@GermanBluefox) Removed the obsolete CVE-2023-46809 workaround for node.js 20 from the adapter startup
-- (@GermanBluefox) Pinned eufy-security-client to 4.1.1-1 and removed the unused packages mime and @types/ffmpeg-static
-
-### 2.0.3 (2025-10-26)
-- (mcm1957) Remove fix for CVE-2023-46809 for node.js 22 and newer
 
 ## License
 

@@ -39,6 +39,7 @@ planned for a later version.
 
 ### Requirements
 
+- **Node.js >= 22**, **js-controller >= 6.0.11** and **admin >= 7.8.23**.
 - An **Omoda / Jaecoo account** with the vehicle associated (owner or delegated access).
 - The account **email** and **command PIN**.
 - Region: defaults to **Europe** (also confirmed working in the UK). Other markets can be
@@ -87,6 +88,11 @@ upstream project. All bugs in this ioBroker port are mine, not theirs.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2026-09-27)
+* (Alan Paris) Requires admin >= 7.8.23 now
+* (Alan Paris) Tested with Node.js 26; updated @iobroker/testing to 6.x
+* (Alan Paris) New adapter icon (OMODA | JAECOO lockup) replacing the template placeholder
+
 ### 0.2.0 (2026-08-10)
 * (Alan Paris) **BREAKING:** `commands.lock` now follows the ioBroker `switch.lock` spec — **true UNLOCKS** the car, false locks it. Any script writing `true` to lock must be inverted. This is the polarity Alexa/Google (via ioBroker.iot), VIS lock widgets and type-detector already assume, so the old behaviour unlocked the car when the user asked to lock it
 * (Alan Paris) Fixed telemetry fields the car reports as `null` being stored as real values: `doors.locked` no longer reads "locked" when nothing was reported, and GPS no longer jumps to latitude/longitude 0

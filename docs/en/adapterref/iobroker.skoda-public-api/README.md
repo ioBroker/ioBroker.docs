@@ -18,8 +18,9 @@ chapters: {"pages":{"en/adapterref/iobroker.skoda-public-api/README.md":{"title"
 Read and control Škoda vehicles via the official
 [MyŠkoda Public API](https://public.api.connect.skoda-auto.cz/docs).
 
-The adapter is published on npm. Inclusion in the ioBroker `latest` repository is
-tracked in [ioBroker.repositories#6592](https://github.com/ioBroker/ioBroker.repositories/pull/6592).
+The adapter is published on npm and available in the ioBroker `latest` repository.
+The [test thread](https://forum.iobroker.net/topic/85433/test-adapter-skoda-public-api-v0.1.x)
+collects feedback from other vehicles.
 Development status and open work are documented in [HANDOFF.md](/#/docs/adapterref/iobroker.skoda-public-api/HANDOFF.md).
 
 ### The one constraint that shapes everything
@@ -172,6 +173,12 @@ Values are divided without rounding. Existing object units and default descripti
 are updated when the corresponding value is next received; custom names are retained.
 Scripts reading these three states must use km/min. Existing recorded time series are
 not rewritten. API responses and command payloads retain the API units.
+
+The API can omit `charging.status.state` even when the charging cable is connected.
+Use `charging.status.plugConnectionState` for the reported cable connection and
+`charging.status.plugLockState` for its lock status when those optional fields are
+available. If a previously reported field disappears, its last value remains with
+a bad quality flag; do not treat that value as the current vehicle state.
 
 ## Controlling the vehicle
 

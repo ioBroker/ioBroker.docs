@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md
 title: Technische Arbeitsgrundlage und offene Umsetzung
-hash: VnW2Ss694AofYTftOtfKtO2h6svIDGS4vMH/LpGjyKM=
+hash: r79EK4xBJ8o155XBl/4NZMQuE+scgoTCVND932G93UU=
 ---
 # Technische Arbeitsgrundlage und offene Umsetzung
 
@@ -138,14 +138,11 @@ Vor einem Release:
 
 Sterben `RateLimit-*` -Header lokale Schätzungen korrigieren. Insbesondere wird `403 operation-not-authorized` Konservativ als quotenverbrauchend behandelt, obwohl die allgemeine API-Regel 403-Antworten ausnimmt. Ein Netzwerkfehler kann nach serverseitiger Buchung entstehen und zählt daher ebenfalls konservativ als verbraucht.
 
-## 6. Offene Umsetzung
+## 6. Stand und laufende Wartung
 
 ### ioBroker Neueste Version
 
-- neue Objektstruktur aus einer laufenden Instanz exportieren und an[`ioBroker.repositories#6592`](https://github.com/ioBroker/ioBroker.repositories/pull/6592) Anhängen
-- Checker erneut starten und verbleibende Befunde bearbeiten
-- `bluefox` als npm-Owner hinzufügen
-- manuelle ioBroker-Review bis zur Aufnahme in `latest` begleiten
+Der Adapter ist seit September 2026 in `latest` Die `bluefox` und `tmarthy` sind als npm-Maintainer eingetragen. Version `0.1.11` ist veröffentlicht.
 
 ### Zusätzliche Schreiboperationen
 
@@ -155,7 +152,7 @@ Der Lademodus verwendet den bestehenden Staat `charging.settings.preferredCharge
 
 Ladeprofile erhalten je numerischer Profil-ID einen zusätzlichen JSON-State `chargingProfiles.profiles.<id>.configurationJson`. Vollständige Profil-Payloads werden validiert; Es gibt kein implizites Zusammenführen von Teilobjekten und keine Neuanlage. Eine zwischenzeitliche Umfrage mit geändertem, entferntem oder fehlendem Profil verwirft wartende Updates. Nicht vorgenommene Änderungen durch andere Kunden bleiben ein Restrisiko.
 
-Modus und jedes Profil haben eigene Coalescing-Gruppen. Quota, TTL, Fehlerbehandlung, API-Quittierung und Verifikations-Polls laufen über dieselbe Queue wie die übrigen Befehle. Mock- und Integrationstests prüfen die neuen Schreibpfade; Ein Praxistest mit passenden Fahrzeugfunktionen steht noch aus.
+Modus und jedes Profil haben eigene Coalescing-Gruppen. Quota, TTL, Fehlerbehandlung, API-Quittierung und Verifikations-Polls laufen über dieselbe Queue wie die übrigen Befehle. Mock- und Integrationstests prüfen die neuen Schreibpfade; Lademodus und Ladeprofile wurden außerdem am eigenen Fahrzeug erfolgreich getestet.
 
 ### Komfortable Profilbearbeitung
 
@@ -170,4 +167,4 @@ Ergänzte Regressionstests prüfen Rolle/Schreibrecht-Konsistenz auch für nicht
 - Änderungen der OpenAPI-`v0` -Spec prüfen und Codegen anpassen
 - Abhängigkeiten und GitHub Actions über Dependabot aktuell halten
 - Verhalten weiterer Fahrzeugtypen mit anonymisierten Armaturen absichern
-- Kompaktmodus erst nach Bewertung von Lebenszyklus, Timern und Speicherzustand aktivieren
+- Compact-Group-Integrationstest läuft auf Linux und macOS; Draft-PR #5 bestätigt macOS mit Node 22, 24 und 26. Windows bleibt wegen eines Controller-Testproblems ausgenommen

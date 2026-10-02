@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.omoda/README.md
 title: ioBroker.omoda
-hash: oSuqAFCWy0EcjDx2xS9XAkFrsrKpPTYMDoRE9j4VGuU=
+hash: vXx4cluZNa1SvqgUxCnHe5KnQ2O9BZ314lIFWR6IR6U=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.omoda.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.omoda.svg)
@@ -34,6 +34,7 @@ Standort und „Wake & Refresh Full Status“.
 Zusätzliche Funktionen der Fahrzeug-App (individuelle Sitzheizung/-belüftung, Entfroster, Start/Stopp des Ladevorgangs von Elektrofahrzeugen und geplantes Laden, Steuerung von Fenstern/Schiebedach/Kofferraum, Diebstahlalarm) sind für eine spätere Version geplant.
 
 ### Anforderungen
+- **Node.js >= 22**, **js-controller >= 6.0.11** und **admin >= 7.8.23**.
 - Ein **Omoda / Jaecoo Konto** mit dem zugehörigen Fahrzeug (Zugriff für Eigentümer oder Bevollmächtigte).
 - Die **E-Mail-Adresse** und die **Befehls-PIN** des Kontos.
 - Region: Standardmäßig **Europa** (funktioniert auch in Großbritannien). Andere Märkte sind möglich.
@@ -58,7 +59,7 @@ Ein neues OTP ist nur dann erforderlich, wenn die Sitzung später abläuft (in d
 ### Hinweise und Sicherheit
 Die **Befehls-PIN** ist Ihre Konto-PIN. Die wiederholte Eingabe einer **falschen PIN** kann zur Kontosperrung führen.
 
-Konto**, daher stoppt der Adapter nach ein paar Fehlversuchen - überprüfen Sie die PIN in den Einstellungen erneut, bevor Sie es erneut versuchen.
+Konto**, daher stoppt der Adapter nach ein paar fehlgeschlagenen Versuchen - überprüfen Sie die PIN in den Einstellungen erneut, bevor Sie es erneut versuchen.
 
 - Viele Werte werden im Standby-Modus als „null“ angezeigt; Batterie-, Geschwindigkeits- und Kilometerstandaktualisierungen erfolgen während
 
@@ -77,6 +78,11 @@ Dieser Adapter ist eine Portierung der hervorragenden Reverse-Engineering-Arbeit
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2026-09-27)
+* (Alan Paris) Requires admin >= 7.8.23 now
+* (Alan Paris) Tested with Node.js 26; updated @iobroker/testing to 6.x
+* (Alan Paris) New adapter icon (OMODA | JAECOO lockup) replacing the template placeholder
+
 ### 0.2.0 (2026-08-10)
 * (Alan Paris) **BREAKING:** `commands.lock` now follows the ioBroker `switch.lock` spec — **true UNLOCKS** the car, false locks it. Any script writing `true` to lock must be inverted. This is the polarity Alexa/Google (via ioBroker.iot), VIS lock widgets and type-detector already assume, so the old behaviour unlocked the car when the user asked to lock it
 * (Alan Paris) Fixed telemetry fields the car reports as `null` being stored as real values: `doors.locked` no longer reads "locked" when nothing was reported, and GPS no longer jumps to latitude/longitude 0
@@ -105,8 +111,6 @@ Dieser Adapter ist eine Portierung der hervorragenden Reverse-Engineering-Arbeit
 
 ### 0.1.0 (2026-07-18)
 * (Alan Paris) initial release
-
-[Older changelogs can be found there](https://github.com/AlanSRU/ioBroker.omoda/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

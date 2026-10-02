@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.electrolux-aeg/README.md
 title: ioBroker.electrolux-aeg
-hash: L+Ece5rBdU5zl8j2sfAU6V1dIq05WqCG2OczZw/W2Q8=
+hash: 2GtMp+HaOFGcbrxUC+syTaDsSI4QR42ZFGOwhncQJE8=
 ---
 ![Logo](../../../en/adapterref/iobroker.electrolux-aeg/admin/electrolux-aeg.png)
 
@@ -23,6 +23,15 @@ Adapter für Electrolux und AEG
 Unterstützte Geräte werden über die offiziellen vernetzten Gerätedienste [von Electrolux](https://www.electrolux.com/) und [AEG](https://www.aeg.com/) verwaltet.
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
+
+## Login
+
+1. Geben Sie die E-Mail-Adresse und das Passwort des Kontos ein, das Sie in der Electrolux- oder AEG-App verwenden.
+2. Wählen Sie unter **„App-Name“** die App aus, zu der das Konto gehört. Ein Electrolux-Konto kann nicht angemeldet werden, wenn AEG ausgewählt ist, und umgekehrt.
+3. Klicken Sie auf **„Anmeldung testen“** . Dadurch werden die Werte auf der Seite überprüft, ohne sie zu speichern. Anschließend wird angezeigt, ob E-Mail-Adresse oder Passwort falsch sind, der Kontodienst die Anmeldung aus einem anderen Grund abgelehnt hat oder keine Antwort erfolgte. Die Instanz muss ausgeführt werden, damit die Schaltfläche funktioniert.
+4. Speichern. **Die Verbindungsanzeige** neben der Schaltfläche zeigt an, ob die Instanz verbunden ist.
+
+Schlägt die Anmeldung beim Start fehl, gibt das Protokoll Hinweise zur Fehlersuche. Der Adapter versucht eine fehlgeschlagene Anmeldung nicht erneut; starten Sie die Instanz nach Behebung der Ursache neu.
 
 ## Kontrolle
 
@@ -57,6 +66,10 @@ Der Adapter berechnet einige Hilfszustände aus den Rohdaten, sodass Skripte die
 | `cycleFinished` | `true` für das einzelne Update, bei dem ein Programm beendet wurde. Auslöser bei Änderung zu `true` Die                                                                                                      |
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- A failed login now says what to check instead of "Login failed #1" or "Login failed #2": a wrong email or password or the wrong app, another account problem, or no answer from the account service, each with the restart that follows.
+- Added a **Test login** button to the settings page. It checks email, password and the app with the values on the page before saving. The page also shows whether the instance is connected.
 
 ### 1.0.0 (2026-09-04)
 
@@ -97,7 +110,7 @@ Der Adapter berechnet einige Hilfszustände aus den Rohdaten, sodass Skripte die
 - Republish the latest repository review fixes with npm provenance.
 - Remove obsolete ESLint and Prettier dependencies after migrating to `@iobroker/eslint-config`.
 
-Older changes are documented in [CHANGELOG_OLD.md](https://github.com/TA2k/ioBroker.electrolux-aeg/blob/main/CHANGELOG_OLD.md).
+Older changes are documented in CHANGELOG_OLD.md.
 
 ## License
 

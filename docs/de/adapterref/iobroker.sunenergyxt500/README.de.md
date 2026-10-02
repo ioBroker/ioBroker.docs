@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sunenergyxt500/README.de.md
 title: ioBroker.sunenergyxt500
-hash: uUZqmdI/Z+ZUCY59p4jDyRktnRYMZYv3k0Kd0yrAR0c=
+hash: mq1n11PacNmpb+SplOXgde6xZj5RWjoPP2ZWWNp0NTw=
 ---
 ![Logo](../../../en/adapterref/iobroker.sunenergyxt500/admin/sunenergyxt500.png)
 
@@ -46,7 +46,7 @@ Dieser Adapter steuert den Speicher **lokal** , ohne Hersteller-Cloud. Eine Inst
 
 **Aus (Standard, nur Überwachung).** Der Adapter schreibt nie `MM` /`MD` /`GS`; er pollt nur. `control.*` -States kannst du weiterhin manuell befehlen.
 
-In beiden Steuermodi **besitzt der Adapter `MM` ** : bei jeder Umfrage prüft er das `MM` Jedes Kopfes gegen den gewählten Modus und setzt es (mit Warnung) wieder, falls etwas anderes es geändert hat – so kann eine versehentliche Zählerbindung oder ein externes Skript die Steuerung nicht stillschweigend lahmlegen. Hinweis: Ein Kopf führt ein geschriebenes `GS` nur bei `MM=0` aus; mit gebundenem Zähler (`MM=1`) regiert er selbst und ignoriert `GS` Die
+In beiden Steuermodi **besitzt der Adapter `MM` ** : bei jeder Umfrage prüft er das `MM` Jedes Kopfes gegen den gewählten Modus und setzt es (mit Warnung) wieder, falls etwas anderes es geändert hat – so kann eine versehentliche Zählerbindung oder ein externes Skript die Steuerung nicht stillschweigend lahmlegen. Hinweis: Ein Kopf führt eingeschriebenes `GS` nur bei `MM=0` aus; mit gebundenem Zähler (`MM=1`) regiert er selbst und ignoriert `GS` Die
 
 **Mehrere Köpfe müssen auf unterschiedlichen Phasen liegen.** Das liegt in der elektrischen Verantwortung des Betreibers – der Adapter prüft (und kann) das nicht. Der Regler regelt die **Netto-(Summen-)Netzleistung** , die dein Zähler meldet, also genau das, was ein üblicher saldierender deutscher Zweirichtungszähler abbrechnet; Eine Per-Phasen-Optimierung ist nicht vorgesehen.
 
@@ -72,6 +72,7 @@ In beiden Steuermodi **besitzt der Adapter `MM` ** : bei jeder Umfrage prüft er
 - **Testen Sie alle Köpfe** – fragt jeden konfigurierten Kopf ab und meldet Modell + SoC (oder einen Fehler), damit Sie die Adressen vor dem Speichern prüfen können.
 - **Abfrageintervall (s)** — wie oft jeder Kopf pro `/read` abgefragt wird (Standard 5 s).
 - **Anfrage-Timeout (ms)** — HTTP-Timeout (Standard 8000 ms).
+- **Einstellungen nach Kopf-Neustart wiederherstellen** (Standard an) — siehe _Einstellungen nach einem Kopf-Neustart_ weiter unten.
 
 **Steuerung** – einen **Steuermodus** wählen:
 
@@ -79,9 +80,10 @@ _Aus_ (Standard) – nur Überwachung; der Adapter schreibt nie `MM` /`MD` /`GS`
 
 _Adapter-Regler_ (Modus B) — Felder:
 
-- **Quell-State Netzleistung** – ein Fremd-State mit der Netzleistung deines Hauszählers. Konvention: `>0` = Netzbezug, `<0` = Einspeisung. **Vorzeichen invertieren** aktivieren, falls Ihr Zähler die umgekehrte Konvention nutzt.
+- **Quell-State Netzleistung** – ein Fremd-State mit der Netzleistung deines Hauszählers. Konvention: `>0` = Netzbezug, `<0` = Einspeisung. **Vorzeichen invertieren** aktivieren, wenn dein Zähler die umgekehrte Konvention nutzt.
 - **Adaptive Regelung** (Standard an): Regelt in drei herstellerspezifischen Stufen – kleine Abweichungen sanft (alle 7 s, 20-W-Schritte), mittlere alle 2,5 s (120 W), große Lastsprünge sofort (450 W), mit festem 5-W-Netz-Totband. Beachte, dass das _Pro-Kopf-Schreib-Totband_ (Standard 10 W) zusätzlich greift: eine kleinere Korrektur wird nicht geschrieben, solange der Gesamt-Sollwert sich nicht mindestens so weit bewegt hat — in der Praxis bleiben Abweichungen unter etwa 10 W ebenfalls unangetastet. Deaktivieren, um den Regler manuell über die Felder Verstärkung / Totband / Schreibintervall / Schritt-Limit einzustellen (erscheinen nur dann).
 - **Ziel-Netzleistung** (W, Standard 0): 0 = Nulleinspeisung; positive Werte halten bewusst einen kleinen Netzbezug (nie einspeisen), negative eine kleine Einspeisung – gleiche Vorzeichenkonvention wie der Quell-State (`>0` = Bezug).
+- **Entladegrenze des Reglers** (%, Standard 0 = aus): Der Regler beendet das Entladen eines Kopfes, sobald dessen _leerster_ Pack diesen Wert erreicht, während die eigene Grenze des Kopfes (`SI`) niedriger bleibt. Der Kopf erreicht dann nie seine eigene Entladeabschaltung, an der Firmware 1.1.5 hängen bleiben und das Laden verweigern kann, bis sie vom Netz getrennt wird. Gemessen am leersten Pack, weil die Packs eines Kopfes auseinanderlaufen; Entladen wird wieder freigegeben, sobald der Ladestand um die Hysterese des Kopfes (`SI1`) gestiegen ist. Nur im Reglermodus.
 - **Max. Änderung pro Korrektur** (W, Standard 500, 0 = unbegrenzt): begrenzt, wie weit sich der Sollwert pro Regelschritt bewegt – hohe Verstärkung kann so bei Zähler-Ausreißern nicht überschwingen.
 - **Verstärkung** (Standard 0,3), **Gesamtband** (W), **Min. Schreibintervall** (ms), **Per-Kopf-Schreib-Totband** (W — minimale Änderung des Kopf-Sollwerts, bevor er erneut geschrieben wird, gegen Zappeln bei sich verschiebender Aufteilung). Die Maximalleistung jedes Kopfes wird **automatisch** vom Gerät erkannt (800 W beim 500, 2400 W beim 500 PRO), Mischbetrieb funktioniert auch ohne Zusatzkonfiguration.
 - **Zähler-Einschwingzeit (ms)** (Standard 0) — Messwerte, die _vor_ dem letzten Sollwert-Schreibvorgang entstanden sind, werden immer verworfen, weil sie noch den Zustand davor beschreiben. Bei Zählern, deren Wert der physikalischen Änderung unmittelbar folgt, 0 lassen; bei Zählern, die frische Zeitstempel liefern, deren Wert aber nachhinkt, etwas über die gemessene Inhaltsverzögerung setzen.
@@ -131,22 +133,22 @@ Der Adapter bindet den Zähler (`MM=1` +`MD`) und das Gerät reguliert sich selb
 
 Jeder Kopf erhält seinen eigenen Teilbaum unte&#x72;** `heads.<n>.*` ** (`n` = 1…3), dazu zusammengefasst&#x65;** `total.*` ** -Aggregate sowie adapterweite `controller.*` /`info.*`. Innerhalb eines Kopfes sind die Staaten in thematischen Kanälen gruppiert; Das **Blatt jeder Objekt-ID ist der API-Feldcode** des Geräts (die Entitäts-ID der offiziellen Feldreferenz), und der zweisprachige Objektname beschreibt es – so bildet der Baum die dokumentierten Gerätefelder 1:1 ab.
 
-| Kanal                 | Inhalt                                                                                                                                          |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `heads.<n>.battery.*` | SoC (`SC`), Batterieleistung (`BP`), SoC je Pack (`SC0` –`SC5`), Pakete online (`ON`), SoC-Hysterese (`SI1` /`SA1`, schreibbar)            |
-| `heads.<n>.grid.*`    | Netzleistung (`GP`), Tages-Lade-/Einspeiseenergie (`GD1` /`GD2`)                                                                              |
-| `heads.<n>.load.*`    | Lastleistung (`LP`), Tages-Inselbetriebs-Lastenergie (`LD`)                                                                                   |
-| `heads.<n>.pv.*`      | PV gesamt (`PV`), Tages-PV-Erzeugungsenergie (`PD`) und Leistung/Strom/Spannung je MPPT (`mppt1` –`mppt4`)                                   |
-| `heads.<n>.system.*`  | Gesamt-Ein-/Ausgangsleistung (`IW` /`OP`)                                                                                                      |
-| `heads.<n>.device.*`  | Typ/Modell/Seriennummer/Status; `network.*` (IP, Port, WLAN); `firmware.*` (`ES` /`AS` /`DS` Software, `EH` /`AH` /`DH` Hardware, `BS0` –`BS5` BMS) |
-| `heads.<n>.meter.*`   | Status des externen Zählers (`MS`)                                                                                                             |
-| `heads.<n>.ups.*`     | USV-Modus / Netzladen / Bypass (`UO` /`UG` /`FP`)                                                                                              |
-| `heads.<n>.fault.*`   | Fehler-Bitmasken (`TF` /`EF` /`DF1` /`DF2` /`AF1` /`AF2` /`BF`) — nur im aktiven Fehlerfall befüllt                                            |
-| `heads.<n>.control.*` | alle **beschreibbaren** Felder (siehe unten)                                                                                                    |
-| `heads.<n>.info.*`    | pro Kopf `online`, `lastError`, `rawResponse` (komplette `/read` -Rohantwort)                                                                     |
-| `total.*`             | Gesamtsicht: Kapazitätsgewichteter `soc`, summierte `batteryPower` /`gridPower` /`maxPower`, `onlineCount`                                      |
-| `controller.*`        | Telemetrie des Eigenverbrauchsreglers (`status`, Alter der Netzquelle)                                                                         |
-| `info.*`              | `connection` (mind. ein Kopf erreichbar) und `lastUpdate`                                                                                        |
+| Kanal                 | Inhalt                                                                                                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `heads.<n>.battery.*` | SoC (`SC`), Batterieleistung (`BP`), SoC je Pack (`SC0` –`SC5`), Pakete online (`ON`), SoC-Hysterese (`SI1` /`SA1`, schreibbar)                   |
+| `heads.<n>.grid.*`    | Netzleistung (`GP`), Tages-Lade-/Einspeiseenergie (`GD1` /`GD2`)                                                                                     |
+| `heads.<n>.load.*`    | Lastleistung (`LP`), Tages-Inselbetriebs-Lastenergie (`LD`)                                                                                          |
+| `heads.<n>.pv.*`      | PV gesamt (`PV`), Tages-PV-Erzeugungsenergie (`PD`) und Leistung/Strom/Spannung je MPPT (`mppt1` –`mppt4`)                                          |
+| `heads.<n>.system.*`  | Gesamt-Ein-/Ausgangsleistung (`IW` /`OP`)                                                                                                             |
+| `heads.<n>.device.*`  | Typ/Modell/Seriennummer/Status; `network.*` (IP, Port, WLAN); `firmware.*` (`ES` /`AS` /`DS` Software, `EH` /`AH` /`DH` Hardware, `BS0` –`BS5` BMS)        |
+| `heads.<n>.meter.*`   | Status des externen Zählers (`MS`)                                                                                                                    |
+| `heads.<n>.ups.*`     | USV-Modus / Netzladen / Bypass (`UO` /`UG` /`FP`)                                                                                                     |
+| `heads.<n>.fault.*`   | Fehler-Bitmasken (`TF` /`EF` /`DF1` /`DF2` /`AF1` /`AF2` /`BF`) — nur im aktiven Fehlerfall befüllt                                                   |
+| `heads.<n>.control.*` | alle **beschreibbaren** Felder (siehe unten)                                                                                                           |
+| `heads.<n>.info.*`    | pro Kopf `online`, `lastError`, `rawResponse` (komplette `/read` -Rohantwort), `desiredSettings` (über einen Kopf-Neustart gehaltene Einstellungen, JSON) |
+| `total.*`             | Gesamtsicht: Kapazitätsgewichteter `soc`, summierte `batteryPower` /`gridPower` /`maxPower`, `onlineCount`                                             |
+| `controller.*`        | Telemetrie des Eigenverbrauchsreglers (`status`, Alter der Netzquelle)                                                                                |
+| `info.*`              | `connection` (mind. ein Kopf erreichbar) und `lastUpdate`                                                                                               |
 
 ### Schreibbare Steuerfelder (`heads.<n>.control.*`)
 
@@ -173,6 +175,14 @@ Per ioBroker-Konvention liegen alle beschreibbaren Felder unter dem `control.*` 
 
 `device.PK` wird aus `DevType` abgeleitet, wenn die Firmware `PK` nicht mehr liefert. `SI1` /`SA1` sind schreibbar (SoC-Hysterese, Standard 5 %); weiterhin reservierte Felder (`PT`) sind schreibgeschützt. Vom Hersteller entfernte (`UP`) oder reine Doku-Artefakte (`WT`, `BN`) werden nicht angelegt; Alles Ungemappte steht weiterhin in `heads.<n>.info.rawResponse` Die
 
+### Einstellungen nach einem Kopf-Neustart
+
+Firmware 1.1.5 (gemeldet als `ES` 1.1.15) behält über die lokale API geschriebene Werte nicht: Nach einem Neustart meldet sich der Kopf mit einem älteren gespeicherten Stand zurück, und nachts fällt er auch ohne Neustart von selbst darauf zurück (beobachtet um 03:00). Im lokalen Modus kann auch die Hersteller-App sie nicht ändern, eine über diesen Adapter gesetzte Einstellung fiele auch noch zurück und blieb so.
+
+Der Adapter merkt sich deshalb, was du über ihn setzt —`SI`, `SA`, `SO`, `SI1`, `SA1`, `IS`, `MG` sowie die Schalter `LFB`, `LPS`, `PM` - In `heads.<n>.info.desiredSettings` und schreibt einen Wert erneut, sobald der Kopf einen anderen meldet (Log-Stufe info). Verweigert einen Kopf einen Wert dauerhaft, versucht der Adapter es seltener und meldet nach drei Versuchen eine Warnung. `GS`, `MM` und `MD` regelt der Steuermodus, `RT` ist ein Auslöser, `LM` wird nie erzwungen, und `TZ` Bleibt außen vor, weil der Kopf es in anderer Form zurückmelden kann, als es geschrieben wurde.
+
+Gemerkt werden nur Werte, die nach dem Update auf eine Version mit dieser Funktion gesetzt wurden — setze sie also einmal über den Adapter. Auf Firmware, die ihre Einstellungen behält, weicht nie etwas ab, und es wird nichts geschrieben. Schalten Sie die Option aus, wenn ein anderes Werkzeug diese Einstellungen verwaltet.
+
 ## Manuelle Zähler-/Modus-Felder (MM / MD)
 
 `MM` /`MD` sind die geräteeigene zählerbasierte Eigenverbrauchsregelung eines Kopfes. Wenn Sie einen **Steuermodus** wählen, verwaltet der Adapter sie für Sie (Modus A setzt). `MM=1` +`MD` auf dem einzelnen Kopf; Modus B erzwingt `MM=0` auf jedem Kopf), und sein Guard setzt das modusgerechte `MM` Beim nächsten Poll wieder — eine manuelle Änderung in einem Steuermodus ist also nur vorübergehend.
@@ -181,7 +191,7 @@ Die Roh-Felder bleiben für Experten-/Handbetrieb schreibbar (z. B. im _Aus-_ Mo
 
 ## Einschränkungen
 
-- **Bis zu drei Köpfe pro Instanz.** Der Einzelkopf-Betrieb ist an echte Hardware validiert; die Mehrkopf-Aufteilung ist durch Unit-Tests abgesichert, zum jetzigen Zeitpunkt aber **an einer echten 2–3-Kopf-Anlage ungetestet** — Rückmeldungen aus Mehrkopf-Setups sind sehr willkommen. _Geräte-Eigenregelung_ nur mit Einzelkopf.
+- **Bis zu drei Köpfe pro Instanz.** Der Einzelkopf-Betrieb ist an echte Hardware validiert; die Mehrkopf-Aufteilung ist durch Unit-Tests abgesichert, zum jetzigen Zeitpunkt aber **an einer echten 2–3-Kopf-Anlage ungetestet** – Rückmeldungen aus Mehrkopf-Setups sind sehr willkommen. _Geräte-Eigenregelung_ nur mit Einzelkopf.
 - **Köpfe müssen auf unterschiedlichen Phasen liegen** (Verantwortung des Betreibers). Der Adapter regelt die **Netto-Summen** -Netzleistung, nicht pro Phase.
 - Das Balancing der einzelnen Packs übernimmt das BMS jedes Kopfes – der Adapter steuert nur die Gesamtleistung des Kopfes und nutzt `battery.SC` (gesamt) zur Regelung; Einzelne Packs werden nicht verwaltet.
 - Tagesenergiezähler (`PD` /`GD1` /`GD2` /`LD`) sind rohe **Wh** , nicht kWh. `PD` benötigt Steuermodul-Firmware `ES 1.1.14` (öffentlich als „1.1.4“ vermarktet — die öffentliche Zählweise weicht von der internen in `ES` ab); Ältere Firmware liefert das Feld schlicht nicht, der Zustand bleibt dann leer.
@@ -198,7 +208,7 @@ Die Roh-Felder bleiben für Experten-/Handbetrieb schreibbar (z. B. im _Aus-_ Mo
 - **Der Regler ist zu langsam / erreicht nie exakt 0:** siehe _Regelverhalten, Genauigkeit und Grenzen_ — die Messkette bringt \~1–3 s Latenz mit und der Zähler misst mit endlicher Genauigkeit, ein Band von ±10–20 W um das Ziel ist das physikalische Optimum. Für die schnellste Reaktion das _Präzise_ -Profil nutzen (Verstärkung 0,8–1,0, Totband 0, min. Schreibintervall 1000 ms); Wer nie einspeisen will, setzt die **Ziel-Netzleistung** auf einen kleinen positiven Bezug.
 - **Zeitstempel von States wirken alt / Quality-Flag 32:** Der Adapter schreibt einen State nur bei Wertänderung (Standard-Praxis — schützt die States-DB vor Millionen identischer Schreibvorgänge). Der Zeitstempel zeigt auch die letzte _Wertänderung_ , nicht den letzten Poll. Die Datenfrische zeigt `info.lastUpdate` (bei jeder erfolgreichen Umfrage aktualisiert) bzw. `heads.<n>.info.online`. Qualität 32 („Ersatz-Initialwert“) bleibt nur auf Staaten, die das Gerät nie liefert (z. B. SoC nicht vorhandener Erweiterungspacks); Nach jedem Adapterstart werden alle gelieferten Werte einmal geschrieben – ihre Zeitstempel sind auch mindestens so frisch wie der Start.
 - **Zwei Regler kämpfen um den Akku:** Nur einen laufen lassen. Der Adapter erzwingt `MM` für den gewählten Modus — deaktiviere ein externes `GS` -Skript (oder den geräteeigenen `MM` mit Zähler), bevor du einen Steuermodus nutzt.
-- **Manche Staaten bleiben leer (`0` /`""`):** Ein Gerät liefert nur die Felder, die seine Firmware/Topologie tatsächlich bereitstellt (z. B. weitere Packs `SC2` –`SC5` oder Fehler-Bitmasks nur im Fehlerfall). Die Roh kompletteantwort steht immer in `heads.<n>.info.rawResponse` Die
+- **Manche Staaten bleiben leer (`0` /`""`):** ein Gerät liefert nur die Felder, die seine Firmware/Topologie tatsächlich bereitstellt (z. B. weitere Packs `SC2` –`SC5` oder Fehler-Bitmasks nur im Fehlerfall). Die Roh kompletteantwort steht immer in `heads.<n>.info.rawResponse` Die
 - **Nach dem Update einer Einzelkopf-Version sieht der Baum falsch aus:** der Objektbaum wurde in 0.2.0 auf `heads.<n>.*` umgestellt. Der Adapter entfernt veraltete Objekte beim Start automatisch; Bleibt doch etwas übrig, die alten Objekte löschen (oder die Instanz neu anlegen).
 - **Köpfe fallen sporadisch aus / Ping-Timeouts:** das WLAN-Modul im Kopf ist schwach, und gestapelte Geräte setzen ein Metallgehäuse direkt über die Antenne. Prüfe `heads.<n>.device.network.WR` (Signalstärke in dB) — unterhalb von −75 dB wird die Verbindung unzulässig. Gestapelte Geräte trennen und das **Abfrageintervall** auf 10–15 Sekunden erhöhen (die Regelgüte leidet kaum: der Regler reagiert auf die Netzleistungsquelle, nicht auf diese Abfrage). Um den Adapter auszuschließen: Instanz stoppen und den Kopf einige Minuten anpingen – bleiben die Ausfälle, liegt es nicht an der Abfrage. Der Adapter wird selbst verschickt `/read` pro Kopf und Intervall, fragt mehrere Köpfe zeitversetzt ab, schließt jede Verbindung nach Gebrauch und bremst nach fehlgeschlagenen Abfragen automatisch ab.
 

@@ -35,7 +35,7 @@ This adapter controls [Blackmagic Design ATEM](https://www.blackmagicdesign.com/
 ## Requirements
 
 - js-controller >= 6.0.11
-- ioBroker Admin >= 7.6.20
+- ioBroker Admin >= 7.8.23
 - Node.js >= 22
 - Blackmagic ATEM switcher with network connectivity
 
@@ -122,6 +122,18 @@ The ATEM protocol has no authentication — keep ATEM devices on a trusted, priv
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.2.10 (2026-09-27)
+- (Alan Paris) Fixed live updates on 2 M/E and 4 M/E switchers: changes to M/E 2-4 (program, preview, keyers, transitions) were not reflected until the next reconnect
+- (Alan Paris) Fixed live updates when one packet changes several areas at once, and classic-audio input gain/balance/mix option now update live
+- (Alan Paris) Fixed a connection leak: each network drop left the previous ATEM connection running, taking an extra switcher session
+- (Alan Paris) Object definitions (roles, names, ranges) are now updated on existing installations, not only on fresh installs
+- (Alan Paris) With model auto-detect, restarting the adapter no longer deletes states (and their history settings) that the connected model supports, e.g. M/E 2-4 or classic-audio monitor states
+- (Alan Paris) device.modelName now shows the product name (e.g. "ATEM Mini Pro") and device.productId the numeric model ID; previously they were swapped
+- (Alan Paris) Transition and fade-to-black rate states no longer default to 0, below their minimum of 1
+- (Alan Paris) Adapter now requires admin >= 7.8.23
+- (Alan Paris) Node.js 26 added to the test matrix
+- (Alan Paris) Updated dependencies (@iobroker/adapter-core 3.4.3, @iobroker/testing 6.2.2)
+
 ### 0.2.9 (2026-07-12)
 - (Alan Paris) Made macros.run write-only (it no longer retains the last-triggered index); use macros.runningIndex to read the active macro
 - (Alan Paris) Renamed recording.remainingDiskSpace to "Remaining Recording Time" and documented that its value is seconds of available recording capacity, not bytes
@@ -143,32 +155,6 @@ The ATEM protocol has no authentication — keep ATEM devices on a trusted, priv
 - (Alan Paris) Updated atem-connection to 3.9.0 and dev dependencies (@iobroker/types, rimraf)
 - (Alan Paris) Extended tsconfig from @tsconfig/node22 for standardized type checking
 - (Alan Paris) Switched Dependabot to cron schedules to distribute update load
-
-### 0.2.5 (2026-07-04)
-- (Alan Paris) Resolved all ESLint warnings (unawaited promises, JSDoc parameter descriptions)
-
-### 0.2.4 (2026-07-04)
-- (Alan Paris) Fixed state roles so writable transition, keyer and media-player selectors, macro run and input info states pass the ioBroker object checker
-- (Alan Paris) Removed the legacy flat `transitionStyle` state on upgrade
-- (Alan Paris) Use adapter-managed timers for the reconnect timeout
-- (Alan Paris) Updated dependencies for repochecker compliance
-
-### 0.2.3 (2026-05-21)
-- (Alan Paris) Bump minimum Node.js to 22 and CI matrix to 22/24 for ioBroker community submission compliance
-- (Alan Paris) Set `common.noGit: true` so the gitignored `build/` tree does not trip the repochecker
-- (Alan Paris) Trim `common.news` to only versions published to npm
-
-### 0.2.2 (2026-05-20)
-- (Alan Paris) Switched CI publish to npm trusted publishing (OIDC)
-
-### 0.2.1 (2026-05-20)
-- (Alan Paris) Initial publication to npm registry
-
-### 0.2.0 (2025-02-04)
-- (Alan Paris) Added model selection, transition rates, auxiliary outputs, tally, audio per-input, color generators
-
-### 0.1.0 (2025-01-29)
-- (Alan Paris) Initial release: program/preview switching, DSK/USK, streaming and recording, media players, macros
 
 ## License
 

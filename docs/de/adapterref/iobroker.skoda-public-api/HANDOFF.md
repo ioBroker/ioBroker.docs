@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.skoda-public-api/HANDOFF.md
 title: Handoff - ioBroker.skoda-public-api
-hash: sYc0SjDJne3moW2a0RA2tsAzbiVcaVX7ngTyvEW9RIo=
+hash: dEkuvVpL7pCtp8OoJ5zRDEhvTOH/lCcCXzF8YzHakRY=
 ---
 # Handoff — ioBroker.skoda-public-api
 
@@ -13,15 +13,16 @@ Diese Datei beschreibt den aktuellen Arbeitsstand und die nächsten notwendigen 
 ## Aktueller Stand
 
 - Das öffentliche Repository ist[`tmarthy/ioBroker.skoda-public-api`](https://github.com/tmarthy/ioBroker.skoda-public-api) Die
-- Version `0.1.10` wurde über npm und GitHub veröffentlicht. Version `0.1.11` enthält die Korrekturen der ioBroker-Objektprüfung. Versionsangaben, ioBroker-News und README-Changelog sind darauf abgestimmt. Der Tag `v0.1.11` löst die CI-Matrix und bei Erfolg npm Trusted Publishing sowie den GitHub-Release aus.
-- Der Antrag auf Aufnahme in ioBroker `latest` ist als[`ioBroker.repositories#6592`](https://github.com/ioBroker/ioBroker.repositories/pull/6592) weiterhin offen (geprüft am 19. September 2026).
-- `bluefox` und `tmarthy` sind als npm-Maintainer eingetragen (am selben Tag geprüft). Die frühere Aufgabe, `bluefox` hinzufügen, ist damit erledigt.
+- Version `0.1.11` wurde über npm und GitHub veröffentlicht und ist in ioBroker `latest` verfügbar. Der [Testaufruf im Forum](https://forum.iobroker.net/topic/85433/test-adapter-skoda-public-api-v0.1.x) bestätigt die Aufnahme. `bluefox` und `tmarthy` sind npm-Maintainer.
+- Lademodus und Ladeprofile wurden am eigenen Fahrzeug erfolgreich getestet.
+- Der Spec-Wächter hat am 28. September 2026 neue optionale Felder `ChargingStatus.plugConnectionState` und `plugLockState` erkannt und [Issue #4](https://github.com/tmarthy/ioBroker.skoda-public-api/issues/4) eröffnet. Spec, Codegen und Objektbezeichnungen sind in [Draft-PR #5](https://github.com/tmarthy/ioBroker.skoda-public-api/pull/5) aktualisiert. Ein manuell gestarteter Spec-Workflow auf dem Branch ist grün.
+- Die PR-Matrix ist auf allen neun Kombinationen aus Ubuntu, Windows, macOS und Node 22, 24, 26 grün. Unter macOS lief der echte Compact-Group-Test jeweils mit.
 - npm Trusted Publishing ist für Tags über `.github/workflows/test-and-release.yml` eingerichtet. `NPM_TRUSTED_PUBLISHING=true` aktivierte den Deploy-Job.
 
 ## Offene Themen in empfohlener Reihenfolge
 
-1. **Aktuellen Review- und Checker-Stand von PR #6592 prüfen.** Frühere Hinweise zu Objektrollen, npm-Ownern, `process.env`, Changelog und Compact Mode nicht ungeprüft als offene Fehler übernehmen. Entsprechende Korrekturen bzw. Unterstützung sind inzwischen vorhanden. Bei Bedarf einen aktuellen Objekt-Export bereitstellen und einen erneuten Check anfordern; Der aktuelle Kommentarverlauf wurde hier nicht geprüft.
-2. **Lademodus und Ladeprofile am Fahrzeug prüfen.** Die Schreibzugriffe sind mit Mock- und Integrationstests abgedeckt; Die neue Steuerung benötigt noch einen Praxistest mit einem passenden Fahrzeug und dessen verfügbaren Modi/Profilen.
+1. **Draft-PR #5 prüfen und übernehmen.** Danach den nächsten `check-spec` -Lauf auf `main` und die Schließung von Issue #4 kontrollieren.
+2. **Breitere Fahrzeugtests begleiten.** Besonders hilfreich sind Rückmeldungen zu anderen Modellen und Antriebsarten mit anonymisierten Vorrichtungen.
 
 ## Funktionsumfang
 

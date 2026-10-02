@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tvprogram/README.md
 title: ioBroker.tv-Programm
-hash: u+jxjiQxQHN9F5+RN9ahusygyXUzpKhylTmPFS4lZC0=
+hash: +H6/erkYXupe/94fXa4xlWF5+NPPeA05PyHrf0pmbiM=
 ---
 ![Logo](../../../en/adapterref/iobroker.tvprogram/admin/tvprogram.png)
 
@@ -49,20 +49,24 @@ Nach dem ersten Start warten Sie, bis der Adapter Programm- und Kanaldaten herun
 
 ## Adapterkonfiguration
 
-Erstellen Sie für jede unabhängige Kanalauswahl, Favoritenliste und jedes Umschaltziel eine eigene TV-Konfiguration. Jeder Fernseher erhält unterhalb der Adapterinstanz einen eigenen Satz von Datenpunkten.
+Erstellen Sie für jede unabhängige Kanalauswahl, Favoritenliste und jedes Umschaltziel eine separate TV-Konfiguration. Jeder Fernseher erhält unterhalb der Adapterinstanz einen eigenen Datensatz. Der schreibgeschützte Geräteschlüssel wird vom konfigurierten TV-Namen abgeleitet. Er verwendet Kleinbuchstaben und Ziffern ohne Leerzeichen; deutsche Umlaute werden als „Umlaute“ geschrieben. `ae`, `oe` Und `ue`. Zum Beispiel, `Wohnzimmer Süd` wird `wohnzimmersued` Das Neuanordnen von Tabelleneinträgen ändert deren Geräteschlüssel nicht. TV-Namen müssen eindeutige Schlüssel erzeugen.
+
+Beim Start synchronisiert der Adapter diese Geräte mit der Konfiguration. Fehlende TV-Geräte werden angelegt und überflüssige Geräte zusammen mit ihren Datenpunkten entfernt. Bei einem älteren Gerät…`tv1`, `tv2` Wenn der Schlüssel zum ersten Mal ersetzt wird, werden seine bestehenden Statuswerte auf den neuen Geräteschlüssel kopiert.
 
 ### Programmquellen
 
-Der Adapter unterstützt folgende Programmquellen:
+Wählen Sie die Programmquelle für jede TV-Konfiguration separat aus. Der Adapter unterstützt:
 
 - **TV für alle**
 - **IPTV-EPG.org**
 
-Wählen Sie für IPTV-EPG.org das gewünschte Land und eine lokale tägliche Downloadzeit aus. `HH:mm` Der Download startet mit einem stabilen, zufälligen Zeitversatz von bis zu 60 Minuten nach diesem Zeitpunkt. Dadurch werden die Anfragen von verschiedenen ioBroker-Installationen verteilt.
+Wählen Sie für IPTV-EPG.org das gewünschte Land in der entsprechenden TV-Zeile aus. Die tägliche Downloadzeit gilt für alle IPTV-EPG-Quellen und -Nutzungen. `HH:mm` Der Download startet mit einem stabilen, zufälligen Zeitversatz von bis zu 60 Minuten nach diesem Zeitpunkt. Dadurch werden die Anfragen von verschiedenen ioBroker-Installationen verteilt.
 
 Beim Start prüft der Adapter, ob die konfigurierte Quelle nutzbare Kanal- und Programmdaten für den aktuellen Sendetag enthält. Fehlende Daten werden sofort heruntergeladen. Fehlgeschlagene Downloads werden nach einer Stunde wiederholt.
 
-Sendungen zwischen Mitternacht und 04:59 Uhr gehören zum vorherigen Sendetag. Durch Ändern der Quelle oder des IPTV-EPG-Landes werden der Programmcache und alle gespeicherten Senderauswahlen gelöscht. Wählen Sie die Sender nach dem Laden des neuen Programmführers erneut aus.
+Sendungen zwischen Mitternacht und 04:59 Uhr gehören zum vorherigen Sendetag. Heruntergeladene Daten werden für jede Quelle und jedes Land separat gespeichert. Beim Umschalten eines Fernsehers auf eine andere Quelle wird der vorhandene Cache nicht gelöscht. Kanalauswahlen werden als Dateien im Adapter-Cache pro Fernseher und Quelle gespeichert. Die aktive Auswahl wird kopiert nach `channelfilter` Nach einem Quellenwechsel und bevor die Widgets ihren Neuladebefehl erhalten, bleiben die Programmdaten für heute und die vier vorangegangenen Kalendertage zwischengespeichert, selbst wenn eine spätere Antwort des Anbieters diese Tage nicht mehr enthält.
+
+Satz `info.reset` Zu `true` Durch Drücken dieser Taste werden alle Quelldaten und gespeicherten Kanalauswahlen aus dem Adapter-Cache gelöscht. Der Adapter erkennt die Betätigung, löscht die aktiven TV-Auswahlen und lädt die konfigurierten Quellen sofort erneut herunter.
 
 ### Alternative Kanallogos
 
@@ -106,7 +110,7 @@ Das Widget „Zeitplan“ zeigt Programme nach Kanal auf einer Zeitachse an. Es 
 
 Öffnen Sie die Kanalauswahl über das Widget-Menü. Klicken Sie auf eine Karte, um einen Kanal zu aktivieren oder zu deaktivieren. Aktive Kanäle werden zuerst angezeigt und behalten ihre benutzerdefinierte Reihenfolge bei. Ziehen Sie eine aktive Karte, um sie zu verschieben; auf Touchscreens halten Sie sie kurz gedrückt, bevor Sie sie ziehen. Die Suchfunktion filtert die sichtbaren Karten. Mit der Sortierschaltfläche können Sie inaktive Kanäle nach Quellreihenfolge, A–Z und Z–A sortieren. Das Häkchen speichert die Änderungen, das Kreuz oder die Escape-Taste schließen das Fenster ohne Speichern. Die Schaltfläche oben rechts schaltet zwischen der konfigurierten Größe und dem Vollbildmodus um.
 
-Logos behalten ihre Proportionen und sind innerhalb der konfigurierten Kanalbreite und Zeilenhöhe zentriert. Bilder werden nahe am sichtbaren Bereich geladen, mit bis zu vier gleichzeitigen Anfragen und einem Wiederholungsversuch. Die vertikale Scrollleiste ist ausgeblendet; eine schmale horizontale Scrollleiste bleibt unterhalb der Programmzeilen sichtbar.
+Logos behalten ihre Proportionen und werden innerhalb der konfigurierten Kanalbreite und Zeilenhöhe zentriert. Bilder werden nahe am sichtbaren Bereich geladen, mit bis zu vier gleichzeitigen Anfragen und einem Wiederholungsversuch. Die vertikale Scrollleiste ist ausgeblendet; eine schmale horizontale Scrollleiste bleibt unterhalb der Programmzeilen sichtbar.
 
 Nach dem Laden des aktuellen Tages wartet das Widget mindestens zehn Sekunden und lädt die Daten der beiden folgenden Sendetage vor. Laufende Bild-Downloads können diesen Vorgang verzögern.
 
@@ -138,11 +142,11 @@ Das Favoriten-Widget listet anstehende Sendungen auf, deren Titel im TV-Menü an
 | `highlightcolor`             | `yellow`              | Lieblingssymbolfarbe                          |
 | `channeliconwidth`           | `35`                  | Breite des Kanallogos in Pixeln               |
 
-Wenn die Kanalauswahl beschränkt ist, verwendet Favoriten die Programmübersicht für denselben Fernseher. Bevor eine Auswahl gespeichert wird, werden die ersten vier Kanäle verwendet. Eine explizit leere Auswahl führt zu keinen Ergebnissen.
+Wenn die Kanalauswahl beschränkt ist, verwendet Favoriten die Programmübersicht für denselben Fernseher. Bevor eine Auswahl gespeichert wurde, werden die ersten vier Kanäle verwendet. Eine explizit leere Auswahl führt zu keinen Ergebnissen.
 
 ### TV-Steuerung
 
-Die TV-Steuerung zeigt das aktuell laufende Programm oder das Programm zu einem festgelegten Zeitpunkt an. Ein Klick auf das Kanallogo löst einen Umschaltbefehl aus; ein Klick auf eine beliebige Stelle der Programmkarte öffnet deren Details. Die Liste lässt sich vertikal scrollen, ohne dass eine Scrollleiste angezeigt wird.
+Die TV-Steuerung zeigt das aktuell laufende Programm oder das Programm zu einem festgelegten Zeitpunkt an. Ein Klick auf das Kanallogo löst einen Umschaltbefehl aus; ein Klick auf eine beliebige Stelle der Programmkarte öffnet deren Details. Die Navigation erfolgt vertikal ohne Scrollleiste.
 
 | Attribut               | Standard/Beispiel      | Beschreibung                                            |
 | ---------------------- | ---------------------- | ------------------------------------------------------- |
@@ -234,7 +238,7 @@ Alle längeren Beispiele sind in [docs/EXAMPLES.md](/#/docs/adapterref/iobroker.
 ## Geplante Arbeiten
 
 - Erwägen Sie ein zusätzliches Widget für hervorgehobene Programme.
-- Bei ausreichender Nachfrage sollten Sie andere Programm- oder Hardwarequellen in Betracht ziehen.
+- ~~Bei ausreichender Nachfrage sollten Sie andere Programm- oder Hardwarequellen in Betracht ziehen.~~
 
 ## Changelog
 
@@ -242,6 +246,20 @@ Alle längeren Beispiele sind in [docs/EXAMPLES.md](/#/docs/adapterref/iobroker.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 6.1.0 (2026-09-28)
+
+- more fixes and adjustments
+- add reset button under datapoint info/reset
+
+### 6.0.0 (2026-09-28)
+
+- improve and extend translation
+- improve configuration dialog
+- improve and fix dataloading
+- improve seperation of data
+- Improving the management of the selected channels
+- reduce amount of data transfered to widgets
+
 ### 5.0.1 (2026-09-23)
 
 - fix tests
@@ -256,17 +274,6 @@ Alle längeren Beispiele sind in [docs/EXAMPLES.md](/#/docs/adapterref/iobroker.
 - update dependencies
 - fix repochecker
 - tranform translation files
-
-### 4.0.3 (2026-02-27)
-
-- update dependencies
-- improve error handling
-
-### 4.0.2 (2026-01-27)
-
-- improve position of dialogs
-- reduce requests to data provider
-- test remove node 18,extend to node 24
 
 ## License
 

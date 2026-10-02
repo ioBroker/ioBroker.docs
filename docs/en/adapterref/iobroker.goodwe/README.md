@@ -134,6 +134,17 @@ Leave it off if you only want to read data.
 
 ## Troubleshooting
 
+### Inverter not found or not reachable
+
+The adapter talks to the inverter directly over UDP port 8899, without the GoodWe cloud. If the search finds nothing or the IP check fails, go through these points:
+
+* The inverter is an ET, EH, BH or BT series device. Other series do not answer this protocol.
+* The WiFi or LAN module of the inverter is connected to your network, and the router shows it with an IP address. Reserve that address in the router so it does not change.
+* ioBroker can reach that address. A WiFi repeater, a guest network, a separate VLAN or a firewall between ioBroker and the inverter blocks the UDP packets.
+* The search only scans the /24 networks of the ioBroker host. If ioBroker runs in Docker or a VM with its own network, enter the inverter network under "Discovery subnet" (for example `192.168.178.0`) or type the IP address directly and use "Validate inverter IP".
+
+### Optional register groups
+
 Optional register groups depend on inverter model, firmware and connected hardware. If a group is not supported, the adapter pauses it for an hour after a failed read and keeps the main connection online. A reconnect after a connection loss ends the pause, so a group that only failed because the inverter was gone is read again right away.
 
 Known model-dependent groups:
@@ -153,6 +164,11 @@ Recurring `retry` messages on debug level mean single UDP answers are getting lo
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Temperature states now carry the unit `°C` instead of `C`, so charts, widgets and the type detector show and recognise them as temperatures.
+- States created by older versions get their unit and specific role on the next start: many still had no unit and the generic role `value`, so voltage, current, power and temperature were not recognised. Only a missing unit, the unit `C` and the role `value` are replaced; a unit or role you set by hand is kept, and writable control states are left alone.
+- When the search finds no inverter or the IP check fails, the settings page now says what to check, and the README has a new troubleshooting section for it (reported in the forum).
+
 ### 1.2.0 (2026-09-14)
 - Added the battery settings (registers 45350-45358) and the EMS settings (registers 47509-47512) as new `Settings.*` states, enabled with the new `pollSettings` option and read on every poll cycle.
 - Added optional inverter control: with the new `enableControl` option the states `Settings.EmsMode`, `Settings.EmsPowerLimit`, `Settings.GridExportEnabled` and `Settings.GridExportLimit` become writable and are sent to the inverter as single register writes. Only these four registers are ever written: limit values are clamped to the range the adapter allows, mode values outside the list in this README are refused, numbers written as text are accepted, a write while the inverter is offline is refused, a value the inverter already holds is not written again, and the register group is read back after every write. While control is on, the EMS settings stay polled whatever `pollSettings` and `pollExtended` say. Control is off by default.

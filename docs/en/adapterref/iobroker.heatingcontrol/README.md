@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.heatingcontrol/README.md":{"title":{"en":"ioBroker.HeatingControl"},"content":"en/adapterref/iobroker.heatingcontrol/README.md"},"en/adapterref/iobroker.heatingcontrol/doc/en/FAQ.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.heatingcontrol/doc/en/FAQ.md"}}}
+---
 ![Logo](admin/heatingcontrol.png)
 # ioBroker.HeatingControl
 
@@ -60,7 +63,7 @@ Features:
 * visualization from [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) is supported. Thank you!
 * Vis-2 support with [vis-2-widgets-weather-and-heating](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating)
 
-[FAQ](https://github.com/rg-engineering/ioBroker.heatingcontrol/blob/master/doc/FAQ.md)
+[FAQ](/#/docs/adapterref/iobroker.heatingcontrol/doc/en/FAQ.md)
 
 ## Installation
 

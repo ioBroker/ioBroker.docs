@@ -3,6 +3,7 @@ BADGE-npm version: https://img.shields.io/npm/v/iobroker.govee-smart
 BADGE-stable: https://iobroker.live/badges/govee-smart-stable.svg
 BADGE-Installations: https://iobroker.live/badges/govee-smart-installed.svg
 BADGE-npm downloads: https://img.shields.io/npm/dt/iobroker.govee-smart
+BADGE-Test and Release: https://github.com/krobipd/ioBroker.govee-smart/actions/workflows/test-and-release.yml/badge.svg
 BADGE-Node: https://img.shields.io/badge/node-%3E%3D22-brightgreen
 BADGE-TypeScript: https://img.shields.io/badge/TypeScript-strict-blue
 BADGE-License: https://img.shields.io/badge/license-MIT-green
@@ -13,7 +14,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.govee-smart/README.md
 title: Гови Смарт
-hash: 5pTuCmwWxM/n4+vITGa9TBUCvNe8VdiXwZicz7/k2jE=
+hash: KGRj9NlMCyHx/JxXcHb3fqx2sz+ENRO3dPwTHdjajaY=
 ---
 # Гови Смарт
 
@@ -23,15 +24,7 @@ hash: 5pTuCmwWxM/n4+vITGa9TBUCvNe8VdiXwZicz7/k2jE=
 
 ## Что вы получаете за то, что вкладываете
 
-Все, кроме первой строки, является необязательным. Введите больше, и станет доступно больше вариантов; если ничего не вводить, локальное управление все равно будет работать.
-
-| Что вы вводите                                      | Что может делать адаптер                                                                                                                                |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ничего                                              | Найдите индикаторы в вашей сети и включите/выключите их: питание, яркость, цвет, цветовая температура, состояние.                                       |
-| + Ключ API Govee                                    | Названия устройств, возможности, сценарии, снимки и сегменты.                                                                                           |
-| + Учетная запись Govee (электронная почта и пароль) | Обновления статуса в режиме реального времени передаются из Govee, поэтому изменения, внесенные в приложение или на устройстве, отображаются мгновенно. |
-
-Ключ API предоставляется бесплатно и дается приложением Govee Home. Вход в учетную запись осуществляется самим приложением; адаптер только прослушивает эту учетную запись и никогда не отправляет через нее команды.
+Все параметры являются необязательными: если ничего не вводить, индикаторы в вашей сети будут найдены и включены локально; бесплатный ключ API Govee добавляет имена, возможности, сцены, снимки и сегменты; ваша учетная запись Govee добавляет статус в реальном времени — подробное описание каждого шага приведено на странице вики « [Настройка»](https://github.com/krobipd/ioBroker.govee-smart/wiki/Setup) .
 
 **Для каждого устройства необходимо включить локальный API в приложении Govee Home** (настройки устройства → Управление по локальной сети). Без него управление устройством будет осуществляться через облако — это работает, но занимает несколько секунд на команду и ограничено скоростью запросов со стороны Govee.
 
@@ -40,11 +33,15 @@ hash: 5pTuCmwWxM/n4+vITGa9TBUCvNe8VdiXwZicz7/k2jE=
 1. Установите адаптер и создайте экземпляр.
 2. Откройте настройки экземпляра. Карточка **«Подключение»** проведет вас по трем указанным выше уровням и покажет, что работает, а что нет, включая проверку входа в систему, которая действительно выполняет авторизацию, а не просто заполняет форму.
 3. Если Govee запрашивает код подтверждения (это происходит при подключении нового клиента), карта запрашивает его у вас. Больше ничего не требуется; адаптер запоминает данные для входа после перезагрузки, поэтому дополнительные коды не отправляются.
-4. Устройства отображаются в разделе `devices.<model>_<id>` Группы, созданные вами в приложении Govee, отображаются в разделе `groups.`.
+4. Устройства отображаются в разделе `devices.<model>-<id>` — модель и последние четыре символа собственного идентификатора устройства, например. `devices.h61be-525f` Если два устройства одной модели заканчиваются на одинаковые четыре символа, то второму присваивается его полный идентификатор. Созданные вами группы в приложении Govee отображаются в разделе `groups.`.
+
+## Обновление с версии 2.x
+
+В версии 3.0.0 каждому устройству присваивается новый идентификатор объекта один раз: `devices.h61be_525f` становится `devices.h61be-525f`, с дефисом, как и в других адаптерах устройств этого разработчика. Перенос происходит автоматически при первом запуске: значения, настройки записи, комнаты, функции и псевдонимы переносятся, а история записей продолжается в старой последовательности. Скрипты и визуализации, использующие старые идентификаторы, необходимо обновить.
 
 ## Сообщение о проблеме
 
-Откройте вкладку **«Эксперт»** адаптера, нажмите **«Диагностика»** , выберите устройство и нажмите кнопку: адаптер создаст отчет, и ваш браузер сохранит его в файл. Прикрепите этот файл к задаче на GitHub — в формах для создания задач запрашивается именно этот файл.
+Откройте вкладку **«Эксперт»** адаптера, нажмите **«Диагностика»** , выберите устройство и нажмите кнопку: адаптер создаст отчет, и ваш браузер сохранит его в файл. Прикрепите этот файл к задаче на GitHub — в форме поддержки устройства запрашивается именно этот файл.
 
 Список устройств содержит информацию обо всех устройствах, доступных или недоступных — отчет необходим именно тогда, когда что-то работает некорректно. Информация о каждом устройстве. `diag.lastExport` В записях точки данных указывается время последнего составления отчета.
 
@@ -78,47 +75,60 @@ hash: 5pTuCmwWxM/n4+vITGa9TBUCvNe8VdiXwZicz7/k2jE=
     ### **WORK IN PROGRESS**
 -->
 
-### 2.32.1 (2026-09-07)
+### 3.1.1 (2026-10-01)
 
-- Fixed: Your devices and their recorded history no longer disappear from the object tree when the Govee cloud cannot be reached at startup
+- Fixed: a cloud command that fails because the Govee server name cannot be resolved is sent again within 10 seconds instead of being lost after one try
+- Fixed: after a failed command the light's real state is read back right away, so its datapoint no longer stays on the wrong value — also without a Govee account
+- Fixed: calls that never reached Govee (DNS or connection errors) no longer use up the daily budget, so an appliance is not blocked for the rest of the day
+- Fixed: a group command that only some of its lights took now names the lights that did not switch and why, so a dark light no longer goes unnoticed
+- Improved: connection errors in the log are written in plain words, e.g. that the Govee server name could not be resolved and the DNS is the likely cause
 
-### 2.32.0 (2026-09-07)
+### 3.1.0 (2026-10-01)
 
-- Fixed: In an account without a single light, every device stopped being switchable after a restart — appliances, plugs and sensors had no state and no reachability until you pressed sync devices
-- Fixed: A device could stay green for up to 30 minutes after Govee had reported it offline; an arriving reading no longer overrides an explicit offline report
-- Fixed: With only an API key configured, devices fell offline 30 minutes after the start although they were still controllable — the proof now renews itself without account credentials
-- Fixed: Scene and snapshot commands that fell back to the cloud and failed there were still confirmed as carried out; a command that did not arrive now stays unconfirmed
-- Fixed: A manually chosen segment list could only ever lengthen the learned strip and never shorten it again — the wizard's own measurement was overwritten by it
-- Fixed: Under load the adapter stopped counting appliance commands against their daily limit, so a heater or humidifier could burn through its Govee quota and stop responding
-- Fixed: On a device model the adapter does not know yet, the tier datapoint told the user to press a button that 2.31.0 had already removed from the admin page
-- Fixed: Without account credentials, a group from the Govee app grew an empty entry in the object tree on every restart; it now appears only once its members are actually known
-- New: Datapoints carry an explanation in all 11 languages wherever the name alone does not say enough — 99 of them instead of 26
-- Changed: The adapter can no longer be installed directly from GitHub — install it from the ioBroker repository or from npm, as with every other adapter
+- Fixed: a rejected background token refresh of the Govee account now counts toward the login protection and asks to check email/password instead of retrying silently
+- Fixed: "Test login" in the connection card counts toward the account's login limit (3 per hour) and says when the next test is possible
+- Fixed: segment colours and brightness are confirmed only after the command went out — a refused Cloud command no longer leaves them acked
+- Fixed: stopping the adapter while it is still starting really stops it — it no longer goes on to search the network or log in to your Govee account afterwards
+- Fixed: a light found on the network before the saved data loads keeps its scene speed and remembered libraries after a restart
+- Fixed: a group offers only the colour temperatures every member supports, so no member is sent a value outside its range
+- Fixed: when Govee no longer accepts the account session, scene, music and DIY libraries, snapshots and groups ask for a fresh login instead of reading as empty
+- Fixed: a Cloud rate limit or rejected API key is reported once, with the real waiting time — no longer three times or with a wrong retry hint
+- Fixed: moving a 2.x device tree to its new id no longer loses recordings or room assignments when the move fails or is interrupted
+- Fixed: a light whose scene library has not loaded yet keeps its `scenes.scene_speed` datapoint, value and recording — a start without saved data deleted and re-created it
+- Improved: a restart leaves the object tree untouched when nothing changed, so scripts and history that watch object changes no longer see needless updates
+- Fixed: a mode or level dropdown only takes a value the device declares — a fan speed no longer shows `50`, an air purifier's level no longer `0` in Auto mode
+- Fixed: the manual device sync after a failed start shows the Cloud connected and stops the pending retry; a device it adds gets its first values without a log warning
+- Fixed: a Govee e-mail or password of spaces only counts as not entered — at start, in the sensor hint and in the connection card's test
+- Fixed: the refresh button of a light keeps its scene list across restarts and corrects a wrong segment count; devices that are not lights no longer use up Cloud calls
+- Fixed: a temperature reading carries °C whichever way it arrives — a model that declares Fahrenheit no longer flips the unit to °F (the value is always °C)
+- Fixed: a segment colour above 255 is sent as 255 — it wrapped to 0 before; a segment brightness is rounded like the light's brightness
+- Improved: a lamp that is unplugged or unreachable on your network leaves one warning in the log instead of a new warning for every command you send to it
+- Fixed: a group that is switched off or set to a colour clears its scene and music dropdowns the same way a single light already does
+- Fixed: a heater that declares no temperature unit shows none instead of an invented °F; a command delivered after the device came back shows the value that was sent
+- Fixed: an untested model without catalog corrections no longer warns to turn on the experimental switch — it works as it is; the log only asks for a diagnostics report
+- Fixed: the settings describe the experimental switch for what it does — it turns on the catalog corrections of untested models; every device appears without it
+- Improved: after you press the device sync or the refresh button, the log tells you what it found, for example which new devices were added to the object tree
+- Fixed: the connection card words every answer in the admin's language — a full login window shows the time on your own clock, and a repeated login test no longer claims a code was just requested
+- Fixed: the music mode read from Govee's state answer showed the mode at that position instead of the reported one; a mode the device never declared is no longer written
+- Fixed: the segment detection wizard no longer counts a dark segment at the end when the measurement runs all the way to the longest strip Govee supports
+- Improved: appliance modes and levels and the device type show readable names in your ioBroker language; scripts may still write the names Govee uses, such as Auto
 
-### 2.31.1 (2026-09-04)
+### 3.0.1 (2026-09-27)
 
-- Fixed: When the adapter met a device model it does not know yet, its log asked the user to press a button that 2.31.0 had removed — it now points at the Expert tab, where the report is actually made
+- Improved: the note the Admin shows before an update to 3.x is short now: the warning, one example old → new and a link to the details
 
-### 2.31.0 (2026-09-03)
+### 3.0.0 (2026-09-26)
 
-- Fixed: On instances upgraded from 2.27.0 or newer, every admin card was dead — diagnostics, segment wizard and connection test alike; affected installations repair themselves on the next start
-- Fixed: A card that could not reach the adapter reported "no devices yet" instead of the real error
-- Changed: Segment detection and diagnostics now share one **Expert** tab with a button each
-- Changed: The per-device `diag.export` button is gone; the Expert tab builds the report and hands you the file in one press
-- Changed: `diag.lastExport` now records WHEN the last report was taken, instead of naming the file
-- Improved: Both cards say "Loading devices …" while they search, and explain the wait if it takes long
-- Fixed: The diagnostics report still described the reachability rule as it was before 2.30.0
+- Changed: every device gets a new object ID once — model and last four characters with a hyphen, e.g. `devices.h61be-525f`; scripts and visualizations need the new IDs
+- Changed: the move carries values, recording settings, rooms, functions and aliases along, and recorded history continues in its old series
+- Fixed: two devices of one model whose IDs end alike now get a tree each and each receives its own commands — until now they shared one
+- New: the H1741 battery table lamp reports its charge level in `sensor.battery`; Govee reports a fully charged battery as about 80 percent
+- Fixed: fans and heaters with a numeric level (H7102, H7130) store it as a number, and the H7121 no longer puts a warning in the log at every refresh
 
-### 2.30.0 (2026-09-03)
+### 2.41.0 (2026-09-26)
 
-- Fixed: Devices without a local API were shown as unreachable although they switched and reported normally; they now show as reachable for as long as they are
-- Fixed: Sensors and buttons behind a Govee gateway were shown as unreachable although their readings kept arriving; their gateway now decides whether they are reachable
-- Fixed: Appliances stayed marked as reachable for up to two minutes after they had actually gone offline
-- Improved: A device that is unplugged and put away is reported as unreachable within half an hour, instead of staying green until the adapter is restarted
-- New: 37 additional device models are recognised, including smart plugs, a button remote, an air quality monitor and an aroma diffuser
-- New: Battery buttons and remotes are supported as their own device kind, with battery level and reachability
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
+- Changed: Discovery follows the selected network interface only — the additional scan addresses setting is gone, and the broadcast goes to the network of the chosen card
+- Fixed: `info.cloudConnected` turns false while the Govee Cloud stays unreachable and true again with its next answer — until now only a rejected API key cleared it
 
 ## License
 

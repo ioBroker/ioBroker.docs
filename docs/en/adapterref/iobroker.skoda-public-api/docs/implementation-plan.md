@@ -170,16 +170,12 @@ Die `RateLimit-*`-Header korrigieren lokale Schätzungen. Insbesondere wird
 die allgemeine API-Regel 403-Antworten ausnimmt. Ein Netzwerkfehler kann nach
 serverseitiger Buchung entstehen und zählt deshalb ebenfalls konservativ als verbraucht.
 
-## 6. Offene Umsetzung
+## 6. Stand und laufende Wartung
 
 ### ioBroker Latest
 
-- neue Objektstruktur aus einer laufenden Instanz exportieren und an
-  [`ioBroker.repositories#6592`](https://github.com/ioBroker/ioBroker.repositories/pull/6592)
-  anhängen
-- Checker erneut starten und verbleibende Befunde bearbeiten
-- `bluefox` als npm-Owner hinzufügen
-- manuellen ioBroker-Review bis zur Aufnahme in `latest` begleiten
+Der Adapter ist seit September 2026 in `latest`. `bluefox` und `tmarthy` sind
+als npm-Maintainer eingetragen. Version `0.1.11` ist veröffentlicht.
 
 ### Zusätzliche Schreiboperationen
 
@@ -201,8 +197,8 @@ wartende Updates. Nicht gepollte Änderungen durch andere Clients bleiben ein Re
 
 Modus und jedes Profil haben eigene Coalescing-Gruppen. Quota, TTL, Fehlerbehandlung,
 API-Quittierung und Verifikations-Polls laufen über dieselbe Queue wie die übrigen
-Befehle. Mock- und Integrationstests prüfen die neuen Schreibpfade; ein Praxistest
-mit passenden Fahrzeugfunktionen steht noch aus.
+Befehle. Mock- und Integrationstests prüfen die neuen Schreibpfade; Lademodus
+und Ladeprofile wurden zudem am eigenen Fahrzeug erfolgreich getestet.
 
 ### Komfortable Profilbearbeitung
 
@@ -231,5 +227,5 @@ Tests sichern stabile Statuscodes und die Migration bestehender Label-Zuordnunge
 - Änderungen der OpenAPI-`v0`-Spec prüfen und Codegen anpassen
 - Abhängigkeiten und GitHub Actions über Dependabot aktuell halten
 - Verhalten weiterer Fahrzeugtypen mit anonymisierten Fixtures absichern
-- Compact Mode erst nach Bewertung von Lebenszyklus, Timern und Speicherzustand
-  aktivieren
+- Compact-Group-Integrationstest läuft auf Linux und macOS; Draft-PR #5 bestätigt
+  macOS mit Node 22, 24 und 26. Windows bleibt wegen eines Controller-Testproblems ausgenommen

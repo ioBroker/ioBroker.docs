@@ -1,6 +1,9 @@
 ![Logo](admin/samsung.png)
 # ioBroker.samsung_tizen
 
+> [!IMPORTANT]
+> This adapter cannot be installed from github
+
 This adapter controls Samsung TVs running Tizen OS (2016 and newer).
 
 ## 1. Configuration

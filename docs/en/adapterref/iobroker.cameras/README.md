@@ -43,10 +43,41 @@ The result is always in `jpg` format.
 Supported cameras:
 - `Reolink E1 Pro` via RTSP (important, without `Pro` it will not work)
 - `Eufy` via eusec adapter
+- `UniFi Protect` - every camera managed by a UniFi console or NVR, see below
 - [HiKam](https://support.hikam.de/support/solutions/articles/16000070656-zugriff-auf-kameras-der-2-generation-via-onvif-f%C3%BCr-s6-q8-a7-2-generation-) of second and third generation via ONVIF (für S6, Q8, A7 2. Generation), A7 Pro, A9
 - [WIWICam M1 via HiKam adapter](https://www.wiwacam.com/de/mw1-minikamera-kurzanleitung-und-faq/)
 - RTSP Native - if your camera supports RTSP protocol
 - Screenshots via HTTP URL - if you can get the snapshot from your camera via URL
+
+### UniFi Protect
+Protect re-streams every camera from the console, so the address is the one of the console (or NVR),
+not of the camera. Instead of credentials the stream link contains a token:
+`rtsp://<console>:7447/<token>` or `rtsps://<console>:7441/<token>?enableSrtp`.
+Protect itself always uses these two ports. The field *RTSP port* is only needed if the console is reached
+through a port forwarding or a proxy; left empty, it follows the RTSPS setting.
+
+Two ways to configure a camera:
+- **With an API key** (Protect 5.3 or newer): create a key under *UniFi OS → Settings → Control Plane →
+  Integrations*, enter it together with the console IP and press *Load cameras*. The token is then read from Protect
+  at every start, and snapshots are taken by Protect itself (about 0.3 s, no ffmpeg needed).
+  If Protect has no RTSP stream for the chosen quality yet, the adapter switches it on - the same as enabling
+  "RTSP" for the camera in the Protect UI.
+- **With the token only**: enable RTSP for the camera in Protect and paste the link (or just its last part) into
+  *Stream token*. Snapshots are then decoded from the stream with ffmpeg.
+
+**Recommended: enter both.** The API key keeps the token up to date - Protect issues a new one when RTSP is switched
+off and on again or the camera is re-adopted, and a token entered by hand then stops working until it is replaced.
+The token stays as a fallback: if the API cannot be reached or the key was deleted, the stream is used with the
+configured token and snapshots come from ffmpeg.
+
+Use the **token only** if you do not want to give ioBroker an API key - the key opens the whole Protect API, all
+cameras and their settings, while a token only gives read access to one stream - or if your Protect is older than
+5.3. The live stream uses RTSP/RTSPS with the token in both cases; the key only affects snapshots and how the token
+is obtained.
+
+The console uses a self-signed certificate, which is not verified for these requests. Many Protect cameras send
+H.265; snapshots are taken from key frames only, otherwise the first picture is a grey area. The snapshot API of
+Protect only knows a high and a low resolution, so *medium* takes the high one.
 
 ### URL image
 This is a normal URL request, where all parameters are in URL. Like `http://mycam/snapshot.jpg`  
@@ -95,6 +126,12 @@ Most cameras do not need any code. The `universal` type is driven by the data fi
 
 The new manufacturer then appears in the dropdown of the "By manufacturer" camera type.
 
+The port of a row is only taken over when the camera plausibly listens on it out of the box
+(`PLAUSIBLE_PORTS` in `tools/parser.js`). ispyconnect stores whatever port the submitter reached
+their camera on, which is often a port forwarding of their router, and that must not become the
+default for every owner of the model. Everything else is written as `0`, so the dialog offers 80
+resp. 554 — and the port field can be changed there in any case.
+
 ### A dedicated camera type
 Only needed when the camera requires its own logic. Create a Pull Request with:
 - `src/types.d.ts` — add the key to the `CameraType` union, add a `CameraConfigMyCam extends CameraConfig`
@@ -128,6 +165,32 @@ If the binary cannot be found or does not start, the adapter transparently falls
 -->
 
 ## Changelog
+### 3.2.0 (2026-10-01)
+* (@hdering) Added: UniFi Protect cameras, with the stream token from the Protect API or entered by hand (#133)
+* (@hdering) Added: RTSPS for UniFi Protect, also through go2rtc
+* (@GermanBluefox) Fixed: the stderr of a failed ffmpeg call was passed on unmasked, so a camera password could end up in the log
+* (@hdering) Fixed: the web URL of a camera in the admin was always shown with `http://`, also for a web instance with https; the MJPEG stream URL is shown when go2rtc is enabled
+* (@GermanBluefox) Fixed: a request for the MJPEG stream of a camera was left hanging when go2rtc was switched on but not reachable
+* (@hdering) Fixed: all camera URLs of the web extension answered 404 when the native WebRTC binary was missing (#321)
+* (@GermanBluefox) Removed the unfinished `rtsp2WebRTC` experiment and the `@roamhq/wrtc` dependency with it - WebRTC runs through go2rtc
+
+### 3.1.0 (2026-09-29)
+* (@GermanBluefox) Fixed: after a single failed request a camera stayed broken until the adapter was restarted
+* (@GermanBluefox) Fixed: after a live stream had ended, every snapshot kept showing its last frame
+* (@GermanBluefox) Fixed: an RTSP camera with "original width/height" never delivered a picture, because the scale filter was passed to ffmpeg without `-vf`
+* (@GermanBluefox) Fixed: the first picture of a live stream appeared only after a delay of 10 seconds
+* (@GermanBluefox) Fixed: closing the view of one camera also unsubscribed the other cameras of the same browser
+* (@GermanBluefox) Fixed: a camera that failed to start could throw when a GUI client unsubscribed from it
+* (@GermanBluefox) Fixed: two cameras with the same IP address overwrote each other's snapshot
+* (@GermanBluefox) Fixed: a password containing `!` appeared in the log in clear text
+* (@GermanBluefox) Pictures are cached per requested size, so the web adapter and a widget no longer evict each other
+* (@GermanBluefox) A browser that leaves the page no longer produces warnings in the log
+* (@GermanBluefox) The universal camera type has a port field now - the port from the model table is only a suggestion
+* (@GermanBluefox) Fixed: the model table of the universal type offered the port of somebody's port forwarding as the default for 226 URLs
+* (@GermanBluefox) Fixed: `[WIDTH]`, `[HEIGHT]` and `[AUTH]` in the URL of a universal camera were never replaced, and a placeholder was only replaced once per URL
+* (@GermanBluefox) Added the VIVOTEK H9161
+* (@GermanBluefox) Updated packages
+
 ### 3.0.2 (2026-08-17)
 * (@GermanBluefox) The web extension can now request snapshots via messages instead of the private HTTP server, which is used automatically when the cameras adapter runs on a different host than the web instance
 * (@GermanBluefox) Fixed: a failed snapshot request answered with an empty `{}` instead of the error message
@@ -156,13 +219,6 @@ If the binary cannot be found or does not start, the adapter transparently falls
 
 ### 2.1.2 (2024-07-15)
 * (bluefox) Updated packages
-
-### 2.1.1 (2024-07-07)
-* (bluefox) Removed withStyles package
-
-### 2.0.8 (2024-06-09)
-* (bluefox) Packages updated
-* (bluefox) Allowed selecting another source (with bigger resolution) for URL cameras
 
 ## License
 MIT License

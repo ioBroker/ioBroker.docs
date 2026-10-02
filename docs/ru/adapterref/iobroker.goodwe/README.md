@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.goodwe/README.md
 title: ioBroker.goodwe
-hash: FYcQ9wobDD5kVjFDFSP8CmBTxNtGqNGVRjWI3bcqAOI=
+hash: 4aqVBuzinQkcxVJvWqEIQUVnKb0cef9xhzdRWhax+ks=
 ---
 ![Логотип](../../../en/adapterref/iobroker.goodwe/admin/goodwe.png)
 
@@ -16,7 +16,7 @@ hash: FYcQ9wobDD5kVjFDFSP8CmBTxNtGqNGVRjWI3bcqAOI=
 
 # ioBroker.goodwe
 
-## адаптер goodwe для ioBroker
+## Адаптер goodwe для ioBroker
 
 Взаимодействие с инверторами GoodWe серий ET/EH/BH/BT
 
@@ -78,7 +78,7 @@ hash: FYcQ9wobDD5kVjFDFSP8CmBTxNtGqNGVRjWI3bcqAOI=
 - `pollCycle`: Секунды между двумя считываниями данных в реальном времени (`RunningData`, `ExtComData`, `BMSInfo`) и настройки (`Settings.*`), от 2 до 3600. Другие необязательные группы регистров не следуют этому циклу: они используют один общий слот, который обслуживается по круговой схеме примерно каждые 30 секунд, и `DeviceInfo` Считывается один раз за каждое соединение.
 - `timeoutMs`: Время ожидания UDP-запроса в миллисекундах, от 1000 до 30000.
 - `retries` Количество повторных попыток для каждого UDP-запроса, от 0 до 5.
-- `pollExtended` Главный переключатель для дополнительных групп регистров. `DeviceInfo`, `RunningData`, `ExtComData` и `BMSInfo` их всегда читают.
+- `pollExtended`: Главный переключатель для дополнительных групп регистров. `DeviceInfo`, `RunningData`, `ExtComData` и `BMSInfo` их всегда читают.
 - `pollSimccid`: Включает дополнительный опрос SIMCCID.
 - `pollExtendedMeter`: Включает расширенные регистры счетчиков.
 - `pollFlashInfo`: Включает регистры информации флэш-памяти.
@@ -120,6 +120,17 @@ hash: FYcQ9wobDD5kVjFDFSP8CmBTxNtGqNGVRjWI3bcqAOI=
 
 ## Поиск неисправностей
 
+### Инвертор не найден или недоступен
+
+Адаптер взаимодействует с инвертором напрямую через UDP-порт 8899, без использования облака GoodWe. Если поиск ничего не находит или проверка IP-адреса не удается, выполните следующие действия:
+
+- Инвертор относится к сериям ET, EH, BH или BT. Другие серии не поддерживают этот протокол.
+- Модуль Wi-Fi или LAN инвертора подключается к вашей сети, и маршрутизатор отображает его с IP-адресом. Зарезервируйте этот адрес в маршрутизаторе, чтобы он не менялся.
+- ioBroker может получить доступ к этому адресу. Wi-Fi-ретранслятор, гостевая сеть, отдельная VLAN или межсетевой экран между ioBroker и инвертором блокируют UDP-пакеты.
+- Поиск сканирует только сети /24 хоста ioBroker. Если ioBroker работает в Docker или виртуальной машине со своей собственной сетью, введите сеть инвертора в поле "Подсеть обнаружения" (например, `192.168.178.0`) или введите IP-адрес напрямую и воспользуйтесь функцией "Проверить IP-адрес инвертора".
+
+### Дополнительные группы регистров
+
 Дополнительные группы регистров зависят от модели инвертора, прошивки и подключенного оборудования. Если группа не поддерживается, адаптер приостанавливает ее на час после неудачного считывания и поддерживает основное соединение в режиме онлайн. Переподключение после потери соединения завершает паузу, поэтому группа, которая не считывалась только из-за отключения инвертора, считывается снова немедленно.
 
 Известные группы, зависящие от модели:
@@ -139,6 +150,11 @@ hash: FYcQ9wobDD5kVjFDFSP8CmBTxNtGqNGVRjWI3bcqAOI=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Temperature states now carry the unit `°C` instead of `C`, so charts, widgets and the type detector show and recognise them as temperatures.
+- States created by older versions get their unit and specific role on the next start: many still had no unit and the generic role `value`, so voltage, current, power and temperature were not recognised. Only a missing unit, the unit `C` and the role `value` are replaced; a unit or role you set by hand is kept, and writable control states are left alone.
+- When the search finds no inverter or the IP check fails, the settings page now says what to check, and the README has a new troubleshooting section for it (reported in the forum).
+
 ### 1.2.0 (2026-09-14)
 - Added the battery settings (registers 45350-45358) and the EMS settings (registers 47509-47512) as new `Settings.*` states, enabled with the new `pollSettings` option and read on every poll cycle.
 - Added optional inverter control: with the new `enableControl` option the states `Settings.EmsMode`, `Settings.EmsPowerLimit`, `Settings.GridExportEnabled` and `Settings.GridExportLimit` become writable and are sent to the inverter as single register writes. Only these four registers are ever written: limit values are clamped to the range the adapter allows, mode values outside the list in this README are refused, numbers written as text are accepted, a write while the inverter is offline is refused, a value the inverter already holds is not written again, and the register group is read back after every write. While control is on, the EMS settings stay polled whatever `pollSettings` and `pollExtended` say. Control is off by default.

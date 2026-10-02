@@ -301,7 +301,7 @@ App-Einstellungen erlauben.
     ### **WORK IN PROGRESS**
 -->
 
-### 1.46.1 (2026-09-25)
+### 1.46.1 (2026-09-25) — stable
 
 - Improved: switching the master switch and refreshing the dashboard list now log their result — how many displays changed and how many dashboards were found
 

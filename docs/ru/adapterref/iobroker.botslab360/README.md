@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.botslab360/README.md
 title: ioBroker.botslab360
-hash: 4gEa9kTUqXFGkaThtOsUcUXyLtyYkccBgHR9XA8zog8=
+hash: P4PNjxI2RbXsk/6KBGPZg6sAAUUb8SDQJ07aBdLQaqg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.botslab360/admin/botslab360.png)
 
@@ -18,7 +18,20 @@ hash: 4gEa9kTUqXFGkaThtOsUcUXyLtyYkccBgHR9XA8zog8=
 
 ## адаптер botslab360 для ioBroker
 
-Адаптер для пылесоса Botslab 360
+Адаптер для роботов-пылесосов Botslab / 360.
+
+## Настраивать
+
+1. Создайте экземпляр адаптера.
+2. Выберите **сервер** , соответствующий приложению, в котором была создана ваша учетная запись:
+   - **Международная версия (Botslab)** для аккаунтов из приложения Botslab.
+   - **Китай (360Robot)** для учетных записей из приложения 360Robot (`q.smart.360.cn` Используйте это, если при международной авторизации сообщается, что учетная запись не существует.
+3. Введите адрес **электронной почты** и **пароль** вашей учетной записи.
+4. Для международного сервера выберите **регион** , к которому относится ваша учетная запись (na1 / eu1 / ap1). Адаптер автоматически попытается подключиться к другим регионам, если учетная запись не будет найдена в выбранном регионе. Для китайского сервера регион не указывается.
+
+### Капча
+
+Если при входе в систему используется капча, адаптер сохраняет изображение в виде URL-адреса данных. `info.captchaImage` а также записывает это в лог (скачайте лог, чтобы просмотреть его). Решите задачу и напишите код для... `info.captchaRequest` Для продолжения входа в систему.
 
 ## Стойерн
 
@@ -26,13 +39,33 @@ hash: 4gEa9kTUqXFGkaThtOsUcUXyLtyYkccBgHR9XA8zog8=
 
 ## Статус
 
-Статус Abruf für verbrauchsgüter und karte muss manuell getriggert werden
+Статус Abruf für Verbrauchsgüter und Karte должен быть изменен вручную. Beim China-Server обеспечивает асинхронную обработку с помощью Push-Verbindung geliefert и unter `<sn>.status` veröffentlicht.
 
 ## Вопросы и дискуссии
 
 <https://forum.iobroker.net/topic/60046/test-adapter-360-staubsauger-botslab>
 
 ## Changelog
+
+### 0.3.1
+
+- (TA2k) Fix the China (360Robot) session mint (errno 100) and recognize the expired-session error so login and device polling work
+
+### 0.3.0
+
+- (TA2k) Add a China (360Robot / q.smart.360.cn) backend selectable via the new Server option, for accounts that cannot log in on the international servers
+
+### 0.2.1
+
+- (TA2k) Auto-retry other regions when the account is not found; verbose debug logging; log the captcha image inline
+
+### 0.2.0
+
+- (TA2k) Switch to headless email/password login on the /v1 API; cookie login is no longer required
+
+### 0.1.0
+
+- (TA2k) Add login with an existing 360 web session
 
 ### 0.0.2
 

@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.siku/README.md":{"title":{"en":"ioBroker.siku"},"content":"en/adapterref/iobroker.siku/README.md"},"en/adapterref/iobroker.siku/RELEASING.md":{"title":{"en":"Releasing and official ioBroker inclusion"},"content":"en/adapterref/iobroker.siku/RELEASING.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.siku/README.md":{"title":{"en":"ioBroker.siku"},"content":"en/adapterref/iobroker.siku/README.md"},"en/adapterref/iobroker.siku/DEVELOPMENT.md":{"title":{"en":"Development and dependency security"},"content":"en/adapterref/iobroker.siku/DEVELOPMENT.md"},"en/adapterref/iobroker.siku/RELEASING.md":{"title":{"en":"Releasing and official ioBroker inclusion"},"content":"en/adapterref/iobroker.siku/RELEASING.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.siku/README.md
 title: ioBroker.siku
-hash: FskwhJYi4W4+8s/rDdAZxJBvyQ3QUZwzy6F7xJnKeg0=
+hash: modRqP64LvNpThG5fkomIWenDdjLuuAMrQINHABsJlM=
 ---
 ![Logo](../../../en/adapterref/iobroker.siku/admin/siku.svg)
 
@@ -53,7 +53,7 @@ Der aktuelle Stand des Repositorys zielt auf eine funktionsreiche **öffentliche
   - Sollwert für Luftfeuchtigkeit
   - Sensor-Aktivierungsflags
 - Einmalige Schreib-Reset-Befehle mit anschließendem Rücklesen anstelle unsicherer Wiederholungsversuche
-- Wochenablaufstruktur wie folgt:
+- Wochenablaufstruktur wie zum Beispiel:
   - `schedule.monday.p1.speed`
   - `schedule.monday.p1.endHour`
   - `schedule.monday.p1.endMinute`
@@ -81,17 +81,20 @@ Die aktuelle Kompatibilitätsbeschreibung und die Suchbegriffe umfassen explizit
 
 Nützliche Skripte:
 
-| Skript               | Zweck                                                                            |
-| -------------------- | -------------------------------------------------------------------------------- |
-| `npm run build`      | Die TypeScript-Quellen kompilieren                                               |
-| `npm run check`      | Führe die Typüberprüfung ohne Build durch.                                       |
-| `npm run lint`       | ESLint ausführen                                                                 |
-| `npm run test`       | Führen Sie Unit- und Pakettests durch                                            |
-| `npm run coverage`   | TypeScript-Testabdeckung erzwingen und melden                                    |
-| `npm run dev-server` | Starten Sie eine lokale ioBroker-Entwicklungsumgebung                            |
-| `npm run release`    | Erstelle eine offizielle Version/ein offizielles Tag mithilfe des Release-Tools. |
+| Skript                       | Zweck                                                                                   |
+| ---------------------------- | --------------------------------------------------------------------------------------- |
+| `npm run build`              | Kompilieren Sie die TypeScript-Quellen                                                  |
+| `npm run check`              | Führe die Typüberprüfung ohne Build durch.                                              |
+| `npm run lint`               | ESLint ausführen                                                                        |
+| `npm run test`               | Führen Sie Unit- und Pakettests durch                                                   |
+| `npm run coverage`           | TypeScript-Testabdeckung erzwingen und melden                                           |
+| `npm run test:integration`   | Starten und testen Sie einen isolierten lokalen ioBroker-Controller                     |
+| `npm run audit:dependencies` | Prüfen Sie sowohl den gesamten Entwicklungsbaum als auch die Produktionsabhängigkeiten. |
+| `npm run release`            | Erstelle eine offizielle Version/ein offizielles Tag mithilfe des Release-Tools.        |
 
 Der Adapter wurde mit den offiziellen ioBroker-Tools generiert und in TypeScript entwickelt.
+
+Siehe [DEVELOPMENT.md](/#/docs/adapterref/iobroker.siku/DEVELOPMENT.md) für die unterstützte Toolchain, lokale Integrationstests, manuelle Admin-Tests und die Entfernung des veralteten Hot-Reload-Stacks des Entwicklungsservers.
 
 ## CI / CD
 
@@ -131,6 +134,12 @@ Das herstellereigene UDP-Protokoll überträgt sein kurzes Gerätepasswort unver
 <!-- Release script placeholder for the next version. Keep this heading at the start of a line. -->
 ### **WORK IN PROGRESS**
 
+### 0.2.4 (2026-09-29)
+
+- Update the runtime adapter-core dependency to 3.4.3.
+- Update compatible development dependencies, remove the obsolete dev-server hot-reload stack,
+  and enforce full dependency audits in CI.
+
 ### 0.2.3 (2026-07-26)
 
 - Harden RTC scheduling, UDP shutdown/error handling, malformed response isolation, schedule write recovery and
@@ -154,13 +163,7 @@ Das herstellereigene UDP-Protokoll überträgt sein kurzes Gerätepasswort unver
 - Extract the object factory and operation scheduler, expand tests and enforce coverage in CI.
 - Modernize ioBroker dependencies, release actions and automatic patch-release classification.
 
-### 0.1.8 (2026-06-09)
-
-- Cleaned up unused Admin translations found during the adapter checklist review.
-- Documented the advanced messagebox commands for script/integration use.
-- Added a code-side upper bound for the RTC time sync drift threshold.
-
-Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/ChrMaass/ioBroker.siku/blob/main/CHANGELOG_OLD.md).
+Older changelog entries are available in CHANGELOG_OLD.md.
 
 ## License
 

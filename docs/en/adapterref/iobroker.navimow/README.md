@@ -284,6 +284,12 @@ Based on the [Navimow SDK](https://github.com/segwaynavimow/navimow-sdk) and [Na
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (typhosj) A refused authorization code and a stored token without access token now say what to do: open the login link again, log in and paste the new URL
+- (typhosj) The settings page refuses a pasted URL without `?code=` and shows whether the instance is connected
+- (typhosj) The battery level gets the role `value.battery`, so vis widgets and the type detector recognise it. Existing states are updated on the next start
+
 ### 1.1.2 (2026-08-31)
 
 - (typhosj) Start a new mowing session when the mower moves on to another zone, which a lawn split into zones announces in `location.partitionIds`

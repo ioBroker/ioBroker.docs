@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.botslab360/README.md
 title: ioBroker.botslab360
-hash: 4gEa9kTUqXFGkaThtOsUcUXyLtyYkccBgHR9XA8zog8=
+hash: P4PNjxI2RbXsk/6KBGPZg6sAAUUb8SDQJ07aBdLQaqg=
 ---
 ![Logo](../../../en/adapterref/iobroker.botslab360/admin/botslab360.png)
 
@@ -18,7 +18,20 @@ hash: 4gEa9kTUqXFGkaThtOsUcUXyLtyYkccBgHR9XA8zog8=
 
 ## botslab360-Adapter für ioBroker
 
-Adapter für Botslab 360 Vakuum
+Adapter für Botslab / 360 Saugroboter.
+
+## Aufstellen
+
+1. Erstelle eine Instanz des Adapters.
+2. Wählen Sie den **Server** aus, der zu der App passt, in der Ihr Konto erstellt wurde:
+   - **International (Botslab)** für Konten aus der Botslab-App.
+   - **China (360Robot)** für Konten der 360Robot-App (`q.smart.360.cn` Verwenden Sie diese Option, wenn die internationale Anmeldung meldet, dass das Konto nicht existiert.
+3. Geben Sie die **E-Mail-Adresse** und **das Passwort** Ihres Kontos ein.
+4. Wählen Sie für den internationalen Server die **Region** aus, zu der Ihr Konto gehört (na1 / eu1 / ap1). Der Adapter versucht automatisch, die anderen Regionen zu finden, falls das Konto in der ausgewählten Region nicht gefunden wird. Die Region wird für den chinesischen Server ignoriert.
+
+### Captcha
+
+Wird beim Login ein Captcha abgefragt, speichert der Adapter das Bild als Daten-URL in `info.captchaImage` und protokolliert es auch direkt (laden Sie das Protokoll herunter, um es anzuzeigen). Lösen Sie das Problem und schreiben Sie den Code dazu. `info.captchaRequest` Um die Anmeldung fortzusetzen.
 
 ## Steuern
 
@@ -26,13 +39,33 @@ Unter remote können Befehle gesendet werden.
 
 ## Status
 
-Statusabruf für Verbrauchsgüter und Karte muss manuell getriggert werden
+Der Status Abruf für Verbrauchsgüter und Karte muss manuell getriggert werden. Beim China-Server werden Gerätezustände asynchron über eine Push-Verbindung geliefert und unter `<sn>.status` veröffentlicht.
 
 ## Fragen und Diskussion
 
 <https://forum.iobroker.net/topic/60046/test-adapter-360-staubsauger-botslab>
 
 ## Changelog
+
+### 0.3.1
+
+- (TA2k) Fix the China (360Robot) session mint (errno 100) and recognize the expired-session error so login and device polling work
+
+### 0.3.0
+
+- (TA2k) Add a China (360Robot / q.smart.360.cn) backend selectable via the new Server option, for accounts that cannot log in on the international servers
+
+### 0.2.1
+
+- (TA2k) Auto-retry other regions when the account is not found; verbose debug logging; log the captcha image inline
+
+### 0.2.0
+
+- (TA2k) Switch to headless email/password login on the /v1 API; cookie login is no longer required
+
+### 0.1.0
+
+- (TA2k) Add login with an existing 360 web session
 
 ### 0.0.2
 

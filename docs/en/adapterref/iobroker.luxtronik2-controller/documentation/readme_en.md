@@ -95,3 +95,21 @@ To minimize constant writing in the controller, set the regular ZIP times once t
 
 **To reduce write operations on the controller, it is recommended to control the ZIP(s) via an external actuator ➔ 0 write operations in the controller!**
 **For comparison:** Activation via the Luxtronik2 controller requires 4 write operations for the deaeration program. Using the ZIP control table requires between 4 (best case) and 14 (worst case) write operations in the flash memory per ZIP cycle.
+
+### Raw TCP Test Script (`Test_Script.ts`)
+
+In rare cases (especially with older firmware versions like V1.x), connection drops or timeouts can occur when writing values (e.g., `Timeout writing TCP parameter 105`).
+
+To determine whether the issue lies with the adapter or the heat pump itself, this repository includes an isolated test script (`Test_Script.ts` in the `Scripte` folder). This script bypasses the adapter completely and communicates directly with the Luxtronik controller via raw TCP sockets. It tests read and write access by reading the hot water target value, slightly increasing it as a test, and immediately restoring the original value.
+
+#### Execution in ioBroker:
+
+1. 🛑 **IMPORTANT:** You must stop **all** running Luxtronik adapter instances in ioBroker (set them to "Red")! Older Luxtronik controllers only allow a single simultaneous network connection. If an adapter continues to run in the background, the port is blocked, and the script will inevitably run into a timeout.
+2. Copy the content of the `Test_Script.ts` file into a new script in the ioBroker **JavaScript adapter** (select Type: _TypeScript_).
+3. Adjust the `HOST` constant at the very top of the script to match the IP address of your heat pump.
+4. Start the script and check the ioBroker log output.
+
+#### Result Evaluation:
+
+- **✅ SUCCESS:** The script completes quickly and the heat pump acknowledges the write command. This means your system (and its firmware) accepts write commands without errors.
+- **❌ TIMEOUT / ERROR:** The script hangs during reading/writing or is rejected. This means the system physically refuses TCP communication. Common causes for this are blocked ports (by Loxone, FHEM, or other smart home systems), firmware protection mechanisms, or a crashed network card in the heat pump (a hard power reset of the heat pump often helps here). The adapter cannot bypass this deep-level network issue.

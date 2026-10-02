@@ -25,6 +25,12 @@ Die solarWeb Mail und Passwort eingeben.
 <https://forum.iobroker.net/topic/51550/test-adapter-fronius-solarweb>
 
 ## Changelog
+### 0.2.0 (2026-09-30)
+
+- (TA2k) align API endpoints with official Fronius Solar.web APK v3.3.0
+- (TA2k) add forecast summary states (todayWh, tomorrowWh, todayRemainingWh, currentMonthWh, currentYearWh)
+- (TA2k) add historyLimit config to cap history entries
+
 ### 0.1.1 (2025-03-12)
 
 - fix for login flow

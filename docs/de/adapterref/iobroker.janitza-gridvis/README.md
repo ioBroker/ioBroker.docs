@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.janitza-gridvis/README.md
 title: ioBroker.janitza-gridvis
-hash: HN4UTo+sHVb5Kfzt8xgLhsLRXc1FTRK+JwHYYlKtMSU=
+hash: 4mGeRtXkIodmOMpRLm9GvwbIB/aHwj+f6E4pfQbzpDs=
 ---
 ![Logo](../../../en/adapterref/iobroker.janitza-gridvis/admin/janitza-gridvis.png)
 
@@ -19,6 +19,16 @@ hash: HN4UTo+sHVb5Kfzt8xgLhsLRXc1FTRK+JwHYYlKtMSU=
 ## janitza-gridvis-Adapter für ioBroker
 
 Lesen Sie Daten aus dem Energiemanagementsystem Janitza® GridVis® aus. Sie können alle Online-Werte der vorhandenen Geräte sowie deren historische Energiewerte abrufen. Folgende Zeiträume werden unterstützt: Heute, Gestern, Diese Woche, Letzte Woche, Dieser Monat, Letzter Monat, Dieses Quartal, Letztes Quartal, Dieses Jahr, Letztes Jahr, Flexible Zeitbasen.
+
+## Haftungsausschluss
+
+> \[!IMPORTANT] **ioBroker.janitza-gridvis ist ein privates und unabhängig entwickeltes Open-Source-Projekt und kein offizielles Produkt der Janitza electronics GmbH.**
+>
+> Dieser Adapter wird weder von der Janitza electronics GmbH entwickelt, gewartet noch unterstützt.
+>
+> Die Bezeichnungen „Janitza“ und „GridVis“ dienen ausschließlich der Verdeutlichung der technischen Verwandtschaft und Kompatibilität mit Janitza GridVis. Alle Marken und Produktnamen sind Eigentum ihrer jeweiligen Inhaber.
+>
+> Bei Fragen, Problemen oder Fehlerberichten zu diesem Adapter nutzen Sie bitte den GitHub-Issue-Tracker dieses Projekts und kontaktieren Sie nicht den Janitza-Support.
 
 ## Changelog
 <!--
@@ -57,8 +67,6 @@ Lesen Sie Daten aus dem Energiemanagementsystem Janitza® GridVis® aus. Sie kö
 
 ### 3.7.0 (2026-04-02)
 * (BenAhrdt) display online Values in card
-
-[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.janitza-gridvis/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

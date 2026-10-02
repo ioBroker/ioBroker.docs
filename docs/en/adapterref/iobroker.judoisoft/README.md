@@ -52,6 +52,9 @@ Cloud login takes precedence: when it is enabled, the REST API option is hidden 
 - (@SimonFischer04) Migration to ESLint 9 and @iobroker/eslint-config. #114
 - (@SimonFischer04) Migrate admin config to ioBroker jsonConfig. Closes #55
 
+### Older entries
+See CHANGELOG_OLD.md
+
 ## License
 
 The MIT License (MIT)

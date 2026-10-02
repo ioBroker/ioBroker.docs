@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker mihome-vacuum adapter
-hash: astsIBPFR/7jL0Jg9DcPlir31Q6DFB6lgciVa3LzbmY=
+hash: J3mNBwdK4KcBoe8NFUK/Nie5IIKXDXpguD/mB4VuZWo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -16,6 +16,8 @@ hash: astsIBPFR/7jL0Jg9DcPlir31Q6DFB6lgciVa3LzbmY=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)
 
 # ioBroker mihome-vacuum adapter
+
+> \[!ВАЖНО] Этот адаптер нельзя установить из GitHub
 
 [Немецкая документация](/#/docs/adapterref/iobroker.mihome-vacuum/README_de.md)
 
@@ -417,8 +419,6 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 
 * (dirkhe) add IP Adress to info
 * (dirkhe) assign rockrobo (valetudo) to roborock Manager
-
-[Older changelog entries](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

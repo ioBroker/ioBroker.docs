@@ -168,10 +168,10 @@ Comfort commands (only created/shown if the vehicle model supports the feature):
 | cmd.mirror_heat_on / off | Mirror heating | Untested - plausible on B10, B11/C10, B05. Confirmed **not exposed via API/app at all** on this T03 |
 | cmd.hotspot_on / off | Wi-Fi hotspot | Confirmed **not** on T03 or B10; unknown on other models |
 
-`sunroof`/`sunshade` are handled the same way — see `admin-tab/src/vehicleCapabilities.js` for the confirmed B10 vs T03 difference.
+`sunroof`/`sunshade` are handled the same way — see `src-admin/src/vehicleCapabilities.js` for the confirmed B10 vs T03 difference.
 
 Which comfort commands actually appear depends on the detected vehicle model — see
-`admin-tab/src/vehicleCapabilities.js` in the repository for the current capability matrix per model.
+`src-admin/src/vehicleCapabilities.js` in the repository for the current capability matrix per model.
 
 ## Changelog
 
@@ -182,6 +182,10 @@ Which comfort commands actually appear depends on the detected vehicle model —
   - Windshield defrost (`cmd.defrost` - the working "max defrost" command, not the ineffective `cmd.defrost_level`) below its own separate, independently configurable temperature threshold (icing risk, distinct from the general heat/cool/vent split)
 - Fix: sunshade cold-protection close now has its own separate, stricter threshold (default 5°C) instead of triggering for the entire "heat" range - confirmed in practice that the general heat threshold alone closed the roof at 14°C, which doesn't need insulating against. Still applies day or night once genuinely cold enough (heat loss through the glass roof is real at night too)
 - New: official, cloud-metered charging session history cross-check (Diagnostics tab) - synced once daily against the manufacturer's own device-metered log (community-documented endpoint), classified home/public by GPS the same way as live tracking. Comparison only for now; live-tracked totals still drive the cost figures shown elsewhere
+- Chore: enabled CI linting (previously off). main.js, lib/leapmotor-crypto.js and lib/leapmotor-client.js reformatted with Prettier and a handful of real findings fixed (dead code, unused params/vars, empty catch blocks) - verified via full AST comparison that no logic changed. Fixed the eslint config's admin-tab ignore list, which excluded the built output but not its React/Vite source, causing the frontend to be linted against rules meant for the backend
+- Known limitation (T03): `cmd.charge_limit_set` and the charge-schedule commands (cmd_id=190) have no verified effect on the T03, even while awake - community-confirmed (leapmotor-ha #70/#72, 2026-09). The cloud accepts and echoes back the write (the official app and this adapter's own schedule readback will show the new value), but the vehicle silently keeps charging to whatever limit it already had. Confirmed in practice: schedule readback said 100%, official app said 100%, but the vehicle's live status kept reporting 80% regardless. Commands are still sent (other models/firmware may differ) but now log a clear warning on T03 - check the actual behavior in the official app rather than trusting a successful write
+- Fix: an in-progress charging session's accumulated cost/kWh is now persisted and restored across an adapter restart (update, crash, manual restart mid-charge) - previously this lived only in memory and silently reset to 0, undercounting the total for that session
+- New: optional extended trip-done notification (own toggle, off by default) - includes the total kWh and driving/climate/other split when official cloud energy data is available for that trip, falls back to the plain "Xkm in Ymin" message otherwise
 
 ### 0.7.2 (2026-09-24)
 - New: notification for new vehicle inbox messages (service reminders, recalls, etc.), separate from the existing software-update notification

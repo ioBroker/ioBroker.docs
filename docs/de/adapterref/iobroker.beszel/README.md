@@ -129,7 +129,7 @@ trägt beim nächsten Start wieder den Namen des Adapters.
     ### **WORK IN PROGRESS**
 -->
 
-### 0.19.0 (2026-09-25)
+### 0.19.0 (2026-09-25) — stable
 
 - New: network monitors (Beszel 0.20.0) as an opt-in metric — response time, hourly average/fastest/slowest and loss for every ping, TCP, HTTP and DNS monitor set up on the Hub
 - New: containers show whether an image update is available (Beszel 0.20.0)

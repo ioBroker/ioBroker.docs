@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.siku/README.md":{"title":{"en":"ioBroker.siku"},"content":"en/adapterref/iobroker.siku/README.md"},"en/adapterref/iobroker.siku/RELEASING.md":{"title":{"en":"Releasing and official ioBroker inclusion"},"content":"en/adapterref/iobroker.siku/RELEASING.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.siku/README.md":{"title":{"en":"ioBroker.siku"},"content":"en/adapterref/iobroker.siku/README.md"},"en/adapterref/iobroker.siku/DEVELOPMENT.md":{"title":{"en":"Development and dependency security"},"content":"en/adapterref/iobroker.siku/DEVELOPMENT.md"},"en/adapterref/iobroker.siku/RELEASING.md":{"title":{"en":"Releasing and official ioBroker inclusion"},"content":"en/adapterref/iobroker.siku/RELEASING.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.siku/README.md
 title: ioBroker.siku
-hash: FskwhJYi4W4+8s/rDdAZxJBvyQ3QUZwzy6F7xJnKeg0=
+hash: modRqP64LvNpThG5fkomIWenDdjLuuAMrQINHABsJlM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.siku/admin/siku.svg)
 
@@ -81,17 +81,20 @@ hash: FskwhJYi4W4+8s/rDdAZxJBvyQ3QUZwzy6F7xJnKeg0=
 
 Полезные скрипты:
 
-| Сценарий             | Цель                                                   |
-| -------------------- | ------------------------------------------------------ |
-| `npm run build`      | Скомпилируйте исходный код TypeScript.                 |
-| `npm run check`      | Выполнить проверку типов без сборки                    |
-| `npm run lint`       | Запустите ESLint                                       |
-| `npm run test`       | Запустите модульные и пакетные тесты.                  |
-| `npm run coverage`   | Обеспечивать и сообщать о покрытии тестов TypeScript.  |
-| `npm run dev-server` | Запустите локальную среду разработки ioBroker.         |
-| `npm run release`    | Создайте официальный релиз/тег с помощью release-tools |
+| Сценарий                     | Цель                                                                                      |
+| ---------------------------- | ----------------------------------------------------------------------------------------- |
+| `npm run build`              | Скомпилируйте исходный код TypeScript.                                                    |
+| `npm run check`              | Выполнить проверку типов без сборки                                                       |
+| `npm run lint`               | Запустите ESLint                                                                          |
+| `npm run test`               | Запустите модульные и пакетные тесты.                                                     |
+| `npm run coverage`           | Обеспечивать и сообщать о покрытии тестов TypeScript.                                     |
+| `npm run test:integration`   | Запустите и протестируйте изолированный локальный контроллер ioBroker.                    |
+| `npm run audit:dependencies` | Проведите аудит как всей структуры разработки, так и зависимостей производственной среды. |
+| `npm run release`            | Создайте официальный релиз/тег с помощью release-tools                                    |
 
 Адаптер был создан с помощью официальных инструментов ioBroker и разработан на TypeScript.
+
+См. [файл DEVELOPMENT.md](/#/docs/adapterref/iobroker.siku/DEVELOPMENT.md) для получения информации о поддерживаемом наборе инструментов, локальных интеграционных тестах, ручном тестировании администратором и удалении устаревшего стека горячей перезагрузки сервера разработки.
 
 ## CI / CD
 
@@ -131,6 +134,12 @@ hash: FskwhJYi4W4+8s/rDdAZxJBvyQ3QUZwzy6F7xJnKeg0=
 <!-- Release script placeholder for the next version. Keep this heading at the start of a line. -->
 ### **WORK IN PROGRESS**
 
+### 0.2.4 (2026-09-29)
+
+- Update the runtime adapter-core dependency to 3.4.3.
+- Update compatible development dependencies, remove the obsolete dev-server hot-reload stack,
+  and enforce full dependency audits in CI.
+
 ### 0.2.3 (2026-07-26)
 
 - Harden RTC scheduling, UDP shutdown/error handling, malformed response isolation, schedule write recovery and
@@ -154,13 +163,7 @@ hash: FskwhJYi4W4+8s/rDdAZxJBvyQ3QUZwzy6F7xJnKeg0=
 - Extract the object factory and operation scheduler, expand tests and enforce coverage in CI.
 - Modernize ioBroker dependencies, release actions and automatic patch-release classification.
 
-### 0.1.8 (2026-06-09)
-
-- Cleaned up unused Admin translations found during the adapter checklist review.
-- Documented the advanced messagebox commands for script/integration use.
-- Added a code-side upper bound for the RTC time sync drift threshold.
-
-Older changelog entries are available in [CHANGELOG_OLD.md](https://github.com/ChrMaass/ioBroker.siku/blob/main/CHANGELOG_OLD.md).
+Older changelog entries are available in CHANGELOG_OLD.md.
 
 ## License
 

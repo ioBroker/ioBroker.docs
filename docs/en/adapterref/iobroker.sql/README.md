@@ -617,6 +617,18 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@DutchmanNL) Fixed `info.connection` staying `true` while the database was unreachable
+* (@GermanBluefox) Fixed crash (UNCAUGHT_EXCEPTION) when the database server closes the connection: the driver's `error` event had no listener (#527)
+* (@GermanBluefox) A connection that the server dropped is now replaced instead of being handed out again
+
+### 4.1.6 (2026-10-01)
+* (@DutchmanNL) Fixed `getCounter` on PostgreSQL: the queries used MySQL-style backtick quoting
+* (@DutchmanNL) Fixed `getCounter` on SQLite: `ORDER BY`/`LIMIT` is not allowed on a compound-select member
+* (@DutchmanNL) Fixed `getCounter` on MS SQL: the counter subquery filtered on `ts_number` instead of `ts_counter`
+* (@GermanBluefox) `getCounter` now sorts in the outer query on all dialects, so the row order no longer depends on the query plan
+* (@DutchmanNL) Added `getCounter` test coverage for all four dialects
+
 ### 4.1.5 (2026-08-28)
 * (@GermanBluefox) Updated packages
 
@@ -631,19 +643,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (@GermanBluefox) Fixed `enableHistory` being answered with `success: true` but silently doing nothing when it arrived while the adapter was still starting up: the adapter subscribed to object changes only after it had read the logging settings, so a message that landed in that gap activated no logging
 * (@joltcoke) Fixed average and total returning null for every interval that contains a null value: parseFloat(null) is NaN and poisoned the sum of the whole interval (thanks to @joltcoke, ioBroker/ioBroker.sql#526). As the result was NaN and not null, ignoreNull could not act on it either
 * (@joltcoke) Fixed min returning a wrong value if the interval contains a null, minmax losing the minimum if the interval starts with a null, and percentile/quantile counting a null as 0
-
-### 4.1.0 (2026-08-26)
-* (@ipod86) Added a button to the datapoint settings to delete all logged values of this datapoint
-* (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` now report errors back to the caller instead of always answering with success
-* (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` work now also for datapoints whose logging is disabled
-* (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` delete the counter values of a numeric datapoint (table `ts_counter`) too
-* (@GermanBluefox) Fixed `NaN` as a result of the aggregation `percentile` with 100 or `quantile` with 1
-* (@GermanBluefox) Fixed the last value of the `integralTotal` aggregation: it was interpolated onto the start instead of the end of the requested range
-* (@GermanBluefox) Added the message `getRawEntries` to read the stored values of one datapoint page by page (with the total number of entries) for tools that show or edit the raw data
-* (@GermanBluefox) The message `update` works now also for datapoints whose logging is disabled and reports errors back to the caller
-* (@GermanBluefox) `storeState` uses the data type stored in the database for known datapoints instead of deriving it from the value
-* (@GermanBluefox) Added the tab `Data browser` to the instance settings: show, edit, delete and insert the stored values of a datapoint
-* (@GermanBluefox) Added the message `getDatapoints` that returns all datapoints of the database immediately
 
 ## License
 

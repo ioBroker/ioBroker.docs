@@ -6,13 +6,12 @@
 
 [![NPM](https://nodei.co/npm/iobroker.habpanel.png?downloads=true)](https://nodei.co/npm/iobroker.habpanel/)
 
+> [!IMPORTANT]
+> This adapter cannot be installed from github
+
 HABPanel is a lightweight dashboard interface for ioBroker based on OpenHAB HABpanel.
 
 It notably features an embedded dashboard designer allowing to build interfaces easily right on the target device.
-
-## Installation
-**Important!**
-This adapter cannot be installed directly from GitHub. Only from npm.
 
 ## Getting started
 

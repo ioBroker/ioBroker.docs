@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.renault/README.md
 title: ioBroker.renault
-hash: n0x+JEIqmBYYeuSQSm0VjBP1jDdWNkLkA+qq45bv66M=
+hash: rLJwTLomxAyyqzhZy/S/51CQeBEn0P2CKD7lTg+oPx8=
 ---
 ![Logo](../../../en/adapterref/iobroker.renault/admin/renault.png)
 
@@ -29,8 +29,9 @@ Der Adapter meldet sich mit dem Konto der **My Renault-** , **My Dacia-** oder *
 2. Öffnen Sie die Adapterkonfiguration und geben Sie die Zugangsdaten Ihres **My Renault** (oder **My Dacia** / **My Alpine** ) Kontos ein: App-E-Mail-Adresse und App-Passwort.
 3. Wählen Sie die **Marke** Ihrer App aus: `Renault / Dacia` für meinen Renault und meinen Dacia, `Alpine` Für My Alpine. Alle drei Apps melden sich beim selben Renault-Service an; die Marke entscheidet, welches Ihrer Anmeldekonten der Adapter verwendet.
 4. Wählen Sie in der App das **Land** Ihres Kontos aus.
-5. Optional können Sie das **Abfrageintervall** in Minuten und den **API-Schlüssel** festlegen (für die automatische Erkennung leer lassen).
-6. Speichern Sie den Speicher, und die Instanz beginnt mit der Abfrage.
+5. Klicken Sie auf **„Testanmeldung“** , um E-Mail-Adresse und Passwort vor dem Speichern zu überprüfen. Die Instanz muss ausgeführt werden, damit die Schaltfläche funktioniert.
+6. Optional können Sie das **Abfrageintervall** in Minuten und den **API-Schlüssel** festlegen (für die automatische Erkennung leer lassen).
+7. Speichern Sie die Einstellungen, und die Instanz beginnt mit der Abfrage. **Die Verbindungsanzeige** unterhalb der Anmeldefelder zeigt an, ob eine Verbindung besteht.
 
 ## Unterstützte Modelle
 
@@ -94,7 +95,7 @@ Jedes Fahrzeug wird anhand seiner Fahrzeugidentifikationsnummer (VIN) als Gerät
 | `chargeLimitTarget`     | Nummer          | `level`             | Zielladungsgrad in %, 55 bis 100 in 5er-Schritten                                                     |
 | `chargeMode`            | Zeichenkette    | `text`              | `always`, `always_charging`, `schedule_mode` oder `scheduled`; zeigt den vom Auto gemeldeten Modus an |
 | `hornStart`             | boolescher Wert | `button.start`      | hupen                                                                                                 |
-| `lightsStart`           | boolescher Wert | `button.start`      | Die Lichter blinken lassen                                                                            |
+| `lightsStart`           | boolescher Wert | `button.start`      | Licht aufblitzen lassen                                                                               |
 | `refreshLocation`       | boolescher Wert | `button`            | Lesen Sie jetzt den Standort aus der Cloud.                                                           |
 | `askForLocationRefresh` | boolescher Wert | `button`            | Bitten Sie das Auto, seine Position hochzuladen, und lesen Sie die Position 30 Sekunden später ab.    |
 | `refreshAll`            | boolescher Wert | `button`            | Alle Fahrzeugdaten jetzt abfragen                                                                     |
@@ -147,6 +148,9 @@ Die Daten jedes Endpunkts werden in einen unten stehenden Kanal geschrieben. `re
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added a **Test login** button to the settings page. It checks email and password with the values on the page before saving and says whether they are wrong or the service did not answer. The page also shows whether the instance is connected.
+- GPS latitude and longitude now carry the roles `value.gps.latitude` and `value.gps.longitude`, so map widgets and the type detector find the vehicle position. Existing states are updated on the next start.
 
 ### 1.0.0 (2026-09-23)
 

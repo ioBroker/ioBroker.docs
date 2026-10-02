@@ -28,8 +28,9 @@ car works with the adapter when it can be controlled in that app.
 2. Open the adapter configuration and enter the credentials of your **My Renault** (or **My Dacia** / **My Alpine**) account: app email and app password.
 3. Select the **brand** of your app: `Renault / Dacia` for My Renault and My Dacia, `Alpine` for My Alpine. All three apps log in at the same Renault service; the brand decides which account of your login the adapter uses.
 4. Select the **country** of your account in the app.
-5. Optionally set the polling **interval** in minutes and the **API key** (leave empty for auto-detect).
-6. Save and the instance will start polling.
+5. Click **Test login** to check email and password before saving. The instance must be running for the button to work.
+6. Optionally set the polling **interval** in minutes and the **API key** (leave empty for auto-detect).
+7. Save and the instance will start polling. **Connection** below the login fields shows whether it is connected.
 
 ## Supported models
 
@@ -181,6 +182,9 @@ above; the adapter does not create it, and removes it if an older version had cr
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added a **Test login** button to the settings page. It checks email and password with the values on the page before saving and says whether they are wrong or the service did not answer. The page also shows whether the instance is connected.
+- GPS latitude and longitude now carry the roles `value.gps.latitude` and `value.gps.longitude`, so map widgets and the type detector find the vehicle position. Existing states are updated on the next start.
 
 ### 1.0.0 (2026-09-23)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.habpanel/README.md
 title: ioBroker.habpanel
-hash: aSH9A13YJXwEXrBNweRSbqssJr9w/v5FtYlP+DSpb6w=
+hash: 0Kppz5xxrufsJKCb5UZwDxgaSvuNMUuKWpXB3F6xlpY=
 ---
 ![Logo](../../../en/adapterref/iobroker.habpanel/admin/habpanel.svg)
 
@@ -14,13 +14,11 @@ hash: aSH9A13YJXwEXrBNweRSbqssJr9w/v5FtYlP+DSpb6w=
 
 # ioBroker.habpanel
 
+> \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
+
 HABPanel ist eine leichtgewichtige Dashboard-Oberfläche für ioBroker, die auf OpenHAB HABpanel basiert.
 
 Es verfügt insbesondere über einen integrierten Dashboard-Designer, der es ermöglicht, Benutzeroberflächen direkt auf dem Zielgerät einfach zu erstellen.
-
-## Installation
-
-**Wichtig!** Dieser Adapter kann nicht direkt von GitHub installiert werden. Nur über npm.
 
 ## Erste Schritte
 

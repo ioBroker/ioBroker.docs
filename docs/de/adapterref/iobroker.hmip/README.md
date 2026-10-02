@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP Cloud AccessPoint Adapter
-hash: wKq3tvAvggZcf8JPvn6YFTfyzTL6jlsMs1K3LrRFE0k=
+hash: cBGct7AvwjMUK+/BodszArTk3t2rptvnrJbbzhIDCew=
 ---
 ![Logo](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -14,6 +14,8 @@ hash: wKq3tvAvggZcf8JPvn6YFTfyzTL6jlsMs1K3LrRFE0k=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hmip.svg)
 
 # ioBroker HomeMatic IP Cloud AccessPoint Adapter
+
+> \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
@@ -81,6 +83,16 @@ Vielen Dank an @dietzm für die Hinzufügung der HCU-Unterstützung zu diesem Ad
 -->
 
 ## Changelog
+### 4.0.2 (2026-09-26)
+- (@GermanBluefox) The adapter was refactored to TypeScript. The sources now live in src/ and are compiled to build/, which is what the npm package ships; nothing about the objects, states or commands changed
+- (@GermanBluefox) uuid was replaced by the randomUUID built into Node, which removes a dependency that could no longer be required from this build at all
+- (@GermanBluefox) Fixed an unusable dependency tree: package.json asked for a TypeScript no version of the eslint stack accepts, so npm ci installed nothing at all
+- (@petermeter2000) coolingEnabled on the home can now be written, so the cooling of the whole installation is switched from ioBroker the way the app does it
+- (@petermeter2000) coolingIgnored on a heating group can now be written, so a room can be left out of cooling. Note that true means the room is **not** cooled, matching what the app shows
+- (@petermeter2000) Every heating group now has a profiles folder with the names of its six profiles, so a profile can be recognised by the name it carries in the app instead of by its index. Profiles 1-3 are the heating profiles, 4-6 the cooling profiles
+- (@petermeter2000) Added activeProfileName next to activeProfile, so the name of the profile that is active now is readable without looking it up (closes #437)
+- (@GermanBluefox) A profile nobody renamed answers with an empty name, so the adapter publishes the default name the app shows for it, in German or English following the ioBroker system language
+
 ### 3.2.0 (2026-09-08)
 - (@Apollon77) Added the DISTANCE_SENSOR_CHANNEL, so the ELV-SH-DUSI ultrasonic distance sensor interface reports distance, calculatedHeight and referenceHeight in cm, measuringInterval in minutes, heightActivated and distanceSensorVoltage
 - (@Apollon77) Added the FLOOR_TERMINAL_BLOCK_CHANNEL of the floor heating actuators (HmIP-FAL230-C6/C10, HmIP-FALMOT-C12), reporting valvePosition and the humidity limiter, dew point, external clock, emergency operation and frost protection states
@@ -145,15 +157,6 @@ Vielen Dank an @dietzm für die Hinzufügung der HCU-Unterstützung zu diesem Ad
 - (copilot) Adapter requires admin >= 8.0.0 now
 - (mcm1957) Dependencies have been updated.
 - (@GermanBluefox) Migrated to admin 8
-
-### 1.27.0 (2025-03-24)
-* (mcm1957) Adapter requires admin 7.6.3, js-controller 6.0.11 and node.js 20 now.
-* (@GermanBluefox) GUI was migrated to TypeScript (Admin 7.6)
-* (SliX185) Support to control opticalSignalBehaviour for HMIP-BSL has been added.
-* (SliX185) Logging of PIN has been removed
-* (mcm1957) Dependencies have been updated.
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.hmip/blob/master/CHANGELOG_OLD.md)
 
 ## License
 The MIT License (MIT)

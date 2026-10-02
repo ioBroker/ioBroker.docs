@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.janitza-gridvis/README.md
 title: ioBroker.janitza-gridvis
-hash: HN4UTo+sHVb5Kfzt8xgLhsLRXc1FTRK+JwHYYlKtMSU=
+hash: 4mGeRtXkIodmOMpRLm9GvwbIB/aHwj+f6E4pfQbzpDs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.janitza-gridvis/admin/janitza-gridvis.png)
 
@@ -19,6 +19,16 @@ hash: HN4UTo+sHVb5Kfzt8xgLhsLRXc1FTRK+JwHYYlKtMSU=
 ## janitza-gridvis адаптер для ioBroker
 
 Считывайте данные из системы управления энергопотреблением Janitza® GridVis®. Вы можете считывать все онлайн-значения текущих устройств. Кроме того, вы можете считывать исторические значения энергопотребления текущих устройств. Реализованы следующие временные интервалы: Сегодня Вчера Эта неделя Прошлая неделя Этот месяц Прошлый месяц Этот квартал Прошлый квартал Этот год Прошлый год Гибкие временные рамки
+
+## Отказ от ответственности
+
+> \[!ВАЖНО] **ioBroker.janitza-gridvis — это частный, независимо разработанный проект с открытым исходным кодом, не являющийся официальным продуктом компании Janitza electronics GmbH.**
+>
+> Данный адаптер не разработан, не поддерживается и не обслуживается компанией Janitza electronics GmbH.
+>
+> Названия «Janitza» и «GridVis» используются исключительно для обозначения технической связи и совместимости с Janitza GridVis. Все товарные знаки и названия продуктов являются собственностью их соответствующих владельцев.
+>
+> По вопросам, проблемам или сообщениям об ошибках, связанных с этим адаптером, пожалуйста, используйте систему отслеживания ошибок GitHub этого проекта и не обращайтесь в службу поддержки Janitza.
 
 ## Changelog
 <!--
@@ -57,8 +67,6 @@ hash: HN4UTo+sHVb5Kfzt8xgLhsLRXc1FTRK+JwHYYlKtMSU=
 
 ### 3.7.0 (2026-04-02)
 * (BenAhrdt) display online Values in card
-
-[Older changelogs can be found there](https://github.com/BenAhrdt/ioBroker.janitza-gridvis/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

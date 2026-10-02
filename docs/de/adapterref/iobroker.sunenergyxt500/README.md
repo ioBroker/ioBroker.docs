@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sunenergyxt500/README.md
 title: ioBroker.sunenergyxt500
-hash: uawii/N4RG15oqLRs8iYs7QOMnxEpTdVa2sq7sIrD60=
+hash: DOk1wAslUVkgyOF0wTBwci78eQIO2R9700CDRDBFsGU=
 ---
 ![Logo](../../../en/adapterref/iobroker.sunenergyxt500/admin/sunenergyxt500.png)
 
@@ -27,10 +27,10 @@ Integration und Eigenverbrauchssteuerung für **[SunEnergyXT 500 / 500 PRO](http
 * Verwaltet **ein bis drei Köpfe** in einer einzigen Instanz, jeder unter seinem eigenen Unterbaum `heads.<n>.*`, plus kombinierte `total.*`-Aggregate.
 * Fragt die lokale API ab (`GET /read`) und spiegelt alle stabilen Felder in Zuständen wider: SoC, Batterie-/Netz-/Last-/PV-Leistung, Strom/Spannung pro MPPT, tägliche Energiezähler, SoC pro Akkupack, Geräte-/Firmware-Informationen und Zählerstatus.
 * Beschreibbare Steuerfelder (`POST /write`, durch erneutes Einlesen bestätigt), die der offiziellen Steuerungsoberfläche der Integration entsprechen, mit Ausnahme der Felder, die in der API-Dokumentation als *reserviert* gekennzeichnet sind: Netzsollwert `GS`, Wechselrichter-Ausgangsgrenze `IS`, SoC-Grenzwerte `SI`/`SA`/`SO`, Eigenverbrauchsmodus `MM`, Zählerkonfiguration `MD`, Zeitzone `TZ`, Neustart `RT`, maximale Netzleistung `MG`, die Schalter `LFB`/`LPS`/`PM` und der lokale Modus `LM` (⚠️ `LM=1` blockiert die Cloud-/App-Steuerung bis zum Reset). Die SoC-Hysterese `SI1`/`SA1` (vom Hersteller als beschreibbar dokumentiert, Standardwert jeweils 5 %, zulässiger Bereich 0…100 %) behält ihre festgelegten `heads.<n>.battery.*`-IDs, sodass bestehende Aufzeichnungen erhalten bleiben. Felder, die in der API-Dokumentation weiterhin als reserviert gekennzeichnet sind (z. B. `PT`), sind schreibgeschützt.
-* Zwei umschaltbare **Steuerungsmodi**: ein adapterseitiger Eigenverbrauchs-**Regler** (schreibt `GS` aus *jedem* ioBroker-Zählerstatus, Vorwärtskopplung + P, mit Watchdog/Failsafe), der **einen Netzsollwert auf alle Zähler aufteilt**, oder eine **Geräte-Selbstregulierung** (bindet einen unterstützten Zähler in einen einzigen Speicher ein und ermöglicht es dem Gerät, sich selbst zu steuern) - plus ein **Aus**-Modus für reine Überwachung.
+* Zwei umschaltbare **Steuerungsmodi**: ein adapterseitiger Eigenverbrauchs-**Regler** (schreibt `GS` aus *jedem* ioBroker-Zählerstatus, Vorwärtskopplung + P, mit Watchdog/Failsafe), der **einen Netzsollwert auf alle Zähler aufteilt**, oder eine **Geräte-Selbstregulierung** (bindet einen unterstützten Zähler in einen einzigen Speicher ein und ermöglicht es dem Gerät, sich selbst zu steuern) - plus ein **Aus**-Modus für die reine Überwachung.
 * Eine Schaltfläche **"Alle Köpfe testen"** im Adminbereich prüft die Erreichbarkeit jedes konfigurierten Kopfes (Modell + SoC), bevor Sie speichern.
 * Verbindungsindikator (`info.connection`) plus `info.lastUpdate` und pro Kopf `online` / `lastError`.
-* Die vollständige, unveränderte `/read`-Antwort jedes Heads wird in `heads.<n>.info.rawResponse` (JSON) gespeichert, sodass jedes Feld, das der Adapter keinem dedizierten Zustand zuordnet, weiterhin von dort gelesen werden kann.
+* Die vollständige, unveränderte `/read`-Antwort jedes Heads wird in `heads.<n>.info.rawResponse` (JSON) gespeichert, sodass jedes Feld, das der Adapter keinem dedizierten Zustand zuordnet, dennoch von dort gelesen werden kann.
 
 ## So funktioniert dieser Adapter
 Dieser Adapter steuert den Speicher **lokal**, ohne die Hersteller-Cloud. Eine einzelne Instanz verwaltet **ein bis drei Speichereinheiten**. Der Eigenverbrauch kann auf **zwei sich gegenseitig ausschließende Arten** erfolgen - Sie wählen eine über die Einstellung **Steuerungsmodus** aus:
@@ -64,6 +64,7 @@ In beiden Steuermodi **besitzt der Adapter `MM` **: Bei jeder Abfrage prüft er 
 * **Test aller Köpfe** - prüft jeden konfigurierten Kopf und meldet Modell + SoC (oder einen Fehler), sodass Sie die Adressen vor dem Speichern überprüfen können.
 * **Abfrageintervall (s)** - wie oft jeder Kopf über `/read` abgefragt wird (Standardwert 5 s).
 * **Anfrage-Timeout (ms)** - HTTP-Timeout (Standard 8000 ms).
+* **Einstellungen nach einem Neustart des Prozessors wiederherstellen** (standardmäßig aktiviert) - siehe *Einstellungen nach einem Neustart des Prozessors* weiter unten.
 
 **Steuerung** - wählen Sie einen **Steuerungsmodus**:
 
@@ -74,6 +75,7 @@ In beiden Steuermodi **besitzt der Adapter `MM` **: Bei jeder Abfrage prüft er 
 * **Netzstromquellenstatus** - ein externer Status, der den Netzstrom Ihres Hauszählers speichert. Konvention: `>0` = Netzbezug, `<0` = Einspeisung. Aktivieren Sie **Quellenvorzeichen umkehren**, wenn Ihr Zähler die umgekehrte Konvention verwendet.
 * **Adaptive Regelung** (standardmäßig aktiviert): Regelt in drei vom Hersteller bewährten Stufen - kleine Abweichungen sanft (alle 7 s, 20-W-Schritte), mittlere Abweichungen alle 2,5 s (120 W), große Lastsprünge sofort (450 W), mit einer festen Gitter-Totzone von 5 W. Beachten Sie, dass zusätzlich die *pro Kopf schreibbare Totzone* (standardmäßig 10 W) gilt: Eine Korrektur unterhalb dieses Wertes wird nur dann geschrieben, wenn sich der Gesamtsollwert um mindestens denselben Betrag ändert. In der Praxis bleiben Abweichungen unter etwa 10 W daher unverändert. Deaktivieren Sie die adaptive Regelung, um den Regler manuell über die Felder für Verstärkung, Totzone, Schreibintervall und Schrittbegrenzung einzustellen (diese werden nur dann angezeigt).
 * **Zielnetzleistung** (W, Standardwert 0): 0 = keine Einspeisung; positive Werte sorgen für eine geringe, bewusste Netzentnahme (niemals Einspeisung), negative Werte für eine geringe, bewusste Einspeisung - gleiche Vorzeichenkonvention wie beim Quellzustand (`>0` = Entnahme).
+* **Entladeschwelle des Controllers** (%), Standardwert 0 = aus: Der Controller stoppt die Entladung eines Ladekopfes, sobald dessen *leerster* Akku diesen Wert erreicht hat, während die eigene Entladeschwelle des Ladekopfes (`SI`) niedriger bleibt. Der Ladekopf erreicht dann nie seine eigene Entladeabschaltung, bei der die Firmware 1.1.5 sich aufhängen und den Ladevorgang verweigern kann, bis die Verbindung zum Netz getrennt wird. Die Messung erfolgt am leersten Akku, da sich die Akkus eines Ladekopfes im Laufe der Zeit voneinander entfernen; die Entladung wird fortgesetzt, sobald der Ladezustand durch die Hysterese des Ladekopfes (`SI1`) wieder angestiegen ist. Nur im Controller-Modus.
 * **Maximale Anpassung pro Korrektur** (W, Standard 500, 0 = unbegrenzt): Begrenzt die Abweichung des Sollwerts pro Regelschritt, sodass eine hohe Verstärkung bei Messspitzen nicht überschwingen kann.
 * **Verstärkung** (Standard 0,3), **Totzone** (W), **Mindest-Schreibintervall** (ms), **Totzone pro Kopf** (W - minimale Änderung des Sollwerts eines Kopfes, bevor er neu beschrieben wird, um Störungen beim Verschieben des Splitts zu vermeiden). Die maximale Leistung jedes Kopfes wird **automatisch** vom Gerät erkannt (800 W für einen 500, 2400 W für einen 500 PRO), sodass gemischte Setups ohne zusätzliche Konfiguration funktionieren.
 * **Zähler-Einschwingzeit (ms)** (Standardwert 0) - Messwerte, die *vor* der letzten Sollwertfestlegung erfasst wurden, werden immer verworfen, da sie noch den Zustand davor beschreiben. Behalten Sie den Wert 0 für Zähler bei, deren Wert der physikalischen Änderung unmittelbar folgt; erhöhen Sie ihn leicht über die gemessene Inhaltsverzögerung für Zähler, die neue Zeitstempel veröffentlichen, während der Wert noch verzögert ist.
@@ -131,7 +133,7 @@ Jeder Kopf erhält seinen eigenen Unterbaum unter ** `heads.<n>.*` ** (`n` = 1�
 | `heads.<n>.ups.*` | USV-Modus / Netzladung / Bypass (`UO`/`UG`/`FP`) |
 | `heads.<n>.fault.*` | Fehlerbitmasken (`TF`/`EF`/`DF1`/`DF2`/`AF1`/`AF2`/`BF`) - werden nur belegt, solange ein Fehler aktiv ist |
 | `heads.<n>.control.*` | alle **beschreibbaren** Felder (siehe unten) |
-| `heads.<n>.info.*` | pro Kopf `online`, `lastError`, `rawResponse` (die vollständigen Rohdaten `/read`) |
+| `heads.<n>.info.*` | pro Kopf `online`, `lastError`, `rawResponse` (die vollständigen Rohdaten `/read`), `desiredSettings` (die Einstellungen, die nach einem Neustart des Kopfes erhalten bleiben, JSON) |
 | `total.*` | kombinierte Ansicht: kapazitätsgewichtetes `soc`, summiertes `batteryPower` / `gridPower` / `maxPower`, `onlineCount` |
 | `controller.*` | Telemetrie des Eigenverbrauchsreglers (`status`, Alter der Netzquelle) |
 | `info.*` | `connection` (jeder erreichbare Kopf) und `lastUpdate` |
@@ -146,7 +148,7 @@ Gemäß der ioBroker-Konvention befinden sich alle beschreibbaren Felder unter d
 | `control.MG` | MG | Netz | Max. netzgekoppelte Ausgangsleistung (`1`…`800` W bei einem 500er, `1`…`2400` W bei einem 500 PRO) |
 | `control.SI` | SI | Batterie | Min. Entladezustand SoC (Netzmodus) |
 | `control.SA` | SA | Akku | Max. Ladezustand (Grid-Modus) |
-| `control.SO` | SO | Batterie | Min. Entladezustand SoC (Inselbetrieb) |
+| `control.SO` | SO | Batterie | Min. Entladezustand SoC (Off-Grid-Modus) |
 | `control.MM` | MM | Modus | Lokaler Nulleinspeisungs-/Eigenverbrauchsmodus (gekoppelt mit `MD`) |
 | `control.MD` | MD | Meter | Zählerverbindungs-JSON (gekoppelt mit `MM`) |
 | `control.LM` | LM | Modus | Lokaler Modus (⚠️ `1` blockiert die Cloud-/App-Steuerung) |
@@ -161,10 +163,17 @@ Tipp: In der ioBroker-Administration können Sie die Objektliste auch nach dem *
 
 `device.PK` wird von `DevType` auf Firmware abgeleitet, die `PK` nicht mehr meldet. `SI1`/`SA1` sind beschreibbar (SoC-Hysterese, Standard 5 %); Felder, die weiterhin als reserviert markiert sind (`PT`), sind schreibgeschützt. Felder, die vom Hersteller entfernt wurden (`UP`) oder die nur in der Dokumentation vorhanden sind (`WT`, `BN`), sind nicht zugänglich; alle nicht zugeordneten Felder sind weiterhin in `heads.<n>.info.rawResponse` verfügbar.
 
+### Einstellungen nach einem Neustart des Headers
+Die Firmware 1.1.5 (gemeldet als `ES` 1.1.15) speichert die über die lokale API geschriebenen Werte nicht: Nach einem Neustart verwendet der Lesekopf die älteren gespeicherten Einstellungen und greift nachts (beobachtet um 3:00 Uhr, ohne Neustart) automatisch wieder auf diese zurück. Im lokalen Modus kann die Hersteller-App die Einstellungen ebenfalls nicht ändern, sodass eine über diesen Adapter vorgenommene Einstellung stillschweigend auf den vorherigen Wert zurückgesetzt wird und dort verbleibt.
+
+Der Adapter merkt sich daher die über ihn eingestellten Werte - `SI`, `SA`, `SO`, `SI1`, `SA1`, `IS`, `MG` und die Schalter `LFB`, `LPS`, `PM` - in `heads.<n>.info.desiredSettings` und schreibt einen neuen Wert, sobald der Lesekopf einen anderen Wert meldet (protokolliert auf Informationsebene). Ein Lesekopf, der einen Wert wiederholt ablehnt, wird langsamer erneut angesteuert und nach drei Versuchen als Warnung gemeldet. `GS`, `MM` und `MD` werden vom Kontrollmodus verarbeitet, `RT` ist ein Trigger, `LM` wird nie erzwungen, und `TZ` wird ausgelassen, da der Kopf es möglicherweise in einer anderen Form ausgibt, als es geschrieben wurde.
+
+Nur Werte, die nach dem Update auf eine Version mit dieser Funktion festgelegt wurden, werden gespeichert. Stellen Sie diese daher einmalig über den Adapter ein. Bei Firmware, die ihre Einstellungen beibehält, bleiben alle Einstellungen unverändert und es werden keine Daten geschrieben. Deaktivieren Sie die Option, wenn diese Einstellungen von einem anderen Tool verwaltet werden.
+
 ## Manuelle Mess-/Modusfelder (MM / MD)
 `MM`/`MD` sind die verbrauchsabhängigen Werte eines einzelnen Messkopfes. Wenn Sie einen **Steuermodus** auswählen, übernimmt der Adapter die Verwaltung (Modus A setzt `MM=1` + `MD` auf den einzelnen Messkopf; Modus B erzwingt `MM=0` auf alle Messköpfe), und der Schutzmechanismus stellt beim nächsten Abruf den modusspezifischen Wert `MM` wieder her - daher ist jede manuelle Änderung eines Steuermodus nur vorübergehend.
 
-Die Rohdatenfelder bleiben für die manuelle Nutzung durch Experten beschreibbar (z. B. im *Aus*-Modus). Sie entsprechen der offiziellen Verknüpfung: Das Deaktivieren von `MM` löscht auch `MD`, und das Schreiben von `MD` aktiviert `MM` (sofern nicht leer) oder deaktiviert es (sofern leer). Die JSON-Formate für `MD` für die vier unterstützten Zähler befinden sich in der lokalen API-Referenz des Geräts; im *Geräte-Selbstregulierungsmodus* erstellt der Adapter diese automatisch anhand des Zählertyps und der Seriennummer/IP-Adresse.
+Die Rohdatenfelder bleiben für die manuelle Nutzung durch Experten beschreibbar (z. B. im *Aus*-Modus). Sie entsprechen der offiziellen Verknüpfung: Das Deaktivieren von `MM` löscht auch `MD`, und das Schreiben von `MD` aktiviert `MM` (sofern nicht leer) oder deaktiviert es (sofern leer). Die JSON-Formate für `MD` für die vier unterstützten Zähler befinden sich in der lokalen API-Referenz des Geräts; im Modus *Geräte-Selbstregulierung* erstellt der Adapter diese automatisch anhand des Zählertyps und der Seriennummer/IP-Adresse.
 
 ## Einschränkungen
 * **Bis zu drei Köpfe pro Instanz.** Der Betrieb mit einem einzelnen Kopf wurde auf realer Hardware validiert, der Betrieb mit zwei Köpfen von einem Tester bestätigt. Die Aufteilung in drei Köpfe ist durch Komponententests abgedeckt, wurde jedoch **noch nicht auf realer Hardware getestet** - Rückmeldungen zu Setups mit mehreren Köpfen sind sehr willkommen. *Die Selbstregulierung des Geräts* ist nur für einen einzelnen Kopf verfügbar.
@@ -193,6 +202,13 @@ Die Rohdatenfelder bleiben für die manuelle Nutzung durch Experten beschreibbar
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.4 (2026-09-28)
+* (Creekhail) **New: a discharge floor kept by the controller itself.** Firmware 1.1.5 can lock up at the moment a head cuts off discharging at its own floor (`SI`): the status LED turns red, the grid LED blinks, and the head refuses to charge — even from its own PV inputs — until it is disconnected from the grid; a restart over the API does not reliably clear it. The problem occurs with floors of 5, 10 and 30 % and without this adapter as well. With the new option the controller stops asking a head to discharge once its emptiest pack reaches the set value, above the head's own floor, so the head never reaches the point where it locks up. Measured on the emptiest pack because the packs of a head drift apart. Off by default; controller mode only.
+* (Creekhail) **Shorter help texts in the instance settings.** Each field now shows one short line; the full explanation appears when you hover over the field, and a link under it opens the matching section of this README, so the details are reachable on a phone or tablet as well. The introductions above the sections are shortened too.
+
+### 0.3.3 (2026-09-27)
+* (Creekhail) **Settings survive a head restart again.** Firmware 1.1.5 does not keep values written through the local API: after a restart the head comes back with an older stored set, and with local mode on nothing else can change them. Found on a 500 PRO when a discharge floor raised to 10 % was back at 5 % after a restart; a test showed the same for the off-grid floor and the self-consumption mode. The head also falls back to that older set on its own at night, without a restart: at 03:00 it switched self-consumption mode off while running, which in device self-regulation would have ended the regulation for the rest of the night. The adapter now remembers the settings you make through it (SoC limits and hysteresis, inverter and grid output limits, the load-port switches) in `heads.<n>.info.desiredSettings` and writes them again when the head reports something else. On by default, with an option to turn it off; values set before this version are not known to the adapter, so set them once again. Firmware that keeps its settings sees no extra writes.
+
 ### 0.3.2 (2026-09-25)
 * (Creekhail) **Fixed: after a short head restart the controller could stop writing altogether.** A head that reboots comes back with `GS=0`, and if it answers again before three polls have failed, it never leaves the control loop. The controller still believed its last setpoint was in place, and as long as its target held still — steady surplus, or a head refusing charge with the anti-windup pulling it back to the same step — nothing counted as due, so the storage sat idle in full sun until the load changed or the instance was restarted. A `GS` echo that differs from the commanded value now marks the head for a resend, whether a restart or a second writer caused it. The foreign value is still never adopted; the controller puts its own back. A zero echo is logged as a probable restart rather than blamed on a second controller.
 

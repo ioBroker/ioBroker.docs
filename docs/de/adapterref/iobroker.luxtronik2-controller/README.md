@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.luxtronik2-controller/README.md
 title: ioBroker.luxtronik2-Controller
-hash: VX5VBGjgw7FuveRKiH2plCoEp8Juix6diYcu2+OlPwg=
+hash: kZO4sKBPVkZ0cdm5gWP3t7HvdiI5JEbhNZuXuXmPoL8=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.luxtronik2-controller.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.luxtronik2-controller.svg)
@@ -53,7 +53,16 @@ Dieses Projekt dient dem Schutz Ihrer Wärmepumpe, indem die Konfigurationsoptio
 
 ## 🔧 Kompatibilität
 
-Die Integration ermöglicht die Überwachung und Steuerung von Wärmepumpen mit einem Luxtronik2-Regler. Sie funktioniert lokal ohne Internetverbindung. Sie wurde und wird mit einer LWD50A (LD5) von Alpha Innotec getestet.
+Die Integration ermöglicht die Überwachung und Steuerung von Wärmepumpen mit einem Luxtronik2-Regler. Sie funktioniert lokal ohne Internetverbindung. Sie wurde und wird mit einem LWD50A (LD5) von Alpha Innotec getestet. Sie wird unter anderem von folgenden Herstellern eingesetzt:
+
+- Alpha Innotec,
+- Siemens,
+- Novelan,
+- Roth,
+- Elco,
+- Buderus,
+- Nibe,
+- Wolf Heiztechnik.
 
 ## ⚠️ Haftungsausschluss ⚠️
 
@@ -80,38 +89,46 @@ Fehlerberichte, Kompatibilitätshinweise für bestimmte Firmware-Versionen oder 
 ## Changelog
 
 // ### **WORK IN PROGRESS**
-### 0.11.1 (2026-09-22)
+### 0.13.1 (2026-10-02)
 
-- Resolve issues which are reported by repository checker
+- **Fix (Circulation/ZIP):** Fixed a bug where the `Virtual_ZIP_Status` datapoint would remain stuck on `true` when using external relays (e.g., Shelly), even though the hardware relay was correctly turned off. The state reset logic has been decoupled and is now guaranteed to execute, ensuring the ioBroker interface stays perfectly synchronized with the actual hardware state.
 
-### 0.11.0 (2026-09-21)
+### 0.13.0 (2026-10-02)
 
-- **Improvements:**
-    - Added global rounding to 2 decimal places for all calculated telemetry values (e.g., converting operating seconds to hours). This provides a cleaner ioBroker state tree and prevents excessively long floating-point numbers from cluttering history databases (like InfluxDB).
+- **Bugfixes:**
+    - **Critical DHW Target Fix:** Fixed an issue where the hot water target temperature was incorrectly written to parameter 2 instead of 105. This resolves unexpected temperature jumps (e.g., to 65°C) and socket timeouts on various heat pump models.
+    - **Write Queue Timeout:** Added a maximum wait timeout to the write queue lock for legacy V1.x firmware to prevent potential infinite loops during read-write collisions.
+    - **Backup Manager Multi-Instance Fix:** The automated DTA backup cron job is now safely scoped to the specific adapter instance, preventing conflicts when running multiple heat pumps on the same ioBroker host.
+- **Under the Hood / Refactoring:**
+    - **Centralized Typings:** Completely refactored the TypeScript architecture by introducing a centralized `LuxtronikAdapter` interface (`types.ts`). Replaced all fragmented, local interfaces across sub-modules to ensure strict, project-wide type safety and better maintainability.
 
-### 0.10.4 (2026-09-21)
+### 0.12.1 (2026-09-30)
 
-- Update Readme
+- **Bugfixes:**
+    - **Fixed Null-Values on Startup:** Virtual states for the circulation pump logic (`Actions.Activate_Zip` and `03_Outputs.Virtual_ZIP_Status`) are now explicitly initialized to `false` during adapter startup. This prevents undefined `null` values in the object tree, ensuring immediate compatibility with visualizations and logic scripts (like Blockly) right from the first second.
 
-### 0.10.3 (2026-09-21)
+### 0.12.0 (2026-09-30)
+
+- **⚠️ BREAKING CHANGE:**
+    - The datapoint to manually trigger the circulation pump macro (`Activate_Zip`) has been moved from the `Settings` folder to the `Actions` folder for better UX. If you use this state in your scripts or visualizations, please update the datapoint path!
 
 - **Features & Improvements:**
-    - Optimized the automated DTA backup process by directly utilizing the `/NewProc` file stream, eliminating unnecessary artificial delays and stabilizing the heat pump controller.
-    - Streamlined the backup configuration: Removed the custom file path input to prevent file system conflicts. Backups are now securely stored in the universally accessible global `0_userdata.0/luxtronik_backups/` directory.
-    - Added a clear information box in the adapter configuration, explaining where to find the generated backup files within the ioBroker UI.
+    - **Virtual Circulation Pump (ZIP) Status:** Added a new read-only indicator datapoint (`Virtual_ZIP_Status`) in the `03_Outputs` folder. This datapoint mirrors the true state of the adapter's intelligent circulation pump macro in real-time. This is highly beneficial for users controlling the ZIP via external smart relays (e.g., Shelly) to avoid controller flash-wear, as it provides an accurate status even when the heat pump's internal display is bypassed.
 
-- **Fixes:**
-    - Fixed the persistent `not an object of type "meta"` crash during DTA backups. The storage architecture was migrated away from isolated adapter namespaces to the robust, native `0_userdata.0` global storage, completely resolving folder creation permission issues on existing instances.
-    - Corrected the dynamic file naming logic (`dta_live_...` vs. `dta_history_...`) to accurately reflect whether a live memory dump or a fallback history log was downloaded.
+### 0.11.2 (2026-09-30)
 
-### 0.10.2 (2026-09-21)
+- **Features & Improvements:**
+    - **Smart Parameter Filtering:** Added full support for the Luxtronik visibility registry (Network Command 3005). The adapter now automatically hides parameters in the ioBroker object tree that are physically not supported by your specific heat pump model (e.g., hiding defrost valves on brine-to-water pumps). This dramatically declutters the system.
+    - Added an "Expert Mode" toggle in the adapter configuration to optionally disable the visibility filter and force-show all parameters.
+    - Extended the "Dump Raw to Log" feature to include the visibility matrix (Command 3005).
+    - **Legacy Write-Mode (V1.x):** Added a new connection setting for older heat pumps (Firmware V1.x). This "Fire-and-Forget" mode prevents `Timeout writing TCP parameter` errors on controllers that do not send network acknowledgments after receiving a write command.
+    - **Dynamic Hardware Protection:** The adapter now automatically detects your firmware version and adjusts network write delays dynamically (500ms for V1.x vs. 100ms for modern firmwares) to ensure maximum responsiveness without sacrificing stability.
+    - **Safe Payload Rounding:** Enforced strict integer rounding (`Math.round`) for all numeric write payloads to prevent memory faults and crashes on older Luxtronik controllers.
+    - **Visibility Filter UX:** Added a warning to the visibility filter configuration (Command 3005) to clarify that this feature requires Firmware V3.x and should be disabled on older systems to avoid startup timeouts.
 
-- **🚀 Features:**
-    - Implemented automated DTA file backup management with customizable cron schedules and automatic meta-directory creation in the ioBroker file system.
-
-- **🛠 Chores / Under the Hood**
-    - Enhanced TypeScript type checking, resolved strict ESLint warnings, and upgraded Node.js type definitions to support Node.js version 22.
-    - Optimized image scaling and layout rendering in `jsonConfig.json` for cleaner adapter settings presentation.
+- **Bugfixes:**
+    - **Fixed Heat Pump Crashes / Reboots:** Implemented a global mutex lock between the polling cycle (`updateData`) and the write queue. This guarantees that read and write operations never overlap, preventing fatal network socket collisions that caused V1.x controllers to freeze and reboot.
+    - **Fixed Object Cleanup:** Changed the mass deletion of orphaned objects and empty folders during adapter startup from parallel to sequential execution. This prevents the ioBroker database from being overloaded and silently dropping delete commands.
 
 ## License
 

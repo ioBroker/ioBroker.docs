@@ -67,6 +67,7 @@ In both control modes the adapter **owns `MM`**: on every poll it checks each he
 * **Test all heads** — probes each configured head and reports model + SoC (or an error), so you can verify the addresses before saving.
 * **Poll interval (s)** — how often each head is queried via `/read` (default 5 s).
 * **Request timeout (ms)** — HTTP timeout (default 8000 ms).
+* **Restore settings after a head restart** (default on) — see *Settings after a head restart* below.
 
 **Control** — pick a **Control mode**:
 
@@ -76,6 +77,7 @@ In both control modes the adapter **owns `MM`**: on every poll it checks each he
 * **Grid-power source state** — a foreign state holding your house meter's grid power. Convention: `>0` = grid draw, `<0` = feed-in. Enable **Invert source sign** if your meter uses the opposite convention.
 * **Adaptive control** (default on): regulates in three manufacturer-proven tiers — small deviations gently (every 7 s, 20 W steps), medium ones every 2.5 s (120 W), large load steps immediately (450 W), with a fixed 5 W grid dead band. Note that the *per-head write dead band* (10 W by default) applies on top: a correction smaller than that is not written unless the total setpoint moved by at least as much, so in practice deviations below roughly 10 W are left alone. Disable adaptive control to tune the controller manually via the gain / dead band / write interval / step-limit fields (they only appear then).
 * **Target grid power** (W, default 0): 0 = zero feed-in; positive values keep a small deliberate grid draw (never feed in), negative values a small deliberate feed-in — same sign convention as the source state (`>0` = draw).
+* **Discharge floor of the controller** (%, default 0 = off): the controller stops discharging a head once its *emptiest* pack reaches this value, while the head's own floor (`SI`) stays lower. The head then never reaches its own discharge cut-off, where firmware 1.1.5 can lock up and refuse to charge until it is disconnected from the grid. Measured on the emptiest pack because the packs of a head drift apart; discharging resumes once the charge has risen by the head's hysteresis (`SI1`). Controller mode only.
 * **Max. adjustment per correction** (W, default 500, 0 = unlimited): caps how far the setpoint moves per control step, so a high gain cannot overshoot on meter spikes.
 * **Gain** (default 0.3), **Dead band** (W), **Min. write interval** (ms), **Per-head write dead band** (W — minimum change of a head's setpoint before it is re-written, to avoid chatter as the split shifts). Each head's maximum power is **detected automatically** from the device (800 W for a 500, 2400 W for a 500 PRO), so mixed setups work without extra configuration.
 * **Meter settling time (ms)** (default 0) — readings taken *before* the last setpoint write are always discarded, because they still describe the state before it. Keep 0 for meters whose value follows the physical change immediately; raise it slightly above the measured content delay for meters that publish fresh timestamps while the value still lags.
@@ -136,7 +138,7 @@ Each head gets its own subtree under **`heads.<n>.*`** (`n` = 1…3), plus combi
 | `heads.<n>.ups.*` | UPS mode / grid-charge / bypass (`UO`/`UG`/`FP`) |
 | `heads.<n>.fault.*` | fault bitmasks (`TF`/`EF`/`DF1`/`DF2`/`AF1`/`AF2`/`BF`) — only populated while a fault is active |
 | `heads.<n>.control.*` | all **writable** fields (see below) |
-| `heads.<n>.info.*` | per-head `online`, `lastError`, `rawResponse` (the full raw `/read`) |
+| `heads.<n>.info.*` | per-head `online`, `lastError`, `rawResponse` (the full raw `/read`), `desiredSettings` (the settings kept across a head restart, JSON) |
 | `total.*` | combined view: capacity-weighted `soc`, summed `batteryPower` / `gridPower` / `maxPower`, `onlineCount` |
 | `controller.*` | self-consumption controller telemetry (`status`, grid-source age) |
 | `info.*` | `connection` (any head reachable) and `lastUpdate` |
@@ -165,6 +167,14 @@ By ioBroker convention all writable fields live under each head's `control.*`. B
 > Tip: in ioBroker admin you can also filter the object list by the *writable* flag to find all controls at once.
 
 `device.PK` is derived from `DevType` on firmware that no longer reports `PK`. `SI1`/`SA1` are writable (SoC hysteresis, default 5%); fields still marked reserved (`PT`) are exposed read-only. Fields the manufacturer dropped (`UP`) or that are doc-only artefacts (`WT`, `BN`) are not exposed; anything unmapped is still available in `heads.<n>.info.rawResponse`.
+
+### Settings after a head restart
+
+Firmware 1.1.5 (reported as `ES` 1.1.15) does not keep values written through the local API: after a restart the head comes back with an older stored set, and it also falls back to that set on its own at night (observed at 03:00, without a restart). With local mode on, the manufacturer app cannot change them either, so a setting made through this adapter would silently fall back and stay there.
+
+The adapter therefore remembers what you set through it — `SI`, `SA`, `SO`, `SI1`, `SA1`, `IS`, `MG` and the switches `LFB`, `LPS`, `PM` — in `heads.<n>.info.desiredSettings`, and writes a value again whenever the head reports a different one (logged at info level). A head that keeps refusing a value is retried more slowly and reported as a warning after three attempts. `GS`, `MM` and `MD` are handled by the control mode, `RT` is a trigger, `LM` is never forced, and `TZ` is left out because the head may echo it in a different form than it was written.
+
+Only values set after updating to a version with this feature are remembered, so set them once through the adapter. On firmware that keeps its settings nothing ever differs and nothing is written. Turn the option off if another tool manages these settings.
 
 ## Manual meter / mode fields (MM / MD)
 

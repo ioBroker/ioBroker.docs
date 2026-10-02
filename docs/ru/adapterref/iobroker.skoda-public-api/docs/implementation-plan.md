@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md
 title: Technische Arbeitsgrundlage und Offene Umsetzung
-hash: VnW2Ss694AofYTftOtfKtO2h6svIDGS4vMH/LpGjyKM=
+hash: r79EK4xBJ8o155XBl/4NZMQuE+scgoTCVND932G93UU=
 ---
 # Technische Arbeitsgrundlage und Offene Umsetzung
 
@@ -22,7 +22,7 @@ hash: VnW2Ss694AofYTftOtfKtO2h6svIDGS4vMH/LpGjyKM=
 - keine autotische Schlüsselnerneuerung
 - Версия OpenAPI `v0` mit möglichen Vertragsänderungen
 
-Diese Grenzen machen Quota-Verwaltung, Permanente Zeitfenster, Adaptive Poll-Kadenz und einen vollständigen localen Mock zu Bestandteilen des Produktverhaltens.
+Diese Grenzen machen Quota-Verwaltung, persiste Zeitfenster, адаптивный Poll-Kadenz и einen vollständigen localen Mock zu Bestandteilen des Produktverhaltens.
 
 ## 2. Актуальная архитектура
 
@@ -39,7 +39,7 @@ Diese Grenzen machen Quota-Verwaltung, Permanente Zeitfenster, Adaptive Poll-Kad
 | `src/lib/commands/CommandQueue.ts`   | TTL, Объединение, Резерв и Повторные попытки                         |
 | `src/lib/states/StateWriter.ts`      | Objektanlage, Werte, Quality-Flags und Migrationen                   |
 | `src/lib/states/objectOverlay.ts`    | Rollen, Einheiten, Enum-Labels und Anzeigeumrechnungen               |
-| `src/lib/states/objectNames.ts`      | немецкое и английское название объекта                               |
+| `src/lib/states/objectNames.ts`      | немецкое и английское название объектов                              |
 | `src/lib/notifications/keyExpiry.ts` | Ablaufüberwachung und ioBroker-Уведомления                           |
 | `test/mock/*`                        | Steuerbarer Ersatz для запуска квот Live-API                         |
 
@@ -53,7 +53,7 @@ Diese Grenzen machen Quota-Verwaltung, Permanente Zeitfenster, Adaptive Poll-Kad
 - Antwortheader sindie Quelle der Wahrheit für Limit, Restbudget und Reset-Zeit.
 - Опрос verwendet die Befehlsreserve nicht.
 - Ein unveränderter `carCapturedTimestamp` verdoppelt die Poll-Kadenz bis zur configurierten Obergrenze.
-- Активируйте или начните с того, что вы должны начать работу.
+- Активируйте или принимайте меры для того, чтобы установить режим «Kadenz zurück».
 - Опрос-Durchläufe и сериализация; ein angeforderter Verifikations-Poll geht während eines laufenden Durchlaufs nicht verloren.
 - Quota-Daten liegen unter `<vin>.rateLimit.*` und überleben Neustarts.
 - Scheduler-Änderungen werden ohne zusätzliche API-Abfragen über `onScheduleChange` и это было сделано в StateWriter. Die Diagnose-Schreibvorgänge werden je VIN серийный номер и vom Adaptor-Lebenszyklus überwacht; sie Blockieren keine Fahrzeugabfragen.
@@ -71,12 +71,12 @@ Diese Grenzen machen Quota-Verwaltung, Permanente Zeitfenster, Adaptive Poll-Kad
 - Ein сепаратор локальный таймер Meldet `TIMED_OUT`, без очереди или опросов. Bestätigungen nutzen ausschließlich die bereits vorhandenen Polls. Die Frist начинается с API-Annahme и wird durch Coalescing nicht verlängert.
 - Bei Neustart werden zuvor offene Bestätigungen local als `INTERRUPTED` Маркерт; sie werden nicht wieder gesendet. Диагностика с серийным номером VIN.
 
-### Объектная стена
+### Объектбаум
 
 - Объект предназначен для получения желаемого результата.
 - Адаптер не работает автоматически.
 - Fehlende oder fehlerhafte Teile behalten den letzten Wert mit schlechtem Quality-Flag; zurückkehrende Werte erhalten wieder gute Qualität.
-- Ladeprofile возвращается к идентификатору профиля.
+- Профиль профиля будет изменен на идентификатор профиля.
 - Определения названий объектов и их использование в метаданных. Обратите внимание на стандартные названия и новые ролики адаптера, которые нужно мигрировать.
 - Anzeigeumrechnungen betreffen nur State-Werte und Metadaten: Restreichweite wird в км, Lüftungs- und Standheizungsdauer в минутах. API-Antworten, Fixtures und Befehlsdaten bleiben unverändert.
 
@@ -138,14 +138,11 @@ Vor einem Release:
 
 Умереть `RateLimit-*` -Header korrigieren locale Schätzungen. Insbesondere wird `403 operation-not-authorized` Консервативное обращение с цитируемыми материалами требует обязательного использования API-Regel 403-Antworten ausnimmt. Ein Netzwerkfehler cann nach servereitiger Buchung entstehen und zählt deshalb ebenfalls konservativ als verbraucht.
 
-## 6. Offene Umsetzung
+## 6. Stand und laufende Wartung
 
 ### ioBroker Последние новости
 
-- Новая объектная структура из Einer Laufenden Instanz Exportieren und An[`ioBroker.repositories#6592`](https://github.com/ioBroker/ioBroker.repositories/pull/6592) анхенген
-- Checker erneut starten und verbleibende Befunde Bearbeiten
-- `bluefox` als npm-Owner hinzufügen
-- manuellen ioBroker-Review bis zur Aufnahme в `latest` беглетен
+Адаптер выйдет в сентябре 2026 г. `latest`. `bluefox` унд `tmarthy` sind als npm-Maintainer eingetragen. Версия `0.1.11` ist veröffentlicht.
 
 ### Zusätzliche Schreiboperationen
 
@@ -155,19 +152,19 @@ Der Lademodus verwendet den bestehenden State `charging.settings.preferredCharge
 
 Профиль имеет нумерованный идентификатор профиля, который используется в формате JSON-State. `chargingProfiles.profiles.<id>.configurationJson`. Vollständige Profil-Payloads действительно действителен; es gibt kein подразумевает Zusammenführen von Teilobjekten und keine Neuanlage. Ein zwischenzeitlicher Poll mit geändertem, entferntem или fehlendem Profil verwirft wartende Updates. Ничто не может быть изменено для других клиентов, которые хотят быть в Рестрисико.
 
-Modus und jedes Profil haben eigene Coalescing-Gruppen. Квота, TTL, обработка запросов, API-Quittierung и Verifikations-Polls, которые могут быть использованы в очереди. Mock- und Integrationstests prüfen die neuen Schreibpfade; ein Praxistest mit passenden Fahrzeugfunktionen steht noch aus.
+Modus und jedes Profil haben eigene Coalescing-Gruppen. Квота, TTL, обработка запросов, API-Quittierung и Verifikations-Polls, которые могут быть использованы в очереди. Mock- und Integrationstests prüfen die neuen Schreibpfade; Lademodus и Ladeprofile wurden zudem am eigenen Fahrzeug erfolgreich getestet.
 
 ### Komfortable Profilbearbeitung
 
 Umgesetzt: lokaler `edit` -Bereich mit Einzelfeldern für Name, vorhandene Einstellungen, Timer und Zeitfenster; Wochentage как Schalter. `apply` отправить профиль профиля в очередь, `reset` verwirft den Entwurf ohne Request. Ausgangssnapshot и Laufende Profilbefehle werden vor Versand geprüft. `dirty`, `conflict` унд `message` machen den Bearbeitungsstand sichtbar. Опросы erhalten geänderte Entwürfe; nach Neustart начинает умирать Bearbeitung mit neuen Fahrzeugdaten. Unit- und Integrationstests sichern die Bündelung mehrerer Änderungen und unveränderte API-Aufrufzahlen ab.
 
-Zusätzlich umgesetzt: специальные Einstellungsrollen, vollständige Feldbeschriftungen und Hilfetexte sowie localisierte Auswahlwerte. Alte Objekte werden ohne Verlust eigen Namen или History-Einstellungen migriert. Entfernte beziehungsweise noch nicht frisch bestätigte Editorfelder sind schreibgeschützt und als nicht verfügbar gekennzeichnet; `edit.available` Zeigt die Profilverfügbarkeit. Wiederkehrende Felder weeder reaktiviert. Тесты включают Rollen, Sprache, Migration, Neustart и Verfügbarkeitswechsel ab.
+Zusätzlich umgesetzt: специальные Einstellungsrollen, vollständige Feldbeschriftungen und Hilfetexte sowie localisierte Auswahlwerte. Alte Objekte werden ohne Verlust eigen Namen или History-Einstellungen migriert. Entfernte beziehungsweise noch nicht frisch bestätigte Editorfelder sind schreibgeschützt und als nicht verfügbar gekennzeichnet; `edit.available` Zeigt die Profilverfügbarkeit. Wiederkehrende Felder weerden reaktiviert. Тесты включают Rollen, Sprache, Migration, Neustart и Verfügbarkeitswechsel ab.
 
-Вы можете проверить регрессионные тесты, используя Rolle/Schreibrecht-Konsistenz, а также для них не использовать кнопки, а также подробные сведения о канале, чтобы увидеть Wiederherstellung nach Rückkehr. Editormeldungen und Diagnose-Labels in allen elf Sprachen verfügbar; Тестирует стабильные коды состояния и лучшую миграцию Label-Zuordnungen ab.
+Вы можете проверить регрессионные тесты, используя Rolle/Schreibrecht-Konsistenz, а также ничего не проверяя кнопки, а также подробные сведения о канале, чтобы увидеть Wiederherstellung nach Rückkehr. Editormeldungen und Diagnose-Labels in allen elf Sprachen verfügbar; Тестирует стабильные коды состояния и лучшую миграцию Label-Zuordnungen ab.
 
 ### Laufende Wartung
 
 - Änderungen der OpenAPI-`v0` -Spec prüfen und Codegen anpassen
 - Действия и действия GitHub для завершения работы Dependabot
 - Verhalten weiterer Fahrzeugtypen mit anonymisierten Fixtures absichern
-- Компактный режим сначала включает настройки таймера и режима работы.
+- Тест интеграции компактных групп для Linux и macOS; Проект PR № 5, лучший вариант для macOS с узлами 22, 24 и 26. Windows bleibt wegen eines Controller-Testproblems ausgenommen

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: tbzhovE99VAe0YBGCC4RDRMWndICk5XHIPZ+2DlEIco=
+hash: hliQjvKZtOkaOuyGVvuKuk9eTMFajHX6TRqUo9VFCL8=
 ---
 ![Logo](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -32,6 +32,7 @@ Wenn Ihnen der Adapter gefällt und Sie meine Arbeit unterstützen möchten, fre
 - Legen Sie Ausgangs-/Eingangsgrenzen für Szenarien ohne Einspeisung ohne Shelly Pro EM fest oder erstellen Sie komplexere Automatisierungen per Skript/Blockly.
 - Batterieschutz: Unterbricht die Eingangsleistung, wenn die Batteriespannung zu niedrig ist (erfordert eine über den Adapter einstellbare Ausgangsbegrenzung).
 - Mehrere Solarflow-Geräte gleichzeitig steuern, mit präziseren Berechnungen.
+- Integrierte Nulleinspeisungsautomatik (PI-gesteuerte, SOC-gewichtete Leistungsverteilung auf mehrere Geräte), gesteuert durch Ihren Netzzähler
 - Funktioniert mit allen Zendure Solarflow-Geräten
 - **zenSDK** : Lokale HTTP-Steuerung für kompatible Geräte, wobei die Daten weiterhin an die Zendure-Cloud weitergeleitet werden, sodass Sie die volle Kontrolle behalten, falls das Internet oder die Zendure-Server ausfallen.
 
@@ -39,10 +40,11 @@ Wenn Ihnen der Adapter gefällt und Sie meine Arbeit unterstützen möchten, fre
 
 - **Authentifizierung per Cloud-Schlüssel** (empfohlen): die offizielle Zendure-Methode. Sie erhalten einen Cloud-Schlüssel über die App. Standardmäßig wird für kompatible Geräte im selben Netzwerk wie ioBroker das zenSDK verwendet. Dies ermöglicht die volle lokale Kontrolle bei gleichzeitiger Datenübertragung in die Cloud. Auch eine reine Cloud-Nutzung ist möglich. Ältere Geräte, die bereits an einen lokalen MQTT-Server angeschlossen sind, können Daten ebenfalls ohne Nachteile in die Cloud übertragen.
 - **Lokal** : Nur lokaler Modus. Verbinden Sie den Adapter mit einem lokalen MQTT-Server für ältere Geräte (siehe unten); zenSDK-Geräte werden über mDNS gefunden.
+- **zenSDK-only (mDNS)** : Keine Zendure-Cloud und kein MQTT-Server. Geräte werden per [mDNS-Erkennung](#mdns-discovery) gefunden und ausschließlich lokal über zenSDK abgefragt/gesteuert. Daher werden nur zenSDK-kompatible Geräte unterstützt.
 
 ### mDNS Discovery
 
-Wenn zenSDK aktiviert ist, durchsucht der Adapter beim Start kurz das Netzwerk über mDNS/Bonjour nach Geräten, die sich als solche ankündigen. `Zendure-<model>-<serialNumber>` Diese Funktion ergänzt oder korrigiert IP-Adressen bekannter Cloud-Geräte und erstellt automatisch Zubehör (Mix-Serie, Smart Meter), das keinen Cloud-Produktschlüssel besitzt und daher nicht anderweitig erstellt werden kann. Geräte werden anhand der vollständigen Seriennummer und nicht anhand der IP-Adresse oder eines Kurznamens identifiziert. Die Funktion kann über die Einstellung „Über mDNS-Erkennung gefundene Geräte hinzufügen“ deaktiviert werden.
+Wenn zenSDK aktiviert ist, durchsucht der Adapter das Netzwerk über mDNS/Bonjour nach Geräten, die sich als `Zendure-<model>-<serialNumber>` Solange das Netzwerk aktiv ist, wird es nach 5, 15, 30 und 60 Sekunden sowie anschließend alle 5 Minuten erneut abgefragt. So werden auch später verbundene Geräte (oder solche, die bei einer früheren Abfrage nicht erfasst wurden) gefunden, ohne dass der Adapter neu gestartet werden muss. Dadurch werden IP-Adressen bekannter Cloud-Geräte ergänzt oder korrigiert und Zubehör (Mix-Serie, Smart Meter), das keinen Cloud-Produktschlüssel besitzt und daher nicht anderweitig erstellt werden kann, automatisch angelegt. Geräte werden anhand ihrer vollständigen Seriennummer identifiziert, nicht anhand ihrer IP-Adresse oder eines gekürzten Suffixes. Die Funktion kann über die Einstellung „Über mDNS-Erkennung gefundene Geräte hinzufügen“ deaktiviert werden.
 
 ## Unterstützte Geräte
 
@@ -78,49 +80,97 @@ Beide Tools erzwingen den Standard-MQTT-Port (1883 oder 8883 mit SSL) und erford
 
 Um das Laden/Einspeisen per Skript oder Blockly zu steuern, verwenden Sie di&#x65;** `setDeviceAutomationInOutLimit` ** Steuerparameter – er steuert das Gerät, ohne in den Flash-Speicher zu schreiben. Negative Werte lösen das Laden über das Stromnetz aus.
 
+## Adapterautomatisierung (Null-Einspeisungssteuerung)
+
+Der Adapter verfügt über einen integrierten Nulleinspeiseregler. Er liest Ihren Netzzähler aus und passt die Einspeisung kontinuierlich an. `setDeviceAutomationInOutLimit` Alle beteiligten Geräte werden so gesteuert, dass die Netzleistung nahe an einem konfigurierbaren Sollwert bleibt – ein externes Skript ist nicht erforderlich. Es funktioniert sowohl mit einzelnen Geräten als auch mit mehreren Geräten gleichzeitig.
+
+### Aufstellen
+
+1. Öffnen Sie die Adaptereinstellungen, Abschnitt **Automatisierung** , und aktivieren Sie **die Option Adapterautomatisierung aktivieren** .
+2. Wählen Sie den **Triggerzustand** : einen Zustand Ihres Stromnetzes/Smart Meters mit der aktuellen Netzleistung in Watt ( **positiv = Netzbezug, negativ = Netzeinspeisung** ). Jede Änderung dieses Zustands löst einen Regelzyklus aus, daher sollte er häufig aktualisiert werden (ideal sind 1–5 Sekunden).
+3. Speichern – der Adapter startet neu und erstellt die `adapterAutomation` Staaten.
+4. Aktivieren Sie die Automatisierung für jedes Gerät, das gesteuert werden soll: `<productKey>.<deviceKey>.adapterAutomation.automationEnabled = true` Die
+5. Schalten Sie den globalen Schalter ein. `adapterAutomation.automationEnabled = true` Die
+
+⚠️ Solange die Automatisierung für ein Gerät aktiv ist, schreiben Sie nicht `setDeviceAutomationInOutLimit` Ihre eigenen Skripte für dieses Gerät werden von der Automatisierung überschrieben. Geräte mit `automationEnabled = false` bleiben völlig unberührt.
+
+### Staaten
+
+Global (`zendure-solarflow.X.adapterAutomation.*`):
+
+| Zustand                          | Standard | Beschreibung                                                                                                                                                                                                                                                      |
+| -------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `automationEnabled`              | `false`  | Globaler Ein-/Ausschalter für die Automatisierung.                                                                                                                                                                                                                |
+| `setPoint`                       | `10`     | Ziel-Netzleistung in W. Ein kleiner positiver Wert (geringe Importmenge) vermeidet die Einspeisung ins Netz.                                                                                                                                                      |
+| `setPointNearlyFull`             | `-100`   | Zielnetzleistung in W, verwendet anstelle von `setPoint` Wenn alle Batterien mindestens 90 % geladen sind und Solarstrom eingespeist wird. Negative Werte ermöglichen die Einspeisung ins Stromnetz.                                                               |
+| `acOnlyPenalty`                  | `50`     | Der Vorsprung eines AC-only-Geräts wird in Prozent angegeben, um den es gegenüber anderen Geräten erreichen muss, um zum führenden Gerät zu werden, sobald der durchschnittliche Ladezustand (SOC) der anderen Geräte über 35 % liegt. `0` deaktiviert die Strafe. |
+| `surplusChargeTrigger`           | `100`    | Netzexport in Watt über den Sollwert hinaus, ab dem im Leerlauf befindliche, nur netzbetriebene Geräte mit Überschussenergie zu laden beginnen. Minimum `30` Die                                                                                                   |
+| `ignoreSuggestedInverseMaxPower` | `false`  | Wenn `true`, das Gerät `inverseMaxPower` wird als Maximalwert anstelle des empfohlenen Werts verwendet (siehe unten).                                                                                                                                              |
+| `deviceOrder`                    |          | Schreibgeschützt. Aktuelle Gerätereihenfolge, das erste Gerät ist das führende Gerät.                                                                                                                                                                             |
+
+Pro Gerät (`<productKey>.<deviceKey>.adapterAutomation.*`):
+
+| Zustand                        | Beschreibung                                                                                                                                                                                                                                                             |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `automationEnabled`            | Dieses Gerät in die Automatisierung einbeziehen (Standardeinstellung) `false`).                                                                                                                                                                                          |
+| `forceAcCharging`              | Laden Sie dieses Gerät vollständig über das Stromnetz auf. `chargeMaxLimit` bis es voll ist, unabhängig von der aktuellen Nachfrage (Standardeinstellung) `false`).                                                                                                       |
+| `acChargingAllowed`            | Nur für Geräte, die über Netzstrom geladen werden können, aber nicht ausschließlich für Netzstrom ausgelegt sind (z. B. SF 800/2400 Pro, Hyper 2000): Laden Sie dieses Gerät mit überschüssigem Netzstrom wie ein reines Netzstromgerät (Standardeinstellung). `false`). |
+| `suggestedInverseMaxPower`     | Nur lesbar. Die maximale Ausgangsleistung, die die Automatisierung für dieses Gerät verwendet, wird aus dem Ladezustand (SOC) und der niedrigsten Zellspannung berechnet, um die Batterie zu schützen.                                                                   |
+| `suggestedInverseMaxPowerInfo` | Schreibgeschützt. Grund für den aktuell vorgeschlagenen Wert.                                                                                                                                                                                                            |
+| `status`                       | Schreibgeschützt. Was die Automatisierung aktuell von diesem Gerät erwartet (z. B. Einspeisung, Standby, Laden aus Überschuss), in der Systemsprache von ioBroker (Deutsch oder Englisch).                                                                               |
+
+### So funktioniert es
+
+- **PI-Regler:** Die benötigte Leistung wird aus dem aktuellen Stromverbrauch (Netzstrom + aktuelle Leistung) zuzüglich einer PI-Korrektur zum Sollwert berechnet. Innerhalb eines kleinen Totbereichs (Sollwert zu Sollwert + 10 W) wird nichts verändert, um ständige Nachjustierungen zu vermeiden.
+- **Leistungsverteilung:** Die benötigte Leistung wird gewichtet nach ihrem SoC-Wert auf die aktiven Geräte verteilt – Geräte mit höherem SoC-Wert erhalten einen größeren Anteil. Geräte mit einem niedrigeren SoC-Wert erhalten einen größeren Anteil. `minSoc` Sie erhalten keinen Anteil. Leistung, die ein Gerät nicht liefern kann (über seinem Maximum), wird an Geräte mit ausreichender Leistungsreserve weitergeleitet.
+- **Leitgerät:** Die Geräte werden nach Ladezustand (SOC) und Solarstromaufnahme sortiert (Neusortierung stündlich). Das Leitgerät ist immer aktiv; weitere Geräte werden hinzugefügt, wenn der Bedarf steigt (über 70 % Auslastung der aktiven Geräte) oder wenn diese fast voll sind. Nach dem Hinzufügen bleiben die Geräte mindestens 5 Minuten aktiv, um ein Flattern zu vermeiden. Inaktive Geräte werden für einige Minuten im 10-W-Standby-Modus gehalten, um eine schnellere Reaktion zu ermöglichen.
+- **Batterieschutz:** `suggestedInverseMaxPower` Die Leistung wird bei niedrigem Ladezustand (SOC) bzw. niedriger Zellspannung begrenzt (z. B. nur 60–500 W bei schwachen Zellen). Nachts (0–5 h) wird die Leistungsbegrenzung vom Ladezustand abgeleitet. Sie überschreitet niemals die maximale Leistung des Geräts. `inverseMaxPower` Die
+- **Netzbetriebene Geräte** (z. B. SF 2400 AC, SF 1600 AC+, SF 3000/4000 Mix AC+) werden weniger bevorzugt als Hauptgerät eingesetzt, sobald die anderen Batterien über 35 % geladen sind. Wenn der Netzzähler einen Überschuss anzeigt (mindestens 35 % eingespeiste Energie), …`surplusChargeTrigger` W über dem Sollwert (Standardwert 100 W), im Leerlauf befindliche AC-Geräte (und Geräte mit `acChargingAllowed`) mit diesem Überschuss belasten, bis zu ihrem `chargeMaxLimit` (Leistung in W).
+- **Ladesicherheit:** Das Gerät schaltet erst dann in den Lademodus, wenn es mindestens 5 Minuten lang mit 0 W im Leerlauf war. Es wechselt also nicht direkt zwischen Entladen und Laden.
+
 ## Anmerkungen
 
 Dieser Adapter authentifiziert sich auf den offiziellen MQTT-Servern mithilfe des Cloud-Autorisierungscodes, den Sie in der Zendure-App generieren können.
+
+### Sentry (Fehlerberichterstattung und Gerätestatistik)
+
+Dieser Adapter nutzt Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an den Entwickler zu melden. Zusätzlich sendet er 5 Minuten nach dem Start und anschließend alle 24 Stunden anonyme Gerätestatistiken: ein Ereignis pro verwendeter Geräteklasse, das lediglich Geräteklasse, Produktschlüssel, Produktname und Verbindungsmodus enthält. Es werden keine Geräteschlüssel, Seriennummern, IP-Adressen oder Anmeldeinformationen übertragen. Diese Statistiken helfen dabei, die verwendeten Geräte zu erkennen und fehlende Unterstützung aufzudecken.
+
+Weitere Details und Informationen zur Deaktivierung der Fehlerberichterstattung finden Sie in der [Dokumentation des Sentry-Plugins](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Die Sentry-Fehlerberichterstattung wird ab js-controller 3.0 verwendet.
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 
-## Changelog
+### 6.0.0-alpha.4 (2026-10-01)
 
-### 5.3.0 (2026-09-02)
+- Null-Einspeisung: Geräte ohne Blei-Zufuhr werden nicht mehr aus dem Leerlauf in den 30/10-W-Standby-Modus für einen geringen Anteil geschaltet, und vollständig geladene Geräte ohne Solarstromzufuhr werden aus dem Standby-Modus auf 0 W freigegeben.
+- Null-Einspeisung: Geräte werden nicht mehr als zusätzliche Einspeisegeräte hinzugefügt, nur weil sie eine Solareingangsleistung von mehr als 100 W haben.
 
-- Add folder "settings" for zenSDK devices. Here you can turn device polling on/off and control the polling interval for individual devices.
-- Round hyperTmp to nearest int.
-- Adjust checkVoltage function to take account of the 24V architecture of the new Mix series.
-- Start mDNS discovery start after fetching deviceList from Zendure cloud.
-- Fix lower case bug in comparing product keys for new mDNS device creation
+### 6.0.0-alpha.3 (2026-10-01)
 
-### 5.2.1 (2026-08-30)
+- Die Reduzierung des vorgeschlagenen inverseMaxPower um 0-5 Stunden wurde entfernt, da dies mit Octopus Energy in der persönlichen Konfiguration zusammenhing.
 
-- BREAKING: `setDeviceAutomationInOutLimit` on Hyper 2000 uses simulated HEMS now and requires `hemsState = 1` and `autoModel = 0` to control the device (automatically set by the adapter). Please check your control parameters (e.g. inverseMaxPower) after updating if you use setDeviceAutomationInOutLimit.
-- Add support for Solarflow 3000/4000 Mix AC+ and 4000 Mix Pro via mDNS auto-discovery
-- Add support for Smart Meter 3CT and Smart Meter D0 (read-only zenSDK accessories, with proper power state names/units and no control or packData states)
-- Correct a device's IP via mDNS if it no longer matches the (stale or wrong) IP from the cloud device list
-- Process zenSDK measurements reported directly on the response instead of nested under "properties" (affects Smart Meter 3CT/D0)
-- Enable "mDNS discovery" by default, including for existing instances that never had this setting saved - you must disable this option in settings if not desired
+### 6.0.0-alpha.2 (2026-10-01)
 
-### 5.1.0 (2026-08-20)
+- Verbesserungen bei Nullzufuhr
 
-- Fix batCur Reading
-- Add control state for inverseMaxPower and gridOffMode (Control AC outlet on 'Plus' Devices)
+### 6.0.0-alpha.1 (2026-09-30)
 
-### 5.0.4 (2026-08-19)
+- Behebt das Problem, dass setDeviceAutomationInOutLimit auf Geräten ohne zenSDK bei Verwendung von Automatisierung nicht korrekt gesetzt wird.
 
-- Fix flickering Save button in Settings.
-- Add function to detect zenSDK devices with mDNS and fill missing IP-address if found.
+### 6.0.0-alpha.0 (2026-09-30)
 
-### 5.0.3 (2026-08-18)
+- Fügen Sie die Adapterautomatisierung (Null-Einspeisungssteuerung) hinzu, siehe Abschnitt „Adapterautomatisierung“ oben.
+- Verbindungsmodus hinzufügen "zenSDK only (mDNS)": Keine Zendure-Cloud und kein MQTT-Server, Geräte werden über mDNS gefunden und über zenSDK gesteuert.
+- Die mDNS-Erkennung läuft nun so lange, wie der Adapter in Betrieb ist, anstatt nur 10 Sekunden nach dem Start. Später angeschlossene Geräte werden automatisch hinzugefügt, IP-Änderungen werden erkannt und fehlgeschlagene zenSDK-Verbindungen werden wiederholt.
+- Behebung des Problems, wenn Zendure Cloud beim Start nicht erreichbar ist, indem die gespeicherte Geräteliste verwendet wird.
+- Über mDNS erstellte Geräte behalten ihren Status, wenn sie später in der Zendure-Cloud-Geräteliste erscheinen (Cloud-MQTT funktioniert weiterhin für sie). Geräte mit einem unbekannten Produktschlüssel in der Cloud-Geräteliste werden als Information und nicht als Fehler protokolliert.
+- Die MQTT-Clients werden beim Anhalten oder Neustarten des Adapters ordnungsgemäß getrennt.
+- Sentry (Standard-ioBroker) wurde für Fehlerberichte und Gerätestatistiken hinzugefügt.
 
-- Fix `wifiState` not being created/updated correctly for devices using local zenSDK polling (Solarflow 2400 AC/AC Plus/Pro, 1600 AC Plus), as their local status payload does not report a `wifiState` property
-
-For older changes see CHANGELOG_OLD.md.
+Ältere Änderungen sind in der Datei CHANGELOG\_OLD.md beschrieben.
 
 ## License
 

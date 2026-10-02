@@ -440,6 +440,12 @@ If you like my work, please consider a personal donation
     ### __WORK IN PROGRESS__
     * (DutchmanNL)
 -->
+### 1.0.0 (2026-09-26) - Public Stable Release
+
+- (@arteck) **FIXED**: A device that drops while its entities are still being announced no longer throws "Not connected", the state subscription is left to the reconnect
+- (@arteck) **FIXED**: A connection loss logs one "Connection destroyed" warning per device instead of one per entity
+- (@DutchmanNL) **ENHANCED**: Updated @iobroker/testing to 6.2.2 and @iobroker/adapter-core to 3.4.3
+- (@DutchmanNL) **ENHANCED**: Tests now cover Node.js 22, 24 and 26 and the websocket library ws was updated to 8.21.3
 
 ### 1.0.0-beta.2 (2026-07-30)
 
@@ -476,12 +482,6 @@ If you like my work, please consider a personal donation
 - (@SimonFischer04) **NEW** 'Always last available' for pillow version
 - (@copilot) **FIXED**: Invalid jsonConfig warning on adapter installation
 - (DutchmanNL) **FIXED**: ESLint errors by code refactoring
-
-### 0.7.0-beta.4 (2026-02-21)
-
-- (DutchmanNL) **FIXED**: ESLint errors by code refactoring
-- (@copilot) **FIXED**: Restore missing `configStates` option in admin UI to allow configuring whether configuration states are shown per entity
-- (@copilot) **NEW**: Per-device `rgbAutoWhite` toggle in the light config channel for automatic white-channel routing on RGBW lights (see [Controlling RGBW Lights](#controlling-rgbw-lights))
 
 ## License
 

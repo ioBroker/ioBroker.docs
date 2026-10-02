@@ -193,6 +193,9 @@ This is off by default. When enabled:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 9.1.9 (2026-09-28)
+* (@GermanBluefox) Added onScreen state for App
+
 ### 9.1.8 (2026-09-24)
 * (@GermanBluefox) An empty body for `cloud.X.remote.command` is refused with a 400 instead of writing an empty command that is dropped without a word
 
@@ -209,9 +212,6 @@ This is off by default. When enabled:
 * (@GermanBluefox) A command a visu app writes into `cloud.<X>.remote.command` is turned into `cloud.<X>.devices.<device>.*` here when the cloud adapter is not running. The app reported nothing at all while that adapter was stopped, although the value had arrived. Nothing changes while the adapter runs — it does this itself. The command state is created when it is missing, so an installation without the cloud adapter can be reported to as well.
 
 ### 9.1.4 (2026-08-31)
-* (@GermanBluefox) Updated packages
-
-### 9.1.3 (2026-08-28)
 * (@GermanBluefox) Updated packages
 
 ## License

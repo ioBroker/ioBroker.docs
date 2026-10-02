@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.heatingcontrol/README.md":{"title":{"en":"ioBroker.HeatingControl"},"content":"en/adapterref/iobroker.heatingcontrol/README.md"},"en/adapterref/iobroker.heatingcontrol/doc/en/FAQ.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.heatingcontrol/doc/en/FAQ.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: 2LKAcKP+hH/o6ctMDcfoEcbFP+NBzpM0DgYhKLrrmao=
+hash: plYMiskmU8DrFQSJcV0aIEcGLEinB7gUZpFBUx2pZV8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -62,7 +63,7 @@ hash: 2LKAcKP+hH/o6ctMDcfoEcbFP+NBzpM0DgYhKLrrmao=
 - Поддерживается визуализация из [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) . Спасибо!
 - Поддержка Vis-2 с помощью [vis-2-widgets-weather-and-heating](https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating)
 
-[Часто задаваемые вопросы](https://github.com/rg-engineering/ioBroker.heatingcontrol/blob/master/doc/FAQ.md)
+[Часто задаваемые вопросы](/#/docs/adapterref/iobroker.heatingcontrol/doc/en/FAQ.md)
 
 ## Установка
 
@@ -168,7 +169,7 @@ hash: 2LKAcKP+hH/o6ctMDcfoEcbFP+NBzpM0DgYhKLrrmao=
 | до следующей точки профиля         | Изменения температуры, зафиксированные термостатом, принимаются за целевую температуру до следующей точки профиля. Это ручной режим, поэтому используются только датчики температуры окон. Все остальные датчики... |
 |                                    | Увеличение/уменьшение игнорируется. В каждой комнате есть точка данных, позволяющая отключить ручной режим перед достижением следующей точки профиля.                                                               |
 
-## Расширение возможности принудительного изменения температуры
+## расширить действие при изменении температуры
 
 Стандартное поведение режима принудительного регулирования температуры заключается в том, что при изменении температуры время принудительного регулирования не изменяется. Например, если вы запустили режим принудительного регулирования на 20 минут при 25°C и через 15 минут изменили температуру на 28°C, то 28°C будет использоваться только в течение последних 5 минут. При таком варианте режим принудительного регулирования перезапускается при каждом изменении температуры. В приведенном выше примере 28°C будет использоваться в течение 20 минут, что приведет к 15 минутам при 25°C и 20 минутам при 28°C.
 

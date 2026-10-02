@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.habpanel/README.md
 title: ioBroker.habpanel
-hash: aSH9A13YJXwEXrBNweRSbqssJr9w/v5FtYlP+DSpb6w=
+hash: 0Kppz5xxrufsJKCb5UZwDxgaSvuNMUuKWpXB3F6xlpY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.habpanel/admin/habpanel.svg)
 
@@ -14,13 +14,11 @@ hash: aSH9A13YJXwEXrBNweRSbqssJr9w/v5FtYlP+DSpb6w=
 
 # ioBroker.habpanel
 
+> \[!ВАЖНО] Этот адаптер нельзя установить из GitHub
+
 HABPanel — это облегченный интерфейс панели управления для ioBroker, основанный на OpenHAB HABpanel.
 
 Примечательно, что в нем предусмотрен встроенный конструктор панелей управления, позволяющий легко создавать интерфейсы прямо на целевом устройстве.
-
-## Установка
-
-**Важно!** Этот адаптер нельзя установить напрямую из GitHub. Только из npm.
 
 ## Начиная
 

@@ -3,48 +3,77 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.energy-tracker/README.md
 title: ioBroker.energy-tracker
-hash: n55Qf5xNASOOJMjfcnMUc0QoYCHIL7D+SDwykDxQuF4=
+hash: kpvqsRIOq80zlKCNoWG8YM/HNWiza2ioU3BdfMFdbzc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.energy-tracker/admin/energy-tracker.png)
 
-![версия НПМ](https://img.shields.io/npm/v/iobroker.energy-tracker.svg)
+![Версия NPM](https://img.shields.io/npm/v/iobroker.energy-tracker.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.energy-tracker.svg)
-![Инсталляции](https://iobroker.live/badges/energy-tracker-installed.svg)
+![Установки](https://iobroker.live/badges/energy-tracker-installed.svg)
 ![Стабильная версия](https://iobroker.live/badges/energy-tracker-stable.svg)
 
-# IoBroker.energy-tracker
-Адаптер для передачи показаний счетчиков на платформу Energy Tracker.
-Он периодически передает значения из настроенных состояний ioBroker, используя общедоступный REST API.
+# ioBroker.energy-tracker
+
+Адаптер для передачи показаний счетчика на платформу Energy Tracker.\
+&#x20;Он периодически передает значения из настроенных состояний ioBroker, используя общедоступный REST API.
 
 ## Требования
-1. **Зарегистрируйте учетную запись:**
 
-   👉 [Создайте свой аккаунт](https://www.energy-tracker.best-ios-apps.de/en-US/register)
+Требуется Node.js версии 22 или новее, ioBroker js-controller версии 6.0.11 или новее и ioBroker Admin версии 7.6.20 или новее.
 
-2. **Создайте персональный токен доступа** (требуется вход в систему)
+1. **Зарегистрируйте аккаунт:**\
+   &#x20;👉 [Создайте свою учетную запись](https://www.energy-tracker.best-ios-apps.de/en-US/register)
 
-   👉 [Сгенерировать токен](https://www.energy-tracker.best-ios-apps.de/de/login?next=%2Faccount%2Faccess-token)
+2. **Создайте персональный токен доступа** (требуется вход в систему).\
+   &#x20;👉 [Сгенерировать токен](https://www.energy-tracker.best-ios-apps.de/de/login?next=%2Faccount%2Faccess-token)
 
-3. **Получите идентификаторы устройств из документации API** (требуется вход в систему)
-
-   👉 [API-документация](https://www.energy-tracker.best-ios-apps.de/de/login?next=%2Faccount%2Frest-api)
+3. **Получите идентификаторы своих устройств из документации API** (требуется вход в систему).\
+   &#x20;👉 [Документация API](https://www.energy-tracker.best-ios-apps.de/de/login?next=%2Faccount%2Frest-api)
 
 ## Конфигурация
+
 В адаптере необходимо настроить следующие поля:
 
-- **Персональный токен доступа**
-- **Список устройств** с:
-- `deviceId` (идентификатор устройства Energy Tracker)
-- `sourceState` (состояние ioBroker, которое обеспечивает чтение)
-- Включить округление значений
+- **Персональный токен доступа** с разрешением на создание показаний счетчика.
+- **Список устройств** , содержащий:
+  - `deviceId` (Идентификатор устройства Energy Tracker)
+  - `sourceState` (Состояние ioBroker, обеспечивающее получение данных)
+  - Включите округление значений на стороне сервера.
+- **Количество попыток после истечения таймаута:** 0 (отключено), 1 или 2, с настраиваемой задержкой от 1 до 60 секунд. Запросы по-прежнему истекают через 10 секунд. В случае конфликта после истечения таймаута необходимо проверить показания в Energy Tracker.
 
-**Кроме того, необходимо создать расписание в ioBroker для запуска адаптера через регулярные промежутки времени.** Без расписания адаптер не будет автоматически извлекать и передавать какие-либо данные.
+Исходные данные могут содержать числа или простые десятичные строки. Используйте десятичные строки, если требуется точная десятичная точность. Значения обрезаются до шести знаков после запятой, установленных API, перед отправкой; `allowRounding` контролирует округление показаний счетчика на стороне сервера с точностью до заданного значения.
+
+**Кроме того, необходимо создать расписание в ioBroker для запуска адаптера через регулярные интервалы времени.**\
+&#x20;Без заданного расписания адаптер не будет автоматически получать или передавать данные.
 
 ## Безопасность
+
 - Токен доступа хранится в зашифрованном виде.
-- Данные только **отправляются** – показания не извлекаются.
+- Данные только **передаются** — показания не извлекаются.
 
 ## Changelog
+
+### 1.0.0
+
+**Before upgrading:** Node.js 22 or newer, ioBroker js-controller 6.0.11 or newer and ioBroker Admin 7.6.20 or newer are required.
+
+- Send readings through the Energy Tracker SDK and API v3.
+- Truncate readings to six decimal places before sending.
+- Fix connection status for failed or incomplete batches.
+- Add optional timeout retries with a fixed reading timestamp.
+- Require Node.js 22 or newer and test on Node.js 22, 24 and 26.
+- Update dependencies, release tools and adapter metadata.
+- Publish releases through npm trusted publishing.
+
+### 0.3.1
+
+- Cleaned up dev dependencies and updated the admin adapter to version 7.6.17.
+
+### 0.3.0
+
+- Updated all adapter dependencies to current stable versions.
+- Updated the API endpoint for submitting meter readings to the new v2 API.
+- General maintenance and compatibility improvements.
 
 ### 0.2.8
 
@@ -54,54 +83,9 @@ hash: n55Qf5xNASOOJMjfcnMUc0QoYCHIL7D+SDwykDxQuF4=
 
 - Updated ESLint to v9, fixed repository URL in package.json, and improved test coverage.
 
-### 0.2.6
-
-- Added README note: schedule required in ioBroker.
-
-### 0.2.5
-
-- Updated dependencies for testing and added Node.js v24 to adapter tests.
-
-### 0.2.4
-
-- Removed old news entries (fix W132 warning)
-
-### 0.2.3
-
-- Reduced build size
-
-### 0.2.2
-
-- Improved support for integration testing
-
-### 0.2.1
-
-- Added default schedule configuration for scheduled adapter mode
-
-### 0.2.0
-
-- Changed adapter type to 'schedule' to reflect intended usage. Fixed repository metadata and added missing GitHub test workflows.
-
-### 0.1.3
-
-- Fixed repository metadata and performed required minor adjustments
-
-### 0.1.2
-
-- Fixed repository metadata and performed required minor adjustments
-
-### 0.1.1
-
-- Fixed repository metadata
-
-### 0.1.0
-
-- Initial version with full Admin UI configuration
-- Supports multiple devices and configurable intervals
-
 ## License
 
-MIT – see [LICENSE](LICENSE).
+MIT – see [LICENSE](https://github.com/energy-tracker/ioBroker.energy-tracker/blob/main/LICENSE).
 
-Copyright (c) 2017-2025 Bluefox <dogafox@gmail.com>
-Copyright (c) 2015-2025 energy-tracker support@best-ios-apps.de
+Copyright (c) 2017-2026 Bluefox <dogafox@gmail.com>  
+Copyright (c) 2015-2026 energy-tracker support@energy-tracker.app

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.electrolux-aeg/README.md
 title: ioBroker.electrolux-aeg
-hash: L+Ece5rBdU5zl8j2sfAU6V1dIq05WqCG2OczZw/W2Q8=
+hash: 2GtMp+HaOFGcbrxUC+syTaDsSI4QR42ZFGOwhncQJE8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.electrolux-aeg/admin/electrolux-aeg.png)
 
@@ -23,6 +23,15 @@ hash: L+Ece5rBdU5zl8j2sfAU6V1dIq05WqCG2OczZw/W2Q8=
 Управление поддерживаемыми приборами осуществляется через официальные сервисы [Electrolux](https://www.electrolux.com/) и [AEG](https://www.aeg.com/) для подключенных устройств.
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
+
+## Авторизоваться
+
+1. Введите адрес электронной почты и пароль учетной записи, которую вы используете в приложении Electrolux или AEG.
+2. В поле **«Название приложения»** выберите приложение, к которому принадлежит учетная запись. Учетная запись Electrolux не будет входить в систему, если выбрано приложение AEG, и наоборот.
+3. Нажмите **«Проверить вход»** . Система проверяет значения на странице без сохранения и сообщает, неверны ли адрес электронной почты или пароль, отказала ли служба учетных записей во входе по другой причине или не ответила. Для работы кнопки необходимо, чтобы экземпляр системы был запущен.
+4. Сохранить. Рядом с кнопкой « **Подключение** » отображается информация о том, подключен ли экземпляр.
+
+Если при запуске не удаётся выполнить вход в систему, в журнале указывается, что следует проверить. Адаптер не повторяет попытку входа в систему при первой неудачной попытке; перезапустите экземпляр после устранения причины.
 
 ## Контроль
 
@@ -57,6 +66,10 @@ electrolux-aeg.0.XXXX.events
 | `cycleFinished` | `true` для единственного обновления, в котором завершилась программа. Триггер срабатывает при изменении на `true`.                                                                                        |
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- A failed login now says what to check instead of "Login failed #1" or "Login failed #2": a wrong email or password or the wrong app, another account problem, or no answer from the account service, each with the restart that follows.
+- Added a **Test login** button to the settings page. It checks email, password and the app with the values on the page before saving. The page also shows whether the instance is connected.
 
 ### 1.0.0 (2026-09-04)
 
@@ -97,7 +110,7 @@ electrolux-aeg.0.XXXX.events
 - Republish the latest repository review fixes with npm provenance.
 - Remove obsolete ESLint and Prettier dependencies after migrating to `@iobroker/eslint-config`.
 
-Older changes are documented in [CHANGELOG_OLD.md](https://github.com/TA2k/ioBroker.electrolux-aeg/blob/main/CHANGELOG_OLD.md).
+Older changes are documented in CHANGELOG_OLD.md.
 
 ## License
 

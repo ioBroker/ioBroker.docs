@@ -20,14 +20,14 @@ With the Nissan adapter you can ask your nissan vehicle for the latest data, dis
 
 [Nissan Connect/App information](https://www.nissan.de/kunden/nissan-connect-apps.html)
 
+Please note that this adapter is suitable only for vehicles that use the NissanConnect Services app, and not for NissanConnect EV.
+
 ## Forum
 
 Feel free to follow the discussions in the german [iobroker forum](https://forum.iobroker.net/topic/46700/test-adapter-nissan-v-0-0-x)
 
-Please note this adapter is only for vehicles using the NissanConnect Services app, not NissanConnect EV or any other app.
-
 ## Supported Regions
-Europe
+- Europe
 
 Currently only Nissan vehicles within Europe are supported.
 

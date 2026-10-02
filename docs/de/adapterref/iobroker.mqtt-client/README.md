@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mqtt-client/README.md
 title: ioBroker.mqtt-client
-hash: 63p6K+gIHjBbgziE1kE/sI5W09CPRbpbT3/TZmzwweo=
+hash: 1/OJMaXbC8XaRQzppz9jvQgBNY596PsKEdOrIqvXaOo=
 ---
 ![Logo](../../../en/adapterref/iobroker.mqtt-client/admin/mqtt-client.svg)
 
@@ -24,6 +24,8 @@ hash: 63p6K+gIHjBbgziE1kE/sI5W09CPRbpbT3/TZmzwweo=
 # ioBroker.mqtt-client
 
 ## Versionen
+
+> \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
 
 ioBroker-Zustände an MQTT-Broker veröffentlichen und abonnieren
 

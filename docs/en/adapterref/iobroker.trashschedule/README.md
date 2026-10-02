@@ -68,8 +68,14 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 -->
 ### **WORK IN PROGRESS**
 
+* (@typhosj) Fixed "actionNeeded" staying true after the pickup day has passed (#292)
+
+### 6.0.0 (2026-09-29)
+
 * (copilot) Adapter requires node.js >= 22 now
-* (@klein0r) admin 7.6.20 and js-controller 6.0.11 (or later) are required
+* (@klein0r) admin 7.8.23 and js-controller 6.0.11 (or later) are required
+* (@typhosj) Added muellabfuhr-deutschland.de as a new data source
+* (@typhosj) Fixed the source state of the abfall.io source (was empty)
 
 ### 5.3.0 (2026-04-22)
 
@@ -88,10 +94,6 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 ### 5.1.0 (2025-12-09)
 
 * (@klein0r) Added Wolfenbüttel to providers
-
-### 5.0.1 (2025-11-26)
-
-* (@klein0r) Increased timeout of api calls
 
 ## License
 

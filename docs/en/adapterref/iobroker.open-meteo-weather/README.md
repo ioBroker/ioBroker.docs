@@ -284,6 +284,10 @@ The adapter uses the **Faiman model** to estimate the module temperature. This m
 After a new adapter update, it is recommended to delete the entire directory tree and let it be recreated.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (H5N1v2) Adding key `showers` in 15 min forceast.
+* (H5N1v2) Update dependencies.
+
 ### 3.3.0 (2026-09-20)
 * (H5N1v2) Adding some weather keys, in hourly: showers, in daily: showers_sum, in current: rain, showers, snowfall
 * (H5N1v2) Automatic role migration: When `role_mapping.ts` is updated, existing 

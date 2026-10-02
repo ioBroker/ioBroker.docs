@@ -79,6 +79,46 @@ The adapter expects `HannahService.AgentConnect` to be available on the configur
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.5.4 (2026-10-01)
+- Added (with a `hannah.v2` Core): when Hannah starts watching a state for a trigger, the adapter now also reports the state's current value, so conditions like "only if" or "unless" know their state right after a Hannah restart instead of after the next change. Hannah does not run any trigger because of this start value
+- Added (with a `hannah.v2` Core): every slot of a device now names the ioBroker state behind it, so Hannah's trigger editor can offer the device's slots directly
+- Changed: updated to hannah-proto 5.2.0
+
+### 1.5.3 (2026-10-01)
+- Added: the adapter now speaks the new `hannah.v2` API to Hannah Core and reports your devices as typed devices (light, socket, thermostat, air conditioner, blind, sensor, door/window contact, …) with their capabilities instead of single states. Hannah then knows what a device can do and answers honestly when it can't do something. Older Hannah Cores (`hannah.v1` only) keep working with the previous behavior
+- Fixed (with a `hannah.v2` Core): a light's colour and colour temperature no longer end up on the same value, and each is recognised by its role (`level.color.rgb`, `level.color.temperature`)
+- Changed: updated to hannah-proto 5.1.0 and hannah-grpc-lib 0.7.0. The fallback to the unversioned Hannah API, which predates `hannah.v1`, is gone: the adapter no longer connects to a Hannah Core that old
+
+### 1.5.2 (2026-09-29)
+- Fixed: live value updates for states with an unusual name no longer freeze at their first value — the adapter now tells Hannah Core which role a state has instead of leaving Core to guess it from the state name (needs hannah-proto 4.8 on the Core side; older Cores behave as before)
+- Changed: updated to hannah-proto 4.8.0
+
+### 1.5.1 (2026-09-28)
+- Fixed: writing to `satellites.rooms.all.announcement`/`.announcementSsml`/`.announcementRephrase`/`.dnd`/`.mute` (the virtual "all" room) logged a debug line but never actually reached Hannah
+
+### 1.5.0 (2026-09-27)
+- Added: minimum trust level per state (`neededTrust`, 0–10, in the state's "Custom settings" dialog) — only users with at least this trust level may switch the state via Hannah; reading it is never restricted. Leave empty for no restriction. Changes take effect without restarting the adapter
+- Added: ioBroker notification when a minimum trust level is set but the connected Hannah Core doesn't support it yet — those states aren't protected until Hannah Core is updated. The notification is cleared automatically once an updated Hannah Core confirms support
+- Changed: updated to hannah-proto 4.7.0
+
+### 1.4.2 (2026-09-27)
+- Fixed: the labels "Location" and "not supported / deprecated" in the adapter settings are now translated into all languages instead of showing in English
+
+### 1.4.1 (2026-09-27)
+- Changed: logs go to the Hannah log collector's versioned API `hannah.v1`. A log collector too old for it still gets them over the previous API
+
+### 1.4.0 (2026-09-27)
+- Changed: the adapter uses Hannah Core's new versioned API (`hannah.v1`, Hannah Core with hannah-proto 4.6.0 or newer). With an older Hannah Core it automatically falls back to the previous API and logs a warning once per connection that Hannah Core should be updated, so the adapter can be updated before Hannah Core
+- Changed: log shipping to the Hannah log collector now uses the same fallback and keeps working with older and newer Hannah Core versions
+
+### 1.3.1 (2026-09-26)
+- Changed: when ioBroker runs in Docker, the adapter's logs in the Hannah log collector no longer show up under a new name after every container recreate. They appear as `container`, or under the name set in the `HANNAH_LOG_INSTANCE` environment variable
+
+### 1.3.0 (2026-09-26)
+- Fixed: with "daswetter" selected as weather source, Hannah never received any weather data — its object tree differs completely from openweathermap's, and the discovery only understood the latter. daswetter now has its own dedicated handling: forecast days and current conditions (taken from the hourly forecast slot that is running right now) are read by state name, wind speed is converted from km/h, and days are matched by their own date, so a delayed download doesn't shift "today" and "tomorrow"
+- Added: "Location" selection in the Weather tab for daswetter, listing the locations configured in the selected daswetter instance. Defaults to the first location, so existing setups work without any change
+- Changed: "accuweather" as weather source is marked as not supported / deprecated — AccuWeather no longer offers a free API, so its data can't be supported reliably. Existing settings keep loading, but no weather data is forwarded and a warning is logged at startup; please switch to another weather source
+
 ### 1.2.0 (2026-09-24)
 - Added: the adapter sends its logs to the Hannah log collector as well, as soon as Hannah reports one, so they are included when you download the logs of all Hannah components. The ioBroker log stays exactly as it is, and without a log collector nothing changes. Passwords and tokens from the adapter settings are masked before a line is sent
 

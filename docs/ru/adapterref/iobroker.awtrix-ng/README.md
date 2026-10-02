@@ -16,7 +16,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.awtrix-ng/README.md
 title: ioBroker.awtrix-ng
-hash: FJ8Kf5roOXc83tuv9o3f/wIuUbv45uJe+qulwJ6MUCw=
+hash: vE67beE37IXfnnTWkNhZytDpPz44H+2UFPKbclhkj3w=
 ---
 ![логотип](../../../de/admin/awtrix-ng.png)
 
@@ -25,17 +25,22 @@ hash: FJ8Kf5roOXc83tuv9o3f/wIuUbv45uJe+qulwJ6MUCw=
 ## Требования
 
 - Node.js 22 (или более новая версия)
-- js-controller 6.0.11 (или более новая версия)
-- Административный адаптер 7.6.20 (или более новая версия)
-- Устройство _Awtrix NG_ с версией прошивки _1.1.2_ (или новее) — например, Ulanzi TC001.
 
-Купить можно здесь: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) , здесь: [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) или здесь: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (партнерские ссылки)
+- js-controller 6.0.11 (или более новая версия)
+
+- Административный адаптер 7.6.20 (или более новая версия)
+
+- Устройство _Awtrix NG_ с версией прошивки _1.1.4_ (или новее) — например, Ulanzi TC001, Ulanzi TC002.
+
+- Купить TC001: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) , [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) или [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) _(партнерские ссылки)_
+
+- Купить TC002: [Amazon.de](https://haus-auto.com/p/amz/UlanziTC002) или [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC002) _(партнерские ссылки)_
 
 ## Первые шаги
 
 1. Прошейте микропрограмму на устройство и добавьте его в локальную сеть через Wi-Fi — см. [документацию.](https://blueforcer.github.io/awtrix-ng/getting-started/flashing/)
 2. Установите адаптер awtrix-ng в ioBroker (и создайте новый экземпляр).
-3. Откройте конфигурацию экземпляра и введите IP-адрес устройства в локальной сети.
+3. Откройте конфигурацию экземпляра и введите IP-адрес устройства в локальной сети (и порт, если он был изменен на устройстве — по умолчанию 80).
 
 ## Часто задаваемые вопросы (FAQ)
 
@@ -47,7 +52,7 @@ hash: FJ8Kf5roOXc83tuv9o3f/wIuUbv45uJe+qulwJ6MUCw=
 
 Просто создайте псевдоним в `alias.0` типа `string` (строка) и преобразуйте логическое значение в любое другое значение, используя функцию чтения (например) `val ? 'offen' : 'geschlossen'` _Это стандартная функция ioBroker и не имеет прямого отношения к данному адаптеру._
 
-**Устройство сильно нагревается во время зарядки.**
+**Устройство нагревается во время зарядки.**
 
 К сожалению, конструкция устройства не оптимальна. Рекомендуется использовать максимально слабый блок питания, способный выдавать максимум 1 А.
 
@@ -71,7 +76,7 @@ hash: FJ8Kf5roOXc83tuv9o3f/wIuUbv45uJe+qulwJ6MUCw=
 
 **Некоторые изменения состояния отображаются не сразу.**
 
-Если состояние изменяется очень часто (например, каждую секунду), некоторые изменения игнорируются и не передаются, чтобы минимизировать нагрузку на устройство. Для этой цели каждое приложение использует собственное «время блокировки», которое можно настроить глобально в параметрах экземпляра. Время по умолчанию составляет 3 секунды. Установка значения меньше 3 не рекомендуется.
+Если состояние изменяется очень часто (например, каждую секунду), некоторые изменения игнорируются и не передаются, чтобы минимизировать нагрузку на устройство. Для этой цели каждое приложение использует собственное «время блокировки», которое можно настроить глобально в параметрах экземпляра. Время по умолчанию составляет 3 секунды. Не рекомендуется устанавливать значение меньше 3.
 
 ## Идентичные приложения на нескольких устройствах
 
@@ -150,16 +155,57 @@ sendTo('awtrix-ng.0', 'audio', { rtttl: 'beep:d=4,o=5,b=120:c,e,g' }, (res) => {
 });
 ```
 
+## радио
+
+Устройства с интернет-радио (например, Ulanzi TC002) принимают этот канал. `audio.radio` Функция определяется автоматически (в соответствии с возможностями устройства) — на устройствах без радиомодуля (например, TC001) эти объекты не создаются.
+
+- `audio.radio.<Sender>.playing` -`true` играет на станции, `false` Останавливает воспроизведение (если данная станция в данный момент воспроизводится). Статус также указывает, воспроизводится ли станция в данный момент.
+- `audio.radio.<Sender>.url` - URL-адрес трансляции вещателя (только для чтения)
+- `audio.radio.playing` /`audio.radio.station` /`audio.radio.title` - Текущий статус воспроизведения (только для чтения)
+- `audio.radio.stop` - выключает радио
+
+Управление передатчиками осуществляется через веб-интерфейс устройства. При добавлении или удалении передатчиков через этот интерфейс объекты создаются или удаляются автоматически (проверка производится каждые 60 секунд). В ioBroker добавление или удаление передатчиков невозможно.
+
+## MP3-файлы
+
+Устройства, способные воспроизводить MP3-файлы (например, Ulanzi TC002), принимают этот канал. `audio.mp3` Функция определяется автоматически (в соответствии с возможностями устройства).
+
+- `audio.mp3.<Datei>.playing` -`true` воспроизводит файл, `false` Это останавливает воспроизведение (если файл в данный момент воспроизводится). Статус также указывает, воспроизводится ли файл в данный момент.
+- `audio.mp3.<Datei>.size` - Размер файла в байтах (только для чтения)
+- `audio.mp3.playing` /`audio.mp3.file` - Текущий статус воспроизведения (только для чтения)
+- `audio.mp3.stop` - останавливает воспроизведение
+
+Файлы загружаются и удаляются через веб-интерфейс устройства. Объекты создаются и удаляются автоматически (проверка каждые 60 секунд). Звуки из скриптов не отображаются.
+
+## Мелодии
+
+Устройства со звуковым сигналом принимают этот канал. `audio.melody` со всеми мелодиями, хранящимися на устройстве (RTTTL).
+
+- `audio.melody.<Melodie>.play` - исполняет мелодию
+- `audio.melody.<Melodie>.rtttl` /`audio.melody.<Melodie>.duration` - Время жизни (RTTTL) и длительность в мс (только для чтения)
+- `audio.melody.stop` - останавливает воспроизведение
+
+Устройство не показывает, воспроизводится ли в данный момент мелодия, поэтому для этого есть кнопка. `play` вместо выключателя `playing` Мелодии управляются через веб-интерфейс устройства (недействительные мелодии не отображаются в списке). Объекты создаются и удаляются автоматически (проверка каждые 60 секунд).
+
+**Примечание:** Остановка воспроизведения мелодии или MP3-файла приводит к остановке всех звуков (мелодий и MP3-файлов).
+
 ## Приложения
 
-**Названия приложений должны состоять только из строчных букв (az) и быть уникальными. Не допускаются цифры, специальные символы и пробелы.**
+**Названия приложений должны быть уникальными и могут содержать буквы (AZ, az), цифры (0-9). `_` и `-` Содержит (максимум 32 символа). Без пробелов и других специальных символов.**
 
-Следующие названия приложений зарезервированы для внутренних приложений и не могут быть использованы: `Time`, `Date`, `Temperature`, `Humidity`, `Battery`.
+Следующие имена зарезервированы внутренними приложениями или устройством и не могут быть использованы: `Time`, `Date`, `Temperature`, `Humidity`, `Battery`, `Status`, `active`, `next`, `prev`, `previous`, `order`.
 
-- С `activate` -Состояние каждого приложения позволяет вывести его на передний план.
-- Эти условия играют свою роль. `button` и разрешать только логические значения. `true` (Другие значения приведут к предупреждению в журнале)
+Каждое приложение имеет следующие состояния:
 
-Каждое самостоятельно созданное приложение имеет состояние с идентификатором. `apps.<name>.visible` Если это условие возникнет `false` Если эта настройка указана неверно, приложение будет удалено с устройства и больше не будет отображаться. Это полезно для ограничения работы определенных приложений только в дневное время или в определенные периоды времени.
+- `apps.<name>.enabled` - если это условие возникнет `false` Если этот параметр установлен неправильно, приложение будет деактивировано на устройстве и больше не будет отображаться. Это полезно для отображения определенных приложений только в течение дня или в определенные периоды времени.
+- `apps.<name>.slot` - Позиция приложения в цикле (0 = первое приложение). Чтобы изменить порядок, просто установите новую позицию приложения — все остальные приложения будут перемещены автоматически (как при перетаскивании). Позиции всех приложений всегда нумеруются последовательно.
+- `apps.<name>.activate` - выводит приложение на передний план. Это состояние выполняет следующую роль: `button` и допускает только логическое значение. `true` (Другие значения приведут к предупреждению в журнале)
+- `apps.<name>.present` -`true` если приложение установлено на устройстве (только для чтения)
+- `apps.<name>.lastError` - Последнее сообщение об ошибке с устройства при передаче или удалении приложения (только для чтения)
+
+Порядок и статус активации приложений управляются ioBroker. Изменения, внесенные в устройство (например, через веб-интерфейс), перезаписываются при следующей синхронизации. Порядок устройств используется только для новых приложений. Экземпляры, использующие настройки другого экземпляра, принимают порядок этого экземпляра.
+
+Если включена опция "Удалять приложения при остановке экземпляра", пользовательские и специализированные приложения с заданным сроком жизни переносятся и повторно отправляются каждые 5 минут. Это гарантирует, что эти приложения исчезнут с устройства даже после завершения работы экземпляра (например, после сбоя).
 
 ### Пользовательские приложения
 
@@ -205,9 +251,41 @@ sendTo('awtrix-ng.0', 'audio', { rtttl: 'beep:d=4,o=5,b=120:c,e,g' }, (res) => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
 
+* (@klein0r) **Breaking change:** Renamed settings states to the names of the device settings (e.g. `settings.brightness.value` -> `settings.brightness.brightness`, `settings.apps.transitionSpeed` -> `settings.apps.transitionDurationMs`) - old objects are deleted automatically
+* (@klein0r) Sleep mode (`device.sleep`) is blocked on devices without timed sleep (e.g. TC002 would not wake up again)
+* (@klein0r) Scroll speed setting (`settings.text.scroll.speed`) allows up to 500 % now
+* (@klein0r) Recommended Awtrix NG version is now 1.1.4
+
+### 0.3.0 (2026-09-30)
+
+* (@klein0r) Added playback of MP3 files (`audio.mp3.*`) for devices which support it (e.g. TC002)
+* (@klein0r) Added playback of melodies (`audio.melody.*`)
+* (@klein0r) Screen content (`display.content`) is a much smaller SVG now (about 95 % less data) and just written when it has changed
+
+### 0.2.0 (2026-09-30)
+
+* (@klein0r) Port of the device is configurable now (default: 80)
+* (@klein0r) Apps are transferred again when a reboot of the device has been detected
+* (@klein0r) App order (enabled / slot) is transferred to the device on connect
+* (@klein0r) Custom apps are transferred even if disabled (visibility is controlled by the device)
+* (@klein0r) Fixed custom apps with invalid object ID being transferred as background-only apps
+* (@klein0r) History apps keep refreshing after errors and retry if the history instance was unavailable
+* (@klein0r) Custom and expert apps get a lifetime if "Delete apps when instance is stopped" is enabled (removed from device if the adapter is not running anymore)
+* (@klein0r) App names may contain digits, `_` and `-` now
+* (@klein0r) Added states `apps.<name>.present` and `apps.<name>.lastError`
+* (@klein0r) Failed steps when transferring data to the device (settings, apps, indicators, ...) are retried with the next refresh
+* (@klein0r) Apps which have been removed from the device (e.g. scripts) are cleaned up properly
+* (@klein0r) Apps are removed in parallel when the instance is stopped (and not at all if the device is not reachable)
+* (@klein0r) Changing `apps.<name>.slot` moves the app to the new position (other apps are shifted) - order and enabled state are managed by ioBroker
+* (@klein0r) Added internet radio (`audio.radio.*`) for devices which support it (e.g. TC002)
+* (@klein0r) Fixed display duration of custom and history apps (setting was ignored)
+* (@klein0r) Scroll speed of custom apps is a percentage of the default speed now (up to 500 %) and does not force scrolling of short texts anymore
+* (@klein0r) Improved instance configuration (dependencies between fields, validation, labels and help texts)
+* (@klein0r) Migrated all HTTP requests to the new library [awtrix-ng-api](https://www.npmjs.com/package/awtrix-ng-api)
+* (@klein0r) Fixed screen content download (`display.content`)
+* (@klein0r) Added additional meta information (soc and board type)
 * (@klein0r) Recommended Awtrix NG version is now 1.1.2
 * (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
@@ -226,17 +304,6 @@ sendTo('awtrix-ng.0', 'audio', { rtttl: 'beep:d=4,o=5,b=120:c,e,g' }, (res) => {
 
 * (@klein0r) Removed option to automatically delete other apps
 * (@klein0r) Updated logo
-
-### 0.0.8 (2026-08-06)
-
-* (@klein0r) Added more settings
-* (@klein0r) Fixed Blockly code generation
-
-### 0.0.7 (2026-08-05)
-
-* (@klein0r) Removed device update state and notification
-* (@klein0r) Fixed rtttl endpoint
-* (@klein0r) Improved error handling
 
 ## License
 

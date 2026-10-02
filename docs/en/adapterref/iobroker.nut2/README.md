@@ -141,7 +141,7 @@ to everything plugged into the UPS.
     ### **WORK IN PROGRESS**
 -->
 
-### 0.17.0 (2026-09-25)
+### 0.17.0 (2026-09-25) — stable
 
 - New: a UPS command that needs a value, such as a delay, can be sent through the new `commands.execute` data point, written the way upscmd takes it
 - New: when the NUT server tracks commands, the log says whether the driver really carried out a command or a new setting, not only that it was sent

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cameras/README.md
 title: ioBroker.cameras
-hash: fSnqPVjJjTyJTJj/UZea9dcomRiNu92/HLbsmdqYpvc=
+hash: Q7mzLadolyAMlUapsqA2DejZr2K6hW8v0xZ3vxRvdYA=
 ---
 ![Logo](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
@@ -19,9 +19,9 @@ hash: fSnqPVjJjTyJTJj/UZea9dcomRiNu92/HLbsmdqYpvc=
 Sie können Ihre Web-/IP-Kameras in vis und andere Visualisierungen integrieren.
 Wenn Sie eine Kamera mit dem Namen `cam1` konfigurieren, ist sie auf dem Webserver unter `http(s)://iobroker-IP:8082/cameras.0/cam1` verfügbar.
 
-**Verwenden Sie genau diese URL – ohne Dateiendung.** Jede Anfrage an diese URL ruft ein neues Bild von der Kamera ab, sodass ein regelmäßiges Neuladen ein Livebild liefert.
+**Verwenden Sie genau diese URL - ohne Dateiendung.** Jede Anfrage an diese URL ruft ein neues Bild von der Kamera ab, sodass ein regelmäßiges Neuladen ein Livebild liefert.
 
-Der Adapter speichert das letzte Bild zusätzlich als Datei unter `cameras.0/cam1.jpg`, die der Webserver zufällig auch unter `http(s)://iobroker-IP:8082/cameras.0/cam1.jpg` bereitstellt. Diese Datei wird nur beim Start des Adapters und bei der Verarbeitung einer `image`-Nachricht überschrieben – sie wird **nicht** durch eine Anfrage aktualisiert. Wenn ein Widget auf `.jpg` zeigt, wird daher ein Bild angezeigt, das sich unabhängig vom konfigurierten Aktualisierungsintervall nie aktualisiert.
+Der Adapter speichert das letzte Bild zusätzlich als Datei unter `cameras.0/cam1.jpg`, die der Webserver zufällig auch unter `http(s)://iobroker-IP:8082/cameras.0/cam1.jpg` bereitstellt. Diese Datei wird nur beim Start des Adapters und bei der Verarbeitung einer `image`-Nachricht überschrieben - sie wird **nicht** durch eine Anfrage aktualisiert. Wenn ein Widget auf `.jpg` zeigt, wird daher ein Bild angezeigt, das sich unabhängig vom konfigurierten Aktualisierungsintervall nie aktualisiert.
 
 Zusätzlich könnte das Bild auch per Nachricht angefordert werden:
 
@@ -44,10 +44,32 @@ Unterstützte Kameras:
 
 - `Reolink E1 Pro` via RTSP (wichtig, ohne `Pro` funktioniert es nicht)
 - `Eufy` über den EUSEK-Adapter
+- `UniFi Protect` - jede Kamera, die von einer UniFi-Konsole oder einem NVR verwaltet wird, siehe unten
 - [HiKam](https://support.hikam.de/support/solutions/articles/16000070656-zugriff-auf-kameras-der-2-generation-via-onvif-f%C3%BCr-s6-q8-a7-2-generation-) der zweiten und dritten Generation über ONVIF (für S6, Q8, A7 2. Generation), A7 Pro, A9
 - [WIWICam M1 über HiKam-Adapter](https://www.wiwacam.com/de/mw1-minikamera-kurzanleitung-und-faq/)
 - RTSP-nativ - falls Ihre Kamera das RTSP-Protokoll unterstützt.
-- Screenshots per HTTP-URL – falls Sie den Screenshot Ihrer Kamera per URL abrufen können
+- Screenshots per HTTP-URL - falls Sie den Screenshot Ihrer Kamera per URL abrufen können
+
+### UniFi Protect
+Protect streamt alle Kameras von der Konsole, daher ist die Adresse die der Konsole (oder des NVR), nicht die der Kamera. Anstelle von Anmeldeinformationen enthält der Stream-Link ein Token: `rtsp://<console>:7447/<token>` oder `rtsps://<console>:7441/<token>?enableSrtp`. Protect selbst verwendet immer diese beiden Ports. Das Feld *RTSP-Port* wird nur benötigt, wenn die Konsole über Portweiterleitung oder einen Proxy erreichbar ist; bleibt es leer, gilt die RTSPS-Einstellung.
+
+Zwei Möglichkeiten zur Konfiguration einer Kamera:
+
+- **Mit einem API-Schlüssel** (Protect 5.3 oder neuer): Erstellen Sie einen Schlüssel unter *UniFi OS → Einstellungen → Steuerungsebene →
+
+Integrationen*, geben Sie dies zusammen mit der Konsolen-IP ein und klicken Sie auf *Kameras laden*. Das Token wird dann bei jedem Start von Protect ausgelesen, und Protect erstellt automatisch Schnappschüsse (ca. 0,3 s, kein ffmpeg erforderlich).
+Falls Protect noch keinen RTSP-Stream in der gewählten Qualität bereitstellt, schaltet der Adapter diesen ein - dies entspricht der Aktivierung von „RTSP“ für die Kamera in der Protect-Benutzeroberfläche.
+
+- **Nur mit dem Token:** Aktivieren Sie RTSP für die Kamera in Protect und fügen Sie den Link (oder nur dessen letzten Teil) ein in
+
+*Stream-Token*. Anschließend werden mit ffmpeg Snapshots aus dem Stream dekodiert.
+
+**Empfohlen: Geben Sie beides ein.** Der API-Schlüssel hält das Token aktuell. Protect generiert ein neues Token, wenn RTSP deaktiviert und wieder aktiviert oder die Kamera neu eingebunden wird. Ein manuell eingegebenes Token ist dann ungültig, bis es ersetzt wird.
+Das Token dient als Fallback: Ist die API nicht erreichbar oder wurde der Schlüssel gelöscht, wird der Stream mit dem konfigurierten Token verwendet und Snapshots werden mit ffmpeg erstellt.
+
+Verwenden Sie das Token **nur**, wenn Sie ioBroker keinen API-Schlüssel übergeben möchten - der Schlüssel öffnet die gesamte Protect-API, alle Kameras und deren Einstellungen, während ein Token nur Lesezugriff auf einen Stream gewährt - oder wenn Ihre Protect-Version älter als 5.3 ist. Der Live-Stream verwendet in beiden Fällen RTSP/RTSPS mit dem Token; der Schlüssel beeinflusst lediglich Snapshots und die Token-Beschaffung.
+
+Die Konsole verwendet ein selbstsigniertes Zertifikat, das für diese Anfragen nicht verifiziert wird. Viele Protect-Kameras senden H.265; Schnappschüsse werden nur aus Schlüsselbildern erstellt, ansonsten ist das erste Bild ein Graubereich. Die Snapshot-API von Protect kennt nur eine hohe und eine niedrige Auflösung, daher wird bei der Einstellung „mittel“ die hohe Auflösung verwendet.
 
 ### URL-Bild
 Dies ist eine normale URL-Anfrage, bei der alle Parameter in der URL enthalten sind. Zum Beispiel `http://mycam/snapshot.jpg`
@@ -58,7 +80,7 @@ Dies ist eine URL-Anfrage für ein Bild, wobei alle Parameter in der URL enthalt
 ### FFmpeg
 Um auf Schnappschüsse von RTSP-Kameras zuzugreifen, können Sie ffmpeg verwenden. Sie müssen ffmpeg auf Ihrem System installieren:
 
-Windows verfügt über vorkompiliertes ffmpeg, sodass kein Download erforderlich ist. (Die Windows-Version stammt von hier: https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z)
+Windows enthält bereits vorkompiliertes ffmpeg, sodass kein Download erforderlich ist. (Die Windows-Version stammt von hier: https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z)
 - Linux: `sudo apt-get install ffmpeg -y`
 
 So aktualisieren Sie die Windows-Version von `ffmpeg`:
@@ -74,7 +96,7 @@ Hier ist ein Beispiel, wie man Reolink E1 hinzufügt:
 
 ![rtsp](../../../en/adapterref/iobroker.cameras/img/rtsp.png)
 
-### Ezviz – So aktivieren Sie RTSP für EZVIZ-Kameras wieder
+### Ezviz - So aktivieren Sie RTSP für EZVIZ-Kameras wieder
 Aus irgendeinem Grund hat EZVIZ beschlossen, RTSP für ihre Kameras zu deaktivieren:
 
 - Öffnen Sie die EZVIZ-App und gehen Sie zu: Profil / Einstellungen / LAN-Live-Ansicht
@@ -88,30 +110,32 @@ Aus irgendeinem Grund hat EZVIZ beschlossen, RTSP für ihre Kameras zu deaktivie
 Die meisten Kameras benötigen keinen Code. Der Typ `universal` wird durch die Datendateien in `src-admin/public/data/` gesteuert, die von ispyconnect.com generiert werden:
 
 1. Fügen Sie den Hersteller der `MANUFACTURERS`-Zuordnung am Anfang von `tools/parser.js` hinzu.
-2. Führen Sie `node tools/parser.js <Hersteller>` aus – dadurch wird die Datei `src-admin/public/data/<Hersteller>.json` erstellt.
+2. Führen Sie `node tools/parser.js <Hersteller>` aus - dadurch wird die Datei `src-admin/public/data/<Hersteller>.json` erstellt.
 
 und Aktualisierungen `manufacturers.json`
 
 3. Führen Sie `node tools/logos.js` aus, um ein Logo hinzuzufügen. Dabei wird das Markenzeichen von `simple-icons` verwendet.
 
-Die Kollektion enthält den Herstellernamen, andernfalls wird ein Monogramm generiert. Um stattdessen das eigentliche Logo zu verwenden, fügen Sie einfach `<manufacturer>.svg`, `.png` oder `.jpg` in `src-admin/public/data/` ein – bestehende Dateien werden niemals überschrieben (es sei denn, `--force` wird angegeben).
+Die Kollektion enthält den Herstellernamen, andernfalls wird ein Monogramm generiert. Um stattdessen das eigentliche Logo zu verwenden, fügen Sie einfach `<manufacturer>.svg`, `.png` oder `.jpg` in `src-admin/public/data/` ein - bestehende Dateien werden niemals überschrieben (es sei denn, `--force` wird angegeben).
 
 Der neue Hersteller erscheint dann in der Dropdown-Liste des Kameratyps „Nach Hersteller“.
+
+Der Port einer Zeile wird nur dann belegt, wenn die Kamera standardmäßig darauf lauscht (`PLAUSIBLE_PORTS` in `tools/parser.js`). ispyconnect speichert den Port, über den der Benutzer seine Kamera erreicht hat. Dies ist häufig eine Portweiterleitung seines Routers und darf nicht zur Standardeinstellung für alle Besitzer dieses Modells werden. Alle anderen Ports werden als `0` geschrieben, sodass im Dialog 80 bzw. 554 angeboten werden - das Portfeld kann dort ohnehin geändert werden.
 
 ### Ein spezieller Kameratyp
 Nur erforderlich, wenn die Kamera eine eigene Logik benötigt. Erstellen Sie einen Pull Request mit:
 
-- `src/types.d.ts` — Füge den Schlüssel zur `CameraType`-Union hinzu, füge eine `CameraConfigMyCam extends CameraConfig` hinzu
+- `src/types.d.ts` - Füge den Schlüssel zur `CameraType`-Union hinzu, füge eine `CameraConfigMyCam extends CameraConfig` hinzu
 
 Schnittstelle und füge sie der Union `CameraConfigAny` hinzu
 
-- `src/cameras/MyCamCamera.ts` — erweitert `GenericCamera` für einen einfachen HTTP-Snapshot oder `GenericRtspCamera`
+- `src/cameras/MyCamCamera.ts` - erweitert `GenericCamera` für einen einfachen HTTP-Snapshot oder `GenericRtspCamera`
 
 für RTSP (füllen Sie `this.settings` und `this.decodedPassword` in `init()`, bevor Sie `super.init()` aufrufen)
 
-- `src/cameras/Factory.ts` — Füge den `case` für den neuen Typ hinzu
-- `src-admin/src/Types/MyCam.tsx` — der Konfigurationsdialog, der `ConfigGeneric` erweitert
-- `src-admin/src/Tabs/Cameras.tsx` — Importiere den Dialog und füge ihn der `TYPES`-Struktur hinzu, z. B.
+- `src/cameras/Factory.ts` - Füge den `case` für den neuen Typ hinzu
+- `src-admin/src/Types/MyCam.tsx` - der Konfigurationsdialog, der `ConfigGeneric` erweitert
+- `src-admin/src/Tabs/Cameras.tsx` - Importiere den Dialog und füge ihn der `TYPES`-Struktur hinzu, z. B.
 
 `mycam: { Config: MyCamConfig as unknown as IConfigGeneric, name: 'MyCam' },`. Der Schlüssel muss identisch sein mit dem im Backend verwendeten `type`.
 
@@ -120,7 +144,7 @@ für RTSP (füllen Sie `this.settings` und `this.decodedPassword` in `init()`, b
 ### Go2rtc (optional)
 Wenn `go2rtc` in den Einstellungen aktiviert ist, ersetzt ein lokaler [go2rtc](https://github.com/AlexxIT/go2rtc)-Prozess die `ffmpeg`-Prozesse: einer pro Snapshot im Adapter und einer pro Kamera in der Web-Erweiterung. go2rtc hält pro Kamera eine einzige Verbindung und bedient alle Clients darüber.
 
-go2rtc bindet seine API an `127.0.0.1` und ist vom Browser niemals direkt erreichbar. Der gesamte Zugriff erfolgt über den `web`-Adapter, sodass dieselbe Authentifizierung und dasselbe HTTP/HTTPS-Schema wie der Rest von ioBroker verwendet werden – es muss kein zusätzlicher Port geöffnet werden. Neben dem vorhandenen WebSocket bietet jede Kamera auch `/<instance>/<camera>/stream.mjpeg` an, das in einem einfachen `<img src="...">` verwendet werden kann.
+go2rtc bindet seine API an `127.0.0.1` und ist vom Browser niemals direkt erreichbar. Der gesamte Zugriff erfolgt über den `web`-Adapter, sodass dieselbe Authentifizierung und dasselbe HTTP/HTTPS-Schema wie der Rest von ioBroker verwendet werden - es muss kein zusätzlicher Port geöffnet werden. Neben dem vorhandenen WebSocket bietet jede Kamera auch `/<instance>/<camera>/stream.mjpeg` an, das in einem einfachen `<img src="...">` verwendet werden kann.
 
 Falls die Binärdatei nicht gefunden werden kann oder nicht startet, greift der Adapter transparent auf `ffmpeg` zurück.
 
@@ -132,6 +156,32 @@ Falls die Binärdatei nicht gefunden werden kann oder nicht startet, greift der 
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 3.2.0 (2026-10-01)
+* (@hdering) Added: UniFi Protect cameras, with the stream token from the Protect API or entered by hand (#133)
+* (@hdering) Added: RTSPS for UniFi Protect, also through go2rtc
+* (@GermanBluefox) Fixed: the stderr of a failed ffmpeg call was passed on unmasked, so a camera password could end up in the log
+* (@hdering) Fixed: the web URL of a camera in the admin was always shown with `http://`, also for a web instance with https; the MJPEG stream URL is shown when go2rtc is enabled
+* (@GermanBluefox) Fixed: a request for the MJPEG stream of a camera was left hanging when go2rtc was switched on but not reachable
+* (@hdering) Fixed: all camera URLs of the web extension answered 404 when the native WebRTC binary was missing (#321)
+* (@GermanBluefox) Removed the unfinished `rtsp2WebRTC` experiment and the `@roamhq/wrtc` dependency with it - WebRTC runs through go2rtc
+
+### 3.1.0 (2026-09-29)
+* (@GermanBluefox) Fixed: after a single failed request a camera stayed broken until the adapter was restarted
+* (@GermanBluefox) Fixed: after a live stream had ended, every snapshot kept showing its last frame
+* (@GermanBluefox) Fixed: an RTSP camera with "original width/height" never delivered a picture, because the scale filter was passed to ffmpeg without `-vf`
+* (@GermanBluefox) Fixed: the first picture of a live stream appeared only after a delay of 10 seconds
+* (@GermanBluefox) Fixed: closing the view of one camera also unsubscribed the other cameras of the same browser
+* (@GermanBluefox) Fixed: a camera that failed to start could throw when a GUI client unsubscribed from it
+* (@GermanBluefox) Fixed: two cameras with the same IP address overwrote each other's snapshot
+* (@GermanBluefox) Fixed: a password containing `!` appeared in the log in clear text
+* (@GermanBluefox) Pictures are cached per requested size, so the web adapter and a widget no longer evict each other
+* (@GermanBluefox) A browser that leaves the page no longer produces warnings in the log
+* (@GermanBluefox) The universal camera type has a port field now - the port from the model table is only a suggestion
+* (@GermanBluefox) Fixed: the model table of the universal type offered the port of somebody's port forwarding as the default for 226 URLs
+* (@GermanBluefox) Fixed: `[WIDTH]`, `[HEIGHT]` and `[AUTH]` in the URL of a universal camera were never replaced, and a placeholder was only replaced once per URL
+* (@GermanBluefox) Added the VIVOTEK H9161
+* (@GermanBluefox) Updated packages
+
 ### 3.0.2 (2026-08-17)
 * (@GermanBluefox) The web extension can now request snapshots via messages instead of the private HTTP server, which is used automatically when the cameras adapter runs on a different host than the web instance
 * (@GermanBluefox) Fixed: a failed snapshot request answered with an empty `{}` instead of the error message
@@ -160,15 +210,6 @@ Falls die Binärdatei nicht gefunden werden kann oder nicht startet, greift der 
 
 ### 2.1.2 (2024-07-15)
 * (bluefox) Updated packages
-
-### 2.1.1 (2024-07-07)
-* (bluefox) Removed withStyles package
-
-### 2.0.8 (2024-06-09)
-* (bluefox) Packages updated
-* (bluefox) Allowed selecting another source (with bigger resolution) for URL cameras
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 MIT License

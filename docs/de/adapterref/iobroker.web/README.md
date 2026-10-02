@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: 0/nY3jGltFsA+s5WRDQkjWCSBKaLlIQJt31xUrvWi9U=
+hash: yUQrKpg0uisMqBT2yoRF5/2uoB4+oNrFvuyaSYMhl5M=
 ---
 ![Anzahl der Installationen](http://iobroker.live/badges/web-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.web.svg)
@@ -174,7 +174,7 @@ Weitere Informationen finden Sie hier: <https://github.com/ioBroker/webserver?ta
 
 ## Autorisierung von Drittanbieterclients (OAuth)
 
-Der oben genannte Token-Endpunkt erfordert, dass der Client das ioBroker-Passwort des Benutzers verarbeitet. Clients, die außerhalb Ihrer Kontrolle laufen – MCP-Clients oder Web-Erweiterungen, die diese bereitstellen – dürfen dies nicht tun. Durch Aktivieren **von „Drittanbieter-Clients zulassen“** in den Einstellungen wird zusätzlich der browserbasierte OAuth2-Autorisierungscode-Flow mit PKCE bereitgestellt: Der Client wird auf eine Anmelde- und Zustimmungsseite weitergeleitet, der Benutzer bestätigt die Eingabe, und der Client erhält ein Token, das an die angeforderte Ressource gebunden ist.
+Der oben genannte Token-Endpunkt erfordert, dass der Client das ioBroker-Passwort des Benutzers verarbeitet. Clients, die außerhalb Ihrer Kontrolle laufen – MCP-Clients oder Web-Erweiterungen, die diese bereitstellen – dürfen dies nicht tun. Durch Aktivieren von **„Drittanbieter-Clients zulassen“** in den Einstellungen wird zusätzlich der browserbasierte OAuth2-Autorisierungscode-Flow mit PKCE bereitgestellt: Der Client wird auf eine Anmelde- und Zustimmungsseite weitergeleitet, der Benutzer bestätigt die Eingabe, und der Client erhält ein Token, das an die angeforderte Ressource gebunden ist.
 
 Diese Funktion ist standardmäßig deaktiviert. Wenn sie aktiviert ist:
 
@@ -187,6 +187,10 @@ Diese Funktion ist standardmäßig deaktiviert. Wenn sie aktiviert ist:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 9.1.9 (2026-09-28)
+
+- (@GermanBluefox) OnScreen-Status für App hinzugefügt
 
 ### 9.1.8 (2026-09-24)
 
@@ -207,10 +211,6 @@ Diese Funktion ist standardmäßig deaktiviert. Wenn sie aktiviert ist:
 - (@GermanBluefox) Ein Befehl, den eine visuelle Anwendung schreibt in `cloud.<X>.remote.command` wird umgewandelt in `cloud.<X>.devices.<device>.*` Dies geschieht, wenn der Cloud-Adapter nicht ausgeführt wird. Die App meldete währenddessen nichts, obwohl der Wert empfangen wurde. Solange der Adapter läuft, ändert sich nichts – er erledigt dies automatisch. Der Befehlsstatus wird erstellt, wenn der Adapter fehlt, sodass auch eine Installation ohne Cloud-Adapter gemeldet werden kann.
 
 ### 9.1.4 (2026-08-31)
-
-- (@GermanBluefox) Aktualisierte Pakete
-
-### 9.1.3 (2026-08-28)
 
 - (@GermanBluefox) Aktualisierte Pakete
 

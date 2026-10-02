@@ -106,6 +106,9 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
+### 5.0.5 (2026-10-01)
+* (@GermanBluefox) Corrected boolean aggregation
+
 ### 5.0.4 (2026-08-28)
 * (@GermanBluefox) Fixed Grafana not finding the InfluxDB running next to it in Docker: the provisioned data source pointed at `iob_influxdb_<instance>`, while the container was named `iob_influxdb_<instance>_flux_data` because the compose file gave it a name of its own. Inside the shared network only the container name resolves, so the data source could not connect. The influx service uses the default name of the instance now - the name the data source and `testConnection()` both expect
 * (@GermanBluefox) Fixed the port of that data source: it used the port published on the host, although Grafana reaches InfluxDB inside the docker network, where the container port 8086 applies. The data source broke as soon as the port was changed in the settings
@@ -141,9 +144,6 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 * (arteck) Fixed the aggregation for `percentile: 100`/`quantile: 1` and the last value of `integralTotal`
 * (bluefox) Fixed empty charts for the aggregation `onchange` ("raw" in e-charts): it was run through the interval aggregation and returned only `null` values
 * (@GermanBluefox) Minimal node.js version is 22
-
-### 4.0.3 (2024-05-16)
-* (bluefox) Some packages were updated
 
 ## License
 

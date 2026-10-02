@@ -221,7 +221,7 @@ Die Fehlermeldung über Sentry ist ab Werk aktiv; was sie sendet und wie man sie
     ### **WORK IN PROGRESS**
 -->
 
-### 0.18.0 (2026-09-25)
+### 0.18.0 (2026-09-25) — stable
 
 - Fixed: Holidays lasting several days now count on every day (Russian New Year, Chuseok, Tết, Eid …); the next holiday skips the rest of the one running today.
 - Fixed: Bridge days follow the country's own weekend (Friday and Saturday in Israel, Saudi Arabia, Egypt …) and come only from whole-day public and bank holidays.

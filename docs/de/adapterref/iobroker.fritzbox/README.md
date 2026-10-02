@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fritzbox/README.md
 title: kein Titel
-hash: uOMBtS6MDJ3rfq1cIyR3VILA5gLHJMSo+6e17xTATso=
+hash: sTLHyszNo8SED2yUiA35pUzkGRybzgrzT3TDwDf6E2g=
 ---
 ![Logo](../../../en/adapterref/iobroker.fritzbox/admin/fritzbox.png)ioBroker Fritzbox-Adapter
 
@@ -12,6 +12,8 @@ hash: uOMBtS6MDJ3rfq1cIyR3VILA5gLHJMSo+6e17xTATso=
 ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.fritzbox/workflows/Test%20and%20Release/badge.svg)
 ![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/fritzbox/svg-badge.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.fritzbox.svg)
+
+> \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
 
 **Dieser Adapter nutzt die Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in [der Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Die Sentry-Berichterstattung wird ab js-controller 3.0 verwendet.
 
@@ -126,7 +128,7 @@ Diese Datenpunkte liefern Informationen in formatierter Form (siehe Einstellunge
 | **Datenpunkt** | **Beschreibung**         |
 | -------------- | ------------------------ |
 | html           | Letzter Aufruf           |
-| JSON           |                          |
+| json           |                          |
 | missedHTML     | letzter verpasster Anruf |
 | missedJSON     |                          |
 | txt            | Letzter Aufruf           |
@@ -175,7 +177,7 @@ Unter **fritzbox.x** erzeugt der Adapter die folgenden Kanäle und Datenpunkte:
 - calls.missedDateReset – Datum, an dem calls.missedCount zuletzt auf 0 zurückgesetzt wurde
 - calls.ringActualNumber - aktuell eingehender Anruf - der letzte, falls mehrere vorhanden sind)
 - calls.ringActualNumbers - alle aktuell eingehenden Anrufe
-- Anrufernummer - letzte Anrufernummer
+- Anrufe.RingLetzteNummer - letzter Anrufer
 - calls.ringLastMissedNumber - zuletzt verpasster Anrufer
 - calls.callLastNumber - Wahlwiederholung, zuletzt gewählte Telefonnummer
 - Anrufe.Verbindungsnummer – zuletzt verbundener Anruf

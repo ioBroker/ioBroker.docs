@@ -9,6 +9,9 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/hue/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.hue.svg)](https://www.npmjs.com/package/iobroker.hue)
 
+> [!IMPORTANT]
+> This adapter cannot be installed from github
+
 **This adapter uses the service [Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
 
 ## What is Sentry.io and what is reported to the servers of that company?

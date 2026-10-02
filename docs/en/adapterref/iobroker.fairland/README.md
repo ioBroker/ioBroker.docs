@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.fairland/README.md":{"title":{"en":"ioBroker Fairland Adapter"},"content":"en/adapterref/iobroker.fairland/README.md"},"en/adapterref/iobroker.fairland/THIRD_PARTY_NOTICES.md":{"title":{"en":"Third-Party Notices"},"content":"en/adapterref/iobroker.fairland/THIRD_PARTY_NOTICES.md"}}}
+---
 # ioBroker Fairland Adapter
 
 Unofficial ioBroker adapter for Fairland pool heat pumps and pool pumps that
@@ -156,8 +159,9 @@ integration by @siedi:
 https://github.com/siedi/ha-fairland
 ```
 
-The original project license notice is preserved in `LICENSE`, and additional
-third-party notices are listed in `THIRD_PARTY_NOTICES.md`.
+The original project's complete license and copyright notice are preserved in
+[THIRD_PARTY_NOTICES.md](/#/docs/adapterref/iobroker.fairland/THIRD_PARTY_NOTICES.md), which is included in the
+published package.
 
 ## Changelog
 
@@ -300,6 +304,6 @@ Older changelog entries may be moved to CHANGELOG_OLD.md.
 MIT.
 
 Copyright (c) 2026 dude2k <gh@mr-mailer.de>.
-Portions derived from ha-fairland: Copyright (c) 2025 @siedi.
 
-See [LICENSE](https://github.com/dude2k/ioBroker.fairland/blob/main/LICENSE) for details.
+See [LICENSE](https://github.com/dude2k/ioBroker.fairland/blob/main/LICENSE) for details and [THIRD_PARTY_NOTICES.md](/#/docs/adapterref/iobroker.fairland/THIRD_PARTY_NOTICES.md)
+for the license and attribution of portions derived from ha-fairland by @siedi.

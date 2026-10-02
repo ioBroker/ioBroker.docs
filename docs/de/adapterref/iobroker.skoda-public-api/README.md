@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.skoda-public-api/README.md
 title: ioBroker.skoda-public-api
-hash: 6NtPA4PJ5bAhjF/Y3m8MovE65BUGaPfPx8gshEpUhfw=
+hash: 8NycFERLKDzY62pF2xAE4T4hM4vt/BwXBJcH84S7nME=
 ---
 ![Logo](../../../en/adapterref/iobroker.skoda-public-api/admin/skoda-public-api.png)
 
@@ -21,7 +21,7 @@ hash: 6NtPA4PJ5bAhjF/Y3m8MovE65BUGaPfPx8gshEpUhfw=
 
 Lesen und steuern Sie Škoda-Fahrzeuge über die offizielle [MyŠkoda Public API](https://public.api.connect.skoda-auto.cz/docs) .
 
-Der Adapter ist auf npm veröffentlicht. Einbindung in ioBroker `latest` Das Repository wird unter [ioBroker.repositories#6592](https://github.com/ioBroker/ioBroker.repositories/pull/6592) verfolgt. Entwicklungsstatus und offene Aufgaben sind in [HANDOFF.md](/#/docs/adapterref/iobroker.skoda-public-api/HANDOFF.md) dokumentiert.
+Der Adapter ist auf npm veröffentlicht und im ioBroker verfügbar. `latest` Repository. Der [Test-Thread](https://forum.iobroker.net/topic/85433/test-adapter-skoda-public-api-v0.1.x) sammelt Feedback von anderen Fahrzeugen. Entwicklungsstatus und offene Aufgaben sind in [HANDOFF.md](/#/docs/adapterref/iobroker.skoda-public-api/HANDOFF.md) dokumentiert.
 
 ### Die eine Einschränkung, die alles prägt
 
@@ -51,7 +51,7 @@ Der Schlüssel wird verschlüsselt gespeichert (`encryptedNative` Geben Sie es i
 | DREHEN                                                     | —          | Wird nur für die Zusatzheizung benötigt. Niemals in einen Ruhezustand versetzen.                                                       |
 | Parkposition lesen                                         | An         | Im ausgeschalteten Zustand wird die Position **nicht einmal von der API angefordert** .                                                |
 
-Es gibt eine Schaltfläche **„Verbindung testen“** . Sie sendet genau eine Anfrage (von 20) und teilt Ihnen in einfachen Worten mit, was falsch ist – ein Tippfehler in der Fahrzeugidentifikationsnummer (VIN) und ein Schlüssel, der nicht zum Fahrzeug passt, führen beide zum gleichen Ergebnis. `403` Und das schlussfolgert niemand aus dem reinen Fehler.
+Es gibt eine Schaltfläche **„Verbindung testen“** . Sie sendet genau eine Anfrage (von 20) und teilt Ihnen in einfachen Worten mit, was falsch ist – ein Tippfehler in der Fahrzeugidentifikationsnummer (VIN) und ein Schlüssel, der nicht zum Fahrzeug passt, führen beide zum gleichen Ergebnis. `403` Und das schlussfolgert niemand aus dem Rohfehler.
 
 Es gibt bewusst **kein Feld für den API-Server** . Ein sichtbares Feld „API-Server“ würde dazu verleiten, den Adapter – und seinen Schlüssel – auf einen externen Host zu verweisen. Für die Entwicklung wird die Basis-URL aus der Umgebungsvariablen bezogen. `SKODA_API_BASE_URL` Die
 
@@ -128,12 +128,14 @@ Die folgenden numerischen Werte verwenden besser lesbare Anzeigeeinheiten. Ihre 
 
 Andere Bereiche und der Kilometerzähler verwenden bereits Kilometer; die Ladezeit wird bereits in Minuten angegeben. Werte werden ohne Rundung dividiert. Vorhandene Objekteinheiten und Standardbeschreibungen werden aktualisiert, sobald der entsprechende Wert das nächste Mal empfangen wird; benutzerdefinierte Namen bleiben erhalten. Skripte, die diese drei Zustände auslesen, müssen km/min verwenden. Vorhandene aufgezeichnete Zeitreihen werden nicht überschrieben. API-Antworten und Befehlsnutzdaten behalten die API-Einheiten bei.
 
+Die API kann auslassen `charging.status.state` auch dann, wenn das Ladekabel angeschlossen ist. `charging.status.plugConnectionState` für die gemeldete Kabelverbindung und `charging.status.plugLockState` Für den Sperrstatus, wenn diese optionalen Felder verfügbar sind. Wenn ein zuvor gemeldetes Feld fehlt, bleibt sein letzter Wert mit einem Qualitätsmerkmal erhalten; dieser Wert darf nicht als aktueller Fahrzeugstatus behandelt werden.
+
 ## Fahrzeugsteuerung
 
 Jeder vom Fahrzeug unterstützte Bereich erhält drei Zustände, zum Beispiel unter `<vin>.charging`:
 
 - `enabled` Der Schalter (switch) enthält den **Zielzustand** . Durch Schreiben wird ein Befehl gesendet – es sei denn, der Zielzustand entspricht bereits dem, was die letzte Abfrage ergeben hat; in diesem Fall wird nichts gesendet. `info.lastCommand.result` liest `COALESCED` Die
-- `start` Und `stop` (Schaltflächen) **erzwingen** den Aufruf. Sie sind der Ausweg, wenn die abgefragten Daten zehn Minuten alt und nicht mehr aktuell sind.
+- `start` Und `stop` (Die Schaltflächen) **erzwingen** den Aufruf. Sie stellen den Ausweg dar, wenn die abgefragten Daten zehn Minuten alt und nicht mehr aktuell sind.
 
 Der `enabled` Schalter akzeptieren nur boolesche Werte `true` Und `false` Andere Werte, einschließlich Zeichenketten wie z. B. `"true"`, Zahlen und `null` Sie werden ohne API-Anfrage oder Bestätigung ignoriert. Sie ersetzen keine ausstehenden Befehle oder Aktualisierungen. `info.lastCommand` Die
 
@@ -256,7 +258,7 @@ Modus, Ladebegrenzung, Start/Stopp und jedes Profil haben unabhängige Warteschl
 | `SENT`                | An die API übergeben.                                                                                        |
 | `QUEUED`              | Warten auf die Quote; es wird von selbst veröffentlicht.                                                     |
 | `COALESCED`           | Keine Anfrage: Das Ziel entspricht dem bekannten Zustand oder einem Befehl, der noch auf Bestätigung wartet. |
-| `EXPIRED`             | Aussortiert, konnte innerhalb seiner Lebensdauer nicht versendet werden.                                     |
+| `EXPIRED`             | Abgelehnt, konnte innerhalb seiner Lebensdauer nicht versendet werden.                                       |
 | `REJECTED_BY_VEHICLE` | Das Fahrzeug hat die Fahrt verweigert (nicht unterstützt, deaktiviert oder belegt).                          |
 | `FAILED`              | Alles Weitere – siehe Protokoll.                                                                             |
 

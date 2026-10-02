@@ -34,6 +34,9 @@ Work in progress
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (bolliy) fix: Changes the unit from kW to W for the `maximumFeedGridPower` control values to allow for adjustments of less than 1 kW. ([#300] (https://github.com/bolliy/ioBroker.sun2000/discussions/300))
+
 ### 2.6.2 (2026-08-23)
 * (bolliy) update devDependencies to latest versions
 * (bolliy) fix: update day-start baseline handling of consumption breakdown

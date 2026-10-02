@@ -148,6 +148,16 @@ Architecture and research notes:
 ## Changelog
 
 <!-- markdownlint-disable-next-line MD024 -->
+### **WORK IN PROGRESS**
+
+<!-- markdownlint-disable-next-line MD024 -->
+### 1.0.2 (2026-09-29)
+- Fixed re-authentication having no effect until a manual instance restart: after completing the admin OAuth login the running poll loop kept using the previous (often expired) token, leaving `info.connection` false with no telemetry. The poll loop is now rebuilt with the new token immediately after re-auth (#175).
+- Fixed a single transient token refresh failure (network error, timeout, 5xx) blocking telemetry for up to 75 minutes: the refresh retry backoff is now classified per error. Rejected credentials (invalid_grant / other 4xx) still back off for an hour, but a transient failure only skips roughly the next poll (#178).
+- The underlying reason of a failed token refresh is now logged once as a warning, so it is visible even though `status.lastError` is later overwritten by the throttle message (#178).
+- Fixed the token being refreshed on every poll: BLUETTI delivers the numeric OAuth fields (notably `expires_in`) as strings, which the token normalizer dropped, so no expiry could be derived and `isNearExpiry()` stayed true. Numeric strings are now coerced, restoring the #46 behaviour of refreshing only near real expiry (#178).
+
+<!-- markdownlint-disable-next-line MD024 -->
 ### 1.0.1 (2026-09-25)
 - Fixed polling stopping permanently after a single stuck poll: a hung request or state write could block the poll loop before it rescheduled, leaving the instance alive but silently not fetching. A per-cycle watchdog now abandons a stuck poll and reschedules with backoff (#171).
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.

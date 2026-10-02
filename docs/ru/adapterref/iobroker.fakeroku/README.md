@@ -14,7 +14,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fakeroku/README.md
 title: fakeroku - эмулированные устройства Roku для вашего пульта дистанционного управления
-hash: GpBBbr7xwSULngWsZafKqfA1kk+TQSwTKFTpBRMRwIY=
+hash: OjJi+/Ju5RXvpNZ5BFrhGTZqUWz3Kv738s0Ckl/ABH8=
 ---
 # fakeroku — эмулированные устройства Roku для вашего пульта дистанционного управления
 
@@ -28,14 +28,14 @@ hash: GpBBbr7xwSULngWsZafKqfA1kk+TQSwTKFTpBRMRwIY=
 
 - Node.js 22 или более поздняя версия
 - js-controller 7.2.2 или новее
-- admin 8.0.11 или новее
+- admin 8.0.14 или новее
 - Удаленный сервер или концентратор, находящийся в **той же локальной сети** , что и ваш хост ioBroker.
 
 ## Настройка
 
 ### 1. Создайте экземпляр.
 
-Установите адаптер и создайте один экземпляр. Он работает сразу после установки: в экземпляре уже настроен эмулированный Roku с именем "Roku" на порту 8060.
+Установите адаптер и создайте один экземпляр. Новый экземпляр запустится в выключенном состоянии: проверьте настройки ниже, затем включите его. Он будет поставляться с уже настроенным эмулированным устройством Roku, названным "Roku" и работающим на порту 8060.
 
 ### 2. Выберите сетевой интерфейс (обычно: не выбирайте).
 
@@ -81,7 +81,7 @@ hash: GpBBbr7xwSULngWsZafKqfA1kk+TQSwTKFTpBRMRwIY=
 
 ## Использование в скрипте
 
-Обычно это происходит в ответ на появление ключа. `true`:
+Обычно это происходит в ответ на нажатие клавиши. `true`:
 
 ```javascript
 on({ id: "fakeroku.0.Living_room.keys.Play", val: true }, () => {
@@ -134,13 +134,28 @@ on({ id: "fakeroku.0.Living_room.command" }, obj => {
 
 ## Конфиденциальность
 
-Адаптер взаимодействует только с устройствами в вашей собственной сети. Он не обращается к облачным сервисам и не отправляет данные никуда. Дополнительная функция отправки отчетов об ошибках через Sentry отключена, если вы не включили диагностику в системных настройках ioBroker; она передает анонимный идентификатор установки и саму ошибку, никаких персональных данных.
+Адаптер взаимодействует только с устройствами в вашей собственной сети.
+
+Функция отправки сообщений об ошибках через Sentry активна по умолчанию; что именно она отправляет и как её отключить, описано в [разделе Sentry основного файла README](https://github.com/iobroker-community-adapters/ioBroker.fakeroku/blob/master/README.md#sentry--error-reporting) .
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 1.8.2 (2026-10-02)
+
+- (krobipd) Changed: a new instance starts switched off — check the settings, then switch it on.
+- (krobipd) Fixed: the README and the user documentation name admin 8.0.14, the version the adapter actually requires.
+- (krobipd) Fixed: the device manager answers right after a restart instead of failing until the translations are loaded.
+- (krobipd) Improved: the type of the last command shows a readable label in the language you set instead of a protocol word.
+- (krobipd) Improved: a start writes only datapoints that changed and reads the key states in one request — no needless updates for history adapters.
+- (krobipd) Improved: the README links the detailed user documentation in English and German.
+
+### 1.8.1 (2026-09-27)
+
+- (krobipd) Improved: the note the Admin shows before an update from 0.x is short now: the apps folder is removed, app launches arrive as launch:<id> in command.
 
 ### 1.8.0 (2026-09-25)
 
@@ -168,23 +183,6 @@ on({ id: "fakeroku.0.Living_room.command" }, obj => {
 - (krobipd) Fixed: the device dialog now also refuses a name that would collide with an existing device in the object tree.
 - (krobipd) Improved: after the host gets a new IP address, remotes find the emulated Rokus again without restarting the instance.
 - (krobipd) Changed: the network interface setting moved to the standard settings key (bind); the instance restarts once after this update.
-
-### 1.6.1 (2026-09-07) — stable
-
-- (krobipd) Changed: installing straight from GitHub is no longer offered — the adapter is built before publishing, so it is installed from the ioBroker repository instead.
-
-### 1.6.0 (2026-09-07)
-
-- (krobipd) Fixed: saving a device in the admin could change its identity on the network, so a paired Harmony or Sofabaton lost it.
-- (krobipd) Fixed: with the device list open twice, editing or deleting a card could hit a different emulated Roku than the one clicked.
-- (krobipd) Fixed: releasing a key was dropped while the adapter shed a flood of commands, so the key could stay pressed for half a minute.
-- (krobipd) Fixed: an ECP port still held after a restart left that device dead until you restarted the instance; it is retried every minute now.
-- (krobipd) Fixed: stopping the instance now takes the emulated Rokus out of the remote's list instead of leaving them there for up to an hour.
-- (krobipd) Fixed: an emulated Roku whose server died is no longer offered for discovery.
-- (krobipd) Fixed: a configured port no server can bind falls back to 8060 instead of leaving the device unstarted.
-- (krobipd) Changed: the device dialog refuses a reserved or colliding name right away instead of reporting it after saving.
-- (krobipd) Changed: the adapter can now run in compact mode, sharing one process with other adapters instead of claiming its own.
-- (krobipd) Changed: more than one instance may run on the same machine again; only the ports have to differ.
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wled/README.md
 title: ioBroker.wled
-hash: AVYSi23V3EBNRp+HLb1MOiYfrmmrO9uW1FFDtoRYAog=
+hash: mrBUOE8cCisE3fLpGWokCSAe3GXzudhP9SXI5h9A1Nw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wled/admin/wled_logo_akemi.png)
 
@@ -157,12 +157,7 @@ Sentry.io — это сервис для разработчиков, позво�
 
 Этот адаптер использует GitHub Actions с **функцией NPM Trusted Publishing** для автоматического развертывания.
 
-Для устранения неполадок при развертывании, связанных с поддержкой системы, см. [файл docs/DEPLOYMENT\_SETUP.md](https://github.com/DrozmotiX/ioBroker.wled/blob/main/docs/DEPLOYMENT_SETUP.md) :
-
-- Проверка конфигурации доверенной публикации на npmjs.com
-- Необходимые настройки рабочего процесса и имени задания.
-- Устранение ошибок аутентификации
-- Тестирование развертывания с использованием предварительных версий.
+Пресс-релизы публикуются компанией `deploy` работа `.github/workflows/test-and-release.yml` Когда добавляется тег версии, npm-пакет должен указывать этот репозиторий и этот рабочий процесс как доверенный издатель на npmjs.com, нет. `NPM_TOKEN` Требуется секретный ключ. Инструкции по настройке и устранению неполадок см. [в документации по доверенной публикации npm](https://docs.npmjs.com/trusted-publishers) .
 
 ## Changelog
 <!--
@@ -176,6 +171,12 @@ Sentry.io — это сервис для разработчиков, позво�
 * (DutchmanNL) **CI/CD**: Fixed deployment failure by adding missing sentry-version-prefix parameter to GitHub Actions workflow
 * (DutchmanNL) **CI/CD**: Updated GitHub Copilot instructions template from v0.4.2 to v0.5.6 - adds ESLint configuration, translation management, lint-first CI/CD workflow guidance
 * (DutchmanNL) Dependencies updated to current versions
+* (arteck) **FIXED**: The `_online` state of a device that cannot be reached is written as boolean `false` again instead of a text, which logged "has to be type boolean but received type string" ([#788](https://github.com/DrozmotiX/ioBroker.wled/issues/788), [#794](https://github.com/DrozmotiX/ioBroker.wled/issues/794), [#792](https://github.com/DrozmotiX/ioBroker.wled/pull/792))
+* (DutchmanNL) **FIXED**: A device that stays offline logs "Unable to initialise" as a warning once, further attempts are logged at debug level ([#788](https://github.com/DrozmotiX/ioBroker.wled/issues/788))
+* (DutchmanNL) **FIXED**: Devices that are offline can be deleted from the instance settings again ([#787](https://github.com/DrozmotiX/ioBroker.wled/issues/787))
+* (DutchmanNL) **ENHANCED**: Tests now also run on Node.js 26 ([#872](https://github.com/DrozmotiX/ioBroker.wled/issues/872))
+* (DutchmanNL) **ENHANCED**: Updated @iobroker/testing to 6.3.0
+* (DutchmanNL) Removed a broken README link ([#876](https://github.com/DrozmotiX/ioBroker.wled/issues/876))
 
 ### 0.9.2 (2026-02-16)
 * (DutchmanNL) solve auto deployment issues
@@ -205,8 +206,6 @@ Sentry.io — это сервис для разработчиков, позво�
 * (DutchmanNL) Show online state of device in object tree
 * (DutchmanNL) Bugfix: Update online state correctly in situation connection is lost, fixes #611
 * (DutchmanNL) Reset brightness to 0 and on to false during adapter start and if a device disconnects, fixes #565
-
-[Older changelogs can be found there](https://github.com/DrozmotiX/ioBroker.wled/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

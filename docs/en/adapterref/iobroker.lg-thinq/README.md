@@ -36,6 +36,10 @@ The adapter creates all data points with the template from the data point `model
         - [Remote Statistic](#202-remote-statistic-thinq2)
         - [Remote basic commands](#202-remote-control-thinq1--thinq2)
         - [Snapshot](#202-snapshot-thinq1--thinq2)
+    - [State Device 204 Dishwasher](#device-dishwasher-204-thinq2)
+        - [Remote Statistic](#204-remote-statistic-thinq2)
+        - [Remote basic commands](#204-remote-control-thinq2)
+        - [Snapshot](#204-snapshot-thinq2)
     - [State Device 401 air conditioner thinq2](#device-401-air-conditioner-thinq2)
         - [Remote Statistic](#401-remote-statistic-thinq2)
         - [Remote basic commands](#401-remote-control-thinq2)
@@ -443,6 +447,95 @@ Example JSON Door open
 ![201_snapshot_2.png](img/201_snapshot_2.png)
 ![201_snapshot_3.png](img/201_snapshot_3.png)
 
+### Device dishwasher 204 thinq2
+
+[Summary](#summary)
+
+### 204 All folders thinq2
+
+![204_folder.png](img/204_folder.png)
+
+### 204 Remote folder thinq2
+
+![204_remote.png](img/204_remote.png)
+
+### 204 Remote Statistic thinq2
+
+[Summary](#summary)
+
+- hourly
+- `remote.Statistic.endDate` Enter the date for hourly, end and start must be the same Format: 2023.12.01
+- `remote.Statistic.startDate` Enter the date for hourly, end and start must be the same Format: 2023.12.01
+- Or daily
+- `remote.Statistic.endDate` Enter date daily - Format: 2023.12.06
+- `remote.Statistic.startDate` Enter date daily - Format: 2023.12.01
+- Or monthly
+- `remote.Statistic.endDate` Enter date monthly - Format: 2023.12.01
+- `remote.Statistic.startDate` Enter date monthly - Format: 2023.10.01
+- `remote.Statistic.period` Select period
+- `remote.Statistic.sendRequest` Send selection
+- `remote.Statistic.jsonResult` Statistics as JSON. If the attributes are empty then your device does not support them or an incorrect date was specified.
+
+    ![204_remote_statistic.png](img/204_remote_statistic.png)
+
+```json
+{
+    "count": 0,
+    "power": 0,
+    "energyWater": 0,
+    "energyDetergent": 0,
+    "energySoftener": 0,
+    "powerWh": 0,
+    "periodicEnergyData": 0,
+    "item": [
+        {
+            "usedDate": "2026-09",
+            "count": 0,
+            "power": 0,
+            "energyWater": 0,
+            "energyDetergent": 0,
+            "energySoftener": 0,
+            "powerWh": 0,
+            "periodicEnergyData": 1507
+        },
+        {
+            "usedDate": "2026-10",
+            "count": 0,
+            "power": 0,
+            "energyWater": 0,
+            "energyDetergent": 0,
+            "energySoftener": 0,
+            "powerWh": 0,
+            "periodicEnergyData": 0
+        }
+    ]
+}
+```
+
+### 204 Remote Control thinq2
+
+[Summary](#summary)
+
+- `remote.airFilterInit` Reset air filter counter
+- `remote.cancelCourse` Cancel wash program
+- `remote.pauseCourse` Pause wash program
+- `remote.powerOff` Turn off dishwasher
+- `remote.powerOn` Turn on dishwasher
+- `remote.resumeCourse` Resume wash program
+- `remote.sendJSON` Send custom JSON
+- `remote.sendJSONNoSync` Send custom JSON (GET without noSync)
+
+![204_remote.png](img/204_remote.png)
+
+### 204 Snapshot thinq2
+
+[Summary](#summary)
+
+![204_snapshot_1.png](img/204_snapshot_1.png)
+![204_snapshot_2.png](img/204_snapshot_2.png)
+![204_snapshot_3.png](img/204_snapshot_3.png)
+![204_snapshot_4.png](img/204_snapshot_4.png)
+
 ### Device 401 Air conditioner thinq2
 
 [Summary](#summary)
@@ -760,6 +853,11 @@ lg-thinq.0.xxx.area must be filled!
     ![weather.png](img/weather.png)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Added dishwasher type 204
+
 ### 1.2.3 (2026-09-24)
 
 - (TA2k) Login flow changed

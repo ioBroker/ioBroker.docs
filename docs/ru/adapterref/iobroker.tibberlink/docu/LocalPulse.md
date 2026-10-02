@@ -4,15 +4,15 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tibberlink/docu/LocalPulse.md
 title: Прямой локальный опрос данных Pulse.
-hash: ZtVO750w7BC0LluIZpk+58xMpeCEJoUdD+2dIQFyy84=
+hash: NcnxUD+dbX+iSpw4vdZmbmx/YSsZ9jhMfloSYtrkQmc=
 ---
 # Прямой локальный опрос данных Pulse.
 
 _Часть [документации ioBroker.tibberlink](/#/adapters/tibberlink) ._
 
-Для этого необходимо изменить веб-интерфейс Bridge, чтобы он оставался постоянно включенным. marq24 дает отличное описание того, как это сделать для своей интеграции с Home Assistant, здесь:
+Для этого необходимо изменить веб-интерфейс Bridge, чтобы он оставался постоянно включенным. marq24 предоставляет отличное пошаговое описание того, как это сделать (для своей интеграции с Home Assistant, но подготовка Bridge идентична):
 
-<https://github.com/marq24/ha-tibber-pulse-local>
+📖 **[Руководство по подготовке моста Тиббер](https://github.com/marq24/ha-tibber-pulse-local/blob/main/preparation.md)** (см. также [обзор проекта](https://github.com/marq24/ha-tibber-pulse-local) ).
 
 Если всё работает корректно, данные с счётчика будут записываться в состояния ioBroker каждые 2 секунды.
 
@@ -26,6 +26,8 @@ _Часть [документации ioBroker.tibberlink](/#/adapters/tibberlin
 | Метрики / режим\_счетчика          | `/metrics.json?node_id=N` | `/node_metrics.json?node_id=N` |
 
 Адаптер сначала пытается использовать новые пути, а при ошибке HTTP 404 возвращается к устаревшим, поэтому обе версии прошивки продолжают работать. См. также [ha-tibber-pulse-local#129](https://github.com/marq24/ha-tibber-pulse-local/discussions/129) и issue #947.
+
+В прошивке версии ≥1794 также **была изменена структура** JSON-файлов метрик: прежний `node_status` /`hub_attachments` объекты были заменены `node`, `ir` и `hub`, и `node_uptime_ms` был переименован в `node_uptime` (по-прежнему в миллисекундах). Адаптер обрабатывает переименованное время работы и записывает состояния в новое дерево. Старое `PulseInfo.node_status.*` /`PulseInfo.hub_attachments.*` Состояния становятся "осиротевшими"; адаптер автоматически удаляет все состояния PulseInfo, которые не обновлялись более 14 дней (и удаляет пустые папки), при запуске, поэтому ручная очистка не требуется.
 
 ## Поддерживаемые режимы работы счетчика
 

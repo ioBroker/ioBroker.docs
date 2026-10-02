@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.omoda/README.md
 title: ioBroker.omoda
-hash: oSuqAFCWy0EcjDx2xS9XAkFrsrKpPTYMDoRE9j4VGuU=
+hash: vXx4cluZNa1SvqgUxCnHe5KnQ2O9BZ314lIFWR6IR6U=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.omoda.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.omoda.svg)
@@ -35,6 +35,7 @@ hash: oSuqAFCWy0EcjDx2xS9XAkFrsrKpPTYMDoRE9j4VGuU=
 
 ### Требования
 
+- **Node.js >= 22** , **js-controller >= 6.0.11** и **admin >= 7.8.23** .
 - **Учетная запись Omoda / Jaecoo,** связанная с транспортным средством (владелец или лицо, которому предоставлен делегированный доступ).
 - Адрес **электронной почты** учетной записи и **PIN-код для управления** .
 - Регион: по умолчанию — **Европа** (также подтверждено, что работает в Великобритании). Другие рынки можно настроить в разделе **«Регион и опрос»** в параметрах адаптера.
@@ -66,6 +67,11 @@ hash: oSuqAFCWy0EcjDx2xS9XAkFrsrKpPTYMDoRE9j4VGuU=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2026-09-27)
+* (Alan Paris) Requires admin >= 7.8.23 now
+* (Alan Paris) Tested with Node.js 26; updated @iobroker/testing to 6.x
+* (Alan Paris) New adapter icon (OMODA | JAECOO lockup) replacing the template placeholder
+
 ### 0.2.0 (2026-08-10)
 * (Alan Paris) **BREAKING:** `commands.lock` now follows the ioBroker `switch.lock` spec — **true UNLOCKS** the car, false locks it. Any script writing `true` to lock must be inverted. This is the polarity Alexa/Google (via ioBroker.iot), VIS lock widgets and type-detector already assume, so the old behaviour unlocked the car when the user asked to lock it
 * (Alan Paris) Fixed telemetry fields the car reports as `null` being stored as real values: `doors.locked` no longer reads "locked" when nothing was reported, and GPS no longer jumps to latitude/longitude 0
@@ -94,8 +100,6 @@ hash: oSuqAFCWy0EcjDx2xS9XAkFrsrKpPTYMDoRE9j4VGuU=
 
 ### 0.1.0 (2026-07-18)
 * (Alan Paris) initial release
-
-[Older changelogs can be found there](https://github.com/AlanSRU/ioBroker.omoda/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

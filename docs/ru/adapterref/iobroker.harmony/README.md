@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.harmony/README.md
 title: ioBroker.harmony
-hash: Icl1F6peKW51uwhYKAdA5qdghRDGZaAd6LxPWJyryP0=
+hash: QtowkcpghYU38KrZWSiwOL4yIRxWLWLBJqphEGTkfWc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.harmony/admin/harmony.png)
 
@@ -26,6 +26,8 @@ hash: Icl1F6peKW51uwhYKAdA5qdghRDGZaAd6LxPWJyryP0=
 **Версия:**
 
 **Тесты:**
+
+> \[!ВАЖНО] Этот адаптер нельзя установить из GitHub
 
 <!--
 ## Sentry
@@ -236,11 +238,11 @@ if (getState("hm-rpc.0.MEQ01234567.2.STATE").val == true) {
 }
 ```
 
-### Блокли
+### Blockly
 
 Функции запуска устройства. Здесь AV-ресивер Denon включается или выключается при изменении значения другого состояния.
 
-![Блокли](../../../en/adapterref/iobroker.harmony/media/a_hamony_simple_blockly.jpg "Блокли")
+![Blockly](../../../en/adapterref/iobroker.harmony/media/a_hamony_simple_blockly.jpg "Blockly")
 
 [Исходный код](https://github.com/iobroker-community-adapters/ioBroker.harmony/blob/master/media/a_harmony_blockly.xml)
 
@@ -302,5 +304,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.harmony/blob/master/CHANGELOG_OLD.md)

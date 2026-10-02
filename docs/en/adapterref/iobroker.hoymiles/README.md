@@ -150,6 +150,12 @@ Each DTU creates a device node using its serial number as ID (e.g. `hoymiles.0.4
 Cloud stations create aggregated device nodes (e.g. `hoymiles.0.station-12345.*`).
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+- (@Eistee82) **Commands work again on DTUs with firmware V01.01.01.** Power limit, on/off, reboot, lock and settings changes were sent to such a DTU unencrypted. The DTU answered, but could not decrypt the command and carried it out with an empty content, so nothing happened even though the log looked fine
+- (@Eistee82) **New runtime power limit in watts for the HMS-800W-2T family** (`inverter.powerLimitWatt`, local TCP only). It takes effect immediately and writes neither the DTU's flash nor the inverter's memory, so a zero-export control can set it as often as it needs to. It is gone when the inverter restarts (every night); then the percentage in `inverter.powerLimit` applies again. The WB series does not have this command. Both power limits are now confirmed only when the DTU reports them back, so the state shows what the DTU actually took over
+- (@Eistee82) **Removed `config.limitPowerMyPower`:** setting it only changed a value inside the DTU that never reached the inverter and was gone after a restart. Use `inverter.powerLimit` (percent, kept across restarts) or `inverter.powerLimitWatt`. The state disappears from existing installations by itself
+
 ### 0.5.0 (2026-09-25)
 
 - (@Eistee82) **DTUs with firmware V01.01.01 work locally again.** That firmware encrypts the local connection and moves the DTU's cloud link to TLS on port 10083; the adapter now speaks both. DTUs with older firmware are unaffected

@@ -242,6 +242,10 @@ Activate the Notifications tab. The communication settings are then made on the 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Dirk-Peter-md) Bug: Boost pressure and insufficient pressure
+* (Dirk-Peter-md) update devDependencies
+
 ### 1.0.11 (2026-07-31)
 * (Dirk-Peter-md) sendMessage => Cancel if the message is empty
 

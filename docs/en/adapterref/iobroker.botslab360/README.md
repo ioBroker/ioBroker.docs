@@ -13,7 +13,20 @@
 
 ## botslab360 adapter for ioBroker
 
-Adapter for Botslab 360 Vacuum
+Adapter for Botslab / 360 robot vacuums.
+
+## Setup
+
+1. Create an instance of the adapter.
+2. Choose the **Server** that matches the app your account was created in:
+   - **International (Botslab)** for accounts from the Botslab app.
+   - **China (360Robot)** for accounts from the 360Robot app (`q.smart.360.cn`). Use this if the international login reports that the account does not exist.
+3. Enter the **email** and **password** of your account.
+4. For the international server, pick the **region** your account belongs to (na1 / eu1 / ap1). The adapter automatically tries the other regions if the account is not found on the selected one. The region is ignored for the China server.
+
+### Captcha
+
+If the login is challenged with a captcha, the adapter stores the image as a data URL in `info.captchaImage` and also logs it inline (download the log to view it). Solve it and write the code to `info.captchaRequest` to continue the login.
 
 ## Steuern
 
@@ -21,13 +34,33 @@ Unter remote können Befehle gesendet werden.
 
 ## Status
 
-Status Abruf für verbrauchsgüter und karte muss manuell getriggert werden
+Status Abruf für Verbrauchsgüter und Karte muss manuell getriggert werden. Beim China-Server werden Gerätezustände asynchron über eine Push-Verbindung geliefert und unter `<sn>.status` veröffentlicht.
 
 ## Fragen und Diskussion
 
 <https://forum.iobroker.net/topic/60046/test-adapter-360-staubsauger-botslab>
 
 ## Changelog
+
+### 0.3.1
+
+- (TA2k) Fix the China (360Robot) session mint (errno 100) and recognize the expired-session error so login and device polling work
+
+### 0.3.0
+
+- (TA2k) Add a China (360Robot / q.smart.360.cn) backend selectable via the new Server option, for accounts that cannot log in on the international servers
+
+### 0.2.1
+
+- (TA2k) Auto-retry other regions when the account is not found; verbose debug logging; log the captcha image inline
+
+### 0.2.0
+
+- (TA2k) Switch to headless email/password login on the /v1 API; cookie login is no longer required
+
+### 0.1.0
+
+- (TA2k) Add login with an existing 360 web session
 
 ### 0.0.2
 

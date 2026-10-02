@@ -201,7 +201,7 @@ battery life of a PRIOS meter is reported in months rather than in years.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.14.0 (2026-09-26)
 * (ChL) Every data state remembers the data record it was created for, and a value of a different record at the same position of a telegram is skipped instead of being written to it
 * (ChL) Name, unit and role of the data states follow the decoded telegram as long as nobody changed them; names you gave a state and states of earlier versions stay as they are, and the new option "Overwrite name, unit and role of the data states" sets them all back
 * (ChL) Fix the states of data records that a device did not have in its first telegram after a start of the adapter: they were written without being created
@@ -227,11 +227,6 @@ battery life of a PRIOS meter is reported in months rather than in years.
 * (ChL) Remember the record layout of a device, so that its compact telegrams are decoded right after a restart of the adapter
 * (ChL) Update wireless-mbus-parser to 1.3.1, which fixes the date of the current reading of a Techem meter - it used to be stamped with the year it was decoded in rather than with the year of the meter
 * (ChL) Report at the log level the message deserves: a receiver that stays away no longer writes an error with every attempt, what the hardware says about itself is a warning, and the noise of the air is debug
-
-### 0.12.1 (2026-09-05)
-* (ChL) Fix Techem and Diehl (PRIOS) meters, which 0.12.0 decoded wrongly or not at all - the states it wrote for them carry wrong names and values and can be deleted
-* (ChL) Fix the adapter stopping instead of blocking a device whose telegrams keep failing to decode
-* (ChL) A 64 bit measured value with a scaling factor is a number now, like every other measured value
 
 ## License
 

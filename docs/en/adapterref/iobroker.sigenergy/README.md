@@ -255,6 +255,10 @@ Status and power readings for the DC charger.
 
 ## Changelog
 
+### 3.3.4 (2026-09-27)
+- (ssbingo) chore: development dependencies updated via #79 and #80 — `@iobroker/testing` 6.2.1 → 6.2.2, `@types/node` 22.20.2 → 22.20.4. Tooling only, the adapter code is unchanged
+- (ssbingo) chore: `common.news` kept at the seven entries the ioBroker repository builder retains (**[W1032]**); the full history stays in this changelog
+
 ### 3.3.3 (2026-09-12)
 - (ssbingo) fix: `io-package.json` names `ssbingo <s.sternitzke@online.de>` as maintainer instead of the placeholder "ioBroker Community", which carried no contact address — reported as **[E4048]** by the ioBroker repository checker. The entry now matches `author` in `package.json`
 - (ssbingo) fix: `common.news` trimmed to the seven most recent versions (**[W1032]**); the ioBroker repository builder truncates there anyway. The full history stays in this changelog

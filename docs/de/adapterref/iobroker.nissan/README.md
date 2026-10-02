@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nissan/README.md
 title: ioBroker.nissan
-hash: fHaq67WTcGdx6gX9HJ/2bSHnCYDxG24GXLelW9Zh4Uc=
+hash: aQ9W4ksdJqwhXgJmywl5XgXBBAJw4NWfAVRqoiqCNlU=
 ---
 ![Logo](../../../en/adapterref/iobroker.nissan/admin/nissan.png)
 
@@ -25,15 +25,15 @@ Mit dem Nissan-Adapter können Sie von Ihrem Nissan-Fahrzeug die neuesten Daten 
 
 [Nissan Connect/App-Informationen](https://www.nissan.de/kunden/nissan-connect-apps.html)
 
+Bitte beachten Sie, dass dieser Adapter nur für Fahrzeuge geeignet ist, die die NissanConnect Services App nutzen, nicht jedoch für NissanConnect EV.
+
 ## Forum
 
 Sie können die Diskussionen im deutschen [iobroker-Forum](https://forum.iobroker.net/topic/46700/test-adapter-nissan-v-0-0-x) gerne verfolgen.
 
-Bitte beachten Sie, dass dieser Adapter nur für Fahrzeuge geeignet ist, die die NissanConnect Services App verwenden, nicht für NissanConnect EV oder eine andere App.
-
 ## Unterstützte Regionen
 
-Europa
+- Europa
 
 Aktuell werden nur Nissan-Fahrzeuge innerhalb Europas unterstützt.
 
@@ -49,6 +49,11 @@ Die Anmeldung per SRP (Secure Remote Password) wird nicht unterstützt. Derzeit 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.20 (2026-09-21)
+- (bolliy) dependency and configuration updates
+- (bolliy) add Nissan Townstar support [#164](https://github.com/TA2k/ioBroker.nissan/issues/164).
+- (bolliy) add data of pressure status
+
 ### 0.1.19 (2026-09-13)
 - (iobroker-bot) Adapter requires node.js >= 22 now.
 - (bolliy/claude) Implemented MyNISSAN OneID authentication
@@ -62,10 +67,6 @@ Die Anmeldung per SRP (Secure Remote Password) wird nicht unterstützt. Derzeit 
 ### 0.1.17-alpha.0 (2025-11-22)
 - (bolliy) dependency and configuration updates
 - (bolliy) NPM: migration to trusted publishing
-
-### 0.1.16 (2025-07-03)
-- (bolliy) dependency and configuration updates
-- (bolliy) ConnectEV: update API endpoint and enhance password encryption method
 
 ## License
 

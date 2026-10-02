@@ -11,6 +11,9 @@
 
 **Tests:** ![Test and Release](https://github.com/SebastianSchultz/ioBroker.lgtv/workflows/Test%20and%20Release/badge.svg)
 
+> [!IMPORTANT]
+> This adapter cannot be installed from github
+
 LG WebOS SmartTV adapter for ioBroker
 
 Remote controlling an LG WebOS SmartTV (2013 models and higher) from [ioBroker](https://www.iobroker.net).

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wled/README.md
 title: ioBroker.wled
-hash: AVYSi23V3EBNRp+HLb1MOiYfrmmrO9uW1FFDtoRYAog=
+hash: mrBUOE8cCisE3fLpGWokCSAe3GXzudhP9SXI5h9A1Nw=
 ---
 ![Logo](../../../en/adapterref/iobroker.wled/admin/wled_logo_akemi.png)
 
@@ -157,12 +157,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 Dieser Adapter nutzt GitHub Actions mit **NPM Trusted Publishing** für die automatisierte Bereitstellung.
 
-Für Wartungsteams, die Bereitstellungsprobleme beheben möchten, siehe [docs/DEPLOYMENT\_SETUP.md](https://github.com/DrozmotiX/ioBroker.wled/blob/main/docs/DEPLOYMENT_SETUP.md) für:
-
-- Überprüfung der vertrauenswürdigen Veröffentlichungskonfiguration auf npmjs.com
-- Erforderliche Workflow- und Jobnameneinstellungen
-- Behebung von Authentifizierungsfehlern
-- Testen der Bereitstellung mit Vorabversionen
+Veröffentlichungen werden von der `deploy` Job von `.github/workflows/test-and-release.yml` Wenn ein Versions-Tag veröffentlicht wird, muss das npm-Paket dieses Repository und diesen Workflow als vertrauenswürdigen Herausgeber auf npmjs.com auflisten. `NPM_TOKEN` Ein Geheimnis ist erforderlich. Informationen zur Einrichtung und Fehlerbehebung finden Sie in der [Dokumentation zu npm Trusted Publishing](https://docs.npmjs.com/trusted-publishers) .
 
 ## Changelog
 <!--
@@ -176,6 +171,12 @@ Für Wartungsteams, die Bereitstellungsprobleme beheben möchten, siehe [docs/DE
 * (DutchmanNL) **CI/CD**: Fixed deployment failure by adding missing sentry-version-prefix parameter to GitHub Actions workflow
 * (DutchmanNL) **CI/CD**: Updated GitHub Copilot instructions template from v0.4.2 to v0.5.6 - adds ESLint configuration, translation management, lint-first CI/CD workflow guidance
 * (DutchmanNL) Dependencies updated to current versions
+* (arteck) **FIXED**: The `_online` state of a device that cannot be reached is written as boolean `false` again instead of a text, which logged "has to be type boolean but received type string" ([#788](https://github.com/DrozmotiX/ioBroker.wled/issues/788), [#794](https://github.com/DrozmotiX/ioBroker.wled/issues/794), [#792](https://github.com/DrozmotiX/ioBroker.wled/pull/792))
+* (DutchmanNL) **FIXED**: A device that stays offline logs "Unable to initialise" as a warning once, further attempts are logged at debug level ([#788](https://github.com/DrozmotiX/ioBroker.wled/issues/788))
+* (DutchmanNL) **FIXED**: Devices that are offline can be deleted from the instance settings again ([#787](https://github.com/DrozmotiX/ioBroker.wled/issues/787))
+* (DutchmanNL) **ENHANCED**: Tests now also run on Node.js 26 ([#872](https://github.com/DrozmotiX/ioBroker.wled/issues/872))
+* (DutchmanNL) **ENHANCED**: Updated @iobroker/testing to 6.3.0
+* (DutchmanNL) Removed a broken README link ([#876](https://github.com/DrozmotiX/ioBroker.wled/issues/876))
 
 ### 0.9.2 (2026-02-16)
 * (DutchmanNL) solve auto deployment issues
@@ -205,8 +206,6 @@ Für Wartungsteams, die Bereitstellungsprobleme beheben möchten, siehe [docs/DE
 * (DutchmanNL) Show online state of device in object tree
 * (DutchmanNL) Bugfix: Update online state correctly in situation connection is lost, fixes #611
 * (DutchmanNL) Reset brightness to 0 and on to false during adapter start and if a device disconnects, fixes #565
-
-[Older changelogs can be found there](https://github.com/DrozmotiX/ioBroker.wled/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

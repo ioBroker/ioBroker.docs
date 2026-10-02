@@ -38,6 +38,15 @@ Copyright and trademark of Google are property of Google.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2026-09-29)
+* (Garfonso/Claude) added settings for how long to wait for a Google login confirmation and for remote debugging of the login browser.
+* (Garfonso/Claude) fixed several issues in the login: only google cookies are stored again, the faked user agent now matches the Chrome that is really used and login pages are no longer dumped to the console.
+* (Garfonso/Claude) updated puppeteer and test dependencies.
+* (Garfonso/Claude) internal cleanup of the cookie handling, no functional change.
+* (Garfonso/Claude) fixed starting main.ts directly (for example from an IDE debug configuration), which failed with ERR_MODULE_NOT_FOUND.
+* (Garfonso/Claude) fixed the automatic Chrome download, which failed with "require is not defined".
+* (Garfonso/Claude) the adapter is now compiled to JavaScript instead of running the TypeScript sources directly, which avoids a whole class of module loading problems.
+
 ### 0.4.0 (2026-07-03)
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 * (Garfonso) minor fixes and improvements.
@@ -52,9 +61,6 @@ Copyright and trademark of Google are property of Google.
 
 ### 0.3.4 (2026-04-22)
 * (Garfonso) replaced axios dependency. Tried to make login more robust.
-
-### 0.3.3 (2026-02-17)
-* (Garfonso) if deleting cookies, also delete cookies in Browser to force login with username & password.
 
 ## License
 MIT License

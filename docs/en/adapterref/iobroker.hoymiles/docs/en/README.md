@@ -178,12 +178,12 @@ The adapter integrates with the ioBroker **Config Manager**, so every inverter a
 
 The card mirrors the writable states, so a click routes through the normal command path (local TCP link preferred, cloud fallback). The two dialogs are split strictly by **what the device keeps**:
 
-> ⚠️ The state names mislead here; the firmware decides otherwise: `inverter.powerLimit` sounds like a runtime knob but is written into the persisted structure and costs two 4 KB flash sectors per change, while `config.limitPowerMyPower` is named "persistent" yet lives in RAM only and is gone after a restart. Both are firmware-verified (`_fwanalysis/ADAPTER_FINDINGS.md` §1, §2, §15).
+> ⚠️ Persistence decides the split, firmware-verified (`_fwanalysis/POWER_LIMIT_CHAIN_2T.md`): `inverter.powerLimit` (percent) is stored in the DTU's flash and the inverter's EEPROM and costs two 4 KB flash sectors per change, so it is a setting. `inverter.powerLimitWatt` (watts, HMS-800W-2T family over local TCP only) stays in RAM on both sides and is gone after the inverter restarts, so it is a control.
 
 **Controls** (slider icon) — nothing here survives a DTU restart:
 
 - **Operation (switches):** inverter on/off, lock inverter.
-- **Runtime:** power limit (DTU config field) as a slider, cloud send interval. Both carry a note that the DTU forgets them on restart.
+- **Runtime:** power limit in watts (HMS-800W-2T family over local TCP only) and cloud send interval. Both carry a note that the device forgets them on restart.
 
 Every slider is preceded by its current value and unit, because the slider itself only reveals it while being dragged.
 
@@ -269,7 +269,7 @@ The adapter uses ioBroker's state quality attribute (`q`) to indicate the reliab
 | Substitute | `0x40` (64) | Cloud-sourced fallback data | Inverter data fetched from the Hoymiles Cloud API instead of local TCP (cloud-only devices) |
 | Device not connected | `0x42` (66) | Stale data, device offline | DTU connection lost — values are the last known readings before disconnect. Also set on cloud station `grid.*` when the station's last cloud upload is older than ~20 min (DTU not uploading). |
 
-**Affected states:** `grid.*`, `pv*.*`, `inverter.temperature`, `inverter.active`, `inverter.warnCount`, `inverter.warnMessage`, `inverter.activePowerLimit`, `meter.*` — plus the cloud station measurements `station-<id>.grid.*` (flagged `0x42` while the station is offline/stale).
+**Affected states:** `grid.*`, `pv*.*`, `inverter.temperature`, `inverter.active`, `inverter.warnCount`, `inverter.warnMessage`, `inverter.activePowerLimit`, `inverter.powerLimitWatt`, `meter.*` — plus the cloud station measurements `station-<id>.grid.*` (flagged `0x42` while the station is offline/stale).
 
 Info states (`info.*`), config states (`config.*`), and static station-level cloud data (name, address, coordinates, warning flags) are **not** affected by quality changes.
 
@@ -347,8 +347,9 @@ The adapter determines how many there are, in this order:
 | `inverter.hwVersion` | string | — | no | Hardware version |
 | `inverter.swVersion` | string | — | no | Software version |
 | `inverter.temperature` | number | °C | no | Inverter temperature |
-| `inverter.powerLimit` | number | % | **yes** | Power limit, 2–100 %, local. **Use this state to realize zero-export / dynamic curtailment.** ⚠️ Every write programs flash inside the device (see the warning below) — the adapter therefore throttles it with a dead band and a minimum interval |
-| `inverter.activePowerLimit` | number | % | no | Active power limit (live, local) |
+| `inverter.powerLimit` | number | % | **yes** | Power limit, 2–100 %, local. **Persistent:** the DTU stores it in its flash and the inverter in its EEPROM, so it is also the value the inverter starts with every morning. ⚠️ Every write programs flash in both (see the warning below) — the adapter therefore throttles it with a dead band and a minimum interval. For a fast zero-export loop on the HMS-800W-2T family use `inverter.powerLimitWatt` instead. Over local TCP the state is acknowledged by the DTU's echo (see below) |
+| `inverter.powerLimitWatt` | number | W | **yes** | Runtime power limit in watts, 0.1–3276.7 W in steps of 0.1 W. **HMS-800W-2T family over local TCP only** — the WB series has no such command, so the state is not created there. Takes effect immediately and writes **neither the DTU flash nor the inverter EEPROM** (action 211, firmware-verified and tested live), so it needs no throttling and suits a zero-export loop. **Lost when the inverter restarts** (every night) — then `inverter.powerLimit` applies again; the adapter does not re-send it. Below about 2 % of the inverter's rated power the inverter applies its own 2 % floor. Acknowledged by the DTU's echo; quality `0x42` after a disconnect |
+| `inverter.activePowerLimit` | number | % | no | Active power limit in percent (live, local). While a watt limit (`inverter.powerLimitWatt`) is in force it is not updated — the DTU then reports watts, which is confirmed in `inverter.powerLimitWatt` instead |
 | `inverter.active` | boolean | — | **yes** | Turn inverter on/off (local; via the cloud for cloud-only devices). On a hybrid inverter the value is read back from the cloud: on while the cloud reports it connected and in On-grid Mode or exchanging AC power, off while disconnected |
 | `inverter.reboot` | boolean | — | **yes** | Reboot inverter (button, local; via the cloud for cloud-only devices) |
 | `inverter.powerFactorLimit` | number | — | **yes** | Power factor limit (-1 to 1, local). ⚠️ Programs flash just like the power limit (action 47, same success path) — throttled |
@@ -359,6 +360,8 @@ The adapter determines how many there are, in this order:
 | `inverter.warnCount` | number | — | no | SGSMO `warning_number` field, raw value (local) — not a documented warn code |
 | `inverter.warnMessage` | string | — | no | Active warning message from the WCode alarm list (local) |
 | `inverter.linkStatus` | number | — | no | Link status |
+
+> **Confirmation of the two power limits (local TCP).** The DTU echoes the limit it last staged in its live data — as a percentage after `inverter.powerLimit`, in watts after `inverter.powerLimitWatt` (verified live). The adapter therefore acknowledges these two states only when that echo arrives, with the value the DTU reports, instead of the moment it sends the command; an unacknowledged state means the DTU has not confirmed it yet. The echo holds only the **last** command, so whichever of the two you set last is the one in force. On the WB series and over the cloud the states are acknowledged on send, as before (there the field carries the energy management's set point, not the command).
 
 ### `<dtuSerial>.dtu.*` — DTU Information (per DTU, local only except `dtu.reboot`)
 
@@ -495,10 +498,9 @@ Timestamp of a sample: `history.startTime + index * history.stepTime * 1000`.
 >
 > It affects **`inverter.powerLimit`, `inverter.powerFactorLimit` and
 > `inverter.reactivePowerLimit`** — all three run through the same success path (actions 8, 47
-> and 48). It does **not** affect `config.limitPowerMyPower`: that configuration field only
-> reaches RAM. Earlier versions of this documentation had the two the wrong way round —
-> `inverter.powerLimit` was described as a RAM-only runtime command and
-> `config.limitPowerMyPower` as the flash writer. Both were wrong. At the end of a successful command the firmware calls the configuration
+> and 48). It does **not** affect `inverter.powerLimitWatt` (action 211), which stays in RAM.
+> The inverter additionally rewrites its EEPROM (34 words, each read back) on every one of these
+> commands. At the end of a successful command the firmware calls the configuration
 > serializer, which **erases and rewrites two 4 KB flash sectors** (HMS-800W-2T: `0x4080d642` →
 > erase + write for region 3 and region 0xe; HMS-800-2WB: `sys_cfg_write` runs
 > `nv_erase`+`nv_write` twice). Flash endurance is finite — tens of thousands of cycles — so a
@@ -510,10 +512,12 @@ Timestamp of a sample: `history.startTime + index * history.stepTime * 1000`.
 > log says why. Both values can be adjusted or switched off with 0 — anyone who deliberately wants
 > to regulate faster can, and accepts the wear.
 >
-> For zero-export, `inverter.powerLimit` remains the right state: it takes effect immediately.
-> It is **not** a flash-free path, however — which is exactly why the dead band and the minimum
-> interval exist. `config.limitPowerMyPower` costs no flash but does not survive a restart on
-> the HMS-800W-2T and issues no command to the inverter.
+> **For zero-export on the HMS-800W-2T family use `inverter.powerLimitWatt`:** it takes effect
+> immediately, in watts, and writes neither the DTU flash nor the inverter EEPROM. It is lost when
+> the inverter restarts — every night, since the inverter switches off without sun — after which
+> the percentage in `inverter.powerLimit` applies again. The WB series has no such command: there
+> `inverter.powerLimit` is the only limit, with the wear described above, or the inverter regulates
+> zero export itself with a connected meter (`meter.mode`).
 
 > ⚠️ **Writing configuration — the adapter always reads first.**
 >
@@ -537,7 +541,6 @@ Timestamp of a sample: `history.startTime + index * history.stepTime * 1000`.
 | `config.serverDomain` | string | — | no | Cloud server domain |
 | `config.serverPort` | number | — | no | Cloud server port |
 | `config.serverSendTime` | number | min | **yes** | Cloud send interval (minutes). ⚠️ **Neither persistent nor a flash write** (firmware-verified): SetConfig field 10 only lands in RAM (`gp-110188`); the SetConfig path writes flash solely in the WiFi/AP password branch. Earlier versions of this documentation called it "persistent (DTU flash)" — that was wrong. Set it again after a device restart |
-| `config.limitPowerMyPower` | number | % | **yes** | Power limit via the DTU's **configuration field** (2–100 %, local). ⚠️ **On the HMS-800W-2T this value does NOT survive a reboot** (firmware-verified) — earlier versions of this documentation claimed the opposite. Set it again after a device restart. **Contrary to earlier claims it writes no flash either** — its target `gp-108260` (`0x6c204`) lies outside the persisted structure `0x6b8dc` |
 | `config.wifiSsid` | string | — | no | WiFi SSID |
 | `config.wifiSignalQuality` | number | % | no | WiFi **signal quality 0–100**, **not dBm** despite the field name. The firmware derives it from the raw RSSI as `clamp(2*(95 - |rssi|), 0, 100)` and names the two values `rssi` (raw) and `wifi_rssi` (this one) in its own debug output. A reading of 46 corresponds to roughly −72 dBm. Earlier versions of this documentation called it “real dBm, e.g. −65” — that was wrong. The raw dBm value stays in the neighbouring byte and is not reachable through any message the adapter uses. The device reports the same quantity as `csq` in its NetworkInfo message — the same byte, so a separate state would be a duplicate |
 | `config.invType` | number | — | no | Inverter type |
@@ -794,6 +797,7 @@ Thanks to the users who lent their systems:
 ### No data after connecting
 - Check the adapter log for protobuf decode errors
 - `Decryption failed: ... wrong final block length` or `bad decrypt` on a DTU with firmware V01.01.01 means an adapter version without support for the encrypted protocol is running. Install the current version and restart the instance; the log then says `DTU requires encrypted communication (firmware V01.01.01+)`
+- Power limit, on/off, reboot or settings changes have no effect on a DTU with firmware V01.01.01, although the log shows `Setting power limit to …` and a command response: adapter versions up to 0.5.0 sent commands to such a DTU unencrypted. The DTU answers, but cannot decrypt the command and carries it out with an empty content. Update the adapter
 
 ### Cloud login failed
 - Check your S-Miles email and password

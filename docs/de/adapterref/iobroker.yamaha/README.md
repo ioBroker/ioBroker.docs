@@ -66,16 +66,16 @@ umzieht, während der Adapter nicht läuft, findet aber erst die nächste Netzwe
   Karte. Eine Liste, die nur die aus dem Vorgänger-Adapter übernommene Zeile enthält (ihr Name
   ist eine IP-Adresse), gilt als leer: diese Adresse hat niemand getippt, die Suche bleibt an
   und folgt dem Receiver zu einer neuen Adresse.
-- **Netzwerk-Schnittstelle** — leer lassen, dann verlässt die Suche jede Netzwerkkarte deines
-  ioBroker-Rechners. Nur setzen, wenn dein Server in mehreren Netzen hängt und die Suche eine
+- **Netzwerk-Interface** — auf „alle Adressen“ (0.0.0.0) lassen, dann verlässt die Suche jede
+  Netzwerkkarte deines ioBroker-Rechners. Nur setzen, wenn dein Server in mehreren Netzen hängt und die Suche eine
   bestimmte nehmen soll. Auf die Receiver selbst hat die Einstellung keine Wirkung.
 - **MusicCast-Ereignisport** — wird angezeigt, ist nicht änderbar: MusicCast-Geräte melden ihre
   Änderungen an den UDP-Port 41100, das legt das Protokoll fest. Das Feld ist da, damit der Admin
   warnen kann, wenn eine zweite Instanz auf demselben Rechner den Port belegen würde.
-- **Abfrageintervall (ältere Geräte)** — wie oft ein Receiver von vor 2010 nach seinem Zustand
+- **XML-Abfrageintervall** — wie oft ein Receiver von vor 2010 nach seinem Zustand
   gefragt wird. Diese Modelle können Änderungen nicht von sich aus melden. 60 Sekunden sind
   sinnvoll; ein kürzeres Intervall erzeugt mehr Netzverkehr bei wenig Gewinn.
-- **Datenpunktgruppen** — siehe unten.
+- **Datenpunkte** — siehe unten.
 
 ### Auf jeder Gerätekarte
 
@@ -96,8 +96,8 @@ Jeder Receiver wird ein Gerät. Darunter:
 
 - **info** — ob das Gerät verbunden ist, sein Modell, die Firmware, die Adresse und welches
   der drei Protokolle gerade lebt.
-- **power, volume, mute, input, soundProgram, sleep** — der Verstärker-Kern. Immer vorhanden,
-  nicht abschaltbar.
+- **power, volume, mute, input, soundProgram, sleep** — der Verstärker-Kern. Nicht abschaltbar;
+  ein Gerät bekommt die, die es hat (ein Lautsprecher hat kein Klangprogramm).
 - **player** — was gerade läuft: Quelle, Interpret, Album, Titel, Titelbild, abgelaufene und
   Gesamtzeit, Wiederholung und Zufall sowie die Transporttasten. Ein Block je Zone.
 - **tuner** — Band, Frequenz in Kilohertz, Speicherplatz, RDS und die DAB-Details, wo das
@@ -230,7 +230,7 @@ möglich“. Der Datenpunkt zeigt danach wieder den Wert des Geräts.
 
 - **Das Gerät wird nicht gefunden.** Ältere Geräte antworten auf keine Suche — trag sie
   über ihre IP-Adresse ein. Ansonsten prüf, ob ioBroker und Receiver im selben Netzabschnitt
-  liegen, und setz die Netzwerk-Schnittstelle einmal ausdrücklich.
+  liegen, und setz das Netzwerk-Interface einmal ausdrücklich.
 - **Das Gerät bleibt offline.** Prüf die Adresse, und ob der Receiver überhaupt erreichbar ist
   (seine eigene Webseite antwortet meist unter `http://<Adresse>`). Der Adapter versucht es
   von selbst weiter, mit wachsenden Pausen. Hat der Receiver eine neue Adresse bekommen, folgt
@@ -255,6 +255,31 @@ dort, was er fragt, was er bekommt und was er nicht abschickt.
     ### **WORK IN PROGRESS**
 -->
 
+### 3.1.2 (2026-09-30)
+
+- (krobipd) Fixed: The sleep timer lists the receiver's own values again (Off, 30 min …) instead of MusicCast's minutes, so a picked value is one the receiver accepts
+
+### 3.1.1 (2026-09-30)
+
+- (krobipd) Fixed: A receiver that replaces another at the same address is asked again whether zones 2 and 3 have an on-screen remote, instead of inheriting the old answer
+
+### 3.1.0 (2026-09-30)
+
+- (krobipd) Changed: player.playback follows the ioBroker standard now — 0 pause, 1 play, 2 stop; repeat and shuffle can be set directly where the device allows it
+- (krobipd) New: Receivers from before 2010 show what is playing — artist, album, track, station, status and cover — and 2008 models get their zone names
+- (krobipd) New: Every favourite, recent item, playlist, stored station and scene title is a datapoint of its own, next to the list
+- (krobipd) New: Volume up/down keys, a mute level, storing and clearing tuner presets, station search, and a settable clock and alarm on MusicCast clock radios
+- (krobipd) Fixed: A protocol that does not answer at start is connected again later, and its datapoints keep their type in the meantime
+- (krobipd) Fixed: On older receivers only what the device declares can be written, with its own limits; 2008 tuner presets A1–E8, band and frequency work
+- (krobipd) New: More menu sources on older receivers, TIDAL on MusicCast, menus in your ioBroker language, and remote pads for zones 2 and 3 of 2011/2012 AVENTAGE
+- (krobipd) Fixed: A MusicCast Zone B shows as Zone B and joins a group with Zone A, and the cover changes with the track
+- (krobipd) Fixed: Deleting a device, renaming it in the dialog or stopping the adapter no longer loses a name or leaves a network search running
+- (krobipd) Improved: Dropdowns show readable names in your ioBroker language, the playing source shows the input's name, and each queued track is its own datapoint
+
+### 3.0.1 (2026-09-27)
+
+- (krobipd) Improved: The notes the Admin shows before an update are short now: what changes, one example old → new, and a link to the details
+
 ### 3.0.0 (2026-09-26)
 
 - (krobipd) Changed: Every device gets a new object ID once — its model and the end of its serial number, e.g. `wx-030-2b3c`; scripts and VIS need the new IDs
@@ -263,59 +288,6 @@ dort, was er fragt, was er bekommt und was er nicht abschickt.
 - (krobipd) Fixed: After a restart, the input list of a YNCA receiver offers only the sources the receiver has again, not the whole catalog
 - (krobipd) New: A device added by hand is asked for its model and serial number, and the name you type is its display name from the start
 - (krobipd) New: The device card shows the object ID, the MAC address and the serial number under its details
-
-### 2.13.0 (2026-09-25)
-
-- (krobipd) Fixed: A value a receiver refuses no longer stays on the datapoint — every write is read back, and the log names the device's reason
-- (krobipd) Fixed: MusicCast values stay current in Docker or next to a second MusicCast app — missing events are noticed, then the adapter polls and reads writes back
-- (krobipd) New: MusicCast devices write every setting the specification gives a setter for: dialogue level, 3D surround, tone mode, speaker A/B, dimmer, group name and more
-- (krobipd) Fixed: MusicCast Link groups are built and left as Yamaha specifies — the joining zone switches to MusicCast Link, multiroom.group.status shows the progress
-- (krobipd) Fixed: Names you give inputs, sound programs and zones in the app or on the receiver show up at the next connection instead of staying frozen
-- (krobipd) Fixed: Umlauts in names and titles arrive intact on all three protocols, and YNCA zone names are written in the character set the receiver expects
-- (krobipd) Fixed: When one protocol of a receiver drops, a live one takes over every datapoint it serves the same way, so power and volume keep working
-- (krobipd) Fixed: true, a hex string or "1e2" written to a level, preset or scene no longer reaches the receiver; in percent mode "50" counts like 50
-- (krobipd) Fixed: Back and Home work on 2012-and-later YNCA receivers, and a refused key no longer switches the remote pad to another command set for good
-- (krobipd) Fixed: YNCA reads every word the official lists declare — an attenuated mute reads as muted, and repeat-one is written in the receiver's own word
-- (krobipd) Fixed: A deleted device carried over from yamaha 0.5.x stays deleted, and a hostname in the device list works like an IP address
-- (krobipd) New: Menus on the 2008 XML receivers (RX-V3900 generation); XML zones write tone and dialogue level the way the receiver declares them
-- (krobipd) Changed: The first start after this update asks every receiver again what it can do — up to half a minute on a YNCA receiver, as on a first contact
-- (krobipd) Improved: The README lists the ports the adapter uses; with the network search set to Never it opens no listener on UDP port 1900
-- (krobipd) Changed: Settings left over from older versions are removed from the instance once after the update; the instance restarts once for it
-
-### 2.12.0 (2026-09-22)
-
-- (krobipd) Fixed: Deleting a device is final: the card asks first and names the datapoints, the device stays out of the search until you admit it again, and the log says how many datapoints went
-- (krobipd) New: A device is known by its serial number: a receiver with a new IP address or a new name keeps its objects and is reconnected at the new address within seconds
-- (krobipd) New: "Excluded devices…" above the device list shows the deleted devices and lets the network search admit a ticked one again — it says what it looks for and what it found
-- (krobipd) Improved: A receiver that lost power is offline in about 90 seconds instead of up to 15 minutes: the first protocol that notices asks the others at once
-- (krobipd) Improved: The adapter hears devices announcing themselves on the network, and while no device runs it keeps searching every five minutes
-- (krobipd) Changed: A row carried over from the old adapter (name = IP) follows the receiver to a new address; a device entered by hand stays where it was typed, the log says if it answers elsewhere
-- (krobipd) Improved: Switching a receiver off no longer fills the log with warnings, and every search the log announces also tells you what it found — or that nothing answered
-- (krobipd) Improved: Less network noise while a receiver stays unreachable: the retries knock only on the protocols that device actually speaks, not on all three
-
-### 2.11.0 (2026-09-17) — stable
-
-- (krobipd) Fixed: The adapter no longer stops when the object database is briefly unavailable while a receiver reports a change
-- (krobipd) Fixed: A datapoint whose value range a receiver no longer reports keeps its value, its history and its room and function assignments
-- (krobipd) Fixed: A receiver that is switched off keeps its name after a restart
-- (krobipd) Fixed: A name you type on a device card now wins over every name the receiver reports for itself
-- (krobipd) Improved: When something goes wrong, the log names the cause instead of a placeholder
-
-### 2.10.0 (2026-09-15)
-
-- (krobipd) Fixed: A receiver the search found is searched for again after it moved to another address — until now that only worked for receivers found at start-up
-- (krobipd) Fixed: A receiver that is unplugged or switched off at the mains now shows as disconnected within about 90 seconds instead of staying green for many minutes
-- (krobipd) Fixed: A MusicCast device that stops answering a command is checked right away and shown as disconnected — until now that took up to 15 minutes
-- (krobipd) Fixed: On receivers without live updates, a value you write is confirmed as soon as the receiver took it, instead of up to five minutes later
-- (krobipd) Fixed: A zone name you changed on an older receiver stays after a reconnect — until now the previous name came back
-- (krobipd) Fixed: Deleting a device from its card while it is still connecting no longer leaves parts of its object tree behind
-- (krobipd) Fixed: Writing false, off or 0 to a switch datapoint now switches it off — until now any text, even the word false, switched it on
-- (krobipd) Improved: The history of a datapoint only records values the receiver actually changed — a restart or a lost connection no longer adds identical entries
-- (krobipd) Improved: MusicCast live updates now start on their own once a port another program held at start-up becomes free — before, only a restart helped
-- (krobipd) New: Device pictograms in the object tree and on the device cards — receiver, stereo receiver, speaker, soundbar or CD system, readable in every theme, also for a device that is off
-- (krobipd) Changed: The device card shows a speaker symbol; with the percent switch on it also shows the current volume as a percentage. The pencil and magnifier markers are gone
-- (krobipd) Fixed: The adapter logo is readable in the Admin's dark themes as well — until now its dark strokes vanished on a dark background
-- (krobipd) Changed: The instance settings show the fixed MusicCast event port, so the Admin warns when a second instance on the same host would take it
 
 ## License
 

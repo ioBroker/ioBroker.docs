@@ -3,11 +3,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.samsung_tizen/README.md
 title: ioBroker.samsung_tizen
-hash: g/6UBdA+i0GxfgbXTTp2pgNaVnMUhd3mU05ZPz6XOW8=
+hash: bYZqFJO48q7GeDE9muUbnONjor1+rtmG5tQDjYSv8Y4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.samsung_tizen/admin/samsung.png)
 
 # ioBroker.samsung\_tizen
+
+> \[!ВАЖНО] Этот адаптер нельзя установить из GitHub
 
 Этот адаптер позволяет управлять телевизорами Samsung под управлением операционной системы Tizen (модели 2016 года и новее).
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker miHome-Vakuumadapter
-hash: astsIBPFR/7jL0Jg9DcPlir31Q6DFB6lgciVa3LzbmY=
+hash: J3mNBwdK4KcBoe8NFUK/Nie5IIKXDXpguD/mB4VuZWo=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -16,6 +16,8 @@ hash: astsIBPFR/7jL0Jg9DcPlir31Q6DFB6lgciVa3LzbmY=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)
 
 # ioBroker miHome-Staubsauger-Adapter
+
+> \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
 
 [Deutsche Dokumentation](/#/docs/adapterref/iobroker.mihome-vacuum/README_de.md)
 
@@ -133,7 +135,7 @@ Diese Anleitung stammt von einem Drittanbieter und funktioniert möglicherweise 
 
 Der Reiter „Verbindung“ enthält die Xiaomi Cloud-Authentifizierung, die Geräteerkennung und die lokalen Einstellungen, die für die direkte Kommunikation mit dem Staubsauger verwendet werden.
 
-- Eine erfolgreiche Cloud-Anmeldung wird als geschützte, verschlüsselte Sitzung gespeichert.
+- Ein erfolgreicher Cloud-Login wird als geschützte, verschlüsselte Sitzung gespeichert.
 - **Die Geräteabfrage** ist erst nach der Authentifizierung möglich.
 - Durch die Auswahl eines erkannten Staubsaugers werden fehlende lokale Einstellungen ergänzt und gegebenenfalls ein veraltetes Token ersetzt.
 - Der Anmeldelink wird nach erfolgreicher Anmeldung oder nach Ablauf der Gültigkeitsdauer gelöscht.
@@ -173,7 +175,7 @@ Die Kartenunterstützung hängt vom Vakuummodell und der gewählten Quelle ab.
 | `cleanmap.mapStatus` | Aktueller Status der Kartenverarbeitung               |
 | `cleanmap.loadMap`   | Fordert eine Kartenaktualisierung an                  |
 
-Für die Karten von Xiaomi Cloud müssen sowohl **die Kartenaktivierung in der Xiaomi Cloud als auch ein gültiger Cloud-Login aktiviert sein** . Lokale Roboterbefehle funktionieren weiterhin, wenn keine Cloud-Sitzung verfügbar ist.
+Für die Karten von Xiaomi Cloud müssen sowohl **die Kartenaktivierung in der Xiaomi Cloud als auch ein gültiger Cloud-Login aktiviert sein** . Lokale Roboterbefehle funktionieren weiterhin, wenn die Cloud-Sitzung nicht verfügbar ist.
 
 ### Timer
 
@@ -182,7 +184,7 @@ Für die Karten von Xiaomi Cloud müssen sowohl **die Kartenaktivierung in der X
 Adapter-Timer können ausgewählte Raumkanäle an einem gewählten Wochentag und zu einer gewählten Uhrzeit starten.
 
 1. Laden oder erstellen Sie zuerst die Raumkanäle.
-2. Öffne **den Timer** und klicke auf **Hinzufügen** .
+2. Öffnen Sie **den Timer** und klicken Sie auf **Hinzufügen** .
 3. Wählen Sie Wochentag, Stunde, Minute, Räume und/oder Raumkanäle.
 4. Aktivieren Sie den Timer und klicken Sie auf **„Timer speichern“** .
 
@@ -417,8 +419,6 @@ Nutzen Sie den [GitHub-Issue-Tracker](https://github.com/iobroker-community-adap
 
 * (dirkhe) add IP Adress to info
 * (dirkhe) assign rockrobo (valetudo) to roborock Manager
-
-[Older changelog entries](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

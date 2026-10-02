@@ -234,9 +234,10 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 ---
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 1.1.2 (2026-10-02)
 * (meistermopper) Fix potential infinite loop in auth retry logic
+* (meistermopper) Update @iobroker/testing to 6.3.0 (W0037)
+* (meistermopper) Use adapter timer methods in push client (S5005)
 
 ### 1.1.1 (2026-09-21)
 * (meistermopper) Fix remoteControl flapping on push measurement updates
@@ -262,11 +263,6 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 * (meistermopper) Add check:repo script and integrate repochecker into test:local
 * (meistermopper) Restore email in license copyright lines (S4050, S4051)
 * (meistermopper) Fix license section in README to satisfy repo-checker rule W6034
-
-### 0.5.1 (2026-09-12)
-* (meistermopper) Replace adapter logo with custom MyFenix homage logo
-* (meistermopper) Update @iobroker/adapter-core to 3.4.3 and @iobroker/testing to 6.2.1
-* (meistermopper) Fix Mocha 12 instantiation in unit test runner on Node 22
 
 ## License
 MIT License

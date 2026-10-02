@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md
 title: kein Titel
-hash: bAOVdajmtIqtf9jEI7uH4oA+iQZZxe2DGcjctk5fGWE=
+hash: jzvbM3Knu1c6X4ED4PyJVelTZbNYF6sZ8ZmM2aUUBHk=
 ---
 ## Konfiguration der Adapter-Instanz
 
@@ -16,7 +16,7 @@ Auf dieser Seite werden die grundlegenden Netzwerkeinstellungen für die Kommuni
 
 #### Verbindungseinstellungen
 
-- **IP-Adresse (Host):** Trage hier die lokale IP-Adresse deiner Wärmepumpe in deinem Netzwerk ein (z. B.`192.168.178.12` ).
+- **IP-Adresse (Host):** Trage hier die lokale IP-Adresse deiner Wärmepumpe in deinem Netzwerk ein (z. B. `192.168.178.12`).
 - **Wärmepumpen Port:** Der Kommunikationssport der Steuerung.
   - `8889` = Standard-Port für die klassische TCP-Kommunikation (oft bei Firmware V2.x).
   - `8214` = WebSocket-Port (wird in der Regel für neuere Anlagen ab Firmware V3.81x benötigt).
@@ -30,7 +30,7 @@ Auf dieser Seite werden die grundlegenden Netzwerkeinstellungen für die Kommuni
 
 - **Sprache für Texte und Werte:** Diese Einstellung legt fest, in welcher Sprache die textbasierten Zustände und Betriebsmodi in die ioBroker-Datenpunkte geschrieben werden. Der Adapter übersetzt die Zahlencodes der Anlage dann automatisch in lesbaren Text.
 
-_Beispiel: Wenn die Wärmepumpe Wasser aufheizt, schreibt der Adapter je nach Auswahl entweder`Warmwasser` (Deutsch) oder`Hot water` (Englisch) in den Objektbaum._
+_Beispiel: Wenn die Wärmepumpe Wasser aufheizt, schreibt der Adapter je nach Auswahl entweder `Warmwasser` (Deutsch) oder `Hot water` (Englisch) in den Objektbaum._
 
 ![Beispiel für übersetzte Werte im ioBroker Objektbaum](../../../../en/adapterref/iobroker.luxtronik2-controller/admin/img/Objekte.png)
 
@@ -39,7 +39,7 @@ _Beispiel: Wenn die Wärmepumpe Wasser aufheizt, schreibt der Adapter je nach Au
 Standardmäßig behandelt die Luxtronik-Steuerung Heiz- und Warmwassertakte streng getrennt. Dies führt oft dazu, dass der Verdichter nach der Warmwasserbereitung stoppt, nur um kurz darauf für einen Heiztakt wieder anzulaufen (erhöhter Verschleiß). Dieser Adapter koppelt die Vorgänge intelligent, sodass der Verdichter nahtlos und effizient in einem einzigen Takt durchläuft.
 
 - **Intelligente Takt-Optimierung aktivieren:** Schaltet die übergreifende Logik zur Vermeidung unnötigen Verdichter-Stopps ein.
-  - **Auslöser-Regel (Vorzündung):** Wenn das Warmwasser abgekühlt ist`(WW Soll - WW Ist ≥ WW Hysterese - 1,5 K)` **UND** gleichzeitig Heizbedarf besteht`(Rücklauf Ist ≤ Rücklauf Soll)` sowie die Sommer-Heizgrenze nicht aktiv ist, greift der Adapter ein.
+  - **Auslöser-Regel (Vorzündung):** Wenn das Warmwasser abgekühlt ist `(WW Soll - WW Ist ≥ WW Hysterese - 1,5 K)` **UND** gleichzeitig Heizbedarf besteht `(Rücklauf Ist ≤ Rücklauf Soll)` sowie die Sommer-Heizgrenze nicht aktiv ist, greift der Adapter ein.
   - **Aktion:** Der Adapter startet direkt den Heizbetrieb und setzt den Rücklauf-Sollwert temporär auf 35°C, um das sofortige Anlaufen des Verdichters zu erzwingen. Wenn die Anlage kurz darauf auf Warmwasser umgeschaltet wird, läuft der Verdichter einfach weiter.
 - **Heizen nach Warmwasser erzwingen:** Wenn aktiv, prüft der Adapter das System auch _nach_ einem Warmwassertakt. Der Rücklauf-Sollwert bleibt auf 35°C angehoben, damit der Verdichter nach der Warmwasserbereitung nicht abschaltet, sondern sofort den Heiztakt fortsetzt.
 
@@ -67,7 +67,7 @@ Dieser Adapter löst das Problem über eine **dynamische Steuerung anhand der Te
 > **⚠️ Wichtige Voraussetzungen (Bitte vor Aktivierung prüfen!)**
 >
 > 1. **Hardware-Kompatibilität:** Nutze diese Funktion nur, wenn deine Umwälzpumpe wirklich über ein Steuerkabel (0-10V oder PWM) an die Luxtronik-Platine angeschlossen ist! Besitzt du eine Pumpe, die den Volumenstrom eigenständig regelt (z. B. einen _Grundfos ALPHA2 AutoAdapt_ auf Stellung „Auto“), darfst du die Funktion **nicht** aktivieren. Andernfalls würden der Adapter und die Pumpe permanent gegeneinander regeln.
-> 2. **Spannungsfaktor (Firmware):** Ältere V2.x-Firmwares erwarten die Steuerspannung in einem anderen Datenformat als neuere V3.x-Firmwares (z. B. bei der LWCV 82). Wählen Sie in der Konfiguration unbedingt den richtigen Hardware-Faktor für Ihre Anlage aus (`100` für V2.x vs.`10` für V3.x).
+> 2. **Spannungsfaktor (Firmware):** Ältere V2.x-Firmwares erwarten die Steuerspannung in einem anderen Datenformat als neuere V3.x-Firmwares (z. B. bei der LWCV 82). Wählen Sie in der Konfiguration unbedingt den richtigen Hardware-Faktor für Ihre Anlage aus (`100` für V2.x vs. `10` für V3.x).
 > 3. **Sicherheits-Reset (Leerlauf):** Aktiviere unbedingt die Funktion _„Standardwerte im Leerlauf erzwingen“_ im Reiter „Leerlauf“. Dadurch fällt die Pumpe nach Ende des Heiztaktes wieder auf ihre feste Standardspannung zurück, anstatt auf dem manipulierten Wert zu bleiben.
 
 #### Konfiguration deiner Anlage
@@ -88,10 +88,30 @@ Die Zirkulationspumpe (ZIP) sorgt dafür, dass an den Zapfstellen im Haus (z. B.
 Dieser Adapter bietet smarte Automatisierungen, um die ZIP nur exakt dann laufen zu lassen, wenn sie auch wirklich benötigt wird.
 
 - **Intelligente ZIP-Optimierung:** Wenn aktiv, überwacht der Adapter die Wärmepumpe. Die Zirkulation kann so zum Beispiel völlig synchron zur Warmwasserbereitung laufen.
-- **Laufzeit bei Aktivierung:** Definiert, wie lange (in Sekunden) die Pumpe laufen soll, wenn sie durch den Adapter oder manuell (über den Schalter) durchgeführt wird`Activate_Zip` im Objektbaum) ausgelöst wird. Empfohlen sind meist kurze Intervalle von 120 bis 180 Sekunden, um das Rohrsystem einmal mit warmem Wasser durchzuspülen.
+- **Laufzeit bei Aktivierung:** Definiert, wie lange (in Sekunden) die Pumpe laufen soll, wenn sie durch den Adapter oder manuell (über den Schalter) durchgeführt wird `Activate_Zip` im Objektbaum) ausgelöst wird. Empfohlen sind meist kurze Intervalle von 120 bis 180 Sekunden, um das Rohrsystem einmal mit warmem Wasser durchzuspülen.
 - **Bewegungsmelder (On-Demand):** Das absolute Spar-Potenzial! Du kannst hier die ioBroker-Datenpunkte deines Smart-Home-Bewegungsmelders (z. B. Zigbee-Sensoren im Badezimmer oder in der Küche) eintragen. Betritt jemand den Raum, startet der Adapter sofort einen kurzen Zirkulationstakt. Das Wasser ist warm, sobald man am Waschbecken steht, und es wird keine Energie verschwendet.
 - **Externe Aktoren (z. B. smarte Steckdosen):** Wenn deine Zirkulationspumpe nicht direkt an der Luxtronik-Platine angeklemmt ist, sondern an einem smarten Relais (z. B. Shelly, Osram Smart Plug etc.) hängt, kannst du hier die Datenpunkte der Steckdosen hinterlegen. Der Adapter schaltet Ihre WLAN-/Zigbee-Steckdosen dann vollautomatisch mit der internen Logik ein und aus. _(Vorteil: Dies verursacht 0 Flash-Schreibvorgänge auf dem Speicher der Wärmepumpe!)_
 
 **💡 Tipp! Hardware-Schutz (EEPROM Flash-Wear - dringend beachten!)** Um das ständige Schreiben im Regler zu minimieren, stellen Sie die regulären ZIP-Zeiten einmalig auf die Tabelle Mo-So und tragen Sie dort 00:00 - 00:00 ein. Die Taktzeiten setzen Sie auf Aus: 60 Minuten und An: 0 Minuten.
 
 **Um die Schreibvorgänge auf dem Regler zu reduzieren, ist es empfehlenswert, die ZIP(s) über einen externen Aktor zu steuern ➔ 0 Schreibvorgänge im Regler! Zum Vergleich: Eine Aktivierung pro Luxtronik2 Regler benötigt für das Entlüftungsprogramm 4 Schreibvorgänge. Über die ZIP-Steuertabelle sind es im besten Fall 4 und im schlechtesten Fall 14 Schreibvorgänge im Flash-Speicher pro Zip Durchlauf.**
+
+## 🛠️️ Fehleranalyse / Troubleshooting
+
+### Raw TCP Test-Skript (`Test_Script.ts`)
+
+In seltenen Fällen (insbesondere bei älteren Firmware-Versionen wie V1.x) kann es zu Verbindungsabbrüchen oder Timeouts beim Schreiben von Werten kommen (z. B `Timeout writing TCP parameter 105`).
+
+Um herauszufinden, ob das Problem am Adapter oder an der Wärmepumpe selbst liegt, liegt diesem Repository ein isoliertes Test-Skript (`Test_Script.ts` im Ordner `Scripte`) bei. Dieses Skript kommuniziert komplett am Adapter vorbei direkt über rohe TCP-Sockets mit der Luxtronik-Steuerung. Es testet den Schreib- und Lesezugriff, indem es den Warmwasser-Sollwert ausliest, ihn testweise minimal erhöht und sofort wieder den Originalwert herstellt.
+
+#### Ausführung im ioBroker:
+
+1. 🛑 **WICHTIG:** Stoppen Sie unbedingt **alle** laufenden Luxtronik-Adapter-Instanzen im ioBroker (auf „Rot“ stellen)! Alte Luxtronik-Steuerungen ermöglichen nur eine einzige gleichzeitige Netzwerkverbindung zu. Läuft ein Adapter im Hintergrund weiter, ist der Port blockiert und das Skript rennt unweigerlich in einen Timeout.
+2. Kopieren Sie den Inhalt der Datei `Test_Script.ts` in ein neues Skript im ioBroker **JavaScript-Adapter** (Typ: _TypeScript_ auswählen).
+3. Passe ganz oben im Skript die Konstante `HOST` an die IP-Adresse deiner Wärmepumpe an.
+4. Starten Sie das Skript und prüfen Sie die Log-Ausgabe des ioBrokers.
+
+#### Ergebnis-Auswertung:
+
+- **✅ ERFOLG:** Das Skript läuft zügig durch und die Wärmepumpe bestätigt den Schreibbefehl. Das bedeutet, dass deine Anlage (und die Firmware) Schreibbefehle fehlerfrei akzeptieren.
+- **❌ TIMEOUT / FEHLER:** Das Skript bleibt beim Lesen/Schreiben oder wird abgewiesen. Dies bedeutet, dass die Anlage die TCP-Kommunikation physisch verweigert. Ursachen hierfür sind oft blockierte Ports (durch Loxone, FHEM, oder andere Smart-Home-Systeme), Firmware-Schutzmechanismen oder aufgehängte Netzwerkkarten in der Wärmepumpe (hier hilft oft ein Strom-Reset der Anlage). Der Adapter kann dieses tiefliegende Netzwerkproblem nicht umgehen.

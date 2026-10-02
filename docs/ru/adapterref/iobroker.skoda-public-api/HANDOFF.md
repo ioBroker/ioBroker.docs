@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.skoda-public-api/HANDOFF.md
 title: Передача управления - ioBroker.skoda-public-api
-hash: sYc0SjDJne3moW2a0RA2tsAzbiVcaVX7ngTyvEW9RIo=
+hash: dEkuvVpL7pCtp8OoJ5zRDEhvTOH/lCcCXzF8YzHakRY=
 ---
 # Передача управления — ioBroker.skoda-public-api
 
@@ -13,27 +13,28 @@ Diese Datei beschreibt den aktuellen Arbeitsstand und die nächsten notwendigen 
 ## Актуальная подставка
 
 - Действующий репозиторий[`tmarthy/ioBroker.skoda-public-api`](https://github.com/tmarthy/ioBroker.skoda-public-api) .
-- Версия `0.1.10` где лучше использовать npm и GitHub. Версия `0.1.11` введите исправление объекта ioBroker-Objektprüfung. Versionsangaben, ioBroker-News и README-Changelog с минимальными изменениями. Дер Таг `v0.1.11` Löst die CI-Matrix и bei Erfolg npm Trusted Publishing sowie den GitHub-Release aus.
-- Der Antrag auf Aufnahme в ioBroker `latest` ист алс[`ioBroker.repositories#6592`](https://github.com/ioBroker/ioBroker.repositories/pull/6592) weiterhin offen (geprüft, 19 сентября 2026 г.).
-- `bluefox` унд `tmarthy` sind als npm-Maintainer eingetragen (am selben Tag geprüft). Die frühere Aufgabe, `bluefox` hinzuzufügen, ist damit erledigt.
+- Версия `0.1.11` где npm и GitHub верифицированы и есть в ioBroker `latest` верфюгбар. Der [Testaufruf im Forum](https://forum.iobroker.net/topic/85433/test-adapter-skoda-public-api-v0.1.x) bestätigt die Aufnahme. `bluefox` унд `tmarthy` sind npm-Maintainer.
+- Lademodus и Ladeprofile wurden am eigenen Fahrzeug erfolgreich getestet.
+- Der Spec-Wächter Hat am 28. Сентябрь 2026 г., новый опционный Felder `ChargingStatus.plugConnectionState` унд `plugLockState` erkannt и [выпуск № 4](https://github.com/tmarthy/ioBroker.skoda-public-api/issues/4) eröffnet. Спецификации, Codegen und Objektbezeichnungen включены в [актуализированный проект PR № 5](https://github.com/tmarthy/ioBroker.skoda-public-api/pull/5) . Вручную вы можете использовать Spec-Workflow на dem Branch ist grün.
+- PR-Matrix — это новая комбинация Ubuntu, Windows, macOS и Node 22, 24, 26 версий. В macOS можно найти драгоценности Compact-Group-Test с.
 - npm Trusted Publishing для тегов `.github/workflows/test-and-release.yml` eingerichtet. `NPM_TRUSTED_PUBLISHING=true` активирует задание развертывания.
 
 ## Offene Themen в empfohlener Reihenfolge
 
-1. **Актуальный обзор и стенд для проверки PR № 6592 prüfen.** Frühere Hinweise zu Objektrollen, npm-Ownern, `process.env` Журнал изменений и компактный режим не могут быть отключены от использования Fehler übernehmen. Entsprechende Korrekturen bzw. Unterstützung sind inzwischen vorhanden. Bei Bedarf einen aktuellen Objekt-Export bereitstellen und einen erneuten Check anfordern; Актуальные комментарии не были бы ошибочными.
-2. **Lademodus и Ladeprofile am Fahrzeug prüfen.** Die Schreibzugriffe sind mit Mock- und Integrationstests abgedeckt; новый Steuerung benötigt noch einen Praxistest mit einem passenden Fahrzeug und dessen verfügbaren Modi/Profilen.
+1. **Проект-ПР №5 prüfen und übernehmen.** Данах ден Нахстен `check-spec` -Lauf auf `main` und die Schließung von Issue #4 kontrollieren.
+2. **Breitere Fahrzeugtests begleiten.** Besonders hilfreich sind Rückmeldungen zu anderen Modellen und Antriebsarten mit anonymisierten Fixtures.
 
 ## Funktionsumfang
 
-Адаптер находится в официальном интерфейсе MyŠkoda Public API и обеспечивает запуск/остановку нагрузки, климатизацию, стоянку и люфтинг для Ladelimit. `charging.settings.targetStateOfChargeInPercent` (50–100 % в 10-Процент-Шриттен). Derselbe Datenpunkt проводит опросы с актуальными Einstellung Einstellung. VIN-коды загружаются в момент конфигурации, а API имеет определенный список требований.
+Адаптер находится в официальном интерфейсе MyŠkoda Public API и обеспечивает запуск/остановку нагрузки, климатизацию, стоянку и люфтинг для Ladelimit. `charging.settings.targetStateOfChargeInPercent` (50–100 % в 10-Процент-Шриттен). Derselbe Datenpunkt проводит опросы с актуальными Einstellung. VIN-коды загружаются в момент конфигурации, а API имеет определенный список требований.
 
 `charging.settings.preferredChargeMode` это для Моди Шрейббара. `chargingProfiles.profiles.<id>.configurationJson` enthält ein vollständiges Profil zum Lesen, Ändern und Zurückschreiben. Teilobjekte werden nicht zusammengeführt; unveränderte Felder müssen erhalten bleiben. Профиль был действительным и неактивным для других профилей, Modus, Ladelimit и Start/Stop eingereiht. Если вы хотите провести опрос в разделе «Профиль» в рамках Wartezeit, то вам понадобится локальный доступ к Schreibzugriff. Gleichzeitige App-Änderungen nach dem Letzten Poll, чтобы узнать больше о том, как API будет обновляться.
 
 Умереть `*.enabled` -Schalter akzeptieren ausschließlich Boolean `true` унд `false`. Andere Werte werden ohne API-Aufruf, Quittierung или Änderung wartender Befehle ignoriert. `<vin>.refresh` fordert einen vorgezogenen Poll an; Квота, Befehlsreserve и Fehlerwartezeiten gelten dabei weiterhin.
 
-Унтер `<vin>.info.polling` zeigen `nextPollAt`, `lastSuccessfulPollAt` унд `reason` этот план Scheduler-Plan, затем Letzten Erfolgreichen API-Abruf и Den aktuellen Wartegrund. Die Zeitstempel verwenden Unix-Millisekunden. Der letzte Erfolg bleibt über Neustarts erhalten; `0` bedeutet, dass kein Erfolg gespeichert ist. `nextPollAt` ist bei laufendem Request, lokalen Schreibwiederholungen или ausgesetztem Опрос `0`. Диагностика всех API-запросов и недоступность для Frische der Fahrzeugdaten. Bei gestoppter Instanz bleiben die zuletzt geschriebenen Werte stehen; erst der nächste Start ersetzt den alten Zeitplan. Полный список основных вопросов находится в README.
+Унтер `<vin>.info.polling` zeigen `nextPollAt`, `lastSuccessfulPollAt` унд `reason` этот план Scheduler-Plan, затем Letzten Erfolgreichen API-Abruf и Den aktuellen Wartegrund. Die Zeitstempel verwenden Unix-Millisekunden. Der letzte Erfolg bleibt über Neustarts erhalten; `0` bedeutet, dass kein Erfolg gespeichert ist. `nextPollAt` ist bei laufendem Request, lokalen Schreibwiederholungen или ausgesetztem Опрос `0`. Диагностика всех API-запросов и недоступность для Frische der Fahrzeugdaten. Bei gestopter Instanz bleiben die zuletzt geschriebenen Werte stehen; erst der nächste Start ersetzt den alten Zeitplan. Полный список основных вопросов находится в README.
 
-Унтер `<vin>.info.commandConfirmation.<group>` Доступ к API-интерфейсу Befehl je Steuerungsgruppe sichtbar: `status`, `name`, JSON-`target`, `sentAt`, `expiresAt` унд `confirmedAt`. Die Zustände sind `WAITING`, `CONFIRMED`, `TIMED_OUT` и найдите нужную конфигурацию Neustart `INTERRUPTED` für zuvor offene Vorgänge. Bestätigungen werden ausschließlich aus bestehenden Poll-Antworten abgeleitet; отдельный локальный таймер, который объединяется с Fristablauf. Это означает, что вы можете использовать API-вызовы во время проверок или автоматических опросов. Семантический фон `info.lastCommand` унд `ack=true` bleibt unverändert (API-Annahme).
+Унтер `<vin>.info.commandConfirmation.<group>` Доступ к API-интерфейсу Befehl je Steuerungsgruppe sichtbar: `status`, `name`, JSON-`target`, `sentAt`, `expiresAt` унд `confirmedAt`. Die Zustände sind `WAITING`, `CONFIRMED`, `TIMED_OUT` и найдите нужную конфигурацию Neustart `INTERRUPTED` für zuvor offene Vorgänge. Bestätigungen werden ausschließlich aus bestehenden Poll-Antworten abgeleitet; отдельный локальный таймер, который объединяется с Fristablauf. Это дает нам возможность выполнять вызовы API во время опросов проверки или автоматических вызовов. Семантический фон `info.lastCommand` унд `ack=true` bleibt unverändert (API-Annahme).
 
 Поддержка API **20 запросов по Stunde и VIN** . Чтобы получить VIN-код адаптера, сохраните квоту-ведро `<vin>.rateLimit.*`. Опросы останавливают настройку Befehlsreserve free. Befehle laufen über eine Queue mit Coalescing und TTL; nach einer angenommenen Operation после опроса Verifikations.
 
@@ -125,7 +126,7 @@ npm run check:spec
 
 ## Betriebsrelevante Hinweise
 
-- Ключ API и S-PIN доступны в интерфейсе администратора. Бейде Фельдер и другие `encryptedNative` унд `protectedNative` задняя часть.
+- API-ключ и S-PIN доступны в интерфейсе администратора. Бейде Фельдер и другие `encryptedNative` унд `protectedNative` задняя часть.
 - Der Verbindungstest kostet einen Запросите получение VIN.
 - `info.connection` wird bei `401` унд `403` ауф `false` gesetzt, bei erschöpfter Quota jedoch nicht.
 - Ein abgelaufener Schlüssel сокращает количество опросов на einmal pro Stunde. Адаптер может быть использован в следующих случаях.
@@ -149,7 +150,7 @@ npm run check:spec
 - Feldänderungen bleiben local; Примените лучший вариант Queue mit vollständigem Profil и ursprünglichem Snapshot. Keine zusätzlichen Lese- или запросы на проверку.
 - `dirty`, `conflict`, `message` beschreiben den Entwurf; ACK должен быть локальным. Befehlsstatus und Bestätigung bleiben в `info.lastCommand` /`info.commandConfirmation`.
 - Bei Neustart werden Entwürfe erst aus dem nächsten gültigen Poll neu aufgebaut. Применить/заблокировать профиль и заблокировать профиль.
-- Тесты проводятся с другими конфликтами, идентификаторами таймеров, проверкой, запуском Felder, Neustart и другими методами с возможностью PUT в Integrationstest.
+- Тесты проводятся с другими конфликтами, идентификаторами таймеров, проверкой, запуском Felder, Neustart и другими методами, которые можно выполнить с помощью PUT в Integrationstest.
 
 ### Metadaten und Verfügbarkeit des Profileditors
 

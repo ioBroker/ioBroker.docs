@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.renault/README.md
 title: ioBroker.renault
-hash: n0x+JEIqmBYYeuSQSm0VjBP1jDdWNkLkA+qq45bv66M=
+hash: rLJwTLomxAyyqzhZy/S/51CQeBEn0P2CKD7lTg+oPx8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.renault/admin/renault.png)
 
@@ -29,8 +29,9 @@ hash: n0x+JEIqmBYYeuSQSm0VjBP1jDdWNkLkA+qq45bv66M=
 2. Откройте настройки адаптера и введите учетные данные вашей учетной записи **My Renault** (или **My Dacia** / **My Alpine** ): адрес электронной почты приложения и пароль приложения.
 3. Выберите **марку** вашего приложения: `Renault / Dacia` для моего Renault и моей Dacia. `Alpine` для My Alpine. Все три приложения авторизуются в одной и той же службе Renault; производитель сам решает, какую учетную запись для входа в систему будет использовать адаптер.
 4. Выберите **страну** , в которой находится ваш аккаунт, в приложении.
-5. При желании можно установить **интервал** опроса в минутах и **ключ API** (оставьте поле пустым для автоматического определения).
-6. Сохраните изменения, и экземпляр начнет опрос.
+5. Нажмите **«Проверить вход»** , чтобы проверить электронную почту и пароль перед сохранением. Для корректной работы кнопки экземпляр должен быть запущен.
+6. При желании можно установить **интервал** опроса в минутах и **ключ API** (оставьте поле пустым для автоматического определения).
+7. Сохраните изменения, и экземпляр начнет опрос. Под полями для **входа** в систему отображается информация о том, подключено ли устройство.
 
 ## Поддерживаемые модели
 
@@ -147,6 +148,9 @@ hash: n0x+JEIqmBYYeuSQSm0VjBP1jDdWNkLkA+qq45bv66M=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Added a **Test login** button to the settings page. It checks email and password with the values on the page before saving and says whether they are wrong or the service did not answer. The page also shows whether the instance is connected.
+- GPS latitude and longitude now carry the roles `value.gps.latitude` and `value.gps.longitude`, so map widgets and the type detector find the vehicle position. Existing states are updated on the next start.
 
 ### 1.0.0 (2026-09-23)
 

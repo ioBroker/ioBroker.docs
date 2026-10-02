@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.comfoairq/README.md
 title: ioBroker.comfoairq
-hash: Eu/VPY8VZ2C7ZoExN1OK2V6rSex/3Wsj5mrbKSUXJeM=
+hash: oDzabePUZFiDVEAyXJGtNNYDJn/+NsEDm06jo7wfkf4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.comfoairq/admin/comfoairq.png)
 
@@ -21,16 +21,27 @@ hash: Eu/VPY8VZ2C7ZoExN1OK2V6rSex/3Wsj5mrbKSUXJeM=
 ![Стабильный](http://iobroker.live/badges/comfoairq-stable.svg)
 ![Установлено](http://iobroker.live/badges/comfoairq-installed.svg)
 
-# IoBroker.comfoairq
+# ioBroker.comfoairq
+
 ## Версии
+
 Подключите Zehnder ComfoAirQ через ComfoConnect LAN C.
 
-*Протестировано с ComfoAirQ 350*
+_Протестировано с ComfoAirQ 350_
 
-**Важно:** ComfoConnect LAN C поддерживает только 1 клиентское устройство. Вы не можете использовать приложение ComfoControl и адаптер ioBroker одновременно!
+> \[!NOTE] В версиях прошивки ComfoConnect LAN C до U1.2.6 поддерживается только 1 клиент — вы не можете использовать приложение ComfoControl и адаптер ioBroker одновременно. Начиная с версии прошивки U1.2.6, поддерживается несколько одновременных подключений.
 
-## Спонсор:
+## Спонсор
+
 [![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png?2024)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-comfoairq)
+
+## Кредиты
+
+Разработка этого адаптера ioBroker стала возможной благодаря работе, проделанной следующими лицами:
+
+- Ян Ван Белль ( <https://github.com/herrJones/node-comfoairq> )
+- Майкл Арнаутс ( <https://github.com/michaelarnauts/aiocomfoconnect> )
+- Марко Хойер ( <https://github.com/marco-hoyer/zcan> ) и его форки на GitHub (djwlindenaar, decontamin4t0R)
 
 ## Changelog
 
@@ -38,6 +49,39 @@ hash: Eu/VPY8VZ2C7ZoExN1OK2V6rSex/3Wsj5mrbKSUXJeM=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2026-10-02)
+
+* (@klein0r) Added installer code and installer mode (read only, `property.*`)
+* (@klein0r) Added buttons to switch the installer mode on / off
+
+### 1.0.0 (2026-10-01)
+
+* (@klein0r) Updated comfoairq library to 2.1.0
+* (@klein0r) Updated README: multiple simultaneous connections are supported since LAN C firmware U1.2.6
+* (@klein0r) Device discovery searches on all network interfaces (and directly on the configured IP address) - removed broadcast address option
+* (@klein0r) Added commands: boost 60 / 90 minutes / unlimited, boost and away mode with custom duration, end away mode, extract only ventilation mode, filter change
+* (@klein0r) Added settings (`property.*`): filter lifetime / warning, fan flow per level, RMOT heating / cooling limit, sensor based ventilation - and device information (model name, article number, country)
+* (@klein0r) Added new sensors (e.g. outdoor air temperature, supply air temperature, filter change state, seconds until next change)
+* (@klein0r) Connection state is restored after an automatic reconnect
+* (@klein0r) Added value texts (`states`) for mode sensors (e.g. operating mode, fan speed mode, bypass activation mode)
+* (@klein0r) Fixed crash (ERR_OUT_OF_RANGE) when a message from the gateway is split across multiple TCP packets
+* (@klein0r) Connection state is set again when sensor values are received
+* (@klein0r) Sensor values received within the 2 second update limit are no longer dropped - the latest value is written afterwards
+* (@klein0r) Added connected devices of the ComfoNet bus (`node.*`) with product, zone, mode - and serial number, firmware version and active errors (alarms)
+* (@klein0r) Added command to reset errors
+* (@klein0r) Added device name, serial number and firmware version of the ventilation unit (`property.*`)
+* (@klein0r) Gateway and ComfoNet version are shown as readable version (e.g. R1.5.1)
+* (@klein0r) Commands and settings are sent to the ventilation unit announced by the device (e.g. ComfoAir Flex)
+* (@klein0r) Added sensors: heating / cooling season, airflow constraints, analog inputs, subsoil heat exchanger present, ComfoCool state
+* (@klein0r) Added ground heat exchanger sensors 416 / 417 / 418 (fixes #28)
+* (@klein0r) Added duration (1 - 24 hours) for supply only / extract only ventilation mode (fixes #45)
+* (@klein0r) Retry to start the session every minute if the LAN C is not reachable on startup
+
+### 0.6.1 (2026-10-01)
+
+* (@klein0r) Updated dependencies
+* (@klein0r) admin 7.8.23 and js-controller 6.0.11 (or later) are required
+
 ### 0.6.0 (2026-05-19)
 
 * (copilot) Adapter requires node.js >= 22 now
@@ -47,37 +91,6 @@ hash: Eu/VPY8VZ2C7ZoExN1OK2V6rSex/3Wsj5mrbKSUXJeM=
 ### 0.5.1 (2025-04-14)
 
 * (@klein0r) Updated dependencies
-
-### 0.5.0 (2025-04-14)
-
-NodeJS >= 20.x and js-controller >= 6 is required
-
-* (@klein0r) Added messagebox for device discovery via admin
-* (@klein0r) Added responsive admin layout
-
-### 0.4.0 (2024-03-28)
-
-NodeJS >= 18.x and js-controller >= 5 is required
-
-* (klein0r) Added icons to admin tabs
-* (klein0r) Group sensors in admin config
-* (klein0r) Limit sensor value refresh interval
-
-### 0.3.0 (2022-12-14)
-
-NodeJS 14.x is required (NodeJS 12.x is EOL)
-
-* (klein0r) Updated depedency for js-controller to 4.0.15
-* (klein0r) Dropped Admin 5 support
-* (klein0r) Added Ukrainian language
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)## Credits
-
-Development of this ioBroker Adapter was possible on the work performed by:
-
-* Jan Van Belle (https://github.com/herrJones/node-comfoairq)
-* Michael Arnauts (https://github.com/michaelarnauts/comfoconnect)
-* Marco Hoyer (https://github.com/marco-hoyer/zcan) and its forks on github (djwlindenaar, decontamin4t0R)
 
 ## License
 

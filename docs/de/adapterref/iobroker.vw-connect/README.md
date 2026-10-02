@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: mPHwtk8y9nXS+Npq8NhpAhSpDGoo+6bIxfz90lYtUvQ=
+hash: f2RHlzuluKvO+MUeFWyDHteqWQJz3MKJzc1iNKxwchY=
 ---
 ![Logo](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -67,7 +67,7 @@ Um dies zu aktivieren, müssen Sie **einmalig eine kontinuierliche Datenanfrage 
 2. Gehe zu **Datencluster → Fahrzeugübersicht** .
 3. Klicken Sie auf **„Auto verbinden“** , falls Ihre Fahrzeugidentifikationsnummer (VIN) noch nicht aufgeführt ist, und folgen Sie den Anweisungen auf dem Bildschirm zur Kopplung/Zustimmung.
 4. Klicken Sie auf **Benutzerdefinierte Daten anfragen** . Hinweis vom Portal: Es kann immer nur eine benutzerdefinierte Datenanfrage gleichzeitig aktiv sein.
-5. **Vereinbarung gemäß Artikel 4 EU Data Act** ankreuzen („Ich bestätige, dass ich die Vereinbarung gemäß Artikel 4 EU Data Act gelesen und akzeptiert habe.“) → **Weiter**
+5. **Vereinbarung gemäß Artikel 4 EU Data Act** ankreuzen („Ich bestätige, dass ich die Vereinbarung gemäß Artikel 4 EU Data Act gelesen und akzeptiert habe.“) → **Weiter** .
 6. **Datencluster auswählen** : **Alle Daten** anhaken („Alle EU-Datengesetz-relevanten Datenpunkte“). Andere Cluster nur, wenn Sie gezielt einschränken wollen – die Auswahl nur einiger schränkt was ein `<vin>.statuseudata.*` wird enthalten.
 7. **Name des Datenpakets** vergeben (frei wählbar, zB „ioBroker“). Erscheint später als `_dataset_name` -Präfix in den Dateinamen.
 8. **Frequenz wählen** : **Alle 15 Minuten** . Andere Optionen (täglich) liefern nicht genug Auflösung für Live-Werte.
@@ -121,6 +121,11 @@ Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.conte
 ```
 
 ### **IN BEARBEITUNG**
+
+### 0.9.12 (2026-09-29)
+
+- EU-Datenschutzgesetz: Portallast deutlich reduziert – nach jedem Download wird der nächste Eintrag im erwarteten 15-Minuten-Zeitfenster (aus dem Datensatz createdOn) anstatt minütlich angezeigt; bei fehlendem createdOn wird auf ein 1-Minuten-Abfrageintervall zurückgegriffen und maximal ein Zeitfenster verwendet.
+- EU-Datenschutzgesetz: VWs eigene PR #456 wurde übernommen – die veraltete Portal-Priming-Anfrage wurde entfernt und ein versionsbasierter User-Agent (ioBroker.VW\_Connect/) festgelegt.<version> )
 
 ### 0.9.11 (2026-09-23)
 
@@ -183,7 +188,7 @@ Die Klimatisierungstemperatur kann in .climater.settings.targetTemperature.conte
 
 ### 0.8.6 (2026-05-27)
 
-- Fehlerbehebung bei der ID-Anmeldung
+- Fehlerhafte ID-Anmeldung
 
 ### 0.8.5 (2026-05-24)
 

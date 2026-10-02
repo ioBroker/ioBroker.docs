@@ -43,6 +43,10 @@ If you like my work, please feel free to provide a personal donation
 * (DutchmanNL) Maintenance: raise Node.js to 22, modernise CI and release tooling, update dependencies, resolve repository checker findings
 * (DutchmanNL) **FIXED**: Removed non-existent version 0.6.1 from changelog to comply with ioBroker repository checker requirements (E2004)
 * (DutchmanNL) **ENHANCED**: Cleaned up common.news entries in io-package.json to maintain only published versions
+* (tipp88) **FIXED**: Meters reporting `storageNumber`, `storageNumbers` or `gatewayStatus` no longer log "State type : … unknown", the values are stored ([#344](https://github.com/DrozmotiX/ioBroker.discovergy/issues/344), [#345](https://github.com/DrozmotiX/ioBroker.discovergy/pull/345))
+* (DutchmanNL) **ENHANCED**: Tests now also run on Node.js 26 ([#385](https://github.com/DrozmotiX/ioBroker.discovergy/issues/385))
+* (DutchmanNL) **ENHANCED**: Updated @iobroker/testing to 6.3.0
+* (DutchmanNL) The adapter now requires Admin 7.8.23 or newer
 
 ### 0.7.0 (2026-02-15)
 * (DutchmanNL) release fixes and improvements in 0.7.0, resolved #316 #313

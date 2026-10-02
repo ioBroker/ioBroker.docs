@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"title":{"en":"ioBroker.luxtronik2-controller"},"content":"en/adapterref/iobroker.luxtronik2-controller/README.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md"},"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.luxtronik2-controller/documentation/readme_de.md
 title: без названия
-hash: bAOVdajmtIqtf9jEI7uH4oA+iQZZxe2DGcjctk5fGWE=
+hash: jzvbM3Knu1c6X4ED4PyJVelTZbNYF6sZ8ZmM2aUUBHk=
 ---
 ## Конфигурация мгновенного адаптера
 
@@ -16,7 +16,7 @@ Auf dieser Seite werden die grundlegenden Netzwerkeinstellungen für die Kommuni
 
 #### Verbindungseinstellungen
 
-- **IP-адрес (хост):** выберите локальный IP-адрес, указанный в локальной сети Netzwerk ein (z. B.`192.168.178.12` ).
+- **IP-адрес (хост):** выберите локальный IP-адрес, указанный в локальной сети Netzwerk ein (z. B. `192.168.178.12`).
 - **Порт Вермепумпен:** Der Kommunikationsport der Steuerung.
   - `8889` = Стандартный порт для классической TCP-связи (часто в прошивке версии 2.x).
   - `8214` = WebSocket-Port (подключение к новой версии прошивки V3.81x).
@@ -30,7 +30,7 @@ Auf dieser Seite werden die grundlegenden Netzwerkeinstellungen für die Kommuni
 
 - **Sprache für Texte und Werte:** Diese Einstellung legt fest, в welcher Sprache die textbasierten Zustände und Betriebsmodi in die ioBroker-Datenpunkte geschrieben werden. Адаптер автоматически активирует коды английского языка в лесбийском тексте.
 
-_Примечание: Если вы используете Wärmepumpe Wasser aufheizt, schreibt der Adaptor je nach Auswahl entweder`Warmwasser` (Deutsch) oder`Hot water` (English) in den Objektbaum._
+_Примечание: Если вы используете Wärmepumpe Wasser aufheizt, schreibt der Adaptor je nach Auswahl entweder `Warmwasser` (Deutsch) oder `Hot water` (English) in den Objektbaum._
 
 ![Beispiel für übersetzte Werte im ioBroker Objektbaum](../../../../en/adapterref/iobroker.luxtronik2-controller/admin/img/Objekte.png)
 
@@ -39,7 +39,7 @@ _Примечание: Если вы используете Wärmepumpe Wasser a
 Стандартные требования к Luxtronik-Steuerung Heiz- und Warmwassertakte strikt getrennt. Dies führt dazu, dass der Verdichter nach der Warmwasserbereitung stoppt, nur um kurz darauf für einen Heiztakt wieder anzulaufen (erhöhter Verschleiß). Dieser Adaptor koppelt die Vorgänge интеллектуальный, надежный и эффективный в работе.
 
 - **Интеллектуальная активация такта оптимизации:** Schaltet die übergreifende Logik zur Vermeidung von unnötigen Verdichter-Stopps ein.
-  - **Auslöser-Regel (Vorzündung):** Wenn das Warmwasser abkühlt`(WW Soll - WW Ist ≥ WW Hysterese - 1,5 K)` **UND** gleichzeitig Heizbedarf besteht`(Rücklauf Ist ≤ Rücklauf Soll)` sowie die Summer-Heizgrenze nicht aktiv ist, получить адаптер ein.
+  - **Auslöser-Regel (Vorzündung):** Wenn das Warmwasser abkühlt `(WW Soll - WW Ist ≥ WW Hysterese - 1,5 K)` **UND** gleichzeitig Heizbedarf besteht `(Rücklauf Ist ≤ Rücklauf Soll)` sowie die Summer-Heizgrenze nicht aktiv ist, получить адаптер ein.
   - **Действие:** Адаптер запускается непосредственно в процессе нагрева и устанавливается в режиме Rücklauf-Sollwert при температуре 35°C, а затем в режиме мягкого нагревания. Когда Anlage kurz darauf auf Warmwasser umschaltet, läuft der Verdichter einfach weiter.
 - **Чтобы включить теплый режим:** Если он активен, выберите адаптер системы и _начните_ теплый контакт. При температуре 35°C при температуре 35°C температура нагрева должна быть равна нулю.
 
@@ -67,7 +67,7 @@ Die Heizumwälzpumpe (HUP) перед теплым Вассером фон де�
 > **⚠️ Wichtige Voraussetzungen (Bitte vor Aktivierung prüfen!)**
 >
 > 1. **Совместимость аппаратного обеспечения:** Если у вас есть какие-либо функции, при подключении насоса к Steuerkabel (0–10 В или PWM) и к плате Luxtronik-Platine! Если вы используете свой насос, вы должны настроить собственный объем (например, _Grundfos ALPHA2 AutoAdapt_ auf Stellung «Auto»), чтобы функция **не** была активирована. Andernfalls würden der Adaptor und die Pumpe постоянно обновляется.
-> 2. **Spannungsfaktor (Прошивка):** Альтернативные прошивки V2.x можно использовать в другом формате в новых прошивках V3.x (например, LWCV 82). Выбор конфигурации для выбора аппаратного обеспечения для вашего устройства (`100` для V2.x vs.`10` (для версии V3.x).
+> 2. **Spannungsfaktor (Прошивка):** Альтернативные прошивки V2.x можно использовать в другом формате в новых прошивках V3.x (например, LWCV 82). Выбор конфигурации для выбора аппаратного обеспечения для вашего устройства (`100` для V2.x vs. `10` (для версии V3.x).
 > 3. **Sicherheits-Reset (Leerlauf):** активация функции _«Standardwerte im Leerlauf erzwingen»_ в Reiter «Leerlauf». Дадурч упал на «Конец Heiztaktes», видя на своем празднике Standardspannung zurück, anstatt auf dem manipulierten Wert stehen zu bleiben.
 
 #### Konfiguration deiner Anlage
@@ -88,10 +88,30 @@ Die Zirkulationspumpe (ZIP) sorgt dafür, dass an den Zapfstellen im Haus (z. B.
 Этот адаптер должен быть умным и автоматическим, а ZIP-архив может быть использован только в том случае, если он используется в других местах.
 
 - **Интеллектуальная оптимизация ZIP:** если включена, активируется адаптер теплового насоса. Циркуляция может быть осуществлена синхронно с теплым потоком воздуха.
-- **Laufzeit bei Aktivierung:** Definiert, wie lange (в секундах) die Pumpe laufen soll, wenn sie durch den Adaptor order manuell (über den Schalter`Activate_Zip` im Objektbaum) ausgelöst wird. Если вы используете интервал между 120 и 180 секундами, система Rohrsystem работает с теплыми водами.
+- **Laufzeit bei Aktivierung:** Definiert, wie lange (в секундах) die Pumpe laufen soll, wenn sie durch den Adaptor order manuell (über den Schalter `Activate_Zip` im Objektbaum) ausgelöst wird. Если вы используете интервал между 120 и 180 секундами, система Rohrsystem работает с теплыми водами.
 - **Bewegungsmelder (по запросу):** это абсолютный потенциал Spar! Вы можете использовать ioBroker-Datenpunkte deiner Smart-Home-Bewegungsmelder (z. B. Zigbee-Sensoren im Badezimmer или in der Küche) eintragen. Прежде чем начать работу, начните с адаптера для обеспечения циркуляции воздуха. Das Wasser — это теплый, угрюмый человек, am Waschbecken steht, und es wird keine Energie verschwendet.
 - **Внешние актеры (z.B. smarte Steckdosen):** Если вы не используете циркуляционный насос напрямую и дер Luxtronik-Platine angeklemmt, это, в свою очередь, и Einem Smarten Relais (z.B. Shelly, Osram Smart Plug и т. д.), это может привести к тому, что вы получите указание от Steckdosen подсказки. Адаптер должен использовать WLAN-/Zigbee-Steckdosen для автоматического подключения к внутренней логике и другим устройствам. _(Перенос: Dies verursacht 0 Flash-Schreibvorgänge auf dem Speicher der Wärmepumpe!)_
 
 **💡 Типп! Hardware-Schutz (EEPROM Flash-Wear - dringend beachten!)** Когда вы будете использовать стандартный регулятор для минимизации, сохраните стандартные ZIP-файлы, которые можно использовать на таблице Mo-So и переносить их с 00:00 до 00:00. Время ожидания: 60 минут и время: 0 минут.
 
 **Um die Schreibvorgänge auf dem Regler zu reduzieren, ist es empfehlenswert, die ZIP(s) über einen externen Aktor zu steuern ➔ 0 Schreibvorgänge im Regler! Дополнительная информация: Активация для Luxtronik2 Regler benötigt für das Entlüftungsprogramm 4 Schreibvorgänge. Über die ZIP-Steuertabelle, который лучше всего подходит для осени 4 и для осени 14. Schreibvorgänge im Flash-Speicher pro Zip Durchlauf.**
+
+## 🛠️️ Фелеранализ/Устранение неполадок
+
+### Исходный тестовый скрипт TCP (`Test_Script.ts`)
+
+В некоторых случаях (в зависимости от версии встроенного ПО с версией V1.x) может быть задано значение Verbindungsabbrüchen или Timeouts beim Schreiben von Werten kommen (zB `Timeout writing TCP parameter 105`).
+
+Когда вы обнаружите, что проблема связана с адаптером или с теплым насосом, который находится в изолированном тестовом сценарии (`Test_Script.ts` им Орднер `Scripte`) Бэй. Коммуникационный сценарий полностью укомплектован адаптером, предназначенным для использования непосредственно с TCP-сокетами с помощью Luxtronik-Steuerung. Es testet den Schreib- und Lesezugriff, indem es den Warmwasser-Sollwert ausliest, ihn testweise minerhöht und soft wieder den Originalwert herstellt.
+
+#### Ausführung im ioBroker:
+
+1. 🛑 **ВНИМАНИЕ:** Stoppe zwingend **alle** laufenden Luxtronik-Adapter-Instanzen im ioBroker (auf "Rot" stellen)! Alte Luxtronik-Steuerungen lassen nur einzige gleichzeitige Netzwerkverbindung zu. При использовании адаптера во внутреннем пространстве порт блокируется, а сценарий не работает в течение тайм-аута.
+2. Kopiere den Inhalt der Filei `Test_Script.ts` в новом скрипте в ioBroker **JavaScript-адаптере** (тип: _TypeScript_ auswählen).
+3. Passe ganz oben im Skript die Konstante `HOST` IP-адрес, указанный в Wärmepumpe.
+4. Запустите скрипт и получите журнал регистрации ioBrokers.
+
+#### Ergebnis-Auswertung:
+
+- **✅ ERFOLG:** Скрипт läuft zügig durch und die Wärmepumpe bestätigt den Schreibbefehl. Для этого необходимо выбрать установку (и прошивку) и получить необходимые настройки.
+- **❌ TIMEOUT / FEHLER:** Das Skript bleibt beim Lesen/Schreiben hängen order wird abgewiesen. Dies bedeutet, dass die Anlage die TCP-Kommunikation physch verweigert. Также часто блокируются порты (например, Loxone, FHEM, другие системы Smart-Home), встроенное ПО или дополнительные сетевые карты в тепловом насосе (здесь часто используется Strom-Reset der Anlage). С адаптером могут возникнуть проблемы с подключением сети.

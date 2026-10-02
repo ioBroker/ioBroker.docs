@@ -6,9 +6,9 @@ chapters: {"pages":{"en/adapterref/iobroker.tibberlink/README.md":{"title":{"en"
 _Part of the [ioBroker.tibberlink documentation](/#/adapters/tibberlink)._
 
 To make it work, you need to modify the web interface of the Bridge to remain permanently enabled.
-marq24 provides an excellent description of how to do this for his Home Assistant integration here:
+marq24 provides an excellent step-by-step description of how to do this (for his Home Assistant integration, but the Bridge preparation is identical):
 
-https://github.com/marq24/ha-tibber-pulse-local
+📖 **[Tibber Bridge preparation guide](https://github.com/marq24/ha-tibber-pulse-local/blob/main/preparation.md)** (see also the [project overview](https://github.com/marq24/ha-tibber-pulse-local)).
 
 If everything works correctly, the meter data will be written to ioBroker states every 2 seconds.
 
@@ -22,6 +22,8 @@ Tibber Bridge firmware around `1794-…` renamed the local HTTP JSON paths:
 | Metrics / meter_mode | `/metrics.json?node_id=N` | `/node_metrics.json?node_id=N` |
 
 The adapter tries the new paths first and falls back to the legacy ones on HTTP 404, so both firmware generations keep working. See also [ha-tibber-pulse-local#129](https://github.com/marq24/ha-tibber-pulse-local/discussions/129) and issue #947.
+
+Firmware ≥1794 also **restructured** the metrics JSON: the former `node_status` / `hub_attachments` objects were replaced by `node`, `ir` and `hub`, and `node_uptime_ms` was renamed to `node_uptime` (still in milliseconds). The adapter handles the renamed uptime and writes the states under the new tree. The old `PulseInfo.node_status.*` / `PulseInfo.hub_attachments.*` states become orphans; the adapter prunes any PulseInfo state that has not been updated for more than 14 days (and removes the empty folders) automatically on startup, so no manual cleanup is required.
 
 ## Supported meter modes
 

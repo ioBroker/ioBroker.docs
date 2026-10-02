@@ -196,6 +196,7 @@ https://www.iobroker.com/docs/viz/widgets-materialdesign.md
 https://www.iobroker.com/docs/viz/widgets.md
 https://www.iobroker.com/docs/viz/widgetsets.md
 https://www.iobroker.com/adapters/absaar
+https://www.iobroker.com/adapters/absolutehumidity
 https://www.iobroker.com/adapters/accuweather
 https://www.iobroker.com/adapters/acme
 https://www.iobroker.com/adapters/adb
@@ -501,7 +502,6 @@ https://www.iobroker.com/adapters/influxdb
 https://www.iobroker.com/adapters/influxdb-prologger
 https://www.iobroker.com/adapters/innogy-smarthome
 https://www.iobroker.com/adapters/innoxel
-https://www.iobroker.com/adapters/intesishome
 https://www.iobroker.com/adapters/intex
 https://www.iobroker.com/adapters/iometer
 https://www.iobroker.com/adapters/iopooleco

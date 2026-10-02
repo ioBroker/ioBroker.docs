@@ -115,6 +115,9 @@ Now they could be found in `cloud.X.devices.NAME`:
 -->
 
 ## Changelog
+### 6.2.6 (2026-09-28)
+* (@GermanBluefox) Added new App state: onScreen
+
 ### 6.2.5 (2026-09-24)
 * (@GermanBluefox) A POST body that arrives as a buffer is decoded instead of stringified, so the telemetry of the visu apps is no longer lost on its way through the cloud
 * (@GermanBluefox) An empty body for a reported value, and a command without `deviceName`/`name`, are logged instead of being dropped silently
@@ -129,9 +132,6 @@ Now they could be found in `cloud.X.devices.NAME`:
 ### 6.1.3 (2026-08-26)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Migrated blockly to TypeScript
-
-### 6.1.2 (2026-06-13)
-* (@GermanBluefox) Added support of credentials manager
 
 ## License
 The MIT License (MIT)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.harmony/README.md
 title: ioBroker.harmony
-hash: Icl1F6peKW51uwhYKAdA5qdghRDGZaAd6LxPWJyryP0=
+hash: QtowkcpghYU38KrZWSiwOL4yIRxWLWLBJqphEGTkfWc=
 ---
 ![Logo](../../../en/adapterref/iobroker.harmony/admin/harmony.png)
 
@@ -26,6 +26,8 @@ hash: Icl1F6peKW51uwhYKAdA5qdghRDGZaAd6LxPWJyryP0=
 **Version:**
 
 **Tests:**
+
+> \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
 
 <!--
 ## Sentry
@@ -60,7 +62,7 @@ Mit Logitech Harmony können Sie Programme wechseln, die Lautstärke anpassen, F
 
 ### Der Logitech Harmony Adapter
 
-Der Logitech Harmony Adapter findet automatisch jeden Logitech Harmony Hub, der sich über eine Wi-Fi-Verbindung im selben Netzwerk-Subnetz wie der ioBroker-Server befindet.
+Der Logitech Harmony Adapter findet automatisch jeden Logitech Harmony Hub, der sich über eine Wi-Fi-Verbindung im selben Netzwerk-Subnetz wie der ioBroker Server befindet.
 
 Die Objekte zum Auslösen von Gerätefunktionen und -aktivitäten (Befehlsmakros) werden vom Adapter automatisch in ioBroker erstellt. Der aktuelle Status des Hubs ist ebenfalls verfügbar. Durch Schreiben oder Lesen der erstellten Objekte kann deren Status geändert und somit Aktionen ausgelöst oder abgefragt werden.
 
@@ -70,7 +72,7 @@ Geräte und Aktivitäten können weder über den ioBroker-Adapter für das Logit
 
 ## Installation
 
-Eine Instanz des Adapters wird über die ioBroker-Administrationsoberfläche installiert. Eine detaillierte Beschreibung der erforderlichen Installationsschritte finden Sie **[hier](https://www.iobroker.net/#en/documentation/admin/adapter.md)** .
+Eine Instanz des Adapters wird über die ioBroker-Administrationsoberfläche installiert. Die detaillierte Beschreibung der notwendigen Installationsschritte finden Sie **[hier](https://www.iobroker.net/#en/documentation/admin/adapter.md)** .
 
 Nach Abschluss der Installation einer Adapterinstanz öffnet sich automatisch ein Konfigurationsfenster.
 
@@ -80,13 +82,13 @@ Der Adapter findet selbstständig alle Harmony-Hubs im Subnetz des ioBroker-Serv
 
 ### Das Fenster "Logitech Harmony Adaptereinstellungen"
 
-| Feld                      | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Netzwerkschnittstelle** | Die Schnittstelle, auf der der Adapter sucht. Auf Hosts mit mehreren Netzwerken (mehrere Netzwerkkarten, Docker, VPN) wählen Sie die richtige Schnittstelle aus, damit sowohl Broadcast als auch Antwort des Hubs diese verwenden. Die Broadcast-Adresse wird von dieser Schnittstelle abgeleitet, daher funktionieren auch andere Subnetzmasken als /24 (#331). Lassen Sie das Feld leer, um auf allen Schnittstellen zu suchen – dies ist die empfohlene Einstellung für die meisten Installationen. |
-| **Entdeckungsintervall**  | Wie oft eine Erkennungsnachricht gesendet wird. Der Standardwert beträgt 2000 ms, der kleinste zulässige Wert ist 500 ms.                                                                                                                                                                                                                                                                                                                                                                              |
-| **Manuelle Hub-IPs**      | Eine optionale Liste von Hub-Adressen. Sobald diese Liste mindestens einen Eintrag enthält, kontaktiert der Adapter genau diese Adressen und überspringt den Broadcast vollständig. Verwenden Sie diese Liste, wenn sich ein Hub in einem anderen Subnetz als ioBroker befindet oder wenn Broadcast-Verkehr in Ihrem Netzwerk blockiert ist (#147).                                                                                                                                                    |
+| Feld                      | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Netzwerkschnittstelle** | Die Schnittstelle, auf der der Adapter sucht. Auf Hosts mit mehreren Netzwerken (mehrere Netzwerkkarten, Docker, VPN) wählen Sie die richtige Schnittstelle aus, damit sowohl die Broadcast-Adresse als auch die Antwort des Hubs diese verwenden. Die Broadcast-Adresse wird von dieser Schnittstelle abgeleitet, daher funktionieren auch andere Subnetzmasken als /24 (#331). Lassen Sie das Feld leer, um auf allen Schnittstellen zu suchen – dies ist die empfohlene Einstellung für die meisten Installationen. |
+| **Entdeckungsintervall**  | Wie oft eine Erkennungsnachricht gesendet wird. Der Standardwert beträgt 2000 ms, der kleinste zulässige Wert ist 500 ms.                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Manuelle Hub-IPs**      | Eine optionale Liste von Hub-Adressen. Sobald diese Liste mindestens einen Eintrag enthält, kontaktiert der Adapter genau diese Adressen und überspringt den Broadcast vollständig. Verwenden Sie diese Liste, wenn sich ein Hub in einem anderen Subnetz als ioBroker befindet oder wenn Broadcast-Verkehr in Ihrem Netzwerk blockiert ist (#147).                                                                                                                                                                    |
 
-Nach Abschluss der Konfiguration wird im Konfigurationsdialog Folgendes angezeigt: `SAVE AND CLOSE` Der Adapter wird anschließend neu gestartet.
+Nach Abschluss der Konfiguration bleibt der Konfigurationsdialog mit folgendem Inhalt zurück: `SAVE AND CLOSE` Der Adapter wird anschließend neu gestartet.
 
 Bei Instanzen, die von Version 2.1.0 oder älter aktualisiert wurden, wird die entfernte Einstellung _„Discovery-Subnets“_ beim ersten Start automatisch migriert: Eine Adresse, die die Broadcast-Adresse einer Ihrer Schnittstellen ist, wählt diese Schnittstelle aus; jede andere Adresse wird zu einer manuellen Hub-IP-Adresse. Der Adapter protokolliert die Konvertierungen.
 
@@ -302,5 +304,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.harmony/blob/master/CHANGELOG_OLD.md)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.goodwe/README.md
 title: ioBroker.goodwe
-hash: FYcQ9wobDD5kVjFDFSP8CmBTxNtGqNGVRjWI3bcqAOI=
+hash: 4aqVBuzinQkcxVJvWqEIQUVnKb0cef9xhzdRWhax+ks=
 ---
 ![Logo](../../../en/adapterref/iobroker.goodwe/admin/goodwe.png)
 
@@ -120,6 +120,17 @@ GoodWe dokumentiert seine beschreibbaren Register nicht. Die Steuerung ist stand
 
 ## Fehlerbehebung
 
+### Wechselrichter nicht gefunden oder nicht erreichbar
+
+Der Adapter kommuniziert direkt über UDP-Port 8899 mit dem Wechselrichter, ohne die GoodWe-Cloud. Falls die Suche keine Ergebnisse liefert oder die IP-Prüfung fehlschlägt, überprüfen Sie bitte Folgendes:
+
+- Der Wechselrichter ist ein Gerät der Serien ET, EH, BH oder BT. Andere Serien unterstützen dieses Protokoll nicht.
+- Das WLAN- oder LAN-Modul des Wechselrichters ist mit Ihrem Netzwerk verbunden und wird vom Router mit einer IP-Adresse angezeigt. Reservieren Sie diese Adresse im Router, damit sie sich nicht ändert.
+- ioBroker kann diese Adresse erreichen. Ein WLAN-Repeater, ein Gastnetzwerk, ein separates VLAN oder eine Firewall zwischen ioBroker und dem Wechselrichter blockiert die UDP-Pakete.
+- Die Suche durchsucht nur die /24-Netzwerke des ioBroker-Hosts. Wenn ioBroker in Docker oder einer VM mit eigenem Netzwerk ausgeführt wird, geben Sie das Inverter-Netzwerk unter „Discovery-Subnetz“ ein (z. B. `192.168.178.0`) oder geben Sie die IP-Adresse direkt ein und verwenden Sie "Wechselrichter-IP validieren".
+
+### Optionale Registergruppen
+
 Optionale Registergruppen hängen vom Wechselrichtermodell, der Firmware und der angeschlossenen Hardware ab. Wird eine Gruppe nicht unterstützt, pausiert der Adapter diese nach einem fehlgeschlagenen Lesevorgang für eine Stunde und hält die Hauptverbindung aktiv. Eine Wiederherstellung der Verbindung nach einem Verbindungsverlust beendet die Pause, sodass eine Gruppe, deren Lesevorgang nur aufgrund der Abwesenheit des Wechselrichters fehlgeschlagen ist, sofort wieder gelesen wird.
 
 Bekannte modellabhängige Gruppen:
@@ -130,7 +141,7 @@ Bekannte modellabhängige Gruppen:
 
 Falls in den Protokollen optionale Register-Timeouts angezeigt werden, deaktivieren Sie die entsprechende Gruppe in den erweiterten Einstellungen. Deaktivierte optionale Registerzustände werden beim Start des Adapters entfernt.
 
-Bei instabilen Netzwerkverbindungen `timeoutMs` niedrig und erhöhen `retries` Stattdessen beantwortet der Wechselrichter eine erfolgreiche Anfrage innerhalb von Millisekunden. Ein langes Timeout führt daher nicht dazu, dass ein verlorenes Paket ankommt – es blockiert lediglich die Anfragewarteschlange bis zu deren Ablauf. Ein Wert um 2000 mit zwei Wiederholungsversuchen stellt eine verlorene Antwort innerhalb von zwei Sekunden wieder her, anstatt ein zehnsekündiges Timeout abzuwarten.
+Bei instabilen Netzwerkverbindungen: `timeoutMs` niedrig und erhöhen `retries` Stattdessen beantwortet der Wechselrichter eine erfolgreiche Anfrage innerhalb von Millisekunden. Ein langes Timeout führt daher nicht dazu, dass ein verlorenes Paket ankommt – es blockiert lediglich die Anfragewarteschlange bis zu deren Ablauf. Ein Wert um 2000 mit zwei Wiederholungsversuchen stellt eine verlorene Antwort innerhalb von zwei Sekunden wieder her, anstatt ein zehnsekündiges Timeout abzuwarten.
 
 Wiederkehrend `retry` Meldungen auf Debug-Ebene bedeuten, dass einzelne UDP-Antworten verloren gehen. Je größer die Registergruppe, desto häufiger ist sie betroffen, beispielsweise eine Gruppe wie `RunningData` Das erste Signal erscheint. Wenn sie sich jede Minute zur gleichen Sekunde häufen, ist periodisch etwas außerhalb des Adapters auf dem Wechselrichter ausgelastet – üblicherweise der Cloud-Upload des WLAN-Moduls. Solange kein `timed out` Nach einer Warnung konnte die Anfrage beim erneuten Versuch erfolgreich abgeschlossen werden, ohne dass Daten verloren gingen. Durch die Verkabelung des Wechselrichters mit LAN anstelle von WLAN wird die Ursache behoben; die Deaktivierung optionaler Registergruppen reduziert die Anzahl der möglichen Anfragen.
 
@@ -139,6 +150,11 @@ Wiederkehrend `retry` Meldungen auf Debug-Ebene bedeuten, dass einzelne UDP-Antw
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Temperature states now carry the unit `°C` instead of `C`, so charts, widgets and the type detector show and recognise them as temperatures.
+- States created by older versions get their unit and specific role on the next start: many still had no unit and the generic role `value`, so voltage, current, power and temperature were not recognised. Only a missing unit, the unit `C` and the role `value` are replaced; a unit or role you set by hand is kept, and writable control states are left alone.
+- When the search finds no inverter or the IP check fails, the settings page now says what to check, and the README has a new troubleshooting section for it (reported in the forum).
+
 ### 1.2.0 (2026-09-14)
 - Added the battery settings (registers 45350-45358) and the EMS settings (registers 47509-47512) as new `Settings.*` states, enabled with the new `pollSettings` option and read on every poll cycle.
 - Added optional inverter control: with the new `enableControl` option the states `Settings.EmsMode`, `Settings.EmsPowerLimit`, `Settings.GridExportEnabled` and `Settings.GridExportLimit` become writable and are sent to the inverter as single register writes. Only these four registers are ever written: limit values are clamped to the range the adapter allows, mode values outside the list in this README are refused, numbers written as text are accepted, a write while the inverter is offline is refused, a value the inverter already holds is not written again, and the register group is read back after every write. While control is on, the EMS settings stay polled whatever `pollSettings` and `pollExtended` say. Control is off by default.

@@ -3,11 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.samsung_tizen/README.md
 title: ioBroker.samsung_tizen
-hash: g/6UBdA+i0GxfgbXTTp2pgNaVnMUhd3mU05ZPz6XOW8=
+hash: bYZqFJO48q7GeDE9muUbnONjor1+rtmG5tQDjYSv8Y4=
 ---
 ![Logo](../../../en/adapterref/iobroker.samsung_tizen/admin/samsung.png)
 
 # ioBroker.samsung\_tizen
+
+> \[!IMPORTANT] Dieser Adapter kann nicht von GitHub installiert werden.
 
 Dieser Adapter steuert Samsung-Fernseher mit Tizen OS (ab 2016).
 

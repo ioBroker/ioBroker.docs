@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.siku/README.md":{"title":{"en":"ioBroker.siku"},"content":"en/adapterref/iobroker.siku/README.md"},"en/adapterref/iobroker.siku/RELEASING.md":{"title":{"en":"Releasing and official ioBroker inclusion"},"content":"en/adapterref/iobroker.siku/RELEASING.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.siku/README.md":{"title":{"en":"ioBroker.siku"},"content":"en/adapterref/iobroker.siku/README.md"},"en/adapterref/iobroker.siku/DEVELOPMENT.md":{"title":{"en":"Development and dependency security"},"content":"en/adapterref/iobroker.siku/DEVELOPMENT.md"},"en/adapterref/iobroker.siku/RELEASING.md":{"title":{"en":"Releasing and official ioBroker inclusion"},"content":"en/adapterref/iobroker.siku/RELEASING.md"}}}
 ---
 ![Logo](admin/siku.svg)
 
@@ -85,10 +85,14 @@ Useful scripts:
 | `npm run lint`       | Run ESLint                                     |
 | `npm run test`       | Run unit and package tests                     |
 | `npm run coverage`   | Enforce and report TypeScript test coverage    |
-| `npm run dev-server` | Start a local ioBroker development environment |
+| `npm run test:integration` | Start and test an isolated local ioBroker controller |
+| `npm run audit:dependencies` | Audit both the full development tree and production dependencies |
 | `npm run release`    | Create an official release/tag via release-tooling |
 
 The adapter was generated with the official ioBroker tooling and is developed in TypeScript.
+
+See [DEVELOPMENT.md](/#/docs/adapterref/iobroker.siku/DEVELOPMENT.md) for the supported toolchain, local integration tests,
+manual Admin testing and the removal of the obsolete development-server hot-reload stack.
 
 ## CI / CD
 
@@ -133,6 +137,12 @@ guard for configuration handling, not a security boundary against malicious code
 <!-- Release script placeholder for the next version. Keep this heading at the start of a line. -->
 ### **WORK IN PROGRESS**
 
+### 0.2.4 (2026-09-29)
+
+- Update the runtime adapter-core dependency to 3.4.3.
+- Update compatible development dependencies, remove the obsolete dev-server hot-reload stack,
+  and enforce full dependency audits in CI.
+
 ### 0.2.3 (2026-07-26)
 
 - Harden RTC scheduling, UDP shutdown/error handling, malformed response isolation, schedule write recovery and
@@ -155,12 +165,6 @@ guard for configuration handling, not a security boundary against malicious code
 - Split weekly schedule reads into protocol-size-safe chunks and refresh them every 15 minutes.
 - Extract the object factory and operation scheduler, expand tests and enforce coverage in CI.
 - Modernize ioBroker dependencies, release actions and automatic patch-release classification.
-
-### 0.1.8 (2026-06-09)
-
-- Cleaned up unused Admin translations found during the adapter checklist review.
-- Documented the advanced messagebox commands for script/integration use.
-- Added a code-side upper bound for the RTC time sync drift threshold.
 
 Older changelog entries are available in CHANGELOG_OLD.md.
 

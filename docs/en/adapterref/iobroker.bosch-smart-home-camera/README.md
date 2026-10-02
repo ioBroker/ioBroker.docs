@@ -37,6 +37,7 @@ ioBroker adapter for Bosch Smart Home Cameras (Eyes Outdoor, 360 Indoor, Gen2 Ey
 - [MQTT Bridge](#mqtt-bridge)
 - [AI Camera Analysis](#ai-camera-analysis)
 - [Credential-Free RTSP Front-Door](#credential-free-rtsp-front-door) — the flagship feature, flow diagram + config
+- [Local Data Interface](#local-data-interface)
 - [External Recorders (BlueIris, Frigate)](#external-recorders-blueiris-frigate)
 - [Development](#development)
 - [Existing Adapter Landscape](#existing-adapter-landscape)
@@ -362,6 +363,7 @@ Per-camera datapoints under `cameras.<id>.*`:
 | `firmware_update_available` | boolean | Firmware update available |
 | `firmware_updating` | boolean | Firmware install currently in progress |
 | `firmware_install` | button | **v1.8.0** — write `true` to install the pending firmware update (guarded against a double-press or an already-in-progress install) |
+| `local_data_interface` | string | Local data interface status: `active` / `inactive` / `unsupported` / `unknown`. Only Gen2 cameras on firmware 9.40.105 or newer are queried |
 | `commissioned` | boolean | `GET /commissioned` — camera configured + connected + commissioned |
 | `unread_events_count` | number | Unread cloud events (from `GET /v11/events`) |
 | `mark_all_read` | button | Marks all cloud events as read |
@@ -775,6 +777,22 @@ indefinitely without reconfiguration.
 
 ---
 
+## Local Data Interface
+
+Gen2 cameras on firmware 9.40.105 or newer can expose a local data interface (enable it in the camera settings of the Bosch app; the camera sticker carries the password). The adapter reads its status into `cameras.<id>.local_data_interface`. The password is never returned by the cloud.
+
+To stream directly from the camera, enter the sticker password under Settings → RTSP / Stream → *Camera passwords*, as `<camera id or its first 8 characters>=<password>` (several entries separated by a space or comma). The field is stored encrypted. When the status is `active` and a password is set for that camera:
+
+- `stream_url` (and `stream_host` / `stream_port` / `stream_path`) point straight at the camera (`rtsps://localuser:<password>@<camera LAN IP>:9554/rtsp_tunnel?line=1&inst=<1|2>&enableaudio=1`), with the AAC audio track. `inst` follows `stream_quality` (`high` = 1, `low` = 2). `stream_url_sub` stays empty.
+- The camera allows only a few (about 3) simultaneous RTSP sessions.
+- No Bosch cloud stream session is opened for that camera. If the camera's LAN address is unknown or not a private address, the stream is not started (no cloud fallback) and the log says why.
+- The camera closes the stream while privacy mode is on.
+- The URL contains the password, so treat `stream_url` like a credential. The adapter never writes the password to its log.
+
+Without a password, or while the status is not `active`, streaming behaves exactly as before. The status is refreshed on the slow diagnostic tier and whenever the livestream is switched on for a camera that has a password. Turn the livestream off and on again after changing the interface or the password.
+
+---
+
 ## External Recorders (BlueIris, Frigate)
 
 ```mermaid
@@ -943,6 +961,23 @@ HA stays the **reference implementation** — features land there first; the Pyt
 ---
 
 ## Changelog
+
+### 1.10.1 (2026-09-30)
+- Fixed: the direct local stream URL now uses `/rtsp_tunnel?line=1&inst=<1|2>&enableaudio=1` instead of `/live`, so the stream carries audio and follows the `stream_quality` setting (high = inst 1, low = inst 2).
+
+### 1.10.0 (2026-09-30)
+- New: local data interface. Read-only `local_data_interface` status state per camera (Gen2, firmware 9.40.105 or newer). With an optional per-camera password (Settings → RTSP / Stream) and an active interface, `stream_url` points directly at the camera and no cloud stream session is used.
+- Fixed: the FCM `Invalid EC key` fix (multi-segment crypto-key/salt headers) is now applied at runtime by wrapping the push decryption in the adapter itself; the `patch-package` postinstall step is removed.
+- CI: adapter tests also run on Node 26.
+
+### 1.9.0 (2026-08-20)
+- New: AI camera analysis. Writing `true` to `cameras.<id>.ai_analyze` posts the latest snapshot to a user-configured HTTPS endpoint and stores the returned description and score (opt-in, AI tab in the settings).
+- New: camera soft reset, hard reset (with expiring confirmation) and rename states.
+- New: Gen2 LED and white-balance tuning states.
+- Fixed: SSRF hole in the AI endpoint configuration (private, loopback and link-local targets are rejected) and a hard-reset confirmation that never expired.
+
+### 1.8.4 (2026-08-19)
+- Fixed: FCM push notifications could be dropped or crash on a malformed message (`Invalid EC key`) because multi-segment crypto-key/salt headers were extracted incorrectly.
 
 ### 1.8.3 (2026-07-15)
 Docs-only release: fixed the MCP row in the shared Integration Comparison table (shares the Python CLI's `bosch_config.json` rather than its own OAuth2 PKCE flow) and a broader README accuracy pass (state tree, config options, RTSP front-door emphasis). No functional changes.

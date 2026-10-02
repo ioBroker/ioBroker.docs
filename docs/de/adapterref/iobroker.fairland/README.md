@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.fairland/README.md":{"title":{"en":"ioBroker Fairland Adapter"},"content":"en/adapterref/iobroker.fairland/README.md"},"en/adapterref/iobroker.fairland/THIRD_PARTY_NOTICES.md":{"title":{"en":"Third-Party Notices"},"content":"en/adapterref/iobroker.fairland/THIRD_PARTY_NOTICES.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fairland/README.md
 title: ioBroker Fairland Adapter
-hash: CkQtNE3tZaqs8SCFH20ZiDPHS2MLgk4UtooDnHe8/6g=
+hash: qnlg5l+vThqKJxqSfrABrYPC8Kwz1TGyIf1APbtQGHM=
 ---
 # ioBroker Fairland Adapter
 
@@ -146,7 +147,7 @@ Dieser Adapter basiert auf der MIT-lizenzierten Home Assistant Fairland-Integrat
 https://github.com/siedi/ha-fairland
 ```
 
-Die ursprüngliche Projektlizenzmitteilung wird aufbewahrt in `LICENSE` Weitere Hinweise Dritter sind aufgeführt in `THIRD_PARTY_NOTICES.md` Die
+Die vollständigen Lizenz- und Urheberrechtshinweise des Originalprojekts sind in der [Datei THIRD\_PARTY\_NOTICES.md](/#/docs/adapterref/iobroker.fairland/THIRD_PARTY_NOTICES.md) enthalten, die im veröffentlichten Paket enthalten ist.
 
 ## Changelog
 
@@ -289,6 +290,6 @@ Older changelog entries may be moved to CHANGELOG_OLD.md.
 MIT.
 
 Copyright (c) 2026 dude2k <gh@mr-mailer.de>.
-Portions derived from ha-fairland: Copyright (c) 2025 @siedi.
 
-See [LICENSE](https://github.com/dude2k/ioBroker.fairland/blob/main/LICENSE) for details.
+See [LICENSE](https://github.com/dude2k/ioBroker.fairland/blob/main/LICENSE) for details and [THIRD_PARTY_NOTICES.md](/#/docs/adapterref/iobroker.fairland/THIRD_PARTY_NOTICES.md)
+for the license and attribution of portions derived from ha-fairland by @siedi.
