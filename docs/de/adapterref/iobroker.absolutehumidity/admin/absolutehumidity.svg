@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+	<title id="title">Absolute Humidity</title>
+	<desc id="desc">Percent symbol with a thermometer on the lower left and a humidity drop on the upper right.</desc>
+	<defs>
+		<linearGradient id="stroke" x1="46" x2="220" y1="50" y2="212" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#37c4f2" />
+			<stop offset="1" stop-color="#0f4c81" />
+		</linearGradient>
+		<linearGradient id="fill" x1="80" x2="210" y1="88" y2="202" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#d9f8ff" />
+			<stop offset="1" stop-color="#79d7ef" />
+		</linearGradient>
+	</defs>
+
+	<path d="M116 194 162 62" fill="none" stroke="url(#stroke)" stroke-width="16" stroke-linecap="round" />
+
+	<circle cx="67" cy="164" r="28" fill="#071923" stroke="url(#stroke)" stroke-width="12" />
+	<path d="M67 158V75" fill="none" stroke="#071923" stroke-width="27" stroke-linecap="round" />
+	<path d="M67 158V75" fill="none" stroke="url(#stroke)" stroke-width="18" stroke-linecap="round" />
+	<path d="M67 157V76" fill="none" stroke="#d9f8ff" stroke-width="6" stroke-linecap="round" />
+	<path d="M67 75h19" fill="none" stroke="#d9f8ff" stroke-width="13" stroke-linecap="round" />
+	<circle cx="67" cy="164" r="18" fill="url(#fill)" />
+
+	<path d="M188 89c-12 17-29 39-32 61-4 29 16 51 41 51s45-22 41-51c-3-22-20-44-32-61-5-6-13-6-18 0Z" fill="#071923" stroke="url(#stroke)" stroke-width="12" stroke-linejoin="round" />
+	<path d="M197 118c-10 13-24 30-24 44 0 15 11 26 24 26s24-11 24-26c0-14-14-31-24-44Z" fill="url(#fill)" />
+	<path d="M185 160c0 9 7 16 17 19" fill="none" stroke="#eefcff" stroke-width="6" stroke-linecap="round" opacity=".85" />
+</svg>
