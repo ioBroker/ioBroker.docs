@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis2-materialdesign/README.md
 title: ioBroker.vis2-materialdesign
-hash: Qvc6Z2jj5U6wz9bnDvkj+qoz9ILz/4QI1Kv3l6xPUIM=
+hash: axR8r/c/qcq6jIsck3Q9D8GMvbCJpIkyTpXrVxBVYEk=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis2-materialdesign/admin/vis-materialdesign.png)
 
@@ -70,6 +70,10 @@ Installieren Sie **Material Design Widgets** (`vis2-materialdesign`) aus der ioB
 
 Die Verwendung eines Designs ist optional. Konfigurieren Sie Farben und Schriftarten im **Design-Editor** des Adapters, speichern Sie die Einstellungen und wählen Sie anschließend **„Design → Design verwenden“** für ein ausgewähltes Widget. Dadurch werden die entsprechenden Designreferenzen in dieses Widget kopiert; explizite Widget-Einstellungen können anschließend weiterhin geändert werden.
 
+## Migration von vis-materialdesign
+
+Falls Ihre vis-2-Projekte noch die Widgets des Scrounger-Adapters „vis-materialdesign“ verwenden, können Sie diese über den Reiter „ **Migration** “ in den Adaptereinstellungen in die neuen Widgets konvertieren. Jedes Projekt wird zuvor gesichert und kann wiederhergestellt werden. Das Theme des alten Adapters kann übernommen werden. Alle Elemente, die nicht automatisch konvertiert werden können, werden zur manuellen Überprüfung aufgelistet. Die einzelnen Schritte und eine Liste der Warnhinweise finden Sie im Benutzerhandbuch: [Englisch](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/README.md#migrate-from-vis-materialdesign) · [Deutsch](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/doc/de/README.md#von-vis-materialdesign-migrieren)
+
 ## Dokumentation
 
 - [Deutsche Bedienungsanleitung](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/doc/de/README.md)
@@ -84,6 +88,17 @@ Melden Sie aktuelle Probleme mit VIS 2 im [GitHub-Issue-Tracker](https://github.
 Feedback zum Material-3-Stil – wie er sich im Vergleich zum gewohnten Original-Adapter anfühlt und aussieht, nicht nur zu Abstürzen – hat ein eigenes Formular: [Feedback zum Material-3-Design](https://github.com/typhosj/ioBroker.vis2-materialdesign/issues/new?template=material3_feedback.md) . Neu eingefügte Widgets erhalten den Material-3-Stil; der klassische Stil bleibt als vollständige Option für jedes Widget verfügbar und ist nicht veraltet. Daher gibt es keinen Grund, mit einem Upgrade zu warten.
 
 ## Changelog
+### 1.1.0 (2026-10-03)
+
+- (typhosj) Fixed the JSON Chart flashing its red "Error in JSON string" for the first moments of every page load: an empty datapoint — which is what the widget sees until the first value of its subscription arrives — was read as a broken JSON string. Only content that really is malformed reports the error now. The Top App Bar showed the same error on a drawer whose JSON string had not been filled in yet
+- (typhosj) Fixed a short appointment showing no name at all in the Calendar's week and day view: an appointment box is as tall as the appointment is long, so a 15-minute entry got about 14 px while the stacked time and name lines needed 44 px. Time and name share one line with an ellipsis now, an appointment long enough to have the room wraps instead of being cut, and hovering an entry — which is the first tap on a touch device — opens it to its full text. Every entry carries its full text as a tooltip as well, and the month view opens the same way
+- (typhosj) Fixed the Calendar ignoring **event height** outside the month view: the option sits in the editor for every view but only the month grid ever applied it. In the week and day view it now sets the minimum height of an appointment box, which is the second way to make short appointments readable
+- (typhosj) Fixed a read-only Slider looking exactly like one you can move: with **readOnly** set, or while its **working** datapoint is active, the track and knob are now dimmed the way a disabled Material 3 button is. The label and the value stay fully readable
+- (typhosj) Fixed **use theme** applying only the dark-mode colors: in light mode the theme colors never reached the widget, and the theme fonts and font sizes never did in either mode, because vis-2 did not subscribe the theme states behind them. The widgets subscribe those states themselves now. Widgets that already use the theme pick up the values without any change
+- (typhosj) Fixed **use theme** turning the Bar, Pie, Line History and JSON charts black: the charts are drawn on a canvas, which cannot read the theme's CSS variables, so every themed color came out black and every themed font fell back to a small default. The charts now take the theme values directly
+- (typhosj) Fixed the time axis of a Line History Chart from a vis-materialdesign project showing a garbled text instead of times: the old adapter stored one time format per unit (second, minute, hour …) in **xAxisTimeFormats**, and the whole list was used as a single format. The format of the unit that fits the spacing of the axis labels is used now; a single format still works as before
+- (typhosj) New **Migration** tab in the adapter settings: converts vis-2 projects built with the widgets of Scrounger's vis-materialdesign adapter to these widgets, so the old adapter can be uninstalled and the views keep working. Each project is backed up first and can be restored; the theme of the old adapter can be taken over as well. Anything that cannot be converted automatically — own CSS for the old widget structure, the old JavaScript helpers, icons that no longer exist — is listed for checking by hand
+
 ### 1.0.0 (2026-09-07)
 
 - (typhosj) Added a second design style, **Material 3**, selectable per widget under General → design style, plus **Project default** for switching a whole project at once from the adapter's new **Design** tab. Material 3 is the preset for newly inserted widgets; every widget of an existing project stays classic until you switch it over, and switching back restores the old look exactly — the style changes presentation only, never component ids, option names, object ids, values, write behaviour, timers or navigation
@@ -198,13 +213,6 @@ Feedback zum Material-3-Stil – wie er sich im Vergleich zum gewohnten Original
 - (typhosj) Fixed the per-data-set options of the Bar, Pie and Line History charts being editable only for the first data set: bar color, label, value text, tooltip text — and the per-series line and y-axis settings of the Line History chart — appeared once instead of once per data set, so a chart with several data sets could not be styled per series like in VIS 1. Each data set now has one group holding its object id and all of its options; existing charts keep every saved value (reported in the forum)
 - (typhosj) Fixed the icon picker showing only the first 400 of the 6809 icons with no way to reach the rest — the grid ends there and neither scrolling nor paging went further, so an icon whose name you did not know was unreachable. The grid now keeps loading while you scroll (issue #4)
 - (typhosj) Documented how the Top App Bar switches views — it writes the selected menu index into its object id, and an [Advanced View in Widget 8](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/html-widgets.md) with the same object id shows the matching view (reported in the forum)
-
-### 0.3.3 (2026-07-24)
-
-- (typhosj) Fixed the Theme Editor's runtime state sync: it never created the intermediate channel objects for nested color/font states, used the "value" role (number-only) for string values, and could leave font-size states with a stale string/number type mismatch
-- (typhosj) Removed the "mocha" devDependency; it is already provided by `@iobroker/testing`
-
-[Older changelog entries](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

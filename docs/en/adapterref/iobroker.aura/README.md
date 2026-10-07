@@ -122,6 +122,50 @@ So the path of any release is: `-nextN` test build → **Latest** (published, on
 
 _Older releases: see CHANGELOG_OLD.md._
 
+### 0.78.1 (2026-10-06)
+- Timer - entries added in a timer that sits inside a popup view are now saved and survive a page reload ([#750](https://github.com/hdering/ioBroker.aura/issues/750))
+
+### 0.78.0 (2026-10-05)
+- iFrame - "Keep alive" now keeps the page across tab and section switches, also with "Fill tab"; without it, a hidden iFrame is unloaded and reloads fresh when shown again ([#65](https://github.com/hdering/ioBroker.aura/issues/65))
+- 🌟 **New feature:** Widgets, popups and tabs can have a background image (fit, alignment, darken): per widget under Edit → Advanced, for popups globally, per popup view and per click action, behind a tab per tab, section or layout ([#442](https://github.com/hdering/ioBroker.aura/issues/442))
+- Status overview - weak batteries and unreachable devices can be remembered until they are closed ("Changed"/"Acknowledge") or put back ("Later"); the adapter keeps the list for all browsers, rechecks after closing, can close on a voltage jump, and offers aura.0.status.<category>.cmd/.event for scripts
+- Status overview - configurable row buttons that write a value with placeholders ({id}, {device}, {serial}, {name}, {room}), optionally after a second tap; "since …" can also be shown for batteries and reachability
+
+### 0.77.4 (2026-10-05)
+Release v0.77.4
+
+### 0.77.3 (2026-10-05)
+- Shutter - quick-select buttons can set only the slat angle, and skip the drive when the blind is already at the preset position ([#745](https://github.com/hdering/ioBroker.aura/issues/745))
+
+### 0.77.2 (2026-10-04)
+- Adapter log - startup and routine status messages moved from info to debug, so the log stays quiet unless something needs attention
+
+### 0.77.1 (2026-10-04)
+- 🌟 **New feature:** "Show last change" can now show the last update instead (datapoint written, even with the same value) — in the widget display settings, carousel items, list entries, dynamic lists and custom cells
+- Opening Aura below a path other than its root (e.g. an old .../aura/ bookmark) loads the dashboard again instead of a blank page - it now redirects to the root (regression in 0.77.0)
+
+### 0.77.0 (2026-10-04)
+- 🌟 **New feature:** Settings - optional web adapter extension: Aura can additionally be opened as <web-port>/aura/, e.g. from the ioBroker Visu App or the cloud adapter; off by default, port 8095 keeps working
+- Settings - the chosen socket backend instance is no longer cleared on every adapter start
+
+### 0.76.0 (2026-10-03)
+- Editor - saving no longer closes the "Edit widget" dialog on a tab in a PIN-protected section ([#740](https://github.com/hdering/ioBroker.aura/issues/740))
+- 🌟 **New feature:** Groups - "Fit height to content" now works for widgets inside a group; the group grows and shrinks with the list ([#741](https://github.com/hdering/ioBroker.aura/issues/741))
+- 🌟 **New feature:** Advanced chart - comparison mode can show a legend; clicking an entry hides that bar ([#742](https://github.com/hdering/ioBroker.aura/issues/742))
+- Universal widget - a dropdown cell whose entries do not include the current value now shows a dash instead of the raw value ([#744](https://github.com/hdering/ioBroker.aura/issues/744))
+- Shutter - quick-select buttons for fixed positions, optionally with a slat angle ([#745](https://github.com/hdering/ioBroker.aura/issues/745))
+- 🌟 **New feature:** Datapoint picker - the setpoint, humidity and pressure fields of the climate widget (and the battery fill and panel fields) now open the picker on their own datapoint instead of the temperature ([#746](https://github.com/hdering/ioBroker.aura/issues/746))
+- 🌟 **New feature:** Colors - every widget color can be taken from a datapoint: enter {id} or [[id]] in the color picker, also as the light or dark half of a pair (e.g. WLED colors for icons) ([#747](https://github.com/hdering/ioBroker.aura/issues/747))
+- 🌟 **New feature:** New widget "Device card" - build a card once with {{dp}}/{{parent}} placeholders and reuse it for any number of identical devices; copies share the layout, so a change applies to all cards, and linked cards get the same colored frame in the editor ([#743](https://github.com/hdering/ioBroker.aura/issues/743))
+
+### 0.75.0 (2026-10-02)
+- Shutter - the up/stop/down buttons work again in the card itself; in a flat card the value and slider row covered them, so only the popup reacted ([#739](https://github.com/hdering/ioBroker.aura/issues/739))
+- 🌟 **New feature:** Trash schedule - new option to limit the number of entries shown, e.g. only the next 3 pickups ([#736](https://github.com/hdering/ioBroker.aura/issues/736))
+- 🌟 **New feature:** Universal widget - text cells can run vertically: turned 90° clockwise, 90° counter-clockwise or as upright stacked letters ([#734](https://github.com/hdering/ioBroker.aura/issues/734))
+- 🌟 **New feature:** Timer - holiday and vacation lists accept date ranges ("2026-07-20/2026-08-07" or {"from","to"}) next to single days, and a plain true/false datapoint; examples in the settings are collapsed ([#738](https://github.com/hdering/ioBroker.aura/issues/738))
+- 🌟 **New feature:** Advanced chart - series can be shifted back in time to compare periods, e.g. last year's monthly consumption next to this year's bars; "+ Add previous-year series" creates one in a click ([#730](https://github.com/hdering/ioBroker.aura/issues/730))
+- Dynamic list - removed datapoints no longer come back with the next automatic sync: with a filter set they are added to the exclude list, and "Delete all" clears the stored filter
+
 ### 0.74.0 (2026-10-01)
 - 🌟 **New feature:** Adapter logs - the search field can be preset in the widget settings; the frontend starts filtered and the text can still be changed; several terms separated by "|" match any of them ([#727](https://github.com/hdering/ioBroker.aura/issues/727))
 - Camera - MJPEG stream URLs (e.g. `.../stream.mjpeg`) now always play live; the refresh interval no longer reloads them every few seconds
@@ -180,55 +224,6 @@ _Older releases: see CHANGELOG_OLD.md._
 ### 0.70.0 (2026-09-25)
 - 🌟 **New feature:** Widget fullscreen can fill the whole screen: the new "Fill the screen" option uses the browser's fullscreen mode, hiding the address bar and task bar ([#711](https://github.com/hdering/ioBroker.aura/issues/711))
 - 🌟 **New feature:** Settings - new grid option "Fill window width": widgets stretch to the full screen width on any resolution, the arrangement stays; off by default ([#413](https://github.com/hdering/ioBroker.aura/issues/413))
-
-### 0.69.0 (2026-09-24)
-- Custom CSS applied in the dashboard editor now styles only the dashboard preview, not the admin menu around it ([#710](https://github.com/hdering/ioBroker.aura/issues/710))
-- Admin overview - the AI access (MCP) card can be dismissed, like the getting-started card
-- 🌟 **New feature:** JSON table: sort rules like the static list - several columns in a row, compare as number, text, on/off or date (also dd.MM.yyyy), empty cells first or last; a header click still takes over ([#706](https://github.com/hdering/ioBroker.aura/issues/706))
-- 🌟 **New feature:** JSON table: per-column thousands separator next to the decimal places; the "Umrechnung" switch is now called "Zahlenformat" and shows conversion, decimals and separator in one row ([#707](https://github.com/hdering/ioBroker.aura/issues/707))
-- Media player: the volume quick-select buttons (25/50/75/100 %) can be hidden to save a row of height ([#708](https://github.com/hdering/ioBroker.aura/issues/708))
-- 🌟 **New feature:** Chart / Advanced chart: define your own time-range chips for the frontend selector, e.g. only months (1, 2, 3, 6, 12, 24 months, total); custom ranges now also support weeks, months and years ([#709](https://github.com/hdering/ioBroker.aura/issues/709))
-- 🌟 **New feature:** Grid & Mobile - the mobile view can now use 2-4 columns like the tablet view (setting "Mobile columns"); the mobile order panel in the editor then arranges columns and full-width bands; in Frontend design the mobile and tablet settings are grouped side by side, and both order panels link straight to them ([#413](https://github.com/hdering/ioBroker.aura/issues/413))
-
-### 0.68.2 (2026-09-23)
-- Design - every overridden setting of a layout or section now gets the orange marking, including the section menu, tab bar, theme and header title/elements
-
-### 0.68.1 (2026-09-23)
-- Section menu - the widget preview of a menu element is now as wide as the menu itself (docked sidebar or drawer) instead of the whole editor, the preview window hugs it, and the element uses the bar slot when the menu sits at the top or bottom
-
-### 0.68.0 (2026-09-23)
-- 🌟 **New feature:** Room climate - add any number of extra readings (CO2, VOC, dew point, comfort, air quality, brightness, presence) with their own units, colour bands and value labels; dew point, absolute humidity and comfort are calculated from temperature and humidity ([#698](https://github.com/hdering/ioBroker.aura/issues/698))
-- Room climate - the chart can now draw those readings as extra series, on a second y axis where the scale differs ([#698](https://github.com/hdering/ioBroker.aura/issues/698))
-- Settings - the Layouts and Frontend design pages no longer overflow or squeeze their buttons on a phone; their layout/scope tree folds into a bar above the detail
-- List - on a phone the "Manage datapoints" dialog folds the datapoint list into a bar above the editor, so the selected entry can be configured
-- 🌟 **New feature:** Widgets with a click action now show a small icon that runs it, also in the folded header of a collapsed widget; it can be switched off (also right in the click-action dialog), moved to another corner or given its own symbol under Appearance ([#702](https://github.com/hdering/ioBroker.aura/issues/702))
-- 🌟 **New feature:** Widgets can show extra values in their header, expanded and collapsed: a datapoint, a value the widget already has (main value, list sum, average, count, thermostat and room-climate readings, custom-layout cells …), a text with bindings or the click-action icon, beside the title or in a second row, optionally only while a condition holds; set up under Appearance → Header ([#676](https://github.com/hdering/ioBroker.aura/issues/676))
-- Settings - a protected tab or section no longer shows up empty in the editor after an update, and "Remove PIN" works again: a login kept from an older version now asks for the admin password once ([#704](https://github.com/hdering/ioBroker.aura/issues/704))
-- Chart (advanced) - the labels of the first and last point of a JSON chart are no longer cut off at the edge ([#703](https://github.com/hdering/ioBroker.aura/issues/703))
-- Settings - the overview no longer lists the mode-dependent datapoints of an air-conditioner widget (Daikin `{mode}`) as missing; they are only reported when no operation mode has them ([#701](https://github.com/hdering/ioBroker.aura/issues/701))
-- Energy flow (evcc) - supports the new charge modes of evcc 0.316: Off · Smart · Now plus an "always charge" toggle; older evcc versions keep PV and Min+PV ([#700](https://github.com/hdering/ioBroker.aura/issues/700))
-- AI access (MCP) - no longer marked as beta
-- Popups - charts in the popup view editor now show the real history of a widget that opens the view (or a datapoint of your choice) instead of a sample curve; the source is picked in the bar below the editor toolbar
-
-### 0.67.4 (2026-09-22)
-- 🌟 **New feature:** JSON table - a column can now format its value: show a timestamp as date/time, convert it by factor/offset, and set its decimal places ([#697](https://github.com/hdering/ioBroker.aura/issues/697))
-- Date picker - clearing the field now clears the datapoint, in the widget, in a Universal cell and in a list row ([#695](https://github.com/hdering/ioBroker.aura/issues/695))
-- 🌟 **New feature:** Date picker - the input fields now take a font size and a text colour; in a Universal cell the cell's colour and bold/italic reach them too ([#696](https://github.com/hdering/ioBroker.aura/issues/696))
-- Settings - each auto-backup now shows the Aura version that wrote it, and carries that version in its file name ([#694](https://github.com/hdering/ioBroker.aura/issues/694))
-
-### 0.67.3 (2026-09-21)
-- Colors - a light/dark colour pair now survives the entry, cell and table colour fields, and setting only the dark half no longer paints both themes ([#689](https://github.com/hdering/ioBroker.aura/issues/689))
-
-### 0.67.2 (2026-09-21)
-- 🌟 **New feature:** PIN protection - the padlock on a locked section or tab can now be hidden ([#692](https://github.com/hdering/ioBroker.aura/issues/692))
-
-### 0.67.1 (2026-09-21)
-- Colors - switching a color field between "Uniform" and "Light / dark" now keeps the colors of the other mode, so picking one uniform color no longer discards the light/dark pair ([#689](https://github.com/hdering/ioBroker.aura/issues/689))
-
-### 0.67.0 (2026-09-21)
-- 🌟 **New feature:** Tablet mode - between the mobile and a new tablet breakpoint (measured on the window width), widgets flow into a configurable number of columns (default 2) that fill the width instead of scrolling or being cut off; the editor's tablet panel shows those columns and lets you drag each widget into a column or make it full width (unassigned widgets alternate in the mobile order), and the section menu gets its own tablet placement (automatic = the docked sidebar becomes a hamburger) ([#413](https://github.com/hdering/ioBroker.aura/issues/413))
-- 🌟 **New feature:** Settings - Frontend design page rebuilt around the three scope chains: the tab rows are now "Global", "Global → Layout" and "Global → Layout → Section", every group stays visible at every scope (locked rows explain why and jump up), a scope bar says what is being edited, own values are orange in the tree, on the tabs and on the control itself, each setting shows where it is inherited from or overridden below, and a "Levels" dialog lists one setting across all layouts and sections; browser sync, my themes, behavior and the wizard limit became groups of their own
-- 🌟 **New feature:** Getting started - a new documentation guide walks through the first setup in order (target device, global basics, guidelines, grid and breakpoints, layouts and sections, first widgets, mobile check, device assignment, backup), the admin overview opens with a dismissible card linking to it and to each step's admin page, and an empty dashboard tab now links to the admin area and to the guide
 
 ## License
 

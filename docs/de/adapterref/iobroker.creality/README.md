@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.creality/README.md
 title: ioBroker-Adapter für CREALITY 3D-Drucker
-hash: qoYnNJwv15Uw7o/3KPJ6vOj6FmoLRvEKr7O8c6DDEhU=
+hash: 55AGJjxnInrw/AZrwQm6gAnte2SmIDxxXk41uS7Nbzc=
 ---
 ![Logo](../../../en/adapterref/iobroker.creality/admin/creality.png)
 
@@ -27,7 +27,7 @@ Verbindet Creality Klipper-Drucker (primäres Ziel: **[SPARKX i7](https://store.
 1. **Moonraker HTTP** (Standardport) `7125`) — Druckstatistiken, Temperaturen, Lüfter, CFS-Filamentbox, G-Code
 2. **Creality WebSocket** (Standardport) `9999`) — LED am Werkzeugkopf, Pause/Fortsetzen/Stopp, Status der Nivellierung/des Selbsttests, verbleibende Zeit (`printLeftTime`)
 
-Moonraker allein reicht nicht aus, um die Creality-UI-Zustände anzuzeigen (z. B. Levelaufstiege, während Klipper noch Meldungen ausgibt). `standby`) oder die Werkzeugkopfleuchte.
+Moonraker allein reicht nicht aus, um die Creality-UI-Zustände zu erfassen (z. B. Levelaufstiege, während Klipper noch Meldungen ausgibt). `standby`) oder die Werkzeugkopfleuchte.
 
 Hersteller: [Creality](https://www.creality.com/) . Andere Creality Klipper-Modelle funktionieren möglicherweise nach bestem Wissen und Gewissen; bisher wurde nur der SPARKX i7 getestet.
 
@@ -53,7 +53,7 @@ Unter `creality.<instance>.*` (Beispiele):
 | `state` /`stateKlipper` /`selfTestStep`                 | UI-/Klipper-Status                                                                                      |
 | `currentJob.*`                                          | Fortschritt, Datei, Zeiten, Schichten, Vorschub/Fluss, aktives Filament                                 |
 | `info.*`                                                | Modell, Firmware, Hostname, Seriennummer, Festplatte, Druckstunden/Druckaufträge, Fehler                |
-| `temp.*`                                                | Düse, Bett, Kasten/Kammer                                                                               |
+| `temp.*`                                                | Düse, Bett; Kammer (`temp.box` nur wenn der Drucker eine Kammerheizung meldet                           |
 | `fans.partCooling`                                      | Teilekühlungs **-UI %** (entspricht der Anzeige des Slicers/Druckers; Creality) `fan0_min` Neuzuordnung) |
 | `fans.partCoolingPwm`                                   | **PWM-%** für die Teilekühlung (Rohdaten des Hardware-Tastverhältnisses von Moonraker)                  |
 | `fans.*` /`cfs.*`                                       | Andere Lüfter / CFS (optional)                                                                          |
@@ -75,6 +75,12 @@ Wenn Ihnen unsere Arbeit gefällt und Sie uns unterstützen möchten, freuen wir
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2026-10-06)
+- (skvarel) Fixed stale `currentJob.progress` after finished print / Moonraker restart (Creality WS fallback)
+- (skvarel) Modified Moonraker fan query to be optional so missing fan objects cannot 404 the whole poll
+- (skvarel) Modified `temp.box` to appear only when the printer reports a chamber heater (`maxBoxTemp > 0`)
+- (skvarel) Fixed `currentJob.*` not clearing after cancel/complete (Creality keeps filename + last progress)
+
 ### 0.4.1 (2026-08-25)
 - (skvarel) Fixed `currentJob.filament*` for external spool holder (`filament_rack`) when CFS is not active
 
@@ -91,9 +97,6 @@ Wenn Ihnen unsere Arbeit gefällt und Sie uns unterstützen möchten, freuen wir
 ### 0.2.0 (2026-08-08)
 - (skvarel) Fixed part cooling fan % to match slicer/display (Creality fan0_min remapping)
 - (skvarel) Added `fans.partCoolingPwm` for raw PWM duty cycle
-
-### 0.1.4 (2026-08-02)
-- (skvarel) Fixed string state roles for repository object check
 
 ## License
 MIT License

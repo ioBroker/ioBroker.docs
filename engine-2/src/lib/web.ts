@@ -358,19 +358,6 @@ export default function init(config: AppConfig): {
     // a line for every page sent to a crawler - see `prerender.log` in types.d.ts
     const logCrawlers = !!config.prerender?.log;
     /*
-     * The documents themselves: the markdown the pages are built from and the JSON indexes. Other
-     * sites read them (the CORS header above is for exactly that), so they stay open - but a
-     * search engine that indexes `de/basics/README.md` has the text of a page a second time,
-     * without its layout, its links or its language markers, competing with the page itself.
-     */
-    app.app.use((req: Request, res: Response, next: NextFunction): void => {
-        if (/\.(?:md|json)$/i.test(req.path)) {
-            res.setHeader('X-Robots-Tag', 'noindex');
-        }
-        next();
-    });
-
-    /*
      * `index: false`, so that a request for a directory is not answered with the index.html lying
      * in it. The start page went out that way, before the handler below ever saw it, and so was
      * the one page of the site that carried no title and no description of its own.
@@ -398,6 +385,18 @@ export default function init(config: AppConfig): {
                     res.setHeader('Cache-Control', 'public, max-age=86400');
                 } else if (/\.(?:md|json)$/i.test(filePath)) {
                     res.setHeader('Cache-Control', 'public, no-cache');
+                    /*
+                     * The documents themselves: the markdown the pages are built from and the JSON
+                     * indexes. Other sites read them (the CORS header above is for exactly that), so
+                     * they stay open - but a search engine that indexes `de/basics/README.md` has the
+                     * text of a page a second time, without its layout, its links or its language
+                     * markers, competing with the page itself.
+                     *
+                     * Set here and not by the address: the page of a document is called the same way
+                     * (`/docs/dev/bestpractices.md`), and a test on the path put `noindex` on all
+                     * of them until 07.10.2026 - only a file served from the disk is meant.
+                     */
+                    res.setHeader('X-Robots-Tag', 'noindex');
                 } else if (/\.(?:txt|xml)$/i.test(filePath)) {
                     res.setHeader('Cache-Control', 'public, max-age=3600');
                 }

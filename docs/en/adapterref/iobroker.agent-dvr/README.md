@@ -412,6 +412,9 @@ Returns `{"ok":true}` on success.
 | `widget_live_overview` | string | R | HTML tile grid of all cameras — snapshot refreshes on each adapter poll |
 
 ## Changelog
+<!-- markdownlint-disable-next-line MD024 -->
+### 0.5.3 (2026-10-04)
+* (ipod86) fix: clear ensuredFolders cache on object deletion to prevent stale "no existing object" warnings for rediscovered drives/cameras
 
 ### 0.5.2 (2026-08-05)
 * (ipod86) feat: rename `overview` DP to `widget_live_overview` for consistent naming
@@ -452,32 +455,6 @@ Returns `{"ok":true}` on success.
 * (ipod86) fix: httpTimeoutMs=0 now correctly clamps to 1000ms instead of falling back to default
 * (ipod86) fix: go2rtcEnabled config flag is now honored in fetchGo2rtcStreams
 * (ipod86) fix: remove unused isSupportedLang export from widget-i18n
-
-### 0.4.2 (2026-07-12)
-* (ipod86) fix: FLV stream proxy now sends Authorization header (HTTP 401 with AgentDVR auth)
-* (ipod86) fix: dashboard camera online status was read from wrong state path (data.online → status.online)
-* (ipod86) fix: MP4/FLV stream label was hardcoded German — now translated in all 11 languages
-* (ipod86) fix: admin UI default values now match io-package.json (dashTagPosition, widgetAnzahl, widgetBorderRadius)
-* (ipod86) fix: go2rtcEnabled flag now respected when loading streams in admin UI
-* (ipod86) fix: enableStreamProxy missing from native defaults in io-package.json
-
-### 0.4.1 (2026-07-12)
-* (ipod86) fix: overview tile links to ioBroker host; go2rtc URL shown only when enabled
-
-### 0.4.0 (2026-07-12)
-* (ipod86) feat: optional MJPEG and snapshot stream proxy through ioBroker (browser needs only one connection to ioBroker, not directly to AgentDVR)
-
-### 0.3.0 (2026-07-06)
-* (ipod86) feat: add scheduleOn/Off and detectorOn/Off control buttons for cameras and microphones
-* (ipod86) feat: add sensitivityMin, sensitivityMax, sensitivityGain level states for cameras (0–100)
-* (ipod86) feat: add audio_mp3 and audio_ogg URL states for microphones
-* (ipod86) fix: restrict objectDetectOn/Off and snapshot buttons to cameras (ot=2) only
-* (ipod86) feat: inline flv.js into dashboard HTML — no external file required
-* (ipod86) fix: preserve FLV stream aspect ratio after tab visibility change (all three player call sites)
-* (ipod86) feat: collapsible tag filter row on recordings and timeline pages
-* (ipod86) feat: native browser fullscreen button in live view modal with correct aspect ratio
-* (ipod86) feat: live view modal header auto-hides after 3 s of inactivity; reappears on mouse/touch
-* (ipod86) fix: add fsEnter, fsExit, filterByLabel, timelineView, closePanel i18n keys in all 10 languages
 
 ## License
 MIT License

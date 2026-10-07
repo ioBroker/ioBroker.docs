@@ -129,6 +129,60 @@ Examples:
 
 Note: the option "Disable objects delivery" must be deactivated in the web adapter settings to use this feature.
 
+## The former built-in "Simple API"
+
+Up to version 6.x this adapter had a **Built-in 'Simple-API'** switch, which answered addresses such as
+`http://ip:8082/get/<id>` and `http://ip:8082/set/<id>?value=…` directly. The switch is gone since 7.0.
+The `simple-api` adapter took the feature over and can be run **inside** this web server as a web
+extension, which brings the old addresses back unchanged - no script that uses them has to be touched.
+
+### Setting it up
+
+1. Install the adapter **`simple-api`** and create an instance of it.
+2. Open the settings of that instance and set **"Web instance"** to the web instance that should serve
+   it, e.g. `web.0`. (Left empty, `simple-api` runs a server of its own on port 8087 instead - that
+   works too, but then the addresses carry its port, not the one of this server.)
+3. Save. The web instance restarts and reports the mounted paths in its log.
+
+### The addresses
+
+Running as an extension, `simple-api` answers under two prefixes:
+
+```
+http://ip:8082/get/<id>                     the address as it was up to web 6.x
+http://ip:8082/simple-api.0/get/<id>        the same, below the name of the instance
+```
+
+So nothing changes for existing scripts:
+
+```
+http://ip:8082/set/0_userdata.0.Alarm.disable?value=true
+http://ip:8082/getPlainValue/0_userdata.0.Temperature
+```
+
+The commands are the familiar ones: `get`, `getPlainValue`, `getBulk`, `set`, `setBulk`,
+`setValueFromBody`, `toggle`, `getObjects`, `objects`, `getStates`, `states`, `search` and `query`.
+
+### Authentication
+
+Which user a request runs as is decided by the **authentication** setting of this web instance:
+
+- **Off** - every request runs as the user configured under "access web interface as".
+- **On** - the request has to identify itself, in one of three ways: with the session of a browser that
+  is logged in to this server, with an `Authorization: Basic` header, or with `?user=…&pass=…` in the
+  query string. Credentials in a query string travel in plain text and end up in logs and in the
+  browser history, so use that last one over HTTPS only, if at all.
+
+### If you would rather use the newer API
+
+`rest-api` is the successor with a versioned interface, and it runs as a web extension in the same way.
+Its addresses differ - `get/<id>` becomes `v1/state/<id>`, and the full state object needs
+`?withInfo=true`:
+
+```
+http://ip:8082/v1/state/<id>?withInfo=true
+```
+
 ## "Basic Authentication" option
 Allows Login via Basic Authentication by sending `401` Unauthorized with a `WWW-Authenticate` header.
 This can be used for applications like *FullyBrowser*. When entering the wrong credentials once, you will be redirected 
@@ -141,10 +195,62 @@ If the user is not in the list, he cannot access the web server.
 
 It is simpler as to set for every object and every state the access rights for the specific user.
 
+Next to single users you can allow whole groups. A user may log in when he is in the list of users
+**or** a member of one of the allowed groups - which of his groups it is does not matter. Members of
+an allowed group are shown as already selected in the user list, so you do not have to add them a
+second time. Adding a group is the way to keep the list short: whoever joins the group later may log
+in without a change to this instance.
+
+With *access web interface as* you decide which rights the access happens with:
+
+- **logged in user** - everybody keeps his own permissions, so every user sees only what his groups
+  allow him to.
+- **a specific user** - every allowed login acts with the rights of that one user, no matter who
+  logged in. This is the simple way to let several people share one set of permissions.
+
+A login that matches neither the users nor the groups is refused, and the instance logs
+`User system.user.<name> is not in the user list`.
+
+This list only decides **who may log in** - it hands out no rights. Behind it the usual ioBroker ACLs
+still apply, so the user needs read rights on the objects, states and files he is meant to see. A
+group with every permission switched on is therefore not the same as the administrator group: members
+of `system.group.administrator` pass every file check, everybody else has to pass the ACL of the
+single file. Files uploaded with `0x660` (`defaultNewAcl.file` in `system.config`) grant nothing to
+"others", so an adapter whose files look like that answers with a 404 to a user who is neither their
+owner nor a member of their owner group.
+
 ## Advanced options
 ### Default redirect
 If by opening of web port im browser no APP selection should be shown, but some specific application, 
 the path could be provided here (e.g. `/vis/`) so this path will be opened automatically.
+
+### Embedding this server in another site
+
+A browser treats a cookie without a `SameSite` attribute as `SameSite=Lax` and keeps it to itself as
+soon as the page belongs to another origin. A dashboard that embeds a page of this server in an
+`<iframe>` therefore gets a request without the session, and the user is asked to log in again inside
+the frame - while the same page opened directly works.
+
+**"Allow embedding in other sites"** sends the session cookie with `SameSite=None; Secure` and makes
+that case work. Two things come with it:
+
+- It needs TLS. Browsers accept `SameSite=None` only together with `Secure`, and a cookie marked
+  secure never travels over plain `http://`. So either enable encryption here, or terminate TLS at a
+  reverse proxy in front of this server and **set the public URL** to its `https://` address - the
+  option is ignored, with a warning in the log, while neither is the case. With the proxy variant the
+  proxy has to send `X-Forwarded-Proto: https`, which is how this server learns that the browser
+  spoke TLS to it. Without that header no session cookie is handed out at all and nobody can log in.
+- It gives up what `SameSite` protects against: the session cookie is then sent with requests coming
+  from *any* other site, not only from the one you embed this server in. Leave it off unless you
+  actually embed this server somewhere.
+
+It also depends on the browser still accepting third-party cookies, which the Chromium family is
+phasing out. The way that keeps working is to carry an OAuth2 token in the URL instead of relying on
+a cookie, which needs no cross-site cookie at all:
+
+```html
+<iframe src="https://iobroker.example.com:8082/some-page?token=<access_token>"></iframe>
+```
 
 ## OAuth2 authentication
 The web adapter supports OAuth2 authentication.
@@ -193,6 +299,21 @@ This is off by default. When enabled:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 9.1.12 (2026-10-04)
+* (@GermanBluefox) Fixed: with the cache enabled, a file that an adapter writes again under the same name is delivered anew instead of forever in the version that was read first. This is what made `sayit` repeat the same announcement. The cache had no way of learning about a change at all - the adapter never subscribed to the files it had cached. It does now, for those namespaces only, and drops the entry when the file changes
+* (@GermanBluefox) Fixed: an adapter that runs as a web extension is linked to this server on the overview page instead of to a port of its own that nothing listens on. The entry such an adapter supplies through `welcomePage()` was collected after the list had already been cleaned up and its links resolved, so it never got the `localLink` the page reads and was dropped without a word, leaving only the dead link from `common.localLinks` behind
+* (@GermanBluefox) The folder index got the look of the admin: an app bar with the path and the number of entries, icons telling a folder from a file, sizes in a readable unit, and a light and a dark theme the page selects itself from the setting of the system. A folder of 0 bytes says "0 B" instead of nothing, and the way up is no longer offered in the root of an adapter, where it led out of it
+* (@GermanBluefox) An unexpected error while reading a session no longer ends the instance. The session store answers from a task of its own, so an exception in one of its callbacks reached neither express nor a `try/catch` and the controller terminated the whole web server over a single request. The four callbacks are guarded now and answer with a 500 instead. The same went for two promises in `onObjectChange`/`onStateChange` without a `catch`, where a rejected read of the socket URL arrived as an unhandled rejection
+* (@GermanBluefox) Added the option "Allow embedding in other sites": the session cookie is sent with `SameSite=None; Secure`, so a page of this server keeps its session when another site embeds it in an iframe. It requires SSL here or an https reverse proxy with the public URL set, and it is off by default because it gives up the protection `SameSite` provides against requests of foreign pages
+* (@GermanBluefox) Fixed: a call of `/prolongSession` no longer kills the instance. The session was handed to the store without its time to live, the store took the session object itself for it, and the type check of the controller ended the adapter with "Parameter ttl needs to be of type number". The session is also written back under the ID its cookie carries - `req.session.id` is a different one as soon as express-session started a new session for the request, and then the wrong session was prolonged
+* (@GermanBluefox) Fixed: an address without the closing slash - `/vis-2` instead of `/vis-2/` - leads to the application instead of a 404. It is answered with a redirect to the address with the slash, as every other web server does
+* (@GermanBluefox) A 404 names the address that was requested, not the file name left over after the adapter name was cut off, and logs it on the debug level
+* (@hdering) A web instance that restarts to load a changed web extension logs this as info with the reason instead of the warning "Terminated (-100): Without reason"
+
+### 9.1.11 (2026-10-02)
+* (@hdering) Updating an adapter with a web extension restarts only the web instances that run it, not every web instance
+* (@GermanBluefox) Fixed: a user the "User list" lets in through a group is let in no matter which of their groups it is. Only the first group the user was a member of got compared against the allowed ones, so a user in several groups was rejected whenever that first group was not the listed one. The order of the groups is their creation order, which made this look arbitrary
+
 ### 9.1.9 (2026-09-28)
 * (@GermanBluefox) Added onScreen state for App
 
@@ -204,15 +325,6 @@ This is off by default. When enabled:
 * (@GermanBluefox) Fixed: a mistyped password leads back to the login page with the error message instead of a 404, and the requested page is not lost on the way
 * (@GermanBluefox) Fixed: a deep link that was answered with a JavaScript file keeps its whole query string - it was cut off at the first "&"
 * (@GermanBluefox) A target with a control character in it is refused again: browsers drop tab and newline before they read a URL, which turned "/<TAB>/host" into a link that leaves this server
-
-### 9.1.5 (2026-09-20)
-* (@GermanBluefox) Added: the instance settings show a QR code for the ioBroker.visu app. It carries the addresses and the port of this instance, and the ioBroker.pro credentials of a cloud or iot instance if there is one - without such an instance the app reaches this server in the local network only
-* (@GermanBluefox) Added: with HTTPS enabled, the web server speaks HTTP/2 - the browser loads the page and all its files over a single connection. Clients without HTTP/2 fall back to HTTP/1.1 automatically; the new option "Use HTTP/2" in the instance settings turns it off
-* (@GermanBluefox) `POST /state/<id>` creates the state it writes into for the six ids a visu app reports to: `vis.<X>.<device>.` plus `battery.level`, `battery.state`, `brightness`, `currentLocation`, `alive` or `instanceId`, together with the device they belong to. They are made from the definitions in the adapter, never from the request, and every other id is answered with a 404 as before.
-* (@GermanBluefox) A command a visu app writes into `cloud.<X>.remote.command` is turned into `cloud.<X>.devices.<device>.*` here when the cloud adapter is not running. The app reported nothing at all while that adapter was stopped, although the value had arrived. Nothing changes while the adapter runs — it does this itself. The command state is created when it is missing, so an installation without the cloud adapter can be reported to as well.
-
-### 9.1.4 (2026-08-31)
-* (@GermanBluefox) Updated packages
 
 ## License
 The MIT License (MIT)

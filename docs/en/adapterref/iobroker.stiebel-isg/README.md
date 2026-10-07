@@ -25,7 +25,7 @@ This adapter reads values from STIEBEL ELTRON/Tecalor Internet Service Gateways 
 
 **Caution:** Version 2.x.x includes some Breaking Changes:
 
-* node.js >= 22, js-controller >= 6.0.11 and admin >= 7.7.22 is required  
+* node.js >= 22.19.0, js-controller >= 6.0.11 and admin >= 7.7.22 is required  
 Upgrade your ioBroker to at least this software level, if you want to use this adapter
 
 * Password and username encryption in config UI  
@@ -39,7 +39,7 @@ If you update this adapter from a previous version instead of a new installation
 
 1. Configure the instance by entering the IP-address or domain name of the ISG and if configured in the ISG, the user name and password.  
 2. The other settings and the the list of the web pages of the ISG on tab URLs may be left at their default values.
-3. You can improve performance and reduce the load on the ISG if you remove any paths from the URLs tab which do not exist in you ISG Web GUI or which you are not interested in. You can easily identify the URLs by opening the ISG SERVICEWELT Web page and open the various navigation tabs one by one. The URL of the respective page is shown in your browser e.g <http://IP-of-your-ISG/?s=1,0> is the value path to INFO/ANLAGE.
+3. You can improve performance and reduce the load on the ISG if you remove any paths from the URLs tab which do not exist in your ISG Web GUI or which you are not interested in. You can easily identify the URLs by opening the ISG SERVICEWELT Web page and open the various navigation tabs one by one. The URL of the respective page is shown in your browser e.g <http://IP-of-your-ISG/?s=1,0> is the value path to INFO/ANLAGE.
 
 ## Changelog
 
@@ -47,7 +47,13 @@ If you update this adapter from a previous version instead of a new installation
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 2.1.0 (2026-09-09)
+### 2.2.0 (2026-10-06) - 2026H2 bugfix release
+
+* (pdbjjens) **Breaking**: Adapter requires node.js >= 22.19.0 and undici >= 8.10.2 now
+* (pdbjjens) **Fixed**: Sporadic "fetch failed ... Check ISG connection!" (#221)
+* (pdbjjens) **New**: Configuration option to select either native fetch or undici fetch
+
+### 2.1.0 (2026-09-09)  - 2026H2 maintenance release
 
 * (copilot) **Breaking**: Adapter requires node.js >= 22 now
 * (pdbjjens) **Fixed**: i18n directory migrated to short format
@@ -68,16 +74,6 @@ If you update this adapter from a previous version instead of a new installation
 ### 2.0.1 (2025-11-12)
 
 * (pdbjjens) **Fixed**: ioBroker warnings are avoided by clamping any values exceeding min/max to the min value before setting. (fixes #53 & #65)
-
-### 2.0.0 (2025-10-27)
-
-* (mcm1957) Change: Adapter has been migrated to iobroker-community-adapters organisation
-* (mcm1957) Change: Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
-* (mcm1957) Fix: Dependencies have been updated
-* (pdbjjens) Change: remove .npmignore
-* (pdbjjens) Change: migrate adapter configuration to jsonConfig
-* (pdbjjens) Change: migrate from deprecated "request" http client to native fetch API
-* (pdbjjens) Fix: min/max handling
 
 ## Legal Notices
 

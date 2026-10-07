@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis2-materialdesign/doc/en/README.md
 title: Material Design Widgets - Benutzerhandbuch
-hash: Vw8JUO/zQ76OgHLQWQg1DIZejzJXg98+GFGZotILddI=
+hash: MSJxLSbUUdfd0a/ngW/d7RfmF+Ss4CUMq8mAn0WZpcI=
 ---
 # Material Design Widgets – Benutzerhandbuch
 
@@ -21,14 +21,14 @@ Eine vollständige Browser-/Laufzeitkompatibilitätsmatrix wurde noch nicht gete
 
 ## Installation und Schnellstart
 
-1. Installieren Sie **Material Design Widgets** (`vis2-materialdesign` ) aus der ioBroker Admin-Adapterliste.
+1. Installieren Sie **Material Design Widgets** (`vis2-materialdesign`) aus der ioBroker Admin-Adapterliste.
 2. Öffnen Sie den VIS 2-Editor und ein Projekt.
 3. Öffnen Sie das **Material Design-** Widget-Set.
 4. Ziehen Sie ein Widget in die Ansicht und wählen Sie es aus.
 5. Konfigurieren Sie die Objekt-ID und das Verhalten auf der Registerkarte **WIDGET** .
 6. Speichern Sie das Projekt und testen Sie es im Laufzeitmodus.
 
-Verwenden Sie **„Wert“** für einen ersten Test: Wählen Sie ein Objekt unter`oid` Konfigurieren Sie die Einheiten und Dezimalstellen und speichern Sie die Ansicht anschließend.
+Verwenden Sie **„Wert“** für einen ersten Test: Wählen Sie ein Objekt unter `oid` Konfigurieren Sie die Einheiten und Dezimalstellen und speichern Sie die Ansicht.
 
 ## Verwenden Sie ein Thema
 
@@ -40,6 +40,47 @@ Die Verwendung des Designs ist optional:
 4. **Design auswählen → Design verwenden** und bestätigen.
 
 Dadurch werden die entsprechenden Designreferenzen im ausgewählten Widget platziert. Nachträglich geänderte Widget-Werte bleiben individuelle Überschreibungen. Das globale JavaScript-Skript in der Adapterkonfiguration wird nur benötigt, wenn Skripte direkt auf Designwerte zugreifen müssen.
+
+## Migration von vis-materialdesign
+
+Wenn Ihre vis-2-Projekte mit den Widgets des vis-materialdesign-Adapters von Scrounger erstellt wurden, werden sie über den **Migrations-** Tab in den Adaptereinstellungen in diese Widgets konvertiert. Anschließend kann der alte Adapter deinstalliert werden, und die Ansichten funktionieren weiterhin.
+
+1. Installieren Sie diesen Adapter neben vis-materialdesign.
+2. Schließen Sie alle geöffneten Vis-2-Editoren. Ein geöffneter Editor überschreibt das konvertierte Projekt beim nächsten Speichern.
+3. Öffnen Sie die Einstellungen dieses Adapters und wechseln Sie zur Registerkarte **„Migration“** . Dort werden alle vis-2-Projekte mit der Anzahl der darin enthaltenen alten Widgets aufgelistet.
+4. Klicken Sie für jedes Projekt auf **„Migrieren“** . Das Ergebnis wird unterhalb der Projektliste angezeigt: wie viele Widgets konvertiert wurden und welche manuell überprüft werden müssen.
+5. Drücken Sie **„Design übernehmen“** , um Farben, Schriftarten, Schriftgrößen und den Dunkelmodus-Schalter zu kopieren. `vis-materialdesign.0` In diesen Adapter wechseln und anschließend auf **„Speichern“** klicken, damit die Designeinstellungen gespeichert werden. Die migrierten Widgets verwenden das Design dieses Adapters; ohne diesen Schritt werden die Standardfarben, -schriftarten und -größen angezeigt. Der alte Dunkelmodus-Schalter wird unverändert übernommen. `true` oder `false` Der Schalter dieses Adapters weiß ebenfalls `auto` Die
+6. Öffnen Sie die Ansichten und überprüfen Sie diese, einschließlich der Einträge unter **„Manuelle Überprüfung“** .
+7. Wenn die Ansichten korrekt aussehen, deinstallieren Sie vis-materialdesign. Übernehmen Sie das Theme und migrieren Sie zuerst alle Projekte in der Liste: Durch die Deinstallation wird das Theme des alten Adapters gelöscht, und Projekte, die nicht migriert wurden, verlieren ihre Widgets. Das alte Widget-Set kann in der vis-2-Editorpalette als „materialdesign“ verbleiben, auch nach einem Neustart von vis-2, da vis-2 eine eigene Kopie davon speichert. Fügen Sie keine Widgets mehr daraus ein. Solange es vorhanden ist, werden seine Stile weiterhin geladen und können das Aussehen einiger Widgets verändern, beispielsweise den Text von Listeneinträgen abschneiden. Dies führt zu einer vis-2-Version, die deinstallierte Widget-Sets entfernt.
+
+### Was wird automatisch umgewandelt?
+
+- Die Widget-Typen.
+- Die Zähleinstellungen. Die alten Widgets zeigten einen Eintrag mehr an als die von Ihnen festgelegte Anzahl; die Migration fügt einen Eintrag hinzu, sodass die gleiche Anzahl an Einträgen angezeigt wird.
+- Verweise auf `vis-materialdesign.N.` Zustände, in allen Widgets und in `vis-user.css` Die
+- 11 Symbolnamen, die Material Design Icons umbenannt hat.
+- Die Designeinstellungen. Alle Farben, Schriftarten und Schriftgrößen, die das alte Widget vom Design übernommen hat, werden nun vom Design dieses Adapters übernommen, genau wie die **Option „Design verwenden“** dies bei einem eingefügten Widget tut. **Die Option „Design übernehmen“** füllt dieses Design mit den Farben, Schriftarten und Größen des alten Adapters. Manuell festgelegte Farben oder Größen bleiben unverändert. Die wenigen Designeinstellungen, die in diesem Adapter kein Gegenstück haben, werden gelöscht, sodass das Widget dort seine eigenen Standardwerte verwendet.
+
+Migrierte Widgets behalten den klassischen Stil bei. Material 3 ist nur für neu eingefügte Widgets die Standardeinstellung.
+
+### Wiederherstellen einer Sicherung
+
+Bevor ein Projekt zum ersten Mal geändert wird, `vis-views.json` Und `vis-user.css` werden kopiert an `vis-views.json.mdw-backup` Und `vis-user.css.mdw-backup` Diese Backups befinden sich im Projektordner und werden niemals überschrieben. **Beim Wiederherstellen eines Backups** wird eine Bestätigung angefordert. Anschließend wird das Projekt auf den Zustand vor der ersten Migration zurückgesetzt; alle danach vorgenommenen Änderungen gehen verloren. Die Backups werden nach der Wiederherstellung gelöscht, und die nächste Migration erstellt neue.
+
+### Handprüfung
+
+Die Liste **„Manuelle Prüfung“** benennt die Dinge, die die Migration nicht konvertieren kann:
+
+- Eigene CSS-Regeln für die alte Widget-Struktur: Selektoren, die mit `.v-`, `.mdc-` oder `.materialdesign-` In `vis-user.css` Die neuen Widgets haben eine andere Struktur, daher müssen diese Regeln angepasst werden.
+- Verwendung der alten JavaScript-Hilfsfunktionen `vis.binds.materialdesign` Und `myMdwHelper` in Ihrem eigenen Code.
+- Symbole, die in Material Design Icons 7 nicht mehr vorhanden sind (9 Namen). Wählen Sie ein Ersatzsymbol.
+- **Nicht konvertiert, unbekannter Widget-Typ** : Ein Widget, dessen Typ der Migration nicht bekannt ist. Es bleibt unverändert.
+
+### Bekannte Grenzen
+
+- Falls mehrere Instanzen des alten Adapters existieren, werden alle dieser einen Instanz zugeordnet.
+- Das Thema stammt ausschließlich von `vis-materialdesign.0` Die
+- Ihre eigenen Skripte im JavaScript-Adapter, die verwenden `vis-materialdesign.0.*` muss manuell angepasst werden. Die Schaltfläche **„Skript generieren“** auf der Registerkarte **„Allgemein“** erstellt das globale Designskript für diesen Adapter neu.
 
 ## Designstil
 
@@ -53,15 +94,15 @@ Jedes Widget wird in einem von zwei Stilen gerendert, die auf der Registerkarte 
 
 Neu eingefügte Widgets werden in Material 3 angezeigt. Bestehende Projekte bleiben klassisch und unverändert, bis Sie ein Widget austauschen oder die Projektstandardeinstellung auf der Registerkarte **„Design“** ändern.
 
-Beide Stile folgen dem Dunkelmodus von VIS 2: Text, die Oberflächen, die ein Widget selbst zeichnet (Karte, Menü, Navigationsleiste) und die Ränder des`outlined` Die Farbvarianten wechseln je nach Design. Eine im Editor festgelegte Farbe bleibt in beiden Modi unverändert – überprüfen Sie sie also, wenn Sie sie für den hellen Modus ausgewählt haben.
+Beide Stile folgen dem Dunkelmodus von VIS 2: Text, die Oberflächen, die ein Widget selbst zeichnet (Karte, Menü, Navigationsleiste) und die Ränder des `outlined` Die Farbvarianten wechseln je nach Design. Eine im Editor festgelegte Farbe bleibt in beiden Modi unverändert – überprüfen Sie sie also, wenn Sie sie für den hellen Modus ausgewählt haben.
 
-Material 3 ändert lediglich die Darstellung. Objekt-IDs, Optionsnamen, Werte, Schreibverhalten, Timer und Navigation sind in beiden Stilen identisch, und das Zurücksetzen eines Widgets auf den vorherigen Zustand ist ebenfalls möglich.`Classic` Stellt das alte Aussehen exakt wieder her. Farben, Schriftarten und Größen, die Sie explizit konfiguriert haben, bleiben erhalten – Material 3 füllt nur die leeren Felder aus. Leeren Sie diese Felder daher, damit ein Widget die Material-3-Palette verwendet.
+Material 3 ändert lediglich die Darstellung. Objekt-IDs, Optionsnamen, Werte, Schreibverhalten, Timer und Navigation sind in beiden Stilen identisch, und das Zurücksetzen eines Widgets auf den vorherigen Zustand ist ebenfalls möglich. `Classic` Stellt das alte Aussehen exakt wieder her. Farben, Schriftarten und Größen, die Sie explizit konfiguriert haben, bleiben erhalten – Material 3 füllt nur die leeren Felder aus. Leeren Sie diese Felder daher, damit ein Widget die Material-3-Palette verwendet.
 
-Der Dunkelmodus verhält sich genauso.`vis2-materialdesign.0.colors.darkTheme` Geben Sie an, welcher klassische Stil bereits verwendet wird:`auto` entnimmt es dem eigenen Thema von VIS 2,`light` Und`dark` Erzwingen Sie eine. Die Registerkarte **„Design“** leitet das vollständige Material-3-Farbschema aus einer Ausgangsfarbe ab; lassen Sie das Feld für die Ausgangsfarbe leer, um Googles Basisfarbpalette zu verwenden.
+Der Dunkelmodus verhält sich genauso. `vis2-materialdesign.0.colors.darkTheme` Geben Sie an, welchen klassischen Stil dies bereits verwendet: `auto` entnimmt es dem eigenen Thema von VIS 2, `light` Und `dark` Erzwingen Sie eine. Der **Design-** Tab leitet das vollständige Material-3-Farbschema von einer Ausgangsfarbe ab; lassen Sie das Feld für die Ausgangsfarbe leer, um Googles Basisfarbpalette zu verwenden.
 
 ### Schema über ein Skript festlegen
 
-Das fertige Projekt befindet sich in der`vis2-materialdesign.0.colors.md3Scheme` Der Status wird als JSON-Text von den Widgets direkt gelesen – im Gegensatz zur Ausgangsfarbe wird ein per Skript erstelltes Farbschema sofort wirksam, ohne dass der **Design** -Tab gespeichert werden muss:
+Das fertige Projekt befindet sich in der `vis2-materialdesign.0.colors.md3Scheme` Der Status wird als JSON-Text von den Widgets direkt gelesen – im Gegensatz zur Ausgangsfarbe wird ein per Skript erstelltes Farbschema sofort wirksam, ohne dass der **Design** -Tab gespeichert werden muss:
 
 ```json
 {
@@ -72,9 +113,9 @@ Das fertige Projekt befindet sich in der`vis2-materialdesign.0.colors.md3Scheme`
 
 Beide Abschnitte sind optional und werden unabhängig voneinander ausgewertet. Folgende 18 Rollennamen werden akzeptiert:
 
-`primary` ,`on-primary` ,`primary-container` ,`on-primary-container` ,`secondary` ,`secondary-container` ,`on-secondary-container` ,`tertiary` ,`error` ,`surface` ,`surface-container-low` ,`surface-container` ,`surface-container-high` ,`on-surface` ,`on-surface-variant` ,`outline` ,`outline-variant` ,`scrim`
+`primary`, `on-primary`, `primary-container`, `on-primary-container`, `secondary`, `secondary-container`, `on-secondary-container`, `tertiary`, `error`, `surface`, `surface-container-low`, `surface-container`, `surface-container-high`, `on-surface`, `on-surface-variant`, `outline`, `outline-variant`, `scrim`
 
-Ein Wert muss eine Hexadezimalfarbe sein (`#abc` oder`#aabbcc` Unbekannte Rollennamen, andere Farbformate und ungültiges JSON werden ignoriert. Jede fehlende Rolle greift auf die Standardfarbpalette von Google zurück – ein leerer Zustand bedeutet also die vollständige Standardfarbpalette. Die Schriftart stammt von`vis2-materialdesign.0.fonts.md3Font` auf die gleiche Weise.
+Ein Wert muss eine Hexadezimalfarbe sein (`#abc` oder `#aabbcc` Unbekannte Rollennamen, andere Farbformate und ungültiges JSON werden ignoriert. Jede fehlende Rolle greift auf die Standardfarbpalette von Google zurück – ein leerer Zustand bedeutet also die vollständige Standardfarbpalette. Die Schriftart stammt von `vis2-materialdesign.0.fonts.md3Font` auf die gleiche Weise.
 
 Auf jeder Widget-Seite werden beide Stile nebeneinander im hellen und dunklen Modus angezeigt.
 
@@ -82,7 +123,7 @@ Auf jeder Widget-Seite werden beide Stile nebeneinander im hellen und dunklen Mo
 
 ### Bekannte Grenzen von Material 3
 
-- **Die Widgets lesen Instanz 0.** Das Thema, der Dunkelmodus, der Designstil und die Material-3-Zustände werden von`vis2-materialdesign.0.…` Der Adapter ist ein Singleton, und ioBroker erstellt standardmäßig Instanz 0, sodass dies bei jeder normalen Installation der Fall ist – eine absichtlich unter einer anderen Nummer erstellte Instanz wird jedoch von den Widgets nicht erkannt.
+- **Die Widgets lesen Instanz 0.** Das Thema, der Dunkelmodus, der Designstil und die Material-3-Zustände werden von `vis2-materialdesign.0.…` Der Adapter ist ein Singleton, und ioBroker erstellt standardmäßig Instanz 0, sodass dies bei jeder normalen Installation der Fall ist – eine absichtlich unter einer anderen Nummer erstellte Instanz wird jedoch von den Widgets nicht erkannt.
 - **Ein per Skript generierter Seed berechnet das Farbschema nicht neu.** Die Seed-Farbe wird erst beim Speichern der Adapterkonfiguration in das vollständige Material-3-Farbschema konvertiert, nicht bei einer Statusänderung. Geben Sie den Seed im **Design-** Tab ein und speichern Sie die Einstellungen.
 
 <img src="../media/vis2_style_editor_advanced.png" width="300" alt="Additional option groups with advanced options enabled">
@@ -111,7 +152,7 @@ Die Bindung wird von VIS 2 ausgewertet, nicht von diesem Adapter. Das Kettensymb
 
 ## Fehlerbehebung
 
-- **Das Widget-Set fehlt:** Bitte überprüfen Sie, ob`vis2-materialdesign` und VIS 2 sind installiert, laden Sie dann den VIS 2-Editor neu.
+- **Das Widget-Set fehlt:** Bitte überprüfen Sie, ob `vis2-materialdesign` und VIS 2 sind installiert, laden Sie dann den VIS 2-Editor neu.
 - **Das Theme bleibt unverändert:** Adapterkonfiguration speichern, **Theme ausführen → Theme erneut verwenden** und Laufzeitmodus neu laden.
 - **Die Änderungen werden nach der Neuinstallation derselben Version nicht mehr angezeigt:** Führen Sie einen vollständigen Neuladen des Browsers durch.
 - **Das Widget schreibt nicht:** Prüfen Sie, ob das Objekt beschreibbar ist und ob der Nur-Lese-Modus oder die Widget-Sperre aktiv ist.

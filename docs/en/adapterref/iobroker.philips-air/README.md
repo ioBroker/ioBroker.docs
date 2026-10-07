@@ -24,7 +24,7 @@ Connects Philips air purifiers and selected Philips/Versuni fans with ioBroker.
 ## Usage
 Enter the IP address or the hostname of your device. You can find it in your router, where the device often shows up as `MiCO`.
 Most devices are reached over CoAP, which is the default. Some older ones, such as the AC2729 and the AC3829, only answer over HTTP - if the connection does not come up, switch the protocol in the instance settings.
-Then pick your device model, so that the adapter creates the controls that match your device. If your model is not in the list, choose `Generic`: you still get every read-only value, just no model-specific controls.
+Then pick your device model, so that the adapter creates the controls that match your device. A new instance starts with `Generic`: you get every read-only value, but no controls until you select a model. `Generic` is also the right choice if your model is not in the list.
 It can happen that a device does not report all variables; those stay unfilled in the object tree. Raw values the adapter does not recognise are collected under `unknownStates`.
 
 ### The two timing settings
@@ -96,6 +96,12 @@ More details are documented in [docs/CX7550.md](/#/docs/adapterref/iobroker.phil
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (tt-tom17) A new instance now starts with the device model "Generic" (read-only values, no controls) instead of silently using the AC2889 controls; instances that already have a model keep it
+- (tt-tom17) With the device model "Generic" the log now names the model your device looks like, so you know which one to select
+- (tt-tom17) Dependencies updated
+
 ### 2.2.0 (2026-09-08)
 
 - (tt-tom17) Added the combined allergen/sleep preset ("Allergie-/Ruhemodus") reported by the AC4236/14 (VMI1)

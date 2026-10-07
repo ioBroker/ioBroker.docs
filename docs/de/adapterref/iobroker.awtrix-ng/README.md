@@ -22,7 +22,7 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-ng-installed.svg
 - nodejs 22 (oder neuer)
 - js-controller 6.0.11 (oder neuer)
 - Admin Adapter 7.6.20 (oder neuer)
-- _Awtrix NG_ Gerät mit Firmware-Version _1.1.4_ (oder neuer) - z.B. Ulanzi TC001, Ulanzi TC002
+- _Awtrix NG_ Gerät mit Firmware-Version _1.2.2_ (oder neuer) - z.B. Ulanzi TC001, Ulanzi TC002
 
 - TC001 kaufen: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001), [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) oder [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) *(Affiliate-Links)*
 - TC002 kaufen: [Amazon.de](https://haus-auto.com/p/amz/UlanziTC002) oder [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC002) *(Affiliate-Links)*
@@ -120,12 +120,12 @@ Das Nachrichten-Objekt unterstützt dabei alle Optionen, welche in der Firmware 
 
 ### Töne
 
-**Die Sound-Dateien müssen im RTTTL-Format im Ordner MELODIES abgelegt werden. Die Dateiendung für diese Sounds ist .txt. Beim Abspielen der Sounds darf die Dateiendung nicht mit übergeben werden!**
+Töne sind auf dem Gerät gespeicherte MP3-Dateien oder Melodien (RTTTL), die in der Weboberfläche des Gerätes gepflegt werden. Sie werden über ihren Namen abgespielt - ohne Dateiendung.
 
 Um einen (vorher angelegten) Ton namens `beispiel` abzuspielen:
 
 ```javascript
-sendTo('awtrix-ng.0', 'audio', { sound: 'beispiel' }, (res) => {
+sendTo('awtrix-ng.0', 'audio', { file: 'beispiel' }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
@@ -244,10 +244,12 @@ Siehe [Dokumentation](https://blueforcer.github.io/awtrix-ng/reference/payload/)
 -->
 ### **WORK IN PROGRESS**
 
+* (@klein0r) Updated recommended Awtrix NG firmware version to 1.2.2
+* (@klein0r) Added state `device.usbPower` (device is connected to USB power, e.g. TC002)
+* (@klein0r) **Breaking change:** `sendTo` uses the sound format of firmware 1.2.0: `audio` takes `file` (instead of `sound`, `mp3`, `melody`, ...), notifications take `sound` as name or sound object (`soundRtttl` / `soundLoop` were removed), `textCenter` was replaced by `textAlign`
 * (@klein0r) **Breaking change:** Renamed settings states to the names of the device settings (e.g. `settings.brightness.value` -> `settings.brightness.brightness`, `settings.apps.transitionSpeed` -> `settings.apps.transitionDurationMs`) - old objects are deleted automatically
 * (@klein0r) Sleep mode (`device.sleep`) is blocked on devices without timed sleep (e.g. TC002 would not wake up again)
 * (@klein0r) Scroll speed setting (`settings.text.scroll.speed`) allows up to 500 % now
-* (@klein0r) Recommended Awtrix NG version is now 1.1.4
 
 ### 0.3.0 (2026-09-30)
 

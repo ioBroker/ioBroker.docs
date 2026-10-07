@@ -42,6 +42,86 @@ changed afterwards remain individual overrides. The global JavaScript script in
 the adapter configuration is only needed when scripts must access theme values
 directly.
 
+## Migrate from vis-materialdesign
+
+If your vis-2 projects were built with the widgets of Scrounger's
+vis-materialdesign adapter, the **Migration** tab in this adapter's settings
+converts them to these widgets. Afterwards the old adapter can be uninstalled and
+the views keep working.
+
+1. Install this adapter next to vis-materialdesign.
+2. Close every open vis-2 editor. An editor that stays open overwrites the
+   converted project the next time it saves.
+3. Open the settings of this adapter and switch to the **Migration** tab. It lists
+   every vis-2 project with the number of old widgets it contains.
+4. Press **Migrate** for each project. The result is shown below the list of
+   projects: how many widgets were converted and what needs a manual check.
+5. Press **Take over theme** to copy the colors, fonts, font sizes and the dark
+   mode switch of `vis-materialdesign.0` into this adapter, then press **Save**
+   so the theme states are written. The migrated widgets use the theme of this
+   adapter; without this step they show its default colors, fonts and sizes.
+   The old dark mode switch is copied as it is, `true` or `false`; the switch of
+   this adapter also knows `auto`.
+6. Open the views and check them, including the entries under **Check by hand**.
+7. When the views look right, uninstall vis-materialdesign. Take over the theme
+   and migrate every project in the list first: uninstalling deletes the theme of
+   the old adapter, and a project that was not migrated loses its widgets.
+   The old widget set can stay in the vis-2 editor palette as "materialdesign",
+   even after vis-2 is restarted, because vis-2 keeps its own copy of it. Do not
+   insert widgets from it any more. As long as it stays, its styles still load
+   and can change the look of some widgets, for example cut off the text of list
+   entries. This ends with a vis-2 version that removes uninstalled widget sets.
+
+### What is converted automatically
+
+- The widget types.
+- The count settings. The old widgets showed one entry more than the number you
+  set; the migration adds one so the same number of entries shows.
+- References to `vis-materialdesign.N.` states, in all widgets and in
+  `vis-user.css`.
+- 11 icon names that Material Design Icons has renamed.
+- The theme settings. Every color, font and font size the old widget took from
+  the theme now takes it from the theme of this adapter, the same way **use
+  theme** does for a widget you insert. **Take over theme** fills that theme
+  with the colors, fonts and sizes of the old adapter. A color or size you had
+  set by hand stays as it is. The few theme settings that have no counterpart
+  in this adapter are cleared, so the widget uses its own default there.
+
+Migrated widgets keep the classic style. Material 3 is only the default for
+newly inserted widgets.
+
+### Restore a backup
+
+Before a project is changed for the first time, its `vis-views.json` and
+`vis-user.css` are copied to `vis-views.json.mdw-backup` and
+`vis-user.css.mdw-backup` in the project folder. These backups are never
+overwritten. **Restore backup** asks for confirmation, then puts back the project
+as it was before its first migration; every change made after that is lost.
+The backups are removed after a restore, and the next migration makes new ones.
+
+### Check by hand
+
+The **Check by hand** list names what the migration cannot convert:
+
+- Own CSS rules for the old widget structure: selectors starting with `.v-`,
+  `.mdc-` or `.materialdesign-` in `vis-user.css`. The new widgets have a
+  different structure, so these rules must be adapted.
+- Use of the old JavaScript helpers `vis.binds.materialdesign` and
+  `myMdwHelper` in your own code.
+- Icons that no longer exist in Material Design Icons 7 (9 names). Pick a
+  replacement icon.
+- **Not converted, unknown widget type**: a widget whose type the migration does
+  not know. It stays as it was.
+
+### Known limits
+
+- If several instances of the old adapter exist, all of them are mapped to this
+  one instance.
+- The theme is taken only from `vis-materialdesign.0`.
+- Your own scripts in the javascript adapter that use `vis-materialdesign.0.*`
+  must be adapted by hand. The **generate script** button on the **General** tab
+  recreates the global theme script for this adapter.
+
 ## Design style
 
 Every widget renders in one of two styles, selected in the **WIDGET** tab under

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md
 title: Web-Erweiterungen
-hash: SOVZgZC06vGyoVQd2jiyFS0YTb5u+HAy7k/Euz8yAPE=
+hash: YsC2LxA9ZntaqevDfmqQdd8PMltS5u3+XfZmmZD3XKc=
 ---
 # Web-Erweiterungen
 
@@ -58,7 +58,7 @@ Als Nächstes sollten Sie ein Zustandsobjekt erstellen. `info.extension` und leg
 }
 ```
 
-Fünftens, die Datei `lib/web.js` (oder was auch immer) muss existieren und eine Klasse exportieren.
+Fünftens die Datei `lib/web.js` (oder was auch immer) muss existieren und eine Klasse exportieren.
 
 ```js
 /**
@@ -75,6 +75,8 @@ Fünftens, die Datei `lib/web.js` (oder was auch immer) muss existieren und eine
 function ExtensionExample(server, webSettings, adapter, instanceSettings, app) {
     this.app         = app;
     this.config      = instanceSettings ? instanceSettings.native : {};
+    // "example.0" - the namespace of THIS instance, not the one of the web instance below
+    this.namespace   = instanceSettings._id.substring('system.adapter.'.length);
     const that       = this;
 
     // instanceSettings and this.config contain instance config (not web adapter, but this one with web-extension)
@@ -132,6 +134,19 @@ function ExtensionExample(server, webSettings, adapter, instanceSettings, app) {
 
 module.exports = ExtensionExample;
 ```
+
+### Das Datenverzeichnis Ihrer eigenen Instanz
+
+`adapter` ist die **Webinstanz** , die Sie ausführt, also `getAbsoluteInstanceDataDir(adapter)` Die Antwort enthält das Verzeichnis von web, nicht Ihr eigenes. Übergeben Sie stattdessen Ihren eigenen Namespace – der Helfer erwartet einen, da `@iobroker/adapter-core` 3.3.1:
+
+```js
+const { getAbsoluteInstanceDataDir } = require('@iobroker/adapter-core');
+
+// .../iobroker-data/example.0
+const dataDir = getAbsoluteInstanceDataDir(this.namespace);
+```
+
+Das Gleiche gilt für alles andere, was Sie normalerweise aus Ihrem eigenen Adapterobjekt auslesen würden: `adapter` gehört zum Web, während `instanceSettings` gehört dir.
 
 `common.mode` könnte sein:
 

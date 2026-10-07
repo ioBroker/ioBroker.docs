@@ -30,8 +30,12 @@ the official [Omoda / Jaecoo app](https://www.omoda.com/).
 - **Location** — GPS latitude/longitude, speed, heading.
 - **Battery & charging** — state of charge, electric/total range, charge state, charging power,
   charge plug connected, remaining charge time.
+- **Fuel** (hybrids / combustion only) — fuel remaining in litres, petrol range, average fuel
+  consumption, low-fuel warning. The car reports litres, not a fuel-level percentage.
+- **Units** — ranges, odometer and speed in kilometres or miles (setting "Distance unit" on the
+  "Region & polling" tab; default km).
 - **Commands** — lock/unlock, climate on/off with a settable target temperature, request GPS
-  location, and "wake & refresh full status".
+  location, find car (flash lights), and "wake & refresh full status".
 
 Additional functions from the vehicle app (individual seat heating/ventilation, defrosters,
 EV charge start/stop and scheduled charging, windows/sunroof/trunk control, theft alarm) are
@@ -81,13 +85,32 @@ integration **[omoda-jaecoo-ha](https://github.com/JackRonan/omoda-jaecoo-ha)** 
 **Caslinovich** and **JackRonan**. The protocol constants, request-signing formulas, MQTT
 credential derivation, and endpoint recipes were recovered by them and are used here under the
 MIT License — this project would not exist without their effort. Please star and support the
-upstream project. All bugs in this ioBroker port are mine, not theirs.
+upstream project. All bugs in this ioBroker port are mine, not theirs. Development of the
+integration has since moved to **[chery-connect-ha/omoda9-ha](https://github.com/chery-connect-ha/omoda9-ha)**.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2026-10-04)
+* (Alan Paris) Added fuel states for hybrid/combustion cars: `fuel.remaining` (L), `fuel.range` (km), `fuel.averageConsumption` (L/100 km) and `fuel.lowWarning`. They are not created on a pure-electric car
+* (Alan Paris) Added `commands.findCar` — flashes the lights so you can find the car
+* (Alan Paris) New "Distance unit" setting: show ranges, odometer and speed in miles / mph instead of km / km/h. Existing history keeps the unit it was recorded in
+* (Alan Paris) Fixed the battery level and electric range jumping to wrong values (e.g. 97% instead of 82%, 0 km) while the car is parked with the high voltage off: such placeholder readings are now ignored and the last real values are kept
+* (Alan Paris) Fixed `battery.rangeTotal` dropping by the whole petrol range when a reading did not include it; on a pure-electric car it is now the electric range alone
+* (Alan Paris) `charging.power` is now cleared when charging ends instead of keeping the last value
+* (Alan Paris) Fixed `charging.state` showing a raw number like `1.0` instead of "Charging"
+* (Alan Paris) `info.lastUpdate` now changes only when the car's data actually changes, so a parked car's cached data no longer looks fresh on every poll
+* (Alan Paris) A command refused because the car is busy, asleep, out of wake requests or not permitted no longer counts as a wrong PIN — before, two such refusals blocked commands and asked you to re-enter a correct PIN (upstream 46ab54e)
+* (Alan Paris) A refresh token the server has rejected is no longer resent on every poll; it is retried at most hourly until a new OTP is entered (upstream 3c7ced3)
+* (Alan Paris) The session is renewed silently when the login reply has no user token, instead of asking for a new OTP (upstream 92a57b3)
+* (Alan Paris) The access token is renewed before it expires, not after (upstream 3c7ced3)
+* (Alan Paris) A network failure during token renewal is reported as a network error, not as "request a new OTP"; login failures now log the HTTP status, error code and region
+* (Alan Paris) Climate run time now uses one of the durations the car allows (`maxAirDuration` is a set such as "5,10,15", not a maximum) instead of always sending 15 minutes (upstream 97b3edf)
+* (Alan Paris) An implausible climate temperature range from the backend is now ignored instead of applied, and the target temperature is clamped into the car's range before a climate ON is sent (upstream ac605fa)
+* (Alan Paris) A command answered with A00567 (taskId invalid) now re-mints the taskId and retries once, like A00089/A00546
+
 ### 0.3.0 (2026-09-27)
 * (Alan Paris) Requires admin >= 7.8.23 now
 * (Alan Paris) Tested with Node.js 26; updated @iobroker/testing to 6.x

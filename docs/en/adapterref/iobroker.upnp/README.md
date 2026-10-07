@@ -20,6 +20,14 @@ This adapter helps users discover and control UPnP-compatible devices in their n
 ## Changelog
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 1.1.15 (2026-10-03)
+* chore(deps-dev): bump brace-expansion from 1.1.18 to 1.1.21
+* chore(deps-dev): bump @grpc/grpc-js from 1.14.3 to 1.14.5
+* chore(deps): bump axios from 1.18.1 to 1.20.0
+* chore(deps-dev): bump @types/node from 25.9.5 to 25.9.8
+* chore(deps-dev): bump immutable from 3.8.3 to 3.8.4
+* chore(deps-dev): bump js-yaml from 4.3.1 to 4.3.2
+
 ### 1.1.14 (2026-09-03)
 * chore(deps-dev): bump @humanfs/node from 0.16.7 to 0.16.8
 * chore(deps-dev): bump browserslist from 4.28.4 to 4.28.8

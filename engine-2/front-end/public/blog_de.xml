@@ -16,6 +16,16 @@
             <pubDate>Sat, 26 Sep 2026 06:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[Die neue iobroker.com und was sie kann]]></title>
+            <description><![CDATA[
+                <p>Die Seite ist umgezogen und neu gebaut. Sie heißt jetzt **iobroker.com** und wer sie schon\nbesucht hat, hat vor allem gesehen, dass sie anders aussieht. Darunter steckt aber einiges, das\nman nicht findet, wenn es einem niemand zeigt. Genau darum geht es hier.</p>
+            ]]></description>
+            <link>https://www.iobroker.com/#de/blog/2026_09_24</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#de/blog/2026_09_24</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Thu, 24 Sep 2026 06:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Zugangsdaten zentral verwalten statt in jedem Skript]]></title>
             <description><![CDATA[
                 <p>Wer eine Kamera abfragt, einen KI-Schlüssel benutzt oder Mails verschickt, kennt das:\nDasselbe Passwort steht an drei Stellen. Ändert es sich, findet man die dritte erst,\nwenn etwas nicht mehr geht.</p>

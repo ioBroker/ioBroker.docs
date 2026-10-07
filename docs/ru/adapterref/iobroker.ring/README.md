@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ring/README.md
 title: Кольцевой адаптер
-hash: n3Ge+4riAnBNpF9sAyd8urV5uUKVbssKbfosGzTCKeU=
+hash: HdeeKhTfsWd2/aJGPUbqHQFr2jJjk/jLHFWxjKzYOYY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
@@ -22,17 +22,6 @@ hash: n3Ge+4riAnBNpF9sAyd8urV5uUKVbssKbfosGzTCKeU=
 
 ```shell
 npx -p ring-client-api ring-auth-cli
-```
-
-или
-
-```bash
-## Unix 
-cd /opt/iobroker/node_modules/iobroker.ring/
-npm i ring-client-api
-
-cd /opt/iobroker/node_modules/iobroker.ring/node_modules/ring-client-api
-node ring-auth-cli
 ```
 
 Для пути к прямой трансляции и снимку, а также имени файла можно использовать специальные переменные. Эти переменные будут заменены счетчиком, меткой времени, идентификатором кольца или типом кольца.
@@ -85,6 +74,9 @@ node ring-auth-cli
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 7.0.2 (2026-09-20)
+- (mcm1957) dependencies have been corrected
+
 ### 7.0.1 (2026-09-04)
 - (mcm1957) **BREAKING:** enhanced security (added encryption) requires that you enter the access refreshtoken one more time 
 - (bluefox) The admin tab was rewritten in React (`src-tab/`), replacing the materialize page - doorbell cameras are listed now, they were silently skipped before
@@ -125,19 +117,9 @@ node ring-auth-cli
 * (simatec) Settings for responsive Design
 * (theimo1221) Update some developer packages
 
-### 6.2.3 (2024-10-31)
-
-* (theimo1221) Fix License-Info object in io-package.json
-* (theimo1221) Update iobroker test package
-* (theimo1221) Update some test packages regarding mocha
-
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2025 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>

@@ -123,16 +123,49 @@ It runs the wake word (OpenWakeWord) on the device and streams to this adapter's
 ### Wyoming endpoint (experimental)
 
 [Wyoming](https://github.com/rhasspy/wyoming) is the open voice protocol from the Home Assistant /
-Rhasspy project (JSONL events over **TCP**), used by `wyoming-satellite`, the **Home Assistant Voice PE**
-puck and **ESPHome** voice devices.
+Rhasspy project (JSONL events over **TCP**), used by `wyoming-satellite` and other Rhasspy-style
+services.
+
+> ESPHome voice devices (including the **Home Assistant Voice PE**) do **not** speak Wyoming — they
+> speak the ESPHome native API. Use the transport below for those.
 
 Enable **Also accept Wyoming clients (TCP)** in the Voice tab (default port `10700`). The adapter then
 exposes a Wyoming server that bridges to the same pipeline: `audio-start`/`audio-chunk`/`audio-stop` →
 STT → answer → TTS streamed back as `audio-*` (plus a `transcript` event); `describe` → `info`;
 `synthesize` → TTS.
 
-> The protocol framing is unit-tested, but interop with real HA Voice PE / `wyoming-satellite` is still
+> The protocol framing is unit-tested, but interop with a real `wyoming-satellite` is still
 > **experimental** — please report what works. Uses the same STT/TTS providers as the UDP voice server.
+
+### ESPHome voice satellites
+
+Devices that run the **ESPHome voice assistant** — the [ThirdReality Voice & Music Assistant
+(Dev Edition)](https://www.thirdreality.com/products/voice-music-assistant-dev-edition), the
+**Home Assistant Voice PE**, or any box running
+[linux-voice-assistant](https://github.com/OHF-Voice/linux-voice-assistant) — do not connect to a
+server: they *are* one, waiting on **TCP 6053**. So here the adapter is the client and dials them,
+the way Home Assistant would. Wake word, echo cancellation and playback stay on the device; the
+adapter does speech recognition, the answer and speech synthesis.
+
+Enable **Also drive ESPHome voice satellites** in the Voice tab and add one row per device
+(address, optional port, room). Nothing needs to be installed or flashed on the device, and no
+ESPHome tooling is involved — "ESPHome native API" is just the protocol name.
+
+Two things are different from the other transports:
+
+- **The adapter decides when you stopped talking.** These devices stream until the server stops them,
+  so end-of-speech detection runs here — tune it with **End of speech after (ms of silence)** if
+  replies cut you off or the assistant waits too long.
+- **The spoken reply is fetched, not pushed.** The device plays a URL, so the adapter runs a small
+  HTTP server (**Media server port**, default `8099`) that serves the clip for a couple of minutes.
+  It must be reachable *from the device*; the address is derived from each device connection, and
+  only needs setting by hand behind NAT/Docker/VLAN.
+
+Announcements (`tts.text`, `satellites.<id>.tts`, timers and alarms) reach these satellites too, and
+each one shows up under `assistant.0.satellites.*` like any other.
+
+> Developed against the ThirdReality speaker's firmware sources and covered by a loopback test
+> against a fake device; feedback from real hardware is welcome.
 
 ## Roadmap
 
@@ -141,13 +174,29 @@ STT → answer → TTS streamed back as `audio-*` (plus a `transcript` event); `
 3. **TTS / STT engines** (Polly / Azure / OpenAI / AWS Transcribe) as adapter modules + config.
 4. **Satellite endpoint** — UDP audio + MQTT control, so ESP/Pi satellites talk to the adapter directly.
 5. **Wake word** — trained/managed via ioBroker, running on the device.
-6. **Wyoming server endpoint** — accept Home Assistant Voice PE / `wyoming-satellite` / ESPHome voice devices.
+6. **Wyoming server endpoint** — accept `wyoming-satellite` and Rhasspy-style clients.
+7. **ESPHome satellites (done)** — drive ThirdReality / HA Voice PE / linux-voice-assistant devices.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2026-10-04)
+* (@GermanBluefox) Added routines: a phrase ("good night") runs a list of actions and answers once. Matched before the offline rule engine and before the LLM, so a macro you wrote down is never reinterpreted
+* (@GermanBluefox) The offline rule engine now answers questions about a kind of measurement without a device being named: "how is the air in here", "how warm is it everywhere", "how bright is it" are answered from every sensor of that kind, with a word for the air-quality number
+* (@GermanBluefox) Spoken text is cached on disk, so repeated replies ("Okay.", "Timer finished") cost no cloud call and no latency. An answer over 400 characters is cut at the last sentence that fits, and `<speak>…</speak>` is now spoken as real SSML by Azure and Polly
+* (@GermanBluefox) Added an optional second speech engine per direction: if the configured provider fails (outage, expired key, empty quota), speech-to-text and text-to-speech fall back to another one — with Vosk/Piper behind a cloud provider the house keeps working without the internet
+* (@GermanBluefox) Added two optional settings for switch commands: confirm with a short beep instead of a spoken sentence, and verify the device's acknowledgement before reporting success
+* (@GermanBluefox) An ESPHome satellite's own measurements (temperature, presence, status texts) now appear as read-only states under `satellites.<id>.controls.*`
+* (@GermanBluefox) Announcements can address a group of rooms or a person: name a set of satellites in the new "Announcement targets" table and use it anywhere a target is accepted (`notify`, `askUser`, a trigger's room, the per-satellite `tts` state). The LLM also got an `announce` tool, so "tell Denis that dinner is ready" reaches his speakers — the configured names are part of the tool description. A question asked to a group counts the first answer, and the text is synthesised once for the whole group
+* (@GermanBluefox) The assistant can now know who is at home: point the new "Presence" table at the states you already have (the residents adapter, a phone ping, your own flag) and name the person. It tells the LLM who is around, holds back announcements to an empty house on request (`notify` with `onlyWhenHome`), and exposes `presence.anyoneHome` / `presence.list` / `presence.lastArrival` — so greeting somebody on arrival is just a trigger on that state
+* (@GermanBluefox) System notifications can now be spoken: write to `notify.text` / `notify.alert`, call `sendTo('assistant.0', 'notify', { text, severity })`, or pick the assistant in the ioBroker notification manager. The LLM turns the raw text into one natural sentence whose tone follows the severity (`info`/`notify`/`alert`, plus `direct` to speak it verbatim)
+* (@GermanBluefox) Added Do-Not-Disturb, enforced by the adapter for every transport: `dnd` globally and `satellites.<id>.dnd` per satellite. Announcements are suppressed while it is on; alerts and texts starting with `!` are still played, and answers to your own questions are never affected
+* (@GermanBluefox) Added proactive triggers (new "Triggers" tab): a trigger watches states or the clock and then announces something, writes a state, or asks you a question and acts on your answer ("The fryer has been on for 5 hours. Shall I switch it off?" — the LLM classifies the spoken reply against the configured response rules). Supports alternative conditions, `also`/`unless` refinements, a delay with `cancelWhen`, and a cooldown; each trigger has `triggers.items.<id>.{enabled,fire,lastFired,nextFireAt}` states plus a `triggers.enabled` master switch
+* (@GermanBluefox) The assistant can now ask a question and wait for the answer: `sendTo('assistant.0', 'askUser', { question, room })` speaks it on a satellite, re-opens the microphone without a wake word and returns what was said. While a question is open that answer is routed to the caller instead of being read as a new command
+* (@GermanBluefox) Added a fourth voice transport: ESPHome voice satellites (ThirdReality Voice & Music Assistant, Home Assistant Voice PE, linux-voice-assistant). The adapter dials the devices on TCP 6053, detects the end of speech itself and serves the spoken reply over a small HTTP media server
+
 ### 0.1.6 (2026-08-26)
 * (@GermanBluefox) The offline rule engine now understands combined commands: "switch the light on and set the blind to 30 %", and one verb for several devices ("switch the light and the lamp on")
 * (@GermanBluefox) Fixed: "50 percent" was not recognised as a level in English

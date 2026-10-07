@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.stiebel-isg/README.md
 title: ioBroker.stiebel-isg
-hash: xijfQzd6Xui6T81D8jXw4LZZapvBQyeHyyYpWwFzOTs=
+hash: 2dcxEaq6BpTAPIuf42/t/Oj1FmoQOoAscv2UBgZtSb8=
 ---
 ![Logo](../../../en/adapterref/iobroker.stiebel-isg/admin/stiebel-isg.png)
 
@@ -20,7 +20,7 @@ hash: xijfQzd6Xui6T81D8jXw4LZZapvBQyeHyyYpWwFzOTs=
 
 Dieser Adapter liest Werte von den Webseiten der STIEBEL ELTRON/Tecalor Internet Service Gateways (ISG) und kann Befehle senden, um das Gerät zu steuern.
 
-**Hinweis:** Dieser Adapter wurde ausschließlich mit älteren ISG-Geräten (ISG Plus und ISG Web) getestet. Ob er mit dem aktuellen ISG Connect-Gerät kompatibel ist, muss noch ermittelt werden.
+**Hinweis:** Dieser Adapter wurde nur mit älteren ISG-Geräten (ISG Plus und ISG Web) getestet. Ob er mit dem aktuellen ISG Connect-Gerät kompatibel ist, muss noch ermittelt werden.
 
 **HINWEIS:** Dieser Adapter wurde zur Wartung an iobroker-community-adapters übertragen. Zukünftig werden nur noch wichtige Fehlerbehebungen und Aktualisierungen von Abhängigkeiten veröffentlicht. Pull Requests mit Fehlerbehebungen oder Funktionserweiterungen sind jedoch jederzeit willkommen.
 
@@ -30,7 +30,7 @@ Dieser Adapter liest Werte von den Webseiten der STIEBEL ELTRON/Tecalor Internet
 
 **Achtung:** Version 2.xx enthält einige Änderungen, die die Kompatibilität beeinträchtigen könnten:
 
-- node.js >= 22, js-controller >= 6.0.11 und admin >= 7.7.22 sind erforderlich.\
+- node.js >= 22.19.0, js-controller >= 6.0.11 und admin >= 7.7.22 sind erforderlich.\
   &#x20;Aktualisieren Sie Ihren ioBroker mindestens auf diese Softwareversion, wenn Sie diesen Adapter verwenden möchten.
 
 - Passwort- und Benutzernamenverschlüsselung in der Konfigurations-UI\
@@ -60,7 +60,13 @@ Die Autoren stehen in keinerlei Verbindung zu STIEBEL ELTRON GmbH & Co KG oder d
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 2.1.0 (2026-09-09)
+### 2.2.0 (2026-10-06) - 2026H2 bugfix release
+
+* (pdbjjens) **Breaking**: Adapter requires node.js >= 22.19.0 and undici >= 8.10.2 now
+* (pdbjjens) **Fixed**: Sporadic "fetch failed ... Check ISG connection!" (#221)
+* (pdbjjens) **New**: Configuration option to select either native fetch or undici fetch
+
+### 2.1.0 (2026-09-09)  - 2026H2 maintenance release
 
 * (copilot) **Breaking**: Adapter requires node.js >= 22 now
 * (pdbjjens) **Fixed**: i18n directory migrated to short format
@@ -81,18 +87,6 @@ Die Autoren stehen in keinerlei Verbindung zu STIEBEL ELTRON GmbH & Co KG oder d
 ### 2.0.1 (2025-11-12)
 
 * (pdbjjens) **Fixed**: ioBroker warnings are avoided by clamping any values exceeding min/max to the min value before setting. (fixes #53 & #65)
-
-### 2.0.0 (2025-10-27)
-
-* (mcm1957) Change: Adapter has been migrated to iobroker-community-adapters organisation
-* (mcm1957) Change: Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
-* (mcm1957) Fix: Dependencies have been updated
-* (pdbjjens) Change: remove .npmignore
-* (pdbjjens) Change: migrate adapter configuration to jsonConfig
-* (pdbjjens) Change: migrate from deprecated "request" http client to native fetch API
-* (pdbjjens) Fix: min/max handling
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

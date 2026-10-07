@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.discovery/README.md
 title: ioBroker Discover Adapter
-hash: X3SY9ZPlBJsU/Snzgrqnks0O8fKV3QmZKmckHXi2IWE=
+hash: MSOYyc3crmQl2IED3cYVSeya5u3WoFvNpSoP5Lgyj7Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -98,7 +98,7 @@ Dies ist ein spezieller Adapter, der versucht, alle vom iobroker-Host aus erreic
 - Loxone
 - Lupusec
 - Luxtronik Wärmepumpensteuerung
-- Gegenstand
+- Matter
 - MAX! Würfel
 - MAX! CUL (Seriennummer)
 - McLighting
@@ -114,7 +114,7 @@ Dies ist ein spezieller Adapter, der versucht, alle vom iobroker-Host aus erreic
 - Mysensors USB/Seriell (9600, 38400, 57600, 115200)
 - myvbus
 - nanoleaf Lichtpaneele / Leinwand
-- Netzwerkwerkzeuge
+- Netzwerkzeuge
 - NSPanel Lovelace-Benutzeroberfläche
 - Nuki erweitert
 - Nuki2
@@ -138,6 +138,7 @@ Dies ist ein spezieller Adapter, der versucht, alle vom iobroker-Host aus erreic
 - Shelly
 - Siegenia
 - Sigenergy
+- SIKU / Oxxify Intelligente Belüftung (RV V2 UDP-Protokoll, nur Werks-PIN)
 - SMA SEMP-Gateway (Sunny Home Manager)
 - Sma-em
 - Smappee
@@ -234,7 +235,7 @@ Nach jedem abgeschlossenen Scan wird unten angezeigt, was gefunden wurde. `disco
 | `suggested` | Die Adapter, die dieses Gerät erkannten                           |
 | `lastSeen`  | Zeitpunkt des Scans, der es gefunden hat                          |
 
-`discovery.0.lastScan` Speichert den Zeitpunkt des letzten abgeschlossenen Scans. Die Baumstruktur zeigt diesen Scan und nicht den Verlauf: Geräte, die nicht wieder auftauchen, werden entfernt, sodass keine veralteten Daten zurückbleiben. Das vollständige Ergebnis, einschließlich der vorgeschlagenen Instanzkonfigurationen, bleibt an seinem ursprünglichen Ort. `system.discovery` Objekt.
+`discovery.0.lastScan` Speichert den Zeitpunkt des letzten abgeschlossenen Scans. Die Baumstruktur zeigt diesen Scan und nicht den Verlauf: Geräte, die nicht wiedergefunden werden, werden entfernt, sodass keine veralteten Daten zurückbleiben. Das vollständige Ergebnis, einschließlich der vorgeschlagenen Instanzkonfigurationen, bleibt an seinem ursprünglichen Ort. `system.discovery` Objekt.
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -242,6 +243,11 @@ Nach jedem abgeschlossenen Scan wird unten angezeigt, was gefunden wurde. `disco
 -->
 
 ## Changelog
+### 5.1.2 (2026-10-02)
+* (ChrMaass) Detect SIKU / Oxxify Smart fans with a read-only UDP broadcast and propose one siku instance for all fans
+* (bluefox) The SIKU probe no longer demands both identifying parameters - the siku adapter does not either, and a fan that answers only one was being hidden from it
+* (bluefox) The SIKU probe asks from a free port when UDP 4000 is taken, instead of dropping the whole detection
+
 ### 5.1.1 (2026-08-31)
 * (bluefox) The ping scan says so when this host may not send ICMP and sweeps the range over TCP instead (#247)
 * (bluefox) The scan can now run on a timer, with a selectable set of methods - mdns, ping, udp and upnp by default
@@ -270,13 +276,6 @@ Nach jedem abgeschlossenen Scan wird unten angezeigt, was gefunden wurde. `disco
 
 ### 4.5.0 (2024-04-21)
 * (pr0crstntr) Added Air-Q
-
-### 4.4.0 (2024-02-23)
-* (klein0r) Added WLED
-* (klein0r) Added LaMetric
-* (Jey-Cee) Removed net-tools from proposals
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.discovery/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.go-e-charger/README.md
 title: ioBroker.go-eCharger
-hash: nUwqvcTyzk6dU1uc3YpLqSj0elLKhGq07q0pMs3e/WM=
+hash: Q3TGnsN2MMlqYJQN0aR5fNSDA11UQPHw2QSrPd1L/Q8=
 ---
 ![Logo](../../../en/adapterref/iobroker.go-e-charger/admin/go-eCharger.png)
 
@@ -92,7 +92,7 @@ Konfigurieren Sie die Objekt-IDs der folgenden Zustände:
 
 | Eingang                      | Erwartungswert                | Einheit | Zeichen             |
 | ---------------------------- | ----------------------------- | ------- | ------------------- |
-| Solarenergie                 | Gesamtstrom-PV-Erzeugung      | W       | Positive Generation |
+| Solarenergie                 | Aktuelle PV-Gesamterzeugung   | W       | Positive Generation |
 | Stromverbrauch im Haushalt   | Gesamtnachfrage der Haushalte | W       | Positiver Konsum    |
 | Ladezustand der Heimbatterie | Aktueller Batterieladestand   | %       | 0 bis 100           |
 
@@ -125,7 +125,7 @@ Sechs Einstellungen auf der Konfigurationsseite von ChargeManager beeinflussen d
 
 - **Heimbatteriemodus** (Standardeinstellung: _Batteriepriorität_ ) – wie die Heimbatterie berücksichtigt wird:
   - _Deaktiviert_ – es wird keine Heimbatterie verwendet. Es muss kein SoC-Status konfiguriert werden, und dem Fahrzeug wird keine Batterieleistung zugewiesen.
-  - _Mindest-SOC_ – Das Laden von Elektrofahrzeugen ist blockiert, wenn dieser Wert nicht erreicht ist. `Settings.Setpoint_HomeBatSoC` Die Batterie trägt jedoch niemals zur Stromversorgung des Autos bei.
+  - _Mindest-SOC_ – Das Laden von Elektrofahrzeugen ist unterhalb dieses Wertes blockiert. `Settings.Setpoint_HomeBatSoC` Die Batterie trägt jedoch niemals zur Stromversorgung des Autos bei.
   - _Batteriepriorität_ – wie oben, zuzüglich des unten beschriebenen Batteriebonus.
 - **SoC-Hysterese** \[%] (Standard 0) – wie weit der SoC unter den Mindestwert fallen darf, bevor ein _laufender_ Controller stoppt. Dadurch wird verhindert, dass ein Akku, der sich nahe seinem Mindestwert befindet, die Ladefreigabe in jedem Zyklus umschaltet; zum Starten ist weiterhin der volle Mindest-SoC erforderlich.
 - **Maximales Batterie-SoC-Alter** \[s] (Standard 0 = aus) – Die Überschusssteuerung stoppt, wenn der SoC-Zustand innerhalb dieser Zeit nicht aktualisiert wurde, sodass ein toter Hilfszustand das Auto nicht stillschweigend weiter aufladen kann.
@@ -137,7 +137,7 @@ Der **maximale Ladestrom** \[A] (Standard 16, bis zu 32) wird auf der **Seite mi
 
 > **⚠️ Stellen Sie den maximalen Ladestrom nicht höher ein, als es Ihr go-e Charger und Ihre Elektroinstallation zulassen.** go-e Charger-Modelle sind für unterschiedliche Maximalströme ausgelegt (z. B. 16 A oder 32 A), und die tatsächliche Grenze hängt auch von Ihrem Kabel, Stecker und der Verkabelung ab. Ein Wert über der zulässigen Belastbarkeit der Hardware/Installation kann Schutzvorrichtungen auslösen oder Geräte beschädigen. Im Zweifelsfall verwenden Sie den Standardwert von 16 A.
 
-In den batterieschonenden Modi ist das Laden von Elektrofahrzeugen unten deaktiviert. `Settings.Setpoint_HomeBatSoC` Die Heimbatterie hat somit Priorität. Der Ladevorgang beginnt, sobald der interne Zielwert 10 A erreicht (oder der Mindeststrom, falls dieser höher eingestellt ist). Der berechnete Strom ist auf den konfigurierten Maximalwert begrenzt, und der interne Zielwert ändert sich pro Abfragezyklus um maximal 1 A, um plötzliche Änderungen zu vermeiden.
+In den batterieschonenden Modi ist das Laden von Elektrofahrzeugen unten deaktiviert. `Settings.Setpoint_HomeBatSoC` Die Heimbatterie hat somit Priorität. Der Ladevorgang beginnt, sobald der interne Zielwert 10 A erreicht (oder der Mindeststrom, falls dieser höher eingestellt ist); anschließend wird der Ladestrom bis zum Erreichen des Mindeststroms kontinuierlich angepasst. Der berechnete Strom ist auf den konfigurierten Maximalwert begrenzt, und der interne Zielwert ändert sich um maximal 1 A pro Abfragezyklus, um plötzliche Änderungen zu vermeiden.
 
 #### Mehrere Wandkästen an einem PV-Überschuss
 
@@ -215,11 +215,13 @@ Das Budget wird priorisiert zugeteilt: Zuerst die ChargeNOW-Wallboxen, dann die 
 
 Ein Wert von `0` (Standardeinstellung) deaktiviert das Budget; der Adapter erzwingt dann kein kombiniertes Limit, stellen Sie also sicher, dass die Summe der maximalen Ströme pro Wanddose innerhalb der Kapazität Ihrer Installation bleibt.
 
-> Dies ist ein konservatives Modell: Jedes Ampere zählt zu einem Budget, unabhängig davon, auf welcher Phase es anliegt. Die Nennleistung der Sicherung wird nie überschritten, aber bei Lasten, die auf mehrere Phasen verteilt sind, kann ein Teil der Kapazität ungenutzt bleiben.
+Solange das Budget aktiv ist, **passt sich der Adapter dem tatsächlich gemessenen Ladestrom an** : Zieht eine Wallbox deutlich weniger Strom als zulässig (z. B. bei einem Fahrzeug mit geringerer Ladekapazität des Bordladegeräts, einem fast voll geladenen Auto oder bei temperaturabhängiger Leistungsreduzierung), wird der nicht verbrauchte Strom nach einigen Ladezyklen zurückgewonnen und der nächsten Wallbox in der Reihenfolge ihrer Priorität zur Verfügung gestellt. Die Wallbox hält eine kleine Reserve über ihrem tatsächlichen Stromverbrauch und erhält pro Ladezyklus ein Ampere mehr, solange sie den verfügbaren Strom nutzt, um ihre Kapazität wieder aufzufüllen. Aus Sicherheitsgründen wird die Leistung einer Wallbox nur dann _gedrosselt_ , wenn Kapazität zurückgewonnen wird – die Ladespannung bleibt nie hoch, während die freigegebenen Ampere abgegeben werden –, sodass der Gesamtstrom die Sicherung niemals überschreiten kann, selbst wenn ein Fahrzeug plötzlich wieder stark lädt.
+
+> Es handelt sich um ein konservatives, phasenunabhängiges Modell: Jeder Ampere zählt zu einem Gesamtbudget, unabhängig davon, auf welcher Phase er anliegt. Die Nennleistung der Sicherung wird nie überschritten, aber bei Lasten, die auf mehrere Phasen verteilt sind, kann ein Teil der Kapazität ungenutzt bleiben.
 
 ## Sentry
 
-Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Informationen und Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie in der [Dokumentation des Sentry-Plugins](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
+Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Informationen und Hinweise zum Deaktivieren der Fehlerberichterstattung finden Sie in der [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry) !
 
 ## Spenden
 
@@ -231,12 +233,19 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.8.0 (2026-10-04)
 
 - (hombach) added an installation-wide total current budget (maximum total charging current) that caps the summed current of all wallboxes to protect a shared fuse, serving ChargeNOW before ChargeManager and keeping a wallbox without a connected vehicle off so idle wallboxes neither trip the fuse nor starve one that is already charging
+- (hombach) the total current budget now follows the measured charging current: a wallbox that draws less than allowed has its unused current reclaimed after a dwell and handed to the next wallbox, growing back one ampere per cycle when it uses what it gets - reductions are always applied before increases so the summed current never exceeds the fuse
 - (hombach) added concise debug logging for the ChargeManager control loops (surplus sharing, phase switching, total current budget)
 - (hombach) docs: documented the total current budget
+- (typhosj) the phase mode (`psm`) is now only written when the charger reports a different mode instead of every cycle, because it is a stored charger setting
+- (typhosj) ChargeManager: no charge release, charging current or phase switch is sent while no vehicle is plugged in, and an unchanged release or current is no longer re-sent every cycle - each write woke the charger's LEDs
+- (typhosj) the charging current is no longer re-sent every cycle: the charger reports a written `amx` back as 0 and only shows the applied current in `amp`, so the check for an unchanged value never matched
+- (typhosj) the charge release is no longer re-sent on every single cycle while the vehicle reports that it has finished charging - the charger confirms each write and keeps ignoring it, for up to 90 minutes in one logged case; it is still retried, just at a lower rate after the first five minutes
+- (typhosj) ChargeManager: the charging current no longer follows a one-ampere change of its target, so a passing cloud no longer makes it step back and forth every cycle
+- (typhosj) ChargeManager: a running charge now follows a falling surplus down to the minimum current - the 10 A start current also applied to a running charge, so currents between the minimum and 10 A were never written and the charger stayed at the 10 A written last, drawing the difference from the grid or the home battery until the surplus recovered or the shutdown delay ran out
+- (hombach) updated dependencies
 
 ### 1.7.0 (2026-09-18)
 
@@ -269,12 +278,6 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 - (hombach) ChargeManager: minimum and maximum surplus charging current are now configurable, with the maximum raised to up to 32 A (#852)
 - (hombach) the configurable maximum charging current now caps ChargeNOW as well
 - (hombach) admin: moved the ChargeManager settings into their own configuration tab, separate from the standard settings
-- (hombach) updated dependencies
-
-### 1.4.1 (2026-08-23)
-
-- (typhosj) refactored the ChargeManager control decision into a deterministic, unit-tested function (#846); behavior unchanged
-- (hombach) fixed vulnerabilities
 - (hombach) updated dependencies
 
 ## License

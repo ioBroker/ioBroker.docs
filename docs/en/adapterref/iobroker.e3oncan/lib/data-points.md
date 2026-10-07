@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.md"},"en/adapterref/iobroker.e3oncan/lib/data-points.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/lib/data-points.md"},"en/adapterref/iobroker.e3oncan/README.de.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.de.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.md"},"en/adapterref/iobroker.e3oncan/lib/data-points.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/lib/data-points.md"},"en/adapterref/iobroker.e3oncan/README.de.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.de.md"},"en/adapterref/iobroker.e3oncan/docs/raw-gateway-api.md":{"title":{"en":"Raw-Gateway-API (open3e-esp32 ↔ ioBroker.e3oncan)"},"content":"en/adapterref/iobroker.e3oncan/docs/raw-gateway-api.md"}}}
 ---
 ![Logo](admin/e3oncan_small.png)
 # ioBroker.e3oncan
@@ -187,6 +187,23 @@ The adapter will log `Variant datapoint ... is protected by user. Update skipped
 ---
 
 ## Changelog of Data Point Definitions
+
+### v1.2.0 (2026-10-07)
+
+**Common data points (didsE3.json, v20260727)**
+
+* **Units on sub-fields:** The sub-fields of 250 composite data points now carry their units, e.g. the temperature sensors show `°C` where the unit was previously empty. 13 further data points gained a unit, e.g. `MainPowerSupplyValue` (`V`).
+* **Structured decoding:** 171 data points that were decoded as raw bytes now have a structure: 147 as lists (`O3EList`), 23 as composite structures (`O3EComplexType`), e.g. `DaylightSavingTimeActive` (912), and 1 as a byte value (`O3EByteVal`). Their object tree changes and is rebuilt at the next adapter start.
+* **Writability:** 18 data points changed from read-only to read-write, among them `DaylightSavingTimeActive` (912), `DomesticHotWaterHysteresis` (1085), `CentralHeatingPumpPerformance` (1432), `IntervalStrategyProperties` (1606), `WaterPressureConfiguration` (1721) and the room-eco and frost-protection settings of the four mixer circuits (2426–2429, 2855–2858). One data point, `TargetDemandHeatProducer` (2353), changed from read-write to read-only. The new flags take effect with the next data point scan.
+* **Corrections:** The scale of `OutsideTemperatureDampingFactor` (919) is corrected from 10 to 1, and `GatewayRemoteSignalStrength` (900) gained a description.
+
+**Variant data points (didsE3var.json, v20260727)**
+
+* Two variants added: `DomesticHotWaterSetpointMetaData` (504, length 10) and `LegionellaProtectionTargetTemperatureSetpoint` (874, length 2).
+
+**Enumerations (enums.js, v20260727)**
+
+* New enumeration `RoomSetpoints` (2 Reduced, 3 Normal, 4 Comfort).
 
 ### v1.1.1 (2026-07-06)
 **Common data points (didsE3.json, v20260705)**

@@ -4,13 +4,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/chart-line-history.md
 title: Linienverlaufsdiagramm
-hash: /Lu0e5gY9OplOGuAksS3XsDnYcwNy8kdfPLEk5KsaS4=
+hash: a/jPaYOwhAvj/Ef5VIyH+rGEhX9YwXnHYCoPlZ8avoc=
 ---
 # Linienverlaufsdiagramm
 
 [Benutzerhandbuch](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/README.md) › [Widget-Katalog](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/README.md) › [Diagramme](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/charts.md) · [Deutsch](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/doc/de/widgets/chart-line-history.md)
 
-Lädt mehrere Zeitreihen aus einer ioBroker-Verlaufsinstanz. Vorlagen-ID:`tplVis2-materialdesign-Chart-Line-History` Die
+Lädt mehrere Zeitreihen aus einer ioBroker-Verlaufsinstanz. Vorlagen-ID: `tplVis2-materialdesign-Chart-Line-History` Die
 
 Erfordert eine konfigurierte History-, SQL- oder InfluxDB-Instanz und die Aktivierung der Aufzeichnung für jeden vom Widget verwendeten Status.
 
@@ -28,7 +28,7 @@ Diese Optionen befinden sich in der Gruppe **„Allgemein“** . Die Benutzerobe
 
 Der Status unter „Intervall mit Objekt steuern“ akzeptiert zwei Werttypen:
 
-- Zeichenkette: eine angebotene Intervallbezeichnung wie z. B.`30 seconds` ,`10 minutes` ,`1 day` oder`1 year` Die
+- Zeichenkette: eine angebotene Intervallbezeichnung wie z. B. `30 seconds`, `10 minutes`, `1 day` oder `1 year` Die
 - Zahl: Startzeit als Unix-Zeitstempel in Millisekunden. Das Ende bleibt die aktuelle Zeit.
 
 Eine Änderung des manuellen Triggerstatus startet eine neue Anfrage; deren tatsächlicher Wert ist irrelevant. Die Intervallaktualisierung benötigt mindestens eine Sekunde, selbst wenn ein niedrigerer Wert konfiguriert ist.
@@ -42,21 +42,21 @@ Jede indizierte Gruppe beschreibt einen aufgezeichneten Zustand und dessen Abfra
 | Einstellung          | Wirkung                                                                                  |
 | -------------------- | ---------------------------------------------------------------------------------------- |
 | Objekt-ID            | Status mit aktivierter Verlaufsaufzeichnung                                              |
-| Aggregat             | Pässe`minmax` ,`min` ,`max` ,`average` oder`total` zur Verlaufsinstanz                   |
-| Maximale Datenpunkte | Begrenzung der zurückgegebenen Punkteanzahl; Standardwert 50 für`minmax` andernfalls 100 |
-| Mindestzeitintervall | Abfrageschritt in Sekunden; leer oder`0` lässt die Verlaufsinstanz entscheiden           |
-| Multiplizieren       | konvertiert jeden gültigen Wert vor der Anzeige, zum Beispiel`0.001` von W bis kW        |
+| Aggregat             | Pässe `minmax`, `min`, `max`, `average` oder `total` zur Verlaufsinstanz                   |
+| Maximale Datenpunkte | Begrenzung der zurückgegebenen Punkteanzahl; Standardwert 50 für `minmax` andernfalls 100 |
+| Mindestzeitintervall | Abfrageschritt in Sekunden; leer oder `0` lässt die Verlaufsinstanz entscheiden           |
+| Multiplizieren       | konvertiert jeden gültigen Wert vor der Anzeige, zum Beispiel `0.001` von W bis kW        |
 
-Nicht-numerisch und`null` Werte werden nicht angezeigt. Das Diagramm bleibt leer, wenn keine Verlaufsinstanz ausgewählt ist oder die Verlaufs-API nicht verfügbar ist. Bei Timeouts überprüfen Sie bitte zuerst die Aufzeichnung und den ausgewählten Bereich und erhöhen Sie anschließend das Diagramm-Timeout.
+Nicht-numerisch und `null` Werte werden nicht angezeigt. Das Diagramm bleibt leer, wenn keine Verlaufsinstanz ausgewählt ist oder die Verlaufs-API nicht verfügbar ist. Bei Timeouts überprüfen Sie bitte zuerst die Aufzeichnung und den ausgewählten Bereich und erhöhen Sie anschließend das Timeout für das Diagramm.
 
 ## Linien und Achsen
 
 - `steppedLine` Stellt Zustandsänderungen als Schritte anstatt als direkte Verbindungen dar.
 - Die Füllfarbe schattiert den Bereich unterhalb einer Linie; ohne eine benutzerdefinierte Füllfarbe wird eine transparente Linienfarbe verwendet.
 - Neu konfigurierte Datensätze verwenden standardmäßig eine gemeinsame Y-Achse. Position, Titel und Grenzwerte werden von der ersten Datensatzgruppe übernommen. Leere Min-/Max-Felder behalten die automatische Skalierung bei.
-- Das Zeitformat der X-Achse verwendet Moment-Format-Tokens, zum Beispiel`HH:mm` für eine 24-Stunden-Anzeige. Das gleiche Format wird für Sekunden, Minuten, Stunden und Tage verwendet.
+- Das Zeitformat der X-Achse verwendet Moment-Format-Tokens, zum Beispiel `HH:mm` für eine 24-Stunden-Anzeige. Das gleiche Format wird für Sekunden, Minuten, Stunden und Tage verwendet. Eine Liste pro Einheit, wie sie beispielsweise von vis-materialdesign gespeichert wird. `{"minute":"H:mm","day":"ddd DD."}`, wird auch so gelesen: Die Achse nimmt das Format der Einheit an, die zum Abstand ihrer Beschriftungen passt.
 - Die Beschriftungen der X-Achse haben, wie bisher die Beschriftungen der Y-Achse, eine eigene Farbe, Schriftart und Schriftgröße. Wenn dieses Feld leer bleibt, werden die Standardeinstellungen des Diagramms verwendet.
-- Tooltip-Modus`index` Vergleicht Datensätze mit demselben X-Wert;`nearest` zeigt den nächstgelegenen Punkt an.
+- Tooltip-Modus `index` Vergleicht Datensätze mit demselben X-Wert; `nearest` zeigt den nächstgelegenen Punkt an.
 - Die Wertbeschriftungen der Punkte befinden sich in derselben Datensatzgruppe wie die Linien, der Hintergrund, der Rahmen und der Eckradius; siehe [„Im Diagramm dargestellte Werte“](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/charts.md#values-drawn-on-the-chart) .
 
 ## Designstil

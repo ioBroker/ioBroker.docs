@@ -160,6 +160,9 @@ Der Adapter repariert automatisch bekannte Tesla-Firmware-JSON-Fehler (bare `nan
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.3.4 (2026-10-06)
+- Dependency updates
+
 ### 1.3.3 (2026-09-12)
 - Added Node.js 26 to test matrix
 - Dependency updates
@@ -190,19 +193,6 @@ Der Adapter repariert automatisch bekannte Tesla-Firmware-JSON-Fehler (bare `nan
 - Fixed database errors no longer triggering unnecessary reconnection attempts
 - Reduced load on wallbox: version data polled hourly, WiFi and lifetime data every 60 seconds
 - Expanded and corrected documentation
-
-### 1.2.0 (2026-07-20)
-- (copilot) Adapter requires node.js >= 22 now
-- Added IEEE 1547 CRC state attributes
-- Fixed adapter checker warnings (jsonConfig, pollingTimeout)
-- Replaced plain setTimeout with adapter-managed timers
-- Added calculated charging power state (vitals.power_w)
-- Added specific ioBroker roles for all states
-- Simplified state attribute definitions
-- Fixed startup recovery: adapter now retries if wallbox is unreachable at start
-- Capped retry delay at 1 hour
-- Fixed state attribute typos and placeholder names
-- Updated documentation
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.omoda/README.md
 title: ioBroker.omoda
-hash: vXx4cluZNa1SvqgUxCnHe5KnQ2O9BZ314lIFWR6IR6U=
+hash: iNwn7xHQe6PmU3KjqfvDXc24JvOLv8IHoPAcopmkBXQ=
 ---
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.omoda.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.omoda.svg)
@@ -29,7 +29,9 @@ hash: vXx4cluZNa1SvqgUxCnHe5KnQ2O9BZ314lIFWR6IR6U=
 - **Состояние** — двери, окна, люк, замок, двигатель, климат-контроль, давление/температура в шинах.
 - **Местоположение** — координаты GPS: широта/долгота, скорость, направление.
 - **Аккумулятор и зарядка** — уровень заряда, запас хода (электрический/общий), состояние заряда, мощность зарядки, подключенный зарядный кабель, оставшееся время зарядки.
-- **Команды** — блокировка/разблокировка, включение/выключение климат-контроля с настраиваемой целевой температурой, запрос местоположения по GPS и «пробуждение и обновление полного статуса».
+- **Топливо** (только для гибридов/двигателей внутреннего сгорания) — остаток топлива в литрах, запас хода на бензине, средний расход топлива, предупреждение о низком уровне топлива. Автомобиль отображает объем в литрах, а не процент уровня топлива.
+- **Единицы измерения** — диапазоны, одометр и скорость в километрах или милях (настройка «Единица измерения расстояния» на вкладке «Регион и опрос»; по умолчанию км).
+- **Команды** — блокировка/разблокировка, включение/выключение климат-контроля с настраиваемой целевой температурой, запрос местоположения по GPS, поиск автомобиля (мигание фар) и «пробуждение и обновление полного статуса».
 
 Дополнительные функции автомобильного приложения (индивидуальный подогрев/вентиляция сидений, обогрев лобового стекла, запуск/остановка зарядки электромобиля и планирование зарядки, управление окнами/люком/багажником, противоугонная сигнализация) планируется добавить в более поздней версии.
 
@@ -60,13 +62,31 @@ hash: vXx4cluZNa1SvqgUxCnHe5KnQ2O9BZ314lIFWR6IR6U=
 
 ## Кредиты
 
-Этот адаптер — это порт превосходной работы по реверс-инжинирингу интеграции Home Assistant **[omoda-jaecoo-ha,](https://github.com/JackRonan/omoda-jaecoo-ha)** проделанной **Каслиновичем** и **Джеком Ронаном** . Константы протокола, формулы подписи запросов, вывод учетных данных MQTT и рецепты конечных точек были восстановлены ими и используются здесь под лицензией MIT — этот проект не существовал бы без их усилий. Пожалуйста, поставьте звездочку и поддержите основной проект. Все ошибки в этом порте ioBroker — мои, а не их.
+Этот адаптер — это порт превосходной работы по реверс-инжинирингу интеграции Home Assistant **[omoda-jaecoo-ha,](https://github.com/JackRonan/omoda-jaecoo-ha)** проделанной **Каслиновичем** и **Джеком Ронаном** . Константы протокола, формулы подписи запросов, вывод учетных данных MQTT и рецепты конечных точек были восстановлены ими и используются здесь под лицензией MIT — этот проект не существовал бы без их усилий. Пожалуйста, поставьте звездочку и поддержите основной проект. Все ошибки в этом порте ioBroker — мои, а не их. Разработка интеграции с тех пор переместилась в **[chery-connect-ha/omoda9-ha](https://github.com/chery-connect-ha/omoda9-ha)** .
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2026-10-04)
+* (Alan Paris) Added fuel states for hybrid/combustion cars: `fuel.remaining` (L), `fuel.range` (km), `fuel.averageConsumption` (L/100 km) and `fuel.lowWarning`. They are not created on a pure-electric car
+* (Alan Paris) Added `commands.findCar` — flashes the lights so you can find the car
+* (Alan Paris) New "Distance unit" setting: show ranges, odometer and speed in miles / mph instead of km / km/h. Existing history keeps the unit it was recorded in
+* (Alan Paris) Fixed the battery level and electric range jumping to wrong values (e.g. 97% instead of 82%, 0 km) while the car is parked with the high voltage off: such placeholder readings are now ignored and the last real values are kept
+* (Alan Paris) Fixed `battery.rangeTotal` dropping by the whole petrol range when a reading did not include it; on a pure-electric car it is now the electric range alone
+* (Alan Paris) `charging.power` is now cleared when charging ends instead of keeping the last value
+* (Alan Paris) Fixed `charging.state` showing a raw number like `1.0` instead of "Charging"
+* (Alan Paris) `info.lastUpdate` now changes only when the car's data actually changes, so a parked car's cached data no longer looks fresh on every poll
+* (Alan Paris) A command refused because the car is busy, asleep, out of wake requests or not permitted no longer counts as a wrong PIN — before, two such refusals blocked commands and asked you to re-enter a correct PIN (upstream 46ab54e)
+* (Alan Paris) A refresh token the server has rejected is no longer resent on every poll; it is retried at most hourly until a new OTP is entered (upstream 3c7ced3)
+* (Alan Paris) The session is renewed silently when the login reply has no user token, instead of asking for a new OTP (upstream 92a57b3)
+* (Alan Paris) The access token is renewed before it expires, not after (upstream 3c7ced3)
+* (Alan Paris) A network failure during token renewal is reported as a network error, not as "request a new OTP"; login failures now log the HTTP status, error code and region
+* (Alan Paris) Climate run time now uses one of the durations the car allows (`maxAirDuration` is a set such as "5,10,15", not a maximum) instead of always sending 15 minutes (upstream 97b3edf)
+* (Alan Paris) An implausible climate temperature range from the backend is now ignored instead of applied, and the target temperature is clamped into the car's range before a climate ON is sent (upstream ac605fa)
+* (Alan Paris) A command answered with A00567 (taskId invalid) now re-mints the taskId and retries once, like A00089/A00546
+
 ### 0.3.0 (2026-09-27)
 * (Alan Paris) Requires admin >= 7.8.23 now
 * (Alan Paris) Tested with Node.js 26; updated @iobroker/testing to 6.x

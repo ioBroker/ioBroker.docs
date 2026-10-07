@@ -70,6 +70,9 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 -->
 
 ## Changelog
+### 5.1.2 (2026-10-04)
+* (@GermanBluefox) The copy of the browser client under `build/lib/socket.io.js` is refreshed by the build instead of staying behind. It had stopped at the version of April and still carried the query string of the page into the WebSocket address without encoding it again, so a page whose address contains an encoded `#` - a colour of a chart, for example - produced an address with a fragment, which a browser refuses to open a WebSocket to. Only web 8.x reads this copy; web 9.x takes the client from `@iobroker/ws-server-library` and was never affected
+
 ### 5.1.1 (2026-09-24)
 * (@GermanBluefox) Added the HTTP/2 option (enabled by default, with HTTP/1.1 fallback, only used with HTTPS)
 * (@GermanBluefox) Updated packages
@@ -84,7 +87,3 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 * (@GermanBluefox) Updated packages
 * (@GermanBluefox) Migrated to TypeScript 6.0
 * (@GermanBluefox) Used a common server library for WebSockets
-
-### 4.1.0 (2026-04-13)
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Fixed possible bugs

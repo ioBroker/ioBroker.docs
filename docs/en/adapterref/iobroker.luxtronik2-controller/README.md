@@ -88,6 +88,48 @@ Bug reports, compatibility notes for specific firmware versions, or feature requ
 ## Changelog
 
 // ### **WORK IN PROGRESS**
+
+### **WORK IN PROGRESS**
+
+### 🚀 Features
+
+- **New Telemetry Data added:** The adapter now automatically reads and creates crucial system values based on the BenPru standard: Compressor frequency (Index 231), Current heat output (Index 257), and Current power consumption (Index 268).
+- **Extended Shutdown Codes (Outage History):** The internal database for heat pump shutdowns has been massively expanded. The adapter now recognizes and translates all 32 official Luxtronik shutdown reasons (e.g., _Inverter pause_, _Hot gas pause_, _Limit power consumption_) into detailed clear text (English & German). This ensures much more precise troubleshooting in the object tree and highly informative Telegram alerts.
+
+**🛠 Bugfixes & Enhancements**
+
+- **Visibility Filter (Command 3005) fixed:** Resolved a major logic flaw in the `cleanupStates` function. Previously, the adapter ignored unsupported hardware components (like missing cooling or solar modules) but failed to delete their remnants from the ioBroker object tree. Obsolete datapoints and empty folders are now rigorously removed upon startup.
+- **Precise Visibility Mapping implemented:** The hide-logic (Command 3005) no longer relies on broad folder names. Instead, it now uses the exact, manufacturer-specific visibility index (`visiIndex`) for every individual module to accurately show or hide features.
+
+- **HUP Optimization (Temperature Spread Control):** Dynamic voltage adjustment of the heating circulation pump during heating operation now only triggers after the state has been active for at least 10 minutes and compressor 1 (`VD1`) is actively running. This prevents premature voltage shifts during startup phases before the thermal spread has stabilized.
+- **Outage & Malfunction Monitoring:** Fixed tracking logic in `checkAndSendOutageNotifications`: Luxtronik outage code `0` (_Heat pump malfunction / WP-Störung_) is no longer erroneously skipped. Both low flow issues and direct heat pump shutdowns now reliably dispatch alarms via Telegram and the ioBroker Notification Center.
+
+### 0.14.1 (2026-10-06)
+
+- remove log entry for chunk reporting
+
+### 0.14.0 (2026-10-06)
+
+**🚨 BREAKING CHANGE / IMPORTANT HARDWARE NOTICE 🚨**
+
+**Critical Firmware Bug in Alpha Innotec / Novelan Controllers (V1.90.x & V2.90.x)**
+The manufacturer has introduced a massive bug in the local Luxtronik protocol (Port 8889) with the firmware releases **V1.90.0** and **V2.90.0**. Whenever a smart home system (ioBroker, Home Assistant, etc.) attempts to write a parameter value to the heat pump, the controller freezes and forces a **hard reboot** of the system after about 10 seconds. Read operations are not affected.
+
+👉 **Adapter Protective Measure:** To protect your hardware from continuous reboots and potential damage, a **protective shield (firewall)** has been implemented into the adapter.
+As soon as the adapter detects firmware V1.90.x or V2.90.x, **all write commands are strictly blocked**. Instead, a corresponding warning is printed to the ioBroker log.
+
+👉 **Solution for Affected Users:** Please contact the manufacturer's support or your installer to request an over-the-air (remote) downgrade to the previous stable version (**V1.89** or **V2.89**). If you still have the old firmware file saved locally, you can flash it via USB stick directly at the display. Once the system is running on V.89 again, the adapter will automatically release the write commands!
+
+**✨ New Features & Improvements**
+
+- **Hardware Protection Shield implemented:** Dynamic firmware verification before every write operation to protect against the reboot bug present in firmware versions 1.90.x and 2.90.x.
+- **Visibilities completely overhauled:** The internal logic for command 3005 has been rewritten (dynamic detection of 1-byte and 4-byte arrays). The adapter now reads the visibility flags flawlessly across **all** firmware versions. Hiding non-existent hardware in the object tree now works perfectly for V1.x and V2.x systems without causing crashes or timeouts!
+
+**🛠 Bugfixes & Refactoring**
+
+- **Adapter Configuration (UI):** Removed outdated warning labels regarding the "Hide unsupported parameters" checkbox, as this feature is now completely stable across all controller generations.
+- **Network / WebSocket:** The experimental password transmission for port 8214 has been completely removed, as the communication issue was proven to be caused by the manufacturer's firmware bug. The WebSocket connection for genuine V3.x firmwares operates cleanly again using the proven standard handshake.
+
 ### 0.13.1 (2026-10-02)
 
 - **Fix (Circulation/ZIP):** Fixed a bug where the `Virtual_ZIP_Status` datapoint would remain stuck on `true` when using external relays (e.g., Shelly), even though the hardware relay was correctly turned off. The state reset logic has been decoupled and is now guaranteed to execute, ensuring the ioBroker interface stays perfectly synchronized with the actual hardware state.
@@ -105,29 +147,6 @@ Bug reports, compatibility notes for specific firmware versions, or feature requ
 
 - **Bugfixes:**
     - **Fixed Null-Values on Startup:** Virtual states for the circulation pump logic (`Actions.Activate_Zip` and `03_Outputs.Virtual_ZIP_Status`) are now explicitly initialized to `false` during adapter startup. This prevents undefined `null` values in the object tree, ensuring immediate compatibility with visualizations and logic scripts (like Blockly) right from the first second.
-
-### 0.12.0 (2026-09-30)
-
-- **⚠️ BREAKING CHANGE:**
-    - The datapoint to manually trigger the circulation pump macro (`Activate_Zip`) has been moved from the `Settings` folder to the `Actions` folder for better UX. If you use this state in your scripts or visualizations, please update the datapoint path!
-
-- **Features & Improvements:**
-    - **Virtual Circulation Pump (ZIP) Status:** Added a new read-only indicator datapoint (`Virtual_ZIP_Status`) in the `03_Outputs` folder. This datapoint mirrors the true state of the adapter's intelligent circulation pump macro in real-time. This is highly beneficial for users controlling the ZIP via external smart relays (e.g., Shelly) to avoid controller flash-wear, as it provides an accurate status even when the heat pump's internal display is bypassed.
-
-### 0.11.2 (2026-09-30)
-
-- **Features & Improvements:**
-    - **Smart Parameter Filtering:** Added full support for the Luxtronik visibility registry (Network Command 3005). The adapter now automatically hides parameters in the ioBroker object tree that are physically not supported by your specific heat pump model (e.g., hiding defrost valves on brine-to-water pumps). This dramatically declutters the system.
-    - Added an "Expert Mode" toggle in the adapter configuration to optionally disable the visibility filter and force-show all parameters.
-    - Extended the "Dump Raw to Log" feature to include the visibility matrix (Command 3005).
-    - **Legacy Write-Mode (V1.x):** Added a new connection setting for older heat pumps (Firmware V1.x). This "Fire-and-Forget" mode prevents `Timeout writing TCP parameter` errors on controllers that do not send network acknowledgments after receiving a write command.
-    - **Dynamic Hardware Protection:** The adapter now automatically detects your firmware version and adjusts network write delays dynamically (500ms for V1.x vs. 100ms for modern firmwares) to ensure maximum responsiveness without sacrificing stability.
-    - **Safe Payload Rounding:** Enforced strict integer rounding (`Math.round`) for all numeric write payloads to prevent memory faults and crashes on older Luxtronik controllers.
-    - **Visibility Filter UX:** Added a warning to the visibility filter configuration (Command 3005) to clarify that this feature requires Firmware V3.x and should be disabled on older systems to avoid startup timeouts.
-
-- **Bugfixes:**
-    - **Fixed Heat Pump Crashes / Reboots:** Implemented a global mutex lock between the polling cycle (`updateData`) and the write queue. This guarantees that read and write operations never overlap, preventing fatal network socket collisions that caused V1.x controllers to freeze and reboot.
-    - **Fixed Object Cleanup:** Changed the mass deletion of orphaned objects and empty folders during adapter startup from parallel to sequential execution. This prevents the ioBroker database from being overloaded and silently dropping delete commands.
 
 ## License
 

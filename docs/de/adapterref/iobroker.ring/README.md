@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ring/README.md
 title: Ringadapter
-hash: n3Ge+4riAnBNpF9sAyd8urV5uUKVbssKbfosGzTCKeU=
+hash: HdeeKhTfsWd2/aJGPUbqHQFr2jJjk/jLHFWxjKzYOYY=
 ---
 ![Logo](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
@@ -22,17 +22,6 @@ Nach der Installation des Adapters müssen Sie Ihr Token eingeben. Ring erforder
 
 ```shell
 npx -p ring-client-api ring-auth-cli
-```
-
-oder
-
-```bash
-## Unix 
-cd /opt/iobroker/node_modules/iobroker.ring/
-npm i ring-client-api
-
-cd /opt/iobroker/node_modules/iobroker.ring/node_modules/ring-client-api
-node ring-auth-cli
 ```
 
 Sie können spezielle Variablen für den Pfad und den Dateinamen Ihres Livestreams und Snapshots verwenden. Diese Variablen werden durch einen Zähler, einen Zeitstempel, eine Ring-ID oder eine Ringart ersetzt.
@@ -55,7 +44,7 @@ Damit dieser Adapter korrekt auf Ereignisse reagieren kann, muss Ring die Push-B
 ### Änderungen in Version 5
 
 1. Einige Datenpunkte wurden umbenannt, um eine einheitlichere Benennung zu gewährleisten (z. B. `livestream_request` wurde reduziert auf `request` wie es bereits im Kanal ist `livestream`).
-2. Sie können nun konfigurieren, ob Sie auf Ereignisse reagieren möchten (z. B. durch Aufzeichnung, Schnappschuss usw.) oder nicht.
+2. Sie können nun konfigurieren, ob Sie auf Ereignisse reagieren möchten (z. B. durch Aufzeichnung, Snapshot usw.) oder nicht.
 3. Binäre Zustände wurden entfernt.
 
 ### V3 Überarbeitung – Inkompatible Änderungen
@@ -85,6 +74,9 @@ Installieren Sie diesen Adapter mithilfe der ioBroker-Repositories.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 7.0.2 (2026-09-20)
+- (mcm1957) dependencies have been corrected
+
 ### 7.0.1 (2026-09-04)
 - (mcm1957) **BREAKING:** enhanced security (added encryption) requires that you enter the access refreshtoken one more time 
 - (bluefox) The admin tab was rewritten in React (`src-tab/`), replacing the materialize page - doorbell cameras are listed now, they were silently skipped before
@@ -125,19 +117,9 @@ Installieren Sie diesen Adapter mithilfe der ioBroker-Repositories.
 * (simatec) Settings for responsive Design
 * (theimo1221) Update some developer packages
 
-### 6.2.3 (2024-10-31)
-
-* (theimo1221) Fix License-Info object in io-package.json
-* (theimo1221) Update iobroker test package
-* (theimo1221) Update some test packages regarding mocha
-
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
-
 ## License
 
 MIT License
-
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2018-2025 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>

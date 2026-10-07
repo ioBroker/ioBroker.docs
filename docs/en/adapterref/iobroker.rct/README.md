@@ -74,10 +74,13 @@ None
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.2.30 (2026-10-03)
 - (Andreas Ruttkamp) Update dependencies
 - (Andreas Ruttkamp) Nodejs 26 for testiung included
 - (Andreas Ruttkamp) correct email in licence
+- (Andreas Ruttkamp) add missing data types [#361](https://github.com/aruttkamp/ioBroker.rct/issues/361)
+- (Andreas Ruttkamp) add battery.cells_stat[n] ( shows 12 Datapoints u-min,u_max,t_min,t_max,_index,_time and _value)
+- (Andreas Ruttkamp) add battery.cells_[n] additionally write the temperature
 
 ### 1.2.29 (2026-08-10)
 - (Andreas Ruttkamp) Update dependencies
@@ -93,11 +96,6 @@ Improve Logging Consistency and Debug Handling
 
 ### 1.2.26 (2026-02-22)
 * (Andreas Ruttkamp) correct handling for parameter without "." ( grid_offset / android_description ) [#262](https://github.com/aruttkamp/ioBroker.rct/issues/262)
-
-### 1.2.25 (2025-10-16)
-* (Andreas Ruttkamp) repro checker issues resolved
-* (Andreas Ruttkamp) npm trusted publishing integrated
-
 
 ## License
 MIT License

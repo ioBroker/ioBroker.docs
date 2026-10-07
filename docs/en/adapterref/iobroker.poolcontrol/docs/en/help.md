@@ -98,7 +98,7 @@ Example: 2 means the entire pool volume should be circulated twice per day.
 **Season active**  
 Important for automatic functions:  
 - **true**: All automations active  
-- **false**: Automation off, only frost protection remains active  
+- **false**: Normal pool, solar, and PV automation is off; solar overheating remains a warning without a pump action. Separately enabled frost protection may continue as long as no pump block applies.
 
 The actual state is located in the object tree under `status.season_active`.
 
@@ -118,13 +118,16 @@ Possible values:
 - `time`  
 - `off`  
 - `controlHelper` (set automatically by the adapter)  
-- `pv` (Photovoltaic mode)
+- `auto_pv` (Photovoltaic mode)
 
 **Additional settings:**  
 - Maximum power (watts)  
 - Maximum flow rate (l/h)  
 - Object ID of the socket  
 - Frost protection active + temperature value  
+- Safety functions in manual mode (`pump.manual_safety_enabled`)
+
+`off` is a hard pump block, including for frost and solar safety. The separate maintenance mode `control.pump.maintenance_active` also blocks automatic safety pump starts. In manual operation, frost protection and solar-overheat safety may intervene only when `pump.manual_safety_enabled` is enabled. Frost protection always requires its own activation switch but may then operate independently of the pool season.
 
 ---
 
@@ -168,6 +171,8 @@ Solar control works only in **auto** mode.
 Additional live data points expose the current difference `solar.collector_surface_delta` for standard solar and `solar.extended.collector_pool_reference_delta` for Solar Extended. These values are intended for VIS, scripts, dashboards, and evaluations.
 
 Note: Changes to the Solar Extended pool reference (`solar.extended.pool_temperature_source`) are applied automatically during runtime. No adapter restart is required. Since Solar Extended operates on a cyclic check interval, updates to the calculation, control logic and the `solar.extended.collector_pool_reference_delta` state may take up to approximately 60 seconds.
+
+The collector warning remains active while the season is inactive. Any related solar-overheat pump action is blocked when the season is inactive, in `off`, during maintenance, and in `manual` without manual-safety permission.
 
 ---
 

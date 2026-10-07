@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discovery/README.md
 title: ioBroker Discover Adapter
-hash: X3SY9ZPlBJsU/Snzgrqnks0O8fKV3QmZKmckHXi2IWE=
+hash: MSOYyc3crmQl2IED3cYVSeya5u3WoFvNpSoP5Lgyj7Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -82,11 +82,11 @@ hash: X3SY9ZPlBJsU/Snzgrqnks0O8fKV3QmZKmckHXi2IWE=
 - HP-lio
 - Huawei SUN2000 (sun2000, sun2000-modbus)
 - Расширенный оттенок
-- Гиперион.НГ
+- Hyperion.NG
 - дисплеи iiyama ProLite
 - ИнфлюксД
 - IOmeter
-- Яница ГридВис
+- Janitza GridVis
 - Keba KeContact P30
 - КЛФ-200
 - KNX (фактически отключен)
@@ -98,7 +98,7 @@ hash: X3SY9ZPlBJsU/Snzgrqnks0O8fKV3QmZKmckHXi2IWE=
 - Локсон
 - Лупусек
 - Контроллер теплового насоса Luxtronik
-- Иметь значение
+- Matter
 - Кубик MAX!
 - MAX! CUL (серийный номер)
 - МакЛайтинг
@@ -138,6 +138,7 @@ hash: X3SY9ZPlBJsU/Snzgrqnks0O8fKV3QmZKmckHXi2IWE=
 - Шелли
 - Зигения
 - Сигенерги
+- Интеллектуальная система вентиляции SIKU / Oxxify (протокол RV V2 UDP, только заводской PIN-код)
 - Шлюз SMA SEMP (Sunny Home Manager)
 - Сма-ем
 - Смаппи
@@ -242,6 +243,11 @@ hash: X3SY9ZPlBJsU/Snzgrqnks0O8fKV3QmZKmckHXi2IWE=
 -->
 
 ## Changelog
+### 5.1.2 (2026-10-02)
+* (ChrMaass) Detect SIKU / Oxxify Smart fans with a read-only UDP broadcast and propose one siku instance for all fans
+* (bluefox) The SIKU probe no longer demands both identifying parameters - the siku adapter does not either, and a fan that answers only one was being hidden from it
+* (bluefox) The SIKU probe asks from a free port when UDP 4000 is taken, instead of dropping the whole detection
+
 ### 5.1.1 (2026-08-31)
 * (bluefox) The ping scan says so when this host may not send ICMP and sweeps the range over TCP instead (#247)
 * (bluefox) The scan can now run on a timer, with a selectable set of methods - mdns, ping, udp and upnp by default
@@ -270,13 +276,6 @@ hash: X3SY9ZPlBJsU/Snzgrqnks0O8fKV3QmZKmckHXi2IWE=
 
 ### 4.5.0 (2024-04-21)
 * (pr0crstntr) Added Air-Q
-
-### 4.4.0 (2024-02-23)
-* (klein0r) Added WLED
-* (klein0r) Added LaMetric
-* (Jey-Cee) Removed net-tools from proposals
-
-[Older changelogs can be found there](https://github.com/ioBroker/ioBroker.discovery/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

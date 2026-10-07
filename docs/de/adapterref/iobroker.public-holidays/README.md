@@ -33,7 +33,8 @@ Bundesländern, Kantonen, Provinzen und Regionen abdeckt.
    Eine Installation über eine GitHub-Adresse wird nicht unterstützt.
 2. Die Instanz-Einstellungen öffnen. Alle Einstellungen liegen auf einer geführten Karte, die von
    oben nach unten durchgearbeitet wird.
-3. Speichern. Der Adapter rechnet sofort und schreibt seine Datenpunkte.
+3. Speichern und die Instanz einschalten — eine neue Instanz startet ausgeschaltet, bis sie eingerichtet
+   ist. Der Adapter rechnet sofort und schreibt seine Datenpunkte.
 
 ### Standort
 
@@ -82,8 +83,8 @@ Serbien und Taiwan.
 
 Manche Feiertage dauern mehrere Tage — die Neujahrsferien in Russland, Chuseok in Korea, Tết in
 Vietnam, das Opferfest in vielen Ländern. Jeder dieser Tage zählt: `today.isHoliday` ist an jedem
-von ihnen wahr. `next` zeigt den nächsten Feiertag nach dem heute laufenden, nicht den zweiten Tag
-desselben Feiertags. Ein Feiertag, der am Vorabend beginnt (jüdische und islamische Tage beginnen
+von ihnen wahr. `next` zeigt den nächsten Feiertagstag — läuft gerade ein Feiertag, ist das sein
+nächster Tag (Tag 2, Tag 3 …), nichts wird übersprungen. Ein Feiertag, der am Vorabend beginnt (jüdische und islamische Tage beginnen
 mit der Dämmerung), zählt ab seinem ersten vollen Tag.
 
 ### Brückentage
@@ -151,7 +152,7 @@ gewählt, zeigt sie das erkannte Systemland.
 
 Alle Datenpunkte sind nur lesbar und tragen im Objektbaum eine kurze Erklärung in der eingestellten
 Sprache. `next` schaut strikt nach vorn: Ein Feiertag, der heute ist, steht in `today`, nicht in
-`next` — ebenso die restlichen Tage eines Feiertags, der heute läuft.
+`next`; der nächste Tag eines heute laufenden Feiertags ist `next`.
 
 Die Namen der Kanäle und Datenpunkte folgen der ioBroker-Systemsprache und werden bei jedem
 Durchgang aufgefrischt — auch auf Anlagen, die aktualisiert statt neu installiert wurden. Ein von
@@ -221,6 +222,15 @@ Die Fehlermeldung über Sentry ist ab Werk aktiv; was sie sendet und wie man sie
     ### **WORK IN PROGRESS**
 -->
 
+### 0.20.0 (2026-10-02)
+
+- Changed: While a holiday lasting several days is running, the next holiday is its next day (day 2, day 3 …) instead of the following holiday.
+
+### 0.19.0 (2026-10-02)
+
+- Changed: New instances start switched off until you have set them up; existing instances keep running. The adapter now requires Admin 8.0.14, the current stable.
+- Fixed: The settings card recognises a state or region stored with surrounding spaces, as the adapter itself always did, instead of showing it as no longer available.
+
 ### 0.18.0 (2026-09-25) — stable
 
 - Fixed: Holidays lasting several days now count on every day (Russian New Year, Chuseok, Tết, Eid …); the next holiday skips the rest of the one running today.
@@ -250,15 +260,6 @@ Die Fehlermeldung über Sentry ist ab Werk aktiv; was sie sendet und wie man sie
 - Fixed: A country written as a name instead of its code was rejected in the settings, although the same name worked when it came from the ioBroker system settings.
 - Fixed: Refreshed holiday data — Belgian holidays now carry English names, and the entries for Albania and Andorra were corrected.
 - Changed: Install the adapter from the ioBroker repository (stable or latest) — installing from GitHub is no longer supported.
-
-### 0.15.1 (2026-09-04)
-
-- Fixed: Installations kept whatever holiday data was already on the system, so corrections and new countries never arrived. An update now brings the current data along.
-
-### 0.15.0 (2026-09-04)
-
-- Fixed: With no holiday type enabled the adapter reported nothing without a word while the card still previewed a full year. Card and log now say it.
-- Changed: Channel and data point names are refreshed on every run, so renames reach updated installations too — a manual rename of them is overwritten.
 
 ## License
 

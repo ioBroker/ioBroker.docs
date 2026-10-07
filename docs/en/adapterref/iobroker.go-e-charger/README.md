@@ -129,7 +129,7 @@ The **maximum charging current** [A] (default 16, up to 32) is configured on the
 
 > **⚠️ Do not set the maximum charging current higher than your go-e Charger hardware and your electrical installation support.** go-e Charger models are rated for different maximum currents (e.g. 16 A or 32 A), and the actual limit also depends on your cable, plug and wiring. Setting a value above the hardware/installation rating can trip protection devices or damage equipment. When in doubt, keep the default of 16 A.
 
-In the battery-aware modes, EV charging is disabled below `Settings.Setpoint_HomeBatSoC` so that the home battery has priority. Charging starts once the internal target reaches 10 A (or the minimum current if it is set higher). The calculated current is limited to the configured maximum, and the internal current target changes by at most 1 A per poll cycle to reduce sudden changes.
+In the battery-aware modes, EV charging is disabled below `Settings.Setpoint_HomeBatSoC` so that the home battery has priority. Charging starts once the internal target reaches 10 A (or the minimum current if it is set higher); a running charge then follows the target down to the minimum current. The calculated current is limited to the configured maximum, and the internal current target changes by at most 1 A per poll cycle to reduce sudden changes.
 
 #### Several wallboxes on one PV surplus
 
@@ -207,7 +207,9 @@ The budget is allocated in priority order: ChargeNOW wallboxes first, then Charg
 
 A value of `0` (default) disables the budget; the adapter then does not enforce a combined limit, so make sure the sum of the per-wallbox maximum currents stays within your installation's capacity.
 
-> This is a conservative model: every ampere counts against one budget regardless of which phase it lands on. It never exceeds the fuse rating, but with loads spread across phases it may leave some capacity unused.
+While the budget is active, the adapter also **follows the actually measured charging current**: if a wallbox draws noticeably less than it is allowed (e.g. a vehicle with a lower onboard-charger limit, a car tapering near full, or temperature derating), its unused current is reclaimed after a few cycles and handed to the next wallbox in priority order. The wallbox keeps a small headroom above its real draw and is offered one ampere more each cycle as long as it uses what it gets, so it can grow back to its limit. To stay safe, a wallbox is only ever throttled *down* to reclaim capacity — its command is never left high while the freed amperes are given away — so the summed current can never exceed the fuse even if a vehicle suddenly ramps back up.
+
+> This is a conservative per-phase-agnostic model: every ampere counts against one budget regardless of which phase it lands on. It never exceeds the fuse rating, but with loads spread across phases it may leave some capacity unused.
 
 ## Sentry
 
@@ -224,16 +226,19 @@ If you enjoyed this project – or are just feeling generous – consider buying
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.8.0 (2026-10-04)
 
 - (hombach) added an installation-wide total current budget (maximum total charging current) that caps the summed current of all wallboxes to protect a shared fuse, serving ChargeNOW before ChargeManager and keeping a wallbox without a connected vehicle off so idle wallboxes neither trip the fuse nor starve one that is already charging
+- (hombach) the total current budget now follows the measured charging current: a wallbox that draws less than allowed has its unused current reclaimed after a dwell and handed to the next wallbox, growing back one ampere per cycle when it uses what it gets - reductions are always applied before increases so the summed current never exceeds the fuse
 - (hombach) added concise debug logging for the ChargeManager control loops (surplus sharing, phase switching, total current budget)
 - (hombach) docs: documented the total current budget
 - (typhosj) the phase mode (`psm`) is now only written when the charger reports a different mode instead of every cycle, because it is a stored charger setting
 - (typhosj) ChargeManager: no charge release, charging current or phase switch is sent while no vehicle is plugged in, and an unchanged release or current is no longer re-sent every cycle - each write woke the charger's LEDs
 - (typhosj) the charging current is no longer re-sent every cycle: the charger reports a written `amx` back as 0 and only shows the applied current in `amp`, so the check for an unchanged value never matched
 - (typhosj) the charge release is no longer re-sent on every single cycle while the vehicle reports that it has finished charging - the charger confirms each write and keeps ignoring it, for up to 90 minutes in one logged case; it is still retried, just at a lower rate after the first five minutes
+- (typhosj) ChargeManager: the charging current no longer follows a one-ampere change of its target, so a passing cloud no longer makes it step back and forth every cycle
+- (typhosj) ChargeManager: a running charge now follows a falling surplus down to the minimum current - the 10 A start current also applied to a running charge, so currents between the minimum and 10 A were never written and the charger stayed at the 10 A written last, drawing the difference from the grid or the home battery until the surplus recovered or the shutdown delay ran out
+- (hombach) updated dependencies
 
 ### 1.7.0 (2026-09-18)
 
@@ -266,12 +271,6 @@ If you enjoyed this project – or are just feeling generous – consider buying
 - (hombach) ChargeManager: minimum and maximum surplus charging current are now configurable, with the maximum raised to up to 32 A (#852)
 - (hombach) the configurable maximum charging current now caps ChargeNOW as well
 - (hombach) admin: moved the ChargeManager settings into their own configuration tab, separate from the standard settings
-- (hombach) updated dependencies
-
-### 1.4.1 (2026-08-23)
-
-- (typhosj) refactored the ChargeManager control decision into a deterministic, unit-tested function (#846); behavior unchanged
-- (hombach) fixed vulnerabilities
 - (hombach) updated dependencies
 
 ## License

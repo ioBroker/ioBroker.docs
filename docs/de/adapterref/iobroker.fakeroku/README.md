@@ -14,9 +14,8 @@ BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg
 # fakeroku — emulierte Roku-Geräte für deine Fernbedienung
 
 Dieser Adapter lässt ioBroker im Heimnetz wie ein oder mehrere **Roku-Streaming-Geräte**
-aussehen. Eine Fernbedienung oder Steuerung, die das Roku-Protokoll spricht — ein
-Logitech-Harmony-Hub, eine Sofabaton X1/X2, die Roku-Integration von Home Assistant,
-openHAB — findet das emulierte Gerät, und jeder Tastendruck darauf wird zu einem
+aussehen. Eine Fernbedienung, die das Roku-Protokoll spricht — ein Logitech-Harmony-Hub
+oder eine Sofabaton X1/X2 — findet das emulierte Gerät, und jeder Tastendruck darauf wird zu einem
 Datenpunkt in ioBroker, auf den Skripte und Visualisierungen reagieren können.
 
 Er ist das **Eingabe**-Gegenstück zum Logitech-Harmony-Adapter: Statt dass ioBroker
@@ -70,8 +69,7 @@ finden kann.
 - **ECP-Port** — der Netzwerk-Port, auf dem dieser Roku antwortet. `8060`
   ist der Port eines echten Roku. Jeder emulierte Roku braucht **seinen eigenen**;
   der Dialog schlägt einen freien vor und lässt einen bereits belegten nicht bestätigen.
-  Eine Harmony oder Sofabaton liest den Port aus der Erkennung; **Home Assistant und
-  Homey nutzen immer 8060** — gib 8060 dem Roku, den sie steuern sollen.
+  Eine Harmony oder Sofabaton liest den Port aus der Erkennung.
 - **Typ**
   - **Player** (eine Streaming-Box) bietet die 16 üblichen Navigations- und
     Wiedergabetasten.
@@ -90,29 +88,29 @@ eintippen.
 **Sofabaton X1/X2:** In der Sofabaton-App ein Roku-Gerät hinzufügen, während die App
 im selben Netz ist; sie findet den emulierten Roku über die Erkennung.
 
-**Home Assistant:** Die Roku-Integration hinzufügen — sie findet den emulierten Roku,
-oder du gibst den ioBroker-Rechner an. Home Assistant spricht immer Port 8060 an (siehe
-oben).
-
 ## Was im Objektbaum entsteht
 
 Auf Instanz-Ebene:
 
-| Datenpunkt        | Typ                 | Bedeutung                                                                                                                                                                                                                                                 |
-| ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `info.connection` | boolean, nur lesbar | Nur wahr, solange **jeder** konfigurierte Roku tatsächlich lauscht. Kann einer nicht starten — fast immer, weil sein Port schon belegt ist —, nennt das Protokoll Gerät und Port, und der Adapter versucht dieses Gerät jede Minute erneut, bis es läuft. |
+| Datenpunkt              | Typ                 | Bedeutung                                                                                                                                                                                                                                                                                                                       |
+| ----------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `info.connection`       | boolean, nur lesbar | Nur wahr, solange alles läuft: **jeder** konfigurierte Roku lauscht, die Erkennung antwortet und die gewählte Adresse existiert. Alles darunter zeigt die Instanz gelb; das Protokoll nennt die Ursache einmal, und der Adapter versucht einen ausgefallenen Roku oder die Erkennung jede Minute erneut, bis sie wieder laufen. |
+| `info.devicesTotal`     | number, nur lesbar  | Wie viele emulierte Rokus eingerichtet sind.                                                                                                                                                                                                                                                                                    |
+| `info.devicesOnline`    | number, nur lesbar  | Wie viele davon gerade lauschen.                                                                                                                                                                                                                                                                                                |
+| `info.devicesAllOnline` | boolean, nur lesbar | `true`, solange jeder eingerichtete Roku lauscht; `false`, solange keiner eingerichtet ist.                                                                                                                                                                                                                                     |
 
 Je emuliertem Roku, unterhalb von `fakeroku.0.<Name>`:
 
-| Datenpunkt     | Typ                 | Bedeutung                                                                                                                                                |
-| -------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `command`      | string, nur lesbar  | Der letzte Befehl als lesbarer Text: `Home`, `Lit_a`, `launch:12`, `search:news`.                                                                        |
-| `commandType`  | string, nur lesbar  | Um welche Art Befehl es sich handelte: `keypress`, `keydown`, `keyup`, `launch`, `install`, `input` oder `search`.                                       |
-| `keys.<Taste>` | boolean, nur lesbar | Ein Datenpunkt je Taste. Ein Tastendruck setzt ihn kurz auf `true` und wieder auf `false`; eine gehaltene Taste bleibt `true`, bis sie losgelassen wird. |
+| Datenpunkt     | Typ                 | Bedeutung                                                                                                                                                                                                                        |
+| -------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `info.online`  | boolean, nur lesbar | `true`, solange dieser Roku auf seinem Anschluss lauscht. Das Gerät zeigt im Objektbaum ein grünes oder graues Symbol, seine Karte im Gerätemanager online oder offline.                                                         |
+| `info.error`   | string, nur lesbar  | Warum dieser Roku nicht läuft, z. B. `port 8061 is already in use (another program or another instance holds it)`; leer, solange er läuft, `Unknown`, solange der Adapter aus ist oder startet. Die Karte zeigt ihn als Warnung. |
+| `command`      | string, nur lesbar  | Der letzte Befehl als lesbarer Text: `Home`, `Lit_a`, `launch:12`, `search:news`.                                                                                                                                                |
+| `keys.<Taste>` | boolean, nur lesbar | Ein Datenpunkt je Taste. Ein Tastendruck setzt ihn kurz auf `true` und wieder auf `false`; eine gehaltene Taste bleibt `true`, bis sie losgelassen wird.                                                                         |
 
 Tastatureingaben der Fernbedienung (`Lit_a`) und App-Starts erscheinen nur in
 `command` — sie bekommen keine eigenen Datenpunkte. Die App-Taste einer Fernbedienung,
-die App-Starts sendet (eine Sofabaton, Home Assistant), kommt als `launch:<id>` an, mit
+die App-Starts sendet (eine Sofabaton), kommt als `launch:<id>` an, mit
 ihren Parametern, falls sie welche trägt (`launch:12?contentId=…`). Tastennamen werden in
 jeder Schreibweise erkannt: `home` und `HOME` sind die Taste `Home`.
 
@@ -175,32 +173,32 @@ hier ist dafür nichts umzustellen.
 Prüfe, ob Hub und ioBroker-Rechner im selben Netz sind und keine Firewall den
 UDP-Anschluss 1900 blockiert. Bei einem Rechner mit mehreren Netzwerkkarten die
 richtige unter **Netzwerkschnittstelle** auswählen. Ist die Erkennung nicht verfügbar,
-schreibt der Adapter das ins Protokoll und arbeitet für bereits gekoppelte
-Fernbedienungen weiter.
+schreibt der Adapter das ins Protokoll, zeigt gelb, arbeitet für bereits gekoppelte
+Fernbedienungen weiter und startet die Erkennung jede Minute erneut.
 
 **Die Fernbedienung findet nichts, und ioBroker läuft in Docker.**
 Im Standard-Bridge-Netz von Docker hat der Container nur eine interne Adresse, die keine
 Fernbedienung erreicht, und Suchanfragen aus deinem Heimnetz kommen nie an. Starte den
 ioBroker-Container mit `network_mode: host` oder gib ihm über ein `macvlan`-Netz eine
-Adresse im Heimnetz. Brücken von Docker, libvirt, VirtualBox und WSL auf dem Rechner
-selbst erkennt der Adapter und kündigt sie nicht an.
+Adresse im Heimnetz.
 
-**Im Protokoll steht „The network interface address … does not exist on this host".**
+**Im Protokoll steht „Address … does not exist on this host — listening on all addresses".**
 Die in den Einstellungen gewählte Adresse gibt es auf dem Rechner nicht mehr — neue
 Netzwerkkarte, geänderte DHCP-Adresse, eine Sicherung auf anderer Hardware
-zurückgespielt. Wähle die aktuelle Schnittstelle (oder „alle Schnittstellen") und
-speichere; die Instanz startet neu.
+zurückgespielt. Die emulierten Rokus laufen solange auf allen Adressen weiter, die Instanz
+zeigt gelb. Wähle die aktuelle Adresse (oder „alle Schnittstellen") und speichere; die
+Instanz startet neu.
 
-**Home Assistant erreicht einen von mehreren emulierten Rokus nicht.**
-Home Assistant nutzt immer Port 8060. Gib 8060 dem emulierten Roku, den es steuern soll.
-
-**Die Instanz bleibt „nicht verbunden".**
-Mindestens ein konfigurierter Roku konnte nicht starten. Das Protokoll nennt Gerät
-und Anschluss — fast immer ist der Anschluss schon von etwas anderem belegt (auch von
-einem zweiten emulierten Roku mit demselben Anschluss). Gib ihm einen freien.
-Der Adapter versucht es bei so einem Gerät jede Minute erneut und meldet im Protokoll,
-wenn es hochkommt — ein Anschluss, den der vorherige Prozess nach einem Neustart noch
-hielt, löst sich damit von allein.
+**Die Instanz bleibt gelb.**
+Etwas läuft nicht, und das Protokoll sagt einmal, was. Welcher Roku es ist, zeigen seine
+Karte im Gerätemanager (offline, mit dem Grund) und sein `info.error`; `info.devicesOnline`
+sagt, wie viele laufen. Meist konnte ein konfigurierter
+Roku nicht starten, weil sein Anschluss schon von etwas anderem belegt ist (auch von
+einem zweiten emulierten Roku mit demselben Anschluss) — gib ihm einen freien. Der
+Adapter versucht so einen Roku jede Minute erneut, auch einen, dessen Server im Betrieb
+ausgefallen ist, und meldet im Protokoll, wenn er wieder läuft — ein Anschluss, den der
+vorherige Prozess nach einem Neustart noch hielt, löst sich damit von allein. Ist gar
+kein Roku angelegt, bittet das Protokoll, einen in den Instanzeinstellungen anzulegen.
 
 **Ich drücke eine Taste und in ioBroker passiert nichts.**
 Stelle die Protokollstufe der Instanz kurz auf `debug`. Jeder _angewendete_ Befehl wird
@@ -223,7 +221,7 @@ unterscheidbar.
 **Die App-Tasten meiner Harmony bewirken nichts.**
 Ein Harmony-Hub hat seine App-Tasten (Netflix, YouTube …) nicht an den emulierten Roku
 gesendet — sie hängen an Harmony-Aktivitäten, der Adapter sieht sie also nie.
-Fernbedienungen, die App-Starts senden (eine Sofabaton, Home Assistant), zeigen sie in
+Fernbedienungen, die App-Starts senden (eine Sofabaton), zeigen sie in
 `command` als `launch:<id>`.
 
 ## Datenschutz
@@ -237,6 +235,22 @@ Die Fehlermeldung über Sentry ist ab Werk aktiv; was sie sendet und wie man sie
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 1.10.0 (2026-10-03)
+
+- (krobipd) New: every emulated Roku shows whether it runs and, if not, why — a green or grey symbol in the object tree, online or offline on its card with the reason.
+- (krobipd) New: three datapoints count the emulated Rokus — how many are configured, how many run, and whether all of them run.
+- (krobipd) Fixed: the connection datapoint's description says what green means — every Roku listening, discovery answering and the chosen address present.
+
+### 1.9.0 (2026-10-03)
+
+- (krobipd) Changed: the emulated Roku answers only what a Harmony or Sofabaton reads — Home Assistant and openHAB can no longer set it up.
+- (krobipd) Changed: the instance shows green only while every Roku and discovery run, and yellow otherwise.
+- (krobipd) Changed: a Roku whose server stopped while running and a discovery that failed start again within a minute instead of waiting for a restart.
+- (krobipd) Changed: with no Roku configured or none running, the instance stays up so the device manager works, and asks you to add a Roku.
+- (krobipd) Changed: a chosen address that is missing on the host no longer leaves the Rokus off — they listen on all addresses until you choose another.
+- (krobipd) Changed: requests from the ioBroker host itself or from self-assigned addresses outside the host's networks are refused.
+- (krobipd) Changed: the datapoint with the kind of the last command is gone — the last command itself still arrives as before; existing installations drop it on the next start.
 
 ### 1.8.2 (2026-10-02)
 
@@ -263,20 +277,6 @@ Die Fehlermeldung über Sentry ist ab Werk aktiv; was sie sendet und wie man sie
 - (krobipd) Changed: a chosen network interface that does not exist is waited for up to two minutes at start, then reported, instead of being replaced.
 - (krobipd) New: the TV profile adds the PowerOn, Power, Sleep and InputTuner keys and announces itself the way real Roku TVs do.
 - (krobipd) New: every new emulated Roku gets its own network identity instead of one every installation with the same name would share.
-
-### 1.7.1 (2026-09-16) — stable
-
-- (krobipd) Changed: the instance restarts once after this update to clear a setting left behind by an older version; nothing else changes for you.
-
-### 1.7.0 (2026-09-16)
-
-- (krobipd) Fixed: button datapoints keep their value and their room and function assignment when the adapter starts.
-- (krobipd) Fixed: after an emulated Roku drops out, its port is free again instead of staying blocked until ioBroker restarts.
-- (krobipd) Fixed: stopping the instance no longer leaves it reported as connected.
-- (krobipd) Fixed: a key you hold right after a short press stays pressed instead of being released early.
-- (krobipd) Fixed: the device dialog now also refuses a name that would collide with an existing device in the object tree.
-- (krobipd) Improved: after the host gets a new IP address, remotes find the emulated Rokus again without restarting the instance.
-- (krobipd) Changed: the network interface setting moved to the standard settings key (bind); the instance restarts once after this update.
 
 ## License
 

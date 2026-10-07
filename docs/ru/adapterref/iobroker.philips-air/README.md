@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.philips-air/README.md
 title: ioBroker.philips-air
-hash: XfPvywUE2JucQRIzks805jneWi4XPg9ODC7Moug2knQ=
+hash: A/586oDeLSas24NkEsiDfUlJrY/t8lAmtBfWKiNxFlI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.philips-air/admin/philips-air.png)
 
@@ -26,7 +26,7 @@ hash: XfPvywUE2JucQRIzks805jneWi4XPg9ODC7Moug2knQ=
 
 ## Использование
 
-Введите IP-адрес или имя хоста вашего устройства. Вы можете найти его в настройках вашего маршрутизатора, где устройство часто отображается как IP-адрес. `MiCO` Большинство устройств подключаются через CoAP, что является протоколом по умолчанию. Некоторые более старые модели, такие как AC2729 и AC3829, отвечают только по HTTP — если соединение не устанавливается, измените протокол в настройках экземпляра. Затем выберите модель вашего устройства, чтобы адаптер создал элементы управления, соответствующие вашему устройству. Если вашей модели нет в списке, выберите `Generic` Вы по-прежнему получаете все значения только для чтения, просто без элементов управления, специфичных для модели. Может случиться так, что устройство не сообщает обо всех переменных; они остаются незаполненными в дереве объектов. Необработанные значения, которые адаптер не распознает, собираются в разделе `unknownStates`.
+Введите IP-адрес или имя хоста вашего устройства. Вы можете найти его в настройках вашего маршрутизатора, где устройство часто отображается как IP-адрес. `MiCO` Большинство устройств подключаются через CoAP, что является протоколом по умолчанию. Некоторые более старые модели, такие как AC2729 и AC3829, отвечают только по HTTP — если соединение не устанавливается, измените протокол в настройках экземпляра. Затем выберите модель вашего устройства, чтобы адаптер создал элементы управления, соответствующие вашему устройству. Новый экземпляр запускается с `Generic` Вы получаете все значения, доступные только для чтения, но не получаете элементы управления, пока не выберете модель. `Generic` Это также правильный выбор, если вашей модели нет в списке. Может случиться так, что устройство не сообщает обо всех переменных; они остаются незаполненными в дереве объектов. Необработанные значения, которые адаптер не распознает, собираются в разделе `unknownStates`.
 
 ### Два варианта настройки времени
 
@@ -78,7 +78,7 @@ CX3550/01 поддерживается через локальное зашиф�
 
 ## Башенный вентилятор Philips/Versuni CX7550/01
 
-Вентилятор CX7550/01 (серия «Умный башенный вентилятор 7000») использует то же локальное зашифрованное CoAP-соединение, но другие необработанные значения, чем CX3550/01. `CX7550` в качестве модели устройства.
+Вентилятор CX7550/01 (серия «Умный башенный вентилятор 7000») использует то же локальное зашифрованное CoAP-соединение, но другие необработанные значения, чем CX3550/01 — выберите `CX7550` в качестве модели устройства.
 
 Протестированы функции CX7550/01:
 
@@ -99,6 +99,12 @@ CX3550/01 поддерживается через локальное зашиф�
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (tt-tom17) A new instance now starts with the device model "Generic" (read-only values, no controls) instead of silently using the AC2889 controls; instances that already have a model keep it
+- (tt-tom17) With the device model "Generic" the log now names the model your device looks like, so you know which one to select
+- (tt-tom17) Dependencies updated
+
 ### 2.2.0 (2026-09-08)
 
 - (tt-tom17) Added the combined allergen/sleep preset ("Allergie-/Ruhemodus") reported by the AC4236/14 (VMI1)
@@ -148,13 +154,8 @@ CX3550/01 поддерживается через локальное зашиф�
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (mcm1957) Dependencies have been updated
 
-  
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.philips-air/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>

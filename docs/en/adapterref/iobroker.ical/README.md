@@ -204,6 +204,13 @@ Whitelist: If you only want to include events of a specific location, use regula
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.21.2 (2026-10-03)
+* (jens-maus) Change common.role to value for count data points
+* (jens-maus) Remove obsolete json-schema dependency
+* (jens-maus) Convert translations to short i18n format
+* (jens-maus) Bump iobroker/testing to 6.3.0
+* (jens-maus) Update node-ical from 0.27.2 to 0.27.3
+
 ### 1.21.1 (2026-09-13)
 * (jens-maus) Update node-ical from 0.27.1 to 0.27.2
 * (typhosj) Events with a time are kept for the configured past days as well (daysPast)
@@ -217,9 +224,6 @@ Whitelist: If you only want to include events of a specific location, use regula
 
 ### 1.20.0 (2026-04-07)
 * (jens-maus) Replaced axios usage with node.js built-in fetch
-
-### 1.19.8 (2026-04-03)
-* (jens-maus) Update node-ical from 0.25.5 to 0.26.0
 
 ## License
 

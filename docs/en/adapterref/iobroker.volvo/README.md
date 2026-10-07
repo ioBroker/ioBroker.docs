@@ -87,6 +87,11 @@ Use the buttons under `volvo.0.<VIN>.remote` to control your vehicle:
 
 ## Changelog
 
+### 3.0.3
+- Fix: no more log spam after the Volvo login (refresh token, ~180 days) expired; updates pause until you log in again
+- New: warning 7 days before the login expires
+- Chore: dependency updates
+
 ### 3.0.2
 - Chore: dependency updates
   - `axios` 1.16.1 → 1.19.0

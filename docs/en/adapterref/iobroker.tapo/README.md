@@ -297,7 +297,7 @@ Alle Plug-Remotes plus:
 | setFanSpeedLevel | number  | Geschwindigkeit 0-4 (0 = aus) |
 | setFanSleepMode  | boolean | Schlafmodus ein/aus           |
 
-### Hub (H100, H200)
+### Hub (H100, H200, KH100)
 
 | Remote           | Typ     | Beschreibung                            |
 | ---------------- | ------- | --------------------------------------- |
@@ -314,9 +314,21 @@ Alle Plug-Remotes plus:
 | setTemperatureOffset | number  | Temperatur-Offset (-10 bis 10) |
 | setFrostProtection   | boolean | Frostschutz ein/aus            |
 
+### Thermostat / TRV am Hub (KE100 an KH100/H100)
+
+KE100 an einem Hub haben keine eigene IP. Fuer jedes TRV werden daher Remotes unter
+`tapo.0.<hubId>.childremote.<childId>.*` angelegt und ueber den Hub (`control_child`) gesendet.
+
+| Remote               | Typ     | Beschreibung                                     |
+| -------------------- | ------- | ------------------------------------------------ |
+| setTargetTemperature | number  | Zieltemperatur setzen (schaltet Frostschutz aus) |
+| setFrostProtection   | boolean | Frostschutz ein/aus (ein = Heizung aus)          |
+| setTemperatureOffset | number  | Temperatur-Offset (-10 bis 10)                   |
+| setChildProtection   | boolean | Kindersicherung ein/aus                          |
+
 ### Hub-Sensoren (T100, T110, T300, T310, T315)
 
-Sensordaten (Temperatur, Luftfeuchtigkeit, Bewegung, Kontakt, Wasserleck) werden automatisch via `getChildDeviceList` abgerufen und als Status angezeigt.
+Sensordaten (Temperatur, Luftfeuchtigkeit, Bewegung, Kontakt, Wasserleck) werden bei jedem Poll via `get_child_device_list` (Fallback `getChildDeviceList`) abgerufen und als Status angezeigt.
 
 ### Kameras (C200, C310, C520, TC70, ...)
 
@@ -377,6 +389,13 @@ Nicht jede Kamera unterstuetzt alle Funktionen. Nicht unterstuetzte Befehle werd
 <https://forum.iobroker.net/topic/57336/test-adapter-tp-link-tapo/>
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+- Support Kasa hubs (KH100): `SMART.KASAHUB` is now included in the cloud device list, and KH100 gets the hub remotes instead of the plug remotes
+- Fix hub child list: query `get_child_device_list` first (KH100 answers `getChildDeviceList` with -1002) and fall back to `getChildDeviceList`
+- Hub child list is now refreshed on every poll instead of only at startup, so child sensor/TRV values no longer freeze
+- KE100 TRVs behind a hub get writable remotes under `<hubId>.childremote.<childId>` (target temperature, frost protection, temperature offset, child lock), sent through the hub via `control_child`
+
 ### 0.6.12 (2026-08-11)
 
 - Fix intermittent "Expected double-quoted property name in JSON" on KLAP/TPAP devices: requests per device are now serialized, so rapid commands (or a poll racing a command) no longer corrupt the AES sequence counter and garble the decrypted response

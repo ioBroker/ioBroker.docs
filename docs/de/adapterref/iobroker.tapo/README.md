@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tapo/README.md
 title: ioBroker.tapo
-hash: NZZlPgk6tEpWMvMhoy6ZkKwcotfviMd4dbVqujDyd4g=
+hash: bcpGkEq5d3kEIISHS/C3sAZMA+1CucnHaKPikxtRgH4=
 ---
 ![Logo](../../../en/adapterref/iobroker.tapo/admin/tapo.png)
 
@@ -110,7 +110,7 @@ Beispiel: `tapo.0.80A5897B21C7.alarm`, `tapo.0.80A5897B21C7.personDetection`
 | Miauenerkennung        | boolescher Wert | Miauen-Erkennung aktiv                          |
 | Glasbrucherkennung     | boolescher Wert | Glasbruch-Erkennung aktiv                       |
 | Manipulationserkennung | boolescher Wert | Manipulations-Erkennung aktiv                   |
-| Bildumdrehen           | boolescher Wert | Bild vertikal gespiegelt                        |
+| Bild drehen            | boolescher Wert | Bild vertikal gespiegelt                        |
 | ldc                    | boolescher Wert | Linsenverzerrungskorrektur aktiv                |
 | Audio aufnehmen        | boolescher Wert | Audio-Aufnahme aktiv                            |
 | automatisches Upgrade  | boolescher Wert | Automatische Firmware-Aktualisierung aktiviert  |
@@ -271,7 +271,7 @@ tapo.0.id.remote auf true/false setzen steuert den jeweiligen Befehl. Der Befehl
 | Aktualisieren               | boolescher Wert | Manueller Status-Refresh                                   |
 | setPowerState               | boolescher Wert | Ein/Aus                                                    |
 | setPowerStateChild          | Zeichenkette    | Kindersicherung steuern: `childId,true` Oder `childId,false` |
-| setLEDEnabled               | boolescher Wert | LED-Indikator ein/aus                                      |
+| LED aktivieren              | boolescher Wert | LED-Indikator ein/aus                                      |
 | setAutoOff                  | boolescher Wert | Auto-Off Timer ein/aus                                     |
 | setAutoOffDelay             | Nummer          | Auto-Off-Verzögerung in Minuten                            |
 | setChildProtection          | boolescher Wert | Tastensperre ein/aus                                       |
@@ -300,7 +300,7 @@ Alle Plug-Remotes plus:
 | Lüftergeschwindigkeit einstellen | Nummer          | Geschwindigkeit 0-4 (0 = aus) |
 | Lüfterschlafmodus einstellen     | boolescher Wert | Schlafmodus ein/aus           |
 
-### Hub (H100, H200)
+### Hub (H100, H200, KH100)
 
 | Fernbedienung              | Typ             | Beschreibung                               |
 | -------------------------- | --------------- | ------------------------------------------ |
@@ -317,9 +317,20 @@ Alle Plug-Remotes plus:
 | Temperaturversatz setzen | Nummer          | Temperatur-Offset (-10 bis 10) |
 | Frostschutz einstellen   | boolescher Wert | Frostschutz ein/aus            |
 
+### Thermostat / TRV am Hub (KE100 und KH100/H100)
+
+KE100 an einem Hub haben keine eigene IP. Für jedes TRV werden daher Fernbedienungen untergegeben `tapo.0.<hubId>.childremote.<childId>.*` angelegt und über den Hub (`control_child`) gesendet.
+
+| Fernbedienung            | Typ             | Beschreibung                                    |
+| ------------------------ | --------------- | ----------------------------------------------- |
+| setZieltemperature       | Nummer          | Zieltemperatur setzen (Frostschutz ausschalten) |
+| Frostschutz einstellen   | boolescher Wert | Frostschutz ein/aus (ein = Heizung aus)         |
+| Temperaturversatz setzen | Nummer          | Temperatur-Offset (-10 bis 10)                  |
+| setChildProtection       | boolescher Wert | Kindersicherung ein/aus                         |
+
 ### Hub-Sensoren (T100, T110, T300, T310, T315)
 
-Sensordaten (Temperatur, Luftfeuchtigkeit, Bewegung, Kontakt, Wasserleck) werden automatisch über `getChildDeviceList` abgerufen und als Status angezeigt.
+Sensordaten (Temperatur, Luftfeuchtigkeit, Bewegung, Kontakt, Wasserleck) werden bei jeder Umfrage über `get_child_device_list` (Zurückgreifen `getChildDeviceList`) abgerufen und als Status angezeigt.
 
 ### Kameras (C200, C310, C520, TC70, ...)
 
@@ -335,7 +346,7 @@ Sensordaten (Temperatur, Luftfeuchtigkeit, Bewegung, Kontakt, Wasserleck) werden
 | setAutoTrackTarget                           | boolescher Wert | Auto-Tracking ein/aus                         |
 | Personenerkennung setzen                     | boolescher Wert | Personenerkennung ein/aus                     |
 | Fahrzeugerkennung einstellen                 | boolescher Wert | Fahrzeugerkennung ein/aus                     |
-| Haustiererkennung einrichten                 | boolescher Wert | Tiererkennung ein/aus                         |
+| Haustiererkennung einstellen                 | boolescher Wert | Tiererkennung ein/aus                         |
 | Babyweinerkennung einstellen                 | boolescher Wert | Baby-Schrei-Erkennung ein/aus                 |
 | Bellerkennung einstellen                     | boolescher Wert | Bellen-Erkennung ein/aus                      |
 | setMeowDetection                             | boolescher Wert | Miauen-Erkennung ein/aus                      |
@@ -379,6 +390,13 @@ Nicht jede Kamera unterstützt alle Funktionen. Nicht unterstütze Befehle werde
 <https://forum.iobroker.net/topic/57336/test-adapter-tp-link-tapo/>
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+- Support Kasa hubs (KH100): `SMART.KASAHUB` is now included in the cloud device list, and KH100 gets the hub remotes instead of the plug remotes
+- Fix hub child list: query `get_child_device_list` first (KH100 answers `getChildDeviceList` with -1002) and fall back to `getChildDeviceList`
+- Hub child list is now refreshed on every poll instead of only at startup, so child sensor/TRV values no longer freeze
+- KE100 TRVs behind a hub get writable remotes under `<hubId>.childremote.<childId>` (target temperature, frost protection, temperature offset, child lock), sent through the hub via `control_child`
+
 ### 0.6.12 (2026-08-11)
 
 - Fix intermittent "Expected double-quoted property name in JSON" on KLAP/TPAP devices: requests per device are now serialized, so rapid commands (or a poll racing a command) no longer corrupt the AES sequence counter and garble the decrypted response

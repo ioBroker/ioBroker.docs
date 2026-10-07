@@ -16,7 +16,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.awtrix-ng/README.md
 title: ioBroker.awtrix-ng
-hash: vE67beE37IXfnnTWkNhZytDpPz44H+2UFPKbclhkj3w=
+hash: yR7lzaMjMbULAG7kkOEbTsuNdWvoNNN9CyWr1O7fuHY=
 ---
 ![логотип](../../../de/admin/awtrix-ng.png)
 
@@ -30,7 +30,7 @@ hash: vE67beE37IXfnnTWkNhZytDpPz44H+2UFPKbclhkj3w=
 
 - Административный адаптер 7.6.20 (или более новая версия)
 
-- Устройство _Awtrix NG_ с версией прошивки _1.1.4_ (или новее) — например, Ulanzi TC001, Ulanzi TC002.
+- Устройство _Awtrix NG_ с версией прошивки _1.2.2_ (или новее) — например, Ulanzi TC001, Ulanzi TC002.
 
 - Купить TC001: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) , [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) или [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) _(партнерские ссылки)_
 
@@ -76,7 +76,7 @@ hash: vE67beE37IXfnnTWkNhZytDpPz44H+2UFPKbclhkj3w=
 
 **Некоторые изменения состояния отображаются не сразу.**
 
-Если состояние изменяется очень часто (например, каждую секунду), некоторые изменения игнорируются и не передаются, чтобы минимизировать нагрузку на устройство. Для этой цели каждое приложение использует собственное «время блокировки», которое можно настроить глобально в параметрах экземпляра. Время по умолчанию составляет 3 секунды. Не рекомендуется устанавливать значение меньше 3.
+Если состояние изменяется очень часто (например, каждую секунду), некоторые изменения игнорируются и не передаются, чтобы минимизировать нагрузку на устройство. Для этой цели каждое приложение использует собственное «время блокировки», которое можно настроить глобально в параметрах экземпляра. Время по умолчанию составляет 3 секунды. Установка значения меньше 3 не рекомендуется.
 
 ## Идентичные приложения на нескольких устройствах
 
@@ -129,12 +129,12 @@ _Кроме того, для создания уведомления можно 
 
 ### тона
 
-**Звуковые файлы должны быть в формате RTTTL и находиться в папке MELODIES. Расширение файла для этих звуков — .txt. Расширение файла не должно указываться при воспроизведении звуков!**
+Звуковые файлы представляют собой MP3-файлы или мелодии (RTTTL), хранящиеся на устройстве и управляемые через веб-интерфейс устройства. Воспроизведение происходит по их именам — без расширения файла.
 
 Для создания (ранее созданного) тона, называемого `beispiel` играть:
 
 ```javascript
-sendTo('awtrix-ng.0', 'audio', { sound: 'beispiel' }, (res) => {
+sendTo('awtrix-ng.0', 'audio', { file: 'beispiel' }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
@@ -253,10 +253,12 @@ sendTo('awtrix-ng.0', 'audio', { rtttl: 'beep:d=4,o=5,b=120:c,e,g' }, (res) => {
 -->
 ### **WORK IN PROGRESS**
 
+* (@klein0r) Updated recommended Awtrix NG firmware version to 1.2.2
+* (@klein0r) Added state `device.usbPower` (device is connected to USB power, e.g. TC002)
+* (@klein0r) **Breaking change:** `sendTo` uses the sound format of firmware 1.2.0: `audio` takes `file` (instead of `sound`, `mp3`, `melody`, ...), notifications take `sound` as name or sound object (`soundRtttl` / `soundLoop` were removed), `textCenter` was replaced by `textAlign`
 * (@klein0r) **Breaking change:** Renamed settings states to the names of the device settings (e.g. `settings.brightness.value` -> `settings.brightness.brightness`, `settings.apps.transitionSpeed` -> `settings.apps.transitionDurationMs`) - old objects are deleted automatically
 * (@klein0r) Sleep mode (`device.sleep`) is blocked on devices without timed sleep (e.g. TC002 would not wake up again)
 * (@klein0r) Scroll speed setting (`settings.text.scroll.speed`) allows up to 500 % now
-* (@klein0r) Recommended Awtrix NG version is now 1.1.4
 
 ### 0.3.0 (2026-09-30)
 

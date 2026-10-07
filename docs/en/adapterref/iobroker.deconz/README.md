@@ -45,6 +45,14 @@ Examples:
 ## Changelog
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 1.7.12 (2026-10-03)
+* chore(deps-dev): bump @grpc/grpc-js from 1.14.3 to 1.14.5
+* chore(deps-dev): bump axios from 1.18.1 to 1.20.0
+* chore(deps-dev): bump @types/node from 25.9.5 to 25.9.8
+* chore(deps-dev): bump js-yaml from 4.3.1 to 4.3.2
+* chore(deps-dev): bump browserslist from 4.28.2 to 4.28.8
+* chore(deps-dev): bump @humanfs/node from 0.16.7 to 0.16.8
+
 ### 1.7.11 (2026-09-03)
 * chore(deps-dev): bump @alcalzone/release-script-plugin-license
 * chore(deps-dev): bump js-yaml from 4.3.0 to 4.3.1

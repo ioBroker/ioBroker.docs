@@ -19,6 +19,7 @@ You can leave port 0 if the default port is desired.
 ## Connection Settings
 - **DB Type**: Type of the SQL DB: MySQL, PostgreSQL, MS-SQL or SQLite3
 - **Host**: IP address or host name with SQL Server
+- **Unix socket** (MySQL only): Path of a local unix socket, e.g. `/var/run/mysqld/mysqld.sock`. When set, the adapter connects through that socket and ignores Host and Port, which are hidden. Useful when the server runs on the same machine — it is faster than TCP — and it is the only way to reach a database on the Docker host from a container on a macvlan network.
 - **Port**: Port of SQL Server (leave blank if not sure)
 - **Database name**: Database name. Default iobroker
 - **User**: Username for SQL. Must exist in the DB.
@@ -27,6 +28,7 @@ You can leave port 0 if the default port is desired.
 - **Encrypt**: Some DBs support encryption.
 - **Round real to**: Number of digits after the comma.
 - **Allow parallel requests**: Allow simultaneous SQL requests to DB.
+- **Statistics tab**: lists every ID in the database with its storage type, status (logged / logging off / state deleted), number of values, estimated size and the covered time range. The **Clean up** button first shows what would be deleted and removes it only after confirmation. States that still exist but merely have logging switched off are excluded unless you tick the checkbox, because their history is still reachable and may be wanted.
 - **Do not create database**: Activate this option if a database already created (e.g. by administrator) and the ioBroker-user does not have enough rights to create a DB.
 
 ## Default Settings
@@ -617,7 +619,17 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 4.2.0 (2026-10-03)
+* (@GermanBluefox) `npm run build:ts` no longer needs the optional `mysql2` and `sqlite3` drivers to be installed
+* (@GermanBluefox) Fixed buffered values being lost when the adapter stops, and unload no longer hangs when there is nothing else to write (#577)
+* (@GermanBluefox) `getCounter` no longer reads the NULL boundary marker that `writeNulls` stores on start and stop as a zero counter value (#577)
+* (@GermanBluefox) Fixed "Test connection" reporting a failure for a working configuration: the request was built as a text template that could produce invalid JSON, and it left out `dbname`, `doNotCreateDatabase` and the docker settings (#355)
+* (@GermanBluefox) "Record changes only" now compares the value instead of the controller's last-change timestamp, so an alias with a read converter no longer stores a row per source change (#295)
+* (@GermanBluefox) Added a statistics tab listing every logged ID with its number of values and estimated size (#247)
+* (@GermanBluefox) Added a cleanup for datapoints that are no longer logged, with a confirmation dialog showing what would be deleted (#247)
+* (@GermanBluefox) The `Counter must have type "number"` error now names the datapoint and is logged once instead of for every value (#320)
+* (@DutchmanNL) PostgreSQL: "do not create database" now connects straight to the configured database instead of opening the maintenance database `postgres` first, so roles without `CONNECT` on it can be used
+* (@GermanBluefox) MySQL can now connect through a unix socket instead of host and port (#104)
 * (@DutchmanNL) Fixed `info.connection` staying `true` while the database was unreachable
 * (@GermanBluefox) Fixed crash (UNCAUGHT_EXCEPTION) when the database server closes the connection: the driver's `error` event had no listener (#527)
 * (@GermanBluefox) A connection that the server dropped is now replaced instead of being handed out again
@@ -638,11 +650,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### 4.1.3 (2026-08-27)
 * (@GermanBluefox) Connection errors are logged with the real reason again: Node reports a failed TCP connect as an `AggregateError` whose own message is empty, so the log only showed the word `AggregateError` instead of e.g. `connect ECONNREFUSED 127.0.0.1:3306`
 * (@GermanBluefox) The reconnection loop no longer repeats the same connection error every 30 seconds: the first occurrence is logged as error, repetitions go to debug and once an hour a reminder is logged
-
-### 4.1.2 (2026-08-27)
-* (@GermanBluefox) Fixed `enableHistory` being answered with `success: true` but silently doing nothing when it arrived while the adapter was still starting up: the adapter subscribed to object changes only after it had read the logging settings, so a message that landed in that gap activated no logging
-* (@joltcoke) Fixed average and total returning null for every interval that contains a null value: parseFloat(null) is NaN and poisoned the sum of the whole interval (thanks to @joltcoke, ioBroker/ioBroker.sql#526). As the result was NaN and not null, ignoreNull could not act on it either
-* (@joltcoke) Fixed min returning a wrong value if the interval contains a null, minmax losing the minimum if the interval starts with a null, and percentile/quantile counting a null as 0
 
 ## License
 

@@ -274,6 +274,7 @@ iobroker restart metermaster.0
 - Repo checker: upgrade `@iobroker/testing` to 6.2.2 (E0036)
 - CI adapter tests on Node.js 26 (E3025)
 - Trim `common.news` to 7 entries (W1032)
+- Use caret range for `@iobroker/testing` (E0046); complete `common.news` i18n (W1145)
 
 ### 0.9.11
 - Add author email to `package.json`, `io-package.json`, README, and LICENSE (repo checker E4048/S4050/S4051)

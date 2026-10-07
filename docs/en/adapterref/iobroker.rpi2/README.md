@@ -33,79 +33,24 @@ For gpio to work, you need to install `libgpiod` in version `2.x`, **before** in
 
 ## Installation
 
-After installation you have to configure all required modules via administration page.
+After installation you can configure the monitor settings in the instance settings.
 
 After start of `iobroker.rpi`, all selected modules generates
 an object tree in ioBroker within rpi.<instance>.<modulename>
 e.g. `rpi.0.cpu`
 
-Be sure, that python and build-essential are installed:
+The adapter needs some os dependencies. Usually js-controller should take care of this, but if you have problems,
+please install the following packages manually:
 
 ```bash
 sudo apt update
 sudo apt install -y build-essential python
 sudo apt install -y libgpiod-dev
+sudo apt install -y pkg-config
 ```
 
-(the last one is only necessary, if you want to work with GPIOs)
-
-Following Objects are available after selection:
-
-#### **CPU**
-
-- cpu_frequency
-- load1
-- load5
-- load15
-
-#### **Raspberry (vcgencmd is required)**
-
-- cpu_voltage
-- mem_arm
-- mem_gpu
-
-#### **Memory**
-
-- memory_available
-- memory_free
-- memory_total
-
-#### **Network (eth0)**
-- net_received
-- net_send
-
-#### **SDCard**
-- sdcard_boot_total
-- sdcard_boot_used
-- sdcard_root_total
-- sdcard_root_used
-
-#### **Swap**
-- swap_total
-- swap_used
-
-#### **Temperature**
-- soc_temp
-
-#### **Uptime**
-- uptime
-
-#### **WLAN**
-- wifi_received
-- wifi_send
-
-## Configuration
-On configuration page you can select following modules:
-
-- CPU
-- Raspberry
-- Memory
-- Network
-- SDCard
-- Swap
-- Temperature
-- Uptime
-- WLAN
+(the third one is only necessary, if you want to work with GPIOs)
+(the last one is only necessary, if you want to use DHTxx/AM23xx sensors)
 
 ### NVME temperature
 Since adapter version 2.3.2 you can read NVMe temperature. To do this, you need to install `nvme-cli` package on your system. 
@@ -156,9 +101,37 @@ For instance PI2:
 ```
 
 ## DHTxx/AM23xx Sensors
-You can read from DHT11, DHT22 and AM2302 temperature/humidity sensors.
+You can read from DHT11, DHT21 (AM2301), DHT22 and AM2302 temperature/humidity sensors.
 
 Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https://www.npmjs.com/package/node-dht-sensor) package page. Multiple sensors can be connected to *multiple* pins (this is *not* a bus system) as discussed.
+
+In the GPIO table, select `DHT11` for DHT11 sensors and `DHT22/AM23xx` for all others, and enter the poll interval in milliseconds into the *Debounce / Poll* column. The sensors cannot be read faster than every 2000 ms (DHT11: 1000 ms); without a value, the adapter polls every 30000 ms.
+
+The adapter reads a sensor in one of two ways and logs at startup which one it uses for each sensor.
+
+### Linux kernel driver (recommended, works on every Raspberry Pi including the Pi 5)
+
+Linux has its own driver for these sensors (it handles DHT11, DHT21, DHT22 and AM2302 alike). Enable it for each sensor by adding a line to `/boot/firmware/config.txt` (`/boot/config.txt` on older systems) and reboot:
+
+```
+dtoverlay=dht11,gpiopin=17
+```
+
+`gpiopin` is the GPIO (BCM) number, the same as in the adapter's GPIO table. You can check that it works with `cat /sys/bus/iio/devices/iio:device*/in_temp_input` (the value is in 1/1000 °C). The adapter detects the driver and uses it automatically, there is nothing else to configure.
+
+### node-dht-sensor
+
+Without the kernel driver, the adapter uses node-dht-sensor. On Raspberry Pi 1 to 4 this works as installed.
+
+On a **Raspberry Pi 5** (also Pi 500 and Compute Module 5), the default build of node-dht-sensor cannot work, because it accesses GPIO registers the Pi 5 does not have. Either use the kernel driver above, or rebuild node-dht-sensor with libgpiod support:
+
+```bash
+sudo apt-get install -y build-essential libgpiod-dev pkg-config
+cd /opt/iobroker
+sudo -u iobroker -H npm rebuild node-dht-sensor --use_libgpiod=true
+```
+
+Then restart the adapter. `pkg-config` is required: without it, the build assumes the outdated libgpiod 1 and fails on current systems. Whenever node-dht-sensor is reinstalled or rebuilt later (for example after a Node.js upgrade), it gets the default build again - the adapter then logs an error at startup and the rebuild has to be repeated. The kernel driver does not have this problem.
 
 ## Changelog
 
@@ -166,12 +139,21 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 4.0.0 (2026-10-07)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (mcm1957) Dependencies have been updated.
 - (copilot) **ENHANCED**: Added `temperature.fan_activity` object to monitor fan RPM via `/sys/devices/platform/cooling_fan/...`; falls back to `0` when unavailable.
+- (Garfonso/Claude): Improve GPIO handling.
+- (Garfonso/Claude): **FIXED**: GPIO outputs no longer switch off and on again during adapter start (#431).
+- (Garfonso/Claude): Use the `@garfonso/opengpio` npm package instead of a git branch of the fork.
+- (Garfonso/Claude): **FIXED**: The fan parser unit test matched the old single-hwmon path and failed since the fan reading fix.
+- (Garfonso/Claude): **FIXED**: DHT sensors ignored the configured poll interval (with no interval they were read continuously, so every read failed) and every sensor's timer read all sensors.
+- (Garfonso/Claude): **NEW**: DHT sensors are read through the Linux dht11 kernel driver if it is enabled (`dtoverlay=dht11,gpiopin=<n>`). This makes them work on a Raspberry Pi 5 without rebuilding node-dht-sensor (#406).
+- (Garfonso/Claude): **ENHANCED**: DHT sensor problems are logged with their cause and how to fix them; the startup log shows how each sensor is read.
+- (Garfonso/Claude): **FIXED**: Raspberry Pi 500 and Compute Module 5 are recognised as Raspberry Pi 5 boards and use the same GPIO chip.
+- (Garfonso/Claude): **FIXED**: The humidity object of a DHT sensor was named "temperature".
+- (Garfonso/Claude): **BREAKING**: GPIO and DHT sensor handling changed in several places (see above). This mostly fixes problems, but please check your GPIO setup after updating.
 
 ### 3.0.2 (2025-12-01)
 * (@klein0r) Check for required libgpiod-dev package version
@@ -190,10 +172,6 @@ Connect such a sensor to a GPIO pin as described on the [node-dht-sensor](https:
 * (Garfonso) add an option to invert true/false mapping to 1/0.
 * (Garfonso) Allow multiple instances of this adapter per host.
 * (Garfonso) tried to improve initialization of GPIO inputs.
-
-### 2.3.2 (2025-02-06)
-* (asgothian) added support for NVMe temperature (needs additional configuration, see README)
-* (Garfonso) fixed inital values for outputs.
 
 ## License
 MIT License

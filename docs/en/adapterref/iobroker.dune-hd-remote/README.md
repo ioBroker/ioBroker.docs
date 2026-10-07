@@ -102,6 +102,10 @@ Requires the **dune-notify** PHP plugin installed on the player (see `dune-notif
 
 ## Changelog
 
+### 1.2.8
+- Add a link to the PWA remote control next to the instance in the admin Instances tab (localLinks)
+- Update @iobroker/testing to 6.2.2 and @types/node to 22.20.4
+
 ### 1.2.7
 - Fix E6029/W6030: add the missing changelog entry for 1.2.6
 - Fix W6034: complete MIT license text in the README

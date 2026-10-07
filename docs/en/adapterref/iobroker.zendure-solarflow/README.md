@@ -11,6 +11,10 @@
 
 **Tests:** ![Test and Release](https://github.com/nograx/ioBroker.zendure-solarflow/workflows/Test%20and%20Release/badge.svg)
 
+## Sentry
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## Zendure Solarflow adapter for ioBroker
 
 An ioBroker adapter to read and control Zendure Solarflow devices via the Zendure Cloud API, and locally via zenSDK (HTTP) or MQTT for legacy devices.
@@ -37,11 +41,15 @@ If you find the adapter useful and want to support my work, feel free to donate 
 
 - **Authentication Cloud Key** (recommended): the official Zendure method. Get a Cloud key from the app. By default zenSDK is used for compatible devices on the same network as ioBroker, giving full local control while still relaying data to the cloud. Cloud-only is also possible. Legacy devices already on a local MQTT server can relay to the cloud too, with no downside.
 - **Local**: local-only mode. Point the adapter at a local MQTT server for legacy devices (see below); zenSDK devices are found via mDNS.
-- **zenSDK only (mDNS)**: no Zendure cloud and no MQTT server at all. Devices are found via [mDNS discovery](#mdns-discovery) and polled/controlled locally via zenSDK only, so only zenSDK-compatible devices are supported.
+- **zenSDK only (mDNS / IP)**: no Zendure cloud and no MQTT server at all. Devices are found via [mDNS discovery](#mdns-discovery) or [configured by IP address](#zensdk-devices-by-ip-address) and polled/controlled locally via zenSDK only, so only zenSDK-compatible devices are supported.
 
 ### mDNS Discovery
 
 When zenSDK is enabled, the adapter browses the network via mDNS/Bonjour for devices announcing as `Zendure-<model>-<serialNumber>` as long as it is running. The network is queried again after 5s, 15s, 30s and 60s, then every 5 minutes, so devices connected to the network later (or missed by an earlier query) are still found without restarting the adapter. This fills in or corrects IP addresses for known cloud devices, and auto-creates accessories (Mix series, Smart Meters) that have no cloud productKey and can't otherwise be created. Devices are matched by full serial number, not IP or a shortened suffix. Disable via the "Add devices found via mDNS discovery" setting.
+
+### zenSDK devices by IP address
+
+mDNS uses multicast, which is usually not routed between network segments. If your Zendure devices are in another VLAN / subnet than ioBroker, enter their IP addresses (or host names) in the "zenSDK devices by IP address" section of the adapter settings. The adapter queries each address via zenSDK (`http://<ip>/properties/report`) at start and then every 5 minutes, and identifies the device by the serial number it reports: a device already known (e.g. from the Zendure cloud device list) keeps its existing states and is switched to local zenSDK control, an unknown device is created with its serial number as key, just like a device found via mDNS. Works in every connection mode as long as zenSDK is enabled. Give the devices a fixed IP (DHCP reservation), and make sure ioBroker can reach them on TCP port 80.
 
 ## Supported Devices
 
@@ -135,10 +143,33 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 For more details and for information on how to disable error reporting, see the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Sentry reporting is used starting with js-controller 3.0.
 
+## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- zenSDK devices: smartMode is no longer turned off in standby (automation limit 0), Note: Currently it'S uncertain whether a permanently enabled smartMode increases the device's standby consumption.
+
+### 6.0.0-alpha.7 (2026-10-06)
+
+- (Schattenwelt) Add setting "zenSDK devices by IP address": zenSDK devices can be configured by IP address, so they also work if mDNS doesn't reach them (e.g. devices in another network segment / VLAN). Known devices are matched by serial number and keep their states, unknown devices are created with their serial number as key.
+- Zero-feed in: charging devices are now accounted with their measured AC input power (gridInputPower) instead of their commanded charge limit once settled. Fixes grid import when a nearly full battery charges with much less power than requested (e.g. 80 W instead of 600 W).
+- Output limit can now be set on devices without an autoModel state (previously rejected because autoModel was not '0').
+
+### 6.0.0-alpha.6 (2026-10-06)
+
+- Better tracking if device command is accepted
+- Wait for wake up of specific device - don't set the whole script to sleep
+
+### 6.0.0-alpha.5 (2026-10-04)
+
+- zenSDK devices: in standby (automation limit 0), smartMode is now only turned off after at least 10 minutes and only when solar input is below 50 W and the battery level is below 98%. This is checked every minute, so the internal inverter stays on and the device reacts faster when the limit changes again.
+- zenSDK devices: smartMode is now enabled before acMode when switching to charging/discharging, so these writes go to RAM instead of flash.
+
 ### 6.0.0-alpha.4 (2026-10-01)
 
 - Zero-feed in: non-lead devices no longer get pulled out of idle into 30/10 W standby for a tiny share, and fully charged devices without solar input are released from standby to 0 W.
@@ -147,24 +178,6 @@ For more details and for information on how to disable error reporting, see the 
 ### 6.0.0-alpha.3 (2026-10-01)
 
 - Remove 0-5h reduction of suggested inverseMaxPower as this was related to Octopus Energy in personal setup.
-
-### 6.0.0-alpha.2 (2026-10-01)
-
-- Improvements on zero-feed in
-
-### 6.0.0-alpha.1 (2026-09-30)
-
-- Fix setDeviceAutomationInOutLimit not correctly set on non-zenSDK devices when automation is used.
-
-### 6.0.0-alpha.0 (2026-09-30)
-
-- Add adapter automation (zero feed-in control), see section "Adapter Automation" above.
-- Add connection mode "zenSDK only (mDNS)": no Zendure cloud and no MQTT server, devices are found via mDNS and controlled via zenSDK.
-- mDNS discovery now runs as long as the adapter is running instead of only 10s after start. Devices connected later are added automatically, IP changes are detected, and failed zenSDK connects are retried.
-- Fix using the saved device list when Zendure Cloud is not reachable on startup.
-- Devices created via mDNS keep their states when they appear in the Zendure cloud device list later (cloud MQTT still works for them). Devices with an unknown productKey in the cloud device list are logged as info instead of error.
-- Disconnect MQTT clients cleanly when the adapter is stopped or restarted.
-- Added Sentry (default ioBroker) for error reporting and device statistics.
 
 For older changes see CHANGELOG_OLD.md.
 

@@ -33,37 +33,25 @@ Work in progress
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
+	Add draft entries here while the next release is still being finalized.
 -->
-### **WORK IN PROGRESS**
-* (bolliy) fix: Changes the unit from kW to W for the `maximumFeedGridPower` control values to allow for adjustments of less than 1 kW. ([#300] (https://github.com/bolliy/ioBroker.sun2000/discussions/300))
+### 2.7.3 (2026-10-06)
+* (bolliy) An incorrect bracket was used when converting the number to an array
+
+### 2.7.2 (2026-10-04)
+* (bolliy) fix: disabled the adapter install/update pop-up message
+* (bolliy) fix control.externalPower: prevent negative values
+
+### 2.7.1 (2026-10-03)
+* (bolliy) update devDependencies to latest versions
+* (bolliy) Allow decimal values for ​​`battery.tou.maximumPowerForChargingFromGrid` and `grid.maximumFeedGridPower`. ([#300](https://github.com/bolliy/ioBroker.sun2000/discussions/300))
+
+### 2.7.0 (2026-08-23)
+* (bolliy) fix: Ensure that unacknowledged control states occurring during startup are correctly processed in the service queues.
 
 ### 2.6.2 (2026-08-23)
 * (bolliy) update devDependencies to latest versions
 * (bolliy) fix: update day-start baseline handling of consumption breakdown
-
-### 2.6.1 (2026-08-16)
-* (bolliy/claude) Fix: consumption breakdown entries (`statistics.dataDef.consumptionBreakdown`) the correct **daily** value in statistics.jsonToday` 
-* (bolliy) fix: enhance error handling and validation in device initialization
-* (bolliy) Added: `consumption.baseValue` field in `statistics.json*` — holds the unreduced total house consumption before breakdown entries are subtracted.
-
-### 2.6.0 (2026-07-22)
-* (booliy/claude) Optimization of memory usage
-* (bolliy/claude) Added six new EMMA control registers ([#285](https://github.com/bolliy/ioBroker.sun2000/issues/285))
-* (bolliy/claude) Implemented Time-of-Use (TOU)
-* (booliy/claude) modbus-proxy: Direct register reading on cache mismatch
-
-### 2.5.1 (2026-06-29)
-- (bolliy) fix: update service queue logic ([#283](https://github.com/bolliy/ioBroker.sun2000/discussions/283))
-- (bolliy) statistics fix: adjust reset handling logic to treat significant drops in value as potential resets
-
-### 2.5.0 (2026-06-09)
-* (bolliy) statistics: added live power chart (statistics.jsonLive)
-* (bolliy) statistics: consumption breakdown — breakdown values are now subtracted from the total `consumption` entry so the lower chart panel shows the remainder separately from the breakdown series
-* (bolliy) statistics: `xAxisFormatter` for the live chart only labels full-hour ticks to avoid clutter
-* (bolliy) statistics: tooltip formatter refactored — `formatTooltipValue(unit, negative, decimals)` helper used consistently across all series
-* (bolliy) statistics: if no battery is present, the charts are generated without battery information (SOC, charge, discharge).
-* (bolliy) fix emma: update register addresses of meter.activePowerL1-L3 ([#282](https://github.com/bolliy/ioBroker.sun2000/issues/282))
-* (bolliy) requires node.js >= 22
 
 ## License
 MIT License

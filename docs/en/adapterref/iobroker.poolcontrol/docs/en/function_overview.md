@@ -76,6 +76,10 @@ The safety logic includes:
 - Short grace periods after start and stop so that brief power transitions  are not immediately treated as errors
 - Optional safety operation in manual mode via `pump.manual_safety_enabled`
 
+Automatic frost and solar-safety pump starts have fixed blocks: `pump.mode = off` always means OFF, and maintenance mode with `control.pump.maintenance_active = true` also blocks automatic safety starts. `manual` is manual operation, not maintenance; frost and solar safety may override it only when `pump.manual_safety_enabled = true`.
+
+An inactive pool season ends normal pool, solar, and PV automation as well as solar-overheat pump actions. Separately enabled frost protection may still run outside the season as long as the pump is not in `off` and neither maintenance nor the manual-safety rule blocks it. No frost start occurs when `pump.frost_protection_active = false`.
+
 In addition, there are live and learning areas:
 
 - `pump.live.*` for current power, current flow, flow percentage, and last flow value
@@ -134,7 +138,7 @@ Control is only active when:
 - the solar mode is `standard`
 - no higher priority exists through `controlHelper` or `timeHelper`
 
-The collector warning sets `solar.collector_warning` when the warning temperature is reached. It is reset automatically when the collector falls to 90 percent of the warning value or below.
+The collector warning sets `solar.collector_warning` when the warning temperature is reached. It is reset automatically when the collector falls to 90 percent of the warning value or below. The warning remains available while the season is inactive, but it does not cause a pump action in that state.
 
 ## 6. Photovoltaic and PV Surplus Functions
 
@@ -165,7 +169,7 @@ The pump is only switched when:
 
 With `photovoltaic.afterrun_min`, an pump post-run can be configured after the surplus ends. `photovoltaic.ignore_on_circulation` can stop or prevent PV control when the daily circulation target has already been reached.
 
-A special case is the safety override for solar overheating: if `solar.collector_warning` is active, the PV Helper can switch on the pump independently of PV surplus in order to protect the collector.
+A special case is the safety override for solar overheating: if `solar.collector_warning` is active, the PV Helper can switch on the pump independently of PV surplus in order to protect the collector. This pump action requires an active season, is blocked in `off` and during maintenance, and may override `manual` only when `pump.manual_safety_enabled` is enabled. The collector warning itself remains unaffected by these pump blocks.
 
 ## 7. Temperature and Sensor Functions
 

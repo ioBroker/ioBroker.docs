@@ -43,6 +43,7 @@ https://www.iobroker.com/blog/2026_04_13
 https://www.iobroker.com/blog/2026_07_10
 https://www.iobroker.com/blog/2026_08_25
 https://www.iobroker.com/blog/2026_09_20
+https://www.iobroker.com/blog/2026_09_24
 https://www.iobroker.com/blog/2026_09_26
 https://www.iobroker.com/docs/about/brand.md
 https://www.iobroker.com/docs/about/story.md
@@ -231,6 +232,7 @@ https://www.iobroker.com/adapters/anthbot
 https://www.iobroker.com/adapters/anthbot-genie
 https://www.iobroker.com/adapters/apcups
 https://www.iobroker.com/adapters/apg-info
+https://www.iobroker.com/adapters/apple
 https://www.iobroker.com/adapters/apsystems-ez1
 https://www.iobroker.com/adapters/artnet
 https://www.iobroker.com/adapters/artnet-recorder
@@ -383,9 +385,11 @@ https://www.iobroker.com/adapters/feiertage
 https://www.iobroker.com/adapters/fenecon
 https://www.iobroker.com/adapters/fhem
 https://www.iobroker.com/adapters/fiat
+https://www.iobroker.com/adapters/fingerprint
 https://www.iobroker.com/adapters/firetv
 https://www.iobroker.com/adapters/fitbit-fitness
 https://www.iobroker.com/adapters/flexcharts
+https://www.iobroker.com/adapters/flow
 https://www.iobroker.com/adapters/flowers
 https://www.iobroker.com/adapters/followthesun
 https://www.iobroker.com/adapters/foobar2000
@@ -522,6 +526,7 @@ https://www.iobroker.com/adapters/knx
 https://www.iobroker.com/adapters/kodi
 https://www.iobroker.com/adapters/kostal-piko-ba
 https://www.iobroker.com/adapters/lametric
+https://www.iobroker.com/adapters/laundrylens
 https://www.iobroker.com/adapters/lcn
 https://www.iobroker.com/adapters/leapmotor
 https://www.iobroker.com/adapters/legrand-ecocompteur
@@ -583,6 +588,7 @@ https://www.iobroker.com/adapters/micronova
 https://www.iobroker.com/adapters/midas-aquatemp
 https://www.iobroker.com/adapters/midea
 https://www.iobroker.com/adapters/miele
+https://www.iobroker.com/adapters/miele-local
 https://www.iobroker.com/adapters/mielecloudservice
 https://www.iobroker.com/adapters/mihome
 https://www.iobroker.com/adapters/mihome-airpurifier
@@ -639,6 +645,7 @@ https://www.iobroker.com/adapters/nspanel-lovelace-ui
 https://www.iobroker.com/adapters/ntfy-client
 https://www.iobroker.com/adapters/nuki
 https://www.iobroker.com/adapters/nuki-extended
+https://www.iobroker.com/adapters/nuki-local
 https://www.iobroker.com/adapters/nut
 https://www.iobroker.com/adapters/nut2
 https://www.iobroker.com/adapters/oasecontrol
@@ -768,6 +775,7 @@ https://www.iobroker.com/adapters/seq
 https://www.iobroker.com/adapters/serial-gps
 https://www.iobroker.com/adapters/sevenio
 https://www.iobroker.com/adapters/shelly
+https://www.iobroker.com/adapters/shoppingroute
 https://www.iobroker.com/adapters/shrdzm
 https://www.iobroker.com/adapters/shuttercontrol
 https://www.iobroker.com/adapters/sia
@@ -887,6 +895,7 @@ https://www.iobroker.com/adapters/vds2465-server
 https://www.iobroker.com/adapters/vedirect
 https://www.iobroker.com/adapters/velux
 https://www.iobroker.com/adapters/vesync
+https://www.iobroker.com/adapters/victoriametrics
 https://www.iobroker.com/adapters/victron-cerbo
 https://www.iobroker.com/adapters/victron-gx
 https://www.iobroker.com/adapters/viessmann

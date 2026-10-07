@@ -21,17 +21,6 @@ For getting the token, please do following on your shell.
 npx -p ring-client-api ring-auth-cli
 ```
 
-or
-
-```bash
-## Unix 
-cd /opt/iobroker/node_modules/iobroker.ring/
-npm i ring-client-api
-
-cd /opt/iobroker/node_modules/iobroker.ring/node_modules/ring-client-api
-node ring-auth-cli
-```
-
 You can use special variables for your livestream and snapshot path and filename. These variables will be replaced with
 a counter, timestamp, ring id or kind of ring.
 

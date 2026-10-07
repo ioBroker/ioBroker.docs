@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.md"},"en/adapterref/iobroker.e3oncan/lib/data-points.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/lib/data-points.md"},"en/adapterref/iobroker.e3oncan/README.de.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.de.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.md"},"en/adapterref/iobroker.e3oncan/lib/data-points.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/lib/data-points.md"},"en/adapterref/iobroker.e3oncan/README.de.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.de.md"},"en/adapterref/iobroker.e3oncan/docs/raw-gateway-api.md":{"title":{"en":"Raw-Gateway-API (open3e-esp32 ↔ ioBroker.e3oncan)"},"content":"en/adapterref/iobroker.e3oncan/docs/raw-gateway-api.md"}}}
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.e3oncan/README.de.md
 title: ioBroker.e3oncan
-hash: 70ox7tWJS9kgwoPFk40055i/R/Q8xPDXluq8yFpwmNs=
+hash: 9oEGjlun6BgPp5as7cr3k3XUGBc11xkcY1TbNsYtDJ8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -26,11 +26,11 @@ hash: 70ox7tWJS9kgwoPFk40055i/R/Q8xPDXluq8yFpwmNs=
 ## Inhaltsverzeichnis
 
 - [Übersicht](#übersicht)
-- [Что нового в версии 1.0.3?](#was-ist-neu-in-v103)
-- [Что нового в версии 1.0.0](#was-ist-neu-in-v100)
+- [Что нового в версии 1.2.0?](#was-ist-neu-in-v120)
 - [Schnellstart](#schnellstart)
 - [Konfigurationsanleitung](#konfigurationsanleitung)
   - [Schritt 1 – CAN-адаптер](#schritt-1--can-adapter)
+  - [Альтернативный вариант: open3e-esp32-Gateway](#alternative-open3e-esp32-gateway)
   - [Schritt 2 – Gerätescan und Energiezähler-Erkennung](#schritt-2--gerätescan-und-energiezähler-erkennung)
   - [Schritt 3 – Datenpunktscan](#schritt-3--datenpunktscan)
   - [Шритт 4 – Zuweisungen und Zeitpläne](#schritt-4--zuweisungen-und-zeitpläne)
@@ -38,6 +38,7 @@ hash: 70ox7tWJS9kgwoPFk40055i/R/Q8xPDXluq8yFpwmNs=
 - [e3oncan Страница с точками данных](#e3oncan-datenpunkte-seite)
 - [Читать пункты данных](#datenpunkte-lesen)
 - [Datenpunkte schreiben](#datenpunkte-schreiben)
+- [Rohschnittstelle des Gateways](#rohschnittstelle-des-gateways)
 - [Datenpunkte und Metadaten](#datenpunkte-und-metadaten)
 - [Энергетические](#energiezähler)
   - [E380 – Daten und Einheiten](#e380--daten-und-einheiten)
@@ -65,77 +66,19 @@ Welche Modi verfügbar sind, hängt von der Geräteconfiguration ab. Подро�
 
 ---
 
-## Was ist neu in v1.1.1
+## Что нового в версии 1.2.0?
 
-### Актуальные определения дат
+### Если есть ESP32 с CAN-шиной, все через TCP/IP
 
-Die Datenpunktdefinitionen wurden auf Version 20260705 (allgemein) и 20260630 (Varianten) актуальны.
+С [open3e-esp32](https://github.com/boonkerz/open3e-esp32) -Gateway используется Viessmann-CAN-Bus в ESP32 с CAN-трансивером. Для ioBroker-Rechner используется CAN-адаптер: он обеспечивает коммуникацию TCP/IP со шлюзом, с использованием REST-API (UDS-Lesen und -Schreiben) и MQTT-Broker (пассивное использование фреймов). Функциональные возможности адаптеров для дизельного двигателя: Geräte- und Datenpunktscan, Collect, Energiezähler, Zeitpläne und Schreibzugriffe. Schreibzugriffe setzen zusätzlich voraus, dass _Rohes Schreiben freigeben_ im Gateway aktiviert ist. Местный CAN-адаптер работает без сбоев. Die Einrichtung — это [альтернатива: open3e-esp32-Gateway](#alternative-open3e-esp32-gateway) beschrieben.
 
-### Новый кодек O3ESwitch
+### Rohschnittstelle для собственного декодера
 
-Ein neuer Codec `O3ESwitch` Чтобы получить доступ к дате, необходимо использовать структуру вашего специального дискриминатора-байта. Первый байт будет активен при выборе выбранного кодека. Если вы хотите, чтобы структурное декодирование ZigBee-Geräteslot-DID (2086–2143, 2262) было невозможным, то это означает, что декодирование не требуется (z. B. Klimasensor, Heizkörperthermostat, Fußbodenheizungsthermostat, Stellantrieb).
+Шлюз должен содержать UDS-данные и CAN-фреймы для программного обеспечения, которые необходимо декодировать. Im Gateway-Betrieb nutzt der Adapter diesen Weg; die Bedeutung der Bytes bleibt beim eigenen Codec von ioBroker. Siehe [Rohschnittstelle des Gateways](#rohschnittstelle-des-gateways) .
 
-### Десятичное числовые кодеки
+### Gateway-Zustand und Selbstheilung
 
-Численные кодеки (`O3EInt8`, `O3EInt16`, `O3EInt32`, `O3EInt64`, `O3EFloat32`) unterstützen jetzt einen опционально Параметр `decimals`. Если это число больше 0, вы получите Dekodierergebnis auf die angebene Anzahl Nachkomastellen gerundet. Beispielsweise wird `SignalLevel` (Скалирование 2,55, десятичное число 2) damit ohne übermäßig lange Gleitkommazahlen ausgegeben.
-
-### Einheiten und Metadaten werden beim Start nach Strukturänderungen Gesetzt
-
-Чтобы начать работу с адаптером, выберите Struktur eines Datenpunkts geändert Hat (новая версия в `didsE3var.json` Одер `didsE3.json`), werden Einheiten und Beschreibungen für alle Unterzustände des neu angelegten Tree-Abschnitts jetzt correkt gsetzt. Bisher wurden Einheiten nur beim Datenpunktscan gesetzt; nach einer Strukturaktualisierung war ein erneuter Scan erforderlich, um sie zu befüllen.
-
----
-
-## Что нового в версии 1.0.3?
-
-### Выполните перестройку, чтобы выполнить обновление Node.js.
-
-Das native CAN-Modul `socketcan` Когда версия 4.2.1 будет актуализирована и будет проверена стабильная версия **N-API** -Schnittstelle. Этот модуль должен быть заменен версией Node.js, которая больше не компилируется. Обновление Node.js (от 22 до 24) erfordert keinen `iob rebuild` -Schritt mehr — der Adaptor startet ohne weitere Maßnahmen.
-
-### Фильтр для установленных дат в дата-центре
-
-Щелкните по зеленому значку с установленными датами и **дополнительными фильтрами по картам и установленными датами** . Итак, lassen sich Zeitplane für ein bestimmtes Gerät schnell prüfen und anpassen. Ein weiterer Klick auf das Badge или auf den Kartenkopf stellt die vollständige Ansicht wieder ее.
-
-### Schutz benutzerdefinierter Variantendatenpunkt-Definitionen
-
-Benutzerdefinierte Strukturen в `e3oncan.0.<GERÄT>.info.udsDidsSpecific` können jetzt durch das Setzen фон `"protected": true` **для автоматических обновлений** . Дополнительные опции Feld `"reason"` wird in das Log geschrieben, wenn der Schutz greift. Ohne Schutz werden Variantendatenpunkte (die auch in `didsE3var.json` enthalten sind) weiterhin autotisch auf neuere Definitionen actualisiert. Подробности Стивен в [документации](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific) .
-
-### Актуальные определения дат
-
-Die Datenpunktdefinitionen wurden auf Version 20260528 (allgemein) и 20260527 (Varianten) актуальны. Основные моменты:
-
-- ZigBee-DIDs 2084–2319 vollständig Strukturiert (Geräteeigenschaften, aktuelle Werte в 57- и 68-байтовых вариантах)
-- Структура Raum-DID 1884–1943 (название, тип, температура, Fenstererkennung, мин/макс-Luftfeuchte)
-- Neue ViGuide-basierte DID-Strukturen für Brennstoffzellenmetriken, Energiedeckung und Batterie-/Wechselrichter-Abonnements
-- `Unknown*` -Felder verwenden jetzt einheitlich `RawCodec`
-
----
-
-## Что нового в версии 1.0.0
-
-### Страница точек данных
-
-Eine neue **e3oncan Datenpunkte** — это прямой доступ к адаптерам в ioBroker-Instanzansicht verrankert. Нажмите на кнопку Schaltfläche<img src="admin/icon_open_tab.svg" height="20"> в der Instantzzeile, um sie zu öffnen. Sie bietet eine dedizierte Oberfläche zum Verwalten von Zeitplänen und Collect-Einstellungen je Gerät und Datenpunkt — ohne dass der vollständige Adaptorconfigurationsdialog geöffnet werden muss.
-
-### Автоматическое управление энергией
-
-Энергетические устройства (E380 и E3100CB) работают **автоматически при автоматическом сканировании** , за исключением пассивного режима работы CAN-канала. Название штата было изменено автоматически по CAN-адресу и каналам. Der Aktiv/Inaktiv-Schalter und die Collect-Verzögerung für jeden Energiezähler werden ausschließlich in der Datenpunkte-Seite configuriert.
-
-Beim ersten Start nach einem Upgrade von einer früheren Version wird die bisherige Energiezähler-Konfiguration autotisch migriert.
-
-### Automatische Erkennung von Collect-fähigen Geräten
-
-При сканировании данных с пассивного адаптера на шине CAN, в случае необходимости, когда вы создаете режим сбора, вы не можете установить его. Для этого используйте значок-символ в заголовке-заголовке даты.
-
-### Гибкое сканирование точек данных
-
-Новый вариант **выбора даты сканирования в объектной базе** должен быть указан, а также актуален, когда необходимо указать сканированные объекты в выбранном объекте. Если эта опция деактивирована, активируется переход и метаданные для изменения объекта ввода данных, а затем снова автоматически включается, когда на дем-сканере используются старые данные.
-
-### Анализ топологии автобусной сети
-
-Для автоматического сканирования адаптером всех топологических данных необходимо выполнить сканирование. Das Ergebnis wird в новых Штатах в `info` -Канал gespeichert:
-
-- `info.topology` – структурированные JSON со всеми используемыми UDS-файлами и топологическими элементами (дедупликация всех топологических матриц).
-- `info.topologyHtml` – вам нужно создать HTML-таблицу, указать тип шины (CanInternal, CanExternal, CanRaw, ModBus, ServiceBus), с UDS-значком для создания, а также использовать UDS-бар. Используйте этот HTML-виджет для просмотра, просмотра или просмотра вашего HTML-виджета.
+Der Verbindungszustand folgt dem eigenen Zustand des Gateways. Шлюз неработоспособен, журнал не работает, брокер или CAN-шина не работают, а Verbindung становится немаркированным. Чтобы получить доступ к шлюзу, начните с нового адаптера, а затем выберите Verbindung wiederherzustellen.
 
 ---
 
@@ -176,6 +119,24 @@ Beim ersten Start nach einem Upgrade von einer früheren Version wird die bisher
 
 Falls ein zweiter CAN-Bus vorhanden ist (z. B. inner Bus), может быть использован также как zweiter Adaptor configuriert werden. Ein zweiter **Zuweisungen** -Tab erscheint, sobald der zweite Адаптер конфигурируется.
 
+### Альтернативный вариант: open3e-esp32-Gateway
+
+Установленные локальные CAN-адаптеры могут быть подключены к шине [open3e-esp32](https://github.com/boonkerz/open3e-esp32) -Gateway gelesen werden. Сведения о том, что автобус **Verbindungsart** auf _open3e-esp32-Gateway_ und tragen Sie ein:
+
+- **Gateway-REST-URL** , например. `http://open3e-esp32.local`
+- **URL-адрес брокера MQTT-шлюза** , например. `mqtt://broker.local` и **MQTT-Basis-Topic** . Das Basis-Topic muss mit der Einstellung `mqtt.baseTopic` des Gateways übereinstimmen (Стандартный `open3e`).
+- **MQTT-Benutzername und -Passwort** относится к брокеру, который является верлангтом.
+
+Когда вы начнете работу с адаптером шлюза с CAN-ID, они будут повреждены. Список действует как источник энергии и идентификаторы сбора данных для вашего устройства, поэтому он не может быть включен в конфигурацию шлюза.
+
+Шлюз работает с open3e-esp32 в версии 0.2.0 или новой. Эта версия будет работать с Raw-API версии 1, но адаптер будет отключен. Протокол адаптера должен быть начальным значением версии встроенного ПО.
+
+Правила в системе Gateway:
+
+- **Auswahl und Zeitpläne der Datenpunkte werden nur в конфигурации ioBroker** (Datenpunkte-Seite, Zeitpläne). Вы не можете найти ничего интересного в Web-Oberfläche des Gateways. Адаптер не может использоваться в качестве адаптера и может быть использован параллельно с другими адаптерами. Eine Änderung der weitergeleiteten CAN-ID в der Web-Oberfläche des Gateways gilt nur bis zum nächsten Neustart des Adapters.
+- **Schreibzugriffe auf Datenpunkte erfordern _Rohes Schreiben freigeben_ im Gateway.** Im Gateway-Betrieb laufen alle Schreibzugriffe über den rohen Schreibpfad des Gateways. Активировать систему в системе **Rohes Schreiben freigeben** (`rawWriteEnabled`), neben _Schreiben freigeben_ . Адаптер не установлен, если это не дата установки open3e umgeht.
+- **Auf einem Bus darf nur ein Master senden.** Betreiben Sie keine weitere open3e-Instanz, etwa auf einem Raspberry Pi, на собственном автобусе.
+
 ### Schritt 2 – Gerätescan und Energiezähler-Erkennung
 
 Zum Tab **Liste der UDS-Geräte** wechseln und **Scan** Drücken.
@@ -211,13 +172,13 @@ Dieser Schritt ist für die reine Lesenutzung nicht zwingend erforderlich, wird 
 
 **Datenpunktwerte während des Scans im Objektbaum speichern**
 
-Standardmäßig schreibt der Scan auch den aktuellen Wert jedes Datenpunkts in den Objektbaum (`json` -, `raw` - унд `tree` -Штаты). Если вы хотите использовать опцию **Datenpunktwerte im Objektbaum während des Scans speichern** oberhalb der Scan-Schaltfläche angepasst werden. Если эта опция деактивирована, активируется переход и метаданные для изменения объекта ввода данных, а затем снова автоматически включается, когда на дем-сканере используются старые данные.
+Standardmäßig schreibt der Scan auch den aktuellen Wert jedes Datenpunkts in den Objektbaum (`json` -, `raw` - унд `tree` - Штаты). Если вы хотите использовать опцию **Datenpunktwerte im Objektbaum während des Scans speichern** oberhalb der Scan-Schaltfläche angepasst werden. Если эта опция деактивирована, активируется переход и метаданные для изменения объекта ввода данных, а затем снова автоматически включается, когда на дем-сканере используются старые данные.
 
-Этот вариант - это лучший вариант, когда вы получаете большую прибыль от State-Schreibvorgängen während des Scans vermieden werden soll (z. B. auf Systemen mit vielen Geräten). Wenn zuvor ein Scan mit gespeicherten Werten durchgeführt wurde und jetzt ein sauberer Neuanfang gewünscht wird, können die `json` -, `raw` - одер `tree` -Unterobjekte eines Geräts aus dem ioBroker-Objektbaum gelöscht werden — адаптер легт sie autotisch neu an, wenn er das nachste Mal Daten empfängt. **Примечание: Если** вы хотите, чтобы ваш брокер ioBroker имел привлекательный внешний вид, вы могли бы получить доступ к RAM-Verbrauch erhöhen kann. Auf Systemen mit knappem Arbeitsspeicher besser in kleinen Batches loschen.
+Этот вариант - это лучший вариант, когда вы получаете большую прибыль от State-Schreibvorgängen während des Scans vermieden werden soll (z. B. auf Systemen mit vielen Geräten). Wenn zuvor ein Scan mit gespeicherten Werten durchgeführt wurde und jetzt ein sauberer Neuanfang gewünscht wird, können die `json` -, `raw` - одер `tree` -Unterobjekte eines Geräts aus dem ioBroker-Objektbaum gelöscht werden — адаптер легт sie autotisch neu an, wenn er das das nächste Mal Daten empfängt. **Примечание: Если вы хотите,** чтобы ваш брокер ioBroker имел привлекательный внешний вид, вы могли получить доступ к RAM-Verbrauch erhöhen kann. Auf Systemen mit knappem Arbeitsspeicher besser in kleinen Batches löschen.
 
 > **Совет по адаптеру истории:** если объект не работает с историческими данными, адаптер истории (History, InfluxDB, SQL) **не** используется. Если вы хотите использовать Backend-ы адаптеров для просмотра диаграмм, то State-ID будет неожиданным. История-Подключение-Конфигурация (das „enabled“-Flag am Objekt) будет доступна для просмотра и должна быть активирована вручную.
 
-> **Предупреждение:** Den `info` -Kanal niemals löschen (z.B. `e3oncan.0.info`). Er enthält Scan-Ergebnisse, Energiezähler-Erkennung, Verzögerungen, Aktiv-Flags, Bus-Topologie-Zusammenfassungen и CAN-Verbindungsstatus. Если устройство не настроено, оно не должно автоматически выполняться.
+> **Предупреждение:** Den `info` -Kanal niemals löschen (z. B. `e3oncan.0.info`). Er enthält Scan-Ergebnisse, Energiezähler-Erkennung, Verzögerungen, Aktiv-Flags, Bus-Topologie-Zusammenfassungen и CAN-Verbindungsstatus. Если устройство не настроено, оно не должно автоматически выполняться.
 
 **Анализ топологии автобусной сети**
 
@@ -328,7 +289,16 @@ Einige Datenpunkte können auch nach der Aufnahme in die Whitelist nicht geände
 
 ---
 
-## Точки данных и метаданные
+## Rohschnittstelle des Gateways
+
+Для open3e-esp32-Gateway необходимо следующее программное обеспечение, для которого необходимо декодировать данные CAN:
+
+- **ОТДЫХ:** `GET /api/rawread` Вы можете получить UDS-Antwortbytes для 10 дат-идентификаторов для Anfrage. `POST /api/rawwrite` sendet rohe Wertbytes mit Dienst `0x2E`, и теперь _Rohes Schreiben будет_ активен в шлюзе.
+- **MQTT:** CAN-ID в Einstellung `rawCanIds` des Gateways были открыты `<Basis-Topic>/raw/<ID-hex>` veröffentlicht, z. B. als `{"dlc": 8, "data": "21fa01b3...", "ts": 1725455669123}`.
+
+Когда вы используете open3e-кодек или Datenpunkt-Datenbank, на шлюзе также нет декодирования или использования. Im Gateway-Betrieb nutzt ioBroker.e3oncan diese Schnittstelle и der eigene Codec entscheidet, были байтами beeuten. Подробности протокола и окончание сканирования можно найти в [docs/raw-gateway-api.md](/#/docs/adapterref/iobroker.e3oncan/docs/raw-gateway-api.md) .
+
+## Datenpunkte und Metadaten
 
 Ausführliche Informationen zur Struktur der Datenpunkte, zur Funktionsweise von Varianten-Datenpunkten und Metadaten sowie zur Handhabung von Temperatur-, Datums- und Zeitformaten ind [data-points.md](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md) (english) zu finden.
 
@@ -419,7 +389,7 @@ CAN-ID можно автоматически сканировать и авто�
 - Echtzeit-Collect-Modus zusätzlich zu UDSonCAN.
 - Schreiben von Daten ist einfacher: einfach einen State-Wert ändern und ohne Bestätigung speichern.
 - Используйте MQTT erforderlich (MQTT — это естественная функция нормальной настройки ioBroker-Konfiguration).
-- 64-битное целочисленное кодирование в исходном коде не соответствует 2^52 (4.503.599.627.370.496). Функциональное декодирование корректируется при использовании 64-битной версии.
+- 64-битное целочисленное кодирование должно быть введено в исходное состояние из 2^52 (4.503.599.627.370.496). Функциональное декодирование корректируется при использовании 64-битной версии.
 
 **Können Datenpunkte außerhalb des Scanbereichs abgefragt werden?**
 

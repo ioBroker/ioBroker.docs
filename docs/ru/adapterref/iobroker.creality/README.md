@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.creality/README.md
 title: Адаптер ioBroker для 3D-принтера CREALITY
-hash: qoYnNJwv15Uw7o/3KPJ6vOj6FmoLRvEKr7O8c6DDEhU=
+hash: 55AGJjxnInrw/AZrwQm6gAnte2SmIDxxXk41uS7Nbzc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.creality/admin/creality.png)
 
@@ -25,7 +25,7 @@ hash: qoYnNJwv15Uw7o/3KPJ6vOj6FmoLRvEKr7O8c6DDEhU=
 Обеспечивает подключение принтеров Creality Klipper (основная целевая платформа: **[SPARKX i7](https://store.creality.com/products/sparkx-i7-3d-printer)** с CFS lite) к ioBroker через два локальных API:
 
 1. **Moonraker HTTP** (порт по умолчанию) `7125`) — статистика печати, температура, вентиляторы, коробка с филаментом CFS, G-код
-2. **Creality WebSocket** (порт по умолчанию) `9999`) — Светодиодная индикация положения инструмента, пауза/возобновление/остановка, состояние пользовательского интерфейса выравнивания/самотестирования, оставшееся время (`printLeftTime`)
+2. **Creality WebSocket** (порт по умолчанию) `9999`) — Светодиодная индикация положения инструмента, пауза/возобновление/остановка, состояние пользовательского интерфейса выравнивания/самодиагностики, оставшееся время (`printLeftTime`)
 
 Одного Moonraker недостаточно для корректной работы Creality UI (например, прокачка уровня, пока Klipper продолжает сообщать о прогрессе). `standby`) или подсветка инструментальной головки.
 
@@ -48,19 +48,19 @@ hash: qoYnNJwv15Uw7o/3KPJ6vOj6FmoLRvEKr7O8c6DDEhU=
 
 Под `creality.<instance>.*` (примеры):
 
-| Состояние                                               | Описание                                                                                                       |
-| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `state` /`stateKlipper` /`selfTestStep`                 | Статус пользовательского интерфейса / Klipper                                                                  |
-| `currentJob.*`                                          | Ход выполнения, файл, время, слои, подача/поток, активная нить                                                 |
-| `info.*`                                                | Модель, прошивка, имя хоста, серийный номер, диск, часы/задания печати, ошибки                                 |
-| `temp.*`                                                | Форсунка, основание, коробка/камера                                                                            |
-| `fans.partCooling`                                      | **Процент** охлаждения детали (соответствует показаниям слайсера/принтера; Creality) `fan0_min` переназначение) |
-| `fans.partCoolingPwm`                                   | Охлаждение детали **с помощью ШИМ в процентах** (рабочий цикл аппаратного обеспечения из Moonraker)            |
-| `fans.*` /`cfs.*`                                       | Другие вентиляторы / CFS (опционально)                                                                         |
-| `control.light` /`sleepMode` /`pause` /`resume` /`stop` | Элементы управления                                                                                            |
-| `webcam.available`                                      | Камера присутствует (только для чтения; локальный API не может её выключить на SPARKX i7).                     |
-| `webcam.streamUrl`                                      | URL для iframe VIS (страница Creality WebRTC, по умолчанию) `http://<host>:8000`)                              |
-| `webcam.webrtcUrl`                                      | конечная точка сигнализации WebRTC                                                                             |
+| Состояние                                               | Описание                                                                                                          |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `state` /`stateKlipper` /`selfTestStep`                 | Статус пользовательского интерфейса / Klipper                                                                     |
+| `currentJob.*`                                          | Ход выполнения, файл, время, слои, подача/поток, активная нить                                                    |
+| `info.*`                                                | Модель, прошивка, имя хоста, серийный номер, диск, часы/задания печати, ошибки                                    |
+| `temp.*`                                                | Сопло, ложе; камера (`temp.box`) только если принтер сообщает о нагревателе камеры                               |
+| `fans.partCooling`                                      | **Процент** охлаждения детали (соответствует отображению в слайсере/принтере; Creality) `fan0_min` переназначение) |
+| `fans.partCoolingPwm`                                   | Охлаждение детали **с помощью ШИМ в процентах** (рабочий цикл аппаратного обеспечения из Moonraker)               |
+| `fans.*` /`cfs.*`                                       | Другие вентиляторы / CFS (опционально)                                                                            |
+| `control.light` /`sleepMode` /`pause` /`resume` /`stop` | Элементы управления                                                                                               |
+| `webcam.available`                                      | Камера присутствует (только для чтения; локальный API не может её выключить на SPARKX i7).                        |
+| `webcam.streamUrl`                                      | URL для iframe VIS (страница Creality WebRTC, по умолчанию) `http://<host>:8000`)                                 |
+| `webcam.webrtcUrl`                                      | конечная точка сигнализации WebRTC                                                                                |
 
 **Примечание к веб-камере:** SPARKX использует WebRTC на этом порту. `8000` не классический MJPEG. `webcam.streamUrl` Ссылки на страницу просмотра Creality — можно использовать в iframe VIS, если браузер может получить доступ к IP-адресу принтера. Для использования с Home Assistant / go2rtc. `webcam.webrtcUrl`.
 
@@ -75,6 +75,12 @@ hash: qoYnNJwv15Uw7o/3KPJ6vOj6FmoLRvEKr7O8c6DDEhU=
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2026-10-06)
+- (skvarel) Fixed stale `currentJob.progress` after finished print / Moonraker restart (Creality WS fallback)
+- (skvarel) Modified Moonraker fan query to be optional so missing fan objects cannot 404 the whole poll
+- (skvarel) Modified `temp.box` to appear only when the printer reports a chamber heater (`maxBoxTemp > 0`)
+- (skvarel) Fixed `currentJob.*` not clearing after cancel/complete (Creality keeps filename + last progress)
+
 ### 0.4.1 (2026-08-25)
 - (skvarel) Fixed `currentJob.filament*` for external spool holder (`filament_rack`) when CFS is not active
 
@@ -91,9 +97,6 @@ hash: qoYnNJwv15Uw7o/3KPJ6vOj6FmoLRvEKr7O8c6DDEhU=
 ### 0.2.0 (2026-08-08)
 - (skvarel) Fixed part cooling fan % to match slicer/display (Creality fan0_min remapping)
 - (skvarel) Added `fans.partCoolingPwm` for raw PWM duty cycle
-
-### 0.1.4 (2026-08-02)
-- (skvarel) Fixed string state roles for repository object check
 
 ## License
 MIT License

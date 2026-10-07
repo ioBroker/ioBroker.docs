@@ -425,7 +425,12 @@ sendTo("schedule-switcher.0", "change-active", { // Leave schedule active withou
 
 [Summary](#summary)
 
-- Create a condition.
+- Create a condition
+- When using a constant, only one condition needs to be set up in the VIS editor. The state of the specified object ID is compared against the constant.
+  For "greater than" or "less than" operations, the object ID is compared against the constant (State > Constant || State < Constant).
+- Without a constant, at least two conditions must be set up in the VIS editor. The upper object ID and the lower object ID must not be identical. For "greater than" or "less than" operations, the upper value is compared against the lower value (upper > lower || upper < lower).
+- If no object ID has been entered in the VIS editor, the text "No condition" appears in red.
+- The object for greater/less than must be NUMBER!!!
 
 ![create_widget_select_condition.png](img/create_widget_select_condition.png)
 
@@ -920,6 +925,14 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Condition crash fixed
+- (Lucky-ESA) Selection condition (greater than/less than) added
+- (Lucky-ESA) Fixed: widgetOverview object is empty
+- (Lucky-ESA) Fixed some errors
+
 ### 0.2.1 (2026-07-09)
 
 - (Lucky-ESA) Fixed refresh astrotime

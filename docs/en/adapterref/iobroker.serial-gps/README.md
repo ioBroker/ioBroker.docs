@@ -29,9 +29,10 @@ Normally, all devices that deliver NMEA data via serial or USB should work. Here
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 1.0.1 (2026-10-07)
 - (iobroker-bot) Adapter requires node.js >= 22 now.
+- (@GermanBluefox) By test of the port that already used by same instance, the port will be released for tests.
+
 ### 1.0.0 (2026-05-29)
 - (@GermanBluefox) Added possibility to select GPS device by name instead of path
 

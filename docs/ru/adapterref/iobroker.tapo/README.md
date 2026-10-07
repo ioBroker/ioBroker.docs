@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tapo/README.md
 title: ioBroker.tapo
-hash: NZZlPgk6tEpWMvMhoy6ZkKwcotfviMd4dbVqujDyd4g=
+hash: bcpGkEq5d3kEIISHS/C3sAZMA+1CucnHaKPikxtRgH4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tapo/admin/tapo.png)
 
@@ -102,12 +102,12 @@ Alle Geraete werden regelmaessig gepollt. Die Werte werden autotisch unter `tapo
 | Обнаружение движения                     | логический | Bewegungserkennung aktiv                                  |
 | вел                                      | логический | LED активный                                              |
 | автотрек                                 | логический | Активация автоматического отслеживания                    |
-| personDetection                          | логический | Personenerkennung aktiv                                   |
+| обнаружение человека                     | логический | Personenerkennung aktiv                                   |
 | VehicleDetection                         | логический | Fahrzeugerkennung aktiv                                   |
 | обнаружение питомцев                     | логический | Tiererkennung aktiv                                       |
 | babyCryDetection                         | логический | Baby-Schrei-Erkennung aktiv                               |
 | Обнаружение коры                         | логический | Bellen-Erkennung aktiv                                    |
-| обнаружение мяука                        | логический | Miauen-Erkennung aktiv                                    |
+| Обнаружение мяуканья                     | логический | Miauen-Erkennung aktiv                                    |
 | glassBreakDetection                      | логический | Glasbruch-Erkennung aktiv                                 |
 | обнаружение несанкционированного доступа | логический | Manipulations-Erkennung aktiv                             |
 | imageFlip                                | логический | Bild vertikal gespiegelt                                  |
@@ -168,7 +168,7 @@ Nicht jede Kamera Lifert alle Typen. Die verfuegbaren Werte haengen von Modell u
 | alarmInfo.alarm\_duration       | нить      | Dauer in Sekunden                           |
 | alarmInfo.alarm\_type           | нить      | Sirenen-Typ                                 |
 | alarmInfo.light\_type           | нить      | Licht-Typ                                   |
-| alarmInfo.light\_alarm\_enabled | нить      | Активная световая сигнализация (вкл/выкл)   |
+| alarmInfo.light\_alarm\_enabled | нить      | Активация световой сигнализации (вкл/выкл)  |
 | alarmInfo.sound\_alarm\_enabled | нить      | Активация звуковой сигнализации (вкл/выкл). |
 
 ### Alarm-Event-Typen (выбор типа сигнала тревоги)
@@ -300,7 +300,7 @@ Alle Plug-Remote plus:
 | setFanSpeedLevel | число      | Geschwindigkeit 0-4 (0 = aus) |
 | setFanSleepMode  | логический | Schlafmodus ein/aus           |
 
-### Втулка (H100, H200)
+### Центр управления (H100, H200, KH100)
 
 | Удаленный        | Тип        | Описание                                                      |
 | ---------------- | ---------- | ------------------------------------------------------------- |
@@ -317,9 +317,20 @@ Alle Plug-Remote plus:
 | setTemperatureOffset | число      | Смещение температуры (-10 до 10) |
 | setFrostProtection   | логический | Frostschutz ein/aus              |
 
+### Термостат / термостатический клапан и концентратор (KE100 и KH100/H100)
+
+KE100 и einem Hub имеют собственный IP-адрес. Fuer jedes TRV werden daher Пульты дистанционного управления `tapo.0.<hubId>.childremote.<childId>.*` angelegt und ueber den Hub (`control_child`) gesendet.
+
+| Удаленный            | Тип        | Описание                                         |
+| -------------------- | ---------- | ------------------------------------------------ |
+| setTargetTemperature | число      | Zieltemperatur setzen (schaltet Frostschutz aus) |
+| setFrostProtection   | логический | Frostschutz ein/aus (ein = Heizung aus)          |
+| setTemperatureOffset | число      | Смещение температуры (-10 до 10)                 |
+| setChildProtection   | логический | Kindersicherung ein/aus                          |
+
 ### Хаб-сенсорен (T100, T110, T300, T310, T315)
 
-Датчики температуры (температура, люфтфойхтигкейт, Bewegung, Kontakt, Wasserleck) автоматически передаются через `getChildDeviceList` abgerufen и другие статусы.
+Sensordaten (Temperatur, Luftfeuchtigkeit, Bewegung, Kontakt, Wasserleck) werden bei jedem Опрос через `get_child_device_list` (Отступать `getChildDeviceList`) abgerufen и другие статусы.
 
 ### Камеры (C200, C310, C520, TC70, ...)
 
@@ -379,6 +390,13 @@ Alle Plug-Remote plus:
 <https://forum.iobroker.net/topic/57336/test-adapter-tp-link-tapo/>
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+- Support Kasa hubs (KH100): `SMART.KASAHUB` is now included in the cloud device list, and KH100 gets the hub remotes instead of the plug remotes
+- Fix hub child list: query `get_child_device_list` first (KH100 answers `getChildDeviceList` with -1002) and fall back to `getChildDeviceList`
+- Hub child list is now refreshed on every poll instead of only at startup, so child sensor/TRV values no longer freeze
+- KE100 TRVs behind a hub get writable remotes under `<hubId>.childremote.<childId>` (target temperature, frost protection, temperature offset, child lock), sent through the hub via `control_child`
+
 ### 0.6.12 (2026-08-11)
 
 - Fix intermittent "Expected double-quoted property name in JSON" on KLAP/TPAP devices: requests per device are now serialized, so rapid commands (or a poll racing a command) no longer corrupt the AES sequence counter and garble the decrypted response

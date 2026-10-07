@@ -48,6 +48,11 @@ According to the <a href="https://www.awattar.de/services/api" target="_blank">a
     ### **WORK IN PROGRESS**
 -->
 
+### 1.4.0
+* Migrated the Admin UI from the legacy Materialize HTML page to jsonConfig (same fields, existing settings are kept unchanged)
+* Fixed: a decimal comma in the work rate (e.g. `20,08`) was cut off at the comma, so only the integer part (`20`) was added to the total price; both `20,08` and `20.08` are now handled
+* (repository maintenance) Added the jsonConfig schema reference to `.vscode/settings.json`; bumped `@iobroker/testing` to 6.3.0
+
 ### 1.3.0
 * Dropped Node.js 20 support (reached end of life on 2026-04-30); Node.js 22 is now the minimum required version
 * (repository maintenance) Pinned chai/chai-as-promised/sinon-chai below their new ESM-only major versions in Dependabot config, since the test suite is CommonJS

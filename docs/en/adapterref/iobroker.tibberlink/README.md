@@ -104,6 +104,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (HombachC) updated dependencies
+
 ### 7.3.2 (2026-09-27)
 
 - (HombachC) fixed local Pulse uptime not being converted on Bridge firmware ≥1794: the renamed `node_uptime` field (now in ms) is again shown as a human-readable duration, same as the former `node_uptime_ms` (#947)

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.poolcontrol/README.md
 title: ioBroker.poolcontrol
-hash: MFaC10SPK6ybZZvrV3nx+Y80jzwRapdhyStn2PyUzZg=
+hash: My6Kw65yJiH3ebT6QQTY0uGYhzrfUTO879WsPZAMcaM=
 ---
 # ioBroker.poolcontrol
 
@@ -33,6 +33,9 @@ hash: MFaC10SPK6ybZZvrV3nx+Y80jzwRapdhyStn2PyUzZg=
   - Режимы работы: Автоматический, Автоматический (PV), Ручной, Таймер, Выкл.
   - Обнаружение ошибок (отсутствие потребления энергии, питание при выключенном состоянии, перегрузка)
   - Функции безопасности (защита от замерзания, защита от перегрева)
+  - `Off` Для технического обслуживания используются прочные насосные блоки, в том числе для обеспечения безопасности.
+  - В `Manual` Функции безопасности могут вмешиваться только тогда, когда `pump.manual_safety_enabled` включено
+  - Вне активного купального сезона защита от замерзания может по-прежнему работать, в то время как защита от перегрева, вызванного солнечными лучами, остается только предупреждающей.
   - Приоритетное владение и координация действий помощников
   - Рекомендации по мощности насосов с регулируемой скоростью вращения
   - Функции обучения для анализа поведения мощности и потока (`pump.learning.*`)
@@ -56,13 +59,13 @@ hash: MFaC10SPK6ybZZvrV3nx+Y80jzwRapdhyStn2PyUzZg=
   - Максимально допустимые температуры воды в бассейне
   - Диагностические и причинные состояния
   - Логика приоритетов и блоков
-  - Раздел «Статус»`solar.extended.*`
+  - Раздел «Статус» в `solar.extended.*`
   - Изменения во время выполнения `solar.extended.pool_temperature_source` применяются автоматически, поскольку Solar Extended использует циклический интервал проверки, расчеты, логику управления и `solar.extended.collector_pool_reference_delta` Обновление может занять до 60 секунд.
 
 - **Управление фотоэлектрическими системами**
   - Управление насосом на основе избытка солнечной энергии и потребления домохозяйства.
   - Начните логику с использованием настраиваемых дополнительных полей.
-  - Возможен дополнительный выезд за пределы взлетно-посадочной полосы в облачную погоду.
+  - Возможен дополнительный выезд самолета в облачную погоду.
   - Игнорировать режим при достижении целевого уровня циркуляции.
   - Поддерживает внешние идентификаторы объектов энергии.
   - Режим работы насоса: `Automatic (PV)`
@@ -119,7 +122,7 @@ hash: MFaC10SPK6ybZZvrV3nx+Y80jzwRapdhyStn2PyUzZg=
   - Самообучающиеся диапазоны минимального/максимального значений
   - Диагностические состояния
   - История и оценка давления
-  - Поддержка внешних датчиков и блока управления давлением PoolControl PressureBox.
+  - Поддержка внешних датчиков и PoolControl PressureBox
   - Информация предоставлена исключительно в ознакомительных целях (автоматическое управление отсутствует).
 
 - **SystemCheck**
@@ -161,7 +164,7 @@ hash: MFaC10SPK6ybZZvrV3nx+Y80jzwRapdhyStn2PyUzZg=
   - Дополнительная функция передачи сводной информации в speech.queue.
   - HTML / JSON / текстовый вывод
 
-- **Выходные данные, готовые к отображению в визуальном интерфейсе.**
+- **Выходные данные, готовые к визуализации**
   - Вывод структурированного текста
   - HTML-вывод
   - JSON-сводки
@@ -263,7 +266,7 @@ hash: MFaC10SPK6ybZZvrV3nx+Y80jzwRapdhyStn2PyUzZg=
 
 - Расширенный анализ эффективности фотоэлектрических и солнечных систем (расчет коэффициента полезного действия, ежедневная выгода, учет погодных условий)
 - Функция экспорта статистических данных (CSV/Excel)
-- Вспомогательная программа для автоматической проверки системы.
+- Вспомогательная диагностическая программа для автоматической проверки системы.
 - Собственные виджеты для VIS/VIS2 (графическая визуализация бассейна и солнечной энергии)
 - Специализированные модули управления для клапанов и противоточных систем.
 - Интеграция дополнительных блоков датчиков (например, TempBox, PressureBox, LevelBox)
@@ -338,6 +341,56 @@ PoolControl — это проект с открытым исходным код�
 ---
 
 ## Changelog
+### 1.4.6 (2026-10-06)
+
+This release focuses primarily on stability, lifecycle safety and the reliability of runtime and temperature statistics.
+
+#### Runtime and circulation
+
+- Fixed the calculation of `circulation.daily_total` for pumps with variable power or flow rates.
+- Daily circulation volume is now accumulated interval by interval using the flow rate that was valid during each interval. Previously, a changing current flow rate could cause the already accumulated daily volume to be recalculated retroactively.
+- Same-day adapter restarts preserve the already accumulated daily circulation volume.
+- Unknown adapter downtime is not reconstructed or estimated.
+- Running pump intervals are handled correctly across the local midnight boundary.
+- No new states or migration are required.
+- On the day an existing installation is updated, the already calculated daily value is retained and the corrected calculation continues from the update onward. From the following full calendar day, the complete daily value is calculated using the new method.
+
+#### Temperature statistics
+
+- Fixed period handling for daily, weekly and monthly temperature statistics.
+- Corrected sensor activation handling used by the statistics helpers.
+- Daily, weekly and monthly statistics now handle period changes and adapter restarts more reliably.
+- Weekly statistics consistently use Monday through Sunday.
+- Added reliable period tracking for daily temperature minimum and maximum values.
+- Improved handling of restart, downtime and legacy persisted statistics so values from previous periods are not incorrectly assigned to the current period.
+
+#### Pump safety and ownership
+
+- Strengthened pump safety and ownership handling across automatic and manual operating modes.
+- Improved interaction between OFF mode, maintenance mode, frost protection and solar overheat protection.
+- Frost protection and manual safety behavior remain explicitly controlled by their configured safety settings.
+- Improved protection against conflicting helpers taking ownership of the pump.
+
+#### Lifecycle and stability
+
+- Hardened helper initialization, cleanup and re-initialization behavior.
+- Improved handling of late events and asynchronous operations during adapter startup and shutdown.
+- Added defensive handling for asynchronous state-router operations and detached helper tasks to prevent unhandled promise rejections.
+- Improved lifecycle stability in Solar Insights, Pool Insights, photovoltaic, heat, AI, chemistry, speech, debug logging and actuator handling.
+- Improved runtime, pump counter and startup-edge handling during initialization and re-initialization.
+
+#### Quality assurance
+
+- Added and extended regression coverage for lifecycle handling, pump safety, ownership, runtime circulation, temperature periods, state routing, AI/chemistry and state initialization.
+- Verified variable-flow circulation behavior, same-day and next-day restarts, midnight transitions and cleanup/re-initialization scenarios.
+
+#### TypeScript and code quality
+
+- Significantly improved TypeScript compatibility across PoolControl.
+- Added and extended centralized type definitions for helpers, adapter interfaces and internal state handling.
+- Improved JSDoc typing and type-safe contracts across many helpers without changing their existing runtime behavior.
+- Strengthened static validation to detect invalid state handling, lifecycle issues and unsafe asynchronous code paths earlier during development.
+
 ### 1.4.5 (2026-08-11)
 
 - Fixed a conflict between Auto-PV and Extended Solar control.
@@ -379,14 +432,7 @@ PoolControl — это проект с открытым исходным код�
   - Oversized solar logbook entries are now logged as debug instead of warning
   - This avoids unnecessary warning noise for non-critical diagnostic information
 
-### 1.4.1 (2026-06-30)
-
-- Fixed Auto-PV holding logic for already running pumps.
-- When Auto-PV already controls the pump, the current pump power is now considered for the holding decision.
-- This prevents a running pump from triggering its own Auto-PV afterrun/stop cycle after startup.
-- The displayed PV surplus (`photovoltaic.power_surplus_w`) remains the real remaining surplus and is not artificially adjusted.
-
 ## License
 Copyright (c) 2026 D. Bertin (DasBo1975) <dasbo1975@outlook.de>  
 
-MIT License
+MIT License - see [LICENSE](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/LICENSE) for details.

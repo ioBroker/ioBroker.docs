@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: mTgbt30GntH32/j+ZkinOZNRUdWpa3GTJtTL7kVe6o0=
+hash: HCpgVHZB3032Ljds7GEEeB1sOw0qpCBeHIFp1be5bGU=
 ---
 ![Logo](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -27,6 +27,7 @@ Unterstützt PostgreSQL, MySQL, Microsoft SQL Server und SQLite. Sie können Por
 
 - **DB-Typ** : Typ der SQL-Datenbank: MySQL, PostgreSQL, MS-SQL oder SQLite3
 - **Host** : IP-Adresse oder Hostname mit SQL Server
+- **Unix-Socket** (nur MySQL): Pfad eines lokalen Unix-Sockets, z. B. `/var/run/mysqld/mysqld.sock` Ist diese Option aktiviert, verbindet sich der Adapter über diesen Socket und ignoriert Host und Port, da diese ausgeblendet sind. Dies ist nützlich, wenn der Server auf demselben Rechner läuft – es ist schneller als TCP – und die einzige Möglichkeit, von einem Container in einem Macvlan-Netzwerk auf eine Datenbank auf dem Docker-Host zuzugreifen.
 - **Port** : Port des SQL-Servers (bei Unsicherheit leer lassen)
 - **Datenbankname** : Datenbankname. Standardmäßig iobroker
 - **Benutzer** : Benutzername für SQL. Muss in der Datenbank vorhanden sein.
@@ -35,6 +36,7 @@ Unterstützt PostgreSQL, MySQL, Microsoft SQL Server und SQLite. Sie können Por
 - **Verschlüsseln** : Einige Datenbanken unterstützen Verschlüsselung.
 - **Runde die Zahl auf** : Anzahl der Ziffern nach dem Komma.
 - **Parallele Anfragen zulassen** : Gleichzeitige SQL-Anfragen an die Datenbank zulassen.
+- **Der Reiter „Statistiken** “ listet alle IDs in der Datenbank mit Speichertyp, Status (angemeldet/abgemeldet/gelöscht), Anzahl der Werte, geschätzter Größe und dem abgedeckten Zeitraum auf. Die Schaltfläche **„Bereinigen“** zeigt zunächst die zu löschenden Einträge an und entfernt sie erst nach Bestätigung. Status, bei denen die Protokollierung deaktiviert ist, werden standardmäßig ausgeschlossen, sofern Sie das entsprechende Kontrollkästchen nicht aktivieren, da deren Verlauf weiterhin abrufbar und möglicherweise relevant ist.
 - **Datenbank nicht erstellen** : Aktivieren Sie diese Option, wenn bereits eine Datenbank erstellt wurde (z. B. vom Administrator) und der ioBroker-Benutzer nicht über ausreichende Rechte zum Erstellen einer Datenbank verfügt.
 
 ## Standardeinstellungen
@@ -300,7 +302,7 @@ Mögliche Optionen:
   - _max_ - Teile den gesamten Zeitbereich in kleine Intervalle auf und ermittle für jedes Intervall den Maximalwert, der dann für dieses Intervall verwendet wird (Nullwerte werden ignoriert).
   - _min_ - Gleiches gilt wie max, jedoch mit dem Minimalwert.
   - _Durchschnitt_ - Dasselbe wie Maximum, nur dass der Durchschnittswert verwendet wird.
-  - _total_ - Gleiches gilt für max, aber es wird der Gesamtwert berechnet.
+  - _total_ - Gleiches gilt für max, aber Berechnung des Gesamtwerts.
   - _count_ - Gleiches wie max, aber Anzahl der Werte wird berechnet (Nullwerte werden mitgezählt).
   - _Perzentil_ - Berechne das n-te Perzentil (n ist gegeben in `options.percentile` (oder standardmäßig 50, falls nicht angegeben).
   - _Quantil_ - Berechne das n-Quantil (n ist gegeben in `options.quantile` (oder standardmäßig 0,5, falls nicht angegeben).
@@ -634,6 +636,28 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 4.2.0 (2026-10-03)
+* (@GermanBluefox) `npm run build:ts` no longer needs the optional `mysql2` and `sqlite3` drivers to be installed
+* (@GermanBluefox) Fixed buffered values being lost when the adapter stops, and unload no longer hangs when there is nothing else to write (#577)
+* (@GermanBluefox) `getCounter` no longer reads the NULL boundary marker that `writeNulls` stores on start and stop as a zero counter value (#577)
+* (@GermanBluefox) Fixed "Test connection" reporting a failure for a working configuration: the request was built as a text template that could produce invalid JSON, and it left out `dbname`, `doNotCreateDatabase` and the docker settings (#355)
+* (@GermanBluefox) "Record changes only" now compares the value instead of the controller's last-change timestamp, so an alias with a read converter no longer stores a row per source change (#295)
+* (@GermanBluefox) Added a statistics tab listing every logged ID with its number of values and estimated size (#247)
+* (@GermanBluefox) Added a cleanup for datapoints that are no longer logged, with a confirmation dialog showing what would be deleted (#247)
+* (@GermanBluefox) The `Counter must have type "number"` error now names the datapoint and is logged once instead of for every value (#320)
+* (@DutchmanNL) PostgreSQL: "do not create database" now connects straight to the configured database instead of opening the maintenance database `postgres` first, so roles without `CONNECT` on it can be used
+* (@GermanBluefox) MySQL can now connect through a unix socket instead of host and port (#104)
+* (@DutchmanNL) Fixed `info.connection` staying `true` while the database was unreachable
+* (@GermanBluefox) Fixed crash (UNCAUGHT_EXCEPTION) when the database server closes the connection: the driver's `error` event had no listener (#527)
+* (@GermanBluefox) A connection that the server dropped is now replaced instead of being handed out again
+
+### 4.1.6 (2026-10-01)
+* (@DutchmanNL) Fixed `getCounter` on PostgreSQL: the queries used MySQL-style backtick quoting
+* (@DutchmanNL) Fixed `getCounter` on SQLite: `ORDER BY`/`LIMIT` is not allowed on a compound-select member
+* (@DutchmanNL) Fixed `getCounter` on MS SQL: the counter subquery filtered on `ts_number` instead of `ts_counter`
+* (@GermanBluefox) `getCounter` now sorts in the outer query on all dialects, so the row order no longer depends on the query plan
+* (@DutchmanNL) Added `getCounter` test coverage for all four dialects
+
 ### 4.1.5 (2026-08-28)
 * (@GermanBluefox) Updated packages
 
@@ -643,24 +667,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### 4.1.3 (2026-08-27)
 * (@GermanBluefox) Connection errors are logged with the real reason again: Node reports a failed TCP connect as an `AggregateError` whose own message is empty, so the log only showed the word `AggregateError` instead of e.g. `connect ECONNREFUSED 127.0.0.1:3306`
 * (@GermanBluefox) The reconnection loop no longer repeats the same connection error every 30 seconds: the first occurrence is logged as error, repetitions go to debug and once an hour a reminder is logged
-
-### 4.1.2 (2026-08-27)
-* (@GermanBluefox) Fixed `enableHistory` being answered with `success: true` but silently doing nothing when it arrived while the adapter was still starting up: the adapter subscribed to object changes only after it had read the logging settings, so a message that landed in that gap activated no logging
-* (@joltcoke) Fixed average and total returning null for every interval that contains a null value: parseFloat(null) is NaN and poisoned the sum of the whole interval (thanks to @joltcoke, ioBroker/ioBroker.sql#526). As the result was NaN and not null, ignoreNull could not act on it either
-* (@joltcoke) Fixed min returning a wrong value if the interval contains a null, minmax losing the minimum if the interval starts with a null, and percentile/quantile counting a null as 0
-
-### 4.1.0 (2026-08-26)
-* (@ipod86) Added a button to the datapoint settings to delete all logged values of this datapoint
-* (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` now report errors back to the caller instead of always answering with success
-* (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` work now also for datapoints whose logging is disabled
-* (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` delete the counter values of a numeric datapoint (table `ts_counter`) too
-* (@GermanBluefox) Fixed `NaN` as a result of the aggregation `percentile` with 100 or `quantile` with 1
-* (@GermanBluefox) Fixed the last value of the `integralTotal` aggregation: it was interpolated onto the start instead of the end of the requested range
-* (@GermanBluefox) Added the message `getRawEntries` to read the stored values of one datapoint page by page (with the total number of entries) for tools that show or edit the raw data
-* (@GermanBluefox) The message `update` works now also for datapoints whose logging is disabled and reports errors back to the caller
-* (@GermanBluefox) `storeState` uses the data type stored in the database for known datapoints instead of deriving it from the value
-* (@GermanBluefox) Added the tab `Data browser` to the instance settings: show, edit, delete and insert the stored values of a datapoint
-* (@GermanBluefox) Added the message `getDatapoints` that returns all datapoints of the database immediately
 
 ## License
 

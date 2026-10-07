@@ -86,7 +86,9 @@ After that checkout modified version in `./build` folder. Then.
 	### **WORK IN PROGRESS**
     ### for next frontend update, update of auto entities card will be necessary!
 -->
-### **WORK IN PROGRESS**
+### 7.2.2 (2026-10-07)
+* (Garfonso/Claude) The energy dashboard calculates the costs from a price entity again; they stayed at 0.00. (#749)
+* (Garfonso/Claude) The calendar REST endpoint answers with start/end as objects, the way Home Assistant does, so cards like Calendar Card Pro show the events. (#756)
 * (Garfonso/Claude) An unregistered browser_mod browser no longer comes back after a restart of the adapter.
 * (Garfonso/Claude) Settings page: the responsive sizes of all fields are complete, and six texts are translated in every language. (#725)
 * (Garfonso/Claude) Dependencies updated; a secure web server speaks HTTP/2 now (@iobroker/webserver 3.2).
@@ -144,12 +146,6 @@ After that checkout modified version in `./build` folder. Then.
 * (Garfonso/Claude) Updated the Home Assistant frontend to 20260826.7: new alert card, date on the clock card, search in the media browser, more tile features (vacuum fan speed, light effects, thermostat humidity) and the map now uses sharper vector tiles.
 * (Garfonso/Claude) Statistics are converted into the unit the frontend asks for: an energy meter counting in Wh is no longer drawn as if it counted kWh, and the same for a power sensor in W. (#741)
 * (Garfonso/Claude) Repository checker: the missing translations of the expert attribute settings were added in all languages, the license section links to the LICENSE file, and the history timeout uses the adapter's own timer. (#725)
-
-### 6.1.3 (2026-09-01)
-* (Garfonso/Claude) Fixed auto-generated entity_ids growing longer and longer within a single start for devices sharing a generated display name and having no own readable state (e.g. several buttons named the same): they no longer collapse onto the same internal registry key and overwrite each other's name.
-* (Garfonso/Claude) Fixed the energy dashboard's power graph showing "no data" for the whole day on some history backends: the "5minute" statistics period used a 30-second bucket step instead of 5 minutes, requesting 10x more buckets than needed.
-* (Garfonso/Claude) Fixed the current power missing in the energy dashboard ("Stromquellen" on the summary tab and the "Jetzt" tab) while all other cards showed it: the power sensor picked for a grid/battery source was not passed on to those cards. Existing configurations are fixed automatically on start.
-* (Garfonso/Claude) Devices that report a battery level (`value.battery`) now get a battery sensor entity, so the charge level is visible and can be graphed - previously only the low-battery warning was used. This also removes the "Unknown state BATTERY" log message. (#718)
 
 ## License
 

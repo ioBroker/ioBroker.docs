@@ -14,9 +14,8 @@ BADGE-PayPal: https://img.shields.io/badge/Donate-PayPal-blue.svg
 # fakeroku — emulated Roku devices for your remote
 
 This adapter makes ioBroker look like one or more **Roku streaming devices** on your
-local network. A remote control or controller that speaks Roku's protocol — a Logitech
-Harmony hub, a Sofabaton X1/X2, Home Assistant's Roku integration, openHAB — finds the
-emulated device, and every button you press on it becomes a datapoint in ioBroker that
+local network. A remote that speaks Roku's protocol — a Logitech Harmony hub or a
+Sofabaton X1/X2 — finds the emulated device, and every button you press on it becomes a datapoint in ioBroker that
 your scripts and visualisations can react to.
 
 It is the **input** counterpart to the Logitech Harmony adapter: instead of ioBroker
@@ -68,8 +67,7 @@ Each card under **Emulated Roku devices** is one Roku your remote can find.
 - **ECP port** — the network port this Roku answers on. `8060` is the port a real
   Roku uses. Each emulated Roku needs **its own** port; the dialog pre-selects a free
   one and does not let you confirm a port that is already taken. A Harmony or Sofabaton
-  reads the port from the discovery; **Home Assistant and Homey always use 8060**, so
-  give 8060 to the Roku they should control.
+  reads the port from the discovery.
 - **Type**
   - **Player** (a streaming box) offers the 16 standard navigation and playback keys.
   - **TV** offers those plus volume, power, channel and input keys (`VolumeUp`,
@@ -85,28 +83,29 @@ its own and reads the port from the announcement — you do not have to enter it
 **Sofabaton X1/X2:** add a Roku device in the Sofabaton app while the app is on the
 same network; it finds the emulated Roku through discovery.
 
-**Home Assistant:** add the Roku integration — it discovers the emulated Roku, or you
-enter the ioBroker host. Home Assistant always talks to port 8060 (see above).
-
 ## What you get in the object tree
 
 At instance level:
 
-| Datapoint         | Type               | Meaning                                                                                                                                                                                                                                                      |
-| ----------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `info.connection` | boolean, read-only | True only while **every** configured Roku is actually listening. If one of them cannot start — almost always because its port is already in use — the log names the device and the port, and the adapter retries that device every minute until it comes up. |
+| Datapoint               | Type               | Meaning                                                                                                                                                                                                                                                                                 |
+| ----------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `info.connection`       | boolean, read-only | True only while everything runs: **every** configured Roku listens, discovery answers, and the chosen address exists. Anything less shows the instance yellow; the log names the cause once, and the adapter retries a Roku or discovery that is down every minute until it runs again. |
+| `info.devicesTotal`     | number, read-only  | How many emulated Rokus are configured.                                                                                                                                                                                                                                                 |
+| `info.devicesOnline`    | number, read-only  | How many of them listen right now.                                                                                                                                                                                                                                                      |
+| `info.devicesAllOnline` | boolean, read-only | `true` while every configured Roku listens; `false` while none is configured.                                                                                                                                                                                                           |
 
 For each emulated Roku, below `fakeroku.0.<name>`:
 
-| Datapoint     | Type               | Meaning                                                                                                                                           |
-| ------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `command`     | string, read-only  | The last command as readable text: `Home`, `Lit_a`, `launch:12`, `search:news`.                                                                   |
-| `commandType` | string, read-only  | What kind of command it was: `keypress`, `keydown`, `keyup`, `launch`, `install`, `input` or `search`.                                            |
-| `keys.<Key>`  | boolean, read-only | One datapoint per remote key. A key press sets it to `true` for a moment and back to `false`; holding a key keeps it `true` until it is released. |
+| Datapoint     | Type               | Meaning                                                                                                                                                                                                             |
+| ------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `info.online` | boolean, read-only | `true` while this Roku listens on its port. The device shows a green or grey symbol in the object tree, its card in the device manager online or offline.                                                           |
+| `info.error`  | string, read-only  | Why this Roku does not run, e.g. `port 8061 is already in use (another program or another instance holds it)`; empty while it runs, `Unknown` while the adapter is off or starting. The card shows it as a warning. |
+| `command`     | string, read-only  | The last command as readable text: `Home`, `Lit_a`, `launch:12`, `search:news`.                                                                                                                                     |
+| `keys.<Key>`  | boolean, read-only | One datapoint per remote key. A key press sets it to `true` for a moment and back to `false`; holding a key keeps it `true` until it is released.                                                                   |
 
 Typing on the remote's keyboard (`Lit_a`) and app launches appear in `command` only —
 they do not get datapoints of their own. An app button of a remote that sends app
-launches (a Sofabaton, Home Assistant) arrives as `launch:<id>`, with its parameters if
+launches (a Sofabaton) arrives as `launch:<id>`, with its parameters if
 it carries any (`launch:12?contentId=…`). Key names are read in any case: `home` and
 `HOME` are the key `Home`.
 
@@ -165,31 +164,31 @@ startup time. You switch it on in the instance settings; nothing here needs chan
 Check that the hub and the ioBroker host are on the same network and that no
 firewall blocks UDP port 1900. On a host with several network cards, select the
 right one under **Network interface**. If discovery is unavailable the adapter says
-so in the log and keeps working for remotes that were already paired.
+so in the log, shows yellow, keeps working for remotes that were already paired and
+starts discovery again every minute.
 
 **The remote finds nothing, and ioBroker runs in Docker.**
 In Docker's default bridge network the container only has an internal address no
 remote can reach, and discovery searches from your home network never arrive. Run the
 ioBroker container with `network_mode: host`, or give it an address in your home
-network with a `macvlan` network. The adapter recognises Docker, libvirt, VirtualBox
-and WSL bridges on the host itself and does not announce them.
+network with a `macvlan` network.
 
-**The log says "The network interface address … does not exist on this host".**
-The interface address chosen in the settings is not on the host any more — a new
-network card, a changed DHCP address, a restored backup on other hardware. Choose the
-current interface (or "all interfaces") and save; the instance restarts.
+**The log says "Address … does not exist on this host — listening on all addresses".**
+The address chosen in the settings is not on the host any more — a new network card, a
+changed DHCP address, a restored backup on other hardware. The emulated Rokus keep working
+on all addresses meanwhile, and the instance shows yellow. Choose the current address (or
+"all interfaces") and save; the instance restarts.
 
-**Home Assistant cannot reach one of several emulated Rokus.**
-Home Assistant always uses port 8060. Give 8060 to the emulated Roku it should
-control.
-
-**The instance stays "not connected".**
-At least one configured Roku could not start. The log names the device and its port —
-almost always the port is already used by something else (including another emulated
-Roku with the same port). Give it a free port.
-The adapter keeps trying such a device once a minute and says so in the log when it
-comes up, so a port that was still held by the previous process after a restart sorts
-itself out without you doing anything.
+**The instance stays yellow.**
+Something does not run, and the log says what, once. The Roku's card in the device
+manager shows which one it is (offline, with the reason), and so does its `info.error`;
+`info.devicesOnline` says how many run. Most often a configured Roku could not start
+because its port is already used by something else (including another emulated Roku
+with the same port) — give it a free port. The adapter keeps trying such a
+Roku once a minute, also one whose server stopped while running, and says so in the log
+when it comes up, so a port that was still held by the previous process after a restart
+sorts itself out without you doing anything. With no Roku configured at all, the log asks
+you to add one in the instance settings.
 
 **I press a button and nothing happens in ioBroker.**
 Set the instance log level to `debug` for a moment. Every command the adapter _applied_
@@ -209,7 +208,7 @@ play and for pause, so the two cannot be told apart here.
 **The app buttons on my Harmony do nothing.**
 A Harmony Hub did not send its app buttons (Netflix, YouTube …) to the emulated Roku —
 they are bound to Harmony activities, so the adapter never sees them. Remotes that do
-send app launches (a Sofabaton, Home Assistant) show them in `command` as `launch:<id>`.
+send app launches (a Sofabaton) show them in `command` as `launch:<id>`.
 
 ## Privacy
 
@@ -222,6 +221,22 @@ Error reporting via Sentry is active by default; what it sends and how to switch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 1.10.0 (2026-10-03)
+
+- (krobipd) New: every emulated Roku shows whether it runs and, if not, why — a green or grey symbol in the object tree, online or offline on its card with the reason.
+- (krobipd) New: three datapoints count the emulated Rokus — how many are configured, how many run, and whether all of them run.
+- (krobipd) Fixed: the connection datapoint's description says what green means — every Roku listening, discovery answering and the chosen address present.
+
+### 1.9.0 (2026-10-03)
+
+- (krobipd) Changed: the emulated Roku answers only what a Harmony or Sofabaton reads — Home Assistant and openHAB can no longer set it up.
+- (krobipd) Changed: the instance shows green only while every Roku and discovery run, and yellow otherwise.
+- (krobipd) Changed: a Roku whose server stopped while running and a discovery that failed start again within a minute instead of waiting for a restart.
+- (krobipd) Changed: with no Roku configured or none running, the instance stays up so the device manager works, and asks you to add a Roku.
+- (krobipd) Changed: a chosen address that is missing on the host no longer leaves the Rokus off — they listen on all addresses until you choose another.
+- (krobipd) Changed: requests from the ioBroker host itself or from self-assigned addresses outside the host's networks are refused.
+- (krobipd) Changed: the datapoint with the kind of the last command is gone — the last command itself still arrives as before; existing installations drop it on the next start.
 
 ### 1.8.2 (2026-10-02)
 
@@ -248,20 +263,6 @@ Error reporting via Sentry is active by default; what it sends and how to switch
 - (krobipd) Changed: a chosen network interface that does not exist is waited for up to two minutes at start, then reported, instead of being replaced.
 - (krobipd) New: the TV profile adds the PowerOn, Power, Sleep and InputTuner keys and announces itself the way real Roku TVs do.
 - (krobipd) New: every new emulated Roku gets its own network identity instead of one every installation with the same name would share.
-
-### 1.7.1 (2026-09-16) — stable
-
-- (krobipd) Changed: the instance restarts once after this update to clear a setting left behind by an older version; nothing else changes for you.
-
-### 1.7.0 (2026-09-16)
-
-- (krobipd) Fixed: button datapoints keep their value and their room and function assignment when the adapter starts.
-- (krobipd) Fixed: after an emulated Roku drops out, its port is free again instead of staying blocked until ioBroker restarts.
-- (krobipd) Fixed: stopping the instance no longer leaves it reported as connected.
-- (krobipd) Fixed: a key you hold right after a short press stays pressed instead of being released early.
-- (krobipd) Fixed: the device dialog now also refuses a name that would collide with an existing device in the object tree.
-- (krobipd) Improved: after the host gets a new IP address, remotes find the emulated Rokus again without restarting the instance.
-- (krobipd) Changed: the network interface setting moved to the standard settings key (bind); the instance restarts once after this update.
 
 ## License
 

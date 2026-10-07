@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: mTgbt30GntH32/j+ZkinOZNRUdWpa3GTJtTL7kVe6o0=
+hash: HCpgVHZB3032Ljds7GEEeB1sOw0qpCBeHIFp1be5bGU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -27,6 +27,7 @@ hash: mTgbt30GntH32/j+ZkinOZNRUdWpa3GTJtTL7kVe6o0=
 
 - **Тип базы данных** : Тип SQL-базы данных: MySQL, PostgreSQL, MS-SQL или SQLite3
 - **Хост** : IP-адрес или имя хоста в SQL Server.
+- **Unix-сокет** (только для MySQL): путь к локальному Unix-сокету, например. `/var/run/mysqld/mysqld.sock` При установке этого параметра адаптер подключается через данный сокет и игнорирует параметры Host и Port, которые скрыты. Это полезно, когда сервер работает на той же машине — это быстрее, чем TCP — и это единственный способ получить доступ к базе данных на хосте Docker из контейнера в сети macvlan.
 - **Порт** : Порт сервера SQL Server (оставьте поле пустым, если не уверены).
 - **Имя базы данных** : Имя базы данных. Брокер io по умолчанию
 - **Пользователь** : Имя пользователя для SQL. Должен существовать в базе данных.
@@ -35,6 +36,7 @@ hash: mTgbt30GntH32/j+ZkinOZNRUdWpa3GTJtTL7kVe6o0=
 - **Шифрование** : Некоторые базы данных поддерживают шифрование.
 - **Округлите действительное число до** : количества цифр после запятой.
 - **Разрешить параллельные запросы** : разрешить одновременные SQL-запросы к базе данных.
+- **Вкладка «Статистика»** : отображает все идентификаторы в базе данных с указанием типа хранения, статуса (зарегистрировано / отключено / состояние удалено), количества значений, предполагаемого размера и охватываемого временного диапазона. Кнопка **«Очистка»** сначала показывает, что будет удалено, и удаляет это только после подтверждения. Состояния, которые все еще существуют, но в которых просто отключено логирование, исключаются, если вы не установите флажок, поскольку их история все еще доступна и может потребоваться.
 - **Не создавать базу данных** : Активируйте эту опцию, если база данных уже создана (например, администратором), а у пользователя ioBroker недостаточно прав для ее создания.
 
 ## Настройки по умолчанию
@@ -64,7 +66,7 @@ hash: mTgbt30GntH32/j+ZkinOZNRUdWpa3GTJtTL7kVe6o0=
 
 Это "файловая" база данных, и она не может обрабатывать слишком много событий. Если у вас большой объем данных, используйте настоящую базу данных, например, PostgreSQL и подобные ей.
 
-Базу данных SQLite устанавливать отдельно не нужно. Это всего лишь файл на диске, но для его установки вам потребуются инструменты сборки в вашей системе. Для Linux достаточно написать:
+Базу данных SQLite устанавливать отдельно не нужно. Это всего лишь файл на диске, но для его установки вам потребуются инструменты сборки в вашей системе. Для Linux просто напишите:
 
 ```bash
 sudo apt-get install build-essential
@@ -204,14 +206,14 @@ _Примечание:_ MS-SQL использует тип данных BIT, а 
 
 Структура:
 
-| Поле          | Тип         | Описание                                                                                                                |
-| ------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- |
-| идентификатор | ЦЕЛОЕ       | Идентификатор штата из таблицы "Точки данных".                                                                          |
-| тс            | БИГИНТ      | Время в миллисекундах до начала эпохи. Может быть преобразовано во время с помощью функции "new Date(ts)".              |
-| вал           | ТЕКСТ       | Ценить                                                                                                                  |
-| ack           | БИТ/БУЛЕВОЕ | Подтверждено: 0 - не подтверждено, 1 - подтверждено.                                                                    |
-| \_от          | ЦЕЛОЕ       | Идентификатор источника из таблицы "Источники".                                                                         |
-| q             | ЦЕЛОЕ       | Качество в цифрах. Описание можно найти [здесь.](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| Поле          | Тип         | Описание                                                                                                                 |
+| ------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------ |
+| идентификатор | ЦЕЛОЕ       | Идентификатор штата из таблицы "Точки данных".                                                                           |
+| тс            | БИГИНТ      | Время в миллисекундах до начала эпохи. Может быть преобразовано во время с помощью функции "new Date(ts)".               |
+| вал           | ТЕКСТ       | Ценить                                                                                                                   |
+| ack           | БИТ/БУЛЕВОЕ | Подтверждено: 0 - не подтверждено, 1 - подтверждено.                                                                     |
+| \_от          | ЦЕЛОЕ       | Идентификатор источника из таблицы "Источники".                                                                          |
+| q             | ЦЕЛОЕ       | Качество как число. Описание можно найти [здесь.](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 _Примечание:_ MS-SQL использует тип данных BIT, а другие — BOOLEAN. SQLite использует тип данных INTEGER для всех типов данных, а все остальные — BIGINT.
 
@@ -292,10 +294,10 @@ sendTo('sql.0', 'getHistory', {
 - **addId** - если поле _id_ должно быть включено в ответ
 - **limit** - не возвращать больше записей, чем limit
 - **округление** - округление результата до количества знаков после запятой.
-- **ignoreNull** - если необходимо включить нулевые значения (false), заменить их последним ненулевым значением (true) или заменить на 0 (0).
+- **ignoreNull** - если должны быть включены нулевые значения (false), заменяется последним ненулевым значением (true) или заменяется на 0 (0).
 - **removeBorderValues** — По умолчанию возвращаются дополнительные значения границ для оптимизации построения диаграмм. Установите значение true для этого параметра, если это не требуется (например, для обработки данных скриптом).
 - **returnNewestEntries** — возвращаемые данные всегда сортируются по временной метке в порядке возрастания. При использовании агрегатной функции "none" и указании параметров "count" или "limit" обычно возвращаются самые старые записи (если начальные данные не указаны). Установите этот параметр в значение true, чтобы получать самые новые записи.
-- **aggregate** - метод агрегирования (по умолчанию: `average`):
+- **aggregate** - метод агрегирования (По умолчанию: `average`):
   - _minmax_ — используется специальный алгоритм. Весь временной диапазон разбивается на небольшие интервалы, и для каждого интервала находятся максимальное, минимальное, начальное и конечное значения.
   - _max_ - Разделите весь временной диапазон на небольшие интервалы и для каждого интервала найдите максимальное значение, затем используйте его для этого интервала (значения null будут игнорироваться).
   - _min_ - То же самое, что и max, но принимает минимальное значение.
@@ -305,7 +307,7 @@ sendTo('sql.0', 'getHistory', {
   - _Процентиль_ - Вычислите n-й процентиль (n задано в `options.percentile` или значение по умолчанию равно 50, если оно не указано).
   - _квантиль_ - Вычислите n-й квантиль (n задано в `options.quantile` или значение по умолчанию равно 0,5, если не указано).
   - _интеграл_ - Вычислите интеграл (дополнительные параметры см. ниже).
-  - _Нет_ — никакой агрегации вообще. Только исходные значения за определенный период.
+  - _Нет_ — никакой агрегации вообще. Только исходные значения за заданный период.
 - **Процентиль** - (необязательно) при использовании агрегатного метода "процентиль" определяет уровень процентиля (0..100) (по умолчанию 50)
 - **квантиль** - (необязательно) при использовании агрегатного метода "квантиль" определяет уровень квантиля (0..1) (по умолчанию 0.5)
 - **integralUnit** — (необязательно) при использовании агрегатного метода "integral" определяет единицу измерения в секундах (по умолчанию 60 секунд). Например, чтобы получить интеграл в часах для Вт·ч или чего-то подобного, установите значение 3600.
@@ -333,7 +335,7 @@ sendTo('sql.0', 'getCounter', {
 });
 ```
 
-Если счетчик будет заменен, это также будет учтено при расчете.
+Если счетчик будет заменен, это также будет учтено при расчетах.
 
 ## Пользовательские запросы
 
@@ -402,7 +404,7 @@ sendTo('sql.0', 'getDatapoints', {}, result => {
 
 Она возвращает каждую точку данных `datapoints` Таблица, включая те, для которых отключено логирование, отсортирована по ID. В отличие от `getDpOverview` Однако, он не определяет первую временную метку каждой точки данных и отвечает немедленно.
 
-## Прочитать исходные значения
+## Прочитайте исходные значения
 
 `getHistory` Этот метод предназначен для построения диаграмм: он агрегирует, интерполирует, округляет и суммирует значения непосредственно до и после запрошенного диапазона. Чтобы просмотреть и пролистать сохраненные строки точно так же, как они находятся в базе данных, используйте **getRawEntries** :
 
@@ -433,7 +435,7 @@ sendTo(
 
 В ответе также содержится `id`, `index` (ID в `datapoints` стол), `type` (`Number`, `String` или `Boolean`), `table` (`ts_number`, `ts_string` или `ts_bool`) и использованный `limit`, `offset` и `sort`.
 
-Возвращаемые значения отображаются в том виде, в котором они получены из базы данных, и **не** подвергаются преобразованию: `ack` а логические значения являются `0` /`1` в большинстве баз данных, и `val` В случае строкового объекта datapoint это сохраненная строка. `from` является `null` если источник не был сохранен.
+Возвращаемые значения отображаются в том виде, в котором они получены из базы данных, и **не** подвергаются преобразованию: `ack` а логические значения являются `0` /`1` в большинстве баз данных, и `val` В случае строкового объекта данные представляют собой сохраненную строку. `from` является `null` если источник не был сохранен.
 
 Нравиться `update`, `delete` и `storeState` Это работает и для точек данных, для которых отключено логирование, при условии, что у них еще есть записи в базе данных. Если точка данных неизвестна, ответ содержит `error`.
 
@@ -634,6 +636,28 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 4.2.0 (2026-10-03)
+* (@GermanBluefox) `npm run build:ts` no longer needs the optional `mysql2` and `sqlite3` drivers to be installed
+* (@GermanBluefox) Fixed buffered values being lost when the adapter stops, and unload no longer hangs when there is nothing else to write (#577)
+* (@GermanBluefox) `getCounter` no longer reads the NULL boundary marker that `writeNulls` stores on start and stop as a zero counter value (#577)
+* (@GermanBluefox) Fixed "Test connection" reporting a failure for a working configuration: the request was built as a text template that could produce invalid JSON, and it left out `dbname`, `doNotCreateDatabase` and the docker settings (#355)
+* (@GermanBluefox) "Record changes only" now compares the value instead of the controller's last-change timestamp, so an alias with a read converter no longer stores a row per source change (#295)
+* (@GermanBluefox) Added a statistics tab listing every logged ID with its number of values and estimated size (#247)
+* (@GermanBluefox) Added a cleanup for datapoints that are no longer logged, with a confirmation dialog showing what would be deleted (#247)
+* (@GermanBluefox) The `Counter must have type "number"` error now names the datapoint and is logged once instead of for every value (#320)
+* (@DutchmanNL) PostgreSQL: "do not create database" now connects straight to the configured database instead of opening the maintenance database `postgres` first, so roles without `CONNECT` on it can be used
+* (@GermanBluefox) MySQL can now connect through a unix socket instead of host and port (#104)
+* (@DutchmanNL) Fixed `info.connection` staying `true` while the database was unreachable
+* (@GermanBluefox) Fixed crash (UNCAUGHT_EXCEPTION) when the database server closes the connection: the driver's `error` event had no listener (#527)
+* (@GermanBluefox) A connection that the server dropped is now replaced instead of being handed out again
+
+### 4.1.6 (2026-10-01)
+* (@DutchmanNL) Fixed `getCounter` on PostgreSQL: the queries used MySQL-style backtick quoting
+* (@DutchmanNL) Fixed `getCounter` on SQLite: `ORDER BY`/`LIMIT` is not allowed on a compound-select member
+* (@DutchmanNL) Fixed `getCounter` on MS SQL: the counter subquery filtered on `ts_number` instead of `ts_counter`
+* (@GermanBluefox) `getCounter` now sorts in the outer query on all dialects, so the row order no longer depends on the query plan
+* (@DutchmanNL) Added `getCounter` test coverage for all four dialects
+
 ### 4.1.5 (2026-08-28)
 * (@GermanBluefox) Updated packages
 
@@ -643,24 +667,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### 4.1.3 (2026-08-27)
 * (@GermanBluefox) Connection errors are logged with the real reason again: Node reports a failed TCP connect as an `AggregateError` whose own message is empty, so the log only showed the word `AggregateError` instead of e.g. `connect ECONNREFUSED 127.0.0.1:3306`
 * (@GermanBluefox) The reconnection loop no longer repeats the same connection error every 30 seconds: the first occurrence is logged as error, repetitions go to debug and once an hour a reminder is logged
-
-### 4.1.2 (2026-08-27)
-* (@GermanBluefox) Fixed `enableHistory` being answered with `success: true` but silently doing nothing when it arrived while the adapter was still starting up: the adapter subscribed to object changes only after it had read the logging settings, so a message that landed in that gap activated no logging
-* (@joltcoke) Fixed average and total returning null for every interval that contains a null value: parseFloat(null) is NaN and poisoned the sum of the whole interval (thanks to @joltcoke, ioBroker/ioBroker.sql#526). As the result was NaN and not null, ignoreNull could not act on it either
-* (@joltcoke) Fixed min returning a wrong value if the interval contains a null, minmax losing the minimum if the interval starts with a null, and percentile/quantile counting a null as 0
-
-### 4.1.0 (2026-08-26)
-* (@ipod86) Added a button to the datapoint settings to delete all logged values of this datapoint
-* (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` now report errors back to the caller instead of always answering with success
-* (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` work now also for datapoints whose logging is disabled
-* (@GermanBluefox) The messages `delete`, `deleteRange` and `deleteAll` delete the counter values of a numeric datapoint (table `ts_counter`) too
-* (@GermanBluefox) Fixed `NaN` as a result of the aggregation `percentile` with 100 or `quantile` with 1
-* (@GermanBluefox) Fixed the last value of the `integralTotal` aggregation: it was interpolated onto the start instead of the end of the requested range
-* (@GermanBluefox) Added the message `getRawEntries` to read the stored values of one datapoint page by page (with the total number of entries) for tools that show or edit the raw data
-* (@GermanBluefox) The message `update` works now also for datapoints whose logging is disabled and reports errors back to the caller
-* (@GermanBluefox) `storeState` uses the data type stored in the database for known datapoints instead of deriving it from the value
-* (@GermanBluefox) Added the tab `Data browser` to the instance settings: show, edit, delete and insert the stored values of a datapoint
-* (@GermanBluefox) Added the message `getDatapoints` that returns all datapoints of the database immediately
 
 ## License
 

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md
 title: Веб-расширения
-hash: SOVZgZC06vGyoVQd2jiyFS0YTb5u+HAy7k/Euz8yAPE=
+hash: YsC2LxA9ZntaqevDfmqQdd8PMltS5u3+XfZmmZD3XKc=
 ---
 # Веб-расширения
 
@@ -75,6 +75,8 @@ hash: SOVZgZC06vGyoVQd2jiyFS0YTb5u+HAy7k/Euz8yAPE=
 function ExtensionExample(server, webSettings, adapter, instanceSettings, app) {
     this.app         = app;
     this.config      = instanceSettings ? instanceSettings.native : {};
+    // "example.0" - the namespace of THIS instance, not the one of the web instance below
+    this.namespace   = instanceSettings._id.substring('system.adapter.'.length);
     const that       = this;
 
     // instanceSettings and this.config contain instance config (not web adapter, but this one with web-extension)
@@ -132,6 +134,19 @@ function ExtensionExample(server, webSettings, adapter, instanceSettings, app) {
 
 module.exports = ExtensionExample;
 ```
+
+### Каталог данных вашего собственного экземпляра
+
+`adapter` Это **веб-** экземпляр, который вас запускает, поэтому `getAbsoluteInstanceDataDir(adapter)` Ответы передаются из каталога веб-сервера, а не из вашего. Вместо этого передайте собственное пространство имен — вспомогательная функция принимает его, поскольку `@iobroker/adapter-core` 3.3.1:
+
+```js
+const { getAbsoluteInstanceDataDir } = require('@iobroker/adapter-core');
+
+// .../iobroker-data/example.0
+const dataDir = getAbsoluteInstanceDataDir(this.namespace);
+```
+
+То же самое относится и ко всему остальному, что вы обычно считываете с собственного адаптера: `adapter` относится к веб-сайтам, в то время как `instanceSettings` это ваше.
 
 `common.mode` возможно:
 

@@ -46,6 +46,37 @@ With `Influx 2.x` it is now also possible, to store this metadata-information be
   - This also is valid the other way: Once you start using the Tag-feature in a new database, you cannot switch back to using fields for this database.
 - This feature is currently only available if you use Influx 2.x. And only if you use the new responsive GUI of Admin 5.
 
+### Custom tags
+Every datapoint can carry additional, static InfluxDB tags. They are defined in the datapoint settings (`Custom tags`) as a list of name/value pairs and are written with every value of this datapoint - for both InfluxDB 1.x and 2.x and independent of the setting [Store metadata information as tags instead of fields](#store-metadata-information-as-tags-instead-of-fields).
+
+This allows selecting and grouping the values of different datapoints by their meaning instead of by their IDs, e.g. give all datapoints of the kitchen the tag `room=kitchen` and all temperature sensors the tag `type=temperature`. In Grafana, the values can then be filtered or grouped by these tags:
+
+```
+from(bucket: "iobroker")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r._field == "value" and r.type == "temperature")
+  |> group(columns: ["room"])
+```
+
+Please note:
+- The names `value`, `q`, `ack`, `from` and `time` as well as names starting with `_` are reserved and can not be used. Rows without name or value are ignored. Ignored tags are reported as warning in the log.
+- InfluxDB identifies a series by the measurement and all of its tags. Changing the tags of a datapoint therefore starts a new series, the values written before keep their old tags. With InfluxDB 2.x an aggregated `getHistory` over a time range in which the tags changed aggregates each series on its own, so such a range can contain two values per interval - one of the old and one of the new series. Add the tags before logging starts if you want to avoid this.
+- Every datapoint is still written into a measurement of its own (its ID or its `Alias-ID`). Using the same `Alias-ID` for several active datapoints is not supported.
+
+Custom tags can also be set via JavaScript with the `enableHistory` message (see [below](#enable)):
+
+```javascript
+sendTo('influxdb.0', 'enableHistory', {
+    id: 'hm-rpc.0.ABC123.1.TEMPERATURE',
+    options: {
+        customTags: [
+            { name: 'room', value: 'kitchen' },
+            { name: 'type', value: 'temperature' },
+        ],
+    },
+});
+```
+
 ### Migration from InfluxDB 1 to 2
 
 Please refer to the [official guides on how to migrate](https://docs.influxdata.com/influxdb/v2.0/upgrade/v1-to-v2/) from InfluxDB 1.x to 2.x. Especially the [migration instructions for time series data](https://docs.influxdata.com/influxdb/v2.0/upgrade/v1-to-v2/manual-upgrade/#migrate-time-series-data) have been verified to work during adapter testing. Please always create a backup of your data before performing the migration.
@@ -454,12 +485,88 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 });
 ```
 
+## Statistics and cleanup
+
+The **Statistics** tab of the instance configuration lists every datapoint the database contains, with its
+number of values, the oldest and the newest value, the number of series and a status:
+
+| Status | Meaning |
+| --- | --- |
+| `active` | the state exists and this instance logs it |
+| `loggingDisabled` | the state still exists, but its logging is switched off - the history is still reachable |
+| `objectMissing` | the state was deleted in ioBroker, so nothing can reach its history any more |
+
+Two things are worth knowing about the numbers:
+
+- **There is no size per datapoint.** InfluxDB does not report one, neither in 1.x (`SHOW STATS` and
+  `SHOW SHARDS` only know the engine and the shards) nor in 2.x (disk usage is monitored per bucket). The
+  number of **series** is shown instead: it is what drives the memory the index needs, and
+  [custom tags](#custom-tags) are the usual way to increase it unintentionally.
+- **Counting is a full scan.** InfluxDB has no row count it could look up, so the values of the examined
+  range are really read. On a database with years of data that takes a while - the time range selector
+  above the table limits the scan if the full count is not needed.
+
+The same data is available from JavaScript:
+
+```javascript
+// the whole database; `start` and `end` (ms) limit the examined range
+sendTo('influxdb.0', 'getDpStatistics', {}, function (result) {
+    console.log(JSON.stringify(result.summary));
+    // { datapoints: 42, values: 1234567, cardinality: 44,
+    //   byStatus: { active: {...}, loggingDisabled: {...}, objectMissing: {...} } }
+    console.log(JSON.stringify(result.result[0]));
+    // { id: 'hm-rpc.0.ABC123.1.TEMPERATURE', type: 'Number', count: 51234,
+    //   firstTs: 1696000000000, lastTs: 1759000000000, cardinality: 1, status: 'active' }
+});
+```
+
+`cleanupOrphaned` removes the stored values of datapoints nobody logs any more. **Without `confirm: true`
+nothing is deleted** - the answer only reports what a confirmed run would remove, which is what the dialog
+in the admin shows before anything is lost:
+
+```javascript
+// dry run: what would be removed?
+sendTo('influxdb.0', 'cleanupOrphaned', {}, function (result) {
+    console.log(`${result.datapoints} datapoints with ${result.values} values`);
+    console.log(result.items.map(item => item.id).join('
+'));
+});
+
+// really remove it - this cannot be undone
+sendTo('influxdb.0', 'cleanupOrphaned', { confirm: true }, function (result) {
+    console.log(`removed ${result.deleted.datapoints} datapoints`);
+    // result.failed lists the measurements the database refused to drop
+});
+```
+
+The scope decides what counts as removable. By default only states that no longer exist in ioBroker are
+selected, because nothing can reach their history any more. Datapoints whose logging is merely switched
+off are a different matter - their history is still reachable and may well be wanted, so they are only
+included when asked for explicitly:
+
+```javascript
+sendTo('influxdb.0', 'cleanupOrphaned', {
+    scope: { objectMissing: true, loggingDisabled: true },
+    confirm: true,
+});
+```
+
+A datapoint that is being logged is never selected, whatever the scope says.
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.1.0 (2026-10-03)
+* (@jb-io) Added custom tags per datapoint, written with every value to InfluxDB 1.x and 2.x (#32)
+* (@GermanBluefox) `enableHistory` also accepts the custom tags in the form `getEnabledDPs` reports them, so a configuration read from there and written back keeps its tags
+* (@GermanBluefox) Fixed the error of a failed message (`getRetention`, `test`, `destroy`, `getDatapoints`, `getRawEntries`, ...) being sent as an empty object instead of its text
+* (@GermanBluefox) `io-package.json` matches the current js-controller schema again (`subscribe` removed, `docs.en` added)
+* (@GermanBluefox) The admin frontend is installed before it is linted in the CI, so its lint no longer fails on unresolved types
+* (@GermanBluefox) Added a **Statistics** tab: values, oldest/newest value, series and status per datapoint, plus a cleanup for the data of states that were deleted in ioBroker (`getDpStatistics` and `cleanupOrphaned`)
 
-## Changelog
+**Note:** a buffer written by this version (`influxdata.json`, only present if the adapter was stopped with unwritten values) can not be read by version 5.0.5 and older if custom tags are used. Downgrading discards those buffered values.
+
 ### 5.0.5 (2026-10-01)
 * (@GermanBluefox) Corrected boolean aggregation
 
@@ -483,21 +590,6 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 * (@GermanBluefox) The aggregation is used now from `@iobroker/aggregate` and is shared with the history and SQL adapters.
 * (@joltcoke) Fixed average and total returning null for every interval that contains a null value: parseFloat(null) is NaN and poisoned the sum of the whole interval (thanks to @joltcoke, ioBroker/ioBroker.sql#526). As the result was NaN and not null, ignoreNull could not act on it either
 * (@joltcoke) Fixed min returning a wrong value if the interval contains a null, minmax losing the minimum if the interval starts with a null, and percentile/quantile counting a null as 0
-
-### 5.0.1 (2026-08-15)
-* (@GermanBluefox) Completely refactored the code to TypeScript and ES6
-* (@GermanBluefox) Added possibility to start docker containers directly from the adapter
-* (mcm1957) Adapter requires admin >= 7.7.2 now
-* (arteck) Fixed the connection handling for InfluxDB 1.x: the health check (ping) and the automatic reconnect were never started
-* (arteck) Fixed the loss of buffered values if the writing was running while new values arrived or if the write failed
-* (arteck) Values are no longer written twice if they are written directly (buffer size 0 or conflicting points)
-* (arteck) State IDs and database names are now escaped in the queries
-* (arteck) The password/token is no longer written into the log by the connection test
-* (arteck) The settings "request timeout" and "validate SSL" are now used for InfluxDB 1.x too
-* (arteck) Fixed the cache file name if more than one instance runs in the compact mode
-* (arteck) Fixed the aggregation for `percentile: 100`/`quantile: 1` and the last value of `integralTotal`
-* (bluefox) Fixed empty charts for the aggregation `onchange` ("raw" in e-charts): it was run through the interval aggregation and returned only `null` values
-* (@GermanBluefox) Minimal node.js version is 22
 
 ## License
 

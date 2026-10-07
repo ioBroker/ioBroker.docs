@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.poolcontrol/docs/en/function_overview.md
 title: PoolControl - Funktionsübersicht
-hash: syn7FUCV1qR8NoPzIM5QX/vzWK56wf9aMkevacNgltE=
+hash: 5drUbMWJGhjrvJlYhbu91QEImVvgUOZoMKDhMEtTfS0=
 ---
 # PoolControl – Funktionsübersicht
 
@@ -12,7 +12,7 @@ hash: syn7FUCV1qR8NoPzIM5QX/vzWK56wf9aMkevacNgltE=
 
 PoolControl ist ein ioBroker-Adapter zur Steuerung und Überwachung eines privaten Poolsystems. Der Adapter vereint Pumpensteuerung, Temperaturauswertung, Solarsteuerung, Betrieb von Photovoltaik-Überschussstrom, Heizungssteuerung, Laufzeit- und Verbrauchsanalysen sowie Text- und Sprachausgabe in einer gemeinsamen Objektstruktur.
 
-Der Adapter ist modular aufgebaut. Beim Start werden zunächst die Datenpunkte erstellt und anschließend die einzelnen Hilfsmodule gestartet. Die zentrale Pumpenumschaltung erfolgt über`pump.pump_switch` ; eine konfigurierte reale Steckdose wird vom Pumpenhelfer damit synchronisiert.
+Der Adapter ist modular aufgebaut. Beim Start werden zunächst die Datenpunkte erstellt und anschließend die einzelnen Hilfsmodule gestartet. Die zentrale Pumpenumschaltung erfolgt über `pump.pump_switch`; eine konfigurierte reale Steckdose wird vom Pumpenhelfer damit synchronisiert.
 
 Die verfügbaren Datenpunkte können im ioBroker-Objektbaum, in VIS, Blockly und anderen Adaptern verwendet werden. PoolControl stellt zahlreiche strukturierte Text-, JSON- und HTML-Datenpunkte bereit, die direkt in VIS, Blockly oder anderen Visualisierungssystemen genutzt werden können.
 
@@ -21,37 +21,37 @@ Die verfügbaren Datenpunkte können im ioBroker-Objektbaum, in VIS, Blockly und
 PoolControl deckt folgende Hauptbereiche ab:
 
 - Pumpensteuerung mit automatischen, zeitbasierten, manuellen, PV- und Systemmodi
-- Prioritäts- und Besitzlogik über`pump.active_helper`
+- Prioritäts- und Besitzlogik über `pump.active_helper`
 - Temperaturmanagement für bis zu sechs Sensorfunktionen einschließlich Diagnose und Wiederherstellung
 - Standard-Sonnenschutz und erweiterter Sonnenschutz
 - Photovoltaik-Überschusssteuerung der Pumpe
 - Heizungs- oder Wärmepumpensteuerung
 - Frostschutz
 - Laufzeit-, Umlauf-, Verbrauchs- und Kostenberechnung
-- Plausibilitätsdiagnostik für die Zirkulationsberechnung unter`circulation.plausibility`
+- Plausibilitätsdiagnostik für die Zirkulationsberechnung unter `circulation.plausibility`
 - Tägliche, wöchentliche und monatliche Statistiken zu den Temperaturen
-- Solar Insights und Photovoltaic Insights unter`analytics.insights.*`
+- Solar Insights und Photovoltaic Insights unter `analytics.insights.*`
 - Zentrale Text- und Sprachausgabe über eine gemeinsame Warteschlangenstruktur
-- Diagnostikbereich`SystemCheck.debug_logs`
+- Diagnostischer Bereich `SystemCheck.debug_logs`
 - pH-, TDS- und ORP/Redox-Bewertung ohne automatische Dosierung
 - Optionale zusätzliche Aktuatoren für Beleuchtung, zusätzliche Pumpen und pumpengekoppelte Geräte
 - Folgepumpengeräte mit Validierung externer Zielzustände
 
 ## 3. Pumpensteuerung
 
-Die Pumpe ist der zentrale Aktor des Adapters. Der interne Schaltzustand wird gespeichert in`pump.pump_switch` Wenn in der Admin-Konfiguration ein echter Socket konfiguriert ist,`pumpHelper` spiegelt diesen internen Zustand im externen ioBroker-Datenpunkt wider und übernimmt umgekehrt Änderungen vom Socket zurück in den PoolControl-Status.
+Die Pumpe ist der zentrale Aktor des Adapters. Der interne Schaltzustand wird gespeichert in `pump.pump_switch` Wenn in der Admin-Konfiguration ein echter Socket konfiguriert ist, `pumpHelper` spiegelt diesen internen Zustand im externen ioBroker-Datenpunkt wider und übernimmt umgekehrt Änderungen vom Socket zurück in den PoolControl-Status.
 
 Folgende Pumpenmodi werden im Code unterstützt oder verwendet:
 
-- `auto` : normaler automatischer Betrieb, der unter anderem für Solar- und Heizungsanlagen relevant ist
+- `auto`: normaler automatischer Betrieb, der unter anderem für Solar- und Heizungsanlagen relevant ist
 - `auto_pv` PV-Überschussbetrieb
-- `manual` : manuelle Bedienung
-- `time` : Zeitsteuerung
-- `off` : aus
-- `controlHelper` : interne Steuerung für Wartung, Rückspülung und zusätzliches Pumpen
-- `timeHelper` ,`frostHelper` ,`heatHelper` ,`speechTextHelper` : Interne Status-/Hilfsmodi, die von Hilfsfunktionen festgelegt oder ausgewertet werden.
+- `manual`: manuelle Bedienung
+- `time`: Zeitsteuerung
+- `off`: aus
+- `controlHelper`: interne Steuerung für Wartung, Rückspülung und zusätzliches Pumpen
+- `timeHelper`, `frostHelper`, `heatHelper`, `speechTextHelper`: Interne Status-/Hilfsmodi, die von Hilfsfunktionen festgelegt oder ausgewertet werden.
 
-Die Prioritätenverwaltung erfolgt über`pump.active_helper` Es zeigt an, welcher Helfer die Pumpe aktuell besitzt oder die Prioritätskontrolle darüber hat. Im Code sind insbesondere folgende Punkte sichtbar:
+Die Prioritätenverwaltung erfolgt über `pump.active_helper` Es zeigt an, welcher Helfer die Pumpe aktuell besitzt oder die Prioritätskontrolle darüber hat. Im Code sind insbesondere folgende Punkte sichtbar:
 
 - `controlHelper` für Wartungsarbeiten, Rückspülungen und zusätzliche Pumpvorgänge
 - `timeHelper` für aktive Zeitfenster
@@ -65,85 +65,89 @@ Mehrere Helfer überprüfen diesen Wert, bevor die Pumpe umgeschaltet wird. Dies
 
 Die automatische Zusatzpumpfunktion dient dazu, das tägliche Umwälzziel zu erreichen. Sie benötigt in der Regel keine Temperaturwerte. Ist die Solarsteuerung aktiv und liegen sowohl die Kollektor- als auch die Pooltemperatur im zulässigen Bereich, wird die Zusatzpumpfunktion deaktiviert, solange der Kollektor nicht wärmer als der Pool ist.
 
-Der Basiszirkulationsfaktor wird gespeichert in`general.min_circulation_per_day` Der Admin-Wert ist nur der Anfangswert bei der Ersteinrichtung oder wenn der Status leer/ungültig ist. Der Status ist beschreibbar, persistent und beschränkt auf`0.5` Zu`3.0` Aktualisierung der Änderungen`circulation.daily_required` Und`circulation.daily_remaining` Die
+Der Basiszirkulationsfaktor wird gespeichert in `general.min_circulation_per_day` Der Admin-Wert ist nur der Anfangswert bei der Ersteinrichtung oder wenn der Status leer/ungültig ist. Der Status ist beschreibbar, persistent und beschränkt auf `0.5` Zu `3.0` Aktualisierung der Änderungen `circulation.daily_required` Und `circulation.daily_remaining` Die
 
-Optional,`control.circulation.temperature_factor.*` erhöht diesen Basiswert ausgehend von einem konfigurierten Temperaturschwellenwert. Der ausgewählte Sensor muss aktiviert sein und einen gültigen Wert liefern. Der Basiswert wird nicht überschrieben;`general.min_circulation_effective_per_day` enthält den effektiven Wert begrenzt auf`3.0` , während`general.min_circulation_effective_reason` enthält die technische Begründung. Das Tagesziel und der Restbetrag basieren auf dem Effektivwert;`circulation.daily_total` bleibt unverändert.
+Optional, `control.circulation.temperature_factor.*` erhöht diesen Basiswert ausgehend von einem konfigurierten Temperaturschwellenwert. Der ausgewählte Sensor muss aktiviert sein und einen gültigen Wert liefern. Der Basiswert wird nicht überschrieben; `general.min_circulation_effective_per_day` enthält den effektiven Wert begrenzt auf `3.0`, während `general.min_circulation_effective_reason` enthält die technische Begründung. Das Tagesziel und der Restbetrag basieren auf dem Effektivwert; `circulation.daily_total` bleibt unverändert.
 
-Die Zirkulationsberechnung wird auch diagnostisch überwacht unter`circulation.plausibility` Die Diagnose prüft auf unplausible Pumpenleistung, unplausible Durchflussberechnungen und sprunghafte Änderungen des täglichen Fördervolumens, die schneller auftreten als physikalisch plausibel. Sie speichert ausschließlich Diagnoseinformationen in ihren eigenen Zuständen und ändert weder die Pumpensteuerung noch die PV- oder Solarlogik oder die Berechnungsformel für den Förderstrom.
+Die Zirkulationsberechnung wird auch diagnostisch überwacht unter `circulation.plausibility` Die Diagnose prüft auf unplausible Pumpenleistung, unplausible Durchflussberechnungen und sprunghafte Änderungen des täglichen Fördervolumens, die schneller auftreten als physikalisch plausibel. Sie speichert ausschließlich Diagnoseinformationen in ihren eigenen Zuständen und ändert weder die Pumpensteuerung noch die PV- oder Solarlogik oder die Berechnungsformel für den Förderstrom.
 
 Die Sicherheitslogik umfasst:
 
-- Spiegelung der aktuellen Pumpenleistung auf`pump.current_power`
-- Fehlerstatus`pump.error`
-- Statusausgabe`pump.status`
-- Überlastprüfung basierend auf`pump.pump_max_watt`
+- Spiegelung der aktuellen Pumpenleistung auf `pump.current_power`
+- Fehlerstatus `pump.error`
+- Statusausgabe `pump.status`
+- Überlastprüfung basierend auf `pump.pump_max_watt`
 - Erkennung von Strom, obwohl die Pumpe ausgeschaltet ist oder Strom fehlt, während die Pumpe eingeschaltet ist
 - Kurze Kulanzzeiten nach Start und Stopp, damit kurze Stromübergänge nicht sofort als Fehler behandelt werden.
-- Optionale Sicherheitsbedienung im manuellen Modus über`pump.manual_safety_enabled`
+- Optionale Sicherheitsbedienung im manuellen Modus über `pump.manual_safety_enabled`
+
+Automatische Frost- und Solarsicherheitspumpenstarts sind mit festen Sperren versehen: `pump.mode = off` bedeutet immer AUS, und Wartungsmodus mit `control.pump.maintenance_active = true` blockiert auch automatische Sicherheitsstarts. `manual` Es handelt sich um manuelle Bedienung, nicht um Wartung; Frost- und Sonnenschutz können diese nur dann außer Kraft setzen, wenn `pump.manual_safety_enabled = true` Die
+
+Während der Poolsaison werden die normalen Automatisierungsfunktionen für Pool, Solaranlage und Photovoltaikanlage sowie die Überhitzungsschutzmaßnahmen der Solarpumpe deaktiviert. Ein separat aktivierter Frostschutz kann auch außerhalb der Saison weiterlaufen, solange die Pumpe nicht in Betrieb ist. `off` und weder Wartungsarbeiten noch die manuelle Sicherheitsregel verhindern dies. Es kommt zu keinem Froststart, wenn `pump.frost_protection_active = false` Die
 
 Darüber hinaus gibt es Wohn- und Lernbereiche:
 
 - `pump.live.*` für aktuelle Leistung, Stromstärke, Durchfluss in Prozent und letzten Durchflusswert
 - `pump.learning.*` für erlernte Leistungs- und Durchflussbereiche, Abweichungen und Toleranzen
-- `pump.learning.reset` um die gelernten Pumpenwerte nach Pumpenwechseln oder fehlerhafter Anlernung zurückzusetzen;`pump.learning.tolerance_percent` wird gehalten
+- `pump.learning.reset` um die gelernten Pumpenwerte nach Pumpenwechseln oder fehlerhafter Anlernung zurückzusetzen; `pump.learning.tolerance_percent` wird gehalten
 - `pump.pressure.*` für Drucksensordaten, Trendanalyse, Lernwerte und Diagnose
 - `pump.speed.*` für Empfehlungen oder Zustände einer variablen Pumpendrehzahl
 
-`pump.learning.*` Die Funktion bleibt rein passiv und dient der Diagnose. Die Reset-Taste hat auch keinen Einfluss auf die Pumpensteuerung, den PV-Modus, die Live-Werte oder andere Funktionen.`pump.pressure.learning.*` Die
+`pump.learning.*` Die Funktion bleibt rein passiv und dient der Diagnose. Die Reset-Taste hat auch keinen Einfluss auf die Pumpensteuerung, den PV-Modus, die Live-Werte oder andere Funktionen. `pump.pressure.learning.*` Die
 
 ## 4. Zeitkontrolle
 
-Die Zeitsteuerung befindet sich unter`timecontrol.*` Es gibt drei Zeitfenster (`time1` ,`time2` ,`time3` ) mit:
+Die Zeitsteuerung befindet sich unter `timecontrol.*` Es gibt drei Zeitfenster (`time1`, `time2`, `time3`) mit:
 
 - Aktiver Schalter
 - Startzeit
 - Endzeit
 - Auswahl unter der Woche
-- optionaler Intervallbetrieb (`interval_active` ,`interval_every_min` ,`interval_run_min` )
+- optionaler Intervallbetrieb (`interval_active`, `interval_every_min`, `interval_run_min`)
 
-Der`timeHelper` Es wird jede Minute geprüft, ob eines der aktiven Zeitfenster für den aktuellen Wochentag gültig ist. Die Zeitsteuerung schaltet nur um, wenn`pump.mode = time` ist festgelegt.
+Der `timeHelper` Es wird jede Minute geprüft, ob eines der aktiven Zeitfenster für den aktuellen Wochentag gültig ist. Die Zeitsteuerung schaltet nur um, wenn `pump.mode = time` ist festgelegt.
 
-Wenn ein Zeitfenster aktiv ist, setzt der Helfer die Einstellungen`pump.active_helper` Zu`timeHelper` Aktualisierungen`speech.time_active` und Schalter`pump.pump_switch` Wenn das Zeitfenster abläuft oder der Pumpmodus verlassen wird, gibt der Helfer die Priorität wieder frei.
+Wenn ein Zeitfenster aktiv ist, setzt der Helfer die Einstellungen `pump.active_helper` Zu `timeHelper` Aktualisierungen `speech.time_active` und Schalter `pump.pump_switch` Wenn das Zeitfenster abläuft oder der Pumpmodus verlassen wird, gibt der Helfer die Priorität wieder frei.
 
 Wenn der Intervallbetrieb aktiviert ist, ist der Zyklus stets an den Startzeitpunkt des jeweiligen Fensters gekoppelt. Standardmäßig beträgt die Intervallperiode 60 Minuten und die Laufzeit 15 Minuten. Die Laufzeit darf die Intervallperiode nicht überschreiten; bei einer ungültigen Konfiguration bleiben die Benutzereinstellungen erhalten, und das betroffene Fenster wechselt zurück in den bestehenden kontinuierlichen Betrieb.
 
-Mehrere Fenster verwenden eine ODER-Verknüpfung, daher kann ein pausiertes Intervall kein anderes Fenster deaktivieren, das gerade eine Aktion anfordert. Die exklusive Endzeit begrenzt die Laufzeit jedes Intervalls. Da die bestehende 60-Sekunden-Prüfung unverändert bleibt, kann die physische Umschaltung fast 60 Sekunden nach dem berechneten Zeitpunkt erfolgen.`timecontrol.status_text` liefert den übersetzten Diagnosestatus.
+Mehrere Fenster verwenden eine ODER-Verknüpfung, daher kann ein pausiertes Intervall kein anderes Fenster deaktivieren, das gerade eine Aktion anfordert. Die exklusive Endzeit begrenzt die Laufzeit jedes Intervalls. Da die bestehende 60-Sekunden-Prüfung unverändert bleibt, kann die physische Umschaltung fast 60 Sekunden nach dem berechneten Zeitpunkt erfolgen. `timecontrol.status_text` liefert den übersetzten Diagnosestatus.
 
 ## 5. Sonnenschutz
 
-Die Standard-Sonnenschutzsteuerung befindet sich unter`solar.*` und wird ausgeführt von`solarHelper` Es arbeitet im Modus`solar.control_mode = standard` Die
+Die Standard-Sonnenschutzsteuerung befindet sich unter `solar.*` und wird ausgeführt von `solarHelper` Es arbeitet im Modus `solar.control_mode = standard` Die
 
 Wichtige Datenpunkte sind:
 
-- `solar.solar_control_active` : Hauptschalter für Solarsteuerung
-- `solar.control_mode` : Auswahl zwischen Standard- und erweitertem Modus
+- `solar.solar_control_active`: Hauptschalter für Solarsteuerung
+- `solar.control_mode`: Auswahl zwischen Standard- und erweitertem Modus
 - `solar.temp_on` Einschaltschwelle
-- `solar.temp_off` : Abschaltschwelle
-- `solar.hysteresis_active` : vorbereitete Hystereseoption
-- `solar.request_active` : interne Solaranfrage
-- `solar.collector_surface_delta` : Stromkollektor minus Beckenoberflächendifferenz
-- `solar.collector_warning` : Warnungsstatus des Sammlers
-- `solar.warn_active` ,`solar.warn_temp` ,`solar.warn_speech` : Warnungslogik
+- `solar.temp_off`: Abschaltschwelle
+- `solar.hysteresis_active`: vorbereitete Hystereseoption
+- `solar.request_active`: interne Solaranfrage
+- `solar.collector_surface_delta`: Stromkollektor minus Beckenoberflächendifferenz
+- `solar.collector_warning`: Warnungsstatus des Sammlers
+- `solar.warn_active`, `solar.warn_temp`, `solar.warn_speech`: Warnungslogik
 
-Die Standardlogik vergleicht die Kollektortemperatur mit der Beckenoberflächentemperatur.`solar.collector_surface_delta` Die aktuelle Differenz wird als numerischer Echtzeitdatenpunkt angezeigt. Die Pumpe wird angefordert, sobald der Kollektor ausreichend warm ist und die Differenz positiv ist. Sie wird nicht angefordert, wenn die Abschalttemperatur unter den konfigurierten Schwellenwert fällt oder keine positive Differenz vorliegt.
+Die Standardlogik vergleicht die Kollektortemperatur mit der Beckenoberflächentemperatur. `solar.collector_surface_delta` Die aktuelle Differenz wird als numerischer Echtzeitdatenpunkt angezeigt. Die Pumpe wird angefordert, sobald der Kollektor ausreichend warm ist und die Differenz positiv ist. Sie wird nicht angefordert, wenn die Abschalttemperatur unter den konfigurierten Schwellenwert fällt oder keine positive Differenz vorliegt.
 
-Die erweiterte Solarsteuerung legt die Stromdifferenz zwischen Kollektor und ausgewählter Poolreferenz offen über`solar.extended.collector_pool_reference_delta` Die Referenz wird weiterhin ausgewählt über`solar.extended.pool_temperature_source` Die
+Die erweiterte Solarsteuerung legt die Stromdifferenz zwischen Kollektor und ausgewählter Poolreferenz offen über `solar.extended.collector_pool_reference_delta` Die Referenz wird weiterhin ausgewählt über `solar.extended.pool_temperature_source` Die
 
-Hinweis: Änderungen an der Referenz für Solar Extended-Pools (`solar.extended.pool_temperature_source` ) werden automatisch zur Laufzeit angewendet. Ein Neustart des Adapters ist nicht erforderlich. Da Solar Extended mit einem zyklischen Prüfintervall arbeitet, werden Aktualisierungen der Berechnung, der Steuerlogik und der`solar.extended.collector_pool_reference_delta` Der Vorgang kann bis zu etwa 60 Sekunden dauern.
+Hinweis: Änderungen an der Referenz für Solar Extended-Pools (`solar.extended.pool_temperature_source`) werden automatisch zur Laufzeit angewendet. Ein Neustart des Adapters ist nicht erforderlich. Da Solar Extended mit einem zyklischen Prüfintervall arbeitet, werden Aktualisierungen der Berechnung, der Steuerlogik und der `solar.extended.collector_pool_reference_delta` Der Vorgang kann bis zu etwa 60 Sekunden dauern.
 
 Die Steuerung ist nur aktiv, wenn:
 
 - Die Poolsaison ist aktiv
 - Solarenergie wird aktiviert
 - `pump.mode = auto`
-- Der Solarmodus ist`standard`
-- Es gibt keine höhere Priorität durch`controlHelper` oder`timeHelper`
+- Der Solarmodus ist `standard`
+- Es gibt keine höhere Priorität durch `controlHelper` oder `timeHelper`
 
-Die Warnmeldungen des Sammlers`solar.collector_warning` Wenn die Warntemperatur erreicht ist, wird sie automatisch zurückgesetzt. Sobald die Temperatur des Kollektors auf 90 Prozent des Warnwertes oder darunter sinkt, wird die Warntemperatur automatisch zurückgesetzt.
+Die Warnmeldungen des Sammlers `solar.collector_warning` Die Warnung wird ausgelöst, sobald die Warntemperatur erreicht ist. Sie wird automatisch zurückgesetzt, sobald die Temperatur im Kollektor auf 90 Prozent des Warnwertes oder darunter sinkt. Die Warnung bleibt auch während der saisonbedingten Inaktivität aktiv, löst in diesem Zustand jedoch keine Pumpenaktivierung aus.
 
 ## 6. Photovoltaik- und PV-Überschussfunktionen
 
-Die PV-Funktion befindet sich unter`photovoltaic.*` und wird ausgeführt von`photovoltaicHelper` Es liest zwei externe Datenpunkte aus der Admin-Konfiguration:
+Die PV-Funktion befindet sich unter `photovoltaic.*` und wird ausgeführt von `photovoltaicHelper` Es liest zwei externe Datenpunkte aus der Admin-Konfiguration:
 
 - PV-Erzeugungsleistung
 - Haushaltsverbrauch
@@ -168,27 +172,27 @@ Die Pumpe wird nur dann eingeschaltet, wenn:
 - Der PV-Überschuss ist ausreichend
 - Die optionale Umlaufsperre gilt nicht.
 
-Mit`photovoltaic.afterrun_min` Eine Nachlaufpumpe kann konfiguriert werden, nachdem der Überschuss aufgebraucht ist.`photovoltaic.ignore_on_circulation` Die PV-Steuerung kann gestoppt oder verhindert werden, wenn das tägliche Zirkulationsziel bereits erreicht ist.
+Mit `photovoltaic.afterrun_min` Eine Nachlaufpumpe kann konfiguriert werden, nachdem der Überschuss aufgebraucht ist. `photovoltaic.ignore_on_circulation` Die PV-Steuerung kann gestoppt oder verhindert werden, wenn das tägliche Zirkulationsziel bereits erreicht ist.
 
-Ein Sonderfall ist die Sicherheitsüberbrückung bei solarer Überhitzung: wenn`solar.collector_warning` Wenn der PV-Helfer aktiv ist, kann er die Pumpe unabhängig vom PV-Überschuss einschalten, um den Kollektor zu schützen.
+Ein Sonderfall ist die Sicherheitsüberbrückung bei solarer Überhitzung: wenn `solar.collector_warning` Wenn der PV-Helfer aktiv ist, kann er die Pumpe unabhängig vom PV-Überschuss einschalten, um den Kollektor zu schützen. Diese Pumpenfunktion erfordert eine aktive Saison und ist daher blockiert. `off` und während Wartungsarbeiten und können außer Kraft gesetzt werden `manual` nur wenn `pump.manual_safety_enabled` ist aktiviert. Die Warnung des Datensammlers selbst bleibt von diesen Pumpenblockierungen unberührt.
 
 ## 7. Temperatur- und Sensorfunktionen
 
 Temperaturmanagementprozesse mit bis zu sechs Sensorrollen:
 
-- `collector` : Sammler
-- `outside` : Außentemperatur
-- `surface` : Beckenoberfläche
-- `ground` : Beckenboden
-- `flow` : fließen
-- `return` : zurückkehren
+- `collector`: Sammler
+- `outside`: Außentemperatur
+- `surface`: Beckenoberfläche
+- `ground`: Beckenboden
+- `flow`: fließen
+- `return`: zurückkehren
 
-Die Sensoren werden in der Admin-Konfiguration aktiviert und mit externen ioBroker-Objekt-IDs verbunden.`temperatureHelper` Liest externe Werte und schreibt sie in die eigenen Datenpunkte des Adapters unter`temperature.<sensor>.current` Die
+Die Sensoren werden in der Admin-Konfiguration aktiviert und mit externen ioBroker-Objekt-IDs verbunden. `temperatureHelper` Liest externe Werte und schreibt sie in die eigenen Datenpunkte des Adapters unter `temperature.<sensor>.current` Die
 
 Zusätzlich werden folgende Werte berechnet:
 
 - Tägliches Minimum und tägliches Maximum pro Sensor
-- Wechselgeld pro Stunde (`delta_per_hour` )
+- Wechselgeld pro Stunde (`delta_per_hour`)
 - `temperature.delta.collector_outside`
 - `temperature.delta.surface_ground`
 - `temperature.delta.flow_return`
@@ -199,19 +203,19 @@ Diese Werte werden in verschiedenen Bereichen verwendet, darunter Solarenergie, 
 
 ## 8. Heizung und Heizfunktionen
 
-Die Heizungssteuerung befindet sich unter`heat.*` und wird ausgeführt von`heatHelper` Laut README befindet sich diese Funktion in der Testphase; die Steuerlogik ist jedoch im Code vorhanden.
+Die Heizungssteuerung befindet sich unter `heat.*` und wird ausgeführt von `heatHelper` Laut README befindet sich diese Funktion in der Testphase; die Steuerlogik ist jedoch im Code vorhanden.
 
 Die Heizung kann einen externen Schaltaktor oder einen booleschen Steuerdatenpunkt ansteuern. Wichtige Einstellungen und Zustände sind:
 
 - `heat.control_active` Heizungsregelung aktiv
-- `heat.control_type` : Art des externen Ziels
-- `heat.control_object_id` : externer Steuerungsdatenpunkt
+- `heat.control_type`: Art des externen Ziels
+- `heat.control_object_id`: externer Steuerungsdatenpunkt
 - `heat.target_temperature` Zieltemperatur
-- `heat.max_temperature` : maximale Sicherheitstemperatur
-- `heat.pump_prerun_minutes` : Pumpenvorlauf vor Heizbeginn
-- `heat.pump_afterrun_minutes` : Pumpennachlauf nach Ende der Erwärmung
-- `heat.heating_request` : internes Anforderungssignal
-- `heat.active` ,`heat.blocked` ,`heat.mode` ,`heat.reason` ,`heat.info`
+- `heat.max_temperature`: maximale Sicherheitstemperatur
+- `heat.pump_prerun_minutes`: Pumpenvorlauf vor Heizbeginn
+- `heat.pump_afterrun_minutes`: Pumpennachlauf nach Ende der Erwärmung
+- `heat.heating_request`: internes Anforderungssignal
+- `heat.active`, `heat.blocked`, `heat.mode`, `heat.reason`, `heat.info`
 
 Die Steuerung funktioniert nur, wenn:
 
@@ -222,13 +226,13 @@ Die Steuerung funktioniert nur, wenn:
 - Es liegt eine gültige Oberflächentemperatur vor.
 - Die Höchsttemperatur wurde noch nicht erreicht.
 
-Der Helfer schaltet die Pumpe bei Bedarf ein und speichert intern, ob er sie selbst eingeschaltet hat. Beim Abschalten wird die Pumpe vom Heizungshelfer nur dann abgeschaltet, wenn dieser zuvor die Steuerung übernommen hatte. Dadurch werden Konflikte mit anderen Betriebsarten reduziert.
+Der Heizungshelfer schaltet die Pumpe bei Bedarf ein und speichert intern, ob er sie selbst eingeschaltet hat. Beim Abschalten wird die Pumpe vom Heizungshelfer nur dann abgeschaltet, wenn dieser zuvor die Steuerung übernommen hatte. Dadurch werden Konflikte mit anderen Betriebsarten reduziert.
 
 ## 9. Bereiche Statistik, Trends und Einblicke
 
 ### `analytics.statistics.*`
 
-Der Statistikbereich wertet Temperaturdaten aus. Für aktive Sensoren werden Tageswerte gespeichert.`analytics.statistics.temperature.today.*` :
+Der Statistikbereich wertet Temperaturdaten aus. Für aktive Sensoren werden Tageswerte gespeichert. `analytics.statistics.temperature.today.*`:
 
 - Minimum
 - Maximal
@@ -240,14 +244,14 @@ Der Statistikbereich wertet Temperaturdaten aus. Für aktive Sensoren werden Tag
 
 Darüber hinaus gibt es wöchentliche und monatliche Helfer:
 
-- `statisticsHelperWeek` schreibt unter`analytics.statistics.temperature.week.*`
-- `statisticsHelperMonth` schreibt unter`analytics.statistics.temperature.month.*`
+- `statisticsHelperWeek` schreibt unter `analytics.statistics.temperature.week.*`
+- `statisticsHelperMonth` schreibt unter `analytics.statistics.temperature.month.*`
 
 Beide Bereiche generieren außerdem strukturierte Zusammenfassungen für einzelne Sensoren und Gesamtausgaben.
 
 ### Solar Insights
 
-Solar Insights befinden sich unter`analytics.insights.solar.*` Dieser Bereich dient der Analyse, nicht der Steuerung.
+Solar Insights befinden sich unter `analytics.insights.solar.*` Dieser Bereich dient der Analyse, nicht der Steuerung.
 
 Die Struktur ist wie folgt:
 
@@ -271,11 +275,11 @@ Der Code beschreibt Solar Insights ausdrücklich als Schätzwert. Je nach Verfü
 - JSON-, HTML- und Textausgabe
 - Debug-Gründe und letzte Aktualisierung
 
-Die Funktion „Solar-Logbuch“ schreibt aktuelle Einträge, ein Tagesprotokoll als JSON/Text und HTML-Einträge unter`analytics.insights.solar.logbook.*` Die
+Die Funktion „Solar-Logbuch“ schreibt aktuelle Einträge, ein Tagesprotokoll als JSON/Text und HTML-Einträge unter `analytics.insights.solar.logbook.*` Die
 
 ### Einblicke in die Photovoltaik
 
-Photovoltaic Insights befinden sich unter`analytics.insights.photovoltaic.*` Dieser Bereich analysiert PV-Überschusslaufzeiten und verfügt auch nicht über eine eigene Steuerungslogik.
+Photovoltaic Insights befinden sich unter `analytics.insights.photovoltaic.*` Dieser Bereich analysiert PV-Überschusslaufzeiten und verfügt auch nicht über eine eigene Steuerungslogik.
 
 Unter anderem werden folgende Dinge aufgezeichnet:
 
@@ -290,7 +294,7 @@ Unter anderem werden folgende Dinge aufgezeichnet:
 - Zusammenfassung als Text, JSON und HTML
 - Debug-Texte und Gründe
 
-Die Laufzeit wird nur dann gezählt, wenn ein PV-Überschuss aktiv ist und`photovoltaicHelper` Die Pumpe ist im Besitz des Eigentümers. Laut Codekommentaren werden Nachlaufzeiten der Pumpe nicht als PV-Überschusslaufzeit gezählt.
+Die Laufzeit wird nur dann gezählt, wenn ein PV-Überschuss aktiv ist und `photovoltaicHelper` Die Pumpe ist im Besitz des Eigentümers. Laut Codekommentaren werden Nachlaufzeiten der Pumpe nicht als PV-Überschusslaufzeit gezählt.
 
 ### Pool Insights
 
@@ -304,26 +308,26 @@ Effizienzwerte und Schätzwerte sind im Code, insbesondere im Bereich „Solar I
 
 ## 10. Sprach- und Textausgabe
 
-Zentrale Ausgänge laufen über`speech.queue` Viele Helfer schreiben Nachrichten in diese Warteschlange;`speechHelper` verarbeitet sie weiter. Die zentrale Warteschlangenstruktur verhindert konkurrierende oder doppelte Nachrichtensysteme. Neue Sprach- und Textausgaben sind absichtlich für die zentrale Verarbeitung vorgesehen.`speech.queue` Die
+Zentrale Ausgänge laufen über `speech.queue` Viele Helfer schreiben Nachrichten in diese Warteschlange; `speechHelper` verarbeitet sie weiter. Die zentrale Warteschlangenstruktur verhindert konkurrierende oder doppelte Nachrichtensysteme. Neue Sprach- und Textausgaben sind absichtlich für die zentrale Verarbeitung vorgesehen. `speech.queue` Die
 
 Wichtige Datenpunkte sind:
 
-- `speech.active` : globale Aktivierung
-- `speech.queue` : zentrale Nachrichtenwarteschlange
-- `speech.last_text` : letzter Ausgabetext
-- `speech.start_text` ,`speech.end_text` : Pumpentexte
-- `speech.solar_active` ,`speech.time_active` ,`speech.frost_active` : interne Kontextsignale
+- `speech.active`: globale Aktivierung
+- `speech.queue`: zentrale Nachrichtenwarteschlange
+- `speech.last_text`: letzter Ausgabetext
+- `speech.start_text`, `speech.end_text`: Pumpentexte
+- `speech.solar_active`, `speech.time_active`, `speech.frost_active`: interne Kontextsignale
 - `speech.amazon_alexa.*` Alexa-Ruhezeiten und -Status
 
 Je nach Konfiguration kann der Helfer folgende Ausgaben tätigen:
 
 - Alexa, über einen konfigurierten externen Datenpunkt
-- Telegram, via`sendTo`
-- E-Mail, via`sendTo`
+- Telegram, via `sendTo`
+- E-Mail, via `sendTo`
 
 Für Alexa gibt es Ruhezeiten an Wochentagen und Wochenenden. Während einer Ruhezeit ist die Alexa-Ausgabe gesperrt; andere Ausgabekanäle sind davon nicht automatisch betroffen.
 
-Textausgaben existieren hauptsächlich als lesbare Zustände in den jeweiligen Bereichen, zum Beispiel Status, Debug, KI, Chemie, Solar Insights, PV Insights, JSON und HTML-Ausgaben. Ein separater Objektkanal namens`textoutputs` ist aus dem Code nicht eindeutig ableitbar.
+Textausgaben existieren hauptsächlich als lesbare Zustände in den jeweiligen Bereichen, zum Beispiel Status, Debug, KI, Chemie, Solar Insights, PV Insights, JSON und HTML-Ausgaben. Ein separater Objektkanal namens `textoutputs` ist aus dem Code nicht eindeutig ableitbar.
 
 ## 11. Chemie, pH-Wert, TDS und ORP/Redox-Bereiche
 
@@ -331,7 +335,7 @@ Die Chemiebereiche sind vorhanden und werden beim Start des Adapters erstellt. S
 
 ### pH-Wert-Bewertung
 
-Das Gebiet`chemistry.ph.*` Unterstützt:
+Das Gebiet `chemistry.ph.*` Unterstützt:
 
 - Aktivierung der pH-Wert-Messung
 - Manuelle pH-Wert-Bestimmung
@@ -347,7 +351,7 @@ Im Code steht ausdrücklich: keine automatische Dosierung und keine Steuerung du
 
 ### TDS-Bewertung
 
-Das Gebiet`chemistry.tds.*` Unterstützt:
+Das Gebiet `chemistry.tds.*` Unterstützt:
 
 - Aktivierung der TDS-Auswertung
 - Manueller TDS-Wert in ppm
@@ -364,7 +368,7 @@ Auch hier heißt es im Code: keine automatische Steuerung, keine automatische Do
 
 ### ORP/Redox-Bewertung
 
-Das Gebiet`chemistry.orp.*` ist als Analyse- und Empfehlungsbereich vorhanden. Er unterstützt manuelle Werte oder einen externen ioBroker-Datenpunkt als ORP-Quelle, Plausibilitätsprüfungen, Messortlogik, Verlauf, Trends, Auswertung und Zusammenfassungen in Text-, JSON- und HTML-Format.
+Das Gebiet `chemistry.orp.*` ist als Analyse- und Empfehlungsbereich vorhanden. Er unterstützt manuelle Werte oder einen externen ioBroker-Datenpunkt als ORP-Quelle, Plausibilitätsprüfungen, Messortlogik, Verlauf, Trends, Auswertung und Zusammenfassungen in Text-, JSON- und HTML-Format.
 
 Die ORP-Bewertung kann einen pH-Referenzwert verwenden und diesen unabhängig vom ORP-Wert synchronisieren. Sie dient der Klassifizierung und Empfehlung von Maßnahmen. Es erfolgt keine automatische Chlorregelung, keine automatische Dosierung und keine automatische Pumpen- oder Aktorsteuerung auf Basis des ORP-Werts.
 
@@ -423,11 +427,11 @@ Die bestehende Implementierung verbindet externe Hardware größtenteils über f
 - Solar Extended Aktuator
 - Beleuchtung und zusätzliche Pumpen
 
-Zusätzliche Aktuatoren sind erhältlich unter`actuators.*` Dazu gehören Beleuchtung, Zusatzpumpen und Nachführpumpen. Nachführpumpen können externe Geräte automatisch mit dem Pumpenstatus koppeln. Externe Zielzustände werden validiert, einschließlich Existenz, boolescher Typ und Schreibbarkeit. Typische Beispiele sind UV-Systeme, Wasserspiele und Zusatzfilter.
+Zusätzliche Aktuatoren sind erhältlich unter `actuators.*` Dazu gehören Beleuchtung, Zusatzpumpen und Nachführpumpen. Nachführpumpen können externe Geräte automatisch mit dem Pumpenstatus koppeln. Externe Zielzustände werden validiert, einschließlich Existenz, boolescher Typ und Schreibbarkeit. Typische Beispiele sind UV-Systeme, Wasserspiele und Zusatzfilter.
 
-Die Integration von Drucksensoren ist implementiert. Der Administratorhinweis erwähnt explizit externe Sensoren und eine PoolControl PressureBox.`pump.pressure.*` Enthält aktuellen Druck, vorherigen Druck, Normalbereich, gespeicherte Werte, Trendwerte, Diagnosedaten und Reset-Funktion.
+Die Integration von Drucksensoren ist implementiert. Der Administratorhinweis erwähnt explizit externe Sensoren und eine PoolControl PressureBox. `pump.pressure.*` Enthält aktuellen Druck, vorherigen Druck, Normalbereich, gespeicherte Werte, Trendwerte, Diagnosedaten und Reset-Funktion.
 
-Die MQTT/ESP32-Integration wird in den Entwicklungsnotizen erwähnt als`mqttNodeHelper.js` Für externe PoolControl-Knoten ist im aktuellen Projektstatus keine entsprechende Hilfsdatei vorhanden. Daher sollte dieser Bereich als Vorbereitung oder Planung betrachtet werden.
+Die MQTT/ESP32-Integration wird in den Entwicklungsnotizen erwähnt als `mqttNodeHelper.js` Für externe PoolControl-Knoten ist im aktuellen Projektstatus keine entsprechende Hilfsdatei vorhanden. Daher sollte dieser Bereich als Vorbereitung oder Planung betrachtet werden.
 
 Vorbereitete oder geplante Hardware-Boxen:
 
@@ -463,13 +467,13 @@ Derzeit liegt der Fokus auf der Bereitstellung strukturierter Datenpunkte, HTML-
 
 ## 14. Diagnose- und Debug-Funktionen
 
-Der zentrale Diagnosebereich heißt`SystemCheck.debug_logs.*` Die
+Der zentrale Diagnosebereich heißt `SystemCheck.debug_logs.*` Die
 
 Es bietet:
 
-- Auswahl eines Zielgebiets über`SystemCheck.debug_logs.target_area`
-- Kontinuierliches Protokoll unter`SystemCheck.debug_logs.log`
-- Funktion löschen über`SystemCheck.debug_logs.clear`
+- Auswahl eines Zielgebiets über `SystemCheck.debug_logs.target_area`
+- Kontinuierliches Protokoll unter `SystemCheck.debug_logs.log`
+- Funktion löschen über `SystemCheck.debug_logs.clear`
 - Überwachung sehr schneller Zustandsänderungen
 - Die Protokollgröße wird auf ungefähr die letzten 60.000 Zeichen begrenzt.
 
@@ -487,9 +491,9 @@ Darüber hinaus existieren zahlreiche bereichsspezifische Status- und Debug-Date
 - `analytics.insights.solar.debug.*`
 - `analytics.insights.photovoltaic.debug.*`
 
-Zusätzliche Diagnosewerte für die Kreislaufberechnung werden gespeichert unter`circulation.plausibility` Sie zeigen Status, Schweregrad, Meldungsschlüssel, Warnungen zu Stromfluss/Sprung und die zugehörigen Vergleichswerte an. Diese Werte helfen bei der Fehlersuche bei ungewöhnlichen Durchflusswerten, führen aber keine automatische Korrektur durch.
+Zusätzliche Diagnosewerte für die Kreislaufberechnung werden gespeichert unter `circulation.plausibility` Sie zeigen Status, Schweregrad, Meldungsschlüssel, Warnungen zu Stromfluss/Sprung und die zugehörigen Vergleichswerte an. Diese Werte helfen bei der Fehlersuche bei ungewöhnlichen Durchflusswerten, führen aber keine automatische Korrektur durch.
 
-Der Adapter hat außerdem einen`migrationHelper` Diese Funktion wird beim Startvorgang zuletzt vor den Hilfsfunktionen ausgeführt und bereitet Struktur- und Aktualisierungsanpassungen vor. Details zu den einzelnen Migrationen werden in dieser Übersicht nicht gesondert behandelt.
+Der Adapter hat außerdem einen `migrationHelper` Diese Funktion wird beim Startvorgang zuletzt vor den Hilfsfunktionen ausgeführt und bereitet Struktur- und Aktualisierungsanpassungen vor. Details zu den einzelnen Migrationen werden in dieser Übersicht nicht gesondert behandelt.
 
 ## 15. Export- und Analysefunktionen
 
@@ -511,16 +515,16 @@ Ein direkter CSV- oder Excel-Export wird in der README-Datei und den Entwicklerh
 
 Technische Anforderungen gemäß den Projektunterlagen:
 
-- Node.js`>= 22`
-- ioBroker js-Controller`>= 6.0.11`
-- ioBroker-Administrator`>= 7.6.20`
+- Node.js `>= 22`
+- ioBroker js-Controller `>= 6.0.11`
+- ioBroker-Administrator `>= 7.6.20`
 - Der Adapter läuft als JavaScript/Node.js-Daemon.
 - Hauptsächlich hilfs- und ereignisbasierte Verarbeitung
 
 Typischer Aufbau:
 
 - Legen Sie die Poolgröße und die Mindestumwälzung in den allgemeinen Einstellungen fest.
-- Pumpenanschluss und optional Stromanschluss konfigurieren
+- Pumpenanschluss konfigurieren und optional Stromanschluss
 - Richten Sie bei Bedarf Temperatursensoren ein, insbesondere für Solar-, Heizungs-, Frostschutz- und Analysefunktionen.
 - Wählen Sie den gewünschten Pumpenmodus aus.
 - Aktivieren Sie Solar-, PV-, Zeitschaltuhr-, Heizungs- und Frostschutzsysteme nach Bedarf.
@@ -533,7 +537,7 @@ Typischer Aufbau:
 - Die chemischen Parameter pH-Wert, TDS und ORP/Redox dienen der Auswertung und Empfehlung von Empfehlungen. Es findet keine automatische Dosierung oder automatische Chlorregelung statt.
 - Solar Insights und Photovoltic Insights sind Analysebereiche. Sie ersetzen keine kalibrierten Energiezähler.
 - Die Werte von Solar Insights werden im Code als Schätzwerte implementiert und hängen stark von der Sensorqualität, den Durchflusswerten und den verfügbaren Temperaturdaten ab.
-- PV Insights berücksichtigt nur den PV-Überschussbetrieb, wenn`photovoltaicHelper` Die Pumpe gehört ihm.
+- PV Insights berücksichtigt nur den PV-Überschussbetrieb, wenn `photovoltaicHelper` Die Pumpe gehört ihm.
 - Eigene VIS-Widgets, CSV/Excel-Export und MQTT/ESP32-Knoten sind als Planungs- oder Vorbereitungsmaßnahmen erkennbar, existieren aber im aktuellen Code nicht als fertige Module.
 - Bei Funktionen, die externe Objekt-IDs verwenden, hängt das Verhalten von korrekt konfigurierten ioBroker-Datenpunkten und geeigneten Rollen/Werten ab.
 
@@ -549,6 +553,6 @@ Für den Anfang genügt in der Regel Folgendes:
 - Wählen Sie den gewünschten Pumpenmodus aus.
 - Aktivieren Sie dann schrittweise Solarenergie, Photovoltaik, Heizung, Sprachübertragung und Analysefunktionen.
 
-Die wichtigsten Zustände für den täglichen Gebrauch sind`pump.status` ,`pump.pump_switch` ,`pump.mode` ,`pump.active_helper` ,`status.summary` ,`circulation.daily_remaining` ,`solar.request_active` ,`photovoltaic.surplus_active` und die Ausgaben unter`analytics.*` Die
+Die wichtigsten Zustände für den täglichen Gebrauch sind `pump.status`, `pump.pump_switch`, `pump.mode`, `pump.active_helper`, `status.summary`, `circulation.daily_remaining`, `solar.request_active`, `photovoltaic.surplus_active` und die Ausgaben unter `analytics.*` Die
 
 Vorbereitete oder geplante Bereiche sind im Projekt sichtbar, sollten aber nicht mit vollständig fertigen Funktionen verwechselt werden. Insbesondere MQTT/ESP32-Knoten, native VIS-Widgets und der CSV-/Excel-Export sollten anhand des aktuellen Code-Standes als Planungs- oder Vorbereitungsbereiche klassifiziert werden.

@@ -1,0 +1,49 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.apple/README.md":{"title":{"en":"ioBroker.apple"},"content":"en/adapterref/iobroker.apple/README.md"},"en/adapterref/iobroker.apple/docs/decisions/0005-v0.1-object-contract.md":{"title":{"en":"ADR 0005: Version 0.1 Object And Command Contract"},"content":"en/adapterref/iobroker.apple/docs/decisions/0005-v0.1-object-contract.md"},"en/adapterref/iobroker.apple/docs/decisions/0011-device-enablement-and-admin-inventory.md":{"title":{"en":"ADR 0011: Device Enablement And Admin Inventory"},"content":"en/adapterref/iobroker.apple/docs/decisions/0011-device-enablement-and-admin-inventory.md"},"en/adapterref/iobroker.apple/docs/decisions/0012-appletv-admin-tables.md":{"title":{"en":"ADR 0012: Apple TV Admin Tables"},"content":"en/adapterref/iobroker.apple/docs/decisions/0012-appletv-admin-tables.md"},"en/adapterref/iobroker.apple/docs/decisions/0017-admin-8-gui-api-generation-2.md":{"title":{"en":"ADR 0017: Admin 8 GUI API Generation 2"},"content":"en/adapterref/iobroker.apple/docs/decisions/0017-admin-8-gui-api-generation-2.md"},"en/adapterref/iobroker.apple/docs/decisions/0013-airplay-receiver-identity-and-contract.md":{"title":{"en":"ADR 0013: AirPlay Receiver Identity And Read-Only Contract"},"content":"en/adapterref/iobroker.apple/docs/decisions/0013-airplay-receiver-identity-and-contract.md"},"en/adapterref/iobroker.apple/docs/decisions/0014-homepod-transient-control-contract.md":{"title":{"en":"ADR 0014: HomePod Transient Connection And Control Contract"},"content":"en/adapterref/iobroker.apple/docs/decisions/0014-homepod-transient-control-contract.md"},"en/adapterref/iobroker.apple/docs/decisions/0015-explicit-homepod-and-receiver-management.md":{"title":{"en":"ADR 0015: Explicit HomePod And AirPlay Receiver Management"},"content":"en/adapterref/iobroker.apple/docs/decisions/0015-explicit-homepod-and-receiver-management.md"},"en/adapterref/iobroker.apple/docs/decisions/0016-instance-admin-language.md":{"title":{"en":"ADR 0016: Instance-Local Admin Language"},"content":"en/adapterref/iobroker.apple/docs/decisions/0016-instance-admin-language.md"},"en/adapterref/iobroker.apple/CONTRIBUTING.md":{"title":{"en":"Contributing to ioBroker.apple"},"content":"en/adapterref/iobroker.apple/CONTRIBUTING.md"},"en/adapterref/iobroker.apple/docs/ARCHITECTURE.md":{"title":{"en":"Technical Architecture"},"content":"en/adapterref/iobroker.apple/docs/ARCHITECTURE.md"},"en/adapterref/iobroker.apple/docs/decisions/README.md":{"title":{"en":"Architecture Decision Records"},"content":"en/adapterref/iobroker.apple/docs/decisions/README.md"},"en/adapterref/iobroker.apple/docs/UPSTREAM_RESEARCH.md":{"title":{"en":"Upstream Source Assessment"},"content":"en/adapterref/iobroker.apple/docs/UPSTREAM_RESEARCH.md"},"en/adapterref/iobroker.apple/THIRD_PARTY_NOTICES.md":{"title":{"en":"Third-Party Notices And Source Policy"},"content":"en/adapterref/iobroker.apple/THIRD_PARTY_NOTICES.md"},"en/adapterref/iobroker.apple/docs/decisions/0008-semantic-versioning.md":{"title":{"en":"ADR 0008: Semantic Versioning And Release Classification"},"content":"en/adapterref/iobroker.apple/docs/decisions/0008-semantic-versioning.md"},"en/adapterref/iobroker.apple/docs/decisions/0003-project-license.md":{"title":{"en":"ADR 0003: Project License And Source Provenance"},"content":"en/adapterref/iobroker.apple/docs/decisions/0003-project-license.md"},"en/adapterref/iobroker.apple/docs/decisions/0018-iobroker-owned-timer-scheduler.md":{"title":{"en":"ADR 0018: ioBroker-Owned Timer Scheduler"},"content":"en/adapterref/iobroker.apple/docs/decisions/0018-iobroker-owned-timer-scheduler.md"}}}
+translatedFrom: en
+translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apple/docs/decisions/0011-device-enablement-and-admin-inventory.md
+title: ADR 0011: Geräteaktivierung und Administratorinventarisierung
+hash: ahXgL/YD6lxnPBRyxaX2YnjAZHOVZUXlILxk80slY6k=
+---
+# ADR 0011: Geräteaktivierung und Administratorinventarisierung
+
+- Status: akzeptiert; Receiver-/HomePod-Verwaltung durch ADRs 0013–0015 geändert
+- Datum: 01.09.2026
+
+## Kontext
+
+Die anfängliche Administratorkonfiguration fasste allgemeine Erkennungseinstellungen und die Apple TV-Kopplung auf einer Seite zusammen. Jede bestehende Apple TV-Kopplung wurde als aktiv behandelt: Sobald das Gerät erkannt wurde, stellte der Adapter die Verbindung zu seinem Backend her und projizierte seinen gesamten öffentlichen Objektbaum. Bei der Erkennung von HomePod und generischen AirPlay-Empfängern wurden lediglich die Klassenanzahlen angezeigt.
+
+Der Adapter benötigt nun eine klassenorientierte Admin-Navigation und eine dauerhafte Unterscheidung zwischen einem gekoppelten, aktiv verwalteten Apple TV und einem, das zwar verbunden, aber vorübergehend deaktiviert ist. Erkennungsbeobachtungen, dauerhafte Kopplungsinformationen, Geräteaktivierung und die Projektion öffentlicher Objekte müssen weiterhin separate Konzepte bleiben.
+
+## Entscheidung
+
+Die Administratorkonfiguration verwendet die Registerkarten. `General`, `Devices`, Und `Apple Music` Der Tab „Geräte“ enthält Abschnitte für Apple TV, HomePod und generische AirPlay-Empfänger. Apple TV behält die bestehende PIN-Kopplung und die lokale Löschfunktion bei. HomePod und AirPlay-Empfänger zeigen die Anzahl, den Anzeigenamen und das gemeldete Modell der letzten erfolgreichen Erkennung an. Nach Annahme der Geräteverträge fügt ADR 0015 die explizite Einbindung sowie die Verwaltung von aktiven/passiven Geräten und deren Löschung hinzu; die Erkennung allein erstellt weiterhin kein individuelles Laufzeitobjekt.
+
+Die Aktivierung von Apple TV als dauerhafte, nicht geheime Instanzdaten beibehalten in `device-settings.v1.json` Die Datenbank der Version 1 speichert ausschließlich explizit deaktivierte, normalisierte Apple TV-Geräte-IDs. Fehlende Einträge bedeuten daher, dass ein Gerät aktiviert ist. Dadurch bleiben alle mit älteren Versionen erstellten Kopplungen nach einem transparenten Upgrade aktiv, ohne dass die verschlüsselte Anmeldeinformationsdatenbank neu geschrieben werden muss.
+
+Für ein gekoppeltes Apple TV:
+
+- Die aktive Mittelerkennung kann ihr Backend verbinden und ihr individuelles Projekt unterstützen. `devices.appletv.<deviceId>` Objektbaum;
+- Passiv bedeutet, dass die Anmeldeinformationen und der Eintrag im Administratorinventar erhalten bleiben, während die Verbindung zum Backend getrennt und die individuelle Objektstruktur entfernt wird;
+- Durch die Reaktivierung wird der Baum neu erstellt und die Verbindung wiederhergestellt, sobald ein aktuelles Erkennungsziel verfügbar ist;
+- local forget entfernt Anmeldeinformationen, Aktivierungsmetadaten, Backend-Sitzung und den individuellen Objektbaum.
+
+Die Anzahl der Erkennungsvorgänge und die Anzahl der Erkennungskandidaten hängen nicht von der Aktivierung ab. Ein passiv gekoppeltes Apple TV bleibt im Administratorinventar und in den aktuellen Erkennungsergebnissen sichtbar. Beim Systemstart werden alle Apple TV-Baumstrukturen entfernt, die entweder nicht gekoppelt oder passiv sind. Eine neu abgeschlossene Kopplung ist standardmäßig aktiv.
+
+Die Einstellungsdatenbank wird vor der Verwendung validiert, durch atomares Ersetzen innerhalb desselben Verzeichnisses geschrieben und auf Dateisystemberechtigungen beschränkt, die nur dem Eigentümer zugänglich sind. Geräte-IDs sind Installationsdaten und werden niemals in Repository-Fixtures aufgenommen, außer als neutrale, lokal verwaltete Beispiele.
+
+Der Tab „Allgemein“ enthält lediglich das Erkennungsintervall und einen informativen Platzhalter für das Apple-Konto. Er speichert weder eine Apple-ID, ein Passwort, ein Token noch andere Anmeldeinformationen, bevor eine dedizierte Autorisierung per ADR akzeptiert wird. Der Tab „Apple Music“ ist ebenfalls nur ein informativer Platzhalter und erstellt keine öffentlichen Daten. `music` Objekte.
+
+## Konsequenzen
+
+Nutzer können ein Apple TV vorübergehend deaktivieren, ohne die Kopplung zu verlieren. Bereits gekoppelte Geräte bleiben während des Upgrades aktiv. Passive Geräte werden absichtlich aus der öffentlichen Objektstruktur entfernt, sodass Automatisierungen denselben Effekt wie ein vorübergehend nicht verfügbarer Zielpfad und nicht wie ein beschreibbares, deaktiviertes Steuerelement wahrnehmen.
+
+Das Discovery-IPC-Schema wird additiv: Es enthält redigierte Zusammenfassungen pro Klasse mit stabiler Scan-Identität, Anzeigename und Modell. ADR 0013 stuft später eindeutig identifizierte generische AirPlay-Empfänger in ein schreibgeschütztes Laufzeitinventar ein. ADR 0014 stuft später eindeutig identifizierte HomePods in eine automatisch verbundene Vorschau für die temporäre Steuerung ein, ohne die Apple TV-Aktivierung oder die Speicherung von Anmeldeinformationen wiederzuverwenden.
+
+Die eigentlichen Apple-Account- oder Apple-Music-Zugangsdaten bleiben davon unberührt. Deren späteres Hinzufügen erfordert eine Entscheidung hinsichtlich Sicherheit, Persistenz, Migration und Autorisierung, anstatt Platzhalterfelder der Benutzeroberfläche wiederzuverwenden.
+
+## Validierung
+
+Die Tests überprüfen die Migration mit Standardaktivierung, die atomare Persistenz, die Schema-Ablehnung, die Berechtigungen nur für Eigentümer, die passive Startbereinigung, die Trennung und das Entfernen des Verzeichnisbaums, die Reaktivierung, die Bereinigung nach dem Vergessen, die Zusammenfassungen der klassenexklusiven Erkennung, die Nachrichtenvalidierung und die Administratorkonfigurationsstruktur. Vollständige Paket-, Build- und Integrationsprüfungen sind erforderlich, da sich das Verhalten der Persistenz und der öffentlichen Laufzeitprojektion ändert.

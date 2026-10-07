@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.stiebel-isg/README.md
 title: ioBroker.stiebel-isg
-hash: xijfQzd6Xui6T81D8jXw4LZZapvBQyeHyyYpWwFzOTs=
+hash: 2dcxEaq6BpTAPIuf42/t/Oj1FmoQOoAscv2UBgZtSb8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.stiebel-isg/admin/stiebel-isg.png)
 
@@ -30,7 +30,7 @@ hash: xijfQzd6Xui6T81D8jXw4LZZapvBQyeHyyYpWwFzOTs=
 
 **Внимание:** версия 2.xx содержит некоторые критические изменения:
 
-- Требуется Node.js >= 22, js-controller >= 6.0.11 и admin >= 7.7.22.\
+- Требуется Node.js >= 22.19.0, js-controller >= 6.0.11 и admin >= 7.7.22.\
   &#x20;Для использования этого адаптера обновите ioBroker как минимум до этой версии программного обеспечения.
 
 - Шифрование паролей и имен пользователей в пользовательском интерфейсе настроек.\
@@ -44,7 +44,7 @@ hash: xijfQzd6Xui6T81D8jXw4LZZapvBQyeHyyYpWwFzOTs=
 
 1. Настройте экземпляр, введя IP-адрес или доменное имя группы обеспечения информационной безопасности (ISG), а также, если это указано в ISG, имя пользователя и пароль.
 2. Остальные настройки, а также список веб-страниц ISG на вкладках URL-адресов можно оставить со значениями по умолчанию.
-3. Вы можете повысить производительность и снизить нагрузку на ISG, удалив из вкладки URL-адресов все пути, которые отсутствуют в вашем веб-интерфейсе ISG или которые вас не интересуют. Вы можете легко определить URL-адреса, открыв веб-страницу ISG SERVICEWELT и последовательно открывая различные вкладки навигации. URL-адрес соответствующей страницы отображается в вашем браузере, например [, http://IP-адрес-вашего-ISG/?s=1,0](http://IP-of-your-ISG/?s=1,0) — это путь к INFO/ANLAGE.
+3. Вы можете повысить производительность и снизить нагрузку на ISG, удалив из вкладки URL-адресов все пути, которые отсутствуют в вашем веб-интерфейсе ISG или которые вас не интересуют. Вы можете легко определить URL-адреса, открыв веб-страницу ISG SERVICEWELT и последовательно открывая различные вкладки навигации. URL-адрес соответствующей страницы отображается в вашем браузере, например [, http://IP-адрес-вашего-ISG/?s=1,0](http://IP-of-your-ISG/?s=1,0) — это путь к значению INFO/ANLAGE.
 
 ## Юридические уведомления
 
@@ -60,7 +60,13 @@ STIEBEL ELTRON, TECALOR, ISG и соответствующие логотипы 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 2.1.0 (2026-09-09)
+### 2.2.0 (2026-10-06) - 2026H2 bugfix release
+
+* (pdbjjens) **Breaking**: Adapter requires node.js >= 22.19.0 and undici >= 8.10.2 now
+* (pdbjjens) **Fixed**: Sporadic "fetch failed ... Check ISG connection!" (#221)
+* (pdbjjens) **New**: Configuration option to select either native fetch or undici fetch
+
+### 2.1.0 (2026-09-09)  - 2026H2 maintenance release
 
 * (copilot) **Breaking**: Adapter requires node.js >= 22 now
 * (pdbjjens) **Fixed**: i18n directory migrated to short format
@@ -81,18 +87,6 @@ STIEBEL ELTRON, TECALOR, ISG и соответствующие логотипы 
 ### 2.0.1 (2025-11-12)
 
 * (pdbjjens) **Fixed**: ioBroker warnings are avoided by clamping any values exceeding min/max to the min value before setting. (fixes #53 & #65)
-
-### 2.0.0 (2025-10-27)
-
-* (mcm1957) Change: Adapter has been migrated to iobroker-community-adapters organisation
-* (mcm1957) Change: Adapter requires node.js >= 20, js-controller >= 6.0.11 and admin >= 7.6.17 now
-* (mcm1957) Fix: Dependencies have been updated
-* (pdbjjens) Change: remove .npmignore
-* (pdbjjens) Change: migrate adapter configuration to jsonConfig
-* (pdbjjens) Change: migrate from deprecated "request" http client to native fetch API
-* (pdbjjens) Fix: min/max handling
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg/blob/master/CHANGELOG_OLD.md)
 
 ## License
 

@@ -532,21 +532,7 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
-### 1.4.6-alpha.2 (2026-09-18)
-
-(git-kick)
-
-* No specific version for rijndael-js - [Issue #365](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/365)
-* Fixed Uint to UInt (subsequent from #354)
-
-### 1.4.6-alpha.1 (2026-09-11)
-
-(git-kick)
-
-* Update Node.js version range at test-and-release workflow to 22, 24 and 26 - [PR #363](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/363)
-* Fixed missing NameSpace translation (subsequent from #356) - [PR #366](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/366)
-
-### 1.4.6-alpha.0 (2026-09-07)
+### 1.4.6 (2026-10-02)
 
 (smuenzel)
 * Add MYPV tags and fix datatypes of existing tags - [Issue #354](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/354)
@@ -556,6 +542,15 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 * Bump @tsconfig/node22 from 22.0.5 to 22.0.6 in the development-updates group  - [Issue #355](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/355)
 * Harden: fix rijndael-js security issue in package.json - [Issue #358](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/358) 
 * Bump serialize-javascript and @iobroker/testing - [Issue #360](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/360)
+* Update Node.js version range at test-and-release workflow to 22, 24 and 26 - [PR #363](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/363)
+* Fixed missing NameSpace translation (subsequent from #356) - [PR #366](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/366)
+* No specific version for rijndael-js - [Issue #365](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/365)
+* Fixed Uint to UInt (subsequent from #354)
+* Fixed issues reported by the ioBroker Check and Service Bot:
+  * ❗ [E0036] @iobroker/testing 6.1.0 specified. 6.2.1 is required as minimum, 6.2.2 (or newer) is current. Updated devDependencies at package.json - [Issue #368](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/368)
+  * 📌 [S4050] No valid email address found for copyright line in README.md - [Issue #368](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/368)
+  * 📌 [S4051] No valid email address found for copyright line in LICENSE - [Issue #368](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/368)
+  * 📌 [S0064] @iobroker/testing 6.2.2 specified. Newer version 6.3.0 exists. - subsequent of [E0036] in [Issue #368](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/368)
 
 ### 1.4.5 (2026-08-17)
 
@@ -599,28 +594,13 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
   * name space DCDC defaults to true (everybody has a DCDC converter)
 * Include [AlCalzone/release-script](https://github.com/AlCalzone/release-script)
 
-### 1.4.4
-
-(git-kick)
-* Wording (de): now "DC-DC-Wandler" instead of "DC-DC-Konverter"
-* Migrated to ESLint 9 and @iobroker/eslint-config - [Issue #246](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/246)
-* fixed errors reported by the ioBroker Check and Service Bot:
-  * \[W028\] now "node": ">=20" at package.json
-  * \[W037\] now "@iobroker/adapter-dev": "^1.4.0" at package.json
-  * \[W037\] now "@iobroker/testing": "^5.2.2" at package.json
-  * \[W037\] now "@alcalzone/release-script": "^5.0.0" at package.json
-  * \[W037\] now "@alcalzone/release-script-plugin-iobroker": "^4.0.0" at package.json
-  * \[W037\] now "@alcalzone/release-script-plugin-license": "^4.0.0" at package.json
-  * \[W037\] now "@alcalzone/release-script-plugin-manual-review": "^4.0.0" at package.json
-  * \[S0064\] now "@iobroker/adapter-dev": "^1.5.0" at package.json
-
 ## License  
 Copyright (c) 2026 Ulrich Kick <iobroker@kick-web.de>  
 ```
 					GNU GENERAL PUBLIC LICENSE
 					   Version 3, 29 June 2007
 
- Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>  
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>, <licensing@fsf.org>  
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
 

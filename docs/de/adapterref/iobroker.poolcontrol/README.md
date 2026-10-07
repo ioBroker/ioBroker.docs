@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.poolcontrol/README.md
 title: ioBroker.poolcontrol
-hash: MFaC10SPK6ybZZvrV3nx+Y80jzwRapdhyStn2PyUzZg=
+hash: My6Kw65yJiH3ebT6QQTY0uGYhzrfUTO879WsPZAMcaM=
 ---
 # ioBroker.poolcontrol
 
@@ -33,7 +33,10 @@ Es bietet Automatisierung für Pumpen, Heizung, Solar- und Photovoltaiksteuerung
   - Betriebsarten: Automatik, Automatik (PV), Manuell, Zeitsteuerung, Aus
   - Fehlererkennung (kein Stromverbrauch, Strom trotz AUS-Zustand, Überlastung)
   - Sicherheitsfunktionen (Frostschutz, Überhitzungsschutz)
-  - Prioritätsverantwortung und Helferkoordination
+  - `Off` und die Wartung sind harte Pumpenblöcke, auch für Sicherheitsfunktionen
+  - In `Manual` Sicherheitsfunktionen dürfen nur dann eingreifen, wenn `pump.manual_safety_enabled` ist aktiviert
+  - Außerhalb der aktiven Poolsaison kann der aktivierte Frostschutz weiterhin aktiv sein, während der Überhitzungsschutz durch Sonneneinstrahlung nur noch als Warnung dient.
+  - Prioritätsverantwortung und Koordination der Helfer
   - Leistungsempfehlungen für drehzahlvariable Pumpen
   - Lernfunktionen für Leistungs- und Flussverhalten (`pump.learning.*`)
 
@@ -45,7 +48,7 @@ Es bietet Automatisierung für Pumpen, Heizung, Solar- und Photovoltaiksteuerung
 - **Solar Control**
   - Ein-/Ausschaltschwellen des Kollektors mit Hysterese
   - Live-Kollektor-Oberflächen-Delta für Dashboards und Skripte
-  - Warnschwelle des Sammlers
+  - Warnschwelle des Datensammlers
   - Optionale Sprachausgabe für Warnungen
   - Automatische Rücksetzlogik
 
@@ -338,6 +341,56 @@ Der Quellcode dieses Projekts ist unter der MIT-Lizenz lizenziert. Details finde
 ---
 
 ## Changelog
+### 1.4.6 (2026-10-06)
+
+This release focuses primarily on stability, lifecycle safety and the reliability of runtime and temperature statistics.
+
+#### Runtime and circulation
+
+- Fixed the calculation of `circulation.daily_total` for pumps with variable power or flow rates.
+- Daily circulation volume is now accumulated interval by interval using the flow rate that was valid during each interval. Previously, a changing current flow rate could cause the already accumulated daily volume to be recalculated retroactively.
+- Same-day adapter restarts preserve the already accumulated daily circulation volume.
+- Unknown adapter downtime is not reconstructed or estimated.
+- Running pump intervals are handled correctly across the local midnight boundary.
+- No new states or migration are required.
+- On the day an existing installation is updated, the already calculated daily value is retained and the corrected calculation continues from the update onward. From the following full calendar day, the complete daily value is calculated using the new method.
+
+#### Temperature statistics
+
+- Fixed period handling for daily, weekly and monthly temperature statistics.
+- Corrected sensor activation handling used by the statistics helpers.
+- Daily, weekly and monthly statistics now handle period changes and adapter restarts more reliably.
+- Weekly statistics consistently use Monday through Sunday.
+- Added reliable period tracking for daily temperature minimum and maximum values.
+- Improved handling of restart, downtime and legacy persisted statistics so values from previous periods are not incorrectly assigned to the current period.
+
+#### Pump safety and ownership
+
+- Strengthened pump safety and ownership handling across automatic and manual operating modes.
+- Improved interaction between OFF mode, maintenance mode, frost protection and solar overheat protection.
+- Frost protection and manual safety behavior remain explicitly controlled by their configured safety settings.
+- Improved protection against conflicting helpers taking ownership of the pump.
+
+#### Lifecycle and stability
+
+- Hardened helper initialization, cleanup and re-initialization behavior.
+- Improved handling of late events and asynchronous operations during adapter startup and shutdown.
+- Added defensive handling for asynchronous state-router operations and detached helper tasks to prevent unhandled promise rejections.
+- Improved lifecycle stability in Solar Insights, Pool Insights, photovoltaic, heat, AI, chemistry, speech, debug logging and actuator handling.
+- Improved runtime, pump counter and startup-edge handling during initialization and re-initialization.
+
+#### Quality assurance
+
+- Added and extended regression coverage for lifecycle handling, pump safety, ownership, runtime circulation, temperature periods, state routing, AI/chemistry and state initialization.
+- Verified variable-flow circulation behavior, same-day and next-day restarts, midnight transitions and cleanup/re-initialization scenarios.
+
+#### TypeScript and code quality
+
+- Significantly improved TypeScript compatibility across PoolControl.
+- Added and extended centralized type definitions for helpers, adapter interfaces and internal state handling.
+- Improved JSDoc typing and type-safe contracts across many helpers without changing their existing runtime behavior.
+- Strengthened static validation to detect invalid state handling, lifecycle issues and unsafe asynchronous code paths earlier during development.
+
 ### 1.4.5 (2026-08-11)
 
 - Fixed a conflict between Auto-PV and Extended Solar control.
@@ -379,14 +432,7 @@ Der Quellcode dieses Projekts ist unter der MIT-Lizenz lizenziert. Details finde
   - Oversized solar logbook entries are now logged as debug instead of warning
   - This avoids unnecessary warning noise for non-critical diagnostic information
 
-### 1.4.1 (2026-06-30)
-
-- Fixed Auto-PV holding logic for already running pumps.
-- When Auto-PV already controls the pump, the current pump power is now considered for the holding decision.
-- This prevents a running pump from triggering its own Auto-PV afterrun/stop cycle after startup.
-- The displayed PV surplus (`photovoltaic.power_surplus_w`) remains the real remaining surplus and is not artificially adjusted.
-
 ## License
 Copyright (c) 2026 D. Bertin (DasBo1975) <dasbo1975@outlook.de>  
 
-MIT License
+MIT License - see [LICENSE](https://github.com/DasBo1975/ioBroker.poolcontrol/blob/main/LICENSE) for details.

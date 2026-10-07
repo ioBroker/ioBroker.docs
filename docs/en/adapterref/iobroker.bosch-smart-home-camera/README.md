@@ -962,6 +962,9 @@ HA stays the **reference implementation** — features land there first; the Pyt
 
 ## Changelog
 
+### 1.10.2 (2026-10-06)
+- Fixed: the Gen2 front-light white balance is now applied even while the light is off or at brightness 0. The value is held until the light is next switched on; if the light is on with cached brightness 0, the last non-zero brightness is restored. Writes are serialized per camera.
+
 ### 1.10.1 (2026-09-30)
 - Fixed: the direct local stream URL now uses `/rtsp_tunnel?line=1&inst=<1|2>&enableaudio=1` instead of `/live`, so the stream carries audio and follows the `stream_quality` setting (high = inst 1, low = inst 2).
 

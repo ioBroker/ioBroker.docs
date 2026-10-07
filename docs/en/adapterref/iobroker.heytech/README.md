@@ -28,6 +28,10 @@ Normaly you can leave the "Auto detect" function on. If this does not work you c
 ## Changelog
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 1.1.11 (2026-10-03)
+* chore(deps-dev): bump immutable from 3.8.3 to 3.8.4
+* chore(deps-dev): bump js-yaml from 4.3.1 to 4.3.2
+
 ### 1.1.10 (2026-09-03)
 * chore(deps-dev): bump browserslist from 4.28.2 to 4.28.8
 * chore(deps-dev): bump @humanfs/node from 0.16.7 to 0.16.8

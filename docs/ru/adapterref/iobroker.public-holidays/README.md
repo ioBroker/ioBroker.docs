@@ -14,7 +14,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.public-holidays/README.md
 title: Государственные праздники
-hash: cVtBSkH7gjzNvPv9Id54R6QiLKqomUHumEUKZHW8/mg=
+hash: av/CRM017sNkNfmR2Wap52YvmoR6Q2o+eqzaozIec7g=
 ---
 # Государственные праздники
 
@@ -30,7 +30,7 @@ hash: cVtBSkH7gjzNvPv9Id54R6QiLKqomUHumEUKZHW8/mg=
 
 1. Установите адаптер из репозитория ioBroker (стабильную или последнюю версию) и создайте экземпляр. Установка с URL-адреса GitHub не поддерживается.
 2. Откройте настройки экземпляра. Все настройки находятся на одной пошаговой карточке, которую нужно просмотреть сверху вниз.
-3. Сохраните. Адаптер немедленно производит вычисления и записывает полученные данные.
+3. Сохраните изменения, затем включите экземпляр — новый экземпляр запустится в выключенном состоянии, пока не будет выполнена настройка. Адаптер немедленно выполнит вычисления и запишет свои данные.
 
 ### Расположение
 
@@ -62,7 +62,7 @@ hash: cVtBSkH7gjzNvPv9Id54R6QiLKqomUHumEUKZHW8/mg=
 
 ### Праздники, длящиеся несколько дней
 
-Некоторые праздники длятся несколько дней — Новый год в России, Чхусок в Корее, Тет во Вьетнаме, Ид во многих странах. Каждый из этих дней имеет значение: `today.isHoliday` Это верно для каждого из них. `next` Отсчитывается следующий праздник после сегодняшнего, а не второй день того же праздника. Праздник, начинающийся вечером накануне (еврейские и исламские дни начинаются с наступлением сумерек), отсчитывается от первого полного дня.
+Некоторые праздники длятся несколько дней — Новый год в России, Чхусок в Корее, Тет во Вьетнаме, Ид во многих странах. Каждый из этих дней имеет значение: `today.isHoliday` Это верно для каждого из них. `next` Показывает следующий праздничный день — пока идет праздник, то есть его следующий день (день 2, день 3 и т. д.), ничего не пропускается. Праздник, начинающийся вечером накануне (еврейские и исламские дни начинаются с наступлением сумерек), отсчитывается от первого полного дня.
 
 ### Дни моста
 
@@ -102,7 +102,7 @@ hash: cVtBSkH7gjzNvPv9Id54R6QiLKqomUHumEUKZHW8/mg=
 | `next.date`                                           | нить                         | Дата его `YYYY-MM-DD` — машиночитаемый формат, не зависящий от формата вашего дисплея |
 | `next.daysUntil`                                      | число                        | До праздника осталось несколько дней.                                                |
 
-Все точки данных доступны только для чтения, и каждая из них содержит краткое пояснение на вашем языке, которое вы можете прочитать в дереве объектов. `next` смотрит строго вперед: праздник, который отмечается сегодня, появляется в `today` не в `next` — и то же самое относится к оставшимся дням праздника, который продолжается сегодня.
+Все точки данных доступны только для чтения, и каждая из них содержит краткое пояснение на вашем языке, которое вы можете прочитать в дереве объектов. `next` смотрит строго вперед: праздник, который отмечается сегодня, появляется в `today` не в `next`; следующий день после сегодняшнего праздника –`next`.
 
 Названия каналов и точек данных соответствуют системному языку ioBroker и обновляются при каждом запуске, в том числе и в случае обновлений, а не новой установки. Если вы переименуете одну из этих точек данных вручную, адаптер перезапишет её.
 
@@ -139,7 +139,16 @@ hash: cVtBSkH7gjzNvPv9Id54R6QiLKqomUHumEUKZHW8/mg=
     ### **WORK IN PROGRESS**
 -->
 
-### 0.18.0 (2026-09-25)
+### 0.20.0 (2026-10-02)
+
+- Changed: While a holiday lasting several days is running, the next holiday is its next day (day 2, day 3 …) instead of the following holiday.
+
+### 0.19.0 (2026-10-02)
+
+- Changed: New instances start switched off until you have set them up; existing instances keep running. The adapter now requires Admin 8.0.14, the current stable.
+- Fixed: The settings card recognises a state or region stored with surrounding spaces, as the adapter itself always did, instead of showing it as no longer available.
+
+### 0.18.0 (2026-09-25) — stable
 
 - Fixed: Holidays lasting several days now count on every day (Russian New Year, Chuseok, Tết, Eid …); the next holiday skips the rest of the one running today.
 - Fixed: Bridge days follow the country's own weekend (Friday and Saturday in Israel, Saudi Arabia, Egypt …) and come only from whole-day public and bank holidays.
@@ -168,15 +177,6 @@ hash: cVtBSkH7gjzNvPv9Id54R6QiLKqomUHumEUKZHW8/mg=
 - Fixed: A country written as a name instead of its code was rejected in the settings, although the same name worked when it came from the ioBroker system settings.
 - Fixed: Refreshed holiday data — Belgian holidays now carry English names, and the entries for Albania and Andorra were corrected.
 - Changed: Install the adapter from the ioBroker repository (stable or latest) — installing from GitHub is no longer supported.
-
-### 0.15.1 (2026-09-04)
-
-- Fixed: Installations kept whatever holiday data was already on the system, so corrections and new countries never arrived. An update now brings the current data along.
-
-### 0.15.0 (2026-09-04)
-
-- Fixed: With no holiday type enabled the adapter reported nothing without a word while the card still previewed a full year. Card and log now say it.
-- Changed: Channel and data point names are refreshed on every run, so renames reach updated installations too — a manual rename of them is overwritten.
 
 ## License
 

@@ -50,6 +50,8 @@ Every controllable action of a device is exposed as its own state:
 - `local.<device>.stop` - button, stops the current movement (writable).
 - `local.<device>.identify` - button, identifies the device (writable).
 - `local.<device>.drivingCause` / `.heartbeatError` / `.blocking` - status (read-only).
+- `local.<device>.connected` - reachability (read-only): false on a heartbeat error, while
+  blocking, or when the device returns no status (asleep or out of radio range).
 - `local.scenes.<scene>` - button, runs the scene (writable).
 
 The exact set of states per device depends on the actions the controller reports for it.
@@ -66,6 +68,15 @@ and channels. To control a channel change the `*Convert` values, e.g.:
 `wmswebcontrol.0.Markise.setting2Convert`
 
 ## Changelog
+
+### 1.0.1 (2026-10-07)
+
+- retry transient local status errors (0x50005/0x50004) up to three times so
+  intermittently reachable devices (e.g. awnings) report their state far more reliably
+- add a per-device `local.<device>.connected` state (false on a heartbeat error, while
+  blocking, or when the device returns no status)
+- log local command sends, confirmations and ignored writes; retry idempotent commands
+- log the local discovery retry cadence
 
 ### 1.0.0 (2026-09-23)
 

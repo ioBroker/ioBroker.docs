@@ -70,6 +70,8 @@ Fifth, the file `lib/web.js` (or whatever) must exist, and it must export a clas
 function ExtensionExample(server, webSettings, adapter, instanceSettings, app) {
     this.app         = app;
     this.config      = instanceSettings ? instanceSettings.native : {};
+    // "example.0" - the namespace of THIS instance, not the one of the web instance below
+    this.namespace   = instanceSettings._id.substring('system.adapter.'.length);
     const that       = this;
 
     // instanceSettings and this.config contain instance config (not web adapter, but this one with web-extension)
@@ -127,6 +129,22 @@ function ExtensionExample(server, webSettings, adapter, instanceSettings, app) {
 
 module.exports = ExtensionExample;
 ```
+
+### The data directory of your own instance
+
+`adapter` is the **web** instance that runs you, so `getAbsoluteInstanceDataDir(adapter)` answers with the
+directory of web, not with yours. Pass your own namespace instead - the helper takes one since
+`@iobroker/adapter-core` 3.3.1:
+
+```js
+const { getAbsoluteInstanceDataDir } = require('@iobroker/adapter-core');
+
+// .../iobroker-data/example.0
+const dataDir = getAbsoluteInstanceDataDir(this.namespace);
+```
+
+The same holds for everything else you would normally read off your own adapter object: `adapter` belongs
+to web, while `instanceSettings` is yours.
 
 `common.mode` could be:
 - `daemon` - the instance will be started, but if main.js returns `utils.EXIT_CODES.ADAPTER_REQUESTED_TERMINATION` as exit code, the instance will not be restarted.

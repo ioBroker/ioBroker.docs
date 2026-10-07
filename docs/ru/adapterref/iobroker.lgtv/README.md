@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lgtv/README.md
 title: ioBroker.lgtv
-hash: 2E+mYc5b5kAl00QQdTTxYXcymBKOxHXtU+3JdopSrNQ=
+hash: 9nxDWaotXqYsWDpHdueEL5u8WV57cd32C5e0YbP9GD0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lgtv/admin/lgtv.png)
 
@@ -193,20 +193,15 @@ hash: 2E+mYc5b5kAl00QQdTTxYXcymBKOxHXtU+3JdopSrNQ=
 
 Экземпляр должен быть запущен: когда он остановлен, клавиши отключены, и об этом сообщается на вкладке.
 
----
----
-
-## Установка
-Установите этот адаптер, используя репозитории ioBroker.
-
->[!NOTE] > Этот адаптер не поддерживает установку из GitHub.
-
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (mcm57) Fixed invalid state roles and read/write flags in object definitions
+
 ### 3.0.5 (2026-09-10)
 - (GermanBluefox) The instance settings have a second tab with a remote control, so the TV can be operated directly from the admin
 - (krobipd) `states.scroll` and `states.drag` no longer ignore a movement whose horizontal or vertical part is zero, so plain vertical scrolling (`0,5`) works

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.evcc/README.md
 title: ioBroker.evcc
-hash: FbijKXH93Hk/6+fuGZFL0nvc9VprAPqpl0XBcGgsGzE=
+hash: E4kx+OqH3dq0I2dJq8IWxjrTJGxQYP/X9ePHv6k+ixA=
 ---
 ![Logo](../../../en/adapterref/iobroker.evcc/admin/evcc.png)
 
@@ -22,11 +22,32 @@ Steuerung von EVCC über die REST-API
 
 Forum: <https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc>
 
+## Lademodus (evcc >= 0,316,0)
+
+evcc 0.316.0 hat den Modus umbenannt `pv` Zu `smart` und ersetzt `minpv` mit der separaten Einstellung `alwaysCharge` ( [evcc PR #32490](https://github.com/evcc-io/evcc/pull/32490) ). Der Adapter erkennt die evcc-Version automatisch und funktioniert auch mit älteren Versionen.
+
+| Zustand                                     | Werte                                                  | Notiz                                                                              |
+| ------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| `loadpoint.X.control.off` /`.now` /`.smart` | Taste                                                  | Modus einstellen                                                                   |
+| `loadpoint.X.control.alwaysCharge`          | `off`, `on`, `once`                                    | evcc >= 0.316.0 only, `once` Wird zurückgesetzt, wenn das Fahrzeug abgeklemmt wird. |
+| `loadpoint.X.control.pvControl`             | `0` aus, `1` schlau, `2` Smart + immer aufladen `3` Jetzt | spiegelt nun auch den aktuellen EVCC-Modus wider.                                  |
+| `loadpoint.X.control.pv` /`.min`            | Taste                                                  | veraltet, zugeordnet zu smart + alwaysCharge aus / ein                             |
+
+**Fehler bei Skripten/Visualisierungen:** mit evcc >= 0.316.0, `loadpoint.X.status.mode` Berichte `smart` anstatt `pv` /`minpv`. Verwenden `loadpoint.X.status.alwaysCharge` oder `loadpoint.X.control.pvControl` um den früheren min+pv-Modus zu unterscheiden.
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (arteck) Dependencies have been updated
+
+### 0.3.0 (2026-10-02)
+* (Schimi1983) support evcc 0.316 mode redesign: new `control.smart` and `control.alwaysCharge`, `pvControl` reflects the evcc mode
+* (Schimi1983) fix: request timeout was sent as POST body and never applied
+* (arteck) Dependencies have been updated
 
 ### 0.2.10 (2026-07-15)
 * (arteck) add configurable weather forcast grid
@@ -40,64 +61,6 @@ Forum: <https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc>
 ### 0.2.7 (2026-03-09)
 * (arteck) delete big arrays feedin, grid, planner
 * (arteck) refactor tests
-
-### 0.2.6 (2026-02-13)
-* (arteck) fix set minSoc
-
-### 0.2.5 (2026-02-13)
-* (arteck) fix  vehicle control
-
-### 0.2.4 (2025-10-30)
-* (arteck) add batteryGridChargeLimit
-* (arteck) add smartcostlimit control
-
-### 0.2.3 (2025-07-16)
-* (arteck) simplify json response by removing result wrapper, see https://github.com/evcc-io/evcc/pull/22299
-
-### 0.2.2 (2025-04-27)
-* (arteck) corr dissolve folders
-
-### 0.2.1 (2025-04-27)
-* (arteck) consolidate off, min, pv, now buttons to select object
-* (arteck) update dependencies
-
-### 0.2.0 (2025-03-10)
-* (arteck) BREAKING CHANGE - check settings for status folder
-* (arteck) new generate the status folder (Status folder must be deleted manually) then restart the adapter
-
-### 0.1.1 (2024-01-07)
-* (Newan) add batteriemangement
-* (Newan) add Soc limit to loadpoint
-* (Newan) change vehicle on loadpoint
-
-### 0.1.0 (2023-12-30)
-* (Newan) rewrite for evcc api changes
-* (Newan) add multiple vehicle
-
-### 0.0.10 (2023-06-14)
-* (arteck) generate dynamic objects
-* (Newan) typo fixes
-
-### 0.0.8 (2023-05-09)
-* (Newan) fix for minSoc & targetSoc
-
-### 0.0.7 (2023-01-15)
-* (Newan) Update for evcc 1.11.x
-* (Newan) Bugfix #4, change SoC names
-
-### 0.0.5 (2022-10-14)
-* (Newan) update for latest-repository
-
-### 0.0.4 (2022-08-08)
-* (Newan) first release
-
-### 0.0.3 (2022-05-21)
-* (Newan) support evcc 0.9X - change to jsonConfig GUI
-
-### 0.0.2 (2021-11-07)
-* (Newan) initial release
-
-[Older changelogs can be found there](https://github.com/Newan/ioBroker.evcc/blob/main/CHANGELOG_OLD.md)
 
 ## License
 MIT License

@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.philips-air/README.md
 title: ioBroker.philips-air
-hash: XfPvywUE2JucQRIzks805jneWi4XPg9ODC7Moug2knQ=
+hash: A/586oDeLSas24NkEsiDfUlJrY/t8lAmtBfWKiNxFlI=
 ---
 ![Logo](../../../en/adapterref/iobroker.philips-air/admin/philips-air.png)
 
@@ -26,7 +26,7 @@ Verbindet Philips Luftreiniger und ausgewählte Philips/Versuni Ventilatoren mit
 
 ## Verwendung
 
-Geben Sie die IP-Adresse oder den Hostnamen Ihres Geräts ein. Sie finden diese Informationen in Ihrem Router, wo das Gerät häufig unter folgendem Namen angezeigt wird: `MiCO` Die meisten Geräte sind über CoAP erreichbar, was die Standardeinstellung ist. Einige ältere Geräte, wie z. B. der AC2729 und der AC3829, antworten nur über HTTP. Falls keine Verbindung hergestellt werden kann, ändern Sie das Protokoll in den Instanzeinstellungen. Wählen Sie anschließend Ihr Gerätemodell aus, damit der Adapter die passenden Steuerelemente für Ihr Gerät erstellt. Falls Ihr Modell nicht in der Liste enthalten ist, wählen Sie `Generic` Sie erhalten weiterhin alle schreibgeschützten Werte, jedoch keine modellspezifischen Steuerelemente. Es kann vorkommen, dass ein Gerät nicht alle Variablen meldet; diese bleiben im Objektbaum leer. Rohwerte, die der Adapter nicht erkennt, werden unter folgendem Pfad gesammelt: `unknownStates` Die
+Geben Sie die IP-Adresse oder den Hostnamen Ihres Geräts ein. Sie finden diese Informationen in Ihrem Router, wo das Gerät häufig unter folgendem Namen angezeigt wird: `MiCO` Die meisten Geräte sind über CoAP erreichbar, was die Standardeinstellung ist. Einige ältere Geräte, wie z. B. der AC2729 und der AC3829, antworten nur über HTTP. Falls keine Verbindung hergestellt werden kann, ändern Sie das Protokoll in den Instanzeinstellungen. Wählen Sie anschließend Ihr Gerätemodell aus, damit der Adapter die passenden Steuerelemente für Ihr Gerät erstellt. Eine neue Instanz beginnt mit `Generic` Sie erhalten alle schreibgeschützten Werte, aber keine Steuerelemente, bis Sie ein Modell auswählen. `Generic` ist auch dann die richtige Wahl, wenn Ihr Modell nicht in der Liste enthalten ist. Es kann vorkommen, dass ein Gerät nicht alle Variablen meldet; diese bleiben im Objektbaum leer. Rohwerte, die der Adapter nicht erkennt, werden unter folgendem Pfad gesammelt: `unknownStates` Die
 
 ### Die beiden Zeiteinstellungen
 
@@ -41,19 +41,19 @@ Beide Werte werden in Millisekunden angegeben und müssen nur selten geändert w
 
 ### Welches Gerätemodell soll ich auswählen?
 
-| Ihr Gerät                                                                                                        | Zu wählendes Modell |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------- |
-| AC2889 und die anderen klassischen Luftreiniger, zum Beispiel AC1214, AC2729, AC2939, AC3059, AC3829 oder AC4236 | `AC2889`            |
-| AC3221                                                                                                           | `AC3221`            |
-| Standventilator CX3550/01                                                                                        | `CX3550`            |
-| CX7550/01 Turmventilator                                                                                         | `CX7550`            |
-| Alles andere, oder wenn Sie sich unsicher sind                                                                   | `Generic`           |
+| Ihr Gerät                                                                                                        | Modell auswählen |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------- |
+| AC2889 und die anderen klassischen Luftreiniger, zum Beispiel AC1214, AC2729, AC2939, AC3059, AC3829 oder AC4236 | `AC2889`         |
+| AC3221                                                                                                           | `AC3221`         |
+| Standventilator CX3550/01                                                                                        | `CX3550`         |
+| CX7550/01 Turmventilator                                                                                         | `CX7550`         |
+| Alles andere, oder wenn Sie sich unsicher sind                                                                   | `Generic`        |
 
 Die klassischen Wasserreiniger melden alle die gleichen einfachen Schlüssel (`pwr`, `om`, `mode` usw.), weshalb ein Eintrag die gesamte Produktfamilie abdeckt. Bisher auf realer Hardware bestätigt: AC2729, AC2889, AC3221, AC3829, AC4236/14, CX3550/01 und CX7550/01.
 
 Die Modellnummer allein sagt nichts über den Registersatz aus: Der AC4236/14 hat eine höhere Nummer als der AC3221, ist aber dennoch ein klassisches Gerät und benötigt `AC2889` Wählen Sie den Eintrag, der mit den von Ihrem Gerät gemeldeten Schlüsseln übereinstimmt, und nicht den, der dem Namen am ähnlichsten sieht.
 
-Wenn Sie sich unsicher sind, wenden Sie sich an `Generic` Schauen Sie sich zunächst die Rohschlüssel unter `unknownStates`: einfache Namen wie `pwr` oder `pm25` gemeint ist ein klassisches Gerät, Tasten wie z. B. `D03102` Dies bedeutet, dass es sich um ein Gerät der nächsten Generation handelt. Sollte Ihr Gerät ein solches Modell sein, das nicht in der Liste aufgeführt ist, erstellen Sie bitte ein Ticket mit einem Debug-Log – so wurden beispielsweise der CX7550/01 und der AC3221 hinzugefügt.
+Wenn Sie sich unsicher sind, wenden Sie sich an `Generic` Schauen Sie sich zunächst die Rohschlüssel unter `unknownStates` einfache Namen wie z. B. `pwr` oder `pm25` gemeint ist ein klassisches Gerät, Tasten wie z. B. `D03102` Dies bedeutet, dass es sich um ein Gerät der nächsten Generation handelt. Sollte Ihr Gerät ein solches Modell sein, das nicht in der Liste aufgeführt ist, erstellen Sie bitte ein Ticket mit einem Debug-Log – so wurden beispielsweise der CX7550/01 und der AC3221 hinzugefügt.
 
 ![Objekte](../../../en/adapterref/iobroker.philips-air/img/objects.png)
 
@@ -99,6 +99,12 @@ Weitere Details sind in [docs/CX7550.md](/#/docs/adapterref/iobroker.philips-air
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (tt-tom17) A new instance now starts with the device model "Generic" (read-only values, no controls) instead of silently using the AC2889 controls; instances that already have a model keep it
+- (tt-tom17) With the device model "Generic" the log now names the model your device looks like, so you know which one to select
+- (tt-tom17) Dependencies updated
+
 ### 2.2.0 (2026-09-08)
 
 - (tt-tom17) Added the combined allergen/sleep preset ("Allergie-/Ruhemodus") reported by the AC4236/14 (VMI1)
@@ -148,13 +154,8 @@ Weitere Details sind in [docs/CX7550.md](/#/docs/adapterref/iobroker.philips-air
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (mcm1957) Dependencies have been updated
 
-  
-
-[Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.philips-air/blob/master/CHANGELOG_OLD.md)
-
 ## License
 MIT License
-
 
 Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>

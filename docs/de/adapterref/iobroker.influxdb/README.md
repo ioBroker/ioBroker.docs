@@ -93,6 +93,60 @@ Logging des Datenpunktes aktivieren Nur Änderungen aufzeichnen: Es werden nur W
     1.  Weitere Parameter wie „nur Änderungen“ und Vorhaltezeit für alle gefilterten Datenpunkte einheitlich auswählen
 5.  Die Änderungen speichern
 
+### <span id="Benutzerdefinierte_Tags">Benutzerdefinierte Tags</span>
+
+Jeder Datenpunkt kann zusätzliche, feste InfluxDB-Tags mitschreiben. Sie werden in den Einstellungen des Datenpunkts unter „Benutzerdefinierte Tags“ als Liste von Name/Wert-Paaren eingetragen und mit jedem Wert dieses Datenpunkts geschrieben – sowohl für InfluxDB 1.x als auch 2.x und unabhängig von der Einstellung „Metadaten als Tags statt als Felder speichern“.
+
+Damit lassen sich die Werte verschiedener Datenpunkte nach ihrer Bedeutung statt nach ihrer ID auswählen und gruppieren, z.B. alle Datenpunkte der Küche mit `room=kitchen` und alle Temperaturfühler mit `type=temperature`. In Grafana kann dann danach gefiltert oder gruppiert werden:
+
+```
+from(bucket: "iobroker")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r._field == "value" and r.type == "temperature")
+  |> group(columns: ["room"])
+```
+
+Bitte beachten:
+
+-   Die Namen `value`, `q`, `ack`, `from` und `time` sowie Namen, die mit `_` beginnen, sind reserviert und können nicht verwendet werden. Zeilen ohne Namen oder ohne Wert werden ignoriert, ignorierte Tags werden als Warnung ins Log geschrieben.
+-   InfluxDB identifiziert eine Serie über die Messung und alle ihre Tags. Ändert man die Tags eines Datenpunkts, beginnt deshalb eine neue Serie; die vorher geschriebenen Werte behalten ihre alten Tags. Bei InfluxDB 2.x aggregiert ein `getHistory` über einen Zeitraum, in dem sich die Tags geändert haben, jede Serie für sich – ein solcher Zeitraum kann also zwei Werte pro Intervall enthalten. Die Tags am besten setzen, bevor das Logging beginnt.
+-   Jeder Datenpunkt wird weiterhin in eine eigene Messung geschrieben (seine ID bzw. seine `Alias-ID`). Dieselbe `Alias-ID` für mehrere aktive Datenpunkte zu verwenden, wird nicht unterstützt.
+
+Die Tags können auch per JavaScript über die Nachricht `enableHistory` gesetzt werden:
+
+```javascript
+sendTo('influxdb.0', 'enableHistory', {
+    id: 'hm-rpc.0.ABC123.1.TEMPERATURE',
+    options: {
+        customTags: [
+            { name: 'room', value: 'kitchen' },
+            { name: 'type', value: 'temperature' },
+        ],
+    },
+});
+```
+
+* * *
+
+## <span id="Statistik">Statistik und Aufräumen</span>
+
+Der Reiter **Statistik** in der Instanzkonfiguration listet jeden Datenpunkt auf, den die Datenbank enthält – mit der Anzahl der Werte, dem ältesten und dem neuesten Wert, der Anzahl der Serien und einem Status:
+
+| Status | Bedeutung |
+| --- | --- |
+| wird geloggt | Das Objekt existiert und diese Instanz loggt es |
+| Logging aus | Das Objekt existiert noch, das Logging ist aber ausgeschaltet – die Historie ist weiterhin erreichbar |
+| Objekt gelöscht | Das Objekt wurde in ioBroker gelöscht, an seine Historie kommt niemand mehr heran |
+
+Zwei Dinge sind zu den Zahlen wichtig:
+
+-   **Es gibt keine Größe pro Datenpunkt.** InfluxDB liefert sie nicht, weder in 1.x (`SHOW STATS` und `SHOW SHARDS` kennen nur Engine und Shards) noch in 2.x (der Plattenverbrauch wird pro Bucket überwacht). Stattdessen wird die Anzahl der **Serien** angezeigt: sie bestimmt den Speicherbedarf des Index, und benutzerdefinierte Tags sind der übliche Weg, sie unbeabsichtigt zu erhöhen.
+-   **Zählen ist ein voller Scan.** InfluxDB hat keine Zeilenanzahl, die es nachschlagen könnte, also werden die Werte des untersuchten Zeitraums tatsächlich gelesen. Bei einer Datenbank mit Daten aus mehreren Jahren dauert das – die Zeitraumauswahl über der Tabelle begrenzt den Scan, wenn die Gesamtzahl nicht gebraucht wird.
+
+Das Aufräumen entfernt die gespeicherten Werte von Datenpunkten, die niemand mehr loggt. **Ohne Bestätigung wird nichts gelöscht**: der Dialog zeigt zuerst, was ein bestätigter Lauf entfernen würde. Standardmäßig sind nur Objekte ausgewählt, die es in ioBroker nicht mehr gibt. Datenpunkte mit lediglich ausgeschaltetem Logging werden nur einbezogen, wenn man das ausdrücklich ankreuzt – ihre Historie ist noch erreichbar und oft gewollt. Ein Datenpunkt, der gerade geloggt wird, wird nie ausgewählt.
+
+Dieselben Daten sind auch per JavaScript über die Nachrichten `getDpStatistics` und `cleanupOrphaned` erreichbar, siehe [README](https://github.com/ioBroker/ioBroker.influxdb/blob/master/README.md#statistics-and-cleanup).
+
 * * *
 
 ## <span id="Bedienung">**Bedienung**</span>
@@ -104,46 +158,6 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 ## Installation einer influxDB Datenbank
 
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
-
-## Changelog
-### 5.0.5 (2026-10-01)
-* (@GermanBluefox) Corrected boolean aggregation
-
-### 5.0.4 (2026-08-28)
-* (@GermanBluefox) Fixed Grafana not finding the InfluxDB running next to it in Docker: the provisioned data source pointed at `iob_influxdb_<instance>`, while the container was named `iob_influxdb_<instance>_flux_data` because the compose file gave it a name of its own. Inside the shared network only the container name resolves, so the data source could not connect. The influx service uses the default name of the instance now - the name the data source and `testConnection()` both expect
-* (@GermanBluefox) Fixed the port of that data source: it used the port published on the host, although Grafana reaches InfluxDB inside the docker network, where the container port 8086 applies. The data source broke as soon as the port was changed in the settings
-* (@GermanBluefox) Fixed the Grafana container never being started when Grafana is enabled and InfluxDB is not: the plugin waits for the readiness signal of the adapter before it starts any container of the instance, and that signal was only sent when both were switched on. That state is reachable by switching InfluxDB off afterwards - the Grafana checkbox is hidden then, but its stored value stays
-* (@GermanBluefox) The "automatic image update" setting of Grafana had no effect: the compose file never passed it on to the plugin
-* (@GermanBluefox) **Existing installations with InfluxDB in Docker have to remove the old container once**, because it is renamed by the first fix: `docker rm -f iob_influxdb_<instance>_flux_data`. It still holds the published port, so the correctly named container cannot start next to it. The data is not affected - it lives in the volumes, which keep their names
-
-### 5.0.3 (2026-08-27)
-* (@GermanBluefox) Errors are logged with more detail: error code, `cause` and a driver-specific error name (`HttpError`, `ServiceNotAvailableError`) are shown now, and a nested error without a message no longer degrades to `{}` (same implementation as in the SQL adapter)
-* (@GermanBluefox) A switched-off or unreachable InfluxDB no longer floods the log (and syslog): a connection error is now recognized by its error code - Node reports a failed TCP connect as an `AggregateError` with an empty message, which no check could match before - so the points are buffered and a reconnect is scheduled instead of retrying every single point. The repeated error is logged once and afterwards only once an hour
-* (@GermanBluefox) `getHostsAvailable()` reports the real state again: it returned a hardcoded `1` since the TypeScript port, so every "host not available" check in the adapter was dead code. After a connection error the host is now taken out of rotation for a short backoff and values are buffered instead of being written - and logged - point by point
-* (@GermanBluefox) A failing buffer flush inside the interval timer no longer produces an unhandled promise rejection, which terminates the adapter process on current Node.js versions
-* (@GermanBluefox) `storeState` answers with an error again if a value cannot be stored (`null`, `NaN`, or a non-numeric value for a `Number` datapoint) instead of reporting `success: true` and silently discarding it; on the state-change path such a value is still logged only once per datapoint
-* (@GermanBluefox) The warning about an `undefined` state value is logged only once per datapoint as well
-
-### 5.0.2 (2026-08-26)
-* (@GermanBluefox) Added the data browser to the configuration, so the stored values can be viewed, edited and deleted.
-* (@GermanBluefox) The aggregation is used now from `@iobroker/aggregate` and is shared with the history and SQL adapters.
-* (@joltcoke) Fixed average and total returning null for every interval that contains a null value: parseFloat(null) is NaN and poisoned the sum of the whole interval (thanks to @joltcoke, ioBroker/ioBroker.sql#526). As the result was NaN and not null, ignoreNull could not act on it either
-* (@joltcoke) Fixed min returning a wrong value if the interval contains a null, minmax losing the minimum if the interval starts with a null, and percentile/quantile counting a null as 0
-
-### 5.0.1 (2026-08-15)
-* (@GermanBluefox) Completely refactored the code to TypeScript and ES6
-* (@GermanBluefox) Added possibility to start docker containers directly from the adapter
-* (mcm1957) Adapter requires admin >= 7.7.2 now
-* (arteck) Fixed the connection handling for InfluxDB 1.x: the health check (ping) and the automatic reconnect were never started
-* (arteck) Fixed the loss of buffered values if the writing was running while new values arrived or if the write failed
-* (arteck) Values are no longer written twice if they are written directly (buffer size 0 or conflicting points)
-* (arteck) State IDs and database names are now escaped in the queries
-* (arteck) The password/token is no longer written into the log by the connection test
-* (arteck) The settings "request timeout" and "validate SSL" are now used for InfluxDB 1.x too
-* (arteck) Fixed the cache file name if more than one instance runs in the compact mode
-* (arteck) Fixed the aggregation for `percentile: 100`/`quantile: 1` and the last value of `integralTotal`
-* (bluefox) Fixed empty charts for the aggregation `onchange` ("raw" in e-charts): it was run through the interval aggregation and returned only `null` values
-* (@GermanBluefox) Minimal node.js version is 22
 
 ## License
 

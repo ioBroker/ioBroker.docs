@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.schedule-switcher/README.md
 title: ioBroker.schedule-switcher
-hash: ZhkW+WSpllScxR0az3H7OFC3Kutdg+Pin4Gw4TZWs5M=
+hash: GOJGxXFLqzDwHYd7ENuWlIIdbTBPvWYJ6eifYmfFS3Y=
 ---
 ![логотип](../../../de/admin/schedule-switcher.png)
 
@@ -218,7 +218,7 @@ hash: ZhkW+WSpllScxR0az3H7OFC3Kutdg+Pin4Gw4TZWs5M=
 }
 ```
 
-# Пример: Создание или редактирование триггера с помощью функции sendTo (эксперты)
+# Пример: Создание или редактирование триггера с помощью функции sendTo (для экспертов)
 
 [Краткое содержание](#zusammenfassung)
 
@@ -401,7 +401,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 - Выберите идентификатор для получения схематических данных.
 - Выберите идентификатор активации расписания.
-- Выберите идентификатор переключаемого состояния (максимум 10 возможных).
+- Выберите идентификатор переключаемого состояния (максимум 10 вариантов).
 
 ![create\_widget\_stateid.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_stateid.png)
 
@@ -425,7 +425,11 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 [Краткое содержание](#zusammenfassung)
 
-- Установить условие.
+- Создайте условие
+- Используя константу, в редакторе VIS необходимо определить только одно условие. Состояние сохраненного идентификатора объекта проверяется на соответствие этой константе. Если константа больше или меньше идентификатора объекта, идентификатор объекта проверяется на соответствие константе (Состояние > Константа || Состояние < Константа).
+- При отсутствии константы в редакторе VIS необходимо определить как минимум два условия. Идентификатор верхнего объекта и идентификатор нижнего объекта не должны совпадать. При сравнении идентификаторов верхнего и нижнего объектов проверяется их соответствие (верхний > нижний || верхний < нижний).
+- Если в редакторе VIS не был указан идентификатор объекта, текст «Нет условия» отображается красным цветом.
+- Объект для указания размера (больше/меньше) должен быть типа NUMBER!!!
 
 ![create\_widget\_select\_condition.png](../../../de/adapterref/iobroker.schedule-switcher/img/create_widget_select_condition.png)
 
@@ -604,19 +608,19 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 
 [Краткое содержание](#zusammenfassung)
 
-- `html.background_color_body` Цвет фона основного содержимого. Для VIS — всё изображение; для VIS-2 — только виджет (по умолчанию #000000).
+- `html.background_color_body` Цвет фона основного содержимого. Для VIS — всего содержимого; для VIS-2 — только виджета — по умолчанию #000000
 - `html.background_color_even` Срабатывание триггера цвета фона по четному числу - по умолчанию #1E1E1E
 - `html.background_color_odd` Срабатывание триггера цвета фона: нечетное число - значение по умолчанию #18171C
 - `html.background_color_trigger` Цвет фона объекта-триггера — по умолчанию #000000
 - `html.background_color_weekdays_hover` Цвет фона при наведении курсора мыши на дни недели — активация/деактивация по щелчку мыши — по умолчанию синий.
 - `html.column_align_01` Выравнивание текста заголовка в столбце 1 — по центру (стандартное).
-- `html.column_align_02` Выравнивание текста заголовка по столбцу 2 — по центру (стандартное).
+- `html.column_align_02` Выравнивание верхнего колонтитула во втором столбце — по центру (стандартное).
 - `html.column_align_03` Выравнивание верхнего колонтитула (3 столбца) - по центру (стандартное).
 - `html.column_align_04` Выравнивание текста заголовка по столбцу 4 — по центру (стандартное).
-- `html.column_align_05` Выравнивание текста заголовка по столбцу 5 — стандартное выравнивание по центру.
+- `html.column_align_05` Выравнивание текста заголовка по столбцу 5 — по центру (стандартное).
 - `html.column_align_06` Выравнивание верхнего колонтитула по центру (6 столбцов)
 - `html.column_align_07` Выравнивание верхнего колонтитула (7 столбцов) - по центру (стандартное).
-- `html.column_align_08` Выравнивание верхнего колонтитула (8 столбцов) - по центру (стандартное).
+- `html.column_align_08` Выравнивание текста заголовка по 8 столбцам - по центру (стандартное).
 - `html.column_align_09` Выравнивание текста заголовка по 9 столбцам - по центру (стандартное).
 - `html.column_align_10` Выравнивание верхнего колонтитула (10 столбцов) - по центру (стандартное).
 - `html.column_text_01` Заголовочный текст, столбец 1 - Стандартный график
@@ -637,7 +641,7 @@ sendTo("schedule-switcher.0", "change-active", { // Zeitplan ohne Widget aktiv l
 - `html.column_width_06` Ширина столбца 6 - Стандартный автоматический режим
 - `html.column_width_07` Ширина столбца 7 - Стандартный автоматический режим
 - `html.column_width_08` Ширина столбца 8 - Стандартный авто
-- `html.column_width_09` Ширина столбца 9 - Стандартный автоматический режим
+- `html.column_width_09` Ширина столбца 9 - Стандартный авто
 - `html.column_width_70` Ширина столбца 10 - Стандартный авто
 - `html.font_color_text_disabled` Цвет текста отключенного объекта — по умолчанию красный.
 - `html.font_color_text_enabled` Цвет текста активированного объекта — по умолчанию жёлтый.
@@ -904,6 +908,14 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Condition crash fixed
+- (Lucky-ESA) Selection condition (greater than/less than) added
+- (Lucky-ESA) Fixed: widgetOverview object is empty
+- (Lucky-ESA) Fixed some errors
+
 ### 0.2.1 (2026-07-09)
 
 - (Lucky-ESA) Fixed refresh astrotime

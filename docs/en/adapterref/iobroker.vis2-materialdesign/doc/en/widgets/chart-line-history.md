@@ -58,7 +58,7 @@ check recording and the selected range first, then increase Chart timeout.
 - `steppedLine` draws state changes as steps instead of direct connections.
 - Fill color shades the area below a line; without a custom fill color, a transparent line color is used.
 - Newly configured datasets share one Y axis by default. Its position, title and limits come from the first dataset group. Empty min/max fields retain automatic scaling.
-- X-axis time format uses Moment format tokens, for example `HH:mm` for a 24-hour display. The same format is applied to seconds, minutes, hours and days.
+- X-axis time format uses Moment format tokens, for example `HH:mm` for a 24-hour display. The same format is applied to seconds, minutes, hours and days. A per-unit list as vis-materialdesign stored it, for example `{"minute":"H:mm","day":"ddd DD."}`, is read too: the axis takes the format of the unit that fits the spacing of its labels.
 - The X-axis labels take a color, font and font size of their own, the way the Y-axis labels always did. Left empty, the chart defaults apply.
 - Tooltip mode `index` compares datasets at the same X value; `nearest` shows the closest point.
 - The value labels on the points sit in the same dataset group as the line, background, border and corner radius included, see [Values drawn on the chart](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/charts.md#values-drawn-on-the-chart).

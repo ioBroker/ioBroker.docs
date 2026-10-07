@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lgtv/README.md
 title: ioBroker.lgtv
-hash: 2E+mYc5b5kAl00QQdTTxYXcymBKOxHXtU+3JdopSrNQ=
+hash: 9nxDWaotXqYsWDpHdueEL5u8WV57cd32C5e0YbP9GD0=
 ---
 ![Logo](../../../en/adapterref/iobroker.lgtv/admin/lgtv.png)
 
@@ -34,7 +34,7 @@ Manche Fernseher trennen die Verbindung zum WebSocket, wenn sie ausgeschaltet we
 ## Einige Beispiele:
 `setState('lgtv.0.states.popup', 'Some text!');`
 
-Auf dem Fernseher wird ein Popup mit dem Text „Etwas Text!“ angezeigt.
+Auf dem Fernseher erscheint ein Popup mit dem Text „Etwas Text!“.
 Sie können im Text HTML-Zeilenumbrüche (br) verwenden.
 
 `setState('lgtv.0.states.turnOff', true);`
@@ -193,20 +193,15 @@ Es schreibt dieselben `remote.*`-Zustände wie das obige Widget und zeigt den Be
 
 Die Instanz muss ausgeführt werden: Solange sie gestoppt ist, sind die Tasten deaktiviert und die Registerkarte zeigt dies an.
 
----
----
-
-## Installation
-Installieren Sie diesen Adapter mithilfe der ioBroker-Repositories.
-
->[!NOTE] > Dieser Adapter unterstützt keine Installation von GitHub.
-
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (mcm57) Fixed invalid state roles and read/write flags in object definitions
+
 ### 3.0.5 (2026-09-10)
 - (GermanBluefox) The instance settings have a second tab with a remote control, so the TV can be operated directly from the admin
 - (krobipd) `states.scroll` and `states.drag` no longer ignore a movement whose horizontal or vertical part is zero, so plain vertical scrolling (`0,5`) works

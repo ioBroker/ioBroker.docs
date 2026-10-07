@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.md"},"en/adapterref/iobroker.e3oncan/lib/data-points.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/lib/data-points.md"},"en/adapterref/iobroker.e3oncan/README.de.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.de.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.md"},"en/adapterref/iobroker.e3oncan/lib/data-points.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/lib/data-points.md"},"en/adapterref/iobroker.e3oncan/README.de.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.de.md"},"en/adapterref/iobroker.e3oncan/docs/raw-gateway-api.md":{"title":{"en":"Raw-Gateway-API (open3e-esp32 ↔ ioBroker.e3oncan)"},"content":"en/adapterref/iobroker.e3oncan/docs/raw-gateway-api.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: +uy+tiG+gsMcz3Zi/O0vgXsjFzKBQ0Z6nb5DfYvFNQg=
+hash: HF1s8YnkWbNmBJ7gGdvZ0IWtVerpmD9HBSHUk3OTscE=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -26,11 +26,11 @@ hash: +uy+tiG+gsMcz3Zi/O0vgXsjFzKBQ0Z6nb5DfYvFNQg=
 ## Inhaltsverzeichnis
 
 - [Überblick](#overview)
-- [Was ist neu in Version 1.0.3?](#whats-new-in-v103)
-- [Was ist neu in Version 1.0.0?](#whats-new-in-v100)
+- [Was ist neu in Version 1.2.0?](#whats-new-in-v120)
 - [Schnellstart](#quick-start)
 - [Konfigurationsleitfaden](#configuration-guide)
   - [Schritt 1 – CAN-Adapter](#step-1--can-adapter)
+  - [Alternative: open3e-esp32-Gateway](#alternative-open3e-esp32-gateway)
   - [Schritt 2 – Gerätescan und Energiezählererkennung](#step-2--device-scan-and-energy-meter-detection)
   - [Schritt 3 – Datenpunktscan](#step-3--data-point-scan)
   - [Schritt 4 – Aufgaben und Zeitpläne](#step-4--assignments-and-schedules)
@@ -38,6 +38,7 @@ hash: +uy+tiG+gsMcz3Zi/O0vgXsjFzKBQ0Z6nb5DfYvFNQg=
 - [Registerkarte „e3oncan-Datenpunkte“](#e3oncan-datapoints-tab)
 - [Lesedatenpunkte](#reading-data-points)
 - [Schreiben von Datenpunkten](#writing-data-points)
+- [Rohschnittstelle des Gateways](#raw-interface-of-the-gateway)
 - [Datenpunkte und Metadaten](#data-points-and-metadata)
 - [Energiezähler](#energy-meters)
   - [E380-Daten und -Einheiten](#e380-data-and-units)
@@ -65,77 +66,19 @@ Welche Modi verfügbar sind, hängt von Ihrer Gerätetopologie ab. Details dazu 
 
 ---
 
-## Was ist neu in Version 1.1.1?
+## Was ist neu in Version 1.2.0?
 
-### Aktualisierte Datenpunktdefinitionen
+### Nur ein ESP32 am CAN-Bus, alles läuft über TCP/IP.
 
-Die Definitionen der Datenpunkte wurden auf Version 20260705 (allgemein) und 20260630 (Variante) aktualisiert.
+Mit dem [open3e-esp32-](https://github.com/boonkerz/open3e-esp32) Gateway benötigt der Viessmann CAN-Bus lediglich einen ESP32 mit CAN-Transceiver. Der ioBroker-Host benötigt keinen CAN-Adapter: Die Kommunikation mit dem Gateway erfolgt vollständig über TCP/IP, und zwar über die REST-API des Gateways (UDS-Lese- und Schreibvorgänge) und einen MQTT-Broker (passiv empfangene Frames). Die Funktionalität des Adapters bleibt unverändert: Geräte- und Datenpunkt-Scan, Datenerfassung, Energiezähler, Zeitpläne und Schreibvorgänge. Für Schreibvorgänge muss zusätzlich die _Option „Raw Write“_ auf dem Gateway aktiviert sein. Lokale CAN-Adapter funktionieren weiterhin wie gewohnt. Die Einrichtung ist unter [Alternative: open3e-esp32-Gateway](#alternative-open3e-esp32-gateway) beschrieben.
 
-### Neuer O3ESwitch-Codec
+### Rohschnittstelle für externe Decoder
 
-Ein neuer Codec `O3ESwitch` Für Datenpunkte, deren Struktur von einem Gerätetyp-Diskriminatorbyte abhängt, wurde eine neue Funktion hinzugefügt. Das erste Byte wählt die aktive Variante aus einer Menge vordefinierter Codec-Zweige aus. Dies ermöglicht die vollständige strukturierte Dekodierung von ZigBee-Geräteslot-DIDs (2086–2143, 2262), wobei sich die dekodierten Felder je nach Gerätetyp unterscheiden (z. B. Klimasensor, Thermostatventil, Fußbodenthermostat, Aktor).
+Das Gateway stellt rohe UDS-Daten und rohe CAN-Frames zur Verfügung, die von der Software selbst dekodiert werden. Im Gateway-Modus nutzt der Adapter diesen Pfad; die Bedeutung der Bytes verbleibt beim Codec von ioBroker. Siehe [Rohdatenschnittstelle des Gateways](#raw-interface-of-the-gateway) .
 
-### Dezimalrundeung für numerische Codecs
+### Gateway Gesundheit und Selbstheilung
 
-Numerische Codecs (`O3EInt8`, `O3EInt16`, `O3EInt32`, `O3EInt64`, `O3EFloat32`) unterstützen nun eine optionale `decimals` Parameter. Wenn der Wert größer als 0 ist, wird das dekodierte Ergebnis auf die entsprechende Anzahl an Dezimalstellen gerundet. Dies wird beispielsweise verwendet für `SignalLevel` (Skalierung 2,55, Dezimalstellen 2), um übermäßig lange Gleitkommawerte zu vermeiden.
-
-### Einheiten und Metadaten werden beim Start festgelegt, wenn sich die Datenpunktstruktur ändert
-
-Wenn der Adapter beim Start erkennt, dass sich die Struktur eines Datenpunkts geändert hat (neue Version in `didsE3var.json` oder `didsE3.json`) werden nun Einheiten und Beschreibungen für alle Unterzustände des neu aufgebauten Baums korrekt erfasst. Zuvor wurden Einheiten nur während eines Datenpunktscans festgelegt; nach einer Strukturaktualisierung war ein nachfolgender Scan erforderlich, um sie zu befüllen.
-
----
-
-## Was ist neu in Version 1.0.3?
-
-### Kein erneuter Build nach einem Node.js-Upgrade mehr.
-
-Das native CAN-Modul `socketcan` wurde auf Version 4.2.1 aktualisiert, die die stabile **N-API-** Schnittstelle verwendet. Das Modul muss bei einem Node.js-Versionswechsel nicht mehr neu kompiliert werden. Ein Upgrade von Node.js (z. B. von Version 22 auf 24) erfordert keinen neuen Befehl mehr. `iob rebuild` Anschließend startet der Adapter ohne weitere Schritte.
-
-### Geplanter Datenpunktfilter auf der Registerkarte „Datenpunkte“.
-
-Durch Klicken auf das grüne Symbol mit der Anzahl der geplanten Datenpunkte auf einer Gerätekarte **wird die Karte nun so gefiltert, dass nur noch geplante Datenpunkte angezeigt werden** . Dies erleichtert die Überprüfung und Anpassung der Planung für ein bestimmtes Gerät. Ein erneutes Klicken auf das Symbol oder die Kartenüberschrift stellt die vollständige Ansicht wieder her.
-
-### Schutz benutzerdefinierter Variantendatenpunktdefinitionen
-
-Benutzerdefinierte Strukturen in `e3oncan.0.<DEVICE>.info.udsDidsSpecific` kann nun durch Hinzufügen **vor automatischen Updates geschützt** werden `"protected": true` zum Eintrag. Optional `"reason"` Das Feld wird protokolliert, sobald der Schutz wirksam wird. Ohne Schutz werden Variantendatenpunktdefinitionen (die auch in der Liste aufgeführt sind) protokolliert. `didsE3var.json` Die Definitionen werden automatisch aktualisiert, sobald eine neuere Version verfügbar ist – dieses Verhalten bleibt unverändert. Weitere Informationen finden Sie in der [Dokumentation](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific) .
-
-### Aktualisierte Datenpunktdefinitionen
-
-Die Definitionen der Datenpunkte wurden auf Version 20260528 (allgemein) und 20260527 (Variante) aktualisiert. Highlights:
-
-- ZigBee DIDs 2084–2319 vollständig strukturiert (Geräteeigenschaften, Stromwerte in 57-Byte- und 68-Byte-Varianten)
-- Raum-DIDs 1884–1943 strukturiert (Name, Typ, Temperaturregelung, Fenstererkennung, min./max. Luftfeuchtigkeit)
-- Neue, von ViGuide abgeleitete DID-Strukturen für Brennstoffzellenmetriken, Energieabdeckung und Batterie-/Wechselrichterabonnements
-- `Unknown*` Felder verwenden jetzt einheitlich `RawCodec`
-
----
-
-## Was ist neu in Version 1.0.0?
-
-### Registerkarte „Datenpunkte“
-
-Eine neue Seite **mit e3oncan-Datenpunkten** ist direkt an die Instanzzeile des Adapters in der ioBroker-Instanzansicht angeheftet. Klicken Sie auf<img src="admin/icon_open_tab.svg" height="20"> Klicken Sie auf die Schaltfläche in der Instanzzeile, um sie zu öffnen. Sie bietet eine eigene Benutzeroberfläche zur Verwaltung von Zeitplänen und Erfassungseinstellungen pro Gerät und Datenpunkt – für alltägliche Änderungen muss nicht der vollständige Adapterkonfigurationsdialog geöffnet werden.
-
-### Automatische Erkennung von Energiezählern
-
-Energiezähler (E380 und E3100CB) werden nun während des Gerätescans **automatisch durch passives CAN-Abhören auf beiden CAN-Kanälen erkannt** . Statusnamen werden automatisch anhand der erkannten CAN-Adresse und des Kanals vergeben. Die Aktivierung/Deaktivierung und die Erfassungsverzögerung für jeden Energiezähler werden ausschließlich im Datenpunkte-Tab konfiguriert.
-
-Beim ersten Start nach einem Upgrade von einer früheren Version wird die vorherige Energiezählerkonfiguration automatisch migriert.
-
-### Automatische Erkennung von Collect-fähigen Geräten
-
-Während des Datenpunkt-Scans überwacht der Adapter passiv den CAN-Bus, um zu erkennen, welche Geräte den Sammelmodus unterstützen. Erkannte Geräte werden im Gerätekarten-Header des Datenpunkt-Tabs mit einem Stecknadelsymbol hervorgehoben.
-
-### Flexibler Datenpunktscan
-
-Die neue Option **„Datenpunktwerte während des Scans im Objektbaum speichern“** steuert, ob die aktuellen Werte während des Scans in den Objektbaum geschrieben werden. Ist die Option deaktiviert, aktualisiert der Adapter weiterhin Werte und Metadaten für alle vorhandenen Datenpunktobjekte – lediglich neue Objekte werden während des Scans nicht erstellt. Dies ist nützlich, um Metadaten nach einer Migration zu aktualisieren, ohne alle Statuswerte neu schreiben zu müssen.
-
-### Bustopologieanalyse
-
-Nach dem Scan der Datenpunkte analysiert der Adapter automatisch die während des Scans erfassten Bustopologiedaten und erstellt eine Zusammenfassung. Das Ergebnis wird in zwei neuen Zuständen gespeichert. `info` Kanal:
-
-- `info.topology` – strukturiertes JSON mit allen gefundenen UDS-zugänglichen Geräten und Topologieelementen (aus allen Topologiematrizen entfernt).
-- `info.topologyHtml` – Eine gerenderte HTML-Tabelle, farblich nach Bustyp (CanInternal, CanExternal, CanRaw, ModBus, ServiceBus) gekennzeichnet, mit einem UDS-Badge für Geräte, die auch über UDS erreichbar sind. Zur Anzeige in vis, jarvis oder jedem HTML-fähigen Widget geeignet.
+Der Verbindungsstatus hängt vom Zustand des Gateways ab. Wenn das Gateway nicht mehr funktioniert, protokolliert das Protokoll, ob der Fehler beim Broker oder im CAN-Bus liegt, und die Verbindung wird als unterbrochen markiert. Sobald das Gateway wieder funktioniert, startet der Adapter neu, um die Verbindung wiederherzustellen.
 
 ---
 
@@ -174,6 +117,24 @@ Die detaillierten Schritte sind im unten stehenden [Konfigurationsleitfaden](#co
 
 Falls Sie über einen zweiten CAN-Bus (z. B. einen internen Bus) verfügen, konfigurieren Sie diesen hier als zweiten Adapter. Nach der Konfiguration des zweiten Adapters wird ein zweiter Reiter **„Zuweisungen“** angezeigt.
 
+### Alternative: open3e-esp32-Gateway
+
+Anstelle eines lokalen CAN-Adapters kann ein Bus über ein [open3e-esp32](https://github.com/boonkerz/open3e-esp32) -Gateway ausgelesen werden. Stellen Sie **den Verbindungstyp** für diesen Bus auf _open3e-esp32-Gateway_ ein und geben Sie Folgendes ein:
+
+- **Gateway-REST-URL** , z. B. `http://open3e-esp32.local`
+- **Gateway-MQTT-Broker-URL** , z. B. `mqtt://broker.local` und dem **MQTT-Basisthema** . Das Basisthema muss mit dem des Gateways übereinstimmen. `mqtt.baseTopic` Einstellung (Standard) `open3e`).
+- **MQTT-Benutzername und -Passwort** , falls der Broker diese benötigt.
+
+Bei jedem Start teilt der Adapter dem Gateway mit, welche CAN-IDs unformatiert weitergeleitet werden sollen. Die Liste wird aus den Energiezählern und den Collect-IDs Ihrer Geräte abgeleitet, daher müssen Sie sie nicht am Gateway konfigurieren.
+
+Das Gateway benötigt open3e-esp32 Version 0.2.0 oder neuer. Diese Version stellt die vom Adapter erwartete Roh-API-Version 1 bereit, und der Adapter protokolliert bei jedem Start die gefundene Firmware-Version.
+
+Regeln für den Gateway-Modus:
+
+- **Die Auswahl und Planung von Datenpunkten erfolgt ausschließlich in ioBroker** (Registerkarte „Datenpunkte“, „Zeitpläne“). Ändern Sie diese Einstellungen nicht gleichzeitig in der Web-Oberfläche des Gateways. Der Adapter verwendet diese Einstellungen nicht, und parallele Änderungen führen zu unerwarteten Ergebnissen. Änderungen an den weitergeleiteten CAN-IDs in der Web-Oberfläche des Gateways bleiben nur bis zum nächsten Neustart des Adapters erhalten.
+- **Das Schreiben von Datenpunkten erfordert Rohschreiben auf dem Gateway.** Im Gateway-Modus durchläuft jeder Schreibvorgang den Rohschreibpfad des Gateways. Aktivieren Sie **Rohschreiben freigeben** (`rawWriteEnabled`) in den Systemeinstellungen des Gateways, neben _Schreiben freigeben_ . Der Adapter setzt diesen Schalter nie selbst, da er die open3e-Datenpunktprüfungen umgeht.
+- **Nur ein Master darf auf einem Bus kommunizieren.** Betreiben Sie keine weitere open3e-Instanz, beispielsweise auf einem Raspberry Pi, auf demselben Bus.
+
 ### Schritt 2 – Gerätescan und Energiezählererkennung
 
 Wechseln Sie zur Registerkarte **„Liste der UDS-Geräte“** und klicken Sie auf die Schaltfläche **„Scannen“** .
@@ -203,9 +164,11 @@ Was der Scan bewirkt:
 - Fügt jedem Datenpunktobjekt Metadaten (Beschreibung, Einheit, Lese-/Schreibzugriff) hinzu.
 - Legt die physikalischen Einheiten basierend auf der in Schritt 2 ermittelten Geräteformatkonfiguration fest.
 - Erstellt den vollständigen Objektbaum für jedes Gerät in ioBroker.
-- Erkennt Collect-fähige Geräte durch passives Abhören ihrer Zeitsignale im CAN-Bus (keine zusätzliche Scanzeit erforderlich – läuft parallel). Für jedes erkannte Gerät wird im Gerätekarten-Header der **e3oncan-** Datenpunkteseite ein Stecknadelsymbol angezeigt.
+- Erkennt Collect-fähige Geräte durch passives Abhören ihrer Zeitsignale im CAN-Bus (keine zusätzliche Scanzeit erforderlich – läuft parallel). Für jedes erkannte Gerät wird im Gerätekarten-Header der **e3oncan-Datenpunkteseite** ein Stecknadelsymbol angezeigt.
 
 Dieser Schritt ist für die Nutzung im Nur-Lese-Modus nicht unbedingt erforderlich, wird aber **dringend empfohlen** – und **ist notwendig,** wenn Sie Datenpunkte beschreiben möchten.
+
+> **Starten Sie den Adapter nach dem Scan neu, wenn Sie Daten schreiben möchten.** Ein neu entdeckter Datenpunkt wird zwar sofort auf der Festplatte gespeichert, die laufende Adapterinstanz verwendet jedoch weiterhin das beim Start geladene Datenpunktwörterbuch, bis sie neu gestartet wird. Das Schreiben in einen _soeben_ gefundenen Datenpunkt schlägt mit der Fehlermeldung „Datenkodierung fehlgeschlagen“ fehl, bis Sie den Adapter einmal neu starten. Bereits vor dem Scan bekannte Datenpunkte sind davon nicht betroffen.
 
 **Speichere die Datenpunktwerte während des Scans im Objektbaum.**
 
@@ -326,6 +289,15 @@ Manche Datenpunkte können selbst dann nicht geändert werden, wenn sie auf der 
 
 ---
 
+## Rohschnittstelle des Gateways
+
+Das open3e-esp32-Gateway bietet zwei Rohdatenpfade für Software, die CAN-Daten selbstständig dekodiert:
+
+- **AUSRUHEN:** `GET /api/rawread` Gibt die unveränderten UDS-Antwortbytes für bis zu 10 Datenpunkt-IDs pro Anfrage zurück. `POST /api/rawwrite` sendet Rohwertbytes mit dem Dienst `0x2E` und nur solange _Rohes Schreiben freigeben_ auf dem Gateway aktiviert ist.
+- **MQTT:** CAN-IDs, die im Gateway aufgelistet sind `rawCanIds` Die Einstellungen werden unverändert veröffentlicht. `<base topic>/raw/<id-hex>`, als `{"dlc": 8, "data": "21fa01b3...", "ts": 1725455669123}` Die
+
+Keiner der beiden Pfade verwendet den Open3e-Codec oder die Datenpunktdatenbank, daher findet auf dem Gateway keine Dekodierung oder Validierung statt. Im Gateway-Modus nutzt ioBroker.e3oncan diese Schnittstelle, und sein eigener Codec legt die Bedeutung der Bytes fest. Protokolldetails und die Scan-Endpunkte finden Sie in [docs/raw-gateway-api.md](/#/docs/adapterref/iobroker.e3oncan/docs/raw-gateway-api.md) .
+
 ## Datenpunkte und Metadaten
 
 Detaillierte Informationen darüber, wie Datenpunkte strukturiert sind, wie Variantendatenpunkte und Metadaten funktionieren und wie Temperatur-/Datums-/Zeitformate behandelt werden, finden Sie in [data-points.md](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md) .
@@ -435,6 +407,15 @@ Ja. Bearbeiten Sie den Bundesstaat. `e3oncan.0.<DEVICE>.cmnd.udsReadByDid` und g
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (MyHomeMyData) Added open3e-esp32 gateway as optional connection type per CAN bus (REST for UDS, MQTT for passively received frames)
+* (MyHomeMyData) Gateway: device and data point scan run on the gateway's scan engine, with progress in the log
+* (MyHomeMyData) Gateway: energy meters and Collect devices are detected as on a local bus
+* (MyHomeMyData) Gateway: relayed CAN IDs are configured automatically on each start
+* (MyHomeMyData) Gateway: connection state follows the gateway's health; the adapter restarts itself when the gateway recovers
+* (MyHomeMyData) Requires Node.js 22.22.2 or newer, or Node.js 24.15 or newer. The adapter is tested with Node.js 22, 24 and 26
+* (MyHomeMyData) Fixed the connection state after a reconnect during the device scan: a local CAN bus that stops afterwards is now reported and sets the connection state to disconnected
+
 ### 1.1.3 (2026-09-11)
 * (MyHomeMyData) Fixed CAN connection dropping unexpectedly and never recovering on a healthy bus (updated `socketcan` to 4.3.1, which stops treating a recoverable socket error the same as a real disconnect). Refer to issue #255.
 

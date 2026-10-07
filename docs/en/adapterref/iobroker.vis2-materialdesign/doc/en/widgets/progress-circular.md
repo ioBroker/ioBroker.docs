@@ -30,7 +30,7 @@ the ioBroker system language, so the screenshots are German.
 
 - **size** – diameter of the ring. Left empty it fills the widget.
 - **thickness** – width of the ring.
-- **rotate start point** – start angle in degrees, the default starts at the top.
+- **rotate start point** – start angle in degrees, clockwise. `0` starts at the right (3 o'clock), `-90` at the top.
 
 **labeling**
 

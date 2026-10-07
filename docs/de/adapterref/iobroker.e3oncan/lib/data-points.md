@@ -1,10 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.md"},"en/adapterref/iobroker.e3oncan/lib/data-points.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/lib/data-points.md"},"en/adapterref/iobroker.e3oncan/README.de.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.de.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.e3oncan/README.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.md"},"en/adapterref/iobroker.e3oncan/lib/data-points.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/lib/data-points.md"},"en/adapterref/iobroker.e3oncan/README.de.md":{"title":{"en":"ioBroker.e3oncan"},"content":"en/adapterref/iobroker.e3oncan/README.de.md"},"en/adapterref/iobroker.e3oncan/docs/raw-gateway-api.md":{"title":{"en":"Raw-Gateway-API (open3e-esp32 ↔ ioBroker.e3oncan)"},"content":"en/adapterref/iobroker.e3oncan/docs/raw-gateway-api.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/lib/data-points.md
 title: ioBroker.e3oncan
-hash: PonXfMnPNVrbbJdjK+eD7WJPKEsgSZCymf+t43F8fwU=
+hash: Z7DahTn9gkpMZtk/ZZotqKcDtUpiwsdK9RlJnydBIFk=
 ---
 ![Logo](../../../../en/adapterref/iobroker.e3oncan/lib/admin/e3oncan_small.png)
 
@@ -30,12 +30,12 @@ hash: PonXfMnPNVrbbJdjK+eD7WJPKEsgSZCymf+t43F8fwU=
 
 Bei Geräten der E3-Serie sind alle Informationen in Datenpunkten organisiert. Jeder Datenpunkt enthält:
 
-- eine numerische Kennung (z. B.`256` )
-- ein Name (z. B.`BusIdentification` )
+- eine numerische Kennung (z. B. `256`)
+- ein Name (z. B. `BusIdentification`)
 - eine Länge in Bytes
 - eine interne Struktur, die von einem Codec beschrieben wird
 
-Beim Lesen und Schreiben werden stets Rohdaten (Bytes) über den CAN-Bus übertragen. Der Codec übersetzt diese Daten in für Menschen lesbare Werte. Wenn die Struktur eines Datenpunkts noch nicht bekannt ist,`RawCodec` wird verwendet, das den unveränderten Bytestrom durchleitet.
+Beim Lesen und Schreiben werden stets Rohdaten (Bytes) über den CAN-Bus übertragen. Der Codec übersetzt diese Daten in für Menschen lesbare Werte. Wenn die Struktur eines Datenpunkts noch nicht bekannt ist, `RawCodec` wird verwendet, das den unveränderten Bytestrom durchleitet.
 
 Die Datenbank bekannter Datenpunkte wird im Projekt [open3e](https://github.com/open3e) gepflegt. Dieser Adapter und das Projekt [E3onCAN](https://github.com/MyHomeMyData/E3onCAN) nutzen dieselbe, von open3e abgeleitete Datenbank. Aktualisierungen werden regelmäßig eingearbeitet. Beiträge sind über das open3e-Diskussionsforum, Issues oder Pull Requests willkommen.
 
@@ -71,13 +71,13 @@ Metadaten werden Datenpunktobjekten während des Datenpunktscans hinzugefügt. B
 
 ### Datenformate für Temperatur, Datum und Uhrzeit
 
-Datenpunkt`382` enthält die Datenformatkonfiguration des Geräts, einschließlich:
+Datenpunkt `382` enthält die Datenformatkonfiguration des Geräts, einschließlich:
 
 - **Physikalisches Format:** Metrisch (°C) oder Imperial (°F)
 - **Datumsformat:** TagMonatJahr, MonatTagJahr, JahrMonatTag
 - **Zeitformat:** 24 Stunden oder 12 Stunden
 
-Die Standardkonfiguration ist:`Metric / DayMonthYear / TwentyFourHours` Die
+Die Standardkonfiguration ist: `Metric / DayMonthYear / TwentyFourHours` Die
 
 Ab Adapterversion 0.11.0 werden diese Informationen während des Gerätescans ausgelesen und pro Gerät gespeichert. Die gespeicherte Konfiguration wird dann wie folgt angewendet:
 
@@ -86,7 +86,7 @@ Ab Adapterversion 0.11.0 werden diese Informationen während des Gerätescans au
 
 > **Hinweis:** Die Verarbeitung von abweichenden Datums-/Zeitformaten ist experimentell. Bitte überprüfen Sie die Ergebnisse sorgfältig, falls Ihr Gerät nicht mit den Standardeinstellungen konfiguriert ist.
 
-Wenn Datenpunkt`382` ist für ein Gerät nicht vorhanden, die Konfiguration des Mastergeräts (CAN-Adresse)`0x680` ) wird als Ausweichlösung verwendet. Steht überhaupt keine Konfiguration zur Verfügung, verhält sich der Adapter wie in Versionen vor 0.11.0.
+Wenn Datenpunkt `382` ist für ein Gerät nicht vorhanden, die Konfiguration des Mastergeräts (CAN-Adresse) `0x680`) wird als Ausweichlösung verwendet. Steht überhaupt keine Konfiguration zur Verfügung, verhält sich der Adapter wie in Versionen vor 0.11.0.
 
 ---
 
@@ -94,7 +94,7 @@ Wenn Datenpunkt`382` ist für ein Gerät nicht vorhanden, die Konfiguration des 
 
 Ein Datenpunkt wird als beschreibbar behandelt, wenn eine der folgenden Bedingungen zutrifft:
 
-- Seine ID ist in der Whitelist enthalten.`e3oncan.0.<DEVICE>.info.udsDidsWritable` Die
+- Seine ID ist in der Whitelist enthalten. `e3oncan.0.<DEVICE>.info.udsDidsWritable` Die
 - Es ist in seinen Metadaten als les- und schreibbar gekennzeichnet (verfügbar ab Adapterversion 0.11.0).
 
 Beide Bedingungen werden geprüft; die Whitelist funktioniert weiterhin wie bisher.
@@ -107,12 +107,12 @@ Bei jedem Start des Adapters werden die Versionen der vorhandenen Datenpunktdefi
 
 **Was Sie bei einem Update erwarten können:**
 
-- Wenn sich die Struktur eines Datenpunkts ändert, ändert sich das gesamte`tree` Das Unterobjekt für diesen Datenpunkt wird gelöscht und mit der neuen Struktur neu erstellt. Dies ist für die korrekte Funktion des Adapters erforderlich, hat aber Nebenwirkungen:
-  - **Archivierte Daten** für Elemente des betroffenen`tree` Unterobjekte können verloren gehen.
+- Wenn sich die Struktur eines Datenpunkts ändert, ändert sich das gesamte `tree` Das Unterobjekt für diesen Datenpunkt wird gelöscht und mit der neuen Struktur neu erstellt. Dies ist für die korrekte Funktion des Adapters erforderlich, hat aber Nebenwirkungen:
+  - **Archivierte Daten** für Elemente des betroffenen `tree` Unterobjekte können verloren gehen.
   - **Verweise** auf diese Elemente in Skripten, Visualisierungen oder anderen Adaptern müssen möglicherweise aktualisiert werden.
 - Wenn ein gerätespezifischer Datenpunkt vom Benutzer geändert wurde, wird vor der Anwendung des Updates eine Sicherungskopie der ursprünglichen Struktur erstellt.
 
-> **Empfehlung für die Arbeit mit dem ioBroker-Beta-Repository:** Sichern Sie vor dem ersten Start des Adapters nach einem Update alle Objekte der Adapterinstanz (z. B. \`.src\`).`e3oncan.0` oder zumindest die Objekte einzelner Geräte.
+> **Empfehlung für die Arbeit mit dem ioBroker-Beta-Repository:** Sichern Sie vor dem ersten Start des Adapters nach einem Update alle Objekte der Adapterinstanz (z. B. \`.src\`). `e3oncan.0` oder zumindest die Objekte einzelner Geräte.
 
 ---
 
@@ -124,7 +124,7 @@ Ein Datenpunktscan ermittelt alle verfügbaren Datenpunkte auf jedem Gerät und 
 
 - Erkennt alle verfügbaren Datenpunkte auf jedem konfigurierten Gerät.
 - Fügt Metadaten (Beschreibung, Einheit, Zugriffsinformationen) für jeden vorhandenen Datenpunkt hinzu oder aktualisiert diese – Einzelheiten finden Sie in der Speicheroption weiter unten.
-- Legt Temperatureinheitenbezeichnungen basierend auf der Geräteformatkonfiguration fest (Datenpunkt`382` ).
+- Legt Temperatureinheitenbezeichnungen basierend auf der Geräteformatkonfiguration fest (Datenpunkt `382`).
 - Optional werden die während des Scans gelesenen Werte in den Objektbaum geschrieben (siehe unten).
 
 **Option: Alle Datenpunktwerte während des Scans speichern**
@@ -150,29 +150,29 @@ Der Scan-Dialog bietet ein Kontrollkästchen: **Alle Datenpunktwerte während de
 
 ### Benutzerdefinierte Datenpunktstrukturen in udsDidsSpecific
 
-Der Staat`e3oncan.0.<DEVICE>.info.udsDidsSpecific` speichert die gerätespezifischen Datenpunktdefinitionen, die sich von den generischen Definitionen unterscheiden in`didsE3.json` Dies umfasst:
+Der Staat `e3oncan.0.<DEVICE>.info.udsDidsSpecific` speichert die gerätespezifischen Datenpunktdefinitionen, die sich von den generischen Definitionen unterscheiden in `didsE3.json` Dies umfasst:
 
-- **Variantendatenpunkte** – Definitionen, die während eines Datenpunktscans automatisch ausgewählt wurden, weil das Gerät eine Länge zurückgegeben hat, die einem Eintrag in`didsE3var.json` Die
+- **Variantendatenpunkte** – Definitionen, die während eines Datenpunktscans automatisch ausgewählt wurden, weil das Gerät eine Länge zurückgegeben hat, die einem Eintrag in `didsE3var.json` Die
 - **Benutzerdefinierte Strukturen** – Definitionen, die vom Benutzer manuell erstellt oder geändert werden.
 
-Jeder Eintrag in`udsDidsSpecific` ist ein JSON-Objekt, dessen Schlüssel die numerische Datenpunkt-ID ist. Der Adapter verfolgt den Ursprung jedes Eintrags über die`source` Feld:
+Jeder Eintrag in `udsDidsSpecific` ist ein JSON-Objekt, dessen Schlüssel die numerische Datenpunkt-ID ist. Der Adapter verfolgt den Ursprung jedes Eintrags über die `source` Feld:
 
 | `source` Wert          | Bedeutung                                                                                                             |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | abwesend               | Vom Benutzer erstellte Definition oder automatisch platziert vor Einführung der Versionsverfolgung (Adapter < 0.11.0) |
-| `"didsE3var_YYYYMMDD"` | Automatisch vom Adapter eingestellt; Version von`didsE3var.json` zum Zeitpunkt der letzten Aktualisierung             |
+| `"didsE3var_YYYYMMDD"` | Wird automatisch vom Adapter eingestellt; Version von `didsE3var.json` zum Zeitpunkt der letzten Aktualisierung        |
 
 **Verhalten während des Adapterstarts und des Datenpunktscans:**
 
-- Einträge mit`source: "didsE3var_..."` werden auf die neueste Version aktualisiert von`didsE3var.json` wenn sich die Struktur geändert hat.
-- Einträge ohne`source` Feld, das verwendet`RawCodec` (automatisch durch alte Scans platzierte) werden ebenfalls aktualisiert.
-- Eine Sicherungskopie der überschriebenen Einträge wird gespeichert in der`Backup` Unterabschnitt von`udsDidsSpecific` Die
+- Einträge mit `source: "didsE3var_..."` werden auf die neueste Version aktualisiert von `didsE3var.json` wenn sich die Struktur geändert hat.
+- Einträge ohne `source` Feld, das verwendet `RawCodec` (automatisch durch alte Scans platzierte) werden ebenfalls aktualisiert.
+- Eine Sicherungskopie der überschriebenen Einträge wird gespeichert in der `Backup` Unterabschnitt von `udsDidsSpecific` Die
 
 **Schutz einer benutzerdefinierten Struktur vor Überschreiben (Adapter ≥ 1.0.3):**
 
-Wenn Sie die Struktur eines Variantendatenpunkts manuell definiert oder überprüft haben und verhindern möchten, dass der Adapter diese überschreibt, fügen Sie einen hinzu.`"protected": true` Feld zum Eintrag in`udsDidsSpecific` Sie können optional ein/e hinzufügen`"reason"` Feld mit einer Freitextbeschreibung; dieser Text wird immer dann in das Adapterprotokoll aufgenommen, wenn der Schutz angewendet wird.
+Wenn Sie die Struktur eines Variantendatenpunkts manuell definiert oder überprüft haben und verhindern möchten, dass der Adapter diese überschreibt, fügen Sie einen hinzu. `"protected": true` Feld zum Eintrag in `udsDidsSpecific` Sie können optional ein/e hinzufügen `"reason"` Feld mit einer Freitextbeschreibung; dieser Text wird immer dann in das Adapterprotokoll aufgenommen, wenn der Schutz angewendet wird.
 
-Beispiel-Eintrag für DID 2086:
+Beispieleintrag für DID 2086:
 
 ```json
 "2086": {
@@ -186,50 +186,67 @@ Beispiel-Eintrag für DID 2086:
 }
 ```
 
-Der Adapter protokolliert`Variant datapoint ... is protected by user. Update skipped. Reason: "..."` und die Definition sowohl beim Start des Adapters als auch während eines Datenpunktscans unverändert lassen.
+Der Adapter protokolliert `Variant datapoint ... is protected by user. Update skipped. Reason: "..."` und die Definition sowohl beim Start des Adapters als auch während eines Datenpunktscans unverändert lassen.
 
-> **Hinweis:** Der Schutz gilt nur für **Variantendatenpunkte** (solche, die in`didsE3var.json` Definitionen für gängige Datenpunkte (aus`didsE3.json` ) werden gespeichert in`udsDidsCommon` und sind von diesem Mechanismus nicht betroffen.
+> **Hinweis:** Der Schutz gilt nur für **Variantendatenpunkte** (solche, die in `didsE3var.json` Definitionen für gängige Datenpunkte (aus `didsE3.json`) werden gespeichert in `udsDidsCommon` und sind von diesem Mechanismus nicht betroffen.
 
 ---
 
 ## Änderungsprotokoll der Datenpunktdefinitionen
 
+### Version 1.2.0 (07.10.2026)
+
+**Gemeinsame Datenpunkte (didsE3.json, v20260727)**
+
+- **Einheiten in Unterfeldern:** Die Unterfelder der 250 zusammengesetzten Datenpunkte tragen nun ihre Einheiten, z. B. zeigen die Temperatursensoren an `°C` wo die Einheit zuvor leer war. 13 weitere Datenpunkte erhielten eine Einheit, z. B. `MainPowerSupplyValue` (`V`).
+- **Strukturierte Dekodierung:** 171 Datenpunkte, die als Rohbytes dekodiert wurden, haben nun eine Struktur: 147 als Listen (`O3EList`), 23 als Verbundstrukturen (`O3EComplexType` z.B. `DaylightSavingTimeActive` (912) und 1 als Byte-Wert (`O3EByteVal` Ihr Objektbaum ändert sich und wird beim nächsten Start des Adapters neu aufgebaut.
+- **Schreibbarkeit:** 18 Datenpunkte wurden von schreibgeschützt auf lesbar/schreibbar geändert, darunter `DaylightSavingTimeActive` (912), `DomesticHotWaterHysteresis` (1085), `CentralHeatingPumpPerformance` (1432), `IntervalStrategyProperties` (1606), `WaterPressureConfiguration` (1721) und die Einstellungen für Raumklima und Frostschutz der vier Mischerkreise (2426–2429, 2855–2858). Ein Datenpunkt, `TargetDemandHeatProducer` (2353), geändert von Lese-/Schreibzugriff auf Nur-Lesezugriff. Die neuen Flags werden mit dem nächsten Datenpunktscan wirksam.
+- **Korrekturen:** Der Maßstab von `OutsideTemperatureDampingFactor` (919) wird von 10 auf 1 korrigiert, und `GatewayRemoteSignalStrength` (900) erhielt eine Beschreibung.
+
+**Variantendatenpunkte (didsE3var.json, v20260727)**
+
+- Zwei Varianten hinzugefügt: `DomesticHotWaterSetpointMetaData` (504, Länge 10) und `LegionellaProtectionTargetTemperatureSetpoint` (874, Länge 2).
+
+**Aufzählungen (enums.js, v20260727)**
+
+- Neue Aufzählung `RoomSetpoints` (2 Reduziert, 3 Normal, 4 Komfort).
+
 ### Version 1.1.1 (06.07.2026)
 
 **Gemeinsame Datenpunkte (didsE3.json, v20260705)**
 
-- **ZigBee-Stromwerte-DIDs 2086–2143 und 2262** (57 Byte): Umstrukturiert um ein neues`ViCareDevice` Der O3ESwitch-Diskriminator wählt die dekodierten Felder nach Gerätetyp aus. Details finden Sie unten (v1.1.0).
+- **ZigBee-Stromwerte-DIDs 2086–2143 und 2262** (57 Byte): Umstrukturiert um ein neues `ViCareDevice` Der O3ESwitch-Diskriminator wählt die dekodierten Felder nach Gerätetyp aus. Details finden Sie unten (v1.1.0).
 
 ### Version 1.1.0 (05.07.2026)
 
 **Variantendatenpunkte (didsE3var.json, v20260630)**
 
-- **ZigBee-Stromwerte-DIDs 2086–2143 und 2262** (68-Byte-Variante): Umstrukturiert um ein neues`ViCareDevice` O3ESwitch-Diskriminator, der die dekodierten Felder nach Gerätetyp auswählt:
+- **ZigBee-Stromwerte-DIDs 2086–2143 und 2262** (68-Byte-Variante): Umstrukturiert um ein neues `ViCareDevice` O3ESwitch-Diskriminator, der die dekodierten Felder nach Gerätetyp auswählt:
   - Typ 0 — leerer Slot (roh)
-  - Typ 1 — Klimasensor:`ActualTemperature` (°C),`Humidity` (%)
-  - Typ 2 — TRV:`ActualTemperature` (°C),`ValveOpening` (%),`DeviceDisplayTurned` ,`DeviceChildLockActive` ,`DeviceTemperatureSetpoint` (°C)
-  - Typ 3 – Bodenthermostat / Verteiler:`FlowTemperature` (°C, int16 LE),`OperatingMode`
-  - Typ 4/5 — Stellantrieb NC/NO:`Demand` (%),`ValveState`
-  - `SignalLevel` (%) Und`BatteryRssi` (dBm, vorzeichenbehaftet) zu allen Typen hinzugefügt
-- **Raum-Eigenschafts-DIDs 1884–1943** (85-Byte-Variante): Hinzugefügte verknüpfte ZigBee-Geräteindexfelder;`ChildLockActive` Beschreibung aktualisiert;`WindowDetection` enum korrigiert.
+  - Typ 1 — Klimasensor: `ActualTemperature` (°C), `Humidity` (%)
+  - Typ 2 — TRV: `ActualTemperature` (°C), `ValveOpening` (%), `DeviceDisplayTurned`, `DeviceChildLockActive`, `DeviceTemperatureSetpoint` (°C)
+  - Typ 3 – Bodenthermostat / Verteiler: `FlowTemperature` (°C, int16 LE), `OperatingMode`
+  - Typ 4/5 — Stellantrieb NC/NO: `Demand` (%), `ValveState`
+  - `SignalLevel` (%) Und `BatteryRssi` (dBm, vorzeichenbehaftet) zu allen Typen hinzugefügt
+- **Raum-Eigenschafts-DIDs 1884–1943** (85-Byte-Variante): Hinzugefügte verknüpfte ZigBee-Geräteindexfelder; `ChildLockActive` Beschreibung aktualisiert; `WindowDetection` enum korrigiert.
 - **DID 1603** (PointOfCommonCouplingPower): kleinere Aktualisierung der Beschreibung.
 
 **Gemeinsame Datenpunkte (didsE3.json, v20260701)**
 
-- **3 neue DIDs** werden verwendet`O3EFloat32` :
-  - 2990`ElectricalEnergySystemBatteryCapacityDelta`
-  - 2991`ElectricalEnergySystemBatteryCapacity`
-  - 2992`ElectricalEnergySystemStateOfChargeUseable`
-- **Einheitskorrekturen** : DID 279 und 281 Feld`Actual` Einheit auf °C korrigiert (war leer); Feld DID 321`Average` Einheit korrigiert auf °C (vorher hPa); DID 322 Feld`Average` : Einheit korrigiert auf hPa (war °C).
-- `decimals` Das Feld wurde allen numerischen Unterfeldern hinzugefügt, um die Konsistenz mit der aktualisierten Codec-Definition zu gewährleisten (Wert).`0` — keine Änderung der dekodierten Werte).
+- **3 neue DIDs** werden verwendet `O3EFloat32`:
+  - 2990 `ElectricalEnergySystemBatteryCapacityDelta`
+  - 2991 `ElectricalEnergySystemBatteryCapacity`
+  - 2992 `ElectricalEnergySystemStateOfChargeUseable`
+- **Einheitskorrekturen** : DID 279 und 281 Feld `Actual` Einheit auf °C korrigiert (war leer); Feld DID 321 `Average` Einheit korrigiert auf °C (vorher hPa); DID 322 Feld `Average`: Einheit korrigiert auf hPa (war °C).
+- `decimals` Das Feld wurde allen numerischen Unterfeldern hinzugefügt, um die Konsistenz mit der aktualisierten Codec-Definition zu gewährleisten (Wert). `0` — keine Änderung der dekodierten Werte).
 
 ### Version 1.0.3 (31.05.2026)
 
 - **ZigBee-DIDs 2084–2319 strukturiert** : ZigBeeDeviceProperty (inkl. Artikelnummer), ZigBeeDeviceCurrentValues in 57-Byte- (Gasheizung) und 68-Byte-Varianten (Wärmepumpe) mit den Feldern WorkingMode, Setpoint, Display und ChildLock
 - **Raum-DIDs 1884–1943 strukturiert** : Raumeigenschaften (Name, Typ, Temperaturregelung, Fenstererkennung) und aktuelle Raumwerte (Temperatur, Luftfeuchtigkeit min./max.) in 84/85-Byte-Varianten
 - **Neue, von ViGuide abgeleitete DID-Strukturen** : Brennstoffzellenmetriken (1349–1362), Energieabdeckungsmatrizen (1354–1373), Bedarfsdeckung (1383), Batterie-/Wechselrichter-Abonnement-DIDs (257–266, 2214 ff.)
-- **Enums aktualisiert** :`ViCareDeviceTypes` (TRV, Sensor, Repeater, UFH-Aktor),`CurrentWorkingModeLevels` (Kühlung=100)
-- Codec-Konvention:`Unknown*` Felder verwenden jetzt einheitlich`RawCodec`
+- **Enums aktualisiert** : `ViCareDeviceTypes` (TRV, Sensor, Repeater, UFH-Aktor), `CurrentWorkingModeLevels` (Kühlung=100)
+- Codec-Konvention: `Unknown*` Felder verwenden jetzt einheitlich `RawCodec`
 
 ### Version 0.11.0 (14.04.2026)
 
@@ -237,8 +254,8 @@ Aktualisierte Struktur der folgenden Datenpunkte: 268, 269, 271, 274, 279, 282, 
 
 **Anmerkungen:**
 
-- Für alle Sensordatenpunkte der letzte Eintrag`Unknown` wurde umbenannt in`SensorStatus` Dies ist der Grund für die große Anzahl geänderter Datenpunkte.
-- Für die häufig verwendeten Datenpunkte 531, 2351, 2532 und 2735 wurde der numerische Wert in einen Unterzustand verschoben.`ID` :
+- Für alle Sensordatenpunkte der letzte Eintrag `Unknown` wurde umbenannt in `SensorStatus` Dies ist der Grund für die große Anzahl geänderter Datenpunkte.
+- Für die häufig verwendeten Datenpunkte 531, 2351, 2532 und 2735 wurde der numerische Wert in einen Unterzustand verschoben. `ID`:
   - `0531_DomesticHotWaterOperationState.ID`
   - `2351_HeatPumpCompressor.PowerState.ID`
   - `2352_AdditionalElectricHeater.PowerState.ID`

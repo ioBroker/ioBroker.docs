@@ -54,8 +54,6 @@ The adapter ignores its own and Talk system messages. It does not mark messages 
 
 ## Changelog
 
-### Unreleased
-
 ### 2.0.0
 * Add atomic per-message sending through `send` while keeping `roomID` and `text` compatible.
 * Add optional single-room Talk message receiving through the `received` state.

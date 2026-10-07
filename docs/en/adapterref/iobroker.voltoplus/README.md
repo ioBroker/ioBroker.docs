@@ -38,6 +38,9 @@ or any associated subsidiaries, logos or trademarks.
 -->
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 0.2.14 (2026-10-03)
+* Bump @types/node from 25.9.5 to 25.9.8
+
 ### 0.2.13 (2026-09-03)
 * Bump @alcalzone/release-script-plugin-license from 5.2.0 to 5.2.2
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: hliQjvKZtOkaOuyGVvuKuk9eTMFajHX6TRqUo9VFCL8=
+hash: YpHqOkWhj9Ejwc/fJdPdykOMvtgiVWuge3KvpX5SIUY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -16,6 +16,10 @@ hash: hliQjvKZtOkaOuyGVvuKuk9eTMFajHX6TRqUo9VFCL8=
 ![Пожертвовать](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)
 
 # ioBroker.zendure-solarflow
+
+## Sentry
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках в коде.** Более подробную информацию, а также инструкции по отключению отправки сообщений об ошибках см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) ! Система отчетности Sentry используется начиная с js-controller 3.0.
 
 ## Адаптер Zendure Solarflow для ioBroker
 
@@ -40,11 +44,15 @@ hash: hliQjvKZtOkaOuyGVvuKuk9eTMFajHX6TRqUo9VFCL8=
 
 - **Аутентификация с помощью Cloud Key** (рекомендуется): официальный метод Zendure. Получите Cloud Key из приложения. По умолчанию для совместимых устройств в той же сети, что и ioBroker, используется zenSDK, что обеспечивает полный локальный контроль при одновременной передаче данных в облако. Также возможна аутентификация только через облако. Устаревшие устройства, уже подключенные к локальному MQTT-серверу, также могут передавать данные в облако без каких-либо недостатков.
 - **Локальный режим** : только локальный режим. Направьте адаптер на локальный MQTT-сервер для устаревших устройств (см. ниже); устройства zenSDK обнаруживаются через mDNS.
-- **Только zenSDK (mDNS)** : нет облачной платформы Zendure и вообще нет MQTT-сервера. Устройства обнаруживаются с помощью [обнаружения mDNS](#mdns-discovery) и опрашиваются/управляются локально только через zenSDK, поэтому поддерживаются только устройства, совместимые с zenSDK.
+- **Только zenSDK (mDNS / IP)** : нет облачной платформы Zendure и вообще нет MQTT-сервера. Устройства обнаруживаются с помощью [обнаружения mDNS](#mdns-discovery) или [настраиваются по IP-адресу](#zensdk-devices-by-ip-address) и опрашиваются/управляются локально только через zenSDK, поэтому поддерживаются только устройства, совместимые с zenSDK.
 
 ### Обнаружение мДНС
 
 При включении zenSDK адаптер просматривает сеть через mDNS/Bonjour в поисках устройств, объявляющих себя как `Zendure-<model>-<serialNumber>` Пока он работает. Сеть запрашивается повторно через 5, 15, 30 и 60 секунд, а затем каждые 5 минут, поэтому устройства, подключенные к сети позже (или пропущенные при предыдущем запросе), по-прежнему обнаруживаются без перезапуска адаптера. Это заполняет или исправляет IP-адреса для известных облачных устройств и автоматически создает аксессуары (серия Mix, интеллектуальные счетчики), у которых нет облачного ключа продукта и которые невозможно создать иным способом. Устройства сопоставляются по полному серийному номеру, а не по IP-адресу или сокращенному суффиксу. Отключить можно с помощью параметра «Добавить устройства, найденные с помощью обнаружения mDNS».
+
+### устройства zenSDK по IP-адресу
+
+mDNS использует многоадресную рассылку, которая обычно не маршрутизируется между сегментами сети. Если ваши устройства Zendure находятся в другой VLAN/подсети, отличной от ioBroker, введите их IP-адреса (или имена хостов) в разделе «Устройства zenSDK по IP-адресу» в настройках адаптера. Адаптер запрашивает каждый адрес через zenSDK. `http://<ip>/properties/report`) при запуске, а затем каждые 5 минут, идентифицирует устройство по сообщаемому серийному номеру: устройство, уже известное (например, из списка устройств облака Zendure), сохраняет свои существующие состояния и переключается на локальное управление zenSDK; создается неизвестное устройство с его серийным номером в качестве ключа, как и устройство, найденное через mDNS. Работает во всех режимах подключения, пока включен zenSDK. Присвойте устройствам фиксированный IP-адрес (резервирование DHCP) и убедитесь, что ioBroker может связаться с ними через TCP-порт 80.
 
 ## Поддерживаемые устройства
 
@@ -138,39 +146,43 @@ hash: hliQjvKZtOkaOuyGVvuKuk9eTMFajHX6TRqUo9VFCL8=
 
 Более подробную информацию, а также сведения о том, как отключить отчеты об ошибках, см. [в документации Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry) . Система отчетности Sentry используется начиная с js-controller 3.0.
 
+## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- zenSDK devices: smartMode is no longer turned off in standby (automation limit 0), Note: Currently it'S uncertain whether a permanently enabled smartMode increases the device's standby consumption.
+
+### 6.0.0-alpha.7 (2026-10-06)
+
+- (Schattenwelt) Add setting "zenSDK devices by IP address": zenSDK devices can be configured by IP address, so they also work if mDNS doesn't reach them (e.g. devices in another network segment / VLAN). Known devices are matched by serial number and keep their states, unknown devices are created with their serial number as key.
+- Zero-feed in: charging devices are now accounted with their measured AC input power (gridInputPower) instead of their commanded charge limit once settled. Fixes grid import when a nearly full battery charges with much less power than requested (e.g. 80 W instead of 600 W).
+- Output limit can now be set on devices without an autoModel state (previously rejected because autoModel was not '0').
+
+### 6.0.0-alpha.6 (2026-10-06)
+
+- Better tracking if device command is accepted
+- Wait for wake up of specific device - don't set the whole script to sleep
+
+### 6.0.0-alpha.5 (2026-10-04)
+
+- zenSDK devices: in standby (automation limit 0), smartMode is now only turned off after at least 10 minutes and only when solar input is below 50 W and the battery level is below 98%. This is checked every minute, so the internal inverter stays on and the device reacts faster when the limit changes again.
+- zenSDK devices: smartMode is now enabled before acMode when switching to charging/discharging, so these writes go to RAM instead of flash.
+
 ### 6.0.0-alpha.4 (2026-10-01)
 
-- Отсутствие солнечной энергии: устройства, не содержащие свинец, больше не переходят из режима ожидания с потреблением 30/10 Вт на небольшую долю времени, а полностью заряженные устройства без солнечного питания переводятся из режима ожидания в режим 0 Вт.
-- Система "нулевого подключения к сети": устройства больше не добавляются в качестве дополнительных устройств для подключения к сети только потому, что их солнечная мощность превышает 100 Вт.
+- Zero-feed in: non-lead devices no longer get pulled out of idle into 30/10 W standby for a tiny share, and fully charged devices without solar input are released from standby to 0 W.
+- Zero-feed in: devices are no longer added as extra feed-in device just because they have more than 100 W solar input.
 
 ### 6.0.0-alpha.3 (2026-10-01)
 
-- Удалите уменьшение рекомендуемого значения inverseMaxPower в диапазоне 0-5 часов, так как это было связано с функцией Octopus Energy в вашей личной конфигурации.
+- Remove 0-5h reduction of suggested inverseMaxPower as this was related to Octopus Energy in personal setup.
 
-### 6.0.0-alpha.2 (2026-10-01)
-
-- Улучшения в системах с нулевой подачей сырья в
-
-### 6.0.0-alpha.1 (2026-09-30)
-
-- Исправлена ошибка, из-за которой параметр setDeviceAutomationInOutLimit некорректно устанавливался на устройствах, не использующих zenSDK, при использовании автоматизации.
-
-### 6.0.0-alpha.0 (2026-09-30)
-
-- Добавьте автоматизацию адаптера (управление подачей сигнала без нагрузки), см. раздел «Автоматизация адаптера» выше.
-- Добавить режим подключения "только zenSDK (mDNS)": без облака Zendure и без сервера MQTT, устройства обнаруживаются через mDNS и управляются через zenSDK.
-- Обнаружение mDNS теперь происходит до тех пор, пока работает адаптер, а не только через 10 секунд после запуска. Устройства, подключенные позже, добавляются автоматически, изменения IP-адресов обнаруживаются, и неудачные попытки подключения через zenSDK повторяются.
-- Исправлена ошибка, из-за которой список сохраненных устройств использовался в случаях, когда Zendure Cloud недоступен при запуске.
-- Устройства, созданные с помощью mDNS, сохраняют свое состояние при последующем появлении в списке облачных устройств Zendure (облачный MQTT по-прежнему работает для них). Устройства с неизвестным productKey в списке облачных устройств регистрируются как info, а не как error.
-- При остановке или перезапуске адаптера необходимо корректно отключать MQTT-клиентов.
-- Добавлена функция Sentry (по умолчанию используется ioBroker) для отправки отчетов об ошибках и сбора статистики по устройствам.
-
-Более старые изменения см. в файле CHANGELOG\_OLD.md.
+For older changes see CHANGELOG_OLD.md.
 
 ## License
 

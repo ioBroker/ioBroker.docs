@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rpi2/README.md
 title: ioBroker.rpi2
-hash: t3QNwyWAiHcC7lBiUGUyU2FQA7xMzFHQCzN/WJ13KWE=
+hash: /sMZ6r1PpHPZM5DDTB130x9G7RpUUhnXF2Y/hqy9jhI=
 ---
 # ioBroker.rpi2
 
@@ -37,84 +37,20 @@ hash: t3QNwyWAiHcC7lBiUGUyU2FQA7xMzFHQCzN/WJ13KWE=
 
 ## Установка
 
-После установки необходимо настроить все необходимые модули через страницу администрирования.
+После установки вы можете настроить параметры монитора в параметрах экземпляра.
 
 После начала `iobroker.rpi` При выборе всех модулей в Raspberry Pi создается дерево объектов в ioBroker.<instance> .<modulename> например `rpi.0.cpu`
 
-Убедитесь, что Python и build-essential установлены:
+Для работы адаптера требуются некоторые зависимости операционной системы. Обычно js-controller должен позаботиться об этом, но если у вас возникнут проблемы, пожалуйста, установите следующие пакеты вручную:
 
 ```bash
 sudo apt update
 sudo apt install -y build-essential python
 sudo apt install -y libgpiod-dev
+sudo apt install -y pkg-config
 ```
 
-(Последний пункт необходим только в том случае, если вы хотите работать с GPIO)
-
-После выбора становятся доступны следующие объекты:
-
-#### **Процессор**
-
-- частота процессора
-- загрузка1
-- загрузка5
-- загрузка15
-
-#### **Raspberry Pi (требуется vcgencmd)**
-
-- напряжение процессора
-- mem\_arm
-- mem\_gpu
-
-#### **Память**
-
-- доступная\_память
-- свободная память
-- memory\_total
-
-#### **Сеть (eth0)**
-
-- net\_received
-- net\_send
-
-#### **SD-карта**
-
-- sdcard\_boot\_total
-- sdcard\_boot\_used
-- sdcard\_root\_total
-- sdcard\_root\_used
-
-#### **Менять**
-
-- swap\_total
-- swap\_used
-
-#### **Температура**
-
-- soc\_temp
-
-#### **Время безотказной работы**
-
-- время безотказной работы
-
-#### **Беспроводная сеть**
-
-- wifi\_received
-- wifi\_send
-
-## Конфигурация
-
-На странице настроек вы можете выбрать следующие модули:
-
-- Процессор
-- Малина
-- Память
-- Сеть
-- SD-карта
-- Менять
-- Температура
-- Время безотказной работы
-- Беспроводная сеть
+(третий необходим только в том случае, если вы хотите работать с GPIO) (последний необходим только в том случае, если вы хотите использовать датчики DHTxx/AM23xx)
 
 ### температура NVME
 
@@ -165,9 +101,37 @@ sudo apt install -y libgpiod-dev
 
 ## Датчики DHTxx/AM23xx
 
-Вы можете считывать показания с датчиков температуры/влажности DHT11, DHT22 и AM2302.
+Вы можете считывать показания с датчиков температуры/влажности DHT11, DHT21 (AM2301), DHT22 и AM2302.
 
 Подключите такой датчик к выводу GPIO, как описано на странице пакета [node-dht-sensor](https://www.npmjs.com/package/node-dht-sensor) . К нескольким выводам можно подключить _несколько_ датчиков (это _не_ шинная система), как обсуждалось ранее.
+
+В таблице GPIO выберите `DHT11` для датчиков DHT11 и `DHT22/AM23xx` Для всех остальных датчиков введите интервал опроса в миллисекундах в столбец _«Отключение/Опрос»_ . Считывание показаний датчиков не может происходить чаще, чем каждые 2000 мс (DHT11: 1000 мс); при отсутствии значения адаптер опрашивает датчик каждые 30000 мс.
+
+Адаптер считывает данные с датчика одним из двух способов и при запуске регистрирует, какой из них используется для каждого датчика.
+
+### Драйвер ядра Linux (рекомендуется, работает на всех Raspberry Pi, включая Pi 5)
+
+В Linux есть собственный драйвер для этих датчиков (он поддерживает как DHT11, DHT21, DHT22, так и AM2302). Для включения драйвера для каждого датчика добавьте соответствующую строку в файл конфигурации. `/boot/firmware/config.txt` (`/boot/config.txt` (на более старых системах) и перезагрузите систему:
+
+```
+dtoverlay=dht11,gpiopin=17
+```
+
+`gpiopin` Это номер GPIO (BCM), тот же, что и в таблице GPIO адаптера. Вы можете проверить его работоспособность с помощью... `cat /sys/bus/iio/devices/iio:device*/in_temp_input` (Значение указано в 1/1000 °C). Адаптер автоматически определяет драйвер и использует его, никаких дополнительных настроек не требуется.
+
+### node-dht-sensor
+
+Без драйвера ядра адаптер использует node-dht-sensor. На Raspberry Pi 1–4 он работает как есть.
+
+На **Raspberry Pi 5** (а также Pi 500 и Compute Module 5) стандартная сборка node-dht-sensor не работает, поскольку она обращается к регистрам GPIO, которых нет у Pi 5. Либо используйте указанный выше драйвер ядра, либо пересоберите node-dht-sensor с поддержкой libgpiod:
+
+```bash
+sudo apt-get install -y build-essential libgpiod-dev pkg-config
+cd /opt/iobroker
+sudo -u iobroker -H npm rebuild node-dht-sensor --use_libgpiod=true
+```
+
+Затем перезагрузите адаптер. `pkg-config` Это необходимо: без этого сборка предполагает устаревшую libgpiod 1 и завершается с ошибкой в современных системах. При каждой переустановке или пересборке node-dht-sensor (например, после обновления Node.js) он снова получает сборку по умолчанию — адаптер затем регистрирует ошибку при запуске, и пересборку приходится повторять. У драйвера ядра такой проблемы нет.
 
 ## Changelog
 
@@ -175,12 +139,21 @@ sudo apt install -y libgpiod-dev
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 4.0.0 (2026-10-07)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (mcm1957) Dependencies have been updated.
 - (copilot) **ENHANCED**: Added `temperature.fan_activity` object to monitor fan RPM via `/sys/devices/platform/cooling_fan/...`; falls back to `0` when unavailable.
+- (Garfonso/Claude): Improve GPIO handling.
+- (Garfonso/Claude): **FIXED**: GPIO outputs no longer switch off and on again during adapter start (#431).
+- (Garfonso/Claude): Use the `@garfonso/opengpio` npm package instead of a git branch of the fork.
+- (Garfonso/Claude): **FIXED**: The fan parser unit test matched the old single-hwmon path and failed since the fan reading fix.
+- (Garfonso/Claude): **FIXED**: DHT sensors ignored the configured poll interval (with no interval they were read continuously, so every read failed) and every sensor's timer read all sensors.
+- (Garfonso/Claude): **NEW**: DHT sensors are read through the Linux dht11 kernel driver if it is enabled (`dtoverlay=dht11,gpiopin=<n>`). This makes them work on a Raspberry Pi 5 without rebuilding node-dht-sensor (#406).
+- (Garfonso/Claude): **ENHANCED**: DHT sensor problems are logged with their cause and how to fix them; the startup log shows how each sensor is read.
+- (Garfonso/Claude): **FIXED**: Raspberry Pi 500 and Compute Module 5 are recognised as Raspberry Pi 5 boards and use the same GPIO chip.
+- (Garfonso/Claude): **FIXED**: The humidity object of a DHT sensor was named "temperature".
+- (Garfonso/Claude): **BREAKING**: GPIO and DHT sensor handling changed in several places (see above). This mostly fixes problems, but please check your GPIO setup after updating.
 
 ### 3.0.2 (2025-12-01)
 * (@klein0r) Check for required libgpiod-dev package version
@@ -199,10 +172,6 @@ sudo apt install -y libgpiod-dev
 * (Garfonso) add an option to invert true/false mapping to 1/0.
 * (Garfonso) Allow multiple instances of this adapter per host.
 * (Garfonso) tried to improve initialization of GPIO inputs.
-
-### 2.3.2 (2025-02-06)
-* (asgothian) added support for NVMe temperature (needs additional configuration, see README)
-* (Garfonso) fixed inital values for outputs.
 
 ## License
 MIT License

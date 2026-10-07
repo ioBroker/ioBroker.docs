@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+    <title>ioBroker flow</title>
+    <!-- Sun (production) top left, grid bottom left, house right: the shape of the default preset,
+         so the adapter icon and the diagram it produces are recognisably the same thing. -->
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M40 34 C40 34 66 34 74 52 C82 70 88 70 88 70" stroke="#E0901A" stroke-width="7" />
+        <path d="M40 98 C40 98 66 98 74 82 C82 66 88 66 88 66" stroke="#64748B" stroke-width="7" />
+    </g>
+
+    <circle cx="30" cy="34" r="19" fill="#E0901A" />
+    <g stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" fill="none">
+        <circle cx="30" cy="34" r="6.4" />
+        <path d="M30 23.4 V20.4 M30 47.6 V44.6 M19.4 34 H16.4 M43.6 34 H40.6" />
+        <path d="M22.5 26.5 L20.4 24.4 M37.5 41.5 L39.6 43.6 M37.5 26.5 L39.6 24.4 M22.5 41.5 L20.4 43.6" />
+    </g>
+
+    <circle cx="30" cy="98" r="19" fill="#64748B" />
+    <g stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <path d="M22 108 L30 87 L38 108 M30 87 V108 M25.2 100 H34.8 M27 94.5 H33" />
+    </g>
+
+    <circle cx="98" cy="68" r="22" fill="#2F6FED" />
+    <g stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <path d="M87 67 L98 57 L109 67 V79 H87 Z" />
+        <path d="M94.5 79 V72 H101.5 V79" />
+    </g>
+</svg>

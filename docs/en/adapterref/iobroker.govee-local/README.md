@@ -24,6 +24,9 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- update dependencies: `@iobroker/testing` (6.3.0)
+
 ### 0.5.0 (2026-09-11)
 
 - add HomeKit-compatible hue and saturation states, and a mired color temperature state
@@ -63,7 +66,7 @@ Older entries are available in CHANGELOG_OLD.md.
 
 MIT License
 
-Copyright (c) 2025-2026 Børge Grunicke
+Copyright (c) 2025-2026 Børge Grunicke <apps@grunicke.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

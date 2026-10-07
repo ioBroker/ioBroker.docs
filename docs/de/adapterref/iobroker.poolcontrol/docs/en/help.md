@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.poolcontrol/docs/en/help.md
 title: PoolControl - Hilfe & Dokumentation
-hash: PjQBsQZD86kankijVkUk7vWusnuaCY/Ld2xEjFqQQaw=
+hash: ZO1Fiu6prA5OaTE5d2j9HWFdPM8sju950XnBlvd3ooo=
 ---
 <!-- PoolControl Help File – maintained manually. Do NOT remove this header. -->
 
@@ -67,9 +67,9 @@ Die Pumpe läuft, wenn ein PV-Überschuss vorhanden ist.
 
 ### ✔ Anpassbarer Zirkulationsfaktor
 
-`general.min_circulation_per_day` ist der beschreibbare und persistente Basiszirkulationsfaktor (0,5 bis 3,0). Der Admin-Wert ist nur ein Anfangswert; Änderungen wirken sich aus`circulation.daily_required` Und`circulation.daily_remaining` Die
+`general.min_circulation_per_day` ist der beschreibbare und persistente Basiszirkulationsfaktor (0,5 bis 3,0). Der Admin-Wert ist nur ein Anfangswert; Änderungen wirken sich aus `circulation.daily_required` Und `circulation.daily_remaining` Die
 
-Optional,`control.circulation.temperature_factor.*` erhöht den Effektivwert ab einem festgelegten Temperaturschwellenwert. Der Basiswert bleibt unverändert, der Effektivwert wird wie folgt angezeigt:`general.min_circulation_effective_per_day` und ist auf begrenzt`3.0` Der ausgewählte Temperatursensor muss aktiviert sein und einen gültigen Wert liefern.
+Optional, `control.circulation.temperature_factor.*` erhöht den Effektivwert ab einem festgelegten Temperaturschwellenwert. Der Basiswert bleibt unverändert, der Effektivwert wird wie folgt angezeigt: `general.min_circulation_effective_per_day` und ist auf begrenzt `3.0` Der ausgewählte Temperatursensor muss aktiviert sein und einen gültigen Wert liefern.
 
 ### ✔ Integration eines Drucksensors
 
@@ -77,7 +77,7 @@ Trend, Lernwerte, Normalbereich, Diagnostik.
 
 ### ✔ Pumpenlernwerte zurücksetzen
 
-`pump.learning.reset` Setzt gelernte Pumpenwerte nach Pumpenwechseln oder fehlerhafter Anlernung zurück.`pump.learning.tolerance_percent` wird beibehalten; das Lernen bleibt passiv und schaltet die Pumpe nicht um.
+`pump.learning.reset` Setzt gelernte Pumpenwerte nach Pumpenwechseln oder fehlerhafter Anlernung zurück. `pump.learning.tolerance_percent` wird beibehalten; das Lernen bleibt passiv und schaltet die Pumpe nicht um.
 
 ### ✔ KI-System
 
@@ -114,9 +114,9 @@ Die Konfiguration erfolgt über mehrere Registerkarten in der Instanz.
 &#x20;Wichtig für automatische Funktionen:
 
 - **wahr** : Alle Automatisierungen aktiv
-- **Falsch** : Automatisierung deaktiviert, nur der Frostschutz bleibt aktiv
+- **Falsch** : Die normale Pool-, Solar- und PV-Automatisierung ist deaktiviert; eine Warnung vor Solarüberhitzung wird weiterhin ausgegeben, ohne dass die Pumpe eingreift. Ein separat aktivierter Frostschutz kann aktiv bleiben, solange keine Pumpenblockierung vorliegt.
 
-Der tatsächliche Zustand befindet sich im Objektbaum unter`status.season_active` Die
+Der tatsächliche Zustand befindet sich im Objektbaum unter `status.season_active` Die
 
 ---
 
@@ -135,7 +135,7 @@ Mögliche Werte:
 - `time`
 - `off`
 - `controlHelper` (wird automatisch vom Adapter eingestellt)
-- `pv` (Photovoltaik-Modus)
+- `auto_pv` (Photovoltaik-Modus)
 
 **Zusätzliche Einstellungen:**
 
@@ -143,6 +143,9 @@ Mögliche Werte:
 - Maximaler Durchfluss (l/h)
 - Objekt-ID des Sockets
 - Frostschutz aktiv + Temperaturwert
+- Sicherheitsfunktionen im manuellen Modus (`pump.manual_safety_enabled`)
+
+`off` Es handelt sich um einen robusten Pumpenblock, der auch Frost- und Sonneneinstrahlungsschutz bietet. Der separate Wartungsmodus `control.pump.maintenance_active` blockiert auch den automatischen Sicherheitsstart der Pumpe. Im manuellen Betrieb greifen Frostschutz und Überhitzungsschutz nur dann ein, wenn `pump.manual_safety_enabled` ist aktiviert. Der Frostschutz benötigt stets einen eigenen Aktivierungsschalter, kann dann aber unabhängig von der Poolsaison funktionieren.
 
 ---
 
@@ -177,15 +180,17 @@ Einstellungen:
 
 - Solarsteuerung aktivieren
 - Hysterese aktivieren
-- Einschaltschwelle (`temp_on` )
-- Abschaltschwelle (`temp_off` )
+- Einschaltschwelle (`temp_on`)
+- Abschaltschwelle (`temp_off`)
 - Sonnenwarnungen aktivieren
 
 Die Solarsteuerung funktioniert nur im **Automatikmodus** .
 
-Weitere Live-Datenpunkte zeigen den aktuellen Unterschied auf`solar.collector_surface_delta` für Standard-Solar- und`solar.extended.collector_pool_reference_delta` für Solar Extended. Diese Werte sind für VIS, Skripte, Dashboards und Auswertungen vorgesehen.
+Weitere Live-Datenpunkte zeigen den aktuellen Unterschied auf `solar.collector_surface_delta` für Standard-Solar- und `solar.extended.collector_pool_reference_delta` für Solar Extended. Diese Werte sind für VIS, Skripte, Dashboards und Auswertungen vorgesehen.
 
-Hinweis: Änderungen an der Referenz für Solar Extended-Pools (`solar.extended.pool_temperature_source` ) werden automatisch zur Laufzeit angewendet. Ein Neustart des Adapters ist nicht erforderlich. Da Solar Extended mit einem zyklischen Prüfintervall arbeitet, werden Aktualisierungen der Berechnung, der Steuerlogik und der`solar.extended.collector_pool_reference_delta` Der Vorgang kann bis zu etwa 60 Sekunden dauern.
+Hinweis: Änderungen an der Referenz für Solar Extended-Pools (`solar.extended.pool_temperature_source`) werden automatisch zur Laufzeit angewendet. Ein Neustart des Adapters ist nicht erforderlich. Da Solar Extended mit einem zyklischen Prüfintervall arbeitet, werden Aktualisierungen der Berechnung, der Steuerlogik und der `solar.extended.collector_pool_reference_delta` Der Vorgang kann bis zu etwa 60 Sekunden dauern.
+
+Die Warnung des Kollektors bleibt auch während der Solarsaison aktiv. Jegliche damit verbundene Funktion der Solarüberhitzungspumpe wird während der Solarsaison deaktiviert. `off`, während der Wartung und in `manual` ohne manuelle Sicherheitsfreigabe.
 
 ---
 
@@ -230,7 +235,7 @@ Das KI-System generiert automatisch täglich:
 
 | Datenpunkt                                      | Bedeutung                      |
 | ----------------------------------------------- | ------------------------------ |
-| ai.weather.switches.allow\_speech               | Gibt auch aus an`speech.queue` |
+| ai.weather.switches.allow\_speech               | Gibt auch aus an `speech.queue` |
 | ai.weather.switches.daily\_summary\_enabled     | Tageszusammenfassung           |
 | ai.weather.switches.daily\_pool\_tips\_enabled  | Pool-Tipps                     |
 | ai.weather.switches.weather\_advice\_enabled    | Wettervorhersage               |
@@ -275,17 +280,17 @@ Bis zu **drei Zeitfenster** :
 - Wochentage
 - optionaler Intervallbetrieb mit Intervallperiode und Laufzeit
 
-Nur aktiv, wenn`pump.mode = time` Die
+Nur aktiv, wenn `pump.mode = time` Die
 
-Der Intervallbetrieb wird für jedes Fenster separat aktiviert durch`timecontrol.timeX_interval_active` Standardmäßig startet die Pumpe alle 60 Minuten und läuft 15 Minuten lang; der Zyklus ist stets an den Startzeitpunkt im Zeitfenster gekoppelt. Bei deaktiviertem Intervallbetrieb bleibt der bestehende Dauerbetrieb unverändert.
+Der Intervallbetrieb wird für jedes Fenster separat aktiviert durch `timecontrol.timeX_interval_active` Standardmäßig startet die Pumpe alle 60 Minuten und läuft 15 Minuten lang; der Zyklus ist stets an den Startzeitpunkt des Zeitfensters gekoppelt. Bei deaktiviertem Intervallbetrieb bleibt der bestehende Dauerbetrieb unverändert.
 
-Überlappende Zeitfenster verwenden eine ODER-Verknüpfung: Die Pumpe bleibt so lange in Betrieb, wie mindestens ein Zeitfenster aktuell einen Betrieb anfordert. Ein Intervall endet logisch spätestens zum festgelegten Endzeitpunkt; da die bestehende 60-Sekunden-Prüfung unverändert bleibt, kann sich der physische Schalter um fast 60 Sekunden verzögern. Ungültige Intervallwerte werden nicht geändert und führen zu einem kontinuierlichen Betrieb innerhalb des Zeitfensters.`timecontrol.status_text` zeigt den aktuellen Diagnosestatus an.
+Überlappende Zeitfenster verwenden eine ODER-Verknüpfung: Die Pumpe bleibt so lange in Betrieb, wie mindestens ein Zeitfenster aktuell einen Betrieb anfordert. Ein Intervall endet logisch spätestens zum festgelegten Endzeitpunkt; da die bestehende 60-Sekunden-Prüfung unverändert bleibt, kann sich der physische Schalter um fast 60 Sekunden verzögern. Ungültige Intervallwerte werden nicht geändert und führen zu einem kontinuierlichen Betrieb innerhalb des Zeitfensters. `timecontrol.status_text` zeigt den aktuellen Diagnosestatus an.
 
 ---
 
 ## 3.9 Debuggen & Systemprüfung
 
-Der Abschnitt`systemcheck.debug_logs` bietet:
+Der Abschnitt `systemcheck.debug_logs` bietet:
 
 - Auswahl eines Zielbereichs (Pumpe, Solar, Laufzeit, Steuerung usw.).
 - Kontinuierliches Protokoll
@@ -318,7 +323,7 @@ Die Struktur ist so gestaltet, dass sie im Objektbaum selbsterklärend ist.\
 
 ### **Plausibilitätsprüfung für die Zirkulationsberechnung**
 
-Der Kanal`circulation.plausibility` Enthält Diagnosewerte für die Zirkulationsberechnung. PoolControl prüft, ob die gemessene Pumpenleistung, die berechnete Durchflussrate oder Sprünge im täglichen Zirkulationsvolumen unplausibel erscheinen.
+Der Kanal `circulation.plausibility` Enthält Diagnosewerte für die Zirkulationsberechnung. PoolControl prüft, ob die gemessene Pumpenleistung, die berechnete Durchflussrate oder Sprünge im täglichen Zirkulationsvolumen unplausibel erscheinen.
 
 Dieses Diagnosemodul dient ausschließlich der Analyse. Es korrigiert keine Werte automatisch und ändert weder die Pumpensteuerung, die PV-Logik, die Solarlogik noch die Zirkulationsberechnung. Die gespeicherten Zustände helfen bei der Fehlersuche bei ungewöhnlichen Zirkulationswerten, wie z. B. plötzlichen Sprüngen in der Tagesgesamtmenge.
 
@@ -356,7 +361,7 @@ Die Pumpe schaltet sich automatisch ein, wenn die eingestellte Temperatur unters
 
 ### **RuntimeHelper**
 
-Berechnet Laufzeit und Umlauf. Außerdem werden unter „Diagnosewerte, die nur für die Analyse verwendet werden, ausgegeben“ ein Eintrag erstellt.`circulation.plausibility` um unplausible Eingabe- oder Berechnungswerte sichtbar zu machen.
+Berechnet Laufzeit und Umlauf. Außerdem werden unter „Diagnosewerte, die nur für die Analyse verwendet werden, ausgegeben“ ein Eintrag erstellt. `circulation.plausibility` um unplausible Eingabe- oder Berechnungswerte sichtbar zu machen.
 
 ### **Konsumhelfer**
 
@@ -402,13 +407,13 @@ Der Adapter erkennt automatisch:
 - Sonnenwarnungen
 - Rückspülerinnerungen
 
-Fehler werden angezeigt in`pump.error` Und`pump.status` Die
+Fehler werden angezeigt in `pump.error` Und `pump.status` Die
 
 ---
 
 # 7. Sprachausgabe und Benachrichtigungen
 
-Alle Sprachausgaben werden gesendet über`speech.queue` Die\
+Alle Sprachausgaben werden gesendet über `speech.queue` Die\
 &#x20;Je nach Konfiguration können auch E-Mails versendet werden.
 
 ---

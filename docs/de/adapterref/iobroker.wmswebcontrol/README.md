@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wmswebcontrol/README.md
 title: ioBroker.wmswebcontrol
-hash: M3eMRHlBL7ZyhvGMZvSdMMlX93FSac/aj93vzSA/M+o=
+hash: y6bKu9EWi5NGteWZQLFDiz6U76NPuI+8PPfNwOKGV50=
 ---
 ![Logo](../../../en/adapterref/iobroker.wmswebcontrol/admin/wmswebcontrol.png)
 
@@ -44,6 +44,7 @@ Wenn der Controller erreichbar ist, erstellt der Adapter eine `local.*` Baumstru
 - `local.<device>.stop` - Taste, stoppt die aktuelle Bewegung (beschreibbar).
 - `local.<device>.identify` - Taste, dient zur Identifizierung des Geräts (beschreibbar).
 - `local.<device>.drivingCause` /`.heartbeatError` /`.blocking` - Status (schreibgeschützt).
+- `local.<device>.connected` - Erreichbarkeit (nur lesbar): false bei einem Heartbeat-Fehler, während einer Blockierung oder wenn das Gerät keinen Status zurückgibt (Schlafmodus oder außerhalb der Funkreichweite).
 - `local.scenes.<scene>` - Schaltfläche, startet die Szene (beschreibbar).
 
 Die genaue Zusammenstellung der Zustände pro Gerät hängt von den Aktionen ab, die der Controller für dieses Gerät meldet.
@@ -59,6 +60,15 @@ Wenn nur der Cloud-Pfad verfügbar ist, stellt der Adapter die Geräte, Szenen u
 `wmswebcontrol.0.Markise.setting2Convert`
 
 ## Changelog
+
+### 1.0.1 (2026-10-07)
+
+- retry transient local status errors (0x50005/0x50004) up to three times so
+  intermittently reachable devices (e.g. awnings) report their state far more reliably
+- add a per-device `local.<device>.connected` state (false on a heartbeat error, while
+  blocking, or when the device returns no status)
+- log local command sends, confirmations and ignored writes; retry idempotent commands
+- log the local discovery retry cadence
 
 ### 1.0.0 (2026-09-23)
 

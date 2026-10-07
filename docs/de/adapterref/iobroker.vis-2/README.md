@@ -1,9 +1,10 @@
 ---
+chapters: {"pages":{"en/adapterref/iobroker.vis-2/README.md":{"title":{"en":"Next generation visualization for ioBroker: vis-2"},"content":"en/adapterref/iobroker.vis-2/README.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md":{"title":{"en":"Standard widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md"},"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md":{"title":{"en":"jQui widgets - jQuery UI widgets"},"content":"en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md"}}}
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: M4/bKBBaSnLZD0BlSkh3Gc9EoWfT2fzE+G8dgaVpBDQ=
+hash: YH2bBqgRKNBuGBR/5lOuSi9RV7TykVVz1U+VLHgLerE=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/admin/vis-2.png)
 
@@ -44,6 +45,11 @@ Zusätzlich benötigen Sie eine Lizenz zur Nutzung des Adapters. Die folgenden L
 ![Demo-Oberfläche](packages/iobroker.vis-2/img/user0.png)![Demo-Oberfläche](../../../en/adapterref/iobroker.vis-2/packages/iobroker.vis-2/img/user7.png)
 
 [Online-Demos](https://iobroker.click/)
+
+### Widgets
+
+- [Standard-Widgets](/#/docs/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md) – die Geräte eines Hauses, wie Karten für eine Seite mit Abschnitten (`relative`) und als Markierungen für einen Grundriss (`absolute`), mit einem Bild von jedem einzelnen von ihnen
+- [jQui-Widgets](/#/docs/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-jQui.md) – die Widgets, die von vis-1 übernommen wurden.
 
 ## Bindungen von Objekten
 
@@ -111,7 +117,7 @@ Folgende Operationen werden unterstützt:
 - `formatValue(decimals)` - Wert gemäß Systemeinstellungen formatieren und Dezimalstellen verwenden
 - `date(format)` - Wert als Datum formatieren. Das Format ist etwa so: "YYYY-MM-DD hh:mm:ss.sss"
 - `momentDate(format, useTodayOrYesterday)` - Wert mithilfe von Moment.js als Datum formatieren. [Zulässige Formate müssen gemäß der Moment.js-Bibliothek eingegeben werden](https://momentjs.com/docs/#/displaying/format/) . `useTodayOrYesterday=true` Die `moment.js` Format `ddd` /`dddd` werden mit heute / gestern überschrieben
-- `array(element1,element2[,element3,element4])` - Gibt das Element mit dem angegebenen Index zurück. Beispiel: `{id.ack;array(ack is false,ack is true)}` Ein boolescher Wert nimmt das zweite Element an, wenn er wahr ist, und das erste, wenn er falsch ist. `{id;array(off,on)}` funktioniert an einem Schalter
+- `array(element1,element2[,element3,element4])`- Gibt das Element mit dem angegebenen Index zurück. Beispiel: `{id.ack;array(ack is false,ack is true)}` Ein boolescher Wert nimmt das zweite Element an, wenn er wahr ist, und das erste, wenn er falsch ist. `{id;array(off,on)}` funktioniert an einem Schalter
 
 Sie können dieses Muster in jedem beliebigen Text verwenden, zum Beispiel
 
@@ -329,6 +335,13 @@ npm run install-monorepo
 npm run start
 ```
 
+Der Entwicklungsserver lauscht auf Port 3000 und fragt: `http://localhost:8082` für alles, was es nicht selbst dient. Beides kann geändert werden, wo das nicht passt:
+
+```shell
+VIS_PORT=3005 npm run start                       # another port, if 3000 is taken
+IOB_URL=http://192.168.178.45:8082 npm run start  # an ioBroker on another machine
+```
+
 - Debugging-Funktionen sind im Browser verfügbar, z. B. in Chrome (F12).
 - Wenn Sie eine Datei ändern, wird das automatische Neuladen des Editors unterstützt.
 
@@ -345,6 +358,12 @@ npm run start
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (@GermanBluefox) The two standard widget sets are written up: [docs/widgets-standard.md](/#/docs/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md) has a picture of every one of the twenty-seven devices, what it reads and writes, every attribute it carries, and what it looks like as a marker on a plan
+* (@GermanBluefox) A chart in a section keeps the height of its card. It drew itself as high as the box it had just measured, which made that box higher, which made the next drawing higher: a card six thousand pixels tall with an axis label every tenth of a degree
+* (@GermanBluefox) A table whose columns are given widths keeps all of them on a narrow card. Every column has a floor of its own now and the card scrolls sideways when they no longer fit, instead of the column without a width being squeezed to nothing - heading, data and all - on a phone
+* (@GermanBluefox) A measured value takes its unit out of the object where its own field is empty, the way the fill level and the input field already did, so a card the assistant built says `21,4 °C` and not `21,4`
+* (@GermanBluefox) The name of a list row and the dropdown beside it share the line. The dropdown was as wide as its longest word, which left `Betrie...` of `Betriebsart`; now both end in an ellipsis instead of one of them
+* (@GermanBluefox) The minus and plus of a number field are left out where the card is too narrow for them - the plus stood outside the card, over its neighbour - and a number that can only be read is written with the decimal separator of the language
 * (@GermanBluefox) vis-2 brings two widget sets of its own for the devices of a house: **Relative**, where a widget is a tile that fills its cell of a section, and **Absolute**, where it is as large as it was dragged. Both show the same devices in the same style - the card, a quiet name over a big value, the control at the bottom edge, and every colour out of the theme, so the two new themes carry them as well - and a device is described once and comes out in both sets. The two sets are not the same widget in two sizes: a page with an absolute layout has a picture of the flat under it, so a device there is **a marker no bigger than a coin** - a ring in the colour of its state around a dark disc with its icon, glowing in that colour so it is found on a busy picture. What it shows follows the shape it is dragged to: wider than tall it is a capsule with the number beside the icon, square it shows the number alone because both would have to be too small, taller than wide it stands the icon over the number. Picking the state for one takes over what the object already knows - its name, its unit, its limits and the icon of its channel - so none of that has to be typed again, and a marker says as much or as little as it is told to: only its icon, the icon with the name under it, or both with the state as well.
 * (@GermanBluefox) A widget attribute can be an icon **or** a picture, in one field: two buttons beside it open the picker of the standard small icons and the file browser of ioBroker, and whichever was chosen last is what the widget shows. The widgets of the sets `Relative` and `Absolute` name their icon that way In a section a widget is a card instead, in one of three arrangements: the name above the value, a single row, or a tile in the colour of its state. The first three devices are there: switch, measured value and blind. Neither set measures the box it ended up in, so neither can chase its own size the way the widgets of the material set did
 * (@GermanBluefox) A page can be built out of the devices of the installation: `Add view` offers `From devices...`, which finds what the type detector knows, sorts it into the rooms - or the functions - it belongs to, and writes one page with a section per room, or a page per room with its entry in the navigation. Every device becomes a widget of `Basic` or `jQui`, so no other adapter is needed: what can be switched becomes a switch, what can be set a slider, what can be read a value. The names can be changed and single devices left out before anything is written, and all of it is one step of the undo
@@ -354,6 +373,18 @@ npm run start
 * (@typhosj) Every signal image of a widget names its small icon again. The label was a word per index, of which there were three - the third of them read `[3]` - so the signals beyond them showed the raw key after six of them became possible (#562)
 * (@typhosj) The tab of the editor keeps its own name and icon. The title and the favicon of the project name the runtime, and an editor tab that carried them could not be told apart from the runtime tab of the same project (#537)
 * (@typhosj) A `border-radius` on a jQui widget is drawn again. Only the frame moves to the button inside the widget, so that it is not drawn twice - the radius stays on the widget as well, whose square background filled in the corners the button had rounded away (#663)
+* (@typhosj) The label of a jQui button follows a `text-align` of left or right in the style of the widget. The button lays out its label as a flex box, which does not care for `text-align`, so the label stayed in the middle (#426)
+* (@typhosj) The widget set of an uninstalled adapter leaves the palette when vis-2 starts again. Once vis-2 had found the first installed widget set, every later one in the directory counted as installed too, so a removed set was kept, stayed in `widgets.html` and went back into the file storage with the next upload: `iobroker del echarts` deleted its widgets, and the restart that followed put them back
+* (@typhosj) A page with the widget `Swipe` can be scrolled with a finger again. The widget held back every move of the finger, also up and down where no view was set. It holds back only a move towards a view now, and it also hears a swipe that starts on the page below the view, where the finger is once the page is scrolled (#499)
+* (@typhosj) The push mode of the widget `Binary control` works on a touch screen: the state is on for as long as a finger holds the button. It ran on mouse events, which a finger fires only when it is lifted. The same held back the repetition of the widget `Write state` while its button is held. A mouse released outside of the button now releases it too, instead of leaving the state on or the repetition running (#475)
+* (@typhosj) A group that is shown in more views (`multi-views`) is drawn in those views again. The widgets of its copy still belonged to the group of their own view, which the other view does not have, so each of them failed to render (#431)
+* (@typhosj) A widget that is taken out of a view in `multi-views`, or deleted, leaves that view in the editor at once. Its copy stayed there until the editor was loaded again (#417)
+* (@typhosj) The title of the widget `Border` takes HTML again, as it did in vis-1 - `<b>` makes it bold instead of being shown as text (#563)
+* (@typhosj) The background of a view covers its whole screen size in the editor. With a screen size larger than the editor, the background stopped where the first screenful ended, and everything scrolled to beyond it was white (#560)
+* (@typhosj) The text of the jQui inputs - input, date, date and time, and the select of the states control - takes the color of the widget, set in its style or by a CSS class. It kept the text color of the theme (#521)
+* (@typhosj) The editor cuts the content of a widget at its border, as the runtime does. An image larger than its widget was shown whole in the editor and cut in the runtime: the editor lifted the clipping for the name plate of the widget, which does not sit inside the widget anymore (#582)
+* (@typhosj) The jQui slider writes every value to its control ID. A value was left out when the object ID shown by the slider had it at that moment - so a slider that shows the temperature of a room and sets its thermostat could not set the temperature the room had (#580)
+* (@typhosj) The groups of the editor toolbar wrap into another row when the window is too narrow for them. They ran on under the user, theme and menu buttons at the right edge and lay over the name of the user, first of all in the narrowest form of the toolbar (#570)
 * (@GermanBluefox) The widget `Number` shows `--` instead of `NaN` when its object has no numeric value
 * (@GermanBluefox) The editor scrolls the view by itself while a widget is dragged or resized near its edge, so a widget can reach a place that is out of sight
 * (@GermanBluefox) A new view - and the first view of a new project - uses the grid layout with sections and starts with one empty section. Existing views keep their layout

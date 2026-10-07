@@ -48,7 +48,7 @@ Under `creality.<instance>.*` (examples):
 | `state` / `stateKlipper` / `selfTestStep` | UI / Klipper status |
 | `currentJob.*` | Progress, file, times, layers, feed/flow, active filament |
 | `info.*` | Model, firmware, hostname, SN, disk, print hours/jobs, errors |
-| `temp.*` | Nozzle, bed, box/chamber |
+| `temp.*` | Nozzle, bed; chamber (`temp.box`) only if printer reports a chamber heater |
 | `fans.partCooling` | Part cooling **UI %** (matches slicer / printer display; Creality `fan0_min` remapping) |
 | `fans.partCoolingPwm` | Part cooling **PWM %** (raw hardware duty cycle from Moonraker) |
 | `fans.*` / `cfs.*` | Other fans / CFS (optional) |
@@ -71,6 +71,12 @@ If you like our work and would like to support us, we appreciate any donation.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2026-10-06)
+- (skvarel) Fixed stale `currentJob.progress` after finished print / Moonraker restart (Creality WS fallback)
+- (skvarel) Modified Moonraker fan query to be optional so missing fan objects cannot 404 the whole poll
+- (skvarel) Modified `temp.box` to appear only when the printer reports a chamber heater (`maxBoxTemp > 0`)
+- (skvarel) Fixed `currentJob.*` not clearing after cancel/complete (Creality keeps filename + last progress)
+
 ### 0.4.1 (2026-08-25)
 - (skvarel) Fixed `currentJob.filament*` for external spool holder (`filament_rack`) when CFS is not active
 
@@ -87,9 +93,6 @@ If you like our work and would like to support us, we appreciate any donation.
 ### 0.2.0 (2026-08-08)
 - (skvarel) Fixed part cooling fan % to match slicer/display (Creality fan0_min remapping)
 - (skvarel) Added `fans.partCoolingPwm` for raw PWM duty cycle
-
-### 0.1.4 (2026-08-02)
-- (skvarel) Fixed string state roles for repository object check
 
 ## License
 MIT License

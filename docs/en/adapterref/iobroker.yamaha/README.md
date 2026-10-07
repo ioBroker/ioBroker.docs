@@ -248,6 +248,20 @@ what it asks, what it gets, and what it refuses to send.
     ### **WORK IN PROGRESS**
 -->
 
+### 3.2.0 (2026-10-02)
+
+- (krobipd) Fixed: Dropdown lists such as sound program, sleep timer and Adaptive DRC no longer go empty when the receiver loses power; lists emptied that way come back
+- (krobipd) Changed: Your datapoints stay exactly as they are while the adapter runs, also when a receiver goes offline; they change only after an adapter or firmware update
+- (krobipd) New: A command the receiver refuses over one protocol, or one sent while that protocol is offline, goes out over another protocol that understands it
+- (krobipd) New: A firmware update of the receiver is noticed and logged; the adapter reads the receiver again and reports it ready once that is done
+- (krobipd) Fixed: Datapoints of found receivers are no longer deleted at adapter start when the receiver list cannot be read or an entered receiver has the same address
+
+### 3.1.3 (2026-10-02)
+
+- (krobipd) Fixed: Menu lines fill again after switching player.browse.source, also on receivers that were in standby when the adapter started
+- (krobipd) Fixed: On receivers that offer their menus only over XML (models from before 2010), the menu lines no longer stay empty after a source switch
+- (krobipd) Changed: A new instance starts switched off and waits until you have set it up; existing instances keep their own setting
+
 ### 3.1.2 (2026-09-30)
 
 - (krobipd) Fixed: The sleep timer lists the receiver's own values again (Off, 30 min …) instead of MusicCast's minutes, so a picked value is one the receiver accepts
@@ -268,19 +282,6 @@ what it asks, what it gets, and what it refuses to send.
 - (krobipd) Fixed: A MusicCast Zone B shows as Zone B and joins a group with Zone A, and the cover changes with the track
 - (krobipd) Fixed: Deleting a device, renaming it in the dialog or stopping the adapter no longer loses a name or leaves a network search running
 - (krobipd) Improved: Dropdowns show readable names in your ioBroker language, the playing source shows the input's name, and each queued track is its own datapoint
-
-### 3.0.1 (2026-09-27)
-
-- (krobipd) Improved: The notes the Admin shows before an update are short now: what changes, one example old → new, and a link to the details
-
-### 3.0.0 (2026-09-26)
-
-- (krobipd) Changed: Every device gets a new object ID once — its model and the end of its serial number, e.g. `wx-030-2b3c`; scripts and VIS need the new IDs
-- (krobipd) Changed: The move carries values, recording settings, rooms, functions and aliases along, and recorded history continues in its old series
-- (krobipd) Fixed: A second device of the same model and name is no longer skipped — every device gets its own object tree
-- (krobipd) Fixed: After a restart, the input list of a YNCA receiver offers only the sources the receiver has again, not the whole catalog
-- (krobipd) New: A device added by hand is asked for its model and serial number, and the name you type is its display name from the start
-- (krobipd) New: The device card shows the object ID, the MAC address and the serial number under its details
 
 ## License
 

@@ -4,13 +4,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/progress-circular.md
 title: Fortschrittsrundschreiben
-hash: q7hTSn0/rcjSGPm35m2gKgGqJshxgtAx68FxTSAPbJw=
+hash: wFQkdJ04320OzvrOpE365SVFhrhrPHecdX286ZtYuYM=
 ---
 # Fortschrittsrundschreiben
 
 [Benutzerhandbuch](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/README.md) › [Widget-Katalog](/#/docs/adapterref/iobroker.vis2-materialdesign/doc/en/widgets/README.md) · [Deutsch](https://github.com/typhosj/ioBroker.vis2-materialdesign/blob/master/doc/de/widgets/progress-circular.md)
 
-Ein kreisförmiger VIS 2-Fortschrittsindikator mit derselben Wertezuordnung und denselben Beschriftungen wie das lineare Fortschritts-Widget. Vorlagen-ID:`tplVis2-materialdesign-Progress-Circular` Die
+Ein kreisförmiger VIS 2-Fortschrittsindikator mit derselben Wertezuordnung und denselben Beschriftungen wie das lineare Fortschritts-Widget. Vorlagen-ID: `tplVis2-materialdesign-Progress-Circular` Die
 
 <img src="../../media/vis2_progress_circular_runtime.png" alt="Circular Material Design progress in VIS 2">
 
@@ -22,20 +22,20 @@ Der Screenshot zeigt die erweiterten Gruppen **„Allgemein“** , **„Layout�
 
 **Allgemein**
 
-- **Minimum/Maximum** – Ordnen Sie den Zustandswert dem Bereich von 0 bis 100 Prozent zu. Ein boolescher Zustand zählt.`true` als Maximum und`false` als Minimum.
+- **Minimum/Maximum** – Ordnen Sie den Zustandswert dem Bereich von 0 bis 100 Prozent zu. Ein boolescher Zustand zählt. `true` als Maximum und `false` als Minimum.
 - **unbestimmt - läuft kontinuierlich** - eine permanente Rotation, die den Wert ignoriert (Beschäftigungsanzeige).
 
 **Layout**
 
 - **Größe** – Durchmesser des Rings. Wenn das Feld leer gelassen wird, füllt es das Widget aus.
 - **Dicke** – Breite des Rings.
-- **Drehpunkt des Startpunkts** – Startwinkel in Grad, standardmäßig beginnt er oben.
+- **Drehen Sie den Startpunkt** – Startwinkel in Grad, im Uhrzeigersinn. `0` beginnt auf der rechten Seite (3 Uhr), `-90` oben.
 
 **Beschriftung**
 
 - **Wert anzeigen** – blendet die Beschriftung in der Mitte aus.
-- **Stil der Wertbeschriftung** –`percent` ,`value` (der Zustandswert plus **Einheit** ) oder`custom` Die
-- **individuelles Etikett** – Freitext für die`custom` Stil.`[#value]` fügt den Statuswert ein,`[#percent]` der Prozentsatz.
+- **Wertbeschriftungsstil** –`percent`, `value` (der Zustandswert plus **Einheit** ) oder `custom` Die
+- **individuelles Etikett** – Freitext für die `custom` Stil. `[#value]` fügt den Statuswert ein, `[#percent]` der Prozentsatz.
 - **Dezimalstellen** – Dezimalstellen beider Zahlen.
 
 **Farben**

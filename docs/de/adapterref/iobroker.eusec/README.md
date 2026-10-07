@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.eusec/README.md
 title: ioBroker.euSec
-hash: Mstau96X0SbJF3LGV9+Jb1hJr3/Edhw6iFo8lpRfquU=
+hash: sztO2FYiCuOG0KyzFX8Ggk2gu98CMIlrwtWYX3ohhmY=
 ---
 ![Logo](../../../en/adapterref/iobroker.eusec/docs/_media/ioBroker.euSec.png)
 
@@ -50,7 +50,7 @@ Dieser Adapter wäre ohne die großartige Arbeit von Patrick Broetto (brobat) <h
 
 Adapter 2.x und älter hinzugefügt `--security-revert=CVE-2023-46809` zu den Node-Prozessparametern jeder Instanz, die unter Node.js 18 oder 20 ausgeführt wird. Node.js 22 und neuer weigern sich, eine Instanz mit diesem Flag zu starten, und dieser Adapter benötigt Node.js 24.
 
-Durch die Installation dieses Adapters wird das Flag automatisch von allen EUSEC-Instanzen entfernt; andere Knotenprozessparameter bleiben erhalten. Falls eine Instanz dennoch nicht startet und deren Protokoll Folgendes anzeigt: `--security-revert=CVE-2023-46809` Entfernen Sie die Parameter manuell und starten Sie die Instanz neu:
+Durch die Aktualisierung dieses Adapters werden die Knotenprozessparameter aller EUSEC-Instanzen gelöscht, wodurch das Flag entfernt wird. Andere Parameter (z. B. `--max-old-space-size`) werden ebenfalls gelöscht und müssen nach jedem Update erneut eingegeben werden. Wenn eine Instanz immer noch nicht startet und ihr Protokoll Folgendes anzeigt `--security-revert=CVE-2023-46809` Entfernen Sie die Parameter manuell und starten Sie die Instanz neu:
 
 ```
 iobroker object set system.adapter.eusec.0 common.nodeProcessParams=[]
@@ -64,6 +64,12 @@ Eine detaillierte Beschreibung (in deutscher Sprache) finden Sie in unserem Foru
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.4.2 (2026-10-05)
+- (typhosj) On-demand livestreams no longer show only a picture every few seconds and then go black. Since 3.4.0 every keyframe of 16 KB or more was taken for a go2rtc that does not keep up, and the video up to the next keyframe was dropped. Data is now only dropped once more than 4 MB wait for go2rtc (reported in the forum)
+
+### 3.4.1 (2026-10-05)
+- (typhosj) Updating the adapter clears the node process parameters of all eusec instances again, which removes `--security-revert=CVE-2023-46809` left over from adapter 2.x. The install script that removed only this flag is gone, since install scripts are not allowed for ioBroker adapters. Other parameters such as `--max-old-space-size` have to be entered again after each update
+
 ### 3.4.0 (2026-10-02)
 - (typhosj) Floodlight Cam E30 (T8426): preset positions are now sent to the camera (before, writing `preset_position`, `save_preset_position` or `delete_preset_position` had no effect), and the livestream is no longer rejected with `ERROR_INVALID_ACCOUNT`. The camera now gets the commands of the Floodlight Cam E340, which the library already defines it like (reported in the forum)
 - (hdering) **Changed URLs:** without a configured host name, the livestream URLs (states `livestream`, `livestream_rtsp`) now use the IPv4 address in the LAN of the ioBroker host the instance runs on instead of the name of the first ioBroker host (e.g. `http://192.168.1.10:1984/...` instead of `http://iobroker:1984/...`). Tablets, phones and dashboards often cannot resolve the name, and with several hosts the first one is not necessarily the one that runs go2rtc. Visualizations and scripts that store the URL get the new one with the next livestream; to keep a name, enter it in the setting "Hostname"
@@ -95,17 +101,6 @@ Eine detaillierte Beschreibung (in deutscher Sprache) finden Sie in unserem Foru
 
 ### 3.2.1 (2026-09-18)
 - (typhosj) An event picture that cannot be decoded no longer replaces the last picture with a `<serial>.unknown` file; `picture_url` and `picture_html` keep the previous picture and a warning names the device, the data length and the image format (#136)
-
-### 3.2.0 (2026-09-15)
-- (typhosj) Pan and tilt cameras expose their four PTZ preset positions: `preset_position` moves the camera to a preset, `save_preset_position` stores the current position in one and `delete_preset_position` clears one. The states are only created for devices that report the matching command (#155)
-
-### 3.1.0 (2026-09-03)
-- (typhosj) The adapter requires node.js >= 24 now as`eufy-security-client` 4.x requires `node >=24` itself
-- (typhosj) The `livestream`, `livestream_rtsp` and `rtsp_stream_url` states are emptied instead of deleted when a stream ends. 
-- (typhosj) Removed the "HTTPS streaming url" setting. The adapter never configures TLS for go2rtc and go2rtc ignores `api.tls_listen` without a certificate, so the option only ever produced a livestream URL that could not be opened. The URL is built with `http` now
-- (typhosj) The livestream page (`http://<host>:1984/stream.html?src=<serial>`) is now served by the adapter, with the defaults that make a stream unstable on weak clients such as a Fire tablet
-- (typhosj) The `livestream` state now carries `&background=false`, so the player disconnects while its page is not visible. Without it the browser keeps decoding behind a switched off display and leaves a consumer attached that never recovers once the producer is gone
-- (typhosj) go2rtc serves its web pages from the adapter directory now (`api.static_dir`). That replaces the files embedded in go2rtc, so the stream list, the log page, the link list and the WebRTC viewer are shipped along and keep answering.
 
 ## License
 

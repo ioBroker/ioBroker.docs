@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.go-e-charger/README.md
 title: ioBroker.go-eCharger
-hash: nUwqvcTyzk6dU1uc3YpLqSj0elLKhGq07q0pMs3e/WM=
+hash: Q3TGnsN2MMlqYJQN0aR5fNSDA11UQPHw2QSrPd1L/Q8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.go-e-charger/admin/go-eCharger.png)
 
@@ -62,11 +62,11 @@ hash: nUwqvcTyzk6dU1uc3YpLqSj0elLKhGq07q0pMs3e/WM=
 
 ## Конфигурация
 
-Добавьте по одной записи для каждого зарядного устройства go-e в список настенных зарядных устройств и укажите его IP-адрес. При желании можно присвоить каждому зарядному устройству имя.
+Добавьте в список настенных зарядных устройств по одной записи для каждого зарядного устройства go-e и укажите его IP-адрес. При желании можно присвоить каждому зарядному устройству имя.
 
 Включите **режим только для чтения** для зарядного устройства, если адаптер должен только считывать данные и никогда не записывать их. В режиме только для чтения адаптер не отправляет никаких команд управления — ни команды разблокировки заряда, ни команды зарядного тока, ни команды переключения фаз. Состояния ChargeNOW и ChargeManager по-прежнему можно переключать, но они не влияют на работу зарядного устройства в режиме только для чтения. Используйте этот режим, если зарядка данного настенного зарядного устройства контролируется другой системой или управляется локально с помощью RFID-меток.
 
-Длительность цикла опроса определяет, как часто адаптер считывает данные с зарядных устройств и регулирует зарядный ток (минимум 3 секунды, по умолчанию 10 секунд).
+Параметры цикла опроса определяют, как часто адаптер считывает данные с зарядных устройств и регулирует зарядный ток (минимум 3 секунды, по умолчанию 10 секунд).
 
 #### Ограничения тока для каждого настенного блока
 
@@ -137,7 +137,7 @@ target current = floor(available power / 230 V / active phases)
 
 > **⚠️ Не устанавливайте максимальный зарядный ток выше, чем позволяет ваше зарядное устройство go-e и особенности вашей электропроводки.** Модели зарядных устройств go-e рассчитаны на разные максимальные токи (например, 16 А или 32 А), и фактическое ограничение также зависит от вашего кабеля, вилки и проводки. Установка значения выше номинального значения оборудования/установки может привести к срабатыванию защитных устройств или повреждению оборудования. В случае сомнений, оставьте значение по умолчанию — 16 А.
 
-В режимах, учитывающих состояние батареи, зарядка электромобиля отключена (см. ниже). `Settings.Setpoint_HomeBatSoC` Таким образом, приоритет отдается домашней батарее. Зарядка начинается, как только внутренний целевой ток достигает 10 А (или минимального тока, если он установлен выше). Расчетный ток ограничен заданным максимальным значением, а внутренний целевой ток изменяется не более чем на 1 А за цикл опроса, чтобы уменьшить резкие изменения.
+В режимах, учитывающих состояние батареи, зарядка электромобиля отключена (см. ниже). `Settings.Setpoint_HomeBatSoC` Таким образом, приоритет отдается домашней батарее. Зарядка начинается, как только внутренний целевой ток достигает 10 А (или минимального тока, если он установлен выше); затем происходит текущая зарядка до достижения целевого тока и его снижения до минимального значения. Расчетный ток ограничен заданным максимальным значением, а внутренний целевой ток изменяется не более чем на 1 А за цикл опроса, чтобы уменьшить резкие изменения.
 
 #### Несколько настенных коробок на одном избыточном солнечном источнике энергии.
 
@@ -215,7 +215,9 @@ target current = floor(available power / 230 V / active phases)
 
 Значение `0` (по умолчанию) отключает ограничение бюджета; в этом случае адаптер не устанавливает суммарный лимит, поэтому убедитесь, что сумма максимальных токов каждого настенного блока остается в пределах мощности вашей установки.
 
-> Это консервативная модель: каждый ампер учитывается в рамках одного бюджета независимо от того, к какой фазе он относится. Он никогда не превышает номинал предохранителя, но при распределении нагрузок по фазам может остаться неиспользованная часть мощности.
+В режиме работы адаптер также **отслеживает фактически измеренный зарядный ток** : если зарядное устройство потребляет значительно меньше допустимого тока (например, автомобиль с более низким лимитом бортового зарядного устройства, автомобиль, почти полностью заряженный, или снижение мощности из-за температуры), его неиспользованный ток восстанавливается через несколько циклов и передается следующему зарядному устройству в порядке приоритета. Зарядное устройство поддерживает небольшой запас по сравнению с фактическим потреблением и получает на один ампер больше в каждом цикле, пока использует полученный ток, чтобы восстановить свой лимит. Для обеспечения безопасности зарядное устройство всегда _снижает_ мощность только для восстановления емкости — его контрольная мощность никогда не остается высокой, пока освобождаемые амперы отдаются, — поэтому суммарный ток никогда не может превысить предохранитель, даже если автомобиль внезапно снова увеличит потребление.
+
+> Это консервативная модель, не зависящая от фазы: каждый ампер учитывается в рамках одного бюджета независимо от того, на какой фазе он находится. Он никогда не превышает номинал предохранителя, но при распределении нагрузок по фазам может остаться неиспользованная часть мощности.
 
 ## Sentry
 
@@ -231,12 +233,19 @@ target current = floor(available power / 230 V / active phases)
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.8.0 (2026-10-04)
 
 - (hombach) added an installation-wide total current budget (maximum total charging current) that caps the summed current of all wallboxes to protect a shared fuse, serving ChargeNOW before ChargeManager and keeping a wallbox without a connected vehicle off so idle wallboxes neither trip the fuse nor starve one that is already charging
+- (hombach) the total current budget now follows the measured charging current: a wallbox that draws less than allowed has its unused current reclaimed after a dwell and handed to the next wallbox, growing back one ampere per cycle when it uses what it gets - reductions are always applied before increases so the summed current never exceeds the fuse
 - (hombach) added concise debug logging for the ChargeManager control loops (surplus sharing, phase switching, total current budget)
 - (hombach) docs: documented the total current budget
+- (typhosj) the phase mode (`psm`) is now only written when the charger reports a different mode instead of every cycle, because it is a stored charger setting
+- (typhosj) ChargeManager: no charge release, charging current or phase switch is sent while no vehicle is plugged in, and an unchanged release or current is no longer re-sent every cycle - each write woke the charger's LEDs
+- (typhosj) the charging current is no longer re-sent every cycle: the charger reports a written `amx` back as 0 and only shows the applied current in `amp`, so the check for an unchanged value never matched
+- (typhosj) the charge release is no longer re-sent on every single cycle while the vehicle reports that it has finished charging - the charger confirms each write and keeps ignoring it, for up to 90 minutes in one logged case; it is still retried, just at a lower rate after the first five minutes
+- (typhosj) ChargeManager: the charging current no longer follows a one-ampere change of its target, so a passing cloud no longer makes it step back and forth every cycle
+- (typhosj) ChargeManager: a running charge now follows a falling surplus down to the minimum current - the 10 A start current also applied to a running charge, so currents between the minimum and 10 A were never written and the charger stayed at the 10 A written last, drawing the difference from the grid or the home battery until the surplus recovered or the shutdown delay ran out
+- (hombach) updated dependencies
 
 ### 1.7.0 (2026-09-18)
 
@@ -269,12 +278,6 @@ target current = floor(available power / 230 V / active phases)
 - (hombach) ChargeManager: minimum and maximum surplus charging current are now configurable, with the maximum raised to up to 32 A (#852)
 - (hombach) the configurable maximum charging current now caps ChargeNOW as well
 - (hombach) admin: moved the ChargeManager settings into their own configuration tab, separate from the standard settings
-- (hombach) updated dependencies
-
-### 1.4.1 (2026-08-23)
-
-- (typhosj) refactored the ChargeManager control decision into a deterministic, unit-tested function (#846); behavior unchanged
-- (hombach) fixed vulnerabilities
 - (hombach) updated dependencies
 
 ## License

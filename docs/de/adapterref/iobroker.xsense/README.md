@@ -98,6 +98,12 @@ or if you have a VM on proxmox check your CPU settings
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (arteck) Dependencies have been updated
+* (arteck) update new Devices
+* (arteck) add fire_drill_alarm for devices that support it
+* (arteck) add mute_alarm for devices that support it
+
 ### 0.6.6 (2026-09-30)
 * (arteck) Dependencies have been updated
 * (arteck) fix internal mqtt with node 24

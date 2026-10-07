@@ -213,21 +213,15 @@ do with them.
 
 The instance has to be running: while it is stopped the keys are disabled and the tab says so.
 
----
----
-## Installation
-
-Install this adapter using ioBroker repositories.
-
->[!NOTE]
-> This adapter does not support installation from GitHub.
-
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (mcm57) Fixed invalid state roles and read/write flags in object definitions
+
 ### 3.0.5 (2026-09-10)
 - (GermanBluefox) The instance settings have a second tab with a remote control, so the TV can be operated directly from the admin
 - (krobipd) `states.scroll` and `states.drag` no longer ignore a movement whose horizontal or vertical part is zero, so plain vertical scrolling (`0,5`) works

@@ -16,6 +16,16 @@
             <pubDate>Sat, 26 Sep 2026 06:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[The new iobroker.com and what it can do]]></title>
+            <description><![CDATA[
+                <p>The website has moved and been rebuilt. It's now called **iobroker.com** , and anyone who's already visited it will have noticed the difference in appearance. But there's a lot hidden beneath the surface that you won't find unless someone points it out. That's precisely what this is about.</p>
+            ]]></description>
+            <link>https://www.iobroker.com/#en/blog/2026_09_24</link>
+            <guid isPermaLink="true">https://www.iobroker.com/#en/blog/2026_09_24</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Thu, 24 Sep 2026 06:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Manage access data centrally instead of in every script.]]></title>
             <description><![CDATA[
                 <p>Anyone who accesses a camera, uses an AI key, or sends emails knows this: the same password is stored in three places. If it changes, you only find the third one when something stops working.</p>

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wmswebcontrol/README.md
 title: ioBroker.wmswebcontrol
-hash: M3eMRHlBL7ZyhvGMZvSdMMlX93FSac/aj93vzSA/M+o=
+hash: y6bKu9EWi5NGteWZQLFDiz6U76NPuI+8PPfNwOKGV50=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wmswebcontrol/admin/wmswebcontrol.png)
 
@@ -44,6 +44,7 @@ hash: M3eMRHlBL7ZyhvGMZvSdMMlX93FSac/aj93vzSA/M+o=
 - `local.<device>.stop` - Кнопка, останавливает текущее движение (можно записывать).
 - `local.<device>.identify` - кнопка, идентифицирует устройство (доступна для записи).
 - `local.<device>.drivingCause` /`.heartbeatError` /`.blocking` - статус (только для чтения).
+- `local.<device>.connected` - Доступность (только для чтения): false при ошибке пульса, во время блокировки или когда устройство не возвращает никакого статуса (спящий режим или вне зоны действия радиосвязи).
 - `local.scenes.<scene>` - кнопка, запускает сцену (доступна для записи).
 
 Точный набор состояний для каждого устройства зависит от действий, которые контроллер для него сообщает.
@@ -59,6 +60,15 @@ hash: M3eMRHlBL7ZyhvGMZvSdMMlX93FSac/aj93vzSA/M+o=
 `wmswebcontrol.0.Markise.setting2Convert`
 
 ## Changelog
+
+### 1.0.1 (2026-10-07)
+
+- retry transient local status errors (0x50005/0x50004) up to three times so
+  intermittently reachable devices (e.g. awnings) report their state far more reliably
+- add a per-device `local.<device>.connected` state (false on a heartbeat error, while
+  blocking, or when the device returns no status)
+- log local command sends, confirmations and ignored writes; retry idempotent commands
+- log the local discovery retry cadence
 
 ### 1.0.0 (2026-09-23)
 

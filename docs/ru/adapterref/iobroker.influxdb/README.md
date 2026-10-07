@@ -8,7 +8,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.influxdb/README.md
 title: без названия
-hash: 9WTJqbXLcKHlLbAztT1yGR9As+jVoNassq2ilS5W+gU=
+hash: zOGPNkL3p1NrpCT6J5Fo4IjRP6vg1rtsnUPT9iG43Pc=
 ---
 * * *
 
@@ -66,7 +66,7 @@ hash: 9WTJqbXLcKHlLbAztT1yGR9As+jVoNassq2ilS5W+gU=
 * * *
 
 ## <span id="Settings_for_data_points">Настройки для точек данных</span>
-Настройки регистрируемых точек данных задаются на вкладке «Объекты» для соответствующей точки данных. [![Для этого выберите значок шестеренки для нужной точки данных в крайнем правом углу столбца. Откроется меню конфигурации: [![](https://github.com/ioBroker/ioBroker.influxdb/blob/master/docs/de/img/influxdb_ioBroker_Adapter_influxDB_objects.jpg)](../../../de/adapterref/iobroker.influxdb/img/influxdb_ioBroker_Adapter_influxDB_objects.jpg)
+Настройки регистрируемых точек данных задаются на вкладке «Объекты» для соответствующей точки данных. [![Для этого выберите значок шестеренки для нужной точки данных в крайнем правом углу столбца. После этого откроется меню конфигурации: [![](https://github.com/ioBroker/ioBroker.influxdb/blob/master/docs/de/img/influxdb_ioBroker_Adapter_influxDB_objects.jpg)](../../../de/adapterref/iobroker.influxdb/img/influxdb_ioBroker_Adapter_influxDB_objects.jpg)
 
 ### <span id="Activated">Activated</span>
 Включите логирование точки данных. Записывайте только изменения: значения сохраняются только при изменении значения точки данных. Это экономит место для хранения. Полезный подход - предварительно отфильтровать точки данных с помощью полей фильтра в заголовке таблицы, например, чтобы отфильтровать для логирования только точки данных "Состояние".
@@ -79,6 +79,58 @@ hash: 9WTJqbXLcKHlLbAztT1yGR9As+jVoNassq2ilS5W+gU=
 1. Выберите дополнительные параметры, такие как «только изменения» и время хранения, одинаково для всех отфильтрованных точек данных.
 5. Сохраните изменения.
 
+### <span id="Custom_Tags">Пользовательские теги</span>
+Каждая точка данных может иметь дополнительные фиксированные теги InfluxDB. Они вводятся в настройках точки данных в разделе «Пользовательские теги» в виде списка пар «имя/значение» и записываются вместе с каждым значением этой точки данных - как для InfluxDB 1.x, так и для 2.x, независимо от параметра «Сохранять метаданные как теги вместо полей».
+
+Это позволяет выбирать и группировать значения различных точек данных в соответствии с их смыслом, а не идентификатором, например, все точки данных кухни с идентификатором `room=kitchen` и все датчики температуры с идентификатором `type=temperature`. Затем вы можете соответствующим образом отфильтровать или сгруппировать их в Grafana.
+
+```
+from(bucket: "iobroker")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r._field == "value" and r.type == "temperature")
+  |> group(columns: ["room"])
+```
+
+Пожалуйста, обрати внимание:
+
+Имена `value`, `q`, `ack`, `from` и `time`, а также имена, начинающиеся с `_`, зарезервированы и не могут быть использованы. Строки без имени или значения игнорируются; игнорируемые теги регистрируются как предупреждение.
+InfluxDB идентифицирует ряд данных на основе измерения и всех его тегов. Таким образом, изменение тегов точки данных запускает новый ряд; ранее записанные значения сохраняют свои старые теги. В InfluxDB 2.x вызов `getHistory` за период, в течение которого были изменены теги, агрегирует каждый ряд данных отдельно - таким образом, такой период может содержать два значения на интервал. Лучше всего устанавливать теги до начала логирования.
+Каждая точка данных будет по-прежнему записываться в собственное измерение (с собственным идентификатором или псевдонимом). Использование одного и того же псевдонима для нескольких активных точек данных не поддерживается.
+
+Теги также можно установить с помощью JavaScript, используя сообщение `enableHistory`:
+
+```javascript
+sendTo('influxdb.0', 'enableHistory', {
+    id: 'hm-rpc.0.ABC123.1.TEMPERATURE',
+    options: {
+        customTags: [
+            { name: 'room', value: 'kitchen' },
+            { name: 'type', value: 'temperature' },
+        ],
+    },
+});
+```
+
+* * *
+
+## <span id="Statistics">Статистика и очистка</span>
+Вкладка **Статистика** в конфигурации экземпляра отображает все точки данных, содержащиеся в базе данных, с указанием количества значений, самых старых и самых новых значений, количества рядов и статуса:
+
+| Статус | Значение |
+| --- | --- |
+| Ведется логирование | Объект существует, и этот экземпляр регистрирует его |
+| Выход из системы | Объект по-прежнему существует, но ведение журнала отключено - история по-прежнему доступна |
+| Объект удален | Объект был удален в ioBroker; его история больше недоступна. |
+
+В отношении этих цифр важны два момента:
+
+- **Размер для каждой точки данных не указан.** InfluxDB его не предоставляет ни в версии 1.x (команды `SHOW STATS` и `SHOW SHARDS` знают только движок и шарды), ни в версии 2.x (использование диска отслеживается для каждого сегмента). Вместо этого отображается количество **серий**: это определяет требования к хранению индекса, а пользовательские теги обычно приводят к его непреднамеренному увеличению.
+**Подсчет представляет собой полное сканирование.** InfluxDB не имеет собственного счетчика строк, поэтому она фактически считывает значения за сканируемый период времени. В случае базы данных, содержащей данные за несколько лет, это занимает время - выбор диапазона дат над таблицей ограничивает сканирование, если общий подсчет не требуется.
+
+Процесс очистки удаляет сохраненные значения точек данных, которые больше не регистрируются. **Ничего не удаляется без подтверждения**: в диалоговом окне сначала отображается, что будет удалено при подтвержденном запуске. По умолчанию выбираются только объекты, которые больше не существуют в ioBroker. Точки данных с просто отключенной регистрацией включаются только в том случае, если они явно выбраны - их история по-прежнему доступна и часто необходима. Точка данных, которая в данный момент регистрируется, никогда не выбирается.
+
+Доступ к тем же данным можно получить и через JavaScript, используя сообщения `getDpStatistics` и `cleanupOrphaned`, см. [README](https://github.com/ioBroker/ioBroker.influxdb/blob/master/README.md#statistics-and-cleanup).
+
 * * *
 
 ## <span id="Bedienung">**Bedienung**</span>
@@ -88,48 +140,6 @@ hash: 9WTJqbXLcKHlLbAztT1yGR9As+jVoNassq2ilS5W+gU=
 
 ## Установка базы данных InfluxDB
 Ниже приведено описание процедуры установки базы данных InfluxDB.
-
-## Changelog
-### 5.0.4 (2026-08-28)
-* (@GermanBluefox) Fixed Grafana not finding the InfluxDB running next to it in Docker: the provisioned data source pointed at `iob_influxdb_<instance>`, while the container was named `iob_influxdb_<instance>_flux_data` because the compose file gave it a name of its own. Inside the shared network only the container name resolves, so the data source could not connect. The influx service uses the default name of the instance now - the name the data source and `testConnection()` both expect
-* (@GermanBluefox) Fixed the port of that data source: it used the port published on the host, although Grafana reaches InfluxDB inside the docker network, where the container port 8086 applies. The data source broke as soon as the port was changed in the settings
-* (@GermanBluefox) Fixed the Grafana container never being started when Grafana is enabled and InfluxDB is not: the plugin waits for the readiness signal of the adapter before it starts any container of the instance, and that signal was only sent when both were switched on. That state is reachable by switching InfluxDB off afterwards - the Grafana checkbox is hidden then, but its stored value stays
-* (@GermanBluefox) The "automatic image update" setting of Grafana had no effect: the compose file never passed it on to the plugin
-* (@GermanBluefox) **Existing installations with InfluxDB in Docker have to remove the old container once**, because it is renamed by the first fix: `docker rm -f iob_influxdb_<instance>_flux_data`. It still holds the published port, so the correctly named container cannot start next to it. The data is not affected - it lives in the volumes, which keep their names
-
-### 5.0.3 (2026-08-27)
-* (@GermanBluefox) Errors are logged with more detail: error code, `cause` and a driver-specific error name (`HttpError`, `ServiceNotAvailableError`) are shown now, and a nested error without a message no longer degrades to `{}` (same implementation as in the SQL adapter)
-* (@GermanBluefox) A switched-off or unreachable InfluxDB no longer floods the log (and syslog): a connection error is now recognized by its error code - Node reports a failed TCP connect as an `AggregateError` with an empty message, which no check could match before - so the points are buffered and a reconnect is scheduled instead of retrying every single point. The repeated error is logged once and afterwards only once an hour
-* (@GermanBluefox) `getHostsAvailable()` reports the real state again: it returned a hardcoded `1` since the TypeScript port, so every "host not available" check in the adapter was dead code. After a connection error the host is now taken out of rotation for a short backoff and values are buffered instead of being written - and logged - point by point
-* (@GermanBluefox) A failing buffer flush inside the interval timer no longer produces an unhandled promise rejection, which terminates the adapter process on current Node.js versions
-* (@GermanBluefox) `storeState` answers with an error again if a value cannot be stored (`null`, `NaN`, or a non-numeric value for a `Number` datapoint) instead of reporting `success: true` and silently discarding it; on the state-change path such a value is still logged only once per datapoint
-* (@GermanBluefox) The warning about an `undefined` state value is logged only once per datapoint as well
-
-### 5.0.2 (2026-08-26)
-* (@GermanBluefox) Added the data browser to the configuration, so the stored values can be viewed, edited and deleted.
-* (@GermanBluefox) The aggregation is used now from `@iobroker/aggregate` and is shared with the history and SQL adapters.
-* (@joltcoke) Fixed average and total returning null for every interval that contains a null value: parseFloat(null) is NaN and poisoned the sum of the whole interval (thanks to @joltcoke, ioBroker/ioBroker.sql#526). As the result was NaN and not null, ignoreNull could not act on it either
-* (@joltcoke) Fixed min returning a wrong value if the interval contains a null, minmax losing the minimum if the interval starts with a null, and percentile/quantile counting a null as 0
-
-### 5.0.1 (2026-08-15)
-* (@GermanBluefox) Completely refactored the code to TypeScript and ES6
-* (@GermanBluefox) Added possibility to start docker containers directly from the adapter
-* (mcm1957) Adapter requires admin >= 7.7.2 now
-* (arteck) Fixed the connection handling for InfluxDB 1.x: the health check (ping) and the automatic reconnect were never started
-* (arteck) Fixed the loss of buffered values if the writing was running while new values arrived or if the write failed
-* (arteck) Values are no longer written twice if they are written directly (buffer size 0 or conflicting points)
-* (arteck) State IDs and database names are now escaped in the queries
-* (arteck) The password/token is no longer written into the log by the connection test
-* (arteck) The settings "request timeout" and "validate SSL" are now used for InfluxDB 1.x too
-* (arteck) Fixed the cache file name if more than one instance runs in the compact mode
-* (arteck) Fixed the aggregation for `percentile: 100`/`quantile: 1` and the last value of `integralTotal`
-* (bluefox) Fixed empty charts for the aggregation `onchange` ("raw" in e-charts): it was run through the interval aggregation and returned only `null` values
-* (@GermanBluefox) Minimal node.js version is 22
-
-### 4.0.3 (2024-05-16)
-* (bluefox) Some packages were updated
-
-[Older changelogs can be found there](CHANGELOG_OLD.md)
 
 ## License
 

@@ -143,6 +143,10 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.2.4 (2026-10-04)
+* (withstu) Update dependencies
+* (withstu) Fix #549
+
 ### 3.2.3 (2026-09-27)
 * (withstu) Fix cover colors
 * (withstu) Update dependencies
@@ -157,9 +161,6 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 ### 3.2.0 (2026-08-12)
 * (withstu) add flag to disable SSDP discovery
 * (withstu) fixing iobroker checks
-
-### 3.1.0 (2026-07-28)
-* (withstu) improve error handling for sign in if webservice unreachable
 
 ## License
 MIT License
