@@ -130,8 +130,8 @@ Das Gateway braucht open3e-esp32 in Version 0.2.0 oder neuer. Diese Version stel
 
 Regeln im Gateway-Betrieb:
 
-- **Auswahl und Zeitpläne der Datenpunkte werden nur in ioBroker konfiguriert** (Datenpunkte-Seite, Zeitpläne). Ändern Sie diese nicht gleichzeitig in der Web-Oberfläche des Gateways. Der Adapter verwendet diese Einstellungen nicht, und parallele Änderungen führen zu verwirrenden Ergebnissen. Eine Änderung der weitergeleiteten CAN-IDs in der Web-Oberfläche des Gateways gilt nur bis zum nächsten Neustart des Adapters.
-- **Schreibzugriffe auf Datenpunkte erfordern *Rohes Schreiben freigeben* im Gateway.** Im Gateway-Betrieb laufen alle Schreibzugriffe über den rohen Schreibpfad des Gateways. Aktivieren Sie in dessen Systemeinstellungen **Rohes Schreiben freigeben** (`rawWriteEnabled`), neben *Schreiben freigeben*. Der Adapter setzt diesen Schalter nie selbst, weil er die Datenpunktprüfungen von open3e umgeht.
+- **Die eigene Datenpunktauswahl des Gateways (Datenpunkte-Seite) ist unabhängig von der in ioBroker.** Konfigurieren Sie die zu lesenden Datenpunkte und ihre Zeitpläne wie gewohnt in ioBroker; open3e-esp32 fragt parallel dazu seine eigene Auswahl ab und veröffentlicht sie auf seinen eigenen dekodierten MQTT-Topics, ohne dass sich beide Wege in die Quere kommen. Die einzige Einstellung, die der Adapter auf dem Gateway selbst verwaltet, ist die Liste der weitergeleiteten rohen CAN-IDs (siehe oben): Eine händische Änderung in der Web-Oberfläche des Gateways gilt nur bis zum nächsten Neustart des Adapters.
+- **Schreibzugriffe auf Datenpunkte erfordern *Rohes Schreiben freigeben* im Gateway.** Im Gateway-Betrieb laufen alle Schreibzugriffe über den rohen Schreibpfad des Gateways. Aktivieren Sie **Rohes Schreiben freigeben** im Gateway unter **Einstellungen → Bus**, neben *Schreiben freigeben*. Der Adapter setzt diesen Schalter nie selbst, weil er die Datenpunktprüfungen von open3e umgeht.
 - **Auf einem Bus darf nur ein Master senden.** Betreiben Sie keine weitere open3e-Instanz, etwa auf einem Raspberry Pi, am selben Bus.
 
 ### Schritt 2 – Gerätescan und Energiezähler-Erkennung

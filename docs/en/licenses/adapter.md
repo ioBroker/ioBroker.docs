@@ -4,7 +4,7 @@ lastChanged: 17.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/licenses/adapter.md
-hash: qNRKhrcpdGst6t/+1NYrLezDftEd2xYZtTOfbj/5wM4=
+hash: LaG66H1ANxQ4PyA5mMu5sYntHhDa0agZUtDBo214HhU=
 ---
 # Adapter licenses
 
@@ -14,7 +14,7 @@ Of the hundreds of adapters, **three** currently require a license to even funct
 | ----------------------- | ---------------------------------- |
 | **vis-2**               | The visualization                  |
 | **KNX**                 | The integration of KNX systems     |
-| **JägerDesign Widgets** | A set of widgets for visualization |
+| **JägerDesign widgets** | A set of widgets for visualization |
 
 All other adapters licensed via ioBroker are free of charge. An adapter license applies to the adapter on your own server; it has nothing to do with the cloud.
 

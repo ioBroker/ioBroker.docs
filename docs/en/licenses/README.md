@@ -4,7 +4,7 @@ lastChanged: 24.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/licenses/README.md
-hash: Ql6PdV8sxd6anL/7Axa4YXTNAX2rjGM3KML6GQN7RQ4=
+hash: t3SuDMR9NHdRLsSOIej202DWoTIyH0ykH2McdcsHNCE=
 ---
 # Licenses overview
 
@@ -24,7 +24,7 @@ They differ in almost everything: what they apply to, what they concern, and wha
 
 ## Both are in the same profile.
 
-Both license types are managed in one place. You can access the profile via the person icon in the top right corner of every page, and the old addresses [ioBroker.net](https://iobroker.net) and [ioBroker.pro](https://iobroker.pro) also lead there.
+Both license types are managed in one place. You can access the profile via the person icon in the top right corner of every page. The old addresses [ioBroker.net](https://iobroker.net) and [ioBroker.pro](https://iobroker.pro) also lead there.
 
 The menu on the left lists **adapter licenses** and **access licenses** , along with your installation, app keys, guest access, and account settings. You will see the same list regardless of which of the two servers you are logged into.
 

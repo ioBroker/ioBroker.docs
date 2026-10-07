@@ -4,7 +4,7 @@ lastChanged: 24.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/licenses/README.md
-hash: Ql6PdV8sxd6anL/7Axa4YXTNAX2rjGM3KML6GQN7RQ4=
+hash: t3SuDMR9NHdRLsSOIej202DWoTIyH0ykH2McdcsHNCE=
 ---
 # Обзор лицензий
 
@@ -24,7 +24,7 @@ hash: Ql6PdV8sxd6anL/7Axa4YXTNAX2rjGM3KML6GQN7RQ4=
 
 ## Оба находятся в одном профиле.
 
-Оба типа лицензий управляются в одном месте. Доступ к профилю можно получить через значок пользователя в правом верхнем углу каждой страницы, а также по старым адресам [ioBroker.net](https://iobroker.net) и [ioBroker.pro](https://iobroker.pro) .
+Оба типа лицензий управляются в одном месте. Доступ к профилю можно получить через значок пользователя в правом верхнем углу каждой страницы. Старые адреса [ioBroker.net](https://iobroker.net) и [ioBroker.pro](https://iobroker.pro) также ведут туда.
 
 В меню слева отображаются **лицензии адаптера** и **лицензии доступа** , а также информация об установке, ключи приложений, гостевой доступ и настройки учетной записи. Вы увидите один и тот же список независимо от того, к какому из двух серверов вы подключены.
 

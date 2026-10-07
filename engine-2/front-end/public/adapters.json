@@ -11161,6 +11161,7 @@
             "ru": "admin"
           },
           "content": "adapterref/iobroker.admin/README.md",
+          "icon": "adapterref/iobroker.admin/admin.svg",
           "keywords": "setup, config, update, upgrade, system, konfiguration, administration, einrichtung, wartung",
           "authors": "bluefox <bluefox@ccu.io>, hobbyquaker <hq@ccu.io>",
           "license": "MIT",
@@ -26369,7 +26370,6 @@
             "ru": "utility-monitor"
           },
           "content": "adapterref/iobroker.utility-monitor/README.md",
-          "icon": "adapterref/iobroker.utility-monitor/utility-monitor.png",
           "keywords": "utility, electricity, gas, water, metering",
           "authors": "fischi87 <axel.fischer@hotmail.com>",
           "license": "MIT",

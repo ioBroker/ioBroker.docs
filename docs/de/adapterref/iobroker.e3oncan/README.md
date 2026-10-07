@@ -4,7 +4,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: HF1s8YnkWbNmBJ7gGdvZ0IWtVerpmD9HBSHUk3OTscE=
+hash: bavSvp/xiHjjOKwESNUtjxV/Nxo/4kloxSm1R69ZLRE=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -70,7 +70,7 @@ Welche Modi verfügbar sind, hängt von Ihrer Gerätetopologie ab. Details dazu 
 
 ### Nur ein ESP32 am CAN-Bus, alles läuft über TCP/IP.
 
-Mit dem [open3e-esp32-](https://github.com/boonkerz/open3e-esp32) Gateway benötigt der Viessmann CAN-Bus lediglich einen ESP32 mit CAN-Transceiver. Der ioBroker-Host benötigt keinen CAN-Adapter: Die Kommunikation mit dem Gateway erfolgt vollständig über TCP/IP, und zwar über die REST-API des Gateways (UDS-Lese- und Schreibvorgänge) und einen MQTT-Broker (passiv empfangene Frames). Die Funktionalität des Adapters bleibt unverändert: Geräte- und Datenpunkt-Scan, Datenerfassung, Energiezähler, Zeitpläne und Schreibvorgänge. Für Schreibvorgänge muss zusätzlich die _Option „Raw Write“_ auf dem Gateway aktiviert sein. Lokale CAN-Adapter funktionieren weiterhin wie gewohnt. Die Einrichtung ist unter [Alternative: open3e-esp32-Gateway](#alternative-open3e-esp32-gateway) beschrieben.
+Mit dem [open3e-esp32-](https://github.com/boonkerz/open3e-esp32) Gateway benötigt der Viessmann CAN-Bus lediglich einen ESP32 mit CAN-Transceiver. Der ioBroker-Host benötigt keinen CAN-Adapter: Die Kommunikation mit dem Gateway erfolgt vollständig über TCP/IP, und zwar über die REST-API des Gateways (UDS-Lese- und Schreibvorgänge) und einen MQTT-Broker (passiv empfangene Frames). Die Funktionalität des Adapters bleibt unverändert: Geräte- und Datenpunkt-Scan, Datenerfassung, Energiezähler, Zeitpläne und Schreibvorgänge. Für Schreibvorgänge muss zusätzlich die _Option „Raw Write“_ auf dem Gateway aktiviert sein. Lokale CAN-Adapter funktionieren weiterhin wie gewohnt. Die Einrichtung wird unter [Alternative: open3e-esp32-Gateway](#alternative-open3e-esp32-gateway) beschrieben.
 
 ### Rohschnittstelle für externe Decoder
 
@@ -131,8 +131,8 @@ Das Gateway benötigt open3e-esp32 Version 0.2.0 oder neuer. Diese Version stell
 
 Regeln für den Gateway-Modus:
 
-- **Die Auswahl und Planung von Datenpunkten erfolgt ausschließlich in ioBroker** (Registerkarte „Datenpunkte“, „Zeitpläne“). Ändern Sie diese Einstellungen nicht gleichzeitig in der Web-Oberfläche des Gateways. Der Adapter verwendet diese Einstellungen nicht, und parallele Änderungen führen zu unerwarteten Ergebnissen. Änderungen an den weitergeleiteten CAN-IDs in der Web-Oberfläche des Gateways bleiben nur bis zum nächsten Neustart des Adapters erhalten.
-- **Das Schreiben von Datenpunkten erfordert Rohschreiben auf dem Gateway.** Im Gateway-Modus durchläuft jeder Schreibvorgang den Rohschreibpfad des Gateways. Aktivieren Sie **Rohschreiben freigeben** (`rawWriteEnabled`) in den Systemeinstellungen des Gateways, neben _Schreiben freigeben_ . Der Adapter setzt diesen Schalter nie selbst, da er die open3e-Datenpunktprüfungen umgeht.
+- **Die Datenpunktauswahl des Gateways (Registerkarte „Datenpunkte“) ist unabhängig von der von ioBroker.** Konfigurieren Sie die zu lesenden Datenpunkte und deren Zeitpläne wie gewohnt in ioBroker. open3e-esp32 fragt seine eigene Auswahl ab und veröffentlicht sie gleichzeitig in seinen eigenen dekodierten MQTT-Themen, sodass es zu keinen gegenseitigen Beeinträchtigungen kommt. Die einzige Einstellung, die der Adapter auf dem Gateway verwaltet, ist die weitergeleitete Liste der rohen CAN-IDs (siehe oben): Eine dort manuell in der Web-Oberfläche des Gateways vorgenommene Änderung bleibt nur bis zum nächsten Neustart des Adapters erhalten.
+- **Das Schreiben von Datenpunkten erfordert Rohschreiben auf dem Gateway.** Im Gateway-Modus erfolgt jeder Schreibvorgang über den Rohschreibpfad des Gateways. Aktivieren Sie **Rohschreiben freigeben** unter **Einstellungen → Bus-** Registerkarte des Gateways neben _Schreiben freigeben_ . Der Adapter setzt diese Option nicht selbst, da er die Open3e-Datenpunktprüfungen umgeht.
 - **Nur ein Master darf auf einem Bus kommunizieren.** Betreiben Sie keine weitere open3e-Instanz, beispielsweise auf einem Raspberry Pi, auf demselben Bus.
 
 ### Schritt 2 – Gerätescan und Energiezählererkennung
@@ -164,7 +164,7 @@ Was der Scan bewirkt:
 - Fügt jedem Datenpunktobjekt Metadaten (Beschreibung, Einheit, Lese-/Schreibzugriff) hinzu.
 - Legt die physikalischen Einheiten basierend auf der in Schritt 2 ermittelten Geräteformatkonfiguration fest.
 - Erstellt den vollständigen Objektbaum für jedes Gerät in ioBroker.
-- Erkennt Collect-fähige Geräte durch passives Abhören ihrer Zeitsignale im CAN-Bus (keine zusätzliche Scanzeit erforderlich – läuft parallel). Für jedes erkannte Gerät wird im Gerätekarten-Header der **e3oncan-Datenpunkteseite** ein Stecknadelsymbol angezeigt.
+- Erkennt Collect-fähige Geräte durch passives Abhören ihrer Zeitsignale im CAN-Bus (keine zusätzliche Scanzeit erforderlich – läuft parallel). Für jedes erkannte Gerät wird im Gerätekarten-Header der **e3oncan-** Datenpunkteseite ein Stecknadelsymbol angezeigt.
 
 Dieser Schritt ist für die Nutzung im Nur-Lese-Modus nicht unbedingt erforderlich, wird aber **dringend empfohlen** – und **ist notwendig,** wenn Sie Datenpunkte beschreiben möchten.
 
@@ -351,7 +351,7 @@ Es werden bis zu zwei E380-Energiezähler unterstützt. Die Datenpunkt-IDs häng
 | 1385\_09 | Blindleistung L1                            | var     |
 | 1385\_13 | Blindleistung L2                            | var     |
 | 1385\_17 | Blindleistung L3                            | var     |
-| 1385\_06 | Aktueller, absoluter L1-Wert                | A       |
+| 1385\_06 | Aktueller, absoluter L1                     | A       |
 | 1385\_10 | Aktueller, absoluter L2-Wert                | A       |
 | 1385\_14 | Aktueller, absoluter L3-Wert                | A       |
 | 1385\_07 | Spannung L1                                 | V       |

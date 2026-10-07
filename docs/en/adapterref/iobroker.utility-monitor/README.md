@@ -1,4 +1,4 @@
-![Logo](admin/utility-monitor.png)
+![Logo](admin/utility-monitor.jpg)
 
 # ioBroker.utility-monitor
 
@@ -361,6 +361,12 @@ The adapter resets the counters automatically:
 ---
 
 ## Changelog
+
+### 1.7.3 (2026-10-07)
+
+- **IMPROVEMENT:** 📥 **Clearer CSV import feedback** - the import now reports how many records were archived and in how many years. If all rows belong to the current year (which is not archived into the history states), a clear note is shown instead of a silent "nothing happened".
+- **FIX:** 🖼️ Logo is now a valid JPEG referenced consistently as `utility-monitor.jpg` (admin, io-package, README).
+- Repository-checker fixes: `@iobroker/testing` bumped to `^6.3.0`, Node.js 26.x added to the CI test matrix, news list trimmed to the 7 most recent versions, and additional i18n translations completed (es, fr, it, nl, pl, pt, ru, uk, zh-cn).
 
 ### 1.7.2 (2026-08-30)
 

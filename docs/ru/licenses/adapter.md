@@ -4,7 +4,7 @@ lastChanged: 17.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/licenses/adapter.md
-hash: qNRKhrcpdGst6t/+1NYrLezDftEd2xYZtTOfbj/5wM4=
+hash: LaG66H1ANxQ4PyA5mMu5sYntHhDa0agZUtDBo214HhU=
 ---
 # Лицензии адаптера
 
@@ -14,7 +14,7 @@ hash: qNRKhrcpdGst6t/+1NYrLezDftEd2xYZtTOfbj/5wM4=
 | ----------------------- | ------------------------------- |
 | **вис-2**               | Визуализация                    |
 | **KNX**                 | Интеграция систем KNX           |
-| **JägerDesign Widgets** | Набор виджетов для визуализации |
+| **Виджеты JägerDesign** | Набор виджетов для визуализации |
 
 Все остальные адаптеры, лицензированные через ioBroker, предоставляются бесплатно. Лицензия на адаптер распространяется на адаптер, установленный на вашем собственном сервере; она не имеет никакого отношения к облачным сервисам.
 

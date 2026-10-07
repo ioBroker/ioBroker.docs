@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.utility-monitor/README.md
 title: ioBroker.utility-monitor
-hash: REJ2ZAflTmFNCzNuSzzawcSh94c7VvZk2riZ/aai/cg=
+hash: D3S3X8LM+gUOpZijv6DOjWZiQldxTrT0a6W+ae37Zew=
 ---
-![Логотип](../../../en/adapterref/iobroker.utility-monitor/admin/utility-monitor.png)
+![Логотип](../../../en/adapterref/iobroker.utility-monitor/admin/utility-monitor.jpg)
 
 ![Версия NPM](https://img.shields.io/npm/v/iobroker.utility-monitor.svg)
 ![Релиз на GitHub](https://img.shields.io/github/v/release/fischi87/ioBroker.utility-monitor)
@@ -183,7 +183,7 @@ gas.main.statistics.timestamps.lastDayStart   ← timestamps of the resets
 | `dailyVolume`   | Потребление сегодня в м³                                       | 1,092 м³         |
 | `weekly`        | Потребление **на этой неделе** (с понедельника)                | 84,12 кВт·ч      |
 | `weeklyVolume`  | Еженедельное потребление в м³                                  | 7,65 м³          |
-| `monthly`       | Потребление **в этом месяце** (с 1-го числа)                   | 117,77 кВт·ч     |
+| `monthly`       | Потребление **за этот месяц** (с 1-го числа)                   | 117,77 кВт·ч     |
 | `monthlyVolume` | Ежемесячное потребление в м³                                   | 10,69 м³         |
 | `yearly`        | Потребление **с момента заключения договора** (расчетный год)  | 730,01 кВт·ч     |
 | `yearlyVolume`  | Годовое потребление в м³                                       | 66,82 м³         |
@@ -218,7 +218,7 @@ gas.main.statistics.timestamps.lastDayStart   ← timestamps of the resets
 
 #### 🔍 **Баланс** в деталях
 
-- **Положительный результат (+50 €)** → ❌ **Дополнительная оплата** : вам придется оплатить в конце года
+- **Положительный результат (+50 €)** → ❌ **Дополнительная оплата** : вам придется заплатить в конце года
 - **Отрицательный баланс (-24 €)** → ✅ **Возврат средств** : вы получите деньги обратно
 - **Ноль (0 €)** → ⚖️ **Сбалансировано** : потребление = авансовый платеж
 
@@ -370,6 +370,12 @@ Balance:            +62.64 € → additional payment
 
 ## Changelog
 
+### 1.7.3 (2026-10-07)
+
+- **IMPROVEMENT:** 📥 **Clearer CSV import feedback** - the import now reports how many records were archived and in how many years. If all rows belong to the current year (which is not archived into the history states), a clear note is shown instead of a silent "nothing happened".
+- **FIX:** 🖼️ Logo is now a valid JPEG referenced consistently as `utility-monitor.jpg` (admin, io-package, README).
+- Repository-checker fixes: `@iobroker/testing` bumped to `^6.3.0`, Node.js 26.x added to the CI test matrix, news list trimmed to the 7 most recent versions, and additional i18n translations completed (es, fr, it, nl, pl, pt, ru, uk, zh-cn).
+
 ### 1.7.2 (2026-08-30)
 
 - **FIX:** 🐛 **CSV import did nothing on Admin 8 (no backend call)** - the `sendTo` button used `useNative`, which delivered an empty message, so `handleImportCSV` returned before doing anything (no log, just a delayed "OK"). The button now sends the utility type and meter name via `jsonData`, and the CSV content is read from the saved config (`importCsvContent`) - avoiding multi-line escaping issues. Flow: paste CSV → **Save** → **Start import**; a success/error message is now shown.
@@ -391,7 +397,7 @@ Balance:            +62.64 € → additional payment
 
 - **FIX:** 🌐 **Multilingual object names** - object and state names are now provided as `{ en, de }` objects, so German users keep the German labels while the repository checker and other locales get an English name.
 - **FIX:** 🇬🇧 **English log messages** - all log and error messages are now in English, as required for adapters in the ioBroker repository. User notifications (Telegram etc.) stay in German.
-- **FIX:** 🔘 ** `billing.closePeriod` button** - the button state now uses `read: false` as required for the `button` role. Existing installations are migrated automatically on startup.
+- **FIX:** 🔘 **`billing.closePeriod` button** - the button state now uses `read: false` as required for the `button` role. Existing installations are migrated automatically on startup.
 - **CHORE:** 🧹 **Cleanup** - removed a redundant `*.adjustment.note` subscription that was never handled, removed the dead legacy `closeBillingPeriod` code path (which still used the non-catalogue `value.money` role), removed the unused `createUtilityStateStructure` and an orphaned translation key.
 
 ### 1.6.6 (2026-08-07)
@@ -405,9 +411,9 @@ Balance:            +62.64 € → additional payment
 
 ### 1.6.5 (2026-08-06)
 
-- **BREAKING:** ⚠️ ** `info.monthlyInstallment` is now a number (#11)** - the advance payment used to be stored as formatted text (`"25.00 €"`), which made it unusable for history, charts and scripts. It is now a numeric state with the unit `€`. Existing installations are converted automatically on startup. **Scripts that parsed the text have to be adjusted.**
+- **BREAKING:** ⚠️ **`info.monthlyInstallment` is now a number (#11)** - the advance payment used to be stored as formatted text (`"25.00 €"`), which made it unusable for history, charts and scripts. It is now a numeric state with the unit `€`. Existing installations are converted automatically on startup. **Scripts that parsed the text have to be adjusted.**
 - **FIX:** 🛠️ **Info page** - the link to the GitHub repository still pointed at the former name `ioBroker.nebenkosten-monitor` and was dead.
-- **FIX:** 🛠️ **Description of `daysRemaining` ** - the state was described as "days until the end of the contract" although it counts down to the end of the billing period. That wording had caused misunderstandings.
+- **FIX:** 🛠️ **Description of `daysRemaining`** - the state was described as "days until the end of the contract" although it counts down to the end of the billing period. That wording had caused misunderstandings.
 - **DOCS:** 🧹 **Info page cleaned up** - removed the hard-coded version number (admin shows it anyway) and the outdated "NEW in 1.4.6" markers.
 - **CHORE:** ⬆️ **Release tooling updated** - `@alcalzone/release-script` and its plugins raised to 5.x.
 

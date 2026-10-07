@@ -128,8 +128,8 @@ The gateway needs open3e-esp32 version 0.2.0 or newer. That version provides the
 
 Rules for gateway mode:
 
-- **Data point selection and scheduling are configured only in ioBroker** (datapoints tab, schedules). Don't change them in the gateway's own web UI at the same time. The adapter doesn't use those settings, and parallel changes lead to confusing results. A change made in the gateway's web UI to the relayed CAN IDs stays only until the next adapter restart.
-- **Writing data points requires Rohes Schreiben on the gateway.** In gateway mode every write goes through the gateway's raw write path. Enable **Rohes Schreiben freigeben** (`rawWriteEnabled`) in the gateway's system settings, next to *Schreiben freigeben*. The adapter never sets this switch itself, because it bypasses the open3e data point checks.
+- **The gateway's own data point selection (Datenpunkte tab) is independent of ioBroker's.** Configure the data points to read and their schedules in ioBroker as usual; open3e-esp32 polls and publishes its own selection to its own decoded MQTT topics at the same time, and the two don't interfere. The one setting the adapter does manage on the gateway is the relayed raw CAN ID list (see above): a change made there by hand in the gateway's web UI stays only until the next adapter restart.
+- **Writing data points requires Rohes Schreiben on the gateway.** In gateway mode every write goes through the gateway's raw write path. Enable **Rohes Schreiben freigeben** under the gateway's **Settings → Bus** tab, next to *Schreiben freigeben*. The adapter never sets this switch itself, because it bypasses the open3e data point checks.
 - **Only one master may talk on a bus.** Don't run another open3e instance, for example on a Raspberry Pi, on the same bus.
 
 ### Step 2 – Device scan and energy meter detection
