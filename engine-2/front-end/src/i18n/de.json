@@ -557,7 +557,7 @@
             },
             "licenses": {
                 "title": "Lizenzen",
-                "text": "Lizenzen für bestimmte Adapter wie KNX, Jaeger-Design Widgets oder vis-2"
+                "text": "Lizenzen für bestimmte Adapter wie KNX, JägerDesign-Widgets oder vis-2"
             }
         },
         "order": "Bestellen",
@@ -726,8 +726,8 @@
             }
         },
         "jaeger": {
-            "title": "Jaeger-Design Widgets",
-            "cardTitle": "Jaeger-Design",
+            "title": "JägerDesign-Widgets",
+            "cardTitle": "JägerDesign",
             "cardSubtitle": "Widgets",
             "card": {
                 "f1": "Lebenslange Lizenz",
@@ -748,8 +748,8 @@
                 }
             },
             "what": {
-                "title": "Was sind die Jaeger-Design Widgets?",
-                "text": "Jaeger-Design Widgets bieten anpassbare Elemente für die ioBroker vis-2 Visualisierung. Neben den vielen kostenlosen Widgets, die ioBroker anbietet, ermöglichen sie eine einfache und intuitive Gestaltung von Dashboards, sortiert nach Räumen und Funktionen wie Licht, Rollläden und Heizung. Die Gestaltung ist übersichtlich und benutzerfreundlich."
+                "title": "Was sind die JägerDesign-Widgets?",
+                "text": "JägerDesign-Widgets bieten anpassbare Elemente für die ioBroker vis-2 Visualisierung. Neben den vielen kostenlosen Widgets, die ioBroker anbietet, ermöglichen sie eine einfache und intuitive Gestaltung von Dashboards, sortiert nach Räumen und Funktionen wie Licht, Rollläden und Heizung. Die Gestaltung ist übersichtlich und benutzerfreundlich."
             },
             "origin": {
                 "title": "Woher kommen sie?",
@@ -878,10 +878,10 @@
     "Unlimited": "Unbegrenzt",
     "statistics": {
         "title": "STATISTIK",
-        "subtitle": "Jede ioBroker-Installation kann anonym melden, womit sie läuft. Was daraus entsteht, sehen Sie hier — freiwillig gemeldet, nichts davon ist personenbezogen.",
+        "subtitle": "Jede ioBroker-Installation kann anonym melden, womit sie läuft. Was daraus entsteht, sehen Sie hier. Freiwillig gemeldet, und personenbezogen ist nichts davon.",
         "loading": "Zahlen werden geladen …",
         "error": "Die Zahlen sind gerade nicht erreichbar. Bitte versuchen Sie es später noch einmal.",
-        "base": "Grundlage: %c Installationen, die diese Angabe melden — %p von %t insgesamt.",
+        "base": "Grundlage: %c Installationen, die diese Angabe melden, also %p von %t insgesamt.",
         "rows": "%n von %t",
         "column": {
             "count": "Installationen",
@@ -896,12 +896,12 @@
         },
         "growth": {
             "title": "Installationen seit 2015",
-            "note": "Jede Erhebung ein Punkt. Die Kurve zählt Installationen, nicht Menschen — wer neu aufsetzt, zählt neu.",
-            "peak": "Der Höchststand lag bei %v im %d — seitdem %p weniger."
+            "note": "Jede Erhebung ein Punkt. Die Kurve zählt Installationen, nicht Menschen. Wer neu aufsetzt, zählt neu.",
+            "peak": "Der Höchststand lag bei %v im %d, seitdem %p weniger."
         },
         "map": {
             "title": "Wo ioBroker läuft",
-            "consent": "Die Karte kommt von Google Maps. Beim Laden wird Ihre IP-Adresse an Google übertragen — das verlangen die Technik und die Nutzungsbedingungen von Google, nicht wir. Deshalb laden wir die Karte erst, wenn Sie es möchten.",
+            "consent": "Die Karte kommt von Google Maps. Beim Laden wird Ihre IP-Adresse an Google übertragen. Das verlangen die Technik und die Nutzungsbedingungen von Google, nicht wir. Deshalb laden wir die Karte erst, wenn Sie es möchten.",
             "load": "Karte laden",
             "error": "Die Karte lässt sich gerade nicht laden.",
             "points": "%n gemeldete Standorte"
@@ -931,7 +931,7 @@
         },
         "databases": {
             "title": "Datenbanken",
-            "note": "Objekte und Zustände können getrennt abgelegt werden — hier stehen beide nebeneinander.",
+            "note": "Objekte und Zustände können getrennt abgelegt werden, hier stehen beide nebeneinander.",
             "objects": "Objekte",
             "states": "Zustände"
         },

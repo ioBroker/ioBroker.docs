@@ -557,7 +557,7 @@
             },
             "licenses": {
                 "title": "Licenses",
-                "text": "Licenses for certain adapters such as KNX, Jaeger-Design widgets or vis-2"
+                "text": "Licenses for certain adapters such as KNX, JägerDesign Widgets or vis-2"
             }
         },
         "order": "Order",
@@ -726,8 +726,8 @@
             }
         },
         "jaeger": {
-            "title": "Jaeger-Design widgets",
-            "cardTitle": "Jaeger-Design",
+            "title": "JägerDesign Widgets",
+            "cardTitle": "JägerDesign",
             "cardSubtitle": "Widgets",
             "card": {
                 "f1": "Lifetime license",
@@ -748,8 +748,8 @@
                 }
             },
             "what": {
-                "title": "What are the Jaeger-Design widgets?",
-                "text": "Jaeger-Design widgets offer customisable elements for the ioBroker vis-2 visualisation. Alongside the many free widgets ioBroker provides, they make dashboards simple and intuitive to design, sorted by rooms and functions such as light, blinds and heating. The design is clear and easy to use."
+                "title": "What are the JägerDesign Widgets?",
+                "text": "JägerDesign Widgets offer customisable elements for the ioBroker vis-2 visualisation. Alongside the many free widgets ioBroker provides, they make dashboards simple and intuitive to design, sorted by rooms and functions such as light, blinds and heating. The design is clear and easy to use."
             },
             "origin": {
                 "title": "Where do they come from?",

@@ -285,7 +285,7 @@ export function buildRSS(): Promise<void> {
                     rss += `    <channel>\n`;
                     rss += `        <title><![CDATA[ ioBroker Blog ]]></title>\n`;
                     rss += `        <description><![CDATA[${consts.BLOG_TITLE[lang]}]]></description>\n`;
-                    rss += `        <link>https://www.iobroker.com/#${lang}/blog</link>\n`;
+                    rss += `        <link>https://www.iobroker.com/blog</link>\n`;
                     rss += `        <lastBuildDate>${dateObj.toUTCString()}</lastBuildDate>\n`;
                     rss += `        <ttl>1440</ttl>\n`;
                 }
@@ -295,8 +295,8 @@ export function buildRSS(): Promise<void> {
                 rss += `            <description><![CDATA[\n`;
                 rss += `                <p>${item.desc[lang].replace(/\n/g, '<br />').replace(/>/g, '=&gt;').replace(/<>/g, '=&lt;')}</p>\n`;
                 rss += `            ]]></description>\n`;
-                rss += `            <link>https://www.iobroker.com/#${lang}/blog/${date}</link>\n`;
-                rss += `            <guid isPermaLink="true">https://www.iobroker.com/#${lang}/blog/${date}</guid>\n`;
+                rss += `            <link>https://www.iobroker.com/blog/${date}</link>\n`;
+                rss += `            <guid isPermaLink="true">https://www.iobroker.com/blog/${date}</guid>\n`;
                 rss += `            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>\n`;
                 rss += `            <pubDate>${dateObj.toUTCString()}</pubDate>\n`;
                 rss += `        </item>\n`;

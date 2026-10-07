@@ -12,7 +12,7 @@ laufen:
 | --- | --- |
 | **vis-2** | Die Visualisierung |
 | **KNX** | Die Anbindung von KNX-Anlagen |
-| **JägerDesign Widgets** | Ein Widgetsatz für die Visualisierung |
+| **JägerDesign-Widgets** | Ein Widgetsatz für die Visualisierung |
 
 Alle weiteren Adapter, die über ioBroker lizenziert werden, sind kostenfrei.
 Eine Adapterlizenz gilt für den Adapter auf dem eigenen Server; mit der Cloud hat

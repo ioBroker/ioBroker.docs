@@ -28,7 +28,7 @@ woran sie gebunden sind. Verwaltet werden sie an derselben Stelle.
 ## Beides steht im selben Profil
 
 Verwaltet werden beide Lizenzarten an einer Stelle. Sie erreichen das Profil
-über das Personensymbol oben rechts auf jeder Seite, und die alten Adressen
+über das Personensymbol oben rechts auf jeder Seite. Die alten Adressen
 [ioBroker.net](https://iobroker.net) und [ioBroker.pro](https://iobroker.pro)
 führen ebenfalls dorthin.
 
@@ -37,7 +37,7 @@ dazu Ihre Installation, die App-Schlüssel, die Gastzugänge und die
 Kontoeinstellungen. Sie sehen dieselbe Liste, unabhängig davon, auf welchem der
 beiden Server Sie angemeldet sind.
 
-Dahinter liegen weiterhin zwei Server, und das hat einen Grund: **ioBroker.net**
+Dahinter liegen weiterhin zwei Server und das hat einen Grund: **ioBroker.net**
 trägt den kostenfreien Zugang, **ioBroker.pro** die kostenpflichtige Cloud mit
 Sprachassistenten und erweitertem Fernzugriff. Für die Bedienung spielt das
 keine Rolle mehr.
