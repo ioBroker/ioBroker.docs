@@ -86,6 +86,10 @@ After that checkout modified version in `./build` folder. Then.
 	### **WORK IN PROGRESS**
     ### for next frontend update, update of auto entities card will be necessary!
 -->
+### 7.2.3 (2026-10-08)
+* (Garfonso/Claude) common.states written as a string ("Inland:Inland;Ausland:Ausland") is understood again, so such an input_select offers its options.
+* (Garfonso/Claude) Writing lovelace.0.notifications.add creates one notification, not two.
+
 ### 7.2.2 (2026-10-07)
 * (Garfonso/Claude) The energy dashboard calculates the costs from a price entity again; they stayed at 0.00. (#749)
 * (Garfonso/Claude) The calendar REST endpoint answers with start/end as objects, the way Home Assistant does, so cards like Calendar Card Pro show the events. (#756)
@@ -116,36 +120,6 @@ After that checkout modified version in `./build` folder. Then.
 * (Garfonso/Claude) Shipped cards (browser_mod) get the adapter version in their url, so an update is loaded instead of the cached copy.
 * (Garfonso/Claude) Service calls that fail now always answer, instead of leaving the frontend waiting.
 * (Garfonso/Claude) homeassistant.update_entity rereads the states of the entity instead of failing.
-
-### 7.0.0 (2026-09-18)
-* (Garfonso/Claude) Fixed custom cards that fetch history directly (e.g. the windrose card) crashing with "TypeError: t.callback is not a function": a one-shot history request was answered like a subscription. (#722)
-* (Garfonso/Claude) `instances.hideSidebar` / `hideHeader` no longer fall back to the default on an adapter restart. (#733)
-* (Garfonso/Claude) User names from ioBroker (person list, logbook user list) are resolved like every other name, so a multilingual `common.name` cannot break those views. (#731)
-* (Garfonso/Claude) The dashboard now uses the configured adapter language instead of the browser language. A language picked in the frontend profile still wins.
-* (Garfonso/Claude) Custom entities: new expert table at the end of the custom dialog that fills any attribute from a freely picked state.
-* (@GermanBluefox) Security: fixed a path traversal in the card and icon routes (`/cards/`, `/hacsfiles/`, `/local/custom_ui/`, `/static/icons/`) that allowed reading arbitrary files without authentication. All static file routes now verify that the resolved path stays inside the served folder.
-* (Garfonso/Claude) The map no longer shows an "API KEY REQUIRED" watermark: CARTO now requires a key for its tiles, so the base map comes from OpenStreetMap through the adapter (which caches the tiles).
-* (Garfonso/Claude) Expert attributes: a state of type `array`/`object` now arrives as an array/object instead of its JSON string, so cards like flex-table-card can iterate it.
-* (Garfonso/Claude) Custom cards: uploading a new version of a card over the old file works now. Their url carries the file's timestamp, so the browser loads the new one instead of its cached copy.
-* (Garfonso/Claude) Custom cards: the admin page shows the version a card reports about itself.
-* (Garfonso/Claude) The frontend is served precompressed (brotli) and cached for good, its entry points (index, service worker) are revalidated instead. This cuts the traffic of a remote connection (e.g. ioBroker.pro) roughly to a quarter and no longer hides a frontend update.
-* (Garfonso/Claude) Everything else (custom cards, the index page, api answers) is compressed on the fly now.
-* (Garfonso/Claude) The instance settings were rebuilt with jsonConfig: a real YAML editor for the themes, working theme dropdowns, upload/delete of custom cards with their version, and a searchable entity list. Needs admin 7.9.11 or newer. (#587)
-* (Garfonso/Claude) The new frontend draws its map with vector tiles: the adapter serves them, together with the TileJSON, the label fonts and the icon sprites, and answers the access-token request the frontend makes for them.
-* (Garfonso/Claude) Vacuums no longer claim the battery feature Home Assistant removed. A manually configured vacuum now gets the same battery sensor entity as an auto-detected one, so the charge level stays visible.
-* (Garfonso/Claude) Updated Browser Mod to 3.2.3 (from 2.13.5). Its settings are split in two pages now: the sidebar entry holds the settings of this browser, the registered browsers and the global/user settings moved to a page of their own behind it.
-* (Garfonso/Claude) Fixed global and per-user Browser Mod settings never being stored: those requests carry no browser id and were dropped.
-* (Garfonso/Claude) A default dashboard set in Browser Mod is honored now, for a user, for one browser or globally.
-* (Garfonso/Claude) Energy dashboard: the costs of import and export are calculated from the price configured for a source, so a fixed price (or a price entity) no longer shows 0.00.
-* (Garfonso/Claude) Custom cards: the adapter watches its cards folder, so a card added, replaced or deleted anywhere (file browser, settings page, command line) is picked up without pressing anything - a browser reload still imports a brand new card.
-* (Garfonso/Claude) Updated the dependencies (TypeScript 6, type-detector 6, webserver 3, suncalc 2, …) and replaced gulp with a plain node script.
-* (Garfonso/Claude) New device types of type-detector 6 become entities: fans and air purifiers (`fan`), pumps (a switch plus its measurements), air quality monitors (one sensor per value), contact sensors, CO alarms, pressure and flow sensors.
-* (Garfonso/Claude) Thermostats that only heat or only cool keep their target temperature: type-detector 6 reports that setpoint as `SET_HEATING` / `SET_COOLING` instead of `SET`.
-* (Garfonso/Claude) Fixed the sun entity's elevation and azimuth with suncalc 2, which answers in degrees and measures the azimuth from north.
-* (Garfonso/Claude) Custom cards: the file selector deletes a card now, the table is titled as the overview of the installed cards, and a link leads to the cards folder in the ioBroker file browser.
-* (Garfonso/Claude) Updated the Home Assistant frontend to 20260826.7: new alert card, date on the clock card, search in the media browser, more tile features (vacuum fan speed, light effects, thermostat humidity) and the map now uses sharper vector tiles.
-* (Garfonso/Claude) Statistics are converted into the unit the frontend asks for: an energy meter counting in Wh is no longer drawn as if it counted kWh, and the same for a power sensor in W. (#741)
-* (Garfonso/Claude) Repository checker: the missing translations of the expert attribute settings were added in all languages, the license section links to the LICENSE file, and the history timeout uses the adapter's own timer. (#725)
 
 ## License
 

@@ -3,18 +3,8 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
         <link>https://www.iobroker.com/blog</link>
-        <lastBuildDate>Wed, 07 Oct 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 06 Oct 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
-        <item>
-            <title><![CDATA[Один профиль для всех лицензий]]></title>
-            <description><![CDATA[
-                <p>Любой, кто когда-либо покупал лицензию на голосовой помощник, а затем устанавливал его, знает ответ на вопрос: это было на **iobroker.net** или **iobroker.pro** ? Два сервера, два логина, два интерфейса, которые мало чем отличались друг от друга. Любому, кто хотел проверить, что ему действительно принадлежит, приходилось дважды входить в систему и разбираться, где сначала посмотреть.</p>
-            ]]></description>
-            <link>https://www.iobroker.com/blog/2026_10_07</link>
-            <guid isPermaLink="true">https://www.iobroker.com/blog/2026_10_07</guid>
-            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
-            <pubDate>Wed, 07 Oct 2026 06:00:00 GMT</pubDate>
-        </item>
         <item>
             <title><![CDATA[Новый iobroker.com и его возможности]]></title>
             <description><![CDATA[

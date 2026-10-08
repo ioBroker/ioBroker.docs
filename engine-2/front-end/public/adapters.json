@@ -5544,6 +5544,7 @@
             "ru": "absaar"
           },
           "content": "adapterref/iobroker.absaar/README.md",
+          "icon": "adapterref/iobroker.absaar/absaar.png",
           "keywords": "absaar, ems, inverter, solar, photovoltaic",
           "authors": "TheBam1990",
           "license": "MIT",
@@ -5584,8 +5585,7 @@
           "weekDownloads": 24,
           "stars": -1,
           "issues": 5,
-          "score": 1,
-          "icon": "adapterref/iobroker.absaar/absaar.png"
+          "score": 1
         },
         "advansol-optimizer": {
           "title": {
