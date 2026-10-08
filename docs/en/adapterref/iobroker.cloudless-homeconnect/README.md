@@ -164,6 +164,9 @@ General settings for the device can be made here. For example, the light of an o
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.7.1 (2026-10-08)
+
+- (eifel-tech) Optimizing heartbeat (Issue #566)
 
 ### 1.7.0 (2026-06-19)
 
@@ -180,10 +183,6 @@ General settings for the device can be made here. For example, the light of an o
 ### 1.6.2 (2025-05-28)
 
 - (eifel-tech) Dependency updates and node-version >= 20
-
-### 1.6.1 (2025-04-22)
-
-- (eifel-tech) Possibility to log communication errors as debug (Issue #242)
 
 ## License
 

@@ -28,6 +28,10 @@ There a two acepted commands:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Bannsaenger) fixed preserve names while database creation
+* (Bannsaenger) updated dependencies and issues from repository checker
+
 ### 0.9.1 (2026-08-22)
 * (Bannsaenger) updated dependencies and issues from repository checker
 

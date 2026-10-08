@@ -2,6 +2,16 @@
 
 ![Logo](admin/pv-notifications.png)
 
+![Stable](https://iobroker.live/badges/pv-notifications-stable.svg)
+[![NPM version](https://img.shields.io/npm/v/iobroker.pv-notifications.svg)](https://www.npmjs.com/package/iobroker.pv-notifications)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.pv-notifications.svg)](https://www.npmjs.com/package/iobroker.pv-notifications)
+[![License](https://img.shields.io/github/license/sadam6752-tech/ioBroker.pv-notifications.svg)](LICENSE)
+
+[![NPM](https://nodei.co/npm/iobroker.pv-notifications.png?downloads=true)](https://nodei.co/npm/iobroker.pv-notifications/)
+
+[![Test and Release](https://github.com/sadam6752-tech/ioBroker.pv-notifications/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/sadam6752-tech/ioBroker.pv-notifications/actions/workflows/test-and-release.yml)
+![Number of Installations](https://iobroker.live/badges/pv-notifications-installed.svg)
+
 Sends Telegram notifications for PV battery status (full, empty, intermediate levels).
 
 ## Features
@@ -313,6 +323,28 @@ sadam6752@gmail.com
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 1.2.33 (2026-10-08)
+* (FIX) Telegram messages were sent to **all** users of the bot instead of only the configured users (`user` instead of the ignored `users` parameter)
+* (FIX) Bold text was shown with literal asterisks - messages are now sent with HTML formatting (values from other adapters are escaped)
+* (CHANGE) Full/empty thresholds and intermediate steps are detected when reached or crossed (e.g. SOC jumps from 39 to 41, decimal SOC values, battery stopping at 99 % with a 98 % threshold); a jump over several steps sends one message
+* (FIX) Statistics were not saved when the adapter was stopped (unload handler was not registered)
+* (FIX) Last week/month values were overwritten with 0 on the first adapter start of a day
+* (FIX) Daily statistics reset now happens at midnight; before it only ran if the daily stats time was a multiple of 5 minutes
+* (FIX) Min/max SOC of the day are written immediately
+* (FIX) Weekly/monthly auto-save runs once in the window 23:55-23:59, so a delayed timer tick no longer skips it; monthly cycles roll over even when monthly statistics are disabled
+* (FIX) Sunset object may also contain a timestamp or ISO date; missing time settings no longer crash the scheduler
+* (FIX) 0 °C was not shown; numeric weather values no longer break the weather block
+* (FIX) Errors while processing state changes no longer stop the adapter; test button cannot get stuck
+
+### 1.2.32 (2026-10-08)
+* (FIX) Daily, weekly and monthly statistics (cycles, min/max SOC) are no longer reset on every adapter restart
+* (FIX) Monthly statistics reported the daily cycle counters; there are now real monthly counters (`statistics.fullCyclesMonth`, `statistics.emptyCyclesMonth`)
+* (FIX) Weekly/monthly auto-save no longer fails with an unhandled error when the weekly/monthly data points are empty
+* (FIX) SOC delivered as a string (e.g. "100") now triggers the full/empty/intermediate notifications
+* (FIX) Test message: tomorrow's weather no longer breaks when only text or only temperature is configured
+* (FIX) Weekly/monthly own consumption can no longer be negative
+* (ADD) Unit tests (`npm run test:js`), README badges, `.gitattributes` (LF line endings)
 
 ### 1.2.31 (2026-09-21)
 * (ADD) CI: Node.js 26 in the test matrix and a new deploy job using npm Trusted Publishing (OIDC) with provenance

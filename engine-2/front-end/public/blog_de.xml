@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.com/blog</link>
-        <lastBuildDate>Tue, 06 Oct 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 07 Oct 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Ein Profil für alle Lizenzen]]></title>
+            <description><![CDATA[
+                <p>Wer irgendwann einmal eine vis-Lizenz gekauft und später den Sprachassistenten eingerichtet hat,\nkennt die Frage: War das jetzt auf **iobroker.net** oder auf **iobroker.pro**? Zwei Server, zwei\nAnmeldungen, zwei Oberflächen, die wenig miteinander zu tun hatten. Wer nachsehen wollte, was er\nüberhaupt besitzt, musste sich zweimal anmelden und sich dabei überlegen, wo er zuerst sucht.</p>
+            ]]></description>
+            <link>https://www.iobroker.com/blog/2026_10_07</link>
+            <guid isPermaLink="true">https://www.iobroker.com/blog/2026_10_07</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 07 Oct 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Die neue iobroker.com und was sie kann]]></title>
             <description><![CDATA[

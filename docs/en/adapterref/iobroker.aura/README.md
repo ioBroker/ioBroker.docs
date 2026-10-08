@@ -122,6 +122,18 @@ So the path of any release is: `-nextN` test build → **Latest** (published, on
 
 _Older releases: see CHANGELOG_OLD.md._
 
+### 0.80.0 (2026-10-08)
+- Advanced chart - value labels at the chart edges no longer overlap the y-axis numbers or snap back over the edge after a redraw ([#703](https://github.com/hdering/ioBroker.aura/issues/703))
+- 🌟 **New feature:** History table - new widget that lists the recorded values of a datapoint from a history adapter (history, sql, influxdb): the last N values or a time range, with date and time in one or two columns ([#760](https://github.com/hdering/ioBroker.aura/issues/760))
+- Advanced chart - series aggregated as max, min or sum (and averages over 30 days and more) no longer end in a spike to the live value at the right edge; the current value above the chart still shows the live reading
+
+### 0.79.0 (2026-10-08)
+- 🌟 **New feature:** Status overview - new layout "Two lines": severity dot, bold device name, reading and facts on a second line, large touch buttons ("2 days later", "Replaced" with a second-tap confirmation)
+- Auto height - widgets with "fit height to content" (also inside groups) no longer keep empty space below their content when the fluid grid stretches its rows ([#759](https://github.com/hdering/ioBroker.aura/issues/759))
+- Timer - schedule entries added in the frontend are no longer lost when the widget is edited in the admin open in the same browser ([#758](https://github.com/hdering/ioBroker.aura/issues/758))
+- Timer - optional fixed value for vacation and holiday days: written once when the exception starts, regular events pause meanwhile and the normal schedule is restored when it ends ([#757](https://github.com/hdering/ioBroker.aura/issues/757))
+- Fill level - LED segments: configurable segment count and a "fill width" option that adds segments to span wide (or tall) tiles ([#756](https://github.com/hdering/ioBroker.aura/issues/756))
+
 ### 0.78.1 (2026-10-06)
 - Timer - entries added in a timer that sits inside a popup view are now saved and survive a page reload ([#750](https://github.com/hdering/ioBroker.aura/issues/750))
 
@@ -217,13 +229,6 @@ Release v0.77.4
 - 🌟 **New feature:** Icon picker - icons of installed ioBroker icon adapters (e.g. icons-mfd-svg, icons-material-png, vis-icontwo) and vis-2 icon sets (e.g. Vis 2 inventwo Iconset) can now be picked, straight from the adapter; new "Source" filter for Aura's own icons, adapters and single Iconify sets, "Offline only" filter, optional tinting of single-coloured PNG sets, and the dialog can be moved ([#716](https://github.com/hdering/ioBroker.aura/issues/716))
 - 🌟 **New feature:** Instance settings - new "Reset admin PIN on next start" checkbox for a forgotten admin PIN: the admin area asks for a new PIN afterwards, PINs of protected sections and tabs are kept
 - 🌟 **New feature:** Custom layout - right-click a cell to insert a row above/below or a column left/right of it, or to delete its row/column, instead of only adding at the end; the cell context menu no longer closes the edit dialog ([#717](https://github.com/hdering/ioBroker.aura/issues/717))
-
-### 0.70.1 (2026-09-25)
-- Click action icon on widgets is now off by default and has to be switched on per widget
-
-### 0.70.0 (2026-09-25)
-- 🌟 **New feature:** Widget fullscreen can fill the whole screen: the new "Fill the screen" option uses the browser's fullscreen mode, hiding the address bar and task bar ([#711](https://github.com/hdering/ioBroker.aura/issues/711))
-- 🌟 **New feature:** Settings - new grid option "Fill window width": widgets stretch to the full screen width on any resolution, the arrangement stays; off by default ([#413](https://github.com/hdering/ioBroker.aura/issues/413))
 
 ## License
 

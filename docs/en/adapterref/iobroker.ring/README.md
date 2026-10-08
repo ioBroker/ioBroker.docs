@@ -20,6 +20,8 @@ For getting the token, please do following on your shell.
 ```shell
 npx -p ring-client-api ring-auth-cli
 ```
+>[!IMPORTANT]
+>current ring-auth-cli seems to required node.js 24. Please update to node.js 24.
 
 You can use special variables for your livestream and snapshot path and filename. These variables will be replaced with
 a counter, timestamp, ring id or kind of ring.

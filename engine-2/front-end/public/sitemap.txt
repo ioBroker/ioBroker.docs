@@ -45,6 +45,7 @@ https://www.iobroker.com/blog/2026_08_25
 https://www.iobroker.com/blog/2026_09_20
 https://www.iobroker.com/blog/2026_09_26
 https://www.iobroker.com/blog/2026_10_06
+https://www.iobroker.com/blog/2026_10_07
 https://www.iobroker.com/docs/about/brand.md
 https://www.iobroker.com/docs/about/story.md
 https://www.iobroker.com/docs/admin/adapter.md

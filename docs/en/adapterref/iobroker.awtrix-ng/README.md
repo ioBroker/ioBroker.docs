@@ -242,8 +242,9 @@ See [documentation](https://blueforcer.github.io/awtrix-ng/reference/payload/) f
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.4.0 (2026-10-08)
 
+* (@klein0r) `apps.<name>.enabled` switches just this app on or off (firmware 1.2.2)
 * (@klein0r) Updated recommended Awtrix NG firmware version to 1.2.2
 * (@klein0r) Added state `device.usbPower` (device is connected to USB power, e.g. TC002)
 * (@klein0r) **Breaking change:** `sendTo` uses the sound format of firmware 1.2.0: `audio` takes `file` (instead of `sound`, `mp3`, `melody`, ...), notifications take `sound` as name or sound object (`soundRtttl` / `soundLoop` were removed), `textCenter` was replaced by `textAlign`
@@ -292,11 +293,6 @@ See [documentation](https://blueforcer.github.io/awtrix-ng/reference/payload/) f
 * (@klein0r) Updated documentation
 * (@klein0r) Recommended Awtrix NG version is now 1.0.15
 * (@klein0r) Automatically cast icon value to string in notifications
-
-### 0.0.9 (2026-08-06)
-
-* (@klein0r) Removed option to automatically delete other apps
-* (@klein0r) Updated logo
 
 ## License
 
