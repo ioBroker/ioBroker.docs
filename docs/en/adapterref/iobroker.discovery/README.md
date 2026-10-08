@@ -250,10 +250,14 @@ in the `system.discovery` object.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.2.0 (2026-10-08)
+* (nograx) Detect Zendure SolarFlow, Hyper and AIO devices with the local zenSDK API via mDNS and propose the zendure-solarflow adapter
+* (@GermanBluefox) The Zendure proposal sets `connectionMode: local` - in the default cloud mode the instance stops at the missing cloud key and never looks for devices
+
 ### 5.1.2 (2026-10-02)
 * (ChrMaass) Detect SIKU / Oxxify Smart fans with a read-only UDP broadcast and propose one siku instance for all fans
-* (bluefox) The SIKU probe no longer demands both identifying parameters - the siku adapter does not either, and a fan that answers only one was being hidden from it
-* (bluefox) The SIKU probe asks from a free port when UDP 4000 is taken, instead of dropping the whole detection
+* (@GermanBluefox) The SIKU probe no longer demands both identifying parameters - the siku adapter does not either, and a fan that answers only one was being hidden from it
+* (@GermanBluefox) The SIKU probe asks from a free port when UDP 4000 is taken, instead of dropping the whole detection
 
 ### 5.1.1 (2026-08-31)
 * (bluefox) The ping scan says so when this host may not send ICMP and sweeps the range over TCP instead (#247)
@@ -280,9 +284,6 @@ in the `system.discovery` object.
 * (bluefox) Packages updated
 * (bluefox) Minimum node.js version is 18.x
 * (bluefox) Updated licenses for knx and jarvis
-
-### 4.5.0 (2024-04-21)
-* (pr0crstntr) Added Air-Q
 
 ## License
 

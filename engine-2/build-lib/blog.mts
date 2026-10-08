@@ -223,11 +223,15 @@ export function build(): Promise<BlogContent> {
 
             // sync all directories
             const tasks: SyncTask[] = [];
-            consts.SYNC_LANGUAGES.forEach(lang =>
-                consts.SYNC_LANGUAGES.filter(lang2 => lang2 !== lang).forEach(lang2 =>
-                    tasks.push({ fromLang: lang, toLang: lang2 }),
-                ),
-            );
+            if (!translation.hasTranslationKeys()) {
+                console.warn('No translation keys found: the blog posts are not translated');
+            } else {
+                consts.SYNC_LANGUAGES.forEach(lang =>
+                    consts.SYNC_LANGUAGES.filter(lang2 => lang2 !== lang).forEach(lang2 =>
+                        tasks.push({ fromLang: lang, toLang: lang2 }),
+                    ),
+                );
+            }
             processTasks(tasks, content, () => {
                 // sort files
                 const names = Object.keys(content.pages);

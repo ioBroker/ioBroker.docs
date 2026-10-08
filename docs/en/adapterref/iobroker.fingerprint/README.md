@@ -5,6 +5,16 @@ chapters: {"pages":{"en/adapterref/iobroker.fingerprint/README.md":{"title":{"en
 
 # ioBroker.fingerprint
 
+![Stable](https://iobroker.live/badges/fingerprint-stable.svg)
+[![NPM version](https://img.shields.io/npm/v/iobroker.fingerprint.svg)](https://www.npmjs.com/package/iobroker.fingerprint)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.fingerprint.svg)](https://www.npmjs.com/package/iobroker.fingerprint)
+[![License](https://img.shields.io/github/license/sadam6752-tech/ioBroker.fingerprint.svg)](LICENSE)
+
+[![NPM](https://nodei.co/npm/iobroker.fingerprint.png?downloads=true)](https://nodei.co/npm/iobroker.fingerprint/)
+
+[![Test and Release](https://github.com/sadam6752-tech/ioBroker.fingerprint/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/sadam6752-tech/ioBroker.fingerprint/actions/workflows/test-and-release.yml)
+![Number of Installations](https://iobroker.live/badges/fingerprint-installed.svg)
+
 Integrates the ESP32-based [FingerprintDoorbell](https://github.com/sadam6752-tech/FingerprintDoorbell)
 into ioBroker over plain HTTP — **no MQTT and no simple-api adapter required**.
 
@@ -243,6 +253,20 @@ Writing either state applies the ring immediately.
 - **Enroll from adapter, LED ring, `info.wifiRssi`** require **v0.9.4**.
 
 ## Changelog
+
+### 0.7.12
+
+- Security: the webhook token no longer appears in error messages; the backup file is only readable by its owner (`0600`); match events with invalid finger IDs are ignored; device-supplied names are sanitized (control characters, length); rejected webhook requests are logged rate-limited; removed the unused `getWebhookInfo` message command
+- Stability: the webhook start is retried every 30 s if the port is busy
+- Admin UI: quotes and backslashes in the rename/enroll name fields are rejected (they broke the request)
+
+### 0.7.11
+
+- Fix: `lastMatch.matched` is reset after 3 s, so every match is a state change for scripts
+- Fix: `info.connection` is correct when status polling is disabled (one initial poll is always done)
+- Fix: match/ring counters no longer lose concurrent events
+- Faster adapter stop (idle webhook connections are closed)
+- README: added badges
 
 ### 0.7.10
 

@@ -23,6 +23,14 @@ All devices which can be controlled via EWPE Smart app should be supported, incl
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+### 4.1.1 (2026-10-08)
+ - The encryption version of each device is stored after the first successful bind and reused on the next start, so devices with the newer protocol no longer log a bind timeout at startup
+
+### 4.1.0 (2026-10-07)
+ - Fewer false "device not responding" errors: status requests are retried twice
+ - A device is reported offline only after 3 failed polls in a row (single lost UDP packets are logged at debug level)
+ - Default request timeout raised from 1000 to 2000 ms (existing installations keep their saved value)
+
 ### 4.0.0 (2026-08-28)
  - Migrated the admin tab from jQuery/Materialize to React (MUI 6 / @iobroker/adapter-react-v5)
  - The admin tab is now translated into all 11 adapter languages

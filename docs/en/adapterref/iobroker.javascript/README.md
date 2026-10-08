@@ -163,12 +163,25 @@ If the API endpoint is unreachable or returns an error, user-friendly messages a
 A **Retry** button is shown when model loading fails, allowing you to retry without closing the dialog.
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 10.4.0 (2026-10-08)
+* (@GermanBluefox) The endpoint of an AI request comes out of the configuration and no longer out of the request. An address in the message used to win over the stored one, which was the comfortable way to put a proxy in front of OpenAI - and at the same time the way to have this instance carry the stored key, as the `Authorization` of that request, to an address of somebody else's choosing. Whoever may send a message to this instance could do that. A proxy belongs in the configuration now, where it is entered once by whoever may configure the adapter. The editor never sent an address, so nothing changes for it; the Test buttons of the settings dialog keep trying what stands in the form, with one limit: an address out of the form counts only together with a key out of the form - one's own key to one's own endpoint gives nothing away. In the credential-store mode the saved address is used, so an endpoint of one's own has to be saved before it can be tested there
+* (@GermanBluefox) Only an entry that was stored as an AI credential is read from the central credential store. The store holds the secrets of the whole system - a database password, the login of a camera - and a request for "the key of this provider" could name any one of them
+* (@GermanBluefox) The `execute` message - which runs a script here, with the whole ioBroker API behind it - checks who asked for it. A message never said on whose behalf it came, so there was nothing to check, and everyone who may send one to this instance could have code executed. Where the js-controller names the user (7.2.5 and newer, which put the user of a socket connection into the message), that user needs the right that a command on the host needs. Where it does not name one - an older controller, a script, an adapter - nothing changes
 * (@GermanBluefox) The question before a debug session ("The script will be stopped and must be activated manually after debugging") started the debugging even when it was answered with "Cancel" (#2382)
 * (@GermanBluefox) Stopping a debug session could end the debugged process with "uncaught exception: write EPIPE": the inspector process exited at once, although the process it debugs writes its whole log through its pipes and was still shutting down. The inspector now stops that process first and waits till it is really gone, a broken pipe cannot end a debugged script anymore, and the reset of the connection to the debugged process is not reported as an internal error of the inspector (#2382)
-* (@GermanBluefox) Fixing the test of the API keys
-* (@GermanBluefox) Improvement of assistant communication: timeout and max token size is configurable
-* (@GermanBluefox) Added diff button to the script editor to compare the current script with the last saved version
+* (@GermanBluefox) The AI chat stayed empty when a request took longer than 30 seconds: the answer is pushed as an instance message now instead of waiting for the socket callback
+* (@GermanBluefox) An AI answer without content now says why (stop reason, token counts) instead of leaving an empty chat bubble, and every failed request is logged
+* (@GermanBluefox) An answer cut off at the output limit is marked as incomplete
+* (@GermanBluefox) Sorted the scripts in the `@` list of the AI chat by their path
+* (@GermanBluefox) The AI chat can be maximized to the whole editor area (#2389)
+* (@GermanBluefox) The AI chat shows a spinner for the whole request, not only until the first tool call
+* (@GermanBluefox) Fixed an accepted AI suggestion not reaching the visible editor
+* (@GermanBluefox) Fixed the splitters jumping back to their previous width while being dragged
+* (@GermanBluefox) Blockly: fixed a parameter of a "JavaScript function" with its default name making the script unsavable
+* (@GermanBluefox) Added a script history: saved versions can be listed, compared and restored in the editor. "Saved versions per script" (30 by default, 0 switches it off)
+* (@GermanBluefox) Added a "Script history" tab with the used storage per script and buttons to delete single, orphaned or all histories
+* (@GermanBluefox) Moved the credentials table to its own tab
+* (@GermanBluefox) Mirror: a changed file no longer resets `enabled` and `engine` of the script (#2396)
 
 ### 10.3.0 (2026-09-20)
 * (@GermanBluefox) The code editor (Monaco), Blockly and the Rules blocks are loaded only when a script of that kind is opened, so the editor starts faster
@@ -193,15 +206,6 @@ A **Retry** button is shown when model loading fails, allowing you to retry with
 * (@GermanBluefox) The AI editor told the adapter how long it was willing to wait, and the adapter never read it: a stuck inline completion held its slot for the full ten minutes instead of the fifteen seconds it asked for
 * (@GermanBluefox) The inline completion took the model chosen in the AI chat but picked the provider itself, so a model of one provider could be requested with the credentials and at the endpoint of another. Model and provider are now remembered and used together
 * (@GermanBluefox) When two providers offer a model of the same name - a proxy and the vendor behind it, for instance - which of them served it was decided by whichever answered first, and could change from one reload to the next. The provider configured first wins now, so the direct route is preferred over a proxy
-
-### 10.1.4 (2026-09-03)
-* (@GermanBluefox) Rules: the text of an action can round the trigger value with `%.1s` - any number of digits after the decimal point, also `%.2old` for the old value - formatted with the decimal separator of the system, so `Kühlschrank zu warm (%.1s°C)` gives `29,4°C` where `%s` gave `29.400000000000002°C`
-* (@GermanBluefox) Corrected the function block in blockly
-* (@GermanBluefox) A custom OpenAI-compatible AI endpoint answered "Invalid API key" in the inline completion and while loading the model list, although the test button in the settings said "ok": both asked the adapter for the provider `openai`, and the adapter picks the key by that name, so they used the "OpenAI API key" instead of the "Custom API key". The custom endpoint is now addressed as what it is, everywhere (#2369)
-* (@GermanBluefox) A configured "Custom API Base URL" also redirected every request meant for OpenAI itself to that address - with the OpenAI key attached and no way to switch it off. The base URL now belongs to the custom endpoint alone, so both can be used side by side. If the key of your custom endpoint is in the "OpenAI API key" field, move it to the "Custom API key" field; the adapter writes a warning in the log if it finds such a setup (#2369)
-* (@GermanBluefox) A folded "or"/"else" section of a rule still occupied the 64px every section reserves as a drop target, and showed the top 64px of the very cards it was supposed to hide - clipped, and out of reach of the scrollbar. Being the last thing in the rule, that looked like a rule that could not be scrolled to its end
-* (@GermanBluefox) The 1px line between the script tabs and the toolbar stopped 10px short of the left edge and 40px short of the right one: the tab row carried a margin and a `calc(100% - 50px)` width to leave room for the "close all but current" button. Both are padding on the tab strip now, so the line reaches the edges of the pane
-* (@GermanBluefox) Blockly was grey in every dark theme - workspace, toolbox and flyout were hard-coded colours, which left a grey block sitting in the middle of, for instance, the navy "modernDark" admin. They follow the colours of the active ioBroker theme now, in light themes as well. The blocks themselves keep the colour of their category
 
 ## License
 The MIT License (MIT)

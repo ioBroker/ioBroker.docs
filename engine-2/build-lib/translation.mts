@@ -19,6 +19,19 @@ const key: string = fs.existsSync(apiKeyFile)
 const translate = key ? new v2.Translate({ key }) : new v2.Translate({ projectId });
 
 /**
+ * Whether there is anything to translate with: the API key in `api-key.json`, the credentials
+ * in GOOGLE_APPLICATION_CREDENTIALS_JSON or an already written `google-keys.json`. Without one
+ * the build leaves the translation out and carries on with what the languages hold already.
+ */
+export function hasTranslationKeys(): boolean {
+    return (
+        !!key ||
+        !!process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON ||
+        fs.existsSync(process.env.GOOGLE_APPLICATION_CREDENTIALS!)
+    );
+}
+
+/**
  * Choose the right translation API
  *
  * @param text The text to translate

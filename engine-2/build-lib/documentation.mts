@@ -347,12 +347,14 @@ function sync2Languages(
     fromLang: LanguageCode,
     toLang: LanguageCode,
     testDir: string,
+    skipAdapters: boolean,
     cb?: () => void,
     files?: string[],
 ): void {
     files ||= utils
         .getAllFiles(consts.SRC_DOC_DIR + fromLang, true)
         .filter(file => !isNeverTranslated(file))
+        .filter(file => !skipAdapters || !file.replace(/\\/g, '/').includes('/adapterref/'))
         .sort();
 
     if (testDir) {
@@ -379,18 +381,18 @@ function sync2Languages(
                 utils.writeSafe(file.replace(`/${fromLang}/`, `/${toLang}/`), fs.readFileSync(file)),
             );
         }
-        setImmediate(() => sync2Languages(fromLang, toLang, testDir, cb, remaining));
+        setImmediate(() => sync2Languages(fromLang, toLang, testDir, skipAdapters, cb, remaining));
     });
 }
 
 /** Execute the translation tasks one after another */
-function processTasks(tasks: SyncTask[], testDir: string, cb?: () => void): void {
+function processTasks(tasks: SyncTask[], testDir: string, skipAdapters: boolean, cb?: () => void): void {
     if (!tasks?.length) {
         cb?.();
     } else {
         const task = tasks.shift()!;
-        sync2Languages(task.fromLang, task.toLang, testDir, () =>
-            setTimeout(() => processTasks(tasks, testDir, cb), 0),
+        sync2Languages(task.fromLang, task.toLang, testDir, skipAdapters, () =>
+            setTimeout(() => processTasks(tasks, testDir, skipAdapters, cb), 0),
         );
     }
 }
@@ -400,19 +402,25 @@ function processTasks(tasks: SyncTask[], testDir: string, cb?: () => void): void
  *
  * @param testDir if given, only the documents of this sub-directory will be translated
  * @param cb called when all translations are done
+ * @param skipAdapters leave the adapter documents (`adapterref`) untranslated
  */
-export function syncDocs(testDir?: string | (() => void), cb?: () => void): void {
+export function syncDocs(testDir?: string | (() => void), cb?: () => void, skipAdapters?: boolean): void {
     const tasks: SyncTask[] = [];
     if (typeof testDir === 'function') {
         cb = testDir;
         testDir = '';
+    }
+    if (!translation.hasTranslationKeys()) {
+        console.warn('No translation keys found: the documents are not translated');
+        cb?.();
+        return;
     }
     consts.SYNC_LANGUAGES.forEach(lang =>
         consts.SYNC_LANGUAGES.filter(lang2 => lang2 !== lang).forEach(lang2 =>
             tasks.push({ fromLang: lang, toLang: lang2 }),
         ),
     );
-    processTasks(tasks, testDir || '', cb);
+    processTasks(tasks, testDir || '', !!skipAdapters, cb);
 }
 
 /** Copy all documents of a directory recursively into the front-end */

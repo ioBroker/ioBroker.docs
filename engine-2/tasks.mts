@@ -305,9 +305,13 @@ async function _4_downloadVisCordova(): Promise<void> {
     );
 }
 
-/** Translate all documents: adapters and documentation */
-async function _5_syncDocs(): Promise<void> {
-    await new Promise<void>(resolve => documentation.syncDocs(resolve));
+/**
+ * Translate all documents: adapters and documentation
+ *
+ * @param skipAdapters translate only the documentation, not the adapter readmes
+ */
+async function _5_syncDocs(skipAdapters?: boolean): Promise<void> {
+    await new Promise<void>(resolve => documentation.syncDocs(resolve, undefined, skipAdapters));
 }
 
 /** Combine FAQ */
@@ -614,14 +618,18 @@ async function buildOnly(): Promise<void> {
     await snapshotsIfPossible(); // draw the pages for crawlers
 }
 
-/** Download, translate and build everything */
-async function buildAll(): Promise<void> {
+/**
+ * Download, translate and build everything
+ *
+ * @param skipAdapterTranslation the adapter readmes are downloaded, but not translated
+ */
+async function buildAll(skipAdapterTranslation?: boolean): Promise<void> {
     _0_clean(); // clean dir
     await _1_blog(); // translate and copy blogs
     await _2_downloadAdapters(); // download all adapters and create adapter.json
     await _3_downloadJsonConfig(); // download jsonConfig documentation
     await _4_downloadVisCordova(); // download app documentation
-    await _5_syncDocs(); // translate documents and adapters
+    await _5_syncDocs(skipAdapterTranslation); // translate documents and adapters
     await _6_faq(); // combine FAQ
     _7_documentation(); // create content for documentation
     await _8_copyFiles(); // copy all adapters and docs to the public
@@ -717,6 +725,9 @@ async function main(): Promise<void> {
         console.log('Done');
     } else if (process.argv.includes('--buildOnly')) {
         await buildOnly();
+    } else if (process.argv.includes('--noAdapterTranslation')) {
+        // everything as the default, but the adapter readmes stay untranslated
+        await buildAll(true);
     } else {
         await buildAll();
     }

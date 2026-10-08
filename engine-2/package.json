@@ -70,6 +70,7 @@
     "11.snapshots": "node tasks.mts --11.snapshots",
     "build:gui": "node tasks.mts --buildOnly",
     "build:backend": "tsc -p tsconfig.build.json",
-    "default": "node tasks.mts"
+    "default": "node tasks.mts",
+    "default:no-adapter-translations": "node tasks.mts --noAdapterTranslation"
   }
 }

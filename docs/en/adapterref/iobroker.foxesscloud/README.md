@@ -69,9 +69,9 @@ The [FoxESS Open API](https://www.foxesscloud.com/public/i18n/en/OpenApiDocument
 
 With the recommended **60 s** interval, a single instance uses the full daily quota (1440 minutes = 24 hours).
 
-**Important:** All Open API clients sharing the same API key share one quota — for example multiple ioBroker instances, Home Assistant integrations, or scripts. Exceeding the limit can cause intermittent API errors (e.g. `40400`, `40402`). Check remaining calls in the FoxESS portal under **Profile → API Management**.
+**Important:** All Open API clients sharing the same API key share one quota — for example multiple ioBroker instances, Home Assistant integrations, or scripts. Exceeding the limit can cause intermittent API errors (e.g. `40400`, `40402`). FoxCloud OpenPlatform allows **one active API key per account**, so multiple clients with the same key share that single quota.
 
-For additional inverters, create one adapter instance per device (one serial number per instance) and plan the poll interval accordingly, or use separate API keys if your account allows it.
+For additional inverters, create one adapter instance per device (one serial number per instance) and plan the poll interval accordingly so the shared quota is not exceeded.
 
 ## Data Points
 
@@ -118,7 +118,7 @@ The adapter creates the following data points:
 1. Install the adapter from the ioBroker admin interface
 2. Create a new instance
 3. Configure the **General** tab:
-   - **API Token**: Your API key from the FoxESS Cloud portal
+   - **API Token**: Your API key from the [FoxCloud OpenPlatform](https://developer-eu.foxesscloud.com/)
    - **Serial Number (SN)**: The serial number of your inverter
    - **Update Interval**: Data refresh interval in seconds (default: 60, minimum: 60)
 4. Optionally configure the **Statistics** tab:
@@ -134,10 +134,14 @@ The adapter creates the following data points:
 
 ### How to get your API credentials
 
-1. Log in to [FoxESS Cloud](https://www.foxesscloud.com)
-2. Go to your profile/settings
-3. Generate an API key (token)
-4. Find your inverter serial number in the device list
+API key generation has moved to the **FoxCloud OpenPlatform**. The old path in the FoxESS Cloud portal (**Profile → API Management**) only redirects there and no longer creates keys.
+
+1. Open the [FoxCloud OpenPlatform](https://developer-eu.foxesscloud.com/) and sign in with your FoxESS account
+2. In the sidebar, open **API Keys**
+3. Click **+ Generate key** (if you do not have an active key yet), then use **Copy** to copy the key
+4. Find your inverter serial number in the FoxESS Cloud device list (or app)
+
+Note: FoxCloud OpenPlatform allows **one active API key per account**. Existing keys remain valid.
 
 ## PV Power JSON Statistics for VIS Dashboards
 
@@ -227,6 +231,9 @@ Baselines are persisted in `report._baselines` so they survive adapter restarts.
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 0.6.6 (2026-10-08)
+- (skvarel) Updated API key instructions to FoxCloud OpenPlatform (developer-eu.foxesscloud.com) in README and admin UI, including a help box and portal link
+
 ### 0.6.5 (2026-08-20)
 - (skvarel) Fixed repository checker warnings W9008 by aligning .gitignore with tracked test, .env.example and .vscode/settings.json files
 
@@ -239,9 +246,6 @@ Baselines are persisted in `report._baselines` so they survive adapter restarts.
 ### 0.6.2 (2026-06-02)
 - (skvarel) Documented Open API rate limit (per API key, multiple instances) in README and admin General tab
 - (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
-
-### 0.6.1 (2026-05-29)
-- (skvarel) Revised config and i18n
 
 ## License
 
