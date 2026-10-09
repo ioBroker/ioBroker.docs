@@ -85,6 +85,19 @@ const AdaptersPage = (): JSX.Element => {
 
     const mainBlockRef = useRef<HTMLDivElement>(null);
 
+    /**
+     * Filtering makes the list shorter, and whoever reaches for the filter has usually scrolled
+     * some way into it. Without this the view stays at that height, where the shortened list has
+     * long ended, and the empty space below reads as "nothing found" - reported in the forum on
+     * 08.10.2026, where the filter was taken for broken. Clicking a category already scrolls up
+     * (`handleMenuItemClick`); filtering narrows the list just the same and has to do it too.
+     * It hangs on `searchTerm`, the deferred value, so it runs once the shortened list is on
+     * screen instead of on every keystroke.
+     */
+    useEffect(() => {
+        mainBlockRef.current?.scrollTo({ top: 0 });
+    }, [searchTerm]);
+
     const { classes } = useStyles({ isMenuCollapsed });
 
     const adapterSearchIndex = useMemo(() => {
