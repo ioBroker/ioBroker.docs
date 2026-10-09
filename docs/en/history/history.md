@@ -1652,7 +1652,26 @@ https://github.com/ipod86/ioBroker.pwned-check
 
 This adapter checks whether your passwords or e-mail addresses have appeared in known data breaches — without ever sending your actual passwords to any server.
 
+## renault (9.10.2026) – new adapter at stable repository
+https://github.com/TA2k/ioBroker.renault
 
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.renault/main/admin/renault.png" width="100" height="100" />
+
+This adapter connects ioBroker to the cloud of Renault, Dacia and Alpine. It reads vehicle data (battery, charging, climate control, mileage, location, tyre pressure, ...) and sends remote commands (climate control, charging, charge limits, horn and lights) for connected models such as the Renault Zoe, Megane E-Tech, Renault 5, the Dacia Spring and the Alpine A290.
+
+## octopus-energy-monitor (9.10.2026) – new adapter at stable repository
+https://github.com/tipp88/ioBroker.octopus-energy-monitor
+
+<img src="https://raw.githubusercontent.com/tipp88/ioBroker.octopus-energy-monitor/master/admin/octopus-energy-monitor.svg" width="100" height="100" />
+
+The Octopus Energy Monitor adapter periodically fetches daily electricity consumption data from Octopus Energy (Kraken API) and Inexogy (Discovergy/Statistics API), saving it automatically within your ioBroker object tree.
+
+## esphome (9.10.2026) – new adapter at stable repository
+https://github.com/DrozmotiX/ioBroker.esphome
+
+<img src="https://raw.githubusercontent.com/DrozmotiX/ioBroker.esphome/main/admin/esphome.png" width="100" height="100" />
+
+Control your ESP8266/ESP32 with simple yet powerful configuration files created and managed by ESPHome. Native integration of ESPHome managed device (Including Dashboard) by its native API and ensures all data is synchronized (live-event handling, no data polling.
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
