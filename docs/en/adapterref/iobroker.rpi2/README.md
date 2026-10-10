@@ -26,10 +26,12 @@ RPI-Monitor implementation for integration into ioBroker. It is the same impleme
 
 **ioBroker needs special permissions to control GPIOs.** On most Linux distributions this can be achieved by adding the ioBroker user to the `gpio` group.
 
-For gpio to work, you need to install `libgpiod` in version `2.x`, **before** installing the adapter (see below)!
+You need to install `libgpiod-dev` in version **2.2 or newer** **before** installing the adapter (see below), otherwise the installation is aborted.
+Debian 13 / Trixie ships 2.2.1. Debian 12 / Bookworm only has older versions (1.6, or 2.1 from other sources), which are **not** enough.
+You can check the installed version with `dpkg -s libgpiod-dev | grep Version`.
 
 > [!CAUTION]
-> Version 3.x.x of this adapter supports and requires Debian 13 / Trixie (Linux kernel 5.10 or newer). Do not update if you are using older o/s.
+> Version 3.x.x and newer of this adapter supports and requires Debian 13 / Trixie (Linux kernel 5.10 or newer). Do not update if you are using older o/s.
 
 ## Installation
 
@@ -44,13 +46,13 @@ please install the following packages manually:
 
 ```bash
 sudo apt update
-sudo apt install -y build-essential python
+sudo apt install -y build-essential python3
 sudo apt install -y libgpiod-dev
 sudo apt install -y pkg-config
 ```
 
-(the third one is only necessary, if you want to work with GPIOs)
-(the last one is only necessary, if you want to use DHTxx/AM23xx sensors)
+`libgpiod-dev` (version 2.2 or newer) is always required, the installation checks for it.
+`pkg-config` is only necessary if you rebuild node-dht-sensor with libgpiod support for DHTxx/AM23xx sensors (see [DHTxx/AM23xx Sensors](#dhtxxam23xx-sensors)).
 
 ### NVME temperature
 Since adapter version 2.3.2 you can read NVMe temperature. To do this, you need to install `nvme-cli` package on your system. 

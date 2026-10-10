@@ -78,7 +78,20 @@ Bei der Marktzuordnung gilt:
 6. erster erlaubter Markt aus „Verfügbare Märkte“
 7. Fallback-Markt
 
-Anschließend kann ShoppingRoute flexible Artikel marktübergreifend zusammenlegen, wenn ein zusätzlicher Markt die konfigurierte Mindestanzahl nicht erreicht. Dafür werden ausschließlich im Artikelstamm hinterlegte alternative verfügbare Märkte verwendet. Explizite Angaben wie `Milch von LIDL` oder `Eier bei ALDI` werden niemals verschoben.
+### Intelligente Marktoptimierung – weniger Geschäfte, kürzere Einkaufswege
+
+ShoppingRoute sortiert nicht nur Artikel nach Märkten und Laufwegen, sondern kann auch **unnötige zusätzliche Marktbesuche vermeiden**. Wird die konfigurierte Mindestanzahl an Artikeln für einen Markt unterschritten, prüft die optionale marktübergreifende Zusammenlegung, ob die betroffenen Artikel in ohnehin besuchten Märkten erhältlich sind. Dafür berücksichtigt ShoppingRoute ausschließlich die im Artikelstamm hinterlegten **alternativen verfügbaren Märkte**.
+
+**Beispiel:**
+
+| Markt | Artikel vor der Optimierung |
+| --- | --- |
+| ALDI | Milch, Butter, Brot, Eier, Käse |
+| REWE | Zucker |
+
+Ist **ALDI für Zucker als verfügbarer Alternativmarkt** eingetragen und greift die konfigurierte Mindestartikel-Regel, kann ShoppingRoute Zucker dem ALDI-Einkauf zuordnen. Das Ergebnis: **6 Artikel bei ALDI, kein zusätzlicher REWE-Besuch nötig.**
+
+Die Optimierung ist optional und abhängig von der eingestellten Mindestartikelzahl und den erlaubten Alternativmärkten. **Explizite Marktangaben** wie `Milch von LIDL` oder `Eier bei ALDI` bleiben verbindlich und werden niemals automatisch in einen anderen Markt verschoben.
 
 ## Wichtige Datenpunkte
 

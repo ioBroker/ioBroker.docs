@@ -59,14 +59,49 @@ Devices that offer no MQTT publisher are read over SNMP:
 Beside the values listed above, SNMP also provides per-port statistics on switches (link, speed, duplex,
 transferred bytes and rates) and the named digital inputs and outputs of a router.
 
-Three further branches are available but switched **off** by default, because they expose the location of the
+Four further branches are available but switched **off** by default, because they expose the location of the
 device and identifiable clients, and because they change on every poll:
 - *GPS position* — latitude, longitude, accuracy, satellites and fix time
 - *Wi-Fi radios and networks* — radio state and channel, and per SSID the encryption, mode and client count
 - *Hotspot sessions* — the IP, user and authorisation state of each session
+- *Wi-Fi client list* — `<device>.wifiClients.count` and `<device>.wifiClients.list`, the latter holding the MAC
+  address and SSID of every associated station as JSON
 
-The per-client MAC table is not read at all, even with the Wi-Fi branch on: the client count per SSID carries
-the useful part without keeping a rolling list of everyone's hardware addresses in the object tree.
+Only the count and that one JSON state: a channel per MAC address would leave every phone that ever joined the
+network behind in the object tree. For the devices that matter, use presence below — it needs no branch.
+
+### Presence
+Each row of the *Presence* tab becomes `presence.<name>`, set while one of the polled routers reports that MAC
+address as associated to its Wi-Fi:
+
+```
+teltonika.<n>.presence.anyone           boolean — any of the configured devices present
+teltonika.<n>.presence.count            number  — how many of them
+teltonika.<n>.presence.<name>.connected boolean
+teltonika.<n>.presence.<name>.lastSeen  number  — timestamp of the last sighting
+teltonika.<n>.presence.<name>.router    string  — which device reported it
+teltonika.<n>.presence.<name>.ssid      string
+```
+
+Only the configured devices appear; a station nobody asked about is counted nowhere and kept nowhere, which is
+why presence works without switching the *Wi-Fi client list* on.
+
+The addresses do not have to be typed: **Read connected devices** asks every configured SNMP device for its
+association list and appends what is not listed yet, as inactive rows named `client_<last three octets>`. The
+log then names each station with its SSID and says whether its address is a random one — that is how a phone
+is told from a printer, because iOS and Android make up a *locally administered* address per network while a
+printer or a TV answers with the one burnt into it. Rename the rows that matter, tick *Active*, delete the
+rest. The button talks to the running instance, so start it first.
+
+Three things to know before building automations on it:
+- **Enter the MAC address the router shows**, under *Status → Wireless*, not the one printed on the phone.
+  Phones use a separate random address per network. It is stable as long as the network stays known to them,
+  and changes again once the network is forgotten and rejoined.
+- A phone drops out of the association list while it sleeps and reappears seconds later. A sighting therefore
+  counts for the **grace period** (180 s by default, or per row), so leaving is noticed that late and arriving
+  immediately. Below about a minute the states start to flicker.
+- It is read over **SNMP only**. The MQTT publisher of a router answers a fixed set of parameters that does not
+  include its clients, so a router that only connects over MQTT reports no presence.
 
 ### Switching ports
 Fill in a *write community* for a device and its ports become switchable through `<device>.ports.<name>.enabled`.
@@ -127,6 +162,13 @@ device, which is where the actual values come from. A TSW202 defines no traps at
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added presence detection: a device named with its MAC address becomes `presence.<name>` while a router reports it as associated to Wi-Fi
+* (@GermanBluefox) Added the optional Wi-Fi client list, with the MAC address and SSID of every associated station as JSON
+* (@GermanBluefox) Added a button that fills the presence table from the devices currently connected to the routers
+* (@GermanBluefox) Fixed the log being flooded with `received pubrel ... for unknown messageId`: a QoS 2 release is now always answered, which is what stops the router from repeating it
+* (@GermanBluefox) Removed the `retransmitInterval` and `retransmitCount` settings, which were read and never used, and gave an unreleased QoS 2 message an expiry instead of keeping it for the life of the connection
+
 ### 1.0.1 (2026-09-23)
 * (iobroker-bot) Adapter requires node.js >= 22 now.
 * (@GermanBluefox) Added vis-2 widgets: overview of all devices and front panel of one device

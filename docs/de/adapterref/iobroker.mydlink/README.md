@@ -81,6 +81,18 @@ Gerät, die er braucht.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
+- (Garfonso) fix: auto detection did not work on Linux (replaced mdns-discovery with multicast-dns)
+- (Garfonso) fix: admin discovery and device identification work again
+- (Garfonso) fix: total power consumption was written to currentPower
+- (Garfonso) fix: log in again if session of a device expired
+- (Garfonso) fix: polling can be disabled for devices with known model
+- (Garfonso) fix: normalize MAC addresses, fixes endless loop if another device answers on the configured IP
+- (Garfonso) fix: detect changed IP of devices and update the configuration
+- (Garfonso) fix: websocket devices were reported reachable while offline
+- (Garfonso) fix: websocket devices reconnect after they were offline (dlink_websocketclient 0.6.0)
+- (Garfonso) fix: no new timers during unload
+- (Garfonso) fix: pause login of websocket devices for 10 minutes if they refuse it or the PIN is wrong (device locks itself after 10 invalid tokens)
+- (Garfonso) chore: reduced log noise
 
 ### 1.3.6 (2024-05-24)
 * fixed: crash with empty pin.

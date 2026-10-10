@@ -149,6 +149,7 @@ Architecture and research notes:
 
 <!-- markdownlint-disable-next-line MD024 -->
 ### **WORK IN PROGRESS**
+- Fixed a single glitched poll writing 0 across all telemetry (soc, gridInput, acOutput, dischargeRemaining): BLUETTI occasionally answers an otherwise successful poll with the device marked offline and/or an empty stateList, which the adapter wrote through as zeros, so the history showed a phantom empty battery and any soc/gridInput alarm would fire. Such a non-authoritative snapshot now holds the last-known values and flags `health.socStale`/`health.telemetryFresh` instead of overwriting them, and the held poll is logged as a warning (#185).
 
 <!-- markdownlint-disable-next-line MD024 -->
 ### 1.0.2 (2026-09-29)

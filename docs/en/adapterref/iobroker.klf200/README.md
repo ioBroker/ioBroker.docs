@@ -264,6 +264,11 @@ The values of the state provide multiple manipulation modes:
 	### __WORK IN PROGRESS__
 -->
 <!-- prettier-ignore -->
+### __WORK IN PROGRESS__
+
+- (Michael Schroeder) [#553](https://github.com/MiSchroe/ioBroker.klf200/issues/553) Fixed the 'Test Connection' button results in case of specific error conditions during the test.
+- (Michael Schroeder) [#517](https://github.com/MiSchroe/ioBroker.klf200/issues/517) Include CodeCov-Reports in Release-Pipeline.
+
 ### 1.4.1 (2026-09-07)
 
 - (Michael Schroeder) [#512](https://github.com/MiSchroe/ioBroker.klf200/issues/512) Changed unit tests to [node:test](https://nodejs.org/docs/latest-v22.x/api/test.html)

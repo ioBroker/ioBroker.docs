@@ -240,6 +240,9 @@ engineering work of the projects `MieleRESTServer` (akappner),
 	### **WORK IN PROGRESS**
 -->
 
+### 0.3.46
+- (SmarthomeElektroniker) Only the running appliance is polled at the short interval ("Poll interval (active)"); idle appliances keep the idle interval. Until now all appliances were polled at the short interval as soon as one was running - fewer requests to the Miele modules, which serve only one connection at a time
+
 ### 0.3.45
 - (SmarthomeElektroniker) The last German state ID is gone: `eco.quelle` is now `eco.source`, its value is always English. Existing installations are migrated on start
 - (SmarthomeElektroniker) `statusText`, `programText`, `programPhaseText`, `programTypeText` and `dryingStepText` follow the "German names" option - with the option off they are English (until now they were always German)

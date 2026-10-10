@@ -108,13 +108,13 @@ The **Controls** tab is available for Grohe Sense Guard and Grohe Blue devices. 
 | **Pressure measurement** | Start button *(valve must be closed – see note below)* |
 | **Snooze** | Active indicator (read-only), Duration input (1–240 min), Start snooze button, Stop snooze button |
 | **Water limits** | Withdrawal amount limit input (0–2000 l) |
-| **Sprinkler mode** | Start time (h + min), Stop time (h + min), Active days (Mon–Sun), Save button |
+| **Sprinkler mode** | Start time (h + min), Stop time (h + min), Active days (Mon–Sun), Status (saved / unsaved), Save button |
 
 > **Note on pressure measurement:** The pipe check (Leitungscheck) is performed automatically by the device – typically overnight when no water is flowing. Pressing the start button sends the `measure_now` command, which the device will only execute when the **valve is closed** and no water is flowing. The results are always shown in the `pressureMeasurement.*` states regardless of whether the test was triggered manually or automatically.
 
 > **Note on sprinkler settings:** Changes to individual sprinkler fields (times, day switches) are acknowledged locally but **not** sent to the API immediately. Press **Save sprinkler settings** to send all values in a single API call. This avoids triggering 7+ API calls when toggling weekdays one by one.
 
-> **Note on withdrawal amount limit and sprinkler settings:** These values are read from the Grohe API every 10th poll cycle (~50 minutes at 300 s interval, always on first poll). Changes made in the Grohe app will be reflected in ioBroker within that window.
+> **Note on withdrawal amount limit and sprinkler settings:** These values are taken from the dashboard data on every poll (no extra API call). If the dashboard carries no config, it is read via `/details` every 10th poll. Changes made in the Grohe app therefore usually show up in ioBroker on the next poll. While `controls.sprinkler.pending` is `true` (unsaved changes), the sprinkler fields are **not** overwritten by the API.
 
 **Grohe Blue Home / Professional – Controls tab:**
 
@@ -238,7 +238,7 @@ The `active` state is read from the Grohe API every 3rd poll and updated immedia
 <applianceId>.controls.withdrawalAmountLimit   number  0–2000 l
 ```
 
-Setting this value writes immediately to the Grohe API. The value is re-read from the API every 10th poll.
+A changed value is sent to the Grohe API after **3 seconds** without further changes (only the last value counts, e.g. while typing). The state takes the value from the API response. The value is refreshed from the dashboard data on every poll. A value that was just written is not overwritten by older values from the API for up to 15 minutes (also applies to the sprinkler settings), until Grohe confirms the new value.
 
 **Sprinkler mode** – watering/irrigation schedule:
 
@@ -256,12 +256,13 @@ Setting this value writes immediately to the Grohe API. The value is re-read fro
 <applianceId>.controls.sprinkler.activeSaturday   boolean switch
 <applianceId>.controls.sprinkler.activeSunday     boolean switch
 
-<applianceId>.controls.sprinkler.save   boolean button – sends all sprinkler values to the API
+<applianceId>.controls.sprinkler.save     boolean button – sends all sprinkler values to the API
+<applianceId>.controls.sprinkler.pending  boolean indicator (read-only) – true = unsaved changes
 ```
 
 > Start and stop times are stored as separate hour (0–23) and minute (0–59) states. The adapter combines them into minutes-from-midnight internally when sending to the API. Changes to individual fields are acknowledged locally but **not** sent to the API until **Save** is pressed.
 
-The sprinkler schedule is re-read from the Grohe API every 10th poll.
+The sprinkler schedule is refreshed from the dashboard data on every poll – except while `pending` is `true`. After saving, the states are set from the API response and `pending` is reset. On adapter start the device config always wins.
 
 ---
 
@@ -330,7 +331,7 @@ To minimize API calls and avoid rate-limiting (HTTP 403), different endpoints ar
 | `/snooze` (read) | every 3rd poll | Sense Guard | Snooze status; HTTP 404 = no active snooze |
 | `/command` (`get_current_measurement`) | every 3rd poll | Blue | Triggers fresh measurement on device |
 | `/details` (verify) | up to 3× after refresh | Blue | Background poll for fresh data (10 s intervals, max 30 s) |
-| `/details` (config) | every 10th poll | Sense Guard | Sprinkler schedule, withdrawal limit; always on first poll |
+| `/details` (config) | every 10th poll | Sense Guard | Only if the dashboard has no `config`; sprinkler schedule, withdrawal limit |
 | `/data/aggregated` (today) | every 5th poll | Sense Guard | Today's consumption for `totalWaterConsumption` |
 | `/data/aggregated` (historical) | once per day | Sense Guard | Historical base for `totalWaterConsumption` |
 | `/pressuremeasurement` | every 10th poll | Sense Guard | Only changes after a pipe check |

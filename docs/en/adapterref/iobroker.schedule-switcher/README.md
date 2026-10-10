@@ -925,8 +925,7 @@ app-on-off-schedules-widget {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.2.2 (2026-10-08)
 
 - (Lucky-ESA) Condition crash fixed
 - (Lucky-ESA) Selection condition (greater than/less than) added
@@ -954,11 +953,6 @@ app-on-off-schedules-widget {
 ### 0.0.12 (2025-08-27)
 
 - (Lucky-ESA) Astro time in widget fixed
-
-### 0.0.11 (2025-08-16)
-
-- (Lucky-ESA) Admin 7.6.17 required
-- (Lucky-ESA) Node 20 required
 
 ## License
 

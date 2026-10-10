@@ -46,10 +46,17 @@ Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome*
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.7.1 (2026-10-09)
 * (patricknitsch) Add Node.js 26 in test-and-release.yml
 * (patricknitsch) Update Dependencies
+* (patricknitsch) Sense Guard: config updates (sprinkler, withdrawal limit) send only the changed keys via PUT – no more extra `/details` request before writing
+* (patricknitsch) Sense Guard: sprinkler and withdrawal limit states are updated from the API response after saving
+* (patricknitsch) Sense Guard: config is synced from the dashboard data on every poll instead of every 10th poll
+* (patricknitsch) Sense Guard: new state `controls.sprinkler.pending` shows unsaved sprinkler changes; unsaved changes are no longer overwritten by polling
+* (patricknitsch) Device Manager: show sprinkler save status (saved / unsaved changes)
+* (patricknitsch) Sense Guard: withdrawal limit is sent 3 s after the last change instead of on every keystroke
+* (patricknitsch) Sense Guard: fix withdrawal limit and sprinkler values being reset by outdated config from the API right after writing
+* (patricknitsch) Fix total water consumption using the UTC date instead of the local date (wrong day shortly after midnight)
 
 ### 0.7.0 (2026-08-05)
 * (patricknitsch) Isolate per-appliance errors during polling so one broken device doesn't abort the whole poll cycle
@@ -69,11 +76,6 @@ Ideas and Concept came from the Home-Assistant Integration **ha-grohe_smarthome*
 ### 0.5.3 (2026-05-21)
 * (copilot) Modify notification manager to work with instances
 * (copilot) Update Dependencies
-
-### 0.5.2 (2026-05-14)
-* (patricknitsch) Fix Header when Device offline
-* (patricknitsch) Add Icon and Online State on each Device
-* (patricknitsch) Update Readme and Doc
 
 **Older entries can be found in CHANGELOG_OLD.md.**
 

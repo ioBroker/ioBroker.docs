@@ -103,6 +103,15 @@ If you want to support this adapter or say thank you, you can:
 [<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.9.1 (2026-10-08)
+
+- Node.js 26 (the new LTS) is now the reference platform in CI: it is tested on Linux, Windows and macOS, while Node.js 22 and 24 keep being tested on Linux.
+- Updated dependencies, including `@iobroker/testing` 6.3.0.
+
 ### 1.9.0 (2026-08-23)
 
 - **DMX512 lighting support (opt-in).** Enable "DMX512 channels" in the adapter settings to expose the controller's 16 DMX channels as writable 0–255 dimmer states (`dmx.CH01` … `dmx.CH16`).
@@ -136,15 +145,8 @@ If you want to support this adapter or say thank you, you can:
 - Minor code cleanup.
 - Dependency updates.
 
-### 1.6.0 (2024-09-08)
-
-- Fix versioning according to prior changes in requirements (should have happened with v1.5.5).
-    - Raise minimum required js-controller version to 5.0.19.
-    - Raise minimum required node version to 20.
-- Dependency updates.
-
 ## License
 
-The MIT License (MIT)
+The MIT License (MIT) — see [LICENSE](https://github.com/ylabonte/ioBroker.procon-ip/blob/master/LICENSE) for the full license text.
 
 Copyright (c) 2019-2026 Yannic Labonte <yannic.labonte@gmail.com>

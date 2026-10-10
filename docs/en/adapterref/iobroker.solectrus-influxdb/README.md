@@ -71,6 +71,7 @@ It is designed for energy monitoring systems such as photovoltaic installations,
 
 ### **WORK IN PROGRESS**
 * (patricknitsch) Add new SOLECTRUS car sensors for multiple vehicles (`CAR_BATTERY_SOC`, `CAR_MILEAGE`, `CAR_RANGE`, `CAR_CONNECTED`, `CAR_LATITUDE`, `CAR_LONGITUDE`, suffix `_1`–`_5`) (#209)
+* (patricknitsch) New default sensors are added disabled to existing instances on start; deleted ones do not come back
 * (patricknitsch) Fix DS warning "Tick time budget exceeded": the budget now covers only the evaluation, not the snapshot reads
 * (patricknitsch) Add Node.js 26 in test-and-release.yml
 * (patricknitsch) Update Dependencies

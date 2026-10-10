@@ -307,6 +307,9 @@ translated yet" where a copy of the English would claim otherwise. Contributions
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.0 (2026-10-09)
+* (@GermanBluefox) Corrections devices widget
+
 ### 0.0.2 (2026-10-03)
 
 * (@GermanBluefox) Corrections for publication

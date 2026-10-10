@@ -284,8 +284,8 @@ The adapter uses the **Faiman model** to estimate the module temperature. This m
 After a new adapter update, it is recommended to delete the entire directory tree and let it be recreated.
 
 ## Changelog
-### **WORK IN PROGRESS**
-* (H5N1v2) Adding key `showers` in 15 min forceast.
+### 3.3.1 (2026-10-10)
+* (H5N1v2) Added `showers` datapoint to 15-minute forecast.
 * (H5N1v2) Update dependencies.
 
 ### 3.3.0 (2026-09-20)
@@ -314,9 +314,6 @@ After a new adapter update, it is recommended to delete the entire directory tre
 * (H5N1v2) add open-meteo status link in adapter description and README.
 * (H5N1v2) fix: made OpenStreetMap link clickable in the admin area.
 * (H5N1v2) Update dependencie.
-
-### 3.1.3 (2026-06-20)
-* (H5N1v2) Fixed an issue with object creation caused by an accidental change.
 
 ## Legal & Copyright
 

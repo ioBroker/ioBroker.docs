@@ -95,6 +95,21 @@ Open **ShoppingRoute** in the ioBroker sidebar on your phone. Use the `⋮⋮` h
 - optional cross-market consolidation using a minimum-item threshold
 - explicit market requests are never moved to another store
 
+#### Smart store consolidation – fewer stops, shorter shopping trips
+
+ShoppingRoute does more than sort products by store and in-store walking route: it can also **avoid unnecessary extra store visits**. When a store falls below the configured minimum item count, optional cross-store consolidation checks whether its flexible products are available at a store already on the shopping route. Only **alternative available stores explicitly configured in the product catalogue** are considered.
+
+**Example:**
+
+| Store | Items before consolidation |
+| --- | --- |
+| ALDI | Milk, butter, bread, eggs, cheese |
+| REWE | Sugar |
+
+If **ALDI is configured as an available alternative store for sugar**, and the configured minimum-item rule applies, ShoppingRoute can move sugar to ALDI: **6 items at ALDI, no extra REWE stop needed.**
+
+This optimization is optional and depends on the minimum-item setting and permitted alternative stores. **Explicit store requests**, such as `milk from LIDL` or `eggs at ALDI`, always take precedence and are never moved automatically.
+
 ### Smart product handling
 
 - product catalogue with aliases

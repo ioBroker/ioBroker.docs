@@ -628,10 +628,10 @@ Old folder names can be viewed in the imap.0.xxx.remote.change_folder object
 ```
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 0.4.1 (2026-10-08)
 
 - (Lucky-ESA) Admin 7.6.20 required
+- (Lucky-ESA) Fixed password encryption error with JS Controller (>=v.7.2.4) and admin (<v.8.1.1)
 
 ### 0.4.0 (2026-05-30)
 
@@ -659,12 +659,6 @@ Old folder names can be viewed in the imap.0.xxx.remote.change_folder object
 - (Lucky-ESA) Update dependencies
 - (Lucky-ESA) Changed Log info to debug
 - (Lucky-ESA) Fixed blockly setFlag crash
-
-### 0.2.0 (2024-06-15)
-
-- (Lucky-ESA) Updated Blockly definitions
-- (Lucky-ESA) JS-Controller >= 5.0.19 required
-- (Lucky-ESA) Admin >=6.13.16 required
 
 ## License
 
