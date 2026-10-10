@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.com/blog</link>
-        <lastBuildDate>Tue, 06 Oct 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 08 Oct 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[ioBroker Monatsrückblick September 2026]]></title>
+            <description><![CDATA[
+                <p>Im September ist das `latest`-Repository von 798 auf **812 Adapter** gewachsen, im `stable`\nstehen jetzt 667. **20 Adapter stellen wir euch in dieser Ausgabe vor**, dazu kommen 17 alte\nBekannte, die den Sprung nach `stable` geschafft haben.</p>
+            ]]></description>
+            <link>https://www.iobroker.com/blog/2026_10_08</link>
+            <guid isPermaLink="true">https://www.iobroker.com/blog/2026_10_08</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Thu, 08 Oct 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Die neue iobroker.com und was sie kann]]></title>
             <description><![CDATA[

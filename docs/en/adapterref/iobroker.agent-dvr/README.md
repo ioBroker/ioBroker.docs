@@ -413,6 +413,22 @@ Returns `{"ok":true}` on success.
 
 ## Changelog
 <!-- markdownlint-disable-next-line MD024 -->
+### 0.5.5 (2026-10-08)
+* (ipod86) fix: live preview video no longer gets stretched/distorted — AgentDVR's live stream squishes the full picture into a fixed container format regardless of the camera's actual aspect ratio; now corrected (`object-fit:fill`) instead of shown distorted
+* (ipod86) feat: configurable live-tile refresh interval (`widgetLiveRefreshSec`) — trade thumbnail freshness against keeping an open video modal open, since rewriting the widget's HTML state resets it
+* (ipod86) feat: optional full-JS live-tile refresh mode (`widgetLiveMode`) — refreshes only the snapshot image via a small embedded script, so an open video modal never closes regardless of refresh frequency (requires script execution, same tradeoff as the existing gallery JS mode)
+* (ipod86) feat: live widgets now share the gallery's theme colors, thumbnail size and compact setting, which previously only applied to the recordings widget
+* (ipod86) refactor: reorganized the Widget settings panel into clearly scoped General / Recordings Widget / Live Widget / Theme sections with a proper two-level heading hierarchy, instead of one long section whose subsections looked like independent categories
+
+<!-- markdownlint-disable-next-line MD024 -->
+
+### 0.5.4 (2026-10-08)
+* (ipod86) fix: single-camera live widget snapshot never refreshed (missing cache-busting timestamp + signature-based dedup skipped rewriting the state)
+* (ipod86) fix: live video element now receives the correct aspect ratio instead of the browser's default placeholder box before playback starts
+* (ipod86) fix: live/recording video no longer gets stretched to fill a mismatched aspect-ratio box — degrades to letterboxing (`object-fit:contain`) instead
+
+<!-- markdownlint-disable-next-line MD024 -->
+
 ### 0.5.3 (2026-10-04)
 * (ipod86) fix: clear ensuredFolders cache on object deletion to prevent stale "no existing object" warnings for rediscovered drives/cameras
 
@@ -422,39 +438,6 @@ Returns `{"ok":true}` on success.
 ### 0.5.1 (2026-08-05)
 * (ipod86) feat: per-instance URL routing — each adapter instance uses its own URL namespace (`agent-dvr.0/`, `agent-dvr.1/`, …)
 * (ipod86) feat: rename per-camera recording widget DP from `widget` to `widget_recordings`; add new `widget_live` DP with a single-camera live tile
-
-### 0.5.0 (2026-08-03)
-* (ipod86) feat: replace live-view camera chip-bar with compact header filter button — funnel icon opens a popover with per-camera checkboxes and drag-to-reorder; order persisted in localStorage
-* (ipod86) feat: new-recordings badge on the Recordings tab — shows count of recordings since last visit; persisted per browser/device in localStorage
-* (ipod86) feat: recording display settings panel — ⚙ gear button in the select/delete bar; grid column width slider, max-recordings override, badge toggle (all persisted in localStorage)
-* (ipod86) feat: first-visit onboarding modals for live view (camera filter & sort) and recordings tab (gestures, gear panel, badge)
-* (ipod86) feat: webhook endpoint `/agent-dvr.0/webhook` triggers immediate full poll — configure as AgentDVR action for real-time updates
-* (ipod86) feat: PTZ presets — navigate to saved presets from PTZ overlay; single selector DP `<cam>.control.ptz.preset` per camera (requires AgentDVR v7.7.8.0+)
-* (ipod86) feat: add event log view to recordings panel (clock icon toggle) alongside grid and timeline
-* (ipod86) feat: delete recording from video modal (trash icon, two-click confirm, requires AgentDVR v7.7.8.0+)
-* (ipod86) feat: bulk-delete recordings — long-press a tile to enter select mode, checkbox each recording, delete all at once
-* (ipod86) feat: new `dashMaxRec` config setting — limits total recordings shown across all cameras in the dashboard (independent of widget limit, default 200)
-* (ipod86) feat: tag filter splits AgentDVR's comma-separated tags into individual chips for per-tag filtering
-* (ipod86) feat: read camera color from AgentDVR and use it for timeline bars and recording dots
-* (ipod86) feat: status bar shows CPU usage, RAM % and free, disk usage % and free alongside camera/recording counts
-* (ipod86) feat: reset colors to defaults button in Live Dashboard settings tab
-* (ipod86) refactor: remove per-camera pushTrigger data points in favour of the global webhook
-* (ipod86) fix: new-recordings badge now correctly visible (display:none CSS fallback fixed)
-* (ipod86) fix: record button moved to rightmost position in grid tiles and fullscreen panel
-* (ipod86) fix: camera filter button no longer changes appearance when cameras are hidden
-* (ipod86) fix: header z-index lifted so the camera filter popover renders above the main content area
-* (ipod86) fix: drive object pruning regex corrected; stale drive entries are now properly removed
-* (ipod86) fix: deleted recordings no longer reappear after the next adapter poll
-* (ipod86) fix: extend video format error message with AgentDVR auto-convert hint in all 11 languages
-* (ipod86) fix: FLV stream and grid tile layout scaling corrections
-* (ipod86) fix: Italian i18n string with apostrophe broke page JS (changed to escaped variant)
-* (ipod86) fix: detect AgentDVR "Command not found" response on delete and show proper error message
-
-### 0.4.3 (2026-07-19)
-* (ipod86) fix: switch polling loop from setInterval to setTimeout to prevent concurrent poll runs
-* (ipod86) fix: httpTimeoutMs=0 now correctly clamps to 1000ms instead of falling back to default
-* (ipod86) fix: go2rtcEnabled config flag is now honored in fetchGo2rtcStreams
-* (ipod86) fix: remove unused isSupportedLang export from widget-i18n
 
 ## License
 MIT License

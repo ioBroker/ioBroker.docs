@@ -53,6 +53,11 @@ Do **not** contact AL-KO customer service regarding this project.
 
 ## Changelog
 
+### 0.3.12 (2026-10-08)
+- Updated test and development dependencies
+- Updated the ioBroker test environment to current requirements
+- Updated the minimum Node.js 22 test version to 22.19.0
+
 ### 0.3.11 (2026-05-07)
 - Fixed CI issues and stabilized workflow
 - Updated release tooling

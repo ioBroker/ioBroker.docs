@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
         <link>https://www.iobroker.com/blog</link>
-        <lastBuildDate>Tue, 06 Oct 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 08 Oct 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Ежемесячный обзор ioBroker за сентябрь 2026 года]]></title>
+            <description><![CDATA[
+                <p>В сентябре это будет `latest` — **Количество адаптеров в репозитории увеличилось с 798 до 812** . `stable` Сейчас их 667. **В этом выпуске мы представляем 20 адаптеров** , а также 17 уже известных, которые совершили переход на новую технологию. `stable` им удалось добиться успеха.</p>
+            ]]></description>
+            <link>https://www.iobroker.com/blog/2026_10_08</link>
+            <guid isPermaLink="true">https://www.iobroker.com/blog/2026_10_08</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Thu, 08 Oct 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Новый iobroker.com и его возможности]]></title>
             <description><![CDATA[

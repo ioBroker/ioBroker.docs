@@ -122,6 +122,21 @@ So the path of any release is: `-nextN` test build → **Latest** (published, on
 
 _Older releases: see CHANGELOG_OLD.md._
 
+### 0.81.0 (2026-10-10)
+- 🌟 **New feature:** History table - per-column options like the JSON table (hide, order, width, alignment, wrap, background and text colour, prefix/suffix, value as date/time), sort rules and sorting by clicking a column title ([#760](https://github.com/hdering/ioBroker.aura/issues/760))
+- Shutter - "Re-set after drive" now restores the slat angle only once, after a drive started from the widget; drives from a wall switch or logic no longer bring the old angle back ([#745](https://github.com/hdering/ioBroker.aura/issues/745))
+- 🌟 **New feature:** History table - optional time grid: one row per interval (1 min to 1 day, e.g. every 30 minutes), showing the value at that moment or the average, minimum, maximum or sum of the interval ([#760](https://github.com/hdering/ioBroker.aura/issues/760))
+- 🌟 **New feature:** Advanced chart - optional period value per series: consumption/yield, difference, minimum, maximum or average over the range shown, in the legend or in a row above the chart; follows the range buttons and day navigation ([#749](https://github.com/hdering/ioBroker.aura/issues/749))
+
+### 0.80.4 (2026-10-09)
+- 🌟 **New feature:** Conditions - new effect "Disable widget": while the condition matches, the widget is greyed out and cannot be operated; its look is adjustable under Theme & CSS
+
+### 0.80.3 (2026-10-08)
+- Popups - `popup.open` datapoints accept `width` and `height` (px) in the JSON payload to set the popup size ([#762](https://github.com/hdering/ioBroker.aura/issues/762))
+
+### 0.80.2 (2026-10-08)
+- Status overview - the two-line layout uses the standard text sizes, in line with the other widgets
+
 ### 0.80.1 (2026-10-08)
 - Status overview - new layout "Recently changed" (history): lists every closed hint the adapter recorded in aura.0.status.<category>.history (survives restarts) with relative date, "by button" or "detected automatically", how long the battery was weak and how long the previous one lasted; "Reopen" takes back a change confirmed by mistake (reopen:<id>@<time> on .cmd); import:<JSON> on .cmd and a one-time takeover of 0_userdata.0.Batterien.Verlauf bring in an older record; retention is set in the instance settings (default 50 changes / 2 years)
 
@@ -203,24 +218,6 @@ Release v0.77.4
 
 ### 0.72.3 (2026-09-29)
 - 🌟 **New feature:** Section menu - elements in the sidebar / overlay menu can be aligned left, centered or right
-
-### 0.72.2 (2026-09-29)
-- Room climate - humidity can be drawn in the history chart (own right axis, selectable colour), and the temperature series can be switched off ([#724](https://github.com/hdering/ioBroker.aura/issues/724))
-- Room climate - settings regrouped per value (show switch, datapoint, icon and unit side by side) with one history section; the chart legend is now switchable ([#724](https://github.com/hdering/ioBroker.aura/issues/724))
-
-### 0.72.1 (2026-09-29)
-- Section title widget: the minimal style now shows the title as typed instead of forcing capitals; a new "Title in capitals" switch works in every style ([#723](https://github.com/hdering/ioBroker.aura/issues/723))
-
-### 0.72.0 (2026-09-29)
-- 🌟 **New feature:** "Fit height to content" is now one option in the Appearance block and also available for lists, dynamic lists, the JSON table, messages and adapter logs; resizing such a widget in the editor shows a hint why its height is fixed
-
-### 0.71.1 (2026-09-28)
-- Icon picker - picking a PNG/GIF adapter icon now asks right away whether it keeps its colours or is drawn in the icon colour, and the current icon's colour setting can be switched later at the bottom of the picker ([#716](https://github.com/hdering/ioBroker.aura/issues/716))
-- 🌟 **New feature:** Universal widget / custom layout - the colour fields of a "State icon" and "Switch" cell now show the colour the cell really draws when none is set, instead of a green that was never applied ([#716](https://github.com/hdering/ioBroker.aura/issues/716))
-- 🌟 **New feature:** Header items - a centred title now stays in the middle of the card when values or buttons sit on the right, and items on "Row 1 centre" sit beside the title instead of covering it - left, right or below, chosen per item; the header editor shows the row that way. Lists keep their header line and divider when only header items are shown, with title and icon off. New "Row 1 left" place. Title and icon are now tiles in the header editor: tap or drag them to move the title (left, centre, right) and the icon (far left, before or after the title, far right), and the title can move to the second row; Appearance only switches them on and off ([#676](https://github.com/hdering/ioBroker.aura/issues/676))
-- Widget editor - Appearance groups icon, title, icon picker/size and the header in one compact block, and gets a reset button like Advanced ([#676](https://github.com/hdering/ioBroker.aura/issues/676))
-- Fill level - the "Bar" layout can show the value inside the bar, which then uses the width the label gave up; orientation and bar size are now settable for this layout too ([#719](https://github.com/hdering/ioBroker.aura/issues/719))
-- Fill level / Universal widget - the bar's fill colour, unfilled area and the value's text colour over each part can be set separately, the same settings in the fill level bar and the progress cell; the progress cell can also show its value beside the bar ([#720](https://github.com/hdering/ioBroker.aura/issues/720))
 
 ## License
 
