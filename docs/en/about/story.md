@@ -68,8 +68,24 @@ From 2014 to 2024, ioBroker celebrated its tenth anniversary. This milestone was
 
 ioBroker is the work of many hands: on the core, the adapters, the documentation, the forum, and the translations. Within the community, people know each other by their initials:
 
-[@bluefox](https://github.com/GermanBluefox) , [@Apollon77](https://github.com/Apollon77) , [@foxriver76](https://github.com/foxriver76) , [@AlCalzone](https://github.com/AlCalzone) , [@arteck](https://github.com/arteck) , [@Garfonso](https://github.com/Garfonso) , [@simatec](https://github.com/simatec) , [@Firestorm](https://github.com/Feuersturm) , [@](https://github.com/Eistee82) Istee82 , [@Dutchman](https://github.com/DutchmanNL) , [@eric2905](https://github.com/Eric2905) , [@UncleSam](https://github.com/UncleSamSwiss) , [@Jey-Cee](https://github.com/Jey-Cee) , [@mcm1957](https://github.com/mcm1957) , [@ldittmar81](https://github.com/ldittmar81) , [@oelison](https://github.com/oelison) , [@klein0r](https://github.com/klein0r) , [@Homoran](https://github.com/Homoran)
-
+[`@bluefox`](https://github.com/GermanBluefox),
+[`@Apollon77`](https://github.com/Apollon77),
+[`@foxriver76`](https://github.com/foxriver76),
+[`@AlCalzone`](https://github.com/AlCalzone),
+[`@arteck`](https://github.com/arteck),
+[`@Garfonso`](https://github.com/Garfonso),
+[`@simatec`](https://github.com/simatec),
+[`@Feuersturm`](https://github.com/Feuer-sturm),
+[`@Eistee82`](https://github.com/Eistee82),
+[`@Dutchman`](https://github.com/DutchmanNL),
+[`@eric2905`](https://github.com/Eric2905),
+[`@UncleSam`](https://github.com/UncleSamSwiss),
+[`@Jey-Cee`](https://github.com/Jey-Cee),
+[`@mcm1957`](https://github.com/mcm1957),
+[`@ldittmar81`](https://github.com/ldittmar81),
+[`@oelison`](https://github.com/oelison),
+[`@klein0r`](https://github.com/klein0r),
+[`@Homoran`](https://github.com/Homoran)
 and many, many other enthusiasts.
 
 ## The story continues

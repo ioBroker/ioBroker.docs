@@ -108,24 +108,24 @@ ioBroker ist die Arbeit vieler Hände: am Kern, an den Adaptern, an der
 Dokumentation, im Forum und in den Übersetzungen. In der Community kennt man
 einander an den Kürzeln:
 
-[@bluefox](https://github.com/GermanBluefox),
-[@Apollon77](https://github.com/Apollon77),
-[@foxriver76](https://github.com/foxriver76),
-[@AlCalzone](https://github.com/AlCalzone),
-[@arteck](https://github.com/arteck),
-[@Garfonso](https://github.com/Garfonso),
-[@simatec](https://github.com/simatec),
-[@Feuersturm](https://github.com/Feuersturm),
-[@Eistee82](https://github.com/Eistee82),
-[@Dutchman](https://github.com/DutchmanNL),
-[@eric2905](https://github.com/Eric2905),
-[@UncleSam](https://github.com/UncleSamSwiss),
-[@Jey-Cee](https://github.com/Jey-Cee),
-[@mcm1957](https://github.com/mcm1957),
-[@ldittmar81](https://github.com/ldittmar81),
-[@oelison](https://github.com/oelison),
-[@klein0r](https://github.com/klein0r),
-[@Homoran](https://github.com/Homoran)
+[`@bluefox`](https://github.com/GermanBluefox),
+[`@Apollon77`](https://github.com/Apollon77),
+[`@foxriver76`](https://github.com/foxriver76),
+[`@AlCalzone`](https://github.com/AlCalzone),
+[`@arteck`](https://github.com/arteck),
+[`@Garfonso`](https://github.com/Garfonso),
+[`@simatec`](https://github.com/simatec),
+[`@Feuersturm`](https://github.com/Feuer-sturm),
+[`@Eistee82`](https://github.com/Eistee82),
+[`@Dutchman`](https://github.com/DutchmanNL),
+[`@eric2905`](https://github.com/Eric2905),
+[`@UncleSam`](https://github.com/UncleSamSwiss),
+[`@Jey-Cee`](https://github.com/Jey-Cee),
+[`@mcm1957`](https://github.com/mcm1957),
+[`@ldittmar81`](https://github.com/ldittmar81),
+[`@oelison`](https://github.com/oelison),
+[`@klein0r`](https://github.com/klein0r),
+[`@Homoran`](https://github.com/Homoran)
 
 und viele, viele andere Enthusiasten.
 
