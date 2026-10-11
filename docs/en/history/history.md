@@ -1674,6 +1674,27 @@ https://github.com/DrozmotiX/ioBroker.esphome
 Control your ESP8266/ESP32 with simple yet powerful configuration files created and managed by ESPHome. Native integration of ESPHome managed device (Including Dashboard) by its native API and ensures all data is synchronized (live-event handling, no data polling.
 
 
+## cloud (10.10.2026) – new feature
+https://github.com/ioBroker/ioBroker.cloud
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.cloud/master/admin/cloud.png" width="100" height="100" />
+
+The ioBroker Cloud adapter allows remote access to a local ioBroker installation from the internet via the ioBroker cloud. Versions 6.0.1 to 6.2.7 brought credentials manager support, visu app improvements and better connection handling:
+
+**Credentials Manager**
+- Cloud credentials can now be stored and managed via the ioBroker credentials manager, so they no longer need to be entered directly in the adapter settings.
+
+**Visualisation App Integration**
+- When a visu app writes a state through the cloud, the adapter now correctly respects the target state's type — values are no longer written with the wrong type.
+- POST bodies arriving as a binary buffer are decoded properly, so telemetry data sent by visu apps is no longer silently lost on its way through the cloud.
+- A new `onScreen` state was added, reflecting which screen the visu app is currently showing.
+- Buttons were added to the adapter configuration to check whether the connected applications are running and reachable.
+
+**Connection Reliability**
+- State subscriptions are now cleared when the cloud disconnects, preventing stale subscriptions from accumulating across reconnects.
+- Commands arriving without a device name or with an empty value body are now logged with a warning instead of being silently dropped, making troubleshooting easier.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
