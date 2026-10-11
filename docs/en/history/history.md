@@ -1674,6 +1674,20 @@ https://github.com/DrozmotiX/ioBroker.esphome
 Control your ESP8266/ESP32 with simple yet powerful configuration files created and managed by ESPHome. Native integration of ESPHome managed device (Including Dashboard) by its native API and ensures all data is synchronized (live-event handling, no data polling.
 
 
+## iot (20.9.2026) – new feature
+https://github.com/ioBroker/ioBroker.iot
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.iot/master/admin/iot.png" width="100" height="100" />
+
+The ioBroker IoT adapter connects your ioBroker installation to Amazon Alexa, Google Home and Nightscout via the ioBroker cloud. Versions 6.0.3 to 7.1.2 brought credentials manager support, cloud connection stability improvements and enhanced remote access:
+
+**Credentials Manager**
+- The adapter now supports the ioBroker credentials manager, allowing cloud credentials to be stored and managed centrally rather than entered per-adapter.
+
+**Remote Access and Cloud Connection**
+- Remote access via the cloud was improved across several releases: MCP requests from the cloud are now handled directly over MQTT, making the communication channel more reliable.
+- The cloud connection is now closed gracefully on adapter restart — the cloud no longer reports a duplicate connection when the adapter comes back online.
+- Only one reconnection attempt can be pending at a time, preventing two overlapping connections from being established simultaneously.
 ## skoda-public-api (11.10.2026) – new adapter at stable repository
 https://github.com/tmarthy/ioBroker.skoda-public-api
 
