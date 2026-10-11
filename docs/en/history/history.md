@@ -17,6 +17,46 @@
     <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
 ```
 
+## shelly (2026-09-20) - stable release
+https://github.com/iobroker-community-adapters/ioBroker.shelly
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/admin/shelly.png" width="100" height="100" />
+
+Version 12.0.0 is a major release of the Shelly adapter, with the following highlights compared to version 11.0.0:
+
+**Breaking changes:**
+- Requires node.js >= 22, js-controller >= 7.7.2 and admin >= 8.0.11.
+- Codebase has been fully migrated to TypeScript.
+
+**New device support:**
+- Shelly Duo Bulb E27 Gen 3 (shellyduobulbg3)
+- Shelly Multicolor Bulb E27 Gen 3 (shellycolorblbg3)
+- Shelly 1L Gen4 (shelly1lg4) and Shelly 2L Gen4 (shelly2lg4)
+- Shelly Flood S Gen 4 (shellyfloodsg4)
+- Monophase mode for Shelly 3EM G3 (shelly3em63g3)
+- FrankEver Smart Sprinkler Controller (experimental)
+- Neo Smart Water Valve NAS-WV02W (neowatervalve)
+- Top AC Portable EV Charger (experimental)
+
+**New features:**
+- New "Bluetooth Map" tab in the adapter configuration, showing which BLE devices are received by which Shelly gateway and signal strengths.
+- BLE gateway script can now be installed and updated directly from the Device Manager (per device or for all devices).
+- Device tiles now show last-seen time and immediately mark offline devices as disconnected.
+- Power, voltage, current, energy and frequency are automatically shown in the Device Manager for any device that reports them.
+- Transition time can now be written for Shelly Dimmer1/Dimmer2 and all Gen2+ dimmers/lights.
+- Added option to ignore timezone mismatch warnings.
+- Updated BLE script to v1.4 for Shelly firmware > 2.0.
+- Missing translations for all datapoint names added for all supported languages.
+
+**Fixes:**
+- Fixed inverted Relay0.Switch state on several Gen3 devices caused by a device firmware bug.
+- Fixed date states to report timestamps in milliseconds for compatibility with JavaScript Date handling.
+- Fixed authentication failures with Gen2+ devices running firmware 2.x.
+- Fixed MQTT commands being lost with "mqtt prefix was not set" during device (re)connect.
+- Fixed unnecessary rewriting of object definitions on every device update, reducing log spam.
+- Fixed MQTT errors when a battery-powered device closes the connection during initialisation.
+- Corrected roles for Gen2+ input states.
+
 ## ecoflow-mqtt (2024-10-14) - new adapter
 https://github.com/foxthefox/ioBroker.ecoflow-mqtt
 
