@@ -1674,6 +1674,13 @@ https://github.com/DrozmotiX/ioBroker.esphome
 Control your ESP8266/ESP32 with simple yet powerful configuration files created and managed by ESPHome. Native integration of ESPHome managed device (Including Dashboard) by its native API and ensures all data is synchronized (live-event handling, no data polling.
 
 
+## skoda-public-api (11.10.2026) – new adapter at beta (latest) repository
+https://github.com/tmarthy/ioBroker.skoda-public-api
+
+<img src="https://raw.githubusercontent.com/tmarthy/ioBroker.skoda-public-api/main/admin/skoda-public-api.png" width="100" height="100" />
+
+Reads data from and sends commands to Škoda vehicles through the official MyŠkoda Public API.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
