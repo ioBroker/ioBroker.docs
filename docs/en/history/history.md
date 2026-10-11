@@ -1680,6 +1680,120 @@ https://github.com/tmarthy/ioBroker.skoda-public-api
 <img src="https://raw.githubusercontent.com/tmarthy/ioBroker.skoda-public-api/main/admin/skoda-public-api.png" width="100" height="100" />
 
 Reads data from and sends commands to Škoda vehicles through the official MyŠkoda Public API.
+## device-monitoring (11.10.2026) – new adapter at beta (latest) repository
+https://github.com/BenAhrdt/ioBroker.device-monitoring
+
+<img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.device-monitoring/main/admin/device-monitoring.png" width="100" height="100" />
+
+Watches your defined device states and generates warnings and alerts when they stop updating within a configured timeout.
+## snmp (30.9.2026) – new feature
+https://github.com/iobroker-community-adapters/ioBroker.snmp
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.snmp/master/admin/snmp.png" width="100" height="100" />
+
+The SNMP adapter reads and writes data from network devices via SNMP. Version 4.0.0 is a major update that adds SNMP trap reception, an integrated MIB browser, a setup wizard and OID templates — making the adapter usable without prior SNMP expertise:
+
+**SNMP Traps**
+- The adapter now listens for incoming SNMP traps (v1, v2c and v3). Each received trap is written to states under the sending device — OID, symbolic name, a JSON representation and a counter. The counter is the state to subscribe to for instant notifications.
+- Trap senders are matched to configured devices by their IP address, and v1 traps are normalised to their v2c equivalent so v1 and v2c traps can be handled uniformly.
+
+**MIB Browser**
+- A new "MIB" tab lets you upload vendor MIB files. The browser reads the device live, level by level, and resolves OIDs to their symbolic names using the uploaded files.
+- Individual values or entire subtrees can be added to an OID group directly from the browser — the plus button on a folder adds every value below it in one walk.
+- A device can be read live in the browser before it has ever been saved to the configuration.
+
+**Setup Wizard and OID Templates**
+- A setup wizard on the Devices tab guides through adding a new device: specify the address, upload its MIB files, pick the values to read — including a live preview — and save.
+- OID groups can be saved as reusable templates (JSON files) and imported into any other group. Ready-made templates are included for common equipment: system group, switch port, computer, printer and UPS.
+
+**Other improvements**
+- New "Traps" tab in the configuration alongside the reworked "Devices" (now shown first) and "OID sets" tabs. An incomplete device (no OIDs configured yet) is skipped with a warning instead of disabling the whole instance, so the MIB browser can be used while the adapter is running.
+- New option "use MIB names": OIDs can be entered as symbolic names such as `IF-MIB::ifDescr.1` and state object IDs are derived from the MIB symbol accordingly.
+- New option "trace all SNMP requests and answers": every request and response is logged as JSON, tagged `[trace]` — useful for support cases.
+- New value format "hex dump" for binary OctetString/Opaque/Counter64 data, matching the display format of common MIB browsers; writeable OIDs accept the same notation back.
+- States now use correct ioBroker roles: numbers are `value`/`level`, booleans `indicator`/`switch`, text `text`. The non-existent role `type.encoding` is no longer used.
+- A device configured with SNMP v3 but a missing or unresolvable authorisation ID is now skipped with a clear warning instead of sending a request without a user name.
+- Fixed: rows added by the wizard, the MIB browser or a template import were invisible in the OID table until the dialog was reopened.
+- Fixed: SNMP v1 devices reported every subtree walk as an error (NoSuchName at the end of a subtree) — the adapter now handles this correctly.
+- Fixed: the live MIB browser skipped every second row of a table.
+## lovelace (11.10.2026) – new feature
+https://github.com/ioBroker/ioBroker.lovelace
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.lovelace/master/admin/lovelace.png" width="100" height="100" />
+
+The adapter shows your ioBroker devices in the Home Assistant Lovelace UI. Versions 6.0 to 7.2 brought a new frontend and most of the features that were missing until now:
+
+![Dashboard](media/2026_10_11_lovelace_dashboard.png)
+
+**Dashboards and entities**
+- Full dashboard support: create, rename, re-icon, hide and sort dashboards in the UI, the main dashboard included.
+- Entities are configured from the frontend, their entity_id included, and a renamed entity keeps its name over a restart.
+- The format of the automatically generated entity ids is configurable (object name, room + function, or the ioBroker id).
+- Per-user frontend data is stored now: theme, dark mode, sidebar order and the other settings survive a reload.
+- Rooms and functions are named in the configured language instead of always English.
+
+**Energy dashboard**
+- The energy dashboard works: grid, solar, battery, gas and water sources, fed from the history, sql or influxdb adapter.
+- Costs are calculated from a fixed price or from a price entity, and a meter counting Wh is converted instead of being drawn as kWh.
+- The electricity states of a device (power, current, voltage, energy, frequency) become sensor entities, e.g. on a socket.
+
+**More device types**
+- Vacuum cleaners (with map and fan speed), fans and air purifiers, pumps, air quality monitors, contact sensors, CO alarms, pressure and flow sensors, humidifiers, water heaters and timers.
+- Presence and GPS on the map, with `device_tracker` and `person` entities.
+- A device that reports a battery level gets a battery sensor, not only the low-battery warning.
+
+**Manually mapped objects**
+- Every manual entity type is configured with object pickers now: cover, light, thermostat, lock, media player, fan, vacuum, humidifier, water heater, device_tracker and person.
+- An expert table fills any attribute of an entity from a freely picked state.
+
+**Templates and custom cards**
+- Markdown and template cards understand Home Assistant templates (`{{ states("...") }}`, `is_state`, `state_attr`, `now()`, ...) next to the ioBroker `{id}` bindings.
+- Custom cards are uploaded, replaced and deleted on the settings page, which also shows the version a card reports about itself. The cards folder is watched, so a card dropped in anywhere is picked up.
+
+**Under the hood**
+- The Home Assistant frontend was updated to 20260826 (themes need a one-time migration, see the [migration guide](https://github.com/ioBroker/ioBroker.lovelace/blob/master/docs/en/theme_migration.md)), the map draws vector tiles served by the adapter, and browser_mod is at 3.2.3 with its settings finally stored.
+- The instance settings were rebuilt with jsonConfig: a YAML editor for the themes, a searchable entity list and the card upload (needs admin 7.9.11 or newer).
+- The frontend is served precompressed, which cuts the traffic of a remote connection (e.g. ioBroker.pro) to roughly a quarter, and a secure web server speaks HTTP/2.
+- A path traversal in the static file routes was fixed, so updating is recommended.
+
+Documentation: https://github.com/ioBroker/ioBroker.lovelace/blob/master/docs/en/README.md
+## onlycat (22.9.2026) – new feature
+https://github.com/Sickboy78/ioBroker.onlycat
+
+<img src="https://raw.githubusercontent.com/Sickboy78/ioBroker.onlycat/main/admin/onlycat.png" width="100" height="100" />
+
+The OnlyCat adapter provides events from the OnlyCat cat flap — entries, exits and prey detection — and lets you set the active transit policy. Version 0.6.1 added an image to each event, so the photo taken by the flap is now available as a state alongside the event data.
+
+
+## shelly (20.9.2026) – new feature
+https://github.com/iobroker-community-adapters/ioBroker.shelly
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/admin/shelly.png" width="100" height="100" />
+
+The Shelly adapter connects Shelly devices to ioBroker via MQTT or CoIoT. Versions 11.0.0 to 12.0.0 brought a redesigned Device Manager, a new Bluetooth overview and a wave of new supported hardware:
+
+**Device Manager**
+- Each device tile now shows when the device was last seen and switches to a "disconnected" state immediately when the device goes offline — no page reload needed.
+- Power, voltage, current, energy and frequency values appear automatically in the tile and device details for every device that reports them.
+- The BLE gateway script can be installed or updated directly from the Device Manager, either for a single device or for all devices that already have it. The currently installed script version is displayed in the device details.
+
+**Bluetooth Map**
+- A new "Bluetooth Map" tab in the adapter settings shows which Bluetooth devices are picked up by which Shelly gateway, including signal strength. Gateways are arranged in a circle and each Bluetooth device is drawn at the gateway that receives it most strongly; all other connections and their RSSI values can be toggled on.
+- The Device Manager toolbar gets a "BLE Map" button that opens the map directly. The list of gateways that receive a Bluetooth device now accumulates all receivers instead of showing only the last one; a gateway is removed from the list after one hour of silence.
+
+**New devices**
+- Gen 3: Duo Bulb E27, Multicolor Bulb E27, Flood S
+- Gen 4: 1L, 2L
+- Third-party: FrankEver Smart Sprinkler Controller (experimental), Neo Smart Water Valve, Top AC Portable EV Charger (experimental)
+- Monophase mode added for Shelly 3EM G3
+
+**Other improvements and fixes**
+- The transition (fade) time can now be set for Shelly Dimmer 1/2 and all Gen2+ dimmers and lights.
+- An option was added to suppress the timezone mismatch warning when the device timezone differs from the ioBroker host.
+- Several devices (1L Gen3, 1PM Mini Gen3, Pro 2PM, Plug S Gen3) showed an inverted switch state due to a device firmware bug — this is now corrected by the adapter.
+- Authentication with Gen2+ devices on firmware 2.x could wrongly report bad credentials even when they were correct — fixed.
+- MQTT commands were silently dropped with "mqtt prefix was not set" while a device was reconnecting — fixed.
+
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
