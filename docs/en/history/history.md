@@ -1674,6 +1674,47 @@ https://github.com/DrozmotiX/ioBroker.esphome
 Control your ESP8266/ESP32 with simple yet powerful configuration files created and managed by ESPHome. Native integration of ESPHome managed device (Including Dashboard) by its native API and ensures all data is synchronized (live-event handling, no data polling.
 
 
+## lovelace (11.10.2026) – new feature
+https://github.com/ioBroker/ioBroker.lovelace
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.lovelace/master/admin/lovelace.png" width="100" height="100" />
+
+The adapter shows your ioBroker devices in the Home Assistant Lovelace UI. Versions 6.0 to 7.2 brought a new frontend and most of the features that were missing until now:
+
+![Dashboard](media/2026_10_11_lovelace_dashboard.png)
+
+**Dashboards and entities**
+- Full dashboard support: create, rename, re-icon, hide and sort dashboards in the UI, the main dashboard included.
+- Entities are configured from the frontend, their entity_id included, and a renamed entity keeps its name over a restart.
+- The format of the automatically generated entity ids is configurable (object name, room + function, or the ioBroker id).
+- Per-user frontend data is stored now: theme, dark mode, sidebar order and the other settings survive a reload.
+- Rooms and functions are named in the configured language instead of always English.
+
+**Energy dashboard**
+- The energy dashboard works: grid, solar, battery, gas and water sources, fed from the history, sql or influxdb adapter.
+- Costs are calculated from a fixed price or from a price entity, and a meter counting Wh is converted instead of being drawn as kWh.
+- The electricity states of a device (power, current, voltage, energy, frequency) become sensor entities, e.g. on a socket.
+
+**More device types**
+- Vacuum cleaners (with map and fan speed), fans and air purifiers, pumps, air quality monitors, contact sensors, CO alarms, pressure and flow sensors, humidifiers, water heaters and timers.
+- Presence and GPS on the map, with `device_tracker` and `person` entities.
+- A device that reports a battery level gets a battery sensor, not only the low-battery warning.
+
+**Manually mapped objects**
+- Every manual entity type is configured with object pickers now: cover, light, thermostat, lock, media player, fan, vacuum, humidifier, water heater, device_tracker and person.
+- An expert table fills any attribute of an entity from a freely picked state.
+
+**Templates and custom cards**
+- Markdown and template cards understand Home Assistant templates (`{{ states("...") }}`, `is_state`, `state_attr`, `now()`, ...) next to the ioBroker `{id}` bindings.
+- Custom cards are uploaded, replaced and deleted on the settings page, which also shows the version a card reports about itself. The cards folder is watched, so a card dropped in anywhere is picked up.
+
+**Under the hood**
+- The Home Assistant frontend was updated to 20260826 (themes need a one-time migration, see the [migration guide](https://github.com/ioBroker/ioBroker.lovelace/blob/master/docs/en/theme_migration.md)), the map draws vector tiles served by the adapter, and browser_mod is at 3.2.3 with its settings finally stored.
+- The instance settings were rebuilt with jsonConfig: a YAML editor for the themes, a searchable entity list and the card upload (needs admin 7.9.11 or newer).
+- The frontend is served precompressed, which cuts the traffic of a remote connection (e.g. ioBroker.pro) to roughly a quarter, and a secure web server speaks HTTP/2.
+- A path traversal in the static file routes was fixed, so updating is recommended.
+
+Documentation: https://github.com/ioBroker/ioBroker.lovelace/blob/master/docs/en/README.md
 ## onlycat (22.9.2026) – new feature
 https://github.com/Sickboy78/ioBroker.onlycat
 
