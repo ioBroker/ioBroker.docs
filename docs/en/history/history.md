@@ -1674,6 +1674,36 @@ https://github.com/DrozmotiX/ioBroker.esphome
 Control your ESP8266/ESP32 with simple yet powerful configuration files created and managed by ESPHome. Native integration of ESPHome managed device (Including Dashboard) by its native API and ensures all data is synchronized (live-event handling, no data polling.
 
 
+## snmp (30.9.2026) – new feature
+https://github.com/iobroker-community-adapters/ioBroker.snmp
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.snmp/master/admin/snmp.png" width="100" height="100" />
+
+The SNMP adapter reads and writes data from network devices via SNMP. Version 4.0.0 is a major update that adds SNMP trap reception, an integrated MIB browser, a setup wizard and OID templates — making the adapter usable without prior SNMP expertise:
+
+**SNMP Traps**
+- The adapter now listens for incoming SNMP traps (v1, v2c and v3). Each received trap is written to states under the sending device — OID, symbolic name, a JSON representation and a counter. The counter is the state to subscribe to for instant notifications.
+- Trap senders are matched to configured devices by their IP address, and v1 traps are normalised to their v2c equivalent so v1 and v2c traps can be handled uniformly.
+
+**MIB Browser**
+- A new "MIB" tab lets you upload vendor MIB files. The browser reads the device live, level by level, and resolves OIDs to their symbolic names using the uploaded files.
+- Individual values or entire subtrees can be added to an OID group directly from the browser — the plus button on a folder adds every value below it in one walk.
+- A device can be read live in the browser before it has ever been saved to the configuration.
+
+**Setup Wizard and OID Templates**
+- A setup wizard on the Devices tab guides through adding a new device: specify the address, upload its MIB files, pick the values to read — including a live preview — and save.
+- OID groups can be saved as reusable templates (JSON files) and imported into any other group. Ready-made templates are included for common equipment: system group, switch port, computer, printer and UPS.
+
+**Other improvements**
+- New "Traps" tab in the configuration alongside the reworked "Devices" (now shown first) and "OID sets" tabs. An incomplete device (no OIDs configured yet) is skipped with a warning instead of disabling the whole instance, so the MIB browser can be used while the adapter is running.
+- New option "use MIB names": OIDs can be entered as symbolic names such as `IF-MIB::ifDescr.1` and state object IDs are derived from the MIB symbol accordingly.
+- New option "trace all SNMP requests and answers": every request and response is logged as JSON, tagged `[trace]` — useful for support cases.
+- New value format "hex dump" for binary OctetString/Opaque/Counter64 data, matching the display format of common MIB browsers; writeable OIDs accept the same notation back.
+- States now use correct ioBroker roles: numbers are `value`/`level`, booleans `indicator`/`switch`, text `text`. The non-existent role `type.encoding` is no longer used.
+- A device configured with SNMP v3 but a missing or unresolvable authorisation ID is now skipped with a clear warning instead of sending a request without a user name.
+- Fixed: rows added by the wizard, the MIB browser or a template import were invisible in the OID table until the dialog was reopened.
+- Fixed: SNMP v1 devices reported every subtree walk as an error (NoSuchName at the end of a subtree) — the adapter now handles this correctly.
+- Fixed: the live MIB browser skipped every second row of a table.
 ## lovelace (11.10.2026) – new feature
 https://github.com/ioBroker/ioBroker.lovelace
 
