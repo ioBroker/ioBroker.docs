@@ -1682,6 +1682,36 @@ https://github.com/Sickboy78/ioBroker.onlycat
 The OnlyCat adapter provides events from the OnlyCat cat flap — entries, exits and prey detection — and lets you set the active transit policy. Version 0.6.1 added an image to each event, so the photo taken by the flap is now available as a state alongside the event data.
 
 
+## shelly (20.9.2026) – new feature
+https://github.com/iobroker-community-adapters/ioBroker.shelly
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.shelly/master/admin/shelly.png" width="100" height="100" />
+
+The Shelly adapter connects Shelly devices to ioBroker via MQTT or CoIoT. Versions 11.0.0 to 12.0.0 brought a redesigned Device Manager, a new Bluetooth overview and a wave of new supported hardware:
+
+**Device Manager**
+- Each device tile now shows when the device was last seen and switches to a "disconnected" state immediately when the device goes offline — no page reload needed.
+- Power, voltage, current, energy and frequency values appear automatically in the tile and device details for every device that reports them.
+- The BLE gateway script can be installed or updated directly from the Device Manager, either for a single device or for all devices that already have it. The currently installed script version is displayed in the device details.
+
+**Bluetooth Map**
+- A new "Bluetooth Map" tab in the adapter settings shows which Bluetooth devices are picked up by which Shelly gateway, including signal strength. Gateways are arranged in a circle and each Bluetooth device is drawn at the gateway that receives it most strongly; all other connections and their RSSI values can be toggled on.
+- The Device Manager toolbar gets a "BLE Map" button that opens the map directly. The list of gateways that receive a Bluetooth device now accumulates all receivers instead of showing only the last one; a gateway is removed from the list after one hour of silence.
+
+**New devices**
+- Gen 3: Duo Bulb E27, Multicolor Bulb E27, Flood S
+- Gen 4: 1L, 2L
+- Third-party: FrankEver Smart Sprinkler Controller (experimental), Neo Smart Water Valve, Top AC Portable EV Charger (experimental)
+- Monophase mode added for Shelly 3EM G3
+
+**Other improvements and fixes**
+- The transition (fade) time can now be set for Shelly Dimmer 1/2 and all Gen2+ dimmers and lights.
+- An option was added to suppress the timezone mismatch warning when the device timezone differs from the ioBroker host.
+- Several devices (1L Gen3, 1PM Mini Gen3, Pro 2PM, Plug S Gen3) showed an inverted switch state due to a device firmware bug — this is now corrected by the adapter.
+- Authentication with Gen2+ devices on firmware 2.x could wrongly report bad credentials even when they were correct — fixed.
+- MQTT commands were silently dropped with "mqtt prefix was not set" while a device was reconnecting — fixed.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
