@@ -1674,6 +1674,14 @@ https://github.com/DrozmotiX/ioBroker.esphome
 Control your ESP8266/ESP32 with simple yet powerful configuration files created and managed by ESPHome. Native integration of ESPHome managed device (Including Dashboard) by its native API and ensures all data is synchronized (live-event handling, no data polling.
 
 
+## onlycat (22.9.2026) – new feature
+https://github.com/Sickboy78/ioBroker.onlycat
+
+<img src="https://raw.githubusercontent.com/Sickboy78/ioBroker.onlycat/main/admin/onlycat.png" width="100" height="100" />
+
+The OnlyCat adapter provides events from the OnlyCat cat flap — entries, exits and prey detection — and lets you set the active transit policy. Version 0.6.1 added an image to each event, so the photo taken by the flap is now available as a state alongside the event data.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
