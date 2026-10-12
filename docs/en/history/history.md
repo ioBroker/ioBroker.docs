@@ -1902,6 +1902,13 @@ vis-2 is the next-generation visualisation for ioBroker. Versions 2.13.8 to 2.15
 - Commands sent via the control interface as JSON are executed correctly.
 
 
+## flow (12.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.flow
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.flow/main/admin/flow.svg" width="100" height="100" />
+
+Animated, freely arrangeable flow diagram for visualising energy, water, gas or heat flows — works both in ioBroker.vis-2 and the ioBroker.devices widget manager.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
