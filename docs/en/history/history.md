@@ -1828,6 +1828,45 @@ The Shelly adapter connects Shelly devices to ioBroker via MQTT or CoIoT. Versio
 - MQTT commands were silently dropped with "mqtt prefix was not set" while a device was reconnecting — fixed.
 
 
+## vis-2 (19.8.2026) – new feature
+https://github.com/ioBroker/ioBroker.vis-2
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.vis-2/master/packages/iobroker.vis-2/admin/vis-2.png" width="100" height="100" />
+
+vis-2 is the next-generation visualisation for ioBroker. Versions 2.13.8 to 2.15.4 brought a wave of editor and widget fixes, better group handling and improved widget set loading on the cloud:
+
+**Editor and group handling**
+- Dissolving a group no longer accidentally deletes a member widget — only the group container is removed.
+- The position of members is now correctly restored when a nested group is dissolved.
+- "Same width" / "same height" now takes the size of the currently selected widget, not a previously selected one.
+- A new group created inside another group is now placed at the correct position.
+- The widget selection is stable when a stored selected widget no longer exists.
+
+**Widget fixes**
+- Button widgets show the text exactly as entered, no longer forced to upper case.
+- The "small" option of the `filter - dropdown` widget is respected again. Its CSS classes `vis-filter-item` and `vis-filter-item-active` are now available for custom styling.
+- The read-only option of the Bool SVG widget is respected again.
+- URL attributes of the `iFrame 8` widget are no longer mistakenly subscribed as object IDs.
+- Visibility and signal conditions no longer fail when the state value is `null`.
+- Signal conditions with `exist`/`not exist` now evaluate the state value, not the comparison value.
+- Object IDs that are the result of a binding are subscribed correctly.
+- The horizontal navigation menu entries can now be scrolled instead of being cut off in a narrow window.
+- User-defined styles are applied to `tplValueInput`.
+- User permissions are now enforced for widgets inside a group and for widgets embedded via `getWidgetInWidget`.
+
+**Multiple-views widgets**
+- Widget HTML element IDs for widgets shown in multiple views changed from `<view>_<widget>` to `v<view>_<widget>` to produce valid HTML. Any user script or CSS addressing such a widget by ID needs to be updated.
+- Double-clicking a widget shown in multiple views no longer jumps to the wrong view.
+
+**Cloud widget set loading**
+- Widget sets are now loaded according to their own declaration (ES module or global script) rather than a hardcoded table that had gone stale. This fixes `remoteEntryExports is undefined` errors for `echarts`, `openweathermap`, `fullcalendar`, `vis-2-widgets-material` and `vis-2-widgets-energy` when used via the cloud.
+- Local installations reachable under a hostname like `iobroker.local` or `iobroker.fritz.box` are no longer misidentified as cloud instances and can load their widget sets normally.
+
+**Other fixes**
+- Umlauts in binding patterns are handled correctly.
+- Commands sent via the control interface as JSON are executed correctly.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
