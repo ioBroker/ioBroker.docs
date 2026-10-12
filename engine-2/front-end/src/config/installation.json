@@ -11,7 +11,7 @@
         {
             "key": "raspberry",
             "rows": ["platform", "password"],
-            "download": "https://iobroker.live/images/ioBroker-image-RPi_5_2025_11_26.zip",
+            "download": "https://iobroker.live/images/ioBroker-image-RPi_5_2026_10_12.zip",
             "info": "https://github.com/ioBroker/raspi-image"
         },
         {
