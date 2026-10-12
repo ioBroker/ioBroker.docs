@@ -1828,6 +1828,41 @@ The Shelly adapter connects Shelly devices to ioBroker via MQTT or CoIoT. Versio
 - MQTT commands were silently dropped with "mqtt prefix was not set" while a device was reconnecting — fixed.
 
 
+## hm-rpc (22.9.2026) – new feature
+https://github.com/ioBroker/ioBroker.hm-rpc
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.hm-rpc/master/admin/homematic.png" width="100" height="100" />
+
+The HomeMatic RPC adapter connects HomeMatic and Homematic IP devices to ioBroker via BidCos services, Homegear and CUxD. Versions 3.0.1 to 4.1.2 brought a complete device icon set, better roles and thermostat modes, and a series of datapoint and communication fixes:
+
+**Device icons**
+- Device icons are now theme-adaptive SVGs that remain visible on the dark admin theme. The full icon set was generated from the OCCU device database, and icons are automatically back-filled for devices that were created before their type had one. The new icon for HmIP-RFUSB is included.
+
+**Thermostat and heating improvements**
+- `CONTROL_MODE` and `SET_POINT_MODE` of HmIP thermostats now show human-readable mode names (auto, manual, party) instead of raw numbers.
+- `SET_TEMPERATURE` of BidCos heating groups accepts the special values 4.5 (OFF) and 30.5 (ON).
+- `LEVEL` and `VALVE_STATE` of HmIP thermostats received better roles.
+
+**Shutters, blinds and lights**
+- HmIP shutters and blinds: control channels now carry `level.blind`/`level.tilt` roles, status channels carry `value.blind`/`value.tilt`.
+- Philips Hue and Osram Lightify lamps on the CCU lighting gateway: color temperature `WHITE` is now handled in kelvin (2000–6500 K) as the device expects, not as a percentage.
+- `HUE` and `SATURATION` are sent together in a single `putParamset` call — HmIP-RGBW devices previously rejected a single-value call with `MISSING_NON_OPTIONAL_PARAMETER`.
+
+**Roles and datapoint quality**
+- Read-only datapoints no longer receive the writable roles `level.*` and `switch.*`.
+- Text values the CCU delivers for numeric datapoints (e.g. the name of an ENUM state such as `STATE_NOT_AVAILABLE`) are now converted to their numeric index; values that cannot be converted become `null` instead of the wrong type.
+
+**Communication and connection handling**
+- CUxD always uses BIN-RPC; Homematic IP and Virtual Devices always use XML-RPC. Username and password are sent with XML-RPC connections even without HTTPS.
+- If the RPC server cannot bind to the configured IP address the adapter logs the error and restarts after 30 seconds instead of crashing.
+- On stop, the RPC server and client are shut down cleanly, including for XML-RPC and when the CCU is not reachable.
+- Events from deleted devices no longer log warnings about missing objects until the next adapter restart.
+- The "Don't delete devices" option now also ignores devices the CCU reports as deleted while the adapter is running (e.g. during HmIP firmware updates).
+
+**Other fixes**
+- HM-Dis-EP-WM55: fixed writing of display lines and icons — an invalid tone interval was sent when no interval was set.
+- Fixed a crash in the device manager on devices without `native` and a duplicate control listing.
+- PONG events and requests without a method are logged only at debug level.
 ## vis-2 (19.8.2026) – new feature
 https://github.com/ioBroker/ioBroker.vis-2
 
