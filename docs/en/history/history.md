@@ -1902,6 +1902,23 @@ vis-2 is the next-generation visualisation for ioBroker. Versions 2.13.8 to 2.15
 - Commands sent via the control interface as JSON are executed correctly.
 
 
+## hm-rega (22.9.2026) – new feature
+https://github.com/ioBroker/ioBroker.hm-rega
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.hm-rega/master/admin/homematic.png" width="100" height="100" />
+
+The HomeMatic ReGaHSS adapter connects the HomeMatic CCU logic layer to ioBroker, making programs, variables and service messages from the CCU available as states. Versions 5.1.0 to 6.1.0 modernised the configuration dialog, exposed additional port settings and improved datapoint type handling:
+
+**Configuration**
+- The configuration dialog was migrated to JSON config, bringing the modern admin look and improved validation.
+- In expert mode, the ports of the ReGaHSS API and the CCU web interface can now be configured independently — useful for non-standard CCU setups.
+
+**Datapoint and state handling**
+- Values delivered by the CCU as text for numeric datapoints (e.g. the name of an ENUM state such as `STATE_NOT_AVAILABLE`) are now converted to their numeric index, in line with how hm-rpc handles the same data. Values that cannot be converted are silently skipped instead of written with the wrong type — this removes the recurring "has to be type number but received type string" warnings.
+- Write-only datapoints such as `SET_STATE` of CUxD devices no longer receive a value read from the CCU, matching their true write-only semantics.
+- When hm-rpc deletes a device during a firmware update, the `*_ALARM` objects for service messages are now recreated immediately instead of being written without objects until the next adapter restart.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
