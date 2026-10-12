@@ -1902,6 +1902,28 @@ vis-2 is the next-generation visualisation for ioBroker. Versions 2.13.8 to 2.15
 - Commands sent via the control interface as JSON are executed correctly.
 
 
+## scenes (3.9.2026) – new feature
+https://github.com/ioBroker/ioBroker.scenes
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.scenes/master/admin/scenes.png" width="100" height="100" />
+
+The Scenes adapter creates and executes scenes in ioBroker — grouping state changes into reusable automations. Versions 4.0.4 to 5.1.0 added trigger refinements, virtual group improvements and loop protection:
+
+**Trigger improvements**
+- A new "Only on change" option is available for each trigger: when enabled (the default), a state written again with its current value no longer re-activates the scene. It can be switched off per trigger when the re-write should still fire.
+- If the trigger state is boolean or has a defined list of allowed values (`common.states`), the trigger value is now selected from a dropdown instead of being typed free-form.
+
+**Virtual groups**
+- "Sum" was added as a virtual group aggregation function alongside the existing ones.
+- The aggregation result for the "any" mode was calculated incorrectly and has been fixed.
+
+**Loop protection**
+- If a scene is activated too frequently in a short period, it is now automatically disabled to prevent runaway loops. The threshold is configurable.
+
+**ioBroker.devices widget**
+- A widget for the ioBroker.devices adapter was added, making scenes accessible from the devices manager.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
