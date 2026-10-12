@@ -1902,6 +1902,29 @@ vis-2 is the next-generation visualisation for ioBroker. Versions 2.13.8 to 2.15
 - Commands sent via the control interface as JSON are executed correctly.
 
 
+## mcp (15.9.2026) – new feature
+https://github.com/ioBroker/ioBroker.mcp
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.mcp/master/admin/mcp.png" width="100" height="100" />
+
+The MCP adapter turns ioBroker into a Model Context Protocol server, letting AI clients such as Claude Desktop or ChatGPT read and control your smart home through a defined set of tools. Versions 1.0.11 to 1.1.7 added OAuth login, chunked file reading, a safety option for write operations and setup guides for popular AI clients:
+
+**OAuth authentication**
+- MCP clients can now connect through a browser-based OAuth login instead of a manually created token, making initial setup significantly easier.
+- OAuth also works as a web extension, using the host `web` adapter instance as the authorisation server (requires OAuth enabled on the web adapter too).
+- The OAuth page was corrected in a follow-up fix.
+
+**Large file support**
+- `read_file` now reads large files in chunks: optional `offset` and `length` parameters allow reading any section of a file, with at most 512 KiB returned per call. The result includes `size`, `offset`, `length`, `truncated` and `nextOffset` fields so a client can page through a file — this avoids the 1 MB tool-result limit imposed by most MCP clients.
+
+**Write safety**
+- A new option "Mark setting states as destructive" (enabled by default) marks the `set_state` and `set_states` tools as destructive in the MCP tool list. AI clients that support the destructive flag will prompt for confirmation before writing. The option can be switched off when a client does not need the extra confirmation.
+
+**Setup guides**
+- Step-by-step instructions for connecting ChatGPT and Claude (via ioBroker Remote or directly) were added to the adapter documentation.
+- An IP address selector was added to the adapter settings to simplify configuration on multi-homed hosts.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
