@@ -1902,6 +1902,28 @@ vis-2 is the next-generation visualisation for ioBroker. Versions 2.13.8 to 2.15
 - Commands sent via the control interface as JSON are executed correctly.
 
 
+## hydrawise (11.9.2026) – new feature
+https://github.com/SentiQ/ioBroker.hydrawise
+
+<img src="https://raw.githubusercontent.com/SentiQ/ioBroker.hydrawise/main/admin/hydrawise.jpg" width="100" height="100" />
+
+The Hydrawise adapter controls the Hydrawise irrigation system from Hunter Industries, reading zone schedules, run-times and sensor states via the Hydrawise cloud API. Versions 1.1.0 to 2.0.2 added support for the new Hydrawise v2 GraphQL API and improved connection reliability:
+
+**Hydrawise v2 API support**
+- The new Hydrawise v2 GraphQL API is now supported alongside the existing REST API — it exposes water usage history, live sensor readings, weather data, a leak indicator and zone commands that were not available before.
+- The customer details endpoint now runs on its own five-minute polling timer with automatic back-off after rate-limit responses, keeping the adapter responsive without hammering the API.
+- The `info.connection` state now correctly reflects the status of every enabled API — when only the v2 API is active the connection indicator no longer stays red.
+
+**Reliability and performance**
+- Object creation now only triggers when the data structure actually changes, reducing unnecessary writes.
+- A poll-overlap guard prevents a new polling cycle from starting before the previous one has finished.
+- HTTP request timeouts are now handled via the standard `AbortSignal.timeout` mechanism instead of a global `setTimeout`, avoiding stale requests leaking into subsequent cycles.
+
+**Other fixes**
+- Relay ID mapping no longer corrupts the built-in Object prototype.
+- The `runDefault` reset command no longer accidentally stops the zone it was meant to resume.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
