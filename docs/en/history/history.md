@@ -1909,6 +1909,20 @@ https://github.com/iobroker-community-adapters/ioBroker.myvbus
 
 The myVBUS adapter connects ioBroker to RESOL VBus-based devices such as solar thermal controllers and heat pumps. Version 0.7.0 is a maintenance release with dependency updates and minor bug fixes improving overall stability.
 
+## frontier_silicon (14.9.2026) – new feature
+https://github.com/iobroker-community-adapters/ioBroker.frontier_silicon
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.frontier_silicon/master/admin/frontier_silicon.png" width="100" height="100" />
+
+The frontier_silicon adapter controls media players and internet radios that use a Frontier Silicon chipset via the FSAPI protocol — including DAB/FM/internet radio devices from many brands. Version 0.6.0 adds menu navigation controls and preset management that were previously missing:
+
+**Menu navigation**
+- Navigation commands (up, down, select, back, home, search) are now available for all device modes — DAB, FM, internet radio and auxiliary — allowing full remote control of the device's on-screen menu from ioBroker without needing to touch the device.
+
+**Preset management**
+- New functions allow setting a specific preset directly and navigating through presets one step up or down, making it straightforward to switch between stored stations from automations or the ioBroker UI.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
