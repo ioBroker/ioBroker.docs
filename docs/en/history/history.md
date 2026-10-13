@@ -1909,6 +1909,14 @@ https://github.com/iobroker-community-adapters/ioBroker.myvbus
 
 The myVBUS adapter connects ioBroker to RESOL VBus-based devices such as solar thermal controllers and heat pumps. Version 0.7.0 is a maintenance release with dependency updates and minor bug fixes improving overall stability.
 
+## vbus-gw (18.9.2026) – new feature
+https://github.com/pdbjjens/ioBroker.vbus-gw
+
+<img src="https://raw.githubusercontent.com/pdbjjens/ioBroker.vbus-gw/main/admin/vbus-gw.png" width="100" height="100" />
+
+The VBus-GW adapter connects serial-port based VBus devices (such as VBus/USB or DeltaSol SLT controllers) to the network over TCP, allowing applications that only support TCP-based VBus adapters to reach them. Versions 0.3.2 to 0.4.0 are maintenance releases that keep the adapter up to date with the current ioBroker environment; no user-facing functionality was changed.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
