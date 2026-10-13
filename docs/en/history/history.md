@@ -2028,6 +2028,27 @@ The MCP adapter turns ioBroker into a Model Context Protocol server, letting AI 
 - An IP address selector was added to the adapter settings to simplify configuration on multi-homed hosts.
 
 
+## maxcul (13.8.2026) – new feature
+https://github.com/ioBroker/ioBroker.maxcul
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.maxcul/master/admin/maxcul.png" width="100" height="100" />
+
+The MaxCUL adapter controls EQ-3 MAX! heating devices (thermostats, wall thermostats, window contacts) through a CUL/CUN USB or network stick. Versions 1.3.1 to 2.1.0 added network device support, automatic reconnection and more reliable serial port selection:
+
+**Network device support**
+- CUN/CUNO devices connected over TCP are now supported in addition to serial CUL sticks, making the adapter usable with a network-attached MAX! gateway.
+
+**Connection reliability**
+- The connection is now re-established automatically after a loss, so a temporary network or serial glitch no longer requires a manual adapter restart.
+- A communication error no longer crashes the adapter; the error is caught and a meaningful message is shown in the connection error log.
+
+**Serial port selection**
+- The serial port list now also includes the stable symbolic links under `/dev/serial/`, so a CUL stick can be identified by a name that stays the same across reboots rather than by a device path that can change.
+
+**Protocol fix**
+- The message counter was sent as `01` for every packet instead of incrementing — this has been corrected, improving communication reliability with MAX! devices.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
