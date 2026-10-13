@@ -1952,6 +1952,25 @@ https://github.com/iobroker-community-adapters/ioBroker.myvbus
 
 The myVBUS adapter connects ioBroker to RESOL VBus-based devices such as solar thermal controllers and heat pumps. Version 0.7.0 is a maintenance release with dependency updates and minor bug fixes improving overall stability.
 
+## pushover (23.9.2026) – new feature
+https://github.com/ioBroker/ioBroker.pushover
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.pushover/master/admin/pushover.png" width="100" height="100" />
+
+The Pushover adapter sends push notifications from ioBroker to smartphones and other devices via the Pushover service. Version 6.1.0 added notification-manager support, per-message credential overrides and several reliability fixes:
+
+**Notification manager**
+- The adapter now supports ioBroker system notifications via the notification-manager, so it can receive and forward alerts raised by other adapters without additional scripting.
+
+**Per-message flexibility**
+- The Pushover user key and API token can now be overridden individually for each message, making it easy to send a notification to a different account or application without changing the instance settings.
+
+**Fixes**
+- Empty `title`, `sound` or `priority` values sent from Blockly or other scripts now correctly fall back to the instance defaults again. An explicitly set priority of `0` is preserved instead of also being treated as empty.
+- Invalid notification payloads are now rejected with a clear error instead of crashing the message handler.
+- Unsupported commands return the command name in the error response instead of the generic string `send`.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
