@@ -1673,7 +1673,6 @@ https://github.com/DrozmotiX/ioBroker.esphome
 
 Control your ESP8266/ESP32 with simple yet powerful configuration files created and managed by ESPHome. Native integration of ESPHome managed device (Including Dashboard) by its native API and ensures all data is synchronized (live-event handling, no data polling.
 
-
 ## cloud (10.10.2026) – new feature
 https://github.com/ioBroker/ioBroker.cloud
 
@@ -1693,6 +1692,7 @@ The ioBroker Cloud adapter allows remote access to a local ioBroker installation
 **Connection Reliability**
 - State subscriptions are now cleared when the cloud disconnects, preventing stale subscriptions from accumulating across reconnects.
 - Commands arriving without a device name or with an empty value body are now logged with a warning instead of being silently dropped, making troubleshooting easier.
+
 ## iot (20.9.2026) – new feature
 https://github.com/ioBroker/ioBroker.iot
 
@@ -1749,6 +1749,7 @@ The SNMP adapter reads and writes data from network devices via SNMP. Version 4.
 - Fixed: rows added by the wizard, the MIB browser or a template import were invisible in the OID table until the dialog was reopened.
 - Fixed: SNMP v1 devices reported every subtree walk as an error (NoSuchName at the end of a subtree) — the adapter now handles this correctly.
 - Fixed: the live MIB browser skipped every second row of a table.
+
 ## lovelace (11.10.2026) – new feature
 https://github.com/ioBroker/ioBroker.lovelace
 
@@ -1797,7 +1798,6 @@ https://github.com/Sickboy78/ioBroker.onlycat
 
 The OnlyCat adapter provides events from the OnlyCat cat flap — entries, exits and prey detection — and lets you set the active transit policy. Version 0.6.1 added an image to each event, so the photo taken by the flap is now available as a state alongside the event data.
 
-
 ## shelly (20.9.2026) – new feature
 https://github.com/iobroker-community-adapters/ioBroker.shelly
 
@@ -1826,7 +1826,6 @@ The Shelly adapter connects Shelly devices to ioBroker via MQTT or CoIoT. Versio
 - Several devices (1L Gen3, 1PM Mini Gen3, Pro 2PM, Plug S Gen3) showed an inverted switch state due to a device firmware bug — this is now corrected by the adapter.
 - Authentication with Gen2+ devices on firmware 2.x could wrongly report bad credentials even when they were correct — fixed.
 - MQTT commands were silently dropped with "mqtt prefix was not set" while a device was reconnecting — fixed.
-
 
 ## hm-rpc (22.9.2026) – new feature
 https://github.com/ioBroker/ioBroker.hm-rpc
@@ -1901,6 +1900,49 @@ vis-2 is the next-generation visualisation for ioBroker. Versions 2.13.8 to 2.15
 - Umlauts in binding patterns are handled correctly.
 - Commands sent via the control interface as JSON are executed correctly.
 
+## echarts (31.8.2026) – new feature
+https://github.com/ioBroker/ioBroker.echarts
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.echarts/master/admin/echarts.png" width="100" height="100" />
+
+The eCharts adapter creates line, bar, radar, donut and gauge charts from ioBroker history data and JSON states, displayed in the admin tab, in a browser via the web adapter, or embedded in vis/vis-2 views. Versions 3.1.0 to 5.1.1 updated the chart engine, aligned the UI with the current admin design and fixed several editor and server-side rendering issues:
+
+**Chart engine and UI**
+- The underlying ECharts library was updated to version 6.1.0, bringing new chart capabilities and rendering improvements.
+- The editor, the preset preview and the chart view were aligned with the admin 8 design for a consistent look.
+- Many smaller GUI fixes were applied in the follow-up 5.1.1 release.
+
+**State and history display**
+- A state that is logged by more than one history instance now appears under every instance that records it, not only under the first one.
+- Line breaks in X-axis labels for combined time formats such as `HH:MM / dd.mm.yy` are rendered correctly.
+
+**Preset management and server-side rendering**
+- Fixed: creating a preset inside a folder no longer fails.
+- Fixed: server-side rendering (used for preview thumbnails and PDF/PNG/SVG/JPG exports) no longer hangs until the caller times out — presets no longer show "timeout" in the preview.
+
+## opcua (13.8.2026) – OPC UA server and client rewritten
+https://github.com/ioBroker/ioBroker.opcua
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.opcua/master/admin/opcua.png" width="100" height="100" />
+
+The OPC UA adapter — which lets ioBroker act as both an OPC UA server and client — received a comprehensive overhaul between v1.2.1 and v3.0.0, bringing a reworked server, a modernised configuration UI, encrypted password storage and important bug fixes.
+
+**OPC UA server improvements**
+- The server was rebuilt so that tags are now structured as a Unified Namespace — a cleaner, industry-standard layout for browsing variables.
+- Connected clients are now shown in the `info.connection` state, making it easy to see what is currently linked to the server.
+- The server now uses the certificates configured in the adapter settings instead of ignoring them.
+
+**Authentication and security**
+- Passwords are now stored in encrypted form. Existing passwords must be re-entered once after updating.
+- Authentication with a username and password now works correctly.
+
+**Configuration and UI**
+- The configuration interface was rebuilt with React 19 and MUI 9 and follows the design language of ioBroker Admin 8.
+
+**Stability and reliability**
+- The adapter no longer terminates the host process when running in compact mode.
+- The client now subscribes only to its own variables instead of all objects, reducing unnecessary load.
+- A missing admin dependency and the role for `info.event` have been added.
 
 ## myvbus (10.9.2026) – stable release
 https://github.com/iobroker-community-adapters/ioBroker.myvbus
@@ -1921,6 +1963,144 @@ The frontier_silicon adapter controls media players and internet radios that use
 
 **Preset management**
 - New functions allow setting a specific preset directly and navigating through presets one step up or down, making it straightforward to switch between stored stations from automations or the ioBroker UI.
+## vbus-gw (18.9.2026) – new feature
+https://github.com/pdbjjens/ioBroker.vbus-gw
+
+<img src="https://raw.githubusercontent.com/pdbjjens/ioBroker.vbus-gw/main/admin/vbus-gw.png" width="100" height="100" />
+
+The VBus-GW adapter connects serial-port based VBus devices (such as VBus/USB or DeltaSol SLT controllers) to the network over TCP, allowing applications that only support TCP-based VBus adapters to reach them. Versions 0.3.2 to 0.4.0 are maintenance releases that keep the adapter up to date with the current ioBroker environment; no user-facing functionality was changed.
+## pushover (23.9.2026) – new feature
+https://github.com/ioBroker/ioBroker.pushover
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.pushover/master/admin/pushover.png" width="100" height="100" />
+
+The Pushover adapter sends push notifications from ioBroker to smartphones and other devices via the Pushover service. Version 6.1.0 added notification-manager support, per-message credential overrides and several reliability fixes:
+
+**Notification manager**
+- The adapter now supports ioBroker system notifications via the notification-manager, so it can receive and forward alerts raised by other adapters without additional scripting.
+
+**Per-message flexibility**
+- The Pushover user key and API token can now be overridden individually for each message, making it easy to send a notification to a different account or application without changing the instance settings.
+
+**Fixes**
+- Empty `title`, `sound` or `priority` values sent from Blockly or other scripts now correctly fall back to the instance defaults again. An explicitly set priority of `0` is preserved instead of also being treated as empty.
+- Invalid notification payloads are now rejected with a clear error instead of crashing the message handler.
+- Unsupported commands return the command name in the error response instead of the generic string `send`.
+
+## bluelink (17.9.2026) – stable release
+https://github.com/Newan/ioBroker.bluelink
+
+<img src="https://raw.githubusercontent.com/Newan/ioBroker.bluelink/master/admin/bluelink.png" width="100" height="100" />
+
+The Bluelink adapter controls Hyundai and Kia vehicles (up to model year 2023) through the Bluelink/UVO connected-car service. Versions 3.1.26 to 3.1.34 resolved login and location issues that affected European users:
+
+**Fixes**
+- Login for EU Hyundai and Kia accounts was broken and has been fixed across multiple patch releases.
+- Location requests no longer fail for connected vehicles.
+
+## scenes (3.9.2026) – new feature
+https://github.com/ioBroker/ioBroker.scenes
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.scenes/master/admin/scenes.png" width="100" height="100" />
+
+The Scenes adapter creates and executes scenes in ioBroker — grouping state changes into reusable automations. Versions 4.0.4 to 5.1.0 added trigger refinements, virtual group improvements and loop protection:
+
+**Trigger improvements**
+- A new "Only on change" option is available for each trigger: when enabled (the default), a state written again with its current value no longer re-activates the scene. It can be switched off per trigger when the re-write should still fire.
+- If the trigger state is boolean or has a defined list of allowed values (`common.states`), the trigger value is now selected from a dropdown instead of being typed free-form.
+
+**Virtual groups**
+- "Sum" was added as a virtual group aggregation function alongside the existing ones.
+- The aggregation result for the "any" mode was calculated incorrectly and has been fixed.
+
+**Loop protection**
+- If a scene is activated too frequently in a short period, it is now automatically disabled to prevent runaway loops. The threshold is configurable.
+
+**ioBroker.devices widget**
+- A widget for the ioBroker.devices adapter was added, making scenes accessible from the devices manager.
+
+## mcp (15.9.2026) – new feature
+https://github.com/ioBroker/ioBroker.mcp
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.mcp/master/admin/mcp.png" width="100" height="100" />
+
+The MCP adapter turns ioBroker into a Model Context Protocol server, letting AI clients such as Claude Desktop or ChatGPT read and control your smart home through a defined set of tools. Versions 1.0.11 to 1.1.7 added OAuth login, chunked file reading, a safety option for write operations and setup guides for popular AI clients:
+
+**OAuth authentication**
+- MCP clients can now connect through a browser-based OAuth login instead of a manually created token, making initial setup significantly easier.
+- OAuth also works as a web extension, using the host `web` adapter instance as the authorisation server (requires OAuth enabled on the web adapter too).
+- The OAuth page was corrected in a follow-up fix.
+
+**Large file support**
+- `read_file` now reads large files in chunks: optional `offset` and `length` parameters allow reading any section of a file, with at most 512 KiB returned per call. The result includes `size`, `offset`, `length`, `truncated` and `nextOffset` fields so a client can page through a file — this avoids the 1 MB tool-result limit imposed by most MCP clients.
+
+**Write safety**
+- A new option "Mark setting states as destructive" (enabled by default) marks the `set_state` and `set_states` tools as destructive in the MCP tool list. AI clients that support the destructive flag will prompt for confirmation before writing. The option can be switched off when a client does not need the extra confirmation.
+
+**Setup guides**
+- Step-by-step instructions for connecting ChatGPT and Claude (via ioBroker Remote or directly) were added to the adapter documentation.
+- An IP address selector was added to the adapter settings to simplify configuration on multi-homed hosts.
+
+## maxcul (13.8.2026) – new feature
+https://github.com/ioBroker/ioBroker.maxcul
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.maxcul/master/admin/maxcul.png" width="100" height="100" />
+
+The MaxCUL adapter controls EQ-3 MAX! heating devices (thermostats, wall thermostats, window contacts) through a CUL/CUN USB or network stick. Versions 1.3.1 to 2.1.0 added network device support, automatic reconnection and more reliable serial port selection:
+
+**Network device support**
+- CUN/CUNO devices connected over TCP are now supported in addition to serial CUL sticks, making the adapter usable with a network-attached MAX! gateway.
+
+**Connection reliability**
+- The connection is now re-established automatically after a loss, so a temporary network or serial glitch no longer requires a manual adapter restart.
+- A communication error no longer crashes the adapter; the error is caught and a meaningful message is shown in the connection error log.
+
+**Serial port selection**
+- The serial port list now also includes the stable symbolic links under `/dev/serial/`, so a CUL stick can be identified by a name that stays the same across reboots rather than by a device path that can change.
+
+**Protocol fix**
+- The message counter was sent as `01` for every packet instead of incrementing — this has been corrected, improving communication reliability with MAX! devices.
+
+## vis-2-widgets-energy (13.8.2026) – new feature
+https://github.com/ioBroker/ioBroker.vis-2-widgets-energy
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.vis-2-widgets-energy/master/admin/vis-2-widgets-energy.png" width="100" height="100" />
+
+The vis-2-widgets-energy widget set adds ready-made energy displays to the ioBroker vis-2 dashboard — power distribution, consumption over time, self-sufficiency, battery storage, costs and dynamic electricity prices. Version 2.0.1 includes a breaking change to the comparison widget and a series of enhancements across the widget set:
+
+**Breaking change – comparison widget unit handling**
+- The comparison widget no longer auto-converts W→Wh / kW→kWh or divides Wh values by 1000. It now shows the raw value with the actual datapoint unit. Use the new "factor" field to scale values if needed. The X-axis also now shows the configured device unit instead of always displaying "kWh".
+
+**Comparison widget**
+- An option was added to disable chart animations or set their duration.
+
+**Distribution widget**
+- An optional second value per node can now be shown inside the node circle — useful for displaying a battery state of charge (SoC %) alongside the power flow.
+- The unit of the feed-back (return/export) value now follows the unit of the power line instead of being fixed.
+
+**Consumption widget**
+- A per-device scaling factor and a y-axis unit label were added.
+- A "stacked" option was added to preselect stacked versus grouped bar display.
+- The week view now correctly starts on Monday — Sunday data was previously missing or misplaced.
+
+**Other fixes**
+- Fixed a duplicated "inner radius" field in the consumption comparison widget configuration.
+
+## hm-rega (22.9.2026) – new feature
+https://github.com/ioBroker/ioBroker.hm-rega
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.hm-rega/master/admin/homematic.png" width="100" height="100" />
+
+The HomeMatic ReGaHSS adapter connects the HomeMatic CCU logic layer to ioBroker, making programs, variables and service messages from the CCU available as states. Versions 5.1.0 to 6.1.0 modernised the configuration dialog, exposed additional port settings and improved datapoint type handling:
+
+**Configuration**
+- The configuration dialog was migrated to JSON config, bringing the modern admin look and improved validation.
+- In expert mode, the ports of the ReGaHSS API and the CCU web interface can now be configured independently — useful for non-standard CCU setups.
+
+**Datapoint and state handling**
+- Values delivered by the CCU as text for numeric datapoints (e.g. the name of an ENUM state such as `STATE_NOT_AVAILABLE`) are now converted to their numeric index, in line with how hm-rpc handles the same data. Values that cannot be converted are silently skipped instead of written with the wrong type — this removes the recurring "has to be type number but received type string" warnings.
+- Write-only datapoints such as `SET_STATE` of CUxD devices no longer receive a value read from the CCU, matching their true write-only semantics.
+- When hm-rpc deletes a device during a firmware update, the `*_ALARM` objects for service messages are now recreated immediately instead of being written without objects until the next adapter restart.
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
