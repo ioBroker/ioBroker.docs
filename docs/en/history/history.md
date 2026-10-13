@@ -1673,7 +1673,6 @@ https://github.com/DrozmotiX/ioBroker.esphome
 
 Control your ESP8266/ESP32 with simple yet powerful configuration files created and managed by ESPHome. Native integration of ESPHome managed device (Including Dashboard) by its native API and ensures all data is synchronized (live-event handling, no data polling.
 
-
 ## cloud (10.10.2026) – new feature
 https://github.com/ioBroker/ioBroker.cloud
 
@@ -1693,6 +1692,7 @@ The ioBroker Cloud adapter allows remote access to a local ioBroker installation
 **Connection Reliability**
 - State subscriptions are now cleared when the cloud disconnects, preventing stale subscriptions from accumulating across reconnects.
 - Commands arriving without a device name or with an empty value body are now logged with a warning instead of being silently dropped, making troubleshooting easier.
+
 ## iot (20.9.2026) – new feature
 https://github.com/ioBroker/ioBroker.iot
 
@@ -1749,6 +1749,7 @@ The SNMP adapter reads and writes data from network devices via SNMP. Version 4.
 - Fixed: rows added by the wizard, the MIB browser or a template import were invisible in the OID table until the dialog was reopened.
 - Fixed: SNMP v1 devices reported every subtree walk as an error (NoSuchName at the end of a subtree) — the adapter now handles this correctly.
 - Fixed: the live MIB browser skipped every second row of a table.
+
 ## lovelace (11.10.2026) – new feature
 https://github.com/ioBroker/ioBroker.lovelace
 
@@ -1797,7 +1798,6 @@ https://github.com/Sickboy78/ioBroker.onlycat
 
 The OnlyCat adapter provides events from the OnlyCat cat flap — entries, exits and prey detection — and lets you set the active transit policy. Version 0.6.1 added an image to each event, so the photo taken by the flap is now available as a state alongside the event data.
 
-
 ## shelly (20.9.2026) – new feature
 https://github.com/iobroker-community-adapters/ioBroker.shelly
 
@@ -1826,7 +1826,6 @@ The Shelly adapter connects Shelly devices to ioBroker via MQTT or CoIoT. Versio
 - Several devices (1L Gen3, 1PM Mini Gen3, Pro 2PM, Plug S Gen3) showed an inverted switch state due to a device firmware bug — this is now corrected by the adapter.
 - Authentication with Gen2+ devices on firmware 2.x could wrongly report bad credentials even when they were correct — fixed.
 - MQTT commands were silently dropped with "mqtt prefix was not set" while a device was reconnecting — fixed.
-
 
 ## hm-rpc (22.9.2026) – new feature
 https://github.com/ioBroker/ioBroker.hm-rpc
@@ -1952,6 +1951,12 @@ https://github.com/iobroker-community-adapters/ioBroker.myvbus
 
 The myVBUS adapter connects ioBroker to RESOL VBus-based devices such as solar thermal controllers and heat pumps. Version 0.7.0 is a maintenance release with dependency updates and minor bug fixes improving overall stability.
 
+## vbus-gw (18.9.2026) – new feature
+https://github.com/pdbjjens/ioBroker.vbus-gw
+
+<img src="https://raw.githubusercontent.com/pdbjjens/ioBroker.vbus-gw/main/admin/vbus-gw.png" width="100" height="100" />
+
+The VBus-GW adapter connects serial-port based VBus devices (such as VBus/USB or DeltaSol SLT controllers) to the network over TCP, allowing applications that only support TCP-based VBus adapters to reach them. Versions 0.3.2 to 0.4.0 are maintenance releases that keep the adapter up to date with the current ioBroker environment; no user-facing functionality was changed.
 ## pushover (23.9.2026) – new feature
 https://github.com/ioBroker/ioBroker.pushover
 
@@ -1970,7 +1975,6 @@ The Pushover adapter sends push notifications from ioBroker to smartphones and o
 - Invalid notification payloads are now rejected with a clear error instead of crashing the message handler.
 - Unsupported commands return the command name in the error response instead of the generic string `send`.
 
-
 ## bluelink (17.9.2026) – stable release
 https://github.com/Newan/ioBroker.bluelink
 
@@ -1981,7 +1985,6 @@ The Bluelink adapter controls Hyundai and Kia vehicles (up to model year 2023) t
 **Fixes**
 - Login for EU Hyundai and Kia accounts was broken and has been fixed across multiple patch releases.
 - Location requests no longer fail for connected vehicles.
-
 
 ## scenes (3.9.2026) – new feature
 https://github.com/ioBroker/ioBroker.scenes
@@ -2003,7 +2006,6 @@ The Scenes adapter creates and executes scenes in ioBroker — grouping state ch
 
 **ioBroker.devices widget**
 - A widget for the ioBroker.devices adapter was added, making scenes accessible from the devices manager.
-
 
 ## mcp (15.9.2026) – new feature
 https://github.com/ioBroker/ioBroker.mcp
@@ -2027,7 +2029,6 @@ The MCP adapter turns ioBroker into a Model Context Protocol server, letting AI 
 - Step-by-step instructions for connecting ChatGPT and Claude (via ioBroker Remote or directly) were added to the adapter documentation.
 - An IP address selector was added to the adapter settings to simplify configuration on multi-homed hosts.
 
-
 ## maxcul (13.8.2026) – new feature
 https://github.com/ioBroker/ioBroker.maxcul
 
@@ -2047,7 +2048,6 @@ The MaxCUL adapter controls EQ-3 MAX! heating devices (thermostats, wall thermos
 
 **Protocol fix**
 - The message counter was sent as `01` for every packet instead of incrementing — this has been corrected, improving communication reliability with MAX! devices.
-
 
 ## vis-2-widgets-energy (13.8.2026) – new feature
 https://github.com/ioBroker/ioBroker.vis-2-widgets-energy
@@ -2073,7 +2073,6 @@ The vis-2-widgets-energy widget set adds ready-made energy displays to the ioBro
 
 **Other fixes**
 - Fixed a duplicated "inner radius" field in the consumption comparison widget configuration.
-
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
