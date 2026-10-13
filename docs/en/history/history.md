@@ -1908,6 +1908,12 @@ https://github.com/ioBroker/ioBroker.flow
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.flow/main/admin/flow.svg" width="100" height="100" />
 
 Animated, freely arrangeable flow diagram for visualising energy, water, gas or heat flows — works both in ioBroker.vis-2 and the ioBroker.devices widget manager.
+## myvbus (10.9.2026) – stable release
+https://github.com/iobroker-community-adapters/ioBroker.myvbus
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.myvbus/master/admin/myvbus.png" width="100" height="100" />
+
+The myVBUS adapter connects ioBroker to RESOL VBus-based devices such as solar thermal controllers and heat pumps. Version 0.7.0 is a maintenance release with dependency updates and minor bug fixes improving overall stability.
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
