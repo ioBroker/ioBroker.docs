@@ -1901,6 +1901,25 @@ vis-2 is the next-generation visualisation for ioBroker. Versions 2.13.8 to 2.15
 - Umlauts in binding patterns are handled correctly.
 - Commands sent via the control interface as JSON are executed correctly.
 
+## echarts (31.8.2026) – new feature
+https://github.com/ioBroker/ioBroker.echarts
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.echarts/master/admin/echarts.png" width="100" height="100" />
+
+The eCharts adapter creates line, bar, radar, donut and gauge charts from ioBroker history data and JSON states, displayed in the admin tab, in a browser via the web adapter, or embedded in vis/vis-2 views. Versions 3.1.0 to 5.1.1 updated the chart engine, aligned the UI with the current admin design and fixed several editor and server-side rendering issues:
+
+**Chart engine and UI**
+- The underlying ECharts library was updated to version 6.1.0, bringing new chart capabilities and rendering improvements.
+- The editor, the preset preview and the chart view were aligned with the admin 8 design for a consistent look.
+- Many smaller GUI fixes were applied in the follow-up 5.1.1 release.
+
+**State and history display**
+- A state that is logged by more than one history instance now appears under every instance that records it, not only under the first one.
+- Line breaks in X-axis labels for combined time formats such as `HH:MM / dd.mm.yy` are rendered correctly.
+
+**Preset management and server-side rendering**
+- Fixed: creating a preset inside a folder no longer fails.
+- Fixed: server-side rendering (used for preview thumbnails and PDF/PNG/SVG/JPG exports) no longer hangs until the caller times out — presets no longer show "timeout" in the preview.
 
 ## opcua (13.8.2026) – OPC UA server and client rewritten
 https://github.com/ioBroker/ioBroker.opcua
@@ -1925,6 +1944,7 @@ The OPC UA adapter — which lets ioBroker act as both an OPC UA server and clie
 - The adapter no longer terminates the host process when running in compact mode.
 - The client now subscribes only to its own variables instead of all objects, reducing unnecessary load.
 - A missing admin dependency and the role for `info.event` have been added.
+
 ## myvbus (10.9.2026) – stable release
 https://github.com/iobroker-community-adapters/ioBroker.myvbus
 
