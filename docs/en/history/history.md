@@ -2049,6 +2049,32 @@ The MaxCUL adapter controls EQ-3 MAX! heating devices (thermostats, wall thermos
 - The message counter was sent as `01` for every packet instead of incrementing — this has been corrected, improving communication reliability with MAX! devices.
 
 
+## vis-2-widgets-energy (13.8.2026) – new feature
+https://github.com/ioBroker/ioBroker.vis-2-widgets-energy
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.vis-2-widgets-energy/master/admin/vis-2-widgets-energy.png" width="100" height="100" />
+
+The vis-2-widgets-energy widget set adds ready-made energy displays to the ioBroker vis-2 dashboard — power distribution, consumption over time, self-sufficiency, battery storage, costs and dynamic electricity prices. Version 2.0.1 includes a breaking change to the comparison widget and a series of enhancements across the widget set:
+
+**Breaking change – comparison widget unit handling**
+- The comparison widget no longer auto-converts W→Wh / kW→kWh or divides Wh values by 1000. It now shows the raw value with the actual datapoint unit. Use the new "factor" field to scale values if needed. The X-axis also now shows the configured device unit instead of always displaying "kWh".
+
+**Comparison widget**
+- An option was added to disable chart animations or set their duration.
+
+**Distribution widget**
+- An optional second value per node can now be shown inside the node circle — useful for displaying a battery state of charge (SoC %) alongside the power flow.
+- The unit of the feed-back (return/export) value now follows the unit of the power line instead of being fixed.
+
+**Consumption widget**
+- A per-device scaling factor and a y-axis unit label were added.
+- A "stacked" option was added to preselect stacked versus grouped bar display.
+- The week view now correctly starts on Monday — Sunday data was previously missing or misplaced.
+
+**Other fixes**
+- Fixed a duplicated "inner radius" field in the consumption comparison widget configuration.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
