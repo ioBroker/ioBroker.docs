@@ -1971,6 +1971,18 @@ The Pushover adapter sends push notifications from ioBroker to smartphones and o
 - Unsupported commands return the command name in the error response instead of the generic string `send`.
 
 
+## bluelink (17.9.2026) – stable release
+https://github.com/Newan/ioBroker.bluelink
+
+<img src="https://raw.githubusercontent.com/Newan/ioBroker.bluelink/master/admin/bluelink.png" width="100" height="100" />
+
+The Bluelink adapter controls Hyundai and Kia vehicles (up to model year 2023) through the Bluelink/UVO connected-car service. Versions 3.1.26 to 3.1.34 resolved login and location issues that affected European users:
+
+**Fixes**
+- Login for EU Hyundai and Kia accounts was broken and has been fixed across multiple patch releases.
+- Location requests no longer fail for connected vehicles.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
