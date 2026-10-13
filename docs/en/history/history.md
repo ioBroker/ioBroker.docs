@@ -1901,7 +1901,6 @@ vis-2 is the next-generation visualisation for ioBroker. Versions 2.13.8 to 2.15
 - Umlauts in binding patterns are handled correctly.
 - Commands sent via the control interface as JSON are executed correctly.
 
-
 ## echarts (31.8.2026) – new feature
 https://github.com/ioBroker/ioBroker.echarts
 
@@ -1922,6 +1921,36 @@ The eCharts adapter creates line, bar, radar, donut and gauge charts from ioBrok
 - Fixed: creating a preset inside a folder no longer fails.
 - Fixed: server-side rendering (used for preview thumbnails and PDF/PNG/SVG/JPG exports) no longer hangs until the caller times out — presets no longer show "timeout" in the preview.
 
+## opcua (13.8.2026) – OPC UA server and client rewritten
+https://github.com/ioBroker/ioBroker.opcua
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.opcua/master/admin/opcua.png" width="100" height="100" />
+
+The OPC UA adapter — which lets ioBroker act as both an OPC UA server and client — received a comprehensive overhaul between v1.2.1 and v3.0.0, bringing a reworked server, a modernised configuration UI, encrypted password storage and important bug fixes.
+
+**OPC UA server improvements**
+- The server was rebuilt so that tags are now structured as a Unified Namespace — a cleaner, industry-standard layout for browsing variables.
+- Connected clients are now shown in the `info.connection` state, making it easy to see what is currently linked to the server.
+- The server now uses the certificates configured in the adapter settings instead of ignoring them.
+
+**Authentication and security**
+- Passwords are now stored in encrypted form. Existing passwords must be re-entered once after updating.
+- Authentication with a username and password now works correctly.
+
+**Configuration and UI**
+- The configuration interface was rebuilt with React 19 and MUI 9 and follows the design language of ioBroker Admin 8.
+
+**Stability and reliability**
+- The adapter no longer terminates the host process when running in compact mode.
+- The client now subscribes only to its own variables instead of all objects, reducing unnecessary load.
+- A missing admin dependency and the role for `info.event` have been added.
+
+## myvbus (10.9.2026) – stable release
+https://github.com/iobroker-community-adapters/ioBroker.myvbus
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.myvbus/master/admin/myvbus.png" width="100" height="100" />
+
+The myVBUS adapter connects ioBroker to RESOL VBus-based devices such as solar thermal controllers and heat pumps. Version 0.7.0 is a maintenance release with dependency updates and minor bug fixes improving overall stability.
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
