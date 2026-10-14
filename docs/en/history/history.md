@@ -1944,6 +1944,12 @@ The OPC UA adapter — which lets ioBroker act as both an OPC UA server and clie
 - The client now subscribes only to its own variables instead of all objects, reducing unnecessary load.
 - A missing admin dependency and the role for `info.event` have been added.
 
+## flow (12.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.flow
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.flow/main/admin/flow.svg" width="100" height="100" />
+
+Animated, freely arrangeable flow diagram for visualising energy, water, gas or heat flows — works both in ioBroker.vis-2 and the ioBroker.devices widget manager.
 ## myvbus (10.9.2026) – stable release
 https://github.com/iobroker-community-adapters/ioBroker.myvbus
 
