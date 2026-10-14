@@ -2221,6 +2221,30 @@ https://github.com/Newan/ioBroker.easee
 The easee adapter connected ioBroker to Easee EV wallbox chargers via the Easee cloud REST API, making charger state, power readings and control commands available as ioBroker states. The adapter is no longer maintained and is no longer functional — it has been removed from the ioBroker stable repository. Users should look for an alternative adapter or community fork.
 
 
+## goodwe (14.9.2026) – new feature
+https://github.com/typhosj/ioBroker.goodwe
+
+<img src="https://raw.githubusercontent.com/typhosj/ioBroker.goodwe/main/admin/goodwe.png" width="100" height="100" />
+
+The GoodWe adapter communicates with GoodWe ET/EH/BH/BT series inverters directly over UDP on the local network, providing live power, battery and grid measurements as ioBroker states. Version 1.2.0 adds battery and EMS settings readout, optional inverter control, and significantly improves connection reliability and communication efficiency:
+
+**Battery and EMS settings**
+- Battery settings (registers 45350–45358) and EMS settings (registers 47509–47512) are now available as `Settings.*` states, polled on every cycle when the new `pollSettings` option is enabled.
+
+**Inverter control**
+- An optional `enableControl` setting makes four EMS states writable: `Settings.EmsMode`, `Settings.EmsPowerLimit`, `Settings.GridExportEnabled` and `Settings.GridExportLimit`. Values are validated and clamped before being sent; only values that differ from what the inverter already holds are written, and the register group is read back after every write.
+
+**Communication reliability**
+- Fixed optional register groups pausing for an hour after a connection loss — they now resume reading immediately after reconnect.
+- Fixed UDP answers padded into larger datagrams being silently discarded; on a live inverter this dropped the running-data retry rate from 1.57 % to 0.46 %.
+- A register the inverter rejects with a Modbus exception is now reported immediately instead of waiting through the full retry timeout.
+
+**Poll cycle and network discovery**
+- `pollCycle` (live data interval) can now be set as low as 2 seconds instead of the previous minimum of 10.
+- Optional register groups now share a single round-robin slot polled roughly every 30 seconds instead of all running at once every cycle — reducing default requests from 54 to 32 per minute.
+- Network discovery now scans at most four subnets, preventing container bridges and VPN adapters from turning a scan into thousands of probes.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
