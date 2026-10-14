@@ -2191,7 +2191,6 @@ The deyeidc adapter reads data from Deye/SolarmanPV solar inverters locally with
 **Device compatibility**
 - The serial number check has been made less restrictive, so inverters whose serial number format differs slightly from the expected pattern are no longer rejected.
 
-
 ## dune-hd-remote (3.10.2026) – new feature
 https://github.com/sadam6752-tech/ioBroker.dune-hd-remote
 
@@ -2201,6 +2200,25 @@ The dune-hd-remote adapter integrates Dune HD media players (such as the TV-175L
 
 **Quick access to the PWA remote control**
 - A direct link to the adapter's built-in PWA (web app) remote control is now shown next to the instance in the ioBroker admin Instances tab, so the remote can be opened with a single click without navigating to it manually.
+## rct (3.10.2026) – new feature
+https://github.com/aruttkamp/ioBroker.rct
+
+<img src="https://raw.githubusercontent.com/aruttkamp/ioBroker.rct/main/admin/rct.png" width="100" height="100" />
+
+The RCT adapter reads live data from RCT Power photovoltaic inverters and battery storage systems directly over the local network. Version 1.2.30 adds battery cell-level monitoring and fills in previously missing data points:
+
+**Battery cell monitoring**
+- Per-cell statistics are now available under `battery.cells_stat[n]` — each cell exposes seven data points: minimum voltage, maximum voltage, minimum temperature, maximum temperature, index, timestamp and value.
+- Cell temperature is additionally written to `battery.cells_[n]`, making it easy to monitor individual cell temperatures without navigating the statistics objects.
+
+**Missing data types**
+- Several data points that were present in the RCT device protocol but not yet exposed as ioBroker states have been added.
+## easee (14.10.2026) – removed from stable repository
+https://github.com/Newan/ioBroker.easee
+
+<img src="https://raw.githubusercontent.com/Newan/ioBroker.easee/master/admin/easee.png" width="100" height="100" />
+
+The easee adapter connected ioBroker to Easee EV wallbox chargers via the Easee cloud REST API, making charger state, power readings and control commands available as ioBroker states. The adapter is no longer maintained and is no longer functional — it has been removed from the ioBroker stable repository. Users should look for an alternative adapter or community fork.
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
