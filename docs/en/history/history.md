@@ -2166,6 +2166,18 @@ The sainlogic adapter reads data from Sainlogic-based personal weather stations 
 - Some states were created without a unit definition, which could cause warnings in the adapter log. The missing unit is now set correctly.
 
 
+## harvia-fenix (2.10.2026) – new feature
+https://github.com/meistermopper/ioBroker.harvia-fenix
+
+<img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/fenix.png" width="100" height="100" />
+
+The harvia-fenix adapter controls Harvia Fenix smart sauna heaters — setting temperature and programs, reading the current state and receiving real-time updates via the Harvia cloud API. Versions 1.1.1 and 1.1.2 fix two stability issues:
+
+**Fixes**
+- The `remoteControl` state was flickering on and off whenever a real-time measurement update arrived — this no longer happens.
+- A potential infinite loop in the authentication retry logic has been fixed, preventing the adapter from becoming unresponsive after a failed login attempt.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
