@@ -2103,6 +2103,29 @@ The HomeMatic ReGaHSS adapter connects the HomeMatic CCU logic layer to ioBroker
 - When hm-rpc deletes a device during a firmware update, the `*_ALARM` objects for service messages are now recreated immediately instead of being written without objects until the next adapter restart.
 
 
+## telegram (12.9.2026) – new feature
+https://github.com/iobroker-community-adapters/ioBroker.telegram
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.telegram/master/admin/telegram.png" width="100" height="100" />
+
+The Telegram adapter lets ioBroker send and receive messages, images, files and commands through the Telegram messaging service. Versions 6.0.0 and 6.0.2 bring working proxy support, an upgraded Telegram client and new live location states:
+
+**Proxy support**
+- The connection to the Telegram servers can now be routed through an HTTP(S) or SOCKS5 proxy via the new "Use proxy" setting in the configuration dialog. The old proxy fields in previous versions had no effect — this replaces them with a working implementation.
+
+**Telegram client upgrade (long polling)**
+- The adapter has been migrated to `node-telegram-bot-api` v2. Updates from Telegram are now received via long polling, which makes the "Polling interval" setting obsolete — it has been removed from the configuration dialog.
+- Errors that occur while processing an incoming update are now logged by the adapter instead of being printed to the console unhandled.
+- When multiple adapter instances are running simultaneously, a 409 conflict from Telegram is now retried quickly rather than triggering a slow full restart.
+
+**Live location states**
+- Three new states have been added for received location messages: `communicate.requestLocationLive` (indicates that a live location is still being shared), `communicate.requestLocationHeading` (the direction of movement) and `communicate.requestLocationAccuracy` (the reported accuracy of the position).
+
+**Fixes**
+- An empty "API URL" field in the configuration no longer breaks every API call with an "EFATAL: Failed to parse URL" error — the default `https://api.telegram.org` is used again.
+- A `text2command` or `assistant` instance stored in the long form (e.g. `system.adapter.text2command.0`, as written by older config UI versions) is now automatically migrated to the short form on startup, so the config dialog shows the correct selected instance again.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
