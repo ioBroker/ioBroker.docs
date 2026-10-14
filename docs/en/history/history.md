@@ -2244,6 +2244,12 @@ The GoodWe adapter communicates with GoodWe ET/EH/BH/BT series inverters directl
 - Optional register groups now share a single round-robin slot polled roughly every 30 seconds instead of all running at once every cycle — reducing default requests from 54 to 32 per minute.
 - Network discovery now scans at most four subnets, preventing container bridges and VPN adapters from turning a scan into thousands of probes.
 
+## millheater (14.10.2026) – new adapter at beta (latest) repository
+https://github.com/webbummler/ioBroker.millheater
+
+<img src="https://raw.githubusercontent.com/webbummler/ioBroker.millheater/main/admin/millheater.png" width="100" height="100" />
+
+The millheater adapter integrates Mill heaters into ioBroker using the local API of the heater.
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
