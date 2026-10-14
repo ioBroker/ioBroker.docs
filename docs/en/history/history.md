@@ -2205,6 +2205,12 @@ The RCT adapter reads live data from RCT Power photovoltaic inverters and batter
 
 **Missing data types**
 - Several data points that were present in the RCT device protocol but not yet exposed as ioBroker states have been added.
+## easee (14.10.2026) – removed from stable repository
+https://github.com/Newan/ioBroker.easee
+
+<img src="https://raw.githubusercontent.com/Newan/ioBroker.easee/master/admin/easee.png" width="100" height="100" />
+
+The easee adapter connected ioBroker to Easee EV wallbox chargers via the Easee cloud REST API, making charger state, power readings and control commands available as ioBroker states. The adapter is no longer maintained and is no longer functional — it has been removed from the ioBroker stable repository. Users should look for an alternative adapter or community fork.
 
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
