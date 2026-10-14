@@ -2154,6 +2154,18 @@ The Hydrawise adapter controls the Hydrawise irrigation system from Hunter Indus
 - The `runDefault` reset command no longer accidentally stops the zone it was meant to resume.
 
 
+## sainlogic (12.9.2026) – new feature
+https://github.com/phifogg/ioBroker.sainlogic
+
+<img src="https://raw.githubusercontent.com/phifogg/ioBroker.sainlogic/master/admin/sainlogic.png" width="100" height="100" />
+
+The sainlogic adapter reads data from Sainlogic-based personal weather stations and makes temperature, humidity, wind, rain and other measurements available as ioBroker states. Versions 1.2.10 and 1.2.11 fix two data-quality issues:
+
+**Fixes**
+- Humidity values from sensors that did not match the expected mapping were not read correctly — this has been corrected.
+- Some states were created without a unit definition, which could cause warnings in the adapter log. The missing unit is now set correctly.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
