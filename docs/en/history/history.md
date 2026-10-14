@@ -2192,6 +2192,17 @@ The deyeidc adapter reads data from Deye/SolarmanPV solar inverters locally with
 - The serial number check has been made less restrictive, so inverters whose serial number format differs slightly from the expected pattern are no longer rejected.
 
 
+## dune-hd-remote (3.10.2026) – new feature
+https://github.com/sadam6752-tech/ioBroker.dune-hd-remote
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.dune-hd-remote/main/admin/dune-hd-remote.png" width="100" height="100" />
+
+The dune-hd-remote adapter integrates Dune HD media players (such as the TV-175L and AV1 4K) into ioBroker, providing remote control over playback, navigation and file system access. Versions 1.2.5 to 1.2.8 include one user-facing improvement:
+
+**Quick access to the PWA remote control**
+- A direct link to the adapter's built-in PWA (web app) remote control is now shown next to the instance in the ioBroker admin Instances tab, so the remote can be opened with a single click without navigating to it manually.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
