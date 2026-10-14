@@ -2178,6 +2178,20 @@ The harvia-fenix adapter controls Harvia Fenix smart sauna heaters — setting t
 - A potential infinite loop in the authentication retry logic has been fixed, preventing the adapter from becoming unresponsive after a failed login attempt.
 
 
+## deyeidc (17.8.2026) – new feature
+https://github.com/raschy/ioBroker.deyeidc
+
+<img src="https://raw.githubusercontent.com/raschy/ioBroker.deyeidc/main/admin/deyeidc.png" width="100" height="100" />
+
+The deyeidc adapter reads data from Deye/SolarmanPV solar inverters locally without any cloud connection, making inverter measurements available as ioBroker states. Versions 0.3.2 to 0.4.0 expand the computed fields feature and fix a device compatibility issue:
+
+**Calculated fields**
+- The compute module now supports expressions with more than one arithmetic operation, allowing more complex calculated values to be derived from raw inverter data — for example combining multiple measurements into a single aggregated state.
+
+**Device compatibility**
+- The serial number check has been made less restrictive, so inverters whose serial number format differs slightly from the expected pattern are no longer rejected.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
