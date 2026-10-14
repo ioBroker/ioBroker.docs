@@ -2192,6 +2192,19 @@ The deyeidc adapter reads data from Deye/SolarmanPV solar inverters locally with
 - The serial number check has been made less restrictive, so inverters whose serial number format differs slightly from the expected pattern are no longer rejected.
 
 
+## rct (3.10.2026) – new feature
+https://github.com/aruttkamp/ioBroker.rct
+
+<img src="https://raw.githubusercontent.com/aruttkamp/ioBroker.rct/main/admin/rct.png" width="100" height="100" />
+
+The RCT adapter reads live data from RCT Power photovoltaic inverters and battery storage systems directly over the local network. Version 1.2.30 adds battery cell-level monitoring and fills in previously missing data points:
+
+**Battery cell monitoring**
+- Per-cell statistics are now available under `battery.cells_stat[n]` — each cell exposes seven data points: minimum voltage, maximum voltage, minimum temperature, maximum temperature, index, timestamp and value.
+- Cell temperature is additionally written to `battery.cells_[n]`, making it easy to monitor individual cell temperatures without navigating the statistics objects.
+
+**Missing data types**
+- Several data points that were present in the RCT device protocol but not yet exposed as ioBroker states have been added.
 ## easee (14.10.2026) – removed from stable repository
 https://github.com/Newan/ioBroker.easee
 
