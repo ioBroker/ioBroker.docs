@@ -2250,6 +2250,26 @@ https://github.com/webbummler/ioBroker.millheater
 <img src="https://raw.githubusercontent.com/webbummler/ioBroker.millheater/main/admin/millheater.png" width="100" height="100" />
 
 The millheater adapter integrates Mill heaters into ioBroker using the local API of the heater.
+## flowers (5.10.2026) – new feature
+https://github.com/sadam6752-tech/ioBroker.flowers
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.flowers/main/admin/flowers.png" width="100" height="100" />
+
+The flowers adapter monitors indoor plants via soil moisture, temperature and battery sensors, and sends Telegram notifications when plants need attention. Versions 0.4.7 and 0.4.8 are maintenance releases that keep the adapter current with the ioBroker tooling environment; no user-facing functionality was changed.
+## meteonomiqs (14.10.2026) – new adapter at stable repository
+https://github.com/Schimi1983/ioBroker.meteonomiqs
+
+<img src="https://raw.githubusercontent.com/Schimi1983/ioBroker.meteonomiqs/main/admin/meteonomiqs.png" width="100" height="100" />
+
+Retrieves weather forecasts from wetter.com via the Meteonomiqs Public Weather API, providing up to 14 days of forecast data including day sections, hourly values, weather warnings, and sun/moon data — all from a single API call per fetch.
+
+## enpal (24.9.2026) – new feature
+https://github.com/inventwo/ioBroker.enpal
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.enpal/main/admin/enpal.svg" width="100" height="100" />
+
+The enpal adapter reads energy data from the local InfluxDB 2.x database of Enpal solar systems and makes it available as individual ioBroker data points — solar yield, consumption, grid feed-in and battery state. Version 0.4.4 is a maintenance release that keeps the adapter current with the ioBroker tooling environment; no user-facing functionality was changed.
+
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
