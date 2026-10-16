@@ -2245,6 +2245,14 @@ The GoodWe adapter communicates with GoodWe ET/EH/BH/BT series inverters directl
 - Network discovery now scans at most four subnets, preventing container bridges and VPN adapters from turning a scan into thousands of probes.
 
 
+## link (16.10.2026) – removed from repositories
+https://github.com/ioBroker/ioBroker.link
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.link/master/admin/link.png" width="100" height="100" />
+
+The link adapter connected ioBroker installations to the ioBroker.link VPN service, enabling secure remote access to the ioBroker admin interface without port forwarding. The adapter is no longer maintained and is no longer functional — it has been removed from the ioBroker repositories. Users should look for an alternative adapter or community fork.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
