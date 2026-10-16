@@ -2319,6 +2319,14 @@ https://github.com/ioBroker/ioBroker.sonus
 The sonus adapter enabled voice control of ioBroker via hotword detection and speech recognition. The adapter is no longer maintained and is no longer functional — it has been removed from the ioBroker latest repository. Users should look for an alternative adapter or community fork.
 
 
+## link (16.10.2026) – removed from repositories
+https://github.com/ioBroker/ioBroker.link
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.link/master/admin/link.png" width="100" height="100" />
+
+The link adapter connected ioBroker installations to the ioBroker.link VPN service, enabling secure remote access to the ioBroker admin interface without port forwarding. The adapter is no longer maintained and is no longer functional — it has been removed from the ioBroker repositories. Users should look for an alternative adapter or community fork.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
