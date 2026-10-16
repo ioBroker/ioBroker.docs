@@ -2245,6 +2245,34 @@ The GoodWe adapter communicates with GoodWe ET/EH/BH/BT series inverters directl
 - Network discovery now scans at most four subnets, preventing container bridges and VPN adapters from turning a scan into thousands of probes.
 
 
+## sunenergyxt500 (28.9.2026) – new feature
+https://github.com/Creekhail/ioBroker.sunenergyxt500
+
+<img src="https://raw.githubusercontent.com/Creekhail/ioBroker.sunenergyxt500/main/admin/sunenergyxt500.png" width="100" height="100" />
+
+The sunenergyxt500 adapter integrates SunEnergyXT 500 and 500 PRO battery storage systems into ioBroker via the device's local HTTP API, providing real-time monitoring and a self-consumption controller. Versions 0.2.10 to 0.3.4 improve communication reliability, extend the controller feature set, and add firmware-workaround protections:
+
+**Communication reliability**
+- Each head now runs its own independent polling cycle, staggered by up to a second, so a slow or unresponsive head no longer delays the others.
+- Consecutive connection failures trigger exponential backoff (doubling up to 60 s), reducing load on a weak wireless link.
+- Per-head HTTP connections now close after every request (keepAlive off), preventing socket exhaustion on devices with limited TCP resources.
+
+**Controller improvements**
+- The inverter output limit (IS) can now optionally be controlled alongside the existing grid setpoint (GS).
+- A configurable counter settling time smooths out lagging or slow-updating meter readings before the controller acts on them.
+- Setpoints written through the adapter are now remembered and re-applied after an adapter restart.
+- Manual state writes are validated against the device's hardware limits before being sent.
+- All 57 Tasmota meter types are now selectable as the grid-power source.
+
+**Firmware workarounds**
+- The adapter detects when a head echoes back a setpoint that differs from what was commanded (seen after short restarts) and resends the correct value automatically.
+- SoC limits, output limits and switch states are now tracked and re-applied when the firmware spontaneously resets them after a restart or at night.
+- An optional adapter-side SoC floor keeps the battery pack above the head's own cut-off floor, preventing a firmware 1.1.5 lock-up where a head refuses to charge after reaching its floor.
+
+**Settings UI**
+- Each admin settings field now shows a short inline help line, with the full explanation on hover and a direct link to the matching README section.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
