@@ -2311,6 +2311,14 @@ The anker-solix adapter integrates Anker Solix solar and battery systems (Solarb
 - The daily energy statistics fetch for SB4 and Power Dock systems could silently get stuck and never recover after an empty cloud response. It now logs a warning when the fetch runs or returns empty and falls back to the `solarbank.*.statistics.*` path when the combiner site has no `combiner_box` object yet.
 
 
+## sonus (16.10.2026) – removed from latest repository
+https://github.com/ioBroker/ioBroker.sonus
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.sonus/master/admin/sonus.png" width="100" height="100" />
+
+The sonus adapter enabled voice control of ioBroker via hotword detection and speech recognition. The adapter is no longer maintained and is no longer functional — it has been removed from the ioBroker latest repository. Users should look for an alternative adapter or community fork.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
