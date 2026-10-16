@@ -2244,14 +2244,18 @@ The GoodWe adapter communicates with GoodWe ET/EH/BH/BT series inverters directl
 - Optional register groups now share a single round-robin slot polled roughly every 30 seconds instead of all running at once every cycle — reducing default requests from 54 to 32 per minute.
 - Network discovery now scans at most four subnets, preventing container bridges and VPN adapters from turning a scan into thousands of probes.
 
+## flowers (5.10.2026) – new feature
+https://github.com/sadam6752-tech/ioBroker.flowers
 
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.flowers/main/admin/flowers.png" width="100" height="100" />
+
+The flowers adapter monitors indoor plants via soil moisture, temperature and battery sensors, and sends Telegram notifications when plants need attention. Versions 0.4.7 and 0.4.8 are maintenance releases that keep the adapter current with the ioBroker tooling environment; no user-facing functionality was changed.
 ## meteonomiqs (14.10.2026) – new adapter at stable repository
 https://github.com/Schimi1983/ioBroker.meteonomiqs
 
 <img src="https://raw.githubusercontent.com/Schimi1983/ioBroker.meteonomiqs/main/admin/meteonomiqs.png" width="100" height="100" />
 
 Retrieves weather forecasts from wetter.com via the Meteonomiqs Public Weather API, providing up to 14 days of forecast data including day sections, hourly values, weather warnings, and sun/moon data — all from a single API call per fetch.
-
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
