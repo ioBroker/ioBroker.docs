@@ -2355,6 +2355,48 @@ The sunenergyxt500 adapter integrates SunEnergyXT 500 and 500 PRO battery storag
 - Each admin settings field now shows a short inline help line, with the full explanation on hover and a direct link to the matching README section.
 
 
+## eusec (5.10.2026) – new feature
+https://github.com/iobroker-community-adapters/ioBroker.eusec
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.eusec/master/admin/eusec.png" width="100" height="100" />
+
+The eusec adapter connects ioBroker to Eufy security cameras, doorbells, floodlights, sensors and HomeBase stations via the Eufy cloud and local P2P connections, providing live video, motion events, two-way audio and device control. Versions 3.0.2 to 3.4.2 bring a major overhaul of the livestream system, new device features and several important fixes:
+
+**Livestream overhaul**
+- On-demand livestreams can now be enabled: a camera starts streaming as soon as its player page or RTSP URL is opened and stops automatically when the last viewer leaves — no need to write `start_stream` manually, and a dashboard shows a picture immediately. While one camera on a station streams, other cameras wait and start as soon as the station is free.
+- A new "Streams" tab in the instance settings lists every streaming device with its player URL and RTSP URL, removing the need to look them up in go2rtc.
+- A new "Livestream quality" setting (low/medium/high) sets the streaming quality before each stream starts, preventing the resolution-switching "Auto" mode that causes green or frozen frames in browsers.
+- The default wait time for the first frame has been raised to 15 seconds (configurable), so battery cameras that take time to wake up no longer time out before the stream begins.
+- The maximum stream duration now counts from the first frame, not from when the start command is sent.
+- Fixed audio and video breaking after 5 seconds (`socket hang up`) — the connection header is now sent with the first data chunk.
+- Without a configured hostname, livestream URLs now use the IPv4 address of the ioBroker host instead of its hostname, fixing playback on phones and tablets that cannot resolve mDNS names.
+- go2rtc is now supervised and restarted automatically if it exits unexpectedly.
+- Fixed on-demand streams showing only a still frame every few seconds and then going black.
+
+**PTZ preset positions**
+- Pan-and-tilt cameras now expose `preset_position` (move to a stored position), `save_preset_position` (store the current position) and `delete_preset_position` states.
+- Floodlight Cam E30 (T8426) now correctly receives PTZ commands and its livestream is no longer rejected.
+
+**Talkback (audio to device)**
+- Devices with a speaker now have a `talkback_play` state: write an HTTP(S) URL or absolute file path to play audio through the device's speaker. A livestream is started for it if none is running and stopped again afterwards.
+
+**Compatibility stream (transcoding)**
+- A new "Devices with a compatibility stream" setting re-encodes a camera's stream to 720p H.264 for old WebViews, kiosk tablets and hardware decoders that cannot handle the camera's native resolution or codec.
+
+**Battery cameras — persistent connection**
+- A new "Battery devices that stay connected" setting keeps the P2P connection open for battery cameras that run on permanent power (mains adapter or solar panel), so commands reach them instantly without waking them first.
+
+**New and fixed devices**
+- eufyCam C31 (T817L) is no longer reported as an unknown device — it now has livestream, motion and person detection, light and alarm states.
+- Event pictures that arrive in an encrypted format the adapter cannot read are now fetched directly from the HomeBase over P2P instead of replacing the last known picture with an error file.
+
+**Cloud login fix**
+- Fixed login failing since the Eufy cloud began returning HTTP 200 for successful authentication requests instead of the previously expected result code 0.
+
+**Breaking change**
+- The tilt-down PTZ button was renamed from the misspelled `titl_down` to `tilt_down`. The existing object is moved automatically on update; scripts and visualizations using the old ID must be updated.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
