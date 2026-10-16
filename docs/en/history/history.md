@@ -2245,6 +2245,14 @@ The GoodWe adapter communicates with GoodWe ET/EH/BH/BT series inverters directl
 - Network discovery now scans at most four subnets, preventing container bridges and VPN adapters from turning a scan into thousands of probes.
 
 
+## sonus (16.10.2026) – removed from latest repository
+https://github.com/ioBroker/ioBroker.sonus
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.sonus/master/admin/sonus.png" width="100" height="100" />
+
+The sonus adapter enabled voice control of ioBroker via hotword detection and speech recognition. The adapter is no longer maintained and is no longer functional — it has been removed from the ioBroker latest repository. Users should look for an alternative adapter or community fork.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
