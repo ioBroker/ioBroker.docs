@@ -2290,6 +2290,27 @@ The gree-hvac adapter controls Gree and C&H air conditioners over the local netw
 - The encryption version negotiated with each device is now saved after the first successful bind and reused on the next start, so devices using the newer AES-GCM protocol no longer log a bind timeout every time the adapter restarts.
 
 
+## anker-solix (25.9.2026) – new feature
+https://github.com/MatthiasUlrich1/ioBroker.anker-solix
+
+<img src="https://raw.githubusercontent.com/MatthiasUlrich1/ioBroker.anker-solix/main/admin/anker-solix.png" width="100" height="100" />
+
+The anker-solix adapter integrates Anker Solix solar and battery systems (Solarbank, Power Dock, SOLIX X1 HES and EV chargers) into ioBroker via the Anker cloud API and optionally via local Modbus. Versions 0.10.91 to 0.10.105 add VIS dashboards, HTML live views, new Modbus device profiles and a daily energy fix for SB4 systems:
+
+**VIS / VIS-2 Energy Home widget**
+- A new **Energy Home** widget displays live power flows between PV, grid (import/export), battery (charge/discharge) and EV charger as animated SVG lines with overlay cards. States are assigned manually in the widget settings and cover combiner, smartmeter, Solarbank and Modbus sources.
+- The widget set is automatically copied to VIS file storage and the VIS-2 catalog is rebuilt when the adapter starts, so no manual upload is required after installation.
+
+**HTML live dashboards**
+- A set of solix4-style HTML dashboards is generated under `dashboard.sites.*.html` states — covering live energy flow, settings, daily kWh, diagnosis, device overview and a multi-site overview. These can be embedded in VIS via the **HTML Dashboard** and **Site Dashboard** widgets also added in this release.
+
+**Modbus (local) — new device profiles**
+- Profiles for the **Anker SOLIX X1 HES** and the **V1 Smart EV Charger** have been added using the official Anker protocol register maps. The X1 uses little-endian 32-bit and string decoding; existing Solarbank and Gen 2 profiles are unchanged.
+
+**Daily kWh statistics fix for SB4 / Power Dock**
+- The daily energy statistics fetch for SB4 and Power Dock systems could silently get stuck and never recover after an empty cloud response. It now logs a warning when the fetch runs or returns empty and falls back to the `solarbank.*.statistics.*` path when the combiner site has no `combiner_box` object yet.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
