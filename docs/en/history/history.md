@@ -2245,6 +2245,25 @@ The GoodWe adapter communicates with GoodWe ET/EH/BH/BT series inverters directl
 - Network discovery now scans at most four subnets, preventing container bridges and VPN adapters from turning a scan into thousands of probes.
 
 
+## gree-hvac (8.10.2026) – new feature
+https://github.com/XHunter74/ioBroker.gree-hvac
+
+<img src="https://raw.githubusercontent.com/XHunter74/ioBroker.gree-hvac/master/admin/air-conditioner.png" width="100" height="100" />
+
+The gree-hvac adapter controls Gree and C&H air conditioners over the local network using the Gree UDP protocol. Versions 4.0.0 to 4.1.1 bring a redesigned admin tab, significantly fewer false "device offline" errors, and a startup fix for devices using the newer encryption protocol:
+
+**Admin tab redesign**
+- The admin tab has been migrated from the legacy jQuery/Materialize UI to React (MUI 6), bringing it in line with the modern ioBroker admin look.
+- The tab is now fully translated into all 11 adapter languages and follows the light/dark theme of the admin UI.
+- Errors reported by the adapter are now shown directly in the tab rather than only in the browser console.
+- The tab now automatically detects the running adapter instance instead of always defaulting to instance 0.
+
+**Connection reliability**
+- Status requests are now retried twice before reporting a failure, and a device is only reported offline after three consecutive failed polls — single lost UDP packets are logged at debug level instead of raising a warning.
+- The default request timeout has been raised from 1000 ms to 2000 ms, reducing false timeouts on slower networks.
+- The encryption version negotiated with each device is now saved after the first successful bind and reused on the next start, so devices using the newer AES-GCM protocol no longer log a bind timeout every time the adapter restarts.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
