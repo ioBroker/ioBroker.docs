@@ -2245,6 +2245,14 @@ The GoodWe adapter communicates with GoodWe ET/EH/BH/BT series inverters directl
 - Network discovery now scans at most four subnets, preventing container bridges and VPN adapters from turning a scan into thousands of probes.
 
 
+## enpal (24.9.2026) – new feature
+https://github.com/inventwo/ioBroker.enpal
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.enpal/main/admin/enpal.svg" width="100" height="100" />
+
+The enpal adapter reads energy data from the local InfluxDB 2.x database of Enpal solar systems and makes it available as individual ioBroker data points — solar yield, consumption, grid feed-in and battery state. Version 0.4.4 is a maintenance release that keeps the adapter current with the ioBroker tooling environment; no user-facing functionality was changed.
+
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
