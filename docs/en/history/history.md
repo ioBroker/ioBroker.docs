@@ -2390,7 +2390,28 @@ The eusec adapter connects ioBroker to Eufy security cameras, doorbells, floodli
 **Breaking change**
 - The tilt-down PTZ button was renamed from the misspelled `titl_down` to `tilt_down`. The existing object is moved automatically on update; scripts and visualizations using the old ID must be updated.
 
+## mqtt-client (17.10.2026) – new feature
+https://github.com/iobroker-community-adapters/ioBroker.mqtt-client
 
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.mqtt-client/master/admin/mqtt-client.svg" width="100" height="100" />
+
+The mqtt-client adapter lets ioBroker publish and subscribe to MQTT brokers, mapping states to topics bidirectionally.
+
+**Automatic topic sanitisation**
+- Auto-derived topic names no longer contain MQTT wildcard characters (`+`, `#`), slashes or whitespace from the state ID — these characters are replaced by `_` automatically. A warning is now logged when two states would derive to the same topic.
+
+**JSON splitting into states**
+- A new "Split JSON into states for topics" option expands JSON objects received on a topic (e.g. from zigbee2mqtt) into a channel with one state per value. Written values are forwarded to `<topic>/set`.
+
+**Connection fixes**
+- MQTT version 3 connections now use the protocol name `MQIsdp` so that strict MQTT 3.1 brokers accept them. Protocol versions are clearly labelled 3.1, 3.1.1 and 5.0 in the settings.
+- Special characters such as `%` or `:` in the username, password or client ID no longer break the broker connection.
+
+**State and retain fixes**
+- Deleting a state that was published with the retain flag now also removes the retained message from the broker.
+- The "changes only" and loop-protection logic no longer skips changed values — they now correctly skip unchanged ones.
+- A subscribed state is updated properly after an adapter restart even when another object in the adapter's namespace shares the same topic; changing a state's topic now unsubscribes the old topic cleanly.
+- Object changes (e.g. `extendObject` calls by another adapter) no longer trigger an extra publish that could overwrite a newer value on the broker.
 ## hue (17.10.2026) – new feature
 https://github.com/iobroker-community-adapters/ioBroker.hue
 
