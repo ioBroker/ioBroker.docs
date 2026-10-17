@@ -2391,6 +2391,15 @@ The eusec adapter connects ioBroker to Eufy security cameras, doorbells, floodli
 - The tilt-down PTZ button was renamed from the misspelled `titl_down` to `tilt_down`. The existing object is moved automatically on update; scripts and visualizations using the old ID must be updated.
 
 
+## hue (17.10.2026) – new feature
+https://github.com/iobroker-community-adapters/ioBroker.hue
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.hue/master/admin/hue.jpeg" width="100" height="100" />
+
+The hue adapter connects ioBroker to Philips Hue bridges, controlling lights, groups, scenes and sensors via the Hue API.
+
+This release is a maintenance update with no user-facing changes.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
