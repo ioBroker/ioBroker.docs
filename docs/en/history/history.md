@@ -2421,6 +2421,16 @@ The hue adapter connects ioBroker to Philips Hue bridges, controlling lights, gr
 
 This release is a maintenance update with no user-facing changes.
 
+## imap (17.10.2026) – new feature
+https://github.com/Lucky-ESA/ioBroker.imap
+
+<img src="https://raw.githubusercontent.com/Lucky-ESA/ioBroker.imap/master/admin/imap.png" width="100" height="100" />
+
+The imap adapter monitors one or more email accounts via IMAP, exposing inbox state, message data and attachments as ioBroker states.
+
+- A meta object for attachments is now created in the object tree, making attachment data accessible as a structured ioBroker object.
+- Fixed a password encryption error that occurred when using JS-Controller ≥ 7.2.4 together with Admin < 8.1.1, which prevented the adapter from connecting to the mail server.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
