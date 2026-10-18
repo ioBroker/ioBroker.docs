@@ -2487,6 +2487,13 @@ https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
 
 The mitsubishi-local-control adapter provides local control of Mitsubishi Electric air conditioners via Wi-Fi without requiring any cloud connection; version 2.0.0 is a maintenance release with no user-facing changes.
 
+## device-reminder (18.10.2026) – removed from stable repository
+https://github.com/Xenon-s/ioBroker.device-reminder
+
+<img src="https://raw.githubusercontent.com/Xenon-s/ioBroker.device-reminder/master/admin/device-reminder.png" width="100" height="100" />
+
+The device-reminder adapter monitored smart plug power consumption to detect when devices switched on, were running, or finished, and sent notifications via Telegram, WhatsApp, Alexa, sayit, pushover and email. The adapter is no longer maintained and is no longer functional — it has been removed from the ioBroker stable repository. Users should look for an alternative adapter or community fork.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
