@@ -2487,6 +2487,21 @@ https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
 
 The mitsubishi-local-control adapter provides local control of Mitsubishi Electric air conditioners via Wi-Fi without requiring any cloud connection; version 2.0.0 is a maintenance release with no user-facing changes.
 
+## google-spreadsheet (28.9.2026) – new feature
+https://github.com/ThomasPohl/ioBroker.google-spreadsheet
+
+<img src="https://raw.githubusercontent.com/ThomasPohl/ioBroker.google-spreadsheet/main/admin/google-spreadsheet.png" width="100" height="100" />
+
+The google-spreadsheet adapter enables interaction with Google Sheets from ioBroker; version 1.1.0 adds new commands for reading and writing cell ranges, cell formatting, and chart management.
+
+**New spreadsheet commands**
+- New `getLastRow` command retrieves the index of the last non-empty row in a sheet — useful for appending data without hard-coding row numbers.
+- New range commands: `readRange` reads a block of cells, `writeRange` writes values to a block of cells, and `clearRange` removes all content from a specified range.
+
+**Cell formatting and charts**
+- New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
+- New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
