@@ -2487,6 +2487,20 @@ https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
 
 The mitsubishi-local-control adapter provides local control of Mitsubishi Electric air conditioners via Wi-Fi without requiring any cloud connection; version 2.0.0 is a maintenance release with no user-facing changes.
 
+## semp (11.10.2026) – new feature
+https://github.com/rg-engineering/ioBroker.semp
+
+<img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.semp/master/admin/semp.png" width="100" height="100" />
+
+The semp adapter connects ioBroker to the SMA SunnyHomeManager via the SEMP protocol, allowing smart energy management of household devices; version 2.1.0 adds SEMP protocol verification and improved input validation.
+
+**Protocol and validation**
+- SEMP protocol message verification has been added — incoming messages are now checked against the protocol specification, improving reliability and error detection.
+- Additional validation checks for DeviceId and other fields help catch configuration errors early.
+
+**Bug fixes**
+- Fixed incorrect usage of type and name when creating objects (v2.1.3).
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
