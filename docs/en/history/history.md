@@ -2438,6 +2438,13 @@ https://github.com/Voodoo2man/ioBroker.webuntis2
 
 The webuntis2 adapter integrates WebUntis school timetable data into ioBroker, providing automatic school discovery along with timetables and other school-related information as ioBroker states.
 
+## wiim (18.10.2026) – new adapter at beta (latest) repository
+https://github.com/KaiIOB/ioBroker.wiim
+
+<img src="https://raw.githubusercontent.com/KaiIOB/ioBroker.wiim/main/admin/wiim.png" width="100" height="100" />
+
+The wiim adapter integrates WiiM and Arylic audio streaming devices into ioBroker via their local LinkPlay API, exposing playback control, device status, and multiroom management as ioBroker states.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
