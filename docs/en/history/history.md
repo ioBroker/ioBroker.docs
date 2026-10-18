@@ -2431,6 +2431,15 @@ The imap adapter monitors one or more email accounts via IMAP, exposing inbox st
 - A meta object for attachments is now created in the object tree, making attachment data accessible as a structured ioBroker object.
 - Fixed a password encryption error that occurred when using JS-Controller ≥ 7.2.4 together with Admin < 8.1.1, which prevented the adapter from connecting to the mail server.
 
+## mytime (18.10.2026) – new feature
+https://github.com/oweitman/ioBroker.mytime
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.mytime/main/admin/mytime.png" width="100" height="100" />
+
+The mytime adapter manages countdowns and time series in ioBroker, providing datapoints for scripting and a set of vis widgets (flip clock, nixie clock, word clock, plain and circle countdown displays).
+
+This release is a maintenance update. Improvements include fixes to the jsonConfig settings dialog, a more reliable getServerTime timer in the widget, and better handling of race conditions with states.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
