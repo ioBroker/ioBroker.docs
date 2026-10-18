@@ -2487,6 +2487,13 @@ https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
 
 The mitsubishi-local-control adapter provides local control of Mitsubishi Electric air conditioners via Wi-Fi without requiring any cloud connection; version 2.0.0 is a maintenance release with no user-facing changes.
 
+## amtronwallbox (12.9.2026) – maintenance
+https://github.com/rg-engineering/ioBroker.amtronwallbox
+
+<img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.amtronwallbox/master/admin/amtronwallbox.png" width="100" height="100" />
+
+The amtronwallbox adapter reads statistics and controls configuration on AMTRON wallboxes from Mennekes; version 1.0.2 is a maintenance release with no user-facing changes.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
