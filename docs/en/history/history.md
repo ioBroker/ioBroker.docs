@@ -2445,6 +2445,13 @@ https://github.com/KaiIOB/ioBroker.wiim
 
 The wiim adapter integrates WiiM and Arylic audio streaming devices into ioBroker via their local LinkPlay API, exposing playback control, device status, and multiroom management as ioBroker states.
 
+## mitsubishi-local-control (2.10.2026) – maintenance
+https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
+
+<img src="https://raw.githubusercontent.com/Black-Thunder/ioBroker.mitsubishi-local-control/main/admin/mitsubishi-local-control.png" width="100" height="100" />
+
+The mitsubishi-local-control adapter provides local control of Mitsubishi Electric air conditioners via Wi-Fi without requiring any cloud connection; version 2.0.0 is a maintenance release with no user-facing changes.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
