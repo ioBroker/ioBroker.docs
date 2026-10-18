@@ -2431,6 +2431,12 @@ The imap adapter monitors one or more email accounts via IMAP, exposing inbox st
 - A meta object for attachments is now created in the object tree, making attachment data accessible as a structured ioBroker object.
 - Fixed a password encryption error that occurred when using JS-Controller ≥ 7.2.4 together with Admin < 8.1.1, which prevented the adapter from connecting to the mail server.
 
+## vis-2-widgets-sweethome3d (18.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.vis-2-widgets-sweethome3d
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.vis-2-widgets-sweethome3d/main/admin/vis-2-widgets-sweethome3d.png" width="100" height="100" />
+
+The vis-2-widgets-sweethome3d adapter provides a vis-2 widget that renders a Sweet Home 3D floor plan and lets users control ioBroker states by interacting with rooms and objects directly on the 3D model.
 ## mytime (18.10.2026) – new feature
 https://github.com/oweitman/ioBroker.mytime
 
