@@ -2438,6 +2438,13 @@ https://github.com/Voodoo2man/ioBroker.webuntis2
 
 The webuntis2 adapter integrates WebUntis school timetable data into ioBroker, providing automatic school discovery along with timetables and other school-related information as ioBroker states.
 
+## f1 (13.9.2026) – maintenance
+https://github.com/bloop16/ioBroker.f1
+
+<img src="https://raw.githubusercontent.com/bloop16/ioBroker.f1/main/admin/f1.png" width="100" height="100" />
+
+The f1 adapter provides unofficial Formula 1 live data — race calendar, standings, session results and live timing — via the Jolpica and F1 Live Timing APIs; versions 0.1.12 and 0.1.13 are maintenance releases with no user-facing changes.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
