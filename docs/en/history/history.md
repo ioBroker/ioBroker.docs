@@ -2487,6 +2487,13 @@ https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
 
 The mitsubishi-local-control adapter provides local control of Mitsubishi Electric air conditioners via Wi-Fi without requiring any cloud connection; version 2.0.0 is a maintenance release with no user-facing changes.
 
+## time-tracker (18.10.2026) – new adapter at beta (latest) repository
+https://github.com/sadam6752-tech/ioBroker.time-tracker
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.time-tracker/main/admin/time-tracker.png" width="100" height="100" />
+
+The time-tracker adapter provides clock-in/clock-out time tracking for ioBroker, including a web app, badge terminal support, and reporting.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
