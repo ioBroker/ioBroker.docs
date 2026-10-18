@@ -2431,6 +2431,13 @@ The imap adapter monitors one or more email accounts via IMAP, exposing inbox st
 - A meta object for attachments is now created in the object tree, making attachment data accessible as a structured ioBroker object.
 - Fixed a password encryption error that occurred when using JS-Controller ≥ 7.2.4 together with Admin < 8.1.1, which prevented the adapter from connecting to the mail server.
 
+## webuntis2 (18.10.2026) – new adapter at beta (latest) repository
+https://github.com/Voodoo2man/ioBroker.webuntis2
+
+<img src="https://raw.githubusercontent.com/Voodoo2man/ioBroker.webuntis2/main/admin/webuntis2.png" width="100" height="100" />
+
+The webuntis2 adapter integrates WebUntis school timetable data into ioBroker, providing automatic school discovery along with timetables and other school-related information as ioBroker states.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
