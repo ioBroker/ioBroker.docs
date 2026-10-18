@@ -2487,6 +2487,21 @@ https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
 
 The mitsubishi-local-control adapter provides local control of Mitsubishi Electric air conditioners via Wi-Fi without requiring any cloud connection; version 2.0.0 is a maintenance release with no user-facing changes.
 
+## heatingcontrol (12.9.2026) – new feature
+https://github.com/rg-engineering/ioBroker.heatingcontrol
+
+<img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.heatingcontrol/master/admin/heatingcontrol.png" width="100" height="100" />
+
+The heatingcontrol adapter controls heating systems by managing thermostat setpoint temperatures according to configurable schedules; versions 3.2.0 and 3.3.1 add new configuration options and a redesigned settings page.
+
+**New options**
+- The heating period can now be configured via a datapoint — the same way it can be set in the admin UI — giving scripts and automations direct control over it.
+- A new `TemperatureIfNoHeatingPeriod` parameter is available in the Pittini Script profile.
+- A new descaling trip function has been added to protect pumps from seizing during extended idle periods.
+
+**Settings page**
+- The adapter settings have been redesigned for improved usability.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
