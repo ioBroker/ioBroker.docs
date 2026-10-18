@@ -2431,6 +2431,27 @@ The imap adapter monitors one or more email accounts via IMAP, exposing inbox st
 - A meta object for attachments is now created in the object tree, making attachment data accessible as a structured ioBroker object.
 - Fixed a password encryption error that occurred when using JS-Controller ≥ 7.2.4 together with Admin < 8.1.1, which prevented the adapter from connecting to the mail server.
 
+## unifi (24.9.2026) – new feature
+https://github.com/iobroker-community-adapters/ioBroker.unifi
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.unifi/master/admin/unifi.png" width="100" height="100" />
+
+The UniFi adapter communicates with a UniFi Controller to integrate network devices and clients into ioBroker; version 1.0.2 is a major update bringing a redesigned settings page, significant reliability improvements, and several bug fixes.
+
+**Settings page**
+- The adapter settings have been migrated to JSON config — the configuration UI now matches the modern ioBroker admin style.
+
+**Reliability improvements**
+- Controller sessions are now reused across polling cycles, reducing unnecessary logins.
+- The polling loop now continues running after transient errors — a single failed request no longer stops the adapter.
+- A failing endpoint or site no longer aborts the refresh of all other endpoints and sites.
+- Polling no longer stops when a manual `trigger_update` overlaps with a scheduled refresh.
+
+**New diagnostic states**
+- New states have been added under the `info` object to expose connection diagnostics directly in the object tree.
+
+**Bug fixes**
+- Fixed voucher creation — settings were passed in the wrong order since the node-unifi 2 library update, causing vouchers to be created with incorrect parameters.
 ## vis-2-widgets-sweethome3d (18.10.2026) – new adapter at stable repository
 https://github.com/ioBroker/ioBroker.vis-2-widgets-sweethome3d
 
