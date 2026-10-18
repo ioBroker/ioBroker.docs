@@ -2452,6 +2452,40 @@ The UniFi adapter communicates with a UniFi Controller to integrate network devi
 
 **Bug fixes**
 - Fixed voucher creation — settings were passed in the wrong order since the node-unifi 2 library update, causing vouchers to be created with incorrect parameters.
+## vis-2-widgets-sweethome3d (18.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.vis-2-widgets-sweethome3d
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.vis-2-widgets-sweethome3d/main/admin/vis-2-widgets-sweethome3d.png" width="100" height="100" />
+
+The vis-2-widgets-sweethome3d adapter provides a vis-2 widget that renders a Sweet Home 3D floor plan and lets users control ioBroker states by interacting with rooms and objects directly on the 3D model.
+## mytime (18.10.2026) – new feature
+https://github.com/oweitman/ioBroker.mytime
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.mytime/main/admin/mytime.png" width="100" height="100" />
+
+The mytime adapter manages countdowns and time series in ioBroker, providing datapoints for scripting and a set of vis widgets (flip clock, nixie clock, word clock, plain and circle countdown displays).
+
+This release is a maintenance update. Improvements include fixes to the jsonConfig settings dialog, a more reliable getServerTime timer in the widget, and better handling of race conditions with states.
+## webuntis2 (18.10.2026) – new adapter at beta (latest) repository
+https://github.com/Voodoo2man/ioBroker.webuntis2
+
+<img src="https://raw.githubusercontent.com/Voodoo2man/ioBroker.webuntis2/main/admin/webuntis2.png" width="100" height="100" />
+
+The webuntis2 adapter integrates WebUntis school timetable data into ioBroker, providing automatic school discovery along with timetables and other school-related information as ioBroker states.
+
+## wiim (18.10.2026) – new adapter at beta (latest) repository
+https://github.com/KaiIOB/ioBroker.wiim
+
+<img src="https://raw.githubusercontent.com/KaiIOB/ioBroker.wiim/main/admin/wiim.png" width="100" height="100" />
+
+The wiim adapter integrates WiiM and Arylic audio streaming devices into ioBroker via their local LinkPlay API, exposing playback control, device status, and multiroom management as ioBroker states.
+
+## mitsubishi-local-control (2.10.2026) – maintenance
+https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
+
+<img src="https://raw.githubusercontent.com/Black-Thunder/ioBroker.mitsubishi-local-control/main/admin/mitsubishi-local-control.png" width="100" height="100" />
+
+The mitsubishi-local-control adapter provides local control of Mitsubishi Electric air conditioners via Wi-Fi without requiring any cloud connection; version 2.0.0 is a maintenance release with no user-facing changes.
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
