@@ -2487,6 +2487,36 @@ https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
 
 The mitsubishi-local-control adapter provides local control of Mitsubishi Electric air conditioners via Wi-Fi without requiring any cloud connection; version 2.0.0 is a maintenance release with no user-facing changes.
 
+## wireless-mbus (26.9.2026) – new feature
+https://github.com/lvogt/ioBroker.wireless-mbus
+
+<img src="https://raw.githubusercontent.com/lvogt/ioBroker.wireless-mbus/master/admin/wireless-mbus.png" width="100" height="100" />
+
+The wireless-mbus adapter receives data from Wireless Meter-Bus (wM-Bus) devices such as gas and electricity meters; versions 0.12.0 through 0.14.0 bring a redesigned admin UI, a new telegram parser, major reliability improvements, and several new device management features.
+
+**Admin UI**
+- The settings page has been migrated to JSON config — a serial port can now be typed in directly, and the separate "custom port" field has been removed.
+- A new "Telegram variants" tab in the admin UI shows how many different data layouts each meter has been seen sending.
+- Manufacturer-specific data records of a meter can now be described in the admin UI, and the decoded values appear as dedicated ioBroker states.
+
+**Data handling — important change**
+- Measured values are now stored as numbers instead of pre-formatted strings. **If you use a history adapter, it will start a new data series for these states after the update.**
+- Data states are now linked to the specific data record they were created for — a value from a different record at the same position in a telegram is skipped rather than overwritten.
+- The name, unit and role of a data state now follow the decoded telegram automatically unless you have changed them manually. A new option "Overwrite name, unit and role of the data states" resets them all back to the decoded values.
+- Telegram variants can be ignored per device, so that values from layouts nobody needs are not written to ioBroker.
+- Compact telegrams are now always supported — the separate "Cache for compact frames support" option has been removed.
+
+**Device compatibility**
+- Fixed Techem and Diehl (PRIOS) meters that were decoded incorrectly in 0.12.0 — the states written for them carry wrong values and can be deleted.
+- The new wireless-mbus-parser library adds decoding of manufacturer-specific data blobs, including support for Itron smoke detectors.
+
+**Reliability and connectivity**
+- The adapter now reconnects to the receiver automatically instead of staying idle or stopping when the connection fails.
+- Fixed receivers getting stuck after disturbed reception — a damaged telegram no longer prevents the following ones from being processed.
+- Fixed the CUL receiver losing the first byte of a command after the serial line had been idle.
+- Fixed telegrams getting lost when several meters transmit at the same time.
+- Fixed the adapter stopping instead of blocking a device whose telegrams keep failing to decode.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
