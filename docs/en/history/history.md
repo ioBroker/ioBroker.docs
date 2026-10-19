@@ -2547,6 +2547,13 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## assistant-satellite (19.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.assistant-satellite
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.assistant-satellite/main/admin/assistant-satellite.svg" width="100" height="100" />
+
+Turns the host it runs on into a voice satellite for ioBroker.assistant — detecting the wake word, streaming the microphone audio to the assistant's voice server and playing back the spoken reply via the local speaker.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
