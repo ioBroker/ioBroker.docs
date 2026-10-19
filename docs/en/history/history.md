@@ -2547,6 +2547,13 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## n8n (19.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.n8n
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.n8n/main/admin/n8n.svg" width="100" height="100" />
+
+Embeds the n8n workflow automation engine inside ioBroker, allowing n8n workflows to be edited and executed directly — with access to ioBroker states, objects and files as trigger and action nodes — and opens the n8n editor as a tab inside the ioBroker admin interface.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
