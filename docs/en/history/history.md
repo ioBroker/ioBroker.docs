@@ -2487,6 +2487,12 @@ https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
 
 The mitsubishi-local-control adapter provides local control of Mitsubishi Electric air conditioners via Wi-Fi without requiring any cloud connection; version 2.0.0 is a maintenance release with no user-facing changes.
 
+## zeekr (18.10.2026) – new adapter at beta (latest) repository
+https://github.com/solderer-de/ioBroker.zeekr
+
+<img src="https://raw.githubusercontent.com/solderer-de/ioBroker.zeekr/main/admin/zeekr.png" width="100" height="100" />
+
+The zeekr adapter integrates Zeekr electric vehicles into ioBroker, exposing vehicle status, charging information, and remote control functions as ioBroker datapoints.
 ## time-tracker (18.10.2026) – new adapter at beta (latest) repository
 https://github.com/sadam6752-tech/ioBroker.time-tracker
 
