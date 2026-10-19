@@ -2493,6 +2493,34 @@ https://github.com/Xenon-s/ioBroker.device-reminder
 <img src="https://raw.githubusercontent.com/Xenon-s/ioBroker.device-reminder/master/admin/device-reminder.png" width="100" height="100" />
 
 The device-reminder adapter monitored smart plug power consumption to detect when devices switched on, were running, or finished, and sent notifications via Telegram, WhatsApp, Alexa, sayit, pushover and email. The adapter is no longer maintained and is no longer functional — it has been removed from the ioBroker stable repository. Users should look for an alternative adapter or community fork.
+## heatingcontrol (12.9.2026) – new feature
+https://github.com/rg-engineering/ioBroker.heatingcontrol
+
+<img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.heatingcontrol/master/admin/heatingcontrol.png" width="100" height="100" />
+
+The heatingcontrol adapter controls heating systems by managing thermostat setpoint temperatures according to configurable schedules; versions 3.2.0 and 3.3.1 add new configuration options and a redesigned settings page.
+
+**New options**
+- The heating period can now be configured via a datapoint — the same way it can be set in the admin UI — giving scripts and automations direct control over it.
+- A new `TemperatureIfNoHeatingPeriod` parameter is available in the Pittini Script profile.
+- A new descaling trip function has been added to protect pumps from seizing during extended idle periods.
+
+**Settings page**
+- The adapter settings have been redesigned for improved usability.
+## google-spreadsheet (28.9.2026) – new feature
+https://github.com/ThomasPohl/ioBroker.google-spreadsheet
+
+<img src="https://raw.githubusercontent.com/ThomasPohl/ioBroker.google-spreadsheet/main/admin/google-spreadsheet.png" width="100" height="100" />
+
+The google-spreadsheet adapter enables interaction with Google Sheets from ioBroker; version 1.1.0 adds new commands for reading and writing cell ranges, cell formatting, and chart management.
+
+**New spreadsheet commands**
+- New `getLastRow` command retrieves the index of the last non-empty row in a sheet — useful for appending data without hard-coding row numbers.
+- New range commands: `readRange` reads a block of cells, `writeRange` writes values to a block of cells, and `clearRange` removes all content from a specified range.
+
+**Cell formatting and charts**
+- New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
+- New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
