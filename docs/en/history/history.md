@@ -2547,6 +2547,13 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## teltonika (19.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.teltonika
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.teltonika/main/admin/teltonika.svg" width="100" height="100" />
+
+Reads data from Teltonika routers (RUT/RUTX/TRB series) via MQTT and from Teltonika managed switches and other devices via SNMP, exposing temperature, signal strength, mobile operator, connection type, WAN IP, uptime and more as ioBroker states.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
