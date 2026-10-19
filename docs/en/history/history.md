@@ -2547,6 +2547,13 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## metermaster (7.10.2026) – new stable release
+https://github.com/MPunktBPunkt/ioBroker.metermaster
+
+<img src="https://raw.githubusercontent.com/MPunktBPunkt/ioBroker.metermaster/main/admin/metermaster.svg" width="100" height="100" />
+
+The metermaster adapter bridges the MeterMaster Android app with ioBroker, storing electricity, gas, water and heat meter readings as ioBroker states with correct timestamps; versions 0.9.10 to 0.9.12 are maintenance releases with no user-facing changes.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
