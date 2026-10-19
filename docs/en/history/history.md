@@ -2547,6 +2547,13 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## consumption (19.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.consumption
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.consumption/master/admin/consumption.png" width="100" height="100" />
+
+Calculates and visualises energy, water, heating, gas and other resource consumption from counter sensors over time, comparing monthly and yearly values with plans and prior years using charts, heat maps and tables — requires an SQL adapter (ioBroker.sql with MySQL, PostgreSQL or SQLite).
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
