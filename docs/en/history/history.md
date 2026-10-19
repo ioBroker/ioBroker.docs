@@ -2547,6 +2547,13 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## docker-manager (19.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.docker-manager
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.docker-manager/main/admin/docker-manager.svg" width="100" height="100" />
+
+Provides a graphical interface inside the ioBroker admin to create, start, stop, configure, update, and delete Docker containers and images directly — without needing command-line tools.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
