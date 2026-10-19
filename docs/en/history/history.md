@@ -2547,6 +2547,25 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## cul (13.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.cul
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.cul/master/admin/busware.jpg" width="100" height="100" />
+
+The CUL adapter connects ioBroker to FS20, MAX!, HMS and other 433 MHz devices via a CUL/CUNO USB stick; versions 2.2.0 to 3.0.3 bring a major rebuild, improved serial port handling and breaking datapoint renames.
+
+**Important: breaking changes in v3.0.0**
+- Several datapoint names were renamed to align with ioBroker conventions: `battery` is now `batteryLow` / `batteryState`, `window` / `isopen` is now `open`, `valveposition` is now `valvePosition`. The old states are no longer written and can be deleted.
+- Node.js 22, js-controller 6.0.11 and admin 7.0.0 or newer are now required.
+- The `cul` library was updated to version 1.0.0 (serialport 13) — **no build tools are required during installation any more**.
+
+**Serial port improvements**
+- The serial port can now be entered manually, so stable symlinks such as `/dev/serial/by-id/...` can be used and the connection survives OS reboots that reassign `/dev/ttyUSBx`.
+- `/dev/serial/by-id` symlinks are now shown directly in the port dropdown on Linux — no longer hidden behind an experimental option.
+
+**Other improvements and fixes**
+- Fixed swapped "Mode" and "Type" labels in the configuration dialog.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
