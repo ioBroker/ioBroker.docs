@@ -2547,6 +2547,16 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## ical (3.10.2026) – new stable release
+https://github.com/iobroker-community-adapters/ioBroker.ical
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.ical/master/admin/ical.png" width="100" height="100" />
+
+The iCal adapter reads iCalendar (.ics) calendar files and exposes events and appointments as ioBroker states; versions 1.21.0 to 1.21.2 bring a fix for past-event retention and internal library updates.
+
+**Calendar event handling**
+- Timed events (events with a specific start time, not all-day events) are now retained for the number of days configured in the "past days" (`daysPast`) setting — previously only all-day events were kept for that period.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
