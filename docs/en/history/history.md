@@ -2547,6 +2547,33 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## sayit (13.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.sayit
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.sayit/master/admin/sayit.png" width="100" height="100" />
+
+The sayit adapter converts text to speech using various TTS engines and plays the audio on configured output devices; versions 5.1.0 to 5.3.2 add a new TTS provider, rework the engine selection UI and fix several queuing and caching issues.
+
+**New TTS engine**
+- freetts.org is now available as a TTS provider with more than 400 voices — an API key is required.
+- The engine is now selected in two steps: first choose the provider, then pick the voice.
+
+**Configuration improvements**
+- A "Test text generation" button has been added to the Engine tab so the selected engine can be tested with custom text directly from the configuration.
+- Test generations no longer overwrite cached audio files.
+- Passwords and API keys are now protected from reading by non-admin users.
+
+**Bug fixes**
+- Fixed upload of announcement MP3 files and the cache directory location.
+- Fixed splitting of long texts when using the Google TTS engine.
+- Fixed detection of Sonos devices in the configuration dialog.
+- Cached files are now correctly deleted when the TTS engine is changed.
+- The processing queue no longer blocks permanently if a task produces an error.
+- Texts containing semicolons are no longer misinterpreted as `language;volume;text` commands.
+
+**Updated requirements**
+- Node.js 22 and js-controller 6.0.11 or newer are now required.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
