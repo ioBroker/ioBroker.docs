@@ -2547,6 +2547,43 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## modbus (13.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.modbus
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.modbus/master/admin/modbus.png" width="100" height="100" />
+
+The Modbus adapter connects ioBroker to Modbus RTU, TCP and UDP devices as master or slave; versions 8.0.3 to 9.2.1 add Modbus/UDP, proxy mode, 64-bit register types, slave read notifications, major stability fixes and significant register-table UI improvements.
+
+**New connection options**
+- Modbus/UDP master support added — select "UDP (Master)" as the connection type.
+- Proxy mode: a TCP master can now simultaneously serve its polled data as a Modbus TCP slave (enable in the Connection tab).
+- Serial devices can now be selected by their stable USB ID (vendor/product/serial number) instead of the port name — the connection keeps working even if the OS reassigns the device to a different `/dev/ttyUSB*` after a reboot.
+
+**Register types**
+- 64-bit integer register types added: `int64be`/`int64le` and their "as string" variants (`uint64`/`int64` be/le) for exact values beyond 2⁵³.
+- Sign-extended `int8be`/`int8le` register types added so a foreign master reading such a register as int16 gets the correct signed value.
+
+**Slave mode: read notifications**
+- Per-namespace read notifications (coils, discrete inputs, input registers, holding registers) can be enabled in the instance settings. A counter state under `readNotify.<register id>` increments each time an external master reads the register.
+
+**Register table UI improvements**
+- Export/import now supports CSV (`;`-separated), JSON and TSV formats, and data can be saved to / loaded from a file — enabling mass-editing in Excel or a text editor.
+- Tables with many data points are now much faster: rows are virtualized (only visible rows are rendered), and a "freeze order" toolbar button prevents rows from jumping while you type.
+- When "Multi device IDs" is enabled, tables can be shown grouped by device ID with collapsible sections ("Group by device ID" toolbar button).
+- Per-device timeout and wait time can be configured individually when "Multi device IDs" is active.
+
+**"Max address gap to combine" setting**
+- Controls how large an address gap may be bridged when combining registers into one read request. Set to 0 to read only contiguous configured registers — useful for devices that reject reads of non-existent registers.
+
+**Stability and bug fixes**
+- Fixed stale and overlapping polling cycles after a reconnect — two independent polling cycles could run in parallel after a connection loss, causing unpredictable reads.
+- Fixed TCP/SSL master not recovering after a communication loss — the socket is now fully recreated on every reconnect.
+- Fixed "offset out of range" errors when a device returns fewer registers than requested — the partial result is stored and a single warning is logged instead of repeated errors.
+- Fixed cyclic values written even when not polled, and in immediate-write mode.
+
+**Updated requirements**
+- Node.js 22 or newer is now required.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
