@@ -2547,6 +2547,37 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## mqtt (13.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.mqtt
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.mqtt/master/admin/mqtt.png" width="100" height="100" />
+
+The MQTT adapter acts as an MQTT broker (server) and/or client for ioBroker; versions 6.1.4 to 8.1.2 add full MQTT 5.0 support, several new payload and topic options, and two breaking changes.
+
+**MQTT 5.0 support (v8.0.0)**
+- Server mode now supports MQTT 5.0 alongside 3.1.1 — both client types can share one instance. Supported features include reason codes, topic aliases, subscription options ("No Local", "Retain As Published", "Retain Handling"), subscription identifiers, message expiry, will delay, shared subscriptions and session expiry interval.
+- Client mode: the MQTT version (3.1 / 3.1.1 / 5.0) can now be selected; the adapter falls back to 3.1.1 if the broker refuses the chosen version.
+- Server mode: MQTT 5 enhanced authentication with SCRAM-SHA-256 is now available — the password is never sent over the connection and no extra configuration is needed. MQTT 3.1.1 clients are unaffected.
+
+**New topic and payload options**
+- Binary topics: raw binary payloads (e.g. Valetudo maps, camera images) can now be stored as files instead of being corrupted as UTF-8 strings.
+- "Replace dots in topic names with underscore" keeps MQTT topics that contain dots (e.g. from Wolf heating via ism7mqtt) as a single object level instead of splitting them.
+- "Interpretation of the received payload": choose between full JSON unpacking (previous default), numbers and booleans only, or completely unparsed raw string.
+- Optional "Parse comma-separated numbers as character codes" setting (off by default) prevents garbled values from devices such as NUKI locks.
+
+**Client mode improvements**
+- Loop protection: a value just received from the broker is no longer published straight back.
+- New "Do not subscribe to own states" option.
+
+**Bug fixes**
+- Fixed: "Publish only on change" not working correctly.
+- Fixed: Blockly block produced no code in newer Blockly editors (Blockly 10+).
+- Fixed: a rejected login could lose its CONNACK, so the client saw a closed connection instead of the reason.
+
+**Breaking changes**
+- Binary states have been removed — use the new "Binary topics" file storage instead.
+- Node.js 22 or newer is now required.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
