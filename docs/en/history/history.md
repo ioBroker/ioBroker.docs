@@ -2547,6 +2547,20 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## text2command (14.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.text2command
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.text2command/master/admin/text2command.png" width="100" height="100" />
+
+The text2command adapter converts natural-language text into ioBroker commands by matching phrases against configurable rules; versions 4.0.0 to 5.0.1 bring updated minimum requirements, a React 19 GUI rebuild, and Ukrainian translations.
+
+**Updated requirements**
+- Node.js 22 or newer and admin 7.6.20 or newer are now required.
+
+**Other improvements**
+- Admin GUI migrated to React 19.
+- Ukrainian language translations added.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
