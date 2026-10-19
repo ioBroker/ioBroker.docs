@@ -2487,6 +2487,19 @@ https://github.com/Black-Thunder/ioBroker.mitsubishi-local-control
 
 The mitsubishi-local-control adapter provides local control of Mitsubishi Electric air conditioners via Wi-Fi without requiring any cloud connection; version 2.0.0 is a maintenance release with no user-facing changes.
 
+## daswetter (11.10.2026) – new feature
+https://github.com/rg-engineering/ioBroker.daswetter
+
+<img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.daswetter/master/admin/daswettercom.png" width="100" height="100" />
+
+The daswetter adapter reads weather forecast data from DasWetter.com; version 4.6.0 adds support for the new DasWetter API v2.
+
+**New DasWetter API v2**
+- The adapter now supports the new DasWetter.com API v2 — users must obtain a new API v2 key from DasWetter.com to continue receiving forecasts.
+- **Important:** The API key is now stored encrypted. After updating, you may need to re-enter your API key in the adapter settings.
+
+**Bug fixes**
+- Fixed an incorrect data type for the `LastDownloadTime` data point (v4.6.1).
 ## zeekr (18.10.2026) – new adapter at beta (latest) repository
 https://github.com/solderer-de/ioBroker.zeekr
 
