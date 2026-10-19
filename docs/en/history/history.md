@@ -2547,6 +2547,25 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## openweathermap (13.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.openweathermap
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.openweathermap/master/admin/openweathermap.png" width="100" height="100" />
+
+The openweathermap adapter fetches current weather and forecasts from the OpenWeatherMap API; versions 1.4.0 to 2.0.2 add new data points, improve the configuration UI and fix rain/snow values.
+
+**New data points**
+- `feels_like` temperature, visibility and the day name (long and short form as text) are now available.
+- **Note:** daily rain and snow values are now reported as totals instead of averages — automations or scripts that read these states may need to be adjusted.
+- Fixed incorrect NaN values for rain and snow states.
+
+**Configuration improvements**
+- The weather widget is now shown as a live preview directly in the adapter's configuration page in admin.
+- The API key is now stored encrypted in the configuration.
+
+**Updated requirements**
+- Node.js 22 and js-controller 6.0.11 or newer are now required. Admin 7.6.20+ is also required.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
