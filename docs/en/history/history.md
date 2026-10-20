@@ -2638,6 +2638,20 @@ The iCal adapter reads iCalendar (.ics) calendar files and exposes events and ap
 **Calendar event handling**
 - Timed events (events with a specific start time, not all-day events) are now retained for the number of days configured in the "past days" (`daysPast`) setting — previously only all-day events were kept for that period.
 
+## s7 (13.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.s7
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.s7/master/admin/s7.png" width="100" height="100" />
+
+The S7 adapter connects ioBroker to Siemens S7 PLCs via TCP/IP using the Snap7 library; versions 1.5.0 to 3.0.3 bring a complete internal rebuild and updated minimum requirements.
+
+**Important: updated minimum requirements**
+- **js-controller 6.0.11 or newer** and **admin 7.6.17 or newer** are now required (raised in v3.0.3; js-controller 5+ was the initial requirement introduced in v3.0.0).
+- Node.js 26 is not supported due to a limitation of the underlying snap7 native library — use Node.js 22 or 24.
+
+**Internal rebuild**
+- The adapter has been fully migrated to TypeScript and the admin GUI rebuilt with Vite — no functional changes for users, but the codebase is now aligned with current ioBroker development standards.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
