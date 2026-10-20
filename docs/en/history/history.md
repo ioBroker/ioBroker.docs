@@ -3146,6 +3146,13 @@ The sonos adapter integrates Sonos speakers with ioBroker; versions 3.0.0 to 4.2
 **Resource conflict detection**
 - The TCP port for SONOS events is reported to js-controller 8 as a used resource.
 
+## assistant (19.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.assistant
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.assistant/main/admin/assistant.svg" width="100" height="100" />
+
+The assistant adapter brings an LLM-based natural-language assistant to ioBroker — powered by OpenAI or Anthropic (Claude) with tool-calling over the native adapter API, it can read and control any ioBroker state using plain text questions.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
