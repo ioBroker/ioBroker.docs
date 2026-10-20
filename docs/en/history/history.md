@@ -3037,6 +3037,37 @@ The history adapter stores ioBroker state values as JSON files and provides aggr
 **Updated requirements**
 - Node.js 22, js-controller 6.0.11 and admin 7.6.20 or newer are now required.
 
+## influxdb (19.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.influxdb
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.influxdb/master/admin/influxdb.png" width="100" height="100" />
+
+The influxdb adapter saves ioBroker state history into InfluxDB 1.x and 2.x databases; versions 4.0.2 to 5.1.6 bring a full TypeScript rewrite, a data browser, aggregation bug fixes, and a working Statistics tab for InfluxDB 2.0.
+
+**TypeScript rewrite and InfluxDB 1.x fixes**
+- The adapter was completely rewritten in TypeScript and ES6 (v5.0.1).
+- Fixed the connection handling for InfluxDB 1.x: the health check (ping) and the automatic reconnect were never started before.
+- Fixed loss of buffered values if writing ran while new values arrived, or if a write failed; values are no longer written twice.
+- State IDs and database names are now escaped in queries; the password/token is no longer written into the log by the connection test.
+- Request timeout and SSL validation settings now apply to InfluxDB 1.x as well.
+- Node.js 22 and admin 7.7.2 or newer are now required.
+
+**Data browser**
+- A data browser has been added to the configuration page — stored values for any logged datapoint can be viewed, edited and deleted directly from admin.
+
+**Aggregation bug fixes**
+- Fixed average and total returning `null` for every interval containing a single `null` value.
+- Fixed `min` returning a wrong value when an interval contains a `null`, `minmax` losing the minimum when an interval starts with a `null`, and `percentile`/`quantile` incorrectly counting a `null` as `0`.
+- Shared aggregation logic with `@iobroker/aggregate`, now consistent across influxdb, history and SQL adapters.
+
+**Improved error handling**
+- Connection errors are logged with full detail (error code, cause, driver error name); a switched-off or unreachable InfluxDB no longer floods the log.
+- After a connection error, points are buffered and a reconnect is scheduled instead of retrying every single point.
+- `storeState` now answers with an error if a value cannot be stored instead of reporting success and silently discarding it.
+
+**Statistics tab**
+- The Statistics tab now works correctly with InfluxDB 2.0.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
