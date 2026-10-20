@@ -3014,6 +3014,29 @@ https://github.com/MPunktBPunkt/ioBroker.metermaster
 
 The metermaster adapter bridges the MeterMaster Android app with ioBroker, storing electricity, gas, water and heat meter readings as ioBroker states with correct timestamps; versions 0.9.10 to 0.9.12 are maintenance releases with no user-facing changes.
 
+## history (13.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.history
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.history/master/admin/history.png" width="100" height="100" />
+
+The history adapter stores ioBroker state values as JSON files and provides aggregated queries; versions 4.0.0 to 5.1.1 add a data browser, a statistics tab, and fix several aggregation calculation errors.
+
+**Data browser**
+- A data browser has been added to the configuration page — stored values for any logged datapoint can be viewed, edited and deleted directly from admin without external tools.
+- The browser now shows a clear message when a value to edit or delete was not found, and save errors are no longer silently hidden.
+
+**Statistics tab**
+- A new "Statistics" tab shows the number of values, disk space used, number of files and the status of every logged datapoint.
+- A cleanup function removes stored data for datapoints that are no longer being logged.
+
+**Aggregation bug fixes**
+- Fixed average and total returning `null` for every interval that contained a single `null` value — `parseFloat(null)` produced `NaN` which poisoned the entire interval sum, and `ignoreNull` could not act on it because the result was `NaN` rather than `null`.
+- Fixed `min` returning a wrong value when an interval contains a `null`, `minmax` losing the minimum when an interval starts with a `null`, and `percentile`/`quantile` incorrectly counting a `null` as `0`.
+- Fixed `storeState` calls for datapoints without history settings adding an extra spurious `null` value when the object changes.
+
+**Updated requirements**
+- Node.js 22, js-controller 6.0.11 and admin 7.6.20 or newer are now required.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
