@@ -3170,6 +3170,13 @@ The pv-notifications adapter sends Telegram notifications for PV battery status 
 - 48 unit tests added.
 - Node.js 26 added to the CI test matrix; deployment switched to npm Trusted Publishing (OIDC).
 
+## tileboard (20.10.2026) – removed from latest repository
+https://github.com/ioBroker/ioBroker.tileboard
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.tileboard/master/admin/tileboard.png" width="100" height="100" />
+
+The tileboard adapter provided a web visualization for ioBroker based on TileBoard for Home Assistant. The adapter is no longer maintained and is no longer functional — it has been removed from the ioBroker latest repository. Users should look for an alternative adapter or community fork.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
