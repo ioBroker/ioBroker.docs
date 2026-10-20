@@ -2732,6 +2732,13 @@ https://github.com/ioBroker/ioBroker.wattcycle
 
 Reads WattCycle / XDZN BLE batteries via Bluetooth, exposing per-battery states for SoC, voltage, current, power, capacity, cycles, temperatures and individual cell voltages, with a device manager, a vis-2 widget and a devices-app tile.
 
+## teltonika (19.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.teltonika
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.teltonika/main/admin/teltonika.svg" width="100" height="100" />
+
+Reads data from Teltonika routers (RUT/RUTX/TRB series) via MQTT and from Teltonika managed switches and other devices via SNMP, exposing temperature, signal strength, mobile operator, connection type, WAN IP, uptime and more as ioBroker states.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
