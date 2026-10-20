@@ -3068,6 +3068,23 @@ The influxdb adapter saves ioBroker state history into InfluxDB 1.x and 2.x data
 **Statistics tab**
 - The Statistics tab now works correctly with InfluxDB 2.0.
 
+## serial-gps (19.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.serial-gps
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.serial-gps/master/admin/serial-gps.svg" width="100" height="100" />
+
+The serial-gps adapter reads GPS data from a serial or USB GPS receiver and makes it available in ioBroker; versions 0.0.4 to 1.0.2 add device selection by name and resource conflict detection.
+
+**Device selection**
+- GPS devices can now be selected by name instead of just by port path, making configuration more robust when port assignments change after a reboot.
+
+**Resource conflict detection**
+- The adapter reports the serial port it has opened to js-controller 8, which maintains a per-host registry of occupied resources. A second instance configured for the same GPS receiver is visible as a conflict, and the log names the other instance before the port is opened.
+
+**Other changes**
+- Corrected the roles of several states.
+- Admin 7.6.20 or newer is now required.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
