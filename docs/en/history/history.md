@@ -2591,6 +2591,36 @@ The semp adapter connects ioBroker to the SMA SunnyHomeManager via the SEMP prot
 **Bug fixes**
 - Fixed incorrect usage of type and name when creating objects (v2.1.3).
 
+## mihome-vacuum (8.9.2026) – new feature
+https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.mihome-vacuum/master/admin/mihome-vacuum.png" width="100" height="100" />
+
+The mihome-vacuum adapter controls Xiaomi, Viomi, and Dreame robot vacuum cleaners from ioBroker; version 6.1.0 brings a fully reworked VIS 2 widget with many new controls, major improvements to the VIS 1 widget, and several bug fixes.
+
+**VIS 2 widget — major rework**
+- The widget has been completely reworked: it follows the VIS 2 theme with an optional accent colour, adapts its layout to its own width, and automatically fills all state attributes from the selected adapter instance.
+- New controls added: water level, mop mode, carpet mode, dock station status and actions, map selection and reload, and a schedule section with do-not-disturb settings, next timer display, and timer switches.
+- Each control only appears when the robot's firmware actually provides the matching state.
+- Room detection is now automatic, and suction levels and status texts are taken directly from the adapter states.
+- Reset actions are now confirmed in a dialog to prevent accidental activation.
+- The instance selector also recognises state names of Viomi and Dreame robots.
+
+**VIS 1 widget — improvements**
+- The VIS 1 widget now includes cleaning settings, dock station status, map selection, do-not-disturb, and next-timer sections previously only available in VIS 2.
+- The widget now respects its configured size instead of forcing 1280×800, and the map image label is now correct.
+- SVG icons replace the previous Unicode symbols, and state and error texts are translated in all supported languages.
+- History length is now configurable per widget.
+
+**Translations**
+- Spanish, French, Italian, Dutch, Polish, Portuguese, Russian, Ukrainian, and Chinese translations for the Admin configuration and both widgets have been completed — they previously fell back to English.
+
+**Bug fixes**
+- Restored the "Add Alexa/IoT states" option that was accidentally removed, preventing `control.pauseResume` from being deleted on every adapter start.
+- Fixed `getCleaningSummary` — it was sending a consumable reset command instead of requesting the cleaning summary.
+- Room fan, water, and mop settings are now applied before a room cleaning starts, fixing a race condition where the start command could overtake the settings.
+- Map update requests now return a clear error when neither the Xiaomi Cloud map nor Valetudo is enabled, instead of leaving the request pending indefinitely.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
