@@ -2621,6 +2621,13 @@ The mihome-vacuum adapter controls Xiaomi, Viomi, and Dreame robot vacuum cleane
 - Room fan, water, and mop settings are now applied before a room cleaning starts, fixing a race condition where the start command could overtake the settings.
 - Map update requests now return a clear error when neither the Xiaomi Cloud map nor Valetudo is enabled, instead of leaving the request pending indefinitely.
 
+## tractive-next (19.10.2026) – new adapter at stable repository
+https://github.com/Fraese73/ioBroker.tractive-next
+
+<img src="https://raw.githubusercontent.com/Fraese73/ioBroker.tractive-next/main/admin/tractive-next.png" width="100" height="100" />
+
+Connects ioBroker to Tractive GPS pet trackers via the unofficial Tractive cloud API, providing tracker position, health, activity, geofence states, and optional live-tracking, LED, and buzzer controls with automatic state discovery.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
