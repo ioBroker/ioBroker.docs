@@ -2795,6 +2795,23 @@ The text2command adapter converts natural-language text into ioBroker commands b
 - Admin GUI migrated to React 19.
 - Ukrainian language translations added.
 
+## socketio (13.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.socketio
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.socketio/master/admin/socketio.png" width="100" height="100" />
+
+The socketio adapter provides a Socket.IO server for ioBroker clients such as vis, custom scripts and third-party applications; versions 7.1.3 to 9.0.1 bring two stability fixes and updated minimum requirements.
+
+**Bug fixes**
+- Fixed a crash on startup ("socketClass is not a constructor") that occurred after package restructuring.
+- In compact mode, an error in the adapter no longer exits the entire host process.
+
+**Updated requirements**
+- Node.js 22 or newer and admin 7.6.20 or newer are now required.
+
+**Other improvements**
+- Ukrainian language translations added.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
