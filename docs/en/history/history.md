@@ -2862,6 +2862,26 @@ The MQTT adapter acts as an MQTT broker (server) and/or client for ioBroker; ver
 - Binary states have been removed — use the new "Binary topics" file storage instead.
 - Node.js 22 or newer is now required.
 
+## hass (13.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.hass
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.hass/master/admin/hass.png" width="100" height="100" />
+
+The hass adapter connects ioBroker to a Home Assistant instance and synchronises entities as ioBroker states; versions 1.4.0 to 2.1.2 add entity filtering, debounced state reads, supervisor improvements and better object preservation.
+
+**Entity filtering**
+- An optional entity exclude filter with glob pattern support can now be configured in the admin UI — unwanted HASS entities are no longer imported.
+- A verbose-logging toggle helps inspect which entities are matched or excluded during development.
+
+**Supervisor improvements**
+- When connecting directly to a Home Assistant supervisor (e.g. from within a HASS add-on), the adapter now uses the `/core/` endpoint instead of `/api/`.
+- The `SUPERVISOR_TOKEN` environment variable is used as a fallback for the password, so no manual token entry is needed in a supervised setup.
+
+**Other improvements and fixes**
+- Debouncing added when reading states from HASS — reduces unnecessary state updates on fast changes.
+- Custom settings of ioBroker objects (roles, aliases, etc.) are now preserved when the adapter updates them with new data from HASS.
+- Proper ioBroker roles assigned to state objects.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
