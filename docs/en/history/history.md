@@ -2628,6 +2628,16 @@ https://github.com/Fraese73/ioBroker.tractive-next
 
 Connects ioBroker to Tractive GPS pet trackers via the unofficial Tractive cloud API, providing tracker position, health, activity, geofence states, and optional live-tracking, LED, and buzzer controls with automatic state discovery.
 
+## ical (3.10.2026) – new stable release
+https://github.com/iobroker-community-adapters/ioBroker.ical
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.ical/master/admin/ical.png" width="100" height="100" />
+
+The iCal adapter reads iCalendar (.ics) calendar files and exposes events and appointments as ioBroker states; versions 1.21.0 to 1.21.2 bring a fix for past-event retention and internal library updates.
+
+**Calendar event handling**
+- Timed events (events with a specific start time, not all-day events) are now retained for the number of days configured in the "past days" (`daysPast`) setting — previously only all-day events were kept for that period.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
