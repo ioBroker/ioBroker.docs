@@ -2547,6 +2547,23 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
 
+## pv-notifications (20.10.2026) – new stable release
+https://github.com/sadam6752-tech/ioBroker.pv-notifications
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.pv-notifications/master/admin/pv-notifications.png" width="100" height="100" />
+
+The pv-notifications adapter sends Telegram notifications for PV battery status (full, empty, intermediate levels); versions 1.2.31 to 1.2.33 are maintenance releases with bug fixes for counter persistence, threshold detection and Telegram message delivery.
+
+**Bug fixes**
+- Fixed daily, weekly and monthly counter restore after adapter restart — the `lastStatsReset` state was never written, so counters were lost on every restart.
+- Fixed full/empty threshold and intermediate-step detection: thresholds are now triggered when reached or crossed, with one message for a jump over several steps and hysteresis to prevent oscillation.
+- Fixed Telegram messages being sent to all bot users instead of the configured user (wrong `user` vs `users` parameter).
+- Fixed Telegram message formatting: HTML parse mode with properly escaped values replaces literal asterisks.
+
+**Other changes**
+- 48 unit tests added.
+- Node.js 26 added to the CI test matrix; deployment switched to npm Trusted Publishing (OIDC).
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
