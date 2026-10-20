@@ -2718,6 +2718,13 @@ https://github.com/ioBroker/ioBroker.docker-manager
 
 Provides a graphical interface inside the ioBroker admin to create, start, stop, configure, update, and delete Docker containers and images directly — without needing command-line tools.
 
+## witmotion (19.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.witmotion
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.witmotion/main/admin/witmotion.png" width="100" height="100" />
+
+Reads acceleration, gyroscope, magnetometer and angle data from WitMotion IMU sensors (e.g. WT901blecl 5.0 Bluetooth 9-axis sensor) connected via USB and writes the values to ioBroker datapoints.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
