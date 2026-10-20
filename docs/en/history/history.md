@@ -3085,6 +3085,38 @@ The serial-gps adapter reads GPS data from a serial or USB GPS receiver and make
 - Corrected the roles of several states.
 - Admin 7.6.20 or newer is now required.
 
+## sonoff (19.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.sonoff
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.sonoff/master/admin/sonoff.png" width="100" height="100" />
+
+The sonoff adapter connects ioBroker to Tasmota and compatible devices via a built-in or external MQTT broker; versions 3.3.0 to 5.1.1 add a Device Manager, bridge mode for external brokers, improved state roles, firmware update support and resource conflict detection.
+
+**Bridge mode**
+- A new bridge mode connects to an external MQTT broker instead of running the built-in broker, with support for nested full topics, OpenBeken topics, and the `%topic%/%prefix%/` structure.
+- Bridge mode supports encrypted connections with CA/client certificates, configurable client ID, keepalive and clean session.
+- In bridge mode the `alive` state is set from the LWT topic so devices are recognized as offline.
+
+**Device Manager**
+- A Device Manager was added for managing existing Tasmota devices directly from the adapter configuration page.
+- Firmware updates of Tasmota devices: the latest release is read from GitHub once a day; devices with outdated firmware show an update indicator and can be updated in one click.
+- Search for Tasmota devices in the network and connect them with ioBroker automatically (enables MQTT and sets server, port, user and password).
+- Connection state and Wi-Fi signal are updated live; the signal is shown in dBm.
+
+**State roles and data points**
+- Breaking change in v5.0.0: roles of objects were revised — diagnostic values are no longer detected as dimmer/blind/window, `POWER` of RGB lights uses `switch.power` migrated to `switch`, and `Scheme` is the light effect. Existing roles changed by the user are kept.
+- `Switch1`–`Switch28` (device inputs) are now read-only sensors.
+- MAC address and network/firmware information (`INFO.Mac`, `INFO.Gateway`, `INFO.Hardware`, ...) are stored as data points; the adapter requests `Status 5` and `Status 2` on first connect so INFO states are filled without a device reboot.
+- OpenBeken LED datapoints and PulseTime1–PulseTime16 datapoints added.
+
+**Resource conflict detection**
+- The MQTT server port is reported to js-controller 8 as a used resource; admin shows which ports are occupied and the log names any conflicting instance.
+
+**Other changes**
+- Fixed data point names inside groups (e.g. `SML_Total_in` was incorrectly shortened to `SML_in` since v3.3.0).
+- Fixed Device Manager showing no devices when a data point exists twice, and writing to nested data points with object tree enabled.
+- Node.js 22 and js-controller 6.0.11 are now required; admin 7.6.20+ is required.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
