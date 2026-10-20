@@ -2725,6 +2725,13 @@ https://github.com/ioBroker/ioBroker.witmotion
 
 Reads acceleration, gyroscope, magnetometer and angle data from WitMotion IMU sensors (e.g. WT901blecl 5.0 Bluetooth 9-axis sensor) connected via USB and writes the values to ioBroker datapoints.
 
+## wattcycle (19.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.wattcycle
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.wattcycle/main/admin/wattcycle.png" width="100" height="100" />
+
+Reads WattCycle / XDZN BLE batteries via Bluetooth, exposing per-battery states for SoC, voltage, current, power, capacity, cycles, temperatures and individual cell voltages, with a device manager, a vis-2 widget and a devices-app tile.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
