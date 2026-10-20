@@ -2774,6 +2774,13 @@ https://github.com/ioBroker/ioBroker.consumption
 
 Calculates and visualises energy, water, heating, gas and other resource consumption from counter sensors over time, comparing monthly and yearly values with plans and prior years using charts, heat maps and tables — requires an SQL adapter (ioBroker.sql with MySQL, PostgreSQL or SQLite).
 
+## assistant-satellite (19.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.assistant-satellite
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.assistant-satellite/main/admin/assistant-satellite.svg" width="100" height="100" />
+
+Turns the host it runs on into a voice satellite for ioBroker.assistant — detecting the wake word, streaming the microphone audio to the assistant's voice server and playing back the spoken reply via the local speaker.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
