@@ -3007,6 +3007,13 @@ The ping adapter monitors network device availability by sending ICMP pings; ver
 - The adapter now detects when the host cannot send ICMP at all and reports this clearly, instead of marking every device as offline.
 - An optional TCP check has been added as a fallback so devices can still be monitored on such hosts.
 
+## metermaster (7.10.2026) – new stable release
+https://github.com/MPunktBPunkt/ioBroker.metermaster
+
+<img src="https://raw.githubusercontent.com/MPunktBPunkt/ioBroker.metermaster/main/admin/metermaster.svg" width="100" height="100" />
+
+The metermaster adapter bridges the MeterMaster Android app with ioBroker, storing electricity, gas, water and heat meter readings as ioBroker states with correct timestamps; versions 0.9.10 to 0.9.12 are maintenance releases with no user-facing changes.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
