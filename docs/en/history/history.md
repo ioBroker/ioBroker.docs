@@ -2938,6 +2938,21 @@ The CUL adapter connects ioBroker to FS20, MAX!, HMS and other 433 MHz devices v
 **Other improvements and fixes**
 - Fixed swapped "Mode" and "Type" labels in the configuration dialog.
 
+## wireless-settings (13.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.wireless-settings
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.wireless-settings/master/admin/wireless-settings.png" width="100" height="100" />
+
+The wireless-settings adapter manages Wi-Fi and Ethernet network settings on Raspberry Pi and Linux systems via NetworkManager/nmcli; versions 1.0.2 to 1.2.3 add Ethernet configuration, DHCP/static switching, and Docker detection.
+
+**Ethernet and IPv4 configuration**
+- Ethernet interface settings (IP address, subnet mask, gateway, DNS) are now editable directly from the admin UI.
+- Switching between DHCP and static IPv4 configuration is now supported for both Wi-Fi and Ethernet connections, with full subnet, gateway and DNS handling.
+
+**Other improvements**
+- Docker environments are now detected automatically.
+- Updated requirements: Node.js 22, js-controller 6.0.11 and admin 7.6.20 or newer are now required. The adapter runs on Linux only.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
