@@ -2652,6 +2652,19 @@ The S7 adapter connects ioBroker to Siemens S7 PLCs via TCP/IP using the Snap7 l
 **Internal rebuild**
 - The adapter has been fully migrated to TypeScript and the admin GUI rebuilt with Vite — no functional changes for users, but the codebase is now aligned with current ioBroker development standards.
 
+## cloud (16.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.cloud
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.cloud/master/admin/cloud.png" width="100" height="100" />
+
+The cloud adapter connects ioBroker to the ioBroker cloud service for Alexa integration and remote access via ioBroker.pro; versions 6.2.8 to 6.2.11 bring several bug fixes.
+
+**Bug fixes**
+- The `alive` and `onScreen` states of app devices are now corrected to the proper boolean type if an older adapter version had created them as strings — values written to these states are no longer unexpectedly refused.
+- Loading of materialized configurations on ioBroker.pro has been corrected.
+- Missing translations added, including Ukrainian words for the Blockly block.
+- Responsive layout of the settings dialog has been corrected.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
