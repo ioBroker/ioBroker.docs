@@ -2980,6 +2980,19 @@ The sayit adapter converts text to speech using various TTS engines and plays th
 **Updated requirements**
 - Node.js 22 and js-controller 6.0.11 or newer are now required.
 
+## rest-api (13.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.rest-api
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.rest-api/master/admin/rest-api.png" width="100" height="100" />
+
+The REST API adapter exposes ioBroker states, objects and history as an HTTP REST API; versions 4.0.1 to 4.0.3 add a content-type option for sendTo queries and update the minimum requirements.
+
+**Improvements**
+- The HTTP response content type can now be defined when using `sendTo` queries — useful for returning custom formats (e.g. plain text, CSV) directly from the API.
+
+**Updated requirements**
+- Node.js 22 or newer is now required.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
