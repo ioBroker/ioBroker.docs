@@ -2993,6 +2993,20 @@ The REST API adapter exposes ioBroker states, objects and history as an HTTP RES
 **Updated requirements**
 - Node.js 22 or newer is now required.
 
+## ping (13.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.ping
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.ping/master/admin/ping.png" width="100" height="100" />
+
+The ping adapter monitors network device availability by sending ICMP pings; versions 3.0.1 to 3.1.4 add a TCP check fallback for restricted hosts and replace the external Wake-on-LAN tool with a built-in implementation.
+
+**Wake-on-LAN improvement**
+- The external `hping3` tool is no longer needed to wake sleeping devices — the adapter now uses a native UDP burst, so nothing has to be installed and it works on all platforms.
+
+**ICMP-restricted host support (e.g. LXC containers)**
+- The adapter now detects when the host cannot send ICMP at all and reports this clearly, instead of marking every device as offline.
+- An optional TCP check has been added as a fallback so devices can still be monitored on such hosts.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
