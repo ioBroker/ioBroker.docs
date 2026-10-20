@@ -3117,6 +3117,35 @@ The sonoff adapter connects ioBroker to Tasmota and compatible devices via a bui
 - Fixed Device Manager showing no devices when a data point exists twice, and writing to nested data points with object tree enabled.
 - Node.js 22 and js-controller 6.0.11 are now required; admin 7.6.20+ is required.
 
+## sonos (19.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.sonos
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.sonos/master/admin/sonos.png" width="100" height="100" />
+
+The sonos adapter integrates Sonos speakers with ioBroker; versions 3.0.0 to 4.2.11 bring a TypeScript rewrite, vis-2 widgets, source selection, a web control page, TTS improvements and resource conflict detection.
+
+**TypeScript rewrite and stability**
+- The adapter was migrated to TypeScript and restructured around a backend interface that both supported client libraries (`sonos-discovery` and the new experimental `@svrooij/sonos`) share.
+- Missing states of already existing devices are created at start.
+- TTS fixes: announcements no longer play at volume 0, the player state before TTS is restored correctly, muted players are unmuted for the announcement and re-muted afterwards, and an empty value in the `tts` state stops the running announcement.
+- TTS files are stored in the file system instead of binary states.
+- Added treble and bass information states.
+
+**vis-2 widgets**
+- A full `Sonos Control` widget for vis-2 was added, together with a `Sonos room` widget covering rooms, groups, favorites, playlists, queue, recent tracks and sources.
+- A SONOS player widget for ioBroker.devices shows a media-player tile; clicking it opens a full player with shuffle, repeat, seek, volume and source selection.
+- TV HDMI is offered as a source only on speakers with an HDMI/optical input.
+
+**Source selection and web control**
+- Source selection (favorites, playlists, queue, recently played, sources) is available in all widgets and the Control tab.
+- A control page is served by the web adapter at `/sonos/` with a tile on the admin overview.
+- `queue_array` added — the play queue as JSON (the older `queue` state joined tracks with commas and cannot be split back reliably).
+- `playlist_list` / `playlist_list_array` and per-room `recent_tracks` added.
+- A "Control" tab in the instance settings lets you play and group speakers directly in admin.
+
+**Resource conflict detection**
+- The TCP port for SONOS events is reported to js-controller 8 as a used resource.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
