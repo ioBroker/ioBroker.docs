@@ -2665,6 +2665,52 @@ The cloud adapter connects ioBroker to the ioBroker cloud service for Alexa inte
 - Missing translations added, including Ukrainian words for the Blockly block.
 - Responsive layout of the settings dialog has been corrected.
 
+## admin (12.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.admin
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.admin/master/admin/admin.png" width="100" height="100" />
+
+The ioBroker admin adapter provides the central web-based management interface for ioBroker; versions 8.0.15 to 8.2.0 bring log file search, AI assistant improvements, significant startup performance gains, and many interface refinements.
+
+**Log search**
+- The Log tab now searches through log files of the selected host — including rotated and compressed (`.gz`) archives — by message text, log level and time range (up to 30 days). New entries continue to arrive live, multi-line entries such as stack traces are kept together, and the results can be exported as a text file.
+
+**AI assistant**
+- Security fix: the AI assistant no longer trusts endpoint addresses, permissions or confirmations that arrive inside the request — tools are now always run with the rights of the user who asked.
+- AI answers and log searches that take longer than 30 seconds are pushed to the browser instead of ending in an empty answer or a timeout.
+- A "Maximum answer length" setting has been added for the Anthropic provider.
+- Fixed loading of AI models and MCP server info.
+
+**Startup performance**
+- Admin no longer reads the full object database at startup to count objects for the start page tile — on a large installation this was 32 MB and blocked the process for seconds, causing false "Detected slow connection!" warnings on fast local networks. The start page now transfers around 2.4 MB.
+- The admin GUI no longer gets stuck on its logo if initial settings requests are slow; the interface is shown in any case with an error message and the reconnect option.
+
+**Object browser**
+- Objects belonging to an adapter can now only be deleted in expert mode — user-created objects (`0_userdata.*` and `alias.*`) are unaffected.
+- "Edit name" (Alt+9) has been added to the object context menu and works without expert mode — the other languages of a translated name are preserved.
+- Ctrl+Enter now confirms all object browser dialogs (write value, edit object, custom settings, rename/copy, import). Confirming buttons show the shortcut as a tooltip.
+- Objects whose ID contains a "/" character can now be opened from the object tree without the URL being cut off.
+
+**Remote access via ioBroker Cloud / Pro**
+- Admin now detects that it is opened through the ioBroker Cloud or Pro remote access service and rewrites links accordingly — quick access, the instance list and the left menu no longer point into the local network. Instances the service does not publish are shown dimmed with a note that they are local only.
+- Fixed: ioBroker.pro cloud can now open instance settings.
+
+**HTTP/2 and MCP endpoint**
+- Admin with HTTPS enabled now speaks HTTP/2 — the browser loads the page and all its assets over a single connection. A new "Use HTTP/2" option in instance settings allows it to be turned off.
+- Fixed: the built-in MCP endpoint (`/mcp`) was returning a 404 page; MCP clients can now connect.
+
+**Menu and navigation**
+- A quick filter appears in the menu from 11 entries on — it filters by translated and English tab name, Enter opens the first match, Escape closes the filter.
+- Config manager instances can be pinned to the menu directly from the device list toolbar, without the adapter needing its own admin tab.
+- Newly installed adapter tabs are now placed in correct order according to `common.adminTab.order`.
+
+**Other improvements and fixes**
+- Credentials "Used by" column now also lists scripts that read a credential via `SECRETS.<ID>`.
+- Concurrent admin windows no longer overwrite each other's saved GUI settings.
+- The start page host info dialog shows a disk-space bar, platform icons, wall-clock time of the host and human-readable labels instead of raw numbers.
+- Update dialog global dependency display fixed — hosts that still run an older version are listed individually instead of showing a confusing crossed-out version number.
+- Instances whose adapter is no longer installed on their host are now marked clearly instead of appearing as a plain stopped instance.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
