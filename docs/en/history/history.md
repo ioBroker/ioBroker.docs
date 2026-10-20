@@ -2739,6 +2739,13 @@ https://github.com/ioBroker/ioBroker.teltonika
 
 Reads data from Teltonika routers (RUT/RUTX/TRB series) via MQTT and from Teltonika managed switches and other devices via SNMP, exposing temperature, signal strength, mobile operator, connection type, WAN IP, uptime and more as ioBroker states.
 
+## rfxcom (19.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.rfxcom
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.rfxcom/master/admin/rfxcom.png" width="100" height="100" />
+
+Communicates with the RFXcom USB transceiver to receive data from wireless weather sensors and power switches, and to control Somfy, Curtain and Lighting3 devices over 433 MHz RF.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
