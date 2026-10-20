@@ -2760,6 +2760,13 @@ https://github.com/ioBroker/ioBroker.n8n
 
 Embeds the n8n workflow automation engine inside ioBroker, allowing n8n workflows to be edited and executed directly — with access to ioBroker states, objects and files as trigger and action nodes — and opens the n8n editor as a tab inside the ioBroker admin interface.
 
+## corrently (19.10.2026) – new adapter at stable repository
+https://github.com/ioBroker/ioBroker.corrently
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.corrently/master/admin/corrently.png" width="100" height="100" />
+
+Reads the Corrently green energy index for a configured German postal code and provides the current green status, price, and a 36-hour forecast table so automations can prefer renewable energy periods.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
