@@ -3177,6 +3177,23 @@ https://github.com/ioBroker/ioBroker.tileboard
 
 The tileboard adapter provided a web visualization for ioBroker based on TileBoard for Home Assistant. The adapter is no longer maintained and is no longer functional — it has been removed from the ioBroker latest repository. Users should look for an alternative adapter or community fork.
 
+## stiebel-isg (21.10.2026) – new stable release
+https://github.com/iobroker-community-adapters/ioBroker.stiebel-isg
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.stiebel-isg/master/admin/stiebel-isg.png" width="100" height="100" />
+
+The stiebel-isg adapter reads values from STIEBEL ELTRON/Tecalor Internet Service Gateways (ISG) and can send control commands; versions 2.0.3 to 2.2.0 fix sporadic connection errors and add a configurable HTTP fetch backend.
+
+**Configurable fetch backend**
+- A new configuration option lets users choose between native fetch and undici fetch for ISG communication — undici can resolve sporadic "fetch failed … Check ISG connection!" errors that appeared with certain Node.js versions.
+
+**Bug fixes**
+- Fixed sporadic "fetch failed … Check ISG connection!" errors.
+- Fixed startup logic and misleading error messages on connection failures.
+
+**Updated requirements**
+- Node.js 22.19.0 and undici 8.10.2 or newer, as well as admin 7.7.22, are now required.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
