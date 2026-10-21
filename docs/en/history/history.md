@@ -3212,6 +3212,13 @@ https://github.com/beabel/ioBroker.googlefindmydevice
 
 The googlefindmydevice adapter reads the locations of Google Find Hub / Find My Device trackers and makes them available in ioBroker.
 
+## samsung-mdc (21.10.2026) – new adapter at beta (latest) repository
+https://github.com/AlanSRU/ioBroker.samsung-mdc
+
+<img src="https://raw.githubusercontent.com/AlanSRU/ioBroker.samsung-mdc/main/admin/samsung-mdc.png" width="100" height="100" />
+
+The samsung-mdc adapter controls Samsung commercial signage displays via the MDC protocol (TCP port 1515), providing power, input source, volume, mute and status states.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
