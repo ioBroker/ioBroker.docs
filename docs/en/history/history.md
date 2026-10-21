@@ -3205,6 +3205,13 @@ The iqontrol adapter provides a fast web app for visualization in ioBroker; vers
 - The adapter has been moved to the iobroker-community-adapters organisation.
 - Node.js 22, js-controller 6.0.11 and admin 7.7.22 or newer are now required.
 
+## googlefindmydevice (21.10.2026) – new adapter at beta (latest) repository
+https://github.com/beabel/ioBroker.googlefindmydevice
+
+<img src="https://raw.githubusercontent.com/beabel/ioBroker.googlefindmydevice/main/admin/googlefindmydevice.png" width="100" height="100" />
+
+The googlefindmydevice adapter reads the locations of Google Find Hub / Find My Device trackers and makes them available in ioBroker.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
