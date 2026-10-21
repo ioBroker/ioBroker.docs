@@ -3194,6 +3194,17 @@ The stiebel-isg adapter reads values from STIEBEL ELTRON/Tecalor Internet Servic
 **Updated requirements**
 - Node.js 22.19.0 and undici 8.10.2 or newer, as well as admin 7.7.22, are now required.
 
+## iqontrol (21.10.2026) – new stable release
+https://github.com/iobroker-community-adapters/ioBroker.iqontrol
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.iqontrol/master/admin/iqontrol.png" width="100" height="100" />
+
+The iqontrol adapter provides a fast web app for visualization in ioBroker; versions 3.0.0 to 3.1.0 are maintenance releases that move the adapter to the community organisation and update minimum requirements.
+
+**Updated requirements**
+- The adapter has been moved to the iobroker-community-adapters organisation.
+- Node.js 22, js-controller 6.0.11 and admin 7.7.22 or newer are now required.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
