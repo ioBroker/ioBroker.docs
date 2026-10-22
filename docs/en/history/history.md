@@ -3226,6 +3226,13 @@ https://github.com/BenAhrdt/ioBroker.absolutehumidity
 
 The absolutehumidity adapter calculates absolute humidity and dew point temperature from temperature and relative humidity data points.
 
+## device-monitoring (22.10.2026) – new adapter at stable repository
+https://github.com/BenAhrdt/ioBroker.device-monitoring
+
+<img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.device-monitoring/main/admin/device-monitoring.png" width="100" height="100" />
+
+The device-monitoring adapter monitors ioBroker devices and states for timeouts and generates alerts or warnings when they stop updating within a configurable interval.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
