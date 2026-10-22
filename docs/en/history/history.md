@@ -3249,6 +3249,35 @@ The awattar adapter reads hourly electricity prices from the aWATTar API (Austri
 **Updated requirements**
 - Node.js 22 is now required.
 
+## nspanel-lovelace-ui (22.10.2026) – new stable release
+https://github.com/ticaki/ioBroker.nspanel-lovelace-ui
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.nspanel-lovelace-ui/main/admin/nspanel-lovelace-ui.png" width="100" height="100" />
+
+The nspanel-lovelace-ui adapter drives Sonoff NSPanel displays with a Lovelace-style UI; versions 1.0.0 to 1.4.0 migrate the admin to React 19, add fully admin-based panel configuration (screensaver, charts, thermostat pages, media), and expand navigation flow visualization.
+
+**Breaking changes**
+- Admin UI migrated to React 19 / MUI 9 / `@iobroker/gui-components` — admin 8.0.0 or newer is required.
+- Node.js 22 is now required.
+
+**Admin-based configuration (no script needed)**
+- A new Screensaver tab in admin lets you configure the screensaver (version, panels, card places, icons per value range, colors, clock and date format, weather instance, rotation time, swipe buttons) entirely without a script.
+- Chart pages (column and line) and thermostat pages (cardThermo2) can now be created directly in the PageConfig tab, with a visual editor that mirrors the real panel layout.
+- The start page can be set in admin by marking any page with a checkbox — a panel no longer needs a page named `main` in its configuration script.
+- Light items (rgbSingle, rgb, ct, hue) and select items now have a Mode list dialog to configure mode entries with up to 48 options, with validation and import from `common.states`.
+
+**Media: squeezeboxrpc support**
+- `cardMedia` now supports the squeezeboxrpc adapter (Logitech Media Server) — includes room sync, group volume control, 3-step shuffle, seek, favorites, saved playlists and the current playlist.
+
+**Navigation flow**
+- Nodes are colored by origin; pages linked with `next` and `prev` share one edge; long-press and state-driven navigation targets get their own connections; hovering or clicking highlights related elements.
+- An option shows the states and channels each page works with as separate nodes, with an info panel listing the page's data bindings.
+
+**Bug fixes**
+- Fixed panel getting stuck in "wait for connection" after a WiFi drop or screensaver burst — messages are now spaced out, screensaver updates throttled to 3 s, and tasmota restarts automatically on display buffer overflow.
+- Fixed passwords appearing in logs in plain text.
+- Fixed timezone dropdown freezing the browser.
+- Fixed y-axis scaling on line charts: large values are divided automatically and the factor is shown in the axis label.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
