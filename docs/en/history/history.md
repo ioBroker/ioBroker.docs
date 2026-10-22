@@ -3219,6 +3219,13 @@ https://github.com/AlanSRU/ioBroker.samsung-mdc
 
 The samsung-mdc adapter controls Samsung commercial signage displays via the MDC protocol (TCP port 1515), providing power, input source, volume, mute and status states.
 
+## absolutehumidity (22.10.2026) – new adapter at stable repository
+https://github.com/BenAhrdt/ioBroker.absolutehumidity
+
+<img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.absolutehumidity/main/admin/absolutehumidity.svg" width="100" height="100" />
+
+The absolutehumidity adapter calculates absolute humidity and dew point temperature from temperature and relative humidity data points.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
