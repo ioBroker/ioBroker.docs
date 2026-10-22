@@ -3233,6 +3233,22 @@ https://github.com/BenAhrdt/ioBroker.device-monitoring
 
 The device-monitoring adapter monitors ioBroker devices and states for timeouts and generates alerts or warnings when they stop updating within a configurable interval.
 
+## awattar (22.10.2026) – new stable release
+https://github.com/sirjojo69/ioBroker.awattar
+
+<img src="https://raw.githubusercontent.com/sirjojo69/ioBroker.awattar/master/admin/awattar.png" width="100" height="100" />
+
+The awattar adapter reads hourly electricity prices from the aWATTar API (Austria and Germany) and provides sorted cheapest-hour windows for smart charging and scheduling; versions 1.0.6 to 1.4.0 migrate the admin UI to jsonConfig and fix a decimal-comma bug in the work rate.
+
+**Admin UI migration**
+- The admin UI has been migrated from the legacy Materialize HTML page to jsonConfig; all existing settings are kept unchanged.
+
+**Bug fix**
+- Fixed: a decimal comma in the work rate (e.g. `20,08`) was cut off at the comma so only the integer part was added to the total price; both comma and dot decimal separators are now handled correctly.
+
+**Updated requirements**
+- Node.js 22 is now required.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
