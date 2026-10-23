@@ -3299,6 +3299,24 @@ The oxxify-fan-control adapter controls Oxxify fans via UDP and reads status val
 - Security vulnerabilities in dependencies were fixed.
 - Issues reported by the ioBroker adapter checker were resolved.
 
+## webui (15.9.2026) – new stable release
+https://github.com/iobroker-community-adapters/ioBroker.webui
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
+
+The webui adapter is a complete visualization system for ioBroker built on WebComponents, offering a visual designer with drag-and-drop bindings, custom controls, scripting, and chart integration; versions 1.47.0 to 2.1.0 introduce a major version upgrade with dark/light mode support and various fixes.
+
+**Dark/light mode**
+- Screens now support switching between dark and light mode.
+
+**Blockly scripting**
+- Blockly scripts were updated and fixes were applied to ensure correct execution.
+
+**Other improvements and fixes**
+- Welcome screen now correctly handles array values.
+- Monaco editor workers were fixed for reliable code editing.
+- Help dialog positioning was corrected.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
