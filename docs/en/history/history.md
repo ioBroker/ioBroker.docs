@@ -3288,6 +3288,17 @@ The procon-ip adapter connects ioBroker to the ProCon.IP pool controller, provid
 **Maintenance**
 - Node.js 26 (the new LTS) is now tested on Linux, Windows, and macOS in CI; Node.js 22 and 24 continue to be tested on Linux.
 
+## oxxify-fan-control (14.10.2026) – new stable release
+https://github.com/N-b-dy/ioBroker.oxxify-fan-control
+
+<img src="https://raw.githubusercontent.com/N-b-dy/ioBroker.oxxify-fan-control/main/admin/oxxify-fan-control.png" width="100" height="100" />
+
+The oxxify-fan-control adapter controls Oxxify fans via UDP and reads status values into ioBroker; versions 0.0.17 and 0.0.18 are maintenance releases focusing on security and quality improvements.
+
+**Maintenance**
+- Security vulnerabilities in dependencies were fixed.
+- Issues reported by the ioBroker adapter checker were resolved.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
