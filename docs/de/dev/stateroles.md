@@ -288,6 +288,7 @@ Der Schalter steuert ein boolesches Gerät (`true = ON, false = OFF`)
 * `switch.mode.silent` - Stummmodus ein-/ausschalten
 * `switch.mode.moonlight` - Mondlichtmodus ein-/ausschalten
 * `switch.mode.color` - Farbmodus ein/aus
+* `switch.mode.art` - Art-Modus ein/aus, z. B. eines Samsung The Frame (Gerätetyp `tv`)
 * `switch.gate` - schließt (false) oder öffnet (true) das Tor
 * `switch.pump`: Ein-/Ausschalten einer Pumpe. Eine spezielle Funktion, da eine Pumpe keinen anderen obligatorischen Zustand hat und andernfalls nicht von einer Steckdose unterschieden werden könnte.
 
@@ -389,6 +390,8 @@ Besondere Rollen für Mediaplayer
 * `media.content` - Art des wiedergegebenen Mediums, z. B. Audio/MP3
 * `media.link` - Status der aktuellen Datei
 * `media.input` - Zahl oder Zeichenkette des Eingangs (AUX, AV, TV, SAT, ...)
+* `media.key` - (`common.type=string`, nur schreibbar) zu sendende Taste einer Fernbedienung, z. B. `UP`, `SELECT`, `BACK`, `HOME`. `common.states` listet die Tasten, die das Gerät versteht; die Namen folgen den CEC-Tastencodes des Matter-Clusters KeypadInput (Gerätetyp `tv`)
+* `media.app` - (`common.type=string`) zu startende App; `common.states` ordnet der App-ID ihren Namen zu (Gerätetyp `tv`)
 * `level.bass` - Basspegel
 * `level.treble` - Höhenpegel
 * `switch.power.zone` - Stromzone
