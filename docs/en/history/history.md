@@ -3317,6 +3317,17 @@ The webui adapter is a complete visualization system for ioBroker built on WebCo
 - Monaco editor workers were fixed for reliable code editing.
 - Help dialog positioning was corrected.
 
+## meteonomiqs (15.10.2026) – new stable release
+https://github.com/Schimi1983/ioBroker.meteonomiqs
+
+<img src="https://raw.githubusercontent.com/Schimi1983/ioBroker.meteonomiqs/main/admin/meteonomiqs.png" width="100" height="100" />
+
+The meteonomiqs adapter retrieves weather forecasts from wetter.com via the Meteonomiqs API; version 0.2.9 improves logging and user-facing feedback around fetch scheduling.
+
+**Improved fetch logging**
+- A fetch that is skipped due to the "Minimum hours between updates" cooldown is now logged at info level — e.g. `Fetch "11:40" skipped: last fetch 3.0 h ago, minimum gap is 5 h` — making it easy to understand why `info.last_sync` did not advance after an adapter restart or host reboot.
+- The log output per fetch is now a single line — `Forecast updated (11:40): 14 days.` — instead of two separate lines; the request announcement moved to debug level.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
