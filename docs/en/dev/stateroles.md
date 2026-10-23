@@ -286,6 +286,7 @@ Switch controls a boolean device (`true = ON, false = OFF`)
 * `switch.mode.silent`    - silent mode on/off
 * `switch.mode.moonlight` - moon light mode on/off
 * `switch.mode.color`     - color mode on/off
+* `switch.mode.art`       - art mode on/off, e.g. of a Samsung The Frame TV (device type `tv`)
 * `switch.gate`           - closes(false) or opens(true) the gate
 * `switch.pump`           - on/off of a pump. A dedicated role, because a pump has no other mandatory state and could not be told apart from a socket otherwise
 
@@ -382,7 +383,9 @@ Special roles for media players
 * `media.jump`            - Number of items to jump in the playlist (it can be negative)
 * `media.content`         - Type of media being played such as audio/mp3
 * `media.link`            - State with the current file
-* `media.input`           - number or string of input (AUX, AV, TV, SAT, ...)
+* `media.input`           - number or string of input (AUX, AV, TV, SAT, ...). For a `tv` a string whose `common.states` keys are taken from `TV_INPUTS` of the type-detector, e.g. `HDMI1`
+* `media.key`             - (`common.type=string`, write-only) key of a remote control to send, e.g. `UP`, `SELECT`, `BACK`, `HOME`. `common.states` lists the keys the device understands; the names follow the CEC key codes of the Matter KeypadInput cluster (device type `tv`). For a `tv` the keys of `common.states` are taken from `TV_KEYS` of the type-detector
+* `media.app`             - (`common.type=string`) app to start, e.g. `YOUTUBE`, `NETFLIX`, `DISNEY_PLUS`. The keys of `common.states` are taken from `TV_APPS` of the type-detector, the device lists only the apps it supports (device type `tv`)
 * `level.bass`            - Bass level
 * `level.treble`          - Treble level
 * `switch.power.zone`     - power zone
