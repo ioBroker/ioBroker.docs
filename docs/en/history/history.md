@@ -3278,6 +3278,16 @@ The nspanel-lovelace-ui adapter drives Sonoff NSPanel displays with a Lovelace-s
 - Fixed passwords appearing in logs in plain text.
 - Fixed timezone dropdown freezing the browser.
 - Fixed y-axis scaling on line charts: large values are divided automatically and the factor is shown in the axis label.
+## procon-ip (8.10.2026) – new stable release
+https://github.com/ylabonte/ioBroker.procon-ip
+
+<img src="https://raw.githubusercontent.com/ylabonte/ioBroker.procon-ip/master/admin/procon-ip.png" width="100" height="100" />
+
+The procon-ip adapter connects ioBroker to the ProCon.IP pool controller, providing access to temperatures, pH/redox values, system status, relay switching, and DMX512 lighting control; version 1.9.1 is a maintenance release.
+
+**Maintenance**
+- Node.js 26 (the new LTS) is now tested on Linux, Windows, and macOS in CI; Node.js 22 and 24 continue to be tested on Linux.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
