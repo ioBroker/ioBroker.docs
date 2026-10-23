@@ -3328,6 +3328,43 @@ The meteonomiqs adapter retrieves weather forecasts from wetter.com via the Mete
 - A fetch that is skipped due to the "Minimum hours between updates" cooldown is now logged at info level — e.g. `Fetch "11:40" skipped: last fetch 3.0 h ago, minimum gap is 5 h` — making it easy to understand why `info.last_sync` did not advance after an adapter restart or host reboot.
 - The log output per fetch is now a single line — `Forecast updated (11:40): 14 days.` — instead of two separate lines; the request announcement moved to debug level.
 
+## frigate (7.10.2026) – new stable release
+https://github.com/iobroker-community-adapters/ioBroker.frigate
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.frigate/main/admin/frigate.png" width="100" height="100" />
+
+The frigate adapter integrates the Frigate NVR into ioBroker, bridging camera events, detections, and recordings via MQTT; versions 1.4.0 to 3.2.2 bring TypeScript rewrite, Docker management, external MQTT broker support, API authentication, live camera widgets, face recognition names, and license plate recognition.
+
+**Breaking changes (v2.0.0)**
+- All states that previously held the text `ON` or `OFF` now hold the boolean values `true` / `false` — automations and scripts that compared these states as strings need to be updated.
+
+**Docker management**
+- Frigate can now be started and managed directly from the adapter — a Docker container is created, configured, and can be re-created from the admin UI without leaving ioBroker.
+
+**External MQTT broker**
+- The built-in MQTT broker can now be replaced by an external broker (e.g. Mosquitto); the MQTT topic prefix is configurable.
+- When using the built-in broker with js-controller 8, the adapter registers the port it occupies in the host's resource registry, and the log names any existing instance that already declared that port.
+
+**Frigate API authentication**
+- Frigate's port-8971 API (username / password login with JWT) is now supported, with automatic token refresh on 401 responses.
+
+**Live camera widgets and web extension**
+- A web extension exposes every camera under `/frigate.0/<camera>/snapshot.jpg` and `/frigate.0/<camera>/stream.mjpeg` through the web adapter, behind ioBroker authentication.
+- Two new widgets for ioBroker.devices: a snapshot tile and a live MJPEG tile. The live tile falls back to single pictures over the socket when accessed via the ioBroker cloud or when the stream cannot be loaded.
+- A fullscreen dialog for camera widgets keeps a placeholder while the picture loads so the dialog no longer appears as a bare strip.
+- Cameras are also linked from the instance card in admin and from the intro page.
+
+**License plate recognition and face recognition**
+- LPR events from Frigate are now handled — `<zone>.sub_labels` lists the recognised labels (face names, known plates) active in a zone, and `sub_labels.<name>` is `true` while a running event carries that name.
+- Known face names are created as states on start, so automations can be set up before a face is recognised for the first time.
+
+**Notifications**
+- A configurable score threshold for person detection filters out low-confidence detections from notifications.
+
+**Bug fixes**
+- Fixed clip downloads failing with HTTP 400 — the download is now retried with a growing delay, and Frigate's own error message is written to the log.
+- Fixed zone object counters (e.g. `<zone>.person`) staying at their last value after an object left the zone — counts now come solely from MQTT occupancy topics and reset correctly.
+- Fixed stale `.jpg` / `.mp4` files accumulating in the tmp folder; each instance now uses its own isolated tmp directory.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
