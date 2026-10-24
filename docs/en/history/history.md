@@ -3488,6 +3488,32 @@ https://github.com/typhosj/ioBroker.vis-2-widgets-eusec
 
 The vis-2-widgets-eusec adapter provides vis-2 widgets for cameras managed by the ioBroker eusec adapter, including a live player, event popup, and snapshot display.
 
+## mcp (24.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.mcp
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.mcp/main/admin/mcp.png" width="100" height="100" />
+
+The mcp adapter exposes ioBroker as an MCP (Model Context Protocol) server so AI assistants such as Claude and ChatGPT can read and control the smart-home; versions 1.2.1 to 1.5.0 add per-user authentication, advanced management options, and MCP payload-size handling.
+
+**Authentication and permissions**
+- Tools now run with the permissions of the authenticated user instead of the Default User; the Default User is only shown when authentication is disabled.
+- As a web extension, the default user of the `web` adapter instance is used instead of the standalone default user.
+- Upload links can only be used by the user who created them.
+
+**Advanced management options (all disabled by default)**
+- New option to allow MCP clients to install adapter packages from npm, GitHub, a URL, or a `.tgz` file (developer use only).
+- New options to control adapter instances, manage adapters, modify scripts, and send messages to adapters, each individually switchable.
+- A confirmation prompt can be requested before dangerous actions are executed.
+
+**MCP payload-size handling**
+- Tool results are now kept below the 1 MiB limit that MCP clients impose: list results are paginated and other large results are replaced by a download link.
+- A new option "Allow download/upload links" (enabled by default) lets MCP clients fetch large results and upload files (e.g. a `.tgz` for `install_package`) via curl.
+
+**Bug fixes**
+- Fixed: with "Allow object changes" enabled, MCP clients received no tools at all in some installations.
+- `set_states` now checks the write permission of every state first and writes nothing if any state is not writable by the current user.
+- Fixed: as a web extension, the outdated built-in MCP server was loaded instead of `@iobroker/mcp-server`.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
