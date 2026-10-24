@@ -3383,6 +3383,20 @@ The mspa adapter controls MSpa whirlpools from ioBroker; versions 0.3.8 to 0.4.3
 **Other improvements**
 - Automatic device detection was added and optimized.
 
+## influxdb (23.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.influxdb
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.influxdb/master/admin/influxdb.png" width="100" height="100" />
+
+The influxdb adapter stores ioBroker state history in InfluxDB and can manage InfluxDB and Grafana Docker containers; versions 5.1.7 and 5.1.8 fix several reliability issues around buffered data, connection handling, and relog timing.
+
+**Bug fixes**
+- Buffered data points written by adapter version 4.x (stored in `influxdata.json`) are now converted on read instead of failing with "invalid float value for field 'q': undefined" on every flush attempt.
+- HTTP errors returned by InfluxDB (e.g. 500 "timeout") are no longer treated as a lost connection, preventing unnecessary reconnect cycles.
+- Start values (`relogLastValueOnStart`) are now written only once after adapter start instead of being repeated on every reconnect.
+- The timed relog (`changesRelogInterval`) now starts immediately after the adapter starts or after datapoint settings change, rather than only on the first state update.
+- The ports of the InfluxDB and Grafana Docker containers are now reported to js-controller 8 as occupied resources; the database port itself is no longer counted as a port used by the adapter instance.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
