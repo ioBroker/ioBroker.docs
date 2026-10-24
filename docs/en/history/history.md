@@ -3514,6 +3514,29 @@ The mcp adapter exposes ioBroker as an MCP (Model Context Protocol) server so AI
 - `set_states` now checks the write permission of every state first and writes nothing if any state is not writable by the current user.
 - Fixed: as a web extension, the outdated built-in MCP server was loaded instead of `@iobroker/mcp-server`.
 
+## go-e-charger (24.10.2026) – new stable release
+https://github.com/hombach/ioBroker.go-e-charger
+
+<img src="https://raw.githubusercontent.com/hombach/ioBroker.go-e-charger/master/admin/go-eCharger.png" width="100" height="100" />
+
+The go-e-charger adapter integrates go-eCharger EV wallboxes into ioBroker for solar surplus charging; versions 1.8.0 and 1.8.1 add an installation-wide current budget and fix phase-switching continuity in the ChargeManager.
+
+**Installation-wide current budget**
+- A total current budget now caps the summed charging current of all wallboxes to protect a shared fuse; ChargeNOW is served before ChargeManager, and idle wallboxes with no connected vehicle are kept off so they neither trip the fuse nor starve one that is already charging.
+- Unused current from a wallbox drawing less than its allocation is dynamically reclaimed and handed to the next wallbox; reductions are always applied before increases so the fuse limit is never exceeded.
+- Concise debug logging added for ChargeManager control loops (surplus sharing, phase switching, total current budget).
+
+**ChargeManager write behaviour**
+- Phase mode (`psm`) is now only written when the charger reports a different mode, as it is a stored charger setting rather than a volatile value.
+- No charge release, charging current, or phase switch is sent while no vehicle is plugged in; unchanged values are no longer re-sent every cycle (each write used to wake the charger's LEDs).
+- The charge release is no longer retried continuously after the vehicle finishes charging — it is retried at a lower rate after the first five minutes instead of every cycle for up to 90 minutes.
+- The ChargeManager no longer reacts to a 1 A target change, preventing oscillation caused by passing clouds.
+- A running charge now follows a falling surplus down to the minimum current; previously the 10 A start threshold also applied to running charges, keeping the charger stuck at 10 A and drawing the deficit from the grid or home battery.
+
+**Phase-switching continuity**
+- After an automatic switch from one to three phases the ChargeManager now continues at the power the car was already charging with instead of jumping to the full one-phase current on three phases (which previously drew the excess from the battery or grid, stepping down only one ampere per cycle).
+- After an automatic switch from three to one phase the ChargeManager also continues at the power reached so far, capped at the available surplus on one phase.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
