@@ -3436,6 +3436,33 @@ The leapmotor adapter connects ioBroker to Leapmotor electric vehicles, exposing
 - Re-login after session expiry no longer gets stuck — a fresh device identity is generated on every login attempt.
 - Token expiry during `cmd.refresh` no longer crashes the adapter.
 
+## zendure-solarflow (16.10.2026) – new stable release
+https://github.com/nograx/ioBroker.zendure-solarflow
+
+<img src="https://raw.githubusercontent.com/nograx/ioBroker.zendure-solarflow/main/admin/zendure-solarflow.png" width="100" height="100" />
+
+The zendure-solarflow adapter integrates Zendure SolarFlow solar storage devices into ioBroker via MQTT and the Zendure cloud API; versions 5.3.2 to 6.1.3 introduce adapter-level zero feed-in automation, local mDNS/zenSDK connection mode, and several automation refinements.
+
+**Adapter automation (zero feed-in)**
+- A built-in zero feed-in automation is now available — no external scripts or helper adapters required.
+- `suggestedInverseMaxPower` changes are now ramped instead of applied as a step, avoiding rapid jumps between output values.
+- `feedInSolarOnly` now only limits feed-in to solar input above 50 W; below 50 W the battery may also be used, replacing the previous low-solar-input warning.
+- Charge keep-alive handling was improved to avoid small grid imports.
+- Hyper 2000: `setDeviceAutomationInOutLimit` re-sends the current `minSoc`, `socSet`, and `inverseMaxPower` values 10 seconds later to ensure they are applied correctly.
+
+**Local mDNS / zenSDK connection mode**
+- A new connection mode — "zenSDK only (mDNS)" — communicates directly with devices on the local network without requiring the Zendure cloud or a separate MQTT server. mDNS discovery runs continuously so new devices are found automatically.
+- Alternatively, zenSDK devices can be configured by static IP address for setups where mDNS does not reach them (e.g. different VLANs).
+
+**New device support**
+- SF 800 Pro 2 is now detected via mDNS / zenSDK (was previously reported as unknown model `solarFlow800Pro2`).
+
+**Other improvements**
+- MQTT clients are now disconnected cleanly when the adapter stops or restarts.
+- Output limit can now be set on devices that do not have an `autoModel` state.
+- Fixed adapter crash when the Zendure cloud API returns no response.
+- Fixed crash when processing MQTT messages from unknown devices.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
