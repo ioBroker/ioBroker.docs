@@ -3463,6 +3463,24 @@ The zendure-solarflow adapter integrates Zendure SolarFlow solar storage devices
 - Fixed adapter crash when the Zendure cloud API returns no response.
 - Fixed crash when processing MQTT messages from unknown devices.
 
+## goodwe-pv (17.10.2026) – new stable release
+https://github.com/hombach/ioBroker.goodwe-pv
+
+<img src="https://raw.githubusercontent.com/hombach/ioBroker.goodwe-pv/master/admin/goodwe-pv.png" width="100" height="100" />
+
+The goodwe-pv adapter communicates with GoodWe inverters (ET/EH/BH/BT series) and reads energy production and battery data; version 1.1.0 extends BMS diagnostics and fixes several value-decoding errors.
+
+**Extended BMS diagnostics**
+- Extended BMS information (registers 37010–37014) is now read, with BMS error and warning bits decoded into individual states.
+- BMS diagnostic status bits (`DiagStatusL`) are decoded into `RunningData.DiagStatus`.
+- Battery mode is now exposed as a human-readable text value (`RunningData.Battery1.ModeText`).
+- Work mode is now exposed as a human-readable text value (`RunningData.WorkModeText`).
+- BMS pack temperature is now read as a signed value, fixing incorrect readings at low temperatures.
+
+**Bug fixes**
+- Fixed 4-byte unsigned values with bit 31 set being decoded incorrectly.
+- Fixed `EnergyDayDischarge` (register 35211) being read as 2 bytes instead of the correct width.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
