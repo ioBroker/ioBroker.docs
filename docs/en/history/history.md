@@ -3537,6 +3537,16 @@ The go-e-charger adapter integrates go-eCharger EV wallboxes into ioBroker for s
 - After an automatic switch from one to three phases the ChargeManager now continues at the power the car was already charging with instead of jumping to the full one-phase current on three phases (which previously drew the excess from the battery or grid, stepping down only one ampere per cycle).
 - After an automatic switch from three to one phase the ChargeManager also continues at the power reached so far, capped at the available surplus on one phase.
 
+## mcp (24.10.2026) – new stable release
+https://github.com/ioBroker/ioBroker.mcp
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.mcp/main/admin/mcp.png" width="100" height="100" />
+
+The mcp adapter exposes ioBroker as an MCP (Model Context Protocol) server so AI assistants such as Claude and ChatGPT can read and control the smart-home; version 1.5.1 improves the Default User configuration.
+
+**Default User selection**
+- The Default User is now selected from a dropdown list of the existing ioBroker users instead of a free-text field.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
