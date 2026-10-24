@@ -3365,6 +3365,24 @@ The frigate adapter integrates the Frigate NVR into ioBroker, bridging camera ev
 - Fixed clip downloads failing with HTTP 400 — the download is now retried with a growing delay, and Frigate's own error message is written to the log.
 - Fixed zone object counters (e.g. `<zone>.person`) staying at their last value after an object left the zone — counts now come solely from MQTT occupancy topics and reset correctly.
 - Fixed stale `.jpg` / `.mp4` files accumulating in the tmp folder; each instance now uses its own isolated tmp directory.
+## mspa (30.9.2026) – new stable release
+https://github.com/arteck/ioBroker.mspa
+
+<img src="https://raw.githubusercontent.com/arteck/ioBroker.mspa/main/admin/mspa.png" width="100" height="100" />
+
+The mspa adapter controls MSpa whirlpools from ioBroker; versions 0.3.8 to 0.4.3 improve device detection, online/offline handling, and fix heater and pump control.
+
+**Online/offline detection**
+- The adapter now detects when the spa goes offline and logs an offline message; the online/offline status is tracked and reflected in adapter states.
+
+**Heater and pump improvements**
+- New control logic for the heater was introduced, making start and stop more reliable.
+- Fixed issues where the heater and UV-C pump failed to start correctly.
+- Fixed photovoltaic (PV) mode start and interaction with the heater.
+
+**Other improvements**
+- Automatic device detection was added and optimized.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
