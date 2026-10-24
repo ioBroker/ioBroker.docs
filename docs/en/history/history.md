@@ -3397,6 +3397,45 @@ The influxdb adapter stores ioBroker state history in InfluxDB and can manage In
 - The timed relog (`changesRelogInterval`) now starts immediately after the adapter starts or after datapoint settings change, rather than only on the first state update.
 - The ports of the InfluxDB and Grafana Docker containers are now reported to js-controller 8 as occupied resources; the database port itself is no longer counted as a port used by the adapter instance.
 
+## leapmotor (15.10.2026) – new stable release
+https://github.com/backfisch88/ioBroker.leapmotor
+
+<img src="https://raw.githubusercontent.com/backfisch88/ioBroker.leapmotor/main/admin/leapmotor.png" width="100" height="100" />
+
+The leapmotor adapter connects ioBroker to Leapmotor electric vehicles, exposing state data, trip history, and remote commands; versions 0.6.8 to 0.7.3 add climate pre-conditioning, trip management, notifications, home/public charging cost split, and several GPS and command fixes.
+
+**Prepare-to-Drive and Prepare-to-Work**
+- Automatic climate activation on ignition-on (Prepare-to-Drive) or via a datapoint for schedule-based automation (Prepare-to-Work), both with optional sunshade automation.
+- Optional comfort extras — driver seat heating, steering-wheel heating, windshield defrost — can be enabled separately for models that support them.
+- Sunshade cold-protection now uses its own stricter temperature threshold (5 °C) so it no longer closes the roof at the general heating threshold.
+
+**Trip management**
+- Per-trip elevation gain, minimum/maximum temperature, and regenerative braking estimate are now recorded.
+- Optional extended trip-done notification with total kWh and a driving/climate/other energy split.
+- Trip and route history retention is configurable; CSV and PDF export are available.
+- Trip merge undo is supported.
+- Trip detection now closes a trip immediately on lock + ignition-off or a lock-unlock-lock cycle instead of always waiting the full grace period.
+- Current trip active flag no longer stays stuck in progress after an adapter restart.
+
+**Notifications**
+- Notifications (trip done, charge done, OTA update, window left open, Prepare-to-Drive/Work) can be sent via `sendTo`, with built-in support for telegrammenu2 and email adapters.
+- New: notification for vehicle inbox messages such as service reminders and recall notices.
+
+**Charging**
+- Home/public charging costs are split by GPS distance to a configurable home location, with separate electricity prices per location.
+- An in-progress charging session's accumulated cost and kWh are now persisted and restored across adapter restarts.
+- Cloud-metered daily charging history cross-check is available in the Diagnostics tab.
+
+**Bug fixes**
+- Vehicles west of Greenwich now show correct GPS coordinates — latitude and longitude use the signed signal values so positions are no longer mirrored into the wrong hemisphere.
+- Remote pre-conditioning (climate on without driving) no longer triggers a false trip start.
+- A completed trip's end time now uses the vehicle's own reported timestamp for accurate trip duration.
+- The "charging" status no longer gets stuck active while driving; it is now cross-checked against gear, speed, and ignition.
+- Window commands now scale to each model's native range correctly.
+- Steering-wheel and seat heating/ventilation commands use the correct payload format.
+- Re-login after session expiry no longer gets stuck — a fresh device identity is generated on every login attempt.
+- Token expiry during `cmd.refresh` no longer crashes the adapter.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
