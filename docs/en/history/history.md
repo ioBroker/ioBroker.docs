@@ -3481,6 +3481,13 @@ The goodwe-pv adapter communicates with GoodWe inverters (ET/EH/BH/BT series) an
 - Fixed 4-byte unsigned values with bit 31 set being decoded incorrectly.
 - Fixed `EnergyDayDischarge` (register 35211) being read as 2 bytes instead of the correct width.
 
+## vis-2-widgets-eusec (24.10.2026) – new adapter at beta (latest) repository
+https://github.com/typhosj/ioBroker.vis-2-widgets-eusec
+
+<img src="https://raw.githubusercontent.com/typhosj/ioBroker.vis-2-widgets-eusec/master/admin/vis-2-widgets-eusec.png" width="100" height="100" />
+
+The vis-2-widgets-eusec adapter provides vis-2 widgets for cameras managed by the ioBroker eusec adapter, including a live player, event popup, and snapshot display.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
