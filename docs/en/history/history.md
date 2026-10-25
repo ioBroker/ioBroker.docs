@@ -3558,6 +3558,19 @@ The tesla-wallconnector3 adapter reads data from Tesla Wall Connector Generation
 - Node.js 26 added to the test matrix.
 - Dependencies updated.
 
+## creality (25.10.2026) – new stable release
+https://github.com/inventwo/ioBroker.creality
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.creality/main/admin/creality.png" width="100" height="100" />
+
+The creality adapter integrates Creality 3D printers (K-series and compatible) into ioBroker via the Creality WebSocket or Moonraker API; version 0.5.0 fixes several job-state and sensor tracking issues.
+
+**Bug fixes**
+- Fixed stale `currentJob.progress` after a finished print or Moonraker restart when using the Creality WS fallback.
+- Fixed `currentJob.*` states not clearing after a cancel or completed print — Creality keeps the filename and last progress, which previously left the states populated.
+- Moonraker fan query is now optional: missing fan objects no longer cause a 404 that aborts the entire poll cycle.
+- `temp.box` (chamber temperature) now only appears when the printer reports a chamber heater (`maxBoxTemp > 0`).
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
