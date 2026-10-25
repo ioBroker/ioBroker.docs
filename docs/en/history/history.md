@@ -3596,7 +3596,19 @@ The eusec adapter integrates Eufy Security cameras and doorbells into ioBroker; 
 **New device support**
 - eufyCam C37 (T814X) is no longer shown as an unknown device: the adapter now handles it like the eufyCam S4, enabling livestream, motion/person/vehicle detection, light, pan and tilt, and battery states (not yet confirmed on a real camera — please report in the GitHub issue #198).
 
+
+## leapmotor (25.10.2026) – new stable release
+https://github.com/backfisch88/ioBroker.leapmotor
+
+<img src="https://raw.githubusercontent.com/backfisch88/ioBroker.leapmotor/main/admin/leapmotor.png" width="100" height="100" />
+
+The leapmotor adapter connects Leapmotor electric vehicles to ioBroker via the Leapmotor cloud; version 0.7.5 fixes two data-integrity bugs confirmed on the B10 model.
+
+**Bug fixes**
+- Login no longer fails with "Could not open account certificate" for accounts whose internal numeric ID exceeds 2^53: the login response is now parsed with exact integer precision so the ID and the derived password are never silently rounded.
+- Boolean status datapoints (climate active, recirculate, locked, door-control-allowed, all four doors, ignition, Bluetooth, hotspot, window-open indicators) are now explicitly coerced to boolean; previously the raw 0/1 cloud signal was stored as a number and logged a type-mismatch warning.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
