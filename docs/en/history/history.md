@@ -3547,6 +3547,17 @@ The mcp adapter exposes ioBroker as an MCP (Model Context Protocol) server so AI
 **Default User selection**
 - The Default User is now selected from a dropdown list of the existing ioBroker users instead of a free-text field.
 
+## tesla-wallconnector3 (25.10.2026) – new stable release
+https://github.com/nobl/ioBroker.tesla-wallconnector3
+
+<img src="https://raw.githubusercontent.com/nobl/ioBroker.tesla-wallconnector3/main/admin/tesla-wallconnector3.png" width="100" height="100" />
+
+The tesla-wallconnector3 adapter reads data from Tesla Wall Connector Generation 3 EV chargers; versions 1.3.3 and 1.3.4 are maintenance releases with dependency updates and extended CI coverage.
+
+**Maintenance**
+- Node.js 26 added to the test matrix.
+- Dependencies updated.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
