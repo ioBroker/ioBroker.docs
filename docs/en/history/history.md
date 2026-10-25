@@ -3607,8 +3607,19 @@ The leapmotor adapter connects Leapmotor electric vehicles to ioBroker via the L
 **Bug fixes**
 - Login no longer fails with "Could not open account certificate" for accounts whose internal numeric ID exceeds 2^53: the login response is now parsed with exact integer precision so the ID and the derived password are never silently rounded.
 - Boolean status datapoints (climate active, recirculate, locked, door-control-allowed, all four doors, ignition, Bluetooth, hotspot, window-open indicators) are now explicitly coerced to boolean; previously the raw 0/1 cloud signal was stored as a number and logged a type-mismatch warning.
+
+## alarm (25.10.2026) – new stable release
+https://github.com/misanorot/ioBroker.alarm
+
+<img src="https://raw.githubusercontent.com/misanorot/ioBroker.alarm/master/admin/alarm.png" width="100" height="100" />
+
+The alarm adapter implements a configurable home alarm and surveillance system in ioBroker; version 5.0.2 fixes minor issues in the handling of other alarm types.
+
+**Bug fixes**
+- Fixed minor issues in the handling of other alarms.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
