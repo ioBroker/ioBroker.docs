@@ -143,10 +143,8 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-
-### **WORK IN PROGRESS**
-- (iobroker-bot) Adapter requires node.js >= 22 now.
-### 4.0.1 (2026-08-03)
+### 4.0.2 (2026-10-17)
+* (iobroker-bot) Adapter requires node.js >= 22 now.
 * (@GermanBluefox) Migrated for admin 8
 
 ### 3.1.0 (2026-04-13)
@@ -170,107 +168,6 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 ### 2.2.4 (2024-08-26)
 * (bluefox) updated packages
 * (bluefox) corrected a problem with the creation of rule
-
-### 2.2.2 (2024-07-14)
-* (bluefox) GUI was migrated for admin v7
-
-### 2.1.0 (2023-12-14)
-* (mcm1957) Only node 16 and higher is supported
-
-### 2.0.7 (2023-10-25)
-* (TA2k) added the user agent to prevent timeout blocking
-* (bluefox) Added a configurable userAgent option
-
-### 2.0.5 (2023-06-19)
-* (bluefox) The result could be an array of values
-
-### 2.0.3 (2023-04-02)
-* (bluefox) Corrected subscription on too many objects
-
-### 2.0.2 (2023-04-01)
-* (bluefox) Added possibility to trigger the parsing by writing of empty value to the state
-
-### 2.0.1 (2023-03-31)
-* (bluefox) Updated timestamp of non changed values
-
-### 2.0.0 (2023-03-29)
-* (TA2k) added translations
-* (bluefox) Migrated GUI to admin v6
-
-### 1.3.2 (2022-12-09)
-* (Apollon77) In error cases return error as string
-
-### 1.3.1 (2022-11-09)
-* (raintonr) added delay option for slow connections
-* (bluefox) added compact mode
-
-### 1.2.1 (2022-09-15)
-* (Apollon77) Always use raw response and not try to parse it
-
-### 1.2.0 (2022-09-12)
-* (Apollon77) Allow specifying if self-signed/invalid SSL certificates are ignored or not (default is to ignore as till now)
-* (Apollon77) Allow specifying if an "insecure HTTP parser" is used which also enables HTTP implementations that are not compliant to specifications
-* (Apollon77) Allow specifying the HTTP request timeout
-
-### 1.1.8 (2022-06-27)
-* (Apollon77) Check that a link is configured
-
-### 1.1.7 (2022-06-16)
-* (Apollon77) Fix potential crash cases reported by Sentry
-
-### 1.1.6 (2022-05-28)
-* (Apollon77) Set method to "GET" when requesting URLs
-
-### 1.1.5 (2022-04-19)
-* (Apollon77) Ignore objects without configuration for parser and log it
-
-### 1.1.4 (2022-03-21)
-* (Apollon77) Fixed a crash case reported by Sentry
-
-### 1.1.3 (2022-03-20)
-* (Apollon77) if regex did not match set defined replacement value (or null)
-
-### 1.1.2 (2022-03-09)
-* (Apollon77) Fix initialization of new parser objects
-
-### 1.1.1 (2022-03-07)
-* IMPORTANT: js-controller 2.0 is required at least now!
-* (Apollon77) ignore self signed ssl certificates
-* (Apollon77) make sure object changes do not block further updates of values
-* (Apollon77) Add Sentry to get crash reports
-
-### 1.0.7 (2018-10-08)
-* (bluefox) Comma will be replaced automatically by point for the offset and for the factor
-
-### 1.0.6 (2018-09-22)
-* (bluefox) fix parser
-
-### 1.0.5 (2018-08-30)
-* (bluefox) Multi-line search allowed
-
-### 1.0.2 (2018-08-06)
-* (bluefox) Iterations in regex were corrected
-
-### 1.0.1 (2017-12-10)
-* (bluefox) Added additional option: old value
-
-### 1.0.0 (2017-05-19)
-* (bluefox) Allow setting the number of found items
-
-### 0.2.2 (2017-04-03)
-* (Apollon77) fix handling of multiple fields for one URL
-
-### 0.2.1 (2017-02-24)
-* (bluefox) fix error with timestamp
-
-### 0.2.0 (2017-02-01)
-* (bluefox) Add visual test
-
-### 0.1.1 (2017-01-30)
-* (bluefox) move to a common group
-
-### 0.0.1 (2017-01-16)
-* (bluefox) initial commit
 
 ## License
 The MIT License (MIT)

@@ -5,7 +5,7 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
 
 ![ShoppingRoute](admin/shoppingroute.png)
 
-**Aktuelle Version: 0.5.1**
+**Aktuelle Version: 0.6.0 (26.10.2026).**
 
 ShoppingRoute macht aus einer normalen Alexa-Einkaufsliste eine praktische Einkaufshilfe: **Alle Märkte können gemeinsam in einer einzigen Liste geführt oder bewusst auf mehrere Listen verteilt werden.** Das besondere Merkmal ist das frei einstellbare **Marktrouting**: Für jeden Markt legst du deinen persönlichen Laufweg durch die Abteilungen fest. Dadurch steht die Einkaufsliste in der Reihenfolge, in der du tatsächlich durch den Laden gehst – für weniger Zurücklaufen, weniger Suchen und **schnelleres, effizienteres Einkaufen**.
 
@@ -16,7 +16,57 @@ ShoppingRoute sortiert Alexa-Einkaufslisteneinträge nach Markt, Produktgruppe u
 🇩🇪 [**Deutsche Bedienungsanleitung**](/#/docs/adapterref/iobroker.shoppingroute/BEDIENUNGSANLEITUNG_DE.md)  
 🇬🇧 [**English user guide**](/#/docs/adapterref/iobroker.shoppingroute/USER_GUIDE_EN.md)
 
-## Neu in 0.5.1: bequem am Handy einkaufen
+## Neu in 0.6.0: Bring!-Listen und ShoppingRoute-Sortierung
+
+ShoppingRoute unterstützt zusätzlich den ioBroker-Adapter **bring.0** (Bring! 1.9.1) und kann eine ausgewählte Bring!-Liste mit einer Alexa-Einkaufsliste verknüpfen. Die Funktion ist **standardmäßig ausgeschaltet** und verändert bei einem normalen Update keine bestehenden Listen.
+
+Die vier Betriebsarten stehen unter **Instanz-Einstellungen → Bring!-Integration**:
+
+- **Aus:** ShoppingRoute arbeitet wie bisher ausschließlich mit Alexa.
+- **Bring! → ShoppingRoute/Alexa:** Bring! ist die Quelle. Neue Bring!-Artikel werden nach Alexa übernommen; zuvor gespiegelte und anschließend in Bring! erledigte Artikel werden auch in Alexa entfernt. Alexa-eigene Artikel bleiben erhalten.
+- **Nur Bring!:** ShoppingRoute zeigt die Bring!-Artikel auf seiner Verwaltungsseite nach Märkten, Produktgruppen und persönlichen Laufwegen sortiert an, ohne Alexa zu benötigen. Diese Ansicht ist absichtlich schreibgeschützt.
+- **Bring! ↔ Alexa:** Neue Artikel und abgeschlossene Artikel werden in beide Richtungen abgeglichen. Beim **allerersten Abgleich** werden ausschließlich fehlende Einträge ergänzt; kein vorhandener Artikel wird gelöscht.
+
+### Alexa-Sprachkurzbefehl für Bring!-Nutzer
+
+**Mit aktiviertem Modus „Bring! ↔ Alexa“ genügt „Alexa, Milch auf die Einkaufsliste“.** Alexa legt den Artikel wie gewohnt auf ihre eigene Einkaufsliste. ShoppingRoute berücksichtigt die Markt- und Laufwegregeln und gleicht den Artikel anschließend mit Bring! ab. Der bisher nötige Umweg über „Alexa, sage Bring! …“ entfällt bei dieser Nutzung. Wird der Artikel später in Bring! als erledigt behandelt, entfernt ShoppingRoute ihn nach bestätigtem Abgleich aus der aktiven Alexa-Liste. Das ist eine Entfernung des Eintrags und kein Setzen eines Alexa-Erledigt-Häkchens. Voraussetzung sind aktivierte bidirektionale Synchronisation, erreichbare Dienste und konfliktfreie Listen.
+
+### Wichtige Einschränkung von Bring!
+
+**Bring! erlaubt keine freie Reihenfolge einzelner Artikel.** Seine App verwendet eigene Produktkategorien, deren Reihenfolge Nutzer dort einstellen können. ShoppingRoute zeigt daher die optimierte Reihenfolge in seiner eigenen Verwaltungsoberfläche, **nicht** als frei sortierte Reihenfolge innerhalb der Bring!-App. Eine identische Darstellung beider Apps wird nicht versprochen.
+
+### Schutzmechanismen der Synchronisierung
+
+- Vor jedem Abgleich werden bestätigte Bring!- und aktuelle Amazon-Listenstände geprüft. Bei nicht verfügbaren oder veralteten Daten wird **nicht geschrieben**.
+- Bei doppelten Artikelnamen, widersprüchlichen Mengen/Spezifikationen oder uneindeutigen Änderungen stoppt der Abgleich. Unklarheiten werden nicht erraten.
+- Ein dauerhaftes lokales Journal verhindert, dass ein unterbrochener Schreibvorgang nach Neustart unkontrolliert wiederholt wird. Vor einem neuen Schreiblauf müssen beide Seiten das Ergebnis des vorherigen bestätigen.
+- Ein Schreiblauf verarbeitet höchstens 30 Aktionen; die bisherige Alexa-Grenze von 99 Einträgen und die eingestellten Amazon-Zugriffslimits gelten weiterhin.
+- **Dry-Run** zeigt geplante Aktionen an, ohne etwas in Alexa oder Bring! zu verändern.
+- Status: `shoppingroute.0.info.bringSyncStatus`; Bring!-Laufwegvorschau: `shoppingroute.0.info.bringSyncPreview`; Wiederherstellungsjournal: `shoppingroute.0.data.bringSyncJournal`.
+
+Für die Einrichtung: Bring!-Instanz auswählen und speichern, Bring!-Liste auswählen, bei Verbindung zu Alexa eine aktivierte Zielliste angeben, zuerst Dry-Run prüfen und erst danach bewusst aktivieren. Die Bring!-Daten kommen aus der vorhandenen lokalen ioBroker-Instanz; ShoppingRoute benötigt kein eigenes Bring!-Passwort.
+
+**Teststand (26.10.2026):** Die automatisierten Tests der Synchronisierung, Sortierung und Schutzmechanismen sind erfolgreich. Der Praxistest bestätigt die Übernahme von Bring!-Listen sowie neu in Bring! hinzugefügter Artikel, die beim nächsten Sortierlauf in ShoppingRoute eingeordnet werden. Eine freie Artikelsortierung innerhalb der Bring!-App ist technisch nicht möglich. Abschließen, Löschen und sämtliche Konfliktfälle des beidseitigen Live-Abgleichs wurden mit diesem Praxistest nicht bestätigt. Für den bidirektionalen Modus zunächst gesicherte Testlisten verwenden.
+
+## Manuelle Einkaufslistenänderungen
+
+Manuelle Verschiebungen in der Einkaufsliste bleiben zunächst als Entwurf im Browser. Verschiebe alle gewünschten Artikel und drücke dann **Änderungen an Alexa übertragen**. Erst dieser Button startet einen gemeinsamen, geprüften Alexa-Sortierlauf. Bei einem Fehler bleibt der Entwurf erhalten; **Änderungen verwerfen** lädt die aktuelle Liste neu. Solange Änderungen offen sind, sind Listenwechsel, Hinzufügen, Löschen und Zurücksetzen gesperrt, damit der Entwurf erhalten bleibt. Ein Neuladen desselben Browser-Tabs stellt den Entwurf bei verfügbarem Sitzungsspeicher wieder her.
+
+## Neu in 0.5.3: Direktsteuerung in der Alexa-App
+
+**Marktwechsel direkt in der normalen Alexa-Einkaufsliste auf dem Handy – ohne zusätzliche App und ohne Zugriff auf die ioBroker-Verwaltung.**
+
+**Vier Handy-Funktionen (deutsch/englisch: W/C, F/E, H/U, R/D):** `13WNETTO` wechselt Artikel 13 **vorübergehend** zu NETTO, `13FNETTO` ordnet ihn **dauerhaft** NETTO zu. `25H3` verschiebt Artikel 25 **drei echte Artikelpositionen nach oben**, `25R3` **drei nach unten** – jeweils nur innerhalb desselben Marktes, ohne Marktüberschriften mitzuzählen. H/R verändern keine gespeicherten Laufwege oder Produktgruppen.
+
+Füge einen Steuerbefehl wie `13WNETTO` als normalen Listeneintrag hinzu: `13` ist die **aktuell sichtbare zweistellige Nummer vor dem Artikel**, `W` bedeutet Wechsel und `NETTO` ist ein bereits angelegter Zielmarkt. Du kannst mehrere Befehle hintereinander eingeben. Groß-/Kleinschreibung ist egal; eindeutige kleine Tippfehler im Marktnamen werden korrigiert.
+
+**Bitte Geduld:** Ein neuer Sortiervorgang erfolgt **niemals sofort**. Abhängig von Internetverbindung, Geschwindigkeit und Alexa kann es **bis zu fünf Minuten** dauern. Solange der Befehl noch in der Einkaufsliste steht, ist das zunächst normal. **Erst nach fünf Minuten** Internet-/Alexa-Verbindung sowie Artikelnummer und Marktnamen prüfen. Bei einem Eingabefehler den Befehl in Alexa abhaken und korrigiert neu eingeben.
+
+Ein Wechsel mit **W** gilt nur für diesen Einkauf; **F** ändert die dauerhafte Marktzuordnung. Die gespeicherte Produktzuordnung und die Lernfunktion bleiben unverändert. Erfolgreiche Steuerbefehle verschwinden aus der Liste. Bleibt ein Befehl stehen, Nummer und Markt prüfen, den falschen Befehl in Alexa abhaken und richtig neu eingeben. **Nummern vor Marktüberschriften können nicht zum Verschieben von Artikeln verwendet werden.** Bei mehrdeutigen Befehlen wird nichts geraten.
+
+Die Funktion ist seit der veröffentlichten Version 0.5.2 verfügbar.
+
+## Frühere Verbesserungen (0.5.1)
 
 Diese Version behebt die gemeldeten Speicher- und Verschiebefehler der neuen Verwaltungsseite. Im Mittelpunkt steht die Bedienung am Handy während des Einkaufs:
 
@@ -70,7 +120,7 @@ Rückmeldungen zu 0.5.1 bitte im bestehenden [Tester-Thread](https://forum.iobro
 
 Bei der Marktzuordnung gilt:
 
-1. ausdrücklich genannter Markt (`Milch von REWE`)
+1. ausdrücklich genannter Markt an beliebiger Stelle im Artikelnamen (`Milch REWE`, `REWE Milch`, `Milch vom REWE`); ohne fest vorgeschriebene Bindewörter
 2. Artikel-Standardmarkt
 3. temporärer Prioritätsmarkt
 4. Prioritätsmarkt der jeweiligen Alexa-Liste
@@ -113,6 +163,28 @@ Die Optimierung ist optional und abhängig von der eingestellten Mindestartikelz
 ShoppingRoute wird unter der **[MIT-Lizenz](https://github.com/RaviniZib/ioBroker.shoppingroute/blob/main/LICENSE)** veröffentlicht. Frühere bereits veröffentlichte Versionen bleiben unter der jeweils damals gültigen Lizenz.
 
 ## Changelog
+
+### 0.6.0 (26.10.2026)
+
+- Explizite Marktnamen werden als vollständige Begriffe an beliebiger Position im Artikel erkannt und haben stets Vorrang vor dem Standardmarkt; mehrdeutige Mehrfachnennungen werden nicht geraten.
+
+- Manuelle Einkaufslisten-Verschiebungen sammeln und mit **Änderungen an Alexa übertragen** gemeinsam senden. Entwürfe bleiben bei Fehlern erhalten; der ganze Auftrag wird vor dem Schreiben geprüft.
+
+- Optionale Bring!-Integration in vier Betriebsarten einschließlich einseitigem Import und bidirektionaler Synchronisierung.
+- Sicherheit: Journal, Konflikt- und Duplikatprüfung, Dry-Run und begrenzte Schreibaktionen.
+- Bring!-Laufwege als schreibgeschützte Ansicht für Nutzer ohne Alexa; Bring!-App kann einzelne Artikel nicht frei umsortieren.
+- Adapter-Konfiguration in allen elf Admin-Sprachen, neue Regressionstests und aktualisierte deutsche/englische Dokumentation.
+
+### 0.5.3 (2026-10-17)
+
+- Deutsche und englische Befehle: W/C temporär, F/E dauerhaft, H/U hoch, R/D runter.
+- D bedeutet nun Runter; F ersetzt das bisherige dauerhafte D.
+
+### 0.5.2 (2026-10-17)
+
+- Temporärer Marktwechsel über `NNWMARKT` direkt in der normalen Alexa-Handy-App.
+- Mehrere Befehle pro Sortierlauf, eindeutige Tippfehlerkorrektur und Schutz vor ungültigen Artikelnummern.
+- Dauerhafte Artikelzuordnungen, Lernfunktion und bisherige Sortierlogik bleiben erhalten.
 
 ### 0.5.1 (2026-10-07)
 - Neue Listen werden in Alexa angelegt und vor dem Speichern ihrer Verknüpfung bestätigt; Einkaufsartikel können direkt hinzugefügt werden, auch in leeren Listen.

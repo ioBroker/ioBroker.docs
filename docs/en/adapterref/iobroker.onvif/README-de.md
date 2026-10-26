@@ -34,6 +34,10 @@ Damit eine Kamera neu erkannt wird muss sie einfach unter Objekte gelöscht werd
 
 Es können Kameras manuell gesucht werden, falls Discovery nicht funktioniert. Dazu muss eine IP Range und Ports eingegeben und manuell ausgeführt werden. Im Log sieht man Details zu dem Prozess.
 
+### Kameras ignorieren
+
+Kameras, deren IP in der Einstellung "Kameras mit diesen IPs ignorieren" (kommagetrennt) eingetragen ist, werden vom Adapter nicht angesprochen. Das gilt für die Discovery, die manuelle Suche und bereits unter Objekte angelegte Kameras.
+
 ## Datenpunkte
 
 onvif.0.IP_PORT.events Events der Kamera wie z.b. Bewegungserkennung. Manchmal muss ein Event ausgelöst werden damit er angezeigt wird.

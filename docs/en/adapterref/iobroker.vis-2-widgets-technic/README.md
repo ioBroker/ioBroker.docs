@@ -38,6 +38,12 @@ All widgets use a consistent color palette:
 
 ## Changelog
 
+### 0.2.1 (2026-10-18)
+- StatusList and RaumKachel: new text (string) value type with prefix/suffix; fix hidden row fields when value type is unset; boolean parsing accepts on/ON
+
+### 0.2.0 (2026-10-11)
+- Migrated widgets to React 19 and Vite 8; requires vis-2 >= 2.15.2 and Node.js >= 22; removed adapter-react-v5 dependency
+
 ### 0.1.25 (2026-09-27)
 - RaumKachel: new horizontal row layout (`horizontalLayout`/`rowSeparator`/`rowGap`)
   with a separator between actually-filled rows, empty placeholder rows fully

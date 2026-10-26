@@ -28,17 +28,9 @@ saturation vapor pressure from temperature and relative humidity.
 Small deviations from online tables are expected because different tables often
 use different Magnus, Tetens, Sonntag, Bolton or Buck coefficient sets.
 
-<img width="927" height="590" alt="image" src="https://github.com/user-attachments/assets/15aad0cf-144b-4ccb-8d38-c8d7710aab48" />
+<img width="908" height="627" alt="image" src="https://github.com/user-attachments/assets/849e0561-dc5d-4f99-bc29-a547481e9115" />
 
 The instance page is interactive, allowing for the calculation of absolute humidity, dew point temperature, and ventilation recommendations based on data recorded via analog or manual methods. Simply enter the values, and the result will be displayed automatically.
-
-## Installation
-As long as the adapter is not yet listed in the stable repository, it can be installed manually from NPM. Note: NEVER install it from GitHub.
-
-Installation Link:
-[https://github.com/BenAhrdt/ioBroker.absolutehumidity](https://github.com/BenAhrdt/ioBroker.absolutehumidity)
-
-<img width="955" height="703" alt="image" src="https://github.com/user-attachments/assets/d7c43f37-30be-4a16-99f0-6e7e34164478" />
 
 ## Create a tab in the tab bar 
 
@@ -72,6 +64,13 @@ In the tile view, the tiles are sorted in ascending order, that is, from dry to 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.8 (2026-10-14)
+* (BenAhrdt) Ensure that the interactive preview card labels always use the language selected in Admin, even when browser and system languages differ.
+
+### 0.1.7 (2026-10-14)
+* (BenAhrdt) Clearly label the editable preview values as demonstration-only and explain that they are not saved.
+* (BenAhrdt) Use the selected Admin language for the interactive preview card labels.
+
 ### 0.1.6 (2026-09-28)
 * Rename the visible Device Manager references to Config Manager in the adapter configuration and translations.
 * Add delayed device configuration backups with manual restore and startup recovery when no device configuration exists.
@@ -81,12 +80,6 @@ In the tile view, the tiles are sorted in ascending order, that is, from dry to 
 
 ### 0.1.4 (2026-09-21)
 * Keep long Device Manager measurements readable with a smaller value font and at most two decimal places.
-
-### 0.1.3 (2026-09-21)
-* Restore the regular adapter configuration page with interactive outdoor and indoor preview cards, and provide a link to the Device Manager in Config Manager.
-
-### 0.1.2 (2026-09-20)
-* Keep the Device Manager in the adapter configuration instead of a separate Admin tab. Render the four live measurements through one shared HTML row template per card; Admin's read-only numeric state control otherwise adds a progress indicator for percent and bounded states.
 
 ## Collaboration
 The adapter was developed in collaboration with Joerg Froehner

@@ -20,6 +20,13 @@ Take a look at the [ECharts demo gallery](https://echarts.apache.org/examples/en
 
 Remark: Adapter was not tested on MacOS, yet.
 
+## What's new in v0.7.4
+
+**No more white frame around charts embedded in VIS / VIS2** — the page around the chart now takes the chart's background color:
+
+- Uses `backgroundColor` of the chart definition or of the active theme (e.g. with `&darkmode`)
+- Chart size is unchanged; charts without a background color (or with a gradient) keep a transparent page as before
+
 ## What's new in v0.7.3
 
 **Configurable timeout for `source=script` widgets** — avoids false timeout errors for computation-heavy or coordinated/serial chart setups:
@@ -34,14 +41,6 @@ Remark: Adapter was not tested on MacOS, yet.
 - Two new beginner-friendly templates: [template6](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate6.js) (energy stacked bar with history adapter data) and [template7](https://github.com/MyHomeMyData/ioBroker.flexcharts/blob/main/templates/flexchartsTemplate7.js) (reactive gauge chart with SSE auto-update)
 - Improved comments and STEP markers across all existing templates (1–5)
 - New [Wiki with Cookbook](https://github.com/MyHomeMyData/ioBroker.flexcharts/wiki): step-by-step guides for building live charts from scratch — see [Further Examples and Resources](#further-examples-and-resources)
-
-## What's new in v0.7.1
-
-**SSE chart updates without page reload** — when using `&sse`, the chart now updates in place instead of reloading the full page:
-
-- ECharts animations run smoothly on every data update
-- No flickering or chart rebuild on refresh
-- Works transparently for all existing `&sse` URLs — no changes needed
 
 ## How it works
 
@@ -295,6 +294,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.7.4 (2026-10-17)
+* (MyHomeMyData) Page background now follows the chart's background color (option or theme) to avoid a white frame around charts embedded in VIS/VIS2 iframes
+* (MyHomeMyData) SSE timers now use adapter.setInterval() so they are cleaned up when the web adapter stops
+
 ### 0.7.3 (2026-08-24)
 * (MyHomeMyData) Added optional `requestTimeout` parameter for `source=script` widgets to configure the timeout waiting on the script's response (default 2000 ms, unchanged). Ref. issue #205
 
@@ -309,10 +312,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### 0.7.0 (2026-04-15)
 * (MyHomeMyData) Implemented SSE (Server-Sent Events) to support event driven updating of chart
-
-### 0.6.2 (2026-04-13)
-* (MyHomeMyData) Restructuring of code for better readability and improved performance.
-* (MyHomeMyData) Restructuring of Readme for better readability.
 
 ### Older versions
 

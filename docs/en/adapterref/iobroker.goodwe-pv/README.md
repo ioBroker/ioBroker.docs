@@ -69,6 +69,22 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
+- (hombach) updated dependencies
+
+### 1.1.0 (2026-10-17)
+
+- (hombach) fixed repoChecker warnings
+- (hombach) updated dependencies
+- (hombach) fix 4-byte unsigned values with bit 31 set
+- (hombach) add battery mode as text (RunningData.Battery1.ModeText)
+- (hombach) fix EnergyDayDischarge (35211) read as 2 bytes
+- (hombach) add work mode as text (RunningData.WorkModeText)
+- (hombach) read BMS PackTemperature as signed value
+- (hombach) decode DiagStatusL bits into RunningData.DiagStatus
+- (hombach) read extended BMS info (37010-37014) and decode BMS error/warning bits
+
+### 1.0.1 (2026-10-11)
+
 - (hombach) switch to iobroker testing 6.x
 - (hombach) added node 26 tests
 - (hombach) updated dependencies
@@ -90,22 +106,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (hombach) replace deprecated role value.power.consumption with value.energy.consumed
 - (hombach) replace value.power.produced with value.energy.produced for accumulated kWh states
 - (hombach) replace invalid roles value.power.apparent and value.signal with valid alternatives
-
-### 0.2.2 (2026-07-12)
-
-- (hombach) assign semantic ioBroker roles to many states
-- (hombach) fix PowerFactor scaling: signed int / 1000 instead of uint / 100
-- (hombach) fix TotalReactivePower sign: use signed int (VAR can be negative)
-- (hombach) fix EnergyTotalSell/Buy unit: GM3000 meter float is in Wh, divide by 1000
-
-### 0.2.1 (2026-07-12)
-
-- (hombach) add GoodWe manufacturer link to README
-- (hombach) remove debug code (checkPasswordAsync/checkGroupAsync) from onReady
-- (hombach) disable unused onStateChange handler (no writable states)
-- (hombach) add runtime validation for pollCycle config parameter
-- (hombach) expose DerateFlag as ioBroker state in RunningData
-- (hombach) fix UTF-8 encoding corruption in all i18n translation files
 
 ## License
 MIT License

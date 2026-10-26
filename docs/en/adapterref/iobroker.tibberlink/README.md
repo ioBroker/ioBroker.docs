@@ -108,6 +108,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### **WORK IN PROGRESS**
 
 - (HombachC) updated dependencies
+- (HombachC) fixed adapter checker warnings
 
 ### 7.3.2 (2026-09-27)
 

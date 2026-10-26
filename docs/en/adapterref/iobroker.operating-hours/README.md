@@ -20,7 +20,8 @@ To reset the counted operating hours just write one numeric state to 0.
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+- (BenAhrdt) Adapter requires node.js >= 22 now
+- (BenAhrdt) update @iobroker/testing to 6.3.1
 
 ### 1.5.1 (2026-04-06)
 * (BenAhrdt) remove debug logging

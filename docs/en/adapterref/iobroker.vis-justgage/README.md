@@ -1,5 +1,5 @@
 ![Logo](admin/justgage.png)
-ioBroker.vis-justgage
+# ioBroker.vis-justgage
 
 [![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.vis-justgage)](https://github.com/iobroker-community-adapters/ioBroker.vis-justgage/blob/master/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-justgage.svg)](https://www.npmjs.com/package/iobroker.vis-justgage)
@@ -47,6 +47,9 @@ More about pointer options could be found here: https://github.com/toorshia/just
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (bluefox) Repository checker issues have been fixed (#314)
+
 ### 2.1.7 (2024-03-07)
 - (bluefox) Added message by installation or update if vis is not installed
 
@@ -132,7 +135,7 @@ More about pointer options could be found here: https://github.com/toorshia/just
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2026 iobroker-community-adapters 
+Copyright (c) 2023-2026 iobroker-community-adapters  
 Copyright (c) 2015-2019 Pmant <patrickmo@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

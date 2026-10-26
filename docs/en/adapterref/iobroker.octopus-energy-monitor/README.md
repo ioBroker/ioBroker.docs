@@ -68,6 +68,11 @@ To install this adapter in your ioBroker environment:
 Once configured, the adapter handles the rest! It periodically syncs the last 30 days of data according to the configured update interval. Data manifests under the `octopus-energy-monitor.0.history.YYYY.MM.DD` path.
 
 ## Changelog
+### WORK IN PROGRESS
+* (tipp88) Compare only finite, positive daily consumption values while continuing to refetch zero-consumption days.
+* (tipp88) Log discrepancies only when a day's stored comparison changes to a discrepancy.
+* (tipp88) Mark unavailable comparisons explicitly and clear outdated daily and tariff-slot differences.
+
 ### 1.1.0 (2026-09-24)
 * (tipp88) Added standalone Inexogy and Octopus operation with independent data retrieval and history export.
 * (tipp88) Restricted comparisons to days with data from both providers.

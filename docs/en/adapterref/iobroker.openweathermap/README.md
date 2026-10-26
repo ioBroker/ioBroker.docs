@@ -20,6 +20,17 @@ You need an api key to access the data. The api key you can get for free after r
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.0.4 (2026-10-22)
+* (@GermanBluefox) Fixed raw translation keys (e.g. openweathermap_Wed) in the widget with vis-2 2.15.x (#750)
+* (@GermanBluefox) The widget requires vis-2 2.20.2 or newer, if vis-2 is installed
+
+### 2.0.3 (2026-10-17)
+* (@GermanBluefox) Updated packages
+
+### 2.0.2 (2026-10-13)
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Admin 7.6.20+ is required. Fixed the build on CI (missing node types). The API key is protected now. Fixed the schema errors of the configuration
+
 ### 2.0.1 (2026-09-08)
 * (@GermanBluefox) The weather widget is now shown as a live preview in the admin configuration too
 
@@ -29,16 +40,6 @@ You need an api key to access the data. The api key you can get for free after r
 * (@JDCodes) Fixed NaN for rain and snow
 * (@GermanBluefox) Minimal supported Node.js version is now 22
 * (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now
-
-### 1.4.0 (2025-08-03)
-* (@tt-tom17) Added wind direction as text
-
-### 1.3.0 (2025-05-21)
-* (bluefox) Widget was completely ported to TypeScript
-* (bluefox) Backend was completely ported to TypeScript
-
-### 1.2.0 (2024-07-23)
-* (bluefox) Widget was partly ported to TypeScript
 
 ## License
 

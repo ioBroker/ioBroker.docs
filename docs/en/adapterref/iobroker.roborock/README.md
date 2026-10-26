@@ -33,7 +33,7 @@ This adapter allows you the control, get states, cleaning history and view the m
 ## Supported robots
 
 - **S-Series:** S4, S4 Max, S5 Max, S6, S6 Pure, S6 MaxV, S7, S7 MaxV (Pro/Ultra), S7 Pro Ultra, S7 Max Ultra, S8, S8+, S8 Pro Ultra, S8 MaxV Ultra
-- **Q-Series:** Q5 Pro, Q7, Q7 Max, Q7 L5, Q8 Max
+- **Q-Series:** Q5 Pro, Q7, Q7 Pro, Q7 Max, Q7 L5, Q8 Max
 - **Q Revo:** Q Revo, Q Revo Pro
 - **Qrevo:** Qrevo Slim, Qrevo S, Qrevo Curve, Qrevo Curv Series, Qrevo Edge, Qrevo Edge Series, Qrevo L, Qrevo Master, Qrevo MaxV
 - **Saros:** Saros 10, Saros 10R, Saros 20 / Saros 20X, Saros Z70
@@ -51,6 +51,15 @@ This feature only works when map creation is enabled in the adapter options. Ope
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.8.0 (2026-10-11)
+
+* (copystring) Added Roborock Q7 Pro support for maps, status and consumables.
+* (copystring) Improved multi-step scene execution and local connections for B01 devices.
+* (copystring) Coordinated UDP discovery when multiple adapter instances run.
+* (copystring) Corrected the Qrevo Edge 2 water mode mapping.
+* (gemsli) Fixed segment cleaning for rooms with inactive map states.
+* (copystring) Fixed cloud reauthentication after HomeData 401 responses and corrected S7 dock error handling.
+
 ### 0.7.4 (2026-06-07)
 
 * (copystring) Documented tested Roborock S8+ support.
@@ -75,13 +84,6 @@ This feature only works when map creation is enabled in the adapter options. Ope
 * (copystring) Fixed local TCP recovery when a Roborock device gets a new LAN IP address.
 * (copystring) Updated dependencies: `@napi-rs/canvas` to 1.0.0, `protobufjs` to 8.2.0 and `zod` to 4.4.3.
 * (copystring) Resolved npm audit security advisories in transitive dependencies and documented the temporary dependency overrides.
-
-### 0.7.0 (2026-05-04)
-
-* (copystring) Added support for Roborock Q10, including map handling for this model.
-* (copystring) Added support for Roborock Saros Z70.
-* (copystring) Improved local connections for newer Roborock models so reconnects, keepalive checks and map transfers are more reliable.
-* (copystring) Fixed empty images in `mapBase64` and `mapBase64Truncated`.
 
 Older changelog entries are available in CHANGELOG_OLD.md.
 

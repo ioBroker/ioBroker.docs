@@ -1,3 +1,6 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.dwd/README.md":{"title":{"en":"ioBroker.dwd"},"content":"en/adapterref/iobroker.dwd/README.md"},"en/adapterref/iobroker.dwd/docs/en/README.md":{"title":{"en":"DWD widgets"},"content":"en/adapterref/iobroker.dwd/docs/en/README.md"}}}
+---
 ![Logo](admin/dwd.png)
 # ioBroker.dwd
 
@@ -23,8 +26,16 @@ This adapter loads the weather warnings from the German weather service via JSON
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 3.0.0 (2026-10-11)
+- (@BeSiRe1) Optional warncell ID of a municipality: its warnings are read from the DWD geoserver and written below `warncell.`, in addition to the region (idea from #306 by BeSiRe1)
+- (@GermanBluefox) The vis-2 widget, the devices tile and the instance settings read the first warning from `warning` - `warning0` does not exist
+- (@GermanBluefox) The instance settings now show the warnings that are currently active
+- (@GermanBluefox) The vis widgets were ported to vis-2: the two templates became one widget with a layout setting ([documentation](/#/docs/adapterref/iobroker.dwd/docs/en/README.md))
+- (@GermanBluefox) New widget for the ioBroker.devices dashboard
+- (@GermanBluefox) Added the 24 missing inland lake regions (Bodensee, Chiemsee, Starnberger See, Müritz, Steinhuder Meer, ...)
+- (@GermanBluefox) The adapter was refactored to TypeScript, the sources are now in `src/` and are compiled to `build/`
+- (@GermanBluefox) The configuration dialog was migrated to JsonConfig
+- (@GermanBluefox) Adapter requires node.js >= 22 now
 
 ### 2.8.7 (2026-05-19)
 * (arteck) fix invalid JSON
@@ -43,10 +54,7 @@ This adapter loads the weather warnings from the German weather service via JSON
 * (Apollon77) Add instruction text to warning data
 * (Apollon77) Check missing objects and add them
 
-### 2.7.7 (2021-07-01)
-* (Apollon77) Fix start/end dates
-
-Older changelogs can be found there## License
+## License
 
 The MIT License (MIT)
 

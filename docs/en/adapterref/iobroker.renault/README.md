@@ -164,6 +164,16 @@ does not offer this data. The adapter asks again once a day, which costs one req
 My Renault (My Dacia, My Alpine) app, enter it in the adapter settings and restart the instance.
 Until then the adapter sends no commands, so it cannot lock the account with the old password.
 
+**The log or the admin notifications say Renault asks for a code by email.** Renault asks some
+accounts for a code sent by email at login (two-factor authentication). Open the instance
+settings and press **Test login**. The adapter has Renault send the code and names the address.
+Enter the code in **Code from the email** within 10 minutes and press **Confirm code**. A wrong
+code can be corrected without a new email; after 10 minutes press **Test login** again for a new
+code. If the email on the page is the one the instance uses, the instance connects at once and
+removes the notification; for a new email, save and close the settings. Renault remembers the
+ioBroker installation for about 30 days, and the adapter keeps its login session across restarts,
+so a new code is needed only when Renault ends that session.
+
 **The log says the Renault request quota is used up (429).** The account allows about 60 requests
 per hour, shared with the app. The adapter pauses by itself for 15, 30 and then 60 minutes. Raise
 the update interval, and use `refreshAll` rarely; the adapter warns once when its settings need
@@ -182,9 +192,19 @@ above; the adapter does not create it, and removes it if an older version had cr
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
-- Added a **Test login** button to the settings page. It checks email and password with the values on the page before saving and says whether they are wrong or the service did not answer. The page also shows whether the instance is connected.
-- GPS latitude and longitude now carry the roles `value.gps.latitude` and `value.gps.longitude`, so map widgets and the type detector find the vehicle position. Existing states are updated on the next start.
+
+- The buttons refreshBattery, refreshClimate and refreshLocation no longer fail now and then with "Timeout (-1) is smaller than 0".
+
+### 1.1.0 (2026-10-22)
+
+- New button in the settings to test the login before saving.
+- Accounts that need a login code by email work again. The code is requested and confirmed in the settings.
+- The login is kept across restarts.
+- A space around the email no longer breaks the login (#82).
+- The country setting is shown in the language of the admin.
+- Map widgets now find the vehicle position.
 
 ### 1.0.0 (2026-09-23)
 
@@ -232,10 +252,6 @@ above; the adapter does not create it, and removes it if an older version had cr
 ### 0.0.23
 
 - (TA2k) align API headers with My Renault Android app, drop EOL Node 18/20, migrate admin UI to jsonConfig
-
-### 0.0.22
-
-- (TA2k) update dependencies, migrate to ESLint 10, fix repochecker findings
 
 ## License
 

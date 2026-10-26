@@ -20,10 +20,7 @@
 
 ## fb-checkpresence adapter for ioBroker
 
-The adapter checks the presence of family members over the fritzbox. 
-You must fill in the name of the family member and the mac-address (or ip-address) of the used device. 
-The comment is optional and you can enable or disable the family member. 
-The datapoint is based on the member name.
+The adapter checks whether family members are present based on the devices reported by the FRITZ!Box. For each enabled family member, you must provide a member name, MAC address, IP address, and hostname. Choose whether the device should be identified by its MAC address, IP address, or hostname. A group and comment are optional. The adapter creates presence data points based on the member name.
 
 ### Used open source code
 #### npm dateformat v4.5.3
@@ -33,213 +30,246 @@ github: https://github.com/felixge/node-dateformat
 license: MIT
 
 ### Adapter pre conditions
-For the correct function you have to install a history adapter. You can choose
-one of the following adapters:
+A History adapter is optional. Select a supported History, SQL, or InfluxDB adapter to store and evaluate historical family member data. Presence detection works without a History adapter, but history-based information will not be available.
+
+You can choose one of the following adapters:
 * History
 * SQL
 * InfluxDB
 
-## Used device
-For this adapter the AVM Fritzbox is used. Here you can find informations about
-the Fritzbox https://avm.de/produkte/fritzbox/.
-The fritzbox services are used over the TR-064 protocol.
+## FRITZ!Box
 
-### Fritzbox conditions
+This adapter uses an AVM FRITZ!Box and communicates with it via the TR-064 protocol. For more information about FRITZ!Box products, see [AVM's website](https://fritz.com/collections/fritz-box).
+
+### TR-064 requirements
 
 The used TR-064 interface from the fritzbox is described here: https://avm.de/service/schnittstellen/.
-Following TR-064 services and actions are used:
-* Hosts:1 - X_AVM-DE_GetHostListPath (supported since 2017-01-09)
-* Hosts:1 - X_AVM-DE_GetMeshListPath
-* Hosts:1 - GetSpecificHostEntry
-* Hosts:1 - X_AVM-DE_GetSpecificHostEntryByIP (supported since 2016-05-18)
-* DeviceInfo:1 - GetSecurityPort
-* DeviceInfo:1 - GetInfo
-* WANPPPConnection:1 - GetInfo
-* WANIPConnection:1 - GetInfo
-* WLANConfiguration3 - SetEnable
-* WLANConfiguration3 - GetInfo
-* WLANConfiguration3 - GetSecurityKeys
-* X_AVM-DE_HostFilter - DisallowWANAccessByIP
-* X_AVM-DE_HostFilter - GetWANAccessByIP
-* DeviceConfig:1 - Reboot
-* LANConfigSecurity1 - X_AVM-DE_GetCurrentUser
 
-By default, the TR-064 interface is not activated. However, this can easily be changed via the 
-FritzBox web interface. To do this log in into your FritzBox and ensure that the expert view is activated. 
-Then you will find below "Home Network »Home Network Overview» Network Settings" the point 
-"Allow access for applications". There you have to activate the checkbox and then restart the FritzBox once.
+The adapter uses the following TR-064 services and actions:
 
-Hint: After changing the options, don't forget the restart of the Fritzbox !
-<img src="doc/access_settings_network.JPG"/>
+* Hosts:1 — X_AVM-DE_GetHostListPath (supported since 2017-01-09)
+* Hosts:1 — X_AVM-DE_GetMeshListPath
+* Hosts:1 — GetSpecificHostEntry
+* Hosts:1 — X_AVM-DE_GetSpecificHostEntryByIP (supported since 2016-05-18)
+* DeviceInfo:1 — GetSecurityPort
+* DeviceInfo:1 — GetInfo
+* WANPPPConnection:1 — GetInfo
+* WANIPConnection:1 — GetInfo
+* WLANConfiguration3 — SetEnable
+* WLANConfiguration3 — GetInfo
+* WLANConfiguration3 — GetSecurityKeys
+* X_AVM-DE_HostFilter — DisallowWANAccessByIP
+* X_AVM-DE_HostFilter — GetWANAccessByIP
+* DeviceConfig:1 — Reboot
+* LANConfigSecurity1 — X_AVM-DE_GetCurrentUser
 
-## Configuration dialog
+TR-064 access is disabled by default on the FRITZ!Box. To enable it, log in to the FRITZ!Box web interface and switch to the advanced view. Open **Home Network » Network » Network Settings** and enable **Allow access for applications**. Restart the FRITZ!Box after changing this setting.
+
+> **Note:** The menu names may differ slightly depending on your FRITZ!OS version.
+
+<img src="doc/access_settings_network.JPG" alt="FRITZ!Box network settings for TR-064 access"/>
+
+## Configuration
 
 ### General
-The configuration values are validated and only correct values can be saved. Otherwise the save button is disabled.
 
-### Fritzbox IP-address, user and password
-The configuration of ip-address, user and password is necessary to get the device data from the fritzbox.
-Therefore a user has to be created in the fritzbox. This is required with newer 
-firmware version (>= 7.25)of the fritzbox. See here fore information: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf 
-The password is encrypted and wasn't saved in clear text. The user name and password may have a maximum of 
-32 characters. See for information: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf%20nicht%20leer%20sein.
-Hint: In some cases it could be that the fritzbox blocked the user if the password was not correctly inserted.
-Often a timeout message is in the log. Please check than the if you has insert the correct username and password.Then you have to reboot the fritzbox. 
+The configuration form validates required values and prevents saving while a validation error is present.
 
-### Ssl option
-In some cases the adapter could not connect to the fritzbox. It could help to disable this option.
-In this case the adapter tries to connect without https. 
+### FRITZ!Box address, username, and password
 
-### Interval
-You have separate intervals for family members and Fritzbox devices.
-The interval for Fritzbox devices can be configured from 10s to 3600s. Normally a value between 60 and 300 seconds is an optimal interval to read the fritzbox data. Family members could be configured from 10s to 600s. Every new cycle starts if the previous cycle is finished.
+Enter the IP address or hostname of your FRITZ!Box, together with the username and password of a FRITZ!Box user. Recent FRITZ!OS versions (7.25 and later) require a user account for this type of access. Create the user in the FRITZ!Box settings and grant it the required FRITZ!Box access rights.
+
+The password is stored encrypted by ioBroker and is not saved as plain text. FRITZ!Box usernames and passwords can be up to 32 characters long. See the [AVM recommendations for logging in to a FRITZ!Box](https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf) and AVM's [information about permitted characters](https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter).
+
+If the adapter reports connection timeouts, check the username, password, and access rights. The FRITZ!Box may temporarily block a user after repeated unsuccessful login attempts. In that case, check the FRITZ!Box and its logs; a restart may be required to clear the block.
+
+### SSL
+
+If the adapter cannot connect to the FRITZ!Box using SSL, try disabling this option. The adapter will then connect without HTTPS.
+
+### Polling intervals
+The adapter has separate polling intervals for family members and FRITZ!Box devices. Both can be set between 10 and 3600 seconds. Each polling cycle starts after the previous cycle has finished.
 
 ### Filter time
-If the filter time is greater than 0s the state of a family member is checked twice (after the filter time) if the state is changing to false. If the state is true the state is immediate set.  
+When a family member's status changes to absent, the adapter waits for the configured filter delay and checks the status again. The absent status is set only if the member is still absent. A change to present is applied immediately.
 
 ### History adapter
-Over the history adapter some values are calculated. You can choose, if the history, the sql or the influxdb adapter is used for this calculations. The history adapter must be installed preliminary and can then selected in the configuration dialog. 
-If the history configuration is disabled then the calculation of some values could not be realized. 
 
-### Dateformat
-The date format mask options are described on this web page: https://www.npmjs.com/package/dateformat.
-The format mask is used for formatting the html and json table objects. 
+A History adapter is optional. Select a supported History, SQL, or InfluxDB adapter to store and evaluate historical family member data. Presence detection works without a History adapter, but history-based information and statistics will not be available.
 
-### Creation of FB devices
-If this option is checked, the objects for every device in the Fritzbox device list are created.
-If this option is disabled, then also the mesh informations are disabled.
+### Date format
 
-### Resynchronisation of FB device objects (once)
-If this option is checked, then the FB device object are re-synchronized with the device list fom Fritzbox once.
+The date format is used in the adapter's formatted HTML and JSON output. For available format masks, see the [dateformat documentation](https://www.npmjs.com/package/dateformat#mask-options).
 
-### Resynchronisation of FB device objects (automaticaly)
-If this option is checked, then the FB device object are re-synchronized with the device list fom Fritzbox every x days.
+### FRITZ!Box device data points
 
-### Creation of mesh information
-This option can be checked if the creation of FB devices is allowed. If this option is checked, 
-the mesh objects for every device in the Fritzbox device list are created.
+Enable **Create data points for FRITZ!Box devices** to create individual data points for devices found in the FRITZ!Box network.
 
-### guest information
-If this option is checked the states for guests are created. 
+To limit which devices receive individual data points, enable **Use selected devices only** and select the desired devices from the list. Devices are matched by their MAC address. If this option is disabled, individual data points are created for all devices.
 
-### qr-code generation
-If this option is checked the qr-code from guest wlan is generated.
-You can show this QR code in your VIS with the widget "Basic Boolesches SVG".
-Please use following settings:
-<img src="doc/QRCode.png"/>
+The device lists and device counters continue to show the complete device information reported by the FRITZ!Box, regardless of the selection. The selection only controls the creation and updating of individual `fb-devices.<device>.*` data points.
 
-### Family member settings
-For a configured family member you should enter the member name, the hostname, the mac- and ip-address, a comment and you can enable or disable the member. A group is optional. 
-If you leave the group empty and set the compatibility flag to true the behaviour is like an older version of the adaper. You can use the presence state from the family member or the state directly mapped to the family member name. In a future version you must use the presence state. This behaviour could be switched on/off with the compatibility checkbox:
--> compatibility = true: behaviour as an older version with empty group. 
--> compatibility = true and group not empty: new behaviour. All states beneath the familymembers folder. 
--> compatibility = false: new behaviour. All states beneath the familymembers folder.
+Changing the selection does not delete data points that were created previously. If you no longer need data points for devices that are no longer selected, delete them manually in the ioBroker Objects view.
 
-For every member the adapter creates a presence state and checks if the member is present or absent. The state was changed if the presence state changed. 
-You can also enable the filtering for a member. If the state is true the state changes immediately to true. If it is false then the value will checked after the filter time again.
-If the state is in both cases false then the state changes to false. Otherwise it does not change.
+> **Note:** The device selection is available only when **Create data points for FRITZ!Box devices** is enabled.
 
-To get the speed information in the objects you have to select fb-devices option.
+### Synchronizing FRITZ!Box device data points
+You can synchronize FRITZ!Box device data points once or configure periodic synchronization. Periodic synchronization runs at the specified interval and removes data points for devices that are no longer reported by the FRITZ!Box. The interval controls how often synchronization runs; it is not the amount of time a device must be inactive before removal.
 
-### Manually trigger presence
-In javascript you can trigger the presence manually. When you send the message to the adapter 
-every new message is blocked for 10 seconds. You receive a negative result (false) if the message is blocked.
-True if the message is received from the adapter. 
-`
-sendTo('fb-checkpresence.0', 'triggerPresence', {}
-    , function (result) {
-        log(result, 'info');
+The selected-device setting does not delete existing data points for devices that are no longer selected. Delete those data points manually if they are no longer needed.
+
+### Mesh information
+
+When mesh information is enabled, the adapter creates additional data points for devices and interfaces in the FRITZ!Box mesh network. This option requires **Create data points for FRITZ!Box devices** to be enabled.
+
+### Guest network information
+
+Enable guest network information to retrieve details about devices connected to the guest network and update the related guest states.
+
+### Guest Wi-Fi QR code
+
+Enable QR code generation to create a QR code for the guest Wi-Fi network. The code is stored in the `guest.wlanQR` state and can be displayed in VIS using the **Basic Boolesches SVG** widget. Use the following example settings:
+
+<img src="doc/QRCode.png" alt="Example VIS settings for displaying the guest Wi-Fi QR code"/>
+
+### Family member compatibility
+
+The compatibility option controls the object structure used for family member states:
+
+* **Compatibility enabled, group empty:** Uses the legacy object structure.
+* **Compatibility enabled, group set:** Uses the new structure, with states under the `familyMembers` folder.
+* **Compatibility disabled:** Uses the new structure, with states under the `familyMembers` folder.
+
+The legacy structure may be removed in a future version. When changing from the legacy structure, follow any instructions in the adapter log. You may need to update scripts or VIS widgets that refer to the old state IDs.
+
+### Family member presence and filtering
+
+The adapter creates a presence state for each enabled family member and checks whether the configured device is present or absent. The presence state changes when the detected status changes.
+
+You can enable filtering for an individual family member. When the device is detected as present, the presence state changes to `true` immediately. When it is detected as absent, the adapter waits for the configured filter delay and checks again. The state changes to `false` only if the device is still absent after the delay.
+
+Some device information, such as connection speed, is read from the individual FRITZ!Box device data points. Enable **Create data points for FRITZ!Box devices** to make this information available.
+
+### Manually trigger presence detection
+
+You can manually trigger a presence check by sending the `triggerPresence` message to the adapter. Further trigger requests are rejected during the 10-second cooldown. The callback returns `false` if the request is blocked and `true` if the adapter accepts it.
+
+```javascript
+sendTo('fb-checkpresence.0', 'triggerPresence', {}, result => {
+    log(result, 'info');
 });
-`
+```
 
 ### Whitelist settings
-In the white list you can insert every known device. Any unknown devices are listed in the blacklist object. 
-If you check the checkbox in the headline of the table all devices are selected.
 
-In Javascript you can send an item to the whitelist. 
-The sent data (hostname, MAC) is compared with the Fritzbox device list. If the entry is present, it is checked whether it is already saved in the whitelist. If not, the entry is saved in the whitelist configuration table.
+Select the FRITZ!Box devices that should be considered known. Devices not included in the whitelist are treated as unknown and may appear in the blacklist.
 
-sendTo('fb-checkpresence.0', 'addDeviceToWhitelist', 
+You can also add a device to the whitelist from JavaScript. The adapter checks the supplied hostname and MAC address against the FRITZ!Box device list. If the device is found and is not already in the whitelist, it is added to the whitelist configuration.
+
+```javascript
+sendTo(
+    'fb-checkpresence.0',
+    'addDeviceToWhitelist',
     {
         hostname: 'devicename',
-        mac: '00:00:00:00:00:00'
-    }
-    , function (result) {
+        mac: '00:00:00:00:00:00',
+    },
+    result => {
         log(result, 'info');
-});
+    },
+);
+```
 
 ## Features
 
-### AVM support check
-The function checks the availability of used fritzbox features. The availability is logged as info. If you have problems look if the features are all set to true. Also the access rights are checked for the user and
-the feature is set to false if the acces right is not correct.
+### FRITZ!Box capability check
 
-### Switch on / off the guest wlan
-Under the folder guest you can set the state wlan to true or false and then the guest wlan switches on or off.
+The adapter checks which FRITZ!Box services and features are available and reports the results in the log. It also checks whether the configured FRITZ!Box user has the required access rights. If a service is unavailable or the user lacks the required permission, the corresponding feature is disabled. If a feature does not work, check the adapter log and the FRITZ!Box user's permissions.
 
-### QR code of guest wlan
-The QR code of the guest wlan is saved in the state wlanQR in the guest folder. The QR code can show in vis in the basic - Bool SVG widget.   
+### Switch guest Wi-Fi on or off
 
-### Switch on / off the internet access of Fritzbox devices
-Under the folder FB-devices you could set the disabled state to true or false and the the internet access of this device
-is blocked in the Fritzbox.
+Set the `guest.wlan` state to `true` or `false` to switch the FRITZ!Box guest Wi-Fi on or off.
 
-### Get guests, blacklist
-In this function it is checked if any user is logged in as guest. Also is checked if any device is not in the white list listed.
-This devices are added to the blacklist.
+### Guest Wi-Fi QR code
 
-### Get Active
-For every family member the presence, the comming and going dates and several other infos are calculated and saved in the member object if a history adapter is selected. 
+When QR code generation is enabled, the guest Wi-Fi QR code is stored in `guest.wlanQR`. It can be displayed in VIS using the **Basic Boolesches SVG** widget.
 
-### Host number, active devices
-The amount of devices and how many are active are get from the fritzbox.
+### Block or allow a device's internet access
+
+For supported FRITZ!Box devices, set the `disabled` state under `fb-devices` to `true` to block that device's internet access, or to `false` to allow access again.
+
+### Guest devices and blacklist
+
+The adapter reports devices connected to the guest network. It also compares detected devices with the whitelist; devices that are not whitelisted may be listed in the blacklist.
+
+### Family member presence and history
+
+For each configured family member, the adapter tracks presence. When a History adapter is selected and available, it can also calculate and store arrival and departure times and other history-based information.
+
+### Device counts
+
+The adapter reports the total number of devices and the number of active devices as reported by the FRITZ!Box. These counts reflect the FRITZ!Box device list, not just the devices selected for individual `fb-devices` data points.
 
 ## Objects
 
-### Object presenceAll
-If all family members are present then the object is true.
+### `presenceAll`
 
-### Object presence
-If one family member ist present then the object is true.
+`true` when all configured family members are present.
 
-### Object devices
-These are all listed devices in the fritzbox
+### `presence`
 
-### Object activeDevices
-These are the amount of all active devices in the fritzbox
+`true` when at least one configured family member is present.
 
-### Object html, json
-These objects are tables (json and html) with the comming and going information of all family members in it.
+### `devices`
 
-### Object info
-Here are informations listed about the last update and the connection status from the adapter.
+The total number of devices reported by the FRITZ!Box.
 
-### Object guest
-Here are informations listed about the amount of active guests and table objects with the device information in it.
+### `activeDevices`
 
-### Object blacklist
-Here are informations listed about the amount of unknown devices and table objects with the unknown device information in it.
+The number of active devices reported by the FRITZ!Box.
 
-### Object member.present
-Here you will find information about the presence of a member on the current day and how long the member has been the status true since the last change. 
- 
-### Object member.absent
-Here you will find information about the absence of a member on the current day and how long the member has been the status false since the last change.
+### HTML and JSON tables
 
-### Object member.comming, member.going
-Here you will find information when the family member arrives or leaving home.
+The HTML and JSON output includes family member arrival and departure information.
 
-### Object member.history, member.historyHtml
-Here you will find information about the history of the current day. 
+### `info`
+
+Contains adapter information, including the last update and connection status.
+
+### `guest`
+
+Contains guest network information, including the number of active guests and tables with guest device details.
+
+### `blacklist`
+
+Contains the number of unknown devices and tables with information about those devices.
+
+### `member.present`
+
+Contains information about the member's presence on the current day, including how long the member has been present since the last status change.
+
+### `member.absent`
+
+Contains information about the member's absence on the current day, including how long the member has been absent since the last status change.
+
+### `member.comming` and `member.going`
+
+Contain the member's arrival and departure information. The state ID `comming` is retained for compatibility.
+
+### `member.history` and `member.historyHtml`
+
+Contain the member's history for the current day.
 
 ## Changelog
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
 * (afuerhoff) dependencies updated
 * (afuerhoff) dependabot.yml fixed [#358](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/358)
-* (afuerhoff) new fb-devices sync option integrated
+* (afuerhoff) new fb-devices cyclic sync option integrated
 * (afuerhoff) readme updated
 * (softwarecrash) PR398 fixes a crash in newfilter mode
+* (afuerhoff) issues [#413]
+* (afuerhoff) configuration changed to jsonConfig 
 
 ### 1.4.2 (2025-10-30)
 * (afuerhoff) dependencies updated

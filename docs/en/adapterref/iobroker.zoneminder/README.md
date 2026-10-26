@@ -9,19 +9,20 @@
 
 [![NPM](https://nodei.co/npm/iobroker.zoneminder.png?downloads=true)](https://nodei.co/npm/iobroker.zoneminder/)
 
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.zoneminder/master.svg)](https://travis-ci.org/iobroker-community-adapters/ioBroker.zoneminder)
+> [!IMPORTANT]
+> This adapter cannot be installed from github
 
 ## zoneminder adapter for ioBroker
 
 Connection to your Zoneminder.
 
 ## Getting started
-Type in your host e.g. 'http://zoneminder/zm' unchanged user and password is 'admin' if you dont have any authentification do not change user or password.
+Type in your host e.g. 'http://zoneminder/zm' unchanged user and password is 'admin' if you don't have any authentification do not change user or password.
 
 The device intervall is for checking new cameras and some basic information. The value is in seconds.
 The monitor intervall is for checking alerts it is also in seconds.
 
-If you want to get alert informations please install zmEventNotification to your zoneminder and enable it in the iobroker settings.
+If you want to get alert information please install zmEventNotification to your zoneminder and enable it in the iobroker settings.
 
 ### Zoneminder-Settings
 To get camera-url link work with user and pw you have to deselect AUTH_HASH_IPS in Settings
@@ -33,23 +34,29 @@ To get camera-url link work with user and pw you have to deselect AUTH_HASH_IPS 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.1 (2026-10-20)
+- (mcm1957) IMPORTANT: password must be reentered once to to added encryption
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
-* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+- (bluefox) Adapter required node.js >= 22 now
+- (bluefox) The adapter was refactored to TypeScript and JsonConfig
+- (bluefox) `request` / `request-promise` were replaced by `axios`
+- (bluefox) Fixed crashes (unreachable host, no enabled monitor), multiplying login timers and websocket connections, polling that stopped after one error
 * (mcm1957) Dependencies have been updated
 
 ### 0.3.3 (12.11.2019)
 * (MeisterTR) error fixes, fix login error, fixes for latest
-* (MeisterTR) add ZmEvents
-* (MeisterTR) Select moniorfunction and disable/enable monitor
+* (MeisterTR) added ZmEvents
+* (MeisterTR) Selected monitor function and disabled/enabled monitor
+
 ### 0.2.1
-* (MeisterTR) add info states
-* (MeisterTR) add camera-link with auth-key
-* (MeisterTR) cange video link
+* (MeisterTR) added info states
+* (MeisterTR) added camera-link with auth-key
+* (MeisterTR) changed video link
+
 ### 0.1.0
 * (MeisterTR) First running version
+
 ### 0.0.1
 * (MeisterTR) initial release
 

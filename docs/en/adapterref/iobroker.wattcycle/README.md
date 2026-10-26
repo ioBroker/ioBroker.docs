@@ -10,6 +10,28 @@ Reads WattCycle / XDZN BLE batteries (TDT protocol, characteristics fff1/fff2/ff
 - Per-battery states for SoC, voltage, current, power, capacity, cycles, MOSFET/PCB/cell temperatures, individual cell voltages.
 - Built-in BLE scan from the admin UI to discover MAC addresses of nearby devices.
 - Configurable poll interval, gap between batteries and Bluetooth (HCI) adapter.
+- Device manager: every battery as a card with SOC, connection, charge/discharge state, voltage, power and temperature; details with all cells; scan, add, edit, enable/disable and delete batteries.
+- Tile for the `devices` app and a widget for `vis-2`, modelled after the WattCycle app (SOC arc, charge state, voltage, current, power, temperature, health and cells).
+
+## Visualisation
+
+### Devices app
+
+Add a custom widget of the type **WattCycle battery** and select a battery device (`wattcycle.0.batteries.<name>`) or `wattcycle.0.total` for the sum of all batteries.
+
+- `1x1` – SOC arc and charge state
+- `2x½` – battery bar with voltage, current and power
+- `2x1` – SOC arc together with voltage, current, power and temperature
+
+A click on the tile opens a dialog with everything: health, cells and temperatures.
+
+### vis-2
+
+The widget set **WattCycle batteries** contains the widget **Battery**. Select the battery device in its settings. The layout follows the size of the widget (bar, compact, wide or full view) or can be fixed in the settings. A click on the smaller layouts opens the full view.
+
+### Device manager
+
+The tab **Device manager** in the instance settings (or the device manager of admin) shows all configured batteries and the total.
 
 ## Configuration
 
@@ -87,15 +109,26 @@ sendTo('wattcycle.0', 'scan', { duration: 8000 }, res => console.log(res.devices
 
 ## Changelog
 
-### **WORK IN PROGRESS**
-- (iobroker-bot) Adapter requires node.js >= 22 now.
 <!--
    Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
-### 1.0.0 (2026-07-01)
+### **WORK IN PROGRESS**
+* (GermanBluefox) Replaced the wrong telegram context in the Copilot instructions and stopped the template check from creating duplicate issues (#70)
+
+### 2.0.1 (2026-10-14)
+* (@GermanBluefox) Restored the supported platforms (Linux and macOS) in package.json
+* (@GermanBluefox) Added dependabot updates for the GUI parts
+
+### 2.0.0 (2026-10-14)
+* (@GermanBluefox) Added device manager support
+* (@GermanBluefox) Added a battery tile for the devices app
+* (@GermanBluefox) Added a battery widget for vis-2
+* (iobroker-bot) Adapter requires node.js >= 22 now.
 * (@GermanBluefox) Improved total calculations
 * (@GermanBluefox) Updated packages
+* (@GermanBluefox) Fixed the build (tsconfig for node 22), so 1.0.0 was never published
+* (@GermanBluefox) The adapter does not run in compact mode anymore: the BLE stack of noble keeps its state per process
 
 ### 0.2.2 (2026-05-07)
 * (@GermanBluefox) Managed timeouts and power off

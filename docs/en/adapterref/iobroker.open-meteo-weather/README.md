@@ -284,6 +284,10 @@ The adapter uses the **Faiman model** to estimate the module temperature. This m
 After a new adapter update, it is recommended to delete the entire directory tree and let it be recreated.
 
 ## Changelog
+### 3.3.2 (2026-10-25)
+* (H5N1v2) Bug fixed: "Error Timeout (-xxxxx) is smaller than 0" occurring during the transition to or from daylight saving time.
+* (H5N1v2) Update dependencies.
+
 ### 3.3.1 (2026-10-10)
 * (H5N1v2) Added `showers` datapoint to 15-minute forecast.
 * (H5N1v2) Update dependencies.
@@ -303,17 +307,6 @@ After a new adapter update, it is recommended to delete the entire directory tre
 ### 3.2.0 (2026-09-06)
 * (H5N1v2) Adding configurable 15 minute weather forecast with max. 16 Datasets for the next 4 hours.
 * (H5N1v2) Update dependencies
-
-### 3.1.4 (2026-07-18)
-* (@GermanBluefox) upscaled the logo
-* (@GermanBluefox) Updated TS to 6
-* (@GermanBluefox) Corrected image in JsonConfig
-* (H5N1v2) Resize logo to 512x512
-* (pk68) fix: info.lastUpdate_PV_Forecast is no longer updated if all API calls failed or returned empty data.
-* (H5N1v2) fix: PV Forecast sunrise mode now retries automatically after 30 minutes if the API call fails (e.g. HTTP 500 overload). The next day's schedule is only planned after a successful update.
-* (H5N1v2) add open-meteo status link in adapter description and README.
-* (H5N1v2) fix: made OpenStreetMap link clickable in the admin area.
-* (H5N1v2) Update dependencie.
 
 ## Legal & Copyright
 

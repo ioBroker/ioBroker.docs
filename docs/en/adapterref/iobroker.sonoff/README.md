@@ -100,6 +100,8 @@ By default the adapter runs a built-in TCP broker that Tasmota devices connect t
 
 In the adapter settings, activate **Use external MQTT broker** and set **External broker URL** to your broker address, e.g. `mqtt://192.168.1.10:1883` or just `192.168.1.10:1883`. Optionally set username and password. If the option is deactivated (or no URL is entered), the built-in broker is started as before.
 
+**Credentials from the central storage:** instead of entering the user and password, you can select **Credentials: From the credential storage** - for the built-in server as well as for the external broker - and pick a credential of the form "Login & password" that is managed once in the system settings of admin (Settings → Credentials, admin 7.9.0 or newer). This is handy if the same MQTT login is used by several adapters or instances. The adapter reads the credential on start and restarts if it is changed. If the credential cannot be read, the MQTT server/connection is not started and an error is logged.
+
 **Topics to subscribe** defines which topics the adapter listens to, by default `tele/#, stat/#, +/tele/+, +/stat/+`. Extend this list if your devices use other topics, e.g. OpenBeken devices, which publish to `<devicename>/...`, or a global prefix in the full topic (`myPrefix/tele/#`).
 
 Optionally you can set the **Client ID** used at the broker (default `iobroker_sonoff_<instance>`), the **Keepalive** interval and **Clean session**. Deactivate the clean session if the broker should store the messages of the devices while the adapter is not running.
@@ -162,62 +164,58 @@ States:
 * `modeLedExor` - exor for white LEDs and color LEDs => if the white LEDs are switched on, color LEDs are switched off and vice versa (default true)
 * `modeReadColors` - allow for color read from MQTT (default false)
 
+## Roles of the objects since 5.0
+Since version 5.0 the objects get roles which the type-detector recognizes correctly, so that adapters like Alexa (iot), Matter, Material or devices find the right devices: a relay as light or socket, a light with its color, dimmer and effect, a temperature sensor and so on. Before, e.g. `Wifi_Channel` or `MqttPort` were detected as dimmer and `POWER` of an RGB light was replaced by `WW_POWER`.
+
+**The behavior of the existing objects can change:**
+
+* The roles of the existing objects are updated as soon as the device sends the value again. Only the roles which the older versions set are changed, a role changed by you (e.g. `switch.light` on `POWER`) is kept. The ID, the name, the history settings and the value stay as they are.
+* Visualizations, scripts or aliases which select the states by their role can find other states now.
+* `Switch1`...`Switch28` are the inputs of the device and so read-only now.
+* The most important changes:
+  * network and firmware information: `info.ip`, `info.name`, `info.firmware`, `info.hardware`, ...
+  * diagnostic values (`Heap`, `LoadAvg`, `Wifi_Channel`, `HTTP_API`, ...): `info.status`, `UptimeSec`: `value.interval`, `Wifi_Signal`: `value.rssi`
+  * `POWER`, `POWER1`... with `switch.power`: `switch`
+  * `RGB_POWER`, `WW_POWER`, `CW_POWER`: `switch.mode.color`, `switch.mode.white`, `switch.mode.coldwhite`, `Fade`, `modeLedExor`, `modeReadColors`: `switch.setting`, `Scheme`: `level.effect`, `CT`: `level.color.temperature`
+  * `Today`, `Yesterday`: `value.energy.consumed`, `Vcc`: `value.voltage.vcc`, `DewPoint`: `value.temperature.dewpoint`
+  * automatically created states: texts `text`, writable numbers `state` (before `level`)
+
+A device with several relays (`POWER1`, `POWER2`, ...) in one channel is still detected only as one device, as the type-detector finds every device type only once per channel.
+
+## Device manager
+The devices are shown in the device manager of the admin with their relays, dimmers, colors, shutters and settings, which can be controlled directly there.
+
+**Firmware update:** if "Check for firmware updates" is enabled (default), the adapter reads the latest Tasmota release from GitHub once a day. A Tasmota device with an older firmware shows the update indicator and the action "Update firmware". It sends `Upgrade 1` to the device, which downloads the firmware from its own OTA URL (by default the official release of its build variant, e.g. `tasmota` or `tasmota32`) and restarts. The dialog waits until the device reports the new version, at most 5 minutes. Development builds are not offered to be "updated" to the release they are based on.
+
+**Search for devices:** the action "Search for devices" of the instance asks every address of the local networks (the /24 network of each own address) via the web interface of Tasmota for its status - the official Tasmota builds do not announce themselves by mDNS. The found devices are listed with their current MQTT settings, the ones already connected with this instance separately. For the selected devices the adapter enables MQTT and writes the MQTT server, port, user and password (`Backlog SetOption3 1; MqttHost ...; MqttPort ...; MqttUser ...; MqttPassword ...`). The settings are prefilled with the own address and the port and credentials of the built-in server, in bridge mode with the external broker. The devices restart and appear in the list as soon as they are connected. Devices with a web password require it in the form. If ioBroker runs in a Docker container without host network, only the network of the container is searched.
+
+The device card shows the connection and the Wi-Fi signal (`Wifi_Signal` in dBm) live.
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### 4.2.1 (2026-09-14)
-* (@patricknitsch) Fixed Device Manager showing no devices at all if a data point exists twice, e.g. `POWER` and `STATE.POWER` (#604)
-* (@patricknitsch) Fixed writing to nested data points, e.g. `STATE.POWER1` with "Create object tree" enabled
-* (@GermanBluefox) Fixed writing to devices whose MQTT client ID contains a dot
+### 5.2.1 (2026-10-23)
+* (@GermanBluefox) Firmware with other texts for ON/OFF (e.g. "AN"/"AUS" of a German build) is supported: the texts of every device are requested and recognized automatically
 
-### 4.2.0 (2026-09-07)
-* (@patricknitsch) Added Device Manager for existing devices
+### 5.2.0 (2026-10-22)
+* (@GermanBluefox) The MQTT login of the built-in server and of the external broker can be taken from the central credential storage of admin (Settings → Credentials), admin 7.9.0+ is required (#629)
 
-### 4.0.0 (2026-08-13)
-* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
-* (stony2k) Added bridge mode to connect to an external MQTT broker instead of running a built-in broker
-* (stony2k) Fixed the alive state object not being created (warning "has no existing object")
-* (@GermanBluefox/GreatSUN) Fixed the names of data points inside a group: since 3.3.0 e.g. `SML_Total_in` was created as `SML_in` (#489)
-* (@GermanBluefox/baetzst) The MAC address and the other network and firmware information of a device are stored as data points (`INFO.Mac`, `INFO.Gateway`, `INFO.Hardware`, ...) (#513)
-* (@GermanBluefox) Server mode: the adapter requests `Status 5` and `Status 2` from a device with its first message, so the INFO states are filled even if the device did not reboot
-* (@GermanBluefox) The states which were created with a shortened name by 3.3.x are listed in the log on start, so they can be deleted (#489)
-* (@GermanBluefox) Bridge mode: the topics to subscribe are configurable now, and nested full topics as well as OpenBeken topics are supported
-* (@GermanBluefox) Bridge mode: devices are named after their MQTT client ID like with the built-in broker and are no longer renamed by less reliable sources
-* (@GermanBluefox) Bridge mode: the `alive` state is set from the last will topic (LWT), so devices are recognized as offline
-* (@GermanBluefox) Commands for auto-created states are sent to `cmnd/...` again, also for nested full topics
-* (@GermanBluefox) `info.connection` contains the list of the connected clients again (server mode), in bridge mode the URL of the broker
-* (@GermanBluefox/patricknitsch) Bridge mode: support for the full topic structure `%topic%/%prefix%/` (device first), detected automatically per device
-* (@GermanBluefox/patricknitsch) Bridge mode: encrypted connections with CA/client certificates and optional certificate check, configurable client ID, keepalive and clean session
-* (@GermanBluefox/patricknitsch) Bridge mode: a fix prefix in front of the full topic (e.g. `gateway/tele/device/STATE`) is recognized and used for the commands
-* (@Apollon77/@copilot) Added support for OpenBeken LED datapoints (led_enableAll, led_dimmer, led_temperature, led_basecolor_rgb, led_finalcolor_rgbcw, led_basecolor_rgbcw, led_hue, led_saturation) - enables control of OpenBeken LED devices with automatic topic mapping for /get and /set suffixes
-* (@Apollon77/@copilot) Added PulseTime1-PulseTime16 datapoint support - users can now read and set PulseTime values directly from ioBroker to control relay auto-off timers
-* (@GermanBluefox) Breaking: a minimal supported Node.js version is now 22
+### 5.1.1 (2026-10-13)
+* (@GermanBluefox) Admin 7.6.20+ is required. Added missing translations. The tests run on Windows and macOS too
 
-### 3.3.0 (2025-09-20)
-* (@Apollon77/@copilot) **IMPORTANT**: Commands now correctly use `cmnd/` prefix instead of `tele/` prefix
-* (@Apollon77/@copilot) Added configuration for advanced MQTT settings
-* (@Apollon77/@copilot) Fixed shutter command mapping to use the correct Tasmota format - Transforms Shutter1_Position to ShutterPosition1 for proper device control
-* (@Apollon77/@copilot) Fixed IRHVAC Power, Light and Mode fields showing NULL instead of actual string values
-* (@Apollon77/@copilot) Added Zigbee device control support for Tasmota coordinators - users can now control Zigbee devices (Power/Dimmer) through ioBroker states via automatic ZbSend command generation
-* (@Apollon77/@copilot) Added support for Tasmota tele/MARGINS messages enabling integration of PowerLow, PowerHigh, and PowerDelta limits
-* (@Apollon77/@copilot) Fixed POW R2 energy datapoints not being created by enabling TELE_STATE by default
-* (@Apollon77/@copilot) Fixed pressure and temperature unit display to respect PressureUnit and TempUnit from Tasmota MQTT messages
-* (@Apollon77/@copilot) Added support for decoupled button actions in Tasmota devices - creates Button1-Button8 datapoints for button events
-* (@Apollon77/@copilot) Fixed RESULT message processing bug where tele/*/RESULT messages were incorrectly processed as WAKEUP instead of RESULT
-* (@Apollon77/@copilot) Fixed the deprecated value.power.consumption role for ENERGY_Power datapoint to improve device detection
-* (@Apollon77/@copilot) Added support for SHUTTER5-SHUTTER16 datapoints for ESP32 shutter32 devices
-* (@Apollon77/@copilot) Updated admin UI responsive design to use ioBroker standard values for mobile compatibility
-* (@Apollon77/@copilot) Added support for Sonoff B1 (RGB LED) and Sonoff SC (Environmental Sensor) devices with proper value ranges
-* (@Apollon77/@copilot) Added meaningful state labels for Scheme datapoint (color animation schemes)
-* (@Apollon77/@copilot) Added a configuration option to suppress "not connected" warnings for temporarily offline devices
-* (@Apollon77/@copilot) Added Switch5-Switch28 datapoint definitions for consistent boolean mapping
-* (@Apollon77/@copilot) Fixed a write flag for all Switch datapoints to enable proper control from ioBroker
+### 5.1.0 (2026-10-13)
+* (@GermanBluefox) Device manager: firmware update of Tasmota devices. The latest release is read from GitHub once a day (option "Check for firmware updates"), devices with an older firmware show the update indicator. The update is started with `Upgrade 1`, so the device downloads the firmware from its own OTA URL
+* (@GermanBluefox) Device manager: search for Tasmota devices in the network and connect them with ioBroker (enables MQTT and writes server, port, user and password)
+* (@GermanBluefox) Device manager: the connection state and the Wi-Fi signal are updated live, the signal is shown in dBm (`Wifi_Signal`) instead of the link quality in percent. Toggles like `Fade` are switches instead of buttons
+* (@GermanBluefox) The devices are linked with their `alive` state (`common.statusStates`), so admin shows in the object tree whether a device is connected
+* (@GermanBluefox) The port of the built-in MQTT server is reported to js-controller 8 as a used resource (`common.declareUsedResources`), so admin shows which ports are occupied. In bridge mode no port is reported. If the port is already used, the log names the instance that occupies it
 
-### 3.2.1 (2024-10-07)
-
-* (bluefox) Sanitize the IDs of the clients
+### 5.0.0 (2026-10-13)
+* (@GermanBluefox) Breaking change: the roles of the objects change, see [Roles of the objects since 5.0](#roles-of-the-objects-since-50)
+* (@GermanBluefox) Better roles for the type-detector: diagnostic values (e.g. `Wifi_Channel`, `Heap`, `MqttPort`) are not detected as dimmer, blind or window anymore, `POWER` is the switch of RGB lights and `switch.power` of the relays is migrated to `switch`, `Scheme` is the light effect. The roles of the existing objects are updated, roles changed by the user are kept
+* (@GermanBluefox) `Switch1`...`Switch28` (inputs of the device) are read-only sensors now
 
 ## License
 

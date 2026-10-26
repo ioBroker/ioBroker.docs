@@ -1,5 +1,10 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.influxdb/README.md":{"title":{"en":"ioBroker.influxdb"},"content":"en/adapterref/iobroker.influxdb/README.md"},"en/adapterref/iobroker.influxdb/RetentionPolicies.md":{"title":{"en":"Understanding retention policies"},"content":"en/adapterref/iobroker.influxdb/RetentionPolicies.md"}}}
+BADGE-Number of Installations: http://iobroker.live/badges/influxdb-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.influxdb.svg
+BADGE-Test and Release: https://github.com/ioBroker/ioBroker.influxdb/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/influxdb/svg-badge.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.influxdb.svg
+chapters: {"pages":{"en/adapterref/iobroker.influxdb/README.md":{"title":{"en":"ioBroker.influxdb"},"content":"en/adapterref/iobroker.influxdb/README.md"},"en/adapterref/iobroker.influxdb/docs/en/influxdb.md":{"title":{"en":"no title"},"content":"en/adapterref/iobroker.influxdb/docs/en/influxdb.md"},"en/adapterref/iobroker.influxdb/RetentionPolicies.md":{"title":{"en":"Understanding retention policies"},"content":"en/adapterref/iobroker.influxdb/RetentionPolicies.md"}}}
 ---
 ![Logo](admin/influxdb.png)
 # ioBroker.influxdb
@@ -14,7 +19,7 @@ chapters: {"pages":{"en/adapterref/iobroker.influxdb/README.md":{"title":{"en":"
 
 This adapter saves state history into InfluxDB.
 
-**The Adapter supports InfluxDB 1.x and 2.x**
+**The Adapter supports InfluxDB 1.x, 2.x and 3.x (Core and Enterprise)**
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -39,15 +44,39 @@ When doing custom queries via the "query" message, you can use Flux queries to s
 #### Store metadata information as tags instead of fields
 For `Influx 1.x` state value, as well as associated metadata fields (`q`, `ack` and `from`) are stored as fields within InfluxDB. When using Flux-commands to retrieve this data (instead of `InfluxQL`) the data is returned in separate tables, which makes it more difficult to view the data in a joined way when using external database clients or Influx CLI `query` command. This is by design, as Influx only supports one field per data-point.
 
-With `Influx 2.x` it is now also possible, to store this metadata-information besides the actual value of the state as Influx Tags. Tags are indexed and allow for faster search queries. In addition, they are closely linked to the measurement stored within the db, meaning they will be returned in one table with the queried measurement which makes them much easier to handle, when used outside this adapter. There are limitations with this, however:
+With `Influx 2.x` and `3.x` it is now also possible, to store this metadata-information besides the actual value of the state as Influx Tags. Tags are indexed and allow for faster search queries. In addition, they are closely linked to the measurement stored within the db, meaning they will be returned in one table with the queried measurement which makes them much easier to handle, when used outside this adapter. There are limitations with this, however:
 - The use of tags for metadata needs to be enabled under `Advanced Settings`. It is disabled by default.
 - If you decide to use tags, you cannot continue to use old measurements that were gathered with Influx 1.x, as they are stored in fields.
 - Attempting to use an existing database that was set up without enabling the Tag-feature will cause the adapter to fail to initialize, and you will see an error message about it in the log.
   - This also is valid the other way: Once you start using the Tag-feature in a new database, you cannot switch back to using fields for this database.
-- This feature is currently only available if you use Influx 2.x. And only if you use the new responsive GUI of Admin 5.
+- This feature is only available if you use Influx 2.x or 3.x. And only if you use the new responsive GUI of Admin 5.
+
+### InfluxDB 3.x
+InfluxDB 3 (Core and Enterprise) is supported. It has no organizations and no buckets, so the settings are the simplest of all three versions:
+* **Host, port, protocol**: InfluxDB 3 listens on port `8181` by default.
+* **Authentication Token**: a token that may write to and read from the database. Create one with `influxdb3 create token --admin` (or a database token). If the server runs without authentication (`--without-auth`) leave the field empty.
+* **DB Name**: the name of the database. The default is `iobroker`. The adapter creates it on the first start (a token that is not allowed to create databases is fine: the first write creates it).
+* **Path** and **Validate SSL certificate** work as for 2.x.
+
+The adapter writes with the InfluxDB line protocol over HTTP (`/api/v3/write_lp`) and reads with **InfluxQL** over HTTP (`/api/v3/query_influxql`), the same way as for 1.x. No additional client library is needed. The [metadata-as-tags](#store-metadata-information-as-tags-instead-of-fields) and the [custom tags](#custom-tags) work as for 2.x.
+
+When doing custom queries via the "query" message, use InfluxQL as described for [Influx 1.x](#influx-1x). The server accepts one statement per request; the adapter splits several statements separated by `;` and runs them one after the other, so the result is an array with one entry per statement, as with 1.x.
+
+What InfluxDB 3 cannot do, and what the adapter does about it:
+
+| Function | With InfluxDB 3.x |
+|---|---|
+| Retention | Supported: `Storage retention` is applied to the database with `PUT /api/v3/configure/database` on every start, like for the other versions. A retention that was set on the server (e.g. with `influxdb3 update database --retention-period`) is overwritten by the adapter setting; choose `infinite` and set it on the server if you prefer that. |
+| `delete` / `deleteRange` | Not supported: InfluxDB 3 can not delete single values or a time range. The commands answer with an error and are not listed in `features`. |
+| `deleteAll` and the cleanup of orphaned datapoints | Supported. The whole measurement (table) is deleted. InfluxDB 3 keeps the name of a deleted table in its catalog, renamed to `<name>-YYYYMMDDTHHMMSS`; the adapter does not show these leftovers. |
+| `update` | Supported when `q`, `ack` and `from` are stored as fields: a value with the same time replaces the old one. Not supported with metadata as tags, as the tags are part of the series. |
+| Number of series (Statistics tab) | Unknown, the column stays empty. |
+| Write latency | InfluxDB 3 answers a write after the next write-ahead-log flush, which takes about a second. The adapter awaits the direct write of a value (`Buffer Datapoints` = 0), so by default it writes single values with `no_sync`: the answer comes at once and rejected values are still reported, but the value is readable and durable up to a second later. Enable `Wait for the database to store each value` (Expert Settings, `syncWrites`) to wait for the flush instead; single values then take about a second each, so prefer a buffer in that case. Batches (buffer flushes) are always written the regular way. |
+| Limits of InfluxDB 3 Core | At most 2000 tables in all databases and 500 columns per table. The adapter writes one measurement (table) per datapoint, so Core can log at most about 2000 datapoints. InfluxDB 3 Enterprise has higher, configurable limits. |
+| Types | InfluxDB 3 fixes the type of a field per measurement like the other versions. A type conflict is handled as before (the value is converted and the datatype of the datapoint is pinned). |
 
 ### Custom tags
-Every datapoint can carry additional, static InfluxDB tags. They are defined in the datapoint settings (`Custom tags`) as a list of name/value pairs and are written with every value of this datapoint - for both InfluxDB 1.x and 2.x and independent of the setting [Store metadata information as tags instead of fields](#store-metadata-information-as-tags-instead-of-fields).
+Every datapoint can carry additional, static InfluxDB tags. They are defined in the datapoint settings (`Custom tags`) as a list of name/value pairs and are written with every value of this datapoint - for all InfluxDB versions and independent of the setting [Store metadata information as tags instead of fields](#store-metadata-information-as-tags-instead-of-fields).
 
 This allows selecting and grouping the values of different datapoints by their meaning instead of by their IDs, e.g. give all datapoints of the kitchen the tag `room=kitchen` and all temperature sensors the tag `type=temperature`. In Grafana, the values can then be filtered or grouped by these tags:
 
@@ -83,8 +112,49 @@ Please refer to the [official guides on how to migrate](https://docs.influxdata.
 
 After the migration, the adapter is able to work with the old data (e.g. for history-queries) as well. This only applies if you don't decide to [use Tags for storing metadata fields](#Store-metadata-information-as-tags-instead-of-fields).
 
+### Migration to InfluxDB 3
+
+InfluxDB 3 cannot open the data files of 1.x or 2.x, and there is no upgrade tool. The data has to be exported as line protocol and written into the new database. Both paths below were tried with InfluxDB 1.8 / 2.7 and 3 Core 3.12: the exported points arrive with the same measurements, fields and tags that the adapter writes itself. Please always create a backup before you start.
+
+Prepare the new server first: create a token (`influxdb3 create token --admin`), set the version to `3.x` in the adapter and let it create the database (or create it with `influxdb3 create database iobroker`). Stop the adapter while you import. The adapter applies the retention setting to the new database on start.
+
+#### From InfluxDB 1.x
+
+1. Export the database as line protocol. The tool lives in the InfluxDB 1.x installation:
+   ```
+   influx_inspect export -datadir /var/lib/influxdb/data -waldir /var/lib/influxdb/wal -database iobroker -out export.lp
+   ```
+2. Remove the header of the file (the lines that begin with `#` or `CREATE`):
+   ```
+   grep -vE '^(#|CREATE)' export.lp > data.lp
+   ```
+3. Write it into InfluxDB 3. The export uses nanosecond timestamps:
+   ```
+   curl -X POST "http://localhost:8181/api/v3/write_lp?db=iobroker&precision=nanosecond&accept_partial=true" \
+     -H "Authorization: Bearer <token>" --data-binary @data.lp
+   ```
+
+The metadata `q`, `ack` and `from` are stored as fields in 1.x, so keep `Store metadata information as tags` **disabled** in the adapter.
+
+#### From InfluxDB 2.x
+
+1. Export the bucket as line protocol (the tool is part of `influxd`; look up the bucket ID with `influx bucket list`):
+   ```
+   influxd inspect export-lp --bucket-id <bucket-id> --engine-path /var/lib/influxdb2/engine --output-path data.lp
+   ```
+2. Write the file as shown above for 1.x.
+
+Keep the adapter setting `Store metadata information as tags` as it was in 2.x: with tags enabled the export contains `q`, `ack` and `from` as tags, otherwise as fields. A database must not be mixed - the adapter refuses to start if the stored metadata does not match the setting.
+
+#### Notes
+- A large export has to be sent in several requests, e.g. split the file with `split -l 200000 data.lp part-` and write the parts one after the other. A line that is rejected (e.g. because of a type conflict inside the data) is reported with `accept_partial=true`; the remaining lines are stored.
+- InfluxDB 3 Core allows only a few databases (5 by default); a deleted database still counts. Migrate everything into the one database of the adapter.
+- Delete the line protocol file afterwards, it contains all of your data.
+
 ## Retention Policy
 While Influx 1.x supports the concept of multiple **retention policies** for one database, Influx 2 by design allows only one **retention period** per bucket. Therefore, it is only possible to set one policy for the whole database/bucket with this adapter via _Default Settings -> Storage retention_. The retention selected here will be applied on the fly and can be changed at any time. Retention policies set by the adapter will never be deleted, but instead altered if required, as otherwise Influx 1.x would delete all data that the policy applied to.
+
+With InfluxDB 3.x the setting is applied to the database as its retention period, see [InfluxDB 3.x](#influxdb-3x).
 
 Please also read [Understanding Retention Policies](/#/docs/adapterref/iobroker.influxdb/RetentionPolicies.md). 
 
@@ -110,9 +180,10 @@ Please refer to the official InfluxDB pages for installation instructions depend
 
 * InfluxDB 1.x: https://docs.influxdata.com/influxdb/v1.8/introduction/install/
 * InfluxDB 2.x: https://docs.influxdata.com/influxdb/v2.2/install/
+* InfluxDB 3.x: https://docs.influxdata.com/influxdb3/core/install/
 
 ### Setup authentication for InfluxDB 1.x (optional)
-**NOTE:** Influx DB V2.x relies on organization/token login, instead of username/password! This is only applicable for InfluxDB 1.x
+**NOTE:** Influx DB V2.x relies on organization/token login, instead of username/password! InfluxDB 3.x needs only a token. This is only applicable for InfluxDB 1.x
 
 If you use DB locally, you may leave authentication disabled and skip this part.
 
@@ -141,27 +212,90 @@ Enable authentication by editing /etc/influxdb/influxdb.conf:
 - Restart service: ``` service influxdb restart ```
 
 ## Self-hosted docker image for InfluxDB
-This version of the adapter could start a self-hosted docker image of InfluxDB 2.x.
-It is not opened for the network and only accessible from localhost. Of course, the docker environment must be installed and running on the host.
+This version of the adapter could start a self-hosted docker image of InfluxDB 2.x (not 3.x) and, optionally, Grafana next to it.
+Of course, the docker environment must be installed and running on the host.
 
 The `iobroker` user must have access to the docker CLI. To fix the rights start `iob fix`.
 
-## Installation of Grafana (Charting Tool)
-There is an additional charting tool for InfluxDB - Grafana.
-It must be installed additionally.
+Enable it in the instance settings with **Use self-hosted InfluxDB in Docker**. All connection settings (host, port, organization, token, ...) are hidden then, because the adapter configures the connection itself.
 
-Install a current version of Grafana 3.x+ because InfluxDB support is enhanced there in comparison to earlier Grafana versions.
+The container is created with these fixed values:
 
-Under debian you can install it as described at http://docs.grafana.org/installation/debian/ .
-For ARM platforms you can check vor v3.x at https://github.com/fg2it/grafana-on-raspberry.
+| Setting           | Value                                      |
+|-------------------|--------------------------------------------|
+| URL               | `http://<ioBroker-host>:8086`              |
+| User / password   | `iobroker` / `iobroker`                    |
+| Organization      | `iobroker`                                 |
+| Bucket            | `iobroker`                                 |
+| API token         | `aW9icm9rZXI4NjY0NTYzODU0NjU2NTY1MjY1Ng==` |
 
-Explanation for other OS can be found [here](http://docs.grafana.org/installation/).
+By default, the container listens only on `127.0.0.1`, so the InfluxDB web interface can only be opened on the ioBroker host itself. To reach it from another computer, set **Start container on IP** in the panel _InfluxDB Docker_ to `0.0.0.0` (all interfaces) or to the IP of the host. **Do this only in a trusted network** - the user, password and token above are the same in every installation. You can change the password in the InfluxDB web interface (user menu → _Change password_) without affecting the adapter, which logs in with the token. Do not delete the token.
 
-After the Grafana is installed, follow [this](http://docs.grafana.org/datasources/influxdb/) to create a connection.
+The data lives in the docker volumes `flux_data` and `flux_config`, so it survives an update or a re-creation of the container.
+
+## Grafana (Charting Tool)
+[Grafana](https://grafana.com/) is a charting tool that shows the data from InfluxDB as dashboards.
+
+### Grafana in Docker
+If InfluxDB runs in Docker (see above), the adapter can start Grafana in Docker too: enable **Use self-hosted Grafana in Docker** in the instance settings (the checkbox is only shown when **Use self-hosted InfluxDB in Docker** is enabled). The connection to InfluxDB is set up automatically - nothing has to be configured in Grafana.
+
+#### First login
+1. Open `http://<ioBroker-host>:3000` in the browser - or simply click the _Grafana_ tile on the intro page of admin (also shown as link in the instance list). The adapter adds this link when Grafana is enabled and restarts its instance once for it. The port can be changed in the panel _Grafana Docker_. Grafana listens on all interfaces by default (`0.0.0.0`); set **Start container on IP** to `127.0.0.1` if it should only be reachable from the host itself.
+2. Log in with
+   - **user: `admin`**
+   - **password: `iobroker`** - or the value of **Admin security password** in the panel _Grafana Docker_, if it was changed before the first start.
+3. Grafana asks to set a new password. Set one or click _Skip_.
+
+**The admin password is only applied on the very first start of the container**, when Grafana creates its database. Changing **Admin security password** in the adapter settings later has no effect, and a password changed in Grafana is not shown in the adapter settings. If you forgot it, reset it on the ioBroker host:
+
+```bash
+docker ps --filter name=grafana --format '{{.Names}}'     # shows the container name, e.g. iob_influxdb_0_grafana
+docker exec -it iob_influxdb_0_grafana grafana cli admin reset-admin-password <new-password>
+```
+
+The option **Enable user sign-ups** shows a _Sign up_ link on the login page, where everybody who can open Grafana can create a user. Disable it if Grafana is reachable from your network.
+
+#### The data source
+The data source `InfluxDB` is already present and set as default (_Connections → Data sources_). It uses the query language **Flux**, organization `iobroker` and bucket `iobroker`, and connects to the InfluxDB container inside the docker network, independent of the port configured for the host. The adapter writes this data source anew on every start, so it can not be edited in Grafana. You can add data sources of your own next to it.
+
+#### The first dashboard
+1. _Dashboards → New → New dashboard → Add visualization_ and select the data source `InfluxDB`.
+2. Switch the query editor to _Code_ (if shown) and enter a Flux query. Every datapoint is stored in a measurement named like its ID (or its `Alias-ID`), the value is in the field `value`:
+
+   ```
+   from(bucket: "iobroker")
+     |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+     |> filter(fn: (r) => r._measurement == "system.adapter.admin.0.memRss" and r._field == "value")
+     |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+   ```
+
+   Replace `system.adapter.admin.0.memRss` with the ID of one of your logged datapoints. `aggregateWindow` reduces the number of points to what fits into the chart - use `fn: last` for values that are not numbers or should not be averaged.
+3. Click _Refresh_ above the chart, then _Save dashboard_.
+
+The easiest way to find the right measurement and field names is the _Data Explorer_ of the InfluxDB web interface (see above): select bucket, measurement and field there and click _Script Editor_ to get the matching Flux query. In Grafana, _Explore_ can be used to try out queries without a dashboard.
+
+Further hints:
+- Plugins can be installed via the option **Plugins** in the panel _Grafana Docker_ (e.g. `grafana-clock-panel`); they are installed on the next start of the container.
+- If Grafana is accessed via a reverse proxy under a sub-path, enter the full public URL in **Server root URL**.
+- Dashboards, users and settings are stored in the docker volume `grafana_data` and survive an update of the container.
+
+### Grafana installed manually
+If you do not use Docker, Grafana must be installed separately. Explanations for the different operating systems can be found [here](https://grafana.com/docs/grafana/latest/setup-grafana/installation/).
+After the installation, open `http://<host>:3000` and log in with `admin` / `admin` (Grafana's own default; you are asked to change it right away).
+Then create a data source as described [here](https://grafana.com/docs/grafana/latest/datasources/influxdb/):
+- InfluxDB 1.x: query language _InfluxQL_, URL of InfluxDB, database name and the user/password of the adapter settings.
+- InfluxDB 2.x: query language _Flux_, URL of InfluxDB, organization, token and default bucket of the adapter settings.
+- InfluxDB 3.x: query language _InfluxQL_ (or _SQL_), URL of InfluxDB, database name and token of the adapter settings.
+
+The query from [The first dashboard](#the-first-dashboard) works for InfluxDB 2.x. For InfluxDB 1.x and 3.x with InfluxQL use e.g.:
+
+```
+SELECT mean("value") FROM "system.adapter.admin.0.memRss" WHERE $timeFilter GROUP BY time($__interval) fill(previous)
+```
 
 ## Default Settings
 - **Debounce Time** - Protection against unstable values to make sure that only stable values are logged when the value did not change in the defined amount of Milliseconds. ATTENTION: If values change more often then this setting effectively no value will be logged (because any value is unstable)
-- **Blocktime** - Defines for how long after storing the last value no further value is stored. When the given time in Milliseconds is over then the next value that fulfills all other checks is logged.
+- **Blocktime** - Defines for how long after storing the last value no further value is stored. A value received meanwhile is not lost: when the given time in Milliseconds is over, the newest of them is logged (with its original timestamp) if it fulfills all other checks and differs from the last logged value. Values excluded by the "ignore" settings never replace it.
 - **Record changes only** - This function makes sure that only changed values are logged if they fulfill other checks (see below). Same values will not be logged.
 - **still record the same values (seconds)** - When using "Record changes only" you can set a time interval in seconds here after which also unchanged values will be re-logged into the DB. You can detect the values re-logged by the adapter with the "from" field.
 - **Minimum difference from last value** - When using "Record changes only" you can define the required minimum difference between the new value and the last value. If this is not reached the value is not recorded.
@@ -178,7 +312,7 @@ Most of these values can be pre-defined in the instance settings and are then pr
 The sorted values can be accessed from Javascript adapter.
 
 * Get 50 last stored events for all IDs
-```
+```javascript
 sendTo('influxdb.0', 'getHistory', {
     id: '*',
     options: {
@@ -195,7 +329,7 @@ sendTo('influxdb.0', 'getHistory', {
 ```
 
 * Get stored values for "system.adapter.admin.0.memRss" in last hour
-```
+```javascript
 var end = Date.now();
 sendTo('influxdb.0', 'getHistory', {
     id: 'system.adapter.admin.0.memRss',
@@ -420,7 +554,7 @@ sendTo('influxdb.0', 'flushBuffer', {id: 'mbus.0.counter.xxx'}, result => consol
 ```
 if no id is provided, all buffers will be flushed.
 
-## History Logging Management via Javascript
+## History Logging Management via JavaScript
 The adapter supports enabling and disabling of history logging via JavaScript and also retrieving the list of enabled data points with their settings.
 
 ### enable
@@ -490,18 +624,19 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 The **Statistics** tab of the instance configuration lists every datapoint the database contains, with its
 number of values, the oldest and the newest value, the number of series and a status:
 
-| Status | Meaning |
-| --- | --- |
-| `active` | the state exists and this instance logs it |
+| Status            | Meaning                                                                                  |
+|-------------------|------------------------------------------------------------------------------------------|
+| `active`          | the state exists and this instance logs it                                               |
 | `loggingDisabled` | the state still exists, but its logging is switched off - the history is still reachable |
-| `objectMissing` | the state was deleted in ioBroker, so nothing can reach its history any more |
+| `objectMissing`   | the state was deleted in ioBroker, so nothing can reach its history any more             |
 
 Two things are worth knowing about the numbers:
 
 - **There is no size per datapoint.** InfluxDB does not report one, neither in 1.x (`SHOW STATS` and
   `SHOW SHARDS` only know the engine and the shards) nor in 2.x (disk usage is monitored per bucket). The
   number of **series** is shown instead: it is what drives the memory the index needs, and
-  [custom tags](#custom-tags) are the usual way to increase it unintentionally.
+  [custom tags](#custom-tags) are the usual way to increase it unintentionally. InfluxDB 3.x can not tell the
+  number of series, the column stays empty.
 - **Counting is a full scan.** InfluxDB has no row count it could look up, so the values of the examined
   range are really read. On a database with years of data that takes a while - the time range selector
   above the table limits the scan if the full count is not needed.
@@ -520,7 +655,7 @@ sendTo('influxdb.0', 'getDpStatistics', {}, function (result) {
 });
 ```
 
-`cleanupOrphaned` removes the stored values of datapoints nobody logs any more. **Without `confirm: true`
+`cleanupOrphaned` removes the stored values of datapoints nobody logs anymore. **Without `confirm: true`
 nothing is deleted** - the answer only reports what a confirmed run would remove, which is what the dialog
 in the admin shows before anything is lost:
 
@@ -539,8 +674,8 @@ sendTo('influxdb.0', 'cleanupOrphaned', { confirm: true }, function (result) {
 });
 ```
 
-The scope decides what counts as removable. By default only states that no longer exist in ioBroker are
-selected, because nothing can reach their history any more. Datapoints whose logging is merely switched
+The scope decides what counts as removable. By default, only states that no longer exist in ioBroker are
+selected, because nothing can reach their history anymore. Datapoints whose logging is merely switched
 off are a different matter - their history is still reachable and may well be wanted, so they are only
 included when asked for explicitly:
 
@@ -553,43 +688,39 @@ sendTo('influxdb.0', 'cleanupOrphaned', {
 
 A datapoint that is being logged is never selected, whatever the scope says.
 
+`scope.ids` limits a run to some of these datapoints. The IDs only narrow the selection made by the statuses,
+so an ID that would not be removed anyway (e.g. one that is being logged) is ignored:
+
+```javascript
+sendTo('influxdb.0', 'cleanupOrphaned', {
+    scope: { objectMissing: true, ids: ['javascript.0.oldState'] },
+    confirm: true,
+});
+```
+
+## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 5.1.0 (2026-10-03)
-* (@jb-io) Added custom tags per datapoint, written with every value to InfluxDB 1.x and 2.x (#32)
-* (@GermanBluefox) `enableHistory` also accepts the custom tags in the form `getEnabledDPs` reports them, so a configuration read from there and written back keeps its tags
-* (@GermanBluefox) Fixed the error of a failed message (`getRetention`, `test`, `destroy`, `getDatapoints`, `getRawEntries`, ...) being sent as an empty object instead of its text
-* (@GermanBluefox) `io-package.json` matches the current js-controller schema again (`subscribe` removed, `docs.en` added)
-* (@GermanBluefox) The admin frontend is installed before it is linted in the CI, so its lint no longer fails on unresolved types
-* (@GermanBluefox) Added a **Statistics** tab: values, oldest/newest value, series and status per datapoint, plus a cleanup for the data of states that were deleted in ioBroker (`getDpStatistics` and `cleanupOrphaned`)
+### 5.2.0 (2026-10-24)
+* (GermanBluefox) The cleanup dialog of the statistics tab has checkboxes, so only the selected datapoints are deleted (#565)
 
-**Note:** a buffer written by this version (`influxdata.json`, only present if the adapter was stopped with unwritten values) can not be read by version 5.0.5 and older if custom tags are used. Downgrading discards those buffered values.
+### 5.1.8 (2026-10-23)
+* (@GermanBluefox) The timed relog (`changesRelogInterval`) starts right after the adapter start or a change of the datapoint settings, not only with the first update of the state
 
-### 5.0.5 (2026-10-01)
-* (@GermanBluefox) Corrected boolean aggregation
+### 5.1.7 (2026-10-21)
+* (@GermanBluefox) Points buffered by version 4.x (`influxdata.json`) are converted when read, instead of failing with "invalid float value for field 'q': undefined" on every flush (#517)
+* (@GermanBluefox) The ports of the docker containers (InfluxDB, Grafana) are reported to js-controller 8 as occupied (`registerUsedResource`). The port of the database itself is no longer counted as a port used by the instance
+* (@GermanBluefox) HTTP errors from InfluxDB (e.g. 500 "timeout") are no longer treated as a lost connection (#551)
+* (@GermanBluefox) Start values (`relogLastValueOnStart`) are written only once after the adapter start, not on every reconnect (#551)
+* (jhoos70) Added support for InfluxDB 3.x (Core and Enterprise): data is written with the line protocol and read with InfluxQL over HTTP (inspired by the InfluxDB 3 fork of [dirkhe](https://github.com/dirkhe/ioBroker.influxdb))
 
-### 5.0.4 (2026-08-28)
-* (@GermanBluefox) Fixed Grafana not finding the InfluxDB running next to it in Docker: the provisioned data source pointed at `iob_influxdb_<instance>`, while the container was named `iob_influxdb_<instance>_flux_data` because the compose file gave it a name of its own. Inside the shared network only the container name resolves, so the data source could not connect. The influx service uses the default name of the instance now - the name the data source and `testConnection()` both expect
-* (@GermanBluefox) Fixed the port of that data source: it used the port published on the host, although Grafana reaches InfluxDB inside the docker network, where the container port 8086 applies. The data source broke as soon as the port was changed in the settings
-* (@GermanBluefox) Fixed the Grafana container never being started when Grafana is enabled and InfluxDB is not: the plugin waits for the readiness signal of the adapter before it starts any container of the instance, and that signal was only sent when both were switched on. That state is reachable by switching InfluxDB off afterwards - the Grafana checkbox is hidden then, but its stored value stays
-* (@GermanBluefox) The "automatic image update" setting of Grafana had no effect: the compose file never passed it on to the plugin
-* (@GermanBluefox) **Existing installations with InfluxDB in Docker have to remove the old container once**, because it is renamed by the first fix: `docker rm -f iob_influxdb_<instance>_flux_data`. It still holds the published port, so the correctly named container cannot start next to it. The data is not affected - it lives in the volumes, which keep their names
+### 5.1.6 (2026-10-13)
+* (@GermanBluefox) The "Statistics" tab works now with InfluxDB 2.0
 
-### 5.0.3 (2026-08-27)
-* (@GermanBluefox) Errors are logged with more detail: error code, `cause` and a driver-specific error name (`HttpError`, `ServiceNotAvailableError`) are shown now, and a nested error without a message no longer degrades to `{}` (same implementation as in the SQL adapter)
-* (@GermanBluefox) A switched-off or unreachable InfluxDB no longer floods the log (and syslog): a connection error is now recognized by its error code - Node reports a failed TCP connect as an `AggregateError` with an empty message, which no check could match before - so the points are buffered and a reconnect is scheduled instead of retrying every single point. The repeated error is logged once and afterwards only once an hour
-* (@GermanBluefox) `getHostsAvailable()` reports the real state again: it returned a hardcoded `1` since the TypeScript port, so every "host not available" check in the adapter was dead code. After a connection error the host is now taken out of rotation for a short backoff and values are buffered instead of being written - and logged - point by point
-* (@GermanBluefox) A failing buffer flush inside the interval timer no longer produces an unhandled promise rejection, which terminates the adapter process on current Node.js versions
-* (@GermanBluefox) `storeState` answers with an error again if a value cannot be stored (`null`, `NaN`, or a non-numeric value for a `Number` datapoint) instead of reporting `success: true` and silently discarding it; on the state-change path such a value is still logged only once per datapoint
-* (@GermanBluefox) The warning about an `undefined` state value is logged only once per datapoint as well
-
-### 5.0.2 (2026-08-26)
-* (@GermanBluefox) Added the data browser to the configuration, so the stored values can be viewed, edited and deleted.
-* (@GermanBluefox) The aggregation is used now from `@iobroker/aggregate` and is shared with the history and SQL adapters.
-* (@joltcoke) Fixed average and total returning null for every interval that contains a null value: parseFloat(null) is NaN and poisoned the sum of the whole interval (thanks to @joltcoke, ioBroker/ioBroker.sql#526). As the result was NaN and not null, ignoreNull could not act on it either
-* (@joltcoke) Fixed min returning a wrong value if the interval contains a null, minmax losing the minimum if the interval starts with a null, and percentile/quantile counting a null as 0
+### 5.1.5 (2026-10-13)
+* (@GermanBluefox) Added missing translations. Compact mode no longer can exit the whole host process. The Grafana admin password is protected now
 
 ## License
 

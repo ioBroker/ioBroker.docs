@@ -1,4 +1,4 @@
-# ioBroker.danfoss-ally ![version](https://img.shields.io/badge/version-0.2.20-blue) [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=shields)](https://nodei.co/npm/iobroker.danfoss-ally/)
+# ioBroker.danfoss-ally ![version](https://img.shields.io/badge/version-0.2.21-blue) [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=shields)](https://nodei.co/npm/iobroker.danfoss-ally/)
 
 [![NPM](https://nodei.co/npm/iobroker.danfoss-ally.svg?style=flat&data=d&color=blue)](https://nodei.co/npm/iobroker.danfoss-ally/)
 
@@ -295,45 +295,19 @@ All send, retry, and confirm logs appear at debug level.
 
 ## Changelog
 
+### 0.2.21
+
+- Updated `@iobroker/testing` to 6.3.0 and added Node.js 26 to the CI test matrix
+- Updated dependencies and pinned Node.js typings to version 22
+- Kept the Boiler Relay fallback and reduced repeated debug poll output
+- Replaced dummy test scripts with the `@iobroker/testing` package and integration checks
+
 ### 0.2.20
 
 - Reduced debug log noise after startup: repeated polls now log only real value changes
 - Removed repeated per-device debug inventory lines after the first poll
 - Avoided object-valued status writes from fallback responses
 - Added Boiler Relay fallback objects when the Danfoss API lists the relay but returns no status entries
-- Resolved ioBroker repository checker warnings for Prettier config, ESLint devDependency, translated news entries, workflow concurrency, and tracked ignored tool files
-- Updated GitHub Actions workflow dependencies from the open Dependabot PRs
-
-### 0.2.19
-
-- Stopped polling from writing cloud values back into `control.*` states to avoid feedback loops with Loxone/scripts
-- Added `state.from` to debug write logs so external write sources can be identified
-- Added direct status fallback for devices that are listed without status values, improving Boiler Relay datapoints
-- Reduced poll debug noise: the initial run still logs all `SET` lines, later polls summarize changed values per device
-
-### 0.2.18
-
-- Improved Ally TRV setpoint writes by additionally sending `manual_mode_fast` when available
-- Added explicit warnings when the Danfoss Cloud does not confirm the requested setpoint
-- Improved device naming/detection for relay-like devices so the Boiler Relay is easier to identify
-
-### 0.2.17
-
-- Improved Ally TRV `temp_set` writes by trying `SetpointChangeSource=Externally` and `temp_set` as one combined command first
-- Falls back to `temp_set` only if Danfoss rejects the combined command
-- Fixed `control.switch` subscriptions for Icon2 / Boiler Relay writes
-- Added alias handling for `Occupied_Setpoint`
-- Fixed jsonConfig header validation warning
-
-### 0.2.16
-
-- Fixed `temp_set` for Ally TRVs (`SetpointChangeSource=Externally` auto-sent)
-- Fixed wrong path for `lower_temp`/`upper_temp` clamp
-- Fixed `OccupiedSetpoint` scaling (÷100 instead of ÷10)
-- Added type hints for 16 new data points (`MeasuredValue`, `pi_heating_demand`, `window_state`, etc.)
-- `Icon2 switch` state is now writable
-- Fixed jsonConfig admin validation warning (missing `size` property)
-- Added Boiler Relay to supported devices
 
 ---
 
@@ -352,7 +326,7 @@ or install via ioBroker development tooling.
 
 MIT License
 
-Copyright (c) 2025-2026 Author Stefan8485@me.com
+Copyright (c) 2025-2026 Stefan Koch <stefan8485@me.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.

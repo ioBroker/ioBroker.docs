@@ -47,6 +47,7 @@ chapters: {"pages":{"de/adapterref/iobroker.motioneye/README.md":{"title":{"de":
 <!--
   ### **WORK IN PROGRESS**
 -->
+
 ### 1.3.2 (2026-09-24)
 - (skvarel) Updated dependencies: `@iobroker/adapter-core` to ^3.4.3, `@iobroker/testing` to ^6.2.1
 

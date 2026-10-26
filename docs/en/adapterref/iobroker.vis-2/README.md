@@ -36,8 +36,6 @@ Additionally, you need a license to use the adapter. The following license editi
 ![Demo interface](packages/iobroker.vis-2/img/user0.png)
 ![Demo interface](packages/iobroker.vis-2/img/user7.png)
 
-[Online Demos](https://iobroker.click/)
-
 ### Widgets
 
 - [Standard widgets](/#/docs/adapterref/iobroker.vis-2/packages/iobroker.vis-2/docs/widgets-standard.md) - the devices of a house, as cards for
@@ -220,8 +218,10 @@ You can write the JSON string or Object into `control.command` as `{instance: 'A
 Example for JavaScript adapter:
 
 ```js
-setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: ''});
+setState('vis-2.0.control.command', JSON.stringify({ instance: '*', command: 'refresh', data: '' }));
 ```
+
+Pass the object as a JSON string: `setState()` of the JavaScript adapter takes an object without `val` for the state itself, not for its value, and the command never arrives.
 
 If you write the JSON as a string, ensure that it is parseable, e.g. `{"instance": "*", "command": "refresh", "data": ""}`, note the `"`. 
 
@@ -270,11 +270,14 @@ will not be rendered in edit mode.
 
 ## Settings
 ### Reload if sleep longer than
-There is a rule that after some disconnection period, the whole VIS page will be reloaded to synchronize the project.
-You can configure it in the menu "Settings...". If you set the interval to "never", so the page will never be reloaded.
+When the screen of a tablet turns off, the browser stops the page. When it wakes up, the page works off every state change it missed and is slow for many seconds. With "Reload if sleep longer than (seconds)" in the project settings, the runtime reloads instead after a sleep that long, and reads the states once. A page in the background counts as asleep too, from when it is shown again.
 
-### Reconnect interval
-Set the interval between the connection attempts if disconnected. If you set 2 seconds, it will try to establish the connection every 2 seconds.
+The time is at least 30 seconds; empty or 0 means never, which is the default. The runtime waits for the server to answer before it reloads, so that a device whose Wi-Fi is not back yet does not end on an error page. The editor never reloads by itself.
+
+### Back to a view without input
+In the project settings, under "Back to a view without input", you can choose a view and a number of seconds. When nobody has used the runtime for that long, it opens this view again - e.g. a panel on the wall goes back to its start page by itself. Every key press, click, touch or turn of the mouse wheel starts the time anew; moving the mouse alone does not.
+
+This happens only in the runtime, not in the editor.
 
 ### Dark reconnect screen
 Sometimes (in the night) it is required to have the dark loading screen. With this option, you can set it.
@@ -296,6 +299,43 @@ Here's a simple example with a circle in an SVG:
 ```
 In this case, if the SVG takes the color of the parent element.
 E.g., if it was used in a menu and the menu is red, the circle would be red.
+
+## Background services of widget sets
+The runtime renders only the open view and the views with "Render always", so a widget lives only while its view is
+shown. A widget set may bring **background services** for what must not stop with its view - e.g. a phone that has to
+stay registered to ring, and that shows the dialog of an incoming call over whichever view is open.
+
+A service is a React component, exposed by the module federation of the set like a widget (default export), and named
+in `io-package.json`:
+
+```json
+"visWidgets": {
+    "vis2IntercomWidgets": {
+        "url": "intercom/customWidgets.js",
+        "components": ["Phone"],
+        "services": ["PhoneService"]
+    }
+}
+```
+
+The runtime renders every service once, next to the views, as long as the project is open - not in the editor. It gets
+the props `VisServiceProps` of `@iobroker/types-vis-2`:
+
+- `widgets` - the widgets of the set (their `widgetSet` is one of the names of the set, see below) in all views of the project that the user may
+  see: with read permission for the project, the view and the widget, and not excluded by `visibility-groups`. Each is
+  `{ view, id, tpl, data }`, with `data` as stored in the project - the bindings are not resolved.
+- `adapter`, `socket`, `user` (without `system.user.`), `lang` and `changeView(view)`.
+
+The `visSet` that the widgets of a set return in `getWidgetInfo()` names the set; the runtime loads only the sets the
+project uses. A set may be named after the adapter, or after the key or the `name` of its collection in `visWidgets` -
+so one adapter can bring several sets, each with its own `visSet`.
+
+A service is only loaded with its set, i.e. if the project uses a widget of the set. A crashing service is left out,
+the views and the other services go on.
+
+An older vis-2 ignores `services`, so the widgets have to work without them, e.g. hold the phone themselves. Whether the
+running vis-2 renders services, a widget asks with `window.visRxWidget.FEATURES?.includes('services')` - e.g. to tell
+the user in the editor that the view needs "Render always" only if it does not.
 
 ## Development and Debugging
 
@@ -345,8 +385,57 @@ IOB_URL=http://192.168.178.45:8082 npm run start  # an ioBroker on another machi
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.20.5 (2026-10-25)
+* (@typhosj) vis-2 can be installed from the Admin again: the license dialog stayed empty and could not be accepted, because the Admin loads `licenseInformation.link` as the text of that dialog and the browser may not read the pricing page. The link points at `LICENSE-INFORMATION.txt` now, a plain text with the source code license and the license editions (#707)
+* (@GermanBluefox) Typing into an attribute of a widget no longer loses keys or jumps with the cursor when the typing pauses for a moment: the saved text came back into the field after the next key was already typed. A value typed just before selecting another widget is no longer shown in the field of that widget, if both had the same value before (#546, #508)
+* (@GermanBluefox) The runtime can reload after the device slept, e.g. a tablet whose screen was off: "Reload if sleep longer than (seconds)" in the project settings. Before, it worked off every missed change and was slow for many seconds. The README described this setting and a "Reconnect interval", which vis-2 did not have (#339)
+* (@GermanBluefox) A shortcut on the home screen of a phone or a tablet opens the project and the view it was made of. Its address ended before the `?`, so it opened `/vis-2/` with the default project (#102)
+* (@GermanBluefox) The control interface (`control.command`) works on phones and tablets whose clock is some seconds off the one of the server. vis-2 ignored every command that looked older than 5 seconds by the clock of the browser. Now only the command the state had when the runtime started is ignored. The JavaScript example of the README passes the command as a JSON string, as an object it never arrived (#487, #481, #611)
+* (@GermanBluefox) The datapoint `vis-2.0.datapoints.<project>` that counts the states of a project replaces the spaces and the dots in the name of the project by `_`. Before, it replaced the letter "s" instead of the spaces, so "test" became `te_t` (#474)
+* (@GermanBluefox) A formula in a binding takes a value with double quotes, e.g. JSON from iCal or MQTT like `{"connected":true}`, as the object or the text it is. The script broke on the quotes and the binding showed 0 (#45)
+* (@GermanBluefox) An adapter can bring several vis-2 widget sets: the `visSet` of a widget may be the key or the `name` of its collection in `common.visWidgets`, not only the adapter. Before, the runtime loaded only a set named like its adapter, and the widgets of any other set showed up as unknown (#691)
+* (@GermanBluefox) The runtime can go back to a view by itself when nobody has used it for a while: "Back to a view without input" in the project settings, with the view and the seconds. Every key press, click or touch starts the time anew (#13)
+* (@GermanBluefox) The jQui widgets "Write value" and "Increment with Icon" write a number into a number state and a boolean into a boolean one. Before, the value of the attribute was always written as text (#439)
+* (@GermanBluefox) vis-1 scripts and HTML widgets can call `servConn` again, e.g. `servConn.setState()` or `servConn.getStates()` (#55)
+* (@GermanBluefox) vis-2 loads on hosts whose name contains "iobroker.in", like `iobroker.internal`. It took them for the cloud and tried to load its configuration from there (#484)
+* (@GermanBluefox) Dependabot pull requests are merged by a workflow that runs on `pull_request` instead of `pull_request_target`, which GitHub restricts from November 2, 2026 (#692)
+
+### 2.20.4 (2026-10-23)
+* (@GermanBluefox) `config.js` names the vis-1 widget sets of `widgets.html` (`visConfig.widgetsHtml`), so that the cloud can put the file together out of its own copies. `visConfig.widgetSets` lists the installed vis-1 sets again: since the adapter moved to `build/`, it named only the five sets every vis-2 has
+* (@typhosj) A widget set whose upload into the file storage was stopped by a restart is uploaded again on the next start. Before, its files stayed missing, the browser got a 404 for them and showed "Unknown widget type" until `iobroker upload vis-2` was run (#697)
+* (@GermanBluefox) vis-2 remembers the files of its last complete upload (`info.uploadedFingerprint`) and uploads again when the files on disk changed since, also when the adapter was killed after copying a widget set and before uploading it. A widget file still missing in the file storage after an upload is reported as a warning and no longer uploads everything again at every change of a widget adapter. The first start after the update uploads the files once
+* (@typhosj) After switching views, a binding of a widget no longer shows "undefined" until its state changes again. A state change that came in before the widget had applied the previous one dropped the values of that one. Unmounted widgets also stay no longer subscribed: every view switch had left their callbacks behind, so each state change ran more of them the longer the runtime was used (#565)
+* (@typhosj) The list that the jQui "States control" opens as a select takes the background and the text color of the widget. Before, it kept the colors of the theme around the entries, which with a dark system theme, as in the night mode of iOS, framed a light list in black. A transparent background of the widget leaves the theme its own, so the view does not shine through the list (#573)
+* (@typhosj) A time or a date can be typed into the jQui inputs "Input Time" and "Input Date" again. Each typed digit was written into the state at once, and the value coming back made the field start the part being typed anew: "0845" became 00:45. A date or time that is not complete yet is no longer written
+* (@typhosj) The entry of a view in the navigation menu can be shown only while a state fulfills a condition, with the same conditions as the visibility of a widget: "Entry only if state", "Condition" and "Value" in the navigation settings of the view (#592)
+* (@typhosj) A script in the HTML of the widgets "HTML", "HTML navigation" and "Link" runs again whenever the values of its bindings change, like in vis-1, and again after a view switch. Before, it ran only once, before the bindings had their values, so `var x = {state}` gave nothing, and after a view switch it did not run at all. A script that starts a timer or adds an event listener now does that again at every change, so it has to end the previous one itself, e.g. `clearInterval(window.myTimer); window.myTimer = setInterval(...)` (#514)
+* (@typhosj) The jQui input "Input Time" can take the date too, with the new option "With date". It writes the date and time as text in a format of its own, `YYYY-MM-DD HH:mm` by default, or as a date with "As date" - like the vis-1 widget "Input Datetime" did (#577)
+* (@typhosj) The height of the app bar can be set, from 24 to 120 px, per view under "App bar" or for the whole project in the project settings. Before, it was always 48 px (#569)
+
+### 2.20.3 (2026-10-19)
+* (@typhosj) The editor loads the widgets again when it starts with the CSS or the scripts tab open. The code editor of these tabs brings a module loader, and jQuery UI and the jQuery plugins of some widget sets registered with that loader instead of with jQuery, so `$.ui` was missing (#693)
+* (@GermanBluefox) Show all unloaded widget-sets in warning dialog
+* (@GermanBluefox) Editor: on narrow screens, or when the resolution of the view does not fit between the side panels, the palette and the attributes open as floating panels
+* (@GermanBluefox) Editor: the toolbar switches to a narrower form on low windows and stays in one row; groups that do not fit open as a menu and expand again when there is room
+* (@GermanBluefox) The runtime no longer shows an old project when the web adapter serves it from its file cache
+* (@GermanBluefox) The defaults of the groups that a count opens are taken from the type of each selected widget, not of the last one
+* (@typhosj) The editor writes the default values of an attribute group that repeats as often as another attribute says, like `count`: when the widget is added and when that attribute grows later. Before, the fields of these groups had no value until they were edited by hand (#509)
+* (@GermanBluefox) The device wizard names a device after its channel again when the devices of a room sit in a folder named like the room, e.g. `0_userdata.0.Bathroom.Light.on`: the folder replaced the name of the channel, the room was then cut out of it, and the device was listed under its object ID
+
+### 2.20.2 (2026-10-16)
+* (@GermanBluefox) Many, many updates: wizard, new widgets, load optimizations, AI assistant, and more. See the 2.20.1 for details.
+
+### 2.20.1
+* (@GermanBluefox) Widget sets may bring background services (`common.visWidgets.<set>.services`): the runtime renders them once next to the views, with the widgets of the set in all views the user may see, whichever view is shown - e.g. so that a phone stays registered without "Render always"
+* (@GermanBluefox) The runtime shows the first view much sooner - measured on a tablet profile (4x slower CPU, WLAN): 4.5 s instead of 7 s for a small project, 9 s instead of 23 s for one of 760 widgets, and 0.6 s instead of 1.5 s on a desktop:
+  * The runtime loads 3.4 MB of JavaScript instead of 4.6 MB: `@iobroker/gui-components` is tree-shaken, the date pickers are loaded with the widgets that use them, the words of the standard widgets only in the language of the system
+  * The requests of the start go out side by side instead of one after the other, and the project file and its style sheets come over HTTP - compressed, from the browser cache while unchanged - and already while the socket connects
+  * The adapter lists the widget sets in `config.js`, so the runtime no longer reads every instance object of the system (1 MB) to find them
+  * The widget sets of the first view are loaded first; the others follow while it is already shown. A view of React widgets does not wait for the vis-1 libraries anymore
+  * Of `widgets.html` only the widget sets the project uses go into the page - with the style sheets and web fonts of all others, which were loaded although their scripts were skipped
+  * jQuery, jQuery UI, can.js and the scripts of a vis-1 widget set are fetched side by side (and still run in their order), the files of a widget set are announced to the browser out of its federation manifest, and the shared modules of vis-2 with the page
 * (@GermanBluefox) Changed: the AI assistant uses the shared libraries `@iobroker/ai-core` and `@iobroker/ai-gui`
+* (@GermanBluefox) Fixed: the AI push session is bound to the user who opened it, and testing the values of the AI settings form needs the "execute" right
 * (@GermanBluefox) The endpoint and the credential of an assistant request come out of the instance configuration and no longer out of the request. Both were taken from the message, and the key they resolve - a secret of this system, out of the configuration or out of the central credential store - travels with the request as its authorisation: whoever may send a message to this instance could therefore have that key carried to an address of their own. The editor never sent either of them, so nothing changes for it. The test buttons of the configuration page keep trying what stands in the form, with one limit: an address out of the form counts only together with a key out of the form - one's own key to one's own endpoint gives nothing away. In the central-store mode the saved address is used, so an endpoint of one's own has to be saved before it can be tested there
 * (@GermanBluefox) Only an entry that was stored as an AI credential is read from the central credential store. The store holds the secrets of the whole system - a database password, the login of a camera - and a request for "the key of this provider" reached every one of them
 * (@GermanBluefox) An answer of the assistant may take as long as it takes. A socket callback is given up on after thirty seconds, and the web adapter lets go of a `sendTo` even earlier, while a model that is handed a page of widgets and a dozen tools regularly needs longer - the answer then arrived at a callback nobody was holding any more: an empty bubble, no error, and nothing in any log. The editor now subscribes to an instance message, the callback carries nothing but the acknowledgement, and the finished answer is pushed to that one editor whenever it is ready
@@ -440,74 +529,6 @@ IOB_URL=http://192.168.178.45:8082 npm run start  # an ioBroker on another machi
 * (@GermanBluefox) A widget could not be dropped on a view anymore: the workspace wrapper carried no height, so the `height: 100%` of the canvas resolved to `auto` and the drop area collapsed to zero pixels. The workspace is a flex column now - the tabs take their height, the canvas takes the rest
 * (@GermanBluefox) `@iobroker/types-vis-2`: `@mui/material` and `@mui/system` are singletons now instead of being versioned by the range of the consumer. A widget set built against 9.1.0 while vis-2 ships 9.1.2 used to carry its own copy; it renders with the MUI of vis-2 now, whatever patch or minor it was built against. Widget sets of an older MUI major are react 18 builds and are skipped before they are evaluated anyway
 * (@GermanBluefox) The federation host uses the `loaded-first` share strategy, so a widget set cannot replace the shared react, MUI or gui-components of vis-2 with its own copy
-
-### 2.15.0 (2026-08-16)
-* (@GermanBluefox) Reworked the name plate of a widget in the editor: it is only as wide as its content, its buttons sit next to the name instead of on fixed positions that left a gap whenever a button was hidden, and the plate of a selected widget is drawn in the same blue as its frame
-* (@GermanBluefox) The three buttons of the name plate have a tooltip now and no longer turn red and double their size when the cursor is over them
-* (@GermanBluefox) The widget under the cursor is highlighted in blue instead of olive in the editor, in both themes
-* (@GermanBluefox) Several selected widgets are marked with the same frame as a single one, only without the handles to resize them. They carried no mark at all before, as the frame is drawn by those handles
-* (@GermanBluefox) Relative widgets can be reordered by dragging them again: a half transparent copy follows the cursor and a placeholder shows the slot the widget will land in. Dragging one never reordered anything before, because the gesture was not started for relative widgets at all
-* (@GermanBluefox) Removed the arrow buttons and the re-order menu of the relative widgets, as dragging replaces them
-* (@GermanBluefox) Moving and resizing a widget is rendered from the widget state now instead of being written into the DOM, which removes the duplicated geometry of the service and the can.js element
-* (@GermanBluefox) Removed the dead `calculateRelativeWidgetPosition` callback from `onMove` and `WidgetReference`: it has been `null` since 2022 and was never called
-* (@typhosj) The `view in widget 8` and `image 8` widgets show the view/image with the number of the value again
-* (@typhosj) `vis.updateStates` does not write the states back to ioBroker anymore, like in vis-1
-* (@typhosj) The `iFrame 8` widget shows the frame with the number of the value, also for a boolean object
-* (@typhosj) Every copy of a group gets its own member widgets if several widgets are pasted at once
-* (@typhosj) A binding can be used as the comparison value of the visibility condition
-* (@typhosj) The application bar is not wider than the window anymore
-* (@typhosj) Fixed the invisible content of the `tabs` widget if the tabs are placed vertically
-* (@typhosj) The tabs of the `tabs` widget are as wide as their title now and can be scrolled on a touch device
-* (@GermanBluefox) Shortened the values that a failing binding writes to the console: a widget with braces in its HTML produced hundreds of failing bindings, each printing the complete HTML, which buried every other error
-* (@typhosj) Fixed the position of the vis-1 widgets in a view with a limited screen size
-* (@typhosj) The `bulb on/off` widget writes numeric min/max values as a number and not as a string
-* (@typhosj) Fixed `min`, `max` and `step` of the vis-1 widget attributes: they are optional and may be fractional
-* (@typhosj) Fixed the doubled border of the jQui widgets: the border is drawn by the button only and not by the widget too
-* (@typhosj) Fixed the missing attributes of a group: the sections could not be opened and the group attributes were not editable
-* (@typhosj) Made the background color and the text color of the selected entry editable for the horizontal navigation menu. The new background color takes precedence over the color of the application bar, which the horizontal menu borrowed before, so a view that was switched from the vertical to the horizontal navigation can change its color once
-* (@typhosj) Fixed the enumerable widget groups and fields that start at the index 0 and were not expanded
-* (@typhosj) Added the MUI CSS variables (`--mui-palette-*`), so the theme colors can be adjusted with CSS
-* (@typhosj) Fixed the overlapping entries of the horizontal navigation menu in a narrow window
-* (@typhosj) Fixed the invalid HTML element IDs of the widgets shown in multiple views
-* (@GermanBluefox) A widget that crashes while rendering does not take the whole view down anymore, but is replaced by a placeholder
-* (@GermanBluefox) Added `react/jsx-runtime` and `react/jsx-dev-runtime` to the shared modules of the module federation, so a widget set uses the JSX runtime of vis-2 instead of bundling its own
-* (@GermanBluefox) Fixed the shared modules `react-dom/client` and the i18n files of `adapter-react-v5` being dropped if a widget set passes its `package.json` to `moduleFederationShared()`
-* (@GermanBluefox) `@mui/material`, `@mui/system`, `@mui/icons-material` and `@mui/styles` are shared per version now instead of as a singleton. A widget set that is rebuilt keeps its own MUI copy if it was built against another MUI major than vis-2, instead of being given the one of vis-2
-* (@GermanBluefox) Added `@mui/private-theming` to the shared modules, so the theme of vis-2 also reaches a widget set that uses its own MUI major
-* (@GermanBluefox) The widgeteria is not shown in the GUI anymore
-
-### 2.14.4 (2026-08-10)
-* (@typhosj) The entries of the horizontal navigation menu can be scrolled now instead of being cut off in a narrow window
-* (@typhosj) Fixed the invalid HTML element IDs of the widgets shown in multiple views. Their IDs changed from `<view>_<widget>` to `v<view>_<widget>`, so a user script or CSS that addresses such a copy must be adapted
-* (@typhosj) Fixed the double click on a widget shown in multiple views jumping to a wrong view
-* (@typhosj) Show the text of the button widgets as entered and not upper cased
-* (@GermanBluefox) Fixed the ignored "small" option of the `filter - dropdown` widget
-* (@typhosj) Subscribed to object IDs that are the result of a binding
-* (@typhosj) Fixed the ignored read-only option of the Bool SVG widget
-* (@GermanBluefox) Fixed the position of a new group created inside another group
-* (@typhosj) Fixed the position of the members when a nested group is dissolved
-* (@GermanBluefox) Fixed "same width"/"same height" applying the sizes of a previously selected widget
-* (@GermanBluefox) Fixed the widget selection when a stored selected widget does not exist anymore
-* (@typhosj) Fixed dissolving a group deleting a member widget instead of the group
-* (@GermanBluefox) The user permissions are now applied to widgets embedded via `getWidgetInWidget`, which can return `null` now
-* (@typhosj) Fixed the user permissions being ignored for widgets inside a group
-* (@typhosj) Added the CSS classes `vis-filter-item` and `vis-filter-item-active` to the `filter - dropdown` widget
-* (@GermanBluefox) Fixed `exist`/`not exist` of signals evaluating the comparison value instead of the state value
-* (@GermanBluefox) Fixed the signal condition if the state value is `null`
-* (@typhosj) Fixed the URL attributes of the `iFrame 8` widget being subscribed as object IDs
-* (@typhosj) Fixed the visibility condition if the state value is `null`
-
-### 2.14.3 (2026-06-09)
-* (@GermanBluefox) Applied the user-defined style to tplValueInput
-
-### 2.14.0 (2026-05-29)
-* (@GermanBluefox) Refactoring of the build process
-
-### 2.13.19 (2026-04-27)
-* (@GermanBluefox) Refactoring
-
-### 2.13.17 (2026-03-29)
-* (@GermanBluefox) Removed debug code for theme
 
 ## License
  Copyright (c) 2021-2026 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,

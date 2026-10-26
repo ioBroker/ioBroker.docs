@@ -71,18 +71,24 @@ Fragen? Schaue zuerst in die [FAQ](/#/docs/adapterref/iobroker.shelly/faq.md)!
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (GermanBluefox) Updated packages
 
--   (mcm57) Fix stale switch state after MQTT command on Shelly Pro 4 PM (refers to #1640)
--   (mcm57) Fix stale switch state after MQTT command on Shelly 2 PM Gen3 (refers to #1627)
+### 12.1.0-alpha.1 (2026-10-14)
 
-### 12.0.1-alpha.1 (2026-09-30)
+- (@mcm1957) Fixed digest authentication failing after ~7530 requests due to nonce counter never resetting and being formatted as decimal instead of hex (#1667). Thanks to @sadam6752-tech for detailled problemanalyses and solution.
 
+### 12.1.0-alpha.0 (2026-10-10)
+
+- (@mcm1957) Updated device icons to use device-specific images where available
+- (@mcm1957) Added support for Shelly I4 Gen4 (shellyi4g4) (#1645)
+- (@mcm1957) Fix stale switch state after MQTT command on Shelly Pro 4 PM and Shelly 2 PM Gen3. (#1640, #1627)
 - (GermanBluefox) Fixed switching of virtual boolean and button datapoints (e.g. Neo Smart Water Valve)
 - (@mcm1957) Fixed false "IP address is unknown" error during auto firmware update on adapter restart. [#1539]
 - (@mcm1957) Fixed devices being marked online too early on adapter startup before protocol initialization is complete. [#1539]
 - (@mcm1957) Added support for Shelly Camera (shellycamera) - **EXPERIMENTAL ONLY** [#1617]
 - (@mcm1957) Device manager now refreshes the device list after adding devices via discovery and after a firmware update completes. [#1484]
 - (@mcm1957) PLUG_UI states (LED control) are now activated for supported plug devices when firmware version 2.0.0 or newer is detected.
+- (@mcm1957) dependencies have been updated
 
 ### 12.0.0 (2026-09-20)
 - (@mcm1957) **BREAKING:** Adapter requires node.js >= 22, js-controller >= 7.2.2 and admin >= 8.0.11 now.
@@ -134,10 +140,6 @@ Fragen? Schaue zuerst in die [FAQ](/#/docs/adapterref/iobroker.shelly/faq.md)!
 - (@mcm1957) Some missing states added at an illuminance component
 - (@mcm1957) DISABLE all PLUG_UI functionality due to unrecoverable HW faults.
 - (@mcm1957) Dependencies have been updated
-
-### 10.6.1 (2026-02-23)
-- (HGlab01) OnUnload handling has been improved. [#1279]
-- (@mcm1957) shellypill: missing input 202 has been added, nonexisting analog input has been removed.
 
 ## License
 

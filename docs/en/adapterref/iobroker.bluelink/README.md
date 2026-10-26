@@ -26,6 +26,9 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 ------------------------------------------------------------------------------------
 ## Changelog
+### 3.1.35 (2026-10-15)
+* (arteck) Fix EU Hyundai/Kia login
+
 ### 3.1.34 (2026-09-17)
 * (arteck) fix location request
 
@@ -37,11 +40,6 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 ### 3.1.31 (2026-08-11)
 * (arteck) Dependencies have been updated
-
-### 3.1.30 (2026-08-11)
-* (meistermopper) Fix vehicle location data extraction for Kia and Hyundai CCS2 vehicles and prioritize dedicated location API
-* (meistermopper) Add control.force_location button and implement live telematics POST location/status polling directly from vehicle hardware
-* (meistermopper) Fix TypeScript type definitions and unsafe property access in status parsing
 
 ## Donation
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)

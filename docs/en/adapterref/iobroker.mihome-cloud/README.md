@@ -146,6 +146,7 @@ Smart scenes / automations from your Mi Home account. Set a scene state to `true
 ## Changelog
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+- (copilot) **ENHANCED**: Updated `@iobroker/adapter-core` to 3.4.3
 
 ### 1.0.6 (2026-04-29)
 - (lubepi) **NEW**: Added admin option to block additional automatic runtime login attempts to reduce log spam

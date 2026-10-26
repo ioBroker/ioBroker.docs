@@ -92,6 +92,18 @@ The adapter could use the Docker API to communicate with the Docker daemon on ot
 -->
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.0.5 (2026-10-13)
+
+- (@GermanBluefox) Cancel button and dialog closing are disabled while a request (pull, delete, prune, stop, restart) is running
+
+### 1.0.4 (2026-10-11)
+
+- (@GermanBluefox) Log output is formatted and colorized
+
 ### 1.0.1 (2026-08-07)
 
 - (@GermanBluefox) Added an interactive terminal for running containers (xterm.js)
@@ -106,19 +118,6 @@ The adapter could use the Docker API to communicate with the Docker daemon on ot
 ### 0.1.3 (2025-10-15)
 
 - (@GermanBluefox) Updated packages
-
-### 0.1.2 (2025-10-09)
-
-- (@GermanBluefox) Added volume browsing
-- (@GermanBluefox) Added a text file read from volume
-
-### 0.1.1 (2025-09-26)
-
-- (@GermanBluefox) Added network tab
-
-### 0.0.3 (2025-09-17)
-
-- (@GermanBluefox) Initial commit
 
 ## License
 

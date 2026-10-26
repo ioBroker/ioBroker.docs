@@ -127,6 +127,10 @@ Please report reproducible problems in the [GitHub issue tracker](https://github
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.5 (2026-10-21)
+
+* (Gaspode69) Reduced log noise from transient interruptions of established realtime streams
+
 ### 0.0.4 (2026-09-10)
 
 * (Gaspode69) Updated the Node.js 22 TypeScript configuration dependency; TypeScript 7 remains deferred until the development toolchain supports its compiler API

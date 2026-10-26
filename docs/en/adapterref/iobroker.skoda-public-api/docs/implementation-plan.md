@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.skoda-public-api/README.md":{"title":{"en":"ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/README.md"},"en/adapterref/iobroker.skoda-public-api/HANDOFF.md":{"title":{"en":"Handoff — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/HANDOFF.md"},"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md":{"title":{"en":"Compact Mode"},"content":"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md"},"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md":{"title":{"en":"Entwurfsentscheidungen — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md"},"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md":{"title":{"en":"Technische Arbeitsgrundlage und offene Umsetzung"},"content":"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.skoda-public-api/README.md":{"title":{"en":"ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/README.md"},"en/adapterref/iobroker.skoda-public-api/HANDOFF.md":{"title":{"en":"Handoff — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/HANDOFF.md"},"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md":{"title":{"en":"Compact Mode"},"content":"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md"},"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md":{"title":{"en":"Entwurfsentscheidungen — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md"},"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md":{"title":{"en":"Technische Arbeitsgrundlage und offene Umsetzung"},"content":"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md"},"en/adapterref/iobroker.skoda-public-api/docs/stable-release.md":{"title":{"en":"Erste Stable-Aufnahme abgeschlossen"},"content":"en/adapterref/iobroker.skoda-public-api/docs/stable-release.md"},"en/adapterref/iobroker.skoda-public-api/docs/stable-pr.md":{"title":{"en":"Stable application for 0.1.11 — merged"},"content":"en/adapterref/iobroker.skoda-public-api/docs/stable-pr.md"}}}
 ---
 # Technische Arbeitsgrundlage und offene Umsetzung
 
@@ -177,6 +177,21 @@ serverseitiger Buchung entstehen und zählt deshalb ebenfalls konservativ als ve
 Der Adapter ist seit September 2026 in `latest`. `bluefox` und `tmarthy` sind
 als npm-Maintainer eingetragen. Version `0.1.11` ist veröffentlicht.
 
+### Erste Stable-Aufnahme
+
+Die öffentlich getestete Version `0.1.11` wurde am 11. Oktober 2026 mit
+[Repository-PR #6832](https://github.com/ioBroker/ioBroker.repositories/pull/6832)
+in `stable` aufgenommen. Die Sichtbarkeit im Admin folgt nach Aktualisierung des
+ausgelieferten Katalogs; dessen geprüfter Stand lag noch vor dem Merge.
+Positive Berichte liegen für einen Octavia 2.0 TDI einschließlich Standheizung,
+zwei Superb-Hybride und einen Elroq (Modelljahr 2027) vor. Testnachweise und der
+Abschluss der Aufnahme stehen in [`stable-release.md`](/#/docs/adapterref/iobroker.skoda-public-api/docs/stable-release.md).
+Neue Produktfunktionen gehören in nachfolgende Releases. Die Entwicklungsabhängigkeit
+`@iobroker/testing` wurde zur Behebung von W0037 auf `^6.3.0` aktualisiert.
+Die Vorbereitung ist mit [PR #7](https://github.com/tmarthy/ioBroker.skoda-public-api/pull/7)
+übernommen, die anschließende CI ist grün und
+[Checker-Issue #6](https://github.com/tmarthy/ioBroker.skoda-public-api/issues/6) geschlossen.
+
 ### Zusätzliche Schreiboperationen
 
 Das Ladelimit ist über `charging.settings.targetStateOfChargeInPercent` umgesetzt: ein gemeinsamer
@@ -227,5 +242,5 @@ Tests sichern stabile Statuscodes und die Migration bestehender Label-Zuordnunge
 - Änderungen der OpenAPI-`v0`-Spec prüfen und Codegen anpassen
 - Abhängigkeiten und GitHub Actions über Dependabot aktuell halten
 - Verhalten weiterer Fahrzeugtypen mit anonymisierten Fixtures absichern
-- Compact-Group-Integrationstest läuft auf Linux und macOS; Draft-PR #5 bestätigt
+- Compact-Group-Integrationstest läuft auf Linux und macOS; der übernommene PR #5 bestätigt
   macOS mit Node 22, 24 und 26. Windows bleibt wegen eines Controller-Testproblems ausgenommen

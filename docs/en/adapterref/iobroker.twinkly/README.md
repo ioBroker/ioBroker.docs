@@ -134,8 +134,20 @@ response => {
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
+- (patrickbs96) No more error `Parse Error: Data after Connection: close` for devices without playlist or movie (#486, #452, #357)
 -->
-### **WORK IN PROGRESS**
+### 1.1.1 (2026-10-25)
+- (patrickbs96) Requests to the Twinkly now time out after 10 seconds instead of waiting forever
+- (patrickbs96) Switching on in mode `Movie` selects the current movie again first (falls back to `Color` if no movie is saved) (#368)
+
+### 1.1.0 (2026-10-25)
+- (iobroker-bot) Adapter requires node.js >= 22 now.
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+- (patrickbs96) Admin UI migrated to jsonConfig (admin >= 7.6.20 required), with address validation and help texts.
+- (patrickbs96) Ping: `ping.exe` is called directly (no `cmd.exe`, no `process.env`), the address is validated, missing ICMP permissions are detected and reported once.
+- (patrickbs96) Release process: publishing to npm via Trusted Publishing, tests on Node.js 22, 24 and 26.
+- (patrickbs96) Package contents limited via `files`, translations moved to `admin/i18n/{lang}.json`.
+- (patrickbs96) Switched to `@iobroker/eslint-config`, polling timer uses `adapter.setTimeout`.
 * Update dependencies
 
 ### 1.0.14 (2023-07-19)
@@ -160,18 +172,10 @@ response => {
 * Add sendTo message `uploadTwinkleMovie` to upload a twinkle movie with own colors
 * Update Release Integration in Github Actions and Sentry
 
-### 1.0.9 (2022-11-27)
-* Now detects if Twinkly is in a group (firmware >= 2.8.3). If so, the group can only be controlled by the master, the states from the slave are read-only.
-
-### 1.0.8 (2022-11-26)
-* Add `musicreactive` Mode
-* Add Ukrainian translation
-* Rework how objects are created, objects are now created after first connect after startup and updated after a firmware update
-
 ## License
 MIT License
 
-Copyright (c) 2024 patrickbs96 <patrickbsimon96@gmail.com>
+Copyright (c) 2024-2026 patrickbs96 <patrickbsimon96@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

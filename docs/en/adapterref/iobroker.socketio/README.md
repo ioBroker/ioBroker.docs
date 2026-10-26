@@ -76,6 +76,11 @@ You can set the option *Force Web-Sockets* to force using only web-sockets trans
 -->
 
 ## Changelog
+### 9.0.2 (2026-10-13)
+* (@GermanBluefox) The listening port is reported to the registry of used resources of js-controller 8. Added `@iobroker/webserver` as a direct dependency
+* (@GermanBluefox) Admin 7.6.20+ is required. Added Ukrainian and missing translations. Compact mode no longer can exit the whole host process
+* (@GermanBluefox) Added `socket.io` as a direct dependency to fix the crash "socketClass is not a constructor" (#302)
+
 ### 9.0.0 (2026-09-24)
 * (iobroker-bot) Adapter requires node.js >= 22 now.
 * (@GermanBluefox) Updated packages
@@ -92,11 +97,8 @@ You can set the option *Force Web-Sockets* to force using only web-sockets trans
 * (@GermanBluefox) Fixed possible problems
 * (@GermanBluefox) Updated packages
 
-### 7.0.8 (2025-03-04)
-* (@GermanBluefox) Removed the frequent debug output
-
 ## License
 
-The MIT License (MIT)
+The MIT License (MIT), see [LICENSE](https://github.com/ioBroker/ioBroker.socketio/blob/master/LICENSE)
 
 Copyright (c) 2014-2026 @GermanBluefox <dogafox@gmail.com>

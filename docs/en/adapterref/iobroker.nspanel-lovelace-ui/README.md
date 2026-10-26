@@ -157,7 +157,46 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.7.0 (2026-10-25)
+- (ticaki) web panels: the panel UI in a web browser via http://<host>:8090/<topic>, no Tasmota needed - one web panel per address, all browsers on it stay in sync (new admin tab "Web panels")
+- (ticaki) web panels: a real panel can be opened in the browser - the clone navigates on its own and shares the states tree `panels.<id>` with the panel
+- (ticaki) web panels: standalone web panels without hardware - "Add web panel" in the panel overview (name, topic, model), configured by topic like a real panel
+- (ticaki) web panels: optional PIN (`webPin`) for all web panels, asked once per browser; HTTPS with the ioBroker certificates (`webSecure`); a FIDO2 security key can replace the PIN (HTTPS only)
+- (ticaki) web panels: look of the HMI - Noto Sans, Nextion font sizes, all page types, popups, the four screensaver layouts and the boot animation
+- (ticaki) web panels: a lost connection to the adapter is shown (greyed out page), the browser reconnects after an adapter restart on its own
+- (ticaki) admin: a button opens the web panel of a panel in a new tab (Maintain, panel settings, panel info), the host name of the links is configurable (`webHost`)
+- (ticaki) screensaver: the indicator buttons (and the state `buttons.indicator-N`) work again when the screensaver is the first page of the configuration
+- (ticaki) screensaver: a tap on an indicator sets `buttons.indicator-N` again when the indicators do not act as buttons, and the command of the indicator runs once instead of twice (a switch was flipped back at once)
+- (ticaki) a panel that is offline gets the startup page offered every 5 s again (the panel loop never rescheduled itself)
+- (ticaki) script config: `fontSize: 0` on a grid item is no longer ignored
+
+### 1.6.0 (2026-10-24)
+- (ticaki) panel: tapping the screensaver several times no longer ends in a black page - a resent page got its pageType but no content
+- (ticaki) template text.battery.bydhvs: charging icon is now shown when the battery is charging (negative power)
+- (ticaki) admin screensaver: notifications (bell next to the gear) - headline, text, states with condition, priority, dismiss group and buzzer
+- (ticaki) admin screensaver: one notification list shared by all screensavers - a checkbox switches a notification on per screensaver (switched on ones first, then by priority)
+- (tt-tom17) admin: the credential selection (MQTT, Tasmota WebUI, wifi password of a QR page) shows its default `use login / password field` again instead of an empty field
+- (tt-tom17) admin: global settings - the weather instance is visible again; the list of instances is loaded when the page opens and not only when the field is opened, and a stored instance stays visible even if its adapter is gone
+
+### 1.5.0 (2026-10-20)
+- (ticaki) screensaver: weather forecast items (2 values) no longer lose icon and weekday when the temperature is 0°
+- (ticaki) panel: a repeated acknowledgement from tasmota (bad wifi, mqtt broker like mosquitto 2) no longer drops the next message - e.g. screensaver colors and weather updates got lost
+- (ticaki) mqtt: no overlapping subscriptions at the broker anymore, so every message arrives only once
+- (ticaki) templates: brightsky bottom items show the hourly weather icon again (brightsky sets role `text` on `hourly.xx.icon`), unknown weather icons fall back to `alert-circle-outline`
+- (tt-tom17) admin: the MQTT login of an external broker, the Tasmota WebUI password and the wifi password of a QR page can come from the central credentials (Admin → System settings → Credentials). Optional - without a selection the fields keep working as before. Only the id is stored; changed values restart the adapter, renaming a credential does not
+- (tt-tom17) fix: the Tasmota WebUI password field of the MQTT settings stored the change event instead of the typed text
+
+### 1.4.0 (2026-10-14)
+- (tt-tom17) admin: new tab `Screensaver` - configure the screensaver without script: version (standard / alternate / advanced / easyview), the panels that use it, every place of the card with its own dialog (state or page item template, icons incl. icon per value range, colors, value, text, indicator action), MR icons, clock and date format, weather instance, rotation time, swipe and indicator buttons. The entry replaces the screensaver of the script for the listed panels. Documentation `doc/de|en/Screensaver-Admin.md`
+- (ticaki) admin: page configuration - panel filter `All panels` and new page type `Main pages`; a field label cut off with `…` shows its full text on mouse over
+
+### 1.3.0 (2026-10-13)
+- (ticaki) cardMedia: support for the squeezeboxrpc adapter (Logitech Media Server) – media id `squeezeboxrpc.X.Players.<name>`; speaker grid to sync other rooms (control follows the sync master), group volume changes every member by the same amount, 3-step shuffle, seek via logo, favorites, saved playlists (requested from the LMS) and current playlist
+- (ticaki) fix: a page `main` in the panel script was reported as coming from the global script configuration when the global configuration also has a page `main` (log message and colour in the admin navigation view); the page of the panel script was used, only its origin was wrong
+- (tt-tom17) admin: thermostat pages (`cardThermo2`) can be created in the PageConfig tab like the other page types. The editor draws the page like the panel: tabs for up to eight heat circuits (an airCondition channel gives two), a click on the headline, the set temperature, the value lines or the mode text opens the settings of that spot (alias channel or single data points, headline, min/max/step, icons, colors, units, mode list, circuit icon), the nine slots around the ring (the ninth between - and +) show the real order of the panel - selector slots, the buttons the adapter generates from the alias, then the configured items, each bound to one heat circuit or to all (new field `Heat circuit` in the item dialog, `filter` of the script), with paging and the `sortOrder` of the slots. The admin page goes through the same code as the script page (`PageThermo2.getPage`), so the result on the panel is identical
+- (tt-tom17) fix: the MAINTAIN indicator of `cardThermo2` was added twice to the page items
+
+### 1.2.0 (2026-10-11)
 - (tt-tom17) fix: the item role `lock` accepts `sensor.lock` as role of the ACTUAL state in addition to `state`; before, an ACTUAL state with `sensor.lock` was skipped and the item silently showed the SET state instead. The log now reports when a channel falls back to its alternate state (e.g. ACTUAL → SET)
 - (tt-tom17) admin: chart pages (column and line) can be created in the PageConfig tab like the other page types; the page gets its own editor with chart type, color, data source (script states or a history/sql/influxdb instance), range, factor, x-axis ticks and labels. The classic way (script page plus the `Page Chart` tab) keeps working, both share one code path in the adapter. The DB instance is stored in the short form (`influxdb.0`); the alive check accepts both forms. The history query now asks for averages (bar: one per hour, line: 5-minute grid) instead of raw values, the x-axis is computed from the time stamps, line values keep one decimal
 - (tt-tom17) fix: the line chart scales large values automatically — the panel prints a y-axis tick with at most two characters, so 152 W used to show up as "15"; values are now divided by 10, 100, … until the ticks fit and the y-axis label shows the factor (e.g. `W x10`). The y-ticks use round 1-2-5 steps from the minimum to the maximum of the data; the former two extra ticks below the minimum are gone — the panel never showed them, but they forced the factor on a winter day (-5 … 3 °C ended up as `°C x10`)

@@ -13,6 +13,8 @@ chapters: {"pages":{"en/adapterref/iobroker.cec2/README.md":{"title":{"en":"ioBr
 
 **Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.cec2/workflows/Test%20and%20Release/badge.svg)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 Adapter for HDMI CEC
 
 You can monitor / control devices using HDMI CEC. Most modern TVs and multimedia devices support CEC to some extent.
@@ -78,11 +80,11 @@ For every device there are the following states created:
 * info.Name = name the device sets in CEC Bus
 * info.physicalAddress = physical address
 * info.Vendor = vendor of the device
-* activeSource = is the device the active source? Can switch this device to be active source
+* activeSource = is the device the active source? Set to true to switch the TV input to this device (setting false is not possible, switch another device active instead)
 * menuStatus = lets device be controlled by TV remote
 * state = power state of device (lets you switch it on/off, if supported)
 * createButtons = press here to generate states for buttons in .buttons subfolder.
-* buttons.time = time to press a button for (default 500ms).
+* buttons.time = time to hold a button (default 500ms). While held, the button press is repeated every 450ms as required by CEC.
 
 ## Buttons
 Button presses do not work for all devices and some might need to have 
@@ -96,8 +98,9 @@ created buttons in some situations. Power works for quite a lot devices.
 There are the following global states:
 
 * active-source = physical address of the current active source (can be set to switch inputs)
-* arc = Audio Return Channel is (in)active might be able to (de)activate it here
+* arc = Audio Return Channel is (in)active (read only, ARC can only be controlled by the audio system)
 * mute = mute Audiosystem
+* osdMessage = show a message on the TV (max. 13 characters, not supported by all TVs)
 * raw-command = send commands to cec-client directly (for example 'scan' or tx + CEC Command from http://www.cec-o-matic.com/) 
 * standbyAll = send all devices to standby
 * systemAudio = Audiosystem is/is not in use. Informs devices that they should send volume/mute commands to Audiosystem
@@ -115,8 +118,10 @@ cec-client have to be installed. Usually can be installed using:
 sudo apt install cec-utils
 ```
 
-The user running iobroker (nowadays "iobroker") needs acces to /dev/vchiq. You may need to add the iobroker user to the 
-video group for that:
+The user running iobroker (nowadays "iobroker") needs access to the CEC device. On current Raspberry Pi OS (and other
+Linux systems using the kernel CEC driver) that is `/dev/cec0` (`/dev/cec1` for the second HDMI port), on old Raspberry Pi
+firmware `/dev/vchiq`, for Pulse-Eight USB adapters `/dev/ttyACM0`. You may need to add the iobroker user to the
+video group (or dialout group for USB adapters):
 ```
 sudo usermod -a -G video iobroker
 ```
@@ -124,7 +129,10 @@ sudo usermod -a -G video iobroker
 ## Configuration
 
 * osd name: this name will reported to other devices, for example your TV. You might need to select ioBroker there to receive remote controls in ioBroker.
-* device type: You can set the device type, see discussion of logical address above to get an idea what that means. Use a device type that you have not many of.
+* device type: You can set the device type, see discussion of logical address above to get an idea what that means. Use a device type that you have not many of. Default is playback, some TVs (i.e. LG) have problems with recording devices.
+* poll power states / interval: poll the power state of the TV every interval milliseconds (default 60000).
+* CEC device: device of the CEC adapter, for example `/dev/cec1` to use the second HDMI port of a Raspberry Pi 4/5. Empty for autodetect.
+* HDMI port: HDMI port of the TV (or receiver) the adapter is connected to. Only needed if the physical address can not be detected automatically. 0 for autodetect.
 * prevent unnamed devices: Sometimes devices are not reporting their name in certain situations (for example Nintendo Switch won't report its name when in standby but announce itself). In this situations the adapter might create a duplicate of the device under it's physical address (i.e. for numbers). You can enable this option to prevent it.  
 
 ## Script examples:
@@ -145,6 +153,21 @@ See [example Scripts](/#/docs/adapterref/iobroker.cec2/doc/ExampleScripts.md) fo
 - (copilot) Adapter requires js-controller >= 6.0.11 now
 - (copilot) Adapter requires admin >= 7.6.17 now
 - (mcm1957) Dependencies have been updated
+- (Garfonso) Node.js 26 has been added to the test matrix
+- (Garfonso) Size attributes and i18n flag have been added to jsonConfig
+- (Garfonso) Dependencies have been updated
+- (Garfonso) Adapter timers (setTimeout/setInterval) are used now, so timers are cleaned up on unload
+- (Garfonso) Type checking errors have been fixed
+- (Garfonso) Translations have been converted to the short i18n format
+- (Garfonso) Fixed: button presses restarted the adapter, buttons are now held and repeated according to CEC spec
+- (Garfonso) Fixed: volume was parsed wrong, deck status was never parsed, power on/off did not work for logical addresses above 9
+- (Garfonso) Fixed: commands for inactive devices were broadcast to all devices
+- (Garfonso) Fixed: activeSource of other devices was not reset, OSD messages longer than 13 characters
+- (Garfonso) Messages are no longer sent with logical addresses of other devices (not supported by kernel CEC driver), arc is read only now
+- (Garfonso) CEC version emulation was removed
+- (Garfonso) cec-client is restarted if it stops, malformed messages no longer restart the adapter
+- (Garfonso) New options for CEC device and HDMI port, default device type is playback, default poll interval is 60s
+- (Garfonso) CEC communication is now behind an interface to allow other backends (libCEC binding) later
 
 ### 0.1.3 (2024-07-04)
 * remove unnecessary files from npm package

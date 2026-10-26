@@ -75,6 +75,7 @@ The Bosch Smart Home Camera reverse-engineered API is exposed via four sibling p
 | **Motion zones / privacy masks** | ✅ read + write | ✅ read + write | ✅ read + write *(v1.8.0)* | ✅ get / set / clear *(v1.7.0)* | ❌ *(no visual editor yet)* | ❌ |
 | **Automation rules / schedules** | ✅ read + write | ✅ read + write | ✅ full CRUD *(v1.8.0)* | ✅ list / add / edit / delete *(v1.7.0)* | ✅ full CRUD (list/add/edit/delete) | ❌ |
 | **Lighting schedule** | ✅ read (write via service, Gen1 Eyes Outdoor only) | ✅ read + write | ✅ read *(Gen1-only, v1.2.0)* | ✅ get / set *(v1.7.0)* | ✅ read + write *(outdoor Eyes cameras)* | ❌ |
+| **Local data interface (Gen2, FW 9.40.105+)** | ✅ fully local stream via go2rtc, no cloud, no fallback | ✅ `live`/`stream` read the camera directly over the LAN | ✅ status + direct local `stream_url` | ✅ status + local stream URL | ✅ live view + recording via go2rtc, no cloud session | ✅ local stream URL on the stream-url node |
 | **Cloud clip download (history ~30 d)** | ✅ via Media Browser | ❌ | ❌ *(parked — no community request yet)* | ❌ *(intentionally not exposed — large payloads)* | ❌ *(use CLI)* | ◑ `clip_url` in event payload |
 | **Mini-NVR (local recording)** | ✅ continuous + event-buffered, ring-buffer preroll *(v11.2.0 BETA → v14.7.0 modes)* | ◑ event-triggered segment muxing, no preroll ring *(v10.7.0 BETA)* | ❌ *(delegates to external recorder via credential-free RTSP endpoint)* | ❌ *(no NVR concept)* | ◑ continuous only, no event-buffered *(v0.4.0-alpha)* | ◑ continuous only via `bosch-camera-nvr-record` node *(v0.4.0-alpha)* |
 | **SMB / NAS clip upload** | ✅ | ✅ *(v10.7.0 BETA)* | ❌ | ❌ | ❌ | ❌ |
@@ -961,6 +962,14 @@ HA stays the **reference implementation** — features land there first; the Pyt
 ---
 
 ## Changelog
+
+### 1.10.4 (2026-10-23)
+- Updated: mqtt and the widget build dependencies; security updates for follow-redirects and ip-address.
+
+### 1.10.3 (2026-10-12)
+- Fixed: a stale FCM device token is now logged out after a confirmed registration.
+- Fixed: lighting writes are serialized per camera (no lost updates, no front-light / wall-washer toggle fighting); stale poll results are dropped; front-light and wall-washer results are acknowledged separately.
+- Fixed: the first feature-flags fetch is retried once after a timeout (single timer).
 
 ### 1.10.2 (2026-10-06)
 - Fixed: the Gen2 front-light white balance is now applied even while the light is off or at brightness 0. The value is held until the light is next switched on; if the light is on with cached brightness 0, the last non-zero brightness is restored. Writes are serialized per camera.

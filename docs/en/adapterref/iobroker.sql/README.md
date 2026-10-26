@@ -619,6 +619,9 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 4.2.1 (2026-10-13)
+* (@GermanBluefox) The error of a failed save or delete in the data browser is no longer hidden by the reload of the table
+
 ### 4.2.0 (2026-10-03)
 * (@GermanBluefox) `npm run build:ts` no longer needs the optional `mysql2` and `sqlite3` drivers to be installed
 * (@GermanBluefox) Fixed buffered values being lost when the adapter stops, and unload no longer hangs when there is nothing else to write (#577)
@@ -646,10 +649,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 ### 4.1.4 (2026-08-27)
 * (@GermanBluefox) Connection errors no longer start with the useless class name `AggregateError`: the log now shows only the real reason, e.g. `connect ECONNREFUSED 127.0.0.1:3306; connect ECONNREFUSED ::1:3306`
-
-### 4.1.3 (2026-08-27)
-* (@GermanBluefox) Connection errors are logged with the real reason again: Node reports a failed TCP connect as an `AggregateError` whose own message is empty, so the log only showed the word `AggregateError` instead of e.g. `connect ECONNREFUSED 127.0.0.1:3306`
-* (@GermanBluefox) The reconnection loop no longer repeats the same connection error every 30 seconds: the first occurrence is logged as error, repetitions go to debug and once an hour a reminder is logged
 
 ## License
 

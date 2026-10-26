@@ -67,11 +67,104 @@ You can also create freely defined interfaces, such as the consumption display o
 ### YouTube Tutorials
 For detailed instructions and more information, it is recommended to watch the linked YouTube tutorials.
 
+## The widgets
+
+The adapter adds nine widgets to the vis-2 palette, in the set **Jaeger design**. Hovering over a widget in the palette shows a short description under its preview.
+
+All widgets share one color theme. Only the layout widget carries the complete theme; every other widget either picks its colors up from it (*Palette → From widget*) or defines its own. Four themes are built in: `green`, `blue`, `green-dark` and `blue-dark`.
+
+### Layout
+
+![Layout widget](src-widgets/public/img/prev_layout.png)
+
+The frame around everything else. It renders the complete interface: the main menu on the left, the status bar at the top, the floor selector, the home page with its scenes and actions, the freely configurable right column and — on a phone or a tablet — a swipeable drawer instead of the menu column.
+
+It has a single attribute, **Settings**, which opens the editor in which the whole interface is described: menu entries, floors and their views, scenes, actions, info groups and the colors. Use exactly one layout widget per view; by default it fills the view completely.
+
+### State
+
+![State widget](src-widgets/public/img/prev_state.png)
+
+A square icon button for one object — the building block of the floor plans. A click toggles the value; with *Write specific value* a fixed value is written instead, and *Indicate if value is set* highlights the button while that value is active.
+
+- **Number of values** — several values, each with its own icon, color, background color and tooltip.
+- **Show control dialog** — instead of toggling, a dialog with all values opens.
+- **No control** — display only, the button cannot be pressed.
+- **Ask for confirmation**, with a text of your own, before anything is written.
+- An optional caption above or below the icon.
+
+### Dimmer
+
+![Dimmer widget](src-widgets/public/img/prev_dimmer.png)
+
+Brightness control for a dimmable light. The widget itself shows the current level as a vertical bar; pressing and holding it (*Press duration*) opens the popup with the slider, split into the configured number of **sections**.
+
+- **Memory buttons** — buttons for fixed brightness values below the slider, each with its own icon and text. The value either comes from an object or is written directly.
+- **Object ID for ON/OFF** and **Value by ON** for lights whose on/off switch is a separate object.
+- Optionally show the value in the widget, rotate the icon, and close the popup after setting.
+
+### Shutter
+
+![Shutter widget](src-widgets/public/img/prev_shutter.png)
+
+The same idea for roller shutters and blinds. The icon shows the current position, with a shutter, blinds or shadow icon set. **Shadow shutter ID** adds a second object for the slat angle, so height and slats are set in the same popup.
+
+Since actuators disagree about what 0 % means, the value and the display can be inverted independently of each other — separately for the height and for the slats. Memory buttons store height and slat angle together.
+
+### Thermostat
+
+![Thermostat widget](src-widgets/public/img/prev_thermostat.png)
+
+The target temperature as a dial. The dialog puts the actual temperature, the humidity and the valve position next to the target value and offers minus/plus buttons and a slider. Minimum, maximum, step and unit are configurable, and a comma can be used as the decimal separator.
+
+Below that there is room for additional **Buttons** — boost, away, air conditioning, whatever the heating offers. Each one has its own object, value, icon, label and style.
+
+### Scene
+
+![Scene widget](src-widgets/public/img/prev_scene.png)
+
+A wide button with a title and a subtitle that starts a scene of the `scenes` adapter or simply writes a value. **Save** adds a second button on the right (the gear in the picture): it stores the current states of all members back into the scene.
+
+Further options: no active state, write `false` instead of `true`, ask for confirmation with a text of your own, and show the time of the last change.
+
+### Cameras
+
+![Cameras widget](src-widgets/public/img/prev_cameras.png)
+
+A card with a grid of camera images. Each camera comes either from the `cameras` adapter or from a free URL, which can be read from an object as well, and has its own refresh interval.
+
+*Allow full screen* opens a single camera large, with a separate URL and refresh interval for the full-screen picture — so the thumbnails can stay small. "Show more" links to another widget or another page.
+
+### Actual news
+
+![News widget](src-widgets/public/img/prev_news.png)
+
+A card with an RSS feed: image, headline and teaser per entry, scrollable. The feed URL is entered directly or read from an object, so it can be switched at runtime. The update interval is configurable, and "More" links to a widget or a page.
+
+### Player
+
+![Player widget](src-widgets/public/img/prev_player.png)
+
+A media player card: title, artist, cover, play/pause, previous/next, shuffle, mute, a volume slider and the elapsed/total time bar. Every element is bound to its own object, so the widget works with any player adapter — Sonos, Squeezebox, Alexa and so on. Elements whose object is left empty are not shown.
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.5.0 (2026-10-17)
+* (bluefox) Migrated to React 19 and vis-2 2.20.0
+
+### 1.4.20 (2026-04-27)
+* (bluefox) Hide the menu on mobile devices if no scenes or actions are defined
+
+### 1.4.19 (2026-03-13)
+* (bluefox) Corrected possible error with invalid theme name
+
+### 1.4.18 (2026-01-27)
+* (bluefox) Added configurable label for scenes and actions
+* (bluefox) Corrected order of the scenes and actions
+
 ### 1.4.16 (2026-01-17)
 * (bluefox) Added ON/OFF object ID for dimmer
 

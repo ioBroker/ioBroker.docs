@@ -217,7 +217,13 @@ Hardwaretests sind optional, standardmäßig rein lesend und dürfen nicht in CI
 
 ## Änderungsverlauf
 
-### **WORK IN PROGRESS**
+### 2.0.1 (2026-10-13)
+
+- (hwiedermann) Nur eine Warnung pro Geräteausfall; weitere Fehler werden auf Debug-Ebene protokolliert (behebt #308, PR #309).
+- (xXBJXx) Abhängigkeiten aktualisiert und die Admin-Oberflächen neu gebaut.
+- (xXBJXx) Moment in den Lockfiles auf 2.31.0 aktualisiert und Regressionstests gegen Locale-Pfadmanipulation ergänzt (GHSA-4p3w-j4w9-5jqw).
+
+### 2.0.0 (2026-08-16)
 
 - (xXBJXx) Backend mit validiertem HTTP-Client, Fähigkeitserkennung, robustem Polling und begrenzter Bonjour-/mDNS-Suche überarbeitet.
 - (xXBJXx) Zuverlässige Steuerung unterstützter Leuchten einschließlich RGB, Temperatur, Akku und Studio-Modus sowie strikte Instanztrennung und sauberes Löschen von Geräten ergänzt.

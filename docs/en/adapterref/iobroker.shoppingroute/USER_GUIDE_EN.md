@@ -3,9 +3,114 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
 ---
 # ShoppingRoute – User Guide
 
-**Applies to version 0.5.0 and newer**
+**Guide for ShoppingRoute 0.6.0 (26 October 2026)**
 
 ShoppingRoute helps turn a normal Alexa shopping list into a list that follows the way you actually shop.
+
+## Bring! lists and store routing in ShoppingRoute 0.6.0
+
+The Bring! bridge is **disabled by default**. Existing Alexa users will notice no change.
+
+**Setup:** Open **ShoppingRoute instance settings → Bring! integration**, select your installed ioBroker Bring! instance, **save** and then select the desired Bring! list. For one-way or two-way synchronization also select the already enabled Alexa shopping list. First leave **Dry Run** enabled.
+
+Choose a mode:
+
+1. **Off:** Existing Alexa behaviour is unchanged.
+2. **Bring! → Alexa:** Use Bring! as the source. New Bring! entries appear in Alexa; items previously mirrored and later completed in Bring! are also removed from Alexa. Alexa-only entries are preserved.
+3. **Bring! only:** No Alexa installation is required. ShoppingRoute displays Bring! items in its own **Shopping list** page, grouped by store and your configured walking route. This view is read-only; edit items in Bring!.
+4. **Bring! ↔ Alexa:** New and completed items are mirrored both ways. On the **very first synchronization**, each list keeps everything it already contains; only missing items are added.
+
+### Short voice commands without invoking the Bring! skill
+
+In **Bring! ↔ Alexa** mode, you can simply say **“Alexa, add milk to my shopping list.”** The item enters the normal Alexa list, ShoppingRoute applies your store/route sorting and sends it to Bring! on the next confirmed synchronization. You do not need the longer **“Alexa, ask Bring! to add milk …”** invocation for this workflow. When you mark that item done in Bring!, ShoppingRoute removes its mirrored counterpart from the active Alexa shopping list. This operation removes the Alexa item rather than setting its completed flag. Both services must be connected, two-way synchronization must be enabled, and safety checks must permit the write.
+
+Bring! groups items into its own categories and **does not support arbitrary individual item order**. For precise ShoppingRoute walking order use the ShoppingRoute page or the Alexa app. Inside Bring!, you can arrange the existing category order manually.
+
+**Safety:** A confirmed, sufficiently recent Bring! snapshot is required. Duplicate names, conflicting quantities/specifications, oversized batches and unsafe remote states block writes. Interrupted transactions are saved in a persistent journal and not automatically retried until both providers confirm the expected list contents. Never clear a pending journal without checking both lists. Dry Run blocks writes on **both** services.
+
+Status: `shoppingroute.0.info.bringSyncStatus`. Bring! route preview: `shoppingroute.0.info.bringSyncPreview`. Journal: `shoppingroute.0.data.bringSyncJournal`.
+
+Bring! normally polls its list about every 90 seconds, so changes are not instantaneous. In user testing, existing Bring! lists and newly added Bring! items were imported into ShoppingRoute and placed into the shopping route during the next sorting run. Automatic tests cover reconciliation and safeguards. The user test does not establish live completion, deletion or every two-way conflict scenario; start bidirectional synchronization with backed-up test lists.
+
+## New in 0.5.3: Change your shopping list right in the Alexa app
+
+**You're out shopping, spot a special offer and want to change your list? You can do it right on your phone.** All you need is the regular Alexa app.
+
+### Example 1: Buy cheese at LIDL just this time
+
+Your shopping list shows:
+
+```text
+25> Cheese
+```
+
+You normally buy cheese at ALDI, but today LIDL has a better offer.
+
+**Here's what to do:** Tap **Add item** in your Alexa shopping list and type:
+
+```text
+25WLIDL
+```
+
+**That's it.** ShoppingRoute moves the cheese to LIDL **for this shopping trip only**. Next time, it goes back to its usual store.
+
+### Example 2: Always buy cheese at LIDL from now on
+
+Want LIDL to be the default store for cheese? Add this instead:
+
+```text
+25FLIDL
+```
+
+**The difference:** **W** is for this trip only. **F** remembers the new store permanently.
+
+### Example 3: Move an item higher up the list
+
+Imagine your LIDL list looks like this:
+
+```text
+10> Cucumbers
+20> Bananas
+25> Cheese
+30> Milk
+40> Butter
+```
+
+You want cheese **two places higher**. Add:
+
+```text
+25H2
+```
+
+Cheese will now come before cucumbers and bananas:
+
+```text
+Cheese
+Cucumbers
+Bananas
+Milk
+Butter
+```
+
+To move cheese **two places lower** instead, add:
+
+```text
+25R2
+```
+
+**H = higher, R = lower.** The number of **items** counts, not the difference between their displayed numbers. Items stay in their current store; a move stops at the top or bottom. Your saved walking routes and product groups do not change.
+
+### Good to know
+
+**The item number is only an example.** Always check the **two-digit number currently shown before your item**. Cheese may have a different number next time. Numbers on store headings cannot be used to move products.
+
+You can add **several commands** at once. Uppercase or lowercase makes no difference: `25wlidl` works too. Small, unambiguous typos in store names are corrected automatically.
+
+**Give it a moment:** ShoppingRoute **does not sort immediately**. Depending on your connection and Alexa, it may take **up to five minutes**. Seeing the command in the list during that time is normal. Once processed, the command disappears automatically.
+
+**Still there after five minutes?** Check your internet/Alexa connection and the item number, letter and store name. Simply **mark an incorrect command as completed and enter it again**. If ShoppingRoute cannot understand a command unambiguously, it leaves it in place rather than moving the wrong item.
+
+**Four actions, with German and English letters:** `W/C` (temporary Change), `F/E` (permanent change), `H/U` (Up), `R/D` (Down). For example, `25WLIDL` and `25CLIDL` do the same thing; `25FLIDL` and `25ELIDL` save the store permanently. `25D2` means **two positions down**, not a permanent change.
 
 ## Why ShoppingRoute actually makes shopping easier
 
@@ -271,6 +376,8 @@ For example:
 If ShoppingRoute assigned an item to the wrong market, you can move it directly.
 
 Depending on the view, you can use drag and drop, arrow buttons or a market selector.
+
+Manual shopping-list moves stay in a browser draft. Move all required items, then press **Transfer changes to Alexa**. Only this button starts one verified Alexa sorting transaction for the complete batch. A failed transfer keeps the draft; **Discard changes** reloads the current list. While a draft is pending, switching lists, adding, deleting and resetting are disabled to preserve the draft. Reloading the same browser tab restores the draft when session storage is available.
 
 A manual change has priority over the automatic assignment.
 

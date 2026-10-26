@@ -28,20 +28,22 @@ For numeric sensor entities, the bridge assigns Home Assistant `device_class` an
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.22.35 (2026-09-23)
-- (codex) Update adapter-core and test dependencies to the current recommended versions.
+### 1.22.40 (2026-10-25)
+- (BenAhrdt) Do not add a self-referencing `via_device` to the internal bridge device when its identifier equals the adapter namespace.
 
-### 1.22.34 (2026-09-23)
-- (BenAhrdt) Process Bridge entity availability on discovery and normal messages and keep existing state types for incompatible values.
+### 1.22.39 (2026-10-24)
+- (BenAhrdt) Add the `button.mode.getInfo` role for `GetInfos` downlink states and display them as buttons in device manager cards.
+- (BenAhrdt) declareUsedResources added in io-package.json
+- (BenAhrdt) Update the development test framework dependency `@iobroker/testing` to version `6.3.1`.
 
-### 1.22.33 (2026-08-19)
-- (BenAhrdt) Add Home Assistant wind direction and angle measurement classification
+### 1.22.38 (2026-10-13)
+- (BenAhrdt) Ignore adapter-internal and generated virtual bridge IDs when reporting missing foreign objects.
 
-### 1.22.32 (2026-08-19)
-- (BenAhrdt) Align Home Assistant sensor device classes, state classes, and units with the current specification
+### 1.22.37 (2026-10-13)
+- (BenAhrdt) Keep bridge configurations when referenced foreign objects are deleted and report missing IDs with device and attribute context.
 
-### 1.22.31 (2026-07-09)
-- (BenAhrdt) Add selection of ToIob source id
+### 1.22.36 (2026-10-12)
+- (BenAhrdt) Add the Home Assistant `json_attributes_topic` discovery attribute for states with the ioBroker role `json`.
 
 ## DISCLAIMER
 The rights of the trademarks and company names, remain with their owners and have no relation to this adapter. The fairuse policy must continue to be adhered to by the operator of the adapter. If this repository is forked, it must be cited as the source.

@@ -75,6 +75,42 @@ Example for the browser could be found here: [demoNodeClient.js](https://github.
 ## Web extension
 This adapter can run as a web extension. In this case, the path is available under `http://ipaddress:8082/rest-api/`
 
+## Reverse proxy
+If the adapter runs behind a reverse proxy under a sub-path, set this path in the instance settings (`Reverse proxy path`, e.g. `/rest-api`).
+Swagger UI then sends its requests to `/rest-api/v1/...` instead of `/v1/...`.
+The proxy must strip the prefix before forwarding the request, e.g. for nginx:
+
+```nginx
+location /rest-api/ {
+    proxy_pass http://iobroker-host:8093/;
+}
+```
+
+If the adapter runs as a web extension, the path is prepended to `/rest-api/` of the web adapter.
+
+## Write many states with one request
+`PATCH /v1/states` writes several states with one request (replacement for `setBulk` of `simple-api`):
+
+```http
+PATCH http://ipaddress:8093/v1/states
+Content-Type: application/json
+
+[
+    { "id": "0_userdata.0.nfc.UserID", "val": "4711" },
+    { "id": "0_userdata.0.nfc.NFCID", "val": "04A224B2C35E80" },
+    { "id": "0_userdata.0.nfc.TagContent", "val": "door", "ack": true }
+]
+```
+
+Instead of an array, an object can be sent: `{ "0_userdata.0.a": 1, "0_userdata.0.b": { "val": 2, "ack": true } }`.
+
+The answer contains one entry per state in the same order: `{ id, val, ack }` or `{ id, index, error }` if this state could not be written.
+With `?stopOnError=true` the processing stops at the first error. Maximum 1000 states per request.
+
+**Important:** the states are written one after another in the given order. It is **not** a transaction: every state fires its own change event, 
+and a script triggered by the first state may not see the new values of the following states yet. 
+If a script needs all values together, trigger it only on the **last** state of the list and read the other states there.
+
 ## Notice
 - `POST` is always for creating a resource (does not matter if it was duplicated)
 - `PUT` is for checking if resource exists then update, else create new resource
@@ -184,9 +220,20 @@ You cannot send a POST request to commands via GUI.
 -->
 
 ## Changelog
+### 4.1.2 (2026-10-13)
+- (@GermanBluefox) Added `PATCH /v1/states` to write many states with one request (bulk update)
+- (@GermanBluefox) Fixed `413 Payload Too Large` for request bodies larger than 100kB when authentication is enabled
+- (@GermanBluefox) Added option `Reverse proxy path` to make Swagger UI work behind a reverse proxy
 
-### **WORK IN PROGRESS**
+### 4.0.4 (2026-10-13)
+- (@GermanBluefox) Updated packages
+- (@GermanBluefox) Added option to use HTTP/2 on a secure connection (enabled by default, falls back to HTTP/1.1)
+- (@GermanBluefox) Report the used port to js-controller
+
+### 4.0.3 (2026-10-13)
 - (iobroker-bot) Adapter requires node.js >= 22 now.
+- (@GermanBluefox) Replaced `process.exit()` with `terminate()` for compact mode and added tests on Windows and macOS
+
 ### 4.0.2 (2026-06-14)
 * (@GermanBluefox) Packages were updated
 * (@GermanBluefox) Allowed to define the response content type by sendTo queries
@@ -195,86 +242,7 @@ You cannot send a POST request to commands via GUI.
 ### 4.0.1 (2026-02-17)
 * (@GermanBluefox) Corrected some minor issues
 
-### 4.0.0 (2026-02-17)
-* (@GermanBluefox) Packages were updated
-* (@GermanBluefox) Drop Node.js 18 support
-
-### 3.1.3 (2026-01-19)
-* (@GermanBluefox) Caught a seldom race condition on the connection close
-
-### 3.1.1 (2025-10-09)
-* (@GermanBluefox) corrected a web extension path
-
-### 3.1.0 (2025-10-05)
-* (@copilot, @SimonFischer04) Fix running as web extension, own implementation of unmaintained swagger-node-runner-fork, 
-* (@SimonFischer04) remove 18 and add node 24 to tests
-* (@SimonFischer04) multiple null error fixes and wrong swagger schema #151
-* (@GermanBluefox) updated packages
-
-### 3.0.1 (2025-05-21)
-* (@GermanBluefox) Corrected the web extension
-
-### 3.0.0 (2025-04-27)
-* (@GermanBluefox) Rewritten in TypeScript
-* (@GermanBluefox) Removed binary states
-
-### 2.1.0 (2025-02-27)
-* (@GermanBluefox) Added OAuth2 support
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Replaced icons with SVG
-
-### 2.0.3 (2024-07-13)
-* (jkuenemund) Changed response for the endpoint get states to the dictionary in swagger
-
-### 2.0.1 (2024-05-23)
-* (foxriver76) ported to `@iobroker/webserver`
-* (theshengfui) Fixed history requests
-* (bluefox) Minimum required node.js version is 16
-
-### 1.1.0 (2023-05-03)
-* (bluefox) Converting of the setState values to the according type
-* (bluefox) Implemented file operations
-
-### 1.0.5 (2023-03-27)
-* (Apollon77) Prepare for future js-controller versions
-
-### 1.0.4 (2022-08-31)
-* (bluefox) Check if the port is occupied only on defined interface
-
-### 1.0.2 (2022-07-27)
-* (bluefox) Implemented binary read/write operations
-
-### 1.0.1 (2022-07-27)
-* (bluefox) Increased the max size of body to 100Mb
-
-### 1.0.0 (2022-05-19)
-* (bluefox) Final release
-
-### 0.6.0 (2022-05-18)
-* (bluefox) Added sendTo path
-
-### 0.5.0 (2022-05-17)
-* (bluefox) Some access errors were corrected
-
-### 0.4.0 (2022-04-26)
-* (bluefox) Added socket commands
-
-### 0.3.6 (2022-04-22)
-* (bluefox) Added object creation and enumeration reading
-
-### 0.3.5 (2022-04-22)
-* (bluefox) Allowed the reading of current subscriptions
-
-### 0.3.4 (2022-04-20)
-* (bluefox) Corrected subscription
-
-### 0.3.1 (2022-04-15)
-* (bluefox) First release
-
-### 0.1.0 (2017-09-14)
-* (bluefox) initial commit
-
 ## License
-Apache 2.0
+Apache 2.0, see [LICENSE](https://github.com/ioBroker/ioBroker.rest-api/blob/master/LICENSE)
 
 Copyright (c) 2017-2026 bluefox <dogafox@gmail.com>

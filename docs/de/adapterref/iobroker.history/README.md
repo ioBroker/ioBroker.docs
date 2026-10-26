@@ -636,6 +636,17 @@ Mögliche Optionen und Parameter:
  Analysedatendateien werden beim Beenden nicht aktualisiert.
 
 ## Changelog
+### 5.1.2 (2026-10-23)
+* (@GermanBluefox) The timed relog (`changesRelogInterval`) starts right after the adapter start also when "Write NULL values on start/stop boundaries" (`writeNulls`) is off, not only with the first update of the state
+
+### 5.1.1 (2026-10-13)
+* (@GermanBluefox) Values stored with `storeState` for a datapoint without history settings no longer get an additional `null` value when the object of the datapoint changes
+
+### 5.1.0 (2026-10-13)
+* (@GermanBluefox) Admin 7.6.20+ is required. Added Ukrainian translation. Removed the obsolete "subscribe" attribute
+* (@GermanBluefox) Added the "Statistics" tab: values, size on disk, files and status of every datapoint, and a cleanup of the data of datapoints that are not logged any more
+* (@GermanBluefox) The data browser shows now if a value to edit or delete was not found, and the error of a failed save is no longer hidden by the reload of the table
+
 ### 5.0.1 (2026-08-26)
 * (@joltcoke) Fixed average and total returning null for every interval that contains a null value: parseFloat(null) is NaN and poisoned the sum of the whole interval (thanks to @joltcoke, ioBroker/ioBroker.sql#526). As the result was NaN and not null, ignoreNull could not act on it either
 * (@joltcoke) Fixed min returning a wrong value if the interval contains a null, minmax losing the minimum if the interval starts with a null, and percentile/quantile counting a null as 0
@@ -646,18 +657,6 @@ Mögliche Optionen und Parameter:
 * (@GermanBluefox) Adapter requires node.js >= 22 now.
 * (@GermanBluefox) Added the data browser to the configuration, so the stored values can be viewed, edited and deleted.
 * (@GermanBluefox) The aggregation is used now from `@iobroker/aggregate` and is shared with the SQL and InfluxDB adapters.
-
-### 4.0.0 (2026-03-10)
-* (iobroker-bot) Adapter requires node.js >= 20 now.
-* (@GermanBluefox) Migrated to TypeScript
-
-### 3.0.1 (2023-10-24)
-* (tuxyme) activated the round option when averaging
-
-### 3.0.0 (2023-09-19)
-* (foxriver76) fix `history2db.js` with controller v5
-* (bluefox) Minimal node.sj version is 16
-* (bluefox) Added support for `count` aggregate type on getHistory
 
 ## License
 

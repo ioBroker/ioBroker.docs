@@ -33,10 +33,14 @@ ioBroker adapter to control FS20, Max!, HMS and other devices via [CUL](http://b
 These commands use the CUL Library of this adapter to send the commands a Device.
 Javascript/Node.js based `Busware CUL USB / culfw` adapter
 
+## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.3 (2026-10-13)
+* (@GermanBluefox) The adapter reports the serial port it has open to js-controller 8, which keeps a per-host registry of the occupied resources (`system.host.<name>.usedResources`). A second instance configured for the same stick is visible as a conflict, and the log names the other instance before the port is opened. In CUNO mode nothing is reported: the configured port belongs to that device on the network, so it is no longer listed as occupied on this host either. An older js-controller is unaffected
+
 ### 3.0.2 (2026-09-02)
 * (@GermanBluefox) Removed a prepare script
 
@@ -58,11 +62,8 @@ Javascript/Node.js based `Busware CUL USB / culfw` adapter
 * (jpk) Select port by ID instead of name as an option
 * (bluefox) Updated GUI for admin 6
 
-### 2.0.2 (2022-05-11)
-* IMPORTANT: Nodejs 12.x is now needed at least!
-* (Apollon77/achimmm) Add support for devices with address 0
-* (bluefox) Updated serialport package
-
 ## License
 
-[Licensed under GPLv2](https://github.com/ioBroker/ioBroker.cul/blob/master/LICENSE) Copyright (c) 2014-2026 hobbyquaker
+Copyright (c) 2014-2026 hobbyquaker
+
+[Licensed under GPLv2](https://github.com/ioBroker/ioBroker.cul/blob/master/LICENSE)

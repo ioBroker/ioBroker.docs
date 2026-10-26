@@ -71,20 +71,34 @@ Only the count and that one JSON state: a channel per MAC address would leave ev
 network behind in the object tree. For the devices that matter, use presence below — it needs no branch.
 
 ### Presence
-Each row of the *Presence* tab becomes `presence.<name>`, set while one of the polled routers reports that MAC
-address as associated to its Wi-Fi:
+Each row of the *Presence* tab is a person - like the adapter fb-checkpresence - with one or more MAC addresses
+separated by commas (a phone and a watch, or the addresses one phone uses in two networks) and an optional
+group. The person is present while one of the polled routers reports one of its addresses as associated to its
+Wi-Fi. The object tree is the same as in ioBroker.tr-064, so the widgets of both adapters read it alike:
 
 ```
-teltonika.<n>.presence.anyone           boolean — any of the configured devices present
-teltonika.<n>.presence.count            number  — how many of them
-teltonika.<n>.presence.<name>.connected boolean
-teltonika.<n>.presence.<name>.lastSeen  number  — timestamp of the last sighting
-teltonika.<n>.presence.<name>.router    string  — which device reported it
-teltonika.<n>.presence.<name>.ssid      string
+teltonika.<n>.presence.persons.<name>.present                    boolean
+teltonika.<n>.presence.persons.<name>.lastArrival / lastDeparture number  — ms, 0 = not known yet
+teltonika.<n>.presence.persons.<name>.presentSince / absentSince number  — minutes, 0 in the other state
+teltonika.<n>.presence.persons.<name>.presentToday / absentToday number  — minutes since midnight
+teltonika.<n>.presence.persons.<name>.history                    json    — last comings and goings, newest first
+teltonika.<n>.presence.persons.<name>.devices                    string  — the addresses seen within the grace period
+teltonika.<n>.presence.persons.<name>.lastSeen / router / ssid           — the last sighting
+teltonika.<n>.presence.present / allPresent                      boolean — anybody / everybody at home
+teltonika.<n>.presence.presentCount / absentCount / presentNames / absentNames / json
+teltonika.<n>.presence.groups.<group>.*                                  — the same for the persons of one group
+teltonika.<n>.presence.guests.present / count / names / json             — stations of the *Guest SSIDs*
+teltonika.<n>.presence.unknown.present / count / names / json            — stations nobody watches (option)
 ```
 
-Only the configured devices appear; a station nobody asked about is counted nowhere and kept nowhere, which is
-why presence works without switching the *Wi-Fi client list* on.
+The departure is the last sighting, not the end of the grace period. The first reading after the setup is no
+event: `lastArrival` and `lastDeparture` stay 0 until the person comes or leaves for the first time. Times, sums
+and history survive a restart. For a longer history, switch on a history instance (history, sql, influxdb) for
+`present` - the widgets read the events from there.
+
+Only the configured persons get states of their own; guests and unknown stations are only a count and one JSON
+list, so the tree does not keep every visitor's address - which is also why presence works without switching
+the *Wi-Fi client list* on.
 
 The addresses do not have to be typed: **Read connected devices** asks every configured SNMP device for its
 association list and appends what is not listed yet, as inactive rows named `client_<last three octets>`. The
@@ -162,12 +176,17 @@ device, which is where the actual values come from. A TSW202 defines no traps at
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
-* (@GermanBluefox) Added presence detection: a device named with its MAC address becomes `presence.<name>` while a router reports it as associated to Wi-Fi
+### 1.1.2 (2026-10-14)
+* (@GermanBluefox) The occupied ports - MQTT (TCP) and, if enabled, the SNMP trap receiver (UDP) - are reported to js-controller 8 (`registerUsedResource`)
+
+### 1.1.1 (2026-10-14)
+* (@GermanBluefox) Added presence detection like fb-checkpresence: a person with the MAC addresses of its devices and an optional group becomes `presence.persons.<name>` with present, last arrival and departure, since when, the sums of the day and the last comings and goings; groups, guests (by SSID) and unknown stations are summarised
+* (@GermanBluefox) Added the widgets "Person" (one person, chosen by name, with free icons, pictures, texts and colours, last arrival and departure and the comings and goings) and "Presence" (list of the persons) for vis-2, and "Teltonika person" for ioBroker.devices
 * (@GermanBluefox) Added the optional Wi-Fi client list, with the MAC address and SSID of every associated station as JSON
-* (@GermanBluefox) Added a button that fills the presence table from the devices currently connected to the routers
+* (@GermanBluefox) Added a button that fills the presence table from the devices currently connected to the routers, named after the host name the router knows or the manufacturer of the MAC address
 * (@GermanBluefox) Fixed the log being flooded with `received pubrel ... for unknown messageId`: a QoS 2 release is now always answered, which is what stops the router from repeating it
 * (@GermanBluefox) Removed the `retransmitInterval` and `retransmitCount` settings, which were read and never used, and gave an unreleased QoS 2 message an expiry instead of keeping it for the life of the connection
+* (@GermanBluefox) Fixed the build: the type declarations of net-snmp were missing, so 1.1.0 was never published
 
 ### 1.0.1 (2026-09-23)
 * (iobroker-bot) Adapter requires node.js >= 22 now.
@@ -193,9 +212,6 @@ device, which is where the actual values come from. A TSW202 defines no traps at
 
 ### 0.1.0 (2025-12-07)
 * (bluefox) Changed roles of the states
-
-### 0.0.2 (2025-12-03)
-* (bluefox) initial commit
 
 ## License
 

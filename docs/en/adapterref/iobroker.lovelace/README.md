@@ -32,14 +32,14 @@ Used sources are here https://github.com/GermanBluefox/home-assistant-polymer .
 Security must be taken from the current user and not from default_user.
 
 ### Version
-Used version of home-assistant-frontend@20260826.7
-Version of Browser Mod: 3.2.3
+Used version of home-assistant-frontend@20260930.3
+Version of Browser Mod: 3.3.0
 
 ### How to build the new Lovelace version
 First of all, the actual https://github.com/home-assistant/frontend (dev branch) must be **manually** merged into https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** branch!).
 
 All changes for ioBroker are marked with comment `// IoB`.
-For now (20260826.7) following files were modified:
+For now (20260930.3) following files were modified:
 - `build-scripts/gulp/app.js` - Add new gulp task develop-iob
 - `build-scripts/gulp/rspack.js` - Add new gulp task rspack-dev-app
 - `build-scripts/rspack.cjs` - disable source maps in prod build to reduce emitted file count.
@@ -62,7 +62,7 @@ For now (20260826.7) following files were modified:
 - `src/panels/config/tools/tools-router.ts` - default to states tab (yaml removed).
 - `src/panels/config/info/ha-config-info.ts` - hide doc/credits/community/license links in about (keep keyboard shortcuts).
 - `src/panels/config/lovelace/dashboards/ha-config-lovelace-dashboards.ts` - show fixed panels (incl. browser-mod) in built-in dashboards list.
-- `src/panels/profile/ha-panel-profile.ts` - hide security tab in user profile.
+- `src/panels/profile/ha-profile-dashboard.ts` - hide security tab in user profile.
 - `src/util/documentation-url.ts` - for link to iobroker help instead of home assistant.
 - `src/html/index.html.template` - remove Safari smart app banner (apple-itunes-app meta) for HA iOS app (#418).
 - `.husky/pre-commit` - remove git commit hooks.
@@ -73,8 +73,8 @@ After that checkout modified version in `./build` folder. Then.
 2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` it is a fork of https://github.com/home-assistant/frontend.git, but some things are modified (see the file list earlier).
 3. `cd home-assistant-polymer`
 4. `git checkout master`
-5. `yarn install`
-6. `gulp build-app` for release or `gulp develop-iob` for the debugging version. To build web after changes you can call `webpack-dev-app` for faster build, but you need to call `build-app` anyway after the version is ready for use.
+5. `pnpm install` (the frontend migrated from Yarn to pnpm; if pnpm is missing, `corepack enable` or `npm i -g pnpm@11.28.0`).
+6. `pnpm exec gulp build-app` for release or `pnpm exec gulp develop-iob` for the debugging version. To build web after changes you can call `pnpm exec gulp webpack-dev-app` for faster build, but you need to call `build-app` anyway after the version is ready for use.
 7. run script `hass_frontend/static_cards/newFrontend.sh` in adapter repo to update frontend (it assumes that the two repositories are next to each other in the same folder, if not, please adjust script, preferably with some parameter handling and make a PR, thanks :smile: )
 8. Run `npm run rename` (renames and rewrites the copied frontend for ioBroker; it replaced the former `gulp rename` task).
 9. Update the version in `README.md`.
@@ -86,30 +86,35 @@ After that checkout modified version in `./build` folder. Then.
 	### **WORK IN PROGRESS**
     ### for next frontend update, update of auto entities card will be necessary!
 -->
+### 7.4.1 (2026-10-22)
+* (Garfonso/Claude) Conditional cards and the `visibility` of cards, badges, sections and views work again: the new frontend asks the server to evaluate the conditions (`subscribe_condition`), which the adapter answered with "Unknown request" before, so everything conditional stayed hidden.
+
+### 7.4.0 (2026-10-21)
+* (Garfonso/Claude) A manually mapped `binary_sensor` has a checkbox next to the device class to invert its state, for an ioBroker state that is true when the device is not in the shown state.
+* (Garfonso/Claude) A manually mapped `binary_sensor` on a state whose role ends in `.unreach` is inverted, not only on the old role `indicator.unreach`.
+* (Garfonso/Claude) The extra entities of a detected device (connectivity, battery, error, maintenance, working, power, energy) are named after the device, so they are no longer all called "UNREACH" or similar.
+* (Garfonso/Claude) The labels of those extra entities are translated, and a name you wrote on the ioBroker object yourself is kept.
+* (Garfonso/Claude) An `input_datetime` on a state without a date (null) is unknown instead of a dummy date, and no longer warns about it. (#768)
+
+### 7.3.0 (2026-10-18)
+* (Garfonso/Claude) Updated the Home Assistant frontend to 20260930.3: the map no longer flickers while loading history and its tiles stay cached, and the digital-clock card can take its font from the theme.
+* (Garfonso/Claude) The map tile proxy now checks the access token the frontend sends, instead of serving anyone who can reach the port.
+* (Garfonso/Claude) Static files are found again when the frontend asks for them with a cache buster, so the map keeps its style and its icons.
+* (Garfonso/Claude) Dropped the map sprite proxy: since the new map style the frontend brings the map icons along itself.
+* (Garfonso/Claude) New entity type `image`: an ioBroker state holding a picture can be mapped to it, and the picture can then be picked as a card or view background.
+* (Garfonso/Claude) A unit typed into the object settings is kept, and defaults are only filled in for the entity type that uses them.
+* (Garfonso/Claude) Blinds that only have up, down and stop buttons keep both arrows usable, and after a stop they report an unknown position instead of staying "opening".
+* (Garfonso/Claude) Templates are rendered with the variables a card sends along (needed by `custom:template-entity-row`) and know the area and device functions.
+* (Garfonso/Claude) Updated the type detector: a device that is assigned to a function enum as a whole now also detects its channels (a dimmer in the function "Light", for example), and consumption is read from the documented role `value.energy.consumed`.
+* (Garfonso/Claude) Updated Browser Mod to 3.3.0: the profile page shows again which browser-specific default dashboard Browser Mod manages.
+* (Garfonso/Claude) Templates can format dates: `now()` behaves like a datetime (`strftime`, `hour`, `timestamp()`), plus `as_datetime`, `today_at` and the `timestamp_*` filters.
+
+### 7.2.5 (2026-10-16)
+* (Garfonso/Claude) Editing the themes no longer loses the selected theme, and broken theme YAML cannot be saved any more.
+* (Garfonso/Claude) Custom cards are cached again, so a dashboard in the ioBroker app loads them without asking the server every time. (#755)
+
 ### 7.2.4 (2026-10-09)
 * (Garfonso/Claude) Custom cards that consist of several files (like refreshable-picture-card) work again. (#755)
-
-### 7.2.3 (2026-10-08)
-* (Garfonso/Claude) common.states written as a string ("Inland:Inland;Ausland:Ausland") is understood again, so such an input_select offers its options.
-* (Garfonso/Claude) Writing lovelace.0.notifications.add creates one notification, not two.
-
-### 7.2.2 (2026-10-07)
-* (Garfonso/Claude) The energy dashboard calculates the costs from a price entity again; they stayed at 0.00. (#749)
-* (Garfonso/Claude) The calendar REST endpoint answers with start/end as objects, the way Home Assistant does, so cards like Calendar Card Pro show the events. (#756)
-* (Garfonso/Claude) An unregistered browser_mod browser no longer comes back after a restart of the adapter.
-* (Garfonso/Claude) Settings page: the responsive sizes of all fields are complete, and six texts are translated in every language. (#725)
-* (Garfonso/Claude) Dependencies updated; a secure web server speaks HTTP/2 now (@iobroker/webserver 3.2).
-* (Garfonso/Claude) The adapter reports the port it listens on to js-controller 8, so a new instance can be given a free one.
-
-### 7.2.0 (2026-09-30)
-* (Garfonso/Claude) The energy dashboard works with a currency symbol in the ioBroker settings; it stayed on "loading" before. (#749)
-* (Garfonso/Claude) The user settings and browser_mod offer the ioBroker users again instead of the adapters. The logbook names the user of a change, or the adapter that made it - the setting which of both to show is gone. (#751)
-* (Garfonso/Claude) browser_mod settings (sidebar title, default dashboard, per browser settings) survive a restart of the adapter. (#751)
-* (Garfonso/Claude) The browser_mod configuration page shows the browsers again ("last connected" broke it).
-* (Garfonso/Claude) The http settings the frontend asks an administrator for are answered, instead of logging an unknown request.
-
-### 7.1.1 (2026-09-27)
-* (Garfonso/Claude) The /state/ url serves the value of a state again, instead of answering with an error. (#723)
 
 ## License
 

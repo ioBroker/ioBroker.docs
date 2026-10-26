@@ -60,7 +60,7 @@ For testing pre-release or community firmware:
 **Setup:**
 1. Go to **General** tab → **Custom OTA Updates** section
 2. Enable **Allow custom/unofficial OTA updates**
-3. Optionally set a custom path (default: `<instance data>/custom-ota`)
+3. Optionally set a custom path (default: `matter.<instance>.custom-ota` beside the instance data directory)
 4. The path will be created on the next restart of the adapter if not already existing
 
 **Adding files:**
@@ -147,6 +147,17 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 * (@Apollon77) ioBroker vacuum cleaners can now be exposed to Matter as a robotic vacuum cleaner in bridge and device mode, with the run mode, cleaning mode, operational state and the pause and go-home commands. The cleaning phase and progress are not exposed in this direction, because Matter reports them per cleaning area and an ioBroker vacuum cleaner does not know its areas
 * (@Apollon77) Fixed several ioBroker states of a controller device never updating after the first read, because two states reading one Matter attribute silently replaced each other. This affected the actual-value states of lights, plugs, dimmers, locks and speakers
 * (@Apollon77) Fixed the Device Manager rendering every enum and text state of a device as a number field
+* (@tarikweiss/@Apollon77) Fixed the electrical power measurement of a bridged or device-mode device that reports current, voltage or frequency but no power: its accuracy list now also names active power, as the Matter specification requires
+* (@Apollon77) Fixed colour temperature commands from a Matter controller being dropped for CIE (xy) lights that have a colour temperature state, and failing with an error for those without one. CIE, colour temperature and hue/RGB lights now share one colour temperature handling that keeps the value within the range of the ioBroker state
+* (@Apollon77) Fixed hue and xy colour commands from a Matter controller arriving in ioBroker in Matter units instead of degrees or the 0..1 range, so a hue of 180° was written as 127°. An xy colour command now keeps the brightness of an RGB light and no longer changes the dimmer of a hue light. Fixed RGBW colours with a white part being reported to Matter with a wrong hue, saturation and xy colour
+* (@Apollon77) Door locks exposed to Matter now apply the Matter door lock authorization, such as the "no remote lock/unlock" operating mode, before the ioBroker lock is moved. The "unbolt" command now reaches ioBroker, "unlock" (also with a timeout) also opens the door on locks with an open state, and an auto-relock time set by a controller now locks the ioBroker lock
+* (@Apollon77) Fixed a light staying in identify mode and blinking until restart after a controller had triggered an identify effect, and a light that was off before identify sometimes staying on. Each identify effect (blink, breathe, okay, channel change) now has its own on/off pattern in steps of whole seconds; "finish" ends the effect after the current step and "stop" ends it at once
+* (@Apollon77) Matter levels are now converted the same way in all lights, speakers and pumps in both directions: Matter level 1 no longer becomes 0 % (which turned dimmers without a power state off), and ioBroker 0 % on a light, speaker or pump exposed to Matter turns it off without changing its Matter level. A start-up level of 0 % keeps its Matter meaning "minimum level of the device". Pump setpoints use the Matter scale of 0.5 % steps (level 200 = 100 %), so an ioBroker pump at 50 % was reported to controllers as 63.5 % before
+* (@Apollon77) Power (or mute) and level now work together for lights, speakers and pumps in both directions. Controller mode: level 0 turns the device off and the level state keeps the device level, so switching the power on again restores that level, and a level above 0 also turns an off or muted device on. For a level above its minimum level, a device is sent a level command "with on/off" where the device supports it, so it goes straight to the new level; other devices are turned on first and then moved. A speaker volume of 0 now mutes instead of moving to the minimum level, which kept a speaker with a minimum level of 1 audible, and a pump level of 0 now stops a pump with a minimum level of 1. Bridge and device mode: a device is now shown as off in Matter while its level is 0, a Matter "on" at level 0 also sets the level back to the last Matter level, and the "on" of a light level command "with on/off" now also switches the ioBroker power state on
+* (@Apollon77) RGB lights with a dimmer state now report the dimmer as their Matter level, instead of the brightness of the RGB colour, and colour commands from a Matter controller keep the brightness of the RGB colour. A hue light whose dimmer is 0 at start no longer reports the minimum level, so a Matter "on" restores the stored level, or 100 % when none is known, instead of 1 %
+* (@Apollon77) Fixed the mute state of a Matter speaker in controller mode never updating from the device and being written inverted
+* (@Apollon77) Fixed a blind with only a tilt set state failing to be exposed to Matter
+* (@Apollon77) Fixed the controller writing the last known value of settings such as the start-up on/off state back to the device every time a node was set up. A write the user makes to a controller state while the adapter is stopped is no longer sent at the next start
 * (@Apollon77) Sensors a Matter device exposes on child endpoints, such as the air quality, temperature and humidity of an air purifier, are now mapped as own ioBroker devices in controller mode
 * (@Apollon77) The raw Matter cluster data of such a child endpoint is now created below its own object only; the second copy below its parent, which was never updated again, is removed on the next start
 * (@Apollon77) Updated the type detector to v6, so the new device types it detects (air purifier, air quality, CO alarm, contact, electricity, fan, flow, pressure and pump) are recognized
@@ -176,6 +187,25 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 * (@Apollon77) The ioBroker device model now covers the new states type detector v6 exposes on existing device types, such as signal strength, on-time countdown, separate heating and cooling setpoints, valve position, filter condition and alarm severity
 * (@Apollon77) Fixed several memory leaks: ioBroker device instances that were built but not adopted stayed registered with the state subscription manager, and listeners, timers, pending locks and custom state bookkeeping were not always released on teardown
 * (@Apollon77) Network visualization data is no longer assembled, and neither it nor Thread diagnostics data is serialized and sent, while no admin UI is listening
+* (@Apollon77) Updated matter.js to 0.18.0 and migrated the controller to its ClientNode API
+* (@Apollon77) The files matter.js downloads (OTA images, certificates, vendor data) now live in `matter.<instance>.cache` beside the instance data directory, and the folder for hand-imported OTA images moves to `matter.<instance>.custom-ota`. Both are moved on the first start; a folder that cannot be moved, for example because its target already exists, is reported in the log and has to be sorted out by hand. A custom OTA path that pointed into the old folder keeps working
+* (@Apollon77) The raw cluster states of a paired node are now filled from the values it reported before, also while the node is not connected
+* (@Apollon77) Changing the subscription interval of a paired node no longer reconnects it
+* (@Apollon77) Pairing a device with a wrong pairing code now says so, instead of showing a generic commissioning error that cannot be told apart from an unreachable device
+* (@Apollon77) Pairing failures now give a specific reason when the device was not found in the network or is already paired with this controller
+* (@Apollon77) Pairing with an address from the Visu app now falls back to discovering the device when that address is outdated
+* (@Apollon77) A node whose device does not answer can now be removed; the adapter tells you when the device could not be told to leave and may need a factory reset
+* (@Apollon77) A software update is no longer started on a node that is offline or already updating, including after an adapter restart during an update
+* (@Apollon77) The connection state of a paired node and of its devices no longer switches to offline while the controller only re-establishes a lost connection; they go offline when the device is known to be unreachable. After an adapter start, or after the node was disabled, it shows as online only once the device has reported its current state. The Device Manager still shows the node as disconnected while it reconnects
+* (@Apollon77) A paired node whose device leaves the fabric on its own, for example after a factory reset or when another controller removes it, is now removed together with its objects, instead of staying behind as a node whose commands fail
+* (@Apollon77) The raw event states of a controller device are now created for the events its clusters support. They were only created from the EventList attribute, which current devices no longer report, so most devices had none
+* (@Apollon77) Changes made in the admin while the adapter starts are now applied once the start is done, instead of being missed until the next change or restart
+* (@Apollon77) A robot vacuum cleaner exposed to Matter now reports the end of a cleaning run with the OperationCompletion event the device type requires, including the error a run ended in
+* (@Apollon77) A bridged pump no longer advertises the Matter Lighting feature on its level control, so its speed setpoint can reach zero as intended
+* (@Apollon77) Fix a paired node keeping its old ioBroker mapping until the adapter restarts when one of its endpoints changes its device type
+* (@Apollon77) The ioBroker structure of a paired node is now rebuilt once the device has finished reporting a change, so a bridge whose new devices arrive in several reports in a row is rebuilt once with all of them. The rebuild waits at most 10 seconds after the first change
+* (@Apollon77) Fix leftover observers when a node is removed
+* (@Apollon77) A second discovery request joins the running discovery instead of starting a competing one
 * (@Apollon77) Add support for the Room Air Conditioner device type (controller and bridge/device mode) mapped to the ioBroker airCondition type
 * (@Apollon77) Fix Thermostat cooling setpoint changes from Matter being applied as heating setpoint
 * (@Apollon77) Add a request timeout to the license verification API calls
@@ -187,8 +217,10 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 * (@Apollon77) Added Enhanced Thread diagnostics (tries to get data from BRs when credentials are known or REST API is available)
 * (@Apollon77) Added options to store multiple Thread and WiFi credentials to use in commissioning and Visualization
 * (@Apollon77) Optimizations and Improvements for the Thread and WiFi visualizations
-* (@Apollon77) Updated matter.js to 0.17.9 
 * (@GermanBluefox) Updated GUI to React 19
+* (@Apollon77) Fixed sensors exposed to Matter reporting a state that changed to no value as a measurement: a temperature became 0 °C, a humidity 0 %, a brightness 0 lux. Temperature and humidity sensors, the humidity of thermostats and air conditioners, illuminance and motion sensors now report such a value as unknown. Pumps also report an unknown temperature, pressure or flow instead of keeping the last value. A humidity state without a value at start is reported as unknown instead of 0 %, and the humidity of a thermostat or air conditioner is limited to 100 %
+* (@Apollon77) Fixed the battery level of a bridged or device-mode device: a value above the maximum of its state no longer keeps the device from being exposed, and a battery state without a value is reported as unknown instead of an invalid number
+* (@Apollon77) Energy, power, current, voltage and frequency are now reported to Matter in whole milli units, and the energy reading carries the time it was reported. An energy state without a value is reported as unknown instead of 0 Wh, and a negative one is reported as unknown instead of being rejected
 
 ### 1.3.1 (2026-07-23)
 * (@Apollon77) Fix Attribute Polling

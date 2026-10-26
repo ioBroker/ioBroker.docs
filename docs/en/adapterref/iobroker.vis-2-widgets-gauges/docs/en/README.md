@@ -319,19 +319,19 @@ A glass thermometer with a scale.
 
 ![Thermometer](../img/thermometer.png)
 
-| Setting | Attribute | Default | Description |
-|---|---|---|---|
-| Minimum / Maximum | `min` / `max` | -20 / 40 | |
-| Unit | `unit` | °C | |
-| Digits after comma | `digitsAfterComma` | 1 | |
-| Side of the scale | `scaleSide` | Right | `left`, `right` or `both`. |
-| Major divisions / Minor divisions | `majorTicks` / `minorTicks` | 6 / 5 | With -20 ... 40: a label every 10°, a tick every 2°. |
-| Scale color | `scaleColor` | gray | |
-| Glass color | `tubeColor` | gray | |
-| Coloring | `colorMode` | One color | With *Color of the level* or *Gradient* the column changes its color with the temperature (default levels: blue to red). |
-| Color | `valueColor` | red | |
-| Show value / Text color | `showValue` / `textColor` | on / text color | The value above the thermometer. |
-| Animation | `animate`, `animateDuration`, `animationEasing` | on, 1000, `cubicInOut` | |
+| Setting                           | Attribute                                       | Default                | Description                                                                                                              |
+|-----------------------------------|-------------------------------------------------|------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| Minimum / Maximum                 | `min` / `max`                                   | -20 / 40               |                                                                                                                          |
+| Unit                              | `unit`                                          | °C                     |                                                                                                                          |
+| Digits after comma                | `digitsAfterComma`                              | 1                      |                                                                                                                          |
+| Side of the scale                 | `scaleSide`                                     | Right                  | `left`, `right` or `both`.                                                                                               |
+| Major divisions / Minor divisions | `majorTicks` / `minorTicks`                     | 6 / 5                  | With -20 ... 40: a label every 10°, a tick every 2°.                                                                     |
+| Scale color                       | `scaleColor`                                    | gray                   |                                                                                                                          |
+| Glass color                       | `tubeColor`                                     | gray                   |                                                                                                                          |
+| Coloring                          | `colorMode`                                     | One color              | With *Color of the level* or *Gradient* the column changes its color with the temperature (default levels: blue to red). |
+| Color                             | `valueColor`                                    | red                    |                                                                                                                          |
+| Show value / Text color           | `showValue` / `textColor`                       | on / text color        | The value above the thermometer.                                                                                         |
+| Animation                         | `animate`, `animateDuration`, `animationEasing` | on, 1000, `cubicInOut` |                                                                                                                          |
 
 ## Compass - `tplGauge2Compass`
 
@@ -340,27 +340,27 @@ middle.
 
 ![Compass](../img/compass.png)
 
-| Setting | Attribute | Default | Description |
-|---|---|---|---|
-| Object ID | `oid` | | Direction in degrees: 0 is north, 90 east. |
-| Offset to north | `offset` | 0 | Added to the value, e.g. if the sensor does not point exactly north. |
-| Show where it goes to | `invert` | off | A wind direction tells where the wind comes **from**. With this option the needle points to where it blows (+180°). |
-| Speed object ID | `speedOid` | | Optional: shown in the middle. Selecting it takes over its unit. |
-| Unit | `speedUnit` | | |
-| Digits after comma | `speedDigits` | 1 | |
-| Needle | `needleType` | Arrow | `arrow` points to the direction, `compass` is a two-colored needle, `wind` is a marker on the ring that points to the middle. |
-| Turn the dial | `rotateDial` | off | The dial turns and a fixed mark on top shows the direction, like a compass in a car. |
-| Needle color | `needleColor` | red | |
-| Color of north | `northColor` | red | |
-| Dial color | `dialColor` | white / dark | |
-| Scale color | `scaleColor` | text color | |
-| Show NE, SE, SW, NW | `showIntercardinal` | on | |
-| Show degrees | `showDegrees` | on | 30, 60, 120, ... |
-| Bezel | `bezel` | Thin line | `none`, `thin` or `metal`. |
-| Show value | `showValue` | on | |
-| Show | `valueFormat` | Direction and degrees | `both` (`SW 225°`), `direction` (`SW`) or `degrees` (`225°`). With a speed this is the line below it. |
-| Text color | `textColor` | text color | |
-| Animation | `animate`, `animateDuration`, `animationEasing` | on, 1000, `cubicInOut` | Always the short way: from 350° to 10° through north. |
+| Setting               | Attribute                                       | Default                | Description                                                                                                                   |
+|-----------------------|-------------------------------------------------|------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| Object ID             | `oid`                                           |                        | Direction in degrees: 0 is north, 90 east.                                                                                    |
+| Offset to north       | `offset`                                        | 0                      | Added to the value, e.g. if the sensor does not point exactly north.                                                          |
+| Show where it goes to | `invert`                                        | off                    | A wind direction tells where the wind comes **from**. With this option the needle points to where it blows (+180°).           |
+| Speed object ID       | `speedOid`                                      |                        | Optional: shown in the middle. Selecting it takes over its unit.                                                              |
+| Unit                  | `speedUnit`                                     |                        |                                                                                                                               |
+| Digits after comma    | `speedDigits`                                   | 1                      |                                                                                                                               |
+| Needle                | `needleType`                                    | Arrow                  | `arrow` points to the direction, `compass` is a two-colored needle, `wind` is a marker on the ring that points to the middle. |
+| Turn the dial         | `rotateDial`                                    | off                    | The dial turns and a fixed mark on top shows the direction, like a compass in a car.                                          |
+| Needle color          | `needleColor`                                   | red                    |                                                                                                                               |
+| Color of north        | `northColor`                                    | red                    |                                                                                                                               |
+| Dial color            | `dialColor`                                     | white / dark           |                                                                                                                               |
+| Scale color           | `scaleColor`                                    | text color             |                                                                                                                               |
+| Show NE, SE, SW, NW   | `showIntercardinal`                             | on                     |                                                                                                                               |
+| Show degrees          | `showDegrees`                                   | on                     | 30, 60, 120, ...                                                                                                              |
+| Bezel                 | `bezel`                                         | Thin line              | `none`, `thin` or `metal`.                                                                                                    |
+| Show value            | `showValue`                                     | on                     |                                                                                                                               |
+| Show                  | `valueFormat`                                   | Direction and degrees  | `both` (`SW 225°`), `direction` (`SW`) or `degrees` (`225°`). With a speed this is the line below it.                         |
+| Text color            | `textColor`                                     | text color             |                                                                                                                               |
+| Animation             | `animate`, `animateDuration`, `animationEasing` | on, 1000, `cubicInOut` | Always the short way: from 350° to 10° through north.                                                                         |
 
 The names of the directions follow the language of vis-2 (e.g. N, NO, O, SO, S, SW, W, NW in German).
 

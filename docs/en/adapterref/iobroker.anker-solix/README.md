@@ -448,6 +448,12 @@ Enable **Objects → Tagesstatistiken** for kWh tiles; enable **Leistungsflüsse
 
 ## Changelog
 
+### 0.10.106
+
+- **Fix (#15):** Solarbank 3 / A17C5 station SOC limits — writable `charge_upper_limit` / `discharge_lower_limit` (param type 18); legacy `min_soc` no longer the active Gen3 control; missing detail-poll values no longer reset to 0 (thanks [@TMHEINE](https://github.com/TMHEINE))
+- **Repo checker (#14):** `@iobroker/testing` ≥ 6.2.1 (E0036)
+- **Workflows (#18):** Dependabot automerge uses `pull_request` instead of `pull_request_target` (GitHub Nov 2026 policy)
+
 ### 0.10.105
 
 - **npm release:** publishes GitHub improvements since 0.10.90 (VIS widgets/HTML dashboards, SB4 daily kWh, Node 22/24/26 CI, repo-checker fixes)

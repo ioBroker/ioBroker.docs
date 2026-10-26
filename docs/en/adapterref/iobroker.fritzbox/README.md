@@ -1,5 +1,5 @@
 ![Logo](admin/fritzbox.png)
-ioBroker fritzbox Adapter
+# ioBroker.fritzbox
 
 ![Number of Installations](http://iobroker.live/badges/fritzbox-installed.svg)
 ![Number of Installations](http://iobroker.live/badges/fritzbox-stable.svg)
@@ -311,18 +311,16 @@ Example widgets:
     "externalTelLinkCenter":"<a style=\" text-decoration: none;\" href=\"tel:+4951112345678\">051112345678</a>"
 }
 ```
-<!--
-## todo
-* Doku der Datenpunkte
-* Import des xml Telefonbuch der Fritzbox
-* Feinere Konfiguration der Anruferliste (Tabellen)
--->
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.1 (2026-10-22)
+- (GermanBluefox) Fixed repochecker issues (state roles, responsive config, README) (#327)
+- (GermanBluefox) Fixed repochecker issues (type of JSON states, role of calls.missedCount, copyright) (#335)
+
 ### 1.0.0 (2026-09-09)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) **ENHANCED**: Translated README documentation from German to English
@@ -352,18 +350,12 @@ Example widgets:
 * (Apollon77) Store tam files in an instance-specific location
 * (Apollon77) Fix crash cases reported by Sentry
 
-### 0.4.0 (2022-03-25)
-* IMPORTANT: You need to re-enter the password once after installing this version!
-* (Khaos66/Apollon77) General updates and fixes
-* (Khaos66) TAM (Telephone Answering Maschine) support added
-* (Apollon77) Add Sentry for crash reporting
-
 ## License
 
 The MIT License (MIT)
 
 Copyright (c) 2024-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
-Copyright (c) 2015-2022, ruhr70
+Copyright (c) 2015-2022 ruhr70 <ruhr@digheim.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

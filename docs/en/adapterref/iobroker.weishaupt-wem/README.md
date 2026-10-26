@@ -35,6 +35,10 @@ Der Adapter liest auch die Daten aus der App aus.
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+* (jhoos70) Die abgeschaltete Leistungsanforderung (Aus/off/--, ohne Einheit) wird ebenfalls als numerische 0 gespeichert
+
 ### 0.0.22
 
 * (ta2k) App-Statistics an APK v3.0.1 angeglichen: Statistics/Read ohne JobID, Type als Zeitbereich (1 Tag, 2 Monat, 3 Jahr), Energie für Tag/Monat/Jahr; Debug-Ausgabe zur Diagnose

@@ -11,9 +11,23 @@
 
 [![NPM](https://nodei.co/npm/iobroker.meteonomiqs.png?downloads=true)](https://nodei.co/npm/iobroker.meteonomiqs/)
 
+**Deutsche Anleitung:** [docs/de/README.md](https://github.com/Schimi1983/ioBroker.meteonomiqs/blob/main/docs/de/README.md)
+
 Weather forecast from **wetter.com** via the [Meteonomiqs Public Weather API v4.0](https://doc.meteonomiqs.com/doc/forecast_v4_0.html).
 
-Up to 14 days of forecast, day sections, hourly values, the hour currently in progress, weather warnings, sun and moon data — all from a **single** API call per fetch. The adapter is built around the fact that the free plan only allows 100 calls per month.
+Up to 14 days of forecast, day sections, hourly values, the hour currently in progress, weather warnings, sun and moon data. Everything comes from a **single** API call per fetch, and the adapter is built so that the free plan (100 calls per month) is enough.
+
+---
+
+## Quick start
+
+1. Get a free API key from [Meteonomiqs](https://www.meteonomiqs.com/de/wetter-api/).
+2. Make sure your location is set in ioBroker under *Settings → System → Location*.
+3. Install the adapter in the admin (*Adapters* tab, search for "meteonomiqs").
+4. Open the instance settings, paste the key into **API key** and click *Save and close*.
+5. Done. The adapter fetches the forecast right away and then three times a day. You find the values in the object tree under `meteonomiqs.0`.
+
+The defaults are chosen so that you do not need to change anything else. The sections below explain what each setting does if you want to adjust it.
 
 ---
 
@@ -21,57 +35,154 @@ Up to 14 days of forecast, day sections, hourly values, the hour currently in pr
 
 | | |
 |---|---|
-| **Daily forecast** | 1–14 days: temperature, precipitation, wind, clouds, humidity, sunshine hours, pressure |
+| **Daily forecast** | 1–14 days: temperature, precipitation, wind (km/h and Beaufort), clouds, humidity, sunshine hours, pressure |
 | **Day sections** | Morning, afternoon, evening and night per day |
-| **Hourly values** | For one or more days, resolved in the time zone of the forecast location |
+| **Hourly values** | For one or more days, in the time zone of the forecast location |
 | **`current` folder** | The hour in progress, refreshed **every hour without an API call** |
-| **Weather warnings** | Group, text and numeric severity (0–4) — no string comparison needed in scripts |
+| **Weather warnings** | Group, text and numeric severity (0–4), no text comparison needed in scripts |
 | **Sun and moon** | Sunrise, sunset, twilight, day length, moonrise, moon phase, zodiac |
 | **Snow** | Snow line, fresh snow, snow water equivalent |
 | **JSON aggregates** | `forecast_json` and `hourly_json` for VIS, jarvis and Material widgets |
-| **Budget management** | Priority tiers that degrade gracefully instead of stalling |
+| **Budget management** | When calls run short, less important fetches stop first instead of the forecast stopping altogether |
 | **Correct icons** | Uses the icon the API delivers, including night, storm and wind variants |
-
----
-
-## Installation
-
-Install the adapter through the ioBroker admin interface.
-
-### API key
-
-A key is required and available from [Meteonomiqs](https://www.meteonomiqs.com/de/wetter-api/). The free plan currently includes 100 calls per month, which is exactly what the default schedule is tuned for. The key is stored **encrypted** in the instance configuration.
 
 ---
 
 ## Configuration
 
-### General
+The instance settings have four tabs. Each section below matches one tab.
 
-| Setting | Meaning |
-|---|---|
-| API key | Your Meteonomiqs key. Stored encrypted. |
-| Use the ioBroker system location | Takes latitude/longitude from *Settings → System → Location*. Disable to enter coordinates manually. |
-| Language of the weather texts | Applies to the descriptions delivered by the API. Empty = ioBroker system language. |
-| Forecast days | 1–14. Lowering the value removes the day folders that are no longer needed. |
+### Tab "General"
 
-### Schedule
-
-Fetch times are a table of `HH:MM` plus a **priority**. The default:
-
-| Time | Priority | Purpose |
+| Setting | Default | What it does |
 |---|---|---|
-| 01:10 | 1 | Planning the day — the full forecast is in place before anyone gets up |
-| 11:40 | 2 | Correction before the critical afternoon: thunderstorms, gusts, heat peak |
-| 18:40 | 3 | Night and tomorrow: frost, storms, outlook for the next morning |
+| API key | empty | Your Meteonomiqs key. **Required.** Stored encrypted. |
+| Use the ioBroker system location | on | Takes latitude and longitude from *Settings → System → Location*. Switch it off to enter coordinates by hand. |
+| Latitude / Longitude | – | Only when the option above is off. Decimal degrees, e.g. `51.257` / `6.403`. |
+| Language of the weather texts | system language | Language of the descriptions such as "partly cloudy". Unsupported languages fall back to German. |
+| Forecast days | 7 | 1 to 14. More days means more objects, not more API calls. Lowering the value deletes the day folders that are no longer needed. |
 
-Each installation shifts these times by a fixed offset of up to 15 minutes, derived from the ioBroker installation UUID — otherwise every installation of this adapter would call the API in the same minute. The offset is the same for all three times, so the gaps between them stay exactly as configured. The times actually in use are written to the log on startup.
+### Tab "Schedule"
 
-**Minimum hours between updates** is a cooldown that protects against restart loops. It must be *smaller* than the shortest gap between two fetch times — otherwise one fetch is skipped every single day. The adapter checks this on startup and writes an error to the log if the numbers do not work out.
+**Update times** is a table: one row per fetch, with a time and a priority. Every row costs one API call per day.
 
-### API budget
+| Time | Priority | Why this time |
+|---|---|---|
+| 01:10 | 1 | The full forecast for the day is ready before anyone gets up |
+| 11:40 | 2 | Correction before the afternoon: thunderstorms, gusts, heat |
+| 18:40 | 3 | Night and next day: frost, storms, next morning |
 
-Three fetches a day come to 93 calls in a 31-day month — 7 short of the free plan's 100. Rather than hitting the wall at the end of the month, every fetch carries a priority tier:
+**What the priority means:** 1 is the most important fetch. If the month's calls start running short (for example because you pressed *fetch now* a lot), the fetch with the highest number stops first, then the next one. Priority 1 keeps running the longest. With the default three fetches and the free plan this never happens in a normal month.
+
+**Minimum hours between updates** (default 5): Two automatic fetches are never closer together than this. It protects your budget when ioBroker restarts several times in a row. The value must be **smaller** than the shortest gap between two of your update times, otherwise one fetch is skipped every day. The adapter checks this on startup and writes an error to the log if it does not fit.
+
+> **Good to know:** Every start of the instance (adapter update, host restart, saving the settings) fetches once right away. If the next planned fetch is less than 5 hours later, that one is skipped and the log says so, e.g. `Fetch "11:40" skipped: last fetch 3.0 h ago, minimum gap is 5 h`. That is intended.
+
+Each installation shifts all times by the same few minutes (up to 15), so that not every installation calls the API in the same minute. The times actually used are written to the log on startup.
+
+### Tab "API budget"
+
+| Setting | Default | What it does |
+|---|---|---|
+| Monthly API calls | 100 | The allowance of your plan. The free plan has 100. `0` switches the check off (only for paid plans without a limit). |
+| Reserved calls | 5 | Retries after an error stop when only this many calls are left, so they cannot use up the rest of the month. |
+| HTTP timeout (seconds) | 20 | How long to wait for the answer. The response is large; on a slow Raspberry Pi do not go below 20. |
+| Retries on error | 1 | How often to try again after a network error or a server error (HTTP 5xx). Each retry costs one call. |
+
+The adapter counts its calls itself, because the API does not report how many are left. The count is therefore an **estimate**. It starts at zero again when you delete and recreate the instance, or when you press `info.reset_counter`.
+
+### Tab "Data"
+
+All data comes from the same API response. Switching on more groups costs **no extra calls**, only more objects.
+
+| Setting | Default | What it does |
+|---|---|---|
+| Day sections | on | Morning, afternoon, evening and night per day |
+| Hourly values | on | One folder per hour. Creates many objects. |
+| Hourly values for … days | 2 | Each day adds about 620 objects |
+| "current" folder | on | The values of the hour in progress. Needs hourly values. |
+| JSON aggregates | on | `forecast_json` and `hourly_json` for widgets |
+| Weather warnings | on | Group, text and severity 0–4 |
+| Sun and moon | on | Sunrise, sunset, twilight, moon phase, … |
+| Pressure, dew point, wind chill | on | For comparison with your own weather station or for ventilation logic |
+| Snow | on | Snow line and fresh snow |
+
+Rough number of objects at 7 forecast days:
+
+| Configuration | Objects |
+|---|---|
+| Everything on, hourly for 2 days (default) | ~2430 |
+| Hourly for 1 day | ~1780 |
+| Hourly off | ~1130 |
+| Daily values only | ~380 |
+
+On a Raspberry Pi, hourly values for one day are a sensible compromise.
+
+---
+
+## Where to find the values
+
+```
+meteonomiqs.0
+├── info
+│   ├── connection            Connected to the API
+│   ├── status                ok / no API key / HTTP 429 / …
+│   ├── last_sync             Last successful fetch
+│   ├── requests_month        Calls used this month (estimate)
+│   ├── requests_left         Calls left this month
+│   ├── force_update          Button: fetch now (ignores the minimum gap)
+│   └── reset_counter         Button: set the monthly counter to 0
+├── current                   The hour in progress, refreshed hourly
+│   ├── temp, weather_text, weather_icon, is_night, …
+│   ├── temp_min_today, temp_max_today, sunrise, sunset
+│   ├── valid                 false when no data covers this hour
+│   └── source                Which state the values were copied from
+├── day_0 … day_N             day_0 = today, day_1 = tomorrow, …
+│   ├── date, day_name, temp_min, temp_max, weather_icon, wind_bft, …
+│   ├── warn_active, warn_severity_int
+│   ├── astro                 sunrise, sunset, moon phase, day length …
+│   ├── spaces                morning, afternoon, evening, night
+│   └── hourly                00 … 23
+├── forecast_json
+└── hourly_json
+```
+
+For most visualisations `current` and `day_0` … `day_2` are all you need.
+
+Two things that surprise people:
+
+- **`day_N.spaces.night` is the night *after* that day.** `day_0.spaces.night.temp_min` is tonight's low, not last night's.
+- **The wind icon can appear without a warning.** The API marks strong wind in the icon (`d_w_60.svg` instead of `d_60.svg`) independently of the official warnings. `wind_significant` tells you when that is the case.
+
+`current` is the **forecast** for the current hour, not a measurement.
+
+---
+
+## Troubleshooting
+
+| You see | Meaning and what to do |
+|---|---|
+| `info.status` = `no API key` | No key entered, or it is too short. Paste the key in the *General* tab. |
+| `info.status` = `HTTP 401 — invalid key` or `HTTP 403 — invalid key` | The API rejected the key. Automatic fetches pause until you correct it. Check the key in the Meteonomiqs portal and save the settings again. |
+| `info.status` = `no location` | The system location is not set. Set it under *Settings → System → Location*, or enter coordinates by hand. |
+| `info.last_sync` does not change after a restart | Usually the minimum gap (see *Schedule*). The log shows `… skipped: last fetch … h ago`. The next fetch runs normally. |
+| Log: `Configuration problem: the cooldown … is greater than or equal to the smallest gap …` | *Minimum hours between updates* is too large for your update times. Lower it. |
+| Log: `Budget warning: … fetches per day add up to …` | Your update times need more calls than your plan has. Fetches with a high priority number will stop towards the end of the month. Remove a time or accept it. |
+| Log: `Saving mode: … skipped` or `Emergency mode: … skipped` | The month's calls are running short, so less important fetches pause. Back to normal on the 1st of the next month. |
+| `info.status` = `HTTP 429 — quota exhausted` | The API says your calls for this month are used up. The adapter pauses until the 1st. |
+| `info.requests_month` differs from the Meteonomiqs portal | The counter is an estimate (see *API budget*). The portal is right. |
+| `current` stays empty | `current` needs hourly values. Switch on *Hourly values* in the *Data* tab. |
+| Admin gets slow, many objects | Switch off hourly values or reduce them to one day (see *Data*). |
+
+Questions and feedback: [ioBroker forum thread](https://forum.iobroker.net/topic/85314) or [GitHub issues](https://github.com/Schimi1983/ioBroker.meteonomiqs/issues).
+
+---
+
+## How it works in detail
+
+### Budget tiers
+
+Three fetches a day come to 93 calls in a 31-day month, 7 short of the free plan's 100. Every fetch carries its priority as a tier:
 
 > A tier-N fetch only runs while the remaining budget still carries **N calls per day** until the end of the month.
 
@@ -84,67 +195,23 @@ When it gets tight, the evening fetch drops out first, then midday. The night fe
 | 40 calls already wasted | 99 / 100 | 31 | 28 | 0 |
 | 70 calls already wasted | 100 / 100 | 30 | 0 | 0 |
 
-The counter is a **local estimate** — the API does not report remaining quota. Only HTTP 429 is ground truth. `info.reset_counter` sets it back to zero if you ever need to.
+A manual fetch (`info.force_update`) ignores the tiers and the minimum gap; only the monthly limit applies.
 
-### Data
+### Schedule offset
 
-Everything comes out of the same API response, so enabling more groups costs **no extra calls** — only more objects. Rough sizes at 7 forecast days:
+The offset of up to 15 minutes is derived from the ioBroker installation UUID, so it stays the same across restarts. It is applied to all times equally, so the gaps between them, and with them the minimum-gap check, stay exactly as configured.
 
-| Configuration | Objects |
-|---|---|
-| Everything on, hourly for 2 days | ~2430 |
-| Hourly for 1 day | ~1780 |
-| Hourly off | ~1130 |
-| Daily values only | ~380 |
+### `current`
 
-On a Raspberry Pi, hourly values for one day is a sensible compromise.
+`current` follows the pattern of the `daswetter` and `open-meteo-weather` adapters, with two deliberate choices:
 
----
-
-## State tree
-
-```
-meteonomiqs.0
-├── info
-│   ├── connection            Connected to the API
-│   ├── status                ok / no API key / HTTP 429 / …
-│   ├── last_sync             Last successful fetch
-│   ├── requests_month        Local estimate of calls used this month
-│   ├── requests_left         Remaining calls
-│   ├── force_update          Button: fetch now (skips the cooldown)
-│   └── reset_counter         Button: reset the monthly counter
-├── current                   The hour in progress, refreshed hourly
-│   ├── temp, weather_text, weather_icon, is_night, …
-│   ├── temp_min_today, temp_max_today, sunrise, sunset
-│   ├── valid                 false when no data covers this hour
-│   └── source                Which state the values were copied from
-├── day_0 … day_N
-│   ├── date, day_name, temp_min, temp_max, weather_icon, …
-│   ├── warn_active, warn_severity_int
-│   ├── astro                 sunrise, sunset, moon phase, day length …
-│   ├── spaces                morning, afternoon, evening, night
-│   └── hourly                00 … 23
-├── forecast_json
-└── hourly_json
-```
-
-### Two things worth knowing about the tree
-
-**`day_N.spaces.night` is the night *after* that day.** Its minimum therefore comes from the early hours of `day_N+1`. Reading `day_0.spaces.night.temp_min` gives tonight's low, not last night's.
-
-**`wind_significant` explains the icon.** The API marks strong wind in the icon file name (`d_w_60.svg` instead of `d_60.svg`) independently of `warn_active`. A day can carry the wind variant without any official warning being issued, so the icon and the warning states are allowed to disagree.
-
-### `current` — how it works
-
-`current` mirrors the pattern of the `daswetter` and `open-meteo-weather` adapters, with two deliberate choices:
-
-**Refreshed hourly, not only on fetch.** A `current` folder that only updates when the API is polled would be seven hours stale by evening. A separate hourly timer copies the values across at every full hour — which costs nothing, because the hourly data is already in the object tree.
+**Refreshed hourly, not only on fetch.** A `current` folder that only updates when the API is polled would be seven hours stale by evening. A separate hourly timer copies the values across at every full hour, which costs nothing because the hourly data is already in the object tree.
 
 **Read from the states, not from a cache.** Reading from the cached payload would leave `current` empty after every adapter restart until the next scheduled fetch. Reading from `day_N.hourly.HH.*` always works.
 
-The day is resolved through `date_iso` rather than a fixed index. Between midnight and the first fetch of the day, "today" still lives in `day_1` — a hard-coded `day_0` would serve the wrong values in that window every single night.
+The day is found through `date_iso` rather than a fixed index. Between midnight and the first fetch of the day, "today" still lives in `day_1`; a hard-coded `day_0` would serve the wrong values in that window every night.
 
-`current` is the **forecast** for the current hour, not a measurement. Real-time values would need the `/nowcast` or `/stations` endpoints, which cost one call per query and do not fit into a 100-call plan.
+Real-time measurements would need the `/nowcast` or `/stations` endpoints, which cost one call per query and do not fit into a 100-call plan.
 
 ---
 
@@ -182,6 +249,12 @@ Weather data © [wetter.com GmbH / Meteonomiqs](https://www.meteonomiqs.com). Th
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.9 (2026-10-15)
+
+- A fetch skipped because of the cooldown ("Minimum hours between updates") is now logged at info level, e.g. `Fetch "11:40" skipped: last fetch 3.0 h ago, minimum gap is 5 h`. The typical case is the first scheduled fetch after an adapter update or a host restart, because both trigger a startup fetch. Until now such a skip only showed as an `info.last_sync` that did not move
+- One info line per fetch instead of two: `Forecast updated (11:40): 14 days.` The line announcing the request moved to debug
+- README reworked for beginners: quick start, every setting with its default per admin tab, a troubleshooting table. New German guide in `docs/de/README.md`
+
 ### 0.2.8 (2026-09-30)
 
 - New state `wind_bft` in the day, day-section and hourly values, and with that in `current`: the wind force on the Beaufort scale (0-12), derived from the average wind speed. Handy for scripts that react to wind strength without converting km/h themselves, e.g. retracting an awning from force 6
@@ -203,10 +276,6 @@ Weather data © [wetter.com GmbH / Meteonomiqs](https://www.meteonomiqs.com). Th
 - The admin translations moved to the short i18n form, `admin/i18n/<lang>.json` instead of `admin/i18n/<lang>/translations.json` (`[S5601]`)
 - Added `.vscode/settings.json` with the ioBroker JSON schemas for `io-package.json` and `jsonConfig.json` (`[S4036]`)
 - Nothing changes for an installation: no state, no role, no unit and no configuration option is affected
-
-### 0.2.4 (2026-08-16)
-
-- Raised the minimum admin version to 7.8.23 and `@types/node` to the major that matches `engines.node` — both proposed by the ioBroker bot
 
 ## License
 

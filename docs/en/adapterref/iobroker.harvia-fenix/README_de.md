@@ -129,6 +129,7 @@ Danach steuert das Gast-Konto die Sauna dauerhaft und zuverlässig an!
 | `heatOn` | boolean | `switch.power` | Lesen/Schreiben | Hauptschalter, um den Saunaofen EIN (`true`) oder AUS (`false`) zu schalten. |
 | `heaterPower` | number | `value.power` | Nur Lesen | *Hinweis:* Dieses Objekt wird von der API bereitgestellt, liefert aber derzeit oft `0 kW` (nicht ausgefüllt). Es ist vermutlich für zukünftige Updates reserviert. |
 | `lightOn` | boolean | `switch.light` | Lesen/Schreiben | Schalter für die integrierte Saunabeleuchtung. |
+| `fanOn` | boolean | `switch` | Lesen/Schreiben | Schalter für den Saunalüfter bzw. die Zweitbeleuchtung. |
 | `maxDuration` | number | `level.timer` | Lesen/Schreiben | Maximale Heizdauer für die Saunasitzung in Minuten (`min`). |
 | `panelTemp` | number | `value.temperature` | Nur Lesen | Temperaturmesswert direkt an der physischen Steuereinheit / Panel. |
 | `targetTemp` | number | `level.temperature` | Lesen/Schreiben | Zieltemperatur-Sollwert für die Saunakabine (z. B. `90 °C`). |
@@ -237,6 +238,11 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 
 ### **WORK IN PROGRESS**
 
+### 1.2.0 (2026-10-19)
+* (meistermopper) Datenpunkt fanOn und FAN-Befehl fuer Saunaluefter / Zweitbeleuchtung ergaenzt
+* (meistermopper) patch-ps-tree-Skript fuer dev-server Windows-11-Kompatibilitaet hinzugefuegt
+* (meistermopper) Abhaengigkeiten und Overrides fuer Sicherheitshinweise aktualisiert
+
 ### 1.1.2 (2026-10-02)
 * (meistermopper) Endlosschleifen-Risiko in Auth-Retry-Logik behoben
 * (meistermopper) @iobroker/testing auf Version 6.3.0 aktualisiert (W0037)
@@ -255,17 +261,6 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 ### 1.0.0 (2026-09-17)
 * (meistermopper) AWS AppSync WebSocket Real-Time Push-Client hinzugefuegt
 * (meistermopper) Token-Aktualisierung ueber /auth/refresh mit refreshToken
-
-### 0.6.0 (2026-09-16)
-* (meistermopper) Datenpunkte readyAt, readyAtMessage und timeToTargetFormatted ergänzt
-* (meistermopper) Harvia-Heizkurvenberechnung mit 13 Intervallen implementiert
-* (meistermopper) Saunaprofile (profiles, activeProfile) und Standby-Prognose ergänzt
-* (meistermopper) Logo-Anzeigegroesse in den README-Dateien auf 200px verdoppelt
-* (meistermopper) Breaking-Changes-Hinweise und Altrelease-Support für Release-Notes
-* (meistermopper) Automatische Generierung von Release Notes für GitHub eingerichtet
-* (meistermopper) check:repo Skript hinzugefügt und in test:local integriert
-* (meistermopper) E-Mail in Lizenz-Copyrightzeilen wiederhergestellt (S4050, S4051)
-* (meistermopper) Lizenzabschnitt in README gemäß Repochecker-Regel W6034 korrigiert
 
 ---
 

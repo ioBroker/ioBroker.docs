@@ -3,9 +3,120 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
 ---
 # ShoppingRoute – Bedienungsanleitung
 
-**Gültig ab Version 0.5.0**
+**Bedienungsanleitung für ShoppingRoute 0.6.0 (26.10.2026)**
 
 ShoppingRoute hilft dir dabei, eine Alexa-Einkaufsliste so zu ordnen, wie du tatsächlich einkaufst.
+
+## Bring!-Listen in ShoppingRoute 0.6.0 einbinden
+
+Die neuen Bring!-Funktionen sind optional und standardmäßig ausgeschaltet.
+
+**Einrichtung:** Unter **Instanzen → ShoppingRoute → Bring!-Integration** wählst du zunächst die installierte Bring!-Instanz und speicherst. Danach wählst du deine Bring!-Einkaufsliste aus. Für eine Verbindung mit Alexa wählst du zusätzlich die passende, bereits konfigurierte Alexa-Einkaufsliste. Belasse zunächst **Dry-Run** eingeschaltet.
+
+Du hast vier Betriebsarten zur Auswahl:
+
+1. **Aus:** Alexa arbeitet genau wie in 0.5.3.
+2. **Bring! → Alexa:** Die Bring!-Liste liefert die Artikel. Neue Artikel werden an Alexa weitergegeben; anschließend bei Bring! erledigte, zuvor synchronisierte Artikel werden auch in Alexa entfernt. Ergänzungen, die nur bei Alexa vorhanden sind, bleiben dort.
+3. **Nur Bring!:** Alexa wird nicht benötigt. Öffne die **Einkaufsliste** in der ShoppingRoute-Verwaltung, um die Bring!-Artikel nach deinen Märkten und Laufwegen sortiert anzusehen. Bearbeiten kannst du sie weiterhin direkt in Bring!.
+4. **Bring! ↔ Alexa:** Beide Apps nutzen denselben Artikelbestand. Hinzufügen und Erledigen werden nach dem ersten Abgleich in beide Richtungen übertragen.
+
+**Beim ersten Abgleich werden bestehende Artikel nur ergänzt, niemals gelöscht.** Das betrifft ausdrücklich auch unterschiedliche Artikel in beiden Listen.
+
+### Alexa ohne Bring!-Skill verwenden
+
+Bei eingeschaltetem Modus **Bring! ↔ Alexa** reicht die normale Spracheingabe **„Alexa, Milch auf die Einkaufsliste“**. Der Artikel landet zunächst in der Alexa-Liste; ShoppingRoute sortiert nach deinen Markt- und Laufwegregeln und übernimmt ihn beim nächsten bestätigten Abgleich in Bring!. Den langen Aufruf **„Alexa, sage Bring! …“** brauchst du für diesen Ablauf nicht mehr. Erledigst du Milch anschließend in Bring!, entfernt ShoppingRoute den gespiegelten Eintrag aus der aktiven Alexa-Liste. Dort wird er technisch entfernt, nicht mit einem Häkchen als erledigt markiert. Änderungen werden nur übertragen, wenn die Verbindung funktioniert und keine Sicherheits- oder Konfliktsperre greift.
+
+Bring! selbst sortiert Artikel nach seinen eigenen Produktkategorien. Die App unterstützt **keine frei vorgegebene Reihenfolge einzelner Artikel**. Die individuellen ShoppingRoute-Laufwege siehst du daher auf der ShoppingRoute-Verwaltungsseite beziehungsweise in Alexa. In der Bring!-App kannst du die Reihenfolge der eigenen Kategorien manuell anpassen.
+
+### Wichtig für den sicheren Betrieb
+
+- Änderungen erscheinen nicht sofort: Der Bring!-Adapter fragt Listen normalerweise ungefähr alle 90 Sekunden ab; ShoppingRoute prüft die Verbindung ebenfalls zyklisch.
+- Bei gleichen Artikelnamen mit unterschiedlichen Mengen/Beschreibungen oder bei mehrfachen Artikeln wird nichts erraten. Der Abgleich stoppt und meldet den Konflikt.
+- Werden Daten nicht rechtzeitig bestätigt, bleibt ein Wiederherstellungsjournal bestehen und weitere Schreibvorgänge werden blockiert. Vor einem Zurücksetzen des Journals müssen **beide Listen manuell geprüft** werden.
+- Bei Dry-Run werden weder Bring! noch Alexa beschrieben.
+- Die Statusmeldung steht unter `shoppingroute.0.info.bringSyncStatus`; die berechnete Bring!-Route unter `shoppingroute.0.info.bringSyncPreview`.
+
+**Praxistest (26.10.2026):** Vorhandene Bring!-Listen und neu in Bring! hinzugefügte Artikel werden in ShoppingRoute übernommen und beim nächsten Sortierlauf entsprechend den Markt- und Laufwegregeln eingeordnet. Die Bring!-App selbst lässt keine freie Sortierung einzelner Artikel zu. Automatische Tests für Synchronisierung und Konfliktschutz sind erfolgreich. Nicht durch diesen Praxistest bestätigt sind sämtliche Erledigungs-, Lösch- und Konfliktfälle bei bidirektionalem Live-Abgleich. Diesen Modus zuerst mit gesicherten Testlisten verwenden.
+
+## Neu in 0.5.3: Einkäufe direkt in der Alexa-App ändern
+
+**Du bist unterwegs, siehst ein Angebot und willst deine Einkaufsliste ändern? Das geht jetzt direkt auf dem Handy.** Du brauchst dafür nur die normale Alexa-App.
+
+### Beispiel 1: Käse heute lieber bei LIDL kaufen
+
+Auf deiner Einkaufsliste steht:
+
+```text
+25> Käse
+```
+
+Eigentlich kaufst du Käse bei ALDI. Heute ist er aber bei LIDL im Angebot.
+
+**So geht's:** Tippe in der Alexa-Einkaufsliste auf **Eintrag hinzufügen** und schreibe:
+
+```text
+25WLIDL
+```
+
+**Fertig.** ShoppingRoute verschiebt den Käse für **diesen Einkauf** zu LIDL. Beim nächsten Einkauf wird er wieder seinem normalen Markt zugeordnet.
+
+### Beispiel 2: Käse ab jetzt immer bei LIDL kaufen
+
+Du möchtest Käse grundsätzlich bei LIDL kaufen? Dann füge stattdessen diesen Eintrag hinzu:
+
+```text
+25FLIDL
+```
+
+**Der Unterschied:** **W** gilt nur für diesen Einkauf. **F** merkt sich LIDL dauerhaft für diesen Artikel.
+
+### Beispiel 3: Einen Artikel auf der Liste nach oben schieben
+
+Stell dir vor, deine Liste bei LIDL sieht so aus:
+
+```text
+10> Gurken
+20> Bananen
+25> Käse
+30> Milch
+40> Butter
+```
+
+Du möchtest den Käse **zwei Plätze weiter oben** haben. Füge diesen Eintrag hinzu:
+
+```text
+25H2
+```
+
+Danach steht Käse vor Gurken und Bananen:
+
+```text
+Käse
+Gurken
+Bananen
+Milch
+Butter
+```
+
+Möchtest du Käse stattdessen **zwei Plätze nach unten** schieben, verwendest du:
+
+```text
+25R2
+```
+
+**H = hoch, R = runter.** Es zählen die Artikel, nicht die Abstände zwischen den Nummern. Ein Artikel bleibt immer in seinem Markt; an der ersten oder letzten Stelle ist Schluss. Deine festgelegten Laufwege und Produktgruppen werden dadurch nicht geändert.
+
+### Das solltest du wissen
+
+**Die Nummer ist nur ein Beispiel.** Schau vor jedem Befehl nach, welche **zweistellige Nummer gerade vor deinem Artikel** steht. Bei einem anderen Einkauf kann Käse eine andere Nummer haben. Nummern vor Marktüberschriften zählen nicht als Artikelnummern.
+
+Du kannst **mehrere Befehle** in die Liste schreiben. Groß- und Kleinschreibung ist egal: `25wlidl` funktioniert genauso. Kleine, eindeutig erkennbare Tippfehler bei Marktnamen werden korrigiert.
+
+**Bitte nicht ungeduldig werden:** ShoppingRoute sortiert **nicht sofort**. Je nach Internetverbindung und Alexa kann es **bis zu fünf Minuten** dauern. Solange der Befehl noch in der Liste steht, ist das erst einmal normal. Nach erfolgreicher Verarbeitung verschwindet er automatisch.
+
+**Steht der Befehl nach fünf Minuten immer noch da?** Prüfe die Internet-/Alexa-Verbindung und ob Nummer, Buchstabe und Markt richtig sind. Einen falschen Befehl einfach **abhaken und neu eingeben**. Wenn ShoppingRoute einen Befehl nicht eindeutig versteht, lässt es ihn stehen, statt den falschen Artikel zu verschieben.
+
+**Vier Funktionen, jeweils auf Deutsch oder Englisch:** `W/C` (Wechsel/Change), `F/E` (Fest/Ever), `H/U` (Hoch/Up) und `R/D` (Runter/Down). Zum Beispiel sind `25WLIDL` und `25CLIDL` gleichwertig. Für dauerhaft verwende `25FLIDL` oder `25ELIDL`. `25D2` bedeutet **zwei Plätze nach unten**, nicht dauerhaft wechseln.
 
 ## Warum ShoppingRoute beim Einkaufen wirklich hilft
 
@@ -273,6 +384,8 @@ Zum Beispiel:
 Wenn ShoppingRoute einen Artikel in den falschen Markt einsortiert hat, kannst du ihn direkt verschieben.
 
 Je nach Ansicht stehen dafür Drag & Drop, Pfeiltasten oder eine Marktauswahl zur Verfügung.
+
+Manuelle Verschiebungen in der Einkaufsliste bleiben zunächst als Entwurf im Browser. Verschiebe alle gewünschten Artikel und drücke dann **Änderungen an Alexa übertragen**. Erst dieser Button startet einen gemeinsamen, geprüften Alexa-Sortierlauf. Bei einem Fehler bleibt der Entwurf erhalten; **Änderungen verwerfen** lädt die aktuelle Liste neu. Solange Änderungen offen sind, sind Listenwechsel, Hinzufügen, Löschen und Zurücksetzen gesperrt, damit der Entwurf erhalten bleibt. Ein Neuladen desselben Browser-Tabs stellt den Entwurf bei verfügbarem Sitzungsspeicher wieder her.
 
 Eine manuelle Änderung hat Vorrang vor der automatischen Zuordnung.
 

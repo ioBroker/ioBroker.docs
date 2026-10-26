@@ -148,32 +148,39 @@ The only difference is that Xiaomi supports the room cleaning.
 -->
 
 ## Changelog
-### 1.6.7 (2026-05-17)
+### 2.0.4 (2026-10-19)
 
--   (@GermanBluefox) Corrected error with button and alarm widget
+-   (@GermanBluefox) RGB light: the auto-detection does not overwrite the selected state anymore and takes the first matching state (#381)
+-   (@GermanBluefox) Switches: brightness and white sliders use the maximum of the object, color temperature limits can be below 500 (#475)
+-   (@GermanBluefox) Switches: the "switch" state is visible again for RGB and thermostat (#449)
+-   (@GermanBluefox) Switches: boolean states with `read: false` or role `button` are detected as button, buttons work with touch and send only `true` (#614, #609)
+-   (@GermanBluefox) Switches: `common.states` in the format "0:off;1:on" and numeric states are supported in the select (#607)
+-   (@GermanBluefox) Charts read aggregated (min/max) values for periods over 30 minutes instead of raw data (#412)
+-   (@GermanBluefox) Switches, Map and theme switcher unsubscribe correctly on unmount (#530)
+-   (@GermanBluefox) Lock: added options to invert the lock state and the door sensor (#633)
+-   (@GermanBluefox) Camera: the image is updated even if the cache refresh fails (#340)
+-   (@GermanBluefox) Player: fixed the display conditions of "repeat" and "next"
+-   (@GermanBluefox) Blinds: clear labels for the sash type, touch support for the slider (#627, #292)
+-   (@GermanBluefox) Corrected German translations (#552)
 
-### 1.6.1 (2026-03-14)
+### 2.0.3 (2026-10-19)
 
--   (@GermanBluefox) Corrected error with select value widget
+-   (@GermanBluefox) Fixed the crash of the charts (React error #130) in "Actual", "Switches" and the chart dialog (#694)
+-   (@GermanBluefox) Fixed the endless re-rendering (React error #185) of the chart in "Actual" in the grid layout
 
-### 1.6.0 (2025-09-03)
+### 2.0.2 (2026-10-16)
 
--   (@GermanBluefox) Corrected "Actual" widget
+-   (@GermanBluefox) Added `tslib` and `esbuild` to the widget packages, because the build on GitHub could not resolve them
 
-### 1.5.3 (2025-08-27)
--   (@GermanBluefox) Added support for older Android devices
+### 2.0.1 (2026-10-16)
 
-### 1.5.0 (2025-05-19)
+-   (@GermanBluefox) Corrected the TypeScript configuration for TypeScript 7 and the widget test
 
--   (bluefox) Corrected thermostat slider
--   (bluefox) Rewritten with TypeScript and vite
--   (bluefox) Corrected blinds control
--   (bluefox) Added disabled mode additionally to hidden mode in the 'switches and buttons' widget
--   (bluefox) Added `_ts=Date.now()` to camera URL to disable the browser cache
--   (bluefox) Simple state has a new option - step
--   (bluefox) Added new navigation widget: jump to view, url or list of views
+### 2.0.0 (2026-10-15)
 
-Older changelogs can be found there## License
+-   (@GermanBluefox) Migrated to React 19 and vis-2@2.20.x
+
+## License
 
 The MIT License (MIT)
 

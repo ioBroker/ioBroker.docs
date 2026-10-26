@@ -31,6 +31,8 @@ Actually, the following outputs are supported:
 
 - *Heos* - play text on HEOS device. Be sure the Web Adapter is enabled. It is required to enable HEOS to read the generated mp3 files.
 
+- *Squeezebox* - play text on a player of the Logitech Media Server (Lyrion) with the [squeezeboxrpc](https://github.com/oweitman/ioBroker.squeezeboxrpc) adapter (version 2.0.0 or newer). The text is written into the state `Announce` of the player, so the current playback is stopped and restored afterward. The volume of the announcement is configured in the squeezeboxrpc adapter. Be sure the Web Adapter is enabled, so the Media Server can read the generated mp3 files.
+
 - *Chromecast* - play text on a Chromecast device.
 
 - *MPD* - play text on Music Player Daemon. Use only **http** for web adapter, don't use https.
@@ -62,6 +64,17 @@ Offline:
 
 - Coqui TTS: English, German, Spanish, French, Dutch, Japanese, Chinese;
   For instructions how to use go to the [official documentation](https://tts.readthedocs.io/en/latest/index.html)
+
+- Piper: fast local voices in many languages, e.g. the German voices of [Thorsten-Voice](https://www.thorsten-voice.de).
+  [Piper](https://github.com/OHF-Voice/piper1-gpl) runs as an HTTP server in the local network (on the ioBroker host or on any other one),
+  so one server could be used by several applications. No internet and no other tools on the ioBroker host are required.
+  Installation of the server (see the [HTTP API](https://github.com/OHF-Voice/piper1-gpl/blob/main/docs/API_HTTP.md)):
+  ```
+  python3 -m pip install piper-tts[http]
+  python3 -m piper.download_voices de_DE-thorsten-high
+  python3 -m piper.http_server -m de_DE-thorsten-high --host 0.0.0.0 --port 5000
+  ```
+  Enter the address of the server, e.g. `http://192.168.1.10:5000`, in the configuration. The voices installed on the server are offered in the configuration dialog.
 
 ### Test of the text generation
 With the button `Test text generation` on the tab `Engine` you can check if the selected engine is configured properly.
@@ -110,6 +123,8 @@ After creation of adapter instance, you can find the following objects:
 - `sayit.N.tts.playing`: true if a text is now playing and false if not. Supported only for "windows" and "system" play mode.
 - `sayit.N.tts.cachetext`: Phrase to be cached, and then it can be used without an internet.
    E.g., you can enter here manually "No internet" and if ping to google.com is negative, write "No internet" to "tts.text" and it will be pronounced. Of course, cache must be enabled.
+
+The cached files are stored in the cache directory. A relative path is relative to `iobroker-data/sayit`, an absolute path is used as it is. The default for new instances is `cache`, i.e. `iobroker-data/sayit/cache`. Older instances keep `../../cache/`, i.e. `<ioBroker installation>/cache`.
 
 State `tts.text` supports extended syntax, so the language/engine and volume can be defined together with text. It is used to enable multi-language text2speech engines.
 E.g., if adapter has engine `Google-english`, it is possible with phrase `de:Sag es` to force using Google-Deutsch speech engine.
@@ -162,6 +177,11 @@ The following values for engines are possible:
 The language is a part of the voice, so only one engine name exists. The voice, e.g. `de-DE-KatjaNeural`,
 is selected in the configuration dialog and the list of all available voices is read from the service.
 A request is limited to 10000 characters, so longer texts are split and said one after another.
+
+#### Piper
+- **piper** - the server, the voice, the speaker and the speed are taken from the instance configuration
+
+Like by FreeTTS, the language is a part of the voice, e.g. `de_DE-thorsten-high`. If no voice is selected, the default voice of the server is used.
 
 #### Yandex
 - **ru_YA:Yandex** - Русский
@@ -302,6 +322,26 @@ A request is limited to 10000 characters, so longer texts are split and said one
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.4.0 (2026-10-23)
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Added the output type "Squeezebox" for the players of the squeezeboxrpc adapter (#5)
+* (@GermanBluefox) Added Piper as a new local TTS engine, e.g. with the voices of Thorsten-Voice (#398)
+
+### 5.3.3 (2026-10-23)
+* (@GermanBluefox) Fixed: a cache hit played the last generated text instead of the cached file (#497)
+* (@GermanBluefox) The cache directory is now resolved relative to `iobroker-data/sayit` and could be absolute. It can be changed in the configuration dialog. New instances store the cache in `iobroker-data/sayit/cache` (#442)
+* (@GermanBluefox) By changing of the engine, only cached files are deleted from the cache directory and not all files
+* (@GermanBluefox) Fixed: the heos players were not listed in the configuration dialog (#416)
+* (@GermanBluefox) Fixed: IPv6 addresses of the web server are written in square brackets in the link for the devices. Only IPv4 addresses are offered in the configuration dialog (#399)
+* (@GermanBluefox) Fixed: the cache was not used for the texts sent by the "say" command, e.g. from Blockly or scripts
+* (@GermanBluefox) Fixed: texts with SSML tags were never found in the cache, if the engine does not support SSML
+* (@GermanBluefox) Corrected the roles of the states `tts.text`, `tts.cachetext` and `tts.playing`
+* (@GermanBluefox) Used the timers of the adapter and added the missing size attributes in the configuration dialog
+
+### 5.3.2 (2026-10-13)
+* (@GermanBluefox) Removed the "install" script and `process.exit()` for compact mode
+* (@GermanBluefox) Passwords and API keys are now protected from reading by non-admin users
+
 ### 5.3.1 (2026-08-13)
 * (@GermanBluefox) Added the button "Test text generation" to the "Engine" tab, so the selected engine can be tested with an own text
 * (@GermanBluefox) Test generations do not overwrite the cached files anymore
@@ -314,26 +354,6 @@ A request is limited to 10000 characters, so longer texts are split and said one
 * (@GermanBluefox) The engine is selected in two steps now: first the provider and then the voice
 * (@GermanBluefox) The words of the Blockly block are translated into all 11 languages now
 * (@GermanBluefox) Blockly block migrated to TypeScript and the generated code is unchanged
-
-### 5.2.4 (2026-08-07)
-* (@GermanBluefox) Corrected the upload of the announcement mp3 files and the location of the cache directory
-* (@GermanBluefox) Corrected the splitting of long texts for the Google engine
-* (@GermanBluefox) Corrected the detection of sonos devices in the configuration dialog
-* (@GermanBluefox) Cached files will be deleted again if the engine was changed
-* (@GermanBluefox) The queue does not block anymore if an error occurs by processing of a task
-* (@GermanBluefox) Texts with semicolons will not be interpreted as "language;volume;text" anymore
-* (@GermanBluefox) The local engines (PicoTTS, CoquiTTS) and the windows player are called without shell now
-* (@GermanBluefox) Corrected the default settings of a new instance
-
-### 5.1.0 (2025-09-17)
-* (bluefox) Adapter was rewritten with TypeScript
-* (bluefox) Updated Polly voices list
-* (bluefox) Added an option to send sonos device as a parameter in sendTo command
-
-### 5.0.0 (2024-07-16)
-* (mcm1957) Adapter requires admin v7 or newer now
-* (mcm1957) Adapter requires jas-controller 5 or newer now
-* (bluefox) Added possibility to play directly from states: `sayit.0/tts.userfiles/gong.mp3`
 
 ## License
 

@@ -419,7 +419,7 @@ meaning of each data point.
 
 ## 9. Development
 
-The widgets are written in **TypeScript + React 18** (with MUI for the attribute editors) and bundled with **Vite**
+The widgets are written in **TypeScript + React 19** (with MUI for the attribute editors) and bundled with **Vite**
 and **Module Federation** into a single `customWidgets.js` that vis-2 loads at runtime. The source lives in
 [`src-widgets-ts/src/`](https://github.com/ssbingo/ioBroker.vis-2-widgets-automatic-feeder/blob/main/src-widgets-ts/src/):
 
@@ -487,6 +487,17 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.2 (2026-10-26)
+* (ssbingo) Fix: the module-federation manifest (`mf-manifest.json`, `mf-stats.json`) is now shipped next to `customWidgets.js`. vis-2 2.20.x requests it when loading the widget sets and got a 404, because the build step only copied `customWidgets.js`, the assets and the images
+* (ssbingo) Maintenance: the Dependabot auto-merge workflow uses `pull_request` instead of `pull_request_target` (#48, #49)
+
+### 0.5.1 (2026-10-12)
+* (ssbingo) Maintenance: dependency updates — `@module-federation/vite` 1.23.2 (#46), `@types/react` 19.3 (#45). No widget changes
+
+### 0.5.0 (2026-10-12)
+* (ssbingo) **Breaking:** the widget set is rebuilt for **React 19 / MUI 9**, the stack vis-2 uses from its next release on. A React 18 build fails to load there (its bundled JSX runtime reads React 18 internals) and is skipped by the vis-2 editor. Requires a **vis-2 version based on React 19** — older vis-2 versions should stay on widget 0.4.x
+* (ssbingo) `@iobroker/adapter-react-v5` removed from the widget build; its successor `@iobroker/gui-components` provides the types. `@iobroker/types-vis-2` updated to 2.20.1 (#43), `@iobroker/testing` to 6.3.0 (#42)
+
 ### 0.4.7 (2026-09-12)
 * (ssbingo) Maintenance: added **Node.js 26** to the CI test matrix (now 22.x, 24.x, 26.x) as requested by the ioBroker check bot (#39). No widget changes
 
@@ -508,17 +519,6 @@ No. These are only the dashboard widgets. All scheduling, temperature logic, pau
 ### 0.4.1 (2026-09-01)
 * (ssbingo) **FeedingAmountSettings** now follows the vis-2 **colour mode** (dark/light) like the other widgets — it reads `context.themeType` and renders a dark panel in dark mode and the light panel in light mode (previously it was always light)
 * (ssbingo) The **No card background** option of FeedingAmountSettings now actually works (transparent background) instead of doing nothing
-
-### 0.4.0 (2026-09-01)
-* (ssbingo) New separate **FeedingAmountSettings** widget — a light settings panel matching the agreed design: a model on/off switch, a fish list with per-size icons + reference weights and editable counts (with a live total weight), the seven temperature percentages, a Phase-B control switch and the optional daily maximum. All fields write to the adapter's writable `switches.<id>.settings.*` states (**automatic-feeder v1.16.0+**)
-* (ssbingo) FeedingAmountSettings has an **active-feed switcher** built from the feed profiles configured for the switch in the adapter admin; one tap selects the active profile and its dispense rate (writes `settings.activeFeed`, needs **automatic-feeder v1.17.0+**)
-* (ssbingo) The **FeedingAmount** widget is now purely a **read-only** display card again; all editing moved to the new FeedingAmountSettings widget. It also shows the active feed-profile name (`status.activeFeedName`)
-
-### 0.3.2 (2026-09-01)
-* (ssbingo) Housekeeping: keep only the latest 7 entries in `common.news` (repository checker W1032). No widget changes
-
-### 0.3.1 (2026-09-01)
-* (ssbingo) Housekeeping (repository checker): bumped `@alcalzone/release-script-plugin-license` to 5.2.2 (S0064), removed the unneeded `prepublishOnly` script (W0095) and the unnecessary **admin** dependency — this is a pure widget set with no admin config UI (S1091) — and unpinned the CI deploy action to `@v1` (S3044). No widget changes
 
 ---
 

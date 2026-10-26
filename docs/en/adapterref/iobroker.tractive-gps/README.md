@@ -41,7 +41,7 @@ The adapter uses an unofficial Tractive service interface. A working Tractive ac
 - Node.js 22.13 or newer
 - js-controller 7.2.2 or newer
 - Admin 7.8.23 or newer
-- VIS 1, or VIS 2 version 2.12.8 or newer, when using an included widget
+- VIS 1, or VIS 2 version 2.15.2 or newer, when using an included widget
 - A Tractive account with at least one associated tracker
 
 ## Features
@@ -52,7 +52,7 @@ The adapter uses an unofficial Tractive service interface. A working Tractive ac
 - Provides battery level, charging state, used position source (`KNOWN_WIFI`/`GPS`), home/away status, online state, and power-saving status.
 - Provides model, firmware, hardware version, capabilities, gender, birthday, height, weight, and other available information.
 - Supports live tracking, LED, and buzzer commands when the tracker reports the corresponding capability.
-- Stores all retrieved account, subscription, share, pet, tracker, position, and hardware data as a logical local state tree and as one complete JSON snapshot.
+- Provides selected useful data in a structured local state tree and keeps all retrieved account, subscription, share, pet, tracker, position, and hardware data in one JSON snapshot, excluding login passwords and access tokens.
 - Includes responsive cards for VIS 1 and VIS 2 with a pet image, interactive map, range display, tracker status, and command controls.
 - Supports an image supplied by Tractive or a custom image uploaded to ioBroker.
 - Detects missing or stale tracker data without automatically deleting existing objects.
@@ -143,7 +143,16 @@ Set the desired state to `true` or `false`. The state is acknowledged after Trac
 
 ## VIS widgets
 
-The adapter includes a classic `PetTrackerCard` for VIS 1 and a native React `PetTrackerCard` for VIS 2. Add one widget for each pet or tracker and assign the requested states in the widget settings.
+The adapter includes a classic `PetTrackerCard` for VIS 1 and a native `PetTrackerCard` for VIS 2 (version 2.15.2 or newer). The classic VIS 1 widget remains available alongside the updated VIS 2 widget.
+
+### Set up a card
+
+1. Open the VIS editor and add a `PetTrackerCard` from the Tractive GPS widget set.
+2. Assign the pet states from `pets.<pet-id>` and the matching tracker states from `trackers.<tracker-id>`. The pet's `info.trackerId` identifies the associated tracker.
+3. Select the image, map options, and command states as described below.
+4. Save the view and open runtime mode to use the command switches.
+
+Add a separate card for each pet or tracker. The responsive card groups information into location, tracker, and pet sections. The VIS 2 card follows the selected light or dark theme and its accent color.
 
 The card can display:
 
@@ -159,6 +168,8 @@ The card can display:
 For the Tractive image, select `pets.<pet-id>.media.localProfilePictureUrl` as the image state. It contains the URL of the copy stored in the local ioBroker file storage. If no image is returned or it cannot be loaded, select or upload a custom image in the widget's **Appearance** section.
 
 The map can automatically fit the complete accuracy or range circle. Minimum and maximum zoom, interaction, range source, and a manual radius can be configured in the widget. Displaying the map downloads map tiles from OpenStreetMap.
+
+The distance is the straight-line distance to the configured ioBroker location, not the distance travelled during the day. The home/away indication is derived from the position source: `KNOWN_WIFI` means a known Wi-Fi location; `GPS` is shown as away. It is not a separately verified home geofence.
 
 To use the command switches, assign the corresponding `trackers.<tracker-id>.commands.*` states in the widget's **Commands** section. Commands are disabled while editing the VIS view and become active in runtime mode.
 
@@ -182,12 +193,24 @@ To use the command switches, assign the corresponding `trackers.<tracker-id>.com
 - **No address is shown:** Enable reverse geocoding in the adapter configuration.
 - **A command is missing:** The tracker did not report the required capability.
 - **The pet image is missing:** Assign `localProfilePictureUrl` to the widget or select a custom image.
+- **VIS 2 widget missing or blank after an update:** Check that VIS 2 is version 2.15.2 or newer. Restart VIS 2 and reload the browser without its cache. Existing widget settings do not need to be recreated for this widget update.
 
 ## Developer documentation
 
 Information for contributors is available in [Developer documentation](/#/docs/adapterref/iobroker.tractive-gps/docs/DEVELOPMENT.md).
 
 ## Changelog
+### 4.0.0 (2026-10-12)
+
+- (xXBJXx) BREAKING: the native VIS 2 widget now requires VIS 2 >=2.15.2 for React 19/MUI 9 support; backend-only and classic VIS 1 installations remain supported.
+- (xXBJXx) Kept the pet marker and accuracy circle visible when changing map zoom limits or interaction settings.
+- (xXBJXx) Updated the locked Moment dependency to 2.31.0 to fix the locale path-traversal vulnerability and added regression tests (GHSA-4p3w-j4w9-5jqw).
+- (xXBJXx) Updated the test dependencies and removed duplicate test packages while retaining the intentional development-server fork (#387; supersedes #379).
+- (xXBJXx) Aligned Admin and widget dependencies, superseding overlapping updates (#324, #346, #347, #349, #350, #351, #352, #361, #363, #365, #367, #369, #372, #373, #374, #376, #380, #382, #385, #386).
+- (xXBJXx) Kept VIS 2 optional for backend-only and VIS 1 installations and corrected the Ukrainian seconds translation (#355).
+- (xXBJXx) Rebuilt the VIS 2 widget for React 19 and MUI 9 compatibility, updated the module-federation runtime, and replaced the React-Leaflet wrapper with direct Leaflet integration ([ioBroker/ioBroker.vis-2#689](https://github.com/ioBroker/ioBroker.vis-2/issues/689)).
+- (xXBJXx) Fixed VIS 2 theme compatibility and updated the widget setup instructions; the classic VIS 1 widget remains available.
+
 ### 3.1.0 (2026-08-25)
 
 - (xXBJXx) Addressed repository-checker findings for dependencies, metadata, documentation, and adapter-managed timers (#319).
@@ -238,12 +261,6 @@ Information for contributors is available in [Developer documentation](/#/docs/a
 ### 2.0.1 (2024-08-20)
 
 - (bluefox) Fixed encryption of the access token.
-
-### 2.0.0 (2024-08-18)
-
-- (bluefox) BREAKING: credentials must be entered again.
-- (bluefox) Removed old code and rewrote the GUI.
-- (bluefox) Updated dependencies.
 
 Earlier changes are documented in CHANGELOG_OLD.md.
 

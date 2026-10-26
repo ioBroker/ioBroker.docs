@@ -320,6 +320,7 @@ https://www.iobroker.com/adapters/danfoss-ally
 https://www.iobroker.com/adapters/daswetter
 https://www.iobroker.com/adapters/deconz
 https://www.iobroker.com/adapters/denon
+https://www.iobroker.com/adapters/device-monitoring
 https://www.iobroker.com/adapters/device-reminder
 https://www.iobroker.com/adapters/device-watcher
 https://www.iobroker.com/adapters/devices
@@ -379,6 +380,7 @@ https://www.iobroker.com/adapters/eventlist
 https://www.iobroker.com/adapters/exchangerates
 https://www.iobroker.com/adapters/extron
 https://www.iobroker.com/adapters/f1
+https://www.iobroker.com/adapters/faikout
 https://www.iobroker.com/adapters/fairland
 https://www.iobroker.com/adapters/fakeroku
 https://www.iobroker.com/adapters/fb-checkpresence
@@ -422,6 +424,7 @@ https://www.iobroker.com/adapters/goodwe-sems
 https://www.iobroker.com/adapters/google-sharedlocations2
 https://www.iobroker.com/adapters/google-spreadsheet
 https://www.iobroker.com/adapters/googleauth
+https://www.iobroker.com/adapters/googlefindmydevice
 https://www.iobroker.com/adapters/gotify
 https://www.iobroker.com/adapters/gotify-ws
 https://www.iobroker.com/adapters/govee-local
@@ -543,7 +546,6 @@ https://www.iobroker.com/adapters/life360ng
 https://www.iobroker.com/adapters/lifx
 https://www.iobroker.com/adapters/lightcontrol
 https://www.iobroker.com/adapters/lightify
-https://www.iobroker.com/adapters/link
 https://www.iobroker.com/adapters/link2home
 https://www.iobroker.com/adapters/linkeddevices
 https://www.iobroker.com/adapters/linktap
@@ -564,6 +566,7 @@ https://www.iobroker.com/adapters/material
 https://www.iobroker.com/adapters/matrix-org
 https://www.iobroker.com/adapters/matter
 https://www.iobroker.com/adapters/maveo
+https://www.iobroker.com/adapters/max
 https://www.iobroker.com/adapters/maxcube
 https://www.iobroker.com/adapters/maxcul
 https://www.iobroker.com/adapters/maxxi-charge
@@ -752,6 +755,7 @@ https://www.iobroker.com/adapters/rssfeed
 https://www.iobroker.com/adapters/s7
 https://www.iobroker.com/adapters/sainlogic
 https://www.iobroker.com/adapters/samsung
+https://www.iobroker.com/adapters/samsung-mdc
 https://www.iobroker.com/adapters/samsung_tizen
 https://www.iobroker.com/adapters/samsungtv
 https://www.iobroker.com/adapters/sanext
@@ -821,7 +825,6 @@ https://www.iobroker.com/adapters/sonnen
 https://www.iobroker.com/adapters/sonnen-charger
 https://www.iobroker.com/adapters/sonoff
 https://www.iobroker.com/adapters/sonos
-https://www.iobroker.com/adapters/sonus
 https://www.iobroker.com/adapters/sony-bravia
 https://www.iobroker.com/adapters/sourceanalytix
 https://www.iobroker.com/adapters/speedport
@@ -860,8 +863,8 @@ https://www.iobroker.com/adapters/teslafi
 https://www.iobroker.com/adapters/text2command
 https://www.iobroker.com/adapters/tibberlink
 https://www.iobroker.com/adapters/tidy
-https://www.iobroker.com/adapters/tileboard
 https://www.iobroker.com/adapters/time-switch
+https://www.iobroker.com/adapters/time-tracker
 https://www.iobroker.com/adapters/tinker
 https://www.iobroker.com/adapters/tino
 https://www.iobroker.com/adapters/tinymqttbroker
@@ -907,6 +910,7 @@ https://www.iobroker.com/adapters/vis-2
 https://www.iobroker.com/adapters/vis-2-widgets-automatic-feeder
 https://www.iobroker.com/adapters/vis-2-widgets-collection
 https://www.iobroker.com/adapters/vis-2-widgets-energy
+https://www.iobroker.com/adapters/vis-2-widgets-eusec
 https://www.iobroker.com/adapters/vis-2-widgets-gauges
 https://www.iobroker.com/adapters/vis-2-widgets-icontwo
 https://www.iobroker.com/adapters/vis-2-widgets-inventwo
@@ -972,12 +976,14 @@ https://www.iobroker.com/adapters/webcal
 https://www.iobroker.com/adapters/weblogin
 https://www.iobroker.com/adapters/webui
 https://www.iobroker.com/adapters/webuntis
+https://www.iobroker.com/adapters/webuntis2
 https://www.iobroker.com/adapters/weishaupt-wem
 https://www.iobroker.com/adapters/welcome
 https://www.iobroker.com/adapters/whatsapp-cmb
 https://www.iobroker.com/adapters/wiegand-tcpip
 https://www.iobroker.com/adapters/wiffi-wz
 https://www.iobroker.com/adapters/wifilight
+https://www.iobroker.com/adapters/wiim
 https://www.iobroker.com/adapters/wiobrowser
 https://www.iobroker.com/adapters/wireguard
 https://www.iobroker.com/adapters/wireless-mbus
@@ -1004,6 +1010,7 @@ https://www.iobroker.com/adapters/yamaha
 https://www.iobroker.com/adapters/yeelight-2
 https://www.iobroker.com/adapters/youtube
 https://www.iobroker.com/adapters/yr
+https://www.iobroker.com/adapters/zeekr
 https://www.iobroker.com/adapters/zehnder-cloud
 https://www.iobroker.com/adapters/zendure-solarflow
 https://www.iobroker.com/adapters/zeptrion

@@ -10,15 +10,14 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.opensmartcity.svg)](https://www.npmjs.com/package/iobroker.opensmartcity)
 
 ## Changelog
-
-### **WORK IN PROGRESS**
-- (iobroker-bot) Adapter requires node.js >= 20 now.
 <!--
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.2.3 (2026-10-14)
 - (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+- (@GermanBluefox) Adapter requires node.js >= 22 and admin >= 7.6.17 now
+- (@GermanBluefox) Fixed the crash when the FROST server returns its data in several pages
+- (@GermanBluefox) Updated packages, migrated to ESLint 9, added the standard tests (they run on Windows and macOS too)
 
 ### 0.2.2 (2024-03-12)
 * (bluefox) Corrected readme link
@@ -32,9 +31,6 @@
 
 ### 0.1.2 (2023-11-22)
 * (bluefox) Added widget
-
-### 0.1.1 (2023-11-21)
-* (bluefox) Initial release
 
 ## License
 The MIT License (MIT)

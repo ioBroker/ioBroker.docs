@@ -143,6 +143,9 @@ Enable debug logging in the ioBroker admin to see detailed communication with th
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 0.5.6 (2026-10-15)
+* (Alan Paris) MFP: mute now works on firmware without a MUTE command. MFP72 FW 2.06 answers "MUTE ON" with "[ERROR]Command not found" and has no Mute column in STATUS, while FW 2.11 has both; the adapter now detects this per unit from its own STATUS. Without native mute it mutes by storing the volume (new state `audio.preMuteVolume`) and sending `VOL 00`, and unmute restores it. Raising the volume while muted clears the mute. Units with native mute are unchanged
+
 ### 0.5.5 (2026-09-27)
 * (Alan Paris) MFP72/MFP112: zoom-out and overscan read back as the correct step. A device value such as "4%" was stored as 4 (which means 8%) instead of 2, so any non-zero setting showed double its value in the dropdown (10%–16% were out of range and showed no label); unrecognised values now leave the state unchanged
 
@@ -164,10 +167,6 @@ Enable debug logging in the ioBroker admin to see detailed communication with th
 * (Alan Paris) The WiFi password is no longer stored in clear text in `info.lastSent` or written to the debug log when it is set
 * (Alan Paris) Device responses reporting an output number the configured model does not have (including an echo of the route-all command) no longer create a stray output state
 * (Alan Paris) Corrected the documented state list and the per-model feature table in the README, and added the missing `system` parent object
-
-### 0.5.1 (2026-07-16)
-* (Alan Paris) Every state object now defines a default (`def`) value, so states have a defined initial value before the first device poll
-* (Alan Paris) Admin config: all device-model descriptions and option labels are now translatable and provided in all 11 ioBroker languages
 
 ## License
 

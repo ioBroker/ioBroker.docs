@@ -29,6 +29,7 @@ Or ignore values with a high standard deviation.
 -->
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+- (BenAhrdt) update @iobroker/testing to 6.3.0
 
 ### 1.7.0 (2026-04-05)
 * (BenAhrdt) improve sourceId in desc => id

@@ -38,6 +38,10 @@ Sie können für S7TIME 4 Zeitversatzmodi verwenden:
 S5 dekodiert wie hier beschrieben: http://www.plccenter.cn/Siemens_Step7/Format_des_Datentyps_S5TIME_Zeitdauer.htm
 
 ## Changelog
+### 3.0.3 (2026-10-13)
+* (@GermanBluefox) IMPORTANT: js-controller 6.0.11+ and admin 7.6.17+ are required
+* (@GermanBluefox) Set `nogit` flag as the build directory is not committed
+
 ### 3.0.2 (2026-09-24)
 * (@GermanBluefox) Updated packages
 * (@GermanBluefox) Because of snap7 no Node 26 support
@@ -54,14 +58,10 @@ S5 dekodiert wie hier beschrieben: http://www.plccenter.cn/Siemens_Step7/Format_
 * (Apollon77) Ensures that the adapter works with node.js 22.x and 24.x
 * (bluefox) Updated GUI packages
 
-### 1.4.3 (2024-02-17)
-* (Bettman66) Fix REAL number parsing error
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>,
-
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>  
 Copyright (c) 2014-2016 smiling_Jack <steffen.schorling@googlemail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

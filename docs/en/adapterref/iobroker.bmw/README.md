@@ -217,9 +217,22 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 5.0.5 (2026-10-26)
 
-### **WORK IN PROGRESS**
+- (TA2k) container now includes non-streaming data keys again (e.g. charging level), so the adapter shows more values
+- (TA2k) existing installations update to the new container automatically
 
+### 5.0.4 (2026-10-19)
+
+- (TA2k) fixed unnecessary container cleanup that used up the daily API request limit
+
+### 5.0.3 (2026-10-19)
+
+- (TA2k) fixed telematic data fetching (CU-400): the container now uses only the data keys BMW accepts
+- (TA2k) existing installations update to the new container automatically
+- (hombach) fixed repochecker error
+- (hombach) fixed translations
+- (hombach) updated dependencies
 - (hombach) fixed repochecker error
 - (hombach) fixed translations
 - (hombach) updated dependencies
@@ -258,17 +271,6 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
 - (hombach) fix vulnerability
 - (hombach) update dependencies
 - (hombach) remove old admin files
-
-### 4.3.4 (2026-02-28)
-
-- enhance docu and logging
-- (hombach) fix vulnerability
-- (hombach) update dependencies
-
-### 4.3.3 (2026-01-02)
-
-- (hombach) year 2026 changes
-- (hombach) update dependencies
 
 ### Old Changes see CHANGELOG OLD
 

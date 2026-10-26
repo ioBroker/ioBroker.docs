@@ -133,6 +133,9 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### **WORK IN PROGRESS**
+* (GermanBluefox) Repochecker warnings fixed (#563)
+
 ### 2.1.0 (2026-09-15)
 - fix blockly scripts
 - add dark/light mode

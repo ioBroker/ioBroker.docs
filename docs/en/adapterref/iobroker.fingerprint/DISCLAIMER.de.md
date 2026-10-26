@@ -22,7 +22,9 @@ MIT-[LICENSE](https://github.com/sadam6752-tech/ioBroker.fingerprint/blob/main/L
 - **Biometrische Daten / Datenschutz (DSGVO).** Fingerabdruck-Templates, Namen, Zeitstempel und
   Zugriffsprotokolle sind personenbezogene Daten. Du bist Verantwortlicher: Hole die
   Einwilligung der eingelernten Personen ein, schütze Backup-Dateien
-  (`fingerprints-backup.json` enthält die Roh-Templates unverschlüsselt) und beachte die für
+  (sie enthalten die Roh-Templates unverschlüsselt — im Storage-Ordner `fingerprint.0.storage`,
+  lesbar für alle Admin-Benutzer und unter Umständen über eine `web`-Instanz, sowie auf einem
+  externen SFTP-Server) und beachte die für
   dich geltenden Gesetze (z. B. DSGVO/BDSG, Betriebsrat bei Beschäftigten).
 - **Aktionen laufen automatisch.** Fingerabdruck-Regeln schreiben in beliebige von dir gewählte
   ioBroker-Objekte (Licht, Schlösser, Alarm, Skripte). Teste deine Regeln gründlich, bevor du

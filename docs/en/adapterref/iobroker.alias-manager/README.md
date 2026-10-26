@@ -46,9 +46,9 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 	* In the red area you can: 
 	    * (5) Configure the original ioBroker-datapoint, this alias-datapoint is linked to. Both (the original datapoint and the alias-datapoint) well be kept in sync.
 		* (6) Furthermore you can configure conversion-functions for read and write. 
-		    * Example: If you set ``val / 10`` as "Read-Function", the value of the aias-datapoint will always be 10 percent of the original datapoint. 
+		    * Example: If you set ``val / 10`` as "Read-Function", the value of the alias-datapoint will always be 10 percent of the original datapoint. 
 			* In most cases you would then like to configure ``val * 10`` as "Write-Function", to also keep this ratio, when writing to the alias-datapoint.
-		* Please read more about that in the ioBroker-documenation about aliases under https://www.iobroker.net/#en/documentation/dev/aliases.md
+		* Please read more about that in the ioBroker-documentation about aliases under https://www.iobroker.net/#en/documentation/dev/aliases.md
 
 ![Screenshot](img/manual_screenshot_3.png)
 * (1) When clicking on 'COPY ALIAS' to copy or
@@ -61,7 +61,7 @@ Here you can:
 * (2) Set a new common name for the alias
 * (3) By clicking on 'ADD REPLACEMENT' you can add lines to the following list, where you can:
     * (4) Enter a string, that will be searched for, and replaced by (5) this string
-	* With this funcion, you can quickly change the original ioBroker-datapoints, your alias-datapoints are linked to
+	* With this function, you can quickly change the original ioBroker-datapoints, your alias-datapoints are linked to
 	* Example: 
 	    * You have a fan with several datapoints like ``SET``, ``ERROR`` and ``UNREACH``
 		* These alias-datapoints are linked to original datapoints like ``hm-rpc.0.JEQ0698034.1.STATE``, ``hm-rpc.0.JEQ0698034.0.ERROR`` and ``hm-rpc.0.JEQ0698034.0.UNREACH``
@@ -87,12 +87,12 @@ Here you can:
 * (3) Afterwards you will find the determined settings for the Alias and
 * (4) A list of all datapoints of the selected device
     * All automatically recognized datapoints will be checked (only checked lines will be saved)
-	* If automatically recognized, the datapoint will have an 'Destination ID' set. This will be the corresponding datapoint of the alias (the original datapoint will be linked to this new alias-datapoint). The autocreate-function tries to match to stanardized datapoint-ids, depending on the type of device that was recognized. However, you can change the settings as you like, but every 'Destination ID' has to be unique.
+	* If automatically recognized, the datapoint will have a 'Destination ID' set. This will be the corresponding datapoint of the alias (the original datapoint will be linked to this new alias-datapoint). The autocreate-function tries to match to stanardized datapoint-ids, depending on the type of device that was recognized. However, you can change the settings as you like, but every 'Destination ID' has to be unique.
 	* And finally you can enter a name for the destination alias-datapoint
 	* All NOT automatically recognized datapoints appear in the list unchecked. You can manually adjust the settings and activate the checkbox.
 	* (5) You can also manually add other datapoints to this list or clear the complete list
 * (6) You can then save the new alias with all the checked(!) datapoints (unchecked datapoints will be discarded)
-* Afterwards you will be automatically transfered to the 'MANAGE ALIASES' tab and the new alias will be opend, to adjust its settings as needed
+* Afterwards you will be automatically transferred to the 'MANAGE ALIASES' tab and the new alias will be opened, to adjust its settings as needed
 
 ## Changelog
 <!--
@@ -100,7 +100,13 @@ Here you can:
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires admin >= 7.6.17 now
+- (mcm1957) unused backend code has been removed
+- (mcm1957) Dependencies have been updated.
+
+### 3.0.0 (2026-10-13)
 - (copilot) Adapter requires node.js >= 22 now
+- (@GermanBluefox) Corrected loading via ioBroker.pro
 
 ### 2.1.0 (2026-02-12)
 - (copilot) Adapter requires node.js >= 20 now
@@ -121,9 +127,6 @@ Here you can:
 ### 1.2.5 (2022-03-02)
 * (sbormann) Added All and None Buttons to select Datapoint while autocreating alias.
 * (sbormann) Some GUI-Enhancements and fixes for dark mode.
-
-### 1.2.4 (2021-08-25)
-* (sbormann) Fixed autocreate not working after renaming destination id.
 
 ## License
 MIT License

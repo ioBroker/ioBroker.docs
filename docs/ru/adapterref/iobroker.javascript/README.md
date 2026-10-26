@@ -15,68 +15,35 @@ chapters: {"pages":{"ru/adapterref/iobroker.javascript/README.md":{"title":{"ru"
 - [Blockly](/#/docs/adapterref/iobroker.javascript/blockly.md)
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 10.4.7 (2026-10-23)
+* (@GermanBluefox) Fixed: the AI chat did not see the open script when it was a Blockly script, and an outdated version of it after unsaved edits; the open script is now always the context when no other script is mentioned
+* (@GermanBluefox) Fixed: the code mode of the AI chat ignored the open script and wrote an unrelated new script for a request like "turn on the logs in the script"
+
+### 10.4.6 (2026-10-19)
+* (@GermanBluefox) Fixed: false "Cannot redeclare block-scoped variable" (TS2451) warnings for `const`s that are declared in several scripts
+* (@GermanBluefox) Fixed: `subscribeObject()`/`onObject()` and the rule trigger "On object change" never fired for a pattern with `*`
+* (@GermanBluefox) Fixed: a change of a TypeScript script could be ignored after its compilation result could not be stored
+
+### 10.4.5 (2026-10-18)
+* (@GermanBluefox) Fixed: a script that did not handle a rejected `setStateAsync` (e.g. of a missing state) or another asynchronous function terminated the adapter
+* (@agross) Fixed: TypeScript scripts that import the same module as a global script failed with "Identifier has already been declared"
+* (@GermanBluefox) Fixed: the @-mention list of the AI chat showed only the first 13 scripts
+* (@GermanBluefox) Fixed: selection of state if predefined
+
+### 10.4.4 (2026-10-16)
+* (@GermanBluefox) Fixed: a script that did not handle a rejected `setStateAsync` (e.g. of a missing state) or another asynchronous function terminated the adapter
+* (@GermanBluefox) Fixed: instances of different versions
+* (@GermanBluefox) Fixed: the AI chat stopped with "m.default is not a constructor"
+
+### 10.4.1 (2026-10-09)
 * (@GermanBluefox) Changed: the AI assistant uses the shared libraries `@iobroker/ai-core` and `@iobroker/ai-gui`
-
-### 10.4.0 (2026-10-08)
-* (@GermanBluefox) The endpoint of an AI request comes out of the configuration and no longer out of the request. An address in the message used to win over the stored one, which was the comfortable way to put a proxy in front of OpenAI - and at the same time the way to have this instance carry the stored key, as the `Authorization` of that request, to an address of somebody else's choosing. Whoever may send a message to this instance could do that. A proxy belongs in the configuration now, where it is entered once by whoever may configure the adapter. The editor never sent an address, so nothing changes for it; the Test buttons of the settings dialog keep trying what stands in the form, with one limit: an address out of the form counts only together with a key out of the form - one's own key to one's own endpoint gives nothing away. In the credential-store mode the saved address is used, so an endpoint of one's own has to be saved before it can be tested there
-* (@GermanBluefox) Only an entry that was stored as an AI credential is read from the central credential store. The store holds the secrets of the whole system - a database password, the login of a camera - and a request for "the key of this provider" could name any one of them
-* (@GermanBluefox) The `execute` message - which runs a script here, with the whole ioBroker API behind it - checks who asked for it. A message never said on whose behalf it came, so there was nothing to check, and everyone who may send one to this instance could have code executed. Where the js-controller names the user (7.2.5 and newer, which put the user of a socket connection into the message), that user needs the right that a command on the host needs. Where it does not name one - an older controller, a script, an adapter - nothing changes
-* (@GermanBluefox) The question before a debug session ("The script will be stopped and must be activated manually after debugging") started the debugging even when it was answered with "Cancel" (#2382)
-* (@GermanBluefox) Stopping a debug session could end the debugged process with "uncaught exception: write EPIPE": the inspector process exited at once, although the process it debugs writes its whole log through its pipes and was still shutting down. The inspector now stops that process first and waits till it is really gone, a broken pipe cannot end a debugged script anymore, and the reset of the connection to the debugged process is not reported as an internal error of the inspector (#2382)
-* (@GermanBluefox) The AI chat stayed empty when a request took longer than 30 seconds: the answer is pushed as an instance message now instead of waiting for the socket callback
-* (@GermanBluefox) An AI answer without content now says why (stop reason, token counts) instead of leaving an empty chat bubble, and every failed request is logged
-* (@GermanBluefox) An answer cut off at the output limit is marked as incomplete
-* (@GermanBluefox) Sorted the scripts in the `@` list of the AI chat by their path
-* (@GermanBluefox) The AI chat can be maximized to the whole editor area (#2389)
-* (@GermanBluefox) The AI chat shows a spinner for the whole request, not only until the first tool call
-* (@GermanBluefox) Fixed an accepted AI suggestion not reaching the visible editor
-* (@GermanBluefox) Fixed the splitters jumping back to their previous width while being dragged
-* (@GermanBluefox) Blockly: fixed a parameter of a "JavaScript function" with its default name making the script unsavable
-* (@GermanBluefox) Added a script history: saved versions can be listed, compared and restored in the editor. "Saved versions per script" (30 by default, 0 switches it off)
-* (@GermanBluefox) Added a "Script history" tab with the used storage per script and buttons to delete single, orphaned or all histories
-* (@GermanBluefox) Moved the credentials table to its own tab
-* (@GermanBluefox) Mirror: a changed file no longer resets `enabled` and `engine` of the script (#2396)
-
-### 10.3.0 (2026-09-20)
-* (@GermanBluefox) The code editor (Monaco), Blockly and the Rules blocks are loaded only when a script of that kind is opened, so the editor starts faster
-* (@GermanBluefox) Added function block diagrams (FBD, in the style of CFC): timers, counters, flip-flops, edges, comparison, arithmetic, conversions, control, calendar (cron, sun events), log and messages, and a block with own JavaScript - wired to ioBroker states. See [the description](docs/en/fbd.md)
-
-### 10.2.5 (2026-09-17)
-* (@GermanBluefox) Added the functions help dialog in editor
-
-### 10.2.4 (2026-09-14)
-* (@GermanBluefox) Rules: selection of state fixed
-* (@GermanBluefox) Fixed debugger
-
-### 10.2.0 (2026-09-11)
-* (@GermanBluefox) Rules: an empty "and" band folds down to its heading. A rule without conditions runs its actions on every trigger, but that band was still the tallest thing in the rule - a drop area with a 64px floor, the "just check" selector and an "or" row per group, 292px for nothing. It is 41px now and says "without condition", clicking the heading opens it again, dragging a condition over it opens it by itself, and a band that has conditions in it never folds
-* (@GermanBluefox) Rules: the block palette takes half the room it did. An entry carried 24px of padding around a 30px icon, which left 66px of sidebar for one line of text - so four blocks filled the whole height and everything else was behind a scrollbar. Entries are 31px apart now, the icon-only tabs above them no longer reserve the height of a label they do not have, and the sidebar is 168px instead of 200px wide. A name too long for that gets the full text as its tooltip. The button that folds the palette away also sits on the palette's line now instead of one pixel to the left of it, where it hung over the edge of the window once the palette was folded away
-* (@GermanBluefox) Rules: picking the state of a trigger took the editor down with "n.replace is not a function" when a condition on a string state had no value entered yet. Choosing a state compiles the whole rule again, and the empty value arrived at the comparison as the boolean `false`. A condition without a value now compares against an empty text, and a number entered for a state that is a string is used as its text
-* (@GermanBluefox) The script editor now tells the adapter every 10 seconds that it is open, and the adapter keeps the type definitions and the compiler hot while that is the case, so saving a script does not wait for them to be built again. 30 seconds after the last sign of life the GUI counts as gone and everything is given back - about 100 MB. A tab in the background does not count as open, so a forgotten browser tab cannot keep the memory alive for days (#2373)
-* (@GermanBluefox) The type definitions of Node.js, ioBroker and the configured libraries were read at every start, whether anything wanted them or not. Only two things do - compiling a TypeScript script and the built-in editor - and they add about 90 MB to the compiler, so they are now read when one of those actually asks. An instance that runs plain JavaScript and is edited elsewhere (mirror directory, external editor) never reads them; the declarations of global JavaScripts are generated without them and come out the same. They can also be switched off for good ("Load type definitions", TypeScript tab) - the editor then loses its autocompletion and TypeScript scripts no longer compile, which the adapter warns about in the log (#2373)
-* (@GermanBluefox) Every instance kept two TypeScript language services alive whether it needed them or not, and each one held on to about 95 MB once it had compiled anything. They are now built on the first compilation only, and the declarations of global JavaScripts are stored on the script object the same way compiled TypeScript sources already were - so a restart no longer regenerates them. What a language service does end up building is released again a minute after the last compilation and rebuilt on demand. On a test system this took an instance from 241 MB to 127 MB heap (352 MB to 233 MB RSS) (#2373)
-* (@GermanBluefox) The helpers that the script editor draws on its own - the "Explain / Refactor / Test" row above every function, the tooltips for object IDs and CRON expressions, and the inline code suggestions - can be switched off. The instance setting "Show AI helpers in the script editor" (AI settings) does it; it is on by default, so nothing changes for anyone who is happy with them. `Alt+I` still shows the value of the object ID under the cursor when they are off
-* (@GermanBluefox) The reasoning of an OpenAI-compatible endpoint was switched off unconditionally: `reasoning_effort: "none"` went out with every request as soon as a custom base URL was configured. That is right for a small local model and wrong for everything else - behind a proxy it turns off the reasoning of the very model one is paying for, or is rejected. It is a setting now ("Reasoning effort"), and the default leaves the parameter out and lets the endpoint decide
-* (@GermanBluefox) The AI editor told the adapter how long it was willing to wait, and the adapter never read it: a stuck inline completion held its slot for the full ten minutes instead of the fifteen seconds it asked for
-* (@GermanBluefox) The inline completion took the model chosen in the AI chat but picked the provider itself, so a model of one provider could be requested with the credentials and at the endpoint of another. Model and provider are now remembered and used together
-* (@GermanBluefox) When two providers offer a model of the same name - a proxy and the vendor behind it, for instance - which of them served it was decided by whichever answered first, and could change from one reload to the next. The provider configured first wins now, so the direct route is preferred over a proxy
-
-### 10.1.4 (2026-09-03)
-* (@GermanBluefox) Rules: the text of an action can round the trigger value with `%.1s` - any number of digits after the decimal point, also `%.2old` for the old value - formatted with the decimal separator of the system, so `Kühlschrank zu warm (%.1s°C)` gives `29,4°C` where `%s` gave `29.400000000000002°C`
-* (@GermanBluefox) Corrected the function block in blockly
-* (@GermanBluefox) A custom OpenAI-compatible AI endpoint answered "Invalid API key" in the inline completion and while loading the model list, although the test button in the settings said "ok": both asked the adapter for the provider `openai`, and the adapter picks the key by that name, so they used the "OpenAI API key" instead of the "Custom API key". The custom endpoint is now addressed as what it is, everywhere (#2369)
-* (@GermanBluefox) A configured "Custom API Base URL" also redirected every request meant for OpenAI itself to that address - with the OpenAI key attached and no way to switch it off. The base URL now belongs to the custom endpoint alone, so both can be used side by side. If the key of your custom endpoint is in the "OpenAI API key" field, move it to the "Custom API key" field; the adapter writes a warning in the log if it finds such a setup (#2369)
-* (@GermanBluefox) A folded "or"/"else" section of a rule still occupied the 64px every section reserves as a drop target, and showed the top 64px of the very cards it was supposed to hide - clipped, and out of reach of the scrollbar. Being the last thing in the rule, that looked like a rule that could not be scrolled to its end
-* (@GermanBluefox) The 1px line between the script tabs and the toolbar stopped 10px short of the left edge and 40px short of the right one: the tab row carried a margin and a `calc(100% - 50px)` width to leave room for the "close all but current" button. Both are padding on the tab strip now, so the line reaches the edges of the pane
-* (@GermanBluefox) Blockly was grey in every dark theme - workspace, toolbox and flyout were hard-coded colours, which left a grey block sitting in the middle of, for instance, the navy "modernDark" admin. They follow the colours of the active ioBroker theme now, in light themes as well. The blocks themselves keep the colour of their category
+* (@GermanBluefox) Fixed: the AI push session is bound to the user who opened it, and testing the values of the AI settings form needs the "execute" right
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>,
-
-Copyright (c) 2014      hobbyquaker
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>  
+Copyright (c) 2014 hobbyquaker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

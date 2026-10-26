@@ -22,6 +22,15 @@ The adapter sends individual notifications for configurable weather events — s
 ### Configurable HTML widget
 The adapter generates a ready-to-use HTML data point (`widget`) that can be embedded directly in VIS, vis-2 or any ioBroker dashboard — no external tools or manual CSS needed. Theme (light/dark), background transparency, card transparency, font size and card color are all configurable directly in the adapter settings.
 
+**Chart variant:** besides *simple* and *detailed* there is a *chart* widget modelled on the Home Assistant weather-forecast-card:
+- current weather with details (feels like, humidity, wind, pressure, visibility, UV, sunrise/sunset)
+- daily and hourly forecast as a chart – tap the forecast to switch between daily and hourly
+- the gear button selects the charted values: temperature & precipitation, feels like, precipitation probability, wind speed & gusts, humidity, pressure, UV index
+- wind force (Beaufort) with direction indicator for every column
+- configurable: start view (daily/hourly/daily only), which values appear in the menu, details block, wind row and moon phase on/off
+- interaction needs a browser with CSS `:has()` (Chrome/WebView 105+, Safari 15.4+, Firefox 121+); older browsers show the configured start view without switching
+- pure HTML/CSS without JavaScript; only values the adapter actually fetches are shown (disabled data groups disappear from details and menu)
+
 ### Animated weather wallpaper / screensaver
 The adapter generates a self-contained, animated weather wallpaper per location — a full-screen canvas animation (rain, snow, fog, lightning, sun glare, stars) driven by the real current weather instead of manual controls, ideal as a wall-mounted tablet screensaver or a VIS/dashboard background.
 - **Real weather-driven effects** — wind direction/speed drive rain and fog drift, precipitation amount scales particle intensity, sun and moon position (and moon phase) follow real astronomical data (SunCalc) for the configured location
@@ -140,6 +149,7 @@ The adapter creates data points under `openmeteo-notify.<instance>.<location>`.
 | `icon_url` | Weather icon URL (icon set selectable in settings) | |
 | `precipitation` | Total precipitation last hour | mm/inch |
 | `rain` | Rain amount last hour | mm/inch |
+| `showers` | Shower-type (convective) precipitation last hour | mm/inch |
 | `snowfall` | Snowfall last hour | cm |
 | `snow_depth` | Current snow depth on the ground | cm |
 | `cloudcover` | Cloud cover | % |
@@ -213,7 +223,7 @@ The adapter creates data points under `openmeteo-notify.<instance>.<location>`.
 
 ### Hourly values (`day1.hourly.h00` … `h23`)
 
-Temperature, feels-like, precipitation, rain, snowfall, snow depth, snowfall height, rain probability, cloud cover, humidity, dew point, pressure, visibility, is_day, wind speed, wind direction (text/emoji/icon), Beaufort, UV index, freezing level height, weather code, icon/icon_url, description.
+Temperature, feels-like, precipitation, rain, showers, sunshine (minutes), snowfall, snow depth, snowfall height, rain probability, cloud cover, humidity, dew point, pressure, visibility, is_day, wind speed, wind direction (text/emoji/icon), Beaufort, UV index, freezing level height, weather code, icon/icon_url, description.
 
 Optional per hour (if enabled + "also hourly"):
 
@@ -224,6 +234,21 @@ Optional per hour (if enabled + "also hourly"):
 | `hXX.agriculture` | solar_radiation (W/m²), CAPE (J/kg), soil_temp (°C/°F), irradiance = global tilted irradiance on a flat surface (W/m²), lifted_index (K) |
 | `hXX.comfort` | heat_index, windchill, humidex, humidex_level, uv_index, uv_level |
 | `hXX.pollen` | alder … ragweed + level text (Keine/Niedrig/Mittel/Hoch) |
+
+### 15-minute forecast (`minutely`, optional)
+
+Enabled under *Settings → 15-minute forecast* with its own fetch interval (15/30/60 min) and range (1–4 hours).
+
+| Data point | Description | Unit |
+|-----------|-------------|------|
+| `minutely.0min` … `225min` | One folder per quarter hour, named by the minutes from now (`0min` = now, `15min`, `30min` …): `time`, `precipitation`, `rain`, `showers`, `snowfall`, `precipitation_probability`, `weathercode`, `temperature`, `windgusts`, `lightning_potential` (Germany / Central Europe only) | |
+| `minutely.rain_starts_in` | Minutes until precipitation (above the threshold) starts – 0 = now, empty = not within the range | min |
+| `minutely.rain_ends_at` | Time when the current precipitation ends – empty if it is not raining or it lasts beyond the range | |
+| `minutely.text` | Short-range forecast as text in the system language, e.g. "Rain from 08:30 (in 45 min)", "Thunderstorm until about 09:00"; when it stays dry within the window, the hourly forecast is used: "Rain from about 15:00" (or snow / thunderstorm) or "No precipitation in sight" | |
+
+Optional notification "precipitation starts soon" (lead time and threshold configurable), once per precipitation spell.
+
+The widgets show the short-range forecast without changing their size (option per widget, on by default): *simple* and *detailed* replace the summary line with the text while precipitation is expected, *detailed* additionally turns the divider above the hourly row into a precipitation strip on the same time axis, *chart* shows the text in the settings row and gets a third view "15 min" (tap on the chart: days → hours → 15 min).
 
 ### Official warnings (`warnings`)
 
@@ -271,27 +296,34 @@ This adapter uses data from the following third-party services:
 This adapter is an independent community project and is not affiliated with or endorsed by any of the above services.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 0.4.1 (2026-10-22)
+* (ipod86) feat: short-range forecast in all widgets (text line, precipitation strip, "15 min" chart view) and as `minutely.text` – widget size unchanged
+
+### 0.4.0 (2026-10-21)
+* (ipod86) fix: suncalc 2.1.1 – corrected moon phase, moonrise/moonset now assigned to the local calendar day
+* (ipod86) feat: optional 15-minute forecast for the next 1–4 hours with its own interval and "precipitation starts soon" notification
+* (ipod86) fix: moonrise/moonset in local time of the location like sunrise/sunset (was UTC)
+* (ipod86) fix: wallpaper URL data points of removed web instances are deleted
+* (ipod86) feat: showers (convective precipitation) also current and hourly; sunshine minutes per hour; lightning potential in the 15-minute forecast
+
+### 0.3.1 (2026-10-21)
+* (ipod86) fix: much smaller widget data points – built-in icons are loaded via their path instead of being embedded as Base64, custom icons are embedded only once, smaller basmilius/moon PNGs (detailed widget e.g. 841 KB → 83 KB)
+* (ipod86) fix: warning badge could not be opened when a dashboard card displays the widget in a shadow DOM
+* (ipod86) feat: warning window: heading and dates in the system language, scrolling stays inside the window on mobile
+* (ipod86) feat: screensaver warning banner: identical warnings combined, highest level first, at most 2 lines with "+N more"
+
+### 0.3.0 (2026-10-17)
+* (ipod86) feat: new widget variant "chart" (daily/hourly forecast chart with selectable values)
+* (ipod86) fix: widget data points are only written when the HTML actually changed (no re-render every warning check)
+
 ### 0.2.1 (2026-09-16)
 * (ipod86) fix: wallpaper day/night brightness was calculated in the host system's timezone instead of the location's, showing full night hours after real sunrise if the two differ
 * (ipod86) fix: wallpaper brightness ramped up/down like a full-day curve instead of a short dawn/dusk transition, staying artificially dark for 1-2 hours after real sunrise
 * (ipod86) fix: resolve broken `npm install` in the admin UI (react/mui had drifted to versions incompatible with `@iobroker/adapter-react-v5`)
-
-### 0.2.0 (2026-09-08)
-* (ipod86) feat: add animated, per-location WMO weather wallpaper (canvas rain/snow/fog/lightning/sun/moon animation), self-updating via a companion JSON file (no REST API needed), with a dedicated admin config tab, an optional location carousel, an independent live-update interval and an official warning banner
-* (ipod86) feat: wallpaper sun/moon position and moon phase follow real astronomical data (SunCalc); rain/fog intensity and wind drift follow real weather data
-* (ipod86) feat: add day/night split for precipitation/thunderstorm probability, wind, rain and snowfall amount
-* (ipod86) fix: treat overlapping DWD warning time-shifts as an update instead of lift+new
-
-### 0.1.16 (2026-08-17)
-* (ipod86) fix: variable shadowing in fetchDwdWarnings caused every DWD official warning request to fail with "Cannot access 'raw' before initialization", silently freezing the affected warning states
-* (ipod86) fix: guard the official warning update against a single hung request permanently stalling the recurring schedule
-
-### 0.1.15 (2026-07-19)
-* (ipod86) fix: sanitize widget.id through normalizeId before use as ioBroker object ID path
-
-### 0.1.14 (2026-07-16)
-* (ipod86) fix: persist warning dedup state across adapter restarts to prevent duplicate notifications on restart
-* (ipod86) fix: deduplicate DWD warnings from combined warnings+vorabInformation API arrays (same event rounded to minute)
 
 Older changelogs are available in CHANGELOG_OLD.md.
 

@@ -80,11 +80,11 @@ every widget is configured with its own settings dialog - no state has to be pic
 **SONOS player** is one speaker. The settings ask for the instance and the speaker; the list of
 speakers comes from the adapter itself, so it always matches the devices on the *SONOS devices* tab.
 
-| Size     | What is shown                                                                      |
-|----------|------------------------------------------------------------------------------------|
-| 1x1      | The cover as background, the speaker, title, artist, play state and the progress   |
-| 2x0.5    | A strip: cover thumbnail on the blurred cover, the speaker, title, artist, progress |
-| 2x1, 2x2 | The large cover with the speaker and play state on it, title, artist and progress  |
+| Size      | What is shown                                                                       |
+|-----------|-------------------------------------------------------------------------------------|
+| 1x1       | The cover as background, the speaker, title, artist, play state and the progress    |
+| 2x0.5     | A strip: cover thumbnail on the blurred cover, the speaker, title, artist, progress |
+| 2x1, 2x2  | The large cover with the speaker and play state on it, title, artist and progress   |
 
 The tiles are built like the media player of ioBroker.devices: a click opens the full player as a
 dialog - cover, title, artist and album, the progress slider to jump within the track, previous /
@@ -319,25 +319,21 @@ adapter to get a working state back.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 4.2.12 (2026-10-17)
+* (@GermanBluefox) Updated packages
+
+### 4.2.11 (2026-10-14)
+* (@GermanBluefox) Added the sizes for all screens to the settings. Removed the outdated admin pages
+* (@GermanBluefox) The TCP port for the SONOS events is reported to js-controller 8 as a used resource
+
+### 4.2.10 (2026-10-13)
+* (@GermanBluefox) Small repo-checker fixes
+
 ### 4.2.9 (2026-09-15)
 * (@GermanBluefox) SONOS player widget for ioBroker.devices: the tile looks like the media player of `ioBroker.devices`, and a click opens the full player with shuffle, repeat, seek, volume and the source selection
 
 ### 4.2.6 (2026-09-09)
 * (@GermanBluefox) Corrected devices widget
-
-### 4.2.5 (2026-09-08)
-* (@GermanBluefox) Added a control page for the web adapter under `/sonos/`, plus a tile on the admin overview
-* (@GermanBluefox) Added the source selection (favorites, playlists, queue, recently played, sources) to all four widgets
-* (@GermanBluefox) Added `queue_array`, the play queue as JSON - `queue` joins the tracks with a comma and cannot be split back reliably
-
-### 4.2.2 (2026-09-08)
-* (@GermanBluefox) Added two widgets for the `ioBroker.devices` dashboard: SONOS player and SONOS rooms
-* (@GermanBluefox) Added a "Control" tab to the instance settings, which plays and groups the speakers directly in admin
-
-### 4.2.0 (2026-09-06)
-* (@GermanBluefox) The client library can be switched in the instance settings
-* (@GermanBluefox) Added `@svrooij/sonos` as an experimental alternative to `sonos-discovery`
-* (@GermanBluefox) The adapter talks to a backend interface now, so both libraries fill the same states
 
 ## License
 

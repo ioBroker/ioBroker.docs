@@ -5,10 +5,108 @@ BADGE-Number of Installations: https://iobroker.live/badges/smartloadmanager-ins
 BADGE-Current version in stable repository: https://iobroker.live/badges/smartloadmanager-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.smartloadmanager.png?downloads=true
 BADGE-Test and Release: https://github.com/quorle/ioBroker.smartloadmanager/workflows/Test%20and%20Release/badge.svg
+chapters: {"pages":{"de/adapterref/iobroker.smartloadmanager/README.md":{"title":{"de":"ioBroker.smartloadmanager"},"content":"de/adapterref/iobroker.smartloadmanager/README.md"},"de/adapterref/iobroker.smartloadmanager/release-0.2.0-pruefung.md":{"title":{"de":"Arbeits- und Prüfplan für 0.2.0"},"content":"de/adapterref/iobroker.smartloadmanager/release-0.2.0-pruefung.md"}}}
 ---
 ![Logo](../../admin/smartloadmanager.png)
 
 # ioBroker.smartloadmanager
+
+## Beispiele für Version 0.2.0
+
+Voraussetzung: Node.js ab 22.19.0. Der Adapter sendet Gerätebefehle mit
+`ack: false`; die Bestätigung (`ack: true`) übernimmt der zuständige Geräteadapter.
+Der Einspeisewert muss die Leistung am Netzanschlusspunkt in Watt darstellen.
+Bei negativem Vorzeichen für Einspeisung muss `feedinNegativ` aktiviert werden.
+Die Grundlast wird zusätzlich als Reserve abgezogen; bereits im Netzanschlusswert
+enthaltenen Hausverbrauch nicht nochmals als Grundlast eintragen.
+
+### Binärer Verbraucher und Heizung
+
+Beispiel: Steckdose mit `performance: 1000`, `switchOnPoint: 1200`,
+`switchOffPoint: 0`, `switchOnDelay: 20`, `switchOffDelay: 10`.
+Ab 1200 W Überschuss nach Grundlast startet die Einschaltverzögerung.
+Bei Netzbezug oder Unterschreiten der Abschaltgrenze startet die Abschaltung.
+`minimumOnMinutes: 10` und `minimumOffMinutes: 5` begrenzen häufiges Schalten;
+stärkerer Netzbezug als `forecastMaxGridImport` übergeht die Mindestlaufzeit.
+Mit `0` können Mindestzeiten explizit deaktiviert werden.
+
+`datapoint` schaltet boolean, `numericDatapoint` numerisch mit 0/1.
+Für Heizungen `ruletype: heating` wählen und Temperatur-, Freigabe- und
+Heartbeat-Datenpunkte konfigurieren. Das Erreichen von `maxTemperature` sowie
+fehlende Freigabe oder ein falscher Heartbeat verhindern das Einschalten.
+Ein gesetzter Heartbeat-Datenpunkt wird auf seinen Wahrheitswert geprüft;
+das ist keine Überwachung seines Alters.
+Fehlt ein konfigurierter Temperatursensor oder liefert er keinen endlichen
+Zahlenwert, wird eine Heizung nicht eingeschaltet bzw. automatisch abgeschaltet.
+„Ausschalten nur zu Ausschaltzeit“ unterdrückt absichtlich die normale
+Überschussabschaltung bis zum Zeitfensterende; Heizschutz bleibt wirksam.
+
+### Prozentregelung und Batterie
+
+Ein Prozentverbraucher mit 2000 W Maximalleistung und aktuell 50 % benötigt
+1000 W. Zeigt der Netzzähler zusätzlich 400 W Einspeisung, wird auf 70 % geregelt.
+Bei 200 W Netzbezug wird auf 40 % reduziert. Liegt die tragbare Leistung unter
+`minPercentStart`, wird auf 0 % geregelt. Deaktivierte Verbraucher werden nicht geregelt.
+Die Leistungsrechnung setzt voraus, dass der Verbraucher im Netzzähler enthalten ist.
+
+Für eine Batterie `batterySetpoint`, `performance`, optional `batterySOC` und
+`batteryTargetSOC` wählen. Bei 800 W verfügbarem Überschuss und maximal 1500 W
+Ladeleistung wird 800 W vorgegeben. Bei erreichtem Ziel-SOC wird die Ladeleistung 0.
+Der optionale globale Batterie-Modusdatenpunkt verwendet 0 (aus), 1 (Ziel erreicht)
+und 2 (laden); diese Werte müssen zum Geräteadapter passen.
+
+`controlMode` im Objektbaum: 0 = aus, 1 = manuell ein, 2 = automatisch.
+Manuell ein setzt Prozentverbraucher auf 100 % bzw. die Batterie auf ihre konfigurierte
+Leistung. Automatische Prozent- und Batterieregler überschreiben manuelle Modi nicht.
+Die Batterie berücksichtigt bereits angeforderte Ladeleistung und korrigiert sie
+um den gemessenen Netzüberschuss. `batteryDelaySeconds` und `delaySecondsProzent`
+gelten auch bei häufigen Zähleraktualisierungen; 0 bedeutet sofortige Regelung.
+Fehlt ein konfigurierter SOC-/Ziel-SOC-Wert, wird die Ladeleistung auf 0 gesetzt.
+Zeitfenster werden zusätzlich alle 15 Sekunden geprüft. Das Deaktivieren eines
+Verbrauchers beendet seine ausstehenden Schaltbefehle; es schaltet das Gerät nicht
+automatisch aus. Dafür `controlMode: 0` verwenden.
+
+### PV-Prognose mit ioBroker.pvforecast
+
+`enableForecast` aktivieren, `forecastJsonDatapoint` etwa auf
+`pvforecast.0.summary.JSONData` setzen und beim Verbraucher `useForecast` aktivieren.
+Auch `pvforecast.0.plants.<Anlagenname>.JSONData` ist möglich; dann wird nur diese
+Anlage berücksichtigt. Die globale Aktivierung und „Prognose verwenden“ beim
+jeweiligen Verbraucher sind beide erforderlich. „Prognoseentscheidungsbenachrichtigungen“
+aktiviert die Prognosesteuerung nicht selbst und erzeugt erst bei einer tatsächlichen
+Prognoseentscheidung eine Nachricht. In 0.2.0 stehen Datenimporte nur im Debug-Log.
+Version 0.4.1 zeigt Konfiguration, Datenimporte und aktivierte
+Entscheidungsnachrichten nur im Debug-Log an. Gleiche Entscheidungsnachrichten werden
+innerhalb von fünf Minuten zusammengefasst. Für externe Nachrichten zusätzlich den
+Notification Manager oder einen Nachrichtendienst konfigurieren.
+Beispiel für das erwartete Format (Zeitstempel sind Unix-Millisekunden):
+
+```js
+const now = Date.now();
+const forecast = [0, 15, 30, 45].map(minutes => ({
+    t: now + minutes * 60000,
+    y: 3.5,
+}));
+// JSON.stringify(forecast), mit forecastPowerUnit = "kW"
+```
+
+Bei 500 W Grundlast bleiben 3000 W prognostizierter Überschuss.
+Mit `forecastSafetyPercent: 80` stehen konservativ 2400 W zur Verfügung.
+Ein 2000-W-Verbraucher kann freigegeben werden, wenn das Zeitfenster mindestens
+`forecastMinMinutes: 30` lang ist, höchstens `forecastMaxStartMinutes: 30`
+Minuten entfernt liegt und bei `forecastMinCurrentPercent: 50` bereits mindestens
+1000 W realer Überschuss vorhanden sind. Prognosen ersetzen keinen gemessenen Überschuss.
+
+`forecastBridgeMinutes: 5` begrenzt das Überbrücken kurzer Einbrüche;
+`forecastMaxGridImport: 100` verhindert Überbrücken bei mehr als 100 W Netzbezug.
+Vergangene Datenpunkte werden verworfen. Bei kleinen W-Werten die Einheit explizit
+auf `W` setzen, da die automatische Erkennung Werte bis 100 als kW interpretiert.
+`forecast.*` und die Prognosestatuswerte des Verbrauchers zeigen die Entscheidung an.
+
+Zeitfenster können über Mitternacht gehen, z. B. 22:00–06:00.
+Gleiche Start- und Endzeit gelten als ganztägiges Fenster.
+
+Prüfumfang und externe Release-Abhängigkeiten: [Release-Prüfbericht](/#/docs/adapterref/iobroker.smartloadmanager/release-0.2.0-pruefung.md).
 
 ## 🔧 Beschreibung
 
@@ -177,14 +275,13 @@ Für jeden Verbraucher wird ein eigener Channel mit folgenden States erzeugt:
 - Keine SOC-Historie, keine Langzeitlogik
 - Keine Mehrfachverwendung identischer Datenpunkte
 - Batterie-Steuerung basiert rein auf FeedIn, keine Rücksicht auf Entladeleistung
-- Keine prozentuale Mindestgrenze definierbar (z. B. 10 % min für Wallbox)
 - Heating ohne direkte Leistungsmessung – nur Grenzwerte und Freigabe-Checks
 
 ---
 
 ## 🛣️ Zukünftige Features
 
-- PV-Prognosebasierte Steuerung (Beta)
+- ~~PV-Prognosebasierte Steuerung (Beta)~~
 - Unterstützung kombinierter Verbraucher
 - ~~Priorisierungs-Profile~~
 - Überhitzungs- oder Fehler-Handling je Gerät
@@ -193,14 +290,41 @@ Für jeden Verbraucher wird ein eigener Channel mit folgenden States erzeugt:
 
 ---
 
+## PV-Prognosesteuerung
+
+SmartLoadManager kann `pvforecast.<Instanz>.summary.JSONData` verwenden. Dazu wird die Prognosesteuerung aktiviert, der JSON-Datenpunkt ausgewählt und die Funktion bei den gewünschten Verbrauchern eingeschaltet.
+
+Der Adapter bewertet ein zusammenhängendes Prognosefenster statt eines einzelnen Werts. Ein konfigurierbarer Sicherheitsfaktor reduziert optimistische Prognosen. Für prognosegestütztes Einschalten muss außerdem bereits ein Teil der benötigten Leistung als realer Überschuss vorhanden sein. Kurze Einbrüche dürfen zeitlich begrenzt überbrückt werden, jedoch nur bis zum eingestellten maximalen Netzbezug.
+
+Mindestlauf- und Mindeststillstandszeiten verhindern häufiges Schalten. Prognoseentscheidungen übersteuern niemals Zeitfenster, Temperaturgrenzen, Hardwarefreigabe, Heartbeat oder Batterie-SOC-Grenzen.
+
+Empfohlene Startwerte: 80 % Sicherheitsfaktor, 30 Minuten Prognosefenster, 30 Minuten maximale Vorlaufzeit, 50 % erforderlicher realer Überschuss, 5 Minuten Überbrückung, 100 W maximaler Netzbezug und 10/5 Minuten Mindestlauf-/Mindeststillstandszeit.
+
 ## Changelog
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 0.4.1 (2026-10-24)
+
+- (quorle) Make forecast configuration, data imports and decision notifications visible only in the debug log; report forecast decisions for percentage and battery consumers and limit identical notifications to once per five minutes.
+- (quorle) Clear cached forecast data and report missing, invalid or expired source data instead of silently retaining previous forecasts.
+
+### 0.2.0 (2026-10-24)
+
+- (quorle) Added sustained PV forecast evaluation, configurable W/kW units, safety margins, minimum on/off times and limited forecast dip bridging.
+- (quorle) Fixed binary commands to use `ack: false` without fabricating device acknowledgements; corrected battery commands and negative feed-in handling.
+- (quorle) Fixed percent regulation to include existing load power, stop below minimum power, and respect activation and automatic/manual modes.
+- (quorle) Fixed manual percent commands, switch-on thresholds, overnight time windows, stale forecasts and repeatedly postponed regulation timers.
+- (quorle) Recheck delayed activations, cancel disabled consumer timers, periodically evaluate time windows, stop heating/charging on missing configured sensors, and stabilize battery feedback regulation while honoring its delay.
+- (quorle) Migrated translations to short JSON format, synchronized all eleven languages, completed notification translations and corrected Admin configuration schema fields.
+- (quorle) Updated adapter-core and testing dependencies, aligned Node.js typings/configuration, and added Node.js 26 to the 22/24/26 CI matrix.
+- (quorle) Replaced the Dependabot `pull_request_target` trigger and removed obsolete workflows and tracked editor backups.
+- (quorle) Added regression tests for actual consumer control, configured controller integration tests, and expanded English/German documentation with examples.
+- (quorle) Require Node.js >=22.19.0; include documentation and forecast runtime code in the npm package while excluding unit tests.
+
+See [English examples](docs/en/README.md#version-020-examples) and [deutsche Beispiele](docs/de/README.md#beispiele-für-version-020).
 
 ### 0.1.2 (2026-04-15)
 
@@ -231,6 +355,8 @@ Für jeden Verbraucher wird ein eigener Channel mit folgenden States erzeugt:
 
 - (quorle) Adjustments package.json
 - (quorle) Code changed
+
+Older release notes: CHANGELOG_OLD.md.
 
 ## License
 

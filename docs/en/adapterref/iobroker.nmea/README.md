@@ -111,7 +111,7 @@ Use `windDatumDisplay` for visualization and `windDatum` for calculations/automa
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.0.1 (2026-10-19)
 - (@GermanBluefox) Migrated widgets to React 19
 
 ### 2.0.0 (2026-08-04)
@@ -130,9 +130,6 @@ Use `windDatumDisplay` for visualization and `windDatum` for calculations/automa
 * (bluefox) Implemented Raymarine autopilot support
 * (bluefox) Corrected values simulation for yacht devices gateways
 * (bluefox) Added support of Fusion player
-
-### 0.4.2 (2026-01-05)
-* (bluefox) Updated packages
 
 ## License
 The MIT License (MIT)

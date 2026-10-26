@@ -29,11 +29,32 @@ chargerOpMode =
 
 dynamicCircuitCurrentPX -> All phases must be set within 500ms (script) otherwise the phase will be set to 0.    
 
+Session polling can run automatically at a recommended interval of seven minutes per detected charger, or use a manually selected interval per charger. The Admin configuration shows the detected charger count, recommendation, and effective interval. Manual values below the recommendation are raised automatically to preserve the API rate limit. The last session request time is retained across adapter restarts.
+
+## Credits
+
+This adapter would not have been possible without the great work of @Newan (https://github.com/Newan), who developed former releases of this adapter.
+
 ## Changelog
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.0.0 (2026-10-23)
+- (Voodoo2man) Migrated the adapter to TypeScript; Node.js 22.19.0 or newer is required
+- (Voodoo2man) Updated adapter tooling, Admin configuration, and runtime metadata
+
+### 2.0.0 (2026-10-18)
+- (Voodoo2man) Improved charger status and connectivity handling with the Observations API, SignalR resilience, bounded polling, and API retries, incorporating contributions from @Voodoo2man, @Michaelnorge, @Codibris, and @m1chel87, with earlier Node.js and JSON-config groundwork from @NCIceWolf.
+- (Voodoo2man) Improved circuit-current update reliability and added configurable, rate-limit-aware session polling across chargers.
+- (Voodoo2man) Added configurable net charging prices and VAT with synchronized gross prices.
+
+### 2.0.0-alpha.1 (2026-10-17)
+- (mcm1957) Adapter has been migrated into the iobroker-community-adapter-organisation
+- (iobroker-bot) Adapter requires node.js >= 22 now.
+- (copilot) Adapter requires js-controller >= 7.2.2 now
+- (copilot) Adapter requires admin >= 7.7.22 now
+
 ### 1.0.10 (2023-07-27)
 * (Newan) fix version number
 
@@ -43,36 +64,13 @@ dynamicCircuitCurrentPX -> All phases must be set within 500ms (script) otherwis
 * (walburgf)  modified internationalization to use jsonConfig.json. this needs at least ioBroker.admin version 5
 * (walburgf)  added dependency to admin >=v5.1.28
 
-### 1.0.8 (2023-07-02)
-* (Newan)  small fixes
-
-### 1.0.7
-* (Newan) Changed login URL
-
-### 1.0.6
-* (Newan) Changed that smart charging is editable
-
-### 1.0.5
-* (marwin79) More Features supported and convert values to expected datatypes
-
-### 1.0.4
-* (Newan) dynamicCircuitCurrentPX writeable (set all Phases in 500ms) to limit ampere
-
-### 1.0.3
-* (Newan) Adapter crash fixed an other bugfixes
-
-### 1.0.1
-* (Newan) Add circuitMaxCurrentPX to limit current ampere
-
-### 1.0.0
-* (Newan) Stable Version with SignalR
-
 ## Donation
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## License
 MIT License
 
+Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2025 Newan <iobroker@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

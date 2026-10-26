@@ -176,6 +176,14 @@ Which comfort commands actually appear depends on the detected vehicle model —
 ## Changelog
 
 ### **WORK IN PROGRESS**
+
+### 0.7.5 (2026-10-25)
+- Fix: several boolean status datapoints (climate active, recirculate, locked, door-control-allowed, all four doors, ignition, Bluetooth, hotspot, and the non-T03 window-open indicators) were written straight from the raw cloud signal without converting it to an actual boolean - harmless on models/signals that happen to come back as JS `true`/`false` already, but logged a "has to be type boolean but received type number" warning (and stored a 0/1 number instead of a real boolean) wherever the cloud sends a plain 0/1 flag instead, confirmed on a B10. All of the above are now explicitly coerced to boolean, `null`/`undefined` (no data) left as-is.
+
+### 0.7.4 (2026-10-25)
+- Fix: login could fail with "Could not open account certificate" for some accounts, depending entirely on the numeric size of the account's internal ID - Node's default JSON parsing silently rounds integer literals above 2^53 to the nearest representable value with no error, which corrupted the ID for any account whose ID exceeded that threshold and, with it, the password derived from that ID to decrypt the account certificate the cloud sends back at login. Confirmed as the cause on a B10 account that could never log in; the login response is now parsed in a way that preserves the ID's exact value regardless of its size. If you were hitting "Could not open account certificate" on login before, this should fix it.
+
+### 0.7.3 (2026-10-15)
 - New: optional comfort extras for Prepare-to-Drive/Work, opt-in and off by default since not every model/trim has them (confirmed absent on T03; unconfirmed on B10/C10/B05/C16):
   - Driver seat heat (level 1-3) when heating (cold)
   - Steering wheel heat when heating (cold)

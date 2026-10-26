@@ -20,7 +20,7 @@ Sentry.io is a service for developers to get an overview about errors from their
 When the adapter crashes or another Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry.
 When you have allowed ioBroker GmbH to collect diagnostic data, then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of these helps me to provide error-free adapters that basically never crash.
 
-## English :gb:
+## Description
 This adapter connects your Philips Hue Bridges with ioBroker to control Philips Hue LED bulbs, Friends of Hue LED lamps, stripes, plugs like from Osram, and other SmartLink capable devices (like LivingWhites and some LivingColors).
 
 ### Setup
@@ -67,10 +67,6 @@ setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, fals
 ### Additional information
 With version 3.3.0 the group states `anyOn` and `allOn` became controllable, note that they will just act like the `on` state,
 when controlled. In some cases, it may be desirable to have a controllable `anyOn` state in your visualization.
-
-## Deutsch :de:
-Bindet Philips Hue / LivingColors / LivingWhites Lampen ein. 
-In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfiguriert werden. Um einen User zu aktivieren, einmal auf create user drücken und dann innerhalb von 30 Sekunden den Button an der Hue bridge drücken. Dann wird automatisch der User übergeben. 
 
 ## Changelog
 <!--

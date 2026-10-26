@@ -36,6 +36,10 @@ In order for a camera to be detected again, it must simply be deleted under Obje
 
 Cameras can be searched for manually if Discovery does not work. To do this, an IP range and ports must be entered and executed manually. In the log you can see details about the process.
 
+### Ignore cameras
+
+Cameras whose IP is entered in the setting "Ignore cameras with these IPs" (comma separated) are never contacted by the adapter. This applies to the discovery, the manual search and cameras already created under Objects.
+
 ## States
 
 onvif.0.IP_PORT.events Events of the camera like e.g. motion detection. Sometimes you have to trigger the event to see it.
@@ -300,6 +304,11 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (GermanBluefox) Added ignore list for camera IPs (#391)
+- (GermanBluefox) Fixed warning about missing connection object (#391)
+
 ### 1.1.9 (2026-09-13)
 
 - (TA2k) Reduced log noise: a missing snapshot url is now logged once per camera as info instead of a warning per profile

@@ -19,10 +19,10 @@ Big thanks to free [CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-
 ### Configuration
 *Following documentation was copied from [callmebot](https://www.callmebot.com/blog/free-api-whatsapp-messages/) page.*
 
-You need to get the API key form the bot before using the API:
+You need to get the API key from the bot before using the API:
 
-- Add the phone number XXXX (get the current one from the CallMeBot page) into your Phone Contacts. (Name it it as you wish.)
-- Send this message `I allow callmebot to send me messages` (in english) to the new contact created (using WhatsApp of course).
+- Add the phone number XXXX (get the current one from the CallMeBot page) into your Phone Contacts. (Name it as you wish.)
+- Send this message `I allow callmebot to send me messages` (in English) to the new contact created (using WhatsApp of course).
 - Wait until you receive the message `API Activated for your phone number. Your APIKEY is 123123` from the bot. As this is still in beta testing, the activation can take up to 2 minutes.
 - The WhatsApp message from the bot will contain the API key needed to send messages using the API.
 - You can now use the API KEY in the ioBroker configuration.
@@ -43,16 +43,20 @@ sendTo('whatsapp-cmb.0', 'send', {
 
 ![Blockly](img/blockly.png)
 
-Inf you want to send emojies please refer to https://www.callmebot.com/uncategorized/how-to-use-emoticos-with-the-api/
+If you want to send emojis please refer to https://www.callmebot.com/uncategorized/how-to-use-emoticos-with-the-api/
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 1.0.0 (2026-10-13)
 - (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+- (bluefox) The adapter was refactored to TypeScript and JsonConfig
+- (bluefox) Breaking: Node.js >= 22.19, js-controller >= 6.0.11 and admin >= 7.0.0 are required now
+- (bluefox) Replaced the deprecated `request` package with `axios`
+- (bluefox) The Blockly block was migrated to TypeScript and works again with the current Blockly editor
+- (bluefox) Blockly: an empty message no longer breaks the script, the log shows the phone number value
 
 ### 0.3.0 (2024-05-25)
 * Important: Node.js 18 and js-controller 5.0.19 is required at least
@@ -67,15 +71,6 @@ Inf you want to send emojies please refer to https://www.callmebot.com/uncategor
 ### 0.2.1 (2022-03-25)
 * (Apollon77) Add Emoticons support
 * (Apollon77) Add Sentry for crash reporting
-
-### 0.1.6 (2020-08-31)
-* (Apollon77) Fixed the error with the phone number
-
-### 0.1.3 (2020-08-29)
-* (bluefox) The documentation and translations were added.
-
-### 0.0.1 (2020-08-27)
-* (bluefox) initial release
 
 ## License
 MIT License

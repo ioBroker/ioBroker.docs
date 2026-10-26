@@ -12,6 +12,7 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.awtrix-ng.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/awtrix-ng-stable.svg
 BADGE-Installed: http://iobroker.live/badges/awtrix-ng-installed.svg
+chapters: {"pages":{"en/adapterref/iobroker.awtrix-ng/README.md":{"title":{"en":"ioBroker.awtrix-ng"},"content":"en/adapterref/iobroker.awtrix-ng/README.md"},"en/adapterref/iobroker.awtrix-ng/weather-app.md":{"title":{"en":"ioBroker.awtrix-ng"},"content":"en/adapterref/iobroker.awtrix-ng/weather-app.md"}}}
 ---
 ![Logo](../../admin/awtrix-ng.png)
 
@@ -231,6 +232,8 @@ Expert apps are available since apdater version 0.10.0. They allow to set all va
 
 After that, all controllable states for the app name `test` will be created in `awtrix-ng.0.apps.test`. Just set values of `icon`, `text` and other states by using your own scripts and logic (e.g. JavaScript or Blockly).
 
+Example: [Weather app](/#/docs/adapterref/iobroker.awtrix-ng/weather-app.md) (current weather of ioBroker.openweathermap)
+
 #### Base Object
 
 The base object is a basic defition of an awtrix app to allow all possible attributes. *The base object will be extended with other attributes of the expert app.*
@@ -242,6 +245,16 @@ See [documentation](https://blueforcer.github.io/awtrix-ng/reference/payload/) f
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) Added state `display.overlay` to set a global weather overlay for all apps
+
+### 0.5.0 (2026-10-12)
+
+* (@klein0r) Icons of custom and history apps can be selected from the icons of the device in the instance configuration
+* (@klein0r) Added volume settings (`settings.audio.volume`, `.alertVolume`, `.appVolume`, `.radioVolume`)
+* (@klein0r) Custom apps: thresholds "less than" and "greater than" may now have the same value
+
 ### 0.4.0 (2026-10-08)
 
 * (@klein0r) `apps.<name>.enabled` switches just this app on or off (firmware 1.2.2)
@@ -287,12 +300,6 @@ See [documentation](https://blueforcer.github.io/awtrix-ng/reference/payload/) f
 
 * (@klein0r) Used new audio API endpoint for all types of sounds (file, mp3, rtttl)
 * (@klein0r) Recommended Awtrix NG version is now 1.1.0
-
-### 0.0.10 (2026-08-07)
-
-* (@klein0r) Updated documentation
-* (@klein0r) Recommended Awtrix NG version is now 1.0.15
-* (@klein0r) Automatically cast icon value to string in notifications
 
 ## License
 

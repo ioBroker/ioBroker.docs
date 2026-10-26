@@ -31,6 +31,8 @@ The counter state will increase up from its saved value, when the shelly energy 
 -->
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+- (BenAhrdt) update @iobroker/adapter-core to version 3.4.3
+- (BenAhrdt) update @iobroker/testing to version 6.3.0
 
 ### 2.5.15 (2026-04-05)
 * (BenAhrdt) building desc for id

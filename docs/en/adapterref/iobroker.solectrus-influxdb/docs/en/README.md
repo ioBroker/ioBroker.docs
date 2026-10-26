@@ -27,15 +27,36 @@ chapters: {"pages":{"en/adapterref/iobroker.solectrus-influxdb/README.md":{"titl
 
 Open the adapter settings and go to the **InfluxDB** tab.
 
+URL and token can be provided in two ways:
+
+### Option A (default): entry in the instance
+
+Leave **Credential** at **None** and enter URL, port and token directly in the fields.
+
+### Option B (Admin 8 and newer): ioBroker credential "Login & password"
+
+URL and token are stored centrally in *System settings → Credentials* and selected in the **Credential** field (➕ also creates one right there):
+
+- **Login** = URL, e.g. `http://192.168.1.10`
+- **Password** = API token
+
+The URL and token fields are then locked. Credentials of the form *Key* are not supported. If the credential is changed in the Admin, the adapter restarts.
+
+### Fields
+
 | Field | Description |
 |-------|-------------|
-| URL | InfluxDB 2.x server address (e.g. `http://192.168.1.10:8086`) |
+| Credential | **None** (option A) or a "Login & password" credential (option B) |
+| URL | InfluxDB 2.x server address without port, e.g. `http://192.168.1.10` |
+| Port | Default `8086`. `0` = default port of the protocol (e.g. 443 for HTTPS behind a reverse proxy). A port in the URL takes precedence. |
 | Organization | Your InfluxDB organization |
 | Bucket | Target bucket for time-series data |
 | Token | API token with **write** permissions |
 | Polling Interval (s) | How often sensor values are collected (5-30 seconds) |
 
 The adapter verifies the connection at startup by writing a test point. The connection state is shown in `info.connection`.
+
+> **Update from older versions:** a port in the URL (e.g. `http://192.168.1.10:8086`) is moved to the **Port** field automatically at the first start. A URL without port keeps the default port of its protocol (80 or 443). Nothing to do.
 
 At the bottom of this tab you will find:
 
@@ -52,7 +73,7 @@ Go to the **Sensors** tab. The master/detail editor shows all configured sensors
 
 By default, the adapter runs in **Standard Mode**. The sensor list shows all preconfigured sensors (INVERTER_POWER, BATTERY_SOC, HOUSE_POWER, forecast sensors, etc.). In standard mode:
 
-- The sensor list can be collapsed by **folder/group**. All preconfigured SOLECTRUS sensors start in the **Default SOLECTRUS sensors** group. Existing sensors from older configurations that do not match the default sensor set are automatically assigned to the **Custom sensors** group.
+- The sensor list can be collapsed by **folder/group**. The preconfigured SOLECTRUS sensors are sorted into folders as in the sensor overview of HELIOS: **Inverter**, **Grid**, **Battery**, **Wallbox**, **Electric Car 1–5**, **Heat Pump**, **Forecast** and **Custom Consumer**. Sensors from the former **Default SOLECTRUS sensors** folder are moved into these folders automatically. Existing sensors from older configurations that do not match the default sensor set are automatically assigned to the **Custom sensors** group.
 - **Editable**: Source State (ioBroker state), Enabled checkbox
 - **Read-only**: Sensor Name, Datatype, Measurement, Field, JSON Preset
 - **Hidden**: Add, Delete, Duplicate buttons, Internal checkbox, Folder/Group, Unit, Max Value, Alive Timeout
@@ -77,7 +98,8 @@ Click **Add** (Expert Mode) or select an existing sensor to configure:
 | Enabled | Activate/deactivate the sensor | Standard + Expert |
 | Internal | Mirrors the current value and keeps monitoring active, but skips writes to InfluxDB. Default: `false`. | Expert |
 | ioBroker Source State | The source state to read values from. Use the **Select** button to browse the object tree. | Standard + Expert |
-| Folder/Group | Optional group name for the sensor list on the left. Empty value = **Ungrouped**. All default sensors start in **Default SOLECTRUS sensors**. Legacy non-default sensors and newly created expert-mode sensors start in **Custom sensors**. | Expert |
+| Write only on change | The value is not written in the collect interval but each time the source state changes, with the time of that change (**last changed**, `lc`). A source that repeats the same value adds no point. Meant for values that change rarely, such as the car sensors. Not for JSON sensors. Default: off, on for the car sensors. | Standard + Expert |
+| Folder/Group | Optional group name for the sensor list on the left. Empty value = **Ungrouped**. Default sensors start in their HELIOS folder (e.g. **Battery**). Legacy non-default sensors and newly created expert-mode sensors start in **Custom sensors**. | Expert |
 | Sensor Name | Display name (also used for the ioBroker state ID under `sensors.*`) | Expert |
 | Unit | Physical unit of the sensor value (e.g. `W`, `°C`, `%`, `A`). Auto-detected from the ioBroker state's `common.unit` when a source state is selected. Defaults to `W` if no unit is configured. Can be overridden manually in Expert Mode. | Expert |
 | Max Value | Per-sensor plausibility limit. If exceeded, the last valid value is sent instead and a warning is logged. **0 = disabled** (default). | Expert |
@@ -87,6 +109,24 @@ Click **Add** (Expert Mode) or select an existing sensor to configure:
 | Influx Field | The InfluxDB field name (e.g. `power`) | Expert |
 
 At least one sensor must be enabled for data to be written.
+
+### Car sensors
+
+SOLECTRUS supports up to **5 cars**. Each car `n` (1–5) has a folder **Electric Car n** with these sensors:
+
+| Sensor | Meaning | Type |
+|---|---|---|
+| `CAR_BATTERY_SOC_n` | state of charge (%) | float |
+| `CAR_ODOMETER_n` | odometer (km) | float |
+| `CAR_RANGE_n` | remaining range (km) | float |
+| `CAR_CONNECTED_n` | car plugged in | bool |
+| `CAR_LATITUDE_n` / `CAR_LONGITUDE_n` | location (degrees) | float |
+
+Car 1 writes to the measurement `car`, cars 2–5 to `car_2` … `car_5`. A car reports its values only while it is online, so these sensors have **Write only on change** on and the alive timeout off (`0`). Each reading reaches InfluxDB once, with the time of its change, instead of every 5 seconds with the current time.
+
+When the **adapter starts**, the current value of each of these sensors is written once right away, also with the time of its last change. The adapter does not wait for the next change, so a value that changed while the adapter was stopped is not lost. If InfluxDB already has the point, it is only overwritten; no duplicate is created. If the source adapter writes its value again after a restart and this moves **last changed**, the value gets the new time.
+
+SOLECTRUS still reads the former sensor `CAR_BATTERY_SOC` (without a number) as `CAR_BATTERY_SOC_1`. A `CAR_MILEAGE_n` from a development version is renamed to `CAR_ODOMETER_n` on start.
 
 ### Status icons in the sensor list
 
@@ -180,6 +220,7 @@ The **SOLECTRUS Overview** tab (accessible via the tab bar in the adapter sectio
   - **Timestamp row** (shown when alive timeout is configured): left-aligned **timestamp** (date and time when the sensor last received a new value); right-aligned **next expected update** as a badge (time only, no label, auto-computed as timestamp + timeout interval — no manual input needed). When the current value is 0 the 60-minute fallback interval is used for the next-update calculation. The row is shown in **orange** when the alive timeout has been exceeded.
 - **Internal Sensors grid** (only shown when at least one sensor has the **Internal** option enabled): a separate section below the InfluxDB Sensors grid, using the same card layout but with a **yellow left border** and **yellow current value**. Since these sensors are not written to InfluxDB, they are clearly separated from the regular (green) sensors here.
 - **Formula Engine grid** (only shown when Data-SOLECTRUS is enabled): Shows all active computed items in the same card layout, with mode badge, current value, state ID, and formula/expression. Font sizes remain constant in all device orientations. Numeric values show a **unit** (e.g. `2697 W`) — the unit configured on the item, defaulting to `W` if none is set; boolean and string results are shown without a unit. Since Data-SOLECTRUS items are never written to InfluxDB directly (only sensors are), these cards are always styled like **internal sensors**, with a **yellow border** and **yellow value**.
+  - If an item has its own **alive timeout** (or an enabled sensor with an alive timeout uses the item), the timestamp row shows the timeout as a badge on the right (*Inputs: 15 min*, with the sensor name if a sensor applies). Stale inputs are listed below in **orange** with their last timestamp (*Input without update*), and value and timestamp turn **orange** as well (see [Alive Monitoring](#alive-monitoring)).
 - **JSON Array preview**: For sensors with data type `json`, the value displays the **first array entry** followed by a count of additional entries (e.g. `{"t":1710000000000,"y":1250} (+543 more entries)`).
 - **Auto-refresh**: The tab updates automatically every 5 seconds.
 - **Layout toggle**: The **Full Width** / **Flexible** button in the toolbar switches both grids between a flexible multi-column layout and a single-column full-width layout. The choice is saved in the browser and restored on the next visit.
@@ -303,6 +344,7 @@ When enabled, two additional tabs appear:
 - Items can be organized into **folders/groups** for better overview
 - Computed values can be used as sensor sources for InfluxDB storage
 - Each item has an optional **Unit** field (placeholder `W`). If no unit is set, the Formula Engine grid on the **SOLECTRUS Overview** tab (see section 3) defaults numeric items to `W` — same as the InfluxDB sensors. Boolean and string items are never shown with a unit.
+- Each item has an **Alive timeout in min (0 = disabled)** field (default: `0`). It monitors the inputs of an item that no enabled sensor uses. Each input has an **Alive** checkbox next to **neg→0** (in *Source* mode: **Monitor source state (Alive)**) to turn off monitoring for that input; the value is still used in the calculation. See [Alive Monitoring](#alive-monitoring).
 
 ---
 
@@ -458,6 +500,18 @@ Sensor "INVERTER_POWER": no update since 4/5/2026, 6:30:00 PM (longer than 60 mi
 
 In addition, the last timestamp of the affected sensor is shown in **orange** in the **tab view**, so you can spot stale sensors at a glance without opening the log.
 
+If the source of a sensor is a formula engine state (`ds.*`), all inputs of that item are monitored with the same timeout as well – including the inputs of nested formula items. The formula state itself is recalculated on every tick and would otherwise always look up to date, even if an input value has stopped updating. The warning names the sensor and the affected input:
+
+```
+Sensor "HOUSE_POWER → modbus.0.inputRegisters.grid": no update since 4/5/2026, 6:30:00 PM (update expected by 4/5/2026, 7:30:00 PM)
+```
+
+In the **tab view**, the sensor card is then marked **orange** as well and each affected input is listed with its last timestamp (*Input without update*). The list of stale inputs is also available as JSON in the state `solectrus-influxdb.X.info.staleInputs`.
+
+A stale input is still used in the calculation – the formula engine uses the last received value. Inputs that are only written on change (e.g. a meter reading or a status) would otherwise be reported all the time. That is why monitoring can be turned off **per input** in the formula engine with the **Alive** checkbox (for items in *Source* mode with **Monitor source state (Alive)**). Default: on. If an input with monitoring turned off is itself a formula item, its inputs are not monitored either. Values that are only referenced via `s()`/`v()`/`jp()` in the formula and not set up as an input are always monitored.
+
+**Internal formula items:** If no enabled sensor uses a formula item, it can get its own timeout in the formula engine editor via **Alive timeout in min (0 = disabled)** (default: `0`). Its inputs are then monitored just like for a sensor; the **Alive** checkbox per input applies here too. The warning starts with **Formula** and names the item with a `ds.` prefix, e.g. `Formula "ds.pv → inverter.0.power": no update since …`; the notification likewise. In the **tab view** under **Formula Engine**, the card then shows the timeout as a badge (*Inputs: 15 min*); with stale inputs, value and timestamp turn **orange** and the affected inputs are listed. The list is stored as JSON in the state `solectrus-influxdb.X.info.staleFormulaInputs`. The sensor takes precedence: if an enabled sensor uses the item, only the timeout of the sensor applies and the timeout of the item is ignored – so an item is never reported twice. An item that no enabled sensor uses (e.g. because its sensor is disabled) checks with its own timeout, even when another sensor checks the same input through another item. In the overview, the formula card still shows the stale inputs found by the sensor, with its timeout and name in the badge (e.g. *Inputs: 10 min (Small Devices)*).
+
 The warning is repeated at most once per timeout period per sensor to avoid log flooding. Set the timeout to `0` to disable the check for an individual sensor (Expert Mode only). Newly created sensors default to a timeout of `60` minutes. The timeout must be greater than the update interval of the respective source adapter.
 
 ### Value Monitoring (Max Value)
@@ -532,6 +586,7 @@ The **Notifications** tab is hidden until notifications are enabled. Enable the 
 |-------|-------------|
 | **InfluxDB connection failure / restore** | **❗** Sent on the first connection failure and **✅** again when the connection is restored |
 | **Sensor alive timeout** | **⚠️** Sent when a sensor does not deliver an update within the configured timeout (only for non-zero values) |
+| **Formula alive timeout** | **⚠️** Sent when an input of a formula item with its own alive timeout (not used by an enabled sensor) does not deliver an update within the timeout (only for non-zero values); same option and throttling as for sensors |
 | **Max value exceeded** (`notifyOnMaxValueExceeded`) | **⚠️** Sent when a sensor value exceeds its configured maximum; throttled to at most once per hour per sensor |
 | **JSON field missing** (`notifyOnJsonFieldMissing`) | **⚠️** Sent once per session when a known JSON field (`y`, `clearsky`, `temp`) is completely absent from the source data — indicates the backend does not provide that field (e.g. `clearsky`/`temp` require pvnode). The notification resets if the field reappears. |
 
@@ -557,7 +612,7 @@ Each provider has an **Instance** dropdown list. Available adapter instances are
 
 - Notification messages are localized via `getNotificationMessage()` using the configured `systemLanguage`.
 - For InfluxDB connection failures, a notification is sent on the **first** failure and can repeat after `notifyRepeatMinutes` while the connection remains down.
-- Sensor timeout notifications are sent when the configured alive-timeout condition is met (Expert Mode) and are throttled by `notifyRepeatMinutes`.
+- Sensor timeout notifications are sent when the configured alive-timeout condition is met (Expert Mode) and are throttled by `notifyRepeatMinutes`. The same applies to formula timeout notifications with the alive timeout of the formula item.
 
 ## 15. Backup
 
@@ -573,5 +628,17 @@ The **Backup** tab in the adapter configuration lets you create, upload, restore
 Backups are stored locally on this ioBroker host. By default they are placed under this instance's own data directory, but you can choose a custom storage location (e.g. a different disk or a mounted network share) via the "Backup directory" field. Use the "Keep last N backups" field to control how many of the most recent backups are kept automatically; older ones are deleted whenever a new backup is created. Restoring a backup restarts the instance automatically so the restored configuration takes effect.
 
 > **Note:** The InfluxDB token is a protected/encrypted setting and is never included in these backups. After a restore it has to be entered again manually on the **InfluxDB** tab.
+
+### WebDAV storage
+
+Like ioBroker.backitup, the Backup tab can also store backups on a WebDAV server (e.g. Nextcloud, ownCloud, a NAS). Enable **Also store backups on a WebDAV server** and enter:
+
+- **WebDAV URL** - e.g. `https://<example.com>/remote.php/dav/files/<username>/` for Nextcloud
+- **Username** and **Password** (the password is stored encrypted and is never included in backups)
+- **WebDAV directory** - target directory on the server (default `/solectrus-influxdb`, created automatically)
+- **Allow only signed certificates** - turn this off for servers with a self-signed certificate
+- **Delete old WebDAV backups** - keeps only the last N backups (same number as "Keep last N backups") on the server
+
+Use **Test connection** to check the settings. Every backup created with **Create backup now** is then also uploaded to the WebDAV server. The backups stored there are listed below the local backups in the section **WebDAV backups** and can be restored or deleted there. On restore, the backup is first copied to the local backup directory and then restored like a local backup.
 
 > **Note:** The Admin configuration dialog does not automatically pick up the restored settings while it stays open (it only shows what was loaded when it was opened). After a restore, close the adapter configuration dialog and reopen it to see the restored values.

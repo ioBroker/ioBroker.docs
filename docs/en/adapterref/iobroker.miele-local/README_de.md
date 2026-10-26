@@ -119,7 +119,7 @@ Fernsteuerung** freigegeben ist; manche Firmwares lehnen DOP2-Schreibbefehle gru
 | **Anmeldung** | Land, der geführte Login, die abgefangene Adresse |
 | **Geräte** | mDNS-Suche, Ausfall-Suche im Subnetz, manuelle IP-Adressen |
 | **Abfrage & Werte** | Abfrageintervalle, deutsche Namen, Sekundenzeit, EcoFeedback, Energiezähler, geräteinterne Werte |
-| **Push & Ports** | der optionale Echtzeitkanal und sein eingehender Port |
+| **Push & Ports** | der optionale Echtzeitkanal und sein eingehender Port, der optionale Zeitdienst |
 | **Steuerung** | der Schalter, der die beschreibbaren Datenpunkte anlegt |
 | **Verlauf** | Mitschrift abgeschlossener Programme, Ringpuffer, Aufbewahrung, History-Adapter |
 | **Diagnose** | alles zur Fehlersuche und Feldzuordnung – ab Werk aus |
@@ -135,6 +135,7 @@ Jedes Feld trägt seine Erklärung im Admin direkt unter sich; diese Seite wiede
 | ein/aus | UDP 5353 (mDNS) | Gerätesuche und Push-Anmeldung | für die Suche |
 | ausgehend | TCP 80 → Geräte | Zustände lesen, Befehle senden | ja |
 | ausgehend | TCP 443 → miele-iot.com | GroupKey abrufen | nur bei der Anmeldung |
+| eingehend | TCP *Zeitdienst-Port* (Vorgabe 8780) | Geräte holen ihre Uhrzeit | nur mit Zeitdienst |
 
 Ohne Push ist **kein eingehender Port** nötig. Für mDNS müssen ioBroker und die Geräte im selben
 Broadcast-Segment liegen. Getrennte IoT-WLANs oder VLANs, Firewalls (auch die Windows-Firewall auf
@@ -151,6 +152,73 @@ hinter NAT. Zuverlässiger Push braucht `network_mode: host`.
 Gerät schickt Änderungen dann von sich aus, im Sekundenbereich. Nicht jedes Modul kann das: Die
 älteren XKM EK037 und EK057 nehmen das Abonnement an und senden nichts. Das Abfragen bleibt der
 verlässliche Weg.
+
+## Zeitdienst für die Geräte (optional)
+
+Miele-Geräte stellen ihre Uhr **mit einer eigenen HTTP-Anfrage, nicht per NTP**. Das
+Kommunikationsmodul löst `ntp.mcs2.miele.com` auf und fragt alle 30 Sekunden, bis eine Antwort
+kommt:
+
+```
+GET http://ntp.mcs2.miele.com/V2/NTP/ HTTP/1.1
+Host: ntp.mcs2.miele.com
+Accept: application/vnd.miele.v1+json
+```
+
+Miele antwortet mit `{"time":<Unix-Sekunden>}`. Ein Gerät **ohne Internetzugang** (IoT-Netz
+ohne Ausgang) bekommt diese Antwort nie: Seine Uhr läuft weg, und nach der Zeitumstellung bleibt
+es womöglich auf Sommerzeit stehen. Eine NTP-Option im DHCP oder ein NTP-Server im eigenen Netz
+hilft nicht – das Gerät nutzt kein NTP.
+
+Der Adapter kann dieselbe Antwort aus dem eigenen Netz geben. Unter **Push & Ports →
+Zeitabfrage der Geräte beantworten** einschalten (Standard: aus) und einen Port wählen (Vorgabe
+8780). **Allein bewirkt das nichts**: Das Ziel ist im Modul fest eingebaut, die Geräte müssen
+umgeleitet werden – eine der beiden Möglichkeiten:
+
+1. **Router: Ziel-NAT / Portweiterleitung.** Quelle = die Miele-Geräte, Ziel
+   `ntp.mcs2.miele.com` (derzeit `52.136.223.17`; mit `nslookup` prüfen) TCP 80, umgesetzt auf
+   die ioBroker-IP und den hier eingestellten Port. Bei UniFi: *Einstellungen → Routing → NAT →
+   Destination NAT*. Der Dienst kann auf einem hohen Port bleiben, die Umsetzung 80 → Port
+   übernimmt der Router.
+   **Liegt ioBroker im selben Subnetz wie die Geräte**, zusätzlich eine Quell-NAT-Regel
+   (Masquerade, z. B. auf die Adresse des Routers) für diesen Weg anlegen – sonst antwortet
+   ioBroker dem Gerät direkt, die Antwort kommt nicht von der Adresse, die das Gerät gefragt hat,
+   und wird verworfen. Filtert die Router-Firewall Verkehr innerhalb dieses Netzes oder dieser
+   Zone, den Weg dort ebenfalls freigeben.
+2. **DNS-Umschreibung** (AdGuard Home, Pi-hole, dnsmasq): `ntp.mcs2.miele.com` → ioBroker-IP.
+   Das Gerät verbindet sich dann mit **Port 80** dieser IP, dort muss der Dienst also erreichbar
+   sein: unter Docker Host-Port 80 auf den eingestellten Port mappen (`-p 80:8780`); ohne Docker
+   entweder Port 80 einstellen (braucht root oder `CAP_NET_BIND_SERVICE`) oder 80 per
+   Host-Firewall weiterleiten. Port 80 darf auf dem Host nicht von einem anderen Webserver belegt
+   sein.
+
+**Docker:** Im Bridge-Netz muss der Port im Port-Mapping des Containers stehen – ein neues
+Mapping heißt, den Container neu anzulegen. Ist einer der gemappten Ports ungenutzt, diesen
+nehmen. **Firewall:** Eine Firewall auf dem Host (z. B. Synology DSM) muss TCP auf diesen Port
+von den Geräten zulassen.
+
+**Kontrolle:** `info.timeServer.running` ist `true`; `info.timeServer.requests`, `lastRequest`,
+`lastClient` und `info.timeServer.clients.<ip>.*` zählen jede beantwortete Abfrage. Je nach
+Docker-Aufbau und Quell-NAT erscheint als Absender das Docker-Gateway (z. B. `172.17.0.1`) oder
+der Router statt des Geräts.
+Kommt nichts an, liegt es an der Umleitung oder der Firewall, nicht am Adapter.
+
+**Grenzen:** Der Dienst liefert **nur UTC**. Zeitzone und Sommerzeit rechnet das Gerät selbst
+(eingestellt am Gerät oder in der Miele-App). Alles außer `GET /V2/NTP/` wird mit 404
+beantwortet. Abfragen erscheinen nur im Debug-Log.
+
+### Geräteuhr auf Ortszeit halten (optional)
+
+Manche Geräte führen die UTC-Zeit richtig, stellen die Sommerzeit aber nach eigenem Plan um –
+ein Backofen H2469BP stand nach der Umstellung am 25.10.2026 noch stundenlang auf Sommerzeit.
+**Push & Ports → Geräteuhr auf Ortszeit halten** (Standard aus) prüft jedes Gerät beim Start und
+stündlich über `Settings/TimeSync` und stellt die Uhr, wenn sie mehr als 2 Minuten von der
+Ortszeit des ioBroker (Zeitzone des Hosts/Containers) abweicht – mit einer signierten Anfrage, die
+nur `DateTime` enthält (`NTPEnabled`, `UTCOffset` und `TimeMaster` bleiben unberührt). Jede
+Korrektur steht im Log (info); `<Gerät>.info.timeSync.lastDeviation` (Sekunden, positiv = Gerät
+geht vor) und `lastSet` zeigen das Ergebnis. Geräte ohne `TimeSync` (z. B. G5840, WCR860
+antworten mit 503) bleiben unberührt. Funktioniert ohne den Zeitdienst oben und ohne
+„Steuerung erlauben“.
 
 ## Datenschutz
 
@@ -247,6 +315,20 @@ Reverse-Engineering-Arbeit der Projekte `MieleRESTServer` (akappner),
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.4.1
+- (SmarthomeElektroniker) Neue Option **Geräteuhr auf Ortszeit halten** (Push & Ports, Standard aus): prüft `Settings/TimeSync` beim Start und stündlich und stellt die Geräteuhr auf die Ortszeit des ioBroker, wenn sie mehr als 2 Minuten abweicht. Geschrieben wird nur das Feld `DateTime`. Datenpunkte `info.timeSync.lastSet` und `info.timeSync.lastDeviation` je Gerät
+
+### 0.4.0
+- (SmarthomeElektroniker) Neuer optionaler **Miele-Zeitdienst** (Push & Ports, Standard aus): beantwortet die HTTP-Zeitabfrage der Geräte `GET http://ntp.mcs2.miele.com/V2/NTP/` mit `{"time":<Unix-Sekunden>}`, damit Geräte ohne Internet die richtige Uhrzeit behalten. Die Geräte müssen zu ihm umgeleitet werden (Ziel-NAT am Router oder DNS-Umschreibung) – siehe „Zeitdienst für die Geräte". Beantwortete Abfragen zählt `info.timeServer.*`, je Absender `info.timeServer.clients.*`
+- (SmarthomeElektroniker) Leaf-Tabelle: `DateTimeInfo` ist Attribut 122 in Unit 14 (`14/122`), nicht `2/122`
+
+### 0.3.47
+- Ein Befehl unter `control.*`, der nicht ausgeführt werden kann (Steuerung aus, Gerät nicht verbunden, HTTP-Fehler, Verbindungsfehler), wird jetzt bestätigt (`val=false`, `ack=true`), der Grund steht im Kommentar `c` des Datenpunkts, dazu eine passende Qualität `q`. Bisher blieb er unbestätigt stehen – ein `control.powerOn` stand so 52 Tage da.
+- Unbestätigte Befehle von vor einem Neustart werden beim Start geschlossen und **nicht** an das Gerät gesendet.
+- `remainingMinutes`/`remainingHHMM` sind 0, solange das Gerät aus, fertig oder nicht verbunden ist (Status 1/7/255), und es wird kein Programmende berechnet. Eine G5840 meldete ausgeschaltet eine Restzeit von 0:01.
+- Verbindungsverlust zu einem Gerät und seine Rückkehr stehen je einmal im Log (Stufe info, bisher nur debug).
+- Die IP-Suche bei Ausfall („Bei Ausfall die neue IP im Subnetz suchen“) läuft auch dann im Hintergrund, wenn die mDNS-Suche aus ist – also genau im Docker-Bridge-Betrieb, für den sie gedacht ist. Sie fragt nur Geräte, deren Abfrage gerade scheitert, und durchsucht jedes /24-Netz mit einem fehlenden Gerät, nicht nur das Netz der ersten eingetragenen IP.
 
 ### 0.3.46
 - Nur das laufende Gerät wird im kurzen Takt abgefragt („Abfrageintervall (aktiv)“), Geräte in Ruhe behalten den Ruhetakt. Bisher wurden alle Geräte im kurzen Takt abgefragt, sobald eines lief – weniger Anfragen an die Miele-Module, die nur eine Verbindung gleichzeitig bedienen.
