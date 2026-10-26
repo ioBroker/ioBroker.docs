@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[News, announcements and ideas about ioBroker]]></description>
         <link>https://www.iobroker.com/blog</link>
-        <lastBuildDate>Thu, 08 Oct 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 26 Oct 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[AI in ioBroker: From helper in the admin to your own smart assistant]]></title>
+            <description><![CDATA[
+                <p>Artificial intelligence is increasingly finding its way into ioBroker. It's no longer just about using AI in developing adapters or writing code. Now, AI can directly assist with daily work using ioBroker: it can analyze problems, write and optimize scripts, create visualizations, and even control the entire smart home system using natural language.</p>
+            ]]></description>
+            <link>https://www.iobroker.com/blog/2026_10_26</link>
+            <guid isPermaLink="true">https://www.iobroker.com/blog/2026_10_26</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Mon, 26 Oct 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[ioBroker Monthly Review September 2026]]></title>
             <description><![CDATA[

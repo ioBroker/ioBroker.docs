@@ -4,7 +4,7 @@ lastChanged: 12.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/about/story.md
-hash: biOoDvr4UoXFYTGxznp1rRLxO9hLTIrDp+MiIaJ1Sag=
+hash: Ka3rAOozIAA6RaPXNRoUg6jv46A09Ixg0jJLV1rTEJU=
 ---
 # The story of ioBroker
 
@@ -34,7 +34,7 @@ Two features are changing how ioBroker is used this year. Alexa integration brin
 
 In the same year, Ingo Fischer ( [@apollon77](https://github.com/Apollon77) ) joins the core team. A project becomes a group.
 
-## 2017: A company for infrastructure
+## 2017: A company for the infrastructure
 
 Servers, domains, repositories, certificates: the more people use ioBroker, the less this infrastructure can depend on any single individual. With the support of Ortwin Tischler, the company behind ioBroker is therefore being created, whose task is precisely to secure the project's infrastructure.
 
@@ -68,24 +68,8 @@ From 2014 to 2024, ioBroker celebrated its tenth anniversary. This milestone was
 
 ioBroker is the work of many hands: on the core, the adapters, the documentation, the forum, and the translations. Within the community, people know each other by their initials:
 
-[`@bluefox`](https://github.com/GermanBluefox),
-[`@Apollon77`](https://github.com/Apollon77),
-[`@foxriver76`](https://github.com/foxriver76),
-[`@AlCalzone`](https://github.com/AlCalzone),
-[`@arteck`](https://github.com/arteck),
-[`@Garfonso`](https://github.com/Garfonso),
-[`@simatec`](https://github.com/simatec),
-[`@Feuersturm`](https://github.com/Feuer-sturm),
-[`@Eistee82`](https://github.com/Eistee82),
-[`@Dutchman`](https://github.com/DutchmanNL),
-[`@eric2905`](https://github.com/Eric2905),
-[`@UncleSam`](https://github.com/UncleSamSwiss),
-[`@Jey-Cee`](https://github.com/Jey-Cee),
-[`@mcm1957`](https://github.com/mcm1957),
-[`@ldittmar81`](https://github.com/ldittmar81),
-[`@oelison`](https://github.com/oelison),
-[`@klein0r`](https://github.com/klein0r),
-[`@Homoran`](https://github.com/Homoran)
+[`@bluefox`](https://github.com/GermanBluefox) ,[`@Apollon77`](https://github.com/Apollon77) ,[`@foxriver76`](https://github.com/foxriver76) ,[`@AlCalzone`](https://github.com/AlCalzone) ,[`@arteck`](https://github.com/arteck) ,[`@Garfonso`](https://github.com/Garfonso) ,[`@simatec`](https://github.com/simatec) ,[`@Feuersturm`](https://github.com/Feuer-sturm) ,[`@Eistee82`](https://github.com/Eistee82) ,[`@Dutchman`](https://github.com/DutchmanNL) ,[`@eric2905`](https://github.com/Eric2905) ,[`@UncleSam`](https://github.com/UncleSamSwiss) ,[`@Jey-Cee`](https://github.com/Jey-Cee) ,[`@mcm1957`](https://github.com/mcm1957) ,[`@ldittmar81`](https://github.com/ldittmar81) ,[`@oelison`](https://github.com/oelison) ,[`@klein0r`](https://github.com/klein0r) ,[`@Homoran`](https://github.com/Homoran)
+
 and many, many other enthusiasts.
 
 ## The story continues

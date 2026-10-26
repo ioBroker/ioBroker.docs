@@ -7868,6 +7868,7 @@
             "ru": "octopus-energy-monitor"
           },
           "content": "adapterref/iobroker.octopus-energy-monitor/README.md",
+          "icon": "adapterref/iobroker.octopus-energy-monitor/octopus-energy-monitor.svg",
           "keywords": "octopus, inexogy, energy",
           "authors": "tipp88",
           "license": "MIT",

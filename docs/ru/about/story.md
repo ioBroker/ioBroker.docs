@@ -4,7 +4,7 @@ lastChanged: 12.09.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/about/story.md
-hash: biOoDvr4UoXFYTGxznp1rRLxO9hLTIrDp+MiIaJ1Sag=
+hash: Ka3rAOozIAA6RaPXNRoUg6jv46A09Ixg0jJLV1rTEJU=
 ---
 # История ioBroker
 
@@ -12,7 +12,7 @@ hash: biOoDvr4UoXFYTGxznp1rRLxO9hLTIrDp+MiIaJ1Sag=
 
 ## 2013: CCU.IO, краеугольный камень
 
-Все началось с Homematic и желания наконец-то получить четкое представление о своих устройствах. Себастьян Рафф заложил основу для проекта CCU.IO в этом году. Он имел решающее значение для интеграции систем Homematic, и поэтому его архитектура в значительной степени основывалась на Homematic.
+Все началось с Homematic и желания наконец-то получить четкое представление о своих устройствах. Себастьян Рафф заложил основу для проекта CCU.IO в этом году. Он имел решающее значение для интеграции систем Homematic, и поэтому его архитектура во многом основывалась на Homematic.
 
 Мы познакомились благодаря CCU.IO, и вместе с этим зародилась идея, лежащая в основе всего остального: открытая и гибкая платформа для домашней автоматизации, не привязанная к одному производителю.
 
@@ -68,24 +68,8 @@ _Сегодня: обзор, отображающий состояние сис�
 
 ioBroker — это результат работы множества людей: над ядром, адаптерами, документацией, форумом и переводами. В сообществе люди знают друг друга по инициалам:
 
-[`@bluefox`](https://github.com/GermanBluefox),
-[`@Apollon77`](https://github.com/Apollon77),
-[`@foxriver76`](https://github.com/foxriver76),
-[`@AlCalzone`](https://github.com/AlCalzone),
-[`@arteck`](https://github.com/arteck),
-[`@Garfonso`](https://github.com/Garfonso),
-[`@simatec`](https://github.com/simatec),
-[`@Feuersturm`](https://github.com/Feuer-sturm),
-[`@Eistee82`](https://github.com/Eistee82),
-[`@Dutchman`](https://github.com/DutchmanNL),
-[`@eric2905`](https://github.com/Eric2905),
-[`@UncleSam`](https://github.com/UncleSamSwiss),
-[`@Jey-Cee`](https://github.com/Jey-Cee),
-[`@mcm1957`](https://github.com/mcm1957),
-[`@ldittmar81`](https://github.com/ldittmar81),
-[`@oelison`](https://github.com/oelison),
-[`@klein0r`](https://github.com/klein0r),
-[`@Homoran`](https://github.com/Homoran)
+[`@bluefox`](https://github.com/GermanBluefox) ,[`@Apollon77`](https://github.com/Apollon77) ,[`@foxriver76`](https://github.com/foxriver76) ,[`@AlCalzone`](https://github.com/AlCalzone) ,[`@arteck`](https://github.com/arteck) ,[`@Garfonso`](https://github.com/Garfonso) ,[`@simatec`](https://github.com/simatec) ,[`@Feuersturm`](https://github.com/Feuer-sturm) ,[`@Eistee82`](https://github.com/Eistee82) ,[`@Dutchman`](https://github.com/DutchmanNL) ,[`@eric2905`](https://github.com/Eric2905) ,[`@UncleSam`](https://github.com/UncleSamSwiss) ,[`@Jey-Cee`](https://github.com/Jey-Cee) ,[`@mcm1957`](https://github.com/mcm1957) ,[`@ldittmar81`](https://github.com/ldittmar81) ,[`@oelison`](https://github.com/oelison) ,[`@klein0r`](https://github.com/klein0r) ,[`@Homoran`](https://github.com/Homoran)
+
 и множество других энтузиастов.
 
 ## История продолжается

@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
         <link>https://www.iobroker.com/blog</link>
-        <lastBuildDate>Thu, 08 Oct 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 26 Oct 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Искусственный интеллект в ioBroker: от помощника в административной панели до вашего собственного умного ассистента.]]></title>
+            <description><![CDATA[
+                <p>Искусственный интеллект все чаще находит применение в ioBroker. Речь идет уже не только об использовании ИИ для разработки адаптеров или написания кода. Теперь ИИ может напрямую помогать в повседневной работе с ioBroker: он может анализировать проблемы, писать и оптимизировать скрипты, создавать визуализации и даже управлять всей системой умного дома, используя естественный язык.</p>
+            ]]></description>
+            <link>https://www.iobroker.com/blog/2026_10_26</link>
+            <guid isPermaLink="true">https://www.iobroker.com/blog/2026_10_26</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Mon, 26 Oct 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Ежемесячный обзор ioBroker за сентябрь 2026 года]]></title>
             <description><![CDATA[
