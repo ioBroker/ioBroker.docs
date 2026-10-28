@@ -176,7 +176,7 @@ Recurring `retry` messages on debug level mean single UDP answers are getting lo
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.3.0 (2026-10-27)
 - Added Modbus TCP on port 502 as a second, experimental connection for the GoodWe WiFi/LAN dongle 2.0, which does not answer the UDP protocol on port 8899 when it is connected by LAN. Choose it under "Connection" in the basic settings; UDP stays the default. The inverter search uses the selected connection (#59).
 - The depth of discharge (on and off grid) and the battery charge current can be written when inverter control is on. The depth of discharge is written as the SolarGo app shows it; the adapter converts it into the reserve the inverter stores. The depth of discharge is limited to 95 %, the charge current to 100 A.
 - Added the read-only states `Settings.WorkMode` (work mode set in the SolarGo app) and `Settings.LoadControl.*` (load control output), read with `pollSettings` in the slot of the optional groups. Inverters with older firmware may not offer the load control registers.
@@ -213,13 +213,6 @@ Recurring `retry` messages on debug level mean single UDP answers are getting lo
 - Added an exponential backoff for reconnect attempts while the inverter is offline and reduced the repeated warnings to debug.
 - Clamped probe timeouts coming from admin messages.
 - Enabled TypeScript `strict` mode.
-
-### 1.1.1 (2026-07-16)
-- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
-- Migrated the admin configuration page to a React based UI and removed the legacy Materialize UI files.
-- Added translations for the admin configuration page and documented numeric setting limits.
-- Avoided rebuilding the admin bundle during GitHub installs.
-- Excluded `CHANGELOG_OLD.md` from the npm package.
 
 ## License
 MIT License

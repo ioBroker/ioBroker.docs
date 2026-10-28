@@ -98,6 +98,14 @@ You might see red error messages in the installation log related to `node-gyp`, 
 [Info English](/#/docs/adapterref/iobroker.luxtronik2-controller/documentation/readme_en.md)
 //### **WORK IN PROGRESS**
 
+## Changelog
+### 0.22.1 (2026-10-28)
+
+**🔧 Maintenance & Compatibility**
+
+- **Repository Compliance:** Added missing multi-language translations (i18n) for all configuration dropdown menus (e.g. COP sources, PV modes) to meet strict ioBroker stable repository requirements.
+- **Cleanup:** Removed unpublished ghost versions from the `io-package.json` news section and fixed markdown formatting for the changelog header in the README.
+
 ### 0.22.0 (2026-10-26)
 
 **🐛 Performance & Tweaks**
@@ -137,12 +145,6 @@ You might see red error messages in the installation log related to `node-gyp`, 
 - **Admin UI Polish:** Replaced HTML-based information blocks in the configuration UI with native ioBroker JSON components to bypass React XSS-filtering issues and ensure clean rendering.
 
 ### 0.20.4 (2026-10-24)
-
-**🔧 Maintenance & Compatibility**
-
-- **Node.js Requirement:** Updated minimum Node.js requirement to `>= 22` in `package.json` and `io-package.json` to meet current adapter standards.
-
-### 0.20.3 (2026-10-24)
 
 **🔧 Maintenance & Compatibility**
 

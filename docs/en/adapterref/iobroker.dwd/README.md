@@ -26,6 +26,9 @@ This adapter loads the weather warnings from the German weather service via JSON
 -->
 
 ## Changelog
+### 3.0.1 (2026-10-27)
+- (@GermanBluefox) A truncated JSONP answer of the DWD (no closing `}`) no longer hangs the adapter in an endless loop, it is logged as a parse error
+
 ### 3.0.0 (2026-10-11)
 - (@BeSiRe1) Optional warncell ID of a municipality: its warnings are read from the DWD geoserver and written below `warncell.`, in addition to the region (idea from #306 by BeSiRe1)
 - (@GermanBluefox) The vis-2 widget, the devices tile and the instance settings read the first warning from `warning` - `warning0` does not exist
@@ -49,10 +52,6 @@ This adapter loads the weather warnings from the German weather service via JSON
 
 ### 2.8.3 (2022-03-23)
 * (Apollon77) Do not add unused warning0
-
-### 2.8.2 (2022-03-22)
-* (Apollon77) Add instruction text to warning data
-* (Apollon77) Check missing objects and add them
 
 ## License
 

@@ -412,6 +412,9 @@ Returns `{"ok":true}` on success.
 | `widget_live_overview` | string | R | HTML tile grid of all cameras — snapshot refreshes on each adapter poll |
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (ipod86) chore: clearer adapter title ("Agent DVR – Cameras & Recordings") and keywords
+
 <!-- markdownlint-disable-next-line MD024 -->
 ### 0.5.5 (2026-10-08)
 * (ipod86) fix: live preview video no longer gets stretched/distorted — AgentDVR's live stream squishes the full picture into a fixed container format regardless of the camera's actual aspect ratio; now corrected (`object-fit:fill`) instead of shown distorted

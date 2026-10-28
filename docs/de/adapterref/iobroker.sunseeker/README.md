@@ -32,7 +32,7 @@ Wenn Einstellungen fehlen, dann bitte ein Issue anlegen oder im Forum anfragen.
     - [Beispiel Systemnachrichten](#systemmessage)
 - [expert](#expert)
 - [map](#map)
-    - [Leere Bereiche](#leere-bereiche)
+    - [Kanteneigenschaften](#kanteneigenschaften)
     - [Verbotener Bereiche](#verbotene-bereiche)
     - [Aktuelle Map Infos](#aktuelle-map-infos)
     - [Livemap-Einstellungen](#livemap-einstellungen)
@@ -341,7 +341,7 @@ Wenn Einstellungen fehlen, dann bitte ein Issue anlegen oder im Forum anfragen.
 
 | Objekt-ID              | Beschreibung                                    |
 | ---------------------- | ----------------------------------------------- |
-| xxx.map.blank          | Leere Bereiche                                  |
+| xxx.map.blank          | Kanteneigenschaften                             |
 | xxx.map.forbidden      | Verbotene Zonen                                 |
 | xxx.map.info           | Info der aktuellen Karte                        |
 | xxx.map.map_settings   | Livemap-Einstellungen                           |
@@ -364,11 +364,11 @@ Wenn Einstellungen fehlen, dann bitte ein Issue anlegen oder im Forum anfragen.
 
 [Zusammenfassung](#zusammenfassung)
 
-### Leere Bereiche
+### Kanteneigenschaften
 
 | Objekt-ID                     | Beschreibung              |
 | ----------------------------- | ------------------------- |
-| xxx.map.blank.01.delete_blank | Leeren Bereich löschen    |
+| xxx.map.blank.01.delete_blank | Kanteneigenschaft löschen |
 | xxx.map.blank.01.id           | ID                        |
 | xxx.map.blank.01.points       | Points vom leeren Bereich |
 | xxx.map.blank.01.points_num   | Anzahl der Points         |

@@ -122,6 +122,33 @@ So the path of any release is: `-nextN` test build → **Latest** (published, on
 
 _Older releases: see CHANGELOG_OLD.md._
 
+### 0.95.0 (2026-10-27)
+- 🐛 **Bug fix:** Weather - the widget no longer overflows when a custom temperature font size or forecast row spacing is set
+- 🐛 **Bug fix:** AI assistant (MCP) - size checks say "cannot be judged" instead of "fits" when the widget uses its own typography, and popup views can now be measured in the browser
+- 🌟 **New feature:** New widget "News (RSS)" - shows RSS/Atom feeds or the rssfeed adapter as a list, cards, a ticker or a rotating headline; articles open in a popup or a new tab; optional unread marks, spoken announcements of new articles, a read-aloud button and loading images through Aura ([#854](https://github.com/hdering/ioBroker.aura/issues/854))
+- 🐛 **Bug fix:** Overview - the "widget references to missing DPs" check now includes widgets inside groups and device cards right after a page reload, not only after clicking "Refresh" ([#859](https://github.com/hdering/ioBroker.aura/issues/859))
+- 🐛 **Bug fix:** Slideshow - number fields such as the transition duration accept typed values again instead of jumping to the minimum on the first digit ([#860](https://github.com/hdering/ioBroker.aura/issues/860))
+- 🌟 **New feature:** Popups - new datapoints popup.close (all devices) and clients.<id>.popup.close (one device): writing true closes every open popup on the device, whether opened by a click, a trigger or popup.open, stacked popups included ([#861](https://github.com/hdering/ioBroker.aura/issues/861))
+- 🐛 **Bug fix:** Fill level (wave) - the charging bolt and the charging sweep stay inside the tank instead of spilling below it when the widget is taller than wide ([#863](https://github.com/hdering/ioBroker.aura/issues/863))
+- 🐛 **Bug fix:** Popups - widgets in a popup view no longer stay squeezed to a fraction of the dialog (looking like the phone layout) when the popup was opened before its view had its final width, e.g. a screensaver popup ([#862](https://github.com/hdering/ioBroker.aura/issues/862))
+- 🐛 **Bug fix:** Room climate - with placeholder datapoints such as {{parent}} the history series (temperature, humidity) and time range can be set again with the adapter instance left empty, so a popup can show the humidity history ([#857](https://github.com/hdering/ioBroker.aura/issues/857))
+- 🌟 **New feature:** Thermostat - dial and circle menu can show the measured temperature large and the setpoint small (new option "Large display"); also for the room climate circle menu ([#864](https://github.com/hdering/ioBroker.aura/issues/864))
+- 🌟 **New feature:** Phone and tablet layout - the column flow can be split into blocks with their own number of columns (1-4), e.g. four widgets in a row at the top and two wider ones below; set in the editor's mobile/tablet order panel ("+ Block" between blocks, the arrows move widgets from block to block) ([#851](https://github.com/hdering/ioBroker.aura/issues/851))
+
+### 0.94.0 (2026-10-26)
+- 🌟 **New feature:** Scenes - the widget settings can limit which datapoints "Add device" offers in the dashboard: whole instances or wildcard patterns like *.STATE ([#825](https://github.com/hdering/ioBroker.aura/issues/825))
+- Popups - a popup that closes itself after n seconds now resets the idle datapoint clients.<id>.idle.active to false, so the screensaver popup comes back after the next idle period ([#856](https://github.com/hdering/ioBroker.aura/issues/856))
+- 🌟 **New feature:** Slideshow - new widget that shows photos and videos from a folder on the server, sorted by capture date (EXIF) or at random, with fade-to-black, crossfade, slide and page-turn transitions and optional video sound; works as a tile or as a screensaver ([#848](https://github.com/hdering/ioBroker.aura/issues/848))
+- Room climate - in a popup opened from a list row with {{parent}} datapoints the history chart now shows data: an empty history instance falls back to the triggering widget's instance or is detected from the datapoint ([#857](https://github.com/hdering/ioBroker.aura/issues/857))
+- 🌟 **New feature:** Popups - a datapoint trigger can now combine several conditions with AND / OR and brackets, e.g. doorbell AND someone at home; the popup opens when the combination becomes true ([#849](https://github.com/hdering/ioBroker.aura/issues/849))
+- Editor - the settings popovers of sections and tabs are wider while markers or conditions are open and can be dragged wider at their edge (double-click resets); a marker condition row wraps instead of squeezing the datapoint field ([#850](https://github.com/hdering/ioBroker.aura/issues/850))
+- 🌟 **New feature:** JSON table - new per-column switch "Mapping" (Zuordnung): show chosen values as an icon and/or text in their own colour, e.g. a call list type 1/2/3 as incoming/missed/outgoing phone icons; the entries can be imported from common.states of a datapoint ([#852](https://github.com/hdering/ioBroker.aura/issues/852))
+- 🌟 **New feature:** JSON table - a row click can open a popup for that entry: the row's fields, hidden columns included, are available as {{row_<field>}} (raw) and {{rowtext_<field>}} (as printed) in the popup title, an HTML popup or a popup view; HTML popups now resolve {{...}} placeholders in their static markup ([#858](https://github.com/hdering/ioBroker.aura/issues/858))
+- Image / Camera - new option "Reload on change of" (reloadDp): every write to that datapoint reloads the picture or stream, e.g. after a script saved a new snapshot under the same name; the image widget also reloads when its source datapoint is written again with the same path, and its refresh interval now works for a datapoint source too ([#853](https://github.com/hdering/ioBroker.aura/issues/853))
+- 🌟 **New feature:** iFrame - new sound button (on/off) and "start muted" option for videos and audio inside the embedded page; works for pages loaded through the proxy or served by Aura itself, e.g. a direct video link with the proxy switched on ([#855](https://github.com/hdering/ioBroker.aura/issues/855))
+- Popups - in a popup without a fixed height, content-sized widgets (status overview, calendar, list …) now fill their grid slot like in the editor instead of ending at their content, and no longer jump in height while loading
+- Connected devices - a device keeps its client id when the browser wipes its web storage (e.g. Fully kiosk), a ?client= link only applies while it is in the URL instead of sticking to the device for good, two identical tablets that start at the same time are told apart within a minute, and giving a device a fixed id no longer deletes an id that belongs to another device ([#844](https://github.com/hdering/ioBroker.aura/issues/844))
+
 ### 0.93.1 (2026-10-25)
 - 🐛 **Bug fix:** Camera - .mp4/.webm clips (e.g. Ring Livestream.mp4) now play in a video player; new optional ready datapoint starts the stream when the recording is finished instead of after a fixed delay ([#843](https://github.com/hdering/ioBroker.aura/issues/843))
 
@@ -244,12 +271,6 @@ _Older releases: see CHANGELOG_OLD.md._
 - Timer - inside a popup view or a device card, a timer whose target uses a placeholder like {{dp}} now keeps its own schedule and entries per device; before, all devices shared one schedule that only switched the device opened last ([#778](https://github.com/hdering/ioBroker.aura/issues/778))
 - Countdown - inside a popup view or a device card, a countdown whose target uses a placeholder like {{dp}} now runs separately per device; before, starting it for one device ran it for the device shown last ([#778](https://github.com/hdering/ioBroker.aura/issues/778))
 - Media player - shuffle and repeat now show their current state (accent color with a dot) and switch the mode back off on a second click (repeat steps through off / all / one); the cover no longer sticks to the previous track or freezes with Sonos ([#782](https://github.com/hdering/ioBroker.aura/issues/782))
-
-### 0.82.8 (2026-10-13)
-- Energy flow (evcc) - datapoint picker next to the production, consumption, grid and battery fields; with an evcc instance as source these fields now fill in automatically
-
-### 0.82.7 (2026-10-13)
-- Advanced chart - the current-time line also works on a JSON category axis, placed at the label containing a chosen text (e.g. "now")
 
 ## License
 

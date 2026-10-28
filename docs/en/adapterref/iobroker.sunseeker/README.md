@@ -32,7 +32,7 @@ If any settings are missing, please open an issue or ask in the forum.
     - [Example system messages](#systemmessage)
 - [expert](#expert)
 - [map](#map)
-    - [Empty region](#empty-region)
+    - [Boundary properties](#boundary-properties)
     - [Forbidden region](#forbidden-region)
     - [Current Map Info](#current-map-info)
     - [Livemap Settings](#livemap-settings)
@@ -341,7 +341,7 @@ If any settings are missing, please open an issue or ask in the forum.
 
 | Object ID              | Description                                   |
 | ---------------------- | --------------------------------------------- |
-| xxx.map.blank          | Empty areas                                   |
+| xxx.map.blank          | Edge properties                               |
 | xxx.map.forbidden      | Forbidden zones                               |
 | xxx.map.info           | Current map info                              |
 | xxx.map.map_settings   | Live map settings                             |
@@ -364,11 +364,11 @@ If any settings are missing, please open an issue or ask in the forum.
 
 [Summary](#summary)
 
-### Empty region
+### Boundary properties
 
 | Object ID                     | Description              |
 | ----------------------------- | ------------------------ |
-| xxx.map.blank.01.delete_blank | Delete blank area        |
+| xxx.map.blank.01.delete_blank | Delete Boundary property |
 | xxx.map.blank.01.id           | ID                       |
 | xxx.map.blank.01.points       | Points of the blank area |
 | xxx.map.blank.01.points_num   | Number of points         |

@@ -306,6 +306,7 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
 -->
 ### **WORK IN PROGRESS**
 
+- (rug1024) Fixed HTTP 500 for concurrent snapshot requests to the same camera
 - (GermanBluefox) Added ignore list for camera IPs (#391)
 - (GermanBluefox) Fixed warning about missing connection object (#391)
 

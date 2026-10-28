@@ -448,6 +448,15 @@ Enable **Objects → Tagesstatistiken** for kWh tiles; enable **Leistungsflüsse
 
 ## Changelog
 
+### 0.10.108
+
+- **Feature (#20):** Solarbank 3 / A17C5 — expansion battery states (`expansion_packs`, `exp_1…5_soc` / `soh` / `temperature`) under Diagnostics; live PV power per input (`pv_1…4_power`, cloud fallback `solar_power_1…4`) plus `pv_1…4_name` from `pv_name` under Power flows (thanks [@hwiedermann](https://github.com/hwiedermann))
+
+### 0.10.107
+
+- **Install / native builds:** npm `overrides` force `node-gyp` `^10.2.0` so optional native peers (e.g. `diskusage` / `unix-dgram` from the js-controller stack) build on Python 3.12+ and Node 24 without `ModuleNotFoundError: No module named 'distutils'`
+- **Compatibility:** adapter `engines` stay `>= 22` (CI 22/24/26); override uses node-gyp 10.x (supports Node 18+) so older host toolchains are not restricted by node-gyp 12/13 engines
+
 ### 0.10.106
 
 - **Fix (#15):** Solarbank 3 / A17C5 station SOC limits — writable `charge_upper_limit` / `discharge_lower_limit` (param type 18); legacy `min_soc` no longer the active Gen3 control; missing detail-poll values no longer reset to 0 (thanks [@TMHEINE](https://github.com/TMHEINE))

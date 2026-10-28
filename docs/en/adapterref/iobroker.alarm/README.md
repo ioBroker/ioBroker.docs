@@ -29,6 +29,10 @@ This adapter allows you to set up a home alarm system without extensive programm
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.1.0 (2026-10-27)
+* (@GermanBluefox) Added an alarm panel widget for vis-2 and for the devices adapter
+* (@GermanBluefox) States from the configuration whose object does not exist (e.g. of a deleted Echo) are no longer written, but reported once as a warning
+
 ### 5.0.2 (2026-09-28)
 * (@misanorot) fixed little issues at other alarms
 
@@ -43,10 +47,7 @@ This adapter allows you to set up a home alarm system without extensive programm
 * (@GermanBluefox) Packages were updated
 * (@GermanBluefox) Some compiler errors were fixed
 
-### 4.0.5 (2026-06-23)
-* (@misanorot) fixed checker issues
-
 ## License
-MIT License
+[MIT License](https://github.com/misanorot/ioBroker.alarm/blob/master/LICENSE)
 
 Copyright (c) 2019-2026 misanorot <audi16v@gmx.de>

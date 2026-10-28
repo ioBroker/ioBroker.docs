@@ -57,8 +57,8 @@ mDNS uses multicast, which is usually not routed between network segments. If yo
 
 > **Recommended by Zendure**: use the Authentication Cloud Key mode above - it gives full local control while keeping the cloud connection for convenience. No need to disconnect these devices from the cloud.
 
-- Solarflow 1600 AC Plus, 2400 AC, 2400 AC Plus, 2400 Pro, 800, 800 Plus, 800 Pro
-- Solarflow 3000 Mix AC+, 4000 Mix AC+, 4000 Mix Pro _(no cloud productKey yet - added via [mDNS discovery](#mdns-discovery) only)_
+- Solarflow 1600 AC Plus, 2400 AC, 2400 AC Plus, 2400 Pro, 800, 800 Plus, 800 Pro, 3000 Mix AC+
+- Solarflow 4000 Mix AC+, 4000 Mix Pro _(no cloud productKey yet - added via [mDNS discovery](#mdns-discovery) only)_
 
 ### Smart Meter Accessories 📊 (read-only, zenSDK/mDNS only)
 
@@ -116,32 +116,34 @@ Global (`zendure-solarflow.X.adapterAutomation.*`):
 
 Per device (`<productKey>.<deviceKey>.adapterAutomation.*`):
 
-| State                          | Description                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `automationEnabled`            | Include this device in the automation (default `false`).                                                                                                                                                                                                                                                                                                                                            |
-| `forceAcCharging`              | Charge this device from the grid at its full `chargeMaxLimit` until it is full, regardless of the current demand (default `false`).                                                                                                                                                                                                                                                                 |
-| `acChargingAllowed`            | Only for devices that can charge by AC but are not AC-only (e.g. SF 800 / 2400 Pro, Hyper 2000): charge this device from grid surplus like an AC-only device (default `false`).                                                                                                                                                                                                                     |
+| State                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `automationEnabled`            | Include this device in the automation (default `false`).                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `forceAcCharging`              | Charge this device from the grid at its full `chargeMaxLimit` until it is full, regardless of the current demand (default `false`).                                                                                                                                                                                                                                                                                                                             |
+| `acChargingAllowed`            | Only for devices that can charge by AC but are not AC-only (e.g. SF 800 / 2400 Pro, Hyper 2000): charge this device from grid surplus like an AC-only device (default `false`).                                                                                                                                                                                                                                                                                 |
 | `feedInSolarOnly`              | Not for AC-only devices: feed in at most the current solar input, so the battery is not discharged. **Note:** this only applies while the solar input is above 50 W - at or below 50 W (e.g. at night) the device may feed in from its battery as usual (default `false`). The adapter never switches it by itself - set it from your own script, e.g. during a low-price window of a dynamic electricity tariff, to save the battery for more expensive hours. |
-| `suggestedInverseMaxPower`     | Read-only. Maximum output power the automation uses for this device, calculated from SOC and the lowest cell voltage to protect the battery.                                                                                                                                                                                                                                                        |
-| `suggestedInverseMaxPowerInfo` | Read-only. Reason for the current suggested value.                                                                                                                                                                                                                                                                                                                                                  |
-| `status`                       | Read-only. Status code of what the automation currently wants this device to do, see table below.                                                                                                                                                                                                                                                                                                   |
+| `suggestedInverseMaxPower`     | Read-only. Maximum output power the automation uses for this device, calculated from SOC and the lowest cell voltage to protect the battery.                                                                                                                                                                                                                                                                                                                    |
+| `suggestedInverseMaxPowerInfo` | Read-only. Reason for the current suggested value.                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `status`                       | Read-only. Status code of what the automation currently wants this device to do, see table below.                                                                                                                                                                                                                                                                                                                                                               |
 
 Status codes of `<device>.adapterAutomation.status`. The labels (`common.states`) are in the ioBroker system language (German or English). The lead device variant of a task is its code + 1 (`code % 10 === 1`).
 
-| Code      | Status                                                        |
-| --------- | ------------------------------------------------------------- |
-| `0`       | Automation disabled globally                                  |
-| `1`       | Automation disabled for this device                           |
-| `2`       | Waiting for a change of the automation trigger state          |
-| `10`/`11` | Feeding in                                                    |
-| `20`/`21` | Standby                                                       |
-| `30`/`31` | Charging from surplus                                         |
-| `40`/`41` | Holding the charge keep-alive                                 |
-| `50`/`51` | Force charging                                                |
-| `60`/`61` | Waiting before charging may start (see `minIdleBeforeCharge`) |
-| `70`/`71` | Waiting for surplus charging                                  |
-| `80`/`81` | Fully charged, idle                                           |
-| `90`/`91` | Idle                                                          |
+| Code        | Status                                                                                 |
+| ----------- | -------------------------------------------------------------------------------------- |
+| `0`         | Automation disabled globally                                                           |
+| `1`         | Automation disabled for this device                                                    |
+| `2`         | Waiting for a change of the automation trigger state                                   |
+| `10`/`11`   | Feeding in                                                                             |
+| `20`/`21`   | Standby                                                                                |
+| `30`/`31`   | Charging from surplus                                                                  |
+| `40`/`41`   | Holding the charge keep-alive                                                          |
+| `50`/`51`   | Force charging                                                                         |
+| `60`/`61`   | Waiting before charging may start (see `minIdleBeforeCharge`)                          |
+| `70`/`71`   | Waiting for surplus charging                                                           |
+| `80`/`81`   | Fully charged, idle                                                                    |
+| `90`/`91`   | Idle                                                                                   |
+| `100`/`101` | Idle, battery at minimum SOC (`minSoc`)                                                |
+| `110`/`111` | Idle, no output power available (`suggestedInverseMaxPower` or `inverseMaxPower` is 0) |
 
 ### How it works
 
@@ -170,6 +172,17 @@ For more details and for information on how to disable error reporting, see the 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 6.1.5 (2026-10-27)
+
+- Adapter automation: A lead device that reached its minSoc or has no output power available (e.g. `suggestedInverseMaxPower` is 0) is now released from feed-in and another device takes over as lead device
+
+### 6.1.4 (2026-10-27)
+
+- Adapter automation: Fixed feed-in being too low when a device in the feed-in group is at its minSoc or has no output power available (its share was not given to the other devices)
+- Adapter automation: New status codes `100` (idle, battery at minimum SOC) and `110` (idle, no output power available) instead of the generic `90` (idle)
+- Add productKey 'g0wyvD' for Solarflow 3000 Mix AC+ (now also created from the cloud device list, not only via mDNS discovery)
+- Devices found via mDNS or a configured IP now keep their existing states (matched by serial number), e.g. after switching from the cloud key to 'zenSDK only' mode
+
 ### 6.1.3 (2026-10-16)
 
 - Adapter automation: `feedInSolarOnly` now only limits feed-in to the solar input while it is above 50 W; at or below 50 W the battery may be used for feed-in (replaces the previous low solar input warning)
@@ -194,20 +207,6 @@ For more details and for information on how to disable error reporting, see the 
 - Adapter automation: `acOnlyPenalty` now also applies to devices with `acChargingAllowed` (e.g. devices without solar panels)
 - Adapter automation (breaking): `<device>.adapterAutomation.status` is now a number with a states list instead of a text, so it can be used in scripts independent of the system language. The lead device has its own codes (task code + 1), see the status code table.
 - Improved battery type detection
-
-### 6.0.0 (2026-10-07)
-
-- Add adapter automation (zero feed-in control), see section "Adapter Automation" above.
-- Add connection mode "zenSDK only (mDNS)": no Zendure cloud and no MQTT server, devices are found via mDNS and controlled via zenSDK. Discovery with mDNS now runs as long as the adapter is running. New devices are added automatically.
-- (Schattenwelt) Add setting "zenSDK devices by IP address": zenSDK devices can be configured by IP address, so they also work if mDNS doesn't reach them (e.g. devices in another network segment / VLAN). Known devices are matched by serial number and keep their states, unknown devices are created with their serial number as key.
-- zenSDK devices: smartMode is no longer turned off in standby (automation limit 0), Note: Currently it's uncertain whether a permanently enabled smartMode increases the device's standby consumption. Thanks to surfer1264 and cliffsolar for input and discussion.
-- Output limit can now be set on devices without an autoModel state (previously rejected because autoModel was not '0').
-- Disconnect MQTT clients cleanly when the adapter is stopped or restarted.
-- Added Sentry (default ioBroker plugin) for error reporting and device statistics.
-
-### 5.3.2 (2026-09-28)
-
-- Fix to ignore MQTT messages from unknown devices
 
 For older changes see CHANGELOG_OLD.md.
 

@@ -3,9 +3,11 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
 ---
 # ShoppingRoute – User Guide
 
-**Guide for ShoppingRoute 0.6.0 (26 October 2026)**
+**Guide for ShoppingRoute 0.6.1 (27 October 2026)**
 
-ShoppingRoute helps turn a normal Alexa shopping list into a list that follows the way you actually shop.
+**Faster Bring! synchronization (0.6.1):** ShoppingRoute now reacts to confirmed Bring! adapter list updates and Alexa list events without waiting for its old 90-second bridge timer. Fallback checks run every 30 seconds; confirmations can be checked sooner on an event without disabling Amazon's write-rate protection. A user completing another item during an older transaction no longer blocks subsequent changes when the original writes have been verified. A stalled bridge produces one warning after three minutes, an error after timeout, and one recovery notice instead of log spam. Check `shoppingroute.0.info.bringSyncStatus` and `shoppingroute.0.data.bringSyncJournal` if changes stop propagating; never reset the journal without backing up and checking both lists.
+
+**Important: ShoppingRoute cannot control this delay.** The separate ioBroker Bring! adapter 1.9.1 refreshes its cloud list approximately **every 90 seconds**. **ShoppingRoute cannot configure, shorten, or trigger that upstream cloud polling interval.** Adding or completing an item in the Bring! mobile app becomes visible to ShoppingRoute only after the Bring! adapter updates its ioBroker state; provider and network delays may add more time. ShoppingRoute 0.6.1 reacts promptly **after** that update, but its 30-second fallback check cannot make the external Bring! adapter retrieve cloud changes earlier.
 
 ## Bring! lists and store routing in ShoppingRoute 0.6.0
 
@@ -30,7 +32,7 @@ Bring! groups items into its own categories and **does not support arbitrary ind
 
 Status: `shoppingroute.0.info.bringSyncStatus`. Bring! route preview: `shoppingroute.0.info.bringSyncPreview`. Journal: `shoppingroute.0.data.bringSyncJournal`.
 
-Bring! normally polls its list about every 90 seconds, so changes are not instantaneous. In user testing, existing Bring! lists and newly added Bring! items were imported into ShoppingRoute and placed into the shopping route during the next sorting run. Automatic tests cover reconciliation and safeguards. The user test does not establish live completion, deletion or every two-way conflict scenario; start bidirectional synchronization with backed-up test lists.
+The independent Bring! adapter reads its cloud list roughly every 90 seconds. This wait is outside ShoppingRoute's control; its event-driven sync starts only once the refreshed list reaches ioBroker. In user testing, existing Bring! lists and newly added Bring! items were imported into ShoppingRoute and placed into the shopping route during the next sorting run. Automatic tests cover reconciliation and safeguards. The user test does not establish live completion, deletion or every two-way conflict scenario; start bidirectional synchronization with backed-up test lists.
 
 ## New in 0.5.3: Change your shopping list right in the Alexa app
 

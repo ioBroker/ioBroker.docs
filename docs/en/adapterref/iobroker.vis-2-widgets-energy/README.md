@@ -54,6 +54,14 @@ adapter.
 -->
 
 ## Changelog
+### 3.0.3 (2026-10-26)
+* (@GermanBluefox) Distribution widget: feed-in reported by a separate power line return OID now shows the moving dot from home to the grid and the green circle, like a negative power line value does (#227)
+
+### 3.0.2 (2026-10-26)
+* (hombach) Fixed the widget integration test for `@iobroker/vis-2-widgets-testing` 2.x: `addWidget` now receives a numeric timeout instead of a boolean, which otherwise made the test fail immediately ("truems exceeded") and blocked the release from being published
+* (hombach) Distribution widget: the computed size is now clamped to zero so the circle radii derived from it never turn into invalid negative SVG `r` values at very small widget sizes
+* (hombach) updated dependencies
+
 ### 3.0.1 (2026-10-16)
 * (@GermanBluefox) **BREAKING:** built with React 19 and MUI 9 - requires vis-2 2.20.1 or newer (React 19)
 * (@GermanBluefox) New widgets: self-sufficiency, battery storage, energy costs and dynamic electricity price
@@ -96,12 +104,6 @@ adapter.
 
 ### 1.0.2 (2024-08-06)
 * (bluefox) updated packages
-
-### 1.0.0 (2024-07-07)
-* (bluefox) Removed withStyles package
-
-### 0.3.11 (2024-02-16)
-* (bluefox) show value with green color if we feed back into power line
 
 ## License
 The MIT License (MIT)

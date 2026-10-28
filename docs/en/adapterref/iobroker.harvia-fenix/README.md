@@ -235,6 +235,9 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 ---
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (meistermopper) Update dependency overrides to resolve Dependabot security alerts
+
 ### 1.2.0 (2026-10-19)
 * (meistermopper) Add fanOn state and FAN command support for sauna fan or secondary light
 * (meistermopper) Add patch-ps-tree script for dev-server Windows 11 compatibility

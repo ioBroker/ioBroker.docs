@@ -20,9 +20,14 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
 </p>
 
-> **Current version: 0.6.0 (2026-10-26).**
-> ShoppingRoute is available in the ioBroker **latest** repository.
+> **Current version: 0.6.1 (2026-10-27).**
+> ShoppingRoute releases appear through the ioBroker **latest** repository after index refresh.
 
+**0.6.1 – faster, safer Bring!/Alexa synchronization:** Once a new acknowledged Bring! list state or an Alexa list change is observed, ShoppingRoute starts a short debounced bridge check instead of waiting for another 90-second bridge poll. It retains a 30-second fallback check and reschedules busy transactions after three seconds; verification checks are rate-conscious and provider updates can wake them early. Original completed writes are confirmed independently from unrelated concurrent user changes, preventing a stale transaction from blocking later completions. The adapter reports delayed confirmations once as warnings, hard failures as errors, and a successful recovery once as informational output.
+
+**Important speed limit outside ShoppingRoute's control:** The separate ioBroker **Bring! adapter 1.9.1** checks its cloud shopping lists approximately **every 90 seconds**. **ShoppingRoute cannot configure, shorten, or force an earlier Bring! cloud refresh.** Items added or marked completed in the Bring! mobile app only become visible to ShoppingRoute after the Bring! adapter has updated its ioBroker list. Network or provider delays may increase that wait. **Once the update is available**, ShoppingRoute 0.6.1 starts its event-driven synchronization without another 90-second delay. The upstream polling interval is **not a ShoppingRoute speed setting**; Alexa API write protections remain unchanged.
+
+For a blocked sync inspect `shoppingroute.0.info.bringSyncStatus` and `shoppingroute.0.data.bringSyncJournal`. Never clear a pending journal without first comparing and backing up both provider lists and completed items. See [issue #82](https://github.com/RaviniZib/ioBroker.shoppingroute/issues/82).
 ## What ShoppingRoute does
 
 ShoppingRoute turns an ordinary Alexa shopping list into a practical shopping assistant. **All stores can share one Alexa list, or you can deliberately split them across several lists.** Its key feature is configurable **market routing**: for every store, you define your own walking order through the sections. ShoppingRoute then arranges the list to match the way you actually move through the shop — reducing backtracking and searching for **faster, more efficient shopping**.

@@ -145,6 +145,8 @@ Two things are important about the numbers:
 
 The cleanup removes the stored values of datapoints that nobody logs any more. **Nothing is deleted without confirmation**: the dialog first shows what a confirmed run would remove. By default, only objects that no longer exist in ioBroker are selected. Datapoints whose logging is merely switched off are only included if you explicitly check that - their history is still reachable and often wanted. A datapoint that is currently logged is never selected. In the dialog all found datapoints are preselected; use the checkboxes to deselect the ones you want to keep. Only the selected datapoints are deleted.
 
+The adapter only knows whether a measurement has an object. If a script writes directly into the database without an object, that measurement is therefore shown as "object deleted" as well. To tell such measurements apart from real leftovers, the dialog shows the oldest and the newest value of every datapoint. If a number is entered at **Last value older than … days**, only datapoints whose newest value is older (or that have no value at all) are preselected. Datapoints that are still written to are then left out, but can still be ticked by hand.
+
 The same data is also available via JavaScript with the messages `getDpStatistics` and `cleanupOrphaned`, see [README](/#/adapters/influxdb#statistics-and-cleanup).
 
 * * *

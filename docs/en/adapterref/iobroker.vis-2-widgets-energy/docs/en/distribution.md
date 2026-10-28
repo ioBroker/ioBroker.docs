@@ -53,7 +53,7 @@ Everything of the home circle, plus:
 | Field                 | Meaning                                                                                        |
 | --------------------- | ----------------------------------------------------------------------------------------------- |
 | Power line OID        | Power taken from the grid. A **negative** value means that energy is fed into the grid.           |
-| Power line return OID | Separate data point for the feed-in, if the meter reports the two directions separately           |
+| Power line return OID | Separate data point for the feed-in, if the meter reports the two directions separately. While the power line OID is 0 and this one is not, the dot runs from home to the grid and the circle turns green |
 | Return energy color   | Color of the feed-in value inside the circle                                                      |
 | Hide if less than     | Fades the circle out below this value. Empty always shows it. In the editor it stays visible.     |
 | Invert direction      | Turns the direction of the moving dot around                                                      |

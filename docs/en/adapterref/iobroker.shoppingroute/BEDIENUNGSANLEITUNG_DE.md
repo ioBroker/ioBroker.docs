@@ -3,9 +3,15 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
 ---
 # ShoppingRoute – Bedienungsanleitung
 
-**Bedienungsanleitung für ShoppingRoute 0.6.0 (26.10.2026)**
+**Bedienungsanleitung für ShoppingRoute 0.6.1 (27.10.2026)**
 
 ShoppingRoute hilft dir dabei, eine Alexa-Einkaufsliste so zu ordnen, wie du tatsächlich einkaufst.
+
+**Neuerungen 0.6.1:** ShoppingRoute reagiert auf bestätigte Änderungen der Bring!- und Alexa-Listen jetzt ereignisgesteuert. Die zusätzliche ShoppingRoute-Wartezeit von bisher bis zu 90 Sekunden entfällt; als Reserve wird alle 30 Sekunden kontrolliert. Gleichzeitig erledigte Artikel werden nach einer bestätigten vorherigen Übertragung abgeglichen. Alexa-Schreibsperren bleiben erhalten. Im ioBroker-Log erscheinen Warnungen für ausstehende Bestätigungen und Fehler bei Timeouts ohne wiederholte Logflut.
+
+**Wichtig: Diese Wartezeit kann ShoppingRoute nicht beeinflussen.** Der separate ioBroker-Adapter Bring! 1.9.1 fragt die Bring!-Cloud in einem eigenen Intervall von ungefähr **90 Sekunden** ab. **ShoppingRoute kann diesen Abruf weder beschleunigen noch vorzeitig auslösen.** Ein in der Bring!-App hinzugefügter oder erledigter Artikel erreicht ShoppingRoute erst nach der nächsten Aktualisierung durch den Bring!-Adapter; Netzwerk- oder Cloud-Verzögerungen können hinzukommen. Erst anschließend greift der schnelle, ereignisgesteuerte Abgleich von ShoppingRoute 0.6.1. Die 30-Sekunden-Rückfallprüfung von ShoppingRoute ändert **nicht** die 90 Sekunden des Bring!-Adapters.
+
+**Seit Version 0.6.1:** Wird während der Bestätigung einer älteren Bring!/Alexa-Übertragung ein weiterer Artikel in Bring! abgehakt, prüft ShoppingRoute die ursprünglichen Schreibvorgänge einzeln. Sobald diese vollständig bestätigt sind, verarbeitet es die spätere Erledigung im nächsten Abgleich, ohne den erledigten Artikel in Bring! wiederherzustellen. Nicht bestätigte Schreibvorgänge bleiben gesperrt. Ausstehende Bestätigungen und Timeouts werden einmalig im ioBroker-Log gemeldet, statt das Log bei jedem Poll zu füllen. Bei Synchronisationsproblemen die Datenpunkte `shoppingroute.0.info.bringSyncStatus` und `shoppingroute.0.data.bringSyncJournal` prüfen; das Journal nur nach Sicherung und Abgleich beider Listen korrigieren.
 
 ## Bring!-Listen in ShoppingRoute 0.6.0 einbinden
 
@@ -30,7 +36,7 @@ Bring! selbst sortiert Artikel nach seinen eigenen Produktkategorien. Die App un
 
 ### Wichtig für den sicheren Betrieb
 
-- Änderungen erscheinen nicht sofort: Der Bring!-Adapter fragt Listen normalerweise ungefähr alle 90 Sekunden ab; ShoppingRoute prüft die Verbindung ebenfalls zyklisch.
+- **Nicht von ShoppingRoute steuerbar:** Der separate Bring!-Adapter fragt seine Cloud-Liste normalerweise ungefähr alle **90 Sekunden** ab. ShoppingRoute kann dieses Intervall nicht verkürzen. Sobald ein aktualisierter Listenstand im ioBroker ankommt, wird ShoppingRoute ereignisgesteuert aktiv; die eigene Rückfallprüfung erfolgt alle 30 Sekunden.
 - Bei gleichen Artikelnamen mit unterschiedlichen Mengen/Beschreibungen oder bei mehrfachen Artikeln wird nichts erraten. Der Abgleich stoppt und meldet den Konflikt.
 - Werden Daten nicht rechtzeitig bestätigt, bleibt ein Wiederherstellungsjournal bestehen und weitere Schreibvorgänge werden blockiert. Vor einem Zurücksetzen des Journals müssen **beide Listen manuell geprüft** werden.
 - Bei Dry-Run werden weder Bring! noch Alexa beschrieben.

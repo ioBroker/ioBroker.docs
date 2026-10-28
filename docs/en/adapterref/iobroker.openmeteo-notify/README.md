@@ -300,6 +300,9 @@ This adapter is an independent community project and is not affiliated with or e
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (ipod86) chore: clearer adapter title ("Open-Meteo Weather & Severe Weather Alerts") and npm keywords
+
 ### 0.4.1 (2026-10-22)
 * (ipod86) feat: short-range forecast in all widgets (text line, precipitation strip, "15 min" chart view) and as `minutely.text` – widget size unchanged
 

@@ -149,6 +149,8 @@ Zwei Dinge sind zu den Zahlen wichtig:
 
 Das Aufräumen entfernt die gespeicherten Werte von Datenpunkten, die niemand mehr loggt. **Ohne Bestätigung wird nichts gelöscht**: Der Dialog zeigt zuerst, was ein bestätigter Lauf entfernen würde. Standardmäßig sind nur Objekte ausgewählt, die es in ioBroker nicht mehr gibt. Datenpunkte mit lediglich ausgeschaltetem Logging werden nur einbezogen, wenn man das ausdrücklich ankreuzt – ihre Historie ist noch erreichbar und oft gewollt. Ein Datenpunkt, der gerade geloggt wird, wird nie ausgewählt. Im Dialog sind alle gefundenen Datenpunkte vorausgewählt; über die Checkboxen lassen sich einzelne Datenpunkte abwählen, die behalten werden sollen. Gelöscht werden nur die ausgewählten.
 
+Der Adapter weiß nur, ob es zu einer Messung ein Objekt gibt. Schreibt ein Skript direkt in die Datenbank, ohne dass dazu ein Objekt existiert, steht bei dieser Messung deshalb ebenfalls „Objekt gelöscht“. Um solche Messungen von echten Datenleichen zu unterscheiden, zeigt der Dialog zu jedem Datenpunkt den ältesten und den neuesten Wert. Ist bei **Letzter Wert älter als … Tage** eine Zahl eingetragen, sind nur Datenpunkte vorausgewählt, deren neuester Wert älter ist (oder die gar keinen Wert haben). Datenpunkte, in die noch geschrieben wird, bleiben dann außen vor, können aber weiterhin von Hand angekreuzt werden.
+
 Dieselben Daten sind auch per JavaScript über die Nachrichten `getDpStatistics` und `cleanupOrphaned` erreichbar, siehe [README](https://github.com/ioBroker/ioBroker.influxdb/blob/master/README.md#statistics-and-cleanup).
 
 * * *
@@ -254,6 +256,9 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.2.2 (2026-10-27)
+* (GermanBluefox) The cleanup dialog of the statistics tab shows the oldest and the newest value of each datapoint and can preselect only datapoints whose last value is older than a given number of days, so measurements that scripts still write to stay untouched
+
 ### 5.2.0 (2026-10-24)
 * (GermanBluefox) The cleanup dialog of the statistics tab has checkboxes, so only the selected datapoints are deleted (#565)
 
@@ -269,9 +274,6 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ### 5.1.6 (2026-10-13)
 * (@GermanBluefox) The "Statistics" tab works now with InfluxDB 2.0
-
-### 5.1.5 (2026-10-13)
-* (@GermanBluefox) Added missing translations. Compact mode no longer can exit the whole host process. The Grafana admin password is protected now
 
 ## License
 

@@ -127,6 +127,8 @@ Please report reproducible problems in the [GitHub issue tracker](https://github
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
 ### 0.0.5 (2026-10-21)
 
 * (Gaspode69) Reduced log noise from transient interruptions of established realtime streams

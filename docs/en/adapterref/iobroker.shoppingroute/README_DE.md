@@ -5,7 +5,13 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
 
 ![ShoppingRoute](admin/shoppingroute.png)
 
-**Aktuelle Version: 0.6.0 (26.10.2026).**
+**Aktuelle Version: 0.6.1 (27.10.2026).**
+
+**Neu in 0.6.1 – schnellerer und robusterer Bring!-/Alexa-Abgleich:** Sobald der Bring!-Adapter einen bestätigten Listenstand oder Alexa eine Listenänderung meldet, wird ShoppingRoute ereignisgesteuert aktiv. Es entfällt die zusätzliche Wartezeit von bis zu 90 Sekunden im ShoppingRoute-Intervall. Eine 30-Sekunden-Rückfallprüfung, kurze Wiederholungsversuche bei laufenden Sortierungen und zeitnahe Bestätigungen bleiben aktiv. Bereits ausgeführte Schreibvorgänge werden unabhängig von zwischenzeitlich erledigten anderen Artikeln erkannt. Dadurch blockieren solche Erledigungen den nächsten Abgleich nicht mehr. Nach drei Minuten ohne Bestätigung erscheint einmalig eine Warnung im ioBroker-Log, bei Timeout ein Fehler und nach Wiederherstellung eine Entwarnung – keine Logflut.
+
+**Wichtige Geschwindigkeitsgrenze außerhalb von ShoppingRoute:** Der eigenständige ioBroker-Adapter **Bring! 1.9.1** fragt die Bring!-Cloud standardmäßig ungefähr **alle 90 Sekunden** ab. **ShoppingRoute kann dieses Intervall weder einstellen noch verkürzen oder einen früheren Cloud-Abruf erzwingen.** Wird ein Artikel in der Bring!-App hinzugefügt oder abgehakt, erreicht diese Änderung ShoppingRoute erst, nachdem der Bring!-Adapter seine ioBroker-Liste aktualisiert hat. Die Verzögerung kann durch Netzwerk- oder Dienstprobleme auch länger sein. **Ab diesem Zeitpunkt** verarbeitet ShoppingRoute 0.6.1 die Änderung ereignisgesteuert, ohne weitere 90 Sekunden abzuwarten. Die Wartezeit des Bring!-Adapters ist also **keine von ShoppingRoute beeinflussbare Geschwindigkeitseinstellung**. Die Amazon-API-Schreibsperren bleiben bestehen.
+
+Bei Problemen `shoppingroute.0.info.bringSyncStatus` und `shoppingroute.0.data.bringSyncJournal` prüfen. Ein ausstehendes Journal niemals löschen, ohne vorher beide aktiven Listen und die erledigten Artikel zu sichern und zu vergleichen. Siehe [Issue #82](https://github.com/RaviniZib/ioBroker.shoppingroute/issues/82).
 
 ShoppingRoute macht aus einer normalen Alexa-Einkaufsliste eine praktische Einkaufshilfe: **Alle Märkte können gemeinsam in einer einzigen Liste geführt oder bewusst auf mehrere Listen verteilt werden.** Das besondere Merkmal ist das frei einstellbare **Marktrouting**: Für jeden Markt legst du deinen persönlichen Laufweg durch die Abteilungen fest. Dadurch steht die Einkaufsliste in der Reihenfolge, in der du tatsächlich durch den Laden gehst – für weniger Zurücklaufen, weniger Suchen und **schnelleres, effizienteres Einkaufen**.
 

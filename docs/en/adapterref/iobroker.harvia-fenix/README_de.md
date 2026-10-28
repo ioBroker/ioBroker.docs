@@ -237,6 +237,7 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 ## Änderungsprotokoll (Changelog)
 
 ### **WORK IN PROGRESS**
+* (meistermopper) Abhaengigkeits-Overrides zur Behebung von Dependabot-Warnungen aktualisiert
 
 ### 1.2.0 (2026-10-19)
 * (meistermopper) Datenpunkt fanOn und FAN-Befehl fuer Saunaluefter / Zweitbeleuchtung ergaenzt

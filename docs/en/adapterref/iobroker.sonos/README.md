@@ -292,6 +292,7 @@ at a time.
 - Fade in (text2speech) - Interval in ms over which the volume is raised at the start of an announcement. 0 disables the fade in. (Default 0)
 - Fade out (text2speech) - Interval in ms over which the volume is lowered at the end of an announcement. 0 disables the fade out. (Default 0)
 - Sonos library - which client library talks to the speakers, see below
+- Event port - only for `@svrooij/sonos`: the TCP port the speakers send their events to. Change it only if another program already uses it. (Default 6329)
 
 ### Sonos library
 
@@ -319,21 +320,32 @@ adapter to get a working state back.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) The event port of the new backend (`@svrooij/sonos`) is set in the instance settings instead of the environment variable `SONOS_LISTENER_PORT`
+* (@GermanBluefox) Fixed the column widths of the settings on large screens and the German text for fade-in
+* (@GermanBluefox) The objects of the speakers are created without the deprecated `createChannel`/`createState`, so js-controller no longer logs them as deprecated (#238)
+* (@GermanBluefox) Fixed `current_elapsed_s`: a time like `1:02:03` jumped to second 3 instead of 1 h 2 min 3 s
+* (@GermanBluefox) An adapter stopped while it was still starting no longer starts the SONOS library and its timers afterwards (warning "setInterval called, but adapter is shutting down")
+
+### 4.2.16 (2026-10-26)
+* (@GermanBluefox) `current_cover` changes with every new cover (`/sonos/coverImage/<ip>.png?v=<hash>`), so vis, Lovelace and the browser show the new cover instead of the old one - for example when switching back to a radio station (#204, #205)
+
+### 4.2.15 (2026-10-26)
+* (@GermanBluefox) `alive` turns false when a speaker is switched off or goes to sleep: every speaker is checked every 30 seconds (#252)
+* (@GermanBluefox) Covers that were not used for 30 days are removed from the cache folder `iobroker-data/sonosCache`, which grew without limit (#222)
+
+### 4.2.14 (2026-10-26)
+* (@GermanBluefox) The Control tab and the ioBroker.devices widgets are built again with the current GUI components and React, as before 4.2.13
+
+### 4.2.13 (2026-10-26)
+* (@GermanBluefox) Fixed detection of radio streams (current_type, current_station, current_title) in the new backend (#363)
+* (@GermanBluefox) The adapter no longer stops with "Cannot read properties of undefined (reading 'members')" when a speaker leaves or rejoins the network (#170, #192, #269, #272)
+* (@GermanBluefox) Local TTS files are handed to the speaker under `/sonos/...` of the web adapter; the former `/files/sonos/...` URL does not exist there (#187)
+
 ### 4.2.12 (2026-10-17)
 * (@GermanBluefox) Updated packages
 
-### 4.2.11 (2026-10-14)
-* (@GermanBluefox) Added the sizes for all screens to the settings. Removed the outdated admin pages
-* (@GermanBluefox) The TCP port for the SONOS events is reported to js-controller 8 as a used resource
-
-### 4.2.10 (2026-10-13)
-* (@GermanBluefox) Small repo-checker fixes
-
-### 4.2.9 (2026-09-15)
-* (@GermanBluefox) SONOS player widget for ioBroker.devices: the tile looks like the media player of `ioBroker.devices`, and a click opens the full player with shuffle, repeat, seek, volume and the source selection
-
-### 4.2.6 (2026-09-09)
-* (@GermanBluefox) Corrected devices widget
+Older changes can be found in CHANGELOG_OLD.md
 
 ## License
 

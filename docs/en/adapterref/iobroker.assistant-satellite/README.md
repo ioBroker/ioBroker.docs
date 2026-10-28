@@ -104,6 +104,9 @@ e.g. `!Water leak in the basement`.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) UDP transport: "louder", "quieter", "volume 5" said to the assistant change the `volume` state and the mixer of this satellite; a change of the `volume` state is reported to the assistant. Needs `@iobroker/assistant-satellite` 0.2.0
+
 ### 0.1.4 (2026-10-14)
 * (@GermanBluefox) Added the missing translations and the sizes for all screens to the settings. Added integration tests, they run on Windows and macOS too
 * (@GermanBluefox) With the UDP transport the TTS port is reported to js-controller 8 as a used UDP port; with the ioBroker transport no port is reported, because none is opened

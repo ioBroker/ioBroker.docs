@@ -17,6 +17,7 @@ SayIt Adapter can convert text to speech and play it on some device.
 Actually, the following outputs are supported:
 
 - *Browser* - browser will play the text within opened `iobroker.vis` page. It is supported almost by every desktop browser and by few mobile Browsers.
+  With "Vis instances" set to *Aura dashboards*, the text is played in the open [Aura](https://github.com/hdering/ioBroker.aura) dashboards instead. "Browser instance" then takes a comma-separated list of Aura client IDs, or `FFFFFFFF` for every dashboard.
 
 - *[Home24- MediaPlayer](http://www.home-24.net/index.php?app=media)* - the text will be sent and played to the Android device with Home24 - MediaPlayer installed. For this will be used build in Android text to speech engine. The port cannot be changed and set to 50000.
 
@@ -32,6 +33,8 @@ Actually, the following outputs are supported:
 - *Heos* - play text on HEOS device. Be sure the Web Adapter is enabled. It is required to enable HEOS to read the generated mp3 files.
 
 - *Squeezebox* - play text on a player of the Logitech Media Server (Lyrion) with the [squeezeboxrpc](https://github.com/oweitman/ioBroker.squeezeboxrpc) adapter (version 2.0.0 or newer). The text is written into the state `Announce` of the player, so the current playback is stopped and restored afterward. The volume of the announcement is configured in the squeezeboxrpc adapter. Be sure the Web Adapter is enabled, so the Media Server can read the generated mp3 files.
+
+- *Fully Kiosk Browser* - play text on an Android tablet with [Fully Kiosk Browser](https://www.fully-kiosk.com) and the [fullybrowser](https://github.com/arteck/ioBroker.fullybrowser) adapter (version 3.0.5 or newer). The REST command `playSound` is sent via the state `Commands.setRAW` of the device and the volume is set via `Commands.setAudioVolume`. Be sure the Web Adapter is enabled, so the tablet can read the generated mp3 files.
 
 - *Chromecast* - play text on a Chromecast device.
 
@@ -322,6 +325,10 @@ Like by FreeTTS, the language is a part of the voice, e.g. `de_DE-thorsten-high`
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.5.0 (2026-10-27)
+* (@hdering) Added the Aura dashboards as a target of the output type "Browser" (#518)
+* (@GermanBluefox) Added the output type "Fully Kiosk Browser" for the tablets of the fullybrowser adapter
+
 ### 5.4.0 (2026-10-23)
 * (@GermanBluefox) Updated packages
 * (@GermanBluefox) Added the output type "Squeezebox" for the players of the squeezeboxrpc adapter (#5)
@@ -348,12 +355,6 @@ Like by FreeTTS, the language is a part of the voice, e.g. `de_DE-thorsten-high`
 * (@GermanBluefox) Adapter requires node.js >= 22 and js-controller >= 6.0.11 now
 * (@GermanBluefox) Older changelog entries were moved to CHANGELOG_OLD.md
 * (@GermanBluefox) Updated the dependabot and auto-merge configuration
-
-### 5.3.0 (2026-08-13)
-* (@GermanBluefox) Added freetts.org as a new TTS engine with more than 400 voices. An API key is required
-* (@GermanBluefox) The engine is selected in two steps now: first the provider and then the voice
-* (@GermanBluefox) The words of the Blockly block are translated into all 11 languages now
-* (@GermanBluefox) Blockly block migrated to TypeScript and the generated code is unchanged
 
 ## License
 

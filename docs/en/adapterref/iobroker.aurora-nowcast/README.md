@@ -215,6 +215,8 @@ Aurora visibility depends on multiple external factors (e.g. cloud cover, light 
 
 ### **WORK IN PROGRESS**
 
+- (chrmenne) Restored the link to older changelogs and kept it outside version entries.
+
 ### 2.3.1 (2026-10-21)
 
 - when upgrading from version 2.2.2 or earlier to version 2.3.0 or later, any instance should be manually deleted and recreated. Otherwise they will remain registered as CRON-type adapters. As the datapoints don't include any IDs or other dynamic values, they will be recreated exactly as they were and no script adjustments will be necessary.

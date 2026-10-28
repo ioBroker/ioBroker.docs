@@ -806,6 +806,16 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### 8.1.5 (2026-10-27)
+* (@Schimi1983) Server mode: every QoS 1/2 message sent to a client now gets its own packet identifier. Before, all messages used the same ID, so acknowledgements could not be matched and messages were retransmitted endlessly
+* (@GermanBluefox) Server mode: the packet identifiers of a client and of the broker are kept apart. A QoS 2 message of a client was dropped as duplicate when the broker had a message with the same identifier in flight to it. After the counter wrapped, an identifier still in flight is not handed out again, and an unacknowledged message keeps its identifier when it is sent again after a reconnect
+* (@GermanBluefox) Server mode: a deleted value (empty payload) and a value of `null` are sent as empty payload instead of `"null"` or `"NaN"`, so a client that deletes its retained topics does not get values back. A received empty payload sets the state to `null` and keeps its type (#682)
+* (@GermanBluefox) The default of "Maximum topic name length" is 255 characters for new instances (was 100). The warning about a too long topic names this setting and comes only once per topic (#560)
+* (@GermanBluefox) Client mode: a reconnect attempt no longer reports the connection as established (#508)
+
+### 8.1.4 (2026-10-27)
+* (@GermanBluefox) Fixed: after the object of a topic was deleted while the instance was running, the next messages wrote the state without object - the object is created again now
+
 ### 8.1.3 (2026-10-14)
 * (@GermanBluefox) In server mode the occupied TCP ports are reported to js-controller 8 (`registerUsedResource`)
 
@@ -814,13 +824,6 @@ Congratulations! Now you can control the system ioBroker and receive data via a 
 
 ### 8.1.1 (2026-10-13)
 * (@GermanBluefox) Admin 7.6.20+ is required. Added missing translations. Compact mode no longer can exit the whole host process
-
-### 8.1.0 (2026-09-06)
-* (@GermanBluefox) Added the option "Interpretation of the received payload": besides the previous behavior ("Full") a received message can now be stored without unpacking a JSON into an ioBroker state object ("Numbers and booleans only"), or completely unparsed as string ("None")
-
-### 8.0.1 (2026-08-28)
-* (@GermanBluefox) The Blockly block is now built from TypeScript sources in `src-blockly/` into `admin/blockly.js`, with the translations in `src-blockly/i18n/`
-* (@GermanBluefox) Fixed: the Blockly block produced no code at all in newer Blockly editors. Since Blockly 10 a generator has to be registered in `Blockly.JavaScript.forBlock`, and the editor migrates its own generators there before it loads an adapter's block
 
 ## License
 
