@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.com/blog</link>
-        <lastBuildDate>Mon, 26 Oct 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 28 Oct 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Mitmachen: Sprich „ioBroker“ ein für ein lokales Aktivierungswort]]></title>
+            <description><![CDATA[
+                <p>„Alexa, mach das Licht aus.“ So selbstverständlich soll das auch mit ioBroker gehen: Ihr sagt „ioBroker“, und euer Smart Home hört zu. Und zwar komplett lokal, auf einem Raspberry Pi oder einem kleinen ESP32-Lautsprecher, ohne dass eure Stimme das Haus verlässt.</p>
+            ]]></description>
+            <link>https://www.iobroker.com/blog/2026_10_28</link>
+            <guid isPermaLink="true">https://www.iobroker.com/blog/2026_10_28</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 28 Oct 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[KI in ioBroker: Vom Helfer im Admin bis zum eigenen Smart Assistant]]></title>
             <description><![CDATA[

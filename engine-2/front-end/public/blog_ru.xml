@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Новости, объявления и идеи о ioBroker]]></description>
         <link>https://www.iobroker.com/blog</link>
-        <lastBuildDate>Mon, 26 Oct 2026 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 28 Oct 2026 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[Для участия: произнесите "ioBroker" в качестве ключевого слова для активации локальной сети.]]></title>
+            <description><![CDATA[
+                <p>«Алекса, выключи свет». С ioBroker это должно быть так же просто: вы говорите «ioBroker», и ваш умный дом слушает. И делает это полностью локально, на Raspberry Pi или небольшом динамике ESP32, без того, чтобы ваш голос покидал дом.</p>
+            ]]></description>
+            <link>https://www.iobroker.com/blog/2026_10_28</link>
+            <guid isPermaLink="true">https://www.iobroker.com/blog/2026_10_28</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 28 Oct 2026 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Искусственный интеллект в ioBroker: от помощника в административной панели до вашего собственного умного ассистента.]]></title>
             <description><![CDATA[
