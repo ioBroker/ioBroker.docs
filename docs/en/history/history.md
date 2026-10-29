@@ -3618,7 +3618,7 @@ The alarm adapter implements a configurable home alarm and surveillance system i
 **Bug fixes**
 - Fixed minor issues in the handling of other alarms.
 
-## grohe-smarthome (29.10.2026) – new stable release
+## grohe-smarthome (29.10.2026) – new stable release 0.7.1
 https://github.com/patricknitsch/ioBroker.grohe-smarthome
 
 <img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.grohe-smarthome/main/admin/grohe-smarthome.png" width="100" height="100" />
