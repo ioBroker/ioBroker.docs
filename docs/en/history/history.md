@@ -3836,9 +3836,22 @@ The puppeteer adapter takes screenshots of web pages using a headless Chrome bro
 
 **Bug fixes**
 - Fixed a renderer-process leak when navigation or screenshot threw an error; pages are now always closed (1.1.0).
+
+## pv-notifications (29.10.2026) – new stable release 1.2.35
+https://github.com/sadam6752-tech/ioBroker.pv-notifications
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.pv-notifications/main/admin/pv-notifications.png" width="100" height="100" />
+
+The pv-notifications adapter sends Telegram notifications for PV battery status; version 1.2.34 adds an optional PV forecast for tomorrow (supporting pvforecast and open-meteo-weather data points with automatic unit detection) shown in daily statistics and messages, and version 1.2.35 adds translations for the "Test Notification" entry in German, English, and Russian.
+
+**New features**
+- Added optional `pvForecastTomorrow` data point support (e.g. from pvforecast or open-meteo-weather adapters) with automatic unit detection (Wh/kWh/MWh) or explicit unit setting via `pvForecastUnit` (1.2.34).
+- PV forecast for tomorrow is now shown in daily statistics, battery full/empty, and test messages (1.2.34).
+- Added translation for the "Test Notification" entry in German, English, and Russian (1.2.35).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
