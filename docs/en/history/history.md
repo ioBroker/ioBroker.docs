@@ -3710,9 +3710,17 @@ The tvprogram adapter displays and manages TV program schedules in ioBroker vis;
 - Improved data management (6.0.0).
 - Added a reset button under the data-point info/reset section (6.1.0).
 - Further fixes and adjustments (6.1.0).
+
+## poolcontrol (29.10.2026) – new adapter at stable repository
+https://github.com/DasBo1975/ioBroker.poolcontrol
+
+<img src="https://raw.githubusercontent.com/DasBo1975/ioBroker.poolcontrol/main/admin/poolcontrol.png" width="100" height="100" />
+
+The poolcontrol adapter controls and monitors pool systems including pump scheduling, temperature management, solar heating, photovoltaic integration, chemistry tracking, and speech output.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
