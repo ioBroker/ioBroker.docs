@@ -3859,9 +3859,33 @@ The flexcharts adapter brings the full feature set of Apache eCharts to ioBroker
 **Bug fixes**
 - Page background now follows the chart's background color (option or theme) to avoid a white frame around charts embedded in VIS/VIS2 iframes.
 - SSE timers now use `adapter.setInterval()` so they are properly cleaned up when the web adapter stops.
+
+## xterm (29.10.2026) – new stable release 4.0.2
+https://github.com/ioBroker/ioBroker.xterm
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.xterm/master/admin/xterm.png" width="100" height="100" />
+
+The xterm adapter provides a terminal (shell) in the ioBroker admin interface; version 3.0.0 migrates to TypeScript and adds multiple terminal sessions, version 3.0.2 adds the ability to run under a specified user on Linux, and version 4.0.1 moves terminals to the server side so they survive page reloads, while version 4.0.2 adds HTTP/2 support and fixes macOS shell startup.
+
+**New features**
+- Multiple terminal sessions are now supported (3.0.0).
+- Added the ability to run terminals under a specified user on Linux (3.0.2).
+- Terminals now run on the server and survive a page reload or lost connection, restoring their content on reconnect (4.0.1).
+- Added a configurable session timeout setting (4.0.1).
+- Added HTTP/2 support (with HTTP/1.1 fallback) for HTTPS; can be switched off with the "Use HTTP/2" option (4.0.2).
+- The used port is now reported to js-controller 8+ (4.0.2).
+- **Breaking (4.0.1):** Requires js-controller >= 6.0.11; Node.js 20 is no longer supported.
+
+**Bug fixes**
+- Fixed HTTPS mode: the adapter did not start the web server at all when `secure` was enabled (4.0.1).
+- Fixed shown client IP addresses in `info.connection` (4.0.1).
+- Fixed double connections of the GUI after a connection timeout (4.0.1).
+- Fixed a shell that could not start being restarted endlessly (4.0.1).
+- Fixed macOS shells not starting because the `spawn-helper` of node-pty was not executable (4.0.2).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
