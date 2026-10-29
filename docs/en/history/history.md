@@ -3882,9 +3882,21 @@ The xterm adapter provides a terminal (shell) in the ioBroker admin interface; v
 - Fixed double connections of the GUI after a connection timeout (4.0.1).
 - Fixed a shell that could not start being restarted endlessly (4.0.1).
 - Fixed macOS shells not starting because the `spawn-helper` of node-pty was not executable (4.0.2).
+
+## alias-manager (29.10.2026) – new stable release 3.0.0
+https://github.com/iobroker-community-adapters/ioBroker.alias-manager
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.alias-manager/master/admin/alias-manager.png" width="100" height="100" />
+
+The alias-manager adapter manages and creates ioBroker aliases; version 3.0.0 requires Node.js >= 22 and fixes loading via ioBroker.pro.
+
+**Changes**
+- Fixed loading via ioBroker.pro (3.0.0).
+- **Breaking (3.0.0):** Requires Node.js >= 22.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
