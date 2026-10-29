@@ -3676,6 +3676,26 @@ The e3oncan adapter reads and writes data from Viessmann E3 devices (heat pumps,
 
 **Requirements**
 - Now requires Node.js 22.22.2 or newer, or Node.js 24.15 or newer (tested with Node.js 22, 24, and 26).
+
+## vis2-materialdesign (29.10.2026) – new stable release 1.1.1
+https://github.com/typhosj/ioBroker.vis2-materialdesign
+
+<img src="https://raw.githubusercontent.com/typhosj/ioBroker.vis2-materialdesign/master/admin/vis-materialdesign.png" width="100" height="100" />
+
+The vis2-materialdesign adapter provides Material Design widgets for vis-2; versions 1.1.0 and 1.1.1 bring a migration tool from the old vis-materialdesign adapter, multiple bug fixes, and React 19 compatibility.
+
+**New features**
+- New Migration tab in the adapter settings: converts vis-2 projects built with Scrounger's vis-materialdesign adapter widgets to the new widgets, backs up each project first, and lists items that require manual review.
+
+**Bug fixes**
+- Fixed the widget set failing to load in vis-2 with React 19 ("Cannot read properties of undefined (reading 'ReactCurrentOwner')"); the bundle no longer loads its own React copy when vis-2 already provides the JSX runtime.
+- Fixed the JSON Chart and Top App Bar showing "Error in JSON string" for the first moments of every page load when the datapoint was still empty.
+- Fixed the Calendar week/day view showing no name for short appointments; short entries now combine time and name on one line with an ellipsis.
+- Fixed the Calendar ignoring the event height setting outside the month view; in week/day view it now sets the minimum height of an appointment box.
+- Fixed a read-only Slider appearing identical to a movable one; the track and knob are now dimmed when readOnly is set or the working datapoint is active.
+- Fixed use theme applying only dark-mode colors and never applying theme fonts; widgets now subscribe the theme states themselves.
+- Fixed use theme turning Bar, Pie, Line History, and JSON charts black on a canvas; charts now read theme values directly.
+- Fixed the Line History Chart time axis showing garbled text for projects migrated from vis-materialdesign.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
