@@ -3775,6 +3775,13 @@ https://github.com/sadam6752-tech/ioBroker.fingerprint
 <img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.fingerprint/main/admin/fingerprint.png" width="100" height="100" />
 
 The fingerprint adapter integrates the ESP32 FingerprintDoorbell (R503) with ioBroker, providing match and ring events, fingerprint enrollment, backup and restore, and LED control.
+
+## anthbot (29.10.2026) – new adapter at stable repository
+https://github.com/iobroker-community-adapters/ioBroker.anthbot
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.anthbot/master/admin/anthbot.png" width="100" height="100" />
+
+The anthbot adapter connects ioBroker with Anthbot devices such as their robot mowers.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
