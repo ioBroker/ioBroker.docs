@@ -20,11 +20,11 @@ vorstellt. Ein Wandtablet im Flur, ein Grundriss mit Live-Werten, eine
 Kameraübersicht oder eine Seite fürs Telefon: Mit denselben Bausteinen entsteht
 jedes Mal etwas ganz anderes.
 
-<img src="media/vis2_beispiele.webp" width="900" alt="Vier Beispielseiten: Startseite in Glasoptik, Familienseite mit Karte, Kameraübersicht und Grundriss mit Live-Werten" />
+<img src="media/vis2_beispiele.webp" width="900" alt="Vier Beispielseiten: Startseite in Glasoptik, Familienseite mit Karte und Uhr, Kameraübersicht und Grundriss mit Live-Werten" />
 
 Fertige Beispiele zum Ausprobieren stehen unter <https://iobroker.click>.
 
-?> Alle Bilder auf dieser Seite stammen aus vis-2 2.20.5 mit den Widgetsätzen,
+?> Alle Bilder auf dieser Seite stammen aus vis-2 2.20.5 im Thema **Modern Dark**, mit den Widgetsätzen,
 die vis-2 selbst mitbringt, und einigen der verbreiteten Widget-Adapter.
 
 ## Lizenz
@@ -86,6 +86,10 @@ der Seite nicht zwischen die Seitenleisten, öffnen sie sich als schwebende
 Leiste über der Arbeitsfläche, und zwar immer nur eine von beiden. Auf einem
 breiten Bildschirm oder bei einer Seite ohne feste Auflösung stehen sie
 nebeneinander.
+
+Das Symbol **Farbthema ändern** oben rechts schaltet zwischen den Themen um, darunter
+**Modern Dark** und **Modern Light**. Die Wahl gilt für diesen Browser, und die
+Widgets aus den Sätzen Relativ und Absolut übernehmen ihre Farben daraus.
 
 ?> **Eine Ansicht heißt in vis-2 „Seite".** In vis 1 hieß dasselbe „View"
 beziehungsweise „Ansicht", und in vielen Anleitungen im Netz steht es weiterhin
