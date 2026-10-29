@@ -3617,9 +3617,31 @@ The alarm adapter implements a configurable home alarm and surveillance system i
 
 **Bug fixes**
 - Fixed minor issues in the handling of other alarms.
+
+## grohe-smarthome (29.10.2026) – new stable release
+https://github.com/patricknitsch/ioBroker.grohe-smarthome
+
+<img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.grohe-smarthome/main/admin/grohe-smarthome.png" width="100" height="100" />
+
+The grohe-smarthome adapter connects Grohe Sense and Sense Guard water-monitoring devices to ioBroker; version 0.7.1 improves Sense Guard config writes and fixes a date calculation bug.
+
+**Improvements**
+- Sense Guard config changes (sprinkler, withdrawal limit) now send only the changed keys via PUT, removing the extra `/details` request before writing.
+- Sprinkler and withdrawal limit states are updated from the API response immediately after saving.
+- Sense Guard config is synced from dashboard data on every poll instead of every 10th poll.
+- New state `controls.sprinkler.pending` shows unsaved sprinkler changes; polling no longer overwrites unsaved changes.
+- Withdrawal limit is sent 3 s after the last change instead of on every keystroke.
+
+**Bug fixes**
+- Fixed withdrawal limit and sprinkler values being reset by outdated API config immediately after writing.
+- Fixed total water consumption using the UTC date instead of the local date (wrong day shortly after midnight).
+
+**Maintenance**
+- Node.js 26 added to the test matrix; dependencies updated.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
