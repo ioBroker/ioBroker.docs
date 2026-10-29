@@ -3782,6 +3782,16 @@ https://github.com/iobroker-community-adapters/ioBroker.anthbot
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.anthbot/master/admin/anthbot.png" width="100" height="100" />
 
 The anthbot adapter connects ioBroker with Anthbot devices such as their robot mowers.
+
+## harvia-fenix (29.10.2026) – new stable release 1.2.0
+https://github.com/meistermopper/ioBroker.harvia-fenix
+
+<img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/fenix.png" width="100" height="100" />
+
+The harvia-fenix adapter controls Harvia Fenix sauna units via the MyHarvia cloud; version 1.2.0 adds a fan state and FAN command for a sauna fan or secondary light.
+
+**New features**
+- Added `fanOn` state and FAN command support for controlling a sauna fan or secondary light.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
