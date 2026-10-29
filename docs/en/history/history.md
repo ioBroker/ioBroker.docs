@@ -3792,9 +3792,38 @@ The harvia-fenix adapter controls Harvia Fenix sauna units via the MyHarvia clou
 
 **New features**
 - Added `fanOn` state and FAN command support for controlling a sauna fan or secondary light.
+
+## mydlink (29.10.2026) – new stable release 2.1.0
+https://github.com/iobroker-community-adapters/ioBroker.mydlink
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.mydlink/master/admin/mydlink.png" width="100" height="100" />
+
+The mydlink adapter integrates D-Link smart home devices (smart plugs, motion detectors) with ioBroker; version 2.0.0 is a major revision that moves device management to the device manager with a jsonConfig settings page, encrypts PINs, and fixes numerous connectivity issues, while version 2.1.0 adds configurable motion-detector sensitivity and backoff time, NTP server configuration for older devices, and fixes disabled devices showing as connected.
+
+**New features (2.0.0)**
+- Devices are now added, edited, enabled/disabled, and deleted in the device manager; the settings page uses jsonConfig and embeds the device manager.
+- PINs are encrypted by js-controller and hidden from other adapters; the configuration is converted on first start.
+- Devices are polled right after start.
+- **Breaking:** Requires Node.js >= 22, js-controller >= 7.0.7, and admin >= 8.0.14.
+
+**New features (2.1.0)**
+- Sensitivity, backoff time, and motion-detection state of motion detectors can be changed via states.
+- NTP server of older devices (DSP-W215, DCH-S150) can be set in the device manager.
+
+**Bug fixes (2.0.0)**
+- Fixed adapter crashing on invalid data from websocket devices.
+- Fixed auto-detection not working on Linux (replaced mdns-discovery with multicast-dns).
+- Fixed total power consumption being written to currentPower.
+- Fixed endless loop if another device answered on the configured IP (normalize MAC addresses).
+- Fixed websocket devices reporting as reachable while offline and not reconnecting after going offline.
+- Fixed 10-minute login pause when a device refuses login or the PIN is wrong.
+
+**Bug fixes (2.1.0)**
+- Fixed disabled devices being shown as connected.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
