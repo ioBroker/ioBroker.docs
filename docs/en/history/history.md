@@ -3848,9 +3848,21 @@ The pv-notifications adapter sends Telegram notifications for PV battery status;
 - Added optional `pvForecastTomorrow` data point support (e.g. from pvforecast or open-meteo-weather adapters) with automatic unit detection (Wh/kWh/MWh) or explicit unit setting via `pvForecastUnit` (1.2.34).
 - PV forecast for tomorrow is now shown in daily statistics, battery full/empty, and test messages (1.2.34).
 - Added translation for the "Test Notification" entry in German, English, and Russian (1.2.35).
+
+## flexcharts (29.10.2026) – new stable release 0.7.4
+https://github.com/MyHomeMyData/ioBroker.flexcharts
+
+<img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.flexcharts/main/admin/flexcharts.png" width="100" height="100" />
+
+The flexcharts adapter brings the full feature set of Apache eCharts to ioBroker; version 0.7.4 makes the page background follow the chart's background color to avoid a white frame when embedded in VIS/VIS2 iframes, and fixes SSE timer cleanup when the web adapter stops.
+
+**Bug fixes**
+- Page background now follows the chart's background color (option or theme) to avoid a white frame around charts embedded in VIS/VIS2 iframes.
+- SSE timers now use `adapter.setInterval()` so they are properly cleaned up when the web adapter stops.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
