@@ -3761,6 +3761,13 @@ The volvo adapter integrates Volvo vehicles with ioBroker via the Volvo Cars API
 - Tokens are bound to a DPoP key (ES256); the key is persisted in `auth.dpopKey` so that refreshes can include a DPoP proof.
 - Stored refresh tokens from the old client are discarded on start.
 - The OTP email is only sent when the user clicks "Start Login (Send OTP)"; the OTP field is no longer saved in the settings.
+
+## time-tracker (29.10.2026) – new adapter at stable repository
+https://github.com/sadam6752-tech/ioBroker.time-tracker
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.time-tracker/main/admin/time-tracker.png" width="100" height="100" />
+
+The time-tracker adapter provides clock-in/out time tracking for ioBroker with a built-in web app, badge terminal support, and reporting.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
