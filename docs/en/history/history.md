@@ -3893,9 +3893,25 @@ The alias-manager adapter manages and creates ioBroker aliases; version 3.0.0 re
 **Changes**
 - Fixed loading via ioBroker.pro (3.0.0).
 - **Breaking (3.0.0):** Requires Node.js >= 22.
+
+## rest-api (29.10.2026) – new stable release 4.1.2
+https://github.com/ioBroker/ioBroker.rest-api
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.rest-api/master/admin/rest-api.png" width="100" height="100" />
+
+The rest-api adapter provides a REST API and Swagger UI for ioBroker; versions 4.0.4 through 4.1.2 add HTTP/2 support, a reverse proxy path option for Swagger UI, a bulk state update endpoint, and fix large request body handling.
+
+**New features**
+- Added HTTP/2 support on secure connections (enabled by default with HTTP/1.1 fallback); the used port is now reported to js-controller (4.0.4).
+- Added a `Reverse proxy path` option to make Swagger UI work correctly behind a reverse proxy (4.1.0).
+- Added `PATCH /v1/states` endpoint to write many states with a single request (bulk update) (4.1.2).
+
+**Bug fixes**
+- Fixed `413 Payload Too Large` errors for request bodies larger than 100 kB when authentication is enabled (4.1.1/4.1.2).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
