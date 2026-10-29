@@ -3930,9 +3930,19 @@ The docker-manager adapter lets you pull, delete, start, stop, and manage Docker
 
 **Bug fixes**
 - The cancel button and dialog closing are now disabled while a request (pull, delete, prune, stop, or restart) is running to prevent accidental interruption.
+## teltonika (29.10.2026) – new stable release 1.1.2
+https://github.com/ioBroker/ioBroker.teltonika
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.teltonika/master/admin/teltonika.svg" width="100" height="100" />
+
+The teltonika adapter reads data from Teltonika routers via MQTT; version 1.1.2 reports the occupied MQTT (TCP) and, if enabled, SNMP trap receiver (UDP) ports to js-controller 8.
+
+**Changes**
+- The occupied ports — MQTT (TCP) and, if enabled, the SNMP trap receiver (UDP) — are now reported to js-controller 8 via `registerUsedResource`.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
