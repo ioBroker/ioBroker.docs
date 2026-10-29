@@ -2546,7 +2546,6 @@ The google-spreadsheet adapter enables interaction with Google Sheets from ioBro
 **Cell formatting and charts**
 - New `setCellFormat` command applies formatting (e.g. number format, text style) to a cell or range directly from ioBroker.
 - New `createChart` and `updateChart` commands allow creating and updating embedded charts inside a spreadsheet.
-=======
 ## wireless-mbus (26.9.2026) â€“ new feature
 https://github.com/lvogt/ioBroker.wireless-mbus
 
@@ -2576,7 +2575,6 @@ The wireless-mbus adapter receives data from Wireless Meter-Bus (wM-Bus) devices
 - Fixed the CUL receiver losing the first byte of a command after the serial line had been idle.
 - Fixed telegrams getting lost when several meters transmit at the same time.
 - Fixed the adapter stopping instead of blocking a device whose telegrams keep failing to decode.
-=======
 ## semp (11.10.2026) â€“ new feature
 https://github.com/rg-engineering/ioBroker.semp
 
@@ -3923,9 +3921,19 @@ The socketio adapter provides a socket.io interface for ioBroker; versions 9.0.1
 - Added `socket.io` as a direct dependency to fix the crash "socketClass is not a constructor" (9.0.1).
 - Added Ukrainian and missing translations (9.0.1).
 - Fixed compact mode being able to exit the whole host process (9.0.1).
+## docker-manager (29.10.2026) – new stable release 1.0.5
+https://github.com/ioBroker/ioBroker.docker-manager
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.docker-manager/master/admin/docker-manager.svg" width="100" height="100" />
+
+The docker-manager adapter lets you pull, delete, start, stop, and manage Docker containers directly from ioBroker; version 1.0.5 disables the cancel button and dialog closing while a long-running request (pull, delete, prune, stop, restart) is in progress.
+
+**Bug fixes**
+- The cancel button and dialog closing are now disabled while a request (pull, delete, prune, stop, or restart) is running to prevent accidental interruption.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
