@@ -3656,6 +3656,26 @@ The teslafi adapter connects Tesla vehicles to ioBroker via the TeslaFi cloud AP
 
 **Maintenance**
 - Switched to ioBroker testing 6.x; dependencies updated.
+
+## e3oncan (29.10.2026) – new stable release 1.2.0
+https://github.com/MyHomeMyData/ioBroker.e3oncan
+
+<img src="https://raw.githubusercontent.com/MyHomeMyData/ioBroker.e3oncan/main/admin/e3oncan.png" width="100" height="100" />
+
+The e3oncan adapter reads and writes data from Viessmann E3 devices (heat pumps, boilers) via CAN bus; version 1.2.0 adds open3e-esp32 gateway support as an optional connection type.
+
+**New features**
+- Added open3e-esp32 gateway as an optional connection type per CAN bus (REST for UDS, MQTT for passively received frames).
+- Gateway: device and data point scan run on the gateway's own scan engine with progress logged.
+- Gateway: energy meters and Collect devices are detected automatically, as on a local bus.
+- Gateway: relayed CAN IDs are configured automatically on each start.
+- Gateway: connection state tracks the gateway health; the adapter restarts itself when the gateway recovers.
+
+**Bug fixes**
+- Fixed the connection state after a reconnect during a device scan: a local CAN bus that stops afterwards is now reported as disconnected.
+
+**Requirements**
+- Now requires Node.js 22.22.2 or newer, or Node.js 24.15 or newer (tested with Node.js 22, 24, and 26).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
