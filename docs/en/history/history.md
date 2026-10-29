@@ -3908,9 +3908,25 @@ The rest-api adapter provides a REST API and Swagger UI for ioBroker; versions 4
 
 **Bug fixes**
 - Fixed `413 Payload Too Large` errors for request bodies larger than 100 kB when authentication is enabled (4.1.1/4.1.2).
+
+## socketio (29.10.2026) – new stable release 9.0.2
+https://github.com/ioBroker/ioBroker.socketio
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.socketio/master/admin/socketio.png" width="100" height="100" />
+
+The socketio adapter provides a socket.io interface for ioBroker; versions 9.0.1 and 9.0.2 add Ukrainian and missing translations, prevent compact mode from exiting the host process, fix a "socketClass is not a constructor" crash, and report the listening port to js-controller 8.
+
+**New features**
+- The listening port is now reported to the registry of used resources of js-controller 8; added `@iobroker/webserver` as a direct dependency (9.0.2).
+
+**Bug fixes**
+- Added `socket.io` as a direct dependency to fix the crash "socketClass is not a constructor" (9.0.1).
+- Added Ukrainian and missing translations (9.0.1).
+- Fixed compact mode being able to exit the whole host process (9.0.1).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
