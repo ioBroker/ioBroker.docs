@@ -3618,7 +3618,7 @@ The alarm adapter implements a configurable home alarm and surveillance system i
 **Bug fixes**
 - Fixed minor issues in the handling of other alarms.
 
-## grohe-smarthome (29.10.2026) – new stable release
+## grohe-smarthome (29.10.2026) – new stable release 0.7.1
 https://github.com/patricknitsch/ioBroker.grohe-smarthome
 
 <img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.grohe-smarthome/main/admin/grohe-smarthome.png" width="100" height="100" />
@@ -3638,6 +3638,24 @@ The grohe-smarthome adapter connects Grohe Sense and Sense Guard water-monitorin
 
 **Maintenance**
 - Node.js 26 added to the test matrix; dependencies updated.
+
+## teslafi (29.10.2026) – new stable release 3.1.0
+https://github.com/hombach/ioBroker.teslafi
+
+<img src="https://raw.githubusercontent.com/Hombach/ioBroker.teslafi/master/admin/teslafi.png" width="100" height="100" />
+
+The teslafi adapter connects Tesla vehicles to ioBroker via the TeslaFi cloud API; version 3.1.0 adds geofence presence detection and fixes the speed unit labeling.
+
+**New features**
+- Geofence presence/enter/leave detection with away- and motion-gates added (#325).
+- New `vehicle-state.speed_km` (km/h) datapoint added alongside the existing `vehicle-state.speed` (mph).
+
+**Bug fixes**
+- Fixed speed unit label: `vehicle-state.speed` is now correctly labeled mph; the correction is also applied to existing installations.
+- Geofence hardened against invalid config values, non-numeric speed, and colliding or duplicate location names.
+
+**Maintenance**
+- Switched to ioBroker testing 6.x; dependencies updated.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
