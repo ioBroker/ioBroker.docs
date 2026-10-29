@@ -164,6 +164,7 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
 - (tt-tom17) a panel switched off via `panels.<id>.cmd.activated` is now left alone at adapter start - it no longer receives a restart request over http
 - (tt-tom17) a switched off panel reports the status `deactivated` instead of keeping the status of the previous run, so the panel overview no longer shows it as running
 - (tt-tom17) switching `cmd.activated` is confirmed at the panel again - the acknowledgement went to `panels.controller.cmd.activated` before
+- (ticaki) screensaver: the time no longer stops when other values on the screensaver change often - a trigger arriving within the update throttle was replaced by the first one and the minute update of the clock got lost
 - (tt-tom17) `cmd.hideCards` keeps its stored value at adapter start - it was overwritten with the value of `cmd.activated`
 - (ticaki) a configuration script is no longer required: a panel without a script starts with the admin configuration only (empty start page as fallback) instead of being skipped or pausing the adapter
 

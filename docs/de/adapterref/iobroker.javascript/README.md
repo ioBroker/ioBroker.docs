@@ -164,6 +164,9 @@ Wenn der API-Endpunkt nicht erreichbar ist oder einen Fehler zurückgibt, werden
 Bei fehlgeschlagenem Modellabruf wird ein **Erneut versuchen**-Button angezeigt, sodass ein erneuter Versuch ohne Schließen des Dialogs möglich ist.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added: OpenRouter, if it is chosen in the system-wide AI settings of admin (`@iobroker/ai-core` 0.0.6, `@iobroker/ai-gui` 0.0.5)
+
 ### 10.4.8 (2026-10-27)
 * (GermanBluefox) Fixed: setting scriptEnabled to true restarts an already running script again (#2417)
 * (@GermanBluefox) Fixed: a script that stopped itself with `stopScript()` (or was restarted with `runScript()`) kept running and `scriptEnabled` stayed `true`

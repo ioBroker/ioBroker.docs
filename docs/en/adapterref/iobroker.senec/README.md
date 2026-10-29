@@ -313,7 +313,7 @@ Features:
 
 **Energy Flow Diagram** — Live SVG visualization showing power flow between PV, battery, grid, house, and wallbox. Animated curved paths with power-proportional thickness. Battery SOC gauge with fill level. Operating mode badge. Time estimates (until empty/full). Period totals (today/month/year) with autarky percentage. Data source selector (Auto/Local/API/Web).
 
-**Live Power Curve** — Real-time line chart showing power over time for all five metrics (PV, house, grid, battery, wallbox). Smooth monotone cubic interpolation between data points. Time window presets from 10 minutes to 24 hours, plus mouse wheel zoom (5min–30 days, downsampled for performance). Drag to pan through history with lazy loading and midnight date markers. Toggle individual lines, including an optional battery level line (off by default) drawn against its own right-hand 0–100 % axis. Pause/disable controls. Click "Live" to snap back to real-time. If a history adapter (InfluxDB, SQL, or History) is enabled on the power states, the chart backfills with historical data on page load. Each state is resolved on its own, so they may be recorded by different history adapters, and a state without recording only affects its own line. The ⓘ button lists the states behind every line together with the history adapter recording them — use it to find out why a line has no past data.
+**Live Power Curve** — Real-time line chart showing power over time for all five metrics (PV, house, grid, battery, wallbox). Smooth monotone cubic interpolation between data points. Time window presets from 10 minutes to 24 hours, plus mouse wheel zoom (5min–30 days, downsampled for performance). Drag to pan through history with lazy loading and midnight date markers. Toggle individual lines, including an optional battery level line (off by default) drawn against its own right-hand 0–100 % axis. Pause/disable controls. Click "Live" to snap back to real-time. If a history adapter (InfluxDB, SQL, or History) is enabled on the power states, the chart backfills with historical data on page load. Each state is resolved on its own, so they may be recorded by different history adapters, and a state without recording only affects its own line. The ⓘ button lists the states behind every line together with the history adapter recording them — use it to find out why a line has no past data. The **Colors** button sets the color of each line, with **Default colors** to put them back; a type keeps one color across every chart that draws it, and the palette is stored in the adapter rather than the browser, so every page pointed at the instance shares it.
 
 ![Live Power Curve](media/dashboard-live-chart.png)
 
@@ -354,6 +354,7 @@ Features:
 - Data table view
 - PNG image export
 - Auto-update mode
+- Series colors, behind the **Colors** button, with **Default colors** to put them back. Comparison series are absent from the picker on purpose: a comparison is drawn in its own type's color at reduced opacity, so it follows whatever that type is set to.
 
 ![Charts - Year](media/dashboard-charts-year.png)
 
@@ -418,7 +419,7 @@ Requires the device IP to be configured (even if the Local connector is not enab
 
 ## State Reference
 
-The adapter creates states organized by connector and data section. All states are read-only unless explicitly marked as control states.
+The adapter creates states organized by connector and data section. All states are read-only unless the table below marks them writable.
 
 ### Connection & Status (`info.*`)
 
@@ -443,6 +444,12 @@ The adapter creates states organized by connector and data section. All states a
 | `_local.tls.userCaPem` | string | yes | User-uploaded CA certificate PEM (encrypted) |
 | `_local.tls.cachedCaPem` | string | no | CA certificate PEM downloaded from mein-senec.de (encrypted) |
 | `_local.tls.certFetchFailed` | boolean | yes | Set to `false` to trigger a new CA download attempt |
+
+### Web Dashboard Settings (`_dashboard.*`)
+
+| State | Type | Write | Description |
+|-------|------|:-----:|-------------|
+| `_dashboard.colors` | string | yes | Chart series colors picked in the web dashboard, as a JSON object of palette entry to `#rrggbb`. Only entries that differ from the built-in default are stored. Written by the dashboard and held by the adapter, which never acts on it — it lives here rather than in the browser so every page pointed at the instance shares one palette. Entries the dashboard does not recognise are ignored when it loads. |
 
 ### Local States
 
@@ -587,6 +594,10 @@ If something looks like a bug, open an issue on [GitHub](https://github.com/nobl
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.16.4 (2026-10-28)
+- New: **Chart colors can be changed.** The *Live Power* chart and the *Measurement History* tab each carry a **Colors** button that opens a picker per series, plus a **Default colors** button that puts them all back. A type keeps one color across both charts, so setting PV once is enough; a comparison series has nothing to pick, because it is drawn in its own type's color. The palette is stored in the adapter, not in the browser, so a phone and a wall tablet looking at the same system agree on it — and a color changed on one page appears on any other page that is open.
+- Change: Battery charge level is drawn in one color now rather than two — the live chart's state-of-charge line takes the purple the measurement history already used, and the live chart's wallbox line moves to the shade the energy flow's wallbox total uses, so the two are still told apart. Both are pickable.
+
 ### 2.16.3 (2026-10-27)
 - dependency updates
 
@@ -621,9 +632,6 @@ If something looks like a bug, open an issue on [GitHub](https://github.com/nobl
 - Change: The house consumption from SENEC.Connect is now named for what its schema says it is — the figure excludes the wallbox load, which matters to anyone comparing it against the appliance's own.
 - Fix: The documentation listed a writable state `control.BlockDischarge` for blocking battery discharge. No such state exists and none ever has, so the row is removed. The force-charge switch in the same table was misnamed too: it is `control.ForceLoadBattery`, not `control.ForceCharge`, and it is created on every instance alongside `control.RebootAppliance`. Whether the appliance offers a discharge block at all is tracked as a question of its own (#543).
 - Fix: The documentation named `_local.FACTORY` and `_local.SYS_UPDATE` as the states holding model and firmware version for a bug report. Those are `FACTORY.*` and `SYS_UPDATE.*` at the root of the instance — `_local.` holds the TLS states and nothing else.
-- Dependency updates
-
-### 2.15.6 (2026-10-06)
 - Dependency updates
 
 ### Former Updates

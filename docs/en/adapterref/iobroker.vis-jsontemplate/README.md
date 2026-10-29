@@ -427,7 +427,11 @@ Loop over the attributes of an object
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 4.6.2 (2026-10-28)
+### 5.0.0 (2026-10-28)
+
+- (oweitman) Migrated to React 19 and MUI 9 (vis-2 >= 2.20.0 is required now
+
+### 4.6.3 (2026-10-28)
 
 - last valid version for vis-2 with react 18 (vis-2 version <=2.15.4)
 
@@ -453,10 +457,6 @@ Loop over the attributes of an object
 - add search and fullscreen to ejs-edit for vis-2 widget
 - improve ki documentation for regex expressions
 - improve vis-2 ejs edit theme for dark mode
-
-### 4.4.5 (2026-07-22)
-
-- fix packages for vis-2
 
 ## License
 

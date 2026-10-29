@@ -135,7 +135,7 @@ Wenn Einstellungen fehlen, dann bitte ein Issue anlegen oder im Forum anfragen.
 | ------------------------------ | ------------------------------------ |
 | xxx.events.eventNotification   | Ereignisbenachrichtigung             |
 | xxx.events.eventUpdate         | Alle Events neu laden                |
-| xxx.events.events              | Tägliche Event                       |
+| xxx.events.events              | Gerätemeldungen als JSON             |
 | xxx.events.makeAllRead         | Alle Events als `gelesen` markieren  |
 | xxx.events.systemMessage       | Systemnachrichten                    |
 | xxx.events.unreadEventMessage  | Anzahl ungelesene Events             |
@@ -201,69 +201,55 @@ Wenn Einstellungen fehlen, dann bitte ein Issue anlegen oder im Forum anfragen.
 
 ```json
 [
-    {
-        "id": "2087778142705917953",
-        "start": "1786598551",
-        "end": "1786600074",
-        "time": 1523,
-        "area": 49,
-        "normalDone": true,
-        "url": "https://minio.sk-robot.com/work-record/xxx_1786598551_1786600074_record.gz",
-        "sn": "xxx",
-        "subMode": 0,
-        "startReason": "Das Gerät wird neu gestartet",
-        "endReason": "Arbeit abgeschlossen. Rückkehr zur Ladestation.",
-        "timeZoneId": "",
-        "workProcessInfos": null,
-        "taskType": 3,
-        "oneshotTaskType": 0,
-        "firmwareVersion": "1.1.23.2938",
-        "targetRegions": null,
-        "workOrder": null,
-        "workProcessInfoPage": null
-    },
-    {
-        "id": "2087597114861350914",
-        "start": "1786555135",
-        "end": "1786556912",
-        "time": 1775,
-        "area": 48,
-        "normalDone": true,
-        "url": "https://minio.sk-robot.com/work-record/xxx_1786555135_1786556912_record.gz",
-        "sn": "123",
-        "subMode": 0,
-        "startReason": "Das Gerät wird neu gestartet",
-        "endReason": "Arbeit abgeschlossen. Rückkehr zur Ladestation.",
-        "timeZoneId": "",
-        "workProcessInfos": null,
-        "taskType": 3,
-        "oneshotTaskType": 0,
-        "firmwareVersion": "1.1.23.2938",
-        "targetRegions": null,
-        "workOrder": null,
-        "workProcessInfoPage": null
-    },
-    {
-        "id": "2087455142109900802",
-        "start": "1786521294",
-        "end": "1786523062",
-        "time": 1765,
-        "area": 48,
-        "normalDone": true,
-        "url": "https://minio.sk-robot.com/work-record/xxx_1786521294_1786523062_record.gz",
-        "sn": "1223",
-        "subMode": 0,
-        "startReason": "Das Gerät wird neu gestartet",
-        "endReason": "Arbeit abgeschlossen. Rückkehr zur Ladestation.",
-        "timeZoneId": "",
-        "workProcessInfos": null,
-        "taskType": 3,
-        "oneshotTaskType": 0,
-        "firmwareVersion": "1.1.23.2938",
-        "targetRegions": null,
-        "workOrder": null,
-        "workProcessInfoPage": null
-    }
+[
+  {
+    "id": "2114652384020443001",
+    "appUserId": null,
+    "title": "Robot update successful",
+    "content": "xxx:Robot update successful.",
+    "readFlag": false,
+    "createdAt": "2026-10-26 09:36:31",
+    "messageTypeCode": "otaSuccess",
+    "feedbackContent": null,
+    "sendAt": "1793007391",
+    "type": 2,
+    "sn": null,
+    "userDelFlag": false,
+    "messageCode": null,
+    "nrtkBase": null
+  },
+  {
+    "id": "2114333791798816000",
+    "appUserId": null,
+    "title": "Robot lifted",
+    "content": "xxx:Click to view the solution.",
+    "readFlag": false,
+    "createdAt": "2026-10-25 12:30:33",
+    "messageTypeCode": "deviceExceptionMessage",
+    "feedbackContent": null,
+    "sendAt": "1792931433",
+    "type": 2,
+    "sn": "null",
+    "userDelFlag": false,
+    "messageCode": "-1",
+    "nrtkBase": 0
+  },
+  {
+    "id": "2114333789689335002",
+    "appUserId": null,
+    "title": "Robot lifted",
+    "content": "xxx:Click to view the solution.",
+    "readFlag": false,
+    "createdAt": "2026-10-25 12:30:32",
+    "messageTypeCode": "deviceExceptionMessage",
+    "feedbackContent": null,
+    "sendAt": "1792931432",
+    "type": 2,
+    "sn": "null",
+    "userDelFlag": false,
+    "messageCode": "-1",
+    "nrtkBase": 0
+  },
 ]
 ```
 

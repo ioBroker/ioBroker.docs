@@ -122,6 +122,22 @@ So the path of any release is: `-nextN` test build → **Latest** (published, on
 
 _Older releases: see CHANGELOG_OLD.md._
 
+### 0.96.0 (2026-10-28)
+- 🌟 **New feature:** Phone/tablet column flow - a column block can split its width unevenly (e.g. 2:1, 1:2:1), so a widget can take two thirds next to one taking one third ([#851](https://github.com/hdering/ioBroker.aura/issues/851))
+- 🌟 **New feature:** Announcements - new admin page "Ansagen": datapoint + condition → spoken text on chosen devices, with time window, weekdays and a lock such as at most once a day, no script needed ([#834](https://github.com/hdering/ioBroker.aura/issues/834))
+- 🐛 **Bug fix:** Advanced chart - time axis labels no longer overlap on narrow charts; labels that would collide are left out; the approximate number of labels can be set under X axis ([#869](https://github.com/hdering/ioBroker.aura/issues/869))
+- 🐛 **Bug fix:** Advanced chart - settings that do not apply to the selected mode are shown greyed out with the reason instead of disappearing; the horizontal lines switch now also works in comparison mode ([#869](https://github.com/hdering/ioBroker.aura/issues/869))
+- 🐛 **Bug fix:** Universal widget - vertical and horizontal grid lines are now visible in borderless themes such as Lovelace and Material 3 ([#870](https://github.com/hdering/ioBroker.aura/issues/870))
+- 🐛 **Bug fix:** Admin - all admin pages (overview, layouts, popups, messages, announcements, widgets, frontend design, settings …) now use the same heading size, the same distance to the top and the same gap between heading and content
+- 🐛 **Bug fix:** Universal widget - a select cell shown as circle menu can show a second datapoint large in the button (e.g. the measured temperature), with the selected entry small below ([#864](https://github.com/hdering/ioBroker.aura/issues/864))
+- 🌟 **New feature:** Image, slideshow and camera - new option "Fill tab" like the iFrame: the widget covers the whole tab area, e.g. as a photo frame on a wall tablet; "Fill tab" now also works in popup views, where the widget fills the fullscreen popup or the set popup size, and the popup view editor shows it covering the whole canvas ([#865](https://github.com/hdering/ioBroker.aura/issues/865))
+- 🐛 **Bug fix:** Universal widget - slider cell gets an optional status datapoint like the slider widget: the position and value come from it, dragging still writes the main datapoint ([#866](https://github.com/hdering/ioBroker.aura/issues/866))
+- 🌟 **New feature:** Advanced chart - paging steps by the selected range (day, week, month …) and switching the range keeps the browsed date; the picked date can be the end or the start of the window; charts with the same link group page together, and optional datapoints set or report date and range or page from a script/button (prev, next, today, now) ([#871](https://github.com/hdering/ioBroker.aura/issues/871))
+- 🌟 **New feature:** Simple chart and distribution chart - same paging as the advanced chart (prev/next by the selected range, jump to current, date picker), link groups that work across all three chart types, and the date/range/command datapoints; the distribution chart also gets weeks, calendar months and years for its own range, a 1-year preset and own range chips ([#871](https://github.com/hdering/ioBroker.aura/issues/871))
+- 🐛 **Bug fix:** Screensaver - new datapoints idle.allIdle (true once no panel is in use) and idle.inUse (number of panels in use) summarise the idle state of all devices; switched-off devices and devices with idle detection off are not counted ([#868](https://github.com/hdering/ioBroker.aura/issues/868))
+- 🐛 **Bug fix:** Popups - in a fullscreen popup a single iFrame, camera, chart or other widget without its own content height now fills the whole screen edge to edge, also when embedded directly ("Show widget") and without "Fill tab"
+- 🐛 **Bug fix:** Timer - new datapoint timers.<id>.reapply: set it to true (e.g. from a script) and the timer writes the value its schedule wants right now (the last due event or the active holiday/vacation value), e.g. after a power cut or manual switching; optional "Catch up on adapter start" does the same on every adapter start ([#872](https://github.com/hdering/ioBroker.aura/issues/872))
+
 ### 0.95.0 (2026-10-27)
 - 🐛 **Bug fix:** Weather - the widget no longer overflows when a custom temperature font size or forecast row spacing is set
 - 🐛 **Bug fix:** AI assistant (MCP) - size checks say "cannot be judged" instead of "fits" when the widget uses its own typography, and popup views can now be measured in the browser
@@ -263,14 +279,6 @@ _Older releases: see CHANGELOG_OLD.md._
 
 ### 0.82.10 (2026-10-14)
 - 🌟 **New feature:** Popups - optional countdown in a corner of the popup (top/bottom, left/right) showing the seconds until it closes automatically
-
-### 0.82.9 (2026-10-14)
-- Advanced chart - the current-time line on a category axis now shows which label it hits, warns when none matches and offers the labels from the data to pick from
-- MCP - the per-widget "last change" display options are now part of the widget schema; three false validator warnings are gone (frame options called ineffective, universal widget with a custom grid but no defId, JSON chart on a string datapoint)
-- Timer - switches more reliably: an edited entry fires again on the same day when its time is moved later, an entry saved while the connection was briefly lost is sent again on reconnect, one broken entry no longer stops all other timers, and an event due in the split second between two checks is no longer skipped ([#778](https://github.com/hdering/ioBroker.aura/issues/778))
-- Timer - inside a popup view or a device card, a timer whose target uses a placeholder like {{dp}} now keeps its own schedule and entries per device; before, all devices shared one schedule that only switched the device opened last ([#778](https://github.com/hdering/ioBroker.aura/issues/778))
-- Countdown - inside a popup view or a device card, a countdown whose target uses a placeholder like {{dp}} now runs separately per device; before, starting it for one device ran it for the device shown last ([#778](https://github.com/hdering/ioBroker.aura/issues/778))
-- Media player - shuffle and repeat now show their current state (accent color with a dot) and switch the mode back off on a second click (repeat steps through off / all / one); the cover no longer sticks to the previous track or freezes with Sonos ([#782](https://github.com/hdering/ioBroker.aura/issues/782))
 
 ## License
 

@@ -1,12 +1,13 @@
 ---
-title: adapter template
+title: Adapter template
 lastChanged: 28.03.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adaptertemplate.md
-hash: JkKsPU3iUPdzcM/Pt7YJjJNzasqpDorsi1GXaEpeCF0=
+hash: xzd/DuEFbIRDv3q83mSRm1MBSnR2B9hGncDL64QkzIo=
 ---
 # Adapter documentation template
+
 ```
 ![logo](../../de/dev/admin/adapter-logo.png)
 # Dokumenttitel
@@ -29,6 +30,7 @@ Beschreibung 1
 
 ### Subtitel Konfiguration 2
 Beschreibung
+```
 
 ## Changelog
 ### 0.0.1 (2019-03-28)

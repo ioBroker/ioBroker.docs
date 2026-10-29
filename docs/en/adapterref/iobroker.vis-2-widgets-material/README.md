@@ -137,6 +137,15 @@ The only difference is that Xiaomi supports the room cleaning.
 
 ![Vacuum cleaner](img/material-vacuum.png)
 
+### TV
+
+Remote control for a TV of the device type `tv` (e.g. from the adapter `samsungtv`). Select any state of the TV and the other states are detected.
+
+-   **Tile**: name, status, power and app buttons; a click opens the remote in a dialog
+-   **Remote control**: the full remote in the widget
+
+Every section of the remote (inputs, arrow keys, volume, number pad, apps...) can be switched off, and the shown apps and inputs can be selected. While the TV is off, only the power button is shown.
+
 ### Time picker
 
 ## Todo
@@ -148,6 +157,10 @@ The only difference is that Xiaomi supports the room cleaning.
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+-   (@GermanBluefox) Added the TV widget, see [TV](#tv)
+
 ### 2.0.4 (2026-10-19)
 
 -   (@GermanBluefox) RGB light: the auto-detection does not overwrite the selected state anymore and takes the first matching state (#381)

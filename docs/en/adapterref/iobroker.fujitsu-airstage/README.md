@@ -118,6 +118,12 @@ The following data points are created for each configured device:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.5 (2026-10-28)
+* (S. Bott) Fix fan speed mapping to the Airstage API values (`iu_fan_spd`: 0/2/5/8/11), so `quiet`, `low`, `medium` and `high` take effect and are read back correctly
+* (S. Bott) Ignore the "no set point" value (65535) reported in fan-only mode, so `target_temperature` no longer becomes 6553.5
+* (S. Bott) Add Node.js 26 to the test matrix, update `@iobroker/testing` to 6.x
+* (S. Bott) Replace `pull_request_target` with `pull_request` in the Dependabot auto-merge workflow
+
 ### 0.2.4 (2026-09-20)
 * (S. Bott) Fix `power_consumption` role mismatch with its unit (`value.power.consumed` → `value.energy.consumed`, matching the cumulative Wh value reported by the device)
 * (S. Bott) Fix missing `Name`/`Device ID` i18n keys in admin table, and incorrect German placeholder text in 9 non-German languages

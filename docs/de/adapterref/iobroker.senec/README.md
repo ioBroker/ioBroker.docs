@@ -314,7 +314,7 @@ Funktionen:
 
 **Energiefluss-Diagramm** — Live-SVG-Visualisierung der Energieflüsse zwischen PV, Batterie, Netz, Haus und Wallbox. Animierte Flusspfade mit leistungsproportionaler Dicke. Batterie-SOC-Anzeige mit Füllstand. Betriebsmodus-Badge. Zeitschätzungen (bis leer/voll). Periodensummen (Heute/Monat/Jahr) mit Autarkie-Prozent. Datenquellen-Auswahl (Auto/Lokal/API/Web).
 
-**Live-Leistungskurve** — Echtzeit-Liniendiagramm der Leistung über die Zeit für alle fünf Messwerte (PV, Haus, Netz, Batterie, Wallbox). Glatte monotone kubische Interpolation zwischen Datenpunkten. Zeitfenster-Voreinstellungen von 10 Minuten bis 24 Stunden, plus Mausrad-Zoom (5min–30 Tage, heruntergesampelt für Performance). Ziehen zum Blättern durch die Historie mit Lazy-Loading und Mitternachts-Datumsmarkern. Einzelne Linien ein-/ausblendbar, inklusive einer optionalen Ladezustandslinie (standardmäßig aus) auf einer eigenen rechten 0–100-%-Achse. Pause-/Deaktivierungsschalter. „Live"-Button zum Zurückspringen zur Echtzeit. Bei aktiviertem History-Adapter (InfluxDB, SQL oder History) auf den Leistungs-States wird das Diagramm beim Laden mit historischen Daten vorbefüllt. Jeder State wird einzeln aufgelöst — States können also von unterschiedlichen History-Adaptern aufgezeichnet werden, und ein nicht aufgezeichneter State betrifft nur seine eigene Linie. Der ⓘ-Button listet die States hinter jeder Linie zusammen mit dem aufzeichnenden History-Adapter auf — damit lässt sich nachvollziehen, warum eine Linie keine Vergangenheitsdaten hat.
+**Live-Leistungskurve** — Echtzeit-Liniendiagramm der Leistung über die Zeit für alle fünf Messwerte (PV, Haus, Netz, Batterie, Wallbox). Glatte monotone kubische Interpolation zwischen Datenpunkten. Zeitfenster-Voreinstellungen von 10 Minuten bis 24 Stunden, plus Mausrad-Zoom (5min–30 Tage, heruntergesampelt für Performance). Ziehen zum Blättern durch die Historie mit Lazy-Loading und Mitternachts-Datumsmarkern. Einzelne Linien ein-/ausblendbar, inklusive einer optionalen Ladezustandslinie (standardmäßig aus) auf einer eigenen rechten 0–100-%-Achse. Pause-/Deaktivierungsschalter. „Live"-Button zum Zurückspringen zur Echtzeit. Bei aktiviertem History-Adapter (InfluxDB, SQL oder History) auf den Leistungs-States wird das Diagramm beim Laden mit historischen Daten vorbefüllt. Jeder State wird einzeln aufgelöst — States können also von unterschiedlichen History-Adaptern aufgezeichnet werden, und ein nicht aufgezeichneter State betrifft nur seine eigene Linie. Der ⓘ-Button listet die States hinter jeder Linie zusammen mit dem aufzeichnenden History-Adapter auf — damit lässt sich nachvollziehen, warum eine Linie keine Vergangenheitsdaten hat. Der **Farben**-Button legt die Farbe jeder Linie fest, **Standardfarben** setzt sie zurück; ein Typ behält seine Farbe in jedem Diagramm, das ihn zeichnet, und die Palette liegt im Adapter statt im Browser — alle Seiten, die auf die Instanz zeigen, teilen sie sich.
 
 ![Live-Leistungskurve](media/dashboard-live-chart.png)
 
@@ -355,6 +355,7 @@ Funktionen:
 - Datentabelle
 - PNG-Bildexport
 - Auto-Update-Modus
+- Reihenfarben hinter dem **Farben**-Button, mit **Standardfarben** zum Zurücksetzen. Vergleichsreihen fehlen in der Auswahl mit Absicht: ein Vergleich wird in der Farbe seines eigenen Typs mit reduzierter Deckkraft gezeichnet und folgt damit automatisch dessen Einstellung.
 
 ![Diagramme - Jahr](media/dashboard-charts-year.png)
 
@@ -419,7 +420,7 @@ Erfordert eine konfigurierte Geräte-IP (auch wenn der lokale Konnektor nicht ak
 
 ## State-Referenz
 
-Der Adapter erstellt States, organisiert nach Konnektor und Datenbereich. Alle States sind schreibgeschützt, sofern nicht explizit als Steuerungs-States gekennzeichnet.
+Der Adapter erstellt States, organisiert nach Konnektor und Datenbereich. Alle States sind schreibgeschützt, sofern sie in den folgenden Tabellen nicht als beschreibbar gekennzeichnet sind.
 
 ### Verbindung & Status (`info.*`)
 
@@ -444,6 +445,12 @@ Der Adapter erstellt States, organisiert nach Konnektor und Datenbereich. Alle S
 | `_local.tls.userCaPem` | string | ja | Vom Benutzer hochgeladenes CA-Zertifikat (PEM, verschlüsselt) |
 | `_local.tls.cachedCaPem` | string | nein | Von mein-senec.de heruntergeladenes CA-Zertifikat (PEM, verschlüsselt) |
 | `_local.tls.certFetchFailed` | boolean | ja | Auf `false` setzen um einen neuen CA-Download-Versuch auszulösen |
+
+### Web-Dashboard-Einstellungen (`_dashboard.*`)
+
+| State | Typ | Schreiben | Beschreibung |
+|-------|-----|:---------:|--------------|
+| `_dashboard.colors` | string | ja | Im Web-Dashboard gewählte Diagrammfarben, als JSON-Objekt von Paletteneintrag zu `#rrggbb`. Gespeichert werden nur Einträge, die vom eingebauten Standard abweichen. Das Dashboard schreibt den Wert, der Adapter hält ihn nur und wertet ihn nie aus — er liegt hier statt im Browser, damit alle Seiten derselben Instanz dieselbe Palette verwenden. Einträge, die das Dashboard nicht kennt, werden beim Laden ignoriert. |
 
 ### Lokale States
 
@@ -588,6 +595,10 @@ Sieht es nach einem Fehler aus, bitte ein Issue auf [GitHub](https://github.com/
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.16.4 (2026-10-28)
+- New: **Chart colors can be changed.** The *Live Power* chart and the *Measurement History* tab each carry a **Colors** button that opens a picker per series, plus a **Default colors** button that puts them all back. A type keeps one color across both charts, so setting PV once is enough; a comparison series has nothing to pick, because it is drawn in its own type's color. The palette is stored in the adapter, not in the browser, so a phone and a wall tablet looking at the same system agree on it — and a color changed on one page appears on any other page that is open.
+- Change: Battery charge level is drawn in one color now rather than two — the live chart's state-of-charge line takes the purple the measurement history already used, and the live chart's wallbox line moves to the shade the energy flow's wallbox total uses, so the two are still told apart. Both are pickable.
+
 ### 2.16.3 (2026-10-27)
 - dependency updates
 
@@ -622,9 +633,6 @@ Sieht es nach einem Fehler aus, bitte ein Issue auf [GitHub](https://github.com/
 - Change: The house consumption from SENEC.Connect is now named for what its schema says it is — the figure excludes the wallbox load, which matters to anyone comparing it against the appliance's own.
 - Fix: The documentation listed a writable state `control.BlockDischarge` for blocking battery discharge. No such state exists and none ever has, so the row is removed. The force-charge switch in the same table was misnamed too: it is `control.ForceLoadBattery`, not `control.ForceCharge`, and it is created on every instance alongside `control.RebootAppliance`. Whether the appliance offers a discharge block at all is tracked as a question of its own (#543).
 - Fix: The documentation named `_local.FACTORY` and `_local.SYS_UPDATE` as the states holding model and firmware version for a bug report. Those are `FACTORY.*` and `SYS_UPDATE.*` at the root of the instance — `_local.` holds the TLS states and nothing else.
-- Dependency updates
-
-### 2.15.6 (2026-10-06)
 - Dependency updates
 
 ### Former Updates

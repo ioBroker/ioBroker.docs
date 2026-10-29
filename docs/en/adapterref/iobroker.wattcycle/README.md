@@ -113,8 +113,10 @@ sendTo('wattcycle.0', 'scan', { duration: 8000 }, res => console.log(res.devices
    Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (GermanBluefox) Replaced the wrong telegram context in the Copilot instructions and stopped the template check from creating duplicate issues (#70)
+### 2.0.2 (2026-10-28)
+* (@GermanBluefox) Fixed the missing translations of the widget set, the widget name and the help in vis-2
+* (@GermanBluefox) Replaced the wrong telegram context in the Copilot instructions and stopped the template check from creating duplicate issues (#70)
+* (@GermanBluefox) Updated packages
 
 ### 2.0.1 (2026-10-14)
 * (@GermanBluefox) Restored the supported platforms (Linux and macOS) in package.json
@@ -135,10 +137,6 @@ sendTo('wattcycle.0', 'scan', { duration: 8000 }, res => console.log(res.devices
 
 ### 0.2.1 (2026-05-06)
 * (@GermanBluefox) Use MAC address as a unique identifier bluetooth adapter
-
-### 0.1.0 (2026-05-05)
-
-* (@GermanBluefox) Initial version.
 
 ## License
 

@@ -14,6 +14,10 @@
 
 This adapter retrieves weather forecast data from the free [Open-Meteo API](https://open-meteo.com) and makes it available as ioBroker data points. No API key is required. It sends individual notifications for configurable weather events (storms, thunderstorms, official warnings) and provides multiple independently configurable HTML widgets per location.
 
+![Widget overview](https://raw.githubusercontent.com/ipod86/ioBroker.openmeteo-notify/main/docs/widgets_en.jpg)
+
+![Available icon sets (animated)](https://raw.githubusercontent.com/ipod86/ioBroker.openmeteo-notify/main/docs/icon-sets_en.gif)
+
 ## Highlights
 
 ### Weather notifications via ioBroker notification manager
@@ -302,6 +306,7 @@ This adapter is an independent community project and is not affiliated with or e
 -->
 ### **WORK IN PROGRESS**
 * (ipod86) chore: clearer adapter title ("Open-Meteo Weather & Severe Weather Alerts") and npm keywords
+* (ipod86) docs: widget overview and animated icon set images in the README
 
 ### 0.4.1 (2026-10-22)
 * (ipod86) feat: short-range forecast in all widgets (text line, precipitation strip, "15 min" chart view) and as `minutely.text` – widget size unchanged

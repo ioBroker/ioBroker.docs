@@ -4,9 +4,10 @@ lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterdoctemplate.md
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: S34O7LuuqJ1xp+YU0UqptNxr6cbYr4UXePoOSuNvXwI=
+hash: G1Dw09iG483BXujNGhY87hCuh9W3To0stxzuBDoOtas=
 ---
-# Шаблон для создания документации адаптера
+# Шаблон для создания документации по адаптеру
+
 ```
 ---
 title:       "{Seitentitel}"
@@ -15,8 +16,8 @@ editLink:    "{Link auf diese Datei auf GitHub}"
 ---
 
 
-!>Achtung!
-Dieses Template ist bei weitem noch nicht final!
+!>Achtung!   
+Dieses Template ist bei weitem noch nicht final!  
 Beispielimplementierung ist der [harmony-Adapter](adapterref/docs/iobroker.harmony/de/README).
 
 # <img src="media/{Adaptericon}" width=150 hight=150/>&emsp;{Adaptername}-Adapter
@@ -31,14 +32,14 @@ im Abschnitt "Überblick".
 
 
 <!-- Einführungsbild-->
-![{alt BildName}](../../de/dev/media/{Bild} "{Bildbeschreibung") <span style="color:grey">
+![{alt BildName}](../../de/dev/media/{Bild} "{Bildbeschreibung") <span style="color:grey">  
 *{Bildbeschreibung}*</span>
 
 <details open><summary>Inhaltsverzeichnis</summary><p>
 
 | Navigation                          |
 |-------------------------------------|
-| 1  [Steckbrief](#steckbrief)        |
+| 1  [Steckbrief](#steckbrief)        |  
 | 2  [Überblick](#überblick)          |
 | 3  [Installation](#installation)    |
 | 4  [Konfiguration](#konfiguration)  |
@@ -72,7 +73,7 @@ im Abschnitt "Überblick".
 | Lizenz                  | MIT                          |
 | Kategorie               | gemäß Adapterliste           |
 | Keywords                | `Suchworte`                  |
-| Abhängigkeiten          | `dependencies`               |
+| Abhängigkeiten          | `dependencies`               |      
 
 <a name="überblick"/>
 
@@ -118,10 +119,10 @@ Abschnitt vorzusehen.
 <a name="{Eindeutiger Fensterbezeichner}"/>
 
 ### Fenster "{Fenstertitel}"
-![{alt-Name}](../../de/dev/media/{Formularfelderbild} "{Bildbeschreibung}")<span style="color:grey">
+![{alt-Name}](../../de/dev/media/{Formularfelderbild} "{Bildbeschreibung}")<span style="color:grey">  
 *{Bildbeschreibung}*</span>
 
-| Feld               | Beschreibung |
+| Feld               | Beschreibung |                                                                       
 |:-------------------|:-------------|
 |**{Formularfeld 1}**|{Beschreibung}|
 |**{Formularfeld 2}**|{Beschreibung}|
@@ -133,10 +134,10 @@ Platz für besondere Hinweise.
 <a name="{Eindeutiger Fensterbezeichner}"/>
 
 ### Fenster "{Fenstertitel}"
-![{alt-Name}](../../de/dev/media/{Formularfelderbild} "{Bildbeschreibung}")<span style="color:grey">
+![{alt-Name}](../../de/dev/media/{Formularfelderbild} "{Bildbeschreibung}")<span style="color:grey">  
 *{Bildbeschreibung}*</span>
 
-| Feld               | Beschreibung |
+| Feld               | Beschreibung |                                                                       
 |:-------------------|:-------------|
 |**{Formularfeld 1}**|{Beschreibung}|
 |**{Formularfeld 2}**|{Beschreibung}|
@@ -158,7 +159,7 @@ Abschließender Text zur Konfiguration
 > Die Installation des Adapters hat im Bereich `Objekte` eine aktive Instanz des
   {Adaptername}-Adapters angelegt.
 
-![Instanz](../../de/dev/media/a_harmony_instanz.png "Instanz")<span style="color:grey">
+![Instanz](../../de/dev/media/a_harmony_instanz.png "Instanz")<span style="color:grey">  
 *Erste Instanz*</span>
 
 Platz für weitere Hinweise zu Instanzen des Adapters. Z.B. ob mehrere Instanzen
@@ -179,7 +180,7 @@ Multihost-Systemen verhalten.
   erkannten Geräte und Aktivitäten aufgelistet. Zusätzlich wird auch noch
   darüber informiert, ob die Kommunikation mit dem Hub reibungslos erfolgt.
 
-![alt-Objektename](../../de/dev/media/{Bildname} ""{Bildbeschreibung}")<span style="color:grey">
+![alt-Objektename](../../de/dev/media/{Bildname} ""{Bildbeschreibung}")<span style="color:grey">  
 *{Bildbeschreibung}*</span>
 
 > Die angelegten Objekte und ihre Bedeutungen sind wie folgt definiert:

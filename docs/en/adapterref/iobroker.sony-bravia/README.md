@@ -23,13 +23,36 @@ This is an ioBroker adapter for your Sony Bravia Smart-TV with Android OS. Teste
 * On the TV go to Settings > Network > Home network setup > Remote device/Renderer > Enter Pre-Shared Key > 0000 (or whatever you want your PSK Key to be)
 * On the TV go to Settings > Network > Home network setup > Remote device/Renderer > Simple IP Control > On
 
+## Channel `tv` (for visualizations)
+
+Besides the existing objects the adapter creates the channel `sony-bravia.0.tv`. It follows the device type `tv` of the
+ioBroker type-detector, so visualizations (e.g. vis-2 material widgets) and the devices adapter recognize the TV
+and can control it:
+
+| State                          | Role                            | Meaning                                                                       |
+|--------------------------------|---------------------------------|-------------------------------------------------------------------------------|
+| `tv.power`                     | `switch.power`                  | Switch the TV on/off (needs "Remote start" / network standby to switch on)    |
+| `tv.key`                       | `media.key`                     | Send a key: `UP`, `DOWN`, `LEFT`, `RIGHT`, `SELECT`, `BACK`, `HOME`, `NUMBER_1`, ... |
+| `tv.volume`                    | `level.volume`                  | Volume of the speakers, 0-100 %                                               |
+| `tv.muted`                     | `media.mute`                    | Mute                                                                          |
+| `tv.volumeUp`, `tv.volumeDown` | `button.volume.up` / `.down`    | Volume buttons                                                                |
+| `tv.input`                     | `media.input`                   | Input: `TV`, `SAT`, `HDMI1`...`HDMI4`, `AV`, `COMPONENT`, `SCART` (the ones the TV has) |
+| `tv.app`                       | `media.app`                     | Start an app: `YOUTUBE`, `NETFLIX`, `PRIME_VIDEO`, ... (the ones installed on the TV) |
+| `tv.unreach`                   | `indicator.maintenance.unreach` | The TV does not answer                                                        |
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.2.0 (2026-10-29)
+- (bluefox) The adapter was refactored to TypeScript and JsonConfig
+- (bluefox) Replaced the deprecated `request` library with `axios`
+- (bluefox) Fixed the buttons PicOff, PictureOff, Teletext and WirelessSubwoofer (IRCC codes with `+` or `/`)
+- (bluefox) Apps and channels with non-latin titles no longer abort the creation of the remaining objects
+- (bluefox) The IP field offers the TVs found in the network
+- (bluefox) Added the channel `tv` for the device type `tv` of the type-detector, so visualizations can control the TV
+- (bluefox) Added a remote control to the instance settings (tab "Remote control", requires admin 8)
 - (copilot) Adapter requires node.js >= 22 now
 - (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
@@ -48,11 +71,6 @@ This is an ioBroker adapter for your Sony Bravia Smart-TV with Android OS. Teste
 
 ### 1.0.7 (2022-04-24)
 * (Apollon77) Fix tier definition
-
-### 1.0.6 (2022-04-23)
-* (ThomasBra) Audio volume/mute control
-* (ThomasBra) value lists for AV Contents
-* (Apollon77) Add Sentry error reporting
 
 ## License
 The MIT License (MIT)
