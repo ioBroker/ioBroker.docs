@@ -3768,9 +3768,17 @@ https://github.com/sadam6752-tech/ioBroker.time-tracker
 <img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.time-tracker/main/admin/time-tracker.png" width="100" height="100" />
 
 The time-tracker adapter provides clock-in/out time tracking for ioBroker with a built-in web app, badge terminal support, and reporting.
+
+## fingerprint (29.10.2026) – new adapter at stable repository
+https://github.com/sadam6752-tech/ioBroker.fingerprint
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.fingerprint/main/admin/fingerprint.png" width="100" height="100" />
+
+The fingerprint adapter integrates the ESP32 FingerprintDoorbell (R503) with ioBroker, providing match and ring events, fingerprint enrollment, backup and restore, and LED control.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
