@@ -3747,9 +3747,24 @@ The admin adapter provides the ioBroker management web interface; versions 8.3.0
 - Fixed the SSO session cookie being readable by scripts and sent on cross-site requests (8.3.5).
 - Fixed admin sending an http redirect URI to the SSO identity provider when behind an https reverse proxy (8.3.5).
 - Fixed the device manager crashing when a device slider received a non-numeric value (8.3.5).
+
+## volvo (29.10.2026) – new stable release 3.1.0
+https://github.com/TA2k/ioBroker.volvo
+
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.volvo/master/admin/volvo.png" width="100" height="100" />
+
+The volvo adapter integrates Volvo vehicles with ioBroker via the Volvo Cars API; version 3.1.0 switches to the Volvo Cars app login flow (public client, Authorization Code + PKCE, DPoP-bound tokens) after Volvo disabled the previous OAuth client on 2026-10-26.
+
+**Changes**
+- Switched to the `mo2qy9h_10` public client with Authorization Code + PKCE (S256) after Volvo disabled the previous OAuth client.
+- Login now follows the Volvo Cars app flow: the adapter submits credentials and OTP forms via the Keycloak-backed Volvo ID and reads the authorization code from the `vca://` callback redirect.
+- Tokens are bound to a DPoP key (ES256); the key is persisted in `auth.dpopKey` so that refreshes can include a DPoP proof.
+- Stored refresh tokens from the old client are discarded on start.
+- The OTP email is only sent when the user clicks "Start Login (Send OTP)"; the OTP field is no longer saved in the settings.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
