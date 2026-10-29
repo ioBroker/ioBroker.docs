@@ -3696,6 +3696,20 @@ The vis2-materialdesign adapter provides Material Design widgets for vis-2; vers
 - Fixed use theme applying only dark-mode colors and never applying theme fonts; widgets now subscribe the theme states themselves.
 - Fixed use theme turning Bar, Pie, Line History, and JSON charts black on a canvas; charts now read theme values directly.
 - Fixed the Line History Chart time axis showing garbled text for projects migrated from vis-materialdesign.
+
+## tvprogram (29.10.2026) – new stable release 6.1.0
+https://github.com/oweitman/ioBroker.tvprogram
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.tvprogram/master/admin/tvprogram.png" width="100" height="100" />
+
+The tvprogram adapter displays and manages TV program schedules in ioBroker vis; versions 5.0.1 through 6.1.0 bring a comprehensive revision, a new data source, improved data management, and a reset button for data-point info.
+
+**Changes**
+- Comprehensive revision of the adapter (5.0.1).
+- New data source added (5.0.1).
+- Improved data management (6.0.0).
+- Added a reset button under the data-point info/reset section (6.1.0).
+- Further fixes and adjustments (6.1.0).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
