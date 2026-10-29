@@ -3820,9 +3820,26 @@ The mydlink adapter integrates D-Link smart home devices (smart plugs, motion de
 
 **Bug fixes (2.1.0)**
 - Fixed disabled devices being shown as connected.
+
+## puppeteer (29.10.2026) – new stable release 1.1.1
+https://github.com/iobroker-community-adapters/ioBroker.puppeteer
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.puppeteer/master/admin/puppeteer.png" width="100" height="100" />
+
+The puppeteer adapter takes screenshots of web pages using a headless Chrome browser; version 1.0.0 migrates the adapter to iobroker-community-adapters and requires Node.js >= 22, while version 1.1.0 adds a web extension for ioBroker.web, simultaneous-render limiting, per-request `waitUntil` and `navigationTimeout` parameters, and fixes a renderer-process leak.
+
+**New features**
+- Added a web extension for `ioBroker.web` so screenshots can be taken by calling a URL (1.1.0).
+- Added an option to limit simultaneous renders to avoid system overload (1.1.0).
+- Added per-request `waitUntil` and `navigationTimeout` parameters in both the message API and web server, enabling support for live-data dashboards (vis, Lovelace, Grafana) without hitting the network-idle timeout (1.1.0).
+- **Breaking (1.0.0):** Requires Node.js >= 22, js-controller >= 6.0.11, and admin >= 7.7.22.
+
+**Bug fixes**
+- Fixed a renderer-process leak when navigation or screenshot threw an error; pages are now always closed (1.1.0).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
