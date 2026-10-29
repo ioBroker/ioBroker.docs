@@ -3717,9 +3717,40 @@ https://github.com/DasBo1975/ioBroker.poolcontrol
 <img src="https://raw.githubusercontent.com/DasBo1975/ioBroker.poolcontrol/main/admin/poolcontrol.png" width="100" height="100" />
 
 The poolcontrol adapter controls and monitors pool systems including pump scheduling, temperature management, solar heating, photovoltaic integration, chemistry tracking, and speech output.
+
+## admin (29.10.2026) – new stable release 8.3.5
+https://github.com/ioBroker/ioBroker.admin
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.admin/master/admin/admin.png" width="100" height="100" />
+
+The admin adapter provides the ioBroker management web interface; versions 8.3.0 through 8.3.5 add proxy support for adapter tabs, faster adapter and instance list loading, resource usage bars in the instances tab, a one-click install of the repository version, an AI provider settings tab, and multiple single-sign-on and UI bug fixes.
+
+**New features**
+- Adapter tabs with `adminTab.proxy` (e.g. xterm) now run through the admin port under `/proxy/<instance>/`, for administrators only (8.3.0).
+- Added disk and RAM usage bars with tooltip in the instances tab (8.3.1).
+- Added a sort icon and tooltip on the sort button in the adapters tab (8.3.1).
+- The repository version of an adapter can be installed with one click when a newer or self-installed version is already installed (8.3.1).
+- Added an "AI" tab to the system settings to configure the AI provider, API key, and model once for the whole system (8.3.5).
+- The AI assistant now reads provider, key, and model from the system settings AI tab (8.3.5).
+- The system settings tabs now show icons and sit on the left; on a phone they appear on top (8.3.5).
+
+**Bug fixes**
+- Fixed the language selected in the wizard not being kept after the wizard was closed (8.3.0).
+- Fixed the instances list and "Update all adapters" dialog overflowing with a second scrollbar (8.3.0).
+- Fixed a restart of admin showing errors like "Cannot read instances!" instead of a connection-lost message (8.3.0).
+- Fixed the adapter list being empty after an adapter update and switching tabs (8.3.2).
+- Fixed an adapter updated during list loading still being offered for update with the same version (8.3.2).
+- Fixed the object browser showing an object twice and duplicating its row while scrolling when a sibling ID started with the same text followed by a space (8.3.3).
+- Fixed the license dialog of a paid adapter staying empty and blocking installation (8.3.4).
+- Fixed "Add Single-Sign On" in the user dialog sending the display name instead of the user ID (8.3.4).
+- Fixed single sign-on tokens appearing in the browser address bar, browser history, and reverse-proxy logs (8.3.5).
+- Fixed the SSO session cookie being readable by scripts and sent on cross-site requests (8.3.5).
+- Fixed admin sending an http redirect URI to the SSO identity provider when behind an https reverse proxy (8.3.5).
+- Fixed the device manager crashing when a device slider received a non-numeric value (8.3.5).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
