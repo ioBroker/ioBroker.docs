@@ -3967,9 +3967,20 @@ The e3dc-rscp adapter controls E3/DC power stations via the proprietary RSCP pro
 - Fixed a rijndael-js security issue in package.json (1.4.6).
 - Fixed missing NameSpace translation following the RscpTags.json refactor (1.4.6).
 - Fixed Uint to UInt naming following MYPV tag additions (1.4.6).
+
+## wireless-mbus (30.10.2026) – new stable release 0.14.1
+https://github.com/lvogt/ioBroker.wireless-mbus
+
+<img src="https://raw.githubusercontent.com/lvogt/ioBroker.wireless-mbus/master/admin/wireless-mbus.png" width="100" height="100" />
+
+The wireless-mbus adapter receives wireless M-Bus data from supported receivers; version 0.14.1 fixes the CUL receiver leaving the LQI at the end of every telegram, which caused type-B telegrams to fail with "Telegram data is too short!" and block the meter after 10 failures.
+
+**Bug fixes**
+- Fixed the CUL receiver leaving the LQI byte at the end of every telegram: culfw appends the LQI and the RSSI, but only the RSSI was removed; type-B telegrams then failed with "Telegram data is too short!" and the meter was blocked after 10 failures (0.14.1).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
