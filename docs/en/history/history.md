@@ -3945,9 +3945,17 @@ https://github.com/ioBroker/ioBroker.victron-cerbo
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.victron-cerbo/main/admin/victron-cerbo.svg" width="100" height="100" />
 
 The victron-cerbo adapter receives data from a Victron Cerbo GX energy management device.
+
+## pi-agent (30.10.2026) – new adapter at beta (latest) repository
+https://github.com/sadam6752-tech/ioBroker.pi-agent
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.pi-agent/main/admin/pi-agent.png" width="100" height="100" />
+
+The pi-agent adapter provides a durable language model agent for ioBroker that reads and controls states in plain language, survives restarts without repeating actions, and writes only to allowlisted states.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
