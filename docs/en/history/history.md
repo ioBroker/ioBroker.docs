@@ -3977,6 +3977,13 @@ The wireless-mbus adapter receives wireless M-Bus data from supported receivers;
 
 **Bug fixes**
 - Fixed the CUL receiver leaving the LQI byte at the end of every telegram: culfw appends the LQI and the RSSI, but only the RSSI was removed; type-B telegrams then failed with "Telegram data is too short!" and the meter was blocked after 10 failures (0.14.1).
+
+## sehybrid (30.10.2026) – new adapter at beta (latest) repository
+https://github.com/heresiarch/ioBroker.sehybrid
+
+<img src="https://raw.githubusercontent.com/heresiarch/ioBroker.sehybrid/main/admin/sehybrid.png" width="100" height="100" />
+
+The sehybrid adapter monitors and controls SolarEdge hybrid inverters over Modbus TCP, reading PV, battery and operational data and exposing the StorEdge control block as writable ioBroker states.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
