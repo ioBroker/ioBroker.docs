@@ -3952,9 +3952,25 @@ https://github.com/sadam6752-tech/ioBroker.pi-agent
 <img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.pi-agent/main/admin/pi-agent.png" width="100" height="100" />
 
 The pi-agent adapter provides a durable language model agent for ioBroker that reads and controls states in plain language, survives restarts without repeating actions, and writes only to allowlisted states.
+## e3dc-rscp (30.10.2026) – new stable release 1.4.6
+https://github.com/git-kick/ioBroker.e3dc-rscp
+
+<img src="https://raw.githubusercontent.com/git-kick/ioBroker.e3dc-rscp/master/admin/e3dc-rscp.png" width="100" height="100" />
+
+The e3dc-rscp adapter controls E3/DC power stations via the proprietary RSCP protocol; version 1.4.6 adds MYPV tags and fixes their datatypes, reduces redundancy in RscpTags.json, and hardens a rijndael-js security issue.
+
+**New features**
+- Added MYPV tags and fixed datatypes of existing tags (1.4.6).
+
+**Bug fixes**
+- Reduced redundancy in RscpTags.json (1.4.6).
+- Fixed a rijndael-js security issue in package.json (1.4.6).
+- Fixed missing NameSpace translation following the RscpTags.json refactor (1.4.6).
+- Fixed Uint to UInt naming following MYPV tag additions (1.4.6).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
+
 
 
 
