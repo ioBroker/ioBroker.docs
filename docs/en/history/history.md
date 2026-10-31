@@ -4040,6 +4040,17 @@ The foxesscloud adapter retrieves data from the FoxESS Cloud API for solar inver
 **Bug fixes**
 - Updated API key instructions to the FoxCloud OpenPlatform (developer-eu.foxesscloud.com) in README and admin UI, including a help box and portal link (0.6.6).
 - Fixed repository checker warnings W5605 (outdated i18n keys) and updated @iobroker/testing to 6.3.0 (0.6.7).
+
+## al-ko (31.10.2026) – new stable release 0.3.12
+https://github.com/zechnerhubert/ioBroker.al-ko
+
+<img src="https://raw.githubusercontent.com/zechnerhubert/ioBroker.al-ko/master/admin/al-ko.png" width="100" height="100" />
+
+The al-ko adapter integrates AL-KO Robolinho robotic lawnmowers and other AL-KO smart garden devices into ioBroker via the official AL-KO Cloud API; version 0.3.12 updates test and development dependencies and aligns the minimum Node.js 22 test version to 22.19.0.
+
+**Maintenance**
+- Updated test and development dependencies (0.3.12).
+- Updated minimum Node.js 22 test version to 22.19.0 (0.3.12).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
