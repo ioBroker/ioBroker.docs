@@ -4008,6 +4008,27 @@ The motioneye adapter connects MotionEye cameras to ioBroker for motion detectio
 
 **Maintenance**
 - Updated dependencies: `@iobroker/adapter-core` to ^3.4.3, `@iobroker/testing` to ^6.2.1 (1.3.2).
+
+## solaredge (31.10.2026) – new stable release 2.0.0
+https://github.com/iobroker-community-adapters/ioBroker.solaredge
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.solaredge/master/admin/solaredge.png" width="100" height="100" />
+
+The solaredge adapter retrieves data from the SolarEdge monitoring portal; version 2.0.0 is a breaking update migrating to the SolarEdge Monitoring API v2 (v1 API keys are no longer valid), adding OAuth2 Site Access support, improved power flow with battery states, and significantly reduced API credit usage.
+
+**Breaking changes**
+- Migrated to SolarEdge Monitoring API v2 — a new API key must be generated at https://developer.solaredge.com/; v1 keys are not accepted (2.0.0).
+- The `currentPowerFlow` feature now requires a Business Pro or Enterprise tier subscription (2.0.0).
+- Requires node.js >= 22, admin >= 7.7.22, js-controller >= 6.0.11 (2.0.0).
+
+**New features**
+- Added OAuth2 Site Access with client id/secret of your own SolarEdge app; Fleet Access API key remains optional (2.0.0).
+- Power flow now reads the v2 response with new states for battery power, charge level and grid/battery status; currently also works on the free tier with OAuth2 Site Access (2.0.0).
+- Time ranges are sent in local time and API units are converted correctly (2.0.0).
+- Instance settings are responsive for all screen sizes; OAuth2 setup steps are shown inline (2.0.0).
+
+**Bug fixes / maintenance**
+- API calls reduced to about 1 per run and 2 per day, no calls at night; default schedule changed to every 30 minutes (existing 15-minute instances updated once on upgrade) (2.0.0).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
