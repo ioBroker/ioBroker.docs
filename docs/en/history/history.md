@@ -3991,6 +3991,13 @@ https://github.com/hwiedermann/ioBroker.anycubic-cloud
 <img src="https://raw.githubusercontent.com/hwiedermann/ioBroker.anycubic-cloud/main/admin/anycubic-cloud.svg" width="100" height="100" />
 
 The anycubic-cloud adapter reads the status of Anycubic 3D printers and the ACE Pro filament box from the Anycubic cloud, exposing print job, temperatures, fans, ACE slots and per-slot filament usage as ioBroker states.
+
+## max (31.10.2026) – new adapter at stable repository
+https://github.com/sadam6752-tech/ioBroker.max
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.max/main/admin/max.png" width="100" height="100" />
+
+The max adapter integrates the MAX messenger bot with ioBroker, allowing you to send and receive messages, notifications and commands, with support for images, videos, files, buttons and group chats.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
