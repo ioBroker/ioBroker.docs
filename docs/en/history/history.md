@@ -3984,6 +3984,13 @@ https://github.com/heresiarch/ioBroker.sehybrid
 <img src="https://raw.githubusercontent.com/heresiarch/ioBroker.sehybrid/main/admin/sehybrid.png" width="100" height="100" />
 
 The sehybrid adapter monitors and controls SolarEdge hybrid inverters over Modbus TCP, reading PV, battery and operational data and exposing the StorEdge control block as writable ioBroker states.
+
+## anycubic-cloud (31.10.2026) – new adapter at beta (latest) repository
+https://github.com/hwiedermann/ioBroker.anycubic-cloud
+
+<img src="https://raw.githubusercontent.com/hwiedermann/ioBroker.anycubic-cloud/main/admin/anycubic-cloud.svg" width="100" height="100" />
+
+The anycubic-cloud adapter reads the status of Anycubic 3D printers and the ACE Pro filament box from the Anycubic cloud, exposing print job, temperatures, fans, ACE slots and per-slot filament usage as ioBroker states.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
