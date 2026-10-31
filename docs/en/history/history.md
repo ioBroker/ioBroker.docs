@@ -4051,6 +4051,13 @@ The al-ko adapter integrates AL-KO Robolinho robotic lawnmowers and other AL-KO 
 **Maintenance**
 - Updated test and development dependencies (0.3.12).
 - Updated minimum Node.js 22 test version to 22.19.0 (0.3.12).
+
+## staleguard (31.10.2026) – new adapter at beta (latest) repository
+https://github.com/typhosj/ioBroker.staleguard
+
+<img src="https://raw.githubusercontent.com/typhosj/ioBroker.staleguard/main/admin/staleguard.png" width="100" height="100" />
+
+The staleguard adapter raises a notification when a state stops receiving data and can optionally restart the instance that owns it.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
