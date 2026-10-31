@@ -4058,6 +4058,13 @@ https://github.com/typhosj/ioBroker.staleguard
 <img src="https://raw.githubusercontent.com/typhosj/ioBroker.staleguard/main/admin/staleguard.png" width="100" height="100" />
 
 The staleguard adapter raises a notification when a state stops receiving data and can optionally restart the instance that owns it.
+
+## energypriceforecast (31.10.2026) – new adapter at beta (latest) repository
+https://github.com/BackupBaTTerY/ioBroker.energypriceforecast
+
+<img src="https://raw.githubusercontent.com/BackupBaTTerY/ioBroker.energypriceforecast/main/admin/energypriceforecast.png" width="100" height="100" />
+
+The energypriceforecast adapter provides electricity price and CO2 forecasts up to 120 hours ahead for 33 European markets, including household price calculation.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
