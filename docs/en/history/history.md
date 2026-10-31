@@ -4029,6 +4029,17 @@ The solaredge adapter retrieves data from the SolarEdge monitoring portal; versi
 
 **Bug fixes / maintenance**
 - API calls reduced to about 1 per run and 2 per day, no calls at night; default schedule changed to every 30 minutes (existing 15-minute instances updated once on upgrade) (2.0.0).
+
+## foxesscloud (31.10.2026) – new stable release 0.6.7
+https://github.com/inventwo/ioBroker.foxesscloud
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.foxesscloud/main/admin/foxesscloud.png" width="100" height="100" />
+
+The foxesscloud adapter retrieves data from the FoxESS Cloud API for solar inverters; versions 0.6.6 and 0.6.7 update the API key instructions to the new FoxCloud OpenPlatform and fix repository checker warnings.
+
+**Bug fixes**
+- Updated API key instructions to the FoxCloud OpenPlatform (developer-eu.foxesscloud.com) in README and admin UI, including a help box and portal link (0.6.6).
+- Fixed repository checker warnings W5605 (outdated i18n keys) and updated @iobroker/testing to 6.3.0 (0.6.7).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
