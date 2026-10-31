@@ -3998,6 +3998,16 @@ https://github.com/sadam6752-tech/ioBroker.max
 <img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.max/main/admin/max.png" width="100" height="100" />
 
 The max adapter integrates the MAX messenger bot with ioBroker, allowing you to send and receive messages, notifications and commands, with support for images, videos, files, buttons and group chats.
+
+## motioneye (31.10.2026) – new stable release 1.3.2
+https://github.com/inventwo/ioBroker.motioneye
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.motioneye/main/admin/motioneye.png" width="100" height="100" />
+
+The motioneye adapter connects MotionEye cameras to ioBroker for motion detection, snapshots, and live streams; version 1.3.2 updates dependencies.
+
+**Maintenance**
+- Updated dependencies: `@iobroker/adapter-core` to ^3.4.3, `@iobroker/testing` to ^6.2.1 (1.3.2).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
