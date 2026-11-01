@@ -4065,6 +4065,13 @@ https://github.com/BackupBaTTerY/ioBroker.energypriceforecast
 <img src="https://raw.githubusercontent.com/BackupBaTTerY/ioBroker.energypriceforecast/main/admin/energypriceforecast.png" width="100" height="100" />
 
 The energypriceforecast adapter provides electricity price and CO2 forecasts up to 120 hours ahead for 33 European markets, including household price calculation.
+
+## autism-support (1.11.2026) – new adapter at beta (latest) repository
+https://github.com/MatthiasUlrich1/ioBroker.autism-support
+
+<img src="https://raw.githubusercontent.com/MatthiasUlrich1/ioBroker.autism-support/main/admin/autism-support.png" width="100" height="100" />
+
+The autism-support adapter provides autism support tools for ioBroker including a visual countdown timer, daily and weekly schedules with a time bar, and ARASAAC pictogram support, designed for display via VIS-2 on tablets or wall displays.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
