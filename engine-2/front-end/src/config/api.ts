@@ -134,13 +134,24 @@ export const LICENSES_LINK = '/productoverview';
 export const PRODUCTS_NET_URL = '/api/products/net';
 export const PRODUCTS_PRO_URL = '/api/products/pro';
 
+/**
+ * The port for an absolute address of our own hosts, with its colon - or nothing.
+ *
+ * `window.location.port` is empty on the standard port, and `https://host:${port}` then came out
+ * as `https://www.iobroker.com:/adapters`. Browsers read that as the default port and carry on,
+ * but it is not a valid address: crawlers and link checkers see a second spelling of every page.
+ */
+function portSuffix(): string {
+    return window.location.port ? `:${window.location.port}` : '';
+}
+
 /** "Order" on the product overview hands over to the marketplace in the profile app */
 export const LICENSES_PRO_MARKETPLACE_LINK = isDev
     ? 'http://localhost:3002/www/licenses-marketplace'
-    : `https://iobroker.pro:${window.location.port}/www/licenses-marketplace`;
+    : `https://iobroker.pro${portSuffix()}/www/licenses-marketplace`;
 export const LICENSES_NET_MARKETPLACE_LINK = isDev
     ? 'http://localhost:3002/www/licenses-marketplace'
-    : `https://iobroker.net:${window.location.port}/www/licenses-marketplace`;
+    : `https://iobroker.net${portSuffix()}/www/licenses-marketplace`;
 export const PROFILE_LINK = '/www';
 export const INSTALLATION_LINK = '/installation';
 /** the statistics now live in this app - the old absolute link left the site */
@@ -174,7 +185,7 @@ export function getLink(link: string): string {
          * runs.
          */
         const host = CLOUD_HOSTS[readCloud() || currentCloud()];
-        return withConsent(`https://${host}:${window.location.port}${link}/`);
+        return withConsent(`https://${host}${portSuffix()}${link}/`);
     }
     if (DOCS_LINKS.includes(link)) {
         /*
@@ -184,7 +195,7 @@ export function getLink(link: string): string {
          * answered. Both helpers hand back an address that stays on the same domain untouched, so on
          * the site itself nothing about this changes.
          */
-        return withConsent(withCloud(`https://${SITE_HOST}:${window.location.port}${link}`));
+        return withConsent(withCloud(`https://${SITE_HOST}${portSuffix()}${link}`));
     }
     return link;
 }
