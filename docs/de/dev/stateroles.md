@@ -389,9 +389,9 @@ Besondere Rollen für Mediaplayer
 * `media.jump` - Anzahl der Elemente, zu denen in der Wiedergabeliste gesprungen werden soll (kann negativ sein)
 * `media.content` - Art des wiedergegebenen Mediums, z. B. Audio/MP3
 * `media.link` - Status der aktuellen Datei
-* `media.input` - Zahl oder Zeichenkette des Eingangs (AUX, AV, TV, SAT, ...)
-* `media.key` - (`common.type=string`, nur schreibbar) zu sendende Taste einer Fernbedienung, z. B. `UP`, `SELECT`, `BACK`, `HOME`. `common.states` listet die Tasten, die das Gerät versteht; die Namen folgen den CEC-Tastencodes des Matter-Clusters KeypadInput (Gerätetyp `tv`)
-* `media.app` - (`common.type=string`) zu startende App; `common.states` ordnet der App-ID ihren Namen zu (Gerätetyp `tv`)
+* `media.input` - Zahl oder Zeichenkette des Eingangs (AUX, AV, TV, SAT, ...). Bei einem `tv` eine Zeichenkette, deren `common.states`-Schlüssel aus `TV_INPUTS` des type-detector stammen, z. B. `HDMI1`
+* `media.key` - (`common.type=string`, nur schreibbar) zu sendende Taste einer Fernbedienung, z. B. `UP`, `SELECT`, `BACK`, `HOME`. `common.states` listet die Tasten, die das Gerät versteht; die Namen folgen den CEC-Tastencodes des Matter-Clusters KeypadInput (Gerätetyp `tv`). Bei einem `tv` stammen die Schlüssel von `common.states` aus `TV_KEYS` des type-detector
+* `media.app` - (`common.type=string`) zu startende App, z. B. `YOUTUBE`, `NETFLIX`, `DISNEY_PLUS`. Die Schlüssel von `common.states` stammen aus `TV_APPS` des type-detector, das Gerät listet nur die Apps, die es unterstützt (Gerätetyp `tv`)
 * `level.bass` - Basspegel
 * `level.treble` - Höhenpegel
 * `switch.power.zone` - Stromzone
