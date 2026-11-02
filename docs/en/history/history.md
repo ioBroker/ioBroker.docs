@@ -4096,6 +4096,13 @@ The cameras adapter integrates IP cameras into ioBroker visualizations; versions
 - Fixed: two cameras with the same IP address overwrote each other's snapshot (3.1.0).
 - Fixed: `ffmpeg` stderr could expose camera passwords in the log (3.2.0).
 - Fixed: after a live stream browser tab was closed, "Cannot send to UI" errors were logged for every frame (3.2.2).
+
+## millheater (2.11.2026) – new adapter at beta (latest) repository
+https://github.com/webbummler/ioBroker.millheater
+
+<img src="https://raw.githubusercontent.com/webbummler/ioBroker.millheater/main/admin/millheater.png" width="100" height="100" />
+
+The millheater adapter integrates Mill heating devices into ioBroker via the local API, allowing control and monitoring of Mill heaters without cloud dependency.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
