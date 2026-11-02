@@ -255,6 +255,31 @@ export default function init(config: AppConfig): {
         next();
     });
 
+    /*
+     * /docu/, the documentation of the old site, is gone for good (02.11.2026). It answers with
+     * 410 Gone instead of 404: Google treats 410 as "removed on purpose" and drops the addresses
+     * from the index and from crawling a little sooner, and it stops spending the crawl on the
+     * hundreds of `/docu/index-NNN.htm?page_id=...` it still knows. `noindex` on top for every other
+     * crawler. robots.txt keeps the path open, otherwise no crawler would ever see this answer.
+     *
+     * Registered before the sites below, so that an old config.json that still lists /docu/
+     * cannot bring it back.
+     */
+    app.app.use('/docu', (_req: Request, res: Response): void => {
+        res.status(410)
+            .set('X-Robots-Tag', 'noindex')
+            .type('html')
+            .send(
+                '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
+                    '<meta name="robots" content="noindex"><title>Gone | ioBroker</title></head>' +
+                    '<body style="font-family:system-ui,sans-serif;max-width:40rem;margin:4rem auto;padding:0 1rem;line-height:1.5">' +
+                    '<h1>This page no longer exists</h1>' +
+                    '<p>The old documentation under /docu/ has been removed. The current documentation is at <a href="/docs">www.iobroker.com/docs</a>.</p>' +
+                    '<p lang="de">Die alte Dokumentation unter /docu/ wurde entfernt. Die aktuelle Dokumentation finden Sie unter <a href="/docs?lang=de">www.iobroker.com/docs</a>.</p>' +
+                    '</body></html>',
+            );
+    });
+
     config.sites?.forEach((site: SiteConfig) => {
         console.log(`Install path ${site.route} => ${site.path}`);
         let redirects: RedirectsMap | undefined;
@@ -269,10 +294,9 @@ export default function init(config: AppConfig): {
         }
         app.app.use(site.route, (req: Request, res: Response, next: NextFunction) => {
             /*
-             * These are archives - the old documentation under /docu/ - kept for readers, not for
-             * search engines. robots.txt does not block them for that very reason: a crawler that
-             * may not fetch a page never sees this header, and an address known from a link stays in
-             * the index as "blocked by robots.txt".
+             * These are archives, kept for readers, not for search engines. robots.txt does not
+             * block them for that very reason: a crawler that may not fetch a page never sees this
+             * header, and an address known from a link stays in the index as "blocked by robots.txt".
              */
             res.setHeader('X-Robots-Tag', 'noindex');
 
