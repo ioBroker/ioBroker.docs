@@ -30,9 +30,10 @@ Practically every SENEC storage system works: the Home range from the early lead
 models through V2, V2.1 and V3, the current V4 | P4 | E4 generation, the Business models, and the
 partner variants ADS Tec, OEM LG and Solarinvert.
 
-Systems with a local web interface can use all four connectors. Those without one — the V4
-generation among them — work through the SENEC App API, mein-senec.de and SENEC.Connect. Which
-data points appear varies by model.
+Systems with a local web interface can use all five connectors. Those without one — the V4
+generation among them — work through the SENEC App API, mein-senec.de and SENEC.Connect. The
+local OpenAPI on port 4424 needs a local web interface too, so it is available on the V2 and V3
+generations and not on V4 | P4 | E4. Which data points appear varies by model.
 
 See the [full list of models](https://github.com/nobl/ioBroker.senec/blob/master/docs/SUPPORTED_SYSTEMS.md) to find your system by name.
 
@@ -54,7 +55,7 @@ Install the adapter from the ioBroker adapter repository. After installation, cr
 
 ## Configuration
 
-The adapter settings are organized in tabs — one per connector plus general settings and debug options.
+The adapter settings are organized in tabs — one per connector plus general settings and debug options. The two local interfaces, `lala.cgi` and the OpenAPI on port 4424, share the *Local Connection* tab and the appliance address.
 
 ### SENEC Account
 
@@ -78,9 +79,8 @@ One secret covers both cloud connectors, since they authenticate against the sam
 
 | Setting | Description | Default |
 |---------|-------------|---------|
-| Connect via lala.cgi | Enable local polling | On |
+| Connect via lala.cgi | Enable local polling | Off |
 | SENEC System IP | IP address or FQDN of your SENEC device | — |
-| Use HTTPS | Enable if your device uses HTTPS | Off |
 
 Expand **Polling Settings** to adjust timing:
 
@@ -113,6 +113,49 @@ If automatic CA download failed and you want to retry, set `_local.tls.certFetch
 ![High Priority Polling](media/admin-highprio.png)
 
 You can add additional data sections (e.g. BMS, PV1, WALLBOX) to the high-priority polling cycle. This requires accepting a disclaimer acknowledging the risks. Only characters A-Z, digits 0-9, and commas are allowed.
+
+### Local OpenAPI (port 4424)
+
+A second local interface, independent of `lala.cgi` and served over HTTPS on port 4424 of the appliance. It shares the *Local Connection* tab and the appliance address with the local connector, and either one works without the other.
+
+![Registration and approval](media/admin-openapi.png)
+
+| Setting | Description | Default |
+|---------|-------------|---------|
+| Use the appliance's local OpenAPI | Enable polling on port 4424 | Off |
+| Device name | The name you approve in the SENEC portal | ioBroker |
+| Register automatically | Ask the appliance for a token on start when none is stored | On |
+| Approve automatically | Approve this instance's own registration through the portal | On |
+| Plant for the approval link | Which plant of your account holds this appliance | Automatic |
+| Poll interval | How often to read the selected sections (seconds) | 60 |
+| Request timeout | How long to wait for one request (ms) | 10000 |
+| Sections to poll | Which routes to request each cycle. The nameplate is read in addition to whatever is selected; wallboxes have to be switched on deliberately | Battery, Meter, Nameplate |
+
+It is read-only. The routes that would set a charge or discharge power refuse every request a customer token can make, before and after approval alike, so there is nothing there to write with. What the interface offers and refuses is recorded in [LOCAL_OPENAPI_4424.md](https://github.com/nobl/ioBroker.senec/blob/master/docs/LOCAL_OPENAPI_4424.md).
+
+Only systems with a local web interface open this port: the V2 and V3 generations do, the V4 | P4 | E4 generation does not. No appliance is known that serves 4424 but not `lala.cgi`, so this is an addition to local polling rather than a replacement for it.
+
+The poll interval defaults to 60 seconds deliberately. How much this listener tolerates has not been established, and the appliance is easy to overload — the warning above about polling `lala.cgi` too hard applies here as well.
+
+#### Registration
+
+Unlike `lala.cgi`, this interface needs a one-time registration that only the account holder can approve.
+
+**With your SENEC account credentials filled in on the *SENEC Account* tab, all of it happens by itself:** the adapter registers, approves its own registration and starts polling. The mein-senec.de connector does not have to be enabled for this — the adapter signs in once for the approval and drops the session again straight afterwards.
+
+Setting the mein-senec.de connector up first, saving, and letting the adapter restart before switching this on makes the log easier to follow: the session is already there by then and the plant is already known, so this connector signs in not at all.
+
+Without credentials, approve it by hand:
+
+1. Fill in the appliance address at the top of the tab and save.
+2. Press **Register this instance**. The appliance issues a token and the adapter stores it. Nothing is read yet.
+3. **Log in to mein-senec.de first**, then follow the approval link on the tab. The address is a fragment, so opening it while logged out drops you at the login screen and loses the destination. The page is not reachable from the portal menu — only by that link.
+4. Approve the entry named after your device name, using the blue check mark.
+5. Press **Check approval**. Once it reports approved, polling starts by itself.
+
+`_openapi.info.approvalState` reports where things stand at any time: `unregistered`, `pending`, `approved`, `rejected` — the token was withdrawn in the portal or belongs to another appliance — or `error`.
+
+**Forget token** discards the stored token and, where your credentials are configured and the plant could be determined, withdraws the registration in the portal as well, so no orphaned entry is left behind; the appliance stops accepting the old token about a minute later. Where it cannot ask the portal it says so, and the entry has to be removed there by hand. With automatic registration on, a fresh token is requested immediately, which is also the way to start over. Registering twice without withdrawing the first entry leaves two entries under the same name and nothing to tell them apart by, which is why registering is refused while a token is stored.
 
 ### SENEC App API
 
@@ -222,7 +265,7 @@ Control features allow you to change settings on your SENEC device. Each control
 
 ![Debug & Logging](media/admin-debug.png)
 
-Configurable per connector (Local, API, mein-senec.de, Connect):
+Configurable per connector (Local, local OpenAPI, API, mein-senec.de, Connect):
 
 - **Show polling in info log** — Promotes polling status messages from debug to info level
 - **Log requests & responses** — Logs HTTP details at debug level (may log sensitive data)
@@ -245,7 +288,7 @@ Most problems become obvious from a log, and almost none are diagnosable without
 
 Issues go to [GitHub](https://github.com/nobl/ioBroker.senec/issues). What makes one quick to act on:
 
-- **Which system** — the model, and the firmware version if you have it (`_local.FACTORY` and `_local.SYS_UPDATE` hold both when the local connector runs)
+- **Which system** — the model, and the firmware version if you have it (`FACTORY.*` and `SYS_UPDATE.*` hold both when the local connector runs)
 - **Which connectors** are enabled, since the same symptom has different causes on local and cloud
 - **Adapter and ioBroker version**, plus the Node.js version
 - **What you expected and what happened instead** — "the battery level is missing" is actionable; "it does not work" needs a round of questions first
@@ -270,7 +313,7 @@ Features:
 
 **Energy Flow Diagram** — Live SVG visualization showing power flow between PV, battery, grid, house, and wallbox. Animated curved paths with power-proportional thickness. Battery SOC gauge with fill level. Operating mode badge. Time estimates (until empty/full). Period totals (today/month/year) with autarky percentage. Data source selector (Auto/Local/API/Web).
 
-**Live Power Curve** — Real-time line chart showing power over time for all five metrics (PV, house, grid, battery, wallbox). Smooth monotone cubic interpolation between data points. Time window presets from 10 minutes to 24 hours, plus mouse wheel zoom (5min–30 days, downsampled for performance). Drag to pan through history with lazy loading and midnight date markers. Toggle individual lines, including an optional battery level line (off by default) drawn against its own right-hand 0–100 % axis. Pause/disable controls. Click "Live" to snap back to real-time. If a history adapter (InfluxDB, SQL, or History) is enabled on the power states, the chart backfills with historical data on page load. Each state is resolved on its own, so they may be recorded by different history adapters, and a state without recording only affects its own line. The ⓘ button lists the states behind every line together with the history adapter recording them — use it to find out why a line has no past data.
+**Live Power Curve** — Real-time line chart showing power over time for all five metrics (PV, house, grid, battery, wallbox). Smooth monotone cubic interpolation between data points. Time window presets from 10 minutes to 24 hours, plus mouse wheel zoom (5min–30 days, downsampled for performance). Drag to pan through history with lazy loading and midnight date markers. Toggle individual lines, including an optional battery level line (off by default) drawn against its own right-hand 0–100 % axis. Pause/disable controls. Click "Live" to snap back to real-time. If a history adapter (InfluxDB, SQL, or History) is enabled on the power states, the chart backfills with historical data on page load. Each state is resolved on its own, so they may be recorded by different history adapters, and a state without recording only affects its own line. The ⓘ button lists the states behind every line together with the history adapter recording them — use it to find out why a line has no past data. The **Colors** button sets the color of each line, with **Default colors** to put them back; a type keeps one color across every chart that draws it, and the palette is stored in the adapter rather than the browser, so every page pointed at the instance shares it.
 
 ![Live Power Curve](media/dashboard-live-chart.png)
 
@@ -311,6 +354,7 @@ Features:
 - Data table view
 - PNG image export
 - Auto-update mode
+- Series colors, behind the **Colors** button, with **Default colors** to put them back. Comparison series are absent from the picker on purpose: a comparison is drawn in its own type's color at reduced opacity, so it follows whatever that type is set to.
 
 ![Charts - Year](media/dashboard-charts-year.png)
 
@@ -375,7 +419,7 @@ Requires the device IP to be configured (even if the Local connector is not enab
 
 ## State Reference
 
-The adapter creates states organized by connector and data section. All states are read-only unless explicitly marked as control states.
+The adapter creates states organized by connector and data section. All states are read-only unless the table below marks them writable.
 
 ### Connection & Status (`info.*`)
 
@@ -387,6 +431,7 @@ The adapter creates states organized by connector and data section. All states a
 | `info.apiConnected` | SENEC App API connection status |
 | `info.webConnected` | mein-senec.de connection status |
 | `info.connectConnected` | SENEC.Connect connection status |
+| `info.openapiConnected` | Local OpenAPI (port 4424) connection status |
 | `info.lastPoll.HighPrio` | Timestamp of last high-priority local poll |
 | `info.lastPoll.LowPrio` | Timestamp of last low-priority local poll |
 
@@ -399,6 +444,12 @@ The adapter creates states organized by connector and data section. All states a
 | `_local.tls.userCaPem` | string | yes | User-uploaded CA certificate PEM (encrypted) |
 | `_local.tls.cachedCaPem` | string | no | CA certificate PEM downloaded from mein-senec.de (encrypted) |
 | `_local.tls.certFetchFailed` | boolean | yes | Set to `false` to trigger a new CA download attempt |
+
+### Web Dashboard Settings (`_dashboard.*`)
+
+| State | Type | Write | Description |
+|-------|------|:-----:|-------------|
+| `_dashboard.colors` | string | yes | Chart series colors picked in the web dashboard, as a JSON object of palette entry to `#rrggbb`. Only entries that differ from the built-in default are stored. Written by the dashboard and held by the adapter, which never acts on it — it lives here rather than in the browser so every page pointed at the instance shares one palette. Entries the dashboard does not recognise are ignored when it loads. |
 
 ### Local States
 
@@ -466,6 +517,26 @@ States of a system the API no longer reports are removed. Adapters before 2.15.0
 
 **If you record SENEC.Connect states with a history adapter** (History, InfluxDB, SQL), that setting lives on the state itself and is lost when the old state is deleted. Recording does not resume by itself — switch logging back on for the states under the new paths after updating.
 
+### OpenAPI States (`_openapi.*`)
+
+Readings from the appliance's local OpenAPI are stored under `_openapi.*`, one channel per section:
+
+| Channel | Contents |
+|---------|----------|
+| `_openapi.battery.*` | State of charge, operating state, power, voltage, current |
+| `_openapi.meter.*` | Grid power, house consumption, PV, surplus |
+| `_openapi.bessNameplate.*` | Model, serial number, capacity and rated values |
+| `_openapi.evse.{wallbox_id}.*` | One channel per wallbox slot — the appliance reports four whether or not a wallbox is attached |
+| `_openapi.bess.*` | Only when selected — several of its values come back empty |
+| `_openapi.info.approvalState` | `unregistered`, `pending`, `approved`, `rejected` or `error` |
+| `_openapi.info.lastPoll` | Timestamp of the last successful poll |
+
+The nameplate is read on every cycle whether or not it is selected. The appliance is normally identified from the common name of the certificate it presents on port 4424 — that name is the appliance's own serial number, so the certificate pins the individual appliance exactly, which the one on the local web interface cannot. The nameplate is the fallback for the case where that name cannot be read: its serial number then identifies the appliance instead, and it is what still allows the plant to be matched in your account — and therefore the registration to be approved automatically.
+
+The registration token is stored encrypted in `_openapi.token`, so what the object tree holds is the ciphertext rather than the token itself. The state is flagged as not readable, but that flag is advisory in ioBroker — the encryption is the actual protection.
+
+These states come from the appliance directly and are independent of the `lala.cgi` states. Where both report the same quantity, they are measured by the appliance at different points and need not agree to the watt.
+
 ### External States (`_external.*`)
 
 External source data is stored under `_external.{type}.{index}.*`:
@@ -487,8 +558,7 @@ Writable states for appliance control:
 
 | State | Type | Description |
 |-------|------|-------------|
-| `control.ForceCharge` | boolean | Force battery charging on/off |
-| `control.BlockDischarge` | boolean | Block battery discharge on/off |
+| `control.ForceLoadBattery` | boolean | Force battery charging on/off |
 | `control.RebootAppliance` | boolean | Trigger appliance reboot |
 | `control.EmergencyPower.ReserveInPercent` | number | Emergency power reserve (%) |
 | `control.PeakShaving.*` | various | Peak shaving settings |
@@ -524,35 +594,45 @@ If something looks like a bug, open an issue on [GitHub](https://github.com/nobl
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.16.4 (2026-10-28)
+- New: **Chart colors can be changed.** The *Live Power* chart and the *Measurement History* tab each carry a **Colors** button that opens a picker per series, plus a **Default colors** button that puts them all back. A type keeps one color across both charts, so setting PV once is enough; a comparison series has nothing to pick, because it is drawn in its own type's color. The palette is stored in the adapter, not in the browser, so a phone and a wall tablet looking at the same system agree on it — and a color changed on one page appears on any other page that is open.
+- Change: Battery charge level is drawn in one color now rather than two — the live chart's state-of-charge line takes the purple the measurement history already used, and the live chart's wallbox line moves to the shade the energy flow's wallbox total uses, so the two are still told apart. Both are pickable.
 
-### 2.15.6 (2026-10-06)
+### 2.16.3 (2026-10-27)
+- dependency updates
+
+### 2.16.2 (2026-10-26)
+- fixed bogus readme
+
+### 2.16.1 (2026-10-26)
+- New: The web dashboard now reads the **local OpenAPI**. Until now its values were polled but nothing on the dashboard looked at them, so an installation running only that connector saw an energy flow with no data in it. The energy flow, the live power chart and its history backfill now take it as a source of their own — selectable beside the diagram, and chosen automatically when `lala.cgi` polling is off. `lala.cgi` still wins where both run, because it polls six times as often.
+- New: A *Battery (now)* card — state of charge, charge or discharge power, voltage, current and capacity — filled from whichever connectors you have enabled. An installation running only the local OpenAPI previously showed no battery readings at all.
+- New: A *Local OpenAPI* card on the system tab, showing where the registration stands (including *not registered*, with what to do about it), whether the appliance is reachable, how long ago it last answered, and the certificate fingerprint. Reachability is reported separately from registration, because an approved registration whose appliance is switched off is still approved.
+- New: The system tab fills in from the OpenAPI nameplate where it has nothing else — model, serial number, manufacturer, rated charge and discharge power, the AC-side readings, and each wallbox slot. Values read this way carry an **O** badge, alongside the existing L, A and W.
+- New: `_openapi.info.lastCompletePoll` records the last cycle in which *every* requested section answered. `_openapi.info.lastPoll` is stamped as soon as one does, which is what the connection state needs, but anything reading several sections as one measurement needs to know they came from the same cycle.
+- Fix: **The dashboard no longer shows values from a connector you have switched off.** Nothing deletes a connector's states when you disable it, so every card went on rendering whatever it last wrote — on one development system that meant an energy flow, an operating-mode badge and an entire battery tab built from readings two months old, presented as current. This applies everywhere, including the *Measurement History* tab, which could even pick a disabled connector as its source. A row that can come from several connectors keeps whichever is still in use, and a connector that is enabled but currently failing keeps its place, so nothing disappears while a connection is merely flapping.
+- Fix: **The dashboard now recovers from a dropped connection.** It never did: the recovery ran only on the very first connect, so after any blip the page stopped noticing deleted states — a wallbox slot that had gone stayed on display — stopped hearing about configuration changes, and left a permanent hole in the live chart.
+- Fix: Several ways the live power chart could stop backfilling and never start again: a history request lost to a dropped connection, a connection lost while it was working out which states are recorded, or panning while disconnected, which marked that stretch as loaded without ever asking for it. Collapsing or pausing the chart also left a permanent hole for the interval it skipped; it is now filled in when you resume.
+- Fix: Switching the chart's data source while history was loading could mix the two sources together and issue several overlapping sets of queries at once.
+- Fix: The live chart no longer empties and reloads its entire history every time the `lala.cgi` connector drops a single poll.
+- Fix: Tabs that your enabled connectors cannot fill are hidden rather than shown empty, and the *Control* tab is no longer hidden when `lala.cgi` polling is off — a command is dispatched to whichever connector can carry it.
+- Fix: The energy flow no longer presents zeros as a measurement when the connector it chose has published no power reading, and today's totals are cleared when no connector supplies them rather than staying on the last figures a cloud connector reported.
+- Fix: A value the appliance reports as unavailable, or as a number too large to represent, is no longer published as `NaN` or `Infinity` on a state declared numeric — which silently breaks recording in InfluxDB — and no longer makes an export read as an import.
+- Fix: A last-update time older than 36 hours now carries its date, instead of showing a time of day that reads as current at a glance.
+- Fix: An external energy source's configured name is escaped where it is drawn into the energy-flow diagram.
+- Fix: A few states could still be written while the adapter was shutting down.
 - Dependency updates
 
-### 2.15.5 (2026-09-16)
-- Fix: A mail address configured with a space at its end made the SENEC App API login fail on every single attempt. The app login asks for the username first and resolves the domain behind the `@` to decide whether the account belongs to an identity provider — `example.com ` is not a domain, so that step was answered with "Unexpected error when handling authentication request to identity provider", which names neither the address nor the space. The mein-senec.de connector is served a single form carrying username and password, validates the credentials directly and trims the username on the way, so the same address worked there and the two connectors disagreed about credentials that were identical. Leading and trailing whitespace is now removed from the configured address, zero-width characters along with it, and the correction is logged as a warning. The password is left untouched — a space at either end of it may be part of it.
-- Change: The SENEC App API login writes the names of the fields it posts in each step to the debug log. The values are not logged. Whether the adapter returns the form the SSO served is the first thing a refused login has to be checked against, and reconstructing it needed a separate script run on the reporter's machine.
-- Change: The login names the account it is attempted with, masked to the first character and the domain. A login that is refused while the credentials are known to be correct could not previously be checked against the address the adapter actually uses.
-- Change: The steps of the App API login ask the SSO for a page rather than for JSON. Every step of the login is answered with an HTML page, while the shared client asks for JSON, which suits the mein-senec.de calls and the token endpoint. The token requests now state that expectation themselves instead of relying on the shared default.
+### 2.16.0 (2026-10-25)
+- New: A connector for the appliance's **local OpenAPI on port 4424** — a second local interface, independent of `lala.cgi` and read-only. It is **off by default** and available on **V2 and V3 systems only**; V4, P4 and E4 do not open the port. It shares the *Local Connection* tab and the appliance address with the `lala.cgi` connector, and either one works without the other. It needs a one-time registration that is approved in the SENEC portal, on a page reachable only by link. **With your SENEC account credentials filled in, the adapter handles that itself** — registering, approving and starting to poll, without the mein-senec.de connector having to be enabled; otherwise it writes the exact approval link to the log for you to open. `_openapi.info.approvalState` shows where the registration stands — not registered, waiting, approved, or no longer accepted — with buttons beside it to re-check the approval, or to de-register and discard the token. It serves battery, meter, nameplate and wallbox readings under `_openapi.*`. There is nothing writable: the two routes that would set a charge or discharge power refuse every request an end customer can make, approved or not. What the interface offers and refuses is documented in [docs/LOCAL_OPENAPI_4424.md](docs/LOCAL_OPENAPI_4424.md).
+- New: The appliance address moved to the top of the *Local Connection* tab and is shown whenever either local connector is enabled. It was previously hidden unless `lala.cgi` polling was switched on, which left anyone who wanted only the new connector unable to enter it at all.
+- New: The battery state read through SENEC.Connect now has a companion state spelling the code out in words, at `_connect.Systems.<system_id>.battery.state_Text`. Only `lala.cgi` states carried these before.
+- Change: `BAT1.SPARE_CAPACITY` is now named *Emergency Power Reserve* and carries `%` as its unit. It is the local mirror of the emergency power reserve set on mein-senec.de, so the value you set in the portal is what appears here. It was previously listed under its raw name with no unit, which told nobody what the number meant.
+- Change: SENEC.Connect honours a `Retry-After` the API sends with a 429 or 503 instead of coming back at the configured interval regardless. The endpoint is rate-limited per subscription, and ignoring the wait it asks for invites a longer block.
+- Change: The house consumption from SENEC.Connect is now named for what its schema says it is — the figure excludes the wallbox load, which matters to anyone comparing it against the appliance's own.
+- Fix: The documentation listed a writable state `control.BlockDischarge` for blocking battery discharge. No such state exists and none ever has, so the row is removed. The force-charge switch in the same table was misnamed too: it is `control.ForceLoadBattery`, not `control.ForceCharge`, and it is created on every instance alongside `control.RebootAppliance`. Whether the appliance offers a discharge block at all is tracked as a question of its own (#543).
+- Fix: The documentation named `_local.FACTORY` and `_local.SYS_UPDATE` as the states holding model and firmware version for a bug report. Those are `FACTORY.*` and `SYS_UPDATE.*` at the root of the instance — `_local.` holds the TLS states and nothing else.
 - Dependency updates
-
-### 2.15.4 (2026-09-12)
-- Dependency updates
-
-### 2.15.3 (2026-08-31)
-- Fix: The SENEC App API login posted only the fields it fills in itself and did not send back the hidden fields the login form contains. A browser sends those back, and the SSO uses them to carry the state of a login across its steps, so an account whose login takes a route that depends on them could not get past the first step. Every field of the form is now returned with the values the adapter supplies on top. This applies to the two-factor step as well, where the form names which of several configured codes is being answered.
-- Fix: The mein-senec.de login had the same gap and now sends the form's hidden fields back as well. Its login-page debug dump is redacted before it is written, which it previously was not.
-- Change: A login step that fails now records the page the SSO answered with, without *Log requests and responses* having to be switched on beforehand. The instance log level still has to be `debug` or more verbose, and the adapter now checks that before it does the work — it previously prepared the page at every log level and then handed it to a call that discarded it. The one-line reason says which step failed but not what the SSO put in front of the adapter, which is where an unexpected login route shows itself, and by the time a report is written the login that produced it is gone, so it cannot be asked for afterwards. A login failing the same way on every retry writes the page once and afterwards only notes that it has not changed — the comparison now ignores the identifiers the SSO issues afresh for every attempt, which previously differed each time and defeated it.
-- Change: More of a logged login page is masked. Login codes are masked as hidden form values as well as in query strings, the account's mail address is masked in its plain, percent-encoded and HTML-entity-encoded spellings, and a password echoed back inside a form value is masked. The pages are shortened before they reach the log.
-- Change: The short error text taken from a rejected login page now goes through the same masking as the debug page dump. It is logged at `error` level, so it is visible at the default log level — a wider audience than the page dump reaches, and until now it was the less thoroughly redacted of the two.
-- Change: With *Log requests and responses* switched on, the login form as it was served and the page after the username step are logged as well. These say nothing when a login works, so they stay behind the option.
-
-### 2.15.2 (2026-08-28)
-- Fix: A failing SENEC App API login reported nothing but `Request failed with status code 400` — neither which of the four requests of the login had failed nor what the SSO had said about it, which is all the information there is. Every step of the login now names itself and repeats the reason the SSO gave, so a login that fails on one account but not on others can be told apart from an outage.
-- Fix: The request/response log (settings → SENEC App API → *Log requests and responses*) covered the data requests but not the login, so switching it on to investigate a login problem produced nothing about the login. It now logs each step of the SSO exchange as well, including where a redirect leads. Login codes are masked and neither credentials nor request bodies are ever written to the log.
-- Change: A stored refresh token the SSO no longer accepts is an ordinary event — it happens whenever the session behind it has expired, and the full login that follows is the cure, not a symptom. It is no longer logged as a warning, so an ordinary re-login stops reading like a fault.
-- Change: When the SSO ends the login somewhere other than the app itself — a further login step, or a refusal — the adapter now names the destination instead of reporting a missing authorization code.
-- Dependency Updates
 
 ### Former Updates
 

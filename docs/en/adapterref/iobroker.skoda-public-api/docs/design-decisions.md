@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.skoda-public-api/README.md":{"title":{"en":"ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/README.md"},"en/adapterref/iobroker.skoda-public-api/HANDOFF.md":{"title":{"en":"Handoff — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/HANDOFF.md"},"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md":{"title":{"en":"Compact Mode"},"content":"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md"},"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md":{"title":{"en":"Entwurfsentscheidungen — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md"},"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md":{"title":{"en":"Technische Arbeitsgrundlage und offene Umsetzung"},"content":"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.skoda-public-api/README.md":{"title":{"en":"ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/README.md"},"en/adapterref/iobroker.skoda-public-api/HANDOFF.md":{"title":{"en":"Handoff — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/HANDOFF.md"},"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md":{"title":{"en":"Compact Mode"},"content":"en/adapterref/iobroker.skoda-public-api/docs/compact-mode.md"},"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md":{"title":{"en":"Entwurfsentscheidungen — ioBroker.skoda-public-api"},"content":"en/adapterref/iobroker.skoda-public-api/docs/design-decisions.md"},"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md":{"title":{"en":"Technische Arbeitsgrundlage und offene Umsetzung"},"content":"en/adapterref/iobroker.skoda-public-api/docs/implementation-plan.md"},"en/adapterref/iobroker.skoda-public-api/docs/stable-release.md":{"title":{"en":"Erste Stable-Aufnahme abgeschlossen"},"content":"en/adapterref/iobroker.skoda-public-api/docs/stable-release.md"},"en/adapterref/iobroker.skoda-public-api/docs/stable-pr.md":{"title":{"en":"Stable application for 0.1.11 — merged"},"content":"en/adapterref/iobroker.skoda-public-api/docs/stable-pr.md"}}}
 ---
 # Entwurfsentscheidungen — ioBroker.skoda-public-api
 
@@ -34,8 +34,11 @@ Ladeprofil kann `maxChargingCurrent` auf `REDUCED` oder `MAXIMUM` gesetzt werden
 
 ### E1 — Qualitätsniveau: Veröffentlichung über npm und ioBroker
 Der Adapter wird öffentlich auf npm und GitHub veröffentlicht und für das offizielle
-ioBroker-Repository `latest` gepflegt. `stable` folgt erst nach öffentlichem Test und
-Nutzerfeedback. Grundlage sind eine vollständige `io-package.json`, JSON Config,
+ioBroker-Repository `latest` gepflegt. Version `0.1.11` wurde nach öffentlichem Test und
+Nutzerfeedback am 11. Oktober 2026 mit
+[Repository-PR #6832](https://github.com/ioBroker/ioBroker.repositories/pull/6832)
+in `stable` aufgenommen. Weitere Stable-Versionen werden nach öffentlichem Test und
+Nutzerfeedback beantragt. Grundlage sind eine vollständige `io-package.json`, JSON Config,
 automatisierte Tests, eine Plattformmatrix für Releases und reproduzierbare npm-Pakete.
 **Begründung:** Öffentliche Verteilung braucht nachvollziehbare Metadaten, Migrationen
 und Prüfungen über alle unterstützten Plattformen.

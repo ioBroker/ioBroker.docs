@@ -11,6 +11,7 @@ German documentation is available at `doc/de/README.md`.
 ## Features
 - Automatic discovery via SSDP/UPnP and optional mDNS
 - Multiple TVs in one instance: `samsungtv.0.<tvname>.*`
+- Multiple adapter instances for separating TVs by location or responsibility
 - Tizen WebSocket API (8001/8002) + pairing/token
 - H/J series PIN pairing (best effort)
 - Wake-on-LAN (optional)
@@ -27,6 +28,7 @@ The **Configuration** tab contains:
 - **Discovery timeout**
 - **Enable SSDP** / **Enable mDNS** discovery sources
 - **Enable Wake-on-LAN**
+- **Power state after a power command**: *Show immediately* (default) sets `state.power` and acknowledges `control.power` as soon as the command is sent. *Wait for the TV* leaves `state.power` at the last confirmed state and `control.power` unacknowledged until a poll confirms the new state. If the TV doesn't confirm within 30 s of the command, or the command fails, both are set to the measured state.
 - **mDNS services** in expert mode (comma-separated, best effort)
 
 ### Add devices
@@ -39,8 +41,11 @@ Device Manager actions are applied and persisted immediately. The regular ioBrok
 ### Pairing
 - **Tizen**: when you click **Pair**, the TV shows a prompt (usually **Allow/Cancel**, no PIN). Confirm it on the TV.
 - **H/J series**: click **Pair** → TV shows PIN → enter PIN in the native dialog.
+- **Tizen, token already known**: click **Set token** and paste the token instead of confirming the prompt on the TV. The adapter verifies the token with the TV before storing it encrypted.
 
 The dynamic device registry is stored in ioBroker's persistent instance data directory so Device Manager actions cannot be overwritten by an already open settings form. Tokens/identities in that registry are encrypted with the ioBroker system secret and the file is written with owner-only permissions. Existing `native.devices` and encrypted `native.tokens` values are imported automatically on the first start.
+
+Multiple adapter instances are supported. Every instance has its own configuration, object namespace, device registry, pairing secrets, timers, and network listeners. Do not add the same TV to more than one instance because concurrent polling and commands can interfere with each other. Legacy configuration from `samsung.0` is imported only by `samsungtv.0`.
 
 If **no prompt** appears during pairing:
 - TV: **Device Connection Manager** → enable **Access Notification**.
@@ -100,6 +105,9 @@ Note: not every TV supports every key. Some keys only work when a menu/focus is 
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- Add an optional **Wait for the TV** power state mode: `state.power` only changes once the TV confirms, and `control.power` stays unacknowledged until then.
+- Add a **Set token** Device Manager action that verifies a known Tizen token before storing it.
+- Poll every 2 s for up to 30 s after a power command until the TV reports the new state.
 - Add absolute volume and mute (`control.volume`, `control.muted`) over UPnP RenderingControl.
 - Fall back to the well-known RenderingControl endpoint when SSDP returns nothing.
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
@@ -135,6 +143,6 @@ Older changes are documented in CHANGELOG_OLD.md.
 7. Rename the TV in Device Manager: the object tree should migrate cleanly.
 
 ## License
-MIT
+[MIT License](LICENSE)
 
-Copyright (c) 2026 softwarecrash
+Copyright (c) 2026 softwarecrash <dev/null@softwarecrash.de>

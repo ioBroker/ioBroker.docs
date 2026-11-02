@@ -289,6 +289,7 @@ Based on the [Navimow SDK](https://github.com/segwaynavimow/navimow-sdk) and [Na
 - (typhosj) A refused authorization code and a stored token without access token now say what to do: open the login link again, log in and paste the new URL
 - (typhosj) The settings page refuses a pasted URL without `?code=` and shows whether the instance is connected
 - (typhosj) The battery level gets the role `value.battery`, so vis widgets and the type detector recognise it. Existing states are updated on the next start
+- (typhosj) A command the cloud cannot deliver to the mower (for example `transientError`) is logged as an error only, no longer followed by "sent successfully"
 
 ### 1.1.2 (2026-08-31)
 

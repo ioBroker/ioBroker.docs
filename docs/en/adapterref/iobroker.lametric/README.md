@@ -28,10 +28,10 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 ## Requirements
 
 - nodejs 20 (or later)
-- js-controller 6.0.0 (or later)
-- Admin Adapter 7.6.20 (or later)
-- _LaMetric Time_ with firmware _3.2.7_ (or later)
-    - firmware _2.3.9_ (or later) on older models (produced before year 2022)
+- js-controller 6.0.11 (or later)
+- Admin Adapter 7.8.23 (or later)
+- _LaMetric Time_ with firmware _3.2.8_ (or later)
+    - firmware _2.3.11_ (or later) on older models (produced before year 2022)
 
 [Firmware-Changelog](https://firmware.lametric.com) [Firmware-Changelog Time2](https://firmware.lametric.com/?product=time2)
 
@@ -65,6 +65,11 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (ioBroker-Bot) Adapter requires admin >= 7.8.23 now
+* (@klein0r) Updated LaMetric firmware version recommendation to 2.3.11 (3.2.8)
+
 ### 6.0.1 (2026-08-04)
 
 * (@klein0r) Updated LaMetric firmware version recommendation to 2.3.9 (3.2.7)

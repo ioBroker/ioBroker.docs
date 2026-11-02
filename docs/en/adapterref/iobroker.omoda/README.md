@@ -34,11 +34,25 @@ the official [Omoda / Jaecoo app](https://www.omoda.com/).
   consumption, low-fuel warning. The car reports litres, not a fuel-level percentage.
 - **Units** — ranges, odometer and speed in kilometres or miles (setting "Distance unit" on the
   "Region & polling" tab; default km).
-- **Commands** — lock/unlock, climate on/off with a settable target temperature, request GPS
-  location, find car (flash lights), and "wake & refresh full status".
+- **Commands** — lock/unlock, climate on/off with a settable target temperature, scheduled
+  charging, start/stop EV charging, request GPS location, find car (flash lights), and
+  "wake & refresh full status".
+
+### Charging control
+
+- **Scheduled charging** — set `charging.scheduleStart` (`HH:MM`, local time) and
+  `charging.scheduleDuration` (minutes), then write `true` to `commands.chargeSchedule`. While
+  the schedule is on, the car only charges in that window, every day (the car does not accept a
+  schedule for single weekdays). To change the times, write the new values and write `true`
+  again. Write `false` to turn the schedule off. A window may run past midnight, e.g. `21:15` for
+  585 minutes ends at 07:00. If the car is already charging, turning the schedule on stops
+  charging until the window starts.
+- **Start/stop charging now** — `commands.chargeStart` / `commands.chargeStop` while the plug is
+  connected. Not every car allows this: an Omoda 9, for example, refuses with "command not
+  allowed on this car". Use scheduled charging on such cars.
 
 Additional functions from the vehicle app (individual seat heating/ventilation, defrosters,
-EV charge start/stop and scheduled charging, windows/sunroof/trunk control, theft alarm) are
+windows/sunroof/trunk control, theft alarm) are
 planned for a later version.
 
 ### Requirements
@@ -93,6 +107,10 @@ integration has since moved to **[chery-connect-ha/omoda9-ha](https://github.com
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.0 (2026-10-13)
+* (Alan Paris) Added scheduled charging: `charging.scheduleStart`, `charging.scheduleDuration` and `commands.chargeSchedule`, so the car charges only in a chosen window, for example on a night tariff. See "Charging control" above
+* (Alan Paris) Added `commands.chargeStart` and `commands.chargeStop` to start or stop charging while the plug is connected. After either one, the car is re-read within about 2 minutes so `charging.state` and `charging.power` follow the change. Not every car allows this; a car that does not refuses with "command not allowed on this car"
+
 ### 0.4.0 (2026-10-04)
 * (Alan Paris) Added fuel states for hybrid/combustion cars: `fuel.remaining` (L), `fuel.range` (km), `fuel.averageConsumption` (L/100 km) and `fuel.lowWarning`. They are not created on a pure-electric car
 * (Alan Paris) Added `commands.findCar` — flashes the lights so you can find the car
@@ -141,9 +159,6 @@ integration has since moved to **[chery-connect-ha/omoda9-ha](https://github.com
 * (Alan Paris) Config: clearer "Dept ID" help — it must match your account country's dialing code (UK=44, IT=39, …)
 * (Alan Paris) Require Node.js >= 22 and admin >= 7.6.17; enabled automated npm publishing via trusted publishing (OIDC)
 * (Alan Paris) Marked the OTP code as protected; various adapter-checker compliance fixes
-
-### 0.1.0 (2026-07-18)
-* (Alan Paris) initial release
 
 ## License
 MIT License

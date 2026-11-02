@@ -32,11 +32,32 @@ and keeps working with older versions.
 **Breaking for scripts/visualizations:** with evcc >= 0.316.0, `loadpoint.X.status.mode` reports `smart` instead of `pv`/`minpv`.
 Use `loadpoint.X.status.alwaysCharge` or `loadpoint.X.control.pvControl` to distinguish the former min+pv mode.
 
+## Charging plan
+
+A static charging plan can be set per loadpoint under `loadpoint.X.control.plan`:
+
+| State | Meaning |
+|---|---|
+| `plan.active` | `true` creates/updates the plan, `false` deletes it. Reads back whether a plan is set in evcc. |
+| `plan.time` | target time (timestamp in ms). Past or empty: now + 24 h |
+| `plan.soc` | target SoC in % – used when a vehicle is assigned to the loadpoint (soc plan of that vehicle, same as `vehicle.<name>.plan.*`) |
+| `plan.energy` | target energy in kWh – used when no vehicle is assigned (energy plan, e.g. vehicle without SoC / guest vehicle) |
+
+Values written while `plan.active` is `false` are only stored and used when the plan is activated, so set `time` and `soc`/`energy` first, then `active = true`.
+Note: evcc's own `status.planActive` means "currently charging according to plan", not "a plan is set".
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Schimi1983) fix: polls took longer than the interval with many states (e.g. weather forecast) – values are now written in batches
+* (Schimi1983) fix: no errors in the log when the adapter is stopped during a poll
+* (Schimi1983) fix unit tests: chai-as-promised is no longer loaded in test setup (not a direct dependency anymore)
+* (Schimi1983) charging plan per loadpoint: `control.plan.active/time/soc/energy` (soc plan of the assigned vehicle or energy plan of the loadpoint), closes #73 and #18
+* (Schimi1983) repository checker (#135): remove test dependencies already provided by @iobroker/testing, CHANGELOG_OLD.md in .npmignore, consistent formatting of admin/jsonConfig.json
+
 ### 0.3.1 (2026-10-10)
 * (arteck) Dependencies have been updated
 * (Schimi1983) fix: `enableThreshold` / `disableThreshold` could not be set

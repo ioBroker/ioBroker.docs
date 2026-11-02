@@ -151,10 +151,20 @@ from the complete programme card.
 Open the channel selector from the widget menu. Click a card to enable or
 disable a channel. Active channels appear first and retain their user defined
 order. Drag an active card to move it; on touch screens, hold it briefly before
-dragging. Search filters the visible cards. The sort button cycles inactive
+dragging. Search matches names and channel IDs across all channels, including
+those on other pages. The sort button cycles inactive
 channels through source order, A–Z and Z–A. The checkmark saves changes, while
 the cross or Escape closes without saving. The top right button switches
 between the configured size and full screen.
+
+The **Other channels** section displays up to 100 channels per page by default.
+Use the first page, minus (previous page), plus (next page) and last page buttons
+below its heading to navigate. The indicator shows the current page and total
+number of pages. Selected channels remain visible in their separate section.
+Set **Channels per page in channel selection** (`tvprogram_channelpagesize`) in
+the widget configuration to change the page size. Existing widgets use 100
+when this setting is empty. Searching and changing the sort order return to
+the first page; search results are paginated using the same page size.
 
 Logos retain their proportions and are centered within the configured channel
 width and row height. Images load close to the visible area with up to four
@@ -165,19 +175,20 @@ After the current day loads, the widget waits at least ten seconds and
 prefetches the following two broadcast days. Active image downloads may delay
 this operation.
 
-| Attribute               | Default/example       | Description                            |
-| ----------------------- | --------------------- | -------------------------------------- |
-| `tvprogram_oid`         | `tvprogram.0.tv1.cmd` | Data point belonging to the TV         |
-| `widthItem`             | `120`                 | Width of a 30 minute segment in pixels |
-| `heightRow`             | `35`                  | Programme row height in pixels         |
-| `channeliconwidth`      | `35`                  | Available channel logo width in pixels |
-| `showpictures`          | enabled               | Show programme pictures when available |
-| `headerfontpercent`     | `125`                 | Time header font size in percent       |
-| `broadcastfontpercent`  | `75`                  | Programme font size in percent         |
-| `highlightcolor`        | `yellow`              | Favorite highlight color               |
-| `markerpositionpercent` | `25`                  | Current time marker position           |
-| `dialogwidthpercent`    | `90`                  | Dialog width relative to the widget    |
-| `dialogheightpercent`   | `90`                  | Dialog height relative to the widget   |
+| Attribute               | Default/example       | Description                             |
+| ----------------------- | --------------------- | --------------------------------------- |
+| `tvprogram_oid`         | `tvprogram.0.tv1.cmd` | Data point belonging to the TV          |
+| `widthItem`             | `120`                 | Width of a 30 minute segment in pixels  |
+| `heightRow`             | `35`                  | Programme row height in pixels          |
+| `channeliconwidth`      | `35`                  | Available channel logo width in pixels  |
+| `showpictures`          | enabled               | Show programme pictures when available  |
+| `headerfontpercent`     | `125`                 | Time header font size in percent        |
+| `broadcastfontpercent`  | `75`                  | Programme font size in percent          |
+| `highlightcolor`        | `yellow`              | Favorite highlight color                |
+| `markerpositionpercent` | `25`                  | Current time marker position            |
+| `channelpagesize`       | `100`                 | Other channels per page in the selector |
+| `dialogwidthpercent`    | `90`                  | Dialog width relative to the widget     |
+| `dialogheightpercent`   | `90`                  | Dialog height relative to the widget    |
 
 ### Favorites
 
@@ -310,6 +321,10 @@ All longer examples are maintained in [docs/EXAMPLES.md](/#/docs/adapterref/iobr
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 6.2.0 (2026-10-28)
+
+- Configurable paging mechanism in the channel select dialog
+
 ### 6.1.0 (2026-09-28)
 
 - more fixes and adjustments
@@ -332,12 +347,6 @@ All longer examples are maintained in [docs/EXAMPLES.md](/#/docs/adapterref/iobr
 
 - Comprehensive revision
 - New data source added
-
-### 4.0.4 (2026-03-27)
-
-- update dependencies
-- fix repochecker
-- tranform translation files
 
 ## License
 

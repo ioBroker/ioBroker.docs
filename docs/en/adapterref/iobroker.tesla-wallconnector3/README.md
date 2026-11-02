@@ -160,6 +160,9 @@ The adapter automatically repairs known Tesla firmware JSON defects (bare `nan` 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- Dependency updates
+
 ### 1.3.4 (2026-10-06)
 - Dependency updates
 

@@ -297,6 +297,13 @@ Google-Calendar-style view for events/appointments, based on FullCalendar. Every
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2026-10-17)
+- Removed default react 19 border on universal widget
+
+### 2.0.1 (2026-10-17)
+- Breaking: Requires vis-2 >= 2.20.0 (React 19 / MUI 9). Older vis-2 versions (React 18) are no longer supported
+- Updated dependencies to React 19 and MUI 9
+
 ### 1.10.0 (2026-09-01)
 - Event Calendar Widget: Added support for showing multiple calendars at once via a new "Additional calendars" group (datapoint + color + label per calendar, e.g. one iCal calendar per family member), merged into a single view with an optional color/label legend below the calendar and a persistent per-event colored left border showing which calendar an event belongs to (kept even when an Event color rule overrides the tile's fill color). The original single "Events (datapoint)" field keeps working unchanged when no additional calendars are configured; once at least one is added, that field is ignored
 - Event Calendar Widget: Added "Max. events per day" setting (Month/Multi-month views) to cap how many event tiles are shown per day cell before the rest collapse behind FullCalendar's "+N more" popover link, instead of day cells always growing with the number of events
@@ -307,15 +314,6 @@ Google-Calendar-style view for events/appointments, based on FullCalendar. Every
 
 ### 1.8.1 (2026-07-23)
 - Added preview image for calendar and value list widgets
-
-### 1.8.0 (2026-07-16)
-- Radial Slider Widget: Added "Read only" option to prevent value changes, matching the Slider widget's behavior
-- Table Widget: Added pagination support ("Pagination" / "Rows per page") to split large tables across pages instead of showing all rows at once
-- Table Widget: Added weekday (WD/WDL) and calendar week (KW/K) tokens
-- Added new Calendar Widget: month calendar based on MUI's Date Calendar, usable as a datepicker (read/write a date), a read-only date display, and/or a today-highlighter, with configurable first day of week, ISO/simple calendar week numbers, and full color/size customization
-
-### 1.7.0 (2026-06-24)
-- Dropdown Widget: Added support for manually defined value/label pairs as an alternative to OID-based state enumeration
 
 ## Older changes
 Can be found in CHANGELOG_OLD.md

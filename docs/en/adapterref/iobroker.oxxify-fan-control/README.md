@@ -66,6 +66,11 @@ This channel contains system data about the hardware and firmware as well as run
 -->
 
 ## Changelog
+### 0.0.18 (2026-10-14)
+
+- Fixed issues from adapter checker
+- Security vulnerabilities fixed
+
 ### 0.0.17 (2026-08-25)
 
 - Security vulnerabilities fixed
@@ -86,13 +91,6 @@ This channel contains system data about the hardware and firmware as well as run
 - Added missing JSDoc comments
 - (copilot) Adapter requires node.js >= 22 now
 - Warning [W5039] fixed
-
-### 0.0.13 (2026-04-08)
-
-- Auto PRs merged
-- Fixing other deployment issues...
-
-For older changelog entries see CHANGELOG_OLD.md
 
 ## License
 

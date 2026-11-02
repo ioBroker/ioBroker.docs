@@ -60,6 +60,44 @@ Configuring the adapter is straightforward:
 1. Enter your TeslaFi API key in the adapter's configuration screen.
 2. Set the desired polling interval to customize how frequently data is updated.
 
+## Geofencing (presence / enter / leave)
+
+The adapter can turn TeslaFi's tagged location (`vehicle-state.location`) into reliable presence events — for example to open the garage door only when the car actually comes home. Matching is done by exact location name (as tagged in TeslaFi), so no GPS distance math is involved.
+
+Configure your geofences in the **Geofence** tab. Each row has:
+
+| Column | Meaning |
+| --- | --- |
+| **TeslaFi location name** | Exact tag name from TeslaFi (e.g. `Home`) |
+| **Min. away (minutes)** | The car must have been away at least this long before an `enter` event may fire (blocks brief repositioning) |
+| **Require motion** | Only fire `enter` if the car actually moved while away |
+| **Motion speed threshold (km/h)** | Speed that counts as motion |
+| **Debounce (polls)** | Number of consecutive polls a change must persist before `enter`/`leave` fires (protects against GPS flicker) |
+
+For each configured location the adapter creates:
+
+- `geofence.current` – the currently tagged location
+- `geofence.<Location>.present` – confirmed presence (boolean)
+- `geofence.<Location>.enter` – pulses `true` for a single poll on a filtered arrival
+- `geofence.<Location>.leave` – pulses `true` for a single poll on departure
+- `geofence.<Location>.awaySince` – timestamp (ms) since the car left; `0` while present
+
+`<Location>` is the TeslaFi location name with characters that are not allowed in ioBroker object IDs replaced by `_`. For example a location tagged `My Home` results in the states `geofence.My_Home.*`.
+
+No `enter` event is emitted on adapter startup, and GPS fluctuations while parked do not produce events.
+
+### Example: open the garage on homecoming
+
+Trigger a JavaScript/Blockly rule on the rising edge of `teslafi.0.geofence.Home.enter`:
+
+```javascript
+on({ id: "teslafi.0.geofence.Home.enter", val: true, ack: true }, () => {
+    setState("zigbee.0.garage_door.open", true);
+});
+```
+
+With `minAwayMinutes: 10`, `requireMotion: true` and `debouncePolls: 2` this fires exactly once when the car returns home after a real trip, while ignoring short repositioning near the house, GPS jitter, and adapter restarts.
+
 ## Compatibility
 
 The adapter is compatible with all Tesla models supported by TeslaFi. A valid TeslaFi account with API access is required.
@@ -79,9 +117,12 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.0 (2026-10-11)
 
-### **WORK IN PROGRESS**
-
+- (hombach) added geofence presence/enter/leave with away- and motion-gates (#325)
+- (hombach) fixed speed unit: `vehicle-state.speed` is now labeled mph and a new `vehicle-state.speed_km` (km/h) was added
+- (hombach) geofence: harden against invalid config values, non-numeric speed and colliding/duplicate location names
+- (hombach) speed unit label is now also corrected on existing installations
 - (hombach) switch to iobroker testing 6.x
 - (hombach) updated dependencies
 
@@ -104,11 +145,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (hombach) upgraded TypeScript to 6.x
 - (hombach) fixed warnings by adapter checker
 - (hombach) updated dependencies
-
-### 3.0.0 (2026-05-05)
-
-- (copilot) BREAKING: adapter requires node.js >= 22 now
-- (hombach) update dependencies
 
 ## License
 

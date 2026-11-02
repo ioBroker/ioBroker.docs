@@ -80,6 +80,15 @@ All settings are available in the Admin UI (JSON config):
     ### **WORK IN PROGRESS**
 -->
 
+### 0.12.8 (2026-10-26)
+
+- (ssbingo) **Fix: ship the widget set's module-federation manifest.** vis-2 **≥ 2.20** loads a widget set through its **`mf-manifest.json`** (module-federation manifest) rather than the bare `customWidgets.js`. The widget build task copied `customWidgets.js`, `assets`, `img` and `icon-set.json` into `widgets/pondpump/` but **not** `mf-manifest.json` / `mf-stats.json` (the admin build already copied its manifest) — so vis-2 2.20.5 got a **404 on `/vis-2/widgets/pondpump/mf-manifest.json`** and skipped the set. The task now copies both manifests; after updating and an adapter upload the widgets load again
+
+### 0.12.7 (2026-10-12)
+
+- (ssbingo) **vis-2 React 19 / MUI 9 compatibility for the widget set.** `src-widgets` was still built against **React 18.3 / MUI 6** and declared the deprecated `@iobroker/adapter-react-v5` — exactly the kind of set the upcoming React-19/MUI-9 vis-2 **skips** (its bundled JSX runtime references React-18 internals). The widgets are now built against **React 19 + MUI 9**, the stale `adapter-react-v5` (it was not actually imported) is removed, and `@types/react`/`@types/react-dom` 19 were added; the set type-checks and builds cleanly. The admin was already modern
+- (ssbingo) **Dependency updates (issue #46 + Dependabot):** `@iobroker/testing` → **6.3.0** (clears repochecker **E0036**), `suncalc` → 2.1, admin `@iobroker/gui-components` → 10.3, `@module-federation/vite` → 1.23 (admin + widgets). Fixed a latent widget type-cast caught by the stricter React-19 type-check
+
 ### 0.12.6 (2026-09-25)
 
 - (ssbingo) **Manual/automatic switch in the scheduler widget.** A manual power/SFC change on a scheduled pump now puts it into a **visible "Manual" mode** (amber badge) — the scheduler **pauses** for that pump and your value **stays** (superseding 0.12.5's auto-revert, which made intentional manual control impossible). A prominent green **"▶ Automatic"** button returns control to the scheduler, which re-applies its target immediately. Backed by a new **writable** state `pumps.<n>.schedule.manual` (set automatically on a manual change, cleared by the button/a script), so the mode is scriptable and survives restarts. Actuator windows keep running in manual mode. Widget hint + handbook (9.4) updated

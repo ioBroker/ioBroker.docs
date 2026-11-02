@@ -25,6 +25,7 @@ Sends Telegram notifications for PV battery status (full, empty, intermediate le
 - 📅 **Weekly Statistics** on configurable weekday
 - 📆 **Monthly Statistics** (optional) on configurable day
 - 🌤️ **Weather Forecast** integration (requires openweathermap adapter)
+- 🔆 **PV Forecast for Tomorrow** (optional) from pvforecast or open-meteo-weather
 - ⚡ **Recommendations** for high production / high consumption
 - 📊 **Statistics Data** from sourceanalytix adapter
 
@@ -37,6 +38,7 @@ The following adapters are required for full functionality:
 | **telegram** | Sends notifications | ✅ Yes |
 | **sourceanalytix** | Statistics data (consumption, feed-in, grid power) | ✅ Yes |
 | **daswetter** or **openweathermap** | Weather forecast for recommendations | ❌ Optional |
+| **pvforecast** or **open-meteo-weather** | Expected PV production for tomorrow | ❌ Optional |
 
 ## Configuration
 
@@ -78,6 +80,17 @@ The following adapters are required for full functionality:
 | Temperature Tomorrow (°C) | Temperature tomorrow | `daswetter.0.Day1.forecast.maxTemp` | `openweathermap.0.forecast.1.temp` |
 
 **Note:** The fields `Weather Today` and `Weather Tomorrow` can alternatively be used if the weather adapter provides different formats. For best compatibility, we recommend using `Weather Text` fields.
+
+### PV Forecast (Optional)
+
+The expected PV production for tomorrow is added to the daily statistics, the battery full/empty messages and the test message (`🔆 PV forecast tomorrow: 18.3 kWh`).
+
+| Setting | Description | Example (pvforecast) | Example (open-meteo-weather) |
+|---------|-------------|----------------------|------------------------------|
+| PV forecast tomorrow | Expected energy for tomorrow | `pvforecast.0.summary.energy.tomorrow` | `open-meteo-weather.0.pv-forecast.<location>.daily-forecast.day1.Peak_day` |
+| Unit of the forecast | `Automatic` (default) takes the unit of the data point; `kWh` or `Wh` force it | Automatic (kWh) | Automatic (Wh) |
+
+**Note:** If the pvforecast option for watt/watt hours is enabled, pvforecast writes Wh while the data point still says kWh. Select `Wh` as unit in that case.
 
 ### Battery
 
@@ -323,6 +336,13 @@ sadam6752@gmail.com
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 1.2.35 (2026-10-21)
+* (FIX) The footer of the test message ("Test Notification") is now translated like the rest of the message
+
+### 1.2.34 (2026-10-21)
+* (ADD) Optional data point for the expected PV production of tomorrow (e.g. pvforecast or open-meteo-weather), shown in the daily statistics, the battery full/empty messages and the test message; unit taken from the data point (Wh/kWh/MWh) or set explicitly
+* (FIX) Settings: the sunset object and the two weather checkboxes are now disabled correctly (`disabled` expressions use `data.<field>`)
 
 ### 1.2.33 (2026-10-08)
 * (FIX) Telegram messages were sent to **all** users of the bot instead of only the configured users (`user` instead of the ignored `users` parameter)

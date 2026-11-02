@@ -63,3 +63,83 @@ Es können auch frei definierte Oberflächen erstellt werden, wie z.B. die Verbr
 
 ### YouTube Tutorials
 Für detaillierte Anleitungen und weitere Informationen wird empfohlen, die verlinkten YouTube Tutorials anzuschauen.
+
+## Die Widgets
+
+Der Adapter legt neun Widgets in die vis-2-Palette, im Satz **Jaeger design**. Wenn man in der Palette über ein Widget fährt, steht unter der Vorschau eine kurze Beschreibung.
+
+Alle Widgets teilen sich ein Farbschema. Nur das Layout-Widget trägt das vollständige Schema; jedes andere Widget übernimmt die Farben entweder von ihm (*Palette → Vom Widget*) oder legt eigene fest. Vier Themes sind eingebaut: `green`, `blue`, `green-dark` und `blue-dark`.
+
+### Layout
+
+![Layout-Widget](../src-widgets/public/img/prev_layout.png)
+
+Der Rahmen um alles andere. Es rendert die komplette Oberfläche: das Hauptmenü links, die Statusleiste oben, die Etagenauswahl, die Startseite mit Szenen und Aktionen, die frei gestaltbare rechte Spalte und — auf Handy oder Tablet — eine wischbare Schublade statt der Menüspalte.
+
+Es hat ein einziges Attribut, **Einstellungen**, das den Editor öffnet, in dem die ganze Oberfläche beschrieben wird: Menüpunkte, Etagen und ihre Views, Szenen, Aktionen, Info-Gruppen und die Farben. Pro View genau ein Layout-Widget verwenden; standardmäßig füllt es die View vollständig aus.
+
+### State
+
+![State-Widget](../src-widgets/public/img/prev_state.png)
+
+Eine quadratische Symboltaste für ein Objekt — der Baustein der Grundrisse. Ein Klick schaltet den Wert um; mit *Bestimmten Wert schreiben* wird stattdessen ein fester Wert geschrieben, und *Anzeigen, ob Wert gesetzt ist* hebt die Taste hervor, solange dieser Wert aktiv ist.
+
+- **Anzahl der Werte** — mehrere Werte, jeder mit eigenem Symbol, eigener Farbe, Hintergrundfarbe und Tooltip.
+- **Steuerungsdialog anzeigen** — statt umzuschalten öffnet sich ein Dialog mit allen Werten.
+- **Keine Kontrolle** — nur Anzeige, die Taste lässt sich nicht drücken.
+- **Nachfragen** vor dem Schreiben, mit eigenem Text.
+- Wahlweise eine Beschriftung über oder unter dem Symbol.
+
+### Dimmer
+
+![Dimmer-Widget](../src-widgets/public/img/prev_dimmer.png)
+
+Helligkeitssteuerung für eine dimmbare Leuchte. Das Widget selbst zeigt den aktuellen Stand als senkrechten Balken; langes Drücken (*Drückendauer für Popup*) öffnet das Popup mit dem Regler, aufgeteilt in die eingestellte Zahl von **Abschnitten**.
+
+- **Speichertasten** — Tasten für feste Helligkeitswerte unter dem Regler, jede mit eigenem Symbol und Text. Der Wert kommt entweder aus einem Objekt oder wird direkt geschrieben.
+- **Objekt-ID für EIN/AUS** und **Wert für EIN** für Leuchten, deren Ein-/Ausschalter ein eigenes Objekt ist.
+- Wahlweise den Wert im Widget anzeigen, das Symbol drehen und das Popup nach dem Setzen schließen.
+
+### Shutter
+
+![Shutter-Widget](../src-widgets/public/img/prev_shutter.png)
+
+Dasselbe Prinzip für Rollladen und Jalousien. Das Symbol zeigt die aktuelle Position, wahlweise als Rollladen-, Jalousien- oder Beschattungssymbol. Mit **Schattenverschluss-ID** kommt ein zweites Objekt für den Lamellenwinkel dazu, sodass Höhe und Lamellen im selben Popup eingestellt werden.
+
+Weil Aktoren sich nicht einig sind, was 0 % bedeutet, lassen sich Wert und Anzeige unabhängig voneinander invertieren — getrennt für die Höhe und für die Lamellen. Speichertasten legen Höhe und Lamellenwinkel gemeinsam ab.
+
+### Thermostat
+
+![Thermostat-Widget](../src-widgets/public/img/prev_thermostat.png)
+
+Die Wunschtemperatur als Drehanzeige. Der Dialog stellt Ist-Temperatur, Luftfeuchtigkeit und Ventilstellung neben den Sollwert und bietet Minus-/Plus-Tasten und einen Regler. Minimum, Maximum, Schrittweite und Einheit sind einstellbar, und als Dezimaltrennzeichen kann ein Komma verwendet werden.
+
+Darunter ist Platz für zusätzliche **Tasten** — Boost, Abwesend, Klimaanlage, was die Heizung eben hergibt. Jede hat ein eigenes Objekt, einen eigenen Wert, ein Symbol, eine Beschriftung und einen eigenen Stil.
+
+### Scene
+
+![Scene-Widget](../src-widgets/public/img/prev_scene.png)
+
+Eine breite Taste mit Titel und Untertitel, die eine Szene des `scenes`-Adapters startet oder schlicht einen Wert schreibt. Mit **Speichern** kommt rechts eine zweite Taste dazu (das Zahnrad im Bild): Sie schreibt die aktuellen Zustände aller Mitglieder zurück in die Szene.
+
+Weitere Optionen: kein aktiver Zustand, `false` statt `true` schreiben, Nachfrage mit eigenem Text und die Anzeige der letzten Änderungszeit.
+
+### Cameras
+
+![Cameras-Widget](../src-widgets/public/img/prev_cameras.png)
+
+Eine Karte mit einem Raster von Kamerabildern. Jede Kamera kommt entweder aus dem `cameras`-Adapter oder von einer freien URL, die auch aus einem Objekt gelesen werden kann, und hat ihr eigenes Aktualisierungsintervall.
+
+*Vollbild zulassen* öffnet eine einzelne Kamera groß, mit eigener URL und eigenem Intervall für das Vollbild — so können die Vorschaubilder klein bleiben. „Mehr anzeigen" verlinkt auf ein anderes Widget oder eine andere Seite.
+
+### Actual news
+
+![News-Widget](../src-widgets/public/img/prev_news.png)
+
+Eine Karte mit einem RSS-Feed: Bild, Überschrift und Anriss pro Eintrag, scrollbar. Die Feed-URL wird direkt eingetragen oder aus einem Objekt gelesen, lässt sich also zur Laufzeit umschalten. Das Aktualisierungsintervall ist einstellbar, und „Mehr" verlinkt auf ein Widget oder eine Seite.
+
+### Player
+
+![Player-Widget](../src-widgets/public/img/prev_player.png)
+
+Eine Medienspieler-Karte: Titel, Interpret, Cover, Play/Pause, vorheriger/nächster Titel, Zufallswiedergabe, Stummschaltung, ein Lautstärkeregler und der Balken mit abgelaufener und gesamter Spielzeit. Jedes Element hängt an einem eigenen Objekt, das Widget passt damit zu jedem Player-Adapter — Sonos, Squeezebox, Alexa und so weiter. Elemente, deren Objekt leer bleibt, werden nicht angezeigt.

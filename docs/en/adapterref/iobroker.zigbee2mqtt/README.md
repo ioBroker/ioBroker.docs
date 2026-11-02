@@ -33,6 +33,11 @@ check you VM Settings
 [Adapter Documentation](/#/docs/adapterref/iobroker.zigbee2mqtt/docs/wiki.md)
 
 ## Changelog
+### 3.2.10 (2026-10-24)
+* (arteck) Dependencies have been updated
+* (arteck) fix high CPU load: skip reprocessing of unchanged bridge/devices and bridge/groups payloads (e.g. caused by a device in a rejoin/announce loop)
+* (arteck) fix restart loop
+
 ### 3.2.9 (2026-09-19)
 * (arteck) url fix
 
@@ -45,9 +50,6 @@ check you VM Settings
 
 ### 3.2.6 (2026-08-20)
 * (arteck) add wait time for internal mqtt server into settings
-
-### 3.2.5 (2026-08-04)
-* (arteck) State updates lag issue https://github.com/arteck/ioBroker.zigbee2mqtt/issues/662
 
 ## License
 

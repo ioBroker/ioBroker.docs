@@ -14,6 +14,9 @@ You can control playback and query status.
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 0.2.3
 * (volkerrichert) add missing seconds definitions in io-package.json
 
@@ -56,4 +59,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-Copyright (c) 2018-2021 Volker Richert volker@richert.nrw
+Copyright (c) 2018-2026 Volker Richert volker@richert.nrw

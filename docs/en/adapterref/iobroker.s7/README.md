@@ -256,6 +256,10 @@ Drag& drop a switch widget on your view, connect it to the Object ID of a switch
 Important: The user is in charge of connecting the correct data points to the widgets. You can connect a real value to a binary status (e.g. light bulb), so the light bulb will show “on” once the real value is >1.0. That’s all, folks, pretty easy and straight forward, huh?
 
 ## Changelog
+### 3.0.3 (2026-10-13)
+* (@GermanBluefox) IMPORTANT: js-controller 6.0.11+ and admin 7.6.17+ are required
+* (@GermanBluefox) Set `nogit` flag as the build directory is not committed
+
 ### 3.0.2 (2026-09-24)
 * (@GermanBluefox) Updated packages
 * (@GermanBluefox) Because of snap7 no Node 26 support
@@ -272,14 +276,10 @@ Important: The user is in charge of connecting the correct data points to the wi
 * (Apollon77) Ensures that the adapter works with node.js 22.x and 24.x
 * (bluefox) Updated GUI packages
 
-### 1.4.3 (2024-02-17)
-* (Bettman66) Fix REAL number parsing error
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>,
-
+Copyright (c) 2014-2026 bluefox <dogafox@gmail.com>  
 Copyright (c) 2014-2016 smiling_Jack <steffen.schorling@googlemail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

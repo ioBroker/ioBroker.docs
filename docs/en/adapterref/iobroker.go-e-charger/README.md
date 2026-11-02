@@ -147,11 +147,13 @@ After the adapter has started, use the writable states below. Replace instance `
 | ------------------------------------------------- | --------------------------------------------------------------- |
 | `go-e-charger.0.Settings.Setpoint_HomeBatSoC`     | Minimum home-battery SoC before surplus charging is allowed     |
 | `go-e-charger.0.Wallbox_0.Settings.ChargeManager` | Enables or disables PV surplus control                          |
-| `go-e-charger.0.Wallbox_0.Settings.ChargeNOW`     | Overrides ChargeManager and forces charging                     |
+| `go-e-charger.0.Wallbox_0.Settings.ChargeNOW`     | Forces charging; switches ChargeManager off                     |
 | `go-e-charger.0.Wallbox_0.Settings.ChargeCurrent` | Current used by ChargeNOW                                       |
 | `go-e-charger.0.Wallbox_0.Settings.Charge3Phase`  | Selects one-phase or three-phase charging on supported hardware |
 
-For surplus charging, set `ChargeNOW` to `false` and `ChargeManager` to `true`. When both are enabled, ChargeNOW takes precedence and uses the configured `ChargeCurrent` without considering the available surplus.
+For surplus charging, set `ChargeManager` to `true`. ChargeNOW charges at the configured `ChargeCurrent` without considering the available surplus. The two modes are exclusive: switching one on switches the other off.
+
+ChargeNOW ends by itself and switches off when the vehicle is unplugged, or, with **withdraw release when the vehicle stops charging** enabled for the wallbox, when the vehicle draws no power for 5 minutes. Switching ChargeNOW on before plugging in is fine: it waits for the vehicle without waking the charger.
 
 #### One-phase and three-phase charging
 
@@ -176,10 +178,11 @@ While the option is enabled the adapter controls `Charge3Phase` for that wallbox
 
 | ChargeNOW | ChargeManager | Result                                     |
 | --------- | ------------- | ------------------------------------------ |
-| `false`   | `false`       | Charging is disabled                       |
+| `false`   | `false`       | The adapter does not charge                |
 | `false`   | `true`        | Charging follows the calculated PV surplus |
 | `true`    | `false`       | Forced charging at `ChargeCurrent`         |
-| `true`    | `true`        | ChargeNOW takes precedence                 |
+
+With both modes off, the adapter withdraws only a charge release it gave itself. A charge started from the go-e app, the button on the charger or the charger's own default is left alone.
 
 In read-only mode, these states can still be changed but no resulting control command is sent to the charger.
 
@@ -207,7 +210,7 @@ The budget is allocated in priority order: ChargeNOW wallboxes first, then Charg
 
 A value of `0` (default) disables the budget; the adapter then does not enforce a combined limit, so make sure the sum of the per-wallbox maximum currents stays within your installation's capacity.
 
-While the budget is active, the adapter also **follows the actually measured charging current**: if a wallbox draws noticeably less than it is allowed (e.g. a vehicle with a lower onboard-charger limit, a car tapering near full, or temperature derating), its unused current is reclaimed after a few cycles and handed to the next wallbox in priority order. The wallbox keeps a small headroom above its real draw and is offered one ampere more each cycle as long as it uses what it gets, so it can grow back to its limit. To stay safe, a wallbox is only ever throttled *down* to reclaim capacity — its command is never left high while the freed amperes are given away — so the summed current can never exceed the fuse even if a vehicle suddenly ramps back up.
+While the budget is active, the adapter also **follows the actually measured charging current**: if a wallbox draws noticeably less than it is allowed (e.g. a vehicle with a lower onboard-charger limit, a car tapering near full, or temperature derating), its unused current is reclaimed after a few cycles and handed to the next wallbox in priority order. The wallbox keeps a small headroom above its real draw and is offered one ampere more each cycle as long as it uses what it gets, so it can grow back to its limit. To stay safe, a wallbox is only ever throttled _down_ to reclaim capacity — its command is never left high while the freed amperes are given away — so the summed current can never exceed the fuse even if a vehicle suddenly ramps back up.
 
 > This is a conservative per-phase-agnostic model: every ampere counts against one budget regardless of which phase it lands on. It never exceeds the fuse rating, but with loads spread across phases it may leave some capacity unused.
 
@@ -226,6 +229,28 @@ If you enjoyed this project – or are just feeling generous – consider buying
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (typhosj) with ChargeNOW and ChargeManager both off, the adapter no longer aborts a charge it did not start - a charge started from the go-e app, the button or after a charger restart used to be cut off in the next cycle, until the vehicle gave up
+- (typhosj) ChargeNOW now switches itself off when the vehicle is unplugged, and with the option above when the vehicle stops drawing power; it used to hold the charge release until switched off by hand, so the next vehicle plugged in started charging at the full ChargeNOW current. While ChargeNOW waits for a vehicle, nothing is sent to the charger
+- (typhosj) ChargeNOW and ChargeManager are now exclusive: switching one on switches the other off, instead of ChargeNOW silently taking precedence
+- (typhosj) a ChargeManager that takes over a charger - at adapter start or after ChargeNOW - continues a running charge at its current, with a fresh shutdown delay; it used to start from its previous state and could withdraw the release in its first cycle
+
+### 1.9.0 (2026-10-28)
+
+- (solar0x) new states `Wallbox_X.Power.VoltageL1`, `VoltageL2` and `VoltageL3` show the voltage the charger measures on each grid phase, in V; all hardware generations. As in the go-e app, a single-phase supply with L and N swapped shows its N voltage as L1
+- (typhosj) new state `Wallbox_X.Power.GridFrequency` shows the grid frequency the charger measures, in Hz; hardware gen 3 and newer with HTTP API v2 enabled only, and it stays empty while the charger reports the frequency as unknown [#898]
+- (typhosj) new state `Wallbox_X.info.chargeState` explains why the charger is charging or not - waiting for a vehicle, charging the home battery first, not enough PV surplus, ramping up to the start current, charging, current budget exhausted, both modes off; every change of the reason is also logged once. A charger that never started used to leave no trace in the log, because most of these reasons were only logged together with a write to the charger
+- (typhosj) ChargeManager: new per-wallbox option to withdraw the charge release when the vehicle draws no power for 5 minutes - vehicles such as the Renault Zoe otherwise stay in charging mode, e.g. in the evening when the battery bonus keeps the release active (reported by a user)
+- (hombach) phase voltages and grid frequency are rounded to 2 decimal places
+- (hombach) updated dependencies
+
+### 1.8.1 (2026-10-11)
+
+- (typhosj) after an automatic switch from one to three phases the ChargeManager now continues at the power the car was charging with instead of the one-phase current; 16 A on one phase used to become 16 A on three phases (about 11 kW) and came down only one ampere per cycle, drawing the difference from the battery or the grid
+- (typhosj) after an automatic switch from three to one phase the ChargeManager now also continues at the power reached so far, capped at what the surplus carries on one phase; it used to keep the three-phase current, so a car plugged in while the charger still held three phases from the last charge took about a minute longer to start
+
 ### 1.8.0 (2026-10-04)
 
 - (hombach) added an installation-wide total current budget (maximum total charging current) that caps the summed current of all wallboxes to protect a shared fuse, serving ChargeNOW before ChargeManager and keeping a wallbox without a connected vehicle off so idle wallboxes neither trip the fuse nor starve one that is already charging
@@ -256,22 +281,6 @@ If you enjoyed this project – or are just feeling generous – consider buying
 ### 1.6.1 (2026-09-04)
 
 - (typhosj) fixed: a wallbox whose effective maximum charging current is below 10 A - e.g. an 8 A coded cable or a per-wallbox maximum of 8 A - was rejected as invalid ChargeManager input and never charged from PV surplus. Such a wallbox now starts charging at its own maximum
-
-### 1.6.0 (2026-08-29)
-
-- (hombach) added optional per-wallbox minimum and maximum charging current, applied to both ChargeManager and ChargeNOW and always kept within the installation-wide maximum
-- (hombach) the per-wallbox current limits now also respect the charger's reported hardware caps (absolute max, cable limit, minimum charging current), published as `info.hardwareMaxChargeCurrent` / `info.hardwareMinChargeCurrent`
-- (typhosj) ChargeManager: added home-battery modes (disabled, minimum SoC, battery priority); installations without a home battery no longer need a constant helper state
-- (typhosj) ChargeManager: added a battery SoC hysteresis and an optional maximum SoC age so surplus control stops on stale battery data
-- (hombach) admin: moved the maximum charging current to the standard settings tab and clarified that it is an installation-wide limit of the shared power supply, valid for all wallboxes and both charging modes
-
-### 1.5.0 (2026-08-25)
-
-- (hombach) ChargeManager: grid reserve power and maximum battery bonus are now configurable (defaults 100 W / 2000 W) (#852)
-- (hombach) ChargeManager: minimum and maximum surplus charging current are now configurable, with the maximum raised to up to 32 A (#852)
-- (hombach) the configurable maximum charging current now caps ChargeNOW as well
-- (hombach) admin: moved the ChargeManager settings into their own configuration tab, separate from the standard settings
-- (hombach) updated dependencies
 
 ## License
 

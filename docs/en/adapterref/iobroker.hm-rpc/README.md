@@ -46,6 +46,7 @@ The following modules are supported:
 - `HMIP-rfd` for Homematic IP devices,
 - `hs485d` for wired devices,
 - `CUxD` for external components, like EnOcean or FS20 (CUxD is an additional software for the CCU),
+- `CCU-Jack` for the virtual devices of [CCU-Jack](https://github.com/mdzio/ccu-jack) (an add-on for the CCU),
 - `Homegear` as a replacement for a CCU.
 
 This diagram shows the structure and the communication interfaces:
@@ -92,6 +93,7 @@ The following ports are used by default:
 | hs485d          | hs485d (wired devices) | 2000                      | 42000         |
 | CUxD            | CUxD                   | 8701                      | not supported |
 | Homegear        | Homegear               | as configured in Homegear | not supported |
+| CCU-Jack        | CCU-Jack               | 2121                      | 2122          |
 
 The HTTPS ports work only with the XML-RPC protocol.
 
@@ -109,7 +111,7 @@ Change this value only in special cases.
 
 #### Daemon
 
-A CCU supports different device types (radio, wired, Homematic IP, CUxD).
+A CCU supports different device types (radio, wired, Homematic IP, CUxD, CCU-Jack).
 You must create a separate instance of the adapter for every type.
 
 #### Protocol
@@ -118,7 +120,7 @@ Two protocols are available for the communication: XML-RPC and BIN-RPC.
 BIN-RPC is faster, but some devices do not support it, or they support it incorrectly.
 In this case select the XML-RPC protocol.
 
-**Note:** CUxD works only with BIN-RPC. Homematic IP and Virtual Devices work only with XML-RPC.
+**Note:** CUxD works only with BIN-RPC. Homematic IP, Virtual Devices and CCU-Jack work only with XML-RPC.
 For these daemons the adapter uses the right protocol automatically.
 
 #### Synchronize objects (once)
@@ -265,6 +267,22 @@ sendTo('hm-rpc.1', 'setValue', {ID: '000453D77B9EDF:1', paramType: 'SET_POINT_TE
 });
 ```
 
+Read the current value of a datapoint from the interface process of the CCU (the same as `.State()` in a HomeMatic script):
+
+```javascript
+sendTo('hm-rpc.1', 'getValue', {ID: '000453D77B9EDF:1', paramType: 'ACTUAL_TEMPERATURE'}, res => {
+    if (!res.error) {
+        log(`Temperature: ${res.result}`);
+    } else {
+        log(res.error);
+    }
+});
+```
+
+The interface process returns its cached value, it does not request a new value from the device.
+The adapter already gets every change of this value as an event, so normally the state in ioBroker has the same value.
+How often a device reports a value (e.g. the power of a switch actuator with power metering) is set in the MASTER area of its channel.
+
 Read the `paramsetDescription` of a channel of a device:
 
 ```javascript
@@ -286,6 +304,20 @@ sendTo('hm-rpc.1', 'getDeviceDescription', {ID: '0000S8179E3DBE', paramType: 'FI
 ```
 
 ## Additional information
+
+### Firmware update state
+
+For devices whose description contains the firmware update state (Homematic IP), the adapter creates the state `<device>.0.FIRMWARE_UPDATE_STATE`.
+It is updated whenever the CCU reports a change of the firmware update status, and on every start of the adapter.
+Possible values are e.g. `UP_TO_DATE`, `NEW_FIRMWARE_AVAILABLE`, `DELIVER_FIRMWARE_IMAGE` (the firmware is being transferred), `READY_FOR_UPDATE` (the transfer is finished, the update can be started), `DO_UPDATE_PENDING` (the update must be started on the device) and `PERFORMING_UPDATE`.
+
+```javascript
+on({id: /^hm-rpc\.1\..*\.0\.FIRMWARE_UPDATE_STATE$/, val: 'READY_FOR_UPDATE'}, obj => {
+    log(`Firmware of ${obj.id.split('.')[2]} is transferred`);
+});
+```
+
+### Dummy program for the button states
 
 If you use HomeMatic switches or HomeMatic remote controls, the CCU confirms the button states only if a "dummy" program runs on the CCU.
 This program must use the state of the related switch or of the related remote control.
@@ -319,45 +351,23 @@ npm run update-images
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 4.1.2 (2026-09-22)
-* (bluefox) Philips Hue and Osram Lightify lamps of the CCU lighting gateway: the color temperature `WHITE` is handled in kelvin (2000 - 6500 K), also if the CCU declares it as percent (#694)
-* (bluefox) `HUE` and `SATURATION` are sent together in one `putParamset`, HMIP devices like HmIP-RGBW rejected a single value with `MISSING_NON_OPTIONAL_PARAMETER` (#1108)
-* (bluefox) Values which the CCU delivers as text for a number are converted (the name of an ENUM to its index, e.g. `STATE_NOT_AVAILABLE` of a `VALVE_STATE`), invalid values become `null` instead of a wrong type (#1342, #1358)
-* (bluefox) Events of deleted devices do not warn about missing objects until the next start of the adapter anymore (#1419)
+### 4.2.4 (2026-10-22)
+* (@GermanBluefox) Do not re-register every 5 minutes if events with an outdated interface id keep arriving (#1542)
 
-### 4.1.1 (2026-09-22)
-* (bluefox) `CONTROL_MODE` and `SET_POINT_MODE` of HmIP thermostats show the mode names (auto, manual, party)
-* (bluefox) `SET_TEMPERATURE` of BidCos heating groups accepts 4.5 (OFF) and 30.5 (ON)
-* (bluefox) CUxD always uses BIN-RPC, Homematic IP and Virtual Devices always use XML-RPC
-* (bluefox) Username and password are sent with XML-RPC also without HTTPS
-* (bluefox) Better error message if the CCU answers with an HTML page instead of XML-RPC
-* (bluefox) Read-only datapoints do not get the writable roles `level.*` and `switch.*` anymore
-* (bluefox) HmIP shutters and blinds: the control channels get `level.blind`/`level.tilt`, the status channel `value.blind`/`value.tilt`; `LEVEL` and `VALVE_STATE` of HmIP thermostats got better roles
-* (bluefox) The option "Don't delete devices" also ignores devices that the CCU reports as deleted while the adapter is running (e.g. HmIP during firmware updates)
+### 4.2.3 (2026-10-19)
+* (@GermanBluefox) After an unclean stop, the CCU kept sending the events with the old interface ID and they were discarded silently. The adapter now removes an old registration before it registers, and registers again with a warning if events with an old ID of this instance arrive (#1542)
 
-### 4.1.0 (2026-09-22)
-* (krobipd) The device icons were invisible in the object browser: its ID cell sets `width: initial` on every element of an inlined SVG, which collapses the icon's `rect` to 0px. The size is now carried as an inline style as well.
-* (bluefox) Updated `binrpc` to 4.x and `homematic-xmlrpc` to 2.x (no dependency on a GitHub tarball anymore)
-* (bluefox) If the RPC server cannot listen (e.g. the configured IP address is not available), the error is logged and the adapter restarts after 30 seconds instead of crashing
-* (bluefox) On stop, the RPC server and client are closed properly, also for XML-RPC and if the CCU is not reachable
-* (bluefox) Updated packages
-* (bluefox) Fixed writing of the lines and icons of HM-Dis-EP-WM55: an invalid tone interval (`0xE-1`) was sent if no interval was set
-* (bluefox) The device manager does not crash anymore on devices without `native` and does not report the same control twice
-* (bluefox) Added icon for HmIP-RFUSB
-* (bluefox) PONG events and requests without method are logged only in debug mode
-* (bluefox) Replaced the deprecated `deleteDevice` and `deleteChannel` calls
-* (bluefox) Fixed issues reported by the repository checker (responsive design of the settings, lint and type check in CI)
+### 4.2.2 (2026-10-13)
+* (@GermanBluefox) The virtual devices of CCU-Jack can be connected with the new daemon `CCU-Jack` (port 2121, HTTPS 2122, XML-RPC only) (#1003)
+* (@GermanBluefox) The state `updated` (new devices for hm-rega) is no longer marked as writable, as expected for the role `indicator`
+* (@GermanBluefox) Homebrew devices (AskSin++) of the add-ons from jp112sdl (JP-HB-Devices-addon) and TomMajor (HB-TM-Devices-AddOn) get the same icon as in the CCU WebUI (#903)
 
-### 4.0.0 (2026-08-15)
-* (bluefox) Device icons are now delivered as theme-adaptive SVGs and stay visible on the dark admin theme
-* (krobipd) Generated the device icon set and the device type map from the OCCU device database
-* (krobipd) The device icon is re-applied on start to devices that were created before their type had an icon
-* (bluefox) Removed support of Node.js 20
+### 4.2.0 (2026-10-13)
+* (@GermanBluefox) The firmware update state of Homematic IP devices is available in the new state `<device>.0.FIRMWARE_UPDATE_STATE`, e.g. `READY_FOR_UPDATE` when the firmware is transferred. The firmware information of the device object is updated, too (#1137)
 
-### 3.0.2 (2026-05-07)
-* (bluefox) Updated packages
-* (bluefox) Migrated to TypeScript 6
-* (bluefox) Corrected device manager
+### 4.1.3 (2026-10-12)
+* (jhoos70) The invalid temperature 3276.8 of a not connected sensor (e.g. the external probe of a HmIP-STE2-PCB) is delivered as `null` instead of a value above the maximum
+* (@GermanBluefox) The adapter reports the port of its RPC callback server to js-controller 8, which keeps a per-host registry of the occupied ports (`system.host.<name>.usedResources`). Reported is the port the server really got - the configuration only holds a wish for it (`0` means "pick one", and a configured port is moved on when it is taken), so this is the only place where the callback port can be seen. The port of the CCU is not reported, it belongs to another machine. Before the server is created, the log names an instance that has already declared the port. An older js-controller is unaffected
 
 ### Older changelog
 [here](/#/docs/adapterref/iobroker.hm-rpc/OLD_CHANGELOG.md)

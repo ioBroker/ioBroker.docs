@@ -167,6 +167,9 @@ with object path patterns (see above).
 -->
 
 ## Changelog
+### 2.1.2 (2026-10-13)
+- (@GermanBluefox) Fixed the build: 2.1.1 was not published to npm
+
 ### 2.1.1 (2026-09-14)
 - (copilot) Adapter requires node.js >= 22 now
 - (@rockbaer2007) Exclude patterns starting with `entities.` filter single objects (e.g. `entities.*.*.device_class`) without dropping the entity
@@ -185,7 +188,10 @@ with object path patterns (see above).
 * (@GermanBluefox) Adapter was updated and migrated to TypeScript
 * (@Titanium177) Added roles for states and added debouncing for reading states from hass
 
-### 1.4.0 (2023-01-03)
-* (Apollon77) Added more guidance logging when setting services incorrectly
-* (Apollon77) Prevent crashes when attributes contain "." at the end of their names
-* (Apollon77) Added logging for state updates for unknown objects
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2018-2026 bluefox <dogafox@gmail.com>
+
+See [LICENSE](https://github.com/ioBroker/ioBroker.hass/blob/master/LICENSE).

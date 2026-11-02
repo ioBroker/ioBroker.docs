@@ -419,24 +419,31 @@ setState('iot.0.app.message', JSON.stringify({
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### 7.1.2 (2026-09-20)
-- (@GermanBluefox) The cloud connection is now closed gracefully, so the cloud does not report a duplicate connection after a restart of the adapter
-- (@GermanBluefox) Only one reconnection attempt can be pending, so two connections cannot overlap anymore
+### 7.1.6 (2026-10-19)
+- (@jtolksdo) Alexa V3: blinds are announced as RangeController "Blind.Lift" and understand "open/close". "Down/up" without an amount closes/opens the blind fully. A new device discovery in Alexa is required, and the discovery of a blind is about 600 characters bigger
+- (@jtolksdo) Alexa V3: "down" without an amount lowers a slider instead of raising it
+- (@jtolksdo) Alexa V3: all names of a comma-separated smart name get the new value of a state
+- (@GermanBluefox) Alexa V3: several RangeControllers in one device (e.g. a blind and a slider) are discovered and controlled separately
 
-### 7.1.1 (2026-09-16)
-- (@GermanBluefox) Corrected validTill request
+### 7.1.5 (2026-10-14)
+- (@GermanBluefox) Alexa V3: a request that fails with an exception is answered with INTERNAL_ERROR instead of "Service is disabled", and the error is logged
+- (@Gehli23) Fixed detection of thermostats in Alexa V3 with type-detector 6 (`requiredOneOf` states)
+- (@GermanBluefox) Alexa V3: removed, renamed and new devices are reported to Alexa without a new discovery, but it is not yet active in the cloud
+- (@GermanBluefox) Alexa V3: error answers carry the correlation token and endpoint of the request, and a device that is gone is reported as NO_SUCH_ENDPOINT
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
 
-### 7.1.0 (2026-09-15)
-- (@GermanBluefox) Remote access: MCP requests of the cloud are answered via MQTT (message type 12)
-- (@GermanBluefox) Migrated blockly to TypeScript
-- (@GermanBluefox) Remote access improved
-- (@GermanBluefox) Avoided the Node.js 24 deprecation warning DEP0187 (`fs.existsSync`) when connecting to the cloud
+### 6.0.3 (2026-04-23)
+- (@GermanBluefox) Allowed to read temperature information via Alexa
 
-### 7.0.1 (2026-08-06)
-- (@GermanBluefox) Migrated to TypeScript 6 and react 19
+### 6.0.1 (2026-04-07)
+- (iobroker-bot) Adapter requires node.js >= 20 now.
+- (@GermanBluefox) Removed support for Alexa 2
+- (@GermanBluefox) Fixed bug in Alisa with color and motion sensor
+- (@GermanBluefox) Validate Discovery response before sending it back
 
-### 6.1.3 (2026-06-12)
-- (@GermanBluefox) Added support of credentials manager
+### 5.0.13 (2026-03-31)
+- (@GermanBluefox) Corrected the handling of the multiple group names
+- (@GermanBluefox) Fixing the license validation
 
 ## License
 

@@ -39,6 +39,7 @@ The **mitsubishi-local-control** adapter integrates Mitsubishi Electric air cond
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
 ### 2.0.0 (2026-10-02)
 
 - (copilot) Adapter requires node.js >= 22 now

@@ -74,6 +74,10 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 4.1.0 (2026-10-24)
+- (@micw421) Groups of type EXTENDED_LINKED_SHUTTER can now be driven: shutterLevel, slatsLevel and stop are writable, and the group publishes its shading levels, processing, dutyCycle, lowBat and unreach
+- (@GermanBluefox) Dependencies were updated
+
 ### 4.0.2 (2026-09-26)
 - (@GermanBluefox) The adapter was refactored to TypeScript. The sources now live in src/ and are compiled to build/, which is what the npm package ships; nothing about the objects, states or commands changed
 - (@GermanBluefox) uuid was replaced by the randomUUID built into Node, which removes a dependency that could no longer be required from this build at all
@@ -142,12 +146,6 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 - (@Apollon77) **Breaking:** valvePosition on a heating thermostat now reports 0..100 with a unit, like the floor terminal block already did - the cloud sends a 0..1 fraction for both and only one of them was scaled. The internal switch channel now reports its valvePosition too
 - (@Apollon77) Rain counters now report the millimetres the sensor measured instead of the cloud's accumulated floating point drift, so 0.3 mm no longer arrives as 0.3000000000001819, and all nine of them carry the mm unit
 - (@Apollon77) Fixed the device that raised an alarm never being reported: the cloud names it only inside alarmEventDeviceChannel, so alarmEventDeviceId was always empty and the channel datapoint was fed an object it could not hold. Both are filled now, and the device's label is published beside them
-
-### 2.0.0 (2026-08-03)
-- (copilot) Adapter requires node.js >= 22 now
-- (copilot) Adapter requires admin >= 8.0.0 now
-- (mcm1957) Dependencies have been updated.
-- (@GermanBluefox) Migrated to admin 8
 
 ## License
 The MIT License (MIT)

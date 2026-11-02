@@ -27,15 +27,51 @@ For more details and for information how to disable the error reporting see [Sen
 
 ## Solaredge Adapter for ioBroker 
 
-Get data from solaredge monitoring portal.
-Currently, only the /overview data point is used to get the current power and day/month/year/lifetime energy readings.
+Get data from the SolarEdge monitoring portal via the SolarEdge Monitoring API v2.
+The adapter reads current power and day/month/year/lifetime energy, optionally the current power flow
+(SolarEdge documents power flow for paid tiers only; with OAuth2 Site Access it currently also works on the free tier,
+but this may change).
 
-You can also enable modbus on your solaredge device if it's a newer one and read the data directly. 
+You can also enable modbus on your solaredge device if it's a newer one and read the data directly.
 
-You need your site id and api key to use this adapter. To get these, go to https://monitoring.solaredge.com  
-- site id: log in, site id is the "ID" on the right, e.g., 12345.  
-- api key: log in, go to the admin settings and enable api access there. If you don't see admin settings, send mail to solaredge to enable admin for your account.
+### Setup
 
+The Monitoring API v1 (api key from the monitoring portal) is shut down by SolarEdge on 2026-11-01.
+v1 api keys do not work with v2.
+
+**Site id:** with OAuth2 the site id is taken from the redirect URL (`site_id=...`) automatically. With an API key, log in at https://monitoring.solaredge.com, the site id is the "ID" shown for your site, e.g., 12345.
+
+**Site Access (OAuth2, homeowners):**
+1. Create an account at the [SolarEdge developer portal](https://developer.solaredge.com/) and create a
+   Site Access application with scope `SITE_DATA`.
+   As redirect URI enter the value shown in the instance settings (default `https://localhost/`).
+   The redirect target does not need to exist. Tip: use the address of your ioBroker admin
+   (e.g. `http://192.168.1.10:8081/`), then the browser opens admin after granting access
+   instead of an error page. The redirect URI in the app and in the instance settings must be identical.
+2. Enter client id and client secret of the application in the instance settings and save.
+3. Copy the authorization link shown in the instance settings, open it in your browser, log in and grant access.
+4. The browser is redirected to the redirect URI (the page may fail to load). Copy the complete URL from the
+   address bar into the field "Authorization code or redirect URL" and save. Authorization codes expire quickly,
+   the instance runs right after saving and requests the tokens.
+
+The tokens are stored encrypted in `solaredge.X.info.auth` and are refreshed automatically.
+If the authorization expires or is revoked (refresh tokens expire after 30 days without use),
+repeat steps 3 and 4.
+
+**Fleet Access (API key, installers):** select access type "Fleet Access" and enter the App API key.
+
+**Credits:** each API call consumes 1 credit of your SolarEdge developer account
+(free tier: 2000 credits/month, shared by all apps of the account). The adapter is built to stay well below that:
+- Default schedule every 30 minutes. Instances with the old default (every 15 minutes) are changed once on update.
+- 1 call per run: today's energy in quarter hours, which gives today's energy and the current power
+  (average of the last complete quarter hour).
+- 2 calls per day for month, year and lifetime energy until midnight; today's energy is added to them.
+- No calls at night (option "No API calls at night", uses the location from the system settings):
+  from 30 minutes before sunrise until 1 hour after sunset.
+
+That's about 1200 calls/month in summer (Germany) and fewer in winter. A schedule of every 15 minutes needs
+about 2300 calls/month in summer, more than the free tier allows. "Read current power flow" adds 1 call per run (about 2400 calls/month in summer with every 30 minutes),
+so with power flow on the free tier use a schedule of every hour.
 
 ## Credits
 
@@ -45,13 +81,17 @@ This adapter would not have been possible without the great work of @92lleo (htt
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 2.0.0 (2026-10-16)
+- (mcm1957) BREAKING: Adapter has been migrated to SolarEdge Monitoring API v2. A new API key must be generated at https://developer.solaredge.com/ — v1 keys are not valid in v2.
+- (mcm1957) BREAKING: The `currentPowerFlow` feature now requires a Business Pro or Enterprise tier subscription at SolarEdge.
+- (Garfonso) OAuth2 Site Access (client id/secret of your own SolarEdge app) has been added, Fleet Access API key is optional. See README for setup.
+- (Garfonso) Time ranges are now sent in local time and API units are converted correctly.
+- (Garfonso) Power flow reads the v2 response; new states for battery power, charge level and grid/battery status. Power flow currently also works on the free tier with OAuth2 Site Access.
+- (Garfonso) API calls reduced to about 1 per run and 2 per day, no calls at night. Default schedule is every 30 minutes now, existing instances with every 15 minutes are changed once.
+- (Garfonso) Instance settings are responsive for all screen sizes. The OAuth2 setup steps are shown next to the related fields.
 - (copilot) Adapter requires node.js >= 22 now
-- (iobroker-bot) Adapter requires node.js >= 20 now.
 - (copilot) Adapter requires admin >= 7.7.22 now
 - (copilot) Adapter requires js-controller >= 6.0.11 now
-- (copilot) Adapter requires admin >= 7.6.17 now
 
 ### 1.4.1 (2024-04-28)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
@@ -73,37 +113,10 @@ This adapter would not have been possible without the great work of @92lleo (htt
 * (mcm1957) Adapter has been moved to iobroker-community-adapters organization
 * (mcm1957) Dependencies have been updated
 
-### 1.1.0 (2023-11-16)
-* (bluefox) Added the current power flow data
-
-### 1.0.1 (2023-08-18)
-* (bluefox) Added JSON config and replaced `require` module with `axios`
-
-### 0.3.0
-* (Apollon77) Address review feedback from adapter review (see #19)
-
-### 0.2.0
-* (92lleo) Add default values for native config vars
-* (92lleo) Set schedule to 15s to match api update rate
-* (92lleo) Fix updating already created states (broken since new js-controller, see #9)
-* (92lleo) Update dependencies
-* (92lleo) Clear timer on unload
-* (92lleo) Add a connection type and dataSource
-
-### 0.1.1
-* (92lleo) fix "object data is invalid" issue, now works with new js-controller
-* (92lleo) update dependencies
-
-### 0.1.0
-* (92lleo) first beta release. overview data from inteverters are available
-
-### 0.0.1
-* (92lleo) initial release
-
 ## License
 MIT License
 
-Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
+Copyright (c) 2023-2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2019-2023 Leonhard Kuenzler <leonhard@kuenzler.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

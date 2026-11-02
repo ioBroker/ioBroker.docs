@@ -143,6 +143,11 @@ Hosts with an unknown hostname are rejected at the TLS level – no fallback cer
 Certificate loading details are available in the debug log.
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+### 1.0.1 (2026-10-16)
+- (lubepi) **ENHANCED**: Added author email address to package metadata (fixes repository checker E4048)
+
 ### 1.0.0 (2026-07-07)
 - (copilot) Adapter requires node.js >= 22 now
 
@@ -164,15 +169,11 @@ Certificate loading details are available in the debug log.
 - Address reviewer suggestions (use `node:` prefix, specific state roles, interval limiting)
 - Fix linting errors
 
-### 0.1.7 (2026-03-20)
-
-- Docs: remove generic installation section per S6014
-
 ## License
 
 MIT License
 
-Copyright (c) 2026 lubepi
+Copyright (c) 2026 lubepi <lukas@piel.work>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

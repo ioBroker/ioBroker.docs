@@ -106,6 +106,14 @@ You can provide the following aggregations (available only in advanced mode):
 - `max` - maximal value of all states in a group.
 - `avg` - average value of all states in a group.
 
+## Members from categories (rooms and functions)
+Instead of single states, you can add all devices of a room and/or a function as one member of a scene.
+The list of devices is calculated at the start of the adapter, so new devices in this room or function are taken automatically.
+
+With the "Name filter (RegEx)" you can take only some devices of the category. 
+The filter is a case-insensitive regular expression, that is checked against the ID and the names (in all languages) of the devices.
+E.g., the filter `left` takes from the room "Kitchen" only the bulbs `CL left 01` ... `CL left 05`, and the filter `^CL (left|right) 0[1-3]$` only the first three bulbs of both lamps.
+
 ## Save actual states as a scene
 To save actual states in some scene, you can send a message to the adapter:
 ```js
@@ -146,6 +154,23 @@ sendTo(
 );
 ```
 
+## Stop a running scene
+If a scene has members with a delay or a burst interval, it runs for some time. To stop it, write `stop` into the scene state (e.g., from vis or a script):
+```js
+setState('scene.0.SCENE_ID', 'stop');
+```
+or send a message to the adapter:
+```js
+sendTo(
+    'scenes.0', 
+    'stop', 
+    'scene.0.SCENE_ID', 
+    result => result.error ? console.error(result.error) : console.log(result.result) // optional
+);
+```
+All delayed commands of this scene, which are not yet executed, will be cancelled. The values, that were already written, stay unchanged and the scene keeps its value.
+Virtual groups are not stopped by writing `stop`, they forward this value to their members as usual.
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
@@ -156,6 +181,16 @@ sendTo(
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.2.0 (2026-10-24)
+* (reloxx13) Recognize uppercase and mixed-case boolean scene commands, so nested scenes receive FALSE correctly (#475)
+* (@GermanBluefox) The state of a scene, that controls other scenes with "TRUE"/"FALSE", is now detected correctly and is not "uncertain" anymore (#475)
+* (@GermanBluefox) Scenes as members of another scene now get the TRUE/FALSE selector, so the desired values are stored as booleans (#475)
+* (@GermanBluefox) A scene, whose members match TRUE and FALSE at the same time, does not jump from FALSE to TRUE anymore (#267)
+* (@GermanBluefox) The search in the scene list is now case-insensitive (#364)
+* (@GermanBluefox) Updated "@iobroker/testing" to 6.3.1 and removed the direct "mocha" dependency
+* (@GermanBluefox) A running scene can be stopped by writing "stop" into the scene state or with the message "stop". All delayed commands of the scene are cancelled (#42)
+* (@GermanBluefox) Added the name filter (regular expression) for members from categories, e.g., to take only some lamps of a room (#457)
+
 ### 5.1.0 (2026-09-03)
 * (@GermanBluefox) Added the option "Only on change" for the triggers, so a state that is written again with the same value does not activate the scene anymore. It is enabled by default and can be switched off for every trigger
 * (@GermanBluefox) The trigger value is now selected from a list if the trigger state is boolean or has "common.states"
@@ -173,9 +208,6 @@ sendTo(
 
 ### 4.0.4 (2025-10-20)
 * (@GermanBluefox) Corrected the selection of multiple IDs in the scene editor
-
-### 4.0.3 (2025-07-20)
-* (agross) Canceled the cron tasks on the instance stop
 
 ## License
 The MIT License (MIT)

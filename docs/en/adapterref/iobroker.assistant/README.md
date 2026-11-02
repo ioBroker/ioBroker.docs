@@ -167,6 +167,59 @@ each one shows up under `assistant.0.satellites.*` like any other.
 > Developed against the ThirdReality speaker's firmware sources and covered by a loopback test
 > against a fake device; feedback from real hardware is welcome.
 
+### Wake words: which model for which satellite
+
+The wake word is always detected **on the satellite**, so the model format depends on the satellite
+type. There are two model families, and both can come as `.tflite` — they are **not interchangeable**:
+a model trained for one does not run on the other. To use the same phrase on both kinds of satellites,
+train it twice.
+
+| Satellite                                                                         | Engine                                                     | Custom model                                                          | Where it goes                                                                     |
+|-----------------------------------------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| ESPHome (ThirdReality speaker)                                                    | [microWakeWord](https://github.com/kahrendt/microWakeWord) | `.tflite`, optionally with its `.json`                                | this adapter: **Satellites** tab → ⚙ → *Upload own wake word*                     |
+| Native satellite (`assistant-satellite` adapter, `@iobroker/assistant-satellite`) | [openWakeWord](https://github.com/dscripka/openWakeWord)   | one self-contained `.onnx`                                            | the satellite's settings: upload, then pick it in `wakewordModel` (or a URL/path) |
+| Hannah Pi satellite (UDP)                                                         | openWakeWord                                               | `.onnx` (`.tflite` only with `inference_framework: tflite` on armv7l) | `--wakeword-model <path>`                                                         |
+| Wyoming clients                                                                   | whatever the client runs                                   | —                                                                     | on the client; not managed by this adapter                                        |
+
+**microWakeWord (ESPHome)**
+
+- The model takes 40 spectrogram features per frame: input `[1, n, 40]`, **quantized** (int8 in, uint8
+  out) — like the official models in
+  [esphome/micro-wake-word-models](https://github.com/esphome/micro-wake-word-models).
+- Train your own with microWakeWord's `notebooks/basic_training_notebook.ipynb` (Python 3.10, a GPU
+  helps a lot). The result is
+  `trained_models/wakeword/tflite_stream_state_internal_quant/stream_state_internal_quant.tflite` —
+  rename it after the phrase, e.g. `vita_nova.tflite` becomes "Vita Nova".
+- The `.json` is optional. Without it the adapter takes the phrase from the file name, the language from
+  `voiceLanguage`, the cutoff `0.97` and a sliding window of `5`. Provide one to set a different
+  `micro.probability_cutoff`:
+
+  ```json
+  {
+    "type": "micro",
+    "wake_word": "Vita Nova",
+    "model": "vita_nova.tflite",
+    "trained_languages": ["de"],
+    "version": 2,
+    "micro": { "probability_cutoff": 0.97, "sliding_window_size": 5 }
+  }
+  ```
+
+- The upload checks the model and rejects anything the device cannot run, with the reason — an
+  openWakeWord model is named as such.
+- The device downloads the model from the media server when you **activate** the chip; at most two wake
+  words are active at a time. A downloaded model stays on the device (the API cannot delete it).
+  A device whose firmware does not take external wake words does not list the uploaded one.
+
+**openWakeWord (native and Hannah satellites)**
+
+- The model takes speech embeddings of 96 values, e.g. input `[1, 16, 96]`, float — which is why it
+  does not run on ESPHome devices.
+- openWakeWord's training notebook exports `.onnx` and `.tflite`. The native satellite needs the
+  `.onnx` as **one** file — a model split into `.onnx` + `.onnx.data` is not supported.
+- Built into the native satellite: `hey_jarvis`, `alexa`, `hey_mycroft`, `hey_rhasspy`; up to three
+  wake words at once.
+
 ## Roadmap
 
 1. **Text assistant (done)** — LLM + tool-calling over ioBroker states.
@@ -182,6 +235,40 @@ each one shows up under `assistant.0.satellites.*` like any other.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2026-10-28)
+* (@GermanBluefox) Commands for later: "turn off the light in 2 hours" or "blinds to 50 % at 10 pm" becomes an event in the calendar (fullcalendar adapter) instead of running now; the AI can plan, list and cancel events. Before, the rule engine switched such commands at once. Needs a fullcalendar version with the new event API (after 3.0.5)
+* (@GermanBluefox) Settings: the state of a presence row is picked with the object browser, the kind of a presence row or announcement target is a dropdown
+* (@GermanBluefox) New provider "System-wide AI settings (admin)", the default for new instances: provider, model and key come from the AI settings of the admin system settings, a change there restarts the instance. An instance without a key of its own takes them too
+* (@GermanBluefox) New provider OpenRouter
+* (@GermanBluefox) OpenRouter for speech recognition and voice: one key for the speech models of many vendors (Whisper, Deepgram, ElevenLabs, Gemini TTS, …), models and voices are listed in the settings (default voice model: ElevenLabs Flash v2.5)
+* (@GermanBluefox) Voice test on the Voice tab: speak a test sentence, and test speech recognition with the browser microphone, an audio file or a round trip, all with the unsaved settings
+* (@GermanBluefox) "Confirm switch commands with a tone" now also covers commands the AI (or pi-agent) carried out
+* (@GermanBluefox) Spelled-out numbers up to 100 in commands ("Lautstärke auf fünfzig Prozent", "twenty five percent", "двадцать пять процентов"), and the AI sees the volume of each voice satellite, so it no longer turns up a media device of the room instead
+* (@GermanBluefox) New provider "Adapter pi-agent": the durable agent of the pi-agent adapter answers what the local tiers cannot, with one conversation per satellite/chat
+
+### 1.2.0 (2026-10-26)
+* (@GermanBluefox) Own wake words for ESPHome satellites: upload a microWakeWord model in the satellite settings, the device downloads it when it is activated. Models the device cannot run (e.g. openWakeWord) are rejected on upload with the reason
+* (@GermanBluefox) Voice answers come faster: the device list for the offline rule engine is built once and shared for a minute instead of up to three times per spoken command
+* (@GermanBluefox) The local LLM is now the fallback for when the cloud LLM fails; "Ask the local model first" restores the old order. It is stopped after a configurable timeout, answers shorter and leaves one CPU core free
+* (@GermanBluefox) When an answer asks back, UDP satellites now keep the microphone open for the reply too (needs `@iobroker/assistant-satellite` 0.2.0)
+* (@GermanBluefox) "Louder", "quieter", "volume 5" change the volume of the satellite that heard it - ESPHome, ioBroker-native and UDP satellites
+* (@GermanBluefox) "How's the weather tomorrow?" is answered from the weather adapter without an LLM
+* (@GermanBluefox) Fixed: Russian questions with "будет" ("will it be …") were taken for alarm queries
+
+### 1.1.0 (2026-10-25)
+* (@GermanBluefox) YouTube on the TV: "play the channel XY" finds the channel, video or playlist on YouTube (no API key needed)
+
+### 1.0.3 (2026-10-23)
+* (@GermanBluefox) The Chat tab now shows every request of the last hours live - from satellites, Telegram, scripts and the chat itself - with the satellite, the detected wake word, which stage answered (rule-based NLU, routine, local LLM, cloud LLM), the tool calls and the state ids that were read and written. How many hours are kept is set in the settings (0 = record nothing)
+
+### 1.0.2 (2026-10-14)
+* (@GermanBluefox) Added the missing translations and the sizes for all screens to the settings. The tests run on Windows and macOS too
+* (@GermanBluefox) The ports the adapter really opens (UDP satellites, Wyoming, ESPHome media server) are reported to js-controller 8 as used resources; the satellite port in the settings is no longer listed as an occupied TCP port
+
+### 1.0.1 (2026-10-13)
+* (@GermanBluefox) Use first model if not set
+* (@GermanBluefox) Allowed to run only with local LLM
+
 ### 0.2.0 (2026-10-04)
 * (@GermanBluefox) Added routines: a phrase ("good night") runs a list of actions and answers once. Matched before the offline rule engine and before the LLM, so a macro you wrote down is never reinterpreted
 * (@GermanBluefox) The offline rule engine now answers questions about a kind of measurement without a device being named: "how is the air in here", "how warm is it everywhere", "how bright is it" are answered from every sensor of that kind, with a word for the air-quality number

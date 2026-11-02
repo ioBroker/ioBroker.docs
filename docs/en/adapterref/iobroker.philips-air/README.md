@@ -96,7 +96,7 @@ More details are documented in [docs/CX7550.md](/#/docs/adapterref/iobroker.phil
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.3.0 (2026-10-26)
 
 - (tt-tom17) A new instance now starts with the device model "Generic" (read-only values, no controls) instead of silently using the AC2889 controls; instances that already have a model keep it
 - (tt-tom17) With the device model "Generic" the log now names the model your device looks like, so you know which one to select
@@ -145,13 +145,6 @@ More details are documented in [docs/CX7550.md](/#/docs/adapterref/iobroker.phil
 - (tt-tom17) HTTP mode no longer needs the extra "philips-air" package and its outdated dependencies
 - (tt-tom17) The device address field now accepts an IP address or a hostname and warns about invalid input
 - (tt-tom17) Dependencies updated
-
-### 1.3.0 (2026-06-15)
-- (copilot) Adapter requires node.js >= 22 now
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (mcm1957) Dependencies have been updated
-
-  
 
 ## License
 MIT License

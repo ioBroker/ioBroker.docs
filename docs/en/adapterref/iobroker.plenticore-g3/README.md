@@ -50,6 +50,7 @@ Despite what the name of the adapter may suggest (that only G3 models are suppor
 ## Changelog
 ### **WORK IN PROGRESS**
 - bump @iobroker/testing
+- bump dependencies
 
 ### 1.0.2 (2026-09-01)
 - update dependencies

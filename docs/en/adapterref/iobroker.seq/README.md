@@ -12,18 +12,20 @@
 
 ## Seq adapter for ioBroker
 
-This adapter allows you to push your ioBroker log into the system of [Seq](https://datalust.co/seq).  
-It is also possible to apply a filter to the log levels and also to the adapters.
+This adapter allows you to push your ioBroker log into the system of [Seq](https://datalust.co/seq).
+It is possible to filter by log level and by exact source IDs.
 
 ## Configuration
 
 1. Create a new instance of the adapter
 2. Fill the URL/IP and port of the [Seq](https://datalust.co/seq) instance
 3. Specify which log events you want to push to [Seq](https://datalust.co/seq)
-4. Save the settings
+4. Optionally enter comma-separated source IDs in **Source filter** (for example, `mqtt.0, javascript.0`). Leave it empty to send logs from all sources.
+5. Save the settings
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.3 (2026-10-17)
+* (arteck) Dependencies have been updated
 - (copilot) Adapter requires node.js >= 22 now
 
 ### 1.0.2 (2026-04-06)
@@ -34,6 +36,7 @@ It is also possible to apply a filter to the log levels and also to the adapters
 
 ### 1.0.0 (2026-04-05)
 * (arteck) new admin
+
 
 
 ## License

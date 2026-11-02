@@ -50,6 +50,8 @@ Implemented are the following times:
 -->
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+- (BenAhrdt) update @iobroker/testing to 6.3.1
+- (BenAhrdt) correct untranslated Portuguese admin translations
 
 ### 3.7.9 (2026-04-08)
 * (BenAhrdt) remove wrong debug warn logging

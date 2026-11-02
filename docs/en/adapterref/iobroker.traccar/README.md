@@ -22,7 +22,18 @@ This adapter imports in real time the position and the extended data from [Tracc
 4. Save the settings
 5. Have fun :)
 
+The update interval is specified in seconds (default: 120). The adapter also
+continues to process live updates received through the Traccar WebSocket.
+
 ## Changelog
+### 1.2.3 (2026-10-17)
+* (arteck) fix geofence device list
+
+### 1.2.2 (2026-10-17)
+* (arteck) Dependencies have been updated
+* (arteck) add geofence state
+* (arteck) auto server version identification
+
 ### 1.2.1 (2026-08-06)
 + (copilot) Adapter requires node.js >= 22 now
 * (arteck) add version check re-runs every 24 hours
@@ -33,13 +44,6 @@ This adapter imports in real time the position and the extended data from [Tracc
 
 ### 1.1.7 (2026-04-14)
 * (arteck) Dependencies have been updated
-
-### 1.1.6 (2024-10-28)
--   (arteck) dependency update
-
-### 1.1.5 (2024-09-26)
--   (arteck) transfer to arteck 
--   (arteck) add accuracy
 
 ## License
 

@@ -11,54 +11,83 @@
 
 **Tests:** ![Test and Release](https://github.com/afuerhoff/ioBroker.solarviewdatareader/workflows/Test%20and%20Release/badge.svg)
 
-## solarviewdatareader adapter for ioBroker
+## ioBroker SolarView Data Reader
 
-The adapter reads the data from the Solarview data logger.
-Here you can find additional infos about Solarview: https://www.solarview.info/solarlogger.aspx
+This adapter reads measurement data from a SolarView data logger over its TCP
+interface. For information about SolarView and compatible hardware, see the
+[SolarView website](https://www.solarview.info/solarlogger.aspx).
+
+The adapter uses an unencrypted TCP connection. SSL/TLS and certificate
+verification are not supported.
+
+## Requirements
+
+- Node.js 22 or newer
+- ioBroker js-controller 6.0.11 or newer
+- ioBroker Admin 7.6.20 or newer
 
 ## Configuration
 
-### IP address, Port
-To get the data from the datalogger you must enter the ip-address and the port from your solarview TCP server. 
-The standard port is 15000. Please refer to the Solarview documentation https://www.solarview.info/solarlogger.aspx.
+### Connection
 
-### D0 converter
-If you have a D0 converter connected to the Solarview data logger you can enable this option.
-For questions please refer to the Solarview documentation.
+Enter the IP address or hostname of the SolarView data logger and its TCP port.
+The default port is `15000`.
 
-### Self consumption meter sum and 1 to 4
-If you have a S0 meter, you can enable this option. 
-You can have up to 4 self consumption meters and the sum from all meters.
-For questions please refer to the Solarview documentation.
+### Polling interval and time window
 
-### Inverter 1 to 4
-Every inverter you can enable separately.
-For questions please refer to the Solarview documentation.
+Set how often the adapter requests data, from 10 to 3600 seconds. The time
+window controls polling of PV and inverter data, including D0 supply data when
+the D0 converter is enabled. Self-consumption meter data and D0 consumption
+data continue to be polled outside this window.
 
-### Interval, interval start, interval end
-Here you can configure the time range and the interval. The time range for 24h is 00:00 to 23:59.
-Not 00:00 to 00:00.
+For a full-day time window, use `00:00` to `23:59`.
 
-### Set system variable CCU, System variable
-This is a special feature for the homematic CCU. You can define a system variable in the CCU.
-In this system variable the actual PAC value is saved.
-You have to fill in the ioBroker state for that system variable -> **e.g. "hm-rega.0.12345"**
+### Devices
 
-### Created states
-#### pvig, pvi1..4, d0supply, d0consumption
-daily = daily yield (kWh)
-montly = monthly yield (kWh)
-yearly = yearly yield (kWh)
-total = total yield (kWh)
-current = generator power in W
-UDC, UDCB, UDCC, UDCD = generator voltages in volt per MPP-Tracker
-IDC, IDCB, IDCC, IDCD = generator current in ampere per MPP-Tracker
-UL1, IL1 = mains voltage, mains power phase 1
-UL2, IL2 = mains voltage, mains power phase 2
-UL3, IL3 = mains voltage, mains power phase 3
-TKK= Temperature inverter
+In the **Devices and CCU** tab, enable only the devices configured in SolarView:
+
+- **D0 converter**: creates `d0supply` and `d0consumption` data.
+- **Self-consumption meters**: enable the total meter and/or meters 1 to 4.
+- **Inverters**: enable inverters 1 to 4 individually.
+
+### Homematic CCU system variable
+
+Enable **Set system variable CCU** to write the current PV power to a
+Homematic CCU system variable. Enter its ioBroker state ID, for example
+`hm-rega.0.12345`.
+
+## States
+
+The adapter creates a `pvig` channel for overall PV data. Depending on the
+configuration, it also creates `pvi1` to `pvi4`, `d0supply`, `d0consumption`,
+and `scm0` to `scm4` channels.
+
+PV and inverter channels provide:
+
+| State | Description | Unit |
+| --- | --- | --- |
+| `current` | Current PV power | W |
+| `daily` | Daily yield | kWh |
+| `monthly` | Monthly yield | kWh |
+| `yearly` | Yearly yield | kWh |
+| `total` | Total yield | kWh |
+
+Enabled inverter channels also provide DC voltage and current per MPP tracker:
+`udc`/`idc`, `udcb`/`idcb`, `udcc`/`idcc`, and `udcd`/`idcd` (V/A).
+Depending on the SolarView protocol version, they can also include grid voltage
+and current per phase (`ul1`/`il1` to `ul3`/`il3`, V/A) and inverter
+temperature (`tkk`, °C).
+
+The `info` channel contains the connection status (`info.connection`) and the
+timestamp of the last successful update (`info.lastUpdate`).
 
 ## Changelog
+### 1.3.0 (2026-10-26)
+* (afuerhoff) legacy polling intervals are migrated from minutes to seconds
+* (afuerhoff) socket error handling and connection status reporting improved
+* (afuerhoff) configuration organized into tabs with improved validation and help texts
+* (afuerhoff) configuration translations updated
+
 ### 1.2.6 (2026-09-13)
 * (afuerhoff) dependencies updated
 * (afuerhoff) issues detected by repository checker fixed [#289], [#305]
@@ -78,11 +107,6 @@ TKK= Temperature inverter
 * (afuerhoff) dependencies updated
 * (afuerhoff) repository checker issues fixed
 * (afuerhoff) typescript error fixed
-
-### 1.2.2 (2025-05-30)
-* (afuerhoff) dependencies updated
-* (afuerhoff) testing updated [#217](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/217)
-* (afuerhoff) @iobroker-bot warning fixed [#209](https://github.com/afuerhoff/ioBroker.solarviewdatareader/issues/209)
 
 ## License
 MIT License

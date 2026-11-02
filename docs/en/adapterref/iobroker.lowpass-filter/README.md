@@ -21,6 +21,8 @@ e.g. you can filter power values to cut power peeks.
 -->
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+- (BenAhrdt) update @iobroker/testing to 6.3.1
+- (BenAhrdt) include Node.js and Mocha types in the TypeScript test check
 
 ### 2.6.1 (2026-02-28)
 * (BenAhrdt) update dependencies

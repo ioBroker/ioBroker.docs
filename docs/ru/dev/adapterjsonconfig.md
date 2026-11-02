@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterjsonconfig.md
 title: Настройка ioBroker в формате JSON: руководство для начинающих
-hash: 0vrPabsFaUOGsbjYkbGJbNIevUch77acT+QKwaauC28=
+hash: MW8HIa5iqY/aUO3afpjNEGAv/oODnqPCkSMVSPt2NsM=
 ---
 # Конфигурация ioBroker в формате JSON: руководство для начинающих
 В этом руководстве объясняется, как определить параметры конфигурации для вашего адаптера ioBroker с помощью JSON. Такой подход предлагает более удобный и гибкий способ управления настройками адаптера в административном интерфейсе ioBroker.
@@ -126,67 +126,67 @@ jsonConfig автоматически гарантирует, что собра�
 
 Вы сможете увидеть практически все компоненты в действии, протестировав этот адаптер: [jsonconfig-demo](https://github.com/mcm4iob/ioBroker.jsonconfig-demo). Установить его можно через значок GitHub в админке, введя `iobroker.jsonconfig-demo` на вкладке npm.
 
-- [**`accordion`:**](#accordion) Элемент аккордеона для сворачиваемого контента (Admin 6.6.0 или новее)
-- [**`alive`:**](#alive) Отображает, запущен ли экземпляр (только для чтения)
-- [**`автозаполнение`:**](#автозаполнение) Поле ввода с подсказками автозаполнения
-- [**`autocompleteSendTo`:**](#autocompletesendto) Элемент управления автозаполнения со значениями экземпляра для отправки данных
-- [**`certificate`:**](#certificate) Управляет сертификатами для защищенных соединений
-- [**`certificateCollection`:**](#certificatecollection) Выбирает коллекцию сертификатов Let's Encrypt
-- [**`certificates`:**](#certificates) Универсальный тип для управления различными типами сертификатов (начиная с Admin 6.4.0)
-- [**`checkbox`:**](#checkbox) Флажок для логических значений
-- [**`checkDocker`:**](#checkdocker) Специальный компонент для проверки доступности Docker, и если она есть, вы можете активировать флажок (из Admin 7.8.0)
-- [**`checkLicense`:**](#checklicense) Специальный компонент для онлайн-проверки лицензии.
-- [**`chips`:**](#chips) Пользователь может ввести слова, которые добавляются в массив.
-- [**`color`:**](#color) Выбор цвета
-- [**`coordinates`:**](#coordinates) Определяет текущее местоположение и используемые координаты из `system.config`, если это невозможно в формате `latitude,longitude`.
-- [**`credential`:**](#credential) Выбирает учетные данные из центрального хранилища учетных данных (управляется в настройках администратора)
-- [**`cron`:**](#cron) Настраивает выражения cron для планирования задач
-- [**`custom`:**](#custom) Интегрирует пользовательские компоненты для определенных функций (только для Admin 6)
-- [**`datePicker`:**](#datepicker) Позволяет пользователям выбрать дату
-- [**`deviceManager`:**](#devicemanager) показать диспетчер устройств
-- [**`divider`:**](#divider) Создает горизонтальный разделитель строк
-- [**`file`:**](#file) Поле ввода с возможностью выбора файла и дополнительной возможностью загрузки/скачивания (только для Admin 6)
-- [**`fileSelector`:**](#fileselector) Позволяет пользователям выбирать файлы из системы (только Admin6)
-- [**`func`:**](#func) Выбирает функцию из списка enum.func (только для Admin 6)
-- [**`header`:**](#header) Создает заголовок разных размеров (h1-h5)
-- [**`iframe`:**](#iframe) Отобразить iframe с указанным URL (admin >= 7.7.28)
-- [**`iframeSendTo`:**](#iframe) Отображение iframe с URL-адресом из административной панели (admin >= 7.7.28)
-- [**`image`:**](#image) Загружает или отображает изображение
-- [**`imageSendTo`:**](#imagesendto) Отображает изображение, полученное с бэкэнда, и отправляет данные в соответствии с командой.
-- [**`instance`:**](#instance) Выбирает экземпляр адаптера
-- [**`interface`:**](#interface) Выбирает интерфейс хоста, на котором работает экземпляр.
-- [**`ip`:**](#ip) Поле ввода IP-адресов с расширенными параметрами
-- [**`jsonEditor`:**](#jsoneditor) JSON-редактор для сложных конфигурационных данных
-- [**`language`:**](#language) Выбирает язык пользовательского интерфейса
-- [**`license`:**](#license) отображает информацию о лицензии, если она еще не принята.
-- [**`number`:**](#number) Числовое поле ввода с минимальными/максимальными значениями и шагом.
-- [**`oauth2`:**](#oauth2) Настройте аутентификацию OAuth2 для адаптера (Admin 7.6.18 или новее)
-- [**`objectId`:**](#objectid) Выбирает идентификатор объекта с именем, цветом и значком.
-- [**`панель`:**](#панель) Вкладка с элементами
-- [**`password`:**](#password) Поле ввода пароля
-- [**`pattern`:**](#pattern) Поле только для чтения, отображающее шаблон (например, URL)
-- [**`порт`:**](#порт) Специальный ввод для портов
-- [**`qrCode`:**](#qrcode) Отображает данные в виде QR-кода (Admin 7.0.18 или новее)
-- [**`qrCodeSendTo`:**](#qrcodesendto) Отображает QR-код с данными, полученными из бэкэнда.
-- [**`room`:**](#room) Выбирает комнату из списка `enum.room` (только для Admin 6)
-- [**`выбрать`:**](#выбрать) Выпадающее меню с предопределенными параметрами
-- [**`selectSendTo`:**](#selectsendto) Выпадающее меню со значениями экземпляра для отправки данных
-- [**`sendTo`:**](#sendto) Кнопка, отправляющая запрос экземпляру
-- [**`setState`:**](#setstate) Кнопка, устанавливающая состояние экземпляра
-- [**`slider`:**](#slider) Ползунок для выбора значения в заданном диапазоне (только для Admin 6)
-- [**`state`:**](#state) Отображение элементов управления или информации из состояния (admin >= 7.1.0)
-- [**`staticImage`:**](#staticimage) Отображает статическое изображение
-- [**`staticInfo`:**](#staticinfo) Отображает статическую информацию в предварительно отформатированном виде, например, "Заголовок: единица измерения значения" (admin >= 7.3.3)
-- [**`staticLink`:**](#staticlink) Создает статическую ссылку
-- [**`staticText`:**](#statictext) Отображает статический текст (например, описание)
-- [**`table`:**](#table) Таблица со строками, которые можно добавлять, удалять или изменять порядок.
-- [**`tabs`:**](#tabs) Вкладки с элементами
-- [**`текст`:**](#текст) Поле ввода текста в одну или несколько строк
-- [**`textSendTo`:**](#textsendto) Отображает элемент управления только для чтения с заданными значениями из экземпляра.
-- [**`timePicker`:**](#timepicker) Позволяет пользователям выбрать время
-- [**`user`:**](#user) Выбирает пользователя из списка `system.user`
-- [**`uuid`:**](#uuid) Показать UUID iobroker
-- [**`yamlEditor`:**](#yamleditor) Редактор YAML для сложных конфигурационных данных (admin >= 7.7.30)
+- [** `accordion`:**](#accordion) Элемент аккордеона для сворачиваемого контента (Admin 6.6.0 или новее)
+- [** `alive`:**](#alive) Отображает, запущен ли экземпляр (только для чтения)
+- [** `автозаполнение`:**](#автозаполнение) Поле ввода с подсказками автозаполнения
+- [** `autocompleteSendTo`:**](#autocompletesendto) Элемент управления автозаполнения со значениями экземпляра для отправки данных
+- [** `certificate`:**](#certificate) Управляет сертификатами для защищенных соединений
+- [** `certificateCollection`:**](#certificatecollection) Выбирает коллекцию сертификатов Let's Encrypt
+- [** `certificates`:**](#certificates) Универсальный тип для управления различными типами сертификатов (начиная с Admin 6.4.0)
+- [** `checkbox`:**](#checkbox) Флажок для логических значений
+- [** `checkDocker`:**](#checkdocker) Специальный компонент для проверки доступности Docker, и если она есть, вы можете активировать флажок (из Admin 7.8.0)
+- [** `checkLicense`:**](#checklicense) Специальный компонент для онлайн-проверки лицензии.
+- [** `chips`:**](#chips) Пользователь может ввести слова, которые добавляются в массив.
+- [** `color`:**](#color) Выбор цвета
+- [** `coordinates`:**](#coordinates) Определяет текущее местоположение и используемые координаты из `system.config`, если это невозможно в формате `latitude,longitude`.
+- [** `credential`:**](#credential) Выбирает учетные данные из центрального хранилища учетных данных (управляется в настройках администратора)
+- [** `cron`:**](#cron) Настраивает выражения cron для планирования задач
+- [** `custom`:**](#custom) Интегрирует пользовательские компоненты для определенных функций (только для Admin 6)
+- [** `datePicker`:**](#datepicker) Позволяет пользователям выбрать дату
+- [** `deviceManager`:**](#devicemanager) показать диспетчер устройств
+- [** `divider`:**](#divider) Создает горизонтальный разделитель строк
+- [** `file`:**](#file) Поле ввода с возможностью выбора файла и дополнительной возможностью загрузки/скачивания (только для Admin 6)
+- [** `fileSelector`:**](#fileselector) Позволяет пользователям выбирать файлы из системы (только Admin6)
+- [** `func`:**](#func) Выбирает функцию из списка enum.func (только для Admin 6)
+- [** `header`:**](#header) Создает заголовок разных размеров (h1-h5)
+- [** `iframe`:**](#iframe) Отобразить iframe с указанным URL (admin >= 7.7.28)
+- [** `iframeSendTo`:**](#iframe) Отображение iframe с URL-адресом из административной панели (admin >= 7.7.28)
+- [** `image`:**](#image) Загружает или отображает изображение
+- [** `imageSendTo`:**](#imagesendto) Отображает изображение, полученное с бэкэнда, и отправляет данные в соответствии с командой.
+- [** `instance`:**](#instance) Выбирает экземпляр адаптера
+- [** `interface`:**](#interface) Выбирает интерфейс хоста, на котором работает экземпляр.
+- [** `ip`:**](#ip) Поле ввода IP-адресов с расширенными параметрами
+- [** `jsonEditor`:**](#jsoneditor) JSON-редактор для сложных конфигурационных данных
+- [** `language`:**](#language) Выбирает язык пользовательского интерфейса
+- [** `license`:**](#license) отображает информацию о лицензии, если она еще не принята.
+- [** `number`:**](#number) Числовое поле ввода с минимальными/максимальными значениями и шагом.
+- [** `oauth2`:**](#oauth2) Настройте аутентификацию OAuth2 для адаптера (Admin 7.6.18 или новее)
+- [** `objectId`:**](#objectid) Выбирает идентификатор объекта с именем, цветом и значком.
+- [** `панель`:**](#панель) Вкладка с элементами
+- [** `password`:**](#password) Поле ввода пароля
+- [** `pattern`:**](#pattern) Поле только для чтения, отображающее шаблон (например, URL)
+- [** `порт`:**](#порт) Специальный ввод для портов
+- [** `qrCode`:**](#qrcode) Отображает данные в виде QR-кода (Admin 7.0.18 или новее)
+- [** `qrCodeSendTo`:**](#qrcodesendto) Отображает QR-код с данными, полученными из бэкэнда.
+- [** `room`:**](#room) Выбирает комнату из списка `enum.room` (только для Admin 6)
+- [** `выбрать`:**](#выбрать) Выпадающее меню с предопределенными параметрами
+- [** `selectSendTo`:**](#selectsendto) Выпадающее меню со значениями экземпляра для отправки данных
+- [** `sendTo`:**](#sendto) Кнопка, отправляющая запрос экземпляру
+- [** `setState`:**](#setstate) Кнопка, устанавливающая состояние экземпляра
+- [** `slider`:**](#slider) Ползунок для выбора значения в заданном диапазоне (только для Admin 6)
+- [** `state`:**](#state) Отображение элементов управления или информации из состояния (admin >= 7.1.0)
+- [** `staticImage`:**](#staticimage) Отображает статическое изображение
+- [** `staticInfo`:**](#staticinfo) Отображает статическую информацию в предварительно отформатированном виде, например, "Заголовок: единица измерения значения" (admin >= 7.3.3)
+- [** `staticLink`:**](#staticlink) Создает статическую ссылку
+- [** `staticText`:**](#statictext) Отображает статический текст (например, описание)
+- [** `table`:**](#table) Таблица со строками, которые можно добавлять, удалять или изменять порядок.
+- [** `tabs`:**](#tabs) Вкладки с элементами
+- [** `текст`:**](#текст) Поле ввода текста в одну или несколько строк
+- [** `textSendTo`:**](#textsendto) Отображает элемент управления только для чтения с заданными значениями из экземпляра.
+- [** `timePicker`:**](#timepicker) Позволяет пользователям выбрать время
+- [** `user`:**](#user) Выбирает пользователя из списка `system.user`
+- [** `uuid`:**](#uuid) Показать UUID iobroker
+- [** `yamlEditor`:**](#yamleditor) Редактор YAML для сложных конфигурационных данных (admin >= 7.7.30)
 
 Используя конфигурацию в формате JSON, вы можете создать удобный и адаптируемый интерфейс настройки для вашего адаптера ioBroker.
 
@@ -398,7 +398,7 @@ admin/customI18n/en.json
 
 | Объект недвижимости | Описание |
 |----------|-----------------|
-| `short` | no system.user. |
+| `short` | нет system.user. |
 
 ### `room`
 Выберите комнату из `enum.room` (с цветом и значком) - (только для Admin6)
@@ -420,12 +420,12 @@ admin/customI18n/en.json
 | Объект недвижимости | Описание |
 |-----------------|----------------------------------------------------------------------------------------------------------------|
 | `options` | объект с метками, необязательными переводами, необязательной группировкой и значениями |
-| `showAllValues` | показывать элемент, даже если для него не найдена метка (несколько раз), по умолчанию = `true` |
+| `showAllValues` | показывать элемент, даже если для него не найдена метка (при наличии нескольких меток), по умолчанию = `true` |
 | `format` | Формат отображения: `"dropdown"` (по умолчанию) или `"radio"` для отображения вариантов в виде переключателей вместо выпадающего списка |
 | `horizontal` | Если `true`, переключатели отображаются горизонтально (применяется только когда `format` равно `"radio"`) (начиная с версии 8.3.3) |
 | `horizontal` | Если `true`, переключатели отображаются горизонтально (применяется только тогда, когда `format` равно `"radio"`) (начиная с версии 8.3.3) |
 
-Каждый параметр в `options` может иметь:
+Каждый вариант в `options` может иметь:
 
 | Объект недвижимости | Описание |
 |---------------|-----------------------------------------------------------------------|
@@ -435,9 +435,12 @@ admin/customI18n/en.json
 | `os` | Отображать эту опцию только в следующих операционных системах хоста |
 | `notOs` | Не отображать эту опцию в этих операционных системах хоста |
 | `docker` | Отображать эту опцию только в том случае, если ioBroker запущен (`true`) или нет (`false`) в Docker |
+| `hiddenByAdapters` | Скрыть опцию, если установлен хотя бы один из этих адаптеров: `["zigbee"]` |
+| `showByAdapters` | Отображать эту опцию только в том случае, если установлен хотя бы один из этих адаптеров: `["zigbee"]` |
 | `description` | Описание отображается ниже метки опции (можно перевести) |
 | `icon` | URL значка или строка base64 для отображения рядом с опцией (начиная с версии 8.3.3) |
-| `icon` | URL-адрес значка или строка base64 для отображения рядом с опцией (начиная с версии 8.3.3) |
+| `noTranslation` | Не переводить метку этой опции |
+| `noTranslation` | Не переводить метку этой опции |
 
 #### Пример для `select options`
 ```json5
@@ -473,6 +476,8 @@ admin/customI18n/en.json
 |------------|----------------------------------------------------------------------------------------------------------------------------------|
 | `options` | `["value1", "value2", ...]` или `[{"value": "value", "label": "Value1"}, "value2", ...]` (ключи и имена (значения) должны быть уникальными) |
 | `freeSolo` | Установите `freeSolo` в значение `true`, чтобы текстовое поле могло содержать любое произвольное значение. |
+
+Каждый параметр в `options` может иметь `label`, `value`, `color`, `hidden`, `icon` и `noTranslation` (не переводите метку этого параметра). Значение, введенное в виде свободного текста, никогда не переводится.
 
 ### `image`
 сохраняет изображение как файл объекта `adapter.X` или в формате base64 в атрибуте
@@ -557,7 +562,7 @@ admin/customI18n/en.json
 ##### Отображать только объекты с пользовательскими настройками SQL.0 (только для конкретного экземпляра)
 `{common: {custom: 'sql.0'}}`
 
-##### Отображать только объекты адаптеров `influxdb` или `sql` или `history`
+##### Показывать только объекты адаптеров `influxdb` или `sql` или `history`
 `{common: {custom: '_dataSources'}}`
 
 ##### Отображать только объекты с пользовательскими настройками для конкретного адаптера (все экземпляры)
@@ -715,7 +720,7 @@ admin/customI18n/en.json
 | `objValueName` | (устаревшая настройка, не использовать!) - имя значения в `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` |
 | `allowAddByFilter` | если добавление разрешено, даже если установлен фильтр |
 | `showSecondAddAt` | Количество строк, с которых будет отображаться вторая кнопка добавления внизу таблицы. По умолчанию 5 |
-| `showFirstAddOnTop` | Отобразить первую кнопку «плюс» в верхней части первого столбца, а не слева. |
+| `showFirstAddOnTop` | Отобразить первую кнопку «плюс» вверху первого столбца, а не слева. |
 | `clone` | [необязательно] - следует ли отображать кнопку клонирования. Если true, кнопка клонирования будет отображена. Если указано имя атрибута, это имя будет уникальным. |
 | `export` | [необязательно] - если должна отображаться кнопка экспорта. Экспорт в CSV-файл. |
 | `import` | [необязательно] - если должна отображаться кнопка импорта. Импорт из CSV-файла. |
@@ -738,6 +743,8 @@ admin/customI18n/en.json
 
 ### `jsonEditor`
 Кнопка для открытия редактора JSON(5). JSON5 поддерживается начиная с версии административной панели 5.7.3.
+
+В диалоговом окне редактора есть кнопка «Форматировать JSON», которая изменяет отступ текста на 2 пробела (только если текст является допустимым JSON / JSON5).
 
 | Объект недвижимости | Описание |
 |------------------------|-----------------------------------------------------------------------------------------|
@@ -803,7 +810,7 @@ admin/customI18n/en.json
 | Объект недвижимости | Описание |
 |-------------------|----------------------------------------------------------------------------------------------------------------------|
 | `credentialType` | отображать только учетные данные этого типа: `email`, `cloud`, `ai` или `custom`. Если не определено, отображаются все учетные данные. |
-| `disableCreation` | если `true`, скрыть кнопку ➕, чтобы пользователь мог выбрать только существующие учетные данные (создание учетных данных в этом месте невозможно) |
+| `disableCreation` | если `true`, скрыть кнопку ➕, чтобы пользователь мог выбрать только существующие учетные данные (создание новых учетных данных в этом месте невозможно) |
 
 Пример:
 
@@ -931,7 +938,7 @@ const cred = await Credentials.getCredentials<Credentials.LoginPasswordCredentia
 | `instance` | Экземпляр, которому следует отправить запрос (например, `"admin.0"`). Переопределяет `oContext.instance`. Если не определено, запрос отправляется текущему экземпляру адаптера. В тексте можно использовать шаблон `${data.number}`. |
 | `instance` | Экземпляр, которому следует отправить запрос (например, `"admin.0"`). Переопределяет `oContext.instance`. Если не определено, запрос отправляется текущему экземпляру адаптера. В тексте можно использовать шаблон `${data.number}`. |
 
-#### Пример кода в бэкэнде для `imageSendTo`
+#### Пример кода на бэкэнде для `imageSendTo`
 ```js
 adapter.on("message", (obj) => {
   if (obj.command === "send") {
@@ -962,7 +969,7 @@ adapter.on("message", (obj) => {
 | `instance` | Экземпляр, которому следует отправить запрос (например, `"admin.0"`). Переопределяет `oContext.instance`. Если не определено, запрос отправляется текущему экземпляру адаптера. В тексте можно использовать шаблон `${data.number}`. |
 | `instance` | Экземпляр, которому следует отправить запрос (например, `"admin.0"`). Переопределяет `oContext.instance`. Если не определено, запрос отправляется текущему экземпляру адаптера. В тексте можно использовать шаблон `${data.number}`. |
 
-#### Пример кода в бэкэнде для `qrCodeSendTo`
+#### Пример кода на бэкэнде для `qrCodeSendTo`
 ```js
 adapter.on("message", (obj) => {
     if (obj.command === "send") {
@@ -1018,7 +1025,7 @@ adapter.on("message", (obj) => {
 }
 ```
 
-#### Пример кода в бэкэнде для `iframeSendTo`
+#### Пример кода на бэкэнде для `iframeSendTo`
 ```js
 adapter.on("message", (obj) => {
   if (obj.command === "getUrl") {
@@ -1043,7 +1050,8 @@ adapter.on("message", (obj) => {
 | `instance` | Экземпляр, которому следует отправить запрос (например, `"admin.0"`). Переопределяет `oContext.instance`. Если не определено, запрос отправляется текущему экземпляру адаптера. В тексте можно использовать шаблон `${data.number}`. |
 | `instance` | Экземпляр, которому следует отправить запрос (например, `"admin.0"`). Переопределяет `oContext.instance`. Если не определено, запрос отправляется текущему экземпляру адаптера. В тексте можно использовать шаблон `${data.number}`. |
 
-Обработчик на стороне бэкэнда может возвращать элементы с необязательным полем `description`: `[{"value": 1, "label": "one", "description": "Some hint"}, ...]`. Описание отображается под меткой в выпадающем списке.
+Обработчик бэкэнда может возвращать элементы с необязательным полем `description`: `[{"value": 1, "label": "one", "description": "Some hint"}, ...]`. Описание отображается под меткой в выпадающем списке.
+Элемент с `"noTranslation": true` отображается как есть, даже если `noTranslation` элемента управления не задан: `[{"value": "abc", "label": "My device", "noTranslation": true}, ...]`.
 
 #### Пример кода на бэкэнде для `selectSendTo`
 ```js
@@ -1106,6 +1114,8 @@ adapter.on("message", (obj) => {
 | `command` | команда sendTo |
 | `data` | объект - `{"subject1": 1, "data": "static"}`. Вы можете указать jsonData или data, но не оба одновременно. Эти данные будут отправлены на бэкэнд, если jsonData не определен. |
 | `freeSolo` | Установите `freeSolo` в `true`, чтобы текстовое поле могло содержать любое произвольное значение. |
+| `options` | Параметры, которые всегда отображаются в дополнение к результату команды: `["value1", {"value": "value2", "label": "Value2"}, ...]` |
+| `noTranslation` | не переводить метки параметров |
 | `alsoDependsOn` | при изменении каких атрибутов команду необходимо отправить повторно |
 | `maxLength` | максимальная длина текста в поле |
 | `instance` | Экземпляр, которому следует отправить запрос (например, `"admin.0"`). Переопределяет `oContext.instance`. Если не определено, запрос отправляется текущему экземпляру адаптера. В тексте можно использовать шаблон `${data.number}`. |
@@ -1113,7 +1123,9 @@ adapter.on("message", (obj) => {
 
 Для использования этой опции ваш адаптер должен реализовывать обработчик сообщений:
 
-Результатом команды должен быть массив в формате `["value1", {"value": "value2", "label": "Value2"}, ...]` (ключи и имена (значения) должны быть уникальными). Пример обработчика см. в `selectSendTo`
+Результатом команды должен быть массив в формате `["value1", {"value": "value2", "label": "Value2"}, ...]` (ключи и имена (значения) должны быть уникальными).
+Элемент с `"noTranslation": true` отображается как есть: `{"value": "abc", "label": "My device", "noTranslation": true}`. Параметры из `options` также могут иметь `noTranslation`. Значение, введенное в виде свободного текста, никогда не переводится.
+См. `selectSendTo` для примера обработчика.
 
 ### `textSendTo`
 Отображает элемент управления только для чтения, заданный значениями из экземпляра.
@@ -1200,7 +1212,7 @@ adapter.on("message", (obj) => {
 | `ignoreInternal` | не отображать внутренние интерфейсы (обычно это также 127.0.0.1) |
 
 ## Общие атрибуты элементов управления
-### Параметры макета `xl`,`lg`,`md`,`sm`,`xs`
+### Параметры макета `xl`, `lg`, `md`, `sm`, `xs`
 Эти параметры используются для определения ширины элементов на экранах разных размеров, обеспечивая адаптивный и отзывчивый дизайн на различных устройствах.
 
 Допустимые числа - от 1 до 12.
@@ -1251,6 +1263,8 @@ adapter.on("message", (obj) => {
 | `os` | Отображать этот элемент только в следующих операционных системах хоста, на котором работает экземпляр: `"win32"` или `["linux", "darwin"]` |
 | `notOs` | Не отображать этот элемент в следующих операционных системах хоста, на котором работает экземпляр: `"win32"` или `["linux", "darwin"]` |
 | `docker` | Отображать этот элемент только в том случае, если ioBroker работает (`true`) или не работает (`false`) в контейнере Docker |
+| `hiddenByAdapters` | Скрыть этот элемент, если установлен хотя бы один из этих адаптеров: `[["zigbee", "deconz"]`. См. [Показать элементы в зависимости от установленных адаптеров]](#show-elements-depending-on-installed-adapters) |
+| `showByAdapters` | Отображать этот элемент только в том случае, если установлен хотя бы один из этих адаптеров: `[["zigbee", "deconz"]`. См. [Показать элементы в зависимости от установленных адаптеров]](#show-elements-depending-on-installed-adapters) |
 | `disabled` | Функция JavaScript, которая могла бы использовать `native.attribute` для вычислений |
 | `dependsOnStates` | ioBroker сообщает, от чего зависит этот элемент: `{"running": ".info.browsing"}`. См. [Отображать или отключать элементы в зависимости от состояния ioBroker](#show-or-disable-elements-depending-on-iobroker-states) |
 | `help` | текст справки (многоязычный) |
@@ -1352,7 +1366,7 @@ adapter.on("message", (obj) => {
 **Примечание:** старые версии административной панели не распознают `_os` и будут интерпретировать `"hidden": "_os !== 'linux'"` как `true`, скрывая элемент повсюду. Поэтому следует отдавать предпочтение `os`/`notOs`, поскольку старые версии административной панели просто игнорируют их (элемент будет показан). Если необходимо использовать функцию JavaScript, напишите её с запасом: `"hidden": "!!_os && _os !== 'linux'"`.
 
 #### Docker
-Если элемент зависит от того, работает ли сам ioBroker в контейнере Docker, можно использовать атрибут `docker`:
+Если работа элемента зависит от того, работает ли сам ioBroker в контейнере Docker, можно использовать атрибут `docker`:
 
 ```json5
 {
@@ -1377,6 +1391,32 @@ adapter.on("message", (obj) => {
 
 Не путайте это с элементом управления [`checkDocker`](#checkdocker): тот проверяет наличие установленного Docker **на хосте** для управления контейнерами, а не то, работает ли сам ioBroker в Docker.
 
+### Отображение элементов в зависимости от установленных адаптеров
+Каждый элемент (включая `panel`, `tabs`, столбцы таблиц и отдельные параметры `select` или группы параметров) может отображаться или скрываться в зависимости от того, установлены ли в системе ioBroker другие адаптеры:
+
+```json5
+{
+    "zigbeeDevice": { "type": "text", "label": "Zigbee device", "showByAdapters": ["zigbee", "zigbee2mqtt"] },
+    "installHint":  { "type": "staticText", "text": "Install the zigbee adapter to use the devices", "hiddenByAdapters": ["zigbee"] }
+}
+```
+
+- `showByAdapters` - элемент будет отображаться **только** в том случае, если установлен хотя бы один из указанных адаптеров.
+- `hiddenByAdapters` - элемент будет скрыт, если установлен хотя бы один из указанных адаптеров.
+- Имена представляют собой имена адаптеров без `system.adapter.` и без номера экземпляра: `zigbee`, а не `zigbee.0`.
+
+Проверяется, установлен ли адаптер, а не существует ли его экземпляр или запущен ли он.
+
+- Установленные адаптеры считываются один раз, при открытии диалогового окна конфигурации, и только если конфигурация...
+
+использует один из этих атрибутов. Если они не могут быть прочитаны, элемент будет отображен.
+
+- Неотображаемый элемент не удаляется: его значение остается неизменным в конфигурации, точно так же, как и у `hidden`.
+
+Однако значение `default` такого элемента не будет записано в конфигурацию.
+
+В других случаях, например, при наличии существующего экземпляра, `getObject` можно использовать в `hidden`: `"hidden": "!getObject('system.adapter.zigbee.0')"`. Если требуется свойство объекта, используйте квадратные скобки, поскольку `await` связывает слабее, чем `?.`: `"hidden": "!(await getObject('system.adapter.zigbee.0'))?.common?.enabled"`.
+
 ### Параметры с подробной конфигурацией
 #### `defaultSendTo`
 Команда для запроса начального значения у запущенного экземпляра, например: `"myInstance": {"type": "text", "defaultSendTo": "fill"}`
@@ -1384,7 +1424,7 @@ adapter.on("message", (obj) => {
 - `данные` - статические данные
 - `jsonData` - статические данные
 - Если параметры `data` и `jsonData` не определены, будет отправлена следующая информация: `{"attr": "<имя атрибута>", "value": "<текущее значение>"}`
-- `button` - метка кнопки для повторного запуска запроса от экземпляра
+- `button` - метка кнопки для повторного запуска запроса из экземпляра
 - `buttonTooltip` - Всплывающая подсказка для кнопки (по умолчанию: `Запрос данных по экземпляру`)
 - `buttonTooltipNoTranslation` - Не переводить всплывающую подсказку кнопки
 - `allowSaveWithError` - Разрешить сохранение конфигурации, даже если экземпляр находится в автономном режиме.
@@ -1399,7 +1439,7 @@ adapter.on("message", (obj) => {
 - `alsoDependsOn` - массив с атрибутами, позволяющий проверять условие также по этим атрибутам.
 
 ## Автозаполнение
-`Number`, `text`, `checkbox`, `select` поддерживают автозаполнение, позволяющее выбирать варианты, если они используются в качестве пользовательских настроек.
+`Number`, `text`, `checkbox`, `select` поддерживают автозаполнение, позволяющее выбирать варианты при использовании в качестве пользовательских настроек.
 В этом случае значение будет предоставлено в виде массива всех возможных значений.
 
 Пример:
@@ -1417,7 +1457,7 @@ adapter.on("message", (obj) => {
 }
 ```
 
-В этом случае ввод должен быть текстовым, как показано в обозначении `__different__`, с возможностью автозаполнения, предлагающей три возможных значения.
+В этом случае ввод должен быть текстовым, как показано в `__different__`, с возможностью автозаполнения, предлагающей три возможных значения.
 Пользователи могут выбрать из выпадающего списка 1000, 2000 или 3000 или ввести собственное новое значение, например, 500.
 
 Логическое значение должно поддерживать неопределенность, если значение равно [false, true].
@@ -1442,7 +1482,7 @@ adapter.on("message", (obj) => {
 
 Значение `__different__` зарезервировано, и ни один текстовый ввод не может принять его от пользователя.
 
-Компонент должен выглядеть следующим образом
+Компонент должен выглядеть следующим образом:
 
 ```jsx
 <SchemaEditor
@@ -1489,7 +1529,7 @@ const func = new Function(
   'globalData',    // filled only by table and represents the obj.native or obj.common.custom['adapter.X'] object
   '_changed',      // indicator if some data was changed and must be saved
   '_href',         // Current browser href
-  'getObject',     // You can call `await getObject(data.id)`in hidden, disabled, pattern functions
+  'getObject',     // You can call `await getObject(data.id)` in hidden, disabled, pattern functions. Use brackets to access properties: `(await getObject(data.id))?.common?.type`
   '_os',           // Operating system of the host, where the instance runs: 'win32', 'linux', 'darwin', ...
   '_arch',         // Architecture of the host, where the instance runs: 'x64', 'arm64', ...
   '_host',         // Information about the host: {id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}
@@ -1688,7 +1728,7 @@ onMessage = (obj: ioBroker.Message): void => {
 Создайте заявку здесь: https://github.com/ioBroker/ioBroker.admin/issues
 
 ## Для сопровождающего
-Чтобы обновить расположение схемы JsonConfig, создайте запрос на слияние в этот файл: https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/schemas/jsonConfig.json
+Чтобы обновить расположение схемы JsonConfig, создайте запрос на слияние (pull request) для этого файла: https://github.com/ioBroker/ioBroker.admin/blob/master/packages/jsonConfig/schemas/jsonConfig.json
 
 ## Для разработчика
 Схема используется здесь: https://github.com/SchemaStore/schemastore/blob/6da29cd9d7cc240fb4980625f0de6cf7bd8dfd06/src/api/json/catalog.json#L3214
@@ -1698,6 +1738,47 @@ onMessage = (obj: ioBroker.Message): void => {
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
+### 10.1.7 (2026-10-22)
+- (@BenAhrdt) Fixed: the `autocomplete` does not translate the values entered as free text
+- (@GermanBluefox) Added: `noTranslation` for single options of `autocomplete`, `autocompleteSendTo`, `selectSendTo` and `state` and for the groups of `select`
+- (@GermanBluefox) Fixed: `selectSendTo` translates the items in the list even with `noTranslation`, and the chips of a multiple select show the translated label
+- (@GermanBluefox) Fixed: the options of `state` were shown with a leading `$`, and the selected option showed its value instead of its label
+
+### 10.1.6 (2026-10-22)
+- (@GermanBluefox) Added: the attributes `hiddenByAdapters` and `showByAdapters` to show elements and select options depending on the installed adapters
+- (@GermanBluefox) Fixed: the `getObject` example in the documentation
+- (@GermanBluefox) Fixed: `checkLicense` checks the version of the license again; a vis-1 license is no longer reported as valid for vis-2 unless it was converted
+
+### 10.1.3 (2026-10-15)
+- (@GermanBluefox) Added: the `jsonEditor` dialog has a button "Format JSON" that re-indents the text, and settings stored as object are shown indented
+
+### 10.1.2 (2026-10-12)
+- (@GermanBluefox) Fixed: loading of `crypto-js` for encrypted settings when admin is opened via `index.html`, e.g. in the cloud
+- (@GermanBluefox) Fixed: reading of `jsonConfig.json5` and i18n files delivered as `ArrayBuffer`, e.g. in the cloud
+
+### 10.1.1 (2026-10-11)
+- (@GermanBluefox) Fixed: the config validation URL when admin is opened via `index.html`, e.g. in the cloud
+
+### 10.1.0 (2026-10-07)
+- (@GermanBluefox) Fixed: an `encryptedNative` entry that reaches into `native`, like `hosts.password` for a table, was neither decrypted when the configuration was loaded nor encrypted when it was saved. The attribute name was looked up in `native` as it is, so `password` hit and `hosts.password` missed, and the secrets of a table went into the instance object as plain text - the adapter then decrypted plain text on start and got garbage. Such a path is resolved now, through every row of a table. A value that is already stored encrypted keeps working, and the plain text of an affected installation is encrypted the next time the configuration is saved, so nothing has to be entered again
+
+### 10.0.9 (2026-10-01)
+- (@krobipd) Fixed: a table with `encryptedAttributes` showed the stored secrets still encrypted and encrypted them a second time on the next save, so the adapter could no longer decrypt them. Since 8.5.0 the rows were only decrypted when the attribute was empty (`||=` instead of `&&=`); they are decrypted again when set, and a table stored as an object (`objKeyName`) no longer throws there
+- (@GermanBluefox) Fixed: the same table decrypted its rows directly in the live configuration instead of in a copy. That encryption is a simple XOR, so a second pass turns a secret back into plain text: switching a tab remounts the table and encrypted the shown secrets again, and saving any other field wrote the table secrets unencrypted into the instance object. The rows are decrypted in a copy now, as the save path already did. A secret that a table stored this way since 8.5.0 should be entered once again
+
+### 10.0.8 (2026-09-30)
+- (@GermanBluefox) Corrected table and tabs layout
+
+### 10.0.7 (2026-09-26)
+- (@GermanBluefox) Fixed: a `selectSendTo` with `multiple: true` could not be used when the adapter answers with numeric values (`{ label: 'Heat', value: 9 }`). The checkbox of a menu item compared the value as text but stored it as a number, so it never appeared as checked and every click added the entry again instead of removing it - the configuration filled up with duplicates. The comparison is tolerant about the type now, which also repairs a configuration that was written this way, and the entries are sorted as numbers instead of as text (ioBroker.admin#3636)
+- (@GermanBluefox) Fixed: in the same component, clicking a checkbox and clicking the text of a menu item disagreed about where the value lives. After the first click on a checkbox, selecting an item by its text no longer changed anything visible, because the rendered list was frozen on the internal state while only the data behind it changed
+
+### 10.0.6 (2026-09-21)
+- (@GermanBluefox) Added translations
+
+### 10.0.5 (2026-09-18)
+- (@GermanBluefox) Updated packages and schema
+
 ### 10.0.2 (2026-09-15)
 - (@MiSchroe) Fixed: CRON schema accepts either simple or complex or none of them
 - (@GermanBluefox) Updated Schema
@@ -1803,7 +1884,7 @@ onMessage = (obj: ioBroker.Message): void => {
 - (@GermanBluefox) Optimization of interfaces
 
 ### 8.4.1 (2026-05-19)
-- (@GermanBluefox) Allowed to use `await getObject(data.oid)?.common?.type === 'boolean'` in hidden, pattern or disabled
+- (@GermanBluefox) Allowed to use `(await getObject(data.oid))?.common?.type === 'boolean'` in hidden, pattern or disabled
 
 ### 8.3.13 (2026-05-16)
 - (@GermanBluefox) Added `_href` to `jsonData`

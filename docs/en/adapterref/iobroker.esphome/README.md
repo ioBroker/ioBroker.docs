@@ -440,6 +440,11 @@ If you like my work, please consider a personal donation
     ### __WORK IN PROGRESS__
     * (DutchmanNL)
 -->
+### 1.0.1-alpha.0 (2026-10-16)
+
+- (@Garfonso) **FIXED**: Brightness, RGB, white and colour temperature reached no light any more. The ColorMode values in supported_color_modes are the bitmasks from api.proto (RGB = 35), but they were compared against a 0..9 index, so every modern ESPHome light was treated as on/off only
+- (@SimonFischer04) **ENHANCED**: Dependency autopy switched to @simonfischer04/autopy (npm) instead of a GitHub build so dev dependencies do not get installed on user systems #495
+
 ### 1.0.0 (2026-09-26) - Public Stable Release
 
 - (@arteck) **FIXED**: A device that drops while its entities are still being announced no longer throws "Not connected", the state subscription is left to the reconnect
@@ -475,13 +480,6 @@ If you like my work, please consider a personal donation
 - (@copilot) **ENHANCED**: Includes optional ESPHome Dashboard integration plus built-in helpers for discovery and YAML-based device management
 - (@arteck) **FIXED**: Improved disconnect handling and diagnostics so reconnects recover more cleanly when device connections are destroyed
 - (@copilot) **ENHANCED**: Establishes a stable baseline for future ESPHome adapter development in ioBroker
-
-### 0.7.0 (2026-05-17)
-
-- (@SimonFischer04) **FIXED** copilot hallucinations
-- (@SimonFischer04) **NEW** 'Always last available' for pillow version
-- (@copilot) **FIXED**: Invalid jsonConfig warning on adapter installation
-- (DutchmanNL) **FIXED**: ESLint errors by code refactoring
 
 ## License
 

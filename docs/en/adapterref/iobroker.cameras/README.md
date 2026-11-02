@@ -227,6 +227,9 @@ If the binary cannot be found or does not start, the adapter transparently falls
 -->
 
 ## Changelog
+### 3.3.0 (2026-10-16)
+* (@GermanBluefox) Migrated widgets to React 19 - vis-2 >= 2.20.0 is required, if installed
+
 ### 3.2.2 (2026-10-03)
 * (@hdering) Fixed: after a browser tab with a live stream was closed, "Cannot send to UI: ... is not registered" was logged for every frame and the stream kept running (#201)
 * (@GermanBluefox) Fixed: the live picture of a camera in ioBroker.devices froze after a minute - the widget did not renew its subscription
@@ -271,10 +274,6 @@ If the binary cannot be found or does not start, the adapter transparently falls
 * (@GermanBluefox) Fixed: `[WIDTH]`, `[HEIGHT]` and `[AUTH]` in the URL of a universal camera were never replaced, and a placeholder was only replaced once per URL
 * (@GermanBluefox) Added the `VIVOTEK` H9161
 * (@GermanBluefox) Updated packages
-
-### 3.0.2 (2026-08-17)
-* (@GermanBluefox) The web extension can now request snapshots via messages instead of the private HTTP server, which is used automatically when the cameras adapter runs on a different host than the web instance
-* (@GermanBluefox) Fixed: a failed snapshot request answered with an empty `{}` instead of the error message
 
 ## License
 MIT License

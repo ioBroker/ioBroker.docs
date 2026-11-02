@@ -8,11 +8,11 @@ main [README](/#/adapters/tractive-gps) and [German README](/#/docs/adapterref/i
 
 ## Development requirements
 
-- Node.js 22.13 or newer
+- Node.js 22.19 or newer for development and tests (`@iobroker/testing` requirement); adapter runtime remains >=22.13
 - npm 10 or newer
 - js-controller 7.2.2 or newer for local integration testing
 - Admin 7.8.23 or newer
-- VIS 2 version 2.12.8 or newer for widget testing
+- VIS 2 version 2.15.2 or newer for widget testing
 
 Install all workspace dependencies from the repository root:
 
@@ -85,10 +85,12 @@ The public stable object model consists of:
 - `info.*` for lifecycle and synchronization information,
 - `pets.<pet-id>.info.*` for normalized pet data,
 - `trackers.<tracker-id>.*` for normalized tracker, position, health, and command data,
-- `api.data.*` and `info.currentApi` for the sanitized API mirror.
+- `account.*` and `subscriptions.*` for selected account and subscription data,
+- `info.currentApi` for the combined local API snapshot.
 
-The API mirror must remove credentials, email addresses, access and refresh tokens, authorization fields, user IDs, and nearby user IDs. Arrays are
-stored as JSON strings. Existing tracker objects are retained and marked as missing instead of being deleted.
+Passwords and access tokens must never be added to the snapshot. Account and location data remain local and must not be logged or sent to Sentry.
+Only useful nonempty fields are exposed as individual states; there is no duplicate `api.*` tree. Existing tracker objects are retained and marked
+as missing instead of being deleted.
 
 ## Tracker commands
 
@@ -100,11 +102,15 @@ after the Tractive request succeeds.
 The Admin 8 application is located in `src-admin/` and uses React, TypeScript, Material UI, `@iobroker/gui-components`, and `AdminConnection`.
 
 The configuration is saved exclusively through the standard ioBroker Save workflow. Translations must be updated for every locale in
-`src-admin/src/i18n/` and rebuilt into `admin/i18n/`.
+`admin/i18n/`, which is also used by the Admin build.
 
 ## VIS widgets
 
 The widget source is located in `src-widgets/`. `PetTrackerCard` uses the VIS 2 component API and Leaflet/OpenStreetMap.
+
+The native widget uses React 19, MUI 9, and Module Federation >=1.23.4. Leaflet is integrated directly, without React-Leaflet.
+Normalize the host theme with `createTheme` before passing it to MUI components. Keep VIS 2 optional in adapter dependencies so backend-only
+and classic VIS 1 installations remain supported; the native widget requires VIS 2 >=2.15.2.
 
 The classic VIS 1 implementation is registered through `widgets/tractive-gps.html`, as required by VIS 1. Its source resources live in `src-widgets/public/vis1/`; Vite copies them to `widgets/tractive-gps/vis1/` alongside the VIS 2 build. It uses the VIS 1 EJS and `vis.binds` APIs. The vendored Leaflet files must remain synchronized with the `leaflet` version in `src-widgets/package.json`.
 
@@ -155,6 +161,9 @@ output, run the same command without `--dryRun` and `--noPush`. The release scri
 creates the release commit and annotated tag, and pushes them. The tag then triggers the Trusted Publishing workflow.
 
 ## Local ioBroker development server
+
+The Git-pinned `@iobroker/dev-server` fork is intentional and must not be replaced as part of repository-checker maintenance (#387).
+Test helpers (Mocha, Chai, Sinon, their plugins and types) are provided by `@iobroker/testing`; do not duplicate them in root devDependencies.
 
 The project uses `@iobroker/dev-server` for local integration testing:
 

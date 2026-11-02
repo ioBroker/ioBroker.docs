@@ -48,6 +48,10 @@ On a development host you can sync a local clone with `UPDATE_ON_PI.sh` (for mai
 
 ## Changelog
 
+### 0.5.6
+* (Fraese73) Repository checker updates: Node 26 CI tests, `@iobroker/testing` 6.x, adapter-core 3.4.3, full LICENSE text
+* (Fraese73) Add adminTab name keys for all 11 languages; Dependabot and root tsconfig
+
 ### 0.5.5
 * (Fraese73) Add alert states per tracker (`alerts.trackerOffline`, `alerts.lowBattery`, `alerts.noRecentPosition`, `alerts.minutesSinceLastSeen`)
 * (Fraese73) Add structured geofence states per tracker (`geofences.<id>.id|name|active|enteredAt|leftAt`, plus `count`/`idsJson`)
@@ -82,13 +86,13 @@ On a development host you can sync a local clone with `UPDATE_ON_PI.sh` (for mai
 ### 0.2.10
 * (Fraese73) Trusted Publishing release with provenance; news limited to npm versions
 
-Older entries: `docs/CHANGELOG_OLD.md`
+Older entries: `CHANGELOG_OLD.md`
 
 ## License
 
 MIT License
 
-Copyright (c) 2026 Fraese73
+Copyright (c) 2026 Fraese73 <coding@michael-fr.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

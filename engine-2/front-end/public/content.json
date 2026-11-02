@@ -754,7 +754,7 @@
           "title": {
             "en": "Editors",
             "de": "Admin und Editieren",
-            "ru": "Администратор и редакторы"
+            "ru": "Администрация и редакторы"
           },
           "content": "cloud/editor.md"
         },
@@ -1301,7 +1301,7 @@
               "title": {
                 "en": "WebStorm",
                 "de": "WebStorm",
-                "ru": "Веб-Шторм"
+                "ru": "Вебстор"
               },
               "content": "dev/webstorm.md"
             },
@@ -1385,7 +1385,7 @@
           "title": {
             "en": "Style Guide Adapter-Doc",
             "de": "Dokumentation-Styleguide",
-            "ru": "Руководство по стилю документации"
+            "ru": "Руководство по стилю оформления документации"
           },
           "content": "dev/adapterdocstyleguide.md"
         },

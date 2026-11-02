@@ -95,6 +95,9 @@ Aggregates the tibberlink `jsonDaily` consumption data for the current calendar 
 | `tib_darkmode` | `true` | Dark (default) or light theme |
 
 ## Changelog
+### 0.5.1 (2026-10-12)
+* (ssbingo) Update dev dependencies (@module-federation/vite 1.23.1, Vite 8.3.2, @iobroker/testing 6.3.0) and rebuild the widget bundle. Confirmed ready for vis-2 on React 19 and MUI 9: the build shares react and react/jsx-runtime with vis-2 and uses neither MUI nor adapter-react-v5
+
 ### 0.5.0 (2026-09-25)
 * (ssbingo) Switch the widget build from @originjs/vite-plugin-federation to @module-federation/vite, the Module Federation 2 runtime vis-2 itself uses. The bundle now ships mf-manifest.json and shares react and react/jsx-runtime with vis-2 instead of bundling its own copy, which is what vis-2 checks before it loads a widget set
 

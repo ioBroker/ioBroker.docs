@@ -115,23 +115,23 @@ Now they could be found in `cloud.X.devices.NAME`:
 -->
 
 ## Changelog
+### 6.2.11 (2026-10-16)
+* (@GermanBluefox) The adapter is stopped with `terminate()` only, `process.exit()` is no longer used (compact mode)
+* (@GermanBluefox) Added the missing translations and the Ukrainian words for the blockly block
+* (@GermanBluefox) Corrected the responsive sizes of the settings dialog
+* (@GermanBluefox) Removed the unused dependency `cookie-parser`
+
+### 6.2.10 (2026-10-14)
+* (@GermanBluefox) Corrected the loading of materialized configurations on ioBroker.pro
+
+### 6.2.8 (2026-10-12)
+* (@GermanBluefox) The states `alive` and `onScreen` of an app device are corrected to type boolean if an earlier version created them as string, so values written to them are no longer refused
+
+### 6.2.7 (2026-10-10)
+* (@GermanBluefox) Added buttons to check if the applications are running and reachable
+
 ### 6.2.6 (2026-09-28)
 * (@GermanBluefox) Added new App state: onScreen
-
-### 6.2.5 (2026-09-24)
-* (@GermanBluefox) A POST body that arrives as a buffer is decoded instead of stringified, so the telemetry of the visu apps is no longer lost on its way through the cloud
-* (@GermanBluefox) An empty body for a reported value, and a command without `deviceName`/`name`, are logged instead of being dropped silently
-
-### 6.2.4 (2026-09-21)
-* (@GermanBluefox) Updated packages
-
-### 6.2.1 (2026-09-17)
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Clear subscriptions on cloud disconnection
-
-### 6.1.3 (2026-08-26)
-- (copilot) Adapter requires node.js >= 22 now
-- (copilot) Migrated blockly to TypeScript
 
 ## License
 The MIT License (MIT)

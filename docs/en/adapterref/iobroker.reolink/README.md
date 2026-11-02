@@ -116,23 +116,22 @@ Battery cameras (Argus PT, Argus 3 Pro, ...) use a proprietary protocol and are 
 
 ### Battery Camera States
 
-| State | Type | R/W | Description |
-|---|---|---|---|
-| `streams.enable` | boolean | R/W | Start/stop RTSP stream |
-| `streams.mainStream` | string | R | RTSP URL for main stream |
-| `streams.subStream` | string | R | RTSP URL for sub stream |
-| `mqtt.enable` | boolean | R/W | Start/stop MQTT integration |
-| `floodlight` | boolean | R/W | Floodlight on/off — status via MQTT, control via MQTT (auto-starts MQTT) |
-| `pir` | boolean | R/W | PIR sensor on/off — status via MQTT, control via MQTT (auto-starts MQTT) |
-| `snapshot` | button | W | Capture snapshot via RTSP |
-| `query.battery` | button | W | Query battery level via neolink CLI |
-| `query.preview` | button | W | Capture snapshot via RTSP |
-| `ptz.preset` | number | R/W | Move camera to saved preset position (0–9) |
-| `ptz.up/down/left/right` | boolean | R/W | Hold-to-move (`true`=start, `false`=stop) |
-| `ptz.speed` | number | R/W | PTZ movement speed (1–100, default 32) |
-| `status.motion` | boolean | R | Motion detected (via MQTT) |
-| `status.battery_level` | number | R | Battery level in % (via neolink CLI, periodic) |
-
+| State                    | Type    | R/W | Description                                                              |
+|--------------------------|---------|-----|--------------------------------------------------------------------------|
+| `streams.enable`         | boolean | R/W | Start/stop RTSP stream                                                   |
+| `streams.mainStream`     | string  | R   | RTSP URL for main stream                                                 |
+| `streams.subStream`      | string  | R   | RTSP URL for sub stream                                                  |
+| `mqtt.enable`            | boolean | R/W | Start/stop MQTT integration                                              |
+| `floodlight`             | boolean | R/W | Floodlight on/off — status via MQTT, control via MQTT (auto-starts MQTT) |
+| `pir`                    | boolean | R/W | PIR sensor on/off — status via MQTT, control via MQTT (auto-starts MQTT) |
+| `snapshot`               | button  | W   | Capture snapshot via RTSP                                                |
+| `query.battery`          | button  | W   | Query battery level via neolink CLI                                      |
+| `query.preview`          | button  | W   | Capture snapshot via RTSP                                                |
+| `ptz.preset`             | number  | R/W | Move camera to saved preset position (0–9)                               |
+| `ptz.up/down/left/right` | boolean | R/W | Hold-to-move (`true`=start, `false`=stop)                                |
+| `ptz.speed`              | number  | R/W | PTZ movement speed (1–100, default 32)                                   |
+| `status.motion`          | boolean | R   | Motion detected (via MQTT)                                               |
+| `status.battery_level`   | number  | R   | Battery level in % (via neolink CLI, periodic)                           |
 | `snapshotImage` | string | R | Last snapshot image (base64, data URI) |
 | `snapshotStatus` | string | R | Snapshot status: `idle` / `capturing` / `success` / `error` |
 | `info.neolink_status` | string | R | neolink process state: `stopped` / `running` |
@@ -184,27 +183,55 @@ Control topics (published by adapter to camera):
 
 ### Troubleshooting
 
-| Problem | Solution |
-|---|---|
-| "Camera UID required" | Enter UID from Reolink app → Device Info |
-| "libgstrtspserver not found" | `sudo apt install gstreamer1.0-rtsp` |
-| Stream won't connect | Enable `streams.enable`, wait ~5 s for neolink to start |
-| Snapshot fails | Install ffmpeg: `sudo apt install ffmpeg` |
-| Floodlight/PIR doesn't react | MQTT starts automatically — wait ~3 s after toggling |
-| MQTT `NotAuthorized` | Check broker credentials; neolink uses `credentials = ["user", "pass"]` format |
-| Battery drains fast | Disable streaming when not in use; use MQTT only for motion |
-| PTZ unresponsive | Each PTZ command needs ~2 s (P2P camera login) — this is normal |
+| Problem                      | Solution                                                                       |
+|------------------------------|--------------------------------------------------------------------------------|
+| "Camera UID required"        | Enter UID from Reolink app → Device Info                                       |
+| "libgstrtspserver not found" | `sudo apt install gstreamer1.0-rtsp`                                           |
+| Stream won't connect         | Enable `streams.enable`, wait ~5 s for neolink to start                        |
+| Snapshot fails               | Install ffmpeg: `sudo apt install ffmpeg`                                      |
+| Floodlight/PIR doesn't react | MQTT starts automatically — wait ~3 s after toggling                           |
+| MQTT `NotAuthorized`         | Check broker credentials; neolink uses `credentials = ["user", "pass"]` format |
+| Battery drains fast          | Disable streaming when not in use; use MQTT only for motion                    |
+| PTZ unresponsive             | Each PTZ command needs ~2 s (P2P camera login) — this is normal                |
+
+## Doorbell Cameras
+
+Wired Reolink doorbells use the standard HTTP API plus ONVIF for ring detection. Enable **"Doorbell camera"** in the adapter config to add doorbell-specific states. (This is independent of the battery-camera option.)
+
+| State                       | Type    | R/W | Description                                                                         |
+|-----------------------------|---------|-----|-------------------------------------------------------------------------------------|
+| `sensor.visitor.state`      | boolean | R   | Doorbell button pressed (ring) — delivered via ONVIF event (auto-clears after 10 s) |
+| `sensor.visitor.support`    | boolean | R   | Whether the camera reports a `visitor` AI type via HTTP (model-dependent)           |
+| `doorbell.audioFileList`    | string  | R   | JSON list of stored audio files (`id`, `fileName`, ...) for quick/auto reply        |
+| `doorbell.quickReplyPlay`   | number  | W   | Write an audio file `id` to make the doorbell play that message                     |
+| `doorbell.autoReplyEnabled` | boolean | R/W | Enable/disable automatic reply when the doorbell rings                              |
+| `doorbell.autoReplyFileId`  | number  | R/W | Audio file `id` played as auto reply (see `doorbell.audioFileList`)                 |
+| `doorbell.autoReplyTimeout` | number  | R/W | Seconds after the ring before the auto reply is triggered                           |
+
+Look up the available file ids in `doorbell.audioFileList`, then use that id for `doorbell.quickReplyPlay` or `doorbell.autoReplyFileId`.
+
+### Ring detection (ONVIF)
+
+On most Reolink doorbells the button press is **not** available through the HTTP polling API (`GetAiState` has no `visitor` field). The adapter therefore opens an **ONVIF PullPoint subscription** and listens for the `visitor` event — when someone rings, `sensor.visitor.state` is set to `true` (and auto-clears after 10 s). React to that state change in your scripts/automations.
+
+- Requires **ONVIF enabled** on the camera (Reolink app → Settings → Network → Advanced → ONVIF).
+- Set the **ONVIF Port** in the adapter config (Reolink default: `8000`).
+- No inbound port / webhook on the ioBroker host is needed — the adapter long-polls the camera.
 
 ---
 
 ## Known Working Cameras
 
 ### HTTP API (Standard)
-RLC-420-5MP, E1 Zoom, RLC-522, RLC-810A, RLC-823A, Duo 3 PoE
+RLC-420-5MP, E1 Outdoor, E1 Zoom, RLC-522, RLC-810A, RLC-823A, Duo 3 PoE
 
 ### Battery Cameras (via Neolink)
 
 Reolink Argus PT, Reolink Argus 3 Pro  
+
+### Doorbells (HTTP API + ONVIF ring detection)
+
+Reolink Video Doorbell PoE (D340P)  
 
 ---
 
@@ -213,6 +240,10 @@ Reolink Argus PT, Reolink Argus 3 Pro
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.4.3 (2026-10-27)
+* (@GermanBluefox) Doorbell support: ring detection via ONVIF events (`sensor.visitor.state`), quick reply and auto reply (enable via "Doorbell camera" in config; requires ONVIF enabled on the camera)
+* (oelison) Adapter requires node.js >= 22 now
+
 ### 1.4.2 (2026-03-16)
 * (oelison) fast fix for issue #230
 
@@ -229,54 +260,6 @@ Reolink Argus PT, Reolink Argus 3 Pro
 * (bluefox) migration to ts
 * (bot) revoking classic token #204
 * (oelison) state changes from info log to debug #206
-
-### 1.2.3 (2025-06-30)
-* (oelison) settings email notification #170
-* (oelison) testing node.js 24 #172
-
-### 1.2.2 (2025-05-01)
-* (oelison) update readme #141 #155
-* (oelison) supress errors with axios timeout #154
-
-### 1.2.1 (2025-02-09)
-* (oelison) set some errors to debug logs
-
-### 1.2.0 (2025-02-07)
-* (oelison) update disk info
-* (oelison) uri enconding is switchable (helps sometimes by one special char)
-* (oelison) #28 PTZ check added
-
-### 1.1.2 (2024-09-14)
-* (oelison) [#22](https://github.com/aendue/ioBroker.reolink/issues/22) password with some more special chars works now
-* (oelison) adapter warnings resolved
-
-### 1.1.1 (2024-08-03)
-* (oelison) removed warnings from adapter check
-* (olli) added ftp support
-* (oelison) channel now distinguishing most requests
-* (oelison) [#79](https://github.com/aendue/ioBroker.reolink/issues/79) error messages with more info where
-
-### 1.1.0 (2024-05-16)
-* (Nibbels) [#56](https://github.com/aendue/ioBroker.reolink/issues/56) added function to switch scheduled recording on and off
-* (Nibbels) [#25](https://github.com/aendue/ioBroker.reolink/issues/25) detach led light from led light mode
-* (Nibbels) added setWhiteLedMode function
-* (Nibbels) read zoom and focus with POST request (works on RLC-823A v3.1)
-* (oelison) removed node 16
-
-### 1.0.3 (2024-01-21)
-* (oelison) [#49](https://github.com/aendue/ioBroker.reolink/issues/49)
-* (oelison) [#47](https://github.com/aendue/ioBroker.reolink/issues/47)
-
-### 1.0.2 (2023-12-19)
-* (oelison) known working cameras added
-* (oelison) setIrLights accept "On" now
-* (oelison) [#40](https://github.com/aendue/ioBroker.reolink/issues/40)
-* (oelison) [#42](https://github.com/aendue/ioBroker.reolink/issues/42)
-
-### 1.0.1 (2023-11-11)
-* (oelison) resolve review for latest adapter addition
-* (oelison) maybe the last node 16 version
-* (oelison) booleans are now false/true and not 0/1
 
 ## License
 MIT License

@@ -201,6 +201,9 @@ battery life of a PRIOS meter is reported in months rather than in years.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.14.1 (2026-10-21)
+* (ChL) Fix the CUL receiver leaving the LQI at the end of every telegram: culfw appends the LQI and the RSSI, but only the RSSI was taken off. Telegrams of frame type B then failed with "Telegram data is too short!" and the meter was blocked after 10 of them (#325)
+
 ### 0.14.0 (2026-09-26)
 * (ChL) Every data state remembers the data record it was created for, and a value of a different record at the same position of a telegram is skipped instead of being written to it
 * (ChL) Name, unit and role of the data states follow the decoded telegram as long as nobody changed them; names you gave a state and states of earlier versions stay as they are, and the new option "Overwrite name, unit and role of the data states" sets them all back
@@ -221,12 +224,6 @@ battery life of a PRIOS meter is reported in months rather than in years.
 
 ### 0.12.3 (2026-09-07)
 * (ChL) Fix the CUL initialisation on the receivers that lose the first byte written after the line has been idle: every command is now sent with a separator in front of it, which is what gets lost instead of the command letter, and setting the mode waits for its confirmation rather than failing on a line that crossed it (#312)
-
-### 0.12.2 (2026-09-05)
-* (ChL) Add an option to only handle devices that already have an object tree, so that no new devices are created and no telegram of a device without one is reported
-* (ChL) Remember the record layout of a device, so that its compact telegrams are decoded right after a restart of the adapter
-* (ChL) Update wireless-mbus-parser to 1.3.1, which fixes the date of the current reading of a Techem meter - it used to be stamped with the year it was decoded in rather than with the year of the meter
-* (ChL) Report at the log level the message deserves: a receiver that stays away no longer writes an error with every attempt, what the hardware says about itself is a warning, and the noise of the air is debug
 
 ## License
 

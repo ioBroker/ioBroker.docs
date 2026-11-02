@@ -34,26 +34,32 @@ See also the [Spotify Developer API Documentation](https://developer.spotify.com
 
 ### Setup / Authorization
 1. Sign in on https://developer.spotify.com/dashboard/
-2. Create an application, you get a Client ID and a Client Secret (see [instruction](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/blob/master/docs/create_app.png))
-3. Set the redirect URIs to `https://oauth2.iobroker.in/spotify` in your app settings at your created spotify application
-4. Put the Client ID and Client Secret in the fields down below
-5. Start the instance
-6. Switch to the object tab and push the button getAuthorization at `spotify-premium.0.authorization`
-7. Copy the appearing URL from `spotify-premium.0.authorization.authorizationUrl` to your webbrowser and call it
-8. You maybe need to sign in to spotify and grant access
-9. The browser will be redirected to an invalid URL. If the error `invalid redirect uri` occurs please verify step 3
-10. Copy that url and put it to `spotify-premium.0.authorization.authorizationReturnUri`
-11. The value in `spotify-premium.0.authorization.authorized` turns to true if everything was successful
+2. Create an application, you get a Client ID and a Client Secret (see [instruction](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/blob/master/docs/create_app.png)). Select **Web API** as the API used by the app
+3. Set the redirect URI to `https://oauth2.iobroker.in/spotify` in the settings of your Spotify application
+4. Open the instance settings of the adapter in the ioBroker admin and enter the Client ID and Client Secret
+5. Save the settings and click the button **Get Spotify access**
+6. Follow the authorization in the popup window (you may need to sign in to Spotify and grant access)
+7. The value in `spotify-premium.0.authorization.authorized` turns to true if everything was successful
+
+There is no `getAuthorization` button in the objects anymore, the authorization is done only in the instance settings.
+If you open `https://oauth2.iobroker.in/spotify` directly in the browser, you will see `Internal Server Error` - this is expected, the URL works only as a redirect target of the Spotify login.
 
 We must provide an HTTPS redirect URI as from December 2025 spotify does not allow non-secure URIs anymore.
 
-#### [Video tutorial](https://www.youtube.com/watch?v=n0m9201qABU)
+Since July 2026 Spotify refresh tokens expire after 6 months. When this happens, the adapter logs an error, sets `spotify-premium.0.authorization.authorized` to false, writes the reason to `spotify-premium.0.authorization.error` and stops polling. Just authorize the adapter again in the instance settings.
+
+Spotify apps in Development Mode can only read playlists owned by the authorized user. Other playlists (e.g. followed playlists of other users) answer with `403 Forbidden`; the adapter logs this once on info level and skips these playlists.
+
+#### [Video tutorial](https://www.youtube.com/watch?v=n0m9201qABU) (shows an older version of the authorization)
 [![How to authorize](https://img.youtube.com/vi/n0m9201qABU/0.jpg "https://www.youtube.com/watch?v=n0m9201qABU")](https://www.youtube.com/watch?v=n0m9201qABU)
 
 ### States
 All states are described in admin.
 
 ### VIS usage examples
+The adapter provides only 5 own VIS widgets (widget set `spotify-premium`): **Play/Pause**, **Previous**, **Next**, **Repeat** and **Shuffle**.
+All other examples below are built with the standard widgets of the `jqui` and `basic` widget sets (e.g. `tplJquiSelectList`, `tplJquiButtonState`, `tplValueStringImg`) and the states of this adapter.
+
 Click for the widget source.
 <details>
   <summary>Start one specific playlist<br/><img src="docs/en/img/choose_playlist.png"></summary>
@@ -105,6 +111,13 @@ Click for the widget source.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.1.0 (2026-10-26)
+* (GermanBluefox) Use /playlists/{id}/items instead of the removed /tracks endpoint (Spotify API change Feb 2026); 403 on single playlists no longer sets the instance to error (#630)
+* (GermanBluefox) Handle expired/revoked refresh tokens (`invalid_grant`, Spotify limits refresh tokens to 6 months since July 2026): the token is discarded, polling stops and the user is asked to authorize again instead of retrying the refresh (#588)
+* (GermanBluefox) State roles corrected according to the ioBroker role definitions (e.g. `text`, `indicator`, `json` instead of `value`), existing objects are updated on start (#628)
+* (GermanBluefox) Podcast episodes are shown in the player states (episode as track, show as album, publisher as artist); `player.playUri` also accepts single track or episode URIs like `spotify:episode:...` (#260)
+* (GermanBluefox) Timers and waits use the adapter methods (`this.setTimeout`, `this.delay`), so they are cleaned up when the adapter stops
+
 ### 3.0.1 (2026-06-21)
 - (mcm1957) Linter issues fixed blocking release process
 - (mcm1957) Dependencies have been updated
@@ -121,17 +134,6 @@ Click for the widget source.
 ### 2.0.1 (2026-03-31)
 - (@GermanBluefox) Rewrite adapter to TypeScript
 - (@GermanBluefox) An Authorization process was changed and user must authenticate anew
-
-### 1.6.0 (2026-02-28)
-- (mcm1957) Issues reported by repository checker have been fixed
-- (mightymurphy) stabilized token refresh and improved widget behavior
-- (copilot) Adapter requires admin >= 7.7.22 now
-- (aruttkamp) Merge pull request 522 from mightymurphy and 521 from michiproep
-- (copilot) Improved error handling and logging for token refresh
-- (copilot) Device polling now continues during temporary authentication issues (401) instead of stopping.
-- (copilot) Next Track button widget name corrected
-- (copilot) Widget image paths fixed to use `/vis/widgets/` instead of a relative path for proper display in VIS
-- (mcm1957) Dependencies have been updated
 
 ## License
 The MIT License (MIT)

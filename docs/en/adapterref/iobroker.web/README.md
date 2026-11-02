@@ -299,6 +299,17 @@ This is off by default. When enabled:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 9.1.16 (2026-10-21)
+* (@GermanBluefox) The list of applications carries `cloud` from `common.localLinks` of the adapters. Before, only `pro` was taken over as `true`/`false`, so the free cloud could not tell that an entry like the vis-2 runtime works there too and hid it
+
+### 9.1.15 (2026-10-14)
+* (@GermanBluefox) Pages of adapters load from the browser cache and still show a new version at once: the chunks with a content hash in their name (`assets/*-<hash>.js`) are kept for a year, everything else - `index.html`, `config.js`, `remoteEntry.js`, ... - is asked for on every load and answered with 304 while unchanged. Before, every file was kept for 60 seconds, so the chunks were asked for again and again, and a new `index.html` could come late
+* (@GermanBluefox) Files of adapters and instances are compressed once and then kept compressed (up to 64 MB, keyed by their content), instead of being compressed anew on every request. Measured on a desktop: a chunk of 1.8 MB was read in 7 ms and compressed in 100 ms, on every load of every client - on a Raspberry Pi that is seconds of CPU for one cold page load, during which every other request waited. Brotli runs with quality 5 instead of 4 now, which is smaller, since it is paid once
+
+### 9.1.14 (2026-10-11)
+* (@GermanBluefox) Fixed the lost body of `POST /state/...` with authentication enabled: the app's values arrived empty ("Empty body for ...")
+* (@GermanBluefox) Fixed the crash `server.shouldUpgradeCallback is not a function` on WebSocket connections over HTTP/1.1 with HTTP/2 enabled
+
 ### 9.1.12 (2026-10-04)
 * (@GermanBluefox) Fixed: with the cache enabled, a file that an adapter writes again under the same name is delivered anew instead of forever in the version that was read first. This is what made `sayit` repeat the same announcement. The cache had no way of learning about a change at all - the adapter never subscribed to the files it had cached. It does now, for those namespaces only, and drops the entry when the file changes
 * (@GermanBluefox) Fixed: an adapter that runs as a web extension is linked to this server on the overview page instead of to a port of its own that nothing listens on. The entry such an adapter supplies through `welcomePage()` was collected after the list had already been cleaned up and its links resolved, so it never got the `localLink` the page reads and was dropped without a word, leaving only the dead link from `common.localLinks` behind
@@ -313,18 +324,6 @@ This is off by default. When enabled:
 ### 9.1.11 (2026-10-02)
 * (@hdering) Updating an adapter with a web extension restarts only the web instances that run it, not every web instance
 * (@GermanBluefox) Fixed: a user the "User list" lets in through a group is let in no matter which of their groups it is. Only the first group the user was a member of got compared against the allowed ones, so a user in several groups was rejected whenever that first group was not the listed one. The order of the groups is their creation order, which made this look arbitrary
-
-### 9.1.9 (2026-09-28)
-* (@GermanBluefox) Added onScreen state for App
-
-### 9.1.8 (2026-09-24)
-* (@GermanBluefox) An empty body for `cloud.X.remote.command` is refused with a 400 instead of writing an empty command that is dropped without a word
-
-### 9.1.7 (2026-09-21)
-* (@joltcoke) Fixed: after the login the user lands on the page they asked for again, even when its URL carries a query string. The target was validated after it had been decoded, against a character list without "=", so every real query parameter sent the user to the root instead. A fragment of the requested URL is kept as well
-* (@GermanBluefox) Fixed: a mistyped password leads back to the login page with the error message instead of a 404, and the requested page is not lost on the way
-* (@GermanBluefox) Fixed: a deep link that was answered with a JavaScript file keeps its whole query string - it was cut off at the first "&"
-* (@GermanBluefox) A target with a control character in it is refused again: browsers drop tab and newline before they read a URL, which turned "/<TAB>/host" into a link that leaves this server
 
 ## License
 The MIT License (MIT)

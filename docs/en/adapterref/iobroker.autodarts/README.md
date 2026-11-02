@@ -60,6 +60,7 @@ Connects to Autodarts and exposes ioBroker states for home automation:
 - **`system.software.*`**: Autodarts versions (boardVersion, desktopVersion), OS and platform details
 - **`system.hardware.*`**: CPU model, kernel architecture, hostname
 - **`system.cams.cam0/1/2`**: Camera configuration (width, height, fps) as JSON
+- **`system.cams.calibrate`**: Button to start auto camera calibration via the local Board Manager API (`POST /api/config/calibration/auto`). Uses **Board host/IP** and **Port** from Options (works in local and cloud mode if `:3180` is reachable).
 
 ### Hardware Control
 - **`system.hardware.light`**: Control board lighting (bidirectional with external states)
@@ -99,11 +100,11 @@ In **OPTIONS** you configure how the adapter connects to Autodarts:
   - `local` — poll the board client on your LAN (`IP:port`, default for Autodarts before v2)  
   - `cloud` — Autodarts account + board ID (required for Autodarts v2 throw detection)
 
-- **Board host/IP** (local mode)  
-  IP address of your Autodarts PC (e.g. `192.168.178.50` or `127.0.0.1`).
+- **Board host/IP**  
+  IP address of your Autodarts PC (e.g. `192.168.178.50` or `127.0.0.1`). Used for local polling and for camera calibration (also in cloud mode).
 
-- **Port** (local mode)  
-  TCP port of the board client (usually `3180`).
+- **Port**  
+  TCP port of the local board API (usually `3180`). Needed for local mode and for `system.cams.calibrate`.
 
 - **Cloud email / password / board ID** (cloud mode)  
   Your Autodarts login and the board ID from **My Boards** on [play.autodarts.io](https://play.autodarts.io).  
@@ -152,9 +153,9 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 - This adapter is designed to work only with your own dartboard.
 
 ## Changelog
-<!--
-	### **WORK IN PROGRESS**
--->
+### 1.2.0 (2026-10-15)
+- (skvarel) Added `system.cams.calibrate` button to start auto camera calibration via local Board Manager API
+
 ### 1.1.1 (2026-10-03)
 - (skvarel) Listed cloudPassword in protectedNative and replaced plain setTimeout in tools pulse helper (fixes #94)
 
@@ -168,11 +169,6 @@ In **HELP & FAQ** you will find general information and help about the adapter a
 
 ### 1.0.11 (2026-06-10)
 - (skvarel) Added meta object types for adapter and instance namespace
-
-### 1.0.10 (2026-06-05)
-- (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
-- (skvarel) Updated @alcalzone/release-script to 5.2.1 (fixes #59)
-- (skvarel) Replaced plain setInterval() and setTimeout() with adapter-managed this.setInterval(), adapter.setTimeout() and corresponding clear methods (fixes #59)
 
 ## License
 MIT License

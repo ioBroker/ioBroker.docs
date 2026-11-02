@@ -50,23 +50,13 @@ Or you can allow the ping execution by `sudo setcap cap_net_raw+ep /bin/ping` co
 
 You must install `setcap` with `sudo apt-get install libcap2-bin` before if `setcup` not found.
 
-## hping3 support for sleeping devices (e.g. iPhones)
+## Waking sleeping devices (e.g. iPhones)
 
-Some devices, particularly iPhones in deep sleep mode, do not respond to standard ICMP ping. To detect such devices reliably, the adapter can use `hping3` to send a burst of UDP packets to port 5353 (mDNS) which wakes the device, followed by a regular ping to confirm reachability.
+Some devices, particularly iPhones in deep sleep mode, do not respond to standard ICMP ping. To detect such devices reliably, the adapter can send a burst of 10 empty UDP packets to port 5353 (mDNS) which wakes the device, waits one second and then performs a regular ping to confirm reachability.
 
-Enable **"Use hping3"** for individual devices in the Devices table. The adapter runs:
+Enable **"Wake before ping"** for individual devices in the Devices table.
 
-```
-hping3 -2 -c 10 -p 5353 -i u1 -q <IP>
-```
-
-…then immediately performs a regular ICMP ping. If hping3 is not installed, the adapter falls back to regular ping automatically.
-
-**Installation (Linux only):** Enable **"Install hping3 if not available"** in the main settings. The adapter will run `sudo apt-get install -y hping3` on startup if hping3 is not yet present on the system. Alternatively, install it manually:
-
-```bash
-sudo apt-get install hping3
-```
+The burst is sent by the adapter itself (the same as `hping3 -2 -c 10 -p 5353 -i u1 -q <IP>`), so no additional tool has to be installed and it works on every platform.
 
 ## TCP Port Check
 
@@ -116,12 +106,22 @@ setState('ping.0.myHost.192_168_1_1', false);
 setState('ping.0.myHost.192_168_1_1', true);
 ```
 
+## Changelog
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
-## Changelog
+### 3.1.4 (2026-10-13)
+- (@GermanBluefox) Replaced `hping3` with a native UDP burst to wake sleeping devices, so nothing has to be installed anymore and it works on all platforms (#400)
+
+### 3.1.3 (2026-10-13)
+- (@GermanBluefox) Fixed lint error after GUI package update (3.1.2 was not published to npm)
+
+### 3.1.2 (2026-10-13)
+- (@GermanBluefox) Updated packages and added missing translations
+
 ### 3.1.1 (2026-09-01)
 - (@GermanBluefox) Ping says now when this host may not send ICMP at all instead of reporting every device as offline
 - (@GermanBluefox) Added an optional TCP check that keeps the devices monitored on such a host (LXC container)
@@ -129,17 +129,6 @@ setState('ping.0.myHost.192_168_1_1', true);
 ### 3.0.1 (2026-08-03)
 - (copilot) Breaking: Adapter requires node.js >= 22 now
 - (@GermanBluefox) Migrated for Admin 8
-
-### 2.2.4 (2026-05-16)
-- (@GermanBluefox) Fixing devices widgets
-
-### 2.2.2 (2026-04-30)
-- (@GermanBluefox) Added support for device manager
-- (@GermanBluefox) Added devices widgets
-
-### 2.1.0 (2026-03-04)
-- (@GermanBluefox) Implemented wake-on-lan functionality
-- (@GermanBluefox) Implemented pings with hping3 for sleeping devices (e.g. iPhones)
 
 ## License
 

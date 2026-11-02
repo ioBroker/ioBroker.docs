@@ -88,15 +88,33 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
    - Restart the Adapter
 3. Sync never meant the Dataexchange of the Symbols. Sync is the create or delete the States in ioBroker dependent on the GlobalVariableTable in the PLC.
 
+## Connection recovery
+
+The target address accepts IPv4 or a hostname. `adsTimeout` configures each ADS request (default 500 ms); `reconnectInterval` configures the reconnect/status-check interval (default 15 seconds).
+
+`cacheSymbolTable` reuses in-memory symbol metadata after short outages (enabled by default). `symbolCacheMaxAge` limits the outage duration to 300 seconds by default. Reconnects always recreate ADS handles and notifications and read current values. Symbol-version changes, observed STOP/RUN transitions, failed cached subscriptions/reads and `ioBrokerResync` changes force a full synchronization. Missing write acknowledgements refresh values without downloading metadata or replaying writes.
+
+The symbol version is an 8-bit counter. A restart or counter wrap during an unobserved outage may reuse the same number. Disable caching or update a PLC `ioBrokerResync` counter on startup/program changes if this can occur. The outage limit is not a unique program-identity check.
+
+## TPY upload
+
+For TwinCAT 2 <= v2.11.2240, upload and select a `.tpy` file. The adapter reads it from `beckhoff.<instance>.tpy` on startup. A selected file takes precedence over `xmlTpyData`; clear the selection to use the existing XML contents. Update the file whenever PLC symbol definitions change.
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.0.0 (2026-10-19)
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
+- (zonfacter) Reuse validated symbol metadata after short reconnects, renew ADS handles and refresh values; fully synchronize on metadata changes, observed PLC stops or expired caches
+- (zonfacter) Add a configurable ADS request timeout and hostname support; preserve variable-table prefix matching and existing object mappings
+- (zonfacter) Migrate to responsive jsonConfig with native TPY upload, persistent filename feedback and packaged translations; retain legacy XML and TPY paths
+- (zonfacter) Prepare a named TPY file directory without removing originals or overwriting differing files; support configuration requests through supportedMessages.custom
+- (zonfacter) Isolate compact-mode sessions, reject stale callbacks and avoid a metadata reload when only a write acknowledgement is missing
+- (zonfacter) Fix synchronization when a metadata notification arrives during the final connection-state write
+- (mcm1957) Dependencies have been updated
 
 ### 1.7.0 (2026-02-12)
 - (mcm1957) Adapter requires node.js >= 20 now
@@ -117,59 +135,6 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
 ### 1.5.3-alpha.0 (2023-10-29)
 
 - (mcm1957) Standard test environment has been updated
-
-### 1.5.2 (2023-03-21)
-
-- (dkleber89) Fix Adapter Checker Issues
-
-### 1.5.1 (2022-03-19)
-
-- (PLCHome) Add TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME and DT support
-- (PLCHome) Support for strings with all char length
-
-### 1.5.0 (2021-09-28)
-
-- (dkleber89) Process next state in list when register subscriptions not before the previous is finish processed in plc
-
-### 1.4.1 (2021-06-13)
-
-- (dkleber89) Some little Adapter maintenance
-
-### 1.4.0 (2021-01-25)
-
-- (dkleber89) Add LREAL Support
-
-### 1.3.0 (2021-01-25)
-
-- (dkleber89) Set correct type for channels
-
-### 1.2.2 (2020-05-30)
-
-- (dkleber89) Clear reconnectTimeout on Adapter unload;
-
-### 1.2.1 (2020-04-20)
-
-- (dkleber89) Add CI over Github Actions; Update Dependencies;
-
-### 1.2.0 (2020-01-02)
-
-- (dkleber89) Add Support for Strings with fixed length to 80 Chars
-
-### 1.1.0 (2019-11-12)
-
-- (dkleber89) Add Support for older TwinCat2 Systems with no autosync
-
-### 1.0.7 (2019-10-25)
-
-- (dkleber89) Add Support for Compact Mode -> JS Controller >= 2.0.0
-
-### 1.0.6 (2019-08-11)
-
-- (dkleber89) Add check change of Datatype on resync
-
-### 1.0.5 (2019-08-10)
-
-- (dkleber89) Eslint, Prettier with Airbnb Codestyle, CI adopted, little random changes in Project Structure
 
 ## License
 

@@ -34,11 +34,30 @@ It is designed to receive data from XSense smoke detectors, CO detectors, and ot
 The adapter communicates with the XSense cloud server and provides an easy way to integrate XSense devices into existing ioBroker setups.  
 An XSense Bridge SBS50 is required.
 
+### SBS50 alarm mode support
+
+For SBS50 base stations the adapter now exposes the same core alarm state data that the X-Sense app uses:
+
+- `safeMode` – current station mode (`Disarmed`, `Home`, `Away`)
+- `requestedSafeMode` – last requested app mode
+- `force_arm_pending` – true when a confirmation is waiting because sensors are open
+- `force_arm_mode` – the pending mode to confirm
+- `force_reason` – notably reason text if the app sends it
+
+The adapter also creates station-level commands for quick control:
+
+- `disarm`
+- `arm_home`
+- `arm_away`
+
+These button states send the corresponding shadow request to the `2nd_appmode` endpoint and keep the station state in sync.
+
 ---
 
 ## ❗ WARNING
 The adapter is **not** intended for alarm purposes — it is primarily for monitoring the device battery status.
-I accept no liability if the place burns down.
+
+ I accept no liability if the place burns down.
 
 ---
 
@@ -98,7 +117,12 @@ or if you have a VM on proxmox check your CPU settings
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.6.8 (2026-10-25)
+* (arteck) Dependencies have been updated
+* (arteck) add SBS50-Alarmstatus
+* (arteck) more MQTT messages from devices
+
+### 0.6.7 (2026-10-20)
 * (arteck) Dependencies have been updated
 * (arteck) update new Devices
 * (arteck) add fire_drill_alarm for devices that support it
@@ -114,13 +138,6 @@ or if you have a VM on proxmox check your CPU settings
 * (arteck) fix orphaned states without house folder from MQTT messages for stations not yet known (startup race and newly added devices)
 
 ### 0.6.4 (2026-06-22)
-* (arteck) Dependencies have been updated
-
-### 0.6.3 (2026-05-20)
-* (arteck) Dependencies have been updated
-
-### 0.6.2 (2026-05-20)
-* (copilot) Adapter requires node.js >= 22 now
 * (arteck) Dependencies have been updated
 
 ## License

@@ -401,7 +401,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.2.0 (2026-10-15)
 * (MyHomeMyData) Added open3e-esp32 gateway as optional connection type per CAN bus (REST for UDS, MQTT for passively received frames)
 * (MyHomeMyData) Gateway: device and data point scan run on the gateway's scan engine, with progress in the log
 * (MyHomeMyData) Gateway: energy meters and Collect devices are detected as on a local bus
@@ -425,12 +425,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 * (MyHomeMyData) Added codec `O3ESwitch` for device-dependent data point structures selected by a discriminator byte
 * (MyHomeMyData) Added optional `decimals` parameter to numeric codecs to round decoded values
 * (MyHomeMyData) Added update of meta data during startup, when structure of data point has changed
-
-### 1.0.3 (2026-06-02)
-* (MyHomeMyData) Update of list of data points for E3 devices to version 20260528 for common and 20260527 for variant data points; For details see this [changelog](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#changelog-of-data-point-definitions)
-* (MyHomeMyData) Suppress spurious variant-did warning when common dict covers the length
-* (MyHomeMyData) User-defined variant data point structures in `udsDidsSpecific` can now be protected from automatic updates by adding `"protected": true` (and an optional `"reason"` text) to the entry; see [documentation](/#/docs/adapterref/iobroker.e3oncan/lib/data-points.md#user-defined-data-point-structures-in-udsdidsspecific)
-* (MyHomeMyData) Updated socketcan dependency to 4.2.1 (N-API) — the native CAN module no longer needs to be rebuilt after a Node.js upgrade
 
 ### Older versions
 

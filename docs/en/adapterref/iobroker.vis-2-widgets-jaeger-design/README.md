@@ -67,219 +67,119 @@ You can also create freely defined interfaces, such as the consumption display o
 ### YouTube Tutorials
 For detailed instructions and more information, it is recommended to watch the linked YouTube tutorials.
 
+## The widgets
+
+The adapter adds nine widgets to the vis-2 palette, in the set **Jaeger design**. Hovering over a widget in the palette shows a short description under its preview.
+
+All widgets share one color theme. Only the layout widget carries the complete theme; every other widget either picks its colors up from it (*Palette → From widget*) or defines its own. Four themes are built in: `green`, `blue`, `green-dark` and `blue-dark`.
+
+### Layout
+
+![Layout widget](src-widgets/public/img/prev_layout.png)
+
+The frame around everything else. It renders the complete interface: the main menu on the left, the status bar at the top, the floor selector, the home page with its scenes and actions, the freely configurable right column and — on a phone or a tablet — a swipeable drawer instead of the menu column.
+
+It has a single attribute, **Settings**, which opens the editor in which the whole interface is described: menu entries, floors and their views, scenes, actions, info groups and the colors. Use exactly one layout widget per view; by default it fills the view completely.
+
+### State
+
+![State widget](src-widgets/public/img/prev_state.png)
+
+A square icon button for one object — the building block of the floor plans. A click toggles the value; with *Write specific value* a fixed value is written instead, and *Indicate if value is set* highlights the button while that value is active.
+
+- **Number of values** — several values, each with its own icon, color, background color and tooltip.
+- **Show control dialog** — instead of toggling, a dialog with all values opens.
+- **No control** — display only, the button cannot be pressed.
+- **Ask for confirmation**, with a text of your own, before anything is written.
+- An optional caption above or below the icon.
+
+### Dimmer
+
+![Dimmer widget](src-widgets/public/img/prev_dimmer.png)
+
+Brightness control for a dimmable light. The widget itself shows the current level as a vertical bar; pressing and holding it (*Press duration*) opens the popup with the slider, split into the configured number of **sections**.
+
+- **Memory buttons** — buttons for fixed brightness values below the slider, each with its own icon and text. The value either comes from an object or is written directly.
+- **Object ID for ON/OFF** and **Value by ON** for lights whose on/off switch is a separate object.
+- Optionally show the value in the widget, rotate the icon, and close the popup after setting.
+
+### Shutter
+
+![Shutter widget](src-widgets/public/img/prev_shutter.png)
+
+The same idea for roller shutters and blinds. The icon shows the current position, with a shutter, blinds or shadow icon set. **Shadow shutter ID** adds a second object for the slat angle, so height and slats are set in the same popup.
+
+Since actuators disagree about what 0 % means, the value and the display can be inverted independently of each other — separately for the height and for the slats. Memory buttons store height and slat angle together.
+
+### Thermostat
+
+![Thermostat widget](src-widgets/public/img/prev_thermostat.png)
+
+The target temperature as a dial. The dialog puts the actual temperature, the humidity and the valve position next to the target value and offers minus/plus buttons and a slider. Minimum, maximum, step and unit are configurable, and a comma can be used as the decimal separator.
+
+Below that there is room for additional **Buttons** — boost, away, air conditioning, whatever the heating offers. Each one has its own object, value, icon, label and style.
+
+### Scene
+
+![Scene widget](src-widgets/public/img/prev_scene.png)
+
+A wide button with a title and a subtitle that starts a scene of the `scenes` adapter or simply writes a value. **Save** adds a second button on the right (the gear in the picture): it stores the current states of all members back into the scene.
+
+Further options: no active state, write `false` instead of `true`, ask for confirmation with a text of your own, and show the time of the last change.
+
+### Cameras
+
+![Cameras widget](src-widgets/public/img/prev_cameras.png)
+
+A card with a grid of camera images. Each camera comes either from the `cameras` adapter or from a free URL, which can be read from an object as well, and has its own refresh interval.
+
+*Allow full screen* opens a single camera large, with a separate URL and refresh interval for the full-screen picture — so the thumbnails can stay small. "Show more" links to another widget or another page.
+
+### Actual news
+
+![News widget](src-widgets/public/img/prev_news.png)
+
+A card with an RSS feed: image, headline and teaser per entry, scrollable. The feed URL is entered directly or read from an object, so it can be switched at runtime. The update interval is configurable, and "More" links to a widget or a page.
+
+### Player
+
+![Player widget](src-widgets/public/img/prev_player.png)
+
+A media player card: title, artist, cover, play/pause, previous/next, shuffle, mute, a volume slider and the elapsed/total time bar. Every element is bound to its own object, so the widget works with any player adapter — Sonos, Squeezebox, Alexa and so on. Elements whose object is left empty are not shown.
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
-### 1.4.16 (2026-01-17)
-* (bluefox) Added ON/OFF object ID for dimmer
+### **WORK IN PROGRESS**
+* (bluefox) Home page shows the info even if no scenes and no actions are defined
+* (bluefox) Info groups wrap instead of pushing the right side out of the screen; the width of info lines is configurable
+* (bluefox) State widget: for display-only numbers the color does not depend on the max value of the object anymore
+* (bluefox) Thermostat: the power button can be inverted (e.g., for HomematicIP control mode)
+* (bluefox) Cameras: the image is replaced only after the next image was loaded completely, so it does not disappear anymore
 
-### 1.4.15 (2025-12-16)
-* (bluefox) Corrected case if the floor was not found
+### 1.5.2 (2026-10-27)
+* (bluefox) Shutter and dimmer popups: percent and memory buttons have the widget height on mobile devices
 
-### 1.4.9 (2025-10-16)
-* (bluefox) Corrected the icon selection dialog
-* (bluefox) Corrected actions selection
+### 1.5.1 (2026-10-27)
+* (bluefox) Corrected the layout of the thermostat dialog on mobile devices
+* (bluefox) Thermostat dialog shows humidity and valve position even if no actual temperature is configured
 
-### 1.4.7 (2025-07-01)
-* (bluefox) Corrected the editing of scenes
-* (bluefox) Added the right padding for the time
+### 1.5.0 (2026-10-17)
+* (bluefox) Migrated to React 19 and vis-2 2.20.0
 
-### 1.4.3 (2025-05-31)
-* (bluefox) Implemented the full-screen mode for cameras
-* (bluefox) Added the possibility of disabling "swipe to open the menu" in the mobile view
-* (bluefox) Corrected issue with confirmation dialog for the state widget
-* (bluefox) Added settings for submenu width and gap between submenu items
+### 1.4.20 (2026-04-27)
+* (bluefox) Hide the menu on mobile devices if no scenes or actions are defined
 
-### 1.4.2 (2025-05-25)
-* (bluefox) Allowed setting ON value for dimmer
-* (bluefox) Allowed inverting values in the popup dialog for shutter and blinds control
-* (bluefox) Added the control dialog for state widget
-* (bluefox) Allowed setting up the title padding
-* (bluefox) Added possibility to show the last change time for scenes
+### 1.4.19 (2026-03-13)
+* (bluefox) Corrected possible error with invalid theme name
 
-### 1.4.1 (2025-05-20)
-* (bluefox) Migrated to TypeScript and vite
-* (bluefox) Corrected error with license check
-
-### 1.3.12 (2025-04-29)
-* (bluefox) Corrected min/max by thermostat
-
-### 1.3.9 (2024-12-05)
-* (bluefox) Corrected confirmation dialog. Close now works
-* (bluefox) Caught the possible error in thermostat
-
-### 1.3.6 (2024-12-04)
-* (bluefox) Corrected the icon dialog
-* (bluefox) Corrected the ID select dialog
-* (bluefox) Corrected the scene buttons
-
-### 1.3.3 (2024-11-25)
-* (bluefox) Corrected "close on click" option for shutter and dimmer
-* (bluefox) Improved the build pipeline
-
-### 1.3.1 (2024-09-23)
-* (bluefox) Removed gulp from a build process
-* (bluefox) Added the possibility to select camera from the "cameras" adapter
-
-### 1.2.7 (2024-07-17)
-* (bluefox) allowed multi-line buttons for the thermostat
-
-### 1.2.6 (2024-07-16)
-* (bluefox) Corrected the power state of the thermostat
-
-### 1.2.5 (2024-07-12)
-* (bluefox) Added possibility to control other IDs with memory buttons (Dimmer, Shutter)
-* (bluefox) Added the power option for thermostat
-* (bluefox) Implemented the writing of specific values for state widget
-* (bluefox) Added label to state widget
-
-### 1.2.1 (2024-07-07)
-* (bluefox) Removed withStyles usage
-* (bluefox) Added confirmation dialog
-
-### 1.1.27 (2024-05-27)
-* (bluefox) Added descriptions
-
-### 1.1.26 (2024-05-23)
-* (bluefox) Corrected font-size of thermostat
-
-### 1.1.22 (2024-05-14)
-* (bluefox) Added possibility to show a simple state without a border
-* (bluefox) Added possibility to add a caption for some widgets
-
-### 1.1.21 (2024-05-01)
-* (bluefox) Changed layout for mobile view
-
-### 1.1.20 (2024-04-09)
-* (bluefox) Allowed changing font size for thermostat
-
-### 1.1.19 (2024-03-12)
-* (bluefox) Allowed changing the palette for every widget
-
-### 1.1.15 (2024-03-06)
-* (bluefox) Improved dimmer widget
-
-### 1.1.14 (2024-02-21)
-* (bluefox) Added top info in the mobile view
-
-### 1.1.12 (2024-02-20)
-* (bluefox) Corrected some layout issues
-
-### 1.1.10 (2024-01-19)
-* (bluefox) Small changes on layout and added new distance settings
-
-### 1.1.8 (2024-01-18)
-* (bluefox) Corrected info button in mobile view
-
-### 1.1.5 (2023-12-05)
-* (bluefox) Added an option to start action or scene from new line
-
-### 1.1.0 (2023-11-29)
-* (bluefox) Corrected license check
-* (bluefox) Added class names to all important layout components
-
-### 1.0.12 (2023-11-22)
-* (bluefox) Allowed reordering of the actions and scenes
-* (bluefox) Added a new option to show scenes before actions
-* (bluefox) Added option to show value in dimmer
-* (bluefox) Added option for adjustable width of the right view on the home page
-* (bluefox) Added option to provide icons for scenes and actions
-* (bluefox) Added option set the distance between menu items
-* (bluefox) Added possibility to set control value for scenes
-* (bluefox) Added possibility to adjust font size for scenes and actions
-
-### 1.0.11 (2023-11-10)
-* (bluefox) Corrected error local variables and controls
-
-### 1.0.10 (2023-11-08)
-* (bluefox) Corrected error with scenes
-* (bluefox) Improved state widget with custom icons
-
-### 1.0.9 (2023-11-07)
-* (bluefox) Allowed setting distance between actions and scenes on the home page
-
-### 1.0.8 (2023-11-06)
-* (bluefox) Corrected the cameras widget
-
-### 1.0.7 (2023-10-31)
-* (bluefox) Added possibility to reorder info on status bar
-
-### 1.0.5 (2023-10-17)
-* (bluefox) Corrected error with fakeView
-
-### 1.0.4 (2023-10-10)
-* (bluefox) Corrected layout of thermostat
-
-### 1.0.3 (2023-10-10)
-* (bluefox) Corrected error if shutter was inverted
-
-### 1.0.2 (2023-09-28)
-* (bluefox) Corrected touch behavior for dimmer and shutter
-
-### 1.0.1 (2023-09-26)
-* (bluefox) Corrected small issues
-
-### 1.0.0 (2023-08-11)
-* (bluefox) Changed style of shutter and state widgets
-
-### 0.6.5 (2023-08-09)
-* (bluefox) Corrected view selector and empty menu item
-
-### 0.6.4 (2023-07-31)
-* (bluefox) Set constant width and height of thermostat icons
-
-### 0.6.3 (2023-07-25)
-* (bluefox) Added many new features
-
-### 0.6.1 (2023-07-21)
-* (bluefox) Added max height/width for floors
-
-### 0.6.0 (2023-07-19)
-* (bluefox) Corrected some errors with information
-
-### 0.5.2 (2023-07-02)
-* (bluefox) Support of false for scenes
-
-### 0.5.0 (2023-06-28)
-* (bluefox) Added support for the new vis
-* (bluefox) Added page configurable margins
-
-### 0.4.6 (2023-06-19)
-* (bluefox) Corrected sub menu
-
-### 0.4.5 (2023-06-13)
-* (bluefox) Corrected visualization of view
-
-### 0.4.0 (2023-05-31)
-* (bluefox) Added exclusions
-* (bluefox) Added possibility to show information on the very top of layout
-
-### 0.3.2 (2023-04-05)
-* (bluefox) Corrected license problem
-
-### 0.3.1 (2023-03-22)
-* (bluefox) Corrected build process
-
-### 0.3.0 (2023-03-21)
-* (bluefox) Implemented dark mode
-
-### 0.2.3 (2023-03-09)
-* (bluefox) update packages
-
-### 0.2.2 (2023-03-06)
-* (bluefox) Updated thermostat widget
-
-### 0.2.1 (2023-02-03)
-* (bluefox) Mobile views tuned
-
-### 0.2.0 (2023-02-01)
-* (bluefox) implemented mobile view
-
-### 0.1.3 (2023-01-30)
-* (bluefox) initial commit
+Older changes can be found in CHANGELOG_OLD.md
 
 ## License
 Copyright (c) 2022-2026 bluefox <dogafox@gmail.com>
 All rights reserved.
+
+This is a commercial adapter. Use requires a license, see https://www.iobroker.com/productoverview.
+The full license text can be found in the [LICENSE](https://github.com/ioBroker/ioBroker.vis-2-widgets-jaeger-design/blob/master/LICENSE) file.

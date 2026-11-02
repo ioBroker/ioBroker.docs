@@ -6,7 +6,7 @@
     "x509": "^0.3.4"
   },
   "dependencies": {
-    "body-parser": "^2.3.0",
+    "body-parser": "^2.4.0",
     "compression": "^1.8.1",
     "cors": "^2.8.6",
     "express": "^5.2.1",

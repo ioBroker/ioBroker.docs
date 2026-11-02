@@ -133,6 +133,24 @@ device.mode
 device.online
 ```
 
+## Removing an old device
+
+To permanently remove an old lock and its retained MQTT data:
+
+1. Disconnect the old lock from MQTT or switch it off.
+2. If the Web API is enabled, remove the old lock from Nuki Web.
+3. In ioBroker Admin, open Objects and identify the old device by its Nuki ID.
+4. Set `nuki-local.0.<OLD-NUKI-ID>.commands.removeDevice` to `true` with `ack=false`.
+
+This immediately deletes the selected device's object tree and retained MQTT topics.
+Other devices are preserved. The action cannot be undone.
+
+Processing of the removed device is suppressed until the adapter restarts.
+After a restart, a lock that still publishes MQTT data or is still listed in Nuki Web
+can be discovered again.
+
+Do not delete the entire LevelDB directory to remove a single device.
+
 ## Commands
 
 Commands are available below:
@@ -394,6 +412,12 @@ iobroker restart nuki-local.0
 ```
 
 ## Changelog
+
+### 0.1.5 (2026-10-28)
+
+- (helfi9999) Added a device removal command that deletes the selected device's objects and retained MQTT data.
+- (helfi9999) Serialized MQTT and Web API object updates per device to coordinate device removal.
+- (helfi9999) Added an isolated device removal test with persistent storage.
 
 ### 0.1.4 (2026-10-10)
 

@@ -307,22 +307,21 @@ Note: The original [repository](https://github.com/MiGoller/ioBroker.life360) is
 <!--
     ### **WORK IN PROGRESS**
 -->
+### 1.11.7 (2026-10-16)
+- (skvarel) Ignore Cloudflare Retry-After values below 60 seconds (including 0) and use the default 10-minute backoff instead, to avoid rapid re-polls that extend the rate-limit block
+
+### 1.11.6 (2026-10-16)
+- (skvarel) Use Retry-After (and log RateLimit headers) from Cloudflare 429 responses to choose the backoff delay instead of a fixed 10 minutes
+- (skvarel) Updated @iobroker/testing dependency from 6.2.2 to 6.3.0
+
+### 1.11.5 (2026-10-15)
+- (skvarel) Handle Cloudflare HTTP 429 / error 1015 rate limits: stop immediate retries, abort the current poll cycle, and delay the next poll by 10 minutes
+
 ### 1.11.4 (2026-07-02)
 - (skvarel) Fixed issue detected by repository checker #31
 
 ### 1.11.3 (2026-06-10)
 - (skvarel) Added meta object types for adapter and instance namespace
-
-### 1.11.2 (2026-06-05)
-- (skvarel) Updated @alcalzone/release-script to minimum required version 5.2.1
-- (skvarel) Replaced plain setTimeout/clearTimeout with adapter.setTimeout/clearTimeout in life360DbConnector
-
-### 1.11.1 (2026-06-03)
-- (skvarel) Migrated project rules from GitHub Copilot to Cursor rules
-
-### 1.11.0 (2026-05-28)
-- (skvarel) Added "Enable datapoint notifications" checkbox in the Notifications tab; when enabled, the general notification settings panel is shown even without Telegram or Alexa configured
-- (skvarel) Updated geolocation-utils dependency from 1.2.5 to 1.2.6
 
 ## License
 

@@ -25,10 +25,12 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
 -->
-### 1.0.3 (2026-09-20)
+### 1.0.4 (2026-10-25)
+- (BenAhrdt) Update `@iobroker/testing` to version 6.3.1.
+- (arteck) add dark mode
 
+### 1.0.3 (2026-09-20)
 - Add a Paperless-styled Admin tab with global and document search, tag filters, metadata browsing, refresh controls, and a direct Paperless link.
 - Encode search parameters safely, acknowledge requests when Paperless is unavailable, retry connections on the configured cycle, and remove duplicate object cleanup work.
 
@@ -41,9 +43,6 @@ select the refresh cycle and the type of reading data: (without, basic oder deta
 
 ### 1.0.0 (2026-04-03)
 * (BenAhrdt) change axios to fetch
-
-### 0.5.1 (2026-02-28)
-* (BenAhrdt) update dependencies
 
 ## DISCLAIMER
 This project is not officially affiliated with Paperless-ngx,

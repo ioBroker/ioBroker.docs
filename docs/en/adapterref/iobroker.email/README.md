@@ -129,9 +129,15 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.1.0 (2026-10-26)
 * (@GermanBluefox) Migrated the build script (`tasks.js` => `tasks.mts`) to TypeScript
 * (@GermanBluefox) Migrated blockly to TypeScript
+* (@GermanBluefox) Fixed Office365: emails sent from scripts or other adapters failed after the first email, because the access token was not refreshed (#653)
+* (@GermanBluefox) A selected service has now priority over the stored host and port
+* (@GermanBluefox) Fixed the translations of the settings dialog and added Ukrainian to the Blockly block
+* (@GermanBluefox) The password is stored encrypted now and is not readable by other adapters. An existing password is encrypted automatically on the first start (#715)
+* (@GermanBluefox) Renamed the option "Ignore SSL certificate errors" to "Check SSL certificate", because that is what it actually does
+* (@GermanBluefox) Removed the unused dependency `googleapis`
 
 ### 3.0.0 (2026-08-03)
 * (copilot) Adapter requires node.js >= 22 now
@@ -152,10 +158,6 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 
 ### 2.0.3 (2025-03-24)
 * (@GermanBluefox) Added t-online.de to the list of supported services
-
-### 2.0.2 (2025-03-14)
-* (@GermanBluefox) Renamed `dist` folder to `build`
-* (@GermanBluefox) Fixing pass decoding
 
 ## License
 

@@ -21,6 +21,10 @@ Send push notifications from [ioBroker](https://iobroker.net/) to [Gotify](https
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.6.1 (2026-10-25)
+
+- (Thomas Pohl) Fix Blockly generator registration for compatibility with current Blockly versions
+
 ### 0.6.0 (2026-09-29)
 
 - (Thomas Pohl) Adapter requires node.js >= 22 now
@@ -42,10 +46,6 @@ Send push notifications from [ioBroker](https://iobroker.net/) to [Gotify](https
 
 - (Thomas Pohl) The token is stored now encrypted
 - (Thomas Pohl) node.js 22 is supported
-
-### 0.2.1
-
-- (Thomas Pohl) Optimized startup behavior when adapter is not configured
 
 ## Installation
 

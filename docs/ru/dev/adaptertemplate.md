@@ -4,9 +4,10 @@ lastChanged: 28.03.2019
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adaptertemplate.md
-hash: JkKsPU3iUPdzcM/Pt7YJjJNzasqpDorsi1GXaEpeCF0=
+hash: xzd/DuEFbIRDv3q83mSRm1MBSnR2B9hGncDL64QkzIo=
 ---
 # Шаблон документации адаптера
+
 ```
 ![logo](../../de/dev/admin/adapter-logo.png)
 # Dokumenttitel
@@ -29,6 +30,7 @@ Beschreibung 1
 
 ### Subtitel Konfiguration 2
 Beschreibung
+```
 
 ## Changelog
 ### 0.0.1 (2019-03-28)

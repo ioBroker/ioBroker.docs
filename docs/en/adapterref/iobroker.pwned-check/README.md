@@ -99,6 +99,9 @@ The adapter creates data points under `pwned-check.<instance>`.
 - E-mail addresses are sent to the XposedOrNot API over HTTPS
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (ipod86) chore: clearer adapter title ("Pwned Check – Password & Email Breaches") and npm keywords
+
 ### 0.0.10 (2026-07-19)
 * (ipod86) fix: validate checkInterval bounds (clamp to 1–596 h) and switch to setTimeout loop to prevent concurrent check runs
 * (ipod86) fix: remove redundant safeTextColor alias in updateVisualisation

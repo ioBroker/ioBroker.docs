@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: 0vrPabsFaUOGsbjYkbGJbNIevUch77acT+QKwaauC28=
+hash: MW8HIa5iqY/aUO3afpjNEGAv/oODnqPCkSMVSPt2NsM=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -126,67 +126,67 @@ Eine jsonConfig besteht aus mehreren hierarchisch strukturierten Elementen. Jede
 
 Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter testen: [jsonconfig-demo](https://github.com/mcm4iob/ioBroker.jsonconfig-demo).\ Sie können ihn über das GitHub-Symbol im Adminbereich installieren, indem Sie `iobroker.jsonconfig-demo` auf der Registerkarte npm eingeben.
 
-- [**`accordion`:**](#accordion) Akkordeon-Element für ausklappbare Inhalte (Admin 6.6.0 oder neuer)
-- [**`alive`:**](#alive) Zeigt an, ob eine Instanz ausgeführt wird (schreibgeschützt)
-- [**`autocomplete`:**](#autocomplete) Eingabefeld mit Autovervollständigungsvorschlägen
-- [**`autocompleteSendTo`:**](#autocompletesendto) Autocomplete-Steuerelement mit Instanzwerten zum Senden von Daten
-- [**`certificate`:**](#certificate) Verwaltet Zertifikate für sichere Verbindungen
-- [**`certificateCollection`:**](#certificatecollection) Wählt eine Sammlung für Let's Encrypt-Zertifikate aus
-- [**`certificates`:**](#certificates) Universeller Typ zur Verwaltung verschiedener Zertifikatstypen (ab Admin 6.4.0)
-- [**`checkbox`:**](#checkbox) Kontrollkästchen für boolesche Werte
-- [**`checkDocker`:**](#checkdocker) Spezielle Komponente zur Überprüfung, ob Docker verfügbar ist, und falls ja, kann ein Kontrollkästchen aktiviert werden (ab Admin 7.8.0)
-- [**`checkLicense`:**](#checklicense) Eine spezielle Komponente zur Online-Lizenzprüfung
-- [**`chips`:**](#chips) Der Benutzer kann Wörter eingeben, die einem Array hinzugefügt werden.
-- [**`color`:**](#color) Farbauswahl
-- [**`coordinates`:**](#coordinates) Bestimmt den aktuellen Standort und verwendet die Koordinaten aus `system.config`, falls diese nicht im Format `latitude,longitude` verfügbar sind.
-- [**`credential`:**](#credential) Wählt eine Anmeldeinformation aus dem zentralen Anmeldeinformationsspeicher aus (verwaltet in den Administratoreinstellungen)
-- [**`cron`:**](#cron) Konfiguriert Cron-Ausdrücke für die Planung von Aufgaben
-- [**`custom`:**](#custom) Integriert benutzerdefinierte Komponenten für spezifische Funktionalitäten (nur Admin 6)
-- [**`datePicker`:**](#datepicker) Ermöglicht Benutzern die Auswahl eines Datums
-- [**`deviceManager`:**](#devicemanager) Gerätemanager anzeigen
-- [**`divider`:**](#divider) Erzeugt eine horizontale Trennlinie
-- [**`file`:**](#file) Eingabefeld mit Dateiauswahl und optionaler Upload-/Download-Funktion (nur Admin 6)
-- [**`fileSelector`:**](#fileselector) Ermöglicht Benutzern die Auswahl von Dateien aus dem System (nur Admin6)
-- [**`func`:**](#func) Wählt eine Funktion aus der Liste enum.func aus (nur Admin 6)
-- [**`header`:**](#header) Erstellt eine Überschrift mit verschiedenen Größen (h1-h5)
-- [**`iframe`:**](#iframe) Zeigt iFrame mit der angegebenen URL an (admin >= 7.7.28)
-- [**`iframeSendTo`:**](#iframe) Zeigt ein iFrame mit URL aus dem Backend an (Admin >= 7.7.28)
-- [**`image`:**](#image) Lädt ein Bild hoch oder zeigt es an
-- [**`imageSendTo`:**](#imagesendto) Zeigt ein vom Backend empfangenes Bild an und sendet Daten basierend auf einem Befehl
-- [**`instance`:**](#instance) Wählt eine Adapterinstanz aus.
-- [**`interface`:**](#interface) Wählt die Schnittstelle des Hosts aus, auf der die Instanz ausgeführt wird.
-- [**`ip`:**](#ip) Eingabefeld für IP-Adressen mit erweiterten Optionen
-- [**`jsonEditor`:**](#jsoneditor) JSON-Editor für komplexe Konfigurationsdaten
-- [**`language`:**](#language) Wählt die Sprache der Benutzeroberfläche aus
-- [**`license`:**](#license) zeigt die Lizenzinformationen an, falls diese noch nicht akzeptiert wurden.
-- [**`number`:**](#number) Numerisches Eingabefeld mit Minimal-/Maximalwerten und Schrittweite
-- [**`oauth2`:**](#oauth2) OAuth2-Authentifizierung für den Adapter aktivieren (Admin 7.6.18 oder neuer)
-- [**`objectId`:**](#objectid) Wählt eine Objekt-ID mit Name, Farbe und Symbol aus.
-- [**`panel`:**](#panel) Registerkarte mit Elementen
-- [**`password`:**](#password) Passwort-Eingabefeld
-- [**`pattern`:**](#pattern) Schreibgeschütztes Feld, das ein Muster (z. B. eine URL) anzeigt
-- [**`port`:**](#port) Spezieller Eingang für Ports
-- [**`qrCode`:**](#qrcode) Zeigt Daten als QR-Code an (Admin 7.0.18 oder neuer)
-- [**`qrCodeSendTo`:**](#qrcodesendto) Zeigt einen QR-Code mit den vom Backend empfangenen Daten an.
-- [**`room`:**](#room) Wählt einen Raum aus der Liste `enum.room` aus (nur Admin 6)
-- [**`select`:**](#select) Dropdown-Menü mit vordefinierten Optionen
-- [**`selectSendTo`:**](#selectsendto) Dropdown-Menü mit Instanzwerten zum Senden von Daten
-- [**`sendTo`:**](#sendto) Schaltfläche, die eine Anfrage an eine Instanz sendet
-- [**`setState`:**](#setstate) Schaltfläche, die den Zustand einer Instanz festlegt
-- [**`slider`:**](#slider) Schieberegler zur Auswahl eines Wertes innerhalb eines Bereichs (nur Admin 6)
-- [**`state`:**](#state) Zeigt Steuerungselemente oder Informationen aus dem Status an (admin >= 7.1.0)
-- [**`staticImage`:**](#staticimage) Zeigt ein statisches Bild an
-- [**`staticInfo`:**](#staticinfo) Zeigt statische Informationen in vorformatierter Form an, z. B. "Titel: Werteinheit" (admin >= 7.3.3)
-- [**`staticLink`:**](#staticlink) Erstellt einen statischen Link
-- [**`staticText`:**](#statictext) Zeigt statischen Text an (z. B. eine Beschreibung)
-- [**`table`:**](#table) Tabelle mit Zeilen, die hinzugefügt, gelöscht oder neu angeordnet werden können
-- [**`tabs`:**](#tabs) Tabs mit Elementen
-- [**`text`:**](#text) Ein- oder mehrzeiliges Texteingabefeld
-- [**`textSendTo`:**](#textsendto) Zeigt ein schreibgeschütztes Steuerelement mit den angegebenen Instanzwerten an.
-- [**`timePicker`:**](#timepicker) Ermöglicht Benutzern die Auswahl einer Uhrzeit
-- [**`user`:**](#user) Wählt einen Benutzer aus der Liste `system.user` aus
-- [**`uuid`:**](#uuid) iobroker-UUID anzeigen
-- [**`yamlEditor`:**](#yamleditor) YAML-Editor für komplexe Konfigurationsdaten (admin >= 7.7.30)
+- [** `accordion`:**](#accordion) Akkordeon-Element für ausklappbare Inhalte (Admin 6.6.0 oder neuer)
+- [** `alive`:**](#alive) Zeigt an, ob eine Instanz ausgeführt wird (schreibgeschützt)
+- [** `autocomplete`:**](#autocomplete) Eingabefeld mit Autovervollständigungsvorschlägen
+- [** `autocompleteSendTo`:**](#autocompletesendto) Autocomplete-Steuerelement mit Instanzwerten zum Senden von Daten
+- [** `certificate`:**](#certificate) Verwaltet Zertifikate für sichere Verbindungen
+- [** `certificateCollection`:**](#certificatecollection) Wählt eine Sammlung für Let's Encrypt-Zertifikate aus
+- [** `certificates`:**](#certificates) Universeller Typ zur Verwaltung verschiedener Zertifikatstypen (ab Admin 6.4.0)
+- [** `checkbox`:**](#checkbox) Kontrollkästchen für boolesche Werte
+- [** `checkDocker`:**](#checkdocker) Spezielle Komponente zur Überprüfung, ob Docker verfügbar ist, und falls ja, kann ein Kontrollkästchen aktiviert werden (ab Admin 7.8.0)
+- [** `checkLicense`:**](#checklicense) Eine spezielle Komponente zur Online-Lizenzprüfung
+- [** `chips`:**](#chips) Der Benutzer kann Wörter eingeben, die einem Array hinzugefügt werden.
+- [** `color`:**](#color) Farbauswahl
+- [** `coordinates`:**](#coordinates) Bestimmt den aktuellen Standort und verwendet die Koordinaten aus `system.config`, falls diese nicht im Format `latitude,longitude` verfügbar sind.
+- [** `credential`:**](#credential) Wählt eine Anmeldeinformation aus dem zentralen Anmeldeinformationsspeicher aus (verwaltet in den Administratoreinstellungen)
+- [** `cron`:**](#cron) Konfiguriert Cron-Ausdrücke für die Planung von Aufgaben
+- [** `custom`:**](#custom) Integriert benutzerdefinierte Komponenten für spezifische Funktionalitäten (nur Admin 6)
+- [** `datePicker`:**](#datepicker) Ermöglicht Benutzern die Auswahl eines Datums
+- [** `deviceManager`:**](#devicemanager) Gerätemanager anzeigen
+- [** `divider`:**](#divider) Erzeugt eine horizontale Trennlinie
+- [** `file`:**](#file) Eingabefeld mit Dateiauswahl und optionaler Upload-/Download-Funktion (nur Admin 6)
+- [** `fileSelector`:**](#fileselector) Ermöglicht Benutzern die Auswahl von Dateien aus dem System (nur Admin6)
+- [** `func`:**](#func) Wählt eine Funktion aus der Liste enum.func aus (nur Admin 6)
+- [** `header`:**](#header) Erstellt eine Überschrift mit verschiedenen Größen (h1-h5)
+- [** `iframe`:**](#iframe) Zeigt iFrame mit der angegebenen URL an (admin >= 7.7.28)
+- [** `iframeSendTo`:**](#iframe) Zeigt ein iFrame mit URL aus dem Backend an (Admin >= 7.7.28)
+- [** `image`:**](#image) Lädt ein Bild hoch oder zeigt es an
+- [** `imageSendTo`:**](#imagesendto) Zeigt ein vom Backend empfangenes Bild an und sendet Daten basierend auf einem Befehl
+- [** `instance`:**](#instance) Wählt eine Adapterinstanz aus.
+- [** `interface`:**](#interface) Wählt die Schnittstelle des Hosts aus, auf der die Instanz ausgeführt wird.
+- [** `ip`:**](#ip) Eingabefeld für IP-Adressen mit erweiterten Optionen
+- [** `jsonEditor`:**](#jsoneditor) JSON-Editor für komplexe Konfigurationsdaten
+- [** `language`:**](#language) Wählt die Sprache der Benutzeroberfläche aus
+- [** `license`:**](#license) zeigt die Lizenzinformationen an, falls diese noch nicht akzeptiert wurden.
+- [** `number`:**](#number) Numerisches Eingabefeld mit Minimal-/Maximalwerten und Schrittweite
+- [** `oauth2`:**](#oauth2) OAuth2-Authentifizierung für den Adapter aktivieren (Admin 7.6.18 oder neuer)
+- [** `objectId`:**](#objectid) Wählt eine Objekt-ID mit Name, Farbe und Symbol aus.
+- [** `panel`:**](#panel) Registerkarte mit Elementen
+- [** `password`:**](#password) Passwort-Eingabefeld
+- [** `pattern`:**](#pattern) Schreibgeschütztes Feld, das ein Muster (z. B. eine URL) anzeigt
+- [** `port`:**](#port) Spezieller Eingang für Ports
+- [** `qrCode`:**](#qrcode) Zeigt Daten als QR-Code an (Admin 7.0.18 oder neuer)
+- [** `qrCodeSendTo`:**](#qrcodesendto) Zeigt einen QR-Code mit den vom Backend empfangenen Daten an.
+- [** `room`:**](#room) Wählt einen Raum aus der Liste `enum.room` aus (nur Admin 6)
+- [** `select`:**](#select) Dropdown-Menü mit vordefinierten Optionen
+- [** `selectSendTo`:**](#selectsendto) Dropdown-Menü mit Instanzwerten zum Senden von Daten
+- [** `sendTo`:**](#sendto) Schaltfläche, die eine Anfrage an eine Instanz sendet
+- [** `setState`:**](#setstate) Schaltfläche, die den Zustand einer Instanz festlegt
+- [** `slider`:**](#slider) Schieberegler zur Auswahl eines Wertes innerhalb eines Bereichs (nur Admin 6)
+- [** `state`:**](#state) Zeigt Steuerungselemente oder Informationen aus dem Status an (admin >= 7.1.0)
+- [** `staticImage`:**](#staticimage) Zeigt ein statisches Bild an
+- [** `staticInfo`:**](#staticinfo) Zeigt statische Informationen in vorformatierter Form an, z. B. "Titel: Werteinheit" (admin >= 7.3.3)
+- [** `staticLink`:**](#staticlink) Erstellt einen statischen Link
+- [** `staticText`:**](#statictext) Zeigt statischen Text an (z. B. eine Beschreibung)
+- [** `table`:**](#table) Tabelle mit Zeilen, die hinzugefügt, gelöscht oder neu angeordnet werden können
+- [** `tabs`:**](#tabs) Tabs mit Elementen
+- [** `text`:**](#text) Ein- oder mehrzeiliges Texteingabefeld
+- [** `textSendTo`:**](#textsendto) Zeigt ein schreibgeschütztes Steuerelement mit den angegebenen Instanzwerten an.
+- [** `timePicker`:**](#timepicker) Ermöglicht Benutzern die Auswahl einer Uhrzeit
+- [** `user`:**](#user) Wählt einen Benutzer aus der Liste `system.user` aus
+- [** `uuid`:**](#uuid) iobroker-UUID anzeigen
+- [** `yamlEditor`:**](#yamleditor) YAML-Editor für komplexe Konfigurationsdaten (admin >= 7.7.30)
 
 Durch die Verwendung von JSON-Konfiguration können Sie eine benutzerfreundliche und anpassungsfähige Konfigurationsumgebung für Ihren ioBroker-Adapter schaffen.
 
@@ -434,9 +434,12 @@ Jede Option in `options` kann Folgendes enthalten:
 | `os` | Diese Option soll nur auf diesen Betriebssystemen des Hosts angezeigt werden |
 | `notOs` | Diese Option soll auf folgenden Betriebssystemen des Hosts nicht angezeigt werden |
 | `docker` | Die Option nur anzeigen, wenn der ioBroker in Docker ausgeführt wird (`true`) oder nicht (`false`) |
+| `hiddenByAdapters` | Diese Option ausblenden, wenn mindestens einer dieser Adapter installiert ist: `["zigbee"]` |
+| `showByAdapters` | Diese Option nur anzeigen, wenn mindestens einer dieser Adapter installiert ist: `["zigbee"]` |
 | `description` | Beschreibung unterhalb der Optionsbezeichnung (kann übersetzbar sein) |
 | `icon` | Symbol-URL oder Base64-Zeichenkette, die neben der Option angezeigt werden soll (ab Version 8.3.3) |
-| `icon` | URL oder Base64-String des Symbols, das neben der Option angezeigt werden soll (ab Version 8.3.3) |
+| `noTranslation` | Die Bezeichnung dieser Option nicht übersetzen |
+| `noTranslation` | Die Bezeichnung dieser Option nicht übersetzen |
 
 #### Beispiel für `select options`
 ```json5
@@ -473,8 +476,10 @@ oder
 | `options` | `["value1", "value2", ...]` oder `[{"value": "value", "label": "Value1"}, "value2", ...]` (Schlüssel und Namen (Werte) müssen eindeutig sein) |
 | `freeSolo` | Setzen Sie `freeSolo` auf `true`, damit das Textfeld einen beliebigen Wert enthalten kann. |
 
+Jede Option in `options` kann `label`, `value`, `color`, `hidden`, `icon` und `noTranslation` enthalten (die Bezeichnung dieser Option wird nicht übersetzt). Ein als Freitext eingegebener Wert wird niemals übersetzt.
+
 ### `image`
-Speichert das Bild als Datei des Objekts `adapter.X` oder als Base64 im Attribut
+Speichert das Bild als Datei des `adapter.X`-Objekts oder als Base64 im Attribut
 
 | Objekt | Beschreibung |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -598,7 +603,7 @@ Zusätzlich können Sie verhindern, dass diese Eigenschaft an andere Adapter als
 | `adapter` | Name des Adapters. Mit dem speziellen Namen `_dataSources` erhalten Sie alle Adapter mit dem Flag `common.getHistory`. |
 | `allowDeactivate` | falls wahr. Die zusätzliche Option "Deaktivieren" wird angezeigt. |
 | `onlyEnabled` | falls wahr. Nur aktivierte Instanzen werden angezeigt. |
-| `long` | Der Wert sieht eher aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
+| `long` | Der Wert sieht aus wie `system.adapter.ADAPTER.0` und nicht wie `ADAPTER.0` |
 | `short` | Der Wert sieht aus wie `0` und nicht wie `ADAPTER.0` |
 | `all` | Füge der Option "all" den Wert `*` hinzu |
 | `all` | Füge der Optionsliste die Option "all" mit dem Wert `*` hinzu. |
@@ -640,10 +645,10 @@ Schaltfläche, die eine Anfrage an die aktuelle Instanz sendet (<https://github.
 | `error` | `{error1: {en: 'E'}, error2: {en: 'E2'}}` |
 | `variant` | `contained`, `outlined` oder nichts. Variante der Schaltfläche. |
 | `openUrl` | Wenn wahr - URL in neuem Tab öffnen, falls die Antwort das Attribut `openUrl` enthält, wie z. B. `{"openUrl": "http://1.2.3.4:80/aaa", "window": "_blank", "saveConfig": true}`. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
-| `reloadBrowser` | Falls wahr - lade das aktuelle Browserfenster neu, falls die Antwort das Attribut `reloadBrowser` enthält, z. B. `{"reloadBrowser": true}`. |
+| `reloadBrowser` | Wenn wahr - lade das aktuelle Browserfenster neu, falls die Antwort das Attribut `reloadBrowser` enthält, z. B. `{"reloadBrowser": true}`. |
 | `window` | Wenn `openUrl` wahr ist, ist dies der Name des neuen Fensters. Kann überschrieben werden, wenn die Antwort das Attribut `window` enthält. `this.props.socket.sendTo(adapterName.instance, command \|\| 'send', data, result => {});` |
 | `icon` | Falls ein Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`. Sie können Symbole der Kategorie `base64` (wie `data:image/svg+xml;base64,...`) oder Bilder der Kategorie `jpg/png` (endet mit `.png`) verwenden. (Bitte melden Sie weitere Symbole über ein Issue an.) |
-| `useNative` | Wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird dieses für die Konfiguration verwendet. Wenn `saveConfig` wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
+| `useNative` | Wenn der Adapter ein Ergebnis mit dem Attribut `native` zurückgibt, wird dieses für die Konfiguration verwendet. Wenn `saveConfig` auf „true“ gesetzt ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern. |
 | `showProcess` | Ladekreis anzeigen, solange die Anfrage bearbeitet wird |
 | `timeout` | Timeout für die Anfrage in ms. Standard: keiner. |
 | `onLoaded` | Die Schaltflächenlogik einmalig initial ausführen |
@@ -675,7 +680,7 @@ Statischer Text wie Beschreibung
 | `button` | Link als Schaltfläche anzeigen |
 | `variant` | Typ der Schaltfläche (`outlined`, `contained`, `text`) |
 | `color` | Farbe der Schaltfläche (z. B. `primary`) |
-| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Icons `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Icons über das Issue an.) |
+| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Icons `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Icons über ein Issue an.) |
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 
@@ -690,7 +695,7 @@ Es muss genau eines von `label` oder `text` angegeben werden - nicht beide.
 | `button` | Link als Schaltfläche anzeigen |
 | `variant` | Typ der Schaltfläche (`outlined`, `contained`, `text`) |
 | `color` | Farbe der Schaltfläche (z. B. `primary`) |
-| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Icons `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Icons über das Issue an.) |
+| `icon` | wenn Symbol angezeigt werden soll: `auth`, `send`, `web`, `warning`, `error`, `info`, `search`, `book`, `help`, `upload`. Sie können die Icons `base64` (beginnt mit `data:image/svg+xml;base64,...`) oder die Bilder `jpg/png` (endet mit `.png`) verwenden. (Bitte fordern Sie weitere Icons über ein Issue an.) |
 | `controlStyle` | CSS-Stile im React-Format für den Button oder das Steuerelement selbst |
 | `format` | `text` (Standard), `html`, `json` |
 | `format` | `text` (Standard), `html`, `json` |
@@ -714,9 +719,9 @@ Tabelle mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten ve
 | `objValueName` | (Veraltete Einstellung, nicht verwenden!) - Name des Werts in `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` |
 | `allowAddByFilter` | Hinzufügen erlaubt, auch wenn ein Filter gesetzt ist |
 | `showSecondAddAt` | Anzahl der Zeilen, ab denen die zweite Schaltfläche „Hinzufügen“ am unteren Rand der Tabelle angezeigt wird. Standardwert: 5 |
-| `showFirstAddOnTop` | Die erste Plus-Schaltfläche soll oben in der ersten Spalte und nicht links angezeigt werden. |
+| `showFirstAddOnTop` | Erste Plus-Schaltfläche oben in der ersten Spalte und nicht links anzeigen. |
 | `clone` | [optional] - Gibt an, ob die Schaltfläche „Klonen“ angezeigt werden soll. Ist dies der Fall, wird die Schaltfläche „Klonen“ angezeigt. Falls es sich um einen Attributnamen handelt, muss dieser eindeutig sein. |
-| `export` | [optional] - wenn die Export-Schaltfläche angezeigt werden soll. Als CSV-Datei exportieren. |
+| `export` | [optional] - falls die Export-Schaltfläche angezeigt werden soll. Als CSV-Datei exportieren. |
 | `import` | [optional] - falls die Import-Schaltfläche angezeigt werden soll. Import aus einer CSV-Datei. |
 | `uniqueColumns` | [optional] - Geben Sie ein Array von Spalten an, die eindeutige Einträge enthalten müssen |
 | `encryptedAttributes` | [optional] - Geben Sie ein Array von Spalten an, die verschlüsselt werden sollen |
@@ -737,6 +742,8 @@ Akkordeonmenü mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach u
 
 ### `jsonEditor`
 Schaltfläche zum Öffnen eines JSON(5)-Editors. JSON5 wird ab Admin-Version 5.7.3 unterstützt.
+
+Der Editordialog verfügt über eine Schaltfläche „JSON formatieren“, die den Text um 2 Leerzeichen einrückt (nur wenn der Text gültiges JSON / JSON5 ist).
 
 | Objekt | Beschreibung |
 |------------------------|-----------------------------------------------------------------------------------------|
@@ -796,7 +803,7 @@ Wählen Sie eine Zertifikatssammlung aus, verwenden Sie einfach alle Sammlungen 
 ### `credential`
 Wählen Sie eine Anmeldeinformation aus dem zentralen Anmeldeinformationsspeicher aus. Die Anmeldeinformationen können in den Administratoreinstellungen (Einstellungen → Anmeldeinformationen) verwaltet werden, und die Adapterkonfiguration speichert lediglich die ID der ausgewählten Anmeldeinformation (z. B. `system.credentials.anthropic`) im entsprechenden Attribut.
 
-Sofern `disableCreation` nicht festgelegt ist, wird neben dem Auswahlfeld eine Schaltfläche **➕** angezeigt, die direkt ein kleines Dialogfeld zum Hinzufügen von Anmeldeinformationen öffnet - ähnlich dem Admin-Dialog. Es bietet Vorlagen (mit Symbolen), gefiltert nach `credentialType` (z. B. Anthropic / ChatGPT / Google Gemini für `ai` sowie die allgemeinen Vorlagen „Anmelden & Passwort“ und „Schlüssel“).
+Sofern `disableCreation` nicht festgelegt ist, wird neben dem Auswahlfeld eine Schaltfläche **➕** angezeigt, die direkt ein kleines Dialogfeld zum Hinzufügen von Anmeldeinformationen öffnet - ähnlich dem Admin-Dialog. Es bietet Vorlagen (mit Symbolen), gefiltert nach `credentialType` (z. B. Anthropic / ChatGPT / Google Gemini für `ai` sowie die Standardvorlagen „Anmelden & Passwort“ und „Schlüssel“).
 Die gewählte Vorlage definiert das Formular, einen vorgeschlagenen Namen und das Symbol; die geheimen Felder werden beim Speichern mit dem Systemschlüssel verschlüsselt. Die neu erstellten Anmeldeinformationen werden als `system.credentials.<name>` gespeichert und sofort ausgewählt.
 
 | Objekt | Beschreibung |
@@ -890,7 +897,7 @@ nur Admin6
 | Objekt | Beschreibung |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pattern` | Dateierweiterungsmuster. Zulässig sind `**/*.ext`, um auch alle Dateien aus Unterordnern anzuzeigen, `*.ext`, um alle Dateien aus dem Stammverzeichnis anzuzeigen, oder `folderName/*.ext`, um alle Dateien im Unterordner `folderName` anzuzeigen. Standardwert: `**/*.*`. |
-| `objectID` | Objekt-ID vom Typ `meta`. Sie können den speziellen Platzhalter `%INSTANCE%` verwenden: wie z. B. `myAdapter.%INSTANCE%.files` |
+| `objectID` | Objekt-ID vom Typ `meta`. Sie können den speziellen Platzhalter `%INSTANCE%` verwenden: wie `myAdapter.%INSTANCE%.files` |
 | `upload` | Pfad, unter dem die hochgeladenen Dateien gespeichert werden. Ähnlich wie `folderName`. Wenn nicht definiert, wird kein Upload-Feld angezeigt. Um im Stammverzeichnis hochzuladen, setzen Sie dieses Feld auf `/`. |
 | `refresh` | Aktualisierungsschaltfläche neben dem Auswahlfeld anzeigen. |
 | `maxSize` | Maximale Dateigröße (Standard 2 MB) |
@@ -909,10 +916,10 @@ Nur Admin6.
 | `disableEdit` | wenn der Benutzer den Dateinamen manuell eingeben kann und nicht nur über einen Auswahldialog |
 | `filterFiles` | wie `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']` |
 | `allowUpload` | Zulässiges Hochladen von Dateien |
-| `allowDownload` | Download von Dateien erlaubt (Standard: true) |
+| `allowDownload` | Dateidownload erlaubt (Standard: true) |
 | `allowCreateFolder` | Erstellung von Ordnern erlaubt |
 | `allowView` | Kachelansicht erlaubt (Standard: true) |
-| `showToolbar` | Symbolleiste anzeigen (Standardeinstellung: true) |
+| `showToolbar` | Symbolleiste anzeigen (Standard: aktiviert) |
 | `selectOnlyFolders` | Der Benutzer kann nur Ordner auswählen (z. B. für den Upload-Pfad) |
 | `trim` | Dateinamen kürzen |
 | `trim` | Dateinamen kürzen |
@@ -1034,7 +1041,7 @@ Zeigt das Dropdown-Menü mit den angegebenen Instanzwerten an.
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
-| `manual` | Manuelle Bearbeitung zulassen. Ohne Dropdown-Menü (wenn die Instanz offline ist). Standardmäßig `true`. |
+| `manual` | Manuelle Bearbeitung zulassen. Ohne Dropdown-Menü (wenn die Instanz offline ist). Standard `true`. |
 | `multiple` | Mehrfachauswahl |
 | `showAllValues` | Element auch dann anzeigen, wenn keine Bezeichnung dafür gefunden wurde (bei mehreren Elementen), Standardwert=`true` |
 | `noTranslation` | Die Beschriftung der Auswahllisten wird nicht übersetzt. Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren. Das Ergebnis des Befehls muss ein Array im Format `[{"value": 1, "label": "one"}, ...]` | sein. |
@@ -1042,7 +1049,8 @@ Zeigt das Dropdown-Menü mit den angegebenen Instanzwerten an.
 | `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 | `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
 
-Der Backend-Handler kann Elemente mit einem optionalen Feld `description`: `[{"value": 1, "label": "one", "description": "Some hint"}, ...]` zurückgeben. Die Beschreibung wird unterhalb der Bezeichnung im Dropdown-Menü angezeigt.
+Der Backend-Handler kann Elemente mit einem optionalen Feld `description` zurückgeben: `[{"value": 1, "label": "one", "description": "Some hint"}, ...]`. Die Beschreibung wird unterhalb der Bezeichnung im Dropdown-Menü angezeigt.
+Ein Element mit `"noTranslation": true` wird unverändert angezeigt, auch wenn `noTranslation` des Steuerelements nicht gesetzt ist: `[{"value": "abc", "label": "My device", "noTranslation": true}, ...]`.
 
 #### Beispielcode im Backend für `selectSendTo`
 ```js
@@ -1105,6 +1113,8 @@ Zeigt ein Autovervollständigungssteuerelement mit den angegebenen Instanzwerten
 | `command` | sendTo-Befehl |
 | `data` | Objekt - `{"subject1": 1, "data": "static"}`. Sie können entweder jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist. |
 | `freeSolo` | Setze `freeSolo` auf `true`, damit das Textfeld einen beliebigen Wert enthalten kann. |
+| `options` | Optionen, die zusätzlich zum Ergebnis des Befehls immer angezeigt werden: `["value1", {"value": "value2", "label": "Value2"}, ...]` |
+| `noTranslation` | Die Bezeichnungen der Optionen werden nicht übersetzt |
 | `alsoDependsOn` | Durch welche Änderung der Attribute muss der Befehl erneut gesendet werden? |
 | `maxLength` | Maximale Textlänge im Feld |
 | `instance` | Instanz, an die die Anfrage gesendet werden soll (z. B. `"admin.0"`). Überschreibt `oContext.instance`. Falls nicht definiert, wird die Anfrage an die aktuelle Adapterinstanz gesendet. Sie können das Muster `${data.number}` im Text verwenden. |
@@ -1112,7 +1122,9 @@ Zeigt ein Autovervollständigungssteuerelement mit den angegebenen Instanzwerten
 
 Um diese Option nutzen zu können, muss Ihr Adapter einen Nachrichtenhandler implementieren:
 
-Das Ergebnis des Befehls muss ein Array der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein (Schlüssel und Namen (Werte) müssen eindeutig sein). Siehe `selectSendTo` für ein Handler-Beispiel.
+Das Ergebnis des Befehls muss ein Array der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein (Schlüssel und Namen (Werte) müssen eindeutig sein).
+Ein Element mit `"noTranslation": true` wird unverändert angezeigt: `{"value": "abc", "label": "My device", "noTranslation": true}`. Die Optionen ab `options` können auch `noTranslation` enthalten. Ein als Freitext eingegebener Wert wird nicht übersetzt.
+Siehe `selectSendTo` für ein Handler-Beispiel.
 
 ### `textSendTo`
 Zeigt ein schreibgeschütztes Steuerelement mit den angegebenen Instanzwerten.
@@ -1187,7 +1199,7 @@ Ermittelt den aktuellen Standort und verwendet die Koordinaten `system.config`, 
 | `divider` | Trennzeichen zwischen Breitengrad und Längengrad. Standardwert: "," (Wird verwendet, wenn longitudeName und latitudeName nicht definiert sind) |
 | `longitudeName` | Falls definiert, wird der Längengrad in diesem Attribut gespeichert, das Trennzeichen wird ignoriert. |
 | `latitudeName` | Falls definiert, wird der Breitengrad in diesem Attribut gespeichert, das Trennzeichen wird ignoriert. |
-| `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und Breitengrad und Längengrad werden aus `system.config` gelesen. Ein boolescher Wert wird unter dem angegebenen Namen gespeichert. |
+| `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und Breitengrad und Längengrad werden aus `system.config` gelesen, ein boolescher Wert wird unter dem angegebenen Namen gespeichert |
 | `useSystemName` | Falls definiert, wird das Kontrollkästchen mit der Aufschrift "Systemeinstellungen verwenden" angezeigt und die Breiten- und Längengrade werden aus `system.config` gelesen. Ein boolescher Wert wird unter dem angegebenen Namen gespeichert. |
 
 ### `interface`
@@ -1199,7 +1211,7 @@ Wählen Sie die Schnittstelle des Hosts aus, auf dem die Instanz ausgeführt wir
 | `ignoreInternal` | Interne Schnittstellen nicht anzeigen (normalerweise auch 127.0.0.1) |
 
 ## Gemeinsame Eigenschaften von Steuerelementen
-### Layoutoptionen `xl`,`lg`,`md`,`sm`,`xs`
+### Layoutoptionen `xl`, `lg`, `md`, `sm`, `xs`
 Mithilfe dieser Optionen lässt sich die Breite von Elementen auf verschiedenen Bildschirmgrößen festlegen, um ein responsives und anpassungsfähiges Layout auf verschiedenen Geräten zu gewährleisten.
 
 Gültige Zahlen sind 1 bis 12.
@@ -1232,7 +1244,7 @@ Dies kann beispielsweise mit den Web Developer Tools getestet werden, die in jed
 
 Schritt 1: Öffnen Sie die Webentwicklertools mit F12
 
-Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1).
+Schritt 2: Öffnen Sie die Geräte-Symbolleiste (1)
 
 Schritt 3: Verschiedene Geräte auswählen (2)
 
@@ -1245,12 +1257,14 @@ In den Einstellungen der Webentwicklertools können Sie bei Bedarf eigene Gerät
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `type` | Wenn ein Element kein Attribut `type` besitzt, wird der Standardtyp „Panel“ angenommen. Typ eines Elements. Die aktuell verfügbaren Optionen finden Sie unter [Gemeinsame Steuerelemente:](#common-control-elements) |
 | `label` | Zeichenkette oder Objekt wie {en: 'Name', ru: 'Имя'} |
-| `hidden` | JS-Funktion, die `native.attribute` für Berechnungen verwenden könnte |
+| `hidden` | JS-Funktion, die `native.attribute` zur Berechnung verwenden könnte |
 | `hideOnlyControl` | Wenn der Ort ausgeblendet ist, wird er angezeigt, aber es gibt keine Steuerungsmöglichkeiten. |
 | `os` | Dieses Element soll nur auf den folgenden Betriebssystemen des Hosts angezeigt werden, auf denen die Instanz ausgeführt wird: `"win32"` oder `["linux", "darwin"]` |
 | `notOs` | Dieses Element soll auf folgenden Betriebssystemen des Hosts, auf dem die Instanz ausgeführt wird, nicht angezeigt werden: `"win32"` oder `["linux", "darwin"]` |
 | `docker` | Dieses Element nur anzeigen, wenn der ioBroker in einem Docker-Container ausgeführt wird (`true`) oder nicht ausgeführt wird (`false`) |
-| `disabled` | JS-Funktion, die `native.attribute` für Berechnungen verwenden könnte |
+| `hiddenByAdapters` | Dieses Element ausblenden, wenn mindestens einer dieser Adapter installiert ist: `["zigbee", "deconz"]`. Siehe [Elemente abhängig von den installierten Adaptern anzeigen]](#show-elements-depending-on-installed-adapters) |
+| `showByAdapters` | Dieses Element nur anzeigen, wenn mindestens einer dieser Adapter installiert ist: `["zigbee", "deconz"]`. Siehe [Elemente abhängig von den installierten Adaptern anzeigen]](#show-elements-depending-on-installed-adapters) |
+| `disabled` | JS-Funktion, die `native.attribute` zur Berechnung verwenden könnte |
 | `dependsOnStates` | ioBroker-Zustände, von denen dieses Element abhängt: `{"running": ".info.browsing"}`. Siehe [Elemente je nach ioBroker-Zustand ein- oder ausblenden.](#show-or-disable-elements-depending-on-iobroker-states) |
 | `help` | Hilfetext (mehrsprachig) |
 | `helpLink` | href to help (could be used only together with `help`) |
@@ -1376,6 +1390,32 @@ die Version des offiziellen ioBroker Docker-Images als `_host.dockerVersion`.
 
 Verwechseln Sie dies nicht mit der [`checkDocker`](#checkdocker)-Kontrolle: Diese prüft, ob **auf dem Host** eine Docker-Installation zur Steuerung von Containern verfügbar ist, und nicht, ob der ioBroker selbst in Docker läuft.
 
+### Elemente abhängig von installierten Adaptern anzeigen
+Jedes Element (auch `panel`, `tabs`, Tabellenspalten und einzelne `select` Optionen oder Optionsgruppen) kann je nachdem, ob andere Adapter im ioBroker-System installiert sind, ein- oder ausgeblendet werden:
+
+```json5
+{
+    "zigbeeDevice": { "type": "text", "label": "Zigbee device", "showByAdapters": ["zigbee", "zigbee2mqtt"] },
+    "installHint":  { "type": "staticText", "text": "Install the zigbee adapter to use the devices", "hiddenByAdapters": ["zigbee"] }
+}
+```
+
+- `showByAdapters` - Das Element wird **nur** angezeigt, wenn mindestens einer der angegebenen Adapter installiert ist.
+- `hiddenByAdapters` - Das Element wird ausgeblendet, wenn mindestens einer der angegebenen Adapter installiert ist.
+- Die Namen sind Adapternamen ohne `system.adapter.` und ohne Instanznummer: `zigbee`, nicht `zigbee.0`.
+
+Geprüft wird, ob der Adapter installiert ist, nicht ob eine Instanz existiert oder ausgeführt wird.
+
+Die installierten Adapter werden einmalig beim Öffnen des Konfigurationsdialogs eingelesen, und zwar nur dann, wenn die Konfiguration
+
+verwendet eines dieser Attribute. Wenn diese nicht gelesen werden können, wird das Element angezeigt.
+
+- Ein nicht angezeigtes Element wird nicht gelöscht: Der Wert bleibt in der Konfiguration unverändert, genau wie bei `hidden`.
+
+Der Wert `default` eines solchen Elements wird jedoch nicht in die Konfiguration geschrieben.
+
+Unter anderen Bedingungen, z. B. bei einer bestehenden Instanz, kann `getObject` in `hidden`: `"hidden": "!getObject('system.adapter.zigbee.0')"` verwendet werden. Wird eine Objekteigenschaft benötigt, verwenden Sie Klammern, da `await` eine schwächere Bindung als `?.`: `"hidden": "!(await getObject('system.adapter.zigbee.0'))?.common?.enabled"` herstellt.
+
 ### Optionen mit detaillierter Konfiguration
 #### `defaultSendTo`
 Befehl zum Anfordern eines Anfangswerts von der laufenden Instanz, Beispiel: `"myInstance": {"type": "text", "defaultSendTo": "fill"}`
@@ -1416,7 +1456,7 @@ Beispiel:
 }
 ```
 
-In diesem Fall muss die Eingabe als Text erfolgen, wie im Beispiel `__different__` dargestellt. Zur Vervollständigung stehen drei mögliche Werte zur Verfügung.
+In diesem Fall muss die Eingabe als Text erfolgen, wie in `__different__` dargestellt. Die Autovervollständigung bietet drei mögliche Werte.
 Benutzer können aus den Dropdown-Menüs 1000, 2000 oder 3000 auswählen oder einen eigenen Wert eingeben, z. B. 500.
 
 Boolesche Werte müssen den Status „unbestimmt“ unterstützen, wenn ein Wert [false, true] ist.
@@ -1488,7 +1528,7 @@ const func = new Function(
   'globalData',    // filled only by table and represents the obj.native or obj.common.custom['adapter.X'] object
   '_changed',      // indicator if some data was changed and must be saved
   '_href',         // Current browser href
-  'getObject',     // You can call `await getObject(data.id)`in hidden, disabled, pattern functions
+  'getObject',     // You can call `await getObject(data.id)` in hidden, disabled, pattern functions. Use brackets to access properties: `(await getObject(data.id))?.common?.type`
   '_os',           // Operating system of the host, where the instance runs: 'win32', 'linux', 'darwin', ...
   '_arch',         // Architecture of the host, where the instance runs: 'x64', 'arm64', ...
   '_host',         // Information about the host: {id, os, osType, arch, release, nodeVersion, controllerVersion, docker, dockerVersion}
@@ -1603,7 +1643,7 @@ Sie können die Anwendung der benutzerdefinierten Einstellungen auf bestimmte Zu
 />
 ```
 
-Beispiele finden Sie im [`telegram`](https://github.com/iobroker-community-adapters/ioBroker.telegram/tree/master/src-admin) oder in [`pushbullet`](https://github.com/Jens1809/ioBroker.pushbullet/tree/master/src-admin) Adapter.
+Beispiele finden Sie im [`telegram`](https://github.com/iobroker-community-adapters/ioBroker.telegram/tree/master/src-admin) oder in [`pushbullet`](https://github.com/Jens1809/ioBroker.pushbullet/tree/master/src-admin)-Adapter.
 
 ## JSON-Registerkarte im Adminbereich
 Ab der Admin-Version 7.6.x können Sie die Registerkarte (z. B. `backitup` oder `matter`) über die JSON-Konfiguration definieren.
@@ -1698,6 +1738,47 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 10.1.7 (2026-10-22)
+- (@BenAhrdt) Fixed: the `autocomplete` does not translate the values entered as free text
+- (@GermanBluefox) Added: `noTranslation` for single options of `autocomplete`, `autocompleteSendTo`, `selectSendTo` and `state` and for the groups of `select`
+- (@GermanBluefox) Fixed: `selectSendTo` translates the items in the list even with `noTranslation`, and the chips of a multiple select show the translated label
+- (@GermanBluefox) Fixed: the options of `state` were shown with a leading `$`, and the selected option showed its value instead of its label
+
+### 10.1.6 (2026-10-22)
+- (@GermanBluefox) Added: the attributes `hiddenByAdapters` and `showByAdapters` to show elements and select options depending on the installed adapters
+- (@GermanBluefox) Fixed: the `getObject` example in the documentation
+- (@GermanBluefox) Fixed: `checkLicense` checks the version of the license again; a vis-1 license is no longer reported as valid for vis-2 unless it was converted
+
+### 10.1.3 (2026-10-15)
+- (@GermanBluefox) Added: the `jsonEditor` dialog has a button "Format JSON" that re-indents the text, and settings stored as object are shown indented
+
+### 10.1.2 (2026-10-12)
+- (@GermanBluefox) Fixed: loading of `crypto-js` for encrypted settings when admin is opened via `index.html`, e.g. in the cloud
+- (@GermanBluefox) Fixed: reading of `jsonConfig.json5` and i18n files delivered as `ArrayBuffer`, e.g. in the cloud
+
+### 10.1.1 (2026-10-11)
+- (@GermanBluefox) Fixed: the config validation URL when admin is opened via `index.html`, e.g. in the cloud
+
+### 10.1.0 (2026-10-07)
+- (@GermanBluefox) Fixed: an `encryptedNative` entry that reaches into `native`, like `hosts.password` for a table, was neither decrypted when the configuration was loaded nor encrypted when it was saved. The attribute name was looked up in `native` as it is, so `password` hit and `hosts.password` missed, and the secrets of a table went into the instance object as plain text - the adapter then decrypted plain text on start and got garbage. Such a path is resolved now, through every row of a table. A value that is already stored encrypted keeps working, and the plain text of an affected installation is encrypted the next time the configuration is saved, so nothing has to be entered again
+
+### 10.0.9 (2026-10-01)
+- (@krobipd) Fixed: a table with `encryptedAttributes` showed the stored secrets still encrypted and encrypted them a second time on the next save, so the adapter could no longer decrypt them. Since 8.5.0 the rows were only decrypted when the attribute was empty (`||=` instead of `&&=`); they are decrypted again when set, and a table stored as an object (`objKeyName`) no longer throws there
+- (@GermanBluefox) Fixed: the same table decrypted its rows directly in the live configuration instead of in a copy. That encryption is a simple XOR, so a second pass turns a secret back into plain text: switching a tab remounts the table and encrypted the shown secrets again, and saving any other field wrote the table secrets unencrypted into the instance object. The rows are decrypted in a copy now, as the save path already did. A secret that a table stored this way since 8.5.0 should be entered once again
+
+### 10.0.8 (2026-09-30)
+- (@GermanBluefox) Corrected table and tabs layout
+
+### 10.0.7 (2026-09-26)
+- (@GermanBluefox) Fixed: a `selectSendTo` with `multiple: true` could not be used when the adapter answers with numeric values (`{ label: 'Heat', value: 9 }`). The checkbox of a menu item compared the value as text but stored it as a number, so it never appeared as checked and every click added the entry again instead of removing it - the configuration filled up with duplicates. The comparison is tolerant about the type now, which also repairs a configuration that was written this way, and the entries are sorted as numbers instead of as text (ioBroker.admin#3636)
+- (@GermanBluefox) Fixed: in the same component, clicking a checkbox and clicking the text of a menu item disagreed about where the value lives. After the first click on a checkbox, selecting an item by its text no longer changed anything visible, because the rendered list was frozen on the internal state while only the data behind it changed
+
+### 10.0.6 (2026-09-21)
+- (@GermanBluefox) Added translations
+
+### 10.0.5 (2026-09-18)
+- (@GermanBluefox) Updated packages and schema
+
 ### 10.0.2 (2026-09-15)
 - (@MiSchroe) Fixed: CRON schema accepts either simple or complex or none of them
 - (@GermanBluefox) Updated Schema
@@ -1803,7 +1884,7 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 - (@GermanBluefox) Optimization of interfaces
 
 ### 8.4.1 (2026-05-19)
-- (@GermanBluefox) Allowed to use `await getObject(data.oid)?.common?.type === 'boolean'` in hidden, pattern or disabled
+- (@GermanBluefox) Allowed to use `(await getObject(data.oid))?.common?.type === 'boolean'` in hidden, pattern or disabled
 
 ### 8.3.13 (2026-05-16)
 - (@GermanBluefox) Added `_href` to `jsonData`

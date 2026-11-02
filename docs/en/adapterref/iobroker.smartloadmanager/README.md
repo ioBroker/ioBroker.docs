@@ -10,6 +10,87 @@ BADGE-Test and Release: https://github.com/quorle/ioBroker.smartloadmanager/work
 
 # ioBroker.smartloadmanager
 
+## Version 0.2.0 examples
+
+Requires Node.js >=22.19.0. Device commands use `ack: false`; the device adapter
+provides the acknowledgement. Feed-in must represent grid connection power in watts.
+Enable `feedinNegativ` when export is negative. Baseload is an additional reserve;
+do not subtract household consumption twice if it is already included in the meter reading.
+
+### Binary loads and heating
+
+Example: `performance: 1000`, `switchOnPoint: 1200`, `switchOffPoint: 0`,
+`switchOnDelay: 20`, `switchOffDelay: 10`. A 1200 W surplus after baseload starts
+the on timer. Import or surplus below the off threshold starts the off timer.
+`minimumOnMinutes: 10` and `minimumOffMinutes: 5` reduce cycling; import above
+`forecastMaxGridImport` overrides minimum runtime. Set minimum times to 0 to disable them.
+
+Use `datapoint` for boolean switching and `numericDatapoint` for numeric 0/1.
+Heating consumers additionally support temperature, enable and heartbeat inputs.
+Maximum temperature and missing enable/heartbeat prevent activation.
+Heartbeat checks the input's truth value, not the age of its last update.
+A missing or nonfinite configured temperature sensor prevents activation and
+stops automatic heating. “Switch off only at switch-off time” intentionally
+disables normal surplus shutdown until the time window ends; heating protection remains active.
+
+### Percentage and battery control
+
+A 2000 W percent consumer at 50% consumes 1000 W. With 400 W additional export,
+the target becomes 70%. With 200 W import it becomes 40%. Below `minPercentStart`,
+the target becomes 0%. Disabled consumers are not regulated. This calculation
+assumes the load is included in the grid meter reading.
+
+Configure a battery's `batterySetpoint`, `performance`, and optional `batterySOC`
+and `batteryTargetSOC`. With 800 W surplus and a 1500 W rating, the charging command
+is 800 W. Reaching target SOC sets charging power to 0. The optional global battery
+mode datapoint uses 0 (off), 1 (target reached), and 2 (charging); verify that these
+values match the device adapter.
+
+`controlMode`: 0 = off, 1 = manual on, 2 = automatic. Manual on sets a percent load
+to 100% or battery charging power to its configured rating. Automatic regulators
+respect manual modes.
+Battery control includes already requested charging power and corrects it by the
+measured grid surplus. `batteryDelaySeconds` and `delaySecondsProzent` remain
+effective during frequent meter updates; 0 means immediate regulation.
+Missing configured SOC/target SOC values stop charging. Time windows are also
+checked every 15 seconds. Disabling a consumer cancels pending switches but leaves
+its existing device state unchanged; use `controlMode: 0` to switch it off.
+
+### PV forecast example
+
+Enable `enableForecast`, select e.g. `pvforecast.0.summary.JSONData` as
+`forecastJsonDatapoint`, and enable `useForecast` for the consumer.
+Alternatively select `pvforecast.0.plants.<plant name>.JSONData` to use one plant.
+Both global forecast control and the individual consumer's forecast option must be
+enabled. Decision notifications do not enable forecast control and are emitted only
+when a forecast actually affects control. Version 0.2.0 logs imports at debug level.
+Version 0.4.1 logs configuration, imports and enabled decision
+notifications only at debug level, suppressing identical decisions for five minutes.
+External delivery additionally requires Notification Manager or a messenger service.
+The expected JSON array uses Unix timestamps in milliseconds:
+
+```js
+const now = Date.now();
+const forecast = [0, 15, 30, 45].map(minutes => ({
+    t: now + minutes * 60000,
+    y: 3.5,
+}));
+// JSON.stringify(forecast), with forecastPowerUnit = "kW"
+```
+
+With 500 W baseload this gives 3000 W forecast surplus, reduced to 2400 W at
+`forecastSafetyPercent: 80`. A 2000 W consumer requires a sustained
+`forecastMinMinutes: 30` window starting within `forecastMaxStartMinutes: 30`.
+At `forecastMinCurrentPercent: 50`, at least 1000 W must already be available.
+
+`forecastBridgeMinutes: 5` limits dip bridging; `forecastMaxGridImport: 100`
+prevents bridging above 100 W import. Past forecast points are ignored.
+Select `W` explicitly for small watt readings: automatic detection treats values
+up to 100 as kW. Inspect `forecast.*` and each consumer's forecast status states.
+
+Time windows may cross midnight (22:00–06:00). Equal start/end times mean all day.
+Automated tests use simulated devices; no physical device installation was available.
+
 ## 🔧 Description
 
 The **smartloadmanager** adapter dynamically controls consumers based on a PV feed-in value.  
@@ -176,14 +257,13 @@ Each consumer gets its own channel with the following states:
 - No SOC history, no long-term logic
 - No multiple use of identical datapoints
 - Battery control based only on feed-in, not discharge power
-- No minimum percentage for percent consumers (e.g. 10 % min for wallbox)
 - Heating without direct power measurement – only thresholds and enable checks
 
 ---
 
 ## 🛣️ Future features
 
-- PV forecast-based control (beta)
+- ~~PV forecast-based control (beta)~~
 - Combined consumer support
 - ~~Prioritization profiles~~
 - Overheating or fault handling per device
@@ -192,14 +272,41 @@ Each consumer gets its own channel with the following states:
 
 ---
 
+## PV forecast control
+
+SmartLoadManager can use `pvforecast.<instance>.summary.JSONData`. Enable forecast control, select the JSON data point and enable it for the desired consumers.
+
+The adapter evaluates a continuous forecast window instead of a single value. A configurable safety factor reduces optimistic forecasts. Forecast-assisted switch-on additionally requires part of the required power to be present as real surplus. Short drops can be bridged for a limited time, but only up to the configured maximum grid import.
+
+Minimum run and off times prevent rapid cycling. Forecast decisions never override time windows, heating temperature limits, hardware enable/heartbeat signals or battery SOC limits.
+
+Recommended starting values: 80% safety factor, 30-minute forecast window, 30-minute maximum lead time, 50% current-surplus requirement, 5-minute dip bridging, 100 W maximum grid import and 10/5-minute minimum run/off times.
+
 ## Changelog
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22 now
+### 0.4.1 (2026-10-24)
+
+- (quorle) Make forecast configuration, data imports and decision notifications visible only in the debug log; report forecast decisions for percentage and battery consumers and limit identical notifications to once per five minutes.
+- (quorle) Clear cached forecast data and report missing, invalid or expired source data instead of silently retaining previous forecasts.
+
+### 0.2.0 (2026-10-24)
+
+- (quorle) Added sustained PV forecast evaluation, configurable W/kW units, safety margins, minimum on/off times and limited forecast dip bridging.
+- (quorle) Fixed binary commands to use `ack: false` without fabricating device acknowledgements; corrected battery commands and negative feed-in handling.
+- (quorle) Fixed percent regulation to include existing load power, stop below minimum power, and respect activation and automatic/manual modes.
+- (quorle) Fixed manual percent commands, switch-on thresholds, overnight time windows, stale forecasts and repeatedly postponed regulation timers.
+- (quorle) Recheck delayed activations, cancel disabled consumer timers, periodically evaluate time windows, stop heating/charging on missing configured sensors, and stabilize battery feedback regulation while honoring its delay.
+- (quorle) Migrated translations to short JSON format, synchronized all eleven languages, completed notification translations and corrected Admin configuration schema fields.
+- (quorle) Updated adapter-core and testing dependencies, aligned Node.js typings/configuration, and added Node.js 26 to the 22/24/26 CI matrix.
+- (quorle) Replaced the Dependabot `pull_request_target` trigger and removed obsolete workflows and tracked editor backups.
+- (quorle) Added regression tests for actual consumer control, configured controller integration tests, and expanded English/German documentation with examples.
+- (quorle) Require Node.js >=22.19.0; include documentation and forecast runtime code in the npm package while excluding unit tests.
+
+See [English examples](docs/en/README.md#version-020-examples) and [deutsche Beispiele](docs/de/README.md#beispiele-für-version-020).
 
 ### 0.1.2 (2026-04-15)
 
@@ -230,6 +337,8 @@ Each consumer gets its own channel with the following states:
 
 - (quorle) Adjustments package.json
 - (quorle) Code changed
+
+Older release notes: CHANGELOG_OLD.md.
 
 ## License
 

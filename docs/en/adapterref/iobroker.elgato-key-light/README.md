@@ -216,16 +216,11 @@ npm run build
 Hardware tests are opt-in, GET-only by default and must not run in CI.
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.0.1 (2026-10-13)
 
-### 2.0.0 (2026-08-16)
-
-- (xXBJXx) Reworked the backend with a validated HTTP client, capability detection, resilient polling and bounded Bonjour/mDNS discovery.
-- (xXBJXx) Added reliable controls for supported lights, including RGB, temperature, battery and studio mode, with strict instance isolation and clean device removal.
-- (xXBJXx) Modernized the configuration and dashboard UIs with responsive device cards, health data, diagnostics and device/API details.
-- (xXBJXx) Addressed repository checker findings for managed timers and repository metadata.
-- (xXBJXx) Requires Node.js >= 22.18, js-controller >= 7.2.2 and Admin >= 7.8.23.
-- (xXBJXx) Fixes issues [#116](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/116), [#117](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/117), [#130](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/130), [#152](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/152) and [#159](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/issues/159); supersedes PRs [#39](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/39), [#129](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/129), [#181](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/181), [#185](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/185), [#186](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/186), [#209](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/209) and [#250](https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/pull/250).
+- (hwiedermann) Log only one warning per device outage; repeated failures use debug logging (fixes #308, PR #309).
+- (xXBJXx) Updated dependencies and rebuilt the admin interfaces.
+- (xXBJXx) Updated locked Moment dependencies to 2.31.0 and added locale path-traversal regression tests (GHSA-4p3w-j4w9-5jqw).
 
 Older entries: CHANGELOG_OLD.md
 
