@@ -16,13 +16,7 @@
         "preload": false
     },
     "LANGUAGES": ["de", "en", "ru"],
-    "sites": [
-        {
-            "route": "/docu/",
-            "path": "/opt/doc-auto/engine/front-end/docu/docu/",
-            "redirects": "/opt/doc-auto/engine/front-end/docu/redirects.json"
-        }
-    ],
+    "sites": [],
     "search": {
         "host": "http://127.0.0.1:7700",
         "searchKey": "",
