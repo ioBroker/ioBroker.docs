@@ -4072,6 +4072,30 @@ https://github.com/MatthiasUlrich1/ioBroker.autism-support
 <img src="https://raw.githubusercontent.com/MatthiasUlrich1/ioBroker.autism-support/main/admin/autism-support.png" width="100" height="100" />
 
 The autism-support adapter provides autism support tools for ioBroker including a visual countdown timer, daily and weekly schedules with a time bar, and ARASAAC pictogram support, designed for display via VIS-2 on tablets or wall displays.
+
+## cameras (2.11.2026) – new stable release 3.3.0
+https://github.com/ioBroker/ioBroker.cameras
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.cameras/master/admin/cameras.png" width="100" height="100" />
+
+The cameras adapter integrates IP cameras into ioBroker visualizations; versions 3.x add UniFi Protect support, a redesigned camera configuration dialog with manufacturer-first selection and MJPEG stream support, Eufy cameras via eusec, go2rtc integration, and numerous snapshot and stream reliability fixes.
+
+**New features**
+- Added UniFi Protect cameras with stream token from the Protect API or entered by hand, including RTSPS support and optional API key for automatic token refresh (3.2.0).
+- Added Eufy camera support: cameras with RTSP use the eusec link directly; cameras without RTSP are streamed through the station (3.2.1).
+- Added MJPEG streams over HTTP — the first frame is taken, making MJPEG paths of the model lists usable (3.2.1).
+- Added go2rtc integration: one connection per camera serves all consumers, accessible through the web adapter with `/<instance>/<camera>/stream.mjpeg` (3.2.0).
+- Migrated vis-2 widgets to React 19; vis-2 >= 2.20.0 is now required if installed (3.3.0).
+- Camera configuration redesigned: manufacturer is chosen first, then only the fitting connection type is offered; model list sorted by how many models use a path (3.2.1).
+
+**Bug fixes**
+- Fixed: a grey H.265 snapshot is now recognized and retaken from a key frame; "Key frames only" option sets this permanently (3.2.1).
+- Fixed: after a failed request a camera no longer stayed broken until the adapter restarted (3.1.0).
+- Fixed: live stream last frame was incorrectly shown for subsequent snapshots (3.1.0).
+- Fixed: closing one camera's view also unsubscribed other cameras of the same browser (3.1.0).
+- Fixed: two cameras with the same IP address overwrote each other's snapshot (3.1.0).
+- Fixed: `ffmpeg` stderr could expose camera passwords in the log (3.2.0).
+- Fixed: after a live stream browser tab was closed, "Cannot send to UI" errors were logged for every frame (3.2.2).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
