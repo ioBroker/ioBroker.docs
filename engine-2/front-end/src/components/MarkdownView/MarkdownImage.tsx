@@ -20,7 +20,19 @@ export interface MarkdownImageProps {
     onZoom: (src: string, alt: string) => void;
 }
 
-export function MarkdownImage({ src, alt, className, style, onZoom }: MarkdownImageProps): React.JSX.Element {
+/**
+ * The site is served over https, so a picture written as `http://` is upgraded by the browser
+ * anyway - with a mixed-content warning in the console for each one, which Search Console shows in
+ * its live test as well. Mostly the badges of the adapter readmes (`http://img.shields.io/...`,
+ * `http://iobroker.live/badges/...`); the pipeline writes those as https now (`secureBadge` in
+ * build-lib/utils.mts), this covers the documents built before that and every other picture.
+ */
+function overHttps(src: string): string {
+    return /^http:\/\//i.test(src) && window.location.protocol === 'https:' ? `https://${src.slice(7)}` : src;
+}
+
+export function MarkdownImage({ src: written, alt, className, style, onZoom }: MarkdownImageProps): React.JSX.Element {
+    const src = overHttps(written);
     const ref = useRef<HTMLImageElement>(null);
     const [zoomable, setZoomable] = useState(false);
 

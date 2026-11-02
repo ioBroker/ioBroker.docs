@@ -893,6 +893,20 @@ export function getAllFiles(root: string, onlyMd?: boolean, _result?: string[]):
     return result;
 }
 
+/**
+ * A badge always over https.
+ *
+ * Many readmes still write their badges as `http://img.shields.io/...` or
+ * `http://iobroker.live/badges/...`. On the https site the browser upgrades them by itself and
+ * logs a mixed-content warning for every one - in the console of every reader and in the live test
+ * of Search Console. Every badge host serves https, so the link is written that way right here.
+ *
+ * @param link the address of the picture
+ */
+export function secureBadge(link: string): string {
+    return /^http:\/\//i.test(link) && isBadge(link) ? `https://${link.slice(7)}` : link;
+}
+
 /** Remove all badges (shields.io and co) from the body and return them separately */
 export function extractBadges(body: string): { body: string; badges: Translated } {
     const badges: Translated = {};
@@ -905,7 +919,7 @@ export function extractBadges(body: string): { body: string; badges: Translated 
                 const alt = m[1];
                 const link = m[2];
                 if (link.toLowerCase().match(/^https?:\/\//) && isBadge(link)) {
-                    badges[alt] = link;
+                    badges[alt] = secureBadge(link);
                     body = body.replace(image, '--delete--');
                 }
             }
@@ -1082,8 +1096,15 @@ export function replaceImages(
                 text: `![${alt}](${prefixed ? prefix + local : local})`,
             });
         } else if (!noBadges && isBadge(link)) {
-            badges[alt] = link;
+            badges[alt] = secureBadge(link);
             edits.push({ start: m.index, end: m.index + m[0].length, text: '--delete--' });
+        } else if (secureBadge(link) !== link) {
+            // a badge that stays in the text is written over https as well
+            edits.push({
+                start: m.index,
+                end: m.index + m[0].length,
+                text: m[0].replace(link, secureBadge(link)),
+            });
         }
     }
 

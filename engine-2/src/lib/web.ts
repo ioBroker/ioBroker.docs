@@ -9,7 +9,7 @@ import type { Express, Request, Response, NextFunction } from 'express';
 import express from 'express';
 import { configurePrerender, crawlerName, isCrawler, pickLanguage, renderPage } from './prerender.js';
 import { DEFAULT_LANGUAGE, escapeHtml, isLanguage, readJson, walk, type JsonPage } from './siteData.js';
-import { buildSitemap } from './sitemap.js';
+import { buildSitemapIndex, buildSitemapPart } from './sitemap.js';
 import { legacyTarget } from './legacyPages.js';
 import bodyParser from 'body-parser';
 import compression from 'compression';
@@ -555,10 +555,27 @@ export default function init(config: AppConfig): {
         sendPage(req, res);
     });
 
-    /** Every page of the site in every language, with the other languages named beside each */
+    /**
+     * Every page of the site in every language, with the other languages named beside each: an
+     * index at the address robots.txt and Search Console know, and the parts it lists
+     * (see `sitemap.ts`).
+     */
     app.app.get('/sitemap.xml', (_req: Request, res: Response): void => {
         try {
-            res.type('application/xml').send(buildSitemap(publicDir, siteOrigin));
+            res.type('application/xml').send(buildSitemapIndex(publicDir, siteOrigin));
+        } catch (error) {
+            console.error(`Cannot build the sitemap: ${String(error)}`);
+            res.status(500).end();
+        }
+    });
+    app.app.get(/^\/sitemap-([a-z]+(?:-[a-z-]+)?)\.xml$/, (req: Request, res: Response, next: NextFunction): void => {
+        try {
+            const xml = buildSitemapPart(publicDir, siteOrigin, (req.params as Record<string, string>)[0]);
+            if (xml === null) {
+                next();
+                return;
+            }
+            res.type('application/xml').send(xml);
         } catch (error) {
             console.error(`Cannot build the sitemap: ${String(error)}`);
             res.status(500).end();
