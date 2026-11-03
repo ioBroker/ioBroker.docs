@@ -4103,6 +4103,13 @@ https://github.com/webbummler/ioBroker.millheater
 <img src="https://raw.githubusercontent.com/webbummler/ioBroker.millheater/main/admin/millheater.png" width="100" height="100" />
 
 The millheater adapter integrates Mill heating devices into ioBroker via the local API, allowing control and monitoring of Mill heaters without cloud dependency.
+
+## kanban (3.11.2026) – new adapter at beta (latest) repository
+https://github.com/bmueller77/ioBroker.kanban
+
+<img src="https://raw.githubusercontent.com/bmueller77/ioBroker.kanban/main/admin/kanban.png" width="100" height="100" />
+
+The kanban adapter provides a Kanban board for ioBroker, enabling task and workflow management directly within the ioBroker environment.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
