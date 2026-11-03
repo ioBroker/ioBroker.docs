@@ -4110,6 +4110,16 @@ https://github.com/bmueller77/ioBroker.kanban
 <img src="https://raw.githubusercontent.com/bmueller77/ioBroker.kanban/main/admin/kanban.png" width="100" height="100" />
 
 The kanban adapter provides a Kanban board for ioBroker, enabling task and workflow management directly within the ioBroker environment.
+
+## parser (3.11.2026) – new stable release 4.0.2
+https://github.com/ioBroker/ioBroker.parser
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.parser/master/admin/parser.png" width="100" height="100" />
+
+The parser adapter parses web pages or files using regular expressions to extract data into ioBroker states; version 4.0.2 fixes missing responsive size attributes in the admin configuration UI and requires Node.js >= 22.19.0.
+
+**Bug fixes**
+- Fixed missing responsive size attributes in the admin configuration (4.0.2).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
