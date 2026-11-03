@@ -4127,6 +4127,13 @@ https://github.com/disaster123/ioBroker.logsearch
 <img src="https://raw.githubusercontent.com/disaster123/ioBroker.logsearch/main/admin/logsearch.png" width="100" height="100" />
 
 The logsearch adapter allows searching ioBroker log files by time range, log level, and text, making it easy to find and analyze log entries within the ioBroker environment.
+
+## miboxer-wl433 (4.11.2026) – new adapter at beta (latest) repository
+https://github.com/ssbingo/ioBroker.miboxer-wl433
+
+<img src="https://raw.githubusercontent.com/ssbingo/ioBroker.miboxer-wl433/main/admin/miboxer-wl433.png" width="100" height="100" />
+
+The miboxer-wl433 adapter enables local control of MiBoxer PW01/PW02 LoRa pool lights via the WL-433 gateway, allowing color and brightness management without cloud dependency.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
