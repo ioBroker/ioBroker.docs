@@ -4178,6 +4178,18 @@ The renault adapter connects ioBroker to Renault/Dacia vehicles via the My Renau
 - Fixed map widgets not finding the vehicle position (1.1.0).
 - When the request quota is used up (HTTP 429), polling now pauses for 15/30/60 minutes instead of logging an error per endpoint (1.0.0).
 - An expired token during polling is refreshed and the poll retried once (1.0.0).
+
+## life360ng (4.11.2026) – new stable release 1.11.7
+https://github.com/inventwo/ioBroker.life360ng
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.life360ng/main/admin/Life360_s.svg" width="100" height="100" />
+
+The life360ng adapter reads location and status data from the Life360 app; versions 1.11.5 through 1.11.7 add Cloudflare rate-limit handling to prevent rapid re-polls when the API returns HTTP 429 errors.
+
+**New features**
+- Added handling for Cloudflare HTTP 429 / error 1015 rate limits: immediate retries are stopped, the current poll cycle is aborted, and the next poll is delayed (1.11.5).
+- The backoff delay now uses the `Retry-After` header from Cloudflare 429 responses instead of a fixed 10 minutes (1.11.6).
+- `Retry-After` values below 60 seconds (including 0) are ignored and fall back to the default 10-minute backoff to avoid rapid re-polls (1.11.7).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
