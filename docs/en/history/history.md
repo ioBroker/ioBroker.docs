@@ -4134,6 +4134,24 @@ https://github.com/ssbingo/ioBroker.miboxer-wl433
 <img src="https://raw.githubusercontent.com/ssbingo/ioBroker.miboxer-wl433/main/admin/miboxer-wl433.png" width="100" height="100" />
 
 The miboxer-wl433 adapter enables local control of MiBoxer PW01/PW02 LoRa pool lights via the WL-433 gateway, allowing color and brightness management without cloud dependency.
+
+## goodwe (4.11.2026) – new stable release 1.2.1
+https://github.com/typhosj/ioBroker.goodwe
+
+<img src="https://raw.githubusercontent.com/typhosj/ioBroker.goodwe/main/admin/goodwe.png" width="100" height="100" />
+
+The goodwe adapter communicates with GoodWe inverters (ET/EH/BH/BT series); version 1.2.1 fixes several data-accuracy bugs and improves state metadata for temperatures, voltages and energy values.
+
+**Bug fixes**
+- Fixed smart meter values in `ExtComData`: `EnergyTotalSell` / `EnergyTotalBuy` were 100× too high; power factors were 10× too high; negative `TotalReactivePower` showed as ~65000 var (1.2.1).
+- Fixed battery temperatures below 0 °C showing as ~6550 °C (`BMSInfo.PackTemperature` and cell temperatures) (1.2.1).
+- Fixed `Settings.Battery.DischargeDepth` and `DischargeDepthOffline` showing the remaining reserve instead of the depth of discharge (1.2.1).
+
+**Improvements**
+- Temperature states now carry the unit `°C` (was `C`), so charts and the type detector recognise them correctly (1.2.1).
+- States created by older versions get their missing unit and correct role on the next start; manually set values and writable control states are left unchanged (1.2.1).
+- Added `RunningData.DiagStatusActive` bit 30 (`BMSEmergencyCharging`) for newer firmware (1.2.1).
+- Improved the settings page to explain what to check when no inverter is found or the IP check fails (1.2.1).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
