@@ -4152,6 +4152,32 @@ The goodwe adapter communicates with GoodWe inverters (ET/EH/BH/BT series); vers
 - States created by older versions get their missing unit and correct role on the next start; manually set values and writable control states are left unchanged (1.2.1).
 - Added `RunningData.DiagStatusActive` bit 30 (`BMSEmergencyCharging`) for newer firmware (1.2.1).
 - Improved the settings page to explain what to check when no inverter is found or the IP check fails (1.2.1).
+
+## renault (4.11.2026) – new stable release 1.1.0
+https://github.com/TA2k/ioBroker.renault
+
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.renault/main/admin/renault.png" width="100" height="100" />
+
+The renault adapter connects ioBroker to Renault/Dacia vehicles via the My Renault cloud; versions 1.0.0 and 1.1.0 include major breaking changes — remote state renames and command restructuring — plus quota-aware polling, per-model endpoint support, new remote commands, and login improvements.
+
+**Breaking changes**
+- Remote states renamed and every command is now a button: `hvac-start` → `climateStart`/`climateStop`, `actions/charging-start` → `chargingStart`/`chargingStop`, `refresh` → `refreshAll`; old states are removed on first start (1.0.0).
+- Only one cockpit version is polled per vehicle (v2 preferred); `cockpitv2` channel removed (1.0.0).
+- Battery, range, mileage, fuel and temperature states now have units and specific roles (1.0.0).
+- Minimum update interval is now 5 minutes (15 minutes for new installations) (1.0.0).
+
+**New features**
+- Added a login test button in settings; email-code login (2FA) works again; login persists across restarts (1.1.0).
+- New remote buttons: `hornStart`, `lightsStart`, `refreshLocation`, `refreshBattery`, `refreshClimate`, `askForLocationRefresh` on supported models (1.0.0).
+- New channels `pressure` (tyre pressure) and `alerts`; charge limits readable and settable via `chargeLimitMin` / `chargeLimitTarget`; charge mode via `chargeMode` (1.0.0).
+- Commands and polled data follow per-model endpoint tables; unsupported endpoints are neither created nor polled (1.0.0).
+- Vehicle list and details reloaded every 24 hours; new vehicles are picked up automatically (1.0.0).
+
+**Bug fixes**
+- Fixed a space around the email address breaking login (1.1.0).
+- Fixed map widgets not finding the vehicle position (1.1.0).
+- When the request quota is used up (HTTP 429), polling now pauses for 15/30/60 minutes instead of logging an error per endpoint (1.0.0).
+- An expired token during polling is refreshed and the poll retried once (1.0.0).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
