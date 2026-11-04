@@ -1,9 +1,9 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/feiertage-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.feiertage.svg
+BADGE-Number of Installations: https://iobroker.live/badges/feiertage-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.feiertage.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.feiertage.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.feiertage.png?downloads=true
-BADGE-Travis-CI: http://img.shields.io/travis/iobroker-community-adapters/ioBroker.feiertage/master.svg
+BADGE-Travis-CI: https://img.shields.io/travis/iobroker-community-adapters/ioBroker.feiertage/master.svg
 BADGE-AppVeyor: https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.feiertage?branch=master&svg=true
 ---
 ![Logo](../../admin/feiertage.png)
@@ -26,6 +26,9 @@ Only selected holidays count in the process.
 The adapter starts daily at midnight. Due to the nature of the subject, no higher frequency is required.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**

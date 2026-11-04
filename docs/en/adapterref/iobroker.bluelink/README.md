@@ -8,9 +8,7 @@
 ![Test and Release](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-
 [![NPM](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)](https://nodei.co/npm/iobroker.bluelink/)
-
 
 ## bluelink adapter for ioBroker
 
@@ -26,6 +24,12 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 
 ------------------------------------------------------------------------------------
 ## Changelog
+### 3.1.36 (2026-11-01)
+* (meistermopper) Fix EU login: enforce OneApp/CCI flow for European vehicles when username/password are provided
+* (meistermopper) Integrate evcc-compatible Node TLS, cookie jar scoping, and IDP redirect hop handling
+* (meistermopper) Add random device ID fallback if legacy device registration fails (hyundai_kia_connect_api #1342)
+* (meistermopper) Add support for importing evcc token bundles into the refresh token field
+
 ### 3.1.35 (2026-10-15)
 * (arteck) Fix EU Hyundai/Kia login
 
@@ -38,12 +42,8 @@ Adapter to control Hyundai or Kia vehicle (until 2023)
 ### 3.1.32 (2026-08-20)
 * (ipod86) Fix EU Hyundai/Kia login
 
-### 3.1.31 (2026-08-11)
-* (arteck) Dependencies have been updated
-
 ## Donation
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
-
 
 ## License
 MIT License
@@ -66,7 +66,4 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-
-
-
 SOFTWARE.

@@ -10,8 +10,8 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobr
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.lametric?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.lametric/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.lametric.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/lametric-stable.svg
-BADGE-Installed: http://iobroker.live/badges/lametric-installed.svg
+BADGE-Stable: https://iobroker.live/badges/lametric-stable.svg
+BADGE-Installed: https://iobroker.live/badges/lametric-installed.svg
 chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/README.md"},"en/adapterref/iobroker.lametric/apps.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/apps.md"},"en/adapterref/iobroker.lametric/my-data-diy.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/my-data-diy.md"},"en/adapterref/iobroker.lametric/notifications.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/notifications.md"},"en/adapterref/iobroker.lametric/blockly.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/blockly.md"}}}
 ---
 ![Logo](../../admin/lametric.png)

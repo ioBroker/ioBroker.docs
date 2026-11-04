@@ -61,7 +61,7 @@ Additional to the adapter installation you must configure the adapter instance w
 2. Navigate to Tab **Instances** and click the settings icon of your `harvia-fenix.0` instance.
 3. Enter your **Email Address** and **Password** of your MyHarvia account.
 4. If you leave the **Device ID** field empty, the adapter will automatically search for devices linked to your account upon startup. It will use the first device it finds as the active unit.
-5. Adjust optional parameters: **Poll Interval** (seconds), **Minimum/Maximum Target Temperature Limits** (°C), and **Maximum Heating Duration** (minutes).
+5. Adjust optional parameters: **Minimum/Maximum Target Temperature Limits** (°C) and **Maximum Heating Duration** (minutes).
 6. Click on **Save & Close**.
 
 ### Device Configuration & Multi-Device Support
@@ -236,6 +236,7 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (meistermopper) Remove obsolete pollInterval setting from instance configuration
 * (meistermopper) Update dependency overrides to resolve Dependabot security alerts
 
 ### 1.2.0 (2026-10-19)

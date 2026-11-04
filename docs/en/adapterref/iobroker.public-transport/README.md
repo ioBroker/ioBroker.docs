@@ -39,6 +39,12 @@ The queries themselves are built with open-source clients: [hafas-client](https:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.5.0 (2026-11-03)
+* (tt-tom17) vis widgets: new "Appearance" attributes - font size and colours can now be set per widget in the vis editor
+* (tt-tom17) vis widgets: all colours and font sizes are CSS variables (--pt-*) now and can be overridden in the project or view CSS
+* (tt-tom17) vis widgets: fixed the column headers standing offset from the table columns - the grid was defined twice and in em, so the smaller header font made its columns 7 % narrower
+* (tt-tom17) vis widgets: the journey table had its Line column heading in English, it now reads "Linie" like the others
+
 ### 1.4.2 (2026-10-24)
 * (tt-tom17) dependencies updated
 
@@ -57,11 +63,6 @@ The queries themselves are built with open-source clients: [hafas-client](https:
 
 ### 1.2.0 (2026-08-25)
 * (tt-tom17) added EFA as a new backend with VRR (Rhein-Ruhr) as the first network
-
-### 1.1.0 (2026-08-21)
-* (tt-tom17) added a "Create detail data points" switch per station and journey. The switch is off by default
-* (tt-tom17) fixed the departure widget hiding all multi-word products (S-Bahn, U-Bahn, RE, ICE, ...) whenever the product filter was enabled
-* (tt-tom17) the widgets no longer log continuously; set `publicTransportDebug = true` in the browser console to get the diagnostics back
 
 ## License
 MIT License

@@ -405,15 +405,107 @@ Configure this URL as an **Action** in AgentDVR (Camera → Edit → Alerts → 
 
 Returns `{"ok":true}` on success.
 
+### Fast alert per camera
+
+Append the camera ID so the adapter knows which camera fired:
+
+```
+GET http://<iobroker>:<webport>/agent-dvr.0/webhook?oid={ID}&ot={OT}
+```
+
+`{ID}` and `{OT}` are AgentDVR tags and are filled in by AgentDVR. The adapter then pulses `<cam>.events.webhook` **immediately** — before any data is fetched — and polls afterwards. Use the action on *motion detected*. With alert photos enabled the photo is stored right away — see [Getting images for VIS and scripts](#getting-images-for-vis-and-scripts) for the right trigger. AgentDVR often calls the action several times per motion; further calls for the same camera within 20 s only refresh the data and do not pulse again. `<cam>.events.webhookParams` holds all parameters of the latest call as JSON (plus `ts`), written before the pulse and also during the cooldown — add any AgentDVR tags you need to the URL (e.g. `&ai={AI}&zone={ZONE}&name={NAME}`) and evaluate them in your own script.
+
+Without `oid` the webhook only triggers a full poll. Query parameters are written to the web instance log at debug level.
+
+Use plain `http` for the web instance the action calls — AgentDVR silently rejects self-signed certificates.
+
+### Alert photos
+
+With **Save alert photos** enabled (default), every webhook call with `?oid={ID}` also stores the current full-resolution photo (`photo.jpg`) in the ioBroker file storage. The last 3 photos per camera are kept:
+
+| Data point | Content |
+|---|---|
+| `<cam>.alertPhotos.grab1` … `grab3` | Absolute file path of the photo (`grab1` = newest) |
+| `<cam>.alertPhotos.url1` … `url3` | http(s) URL via the web instance, e.g. `http://192.168.1.10:8082/agent-dvr.0/photos/cam_8_Reolink/grab1.jpg` — for TV, kiosk or other apps that only accept web links |
+| `<cam>.alertPhotos.uri1` … `uri3` | ioBroker file URI, e.g. `iobfile://agent-dvr.0/cam_8_Reolink/grab1.jpg` |
+| `<cam>.alertPhotos.ts1` … `ts3` | Time of the photo |
+
+Files: `<namespace>/<cam>/grab1.jpg` … `grab3.jpg` (e.g. `agent-dvr.0/cam_8_Reolink/grab1.jpg`). On each new photo they rotate (grab1 → grab2 → grab3). `ts1` is written **last**, after the file is complete — trigger on `ts1` and send the photo with Telegram, no HTTP request needed (see [Telegram](#telegram)). The file path in `grab1`–`grab3` is only valid when the file storage is on the local disk (default); `uri1`–`uri3` work with any storage.
+
 ### Overview *(requires "Overview widget")*
 
 | Data point | Type | R/W | Description |
 |-----------|------|-----|-------------|
 | `widget_live_overview` | string | R | HTML tile grid of all cameras — snapshot refreshes on each adapter poll |
 
+## Getting images for VIS and scripts
+
+### Which image from where
+
+| Image | Data point / URL | Size | Time |
+|---|---|---|---|
+| Live image, small | `<cam>.urls.snapshot` (`grab.jpg`) | preview | now |
+| Live image, full | `<cam>.urls.photo` (`photo.jpg`) | full resolution, ~1 s to load | now |
+| Live stream | `<cam>.urls.mjpeg`, `<cam>.urls.mp4` | video | live |
+| Last recording – thumbnail | `<cam>.events.last.thumb` | max. 320×180 (AgentDVR limit) | best moment of the recording, shows the detected object |
+| Last recording – video | `<cam>.events.last.video` | video | after the recording |
+| Alert photos | `<cam>.alertPhotos.grab1` … `grab3` | full resolution | moment of the alert (webhook with `oid`) |
+
+The `urls.*` and `events.last.*` URLs point directly to AgentDVR. They work in the local network only — Telegram's servers cannot fetch them. Either load them with an HTTP request first (response type `arraybuffer`) or use the alert photos, which are already stored in ioBroker.
+
+### Which trigger for what
+
+| Trigger | Fires | Use for |
+|---|---|---|
+| `<cam>.alertPhotos.ts1` | photo stored, ~1–2 s after the alert | **send the alert photo** (recommended) |
+| `<cam>.events.webhook` | immediately on the webhook call | fetching an image yourself |
+| `<cam>.events.new` | new recording listed | thumbnail of the recording |
+| `<cam>.events.detected_<tag>` | AI tag of a new recording, e.g. `detected_people` — also when AgentDVR adds the tag later | notify on persons only |
+
+Use **"greater than previous"** (Blockly) or `change: 'gt'` as condition. The adapter rewrites its states on every poll, so "was updated" fires every poll. `status.alerted` is usually too short to be seen by a poll and is not a reliable trigger.
+
+### Telegram
+
+Blockly: trigger on `<cam>.alertPhotos.ts1` with "greater than previous", Telegram block with *value of* `<cam>.alertPhotos.uri1` as text.
+
+- **Telegram 6 or newer:** use `uri1` (`iobfile://…`). Telegram reads the photo directly from the ioBroker file storage and sends it as photo — works with every storage type.
+- **Older Telegram versions:** use `grab1` (local file path). A text that is an existing local `.jpg` path is sent as photo.
+
+Sending the file content itself (e.g. *read file* → Telegram) does **not** work from Blockly: raw data is only sent as photo with an explicit `type: 'photo'`.
+
+JavaScript:
+
+```js
+on({ id: 'agent-dvr.0.cam_8_Reolink.alertPhotos.ts1', change: 'gt' }, () => {
+    sendTo('telegram.0', { text: getState('agent-dvr.0.cam_8_Reolink.alertPhotos.uri1').val });
+});
+```
+
+Reading the file itself in a script: `readFile('agent-dvr.0', 'cam_8_Reolink/grab1.jpg', (err, data) => { … })`.
+
+### VIS / dashboards
+
+The alert photos are served by the web instance — the ready-made link is in `<cam>.alertPhotos.url1` … `url3`. The adapter picks an enabled web instance (plain `http` preferred, since TV apps often reject self-signed certificates) and the host's IPv4 address. The web instance can also be chosen in the settings (*Features → Web instance for photo links*). When a web instance changes (port, https, bind address, enabled) or the host address changes, the links are rewritten automatically. The links stay the same for every new photo, so you can enter them once in an app:
+
+```
+http://<iobroker>:<webport>/agent-dvr.0/photos/<cam>/grab1.jpg
+```
+
+e.g. `http://192.168.1.10:8082/agent-dvr.0/photos/cam_8_Reolink/grab1.jpg` (also `grab2.jpg`, `grab3.jpg`). Use it in an image widget and refresh it on changes of `alertPhotos.ts1`. For a live image use `urls.snapshot` or `urls.photo` with a refresh interval.
+
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.7.0 (2026-10-29)
+* (ipod86) feat: `alertPhotos.url1–3` with a fixed http(s) link to each photo, for TV/kiosk apps that only accept web links; web instance selectable, links follow changes of the web instances
+* (ipod86) feat: `<cam>.events.webhookParams` with all parameters of the latest webhook call as JSON
+
+<!-- markdownlint-disable-next-line MD024 -->
+### 0.6.0 (2026-10-29)
 * (ipod86) chore: clearer adapter title ("Agent DVR – Cameras & Recordings") and keywords
+* (ipod86) fix: `events.detected_*` now also fires when AgentDVR adds the AI tag (e.g. `people`) to a recording after it was first listed
+* (ipod86) feat: webhook with `?oid={ID}&ot={OT}` pulses `<cam>.events.webhook` immediately (20 s cooldown per camera) for the fastest possible alert photo
+* (ipod86) feat: alert photos — on a webhook call with `oid` the full-resolution photo is stored in the file storage, last 3 per camera (`alertPhotos.grab1–3`, `ts1–3`)
+* (ipod86) feat: alert photos served for VIS at `/agent-dvr.0/photos/<cam>/grab1.jpg`; new README section on getting images for VIS and scripts
+* (ipod86) feat: `alertPhotos.uri1–3` with the `iobfile://` URI of each photo, sendable directly with Telegram 6
 
 <!-- markdownlint-disable-next-line MD024 -->
 ### 0.5.5 (2026-10-08)
@@ -434,13 +526,6 @@ Returns `{"ok":true}` on success.
 
 ### 0.5.3 (2026-10-04)
 * (ipod86) fix: clear ensuredFolders cache on object deletion to prevent stale "no existing object" warnings for rediscovered drives/cameras
-
-### 0.5.2 (2026-08-05)
-* (ipod86) feat: rename `overview` DP to `widget_live_overview` for consistent naming
-
-### 0.5.1 (2026-08-05)
-* (ipod86) feat: per-instance URL routing — each adapter instance uses its own URL namespace (`agent-dvr.0/`, `agent-dvr.1/`, …)
-* (ipod86) feat: rename per-camera recording widget DP from `widget` to `widget_recordings`; add new `widget_live` DP with a single-camera live tile
 
 ## License
 MIT License

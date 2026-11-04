@@ -28,6 +28,13 @@ Normaly you can leave the "Auto detect" function on. If this does not work you c
 ## Changelog
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 1.1.12 (2026-11-03)
+* chore(deps-dev): bump fast-uri from 3.1.7 to 3.1.9
+* chore(deps-dev): bump proxy-addr from 2.0.7 to 2.0.8
+* chore(deps): bump follow-redirects from 1.16.0 to 1.16.1
+* chore(deps-dev): bump @grpc/grpc-js from 1.14.3 to 1.14.5
+* chore(deps): bump axios from 1.18.1 to 1.20.0
+
 ### 1.1.11 (2026-10-03)
 * chore(deps-dev): bump immutable from 3.8.3 to 3.8.4
 * chore(deps-dev): bump js-yaml from 4.3.1 to 4.3.2

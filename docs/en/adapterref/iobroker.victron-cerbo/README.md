@@ -32,6 +32,9 @@ GUI v2 connects to the MQTT web socket at the root of the host (`/websocket-mqtt
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 ### 1.0.1 (2026-10-15)
 * (@GermanBluefox) Fixed: the keepalive no longer makes the Cerbo publish all values again
 * (@GermanBluefox) Unchanged values are not written again

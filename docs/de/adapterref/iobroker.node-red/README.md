@@ -11,8 +11,8 @@ BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker/iobroker.node
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/iobroker/iobroker.node-red/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/node-red/svg-badge.svg
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.node-red.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/node-red-stable.svg
-BADGE-Installed: http://iobroker.live/badges/node-red-installed.svg
+BADGE-Stable: https://iobroker.live/badges/node-red-stable.svg
+BADGE-Installed: https://iobroker.live/badges/node-red-installed.svg
 ---
 ![Logo](../../admin/node-red.png)
 

@@ -73,6 +73,11 @@ The "Options" tab of the preset editor opens with a "Chart mode", which says wha
 Donut and "Bar (current value)" read the states and never the history, so they need no time range and
 no aggregation.
 
+The chart modes in a vis-2 view, every chart is one preset shown with the widget "Echarts Chart":
+mixed (lines with a second Y-axis), gauge, radar, donut and bars per hour.
+
+![Chart modes in vis-2](img/vis2-chart-modes.png)
+
 ### Chart without an iframe (experimental)
 
 The vis-2 chart widget draws the chart in an iframe: every chart on a view brings its own React app,
@@ -172,8 +177,15 @@ You can debug view charts locally with:
   -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 6.1.0 (2026-10-30)
 * (GermanBluefox) Ask before unsaved preset changes are lost by reloading or leaving the editor (#1290)
+* (GermanBluefox) Bars per day, week or month show the right values after a switch of the daylight saving time. The history adapter split the range into equally long intervals, so after the 25-hour day every value written at 23:59:59 was shown one day later and the day of the switch stayed empty. The chart now sends the borders of its bars along; this needs ioBroker.sql, ioBroker.history or ioBroker.influxdb with `@iobroker/aggregate` 1.1 (#1311)
+* (GermanBluefox) Copying a preset of an older version does not break the editor anymore: the copy was stored without any lines, and the "Diagrams" tab stayed empty every time it was opened. A preset without lines opens as an empty one now (#1285)
+* (GermanBluefox) A line with a thickness stored as text, e.g. "3", is clipped at the border of the grid again instead of being drawn over the X-axis (#1284)
+* (GermanBluefox) The CSV export keeps its line breaks in Firefox: the file was a `data:` URL, from which Firefox removes them, and a `#` in an ID cut the file off (#1282)
+* (GermanBluefox) "Digits after comma" of a line can be emptied again to use the setting of the chart, and 0 is shown as 0 instead of an empty field. The empty field shows which value is used instead (#1288)
+* (GermanBluefox) The chart and the preview opened through the web adapter under the admin address (`/adapter/echarts/...`) move to the address of the web adapter on any port, not only on 8082. The preview offers the link over the own host first, so it also works behind a reverse proxy, and a copied link is absolute (#1273, #1230)
+* (GermanBluefox) Every color of the chart (background, title, labels, ticks, grid, legend, bar labels, border and buttons) can get an own value for the dark theme. With the theme "auto", a chart in vis-2 can thus be adjusted to the light and the dark mode; empty, the color stays the same in both (#1312)
 
 ### 6.0.0 (2026-10-14)
 - (@GermanBluefox) Added chart mode "Gauge" (rings or pointers)
@@ -277,11 +289,6 @@ You can debug view charts locally with:
 ### 5.0.2 (2026-08-10)
 - (@GermanBluefox) Show a state under every history instance that logs it and not only under the first one
 - (@GermanBluefox) Fixed the line break in the X-axis labels for the time formats like `HH:MM / dd.mm.yy`
-
-### 5.0.1 (2026-08-08)
-- (@Brainbug01) Fixed server-side rendering hanging until the caller timed out (preview showed "timeout" for every preset)
-- (@GermanBluefox) Aligned the GUI of the editor, the preview and the chart with the admin 8 design
-- (@Brainbug01) Fixed creating a preset in a folder
 
 ## License
 

@@ -269,6 +269,9 @@ relation.
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
+
 ### 2.0.40 (05.04.2026)
 
 * fixed connection state response handling

@@ -62,6 +62,7 @@ mDNS uses multicast, which is usually not routed between network segments. If yo
 
 ### Smart Meter Accessories 📊 (read-only, zenSDK/mDNS only)
 
+- **Smart Meter 1CT** - live power of a single phase, via one current transformer
 - **Smart Meter 3CT** - apparent power per phase (A/B/C) and total, via current transformers
 - **Smart Meter D0** - live utility meter readings via IEC 62056-21 optical interface
 
@@ -121,6 +122,7 @@ Per device (`<productKey>.<deviceKey>.adapterAutomation.*`):
 | `automationEnabled`            | Include this device in the automation (default `false`).                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `forceAcCharging`              | Charge this device from the grid at its full `chargeMaxLimit` until it is full, regardless of the current demand (default `false`).                                                                                                                                                                                                                                                                                                                             |
 | `acChargingAllowed`            | Only for devices that can charge by AC but are not AC-only (e.g. SF 800 / 2400 Pro, Hyper 2000): charge this device from grid surplus like an AC-only device (default `false`).                                                                                                                                                                                                                                                                                 |
+| `disableAcCharging`            | Only for AC-only devices (e.g. SF 2400 AC, SF 1600 AC+, SF 3000/4000 Mix AC+): the automation never charges this device from the grid - neither from surplus nor by `forceAcCharging`. A device that is charging stops at 0 W right away (default `false`).                                                                                                                                                                                                     |
 | `feedInSolarOnly`              | Not for AC-only devices: feed in at most the current solar input, so the battery is not discharged. **Note:** this only applies while the solar input is above 50 W - at or below 50 W (e.g. at night) the device may feed in from its battery as usual (default `false`). The adapter never switches it by itself - set it from your own script, e.g. during a low-price window of a dynamic electricity tariff, to save the battery for more expensive hours. |
 | `suggestedInverseMaxPower`     | Read-only. Maximum output power the automation uses for this device, calculated from SOC and the lowest cell voltage to protect the battery.                                                                                                                                                                                                                                                                                                                    |
 | `suggestedInverseMaxPowerInfo` | Read-only. Reason for the current suggested value.                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -172,6 +174,15 @@ For more details and for information on how to disable error reporting, see the 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 6.2.1 (2026-11-03)
+
+- `disableAcCharging` should only be created on AC only devices (like SF 2400AC)
+
+### 6.2.0 (2026-11-03)
+
+- Adapter automation: New per-device state `disableAcCharging` to disable AC charging (surplus and forced) for AC-only devices
+- Added Smart Meter 1CT (`smartMeter1CT-S`), auto-created via mDNS discovery
+
 ### 6.1.5 (2026-10-27)
 
 - Adapter automation: A lead device that reached its minSoc or has no output power available (e.g. `suggestedInverseMaxPower` is 0) is now released from feed-in and another device takes over as lead device
@@ -187,26 +198,6 @@ For more details and for information on how to disable error reporting, see the 
 
 - Adapter automation: `feedInSolarOnly` now only limits feed-in to the solar input while it is above 50 W; at or below 50 W the battery may be used for feed-in (replaces the previous low solar input warning)
 - Fixed adapter crash (`Converting circular structure to JSON`) when the Zendure cloud API does not respond
-
-### 6.1.2 (2026-10-16)
-
-- Adapter automation: `suggestedInverseMaxPower` changes are now ramped instead of a fixed value (should avoid rapid jumps between values)
-- Adapter automation: Improvements on handling charge keep alive which could lead to small grid import
-- Hyper 2000: `setDeviceAutomationInOutLimit` will now resend current minSoc, socSet and inverseMaxPower again after 10 seconds to ensure it is set correctly in this mode
-
-### 6.1.1 (2026-10-14)
-
-- SF 800 Pro 2 is now detected via mDNS / zenSDK (was reported as unknown model `solarFlow800Pro2`)
-- Adapter automation: New per-device state `feedInSolarOnly` to feed in only the current solar input; has to be switched by your own script, e.g. during a low-price window (Thanks to feedback from lesiflo)
-- Adapter automation: New state `minIdleBeforeCharge` (default 60 s, previously fixed 5 min) (Thanks to feedback from lesiflo)
-- Adapter automation: Faster and fairer surplus charging (Thanks to feedback from lesiflo)
-  - A surplus counts as confirmed once it has lasted 30 s without interruption (previously a slow average that took longer the smaller the surplus was). Charging then starts as soon as a device is ready, see `minIdleBeforeCharge`
-  - Devices in feed-in standby are released for charging after `minIdleBeforeCharge` instead of 3 minutes
-  - The charge power is calculated from the grid value and the devices' reported charge power, so it reaches the surplus in one or two steps
-  - The surplus is split so that each device's total charge power (AC + own solar input) follows its missing SOC and battery capacity
-- Adapter automation: `acOnlyPenalty` now also applies to devices with `acChargingAllowed` (e.g. devices without solar panels)
-- Adapter automation (breaking): `<device>.adapterAutomation.status` is now a number with a states list instead of a text, so it can be used in scripts independent of the system language. The lead device has its own codes (task code + 1), see the status code table.
-- Improved battery type detection
 
 For older changes see CHANGELOG_OLD.md.
 

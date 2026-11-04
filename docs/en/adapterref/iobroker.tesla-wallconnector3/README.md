@@ -1,8 +1,8 @@
 ---
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.tesla-wallconnector3.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.tesla-wallconnector3.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.tesla-wallconnector3.svg
-BADGE-Number of Installations (latest): http://iobroker.live/badges/tesla-wallconnector3-installed.svg
-BADGE-Number of Installations (stable): http://iobroker.live/badges/tesla-wallconnector3-stable.svg
+BADGE-Number of Installations (latest): https://iobroker.live/badges/tesla-wallconnector3-installed.svg
+BADGE-Number of Installations (stable): https://iobroker.live/badges/tesla-wallconnector3-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/nobl/ioBroker.tesla-wallconnector3/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.tesla-wallconnector3.png?downloads=true
 BADGE-Test and Release: https://github.com/nobl/ioBroker.tesla-wallconnector3/workflows/Test%20and%20Release/badge.svg

@@ -21,7 +21,10 @@ visualizations, notifications, and automations.
 - Current and next lesson information, including the remaining time
 - Current and upcoming school holidays
 - Upcoming exams, including subject, date, and start and end times
-- Timetables, holidays, inbox messages, and exams refresh every five minutes
+- Homework for reliably identified students, with due dates, completion status, and attachments
+- Student absences and excuse status, including unknown status values
+- Messages of the day, including subject, text, and attachment indicators
+- Timetables, holidays, inbox messages, messages of the day, homework, absences, and exams refresh every five minutes
 - Current and next lesson values refresh every minute
 
 ## Installation and setup
@@ -100,8 +103,17 @@ Press `markAsUnread` on a message in `inbox.read` to move it back to
 in WebUntis remain in `inbox.read`.
 
 The `info.refresh` button runs the complete startup refresh immediately:
-timetable, messages, exams, holidays, cleanup, and derived current/next lesson
-states.
+timetable, inbox messages, messages of the day, homework, absences, exams,
+holidays, cleanup, and derived current/next lesson states.
+
+Messages of the day are available under `newsOfDay.today`. The `date` and
+`count` states identify the date and number of messages. The `json` state at
+`newsOfDay.today.json` contains the complete message list as a JSON array. Each
+message also has a numbered channel (`01`, `02`, ...) with `id`, `subject`,
+`text`, and `hasAttachments` states. The list is refreshed every five minutes and through
+`info.refresh`. A failed request preserves the last successful data, while a
+successful empty response sets the count to zero and removes obsolete message
+channels.
 
 Upcoming exams are available below each student's `exams` channel.
 `students.<name>.exams.count` gives the number of exams announced in the
@@ -143,13 +155,44 @@ and are attributed to the correct child. School permissions can still deny
 access to one or more child timetables; a failed refresh preserves the last
 successful data.
 
+## Homework and absences
+
+Homework and absences are refreshed at startup and with the regular refresh cycle.
+They are also included when `info.refresh` is triggered. Their data is kept under
+`students.<student>` so linked students in parent accounts remain separate. The
+adapter uses the account's own student ID for student accounts and the linked
+student IDs returned by WebUntis for parent accounts.
+
+- `students.<student>.homework` contains `count`, `openCount`,
+  `completedCount` and `unknownCount`, followed by numbered entries with the
+  homework ID, linked lesson ID, subject and teacher when available, date, due
+  date, text, remark, completion status and attachment indicator.
+- `homework.unassigned` contains account-level homework that cannot be linked to
+  a student. Homework without an explicit student reference is assigned only when
+  exactly one student identity is known; with none or multiple known students, it
+  remains unassigned. The adapter does not guess by matching subject or teacher
+  names; the channel has the same count fields as student homework channels.
+- `students.<student>.absences` is a channel containing numbered absence
+  channels (`01`, `02`, and so on). Each record has exactly these nine read-only
+  states: `startDate`, `endDate`, `startTime`, `endTime`, `reason`,
+  `excuseStatus`, `excuseStatusKnown`, `excuseText`, and `isExcused`.
+- `students.<student>.absences.json` contains the same records as a JSON array.
+  Every record object has exactly the nine keys listed above. An unclear excuse
+  status is represented as `unknown` and is never inferred as unexcused.
+
+These areas are read-only. Access depends on the school's WebUntis permissions.
+A failed or forbidden request preserves the last successful data, while a valid
+empty result clears stale entries. The homework endpoint may be scoped to the
+school year bound to the current WebUntis session; the adapter does not change
+that shared session's school year.
+
 ## Requirements and notes
 
-- Node.js 24 or newer, js-controller 7.2.2 or newer, and Admin 8.2.0 or newer are required.
+- Node.js 22.19 or newer, js-controller 7.2.2 or newer, and Admin 8.2.0 or newer are required.
 - A WebUntis account with access to the selected school is required.
 - Username-and-password login is supported.
 - QR-code, Microsoft 365, SAML, and OAuth login are not supported.
-- Homework is not provided.
+- Homework is read from WebUntis for the active session school year. The adapter does not switch the shared session to another school year; if that context cannot be validated, it preserves the previous homework data.
 - [WebUntis](https://webuntis.com/) is an external service. This project is
   independent and is not affiliated with Untis GmbH.
 
@@ -157,7 +200,8 @@ successful data.
 
 The password is stored using ioBroker's protected configuration mechanism.
 Credentials, cookies, and session information are not shown in logs or
-published as states. Do not share login details in issues or support requests.
+published as states. Do not share login details or personal student information
+in issues or support requests.
 
 ## Support
 
@@ -168,6 +212,17 @@ and include only relevant, non-sensitive log messages when asking for help.
 [![Donate](https://camo.githubusercontent.com/ef8c60305542390406855547e32850909812a73c4abada236de22a6dc88b313f/68747470733a2f2f7777772e70617970616c6f626a656374732e636f6d2f64655f44452f44452f692f62746e2f62746e5f646f6e61746543435f4c472e676966)](https://www.paypal.com/donate/?hosted_button_id=3RJQGSJNRSHUJ)
 
 ## Changelog
+### 0.3.0 (2026-11-02)
+
+- (Voodoo2man) Added messages of the day
+- (Voodoo2man) Added homework data
+- (Voodoo2man) Added absence records
+
+### 0.2.2 (2026-11-02)
+
+- (Voodoo2man) Added support for Node.js 22.19 and newer while retaining Node.js 24 and 26 CI coverage.
+- (Voodoo2man) Resolved the reported `qs` and `minimatch` development-dependency alerts.
+
 ### 0.2.1 (2026-10-28)
 
 - (Voodoo2man) Moved read and unread messages directly under inbox, renamed the unread count state to inbox.unread.count, and removed the redundant JSON state.
@@ -187,15 +242,6 @@ and include only relevant, non-sensitive log messages when asking for help.
 ### 0.1.10 (2026-10-18)
 
 - (Voodoo2man) Improved configuration feedback, holiday names, and connection status; reduced routine login log messages; verified Node.js 26 compatibility; and migrated Dependabot auto-merging to the `pull_request` event.
-
-### 0.1.9 (2026-10-15)
-
-- (Voodoo2man) Improved timetable data and reliability with comparisons, long names, and automatic re-authentication for expired sessions
-- (Voodoo2man) Added an inbox for unread messages.
-
-### 0.1.8 (2026-10-14)
-
-- (Voodoo2man) Updated dynamic lesson names, migrated metadata for existing objects, and repaired legacy i18n names.
 
 For earlier releases, see CHANGELOG_OLD.md.
 

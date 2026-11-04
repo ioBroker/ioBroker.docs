@@ -10,8 +10,8 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-com
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.pvforecast?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.pvforecast/test-and-release.yml?branch=main&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.pvforecast.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/pvforecast-stable.svg
-BADGE-Installed: http://iobroker.live/badges/pvforecast-installed.svg
+BADGE-Stable: https://iobroker.live/badges/pvforecast-stable.svg
+BADGE-Installed: https://iobroker.live/badges/pvforecast-installed.svg
 chapters: {"pages":{"de/adapterref/iobroker.pvforecast/README.md":{"title":{"de":"ioBroker.pvforecast"},"content":"de/adapterref/iobroker.pvforecast/README.md"},"de/adapterref/iobroker.pvforecast/vis.md":{"title":{"de":"ioBroker.pvforecast - VIS"},"content":"de/adapterref/iobroker.pvforecast/vis.md"}}}
 ---
 ![Logo](../../admin/pvforecast.png)
@@ -153,6 +153,7 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (@patricknitsch) Change Free Tier Forecast from only today to today and tomorrow
 
 ### 6.2.0 (2026-07-06)

@@ -10,6 +10,8 @@
 
 **Tests:**: [![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.cameras/master.svg)](https://travis-ci.org/ioBroker/ioBroker.cameras)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## IP-Cameras adapter for ioBroker
 You can integrate your web/ip cameras into vis and other visualizations.
 If you configure a camera with name `cam1` it will be available on 
@@ -39,6 +41,14 @@ sendTo('cameras.0', 'image', {
 ```
 
 The result is always in `jpg` format.
+
+### vis-2 widgets
+The adapter brings two widgets for vis-2: **Polling Camera** loads a new frame in the given interval
+(snapshot), **RTSP Camera** shows the live stream. Select the camera in the widget by its instance and
+name, e.g. `0/cam1`. A click on the picture opens it in a dialog, optionally with a second camera of a
+higher resolution.
+
+![vis-2 widgets](img/vis2-widget-cameras.jpg)
 
 ### Sending the image to a messenger
 `result.data` is the JPEG as a base64 string, so it can not be passed to a messenger directly. Turn it into a
@@ -224,6 +234,7 @@ If the binary cannot be found or does not start, the adapter transparently falls
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 * (@hdering) Added: README shows how to send the image of the `image` message to Telegram or another messenger (#78)
+* (@GermanBluefox) Fixed issues reported by the repository checker (#332)
 -->
 
 ## Changelog

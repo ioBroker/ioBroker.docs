@@ -16,10 +16,23 @@ Fetches 5 days weather forecast from [https://openweathermap.org/](https://githu
 
 You need an api key to access the data. The api key you can get for free after registration [here](https://home.openweathermap.org/api_keys).
 
+## vis-2 widget
+The widget "Weather" shows the current weather and the forecast for up to six days. The button "i" opens a dialog
+with more details (wind, pressure, precipitation). The temperature and the humidity can be taken from a real sensor
+instead of OpenWeatherMap (settings "Current temperature ID" and "Current humidity ID").
+
+The size of the icons is set with "Icon size (current)" and "Icon size (days)" in pixels. Empty values keep the
+default sizes.
+
+![vis-2 widget](img/vis2-widget-weather.png)
+
 <!--
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.1.0 (2026-10-29)
+* (@GermanBluefox) Added settings for the icon size of the current weather and of the forecast days in the vis-2 widget
+
 ### 2.0.4 (2026-10-22)
 * (@GermanBluefox) Fixed raw translation keys (e.g. openweathermap_Wed) in the widget with vis-2 2.15.x (#750)
 * (@GermanBluefox) The widget requires vis-2 2.20.2 or newer, if vis-2 is installed
@@ -33,13 +46,6 @@ You need an api key to access the data. The api key you can get for free after r
 
 ### 2.0.1 (2026-09-08)
 * (@GermanBluefox) The weather widget is now shown as a live preview in the admin configuration too
-
-### 2.0.0 (2026-08-16)
-* (@JDCodes) Added feels_like temperature, visibility and the day name (long and short) as text
-* (@JDCodes) Daily rain and snow are now totals and not averages
-* (@JDCodes) Fixed NaN for rain and snow
-* (@GermanBluefox) Minimal supported Node.js version is now 22
-* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now
 
 ## License
 

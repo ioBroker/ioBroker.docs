@@ -107,7 +107,7 @@ The adapter will establish a connection and create all necessary ioBroker object
 **To make a dashboard-configured device work with the adapter:**
 
 1. Flash the device with the configuration from the dashboard (ensure ESPHome API is enabled in YAML)
-2. Manually add the device in the adapter settings (device tab). Enter IP/hostname and encryption key (recommended) or password (legacy)
+2. Manually add the device in the adapter settings (device tab). Enter IP/hostname and encryption key (recommended) or password (legacy, only ESPHome versions before 2026.1)
 3. The adapter will then connect to the device via ESPHome's native API
 
 **Note:** Future tighter integration between dashboard and adapter may be implemented (see issue #228), but currently they operate independently.
@@ -238,6 +238,13 @@ Using the integrated dashboard when the iobroker is using https currently requir
 > see [ESPHome Documentation](https://esphome.io/components/api.html?highlight=api)
 > Please only configure Encryption Key (preferable) or API-Password (legacy)
 
+> [!WARNING]
+> **Breaking change in ESPHome 2026.1:** API password authentication has been removed by ESPHome,
+> encryption is the only supported authentication method from ESPHome 2026.1 onwards,
+> see [ESPHome 2026.1 changelog](https://esphome.io/changelog/2026.1.0/#api-password-authentication-removed).
+> Devices still using `api: password:` must be updated to use an encryption key (both in the device YAML and in the adapter device settings)
+> before (or when) upgrading them to ESPHome 2026.1 or later. API-Password configuration in this adapter only works for devices running ESPHome versions before 2026.1.
+
 #### Example Encryption Key configuration entry
 
 ```
@@ -246,7 +253,7 @@ api:
     key: "DyDfEgDzmA9GlK6ZuLkj3qgFcjXiZUzUf4chnIcjQto="
 ```
 
-#### Example API configuration entry
+#### Example API configuration entry (legacy, only ESPHome versions before 2026.1)
 
 ```
 api:
@@ -280,6 +287,7 @@ Please enter IP-Address (if a device is already known, you can select it from th
 - ADD / Modify Devices
     - Will send IP address and credentials to the backend and try to establish a connection
     - When an encryption Key is provided, API-Password is ignored, please ensure proper YAML configuration!
+    - API-Password is only supported by devices running ESPHome versions before 2026.1, newer versions require an encryption key
 
 - Delete Device
     - Will send a message to the backend to remove this device
@@ -355,7 +363,8 @@ Example config, for more examples see [The DrozmotiX Docu Page](https://Drozmoti
 
     # Enable ESPHome API
     api:
-        password: 'MyPassword'
+      encryption:
+        key: "DyDfEgDzmA9GlK6ZuLkj3qgFcjXiZUzUf4chnIcjQto="
     # Activate i2c bus
     i2c:
       sda: 21
@@ -440,6 +449,10 @@ If you like my work, please consider a personal donation
     ### __WORK IN PROGRESS__
     * (DutchmanNL)
 -->
+### __WORK IN PROGRESS__
+
+- (@DutchmanNL) **BREAKING**: ESPHome 2026.1 removed API password authentication, devices updated to ESPHome 2026.1 or later must use an encryption key. The API password option is kept for devices running older ESPHome versions, see README (#410)
+
 ### 1.0.1-alpha.0 (2026-10-16)
 
 - (@Garfonso) **FIXED**: Brightness, RGB, white and colour temperature reached no light any more. The ColorMode values in supported_color_modes are the bitmasks from api.proto (RGB = 35), but they were compared against a 0..9 index, so every modern ESPHome light was treated as on/off only

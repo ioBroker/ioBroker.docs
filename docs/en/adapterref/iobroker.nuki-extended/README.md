@@ -492,6 +492,9 @@ on({id: 'nuki-extended.0.openers.opener.state.ringStateUpdate', change: "any", a
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
+
 Please see [release page](https://github.com/Zefau/ioBroker.nuki-extended/releases) for changelog and detailed information.
 
 <!--

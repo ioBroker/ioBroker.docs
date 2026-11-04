@@ -33,6 +33,7 @@ chapters: {"pages":{"de/adapterref/iobroker.device-watcher/README.md":{"title":{
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (arteck) Dependencies have been updated
 - (arteck) fix message ([main] Pending rescan detected – Schleife wird wiederholt)
 

@@ -1022,6 +1022,7 @@ Default without zone:
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 
 - (copilot) Adapter requires node.js >= 22 now
 - (Lucky-ESA) MQTT connection status display fixed

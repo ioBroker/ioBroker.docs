@@ -107,6 +107,18 @@ Station does not answer to scheduler commands, so only listener mode is supporte
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- #331 Added WH51 raw soil moisture AD values (soilad1 - soilad16)
+- #319 Added WH52 / DP110 soil sensor (moisture, temperature, EC, AD values, battery)
+- Added WN20 rain gauge battery voltage (wn20batt)
+- Fixed channel numbers 10 and higher being mapped to the wrong channel (e.g. soilmoisture12 overwrote channel 2)
+- Restored automated npm deploy via trusted publishing
+- Updated @iobroker/testing to 6.3.1
+
+### 1.2.12 (2026-11-02)
+- #374 Change type if info
+- Dependabot updates
+
 ### 1.2.11 (2026-09-12)
 - #343 Fix humidity mapping
 - #339 update role for last_update
@@ -126,9 +138,6 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 
 ### 1.2.8 (2026-08-20)
 - Fix #317 last_update type to string (you might need to delete the state manually)
-
-### 1.2.7 (2026-08-20)
-- Fix superscript unit and degress for better display (you need to set the temperature unit again in the config screen)
 
 ## Credits
 

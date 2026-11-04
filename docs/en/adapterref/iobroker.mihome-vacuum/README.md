@@ -16,7 +16,7 @@ chapters: {"pages":{"en/adapterref/iobroker.mihome-vacuum/README.md":{"title":{"
 [![Downloads](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)](https://www.npmjs.com/package/iobroker.mihome-vacuum)
 
 > [!IMPORTANT]
-> This adapter cannot be installed from github
+> This adapter cannot be installed from GitHub
 
 [Deutsche Dokumentation](/#/docs/adapterref/iobroker.mihome-vacuum/README_de.md)
 
@@ -116,7 +116,7 @@ Xiaomi Cloud is optional for normal local control. It is used for convenient dev
 5. Open the displayed link and confirm the Xiaomi login in the browser.
 6. Return to ioBroker after the cloud status changes to **Authenticated**.
 7. Click **Get devices** and select the vacuum from the device list.
-8. Check the automatically filled token, IP address, model, and manager.
+8. Check the automatically filled token, IP address, and model; keep the manager on **Auto**.
 9. Save the configuration and verify that `info.connection` becomes `true`.
 
 ![Connection and Xiaomi Cloud login](admin/media/Login%20VacuumControl-redacted.png)
@@ -137,7 +137,7 @@ settings**:
 - **Token:** local hexadecimal device token
 - **IP address:** current local address of the robot
 - **Model:** model identifier such as `roborock.vacuum.s5`
-- **Manager:** normally detected automatically; manually choose Roborock, Viomi, or Dreame only when necessary
+- **Manager:** keep **Auto**; the manager is detected from the model. Choose Roborock, Viomi, Dreame, or Xiaomi MIoT manually only when the model is not detected. Roborock devices do not support MIoT and cannot be controlled with the Dreame or Xiaomi MIoT manager; the adapter then uses the Roborock manager and logs a warning
 - **Vacuum port:** normally `54321`
 - **Own port:** local UDP port used by this adapter instance, normally `53421`
 
@@ -332,6 +332,10 @@ the widget settings only need to be changed when a state should point somewhere 
 
 ![VIS 2 vacuum widget](admin/media/Vis%202%20VacuumControlWidget.png)
 
+The same widget in a dark vis-2 view, overview with map, battery, cleaned area and time, suction level and the quick controls:
+
+![vis-2 vacuum widget, dark theme](admin/media/vis2-vacuum-control-dark.png)
+
 ### Rooms, suction levels, and layout
 
 With **Detect rooms automatically** (default) the VIS 2 widget shows every room the adapter created below `rooms.*`, including its own suction
@@ -402,9 +406,18 @@ requests.
     ### **WORK IN PROGRESS**
     * ()
 -->
-### **WORK IN PROGRESS**
+### 6.2.1 (2026-10-29)
+
+* (bluefox) Fixed the release checks that stopped the publication of 6.2.0; this version contains all changes of 6.2.0
+
+### 6.2.0 (2026-10-29)
 
 * (xXBJXx) Documented how new models are supported and rewrote the GitHub issue templates as English forms
+* (bluefox) Roborock devices are no longer controlled by a manually selected Dreame/Xiaomi MIoT manager; the adapter warns and uses the Roborock manager instead (#1250)
+* (bluefox) The Dreame/Xiaomi MIoT manager reports devices that answer `unknown_method` instead of logging the command as successful (#1250)
+* (bluefox) Clarified the manager selection in the instance settings (#1250)
+* (bluefox) Admin and widget dependencies moved into `src-admin` and `src-widgets`; replaced `chai` with `node:assert` and `qs` with `URLSearchParams`
+* (bluefox) Node.js 22.19 or newer is required
 
 ### 6.1.0 (2026-09-08)
 
@@ -461,17 +474,6 @@ requests.
 * (xXBJXx) Prevent delayed status callbacks from losing their manager context and terminating the adapter
 * (xXBJXx) Validate cloud sessions, cloud responses, room objects and optional configuration values before use
 * (xXBJXx) Redact device tokens, cloud sessions, cookies, login URLs and complete API payloads from normal logs
-
-### 5.3.0 (2025-07-24)
-
-* (dirkhe) update dependecies
-* (dirkhe) replace request with axios
-* (dirkhe) fix login issues by replacing and moving code to XiaomiCloudConnector
-
-### 5.2.0 (2025-01-22)
-
-* (dirkhe) add IP Adress to info
-* (dirkhe) assign rockrobo (valetudo) to roborock Manager
 
 ## License
 

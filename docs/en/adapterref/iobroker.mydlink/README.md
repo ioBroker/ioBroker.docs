@@ -80,6 +80,9 @@ DSP-W115 and other *newer* devices use a completely different protocol and a dif
   (If the device does not connect to your wifi or the device does not accept login via the PIN please try again. Press the button on the device until it lights up red in order to reset.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!-- 
 	Placeholder for next versions (this needs to be indented):
 	### **WORK IN PROGRESS**

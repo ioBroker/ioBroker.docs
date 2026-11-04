@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/faq/_040_contibution/010_how_to_debug_gui.md
 title: без названия
-hash: eh141K6ZgUBSAOs1s5Ypj/mn6GJoohoZ3t/LHHuvcd0=
+hash: H0Uwim6qC08JSQ92nYWdkKtgfeTl+Tsi7vR62Z6ujCA=
 ---
 ## Сообщайте об ошибках в графическом пользовательском интерфейсе.
 

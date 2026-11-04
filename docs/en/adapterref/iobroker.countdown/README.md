@@ -42,6 +42,7 @@ who created pre V3.x.x releases of this adapter.
 	### **WORK IN PROGRESS**0
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (copilot) Adapter requires node.js >= 22 now
 
 ### 3.1.0 (2026-02-23)

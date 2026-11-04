@@ -37,6 +37,9 @@ To do that press the pair button just before inserting the battery and the devic
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 ### 3.0.1 (2026-10-14)
 * (@GermanBluefox) Added the missing sizes to the settings for all screen widths
 

@@ -137,20 +137,25 @@ Invalid sources and invalid values use the global `invalidResponseTimeSeconds` s
 <!--
 	Placeholder for the next version (at the beginning of the line):	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (BenAhrdt) Use the adapter-managed timeout while waiting for pending operations during shutdown.
+
+### 0.0.48 (2026-11-01)
+* (BenAhrdt) Keep the adapter configuration unchanged when it is only opened and render notification previews instead of their JavaScript expressions.
+
+### 0.0.47 (2026-10-29)
+* (BenAhrdt) Limit configuration rebuilds and monitoring refreshes to affected devices and states to reduce database and Device Manager load.
+
+### 0.0.46 (2026-10-29)
+* (BenAhrdt) Wait for running asynchronous state and object operations before adapter shutdown.
+* (BenAhrdt) Handle asynchronous event and timer errors to prevent unhandled database rejections.
+* (BenAhrdt) Return structured errors from Device Manager actions and allow longer state-form saves, preventing silent backend timeouts.
+
 ### 0.0.45 (2026-10-14)
 * (BenAhrdt) Rebuild card details on startup, ignore rapid source duplicates, and display sub-second intervals as `<1s`.
 
 ### 0.0.44 (2026-10-14)
 * (BenAhrdt) Rebuild device-card details during the initial refresh even when the current source event is an already processed acknowledgement duplicate.
-
-### 0.0.43 (2026-10-14)
-* (BenAhrdt) Restore persisted device-card details after adapter restarts when unchanged source events are skipped as acknowledgement duplicates.
-
-### 0.0.42 (2026-10-14)
-* (BenAhrdt) Also suppress same-value acknowledgement events within one second when the preceding source event is only available in persisted monitoring data.
-
-### 0.0.41 (2026-10-12)
-* (BenAhrdt) Ignore same-value acknowledgement duplicates in update intervals; provide the standard functions `value.battery (standard)` (warning below 15, alarm below 10, 15-minute timeout), `indicator.alarm (standard)`, and `indicator.maintenance (standard)`, including role-based defaults for bulk state search. Function templates can be explicitly applied to all assigned monitored states.
 
 ## Collaboration
 The adapter was developed in collaboration with Joerg Froehner

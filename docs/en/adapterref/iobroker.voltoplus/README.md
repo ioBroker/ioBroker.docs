@@ -38,6 +38,9 @@ or any associated subsidiaries, logos or trademarks.
 -->
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 0.2.15 (2026-11-03)
+* Bump @types/node from 25.9.8 to 25.9.9
+
 ### 0.2.14 (2026-10-03)
 * Bump @types/node from 25.9.5 to 25.9.8
 

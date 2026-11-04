@@ -1,8 +1,8 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/sma-em-installed.svg
+BADGE-Number of Installations: https://iobroker.live/badges/sma-em-installed.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sma-em.svg
-BADGE-Stable version: http://iobroker.live/badges/sma-em-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sma-em.svg
+BADGE-Stable version: https://iobroker.live/badges/sma-em-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.sma-em.svg
 BADGE-Test and Release: https://github.com/iobroker-community-adapters/iobroker.sma-em/workflows/Test%20and%20Release/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.sma-em.svg?data=d,s
 ---
@@ -59,6 +59,14 @@ Daraus setzen sich die Objektnamen zusammen z.B.
 - ...
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (fuchs-1978) Fixed: Incorrect measurement averages when telegram processing overlaps.
+- (fuchs-1978) Fixed: Delayed state updates now retain their original reception timestamps and publish the latest waiting values.
+- (fuchs-1978) Improved: Added diagnostics for reception gaps and delayed state updates; brief publication delays are logged at debug level.
+
 ### 1.4.0 (2026-09-11) - 2026H2 maintenance release
 
 - (copilot) Adapter requires node.js >= 22 now

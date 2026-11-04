@@ -231,6 +231,14 @@ Please use the [ioBroker tester thread](https://forum.iobroker.net/topic/85510/t
 
 ## Changelog
 
+### 0.6.1 (2026-10-27)
+
+- **Bring! ↔ Alexa:** Confirmed writes within a pending bridge transaction are recognized even when unrelated items were completed or added meanwhile. Later changes are handled in a separate safe reconciliation pass without resurrecting completed Bring! items.
+- **Safety:** Incomplete or unconfirmed original writes remain blocked. Never blindly reset a pending journal.
+- **Logging:** One warning for confirmations pending longer than three minutes, one error upon timeout, and an informational recovery message. Recurring polls do not flood the ioBroker log.
+- **Tests and documentation:** Regression tests for concurrent completions, confirmed writes and incomplete pending transactions; bilingual guides updated.
+- **Speed:** Event-driven wakeups after confirmed Bring! and Alexa changes, a 30-second fallback and faster verification. **Upstream limit:** The separate Bring! adapter 1.9.1 still fetches its cloud list approximately every **90 seconds**. **ShoppingRoute cannot configure, shorten, or trigger that external polling interval**; faster synchronization starts once updated Bring! data reaches ioBroker.
+
 ### 0.6.0 (2026-10-26)
 
 - Detect explicit store names anywhere in shopping-item text, without requiring prepositions; avoid guessing when multiple different stores are named.

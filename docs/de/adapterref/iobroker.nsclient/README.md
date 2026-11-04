@@ -7,7 +7,7 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/mc
 BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/mcm4iob/iobroker.nsclient/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/mcm4iob/iobroker.nsclient
 BADGE-GitHub issues: https://img.shields.io/github/issues/mcm4iob/iobroker.nsclient
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.pid.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.pid.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/pid-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/pid-installed.svg
 BADGE-Test and Release: https://github.com/mcm4iob/iobroker.nsclient/actions/workflows/test-and-release.yml/badge.svg

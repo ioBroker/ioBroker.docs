@@ -10,8 +10,8 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobr
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.awtrix-ng?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.awtrix-ng/test-and-release.yml?branch=main&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.awtrix-ng.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/awtrix-ng-stable.svg
-BADGE-Installed: http://iobroker.live/badges/awtrix-ng-installed.svg
+BADGE-Stable: https://iobroker.live/badges/awtrix-ng-stable.svg
+BADGE-Installed: https://iobroker.live/badges/awtrix-ng-installed.svg
 chapters: {"pages":{"en/adapterref/iobroker.awtrix-ng/README.md":{"title":{"en":"ioBroker.awtrix-ng"},"content":"en/adapterref/iobroker.awtrix-ng/README.md"},"en/adapterref/iobroker.awtrix-ng/weather-app.md":{"title":{"en":"ioBroker.awtrix-ng"},"content":"en/adapterref/iobroker.awtrix-ng/weather-app.md"}}}
 ---
 ![Logo](../../admin/awtrix-ng.png)

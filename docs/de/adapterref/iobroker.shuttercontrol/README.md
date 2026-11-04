@@ -1,6 +1,6 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/shuttercontrol-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.shuttercontrol.svg
+BADGE-Number of Installations: https://iobroker.live/badges/shuttercontrol-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.shuttercontrol.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.shuttercontrol.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/simatec/ioBroker.shuttercontrol/badge.svg
 BADGE-Test and Release: https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg

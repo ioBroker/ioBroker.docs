@@ -39,6 +39,7 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
 -->
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
 ### 1.2.0 (2026-05-04)

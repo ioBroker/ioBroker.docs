@@ -65,7 +65,7 @@ existing projects keep their settings. A few things look different:
 | Object ID                     | `oid`              |         | The state to show. Selecting an object takes over its unit and, if the object defines them, its minimum and maximum. Instead of an ID the field also takes a constant: a number is shown as value, a word without a dot as text. |
 | Minimum value / Maximum value | `min` / `max`      | 0 / 100 | Range of the scale. Values outside the range stop at its end.                                                                                                                                                                    |
 | Unit                          | `unit`             |         | Shown after the value.                                                                                                                                                                                                           |
-| Digits after comma            | `digitsAfterComma` |         | Empty: as many as needed, at most two. The decimal separator follows the system settings of ioBroker.                                                                                                                            |
+| Digits after comma            | `digitsAfterComma` |         | Empty: as many as needed, at most two. The labels of a scale show no more. The decimal separator follows the system settings of ioBroker.                                                                                        |
 
 The text color of the style of a widget (`color`) is used for the value if the widget has no text color of its own.
 

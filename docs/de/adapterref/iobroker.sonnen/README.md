@@ -1,7 +1,7 @@
 ---
 BADGE-Build Status: https://github.com/foxriver76/ioBroker.sonnen/workflows/Test%20and%20Release/badge.svg
-BADGE-Number of Installations: http://iobroker.live/badges/sonnen-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sonnen.svg
+BADGE-Number of Installations: https://iobroker.live/badges/sonnen-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.sonnen.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sonnen.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.sonnen.png?downloads=true
 ---

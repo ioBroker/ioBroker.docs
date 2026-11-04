@@ -38,6 +38,9 @@ Every widget with all its settings and screenshots: [English](/#/docs/adapterref
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.0.1 (2026-11-02)
+* (bluefox) Thermometer, linear, radial and tank gauge: the labels of the scale show no more digits after the comma than the value. A scale from -10 to 40 in 6 steps was labelled "31.6667" next to a value of "18.9"
+
 ### 3.0.0 (2026-10-16)
 * (bluefox) Rewrote the color, water and battery gauge as plain SVG without react-gauge-chart, react-liquid-gauge, react-battery-gauge, d3 and MUI - the widget set works with the React 19 version of vis-2 again. Projects keep all their settings
 * (bluefox) Added 7 new widgets: radial gauge, arc gauge, linear gauge, thermometer, compass, tank and rings
@@ -58,9 +61,6 @@ Every widget with all its settings and screenshots: [English](/#/docs/adapterref
 
 ### 2.0.1 (2025-07-01)
 * (bluefox) Rewritten with TypeScript
-
-### 1.1.1 (2024-11-25)
-* (bluefox) Allowed to define digits after comma for the color gauge
 
 ## License
 The MIT License (MIT)

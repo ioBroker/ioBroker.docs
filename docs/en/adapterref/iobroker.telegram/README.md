@@ -7,7 +7,7 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/io
 BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.telegram/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.telegram
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.telegram
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.telegram.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.telegram.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/telegram-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/telegram-installed.svg
 BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.telegram/actions/workflows/test-and-release.yml/badge.svg
@@ -94,6 +94,15 @@ The iobroker log will then show you the chat id in the logs.
 
 ## Usage
 You can use a telegram with [text2command](https://github.com/ioBroker/ioBroker.text2command) adapter. There is a predefined communication schema, and you can command to you home in text form.
+
+Instead of `text2command` you can select an [assistant](https://github.com/ioBroker/ioBroker.assistant) instance ("assistant instance" in the settings). Messages that no rule or command of this adapter matched go there, and its answer is sent back to the chat:
+
+- **Text** is the question.
+- **Voice messages** are recognised by the assistant (it needs voice enabled, a speech recognition engine and ffmpeg); the answer starts with the recognised text (🎤 …).
+- **Photos** go along as pictures, the caption is the question (without one the assistant describes the picture). The photos of an album go as one question, at most 4 of them. The assistant needs a cloud model that can see pictures.
+- **Videos** are not sent along: they are stored in the file storage of this instance (folder `assistant`, the newest 20 are kept) and the assistant only learns where. It does not look at videos yet. Telegram lets bots download files up to 20 MB only.
+
+Photos and videos can be switched off with "Photos and videos to the assistant". The assistant gets 2 minutes for an answer; after that the user is told that it did not answer in time.
 
 To send a photo, just send a path to file instead of text or URL: `sendTo('telegram', 'absolute/path/file.png')` or `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`.
 
@@ -348,6 +357,22 @@ sendTo('telegram.0', 'send', {
     text: 'Message to chat',
     chatId: 'SOME-CHAT-ID-123',
     message_thread_id: 7,
+});
+```
+
+The Blockly block "telegram" has an optional input "Topic (Thread-ID)" for it as well.
+
+## Message ids of sent messages
+The callback of `send` gets the number of recipients. To edit or delete the message later, ask for the ids instead
+with `returnMessageIds: true`: the callback then gets an object `chat id => message id`, and `error`
+(`chat id => reason`) if a recipient failed.
+
+```javascript
+sendTo('telegram.0', 'send', { text: 'Washing machine is done', chatId: 12345678, returnMessageIds: true }, ids => {
+    // ids = { '12345678': 4711 }
+    setTimeout(() => sendTo('telegram.0', 'send', {
+        deleteMessage: { options: { chat_id: 12345678, message_id: ids['12345678'] } },
+    }), 3600000);
 });
 ```
 
@@ -870,6 +895,17 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 6.2.0 (2026-11-04)
+- (@GermanBluefox) Questions to the `assistant` instance (text and voice) wait at most 2 minutes for the answer; after that the user gets "The assistant did not answer in time." instead of no reply at all (e.g. when the assistant restarted meanwhile)
+- (@GermanBluefox) Photos and videos are forwarded to the `assistant` instance too: photos (an album as one question, at most 4) with their caption as the question, videos are stored in the file storage of the instance (folder `assistant`, the newest 20) and only their place goes along. Can be switched off with "Photos and videos to the assistant"
+- (@GermanBluefox) Added the state `communicate.pathFileUrl`: the `iobdisk://` URL of the last received file (e.g. `iobdisk://pi4/telegram.0/video/2026-11-04_10-00-00.mp4`), which instances on other hosts can read with `readDiskFile(url)` - the path in `communicate.pathFile` is only valid on the host of telegram. Needs js-controller 8.0 and `saveFilesTo: filesystem`, otherwise the state stays empty
+
+### 6.1.0 (2026-11-04)
+- (@GermanBluefox) Voice messages are forwarded to the configured `assistant` instance: it recognises the speech and the answer is sent back to the chat with the recognised text in front (🎤 …). The same user check as for text messages applies; a voice message with a caption is answered by its caption. Needs ioBroker.assistant with voice enabled, a speech recognition engine and ffmpeg on the host
+- (@GermanBluefox) `send` can return the ids of the sent messages again (`returnMessageIds: true`), to edit or delete the message later; failed recipients come with the reason (#1389)
+- (@GermanBluefox) The Blockly block "telegram" has an optional input for the topic (thread id) of a forum group (#952)
+- (@GermanBluefox) Completed the Blockly translations for Ukrainian and Chinese
+
 ### 6.0.2 (2026-09-12)
 - (@GermanBluefox) Updated packages and improved the rules block
 - (@patricknitsch) Retried getUpdates 409 conflicts quickly before falling back to a slow restartart
@@ -885,15 +921,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 ### 5.0.4 (2026-09-01)
 - (@GermanBluefox) Blockly migrated to TypeScript
 - (@bjoernjaeschke87-beep) Live location updates (delivered by Telegram as `edited_message`) now update `communicate.requestLocation` while the location is being shared
-
-### 5.0.3 (2026-08-10)
-- (@GermanBluefox) Fixed: the configured `text2command`/`assistant` instance may now also be stored in the long form (`system.adapter.text2command.0`) - the alive check no longer fails with "instance is not running"
-
-### 5.0.2 (2026-08-03)
-- (copilot) Adapter requires node.js >= 22 now
-- (copilot) Adapter requires admin >= 8.0.0 now
-- (@klein0r) admin 8.0.0 and js-controller 6.0.11 (or later) are required
-- (@klein0r) Updated dependencies
 
 ## License
 

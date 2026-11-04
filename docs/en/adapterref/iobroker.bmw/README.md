@@ -87,6 +87,38 @@ After creating your Client ID, configure streaming:
 3. Set **update interval** (minimum 10 minutes due to API quota)
 4. Configure **VIN ignore list** if needed
 
+### 3a. Optional A Better Routeplanner (ABRP) live telemetry
+
+The adapter can forward BMW high-voltage battery telemetry to ABRP without an OBD dongle. This feature is disabled by default and does not create additional BMW API calls. It uses only fresh data that the adapter already receives through BMW MQTT streaming or its configured telematic refresh. The primary SoC source is `vehicle.drivetrain.batteryManagement.header`; `vehicle.powertrain.electric.battery.stateOfCharge.displayed` is used as a compatibility fallback.
+
+You need two ABRP credentials:
+
+1. Create a free **Telemetry API key** at https://abetterrouteplanner.com/home/app/api-keys/telemetry.
+2. In ABRP, save/select your vehicle, open its live-data settings, link the **Generic** provider, and copy the vehicle-specific token.
+3. Enable ABRP in the BMW adapter settings and enter the Telemetry API key.
+4. Add one row per vehicle with its BMW VIN and matching ABRP Generic token.
+5. Save/restart the instance and wait for a fresh BMW SoC update.
+
+Only these values are transmitted:
+
+- `soc`: current high-voltage battery percentage
+- `utc`: original BMW measurement timestamp
+- `is_charging`: `1` while actively charging, otherwise `0`
+- `is_dcfc`: `1` for DC charging and `0` for AC, sent only while charging
+- `est_battery_range`: remaining electric range in kilometres
+
+The adapter does not send the VIN, location, speed, route, or driving history to ABRP. API keys and Generic tokens are stored as protected encrypted settings and are never written to adapter states or logs.
+
+ABRP configuration requires ioBroker Admin 8.2.0 or newer so vehicle tokens inside the configuration table are encrypted and decrypted correctly. Installations affected by the older double-encryption configuration are recovered at runtime; re-enter and save each Generic token once after updating to migrate the stored setting.
+
+The ABRP Telemetry API key is transmitted in the v1 API's `Authorization: APIKEY ...` header. Only the vehicle-specific Generic token and telemetry JSON are sent as URL-encoded request parameters; the API key is not placed in the request URL.
+
+ABRP allows at most two telemetry requests per second and API key. The adapter applies one shared limiter to all configured vehicles, retries, and manual sends. If BMW MQTT delivers a burst, older unsent values are replaced by the newest SoC for that VIN instead of being queued indefinitely.
+
+Status is available below `bmw.0.VIN.abrp.*`. These objects are created from the local ABRP configuration before BMW vehicle discovery, so they are also available while the BMW REST quota is exhausted. `lastAttempt` records an outgoing request, `lastSuccess` and `lastSoc` are updated only after ABRP accepted it, and `lastError` contains the HTTP status plus ABRP's sanitized error message when available. The adapter also logs the first accepted update at info level and rejected updates at warning level. The `sendNow` button resends only a cached, still-fresh SoC and never triggers a BMW API request. “Live” remains limited by when BMW CarData publishes a new SoC; a sleeping vehicle may not update immediately.
+
+After every adapter start, the latest valid stored SoC is sent once as a current initialization value. This allows the ABRP connection to be tested while the vehicle is parked or sleeping. This one-time startup seed uses the send time as `utc`; all later live updates use the original BMW measurement timestamp and must pass the normal freshness check. No additional BMW API call is made for the seed.
+
 ### 4. Authentication Process
 
 1. Start the adapter
@@ -217,6 +249,17 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- add optional ABRP live telemetry using per-vehicle Generic tokens
+- send charging state, DC charging state, and estimated electric range alongside SoC
+- enforce the ABRP limit of two requests per second and API key across all vehicles and retries
+- encrypt and protect ABRP credentials and expose sanitized delivery status states
+- create ABRP diagnostics independently of BMW REST quota and log ABRP response errors without credentials
+- stop further BMW CarData REST calls temporarily after the server reports quota error `CU-429` and preserve that cooldown across adapter restarts
+- prevent BMW OAuth refresh tokens from appearing in debug logs
+
 ### 5.0.5 (2026-10-26)
 
 - (TA2k) container now includes non-streaming data keys again (e.g. charging level), so the adapter shows more values
@@ -230,9 +273,6 @@ This adapter is available at: [https://github.com/TA2k/ioBroker.bmw](https://git
 
 - (TA2k) fixed telematic data fetching (CU-400): the container now uses only the data keys BMW accepts
 - (TA2k) existing installations update to the new container automatically
-- (hombach) fixed repochecker error
-- (hombach) fixed translations
-- (hombach) updated dependencies
 - (hombach) fixed repochecker error
 - (hombach) fixed translations
 - (hombach) updated dependencies

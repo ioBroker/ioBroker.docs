@@ -1,8 +1,8 @@
 ---
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.fritzdect.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.fritzdect.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.fritzdect.svg
-BADGE-Number of Installations (latest): http://iobroker.live/badges/fritzdect-installed.svg
-BADGE-Number of Installations (stable): http://iobroker.live/badges/fritzdect-stable.svg
+BADGE-Number of Installations (latest): https://iobroker.live/badges/fritzdect-installed.svg
+BADGE-Number of Installations (stable): https://iobroker.live/badges/fritzdect-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/foxthefox/ioBroker.fritzdect/badge.svg
 BADGE-Test and Release: https://github.com/foxthefox/ioBroker.fritzdect/workflows/Test%20and%20Release/badge.svg
 ---

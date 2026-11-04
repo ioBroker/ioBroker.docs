@@ -1,6 +1,6 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/s7-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.s7.svg
+BADGE-Number of Installations: https://iobroker.live/badges/s7-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.s7.svg
 BADGE-Test and Release: https://github.com/ioBroker/iobroker.s7/workflows/Test%20and%20Release/badge.svg
 BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/s7/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.s7.svg

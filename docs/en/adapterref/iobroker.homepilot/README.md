@@ -32,6 +32,9 @@ NodeJS 10 or higher required
 :poland: [Dokumentacja](/#/docs/adapterref/iobroker.homepilot/docs/en/doc_homepilot_en.md)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**

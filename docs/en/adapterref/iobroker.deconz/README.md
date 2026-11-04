@@ -45,6 +45,10 @@ Examples:
 ## Changelog
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 1.7.13 (2026-11-03)
+* chore(deps-dev): bump follow-redirects from 1.16.0 to 1.16.2
+* chore(deps-dev): bump @types/node from 25.9.8 to 25.9.9
+
 ### 1.7.12 (2026-10-03)
 * chore(deps-dev): bump @grpc/grpc-js from 1.14.3 to 1.14.5
 * chore(deps-dev): bump axios from 1.18.1 to 1.20.0

@@ -10,8 +10,8 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobr
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.gira-iot?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.gira-iot/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.gira-iot.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/gira-iot-stable.svg
-BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
+BADGE-Stable: https://iobroker.live/badges/gira-iot-stable.svg
+BADGE-Installed: https://iobroker.live/badges/gira-iot-installed.svg
 ---
 ![Logo](../../admin/gira-iot.png)
 
@@ -36,6 +36,10 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (@klein0r) Updated dependencies
+
 ### 0.7.0 (2026-05-05)
 
 * (copilot) Adapter requires node.js >= 22 now

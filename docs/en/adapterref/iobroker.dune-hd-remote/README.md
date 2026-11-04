@@ -2,14 +2,15 @@
 
 # ioBroker.dune-hd-remote
 
+![Stable](https://iobroker.live/badges/dune-hd-remote-stable.svg)
 [![NPM version](https://img.shields.io/npm/v/iobroker.dune-hd-remote.svg)](https://www.npmjs.com/package/iobroker.dune-hd-remote)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.dune-hd-remote.svg)](https://www.npmjs.com/package/iobroker.dune-hd-remote)
 [![License](https://img.shields.io/github/license/sadam6752-tech/ioBroker.dune-hd-remote.svg)](LICENSE)
-![Number of Installations](https://iobroker.live/badges/dune-hd-remote-installed.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.dune-hd-remote.png?downloads=true)](https://nodei.co/npm/iobroker.dune-hd-remote/)
 
 [![Test and Release](https://github.com/sadam6752-tech/ioBroker.dune-hd-remote/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/sadam6752-tech/ioBroker.dune-hd-remote/actions/workflows/test-and-release.yml)
+![Number of Installations](https://iobroker.live/badges/dune-hd-remote-installed.svg)
 
 Control [Dune HD](https://dune-hd.com/) media players via IP network from ioBroker.
 

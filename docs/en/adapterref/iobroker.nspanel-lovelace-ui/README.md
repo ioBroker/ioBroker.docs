@@ -58,6 +58,7 @@ Adapter Community (ioBroker Forum): [Forum](https://forum.iobroker.net/topic/800
 - [x] screensaver3
 - [x] cardChart
 - [x] cardLChart
+- [x] cardPChart
 - [ ] cardLChart2 (new - in progress)
 - [x] cardEntities
 - [x] cardSchedule
@@ -158,15 +159,56 @@ The buzzer command follows Tasmota's format: `tone,duration,count,frequency`
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-- (ticaki) chart pages: the tab "Page Chart" is gone - its pages are moved into the page configuration (tab PageConfig) at adapter start and the old table is deleted; a name already used by another page gets the suffix `_chart`
-- (ticaki) chart pages: migrated pages keep their navigation from the script for now (deprecated, the editor shows a hint) until a navigation is assigned in the admin - script version 0.21.4 marks `ScriptConfig.PageChart` as deprecated
-- (tt-tom17) web panel: on a grid card a short tap on a tile switches it and holding the tile opens its detail popup, like on a real panel - a light tile with a colour role (rgb, rgbSingle, rgbThree, hue, ct, dimmer) opened the popup on a tap and was switched when held
-- (tt-tom17) a panel switched off via `panels.<id>.cmd.activated` is now left alone at adapter start - it no longer receives a restart request over http
-- (tt-tom17) a switched off panel reports the status `deactivated` instead of keeping the status of the previous run, so the panel overview no longer shows it as running
-- (tt-tom17) switching `cmd.activated` is confirmed at the panel again - the acknowledgement went to `panels.controller.cmd.activated` before
-- (ticaki) screensaver: the time no longer stops when other values on the screensaver change often - a trigger arriving within the update throttle was replaced by the first one and the minute update of the clock got lost
-- (tt-tom17) `cmd.hideCards` keeps its stored value at adapter start - it was overwritten with the value of `cmd.activated`
-- (ticaki) a configuration script is no longer required: a panel without a script starts with the admin configuration only (empty start page as fallback) instead of being skipped or pausing the adapter
+- (ticaki) admin page navigation: a page named `main` without the start page flag (older configurations) is treated as the start page as well - its own prev/next/parent/home are ignored, a warning in the log asks to set the flag
+- (ticaki) admin page navigation: the locked prev/next/parent/home fields of a start page only carry the label tooltip, the "choose a value to store" hint is gone there; the resolved neighbours are re-read after the adapter restarted instead of keeping the stale ones
+- (ticaki) admin page navigation: a click on the label prev/next/parent/home opens the page the link resolves to, as long as it is an admin page; a system page as target only shows a short notice
+- (ticaki) admin page navigation: a page flagged as start page no longer carries a prev/next/parent of its own - its neighbours follow from the pages pointing at it (the stored values are kept and apply again once the flag is removed); an explicit `next` of a page is no longer overwritten when other pages chain in behind it; the admin shows the neighbours the adapter resolved as greyed placeholders in empty prev/next/parent/home fields and warns when other pages store the same prev/next or point at the page with their prev while its next leads elsewhere
+- (ticaki) screensaver: a mode this adapter version does not know (e.g. after a downgrade) no longer breaks the screensaver - it falls back to `standard` with a warning in the log, the stored configuration stays unchanged
+- (ticaki) cardPChart: new page type "Pie chart" in the PageConfig tab (TFT 6.0.5, EU panel) - up to five slices (the legend of HMI 6.0.5 has five rows) from numeric states with name, unit and color, legend mode and decimals; optionally the average over a time range (rolling: 1 h, 24 h, 7 d, 30 d, custom hours; calendar: today, yesterday, this/last week, this/last month) read from a history/sql/influxdb instance; alternatively a script data point with the finished panel text, more than five entries are summed up as "Other"; the web panel renders the card as well
+- (ticaki) web panel: without a connected browser the panel no longer offers the startup page every 5 s, which only filled the debug log
+- (tt-tom17) cardThermo: the set temperature reached the panel multiplied by the step width (19.0 °C became 79.0 °C with the usual step of 0.5 °C) - only a step of 0.1 °C was unaffected
+- (ticaki) Tasmota update and the Tasmota update indicator use the `tasmota-beta` version when the beta option is enabled; the beta option label in the admin no longer refers to TFT only
+- (ticaki) admin screensaver: uniform, larger paging arrows for all areas except favorit (the scroll bar for weather items is gone, weather items are paged like the panel does); the alternate area can hold several items the panel rotates through
+- (ticaki) admin screensaver: the notifications and options buttons moved from the panel picture to a bar below it, so they no longer cover places and paging arrows
+- (ticaki) admin screensaver: items of areas the chosen version does not show are no longer reported as a problem or offered for removal - the version can change at runtime (`cmd.screenSaver.layout`)
+- (tt-tom17) cardThermo2: the humidity row uses the unit configured for it, and the unit of the first row now also applies to the set temperature - the admin offers both fields, the adapter read only the first one
+- (tt-tom17) admin: the two hardware button buttons of a panel tile now sit one below the other, and their colour also shows whether the relay is decoupled - with a tooltip naming the state
+- (tt-tom17) cardQR: a page with the encryption "No Password" (or a free text, url or telephone code) no longer carries the stored wifi password to the panel - it was shown in clear text on the card and was part of the scanned code
+- (tt-tom17) cardAlarm: the disarm buttons (columns 5 to 8) were only taken over when the arm button of the same row was filled, so a page with the disarm column alone showed no button at all
+- (tt-tom17) cardAlarm: a new page starts as an alarm system with the buttons "Arm" and "Disarm" filled in, and the top button of both columns is mandatory - without them the card has no button at all in one of its two states and cannot be left; the type "unlock" still needs one button only
+- (tt-tom17) PageConfig: the unique id of a page is fixed once the page was created - renaming it left the navigation of every other page pointing at the old name, visible only as a warning in the log
+- (tt-tom17) PageConfig: the delete confirmation names the pages that point at the page to be deleted - deleting still leaves those references behind, but no longer silently
+- (tt-tom17) PageConfig: the delete confirmation offers to connect the previous and the next page, so deleting a page out of a prev/next chain no longer leaves its neighbours pointing at a page that is gone
+- (tt-tom17) PageConfig: the third tab of the navigation column is gone - it only showed an untranslated placeholder text
+
+### 2.0.2 (2026-11-01)
+- (ticaki) admin: page item text size shows the pixel size of each font; icons only offer fonts 1, 3 and 4 (the others have no icons), font 5 is marked "ASCII only"
+- (ticaki) admin: the "..." button next to the item name is now "Dynamic name" (used only while the name is empty) and no longer offers unit and date format, which were ignored
+- (ticaki) admin: on cardThermo2 and cardMedia the name field notes that the name is only the popup title
+- (ticaki) admin: screensaver item dialog: "icon per value range" and the visibility settings are available without expert mode
+- (ticaki) web panel: the font `¬<n>` of page items works on every card; cardThermo2 uses the slot sizes and positions of the HMI
+
+### 2.0.1 (2026-11-01)
+- (ticaki) screensaver editor: areas with more items than places page with arrows instead of hiding the extra items, they are no longer reported as "no place in this version"; items with a condition (enabled / visible condition, also in raw data) are marked
+- (ticaki) admin: the "..." button of the media page player opens a list of all players found (alexa2 Echo devices, sonos speakers, squeezebox players, spotify-premium/mpd instances) grouped by adapter with search instead of the object tree; the id can still be typed by hand
+- (ticaki) admin: screensaver items show readable names (headline, object name or template name) instead of regex fragments; the full name is in the tooltip
+- (ticaki) admin: a script weather instance with a trailing dot (`pirate-weather.0.`) is recognized as installed and saved without the dot
+
+### 2.0.0 (2026-10-31)
+- (ticaki) maintain: new button "Take script over into admin" on every panel tile - converts the pages, the screensaver and the hardware buttons of a panel script into the admin configuration (preview with all problems, backup of the script, pages of the global script per panel, items the editor cannot express are taken over as raw data)
+- (ticaki) a configuration script is no longer required; new panel option "Panel uses no script" - the panel is configured in the admin only and a script sent for it is rejected
+- (ticaki) page configuration: new page types "Media player" (cardMedia), "Thermostat (classic)" (cardThermo) and "Page link"; paging of menu, thermostat and media pages can be set
+- (ticaki) page configuration: the old tabs "Page Power" and "Page Chart" are moved into the page configuration automatically at adapter start
+- (ticaki) item dialog: raw data (JSON) for page and screensaver items, many more fields (value conditions, slider ranges, `secondRow`, `colormode`, target page for buttons); long press is offered on grid pages only, like on the HMI
+- (tt-tom17) panel settings: the hardware buttons (relay decoupling and action) are configured in the panel tile
+- (ticaki) navigation flow: edit mode for prev/next/home/parent links (also for script pages, stored as override), auto layout, collapsible sub trees
+- (ticaki) icons: Material Design Icons 7.4.47 (546 new icons), own window and shutter icons, blinds show their position as icon - needs HMI/TFT 6.0.2 (beta TFT EU is 6.0.2)
+- (ticaki) global script: an admin page assigned to a panel replaces the global page of the same name
+- (ticaki, tt-tom17) web panel: tap and hold behave like on the HMI (grid tiles, cardMedia, cardThermo2, list rows), hardware buttons 20px higher
+- (ticaki) error in the log when Tasmota runs but the display never answers (hint to the NSPanel template / GPIO4)
+- (ticaki) fix: prefix and suffix of admin page item values were swapped - if you entered them the other way round, swap them back
+- (ticaki) fixes: `colorScale.color_best` ignored, font size lost while an item is off, long press also triggered the short press, media item of an admin page without media sub page, screensaver clock stopped, "show system pages" in the navigation flow
+- (tt-tom17) fixes: deactivated panels (`cmd.activated`) are left alone at adapter start and report `deactivated`, `cmd.hideCards` keeps its value at adapter start
 
 ### 1.7.0 (2026-10-25)
 - (ticaki) web panels: the panel UI in a web browser via http://<host>:8090/<topic>, no Tasmota needed - one web panel per address, all browsers on it stay in sync (new admin tab "Web panels")

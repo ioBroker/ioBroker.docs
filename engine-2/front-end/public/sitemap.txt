@@ -48,6 +48,7 @@ https://www.iobroker.com/blog/2026_10_06
 https://www.iobroker.com/blog/2026_10_08
 https://www.iobroker.com/blog/2026_10_26
 https://www.iobroker.com/blog/2026_10_28
+https://www.iobroker.com/blog/2026_11_04
 https://www.iobroker.com/docs/about/brand.md
 https://www.iobroker.com/docs/about/story.md
 https://www.iobroker.com/docs/admin/adapter.md
@@ -233,6 +234,7 @@ https://www.iobroker.com/adapters/anker-solix
 https://www.iobroker.com/adapters/ankersolix2
 https://www.iobroker.com/adapters/anthbot
 https://www.iobroker.com/adapters/anthbot-genie
+https://www.iobroker.com/adapters/anycubic-cloud
 https://www.iobroker.com/adapters/apcups
 https://www.iobroker.com/adapters/apg-info
 https://www.iobroker.com/adapters/apple
@@ -246,6 +248,7 @@ https://www.iobroker.com/adapters/asuswrt
 https://www.iobroker.com/adapters/atlas-scientific-ezo-i2c
 https://www.iobroker.com/adapters/aura
 https://www.iobroker.com/adapters/aurora-nowcast
+https://www.iobroker.com/adapters/autism-support
 https://www.iobroker.com/adapters/autodarts
 https://www.iobroker.com/adapters/autodoc
 https://www.iobroker.com/adapters/automatic-feeder
@@ -350,6 +353,7 @@ https://www.iobroker.com/adapters/ebus
 https://www.iobroker.com/adapters/echarts
 https://www.iobroker.com/adapters/ecoflow
 https://www.iobroker.com/adapters/ecoflow-mqtt
+https://www.iobroker.com/adapters/ecosense
 https://www.iobroker.com/adapters/ecovacs-deebot
 https://www.iobroker.com/adapters/eebus-go
 https://www.iobroker.com/adapters/egigeozone2
@@ -366,6 +370,7 @@ https://www.iobroker.com/adapters/energiefluss
 https://www.iobroker.com/adapters/energiefluss-erweitert
 https://www.iobroker.com/adapters/energy-tracker
 https://www.iobroker.com/adapters/energymanager
+https://www.iobroker.com/adapters/energypriceforecast
 https://www.iobroker.com/adapters/enet
 https://www.iobroker.com/adapters/enigma2
 https://www.iobroker.com/adapters/enocean
@@ -524,6 +529,7 @@ https://www.iobroker.com/adapters/javascript
 https://www.iobroker.com/adapters/jeelink
 https://www.iobroker.com/adapters/jetframe
 https://www.iobroker.com/adapters/judoisoft
+https://www.iobroker.com/adapters/kanban
 https://www.iobroker.com/adapters/kecontact
 https://www.iobroker.com/adapters/kisshome-defender
 https://www.iobroker.com/adapters/klf200
@@ -554,6 +560,7 @@ https://www.iobroker.com/adapters/linktap
 https://www.iobroker.com/adapters/linky
 https://www.iobroker.com/adapters/linux-control
 https://www.iobroker.com/adapters/logparser
+https://www.iobroker.com/adapters/logsearch
 https://www.iobroker.com/adapters/loqed
 https://www.iobroker.com/adapters/lorawan
 https://www.iobroker.com/adapters/lovelace
@@ -590,6 +597,7 @@ https://www.iobroker.com/adapters/meteonomiqs
 https://www.iobroker.com/adapters/meteoswiss
 https://www.iobroker.com/adapters/metermaster
 https://www.iobroker.com/adapters/mhi-wfrac
+https://www.iobroker.com/adapters/miboxer-wl433
 https://www.iobroker.com/adapters/micronova
 https://www.iobroker.com/adapters/midas-aquatemp
 https://www.iobroker.com/adapters/midea
@@ -605,6 +613,7 @@ https://www.iobroker.com/adapters/miio
 https://www.iobroker.com/adapters/mikrotik
 https://www.iobroker.com/adapters/milight
 https://www.iobroker.com/adapters/milight-smart-light
+https://www.iobroker.com/adapters/millheater
 https://www.iobroker.com/adapters/miner
 https://www.iobroker.com/adapters/minuaru
 https://www.iobroker.com/adapters/minuvis
@@ -677,6 +686,7 @@ https://www.iobroker.com/adapters/openmediavault
 https://www.iobroker.com/adapters/openmeteo-notify
 https://www.iobroker.com/adapters/opensmartcity
 https://www.iobroker.com/adapters/opentherm
+https://www.iobroker.com/adapters/openwb2
 https://www.iobroker.com/adapters/openweathermap
 https://www.iobroker.com/adapters/operating-hours
 https://www.iobroker.com/adapters/opi
@@ -698,6 +708,7 @@ https://www.iobroker.com/adapters/ph803w
 https://www.iobroker.com/adapters/phantomjs
 https://www.iobroker.com/adapters/philips-air
 https://www.iobroker.com/adapters/philips-tv
+https://www.iobroker.com/adapters/pi-agent
 https://www.iobroker.com/adapters/pi-hole
 https://www.iobroker.com/adapters/pi-hole2
 https://www.iobroker.com/adapters/pid
@@ -738,6 +749,7 @@ https://www.iobroker.com/adapters/rainbird
 https://www.iobroker.com/adapters/rct
 https://www.iobroker.com/adapters/refoss
 https://www.iobroker.com/adapters/remeha-home
+https://www.iobroker.com/adapters/remko
 https://www.iobroker.com/adapters/renacidc
 https://www.iobroker.com/adapters/renault
 https://www.iobroker.com/adapters/reolink
@@ -772,6 +784,7 @@ https://www.iobroker.com/adapters/schlueter-thermostat
 https://www.iobroker.com/adapters/schoolfree
 https://www.iobroker.com/adapters/schwoerer-ventcube
 https://www.iobroker.com/adapters/script-restore
+https://www.iobroker.com/adapters/sehybrid
 https://www.iobroker.com/adapters/seko
 https://www.iobroker.com/adapters/selverf
 https://www.iobroker.com/adapters/semp
@@ -835,6 +848,7 @@ https://www.iobroker.com/adapters/sprinklecontrol
 https://www.iobroker.com/adapters/sql
 https://www.iobroker.com/adapters/squeezeboxrpc
 https://www.iobroker.com/adapters/srm
+https://www.iobroker.com/adapters/staleguard
 https://www.iobroker.com/adapters/starline
 https://www.iobroker.com/adapters/statistics
 https://www.iobroker.com/adapters/steam

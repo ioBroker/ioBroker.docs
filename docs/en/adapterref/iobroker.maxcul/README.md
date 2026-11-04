@@ -40,6 +40,9 @@ If the connection is lost, the adapter reconnects automatically every 10 seconds
 could not be sent meanwhile stay in the queue and are transmitted once the CUL is back.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**

@@ -34,13 +34,16 @@ Fill out your credentials:
 
 - Connects to the Blink Cloud
 - Polls camera and sync module status
-- Supports manual snapshots
-- Stores live snapshots
+- Supports manual snapshots with fresh JPEG verification
+- Stores live snapshots in ioBroker storage for VIS
+- Preserves confirmed snapshot capture timestamps
+- Extracts motion snapshots from downloaded MP4 recordings using ffmpeg
+- Supports optional motion photos in Telegram notifications
 - Downloads the latest available cloud video
 - Allows enabling or disabling motion detection
 - Supports battery warning states and notifications
 - Supports Smart Detection states for classified motion events (works only on paid cloud services)
-- Supports cloud stored videos and local stored videos on sd-card (SyncModule 2 and XR) via local server on port 8085 - JavaScript needed, see below !
+- Supports cloud recordings and local-storage clips from Sync Module 2 (USB) and Sync Module XR (microSD), including optimized manifest polling
 - The script requires ffmpeg installed and a lot resources if you have a lot cameras and is then only partially suitable for Raspberry Pis (min. 4GB — more is better)
 - initial release for live view with javascript for each camera - required javascript is installed automatically - except for the old XT2, because it uses a different video stream
 - Experimental native LiveView session (no JavaScript helper / ffmpeg required) via `commands.start_live` / `commands.stop_live`, see "Real LiveView session" below
@@ -132,8 +135,9 @@ Used to avoid repeated notifications.
 |---|---|---|
 | `live.file` | string | Absolute path of the latest snapshot on disk. |
 | `live.image_base64` | string | Snapshot as Base64 string (for direct embedding in VIS without file access). |
+| `live.image_url` | string | Cache-busted URL of the live JPEG stored in ioBroker storage for VIS. |
 | `live.mime_type` | string | MIME type of the snapshot (e.g. `image/jpeg`). |
-| `live.timestamp` | string | Snapshot timestamp (ISO). |
+| `live.timestamp` | string | Confirmed capture time of the fresh Blink thumbnail, when available; otherwise empty. |
 | `live.stream_active` | boolean | MJPEG live stream (web-grid helper) currently polled. |
 | `live.stream_url` | string | URL of the active MJPEG live stream (web-grid helper, TTL limited). |
 | `live.mode` | string | Mode of the experimental native LiveView session (e.g. `idle`, active mode name). |
@@ -157,6 +161,8 @@ The newest video for the camera. Cloud is preferred automatically; falls back to
 | `video.size` | number | File size in bytes. |
 | `video.ready` | boolean | File was downloaded successfully and is playable. |
 | `video.lastError` | string | Last download error. `""` = ok, otherwise message such as `no video available`. |
+| `video.snapshot_url` | string | VIS URL of a JPEG frame extracted from the downloaded motion recording. |
+| `video.snapshot_timestamp` | string | Time when the motion JPEG was generated (ISO). |
 
 ### `video.history.0` … `video.history.9` – Ring gallery
 
@@ -275,6 +281,45 @@ For the **history gallery** query slots 0–9 individually:
 `source = "cloud"` means the clip came directly from the Blink cloud (fast, no stick upload).
 `source = "local_storage"` means the clip was uploaded from the Sync Module 2 USB stick through the cloud.
 
+### Snapshots in VIS and Telegram (v0.0.40)
+
+Live snapshots are stored as JPEG files in ioBroker storage.
+Use `blink.0.cameras.<CamID>.live.image_url` in a VIS image widget.
+The URL includes a cache-busting query parameter.
+
+A snapshot is accepted as new only after the thumbnail URL and
+JPEG content have changed. `live.timestamp` contains the confirmed
+capture time when available, otherwise it remains empty.
+
+For downloaded motion recordings, the adapter extracts a JPEG
+frame using `ffmpeg` and publishes it through
+`blink.0.cameras.<CamID>.video.snapshot_url`.
+
+`video.snapshot_timestamp` records when the JPEG was generated,
+not necessarily when the original video was recorded.
+
+Motion notifications can optionally include the JPEG as a
+Telegram photo. This option is configured in the adapter settings.
+If frame extraction fails, notifications remain independent
+of the photo.
+
+### Local-storage polling (v0.0.40)
+
+For Sync Module 2 USB sticks and Sync Module XR microSD cards,
+manifest data is reused across cameras in the same polling cycle.
+
+HTTP 409 responses indicating a manifest command is still
+in progress are polled at five-second intervals, with a
+60-second timeout. HTTP 409 "System is busy" responses are
+handled separately using a cooldown.
+
+Cloud video access remains available as a fallback.
+
+Repeated live snapshot busy messages are limited to one INFO
+message per camera within ten minutes. Subsequent messages
+are logged at DEBUG level until a successful snapshot resets
+the limit.
+
 ## Notes
 
 - Battery-powered warnings are handled via the `battery.*` states.
@@ -339,6 +384,14 @@ Older entries are available in CHANGELOG_OLD.md.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.40 (2026-11-01)
+* Improved fresh snapshot verification and capture timestamps.
+* Added live snapshot URLs for VIS through ioBroker storage.
+* Added motion snapshots from MP4 recordings and optional Telegram photos.
+* Reduced duplicate USB/microSD manifest requests.
+* Improved HTTP 409 polling, cooldown handling and snapshot busy logging.
+* Added regression tests for snapshots, manifest caching and HTTP 409 handling.
+
 ### 0.0.39 (2026-08-08)
 * Automatically clears the cached Blink session once after HTTP 401/code 101 and retries the connection.
 * Allows the clear session command even when the adapter is not connected.

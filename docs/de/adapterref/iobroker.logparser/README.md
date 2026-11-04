@@ -7,7 +7,7 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/io
 BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.logparser/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.logparser
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.logparser
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.logparser.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.logparser.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/logparser-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/logparser-installed.svg
 BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.logparser/actions/workflows/test-and-release.yml/badge.svg
@@ -142,6 +142,9 @@ Damit werden dann nur die Logs vom Alexa-Script in diesem Filter angezeigt.
 Wie zu sehen wird damit also "Quelle" (wäre hier normalerweise `javascript.0`) durch das Alexa-Gerät (hier: `Sonos Küche`) ersetzt. Außerdem wird die Message durch den gesprochenen Befehl (hier: `Licht An`) ersetzt. Genauso können auch noch das Datum (`date`) und das Log-Level (`level`) ersetzt werden.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 
 <!--
     Placeholder for the next version (at the beginning of the line):

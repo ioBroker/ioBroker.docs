@@ -24,8 +24,10 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.1 (2026-11-04)
 - update dependencies: `@iobroker/testing` (6.3.0)
+- fix states briefly jumping back to the old value after a command, until the device confirms it (#327)
+- acknowledge commanded states once the device confirms them, even if the value did not change
 
 ### 0.5.0 (2026-09-11)
 
@@ -55,10 +57,6 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 
 - fix scan mode inconsistency
   enhance log output behavior
-
-### 0.4.4 (2025-11-13)
-
-- add option to run auto discovery once on startup, in interval or completly disable it
 
 Older entries are available in CHANGELOG_OLD.md.
 

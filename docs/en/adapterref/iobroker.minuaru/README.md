@@ -52,6 +52,14 @@ alarmsystem for ioBroker and minuvis
 ![otherObjects](https://user-images.githubusercontent.com/20790635/151259992-61758c9c-e102-4f38-ae0e-931721d04a17.png)
 
 ## Changelog
+### 2.0.5 (2026-11-01)
+* (svallant) switch from duckdb-async to @duckdb/node-api
+* (svallant) add tests for node.js 24 and 26, require node.js >= 22
+* (svallant) fix issues detected by repository checker, require js-controller >= 6.0.11 and admin >= 7.6.20
+
+### 2.0.4 (2026-11-01)
+* (svallant) fix bug when trigger with no new value
+
 ### 2.0.3 (2026-01-10)
 * (svallant) fix bug in duckdb
 

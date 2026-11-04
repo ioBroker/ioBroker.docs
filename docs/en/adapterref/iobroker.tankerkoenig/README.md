@@ -1,7 +1,7 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/tankerkoenig-installed.svg
-BADGE-ioBroker stable release: http://iobroker.live/badges/tankerkoenig-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.tankerkoenig.svg?logo=npm
+BADGE-Number of Installations: https://iobroker.live/badges/tankerkoenig-installed.svg
+BADGE-ioBroker stable release: https://iobroker.live/badges/tankerkoenig-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.tankerkoenig.svg?logo=npm
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.tankerkoenig.svg?logo=npm
 BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/actions/workflows/test-and-release.yml/badge.svg
 ---
@@ -124,6 +124,7 @@ The value of the datapoint `combined` deliveres a css class. These classes are `
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (copilot) Adapter requires node.js >= 22 now
 - (copilot) Adapter requires admin >= 7.7.22 now
 * (@klein0r) Adapter requires node.js 20 and js-controller >= 6 now

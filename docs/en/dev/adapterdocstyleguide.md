@@ -4,7 +4,7 @@ lastChanged: 06.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adapterdocstyleguide.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: KNaN4V9UbZzyglcLi3e59mWopbv6OYPmg0lWHg4svgU=
+hash: dIrekLO+dxHSnEzRlai44ZY5jFzOWB7cjj8YT8I1hxg=
 ---
 # Style guide for creating adapter documentation
 

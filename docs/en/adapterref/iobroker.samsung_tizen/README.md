@@ -18,6 +18,8 @@ Possible values are `http` or `wss`. On newer devices use `wss`.
 ### 1.2. IP Address
 The IP address of your Samsung TV.
 
+Do not know the address? Click **Search TV** at the top of the settings: the adapter searches the network for a Samsung TV that is switched on and fills in its IP address, MAC address, protocol and port. If several TVs answer, the first one is taken and the others are offered in the list of the IP address field, which is filled when the settings are opened. The adapter instance must be running for the search. A TV in deep standby or in another subnet cannot be found - enter its address by hand then.
+
 ### 1.3. Port
 Port for the websocket connection to your TV:
 - 8001 - insecure port
@@ -72,6 +74,8 @@ Take the token from the returned JSON response:
 ### 1.5. MAC Address
 The MAC address of your Samsung TV is used for Wake-on-LAN.
 
+The button "Read MAC address from TV" asks the TV at the entered IP address for it. The TV must be switched on.
+
 This only works if your TV is connected by cable and not wirelessly.
 
 If your TV is connected wirelessly, it can only be powered on from short standby.
@@ -99,72 +103,23 @@ Delay in milliseconds between the commands sent via the `samsung_tizen.0.control
 
 ## 2. Usage
 
-### 2.1. Control
+### 2.0. Setup assistant
+The first tab of the settings, "Setup", walks through the whole setup: it searches the network for the TV, pairs with it (the TV asks once whether ioBroker may connect - choose "Allow" on the TV, the assistant takes the token by itself), reads the MAC address for Wake-on-LAN and sends a test key with the new data before anything is saved. "Apply and save" writes IP address, protocol, port, token and MAC address into the settings. The instance must be running; the tab needs admin 8 or newer. The manual way (state `config.getToken`, token in the name of `config.token`) still works.
+### 2.1.0 (2026-10-29)
+- (GermanBluefox) Added: button "Search TV" that finds the TV in the network and fills in IP address, MAC address, protocol and port; the IP address field lists all TVs found (SSDP, confirmed by the REST API of the TV)
+- (GermanBluefox) Added: button to read the MAC address for Wake-on-LAN from the TV
+- (GermanBluefox) Added: setup assistant (tab "Setup"): search, pairing without copying the token, Wake-on-LAN, test key and save in one go
+- (GermanBluefox) Added: `powerOn` can be written to switch the TV on (Wake-on-LAN, then KEY_POWER) or off (KEY_POWER, held on The Frame); the power state is asked right after that until it is reached
+- (GermanBluefox) Added: scenes - named sequences of keys, apps and pauses, configured in a table, each with a button `scenes.<name>`
+- (GermanBluefox) Added: buttons for the apps installed on the TV; the adapter knows the Samsung app IDs of YouTube, Netflix, Disney+, Prime Video, Apple TV, Max, Paramount+, DAZN, Joyn, RTL+, MagentaTV, ARD, ZDF, Spotify, Twitch, Plex and the browser and asks the TV which of them are installed
+- (GermanBluefox) Added: tab "Remote control" in the settings with a remote control to test the connection right away (custom component, needs admin 8)
 
-#### Send a single key
-To send a single key, click the button of the corresponding object, e.g. `samsung_tizen.0.control.KEY_MUTE`.
+### 2.0.1. Scenes
+The tab "Scenes" holds a table of named sequences, e.g. `SceneYouTube`: `HOME, YOUTUBE, WAIT 3000, OK` - open YouTube and confirm the account selection. A step is a key (`HOME`, `OK`, `BACK`, `UP`, `VOLUP`, `0`-`9`, the names of `TV_KEYS` of the type-detector or a Samsung code `KEY_...`), an app (`YOUTUBE`, `NETFLIX`, `DISNEY_PLUS`, ... - the keys of `TV_APPS`) or a pause (`WAIT 2000`). Every scene becomes a button `samsung_tizen.0.scenes.<name>` and a key of the remote control tab.
 
-#### Send a key without a predefined button
-You can send a custom (not predefined) key with the `samsung_tizen.0.control.sendCmd` object.
-Enter the key you want to send, e.g. `KEY_POWER`.
+### 2.0.2. Remote control tab
+The tab "Remote control" of the settings shows a remote control: power, Wake-on-LAN, source, menu, info, the arrow keys with OK, back, home, mute, volume and channel rockers, the playback keys and a button for every known app installed on the TV (YouTube, Netflix, Disney+, Prime Video, ...). Click it and the arrow keys, Enter, Backspace, + and - of the keyboard work as well. A LED shows the power state if the power state polling is on. The keys go through the running instance with the saved configuration, so save first after changing the IP address or the token. A key that does not reach the TV shows the error below the remote. The tab needs admin 8 or newer.
 
-#### Send multiple keys in a single command
-To send multiple keys in a single command, use the `samsung_tizen.0.control.sendCmd` object.
-Enter the keys separated by commas, e.g. `KEY_POWER`,`KEY_HDMI`,`KEY_VOLUP`.
-
-#### Create macros for commands
-
-Go to `samsung_tizen.0.command`. There you find example macros, and you can create your own ones.
-
-### 2.2. Apps
-
-#### Load the installed apps
-To load the installed apps, click the `samsung_tizen.0.apps.getInstalledApps` button.
-After that, a separate object named `start_<app name>` is created for each installed app.
-
-#### Start an app
-You can start an app by clicking the `samsung_tizen.0.apps.start_<app name>` object.
-
-### 2.3. Power State
-
-If the power state polling is configured as described above, `samsung_tizen.0.powerOn` is `true` while your TV is on and `false` while it is off.
-
-### 2.4. Commands
-
-Commands can be sent manually via the `samsung_tizen.0.control.sendCmd` object, as described under Control, or via a custom object below `samsung_tizen.0.command`.
-There are a few example commands, but you can also create your own macros.
-
-#### How to create a command macro
-1. Go to the objects tab and open `samsung_tizen.0.command`.
-2. Click the + icon to create a new object.
-
-   ![cmd1](images/cmd1.png)
-
-3. Check that the parent object is `samsung_tizen.0.command`.
-4. Enter a name for your command and check that the type is `datapoint` and `stateType` is `boolean`.
-
-   ![cmd2](images/cmd2.png)
-
-5. Under name, enter the keys you want to send.
-6. The role must be `button`.
-7. Save the object.
-
-   ![cmd3](images/cmd3.png)
-
-8. Now you can send your command with the newly created object.
-
-   ![cmd4](images/cmd4.png)
-
-## Credits
-
-The first generation of this adapter was developed by Stefan0875 (https://github.com/Stefan0875). It was then adapted and maintained by Highpressure (https://github.com/Highpressure) and finally by dahuby (https://github.com/dahuby). Thanks a lot for their work and for granting a public license.
-
-## Changelog
-
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
 ### 2.0.2 (2026-09-04)
 - (mcm1957) **BREAKING:** enhanced security (added encryption) requires that you enter the access token one more time 
 - (copilot) Adapter requires node.js >= 22 now
@@ -180,16 +135,6 @@ The first generation of this adapter was developed by Stefan0875 (https://github
 ### 1.1.0 (2024-04-26)
 * (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
 * (mcm1957) Dependencies have been updated
-
-### 1.0.0 (2023-09-30)
-- (mcm1957) An official release has been created
-
-### 1.0.0-alpha.2 (2023-09-24)
-- (mcm1957) Dependencies have been updated
-
-### 1.0.0-alpha.1 (2023-09-24)
-- (mcm1957) Adapter requires node 16 or newer now.
-- (mcm1957) Adapter has been moved to iobroker-community-adapters organization.
 
 ## License
 

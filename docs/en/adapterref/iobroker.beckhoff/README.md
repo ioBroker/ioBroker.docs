@@ -7,7 +7,7 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/io
 BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.beckhoff/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.beckhoff
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.beckhoff
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.beckhoff.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.beckhoff.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/beckhoff-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/beckhoff-installed.svg
 BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.beckhoff/actions/workflows/test-and-release.yml/badge.svg
@@ -101,6 +101,9 @@ The symbol version is an 8-bit counter. A restart or counter wrap during an unob
 For TwinCAT 2 <= v2.11.2240, upload and select a `.tpy` file. The adapter reads it from `beckhoff.<instance>.tpy` on startup. A selected file takes precedence over `xmlTpyData`; clear the selection to use the existing XML contents. Update the file whenever PLC symbol definitions change.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**

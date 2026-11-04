@@ -1,6 +1,6 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/ical-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.ical.svg
+BADGE-Number of Installations: https://iobroker.live/badges/ical-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.ical.svg
 BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.ical/workflows/Test%20and%20Release/badge.svg
 BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/ical/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.ical.svg
@@ -204,6 +204,9 @@ Blacklist: Wenn Sie alle Ereignisse eines bestimmten Ortes ausschließen möchte
 Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möchten, verwenden Sie reguläre Ausdrücke wie `/^(SUMMARY:.*)\s*(DESCRIPTION:.*)\s*(LOCATION:(?!MyLocation).*)$/` oder für 2 Standorte `/^(SUMMARY:.*)\s*(DESCRIPTION:.*)\s*(LOCATION:(?!((MyHomeLocation)|(MyWorkLocation))).*)$/`
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**

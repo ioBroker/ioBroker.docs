@@ -111,6 +111,10 @@ Stop:
 <https://forum.iobroker.net/topic/59466/test-adapter-vesync>
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- Add control support for Levoit Vital purifiers (LAP-V102S Vital 100S, LAP-V201S Vital 200S): setSwitch, setPurifierMode, setLevel/setFanSpeed, setDisplay, setChildLock and the new setLightDetection send the Vital payload format
 ### 1.0.4 (2026-05-18)
 
 - Add Cosori Oven support (CS130, CS125, CS100, AG500) with getOvenStatusV2, startStepCook, skipStep, setTempUnit

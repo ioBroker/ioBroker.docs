@@ -157,18 +157,94 @@ In admin the page also appears as a tile on the overview, next to the tiles of t
 
 *) These states will be updated if changes are made in the SONOS app.
 
+## Stereo pairs
+Two speakers paired to one room in the SONOS app - one plays left, the other right - are controlled
+through one of them only, SONOS hides the other one. Every channel shows whether its speaker
+belongs to a pair:
+* **`pair_role`**: `left` or `right` for a speaker of a stereo pair, empty otherwise
+* **`pair_partner`**: the other speaker of the pair, as IP address with underscores like `coordinator`, e.g. `192_168_1_21`
+
+The channel of a paired speaker also gets a description in the object tree that names its partner
+and tells which of the two controls the pair. The hidden speaker reports no playback and no volume
+and takes no commands: use the channel of its partner. It needs no channel of its own; if it has
+one, only `alive` and what belongs to the device itself - `led`, `button_lock`, the battery - work there.
+
+## Battery
+Speakers with a battery - Move and Roam - get two more states as soon as they report it:
+* **`battery_level`**: the charge in percent
+* **`battery_charging`**: `true` while the speaker is on its charging base or on USB power
+
+The battery is read every 5 minutes. A speaker that is asleep keeps its last values, `alive`
+shows whether they are current. Only S2 firmware reports the battery this way.
+
+## Status LED, button lock and sleep timer
+* **`led`**: switches the status LED of the speaker on or off
+* **`button_lock`**: `true` locks the buttons on the speaker
+* **`sleep_timer`**: minutes until the group stops playing. Write the minutes to set the sleep
+  timer, `0` to cancel it. It belongs to the group, so every speaker of the group shows the same
+  time, and writing it on any of them sets it for the whole group.
+
+`led` and `button_lock` are created as soon as a device reports them, so a device without buttons
+gets no `button_lock`. They are read every 5 minutes, `sleep_timer` every minute.
+
+A Boost or a Bridge is no player, so the search does not find it. To switch its status LED, add its
+IP address to the devices in the settings; `led` then appears under its channel.
+
+## Alarms
+The alarms of the SONOS app are under `sonos.0.alarms`, one channel per alarm, named by the ID that
+SONOS gave it, e.g. `sonos.0.alarms.17`. Changes made in the SONOS app show up within a minute.
+
+Every alarm has these states, all but `next_start` can be written:
+* **`enabled`**: switches the alarm on or off
+* **`time`**: start time as `hh:mm`, in the local time of the SONOS household
+* **`recurrence`**: `ONCE`, `DAILY`, `WEEKDAYS`, `WEEKENDS` or `ON_` followed by the days, 0 is Sunday: `ON_135` rings on Monday, Wednesday and Friday
+* **`duration`**: how long the alarm plays, `hh:mm`
+* **`volume`**: 0 to 100
+* **`room`**: the room that plays the alarm; write the name or the IP address of another speaker to move the alarm there
+* **`source`**: what the alarm plays; write the title of a SONOS favorite, a URI or `SONOS Chime`
+* **`play_mode`**: `NORMAL`, `REPEAT_ALL`, `SHUFFLE_NOREPEAT` or `SHUFFLE` (shuffle and repeat)
+* **`include_grouped`**: the rooms grouped with the room play the alarm too
+* **`next_start`**: when the alarm rings next, as a timestamp in ms; `null` while it is disabled
+* **`delete`**: deletes the alarm
+
+To create an alarm, write JSON to `sonos.0.alarms.create`. Only `room` and `time` are required, the
+other settings are named like the states above:
+```json
+{"room": "Bedroom", "time": "06:45", "recurrence": "WEEKDAYS", "volume": 15, "source": "Radio Bob"}
+```
+Settings that are left out start as daily, for one hour, with the SONOS chime at volume 20.
+
+Every speaker also has **`alarm_next`**: when the next enabled alarm of its room rings. A script can
+use it, for example, to switch on a wake-up light ten minutes before the music starts:
+```js
+let timer;
+on({ id: 'sonos.0.root.192_168_1_50.alarm_next' }, obj => {
+    clearTimeout(timer);
+    if (obj.state.val) {
+        timer = setTimeout(() => setState('hue.0.Bedroom.on', true), obj.state.val - 10 * 60000 - Date.now());
+    }
+});
+```
+`next_start` and `alarm_next` are calculated in the time zone of the ioBroker host, which has to be
+the one of the SONOS household.
+
 ## Using it with the sayIt adapter
 To use the [sayit adapter](https://github.com/ioBroker/ioBroker.sayit) with this SONOS adapter, ensure that the [web adapter](https://github.com/ioBroker/ioBroker.web) is instantiated and running too. The web adapter is required to allow the SONOS adapter to read the generated MP3 file from the sayit adapter.
 
-### Warning: Stability problems in combination with sayIt adapter
-Please note: This SONOS adapter has stability issues if using 'text to speech' with the sayIt adapter. Symptoms observed:
-1. Arbitrary change of volume to 0 or 100 %.
-2. No response after a random number of text-to-speech sequences
+sayIt writes the URL of the MP3 file to `sonos.X.root.<speaker>.tts`, and the speaker loads it from
+the web adapter. So the speakers must be able to reach that URL: the web adapter must not require
+authentication, and the address in the URL must be the one of the ioBroker host in your network.
 
-Workaround for text to speech is to use the [SONOS HTTP API](https://github.com/jishi/node-sonos-http-api).
+If the speaker cannot play a file - it cannot load the URL or does not support the format - the
+adapter logs the error, gives the speaker its volume and playback back and goes on with the next
+announcement. Older versions left the volume at 0 and did not play any announcement afterwards
+until the adapter was restarted.
 
 ## Favorites & Queue in VIS
 Use states `favorites_list_html` and `queue_html` to show playlists and current queue with basic HTML widget in VIS. By clicking on a row, the playlist or track will be played immediately.
+
+Writing `favorites_set` or `playlist_set` starts the favorite or playlist. Set **`autoplay`** of
+the speaker to `false` to only load it without starting playback (default `true`).
 
 For an own UI the same lists are available as JSON: `favorites_list_array`, `playlist_list_array`
 and `queue_array`. `queue` joins the tracks with a comma and cannot be split back reliably, so use
@@ -294,6 +370,21 @@ at a time.
 - Sonos library - which client library talks to the speakers, see below
 - Event port - only for `@svrooij/sonos`: the TCP port the speakers send their events to. Change it only if another program already uses it. (Default 6329)
 
+### Speakers with a new IP address
+The channel of a speaker is named after the address it had when it was added (`root.192_168_1_50`).
+The first time the speaker is found at that address, the channel is bound to its serial id
+(`RINCON_...`, stored in `native.uuid` of the channel). If the router gives the speaker another address
+later, it keeps its channel and its states - scripts and views keep working - and the log tells the
+new address once. Another speaker that gets the old address does not take the channel over. The
+search in the settings does not offer a moved speaker a second time.
+
+A speaker that replaces another one - e.g. a new model that gets the fixed address of the old one -
+takes the channel over with its states as soon as the old speaker is no longer part of the SONOS
+system; remove it in the SONOS app if it is still listed there. While the old speaker belongs to the
+system, also under another address, the channel stays with it and the log says so once. To hand the
+channel over anyway, delete `uuid` in the native part of the channel (Admin → Objects) and restart the
+instance.
+
 ### Sonos library
 
 The adapter ships two client libraries and the setting picks one. Nothing else changes:
@@ -320,12 +411,29 @@ adapter to get a working state back.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 4.5.0 (2026-11-04)
+* (@GermanBluefox) Stereo pairs are marked: `pair_role` (`left`/`right`) and `pair_partner` tell which speakers belong together, and the description of the channel says which of the two SONOS controls the pair through. The hidden speaker of a pair never got values and ignored commands without telling why - a command written to it now names the channel to use instead
+* (@GermanBluefox) A speaker that replaces another one at the same IP address takes over its channel once the old speaker is no longer part of the SONOS system. Since 4.4.0 the new speaker got no channel and the old channel stayed empty without a word in the log (#140)
+
+### 4.4.0 (2026-11-04)
+* (@GermanBluefox) A speaker that gets a new IP address keeps its channel and states: the channel is bound to the serial id of the speaker the first time it is found, and another speaker that gets the old address does not take it over (#140)
+* (@GermanBluefox) Errors of the `sonos-discovery` backend appear in the ioBroker log: the library wrote them to the console, so an event it could not process - which then never reached the states - left no trace (#177)
+* (@GermanBluefox) TTS (sayIt): a file the speaker cannot play, no longer leaves the volume at 0 and blocks every further announcement until a restart - the state before TTS is restored and the next announcement is played (#176)
+* (@GermanBluefox) A track without a cover of its own shows the cover of what was started - the station logo or the art Alexa sends along with Amazon Music and Sonos Radio. Only real images are cached as cover: an audio file or a stream answered for the cover URL shows the default cover instead of a broken one, and an aborted download no longer stays in the cache (#64)
+* (@GermanBluefox) A speaker that leaves a group no longer keeps the playback of the group (`state_simple` stayed `true`, the title of the group was shown): after the topology change its own state is read again (#121)
+* (@GermanBluefox) vis-2 player: the tabs of the source selection always fit into the widget - without room for the labels they show the icons only - and the mute button moved into the volume row instead of wrapping into a line of its own
+
+### 4.3.0 (2026-11-02)
+- (copilot) Adapter requires node.js >= 22.19.0 now
 * (@GermanBluefox) The event port of the new backend (`@svrooij/sonos`) is set in the instance settings instead of the environment variable `SONOS_LISTENER_PORT`
 * (@GermanBluefox) Fixed the column widths of the settings on large screens and the German text for fade-in
 * (@GermanBluefox) The objects of the speakers are created without the deprecated `createChannel`/`createState`, so js-controller no longer logs them as deprecated (#238)
 * (@GermanBluefox) Fixed `current_elapsed_s`: a time like `1:02:03` jumped to second 3 instead of 1 h 2 min 3 s
 * (@GermanBluefox) An adapter stopped while it was still starting no longer starts the SONOS library and its timers afterwards (warning "setInterval called, but adapter is shutting down")
+* (@GermanBluefox) Added the alarms: every alarm of the SONOS app is under `alarms` and can be switched, changed and deleted, `alarms.create` creates new ones, and `alarm_next` of every speaker tells when its next alarm rings (#65, #325)
+* (@GermanBluefox) Added the battery of Move and Roam: `battery_level` and `battery_charging` (#116, #211)
+* (@GermanBluefox) Added `led` for the status LED - also of a Boost - `button_lock` and `sleep_timer` (#253, #66)
+* (@GermanBluefox) Added `autoplay`: set it to `false` to only load a favorite or playlist with `favorites_set`/`playlist_set` without starting playback (#173)
 
 ### 4.2.16 (2026-10-26)
 * (@GermanBluefox) `current_cover` changes with every new cover (`/sonos/coverImage/<ip>.png?v=<hash>`), so vis, Lovelace and the browser show the new cover instead of the old one - for example when switching back to a radio station (#204, #205)
@@ -333,17 +441,6 @@ adapter to get a working state back.
 ### 4.2.15 (2026-10-26)
 * (@GermanBluefox) `alive` turns false when a speaker is switched off or goes to sleep: every speaker is checked every 30 seconds (#252)
 * (@GermanBluefox) Covers that were not used for 30 days are removed from the cache folder `iobroker-data/sonosCache`, which grew without limit (#222)
-
-### 4.2.14 (2026-10-26)
-* (@GermanBluefox) The Control tab and the ioBroker.devices widgets are built again with the current GUI components and React, as before 4.2.13
-
-### 4.2.13 (2026-10-26)
-* (@GermanBluefox) Fixed detection of radio streams (current_type, current_station, current_title) in the new backend (#363)
-* (@GermanBluefox) The adapter no longer stops with "Cannot read properties of undefined (reading 'members')" when a speaker leaves or rejoins the network (#170, #192, #269, #272)
-* (@GermanBluefox) Local TTS files are handed to the speaker under `/sonos/...` of the web adapter; the former `/files/sonos/...` URL does not exist there (#187)
-
-### 4.2.12 (2026-10-17)
-* (@GermanBluefox) Updated packages
 
 Older changes can be found in CHANGELOG_OLD.md
 

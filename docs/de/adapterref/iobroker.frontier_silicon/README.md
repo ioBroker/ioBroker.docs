@@ -1,8 +1,8 @@
 ---
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.frontier_silicon.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.frontier_silicon.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.frontier_silicon.svg
-BADGE-Number of Installations (latest): http://iobroker.live/badges/frontier_silicon-installed.svg
-BADGE-Number of Installations (stable): http://iobroker.live/badges/frontier_silicon-stable.svg
+BADGE-Number of Installations (latest): https://iobroker.live/badges/frontier_silicon-installed.svg
+BADGE-Number of Installations (stable): https://iobroker.live/badges/frontier_silicon-stable.svg
 BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.frontier_silicon/workflows/Test%20and%20Release/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.frontier_silicon.svg?data=d,s
 ---
@@ -36,6 +36,9 @@ Andere FSAPI Dokumentation
 <https://github.com/z1c0/FsApi/blob/master/FsApi/Command.cs>
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**

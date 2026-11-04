@@ -216,6 +216,9 @@ npm run build
 Hardware tests are opt-in, GET-only by default and must not run in CI.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 ### 2.0.1 (2026-10-13)
 
 - (hwiedermann) Log only one warning per device outage; repeated failures use debug logging (fixes #308, PR #309).

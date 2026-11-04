@@ -26,6 +26,12 @@ This adapter loads the weather warnings from the German weather service via JSON
 -->
 
 ## Changelog
+### 3.0.3 (2026-11-01)
+- (@GermanBluefox) Removed `process.exit` from the code
+
+### 3.0.2 (2026-11-01)
+- (@GermanBluefox) Network errors while reading warnings.json are logged as warning instead of error (#319)
+
 ### 3.0.1 (2026-10-27)
 - (@GermanBluefox) A truncated JSONP answer of the DWD (no closing `}`) no longer hangs the adapter in an endless loop, it is logged as a parse error
 
@@ -46,12 +52,6 @@ This adapter loads the weather warnings from the German weather service via JSON
 * (arteck) add eslint
 * (arteck) Dependencies have been updated
 * (arteck) fix hint dp in widget
-
-### 2.8.5 (2023-06-15)
-* (Quarkmax) added the hint for warning instructions
-
-### 2.8.3 (2022-03-23)
-* (Apollon77) Do not add unused warning0
 
 ## License
 

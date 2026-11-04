@@ -10,8 +10,8 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-com
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.statistics?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.statistics/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.statistics.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/statistics-stable.svg
-BADGE-Installed: http://iobroker.live/badges/statistics-installed.svg
+BADGE-Stable: https://iobroker.live/badges/statistics-stable.svg
+BADGE-Installed: https://iobroker.live/badges/statistics-installed.svg
 BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/statistics/svg-badge.svg
 ---
 ![Logo](../../admin/statistics.png)
@@ -47,6 +47,9 @@ The structure of the state is: `statistics.0.{save|temp}.{kind of stat}.{origina
 * specify the configuration in the settings of the state (admin => objects)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__

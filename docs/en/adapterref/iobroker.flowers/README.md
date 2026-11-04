@@ -2,8 +2,15 @@
 
 ![Logo](admin/flowers.png)
 
+![Stable](https://iobroker.live/badges/flowers-stable.svg)
 [![NPM version](https://img.shields.io/npm/v/iobroker.flowers.svg)](https://www.npmjs.com/package/iobroker.flowers)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.flowers.svg)](https://www.npmjs.com/package/iobroker.flowers)
+[![License](https://img.shields.io/github/license/sadam6752-tech/ioBroker.flowers.svg)](LICENSE)
+
+[![NPM](https://nodei.co/npm/iobroker.flowers.png?downloads=true)](https://nodei.co/npm/iobroker.flowers/)
+
+[![Test and Release](https://github.com/sadam6752-tech/ioBroker.flowers/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/sadam6752-tech/ioBroker.flowers/actions/workflows/test-and-release.yml)
+![Number of Installations](https://iobroker.live/badges/flowers-installed.svg)
 
 Monitor indoor plants via soil moisture, temperature and battery sensors with Telegram notifications.
 

@@ -140,6 +140,9 @@ npm pack
 Admin sources live in `admin/src/`. Generated `admin/custom/` files are ignored by Git and must not be committed. Build before testing, packing or uploading; ordinary `npm pack` does not build automatically. The published npm package contains the UI assets, and `prepublishOnly` rebuilds them for publication. For a source/Git installation, install the built tarball through ioBroker; an unbuilt checkout has no generated configuration UI.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**

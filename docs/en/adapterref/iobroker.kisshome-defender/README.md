@@ -51,6 +51,9 @@ iobroker ALL=(ALL) NOPASSWD: /usr/bin/docker
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 ### 3.0.1 (2026-08-08)
 -   (@GermanBluefox) Updated some GUIs to React 19
 -   (@GermanBluefox) Minimal supported Node.js version is 22

@@ -160,6 +160,7 @@ Every section of the remote (inputs, arrow keys, volume, number pad, apps...) ca
 ### **WORK IN PROGRESS**
 
 -   (@GermanBluefox) Added the TV widget, see [TV](#tv)
+-   (@GermanBluefox) The icon of a device is shown again in "Actual", "Simple state", "Static", "Switches", "Security" and "Map", and in the widgets the wizard creates. An adapter writes `common.icon` relative to its own files (e.g. `icons/shellyplugsg3.png` of a Shelly plug), and the widgets looked for it next to the page of vis-2, so they showed a broken image
 
 ### 2.0.4 (2026-10-19)
 

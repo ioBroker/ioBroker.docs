@@ -59,6 +59,14 @@ Devices that offer no MQTT publisher are read over SNMP:
 Beside the values listed above, SNMP also provides per-port statistics on switches (link, speed, duplex,
 transferred bytes and rates) and the named digital inputs and outputs of a router.
 
+It also reads the IPv4 addresses of every device, routers and switches alike, from the standard IP-MIB:
+- `<device>.lan` — the address in the local network, next to `wan`, which only ever holds the address of the
+  modem. It is the address of the LAN bridge (`br-lan` on a router, `br0.1` on a TSW switch).
+- `<device>.addresses.<interface>` — one state per interface, loopback left out. On a router with a wired WAN
+  this is the only place its address shows up (`addresses.wan`), the modem appears as `qmimux0` or similar.
+
+IPv6 is not available this way: the devices leave the IP-MIB table that would carry it empty.
+
 Four further branches are available but switched **off** by default, because they expose the location of the
 device and identifiable clients, and because they change on every poll:
 - *GPS position* — latitude, longitude, accuracy, satellites and fix time
@@ -122,11 +130,35 @@ Fill in a *write community* for a device and its ports become switchable through
 Left empty, the adapter only reads and the state is created without the write flag.
 
 The switch rides on `ifAdminStatus` of the standard IF-MIB, because the Teltonika MIB exposes nothing writable
-at all. **PoE cannot be controlled**: these devices answer with no objects under the POWER-ETHERNET-MIB.
+at all.
 
 A port only becomes switchable when its name matches exactly one interface. On a TSW202 that covers every port,
 since both tables say `port1`…`port8`. A RUTC reports four ports named `LAN` against interfaces `lan1`…`lan4`,
 which cannot be paired with any certainty, so only its `WAN` port is switchable.
+
+### Port names
+The channel of a port is named after the description set on the device (*Port settings → Description* on a
+TSW switch), so `ports.port1` reads "Camera mast" in the object tree and in the widgets. It comes over SNMP
+(`ifAlias`), no web login needed, and follows when the description changes on the device; deleted there, the
+channel goes back to the port name. A name given in ioBroker is never overwritten. Like switching, this needs
+the port matched to its interface, so a RUTC names its `WAN` port only.
+
+### Switching PoE
+SNMP cannot reach PoE: the devices answer with no objects under the POWER-ETHERNET-MIB. It goes through the
+**Web API** of the device instead, which needs the login of the WebUI — fill in *Web password* (and
+*Web user*, if it is not `admin`) for the device. Each port with PoE then gets three states, read on every poll:
+- `<device>.ports.<name>.poe` — the PoE output, switchable
+- `<device>.ports.<name>.poeActive` — a device draws power. `false` while `poe` is on means nothing PoE-powered
+  is plugged in, an uplink for instance.
+- `<device>.ports.<name>.poePower` — the power drawn, in W
+
+Without a password the Web API is never contacted and no PoE state is created. The SFP cages have no PoE and get
+none of them.
+
+- The adapter talks HTTPS to the device and accepts its self-signed certificate, since the device creates that
+  certificate itself.
+- The Web API exists from TSW firmware 1.4 on. Use an account with the rights to change the port settings.
+- A wrong password or an unreachable WebUI is logged once; the SNMP values of the device are not affected.
 
 ### Widgets for the device manager
 Two components are registered for the *devices* adapter:
@@ -142,11 +174,16 @@ Two components are registered for the *devices* adapter:
 A router additionally shows its **WAN interfaces** as mwan3 tracks them: name, failover status (`online`,
 `standby`, `notracking`), whether the interface is enabled, and for how long it has been up. Note that the
 address column of the WebUI has no counterpart here — over SNMP mwan3 reports the hosts it pings to judge a
-link, not the address the interface holds.
+link, not the address the interface holds. The addresses themselves are in `<device>.addresses`, named after
+the network device (`wan`, `qmimux0`) rather than the mwan3 interface (`wan`, `mob1s1a1`).
 
-Where a write community is configured, a port can be switched from the panel. There is deliberately no PoE
-indicator — see above, these devices expose no PoE objects at all, so a bolt icon would stand in for data that
-does not exist.
+Where a write community is configured, a port can be switched from the panel. A port whose PoE output is on
+carries a yellow bolt, faint while nothing draws power, and its tooltip names the power drawn; that needs the
+web login (see *Switching PoE*), because SNMP reports no PoE at all. The detail then lists the PoE ports with
+their description and power, each with a switch — in the *Teltonika ports* widget only where switching is
+allowed in its settings, like the ports themselves.
+The tile and the detail show the LAN address next to the WAN address, and a WAN interface its own address
+where the network device carries the same name (`wan`).
 
 The widgets discover devices from the object tree rather than the adapter configuration, because MQTT routers
 announce themselves and SNMP devices appear on their first poll.
@@ -160,7 +197,7 @@ The same two views are available as a widget set for **vis-2** (set *Teltonika*)
 - **Teltonika ports** — the front panel of one device, picked from a list of the instance's devices, or its full
   detail inside the widget.
 
-Switching ports from the widgets is off by default and has to be enabled in the widget's settings.
+Switching ports and PoE from the widgets is off by default and has to be enabled in the widget's settings.
 
 ### Traps
 The adapter can listen for SNMP traps. Enable it under the *SNMP* tab and point the device at this host under
@@ -176,6 +213,12 @@ device, which is where the actual values come from. A TSW202 defines no traps at
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.2.0 (2026-11-02)
+* (@GermanBluefox) Added the LAN address of every SNMP device as `<device>.lan`, and all its IPv4 addresses per interface under `<device>.addresses`, read from the IP-MIB
+* (@GermanBluefox) Added switching PoE per port (`<device>.ports.<name>.poe`) over the Web API of the device, with whether a device draws power (`poeActive`) and how much (`poePower`), for devices with a web password configured (the user defaults to `admin`)
+* (@GermanBluefox) Port channels are named after the description set on the device (`ifAlias`), unless renamed in ioBroker
+* (@GermanBluefox) The widgets show the LAN address, the address of a WAN interface, the port descriptions and a bolt on ports with PoE on; the device detail lists the PoE ports with a switch each
+
 ### 1.1.2 (2026-10-14)
 * (@GermanBluefox) The occupied ports - MQTT (TCP) and, if enabled, the SNMP trap receiver (UDP) - are reported to js-controller 8 (`registerUsedResource`)
 
@@ -209,9 +252,6 @@ device, which is where the actual values come from. A TSW202 defines no traps at
 * (bluefox) Added the WAN interfaces of a router under `interfaces.<name>`: status, enabled and uptime
 * (bluefox) A port state created before a write community was configured now becomes writable instead of
   staying read-only forever
-
-### 0.1.0 (2025-12-07)
-* (bluefox) Changed roles of the states
 
 ## License
 

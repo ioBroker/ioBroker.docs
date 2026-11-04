@@ -770,6 +770,7 @@ table with items that could be deleted, added, moved up, moved down
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | `items`               | `[{"type": see above, "width": px or %, "title": {"en": "header"}, "attr": "name", "filter": false, "sort": true, "default": ""}]`              |
 | `noDelete`            | boolean if delete or add disabled, If `noDelete` is false, add, delete and move up/down should work                                             |
+| `allowReorder`        | [optional] - if `noDelete` is true, still show the move up/down buttons, so the rows can be reordered but not added or deleted                  |
 | `objKeyName`          | (legacy setting, don't use!) - name of the key in `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}` |
 | `objValueName`        | (legacy setting, don't use!) - name of the value in `{"192.168.1.1": "value1", "192.168.1.2": "value2"}`                                        |
 | `allowAddByFilter`    | if add allowed even if filter is set                                                                                                            |
@@ -1324,9 +1325,30 @@ It shows the license information if not already accepted. One of attributes `tex
 Special component to check if Docker is installed and running.
 If docker is installed, a checkbox will be shown to allow the usage of docker.
 
+Docker is checked on the host the instance runs on, which is not necessarily the host of admin. Admin asks the
+js-controller of that host, which needs the feature `CONTROLLER_CHECK_DOCKER`; the check is then done by the
+`@iobroker/plugin-docker` of the adapter. So the Docker the instance uses is checked: if the adapter names a Docker
+connection in `iobDockerApi` of its plugin config (`common.plugins.docker` in `io-package.json`), e.g. one of
+`system.docker` on a NAS, that connection is checked. A template like `"iobDockerApi": "${config.dockerApi}"`, which
+lets the user choose the connection in the instance settings, is resolved as when the instance starts (with
+`@iobroker/plugin-docker` 1.3.0 or later in the adapter). The control checks once, when it is shown, with the saved
+settings of the instance: a connection that was just chosen but not saved yet is not the one that is checked.
+
+If the js-controller of the admin host cannot check it - an older js-controller, or an adapter without the plugin -
+admin checks the Docker of its host itself, as an older admin always does. If Docker cannot be checked on another
+host - e.g. the host is not running or its js-controller is too old - the checkbox stays usable and the reason is
+shown, as Docker is unknown there and not necessarily missing.
+
+An adapter that lets the user choose Docker with another control, e.g. a `select` between Docker and an external
+server, sets `noCheckbox`: then only the label and the state are shown, e.g. `frigate: Docker version 29.9.2, api
+version: 1.56`, or in orange why Docker is not available or cannot be checked. The value of `attr` is not used then,
+so an attribute starting with `_` is enough, which is not saved. An older admin ignores `noCheckbox` and shows the
+checkbox; set `disabled: true` as well, so it cannot be clicked there.
+
 | Property      | Description                                                                                                                                                    |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `hideVersion` | If the information about docker version or error should be hidden (e.g. if used more than one such element on the page the error or version will be shown once |
+| `noCheckbox`  | Show only the state of Docker, without the checkbox. `hideVersion` is ignored then                                                                             |
 
 ### `checkLicense`
 
@@ -1530,7 +1552,7 @@ In the Settings of the Web developer tools, you can create your own devices with
 | `style`                  | CSS style in ReactJS notation: `radiusBorder` and not `radius-border`.                                                                                                                |
 | `darkStyle`              | CSS style for dark mode                                                                                                                                                               |
 | `validator`              | JS function: true no error, false - error                                                                                                                                             |
-| `validatorErrorText`     | Text to show if validator fails                                                                                                                                                       |
+| `validatorErrorText`     | Text to show if validator fails. It is shown instead of the help text below the element, also in the cells of a table                                                                 |
 | `validatorNoSaveOnError` | disable save button if error                                                                                                                                                          |
 | `tooltip`                | optional tooltip                                                                                                                                                                      |
 | `default`                | default value                                                                                                                                                                         |
@@ -1994,6 +2016,22 @@ The schema is used here: https://github.com/SchemaStore/schemastore/blob/6da29cd
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 10.1.12 (2026-11-03)
+- (@GermanBluefox) Docs: `checkDocker` checks the Docker connection the instance uses (`iobDockerApi`), also on the host of admin (ioBroker/ioBroker.admin#3715)
+- (@GermanBluefox) Added: `noCheckbox` for `checkDocker`: shows only the state of Docker, for adapters that choose Docker with another control
+
+### 10.1.11 (2026-10-29)
+- (@GermanBluefox) Fixed: `validatorErrorText` was not shown, only the field was marked red. The text is shown now instead of the help text below the element, also in the cells of a table (ioBroker/ioBroker.admin#1911)
+- (@GermanBluefox) Fixed: a `text` with `minRows` showed an empty red line instead of the help text when the validator failed
+
+### 10.1.10 (2026-10-29)
+- (@GermanBluefox) Added: `allowReorder` for `table`. With `noDelete: true` the rows can still be moved up and down, but not added or deleted (ioBroker/ioBroker.admin#3707)
+- (@GermanBluefox) Fixed: in the cards mode of `table`, `noDelete` did not hide the add button and, with `titleAttribute`, the delete and clone buttons
+- (@GermanBluefox) Fixed: the export/import buttons of the instance settings covered the last tabs and the right scroll button of the tab bar, so these tabs could not be reached (ioBroker/ioBroker.admin#3613, ioBroker/ioBroker.admin#3657)
+
+### 10.1.9 (2026-10-27)
+- (@GermanBluefox) Fixed: `checkDocker` showed the Docker of the host admin runs on, also for an instance on another host. The control sends the host of the instance now, and admin asks that host. If Docker cannot be checked there, the checkbox stays usable and the reason is shown
+
 ### 10.1.8 (2026-10-26)
 - (@GermanBluefox) Fixed: a slider (`slider` or `state`) crashed the page if the value was not a number, e.g. a string
 

@@ -28,6 +28,10 @@ For numeric sensor entities, the bridge assigns Home Assistant `device_class` an
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.22.41 (2026-10-30)
+- (BenAhrdt) Tolerate foreign bridge states without an existing discovery entry when removing a bridged channel.
+- (BenAhrdt) Automatically discover newly created states below already bridged channels.
+
 ### 1.22.40 (2026-10-25)
 - (BenAhrdt) Do not add a self-referencing `via_device` to the internal bridge device when its identifier equals the adapter namespace.
 
@@ -41,9 +45,6 @@ For numeric sensor entities, the bridge assigns Home Assistant `device_class` an
 
 ### 1.22.37 (2026-10-13)
 - (BenAhrdt) Keep bridge configurations when referenced foreign objects are deleted and report missing IDs with device and attribute context.
-
-### 1.22.36 (2026-10-12)
-- (BenAhrdt) Add the Home Assistant `json_attributes_topic` discovery attribute for states with the ioBroker role `json`.
 
 ## DISCLAIMER
 The rights of the trademarks and company names, remain with their owners and have no relation to this adapter. The fairuse policy must continue to be adhered to by the operator of the adapter. If this repository is forked, it must be cited as the source.

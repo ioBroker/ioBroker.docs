@@ -1,6 +1,6 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/admin-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.admin.svg
+BADGE-Number of Installations: https://iobroker.live/badges/admin-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.admin.svg
 BADGE-Test and Release: https://github.com/ioBroker/ioBroker.admin/workflows/Test%20and%20Release/badge.svg
 BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
@@ -93,9 +93,33 @@ The repositories and security settings can also be set here.
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (@GermanBluefox) Changed: the dialog "Update all adapters" shows the overall progress and the result of each adapter
+
+### 8.3.8 (2026-11-04)
+- (@GermanBluefox) Added: menu badges jump when their number grows; a ring turns around the adapter icon while it is installed or updated
+- (@GermanBluefox) Changed: instance rows fade into the color of the new status; all elements of a row are centered vertically
+- (@GermanBluefox) Updated `@iobroker/gui-components` to 10.3.16: arrow up/down at changed numbers in the object browser, check mark after saving
+- (@GermanBluefox) Added: admin serves React 19 and 18 as ES modules under `lib/esm/` for web components (`@iobroker/web-components`)
+- (@GermanBluefox) Updated packages (`node-forge` 1.4.3, `@module-federation/vite` 1.23.9)
+
+### 8.3.7 (2026-11-03)
+- (@GermanBluefox) The `checkDocker` control showed the Docker of the admin host for an instance on that host, also if the instance uses another Docker - e.g. one on a NAS that the adapter names in `iobDockerApi` of its plugin config, or that is chosen in the instance settings. Now admin asks the js-controller of its host as well, if it can check Docker (`CONTROLLER_CHECK_DOCKER`): it checks the Docker connection of the instance, with the `@iobroker/plugin-docker` of the adapter. If it cannot - an older js-controller, an adapter without the plugin - admin checks the Docker of its host itself, as before
+- (@GermanBluefox) Updated `@iobroker/json-config` to 10.1.11: `validatorErrorText` is shown below the element instead of the help text, also in the cells of a table (#1911)
+- (@GermanBluefox) History data: live values are marked and replaced with the stored ones every 10 seconds; added a reload button (ioBroker.sql#600)
+- (@GermanBluefox) An update can be ignored also if its dependencies are not met (#3713)
+- (@GermanBluefox) Added: animated icons for start/stop, status, notifications, menu, reload, delete, connection and the result of a command
+- (@GermanBluefox) Added: the start/stop button of an instance shows a ring until the instance really runs or stopped
+- (@GermanBluefox) Changed: new expert mode symbol (mortarboard)
+- (@GermanBluefox) Added: animated folders in the object browser; the restart button of an instance turns until the instance is alive again
+- (@GermanBluefox) Changed: the pause button of the log shows the number of new lines as a badge
+- (@GermanBluefox) Fixed: the access control dialog crashed with "Error in GUI" and the owner or group could not be changed, if the children had different owners or groups (#3711)
+
+### 8.3.6 (2026-10-29)
 - (@GermanBluefox) Fixed: the `checkDocker` control of a configuration dialog showed the Docker of the host admin runs on, also for an instance on another host. Admin asks the host of the instance now; that host needs a js-controller with `CONTROLLER_CHECK_DOCKER`. With an older js-controller there, the dialog says that Docker cannot be checked instead of showing the wrong host
 - (@GermanBluefox) Updated `@iobroker/json-config` to 10.1.9: the `checkDocker` control names the host of the instance
+- (@GermanBluefox) Updated `@iobroker/json-config` to 10.1.10: the new option `allowReorder` of `table` lets the rows be reordered with `noDelete: true` (#3707); the export/import buttons of the instance settings do not cover the last tabs any more (#3613, #3657)
 - (@GermanBluefox) Added: OpenRouter as provider in the AI settings of the system settings (`@iobroker/ai-core` 0.0.6, `@iobroker/ai-gui` 0.0.5)
+- (@GermanBluefox) Added: the "Resource usage" chart of the overview can show any recorded data points, not only CPU and RAM - with own name, color and history instance. Each data point is read from the history instance that records it, so values recorded by InfluxDB or SQL are shown too, also CPU and RAM if the default history instance does not record them (#3705)
 
 ### 8.3.5 (2026-10-26)
 - (@GermanBluefox) Fixed: after a single sign-on the access and refresh token were put into the address (`?ssoLoginResponse=`), so they ended up in the browser history and in the logs of a reverse proxy. Only a one-time code is there now, admin fetches the tokens with it. The ID token that came back after connecting an identity (`?id_token=`, with name and e-mail) is not kept any more, nothing used it
@@ -111,18 +135,6 @@ The repositories and security settings can also be set here.
 - (@typhosj) Fixed: the license dialog of a paid adapter stayed empty and could not be accepted, so the adapter could not be installed. The dialog loaded `licenseInformation.link` as the license text, but that link names the page with prices and where to buy, which the browser may not read. The license text comes from the repository of the adapter again, and the link is shown next to it. A license text that cannot be loaded no longer blocks the dialog, and a short Markdown text that needs no scrolling can be accepted (#3311, ioBroker/ioBroker.vis-2#707)
 - (@agross) Improved the English wording of the active repository warning.
 - (@GermanBluefox) Fixed: "Add Single-Sign On" in the user dialog sent the display name of the user instead of the user ID, so connecting failed for every user whose name differs from the ID
-
-### 8.3.3 (2026-10-23)
-- (@GermanBluefox) Fixed: the object browser showed an object twice and copied its row while scrolling, if a sibling ID began with the same text followed by a space (#3693)
-
-### 8.3.2 (2026-10-23)
-- (@GermanBluefox) Fixed: the adapter list was empty after an adapter update and switching between the tabs (#3695)
-- (@GermanBluefox) Fixed: an adapter updated while the adapter list was loading was still offered for update with the same version
-
-### 8.3.1 (2026-10-22)
-- (@GermanBluefox) Added: sort icon and tooltip on the sort button in the adapters tab (#3684)
-- (@GermanBluefox) Added: disk and RAM usage of the host are shown as bars with tooltip in the instances tab
-- (@GermanBluefox) Added: the repository version of an adapter can be installed with one click, if a newer or a self-installed version (e.g., from GitHub) is installed (#2973)
 
 ## License
 

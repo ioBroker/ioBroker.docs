@@ -122,6 +122,97 @@ So the path of any release is: `-nextN` test build → **Latest** (published, on
 
 _Older releases: see CHANGELOG_OLD.md._
 
+### 0.103.0 (2026-11-04)
+- 🐛 **Bug fix:** Group - the group action no longer makes the group and its children taller; the divider under the title stays at the same height with and without it ([#915](https://github.com/hdering/ioBroker.aura/issues/915))
+- 🐛 **Bug fix:** News - the ticker no longer stops on touch screens after it was tapped or swiped over; pausing on hover now only applies to mouse pointers ([#916](https://github.com/hdering/ioBroker.aura/issues/916))
+- 🌟 **New feature:** Tabs - linked tabs: a tab can be shown in further layouts via '+ Tab' > 'Link an existing tab' in the editor; name, icon and order stay per layout, the widgets and the PIN come from the original ([#896](https://github.com/hdering/ioBroker.aura/issues/896))
+- 🌟 **New feature:** Tabs - tab and section conditions resolve {{clientId}} in their datapoints, so a tab can be shown or hidden per device ([#896](https://github.com/hdering/ioBroker.aura/issues/896))
+- 🐛 **Bug fix:** Editor - the tab settings panel is more compact and no longer shows a second scrollbar; the editor page itself no longer scrolls by the height of the save bar
+- 🐛 **Bug fix:** Date picker - in the compact layout without a title the field no longer sticks out past the right edge of narrow tiles; new option 'Field alignment' places the field left, centered or right in every layout ([#917](https://github.com/hdering/ioBroker.aura/issues/917))
+
+### 0.102.0 (2026-11-03)
+- 🌟 **New feature:** Distribution chart - per-entry value conversion (e.g. Wh → kWh), converted before delta/consumption is differenced; the group reference datapoint gets its own factor
+- 🌟 **New feature:** Distribution chart - optional automatic unit (850 Wh, 1.25 kWh, 3.4 MWh) for values and totals
+- 🌟 **New feature:** Value conversion - new preset Wh → MWh
+- 🌟 **New feature:** News - adjustable ticker text size: default, fixed px, or automatic from the widget height ([#906](https://github.com/hdering/ioBroker.aura/issues/906))
+- 🌟 **New feature:** Sections - conditions like on tabs: colour the icon/text/background, pulse/blink, hide or disable the menu entry ([#907](https://github.com/hdering/ioBroker.aura/issues/907))
+- 🐛 **Bug fix:** Section bar - markers sit on the entry's corner instead of widening it, so entries no longer get pushed out of the bar on phones ([#907](https://github.com/hdering/ioBroker.aura/issues/907))
+- 🌟 **New feature:** Tabs - a condition's accent colour now also colours the icon of an inactive tab ([#907](https://github.com/hdering/ioBroker.aura/issues/907))
+- 🌟 **New feature:** Tab bar - new switch to hide the tab bar in the frontend (global, per layout or per section); tabs stay reachable through their address ([#910](https://github.com/hdering/ioBroker.aura/issues/910))
+- 🌟 **New feature:** Navigation - swipe gestures on touch devices: left/right and up/down switch tab or section (configurable per direction, globally, per layout or per section); widgets with a swipe of their own keep it ([#908](https://github.com/hdering/ioBroker.aura/issues/908))
+- 🐛 **Bug fix:** Weather - the comma after the condition text sits directly behind the word instead of after a gap ("Overcast, 3°C") ([#913](https://github.com/hdering/ioBroker.aura/issues/913))
+- 🌟 **New feature:** Alarm - optional touch keypad in a popup for the PIN instead of the input field, for wall tablets ([#911](https://github.com/hdering/ioBroker.aura/issues/911))
+- 🌟 **New feature:** Alarm - new option "Arm only with PIN": Armed and delayed arming ask for the alarm adapter's password ([#911](https://github.com/hdering/ioBroker.aura/issues/911))
+- 🌟 **New feature:** Weather - optional air pressure (hPa) next to humidity, also available as a field in the custom layout ([#909](https://github.com/hdering/ioBroker.aura/issues/909))
+- 🐛 **Bug fix:** Group - the group action now also controls mirrored widgets inside the group ([#912](https://github.com/hdering/ioBroker.aura/issues/912))
+
+### 0.101.0 (2026-11-02)
+- 🌟 **New feature:** Named PINs - create a PIN once (e.g. "Kids") and pick it for any section or tab; Layouts > Access protection lists every PIN with the views it guards, changing a PIN applies everywhere at once, and existing PINs are converted automatically
+- 🐛 **Bug fix:** Slideshow - the chosen transition and its time now apply on devices with "reduce motion" turned on; only slide and page turn give way to a fade, with the set time ([#903](https://github.com/hdering/ioBroker.aura/issues/903))
+- 🐛 **Bug fix:** iFrame - in fullscreen the tile underneath no longer keeps playing, so sound is not heard twice and out of step; also when the iFrame sits in a group ([#904](https://github.com/hdering/ioBroker.aura/issues/904))
+
+### 0.100.1 (2026-11-01)
+- 🐛 **Bug fix:** iOS - Safari now also shows the Aura icon in the browser tab; the PNG favicon was missing from the 0.100.0 bundle ([#899](https://github.com/hdering/ioBroker.aura/issues/899))
+
+### 0.100.0 (2026-11-01)
+- 🌟 **New feature:** Header items - text items support HTML (e.g. an image per moon phase); every item carries a CSS class by slot and position, e.g. .aura-header-item-r1-right-0 ([#883](https://github.com/hdering/ioBroker.aura/issues/883))
+- 🌟 **New feature:** Header editor - tapping a slot in the overview no longer creates an item; use "Add item" ([#883](https://github.com/hdering/ioBroker.aura/issues/883))
+- 🌟 **New feature:** Dynamic list, list and status overview - the name pattern resolves {{dpname}}, {{parentname}}, {{parent2name}} ... to the object names, like the device card ([#888](https://github.com/hdering/ioBroker.aura/issues/888))
+- 🌟 **New feature:** Menu widget - new option "Show hidden" also lists sections and tabs hidden in the tab bar, e.g. room tabs reachable only from an overview tab ([#892](https://github.com/hdering/ioBroker.aura/issues/892))
+- 🌟 **New feature:** HTML widget - option "Fit height to content": the tile grows and shrinks with the HTML, e.g. a table from a datapoint, on every screen width ([#884](https://github.com/hdering/ioBroker.aura/issues/884))
+- 🌟 **New feature:** Conditions - list rows, list values, custom-grid cells and tabs can now be shown disabled (greyed out, not operable) while a rule matches ([#889](https://github.com/hdering/ioBroker.aura/issues/889))
+- 🐛 **Bug fix:** Group - on the phone, a group inside a group grows to show all its children instead of scrolling inside its desktop height ([#897](https://github.com/hdering/ioBroker.aura/issues/897))
+- 🌟 **New feature:** Map - markers on the same spot are drawn side by side instead of on top of each other, and a line chip can show/hide the person's marker together with the track (lines.markerId) ([#895](https://github.com/hdering/ioBroker.aura/issues/895))
+- 🐛 **Bug fix:** Advanced chart - the tooltip lists every visible series at the hovered moment; a series without a point at exactly that time shows its last known value instead of disappearing ([#898](https://github.com/hdering/ioBroker.aura/issues/898))
+- 🌟 **New feature:** List and dynamic list - new option "Row spacing" (compact / normal / spacious) sets the space between rows independently of the text size ([#890](https://github.com/hdering/ioBroker.aura/issues/890))
+- 🐛 **Bug fix:** Datapoints - after a dropped connection, widgets show the values fetched on reconnect instead of keeping their old ones until the next change; most visible on "last update" timestamps of rarely reporting sensors ([#900](https://github.com/hdering/ioBroker.aura/issues/900))
+
+### 0.99.0 (2026-10-31)
+- 🌟 **New feature:** Shutter - the actuator convention (0 % = open) can now be set in the up/down and push-button control modes too ([#876](https://github.com/hdering/ioBroker.aura/issues/876))
+- 🐛 **Bug fix:** Datapoints shown in the header, tab bar and section menu now load together with the active tab instead of last
+- 🐛 **Bug fix:** Thermostat - header items in the dial layout get a row of their own above the scale instead of overlapping it on narrow cards
+- 🐛 **Bug fix:** Thermostat and other widgets - switching to the custom layout keeps the status symbols when only own status items are configured
+- 🐛 **Bug fix:** AI assistant (MCP) - height checks now count the header subtitle and report content that reaches into the card padding or is cut off without scrolling; the custom layout template carries the status badges cell; every browser measurement names the frontend build it came from, and one from an outdated browser no longer claims that nothing is cut off
+- 🐛 **Bug fix:** Gauge, HTTP action and Countdown - new widgets start one or two rows taller, so their content no longer reaches into the card edge or gets cut off
+- 🐛 **Bug fix:** iFrame - with the proxy enabled, searching in single-page apps such as Paperless-ngx no longer ends in "Missing url parameter"; plain search forms keep their input too ([#881](https://github.com/hdering/ioBroker.aura/issues/881))
+- 🌟 **New feature:** Slideshow - the folder can now come from a datapoint, so a script or timer can switch the album ([#880](https://github.com/hdering/ioBroker.aura/issues/880))
+- 🌟 **New feature:** Dashboard values appear right away instead of after the whole object database has loaded; widgets only read the objects of the datapoints they show, and the status overview gets its datapoints from the adapter instead of downloading every object — which matters most on large installations and mobile connections ([#882](https://github.com/hdering/ioBroker.aura/issues/882))
+- 🌟 **New feature:** The dashboard no longer downloads its whole configuration again every 30 seconds and after every reconnect; it only reads what changed, which saves a lot of traffic on mobile connections ([#882](https://github.com/hdering/ioBroker.aura/issues/882))
+- 🌟 **New feature:** Aura's web server lets the browser cache the app files and sends them compressed (5.7 MB → 1.4 MB), so the dashboard opens much faster, especially on mobile connections ([#882](https://github.com/hdering/ioBroker.aura/issues/882))
+- 🌟 **New feature:** The editor warns when an image is embedded as Base64: it is saved with the configuration and loaded by every device on every start, so larger images are better added as a file or URL ([#882](https://github.com/hdering/ioBroker.aura/issues/882))
+- 🐛 **Bug fix:** HTML widget - images and CSS backgrounds with ioBroker paths such as `/adapter/<name>/…` now load, like in vis and Lovelace ([#885](https://github.com/hdering/ioBroker.aura/issues/885))
+- 🐛 **Bug fix:** Dynamic list - "remove entries that are no longer found" works again when a list-wide display is set; the sync no longer copies that display into every entry, existing lists are cleaned up on the next sync, and the "only relevant datapoints" switch now shows its actual default (on) ([#886](https://github.com/hdering/ioBroker.aura/issues/886))
+- 🐛 **Bug fix:** Widget management - the search now also finds datapoints used inside widget options, e.g. the series of the advanced chart, custom-grid cells, background images and the widgets inside groups, panels and device cards (also by their title); rows without a main datapoint show the first one they use ([#887](https://github.com/hdering/ioBroker.aura/issues/887))
+- 🌟 **New feature:** Dynamic list - the periodic search for new datapoints now runs in the adapter, so lists stay up to date even when no browser has them open, and several open devices no longer each save the dashboard ([#893](https://github.com/hdering/ioBroker.aura/issues/893))
+- 🐛 **Bug fix:** Device card - the conditions and badges editors of a child widget show `{{dp}}` again instead of the resolved datapoint, so editing a rule no longer replaces the placeholder with the datapoint of the preview device ([#894](https://github.com/hdering/ioBroker.aura/issues/894))
+
+### 0.98.0 (2026-10-30)
+- 🐛 **Bug fix:** Advanced chart - optional label at the now line (e.g. "now {HH:mm}"), at the top or bottom of the line
+- 🐛 **Bug fix:** Advanced chart - short explanations under the paging and forecast settings in the editor
+- 🐛 **Bug fix:** Dimmer, slider, light and input bar sliders can be dragged with a finger again on phones and tablets; the dimmer shows the percentage while dragging in every layout
+- 🐛 **Bug fix:** Charts - paging bar: the date now sits before the arrows, so ‹ › no longer move away from under the pointer while paging; on a narrow chart the bar moves to a row of its own instead of squeezing out the range chips
+- 🐛 **Bug fix:** Popups - widgets in popup views and embedded widgets now look and behave exactly as on the tab: own title and icon colours, header items, status row, conditions (including a locked widget), style overrides, wrapped titles and the CSS classes for custom styles
+- 🐛 **Bug fix:** Popups - an embedded widget keeps its proportions instead of being stretched to a square (the media player's controls were cut off)
+- 🐛 **Bug fix:** Popup editor - a new widget gets its type's default size, and the toolbar wraps so the widget just added stays in view
+- 🐛 **Bug fix:** Advanced chart - unit per series: the tooltip, value labels and current value use it ahead of the axis unit, e.g. for a series on a third y axis added via JSON
+- 🐛 **Bug fix:** Advanced chart - a series without any point in the shown window (e.g. measured values on a forecast-only day) no longer draws a flat line at 0; its legend entry stays, greyed out
+- 🐛 **Bug fix:** Charts - link groups can share the date only (navGroupMode / echartNavGroupMode "date"): linked charts page together while each keeps its own range
+- 🐛 **Bug fix:** Advanced chart - custom layout: the chart itself is a cell component ("Diagram"), so buttons and texts can be placed around it; chart cells can mirror charts from popup views and say why a chart is not shown
+- 🐛 **Bug fix:** Energy balance - pie and donut charts show up on iPhone and iPad again (Safari, Firefox and every other iOS browser) ([#877](https://github.com/hdering/ioBroker.aura/issues/877))
+- 🐛 **Bug fix:** Popup editor - "New widget" opens the same dialog as the dashboard editor (search, templates, datapoint detection, recently used, presets), with {{dp}} prefilled; the type dropdown is gone
+- 🐛 **Bug fix:** Layouts - Navigation: the idle and auto-return delays accept typed values again instead of jumping to the minimum on the first digit ([#878](https://github.com/hdering/ioBroker.aura/issues/878))
+- 🐛 **Bug fix:** Custom layout - new vertical alignment "Baseline" for text cells: cells of one row sit on the same text line, e.g. a large value next to a smaller unit ([#879](https://github.com/hdering/ioBroker.aura/issues/879))
+
+### 0.97.1 (2026-10-29)
+- 🐛 **Bug fix:** Advanced chart - forecasts: the time series can reach into the future: a rolling lead per chip (`2d+36h`) or for all chips, paging forward up to the last forecast point or a fixed limit, and a current period that starts today
+
+### 0.97.0 (2026-10-29)
+- 🐛 **Bug fix:** Charts - a failing history query (e.g. InfluxDB refusing to average a datapoint) is now shown on the chart and logged to the browser console instead of drawing an empty or flat curve
+- 🐛 **Bug fix:** Datapoints with a colon (or other characters ioBroker allows, like & = /) in their ID now update live instead of only after a page reload ([#874](https://github.com/hdering/ioBroker.aura/issues/874))
+- 🐛 **Bug fix:** Speech output - devices whose browser has no voice of its own (e.g. Fully Kiosk on Android) now speak text announcements through an online voice served by Aura; can be switched off in the instance settings, then speech.lastResult reports unsupported ([#834](https://github.com/hdering/ioBroker.aura/issues/834))
+- 🌟 **New feature:** Status symbols - an own status entry can now show its datapoint as a value (number with unit or text with bindings) instead of an icon, in any corner of the widget; optional highlight rule with comparisons like >30 ([#875](https://github.com/hdering/ioBroker.aura/issues/875))
+- 🐛 **Bug fix:** Shutter - the position inversion option ("Actuator convention") is no longer labelled as HmIP-only; the hint now also names KNX actuators where 0 % means open ([#876](https://github.com/hdering/ioBroker.aura/issues/876))
+
 ### 0.96.0 (2026-10-28)
 - 🌟 **New feature:** Phone/tablet column flow - a column block can split its width unevenly (e.g. 2:1, 1:2:1), so a widget can take two thirds next to one taking one third ([#851](https://github.com/hdering/ioBroker.aura/issues/851))
 - 🌟 **New feature:** Announcements - new admin page "Ansagen": datapoint + condition → spoken text on chosen devices, with time window, weekdays and a lock such as at most once a day, no script needed ([#834](https://github.com/hdering/ioBroker.aura/issues/834))
@@ -229,56 +320,6 @@ _Older releases: see CHANGELOG_OLD.md._
 - iFrame - Energiefluss-erweitert pages now embed without the white box behind the diagram in dark themes ([#642](https://github.com/hdering/ioBroker.aura/issues/642))
 - Energy flow (evcc) - new switch to invert the sign of a manual battery power datapoint that reports positive = charging ([#803](https://github.com/hdering/ioBroker.aura/issues/803))
 - Chart (distribution) - font size of the group title, total, legend and percentage labels can now be set individually ([#804](https://github.com/hdering/ioBroker.aura/issues/804))
-
-### 0.87.0 (2026-10-19)
-- 🌟 **New feature:** Countdown - can start automatically when a watched datapoint switches on, e.g. turn a plug off 30 min after it was switched on elsewhere ([#796](https://github.com/hdering/ioBroker.aura/issues/796))
-- 🌟 **New feature:** Lists and the status overview can publish their content to ioBroker (count, JSON list and ready-to-send text of the shown rows), computed by the adapter even without an open browser - e.g. for an evening report by mail or Telegram ([#798](https://github.com/hdering/ioBroker.aura/issues/798))
-- Admin - the instance (e.g. aura.1) is shown next to the version in the sidebar, so several Aura instances can be told apart at a glance ([#801](https://github.com/hdering/ioBroker.aura/issues/801))
-
-### 0.86.0 (2026-10-19)
-- 🌟 **New feature:** List - value conversion can call your own functions from Custom JS: register them with aura.registerFn and use callback("name", dp) in the expression ([#794](https://github.com/hdering/ioBroker.aura/issues/794))
-- Admin overview - "Getting started" and "AI access (MCP)" cards can be shown and hidden again via two switches in the page header ([#799](https://github.com/hdering/ioBroker.aura/issues/799))
-- Groups - group contents could be wiped when the admin page was opened while the adapter was still restarting (e.g. right after an update); failed config reads are now retried instead of being taken as an empty config, and empty group contents are never saved over existing groups ([#800](https://github.com/hdering/ioBroker.aura/issues/800))
-
-### 0.85.0 (2026-10-18)
-- Map - all sections of the map settings now start folded when the settings open
-- 🌟 **New feature:** Universal Widget / Custom layout - optional vertical and/or horizontal separator lines between the grid cells, with adjustable colour and thickness ([#793](https://github.com/hdering/ioBroker.aura/issues/793))
-- 🌟 **New feature:** Device widgets - any number of own status symbols next to battery / reach / window (e.g. motion sensor locked), optionally toggled by a click, with a freely adjustable order; also placeable as single custom layout cells; the status row can sit in any corner or on the card edge so it no longer covers switches and sliders, and the fill level, air control, alarm, button, camera, gauge, evcc, calendar, trash, trash schedule, map, HTML and universal widgets show it too ([#792](https://github.com/hdering/ioBroker.aura/issues/792))
-- AI assistant (MCP) - height check now computes the status overview card grid (columns, wrapped names, the +N more line) and warns when maxRows needs more rows than fit; the browser check reports the remaining space in px, treats a 1 px overflow as scrolling and can fill runtime lists to their worst case
-- Settings - every widget dialog follows the same frame: "Visible fields" (show/hide toggles), "Datapoints", "Settings" (widget topics as sub-headings), "Look" and "Behavior", then the status datapoints; all sections start folded and look the same
-- 🌟 **New feature:** Lists - the "+ datapoint of the device" picker for the second line now shows the object ID next to the name ([#795](https://github.com/hdering/ioBroker.aura/issues/795))
-- 🌟 **New feature:** Static list - an entry can show one field of a JSON datapoint (JSON path button next to the datapoint), and the value conversion of both lists gains an "Expression" mode, e.g. `dp.objektName * 0.4 | fixed(2)` ([#794](https://github.com/hdering/ioBroker.aura/issues/794))
-- Load times - the settings no longer show a datapoint field the widget does not use
-- Settings - the layout row now shows for every widget, also where "Standard" is the only layout; the camera lists "Standard" first and calls its grid layout "Custom"; the section title picks its style under "Look"
-- AI assistant (MCP) - device card and popup children with {{dp}} / {{parent}} placeholders are no longer rejected as missing datapoints when the shared layout is changed ([#789](https://github.com/hdering/ioBroker.aura/issues/789))
-- Map - the satellite view now shows place names and borders on top of the imagery (switchable in the settings) ([#797](https://github.com/hdering/ioBroker.aura/issues/797))
-
-### 0.84.0 (2026-10-17)
-- Tab bar - a menu item next to left- or right-aligned tabs now only takes its own width instead of half the bar ([#791](https://github.com/hdering/ioBroker.aura/issues/791))
-- 🌟 **New feature:** Map - show a route along the roads between two markers, with distance and travel time ([#790](https://github.com/hdering/ioBroker.aura/issues/790))
-- 🌟 **New feature:** Map - draw recorded tracks from a JSON datapoint or from the history of a position datapoint, optionally with a dot per point showing time, speed and accuracy ([#410](https://github.com/hdering/ioBroker.aura/issues/410))
-- 🌟 **New feature:** Map - day bar to browse recorded tracks day by day, chips to switch between lines, and a timeline of stays and trips with addresses under the map ([#410](https://github.com/hdering/ioBroker.aura/issues/410))
-- 🌟 **New feature:** Map - the settings are grouped into collapsible sections, and each marker, line and quick-access chip folds down to its name
-- 🌟 **New feature:** Map - a custom tile server can no longer be set up; maps that already use one keep it and can remove it in the settings
-
-### 0.83.3 (2026-10-16)
-- Overview - timers inside groups or device cards are no longer reported as orphaned datapoints on the first visit ([#788](https://github.com/hdering/ioBroker.aura/issues/788))
-- 🌟 **New feature:** Group action - a click from the mixed state can now ask "all on or all off?" in a small popup (new option "Ask")
-
-### 0.83.2 (2026-10-16)
-- Popups - a web page (iFrame) popup now uses the configured width and height
-- Frontend - tapping a widget on a touch tablet no longer selects the text on the whole page
-
-### 0.83.1 (2026-10-16)
-- Icons whose name contains a number (e.g. trash, table, layers, bar chart) were requested under a wrong name, so they never showed and logged "icon cache — fetch failed" without internet access ([#787](https://github.com/hdering/ioBroker.aura/issues/787))
-- Messages - a message closed by a script (messages.dismiss) stayed open when another message was sent in the same moment, e.g. an error followed by its all-clear
-
-### 0.83.0 (2026-10-15)
-- Web adapter extension - with socket.io, the web adapter's WebSocket listeners are no longer re-wired; Aura only adds its own for /aura/ ([#784](https://github.com/hdering/ioBroker.aura/issues/784))
-- 🌟 **New feature:** Timer - holiday and vacation days can be picked with a date picker in the frontend (special-days button next to the add-event button, labelled with the current or next special day) and are written to the holiday / vacation datapoint; flag datapoints are only shown ([#785](https://github.com/hdering/ioBroker.aura/issues/785))
-
-### 0.82.10 (2026-10-14)
-- 🌟 **New feature:** Popups - optional countdown in a corner of the popup (top/bottom, left/right) showing the seconds until it closes automatically
 
 ## License
 

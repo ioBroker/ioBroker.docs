@@ -29,8 +29,8 @@ controlling a device, a device controls ioBroker.
 ## Requirements
 
 - Node.js 22 or newer
-- js-controller 7.2.2 or newer
-- admin 8.0.14 or newer
+- js-controller 7.2.5 or newer
+- admin 8.3.5 or newer
 - A remote or hub on the **same local network** as your ioBroker host
 
 ## Setting it up
@@ -50,9 +50,10 @@ address in that network — a remote in a separate VLAN gets the address it can 
 Pick a specific address only if the emulated Rokus should exist in **one network
 only**. Then everything stays in that network: only remotes from it are answered, and
 nothing is offered on the others. If that address does not exist on the host when the
-instance starts, the adapter waits up to two minutes for it (a network that comes up
-after ioBroker), then says so in the log and starts nothing — it never falls back to
-another network.
+instance starts (a new address from the router, a backup restored on other hardware),
+the adapter listens on all addresses so the remotes still find the Rokus, writes one
+warning with the cause and shows the instance yellow (`info.connection` false) until you
+choose an address the host has.
 
 ### 3. Add or edit the emulated Rokus
 
@@ -94,7 +95,8 @@ At instance level:
 | `info.devicesOnline`    | number, read-only  | How many of them listen right now.                                                                                                                                                                                                                                                      |
 | `info.devicesAllOnline` | boolean, read-only | `true` while every configured Roku listens; `false` while none is configured.                                                                                                                                                                                                           |
 
-For each emulated Roku, below `fakeroku.0.<name>`:
+Each emulated Roku is a device in the object tree, drawn as a box for a player and as a screen for a TV.
+Below `fakeroku.0.<name>`:
 
 | Datapoint     | Type               | Meaning                                                                                                                                                                                                             |
 | ------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -222,6 +224,16 @@ Error reporting via Sentry is active by default; what it sends and how to switch
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
+
+- (krobipd) New: every emulated Roku shows in the object tree whether it is a player or a TV.
+- (krobipd) Improved: the documentation describes what happens when the chosen network address is missing on the host.
+- (krobipd) Improved: the README has a troubleshooting section.
+- (krobipd) Improved: the update notice links to the description of the object tree.
+- (krobipd) Changed: the interface setting is labelled "Network interface".
+- (krobipd) Changed: js-controller 7.2.5 and admin 8.3.5 or newer are required.
+
 ### 1.10.0 (2026-10-03)
 
 - (krobipd) New: every emulated Roku shows whether it runs and, if not, why — a green or grey symbol in the object tree, online or offline on its card with the reason.
@@ -247,7 +259,7 @@ Error reporting via Sentry is active by default; what it sends and how to switch
 - (krobipd) Improved: a start writes only datapoints that changed and reads the key states in one request — no needless updates for history adapters.
 - (krobipd) Improved: the README links the detailed user documentation in English and German.
 
-### 1.8.1 (2026-09-27)
+### 1.8.1 (2026-09-27) — stable
 
 - (krobipd) Improved: the note the Admin shows before an update from 0.x is short now: the apps folder is removed, app launches arrive as launch:<id> in command.
 

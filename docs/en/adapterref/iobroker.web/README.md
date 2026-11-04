@@ -295,10 +295,21 @@ This is off by default. When enabled:
 - **Set the public URL** when the server runs behind a reverse proxy, and use HTTPS: remote clients
   refuse plain `http://`.
 
+## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) `logo.svg`, `favicon.ico` and `manifest.json` of the start page are revalidated on every load (304 while unchanged) instead of being cached forever, so a new version reaches the browser
+* (@GermanBluefox) Web components written with React (see [`@iobroker/web-components`](https://github.com/ioBroker/web-components)) find React 19 and 18 as one ES module each at `/lib/esm/react-19.js` and `/lib/esm/react-18.js`, as in admin. Before, such a component failed to load under web, e.g. the flow diagram in vis-2
+
+### 9.1.17 (2026-10-30)
+* (@GermanBluefox) Fixed mode of adapter
+* (@GermanBluefox) The package files are now checked with the standard `@iobroker/testing`, including the `io-package.json` schema of js-controller
+* (@GermanBluefox) Admin 7.6.17 or newer is required
+* (@GermanBluefox) Added missing translations of the cookie and OAuth settings
+
 ### 9.1.16 (2026-10-21)
 * (@GermanBluefox) The list of applications carries `cloud` from `common.localLinks` of the adapters. Before, only `pro` was taken over as `true`/`false`, so the free cloud could not tell that an entry like the vis-2 runtime works there too and hid it
 
@@ -320,10 +331,6 @@ This is off by default. When enabled:
 * (@GermanBluefox) Fixed: an address without the closing slash - `/vis-2` instead of `/vis-2/` - leads to the application instead of a 404. It is answered with a redirect to the address with the slash, as every other web server does
 * (@GermanBluefox) A 404 names the address that was requested, not the file name left over after the adapter name was cut off, and logs it on the debug level
 * (@hdering) A web instance that restarts to load a changed web extension logs this as info with the reason instead of the warning "Terminated (-100): Without reason"
-
-### 9.1.11 (2026-10-02)
-* (@hdering) Updating an adapter with a web extension restarts only the web instances that run it, not every web instance
-* (@GermanBluefox) Fixed: a user the "User list" lets in through a group is let in no matter which of their groups it is. Only the first group the user was a member of got compared against the allowed ones, so a user in several groups was rejected whenever that first group was not the listed one. The order of the groups is their creation order, which made this look arbitrary
 
 ## License
 The MIT License (MIT)

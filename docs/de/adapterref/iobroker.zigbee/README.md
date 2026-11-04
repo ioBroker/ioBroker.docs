@@ -1,6 +1,6 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/zigbee-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.zigbee.svg
+BADGE-Number of Installations: https://iobroker.live/badges/zigbee-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.zigbee.svg
 BADGE-Test and Release: https://github.com/ioBroker/iobroker.zigbee/workflows/Test%20and%20Release/badge.svg
 BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/zigbee/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.zigbee.svg

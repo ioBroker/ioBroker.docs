@@ -17,6 +17,11 @@ PiCAN-M could work with Raspberry 4 and [5](https://copperhilltech.com/blog/test
 
 ![Widgets](img/widgetExamples.png)
 
+The widget "NMEA Complex" four times in one vis-2 view, every instance shows one display: wind, compass,
+rudder and autopilot.
+
+![vis-2 widgets: wind, compass, rudder, autopilot](img/vis2-widget-instruments.png)
+
 [YouTube explanation](https://youtu.be/flp_-mypbRU?si=k0lp95OukQ88LBxj)
 
 ## How to use it on Raspberry PI with PiCAN-M
@@ -114,6 +119,9 @@ NMEA 2000 decoding by [canboatjs](https://github.com/canboat/canboatjs), using t
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 ### 3.0.2 (2026-10-27)
 - (@GermanBluefox) Deleted the states without object at the start, e.g. the AIS data of old vessels left by versions before 1.0.0 (needs js-controller 7.2.3 or newer)
 

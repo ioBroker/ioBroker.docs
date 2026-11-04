@@ -29,8 +29,8 @@ ein Gerät steuert, steuert ein Gerät den ioBroker.
 ## Voraussetzungen
 
 - Node.js 22 oder neuer
-- js-controller 7.2.2 oder neuer
-- admin 8.0.14 oder neuer
+- js-controller 7.2.5 oder neuer
+- admin 8.3.5 oder neuer
 - Eine Fernbedienung bzw. ein Hub im **selben Heimnetz** wie der ioBroker-Rechner
 
 ## Einrichtung
@@ -51,9 +51,11 @@ VLAN bekommt die Adresse, die sie erreicht.
 Eine bestimmte Adresse wählst du nur, wenn die emulierten Rokus **nur in einem Netz**
 existieren sollen. Dann bleibt alles in diesem Netz: Beantwortet werden nur
 Fernbedienungen daraus, in den anderen Netzen wird nichts angeboten. Gibt es die Adresse
-beim Start der Instanz auf dem Rechner nicht, wartet der Adapter bis zu zwei Minuten
-darauf (ein Netz, das erst nach ioBroker hochkommt), meldet es dann im Protokoll und
-startet nichts — er weicht nie auf ein anderes Netz aus.
+beim Start der Instanz auf dem Rechner nicht (eine neue Adresse vom Router, eine
+Sicherung auf anderer Hardware), lauscht der Adapter auf allen Adressen, damit die
+Fernbedienungen die Rokus weiter finden, schreibt eine Warnung mit der Ursache und zeigt
+die Instanz gelb (`info.connection` false), bis du eine Adresse wählst, die der Rechner
+hat.
 
 ### 3. Emulierte Rokus anlegen oder ändern
 
@@ -99,7 +101,8 @@ Auf Instanz-Ebene:
 | `info.devicesOnline`    | number, nur lesbar  | Wie viele davon gerade lauschen.                                                                                                                                                                                                                                                                                                |
 | `info.devicesAllOnline` | boolean, nur lesbar | `true`, solange jeder eingerichtete Roku lauscht; `false`, solange keiner eingerichtet ist.                                                                                                                                                                                                                                     |
 
-Je emuliertem Roku, unterhalb von `fakeroku.0.<Name>`:
+Jeder emulierte Roku ist ein Gerät im Objektbaum, gezeichnet als Box für einen Player und als Bildschirm für einen TV.
+Unterhalb von `fakeroku.0.<Name>`:
 
 | Datenpunkt     | Typ                 | Bedeutung                                                                                                                                                                                                                        |
 | -------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -236,6 +239,16 @@ Die Fehlermeldung über Sentry ist ab Werk aktiv; was sie sendet und wie man sie
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
+
+- (krobipd) New: every emulated Roku shows in the object tree whether it is a player or a TV.
+- (krobipd) Improved: the documentation describes what happens when the chosen network address is missing on the host.
+- (krobipd) Improved: the README has a troubleshooting section.
+- (krobipd) Improved: the update notice links to the description of the object tree.
+- (krobipd) Changed: the interface setting is labelled "Network interface".
+- (krobipd) Changed: js-controller 7.2.5 and admin 8.3.5 or newer are required.
+
 ### 1.10.0 (2026-10-03)
 
 - (krobipd) New: every emulated Roku shows whether it runs and, if not, why — a green or grey symbol in the object tree, online or offline on its card with the reason.
@@ -261,7 +274,7 @@ Die Fehlermeldung über Sentry ist ab Werk aktiv; was sie sendet und wie man sie
 - (krobipd) Improved: a start writes only datapoints that changed and reads the key states in one request — no needless updates for history adapters.
 - (krobipd) Improved: the README links the detailed user documentation in English and German.
 
-### 1.8.1 (2026-09-27)
+### 1.8.1 (2026-09-27) — stable
 
 - (krobipd) Improved: the note the Admin shows before an update from 0.x is short now: the apps folder is removed, app launches arrive as launch:<id> in command.
 

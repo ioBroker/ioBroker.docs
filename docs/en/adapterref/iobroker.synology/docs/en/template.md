@@ -13,7 +13,7 @@ Follow these steps to configure 2FA in DSM6:
 
 ![Picture](img/2FA_step_4.jpg)
 
-Write down the Secret key, it must be specified in the adapter settings.
+Write down the Secret key, it must be specified in the adapter settings. Enter this Base32 setup secret, not the rotating six-digit code. Ensure the NAS and ioBroker host clocks are synchronized (for example, with NTP), because TOTP codes depend on accurate time.
 Complete the 2FA setup.
 
 ![Picture](img/2FA_step_5.jpg)

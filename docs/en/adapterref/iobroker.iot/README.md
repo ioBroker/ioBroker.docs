@@ -419,8 +419,26 @@ setState('iot.0.app.message', JSON.stringify({
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 7.1.8 (2026-11-03)
+- (@GermanBluefox) Google Home: values are converted into the units and ranges of Google (brightness and position in %, color temperature from mired or % into Kelvin within the range of the device), and a state report contains no internal names anymore. This fixes the error "Cannot updateState: INVALID_ARGUMENT"
+- (@GermanBluefox) Google Home: lights with hue and saturation or with separate red, green and blue states report and set the color correctly, and a new color does not change the brightness anymore
+- (@GermanBluefox) Google Home: blinds report the position from ACTUAL instead of SET
+
+### 7.1.7 (2026-11-02)
+- (@GermanBluefox) Admin shows a warning on the update from a version before 7.1.6: Alexa routines with blinds must be edited once
+- (@GermanBluefox) Alexa V3: Alexa may ask for the state of all devices, so the tiles of thermostats, lights, plugs etc. in the Alexa app show their values instead of loading forever. A new device discovery in Alexa is required
+- (@GermanBluefox) Alexa V3: a state with `min` or `max` set to null or empty no longer gets null instead of the value from Alexa, e.g. the temperature of a thermostat
+- (@GermanBluefox) Alexa V3: color lights report a valid color to Alexa, also without a saturation state
+- (@GermanBluefox) Alexa V3 tab: a state added to an existing device is added to it instead of becoming its own device
+- (@GermanBluefox) Alexa V3: states with the old Alexa V2 type SCENE_TRIGGER or ACTIVITY_TRIGGER (e.g. of the scene adapter) are offered to Alexa as scenes again
+- (@GermanBluefox) Alexa V3: HomeMatic devices report their reachability from UNREACH again
+- (@GermanBluefox) Alexa V3: thermostats with modes unknown to Alexa (e.g. MANU) send no empty or double modes in the discovery
+- (@GermanBluefox) Custom skill: "Starte Dialog" is not said twice anymore, and answers in SSML (`<speak>...`) are spoken
+- (@GermanBluefox) Google Home: own attributes of a trait are kept, and a thermostat with its own mode state reports this mode
+- (@GermanBluefox) The request of the Alexa V3 devices by the GUI is logged on debug level
+
 ### 7.1.6 (2026-10-19)
-- (@jtolksdo) Alexa V3: blinds are announced as RangeController "Blind.Lift" and understand "open/close". "Down/up" without an amount closes/opens the blind fully. A new device discovery in Alexa is required, and the discovery of a blind is about 600 characters bigger
+- (@jtolksdo) Alexa V3: blinds are announced as RangeController "Blind.Lift" and understand "open/close". "Down/up" without an amount closes/opens the blind fully. A new device discovery in Alexa is required. **Breaking:** existing Alexa routines with blinds stop working and must be edited once (remove the blind from the routine, add it again and save). The discovery of a blind is about 600 characters bigger
 - (@jtolksdo) Alexa V3: "down" without an amount lowers a slider instead of raising it
 - (@jtolksdo) Alexa V3: all names of a comma-separated smart name get the new value of a state
 - (@GermanBluefox) Alexa V3: several RangeControllers in one device (e.g. a blind and a slider) are discovered and controlled separately
@@ -434,16 +452,6 @@ setState('iot.0.app.message', JSON.stringify({
 
 ### 6.0.3 (2026-04-23)
 - (@GermanBluefox) Allowed to read temperature information via Alexa
-
-### 6.0.1 (2026-04-07)
-- (iobroker-bot) Adapter requires node.js >= 20 now.
-- (@GermanBluefox) Removed support for Alexa 2
-- (@GermanBluefox) Fixed bug in Alisa with color and motion sensor
-- (@GermanBluefox) Validate Discovery response before sending it back
-
-### 5.0.13 (2026-03-31)
-- (@GermanBluefox) Corrected the handling of the multiple group names
-- (@GermanBluefox) Fixing the license validation
 
 ## License
 

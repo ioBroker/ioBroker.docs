@@ -1,8 +1,8 @@
 ---
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.solax.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.solax.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.solax.svg
-BADGE-Number of Installations (latest): http://iobroker.live/badges/solax-installed.svg
-BADGE-Number of Installations (stable): http://iobroker.live/badges/solax-stable.svg
+BADGE-Number of Installations (latest): https://iobroker.live/badges/solax-installed.svg
+BADGE-Number of Installations (stable): https://iobroker.live/badges/solax-stable.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg
 BADGE-Test and Release: https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg
 BADGE-License: https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat

@@ -18,14 +18,19 @@ Adapter to connect Easee Wallbox
 
 ## Help
 
-chargerOpMode =
-    Offline: 0,
-    Disconnected: 1,
-    AwaitingStart: 2,
-    Charging: 3,
-    Completed: 4,
-    Error: 5,
-    ReadyToCharge: 6
+`status.chargerOpMode` reports the charger's operation mode (Easee Observation 109):
+
+| Value | Mode | Description |
+| ---: | --- | --- |
+| 0 | Offline | Charger is offline. |
+| 1 | Disconnected | No car is connected. |
+| 2 | Awaiting Start | A car is connected; the charger is waiting for the EV or load balancing. |
+| 3 | Charging | The car is charging. |
+| 4 | Completed | The car has paused or stopped charging. |
+| 5 | Error | The charger has an error. |
+| 6 | Ready to Charge | The charger is waiting for the car to take energy. |
+| 7 | Awaiting Authentication | The charger is waiting for authentication. |
+| 8 | De-authenticating | The charger is de-authenticating. |
 
 dynamicCircuitCurrentPX -> All phases must be set within 500ms (script) otherwise the phase will be set to 0.    
 
@@ -40,6 +45,11 @@ This adapter would not have been possible without the great work of @Newan (http
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.0 (2026-11-01)
+- (Voodoo2man) Corrected cable-lock status reporting and improved the reliability of charger status updates.
+- (Voodoo2man) Added a readable and adjustable permanent cable-lock setting, kept separate from the actual cable-lock status.
+- (Voodoo2man) Improved recovery of live charger updates after connection interruptions while retaining regular status updates when live updates are disabled.
+
 ### 3.0.0 (2026-10-23)
 - (Voodoo2man) Migrated the adapter to TypeScript; Node.js 22.19.0 or newer is required
 - (Voodoo2man) Updated adapter tooling, Admin configuration, and runtime metadata
@@ -57,12 +67,6 @@ This adapter would not have been possible without the great work of @Newan (http
 
 ### 1.0.10 (2023-07-27)
 * (Newan) fix version number
-
-### 1.0.9 (2023-07-27)
-* (walburgf)  changed API URL from api.easee.cloud to api.easee.com
-* (walburgf)  created addition parameter in admin config to reduce/steer logging information for user
-* (walburgf)  modified internationalization to use jsonConfig.json. this needs at least ioBroker.admin version 5
-* (walburgf)  added dependency to admin >=v5.1.28
 
 ## Donation
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)

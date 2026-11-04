@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/webstorm.md
 title: Вебстор
-hash: pR9BYbCn2QNHR9i+Cd6miPkGLiNYvAeOlLkphYu2aZU=
+hash: 6XXAKFYtzFKrNxvp9WAx9BNY5RT24ZKXH9/SJBTKVJ0=
 ---
 # Вебстор
 

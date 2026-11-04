@@ -38,6 +38,9 @@ protocol://address:port/person
 
 ## Changelog
 
+### 1.0.11
+* (obakuhl) Updating dependencies
+
 ### 1.0.10
 * (obakuhl) Updating dependencies
 * (copilot) Adapter requires node.js >= 22 now

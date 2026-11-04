@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterjsonconfig.md
 title: Настройка ioBroker в формате JSON: руководство для начинающих
-hash: MW8HIa5iqY/aUO3afpjNEGAv/oODnqPCkSMVSPt2NsM=
+hash: Kq0SAJTQahSjSWGZIyUu1Tqi28nFXdoQ0cbbPeWCPTY=
 ---
 # Конфигурация ioBroker в формате JSON: руководство для начинающих
 В этом руководстве объясняется, как определить параметры конфигурации для вашего адаптера ioBroker с помощью JSON. Такой подход предлагает более удобный и гибкий способ управления настройками адаптера в административном интерфейсе ioBroker.
@@ -25,7 +25,7 @@ JSON5 - это расширенная версия JSON, которая позв
 
 2. **Включить конфигурацию JSON:**
 
-- В файл `io-package.json` вашего адаптера добавьте следующую строку в раздел `common`:
+- В файле `io-package.json` вашего адаптера добавьте следующую строку в раздел `common`:
 
 ```json
 {
@@ -420,7 +420,7 @@ admin/customI18n/en.json
 | Объект недвижимости | Описание |
 |-----------------|----------------------------------------------------------------------------------------------------------------|
 | `options` | объект с метками, необязательными переводами, необязательной группировкой и значениями |
-| `showAllValues` | показывать элемент, даже если для него не найдена метка (при наличии нескольких меток), по умолчанию = `true` |
+| `showAllValues` | показывать элемент, даже если для него не найдена метка (несколько раз), по умолчанию = `true` |
 | `format` | Формат отображения: `"dropdown"` (по умолчанию) или `"radio"` для отображения вариантов в виде переключателей вместо выпадающего списка |
 | `horizontal` | Если `true`, переключатели отображаются горизонтально (применяется только когда `format` равно `"radio"`) (начиная с версии 8.3.3) |
 | `horizontal` | Если `true`, переключатели отображаются горизонтально (применяется только тогда, когда `format` равно `"radio"`) (начиная с версии 8.3.3) |
@@ -716,11 +716,12 @@ admin/customI18n/en.json
 | Объект недвижимости | Описание |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | `items` | `[{"type": see above, "width": px or %, "title": {"en": "header"}, "attr": "name", "filter": false, "sort": true, "default": ""}]` |
+| `allowReorder` | [необязательно] - если `noDelete` истинно, кнопки перемещения вверх/вниз все равно будут отображаться, чтобы можно было менять порядок строк, но нельзя было добавлять или удалять |
 | `objKeyName` | (устаревшая настройка, не использовать!) - имя ключа в `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}` |
 | `objValueName` | (устаревшая настройка, не использовать!) - имя значения в `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` |
 | `allowAddByFilter` | если добавление разрешено, даже если установлен фильтр |
 | `showSecondAddAt` | Количество строк, с которых будет отображаться вторая кнопка добавления внизу таблицы. По умолчанию 5 |
-| `showFirstAddOnTop` | Отобразить первую кнопку «плюс» вверху первого столбца, а не слева. |
+| `showFirstAddOnTop` | Отобразить первую кнопку «плюс» в верхней части первого столбца, а не слева. |
 | `clone` | [необязательно] - следует ли отображать кнопку клонирования. Если true, кнопка клонирования будет отображена. Если указано имя атрибута, это имя будет уникальным. |
 | `export` | [необязательно] - если должна отображаться кнопка экспорта. Экспорт в CSV-файл. |
 | `import` | [необязательно] - если должна отображаться кнопка импорта. Импорт из CSV-файла. |
@@ -810,7 +811,7 @@ admin/customI18n/en.json
 | Объект недвижимости | Описание |
 |-------------------|----------------------------------------------------------------------------------------------------------------------|
 | `credentialType` | отображать только учетные данные этого типа: `email`, `cloud`, `ai` или `custom`. Если не определено, отображаются все учетные данные. |
-| `disableCreation` | если `true`, скрыть кнопку ➕, чтобы пользователь мог выбрать только существующие учетные данные (создание новых учетных данных в этом месте невозможно) |
+| `disableCreation` | если `true`, скрыть кнопку ➕, чтобы пользователь мог выбрать только существующие учетные данные (создание учетных данных в этом месте невозможно) |
 
 Пример:
 
@@ -1272,7 +1273,7 @@ adapter.on("message", (obj) => {
 | `style` | CSS-стиль в нотации ReactJS: `radiusBorder`, а не `radius-border`. |
 | `darkStyle` | CSS-стиль для темного режима |
 | `validator` | Функция JavaScript: true - нет ошибки, false - ошибка |
-| `validatorErrorText` | Текст, отображаемый в случае сбоя валидатора |
+| `validatorErrorText` | Текст, отображаемый в случае сбоя валидатора. Он отображается вместо текста справки под элементом, а также в ячейках таблицы |
 | `validatorNoSaveOnError` | Отключить кнопку сохранения при возникновении ошибки |
 | `tooltip` | дополнительная всплывающая подсказка |
 | `default` | значение по умолчанию |
@@ -1298,7 +1299,7 @@ adapter.on("message", (obj) => {
 
 Допустимые значения соответствуют значениям из node.js `process.platform` (как в `common.os` или `io-package.json`): `aix`, `android`, `cygwin`, `darwin`, `freebsd`, `haiku`, `linux`, `netbsd`, `openbsd`, `sunos`, `win32`.
 
-- Если указан параметр `os`, элемент будет отображаться **только** в указанных операционных системах.
+- Если параметр `os` задан, элемент будет отображаться **только** в указанных операционных системах.
 - Если параметр `notOs` задан, элемент будет отображаться во всех операционных системах, **кроме** указанных.
 - Если операционная система хоста не может быть определена (например, объект хоста недоступен для чтения), элемент
 
@@ -1353,7 +1354,7 @@ adapter.on("message", (obj) => {
 
 - Если изменяется одно из состояний, то `hidden`, `disabled`, `label`, `help`, `validator` и `defaultFunc` этого объекта.
 
-Значение элемента будет пересчитано заново. Каждое состояние подписывается только один раз, независимо от того, сколько элементов (или строк таблицы) его используют.
+Значение элемента будет вычислено заново. Каждое состояние подписывается только один раз, независимо от того, сколько элементов (или строк таблицы) его используют.
 
 - Краткая форма `"dependsOnStates": ["admin.0.info.connection"]` использует сам идентификатор в качестве псевдонима:
 
@@ -1407,11 +1408,11 @@ adapter.on("message", (obj) => {
 
 Проверяется, установлен ли адаптер, а не существует ли его экземпляр или запущен ли он.
 
-- Установленные адаптеры считываются один раз, при открытии диалогового окна конфигурации, и только если конфигурация...
+- Установленные адаптеры считываются один раз, при открытии диалогового окна конфигурации, и только если конфигурация выполнена.
 
 использует один из этих атрибутов. Если они не могут быть прочитаны, элемент будет отображен.
 
-- Неотображаемый элемент не удаляется: его значение остается неизменным в конфигурации, точно так же, как и у `hidden`.
+- Неотображаемый элемент не удаляется: его значение остается неизменным в конфигурации, точно так же, как и у параметра `hidden`.
 
 Однако значение `default` такого элемента не будет записано в конфигурацию.
 
@@ -1424,7 +1425,7 @@ adapter.on("message", (obj) => {
 - `данные` - статические данные
 - `jsonData` - статические данные
 - Если параметры `data` и `jsonData` не определены, будет отправлена следующая информация: `{"attr": "<имя атрибута>", "value": "<текущее значение>"}`
-- `button` - метка кнопки для повторного запуска запроса из экземпляра
+- `button` - метка кнопки для повторного запуска запроса от экземпляра
 - `buttonTooltip` - Всплывающая подсказка для кнопки (по умолчанию: `Запрос данных по экземпляру`)
 - `buttonTooltipNoTranslation` - Не переводить всплывающую подсказку кнопки
 - `allowSaveWithError` - Разрешить сохранение конфигурации, даже если экземпляр находится в автономном режиме.
@@ -1482,7 +1483,7 @@ adapter.on("message", (obj) => {
 
 Значение `__different__` зарезервировано, и ни один текстовый ввод не может принять его от пользователя.
 
-Компонент должен выглядеть следующим образом:
+Компонент должен выглядеть следующим образом
 
 ```jsx
 <SchemaEditor
@@ -1738,6 +1739,25 @@ onMessage = (obj: ioBroker.Message): void => {
 ### **РАБОТА В ПРОЦЕССЕ** -->
 
 ## Changelog
+### 10.1.12 (2026-11-03)
+- (@GermanBluefox) Docs: `checkDocker` checks the Docker connection the instance uses (`iobDockerApi`), also on the host of admin (ioBroker/ioBroker.admin#3715)
+- (@GermanBluefox) Added: `noCheckbox` for `checkDocker`: shows only the state of Docker, for adapters that choose Docker with another control
+
+### 10.1.11 (2026-10-29)
+- (@GermanBluefox) Fixed: `validatorErrorText` was not shown, only the field was marked red. The text is shown now instead of the help text below the element, also in the cells of a table (ioBroker/ioBroker.admin#1911)
+- (@GermanBluefox) Fixed: a `text` with `minRows` showed an empty red line instead of the help text when the validator failed
+
+### 10.1.10 (2026-10-29)
+- (@GermanBluefox) Added: `allowReorder` for `table`. With `noDelete: true` the rows can still be moved up and down, but not added or deleted (ioBroker/ioBroker.admin#3707)
+- (@GermanBluefox) Fixed: in the cards mode of `table`, `noDelete` did not hide the add button and, with `titleAttribute`, the delete and clone buttons
+- (@GermanBluefox) Fixed: the export/import buttons of the instance settings covered the last tabs and the right scroll button of the tab bar, so these tabs could not be reached (ioBroker/ioBroker.admin#3613, ioBroker/ioBroker.admin#3657)
+
+### 10.1.9 (2026-10-27)
+- (@GermanBluefox) Fixed: `checkDocker` showed the Docker of the host admin runs on, also for an instance on another host. The control sends the host of the instance now, and admin asks that host. If Docker cannot be checked there, the checkbox stays usable and the reason is shown
+
+### 10.1.8 (2026-10-26)
+- (@GermanBluefox) Fixed: a slider (`slider` or `state`) crashed the page if the value was not a number, e.g. a string
+
 ### 10.1.7 (2026-10-22)
 - (@BenAhrdt) Fixed: the `autocomplete` does not translate the values entered as free text
 - (@GermanBluefox) Added: `noTranslation` for single options of `autocomplete`, `autocompleteSendTo`, `selectSendTo` and `state` and for the groups of `select`
@@ -1997,9 +2017,30 @@ It shows the license information if not already accepted. One of attributes `tex
 Special component to check if Docker is installed and running.
 If docker is installed, a checkbox will be shown to allow the usage of docker.
 
+Docker is checked on the host the instance runs on, which is not necessarily the host of admin. Admin asks the
+js-controller of that host, which needs the feature `CONTROLLER_CHECK_DOCKER`; the check is then done by the
+`@iobroker/plugin-docker` of the adapter. So the Docker the instance uses is checked: if the adapter names a Docker
+connection in `iobDockerApi` of its plugin config (`common.plugins.docker` in `io-package.json`), e.g. one of
+`system.docker` on a NAS, that connection is checked. A template like `"iobDockerApi": "${config.dockerApi}"`, which
+lets the user choose the connection in the instance settings, is resolved as when the instance starts (with
+`@iobroker/plugin-docker` 1.3.0 or later in the adapter). The control checks once, when it is shown, with the saved
+settings of the instance: a connection that was just chosen but not saved yet is not the one that is checked.
+
+If the js-controller of the admin host cannot check it - an older js-controller, or an adapter without the plugin -
+admin checks the Docker of its host itself, as an older admin always does. If Docker cannot be checked on another
+host - e.g. the host is not running or its js-controller is too old - the checkbox stays usable and the reason is
+shown, as Docker is unknown there and not necessarily missing.
+
+An adapter that lets the user choose Docker with another control, e.g. a `select` between Docker and an external
+server, sets `noCheckbox`: then only the label and the state are shown, e.g. `frigate: Docker version 29.9.2, api
+version: 1.56`, or in orange why Docker is not available or cannot be checked. The value of `attr` is not used then,
+so an attribute starting with `_` is enough, which is not saved. An older admin ignores `noCheckbox` and shows the
+checkbox; set `disabled: true` as well, so it cannot be clicked there.
+
 | Property      | Description                                                                                                                                                    |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `hideVersion` | If the information about docker version or error should be hidden (e.g. if used more than one such element on the page the error or version will be shown once |
+| `noCheckbox`  | Show only the state of Docker, without the checkbox. `hideVersion` is ignored then                                                                             |
 
 ### `checkLicense`
 

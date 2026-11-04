@@ -10,8 +10,8 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobr
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.trashschedule?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.trashschedule/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.trashschedule.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/trashschedule-stable.svg
-BADGE-Installed: http://iobroker.live/badges/trashschedule-installed.svg
+BADGE-Stable: https://iobroker.live/badges/trashschedule-stable.svg
+BADGE-Installed: https://iobroker.live/badges/trashschedule-installed.svg
 chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/README.md"},"en/adapterref/iobroker.trashschedule/providers.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/providers.md"},"en/adapterref/iobroker.trashschedule/blockly.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/blockly.md"},"en/adapterref/iobroker.trashschedule/faq.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/faq.md"},"en/adapterref/iobroker.trashschedule/javascript.md":{"title":{"en":"ioBroker.trashschedule"},"content":"en/adapterref/iobroker.trashschedule/javascript.md"}}}
 ---
 ![Logo](../../admin/trashschedule.png)
@@ -68,6 +68,7 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 -->
 ### **WORK IN PROGRESS**
 
+* (@typhosj) Added a native vis-2 widget, it looks like the vis-1 widget and keeps the settings of existing vis-2 projects
 * (@typhosj) Fixed "actionNeeded" staying true after the pickup day has passed (#292)
 
 ### 6.0.0 (2026-09-29)

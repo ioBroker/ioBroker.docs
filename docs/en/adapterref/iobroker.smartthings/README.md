@@ -25,6 +25,17 @@ Open the Developer Console F12 or Option + Command + I and copy the blue samsung
 
 smartthings.0.id.capabilities either set to true or set a predefined value
 
+## Compact mode
+
+Enable **Compact mode** in the adapter settings to skip status values that remain empty
+(`null`, `undefined`, empty strings, empty objects, and empty arrays). Values such as
+`0` and `false` are preserved.
+
+If a previously meaningful value becomes empty, the empty value is written once so an
+existing ioBroker state is cleared instead of becoming stale. Compact mode affects newly
+processed payloads; it does not automatically delete objects that were created before the
+option was enabled.
+
 ## Discussion and Questions:
 
 https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x

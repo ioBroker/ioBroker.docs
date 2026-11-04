@@ -53,6 +53,9 @@ A derived version of this adapter supporting control of VBus devices is availabl
   * Via Tag: YourViaIdentifier (e.g. d1234567890) - without http:// before or .vbus.io behind
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**

@@ -260,6 +260,9 @@ Läuft die Instanz nicht, sagt der Tab das, statt zu warten. Häng die Datei an 
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**

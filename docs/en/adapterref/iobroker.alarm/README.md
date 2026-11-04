@@ -29,6 +29,9 @@ This adapter allows you to set up a home alarm system without extensive programm
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 5.1.2 (2026-10-29)
+* (@GermanBluefox) feat: panel remembers whether the details are unfolded
+
 ### 5.1.1 (2026-10-28)
 * (@GermanBluefox) Alarm panel: today's log is shown as a list instead of one line with visible `<br>`
 * (@GermanBluefox) Devices tile: the size dialog no longer shows 2×2 while the tile is stored as 1×1; the panel adapts its buttons to 1×1 and 2×½ tiles
@@ -42,10 +45,6 @@ This adapter allows you to set up a home alarm system without extensive programm
 
 ### 5.0.1 (2026-08-07)
 * (@misanorot) update
-
-### 5.0.0 (2026-08-06)
-* (@GermanBluefox) Migrated to admin 8
-* (@misanorot) fixed checker #427
 
 ## License
 [MIT License](https://github.com/misanorot/ioBroker.alarm/blob/master/LICENSE)

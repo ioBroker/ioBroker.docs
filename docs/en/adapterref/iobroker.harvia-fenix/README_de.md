@@ -61,7 +61,7 @@ Zusätzlich zur Adapterinstallation musst du die Adapterinstanz mit deinen MyHar
 2. Navigiere zum Reiter **Instanzen** und klicke auf das Einstellungs-Symbol deiner `harvia-fenix.0`-Instanz.
 3. Gib die **E-Mail-Adresse** und das **Passwort** deines MyHarvia-Kontos ein.
 4. Wenn du das Feld **Geräte-ID** leer lässt, sucht der Adapter beim Start automatisch nach Geräten, die mit deinem Konto verknüpft sind. Er verwendet das erste gefundene Gerät als aktive Einheit.
-5. Passe bei Bedarf optionale Parameter an: **Abfrageintervall** (Sekunden), **Mindest-/Maximal-Zieltemperatur** (°C) und **Maximale Heizdauer** (Minuten).
+5. Passe bei Bedarf optionale Parameter an: **Mindest-/Maximal-Zieltemperatur** (°C) und **Maximale Heizdauer** (Minuten).
 6. Klicke auf **Speichern & Schließen**.
 
 ---
@@ -237,6 +237,7 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 ## Änderungsprotokoll (Changelog)
 
 ### **WORK IN PROGRESS**
+* (meistermopper) Obsoletes Abfrageintervall (pollInterval) aus Instanz-Konfiguration entfernt
 * (meistermopper) Abhaengigkeits-Overrides zur Behebung von Dependabot-Warnungen aktualisiert
 
 ### 1.2.0 (2026-10-19)

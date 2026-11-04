@@ -99,56 +99,76 @@ You might see red error messages in the installation log related to `node-gyp`, 
 //### **WORK IN PROGRESS**
 
 ## Changelog
+### 0.22.5 (2026-11-01)
+
+**🔧 Maintenance & Compatibility**
+
+- **Repository Compliance:** Added missing multi-language translations (i18n) for all configuration dropdown menus (e.g. COP sources, PV modes) to meet strict ioBroker stable repository requirements.
+
+### 0.22.4 (2026-11-01)
+
+**🐛 Bugfixes & Tweaks**
+
+- **PV Surplus Management (`pvManager.ts`):**
+    - **Cycle Completion & Reset Deadlock:** Fixed a critical bug in `initiateDeactivation` when `pv_finish_cycle` was enabled: the inactive operating mode (e.g., hot water while heating is running) is now immediately reset to baseline[cite: 26, 28, 29]. This prevents infinite cycle loops where cycle optimization erroneously triggered forced 60 °C hot water runs at the end of a heating cycle[cite: 25, 28].
+    - **Target Reset vs. PV Max:** Corrected cycle completion behavior so active compressor runs finish at normal baseline setpoints instead of continuing to heat to elevated PV boost targets with grid/battery power[cite: 26, 28, 29]. Added a dynamic timer to enforce the 10-minute minimum compressor run time before final reset[cite: 26].
+    - **Hysteresis Deadband & Timer Protection:** Prevented the deactivation timer (`pvStopTimer`) from being aborted by minor meter/battery balancing fluctuations in the deadband between the stop threshold and start threshold[cite: 26, 27, 29].
+    - **Startup Recovery:** Added baseline recovery during `initPvManagement` to clear orphaned boost targets left behind after an adapter update or reboot.
+    - **Input Parsing:** Added `parseConfigFloat` to safely parse decimal values formatted with commas (e.g., `"1,5"`) in the admin configuration[cite: 26, 29].
+    - **Direct Hardware Sync:** Switched state updates to `syncConfigValue` for immediate, queue-safe synchronization via native TCP and Modbus[cite: 25, 26].
+
+### 0.22.3 (2026-11-01)
+
+- **Notifications & Alarming:**
+    - Fixed an initialization bug where `lastKnownErrorTimestamp` and `lastKnownOutageTimestamp` were not set on adapter startup if the history remained unchanged, which previously caused the first genuine error or outage after a restart to be silently ignored.
+    - Decoupled the 60-minute flow warning cooldown (`lastFlowNotificationTime`) from critical heat pump malfunctions so genuine fault alarms are never suppressed by preceding flow warnings.
+    - Added language-independent outage code detection (codes 0, 1, 11, 18) alongside text-based fallbacks.
+- **ZIP Circulation Control:**
+    - Added a raw parameter fallback (`currentRawParams`) when backing up `originalZipConfig` to prevent timer schedules from being overwritten with `null` if the corresponding timer states are disabled in the object tree.
+    - Fixed an issue in `stopZipAndDeaeration` where manually disabling `Activate_Zip` did not stop the hardware deaeration program (`runDeaerate`) by checking `Virtual_ZIP_Status` in addition to the trigger state.
+- **Stability & Helpers:**
+    - Wrapped the automated DTA backup cron job initialization (`initAutoBackup`) in a `try/catch` block to prevent startup crashes on malformed cron expressions.
+    - Hardened `safeClose` in `ModbusManager` to cleanly terminate sockets even if a connection timeout occurs before the socket is marked as open.
+    - Improved input validation in `formatTimerSecondsToTime` (guarding against negative values and `NaN`) and `getNumber` (supporting numeric strings).
+
+### 0.22.2 (2026-11-01)
+
+**🐛 Bugfixes & Tweaks**
+
+- **Cycle Optimization & PV Integration:** Fixed an issue where the cycle optimization was blocked during an active PV boost. The adapter now correctly forces seamless transitions between heating and hot water (without compressor shutdown and anti-cycle delays) even when solar surplus is available. A new handshake mechanism ensures that PV target temperatures are immediately and safely restored after the cycle optimization resets the baseline idle defaults.
+
+- **PV Surplus Management & Compressor Optimization:**
+    - Fixed read-only datapoint errors in `activateBoost` and `deactivateBoost` (now correctly targeting `temperature_hot_water_target`).
+    - Resolved baseline configuration mix-ups between `fusspunkt` and the heating parallel offset (`heating_temperature`).
+    - Fixed the heating saturation check (`isHzFull`) to prevent premature boost revocation.
+    - Implemented a seamless "PV-Boost Handshake" allowing cycle optimization to force hot water transitions even during active solar surplus without triggering anti-cycle compressor delays.
+
+- **ZIP Circulation & Timer Logic:**
+    - Fixed a bug where hot water timer slots (`WW_MoSo_...`) were mistakenly backed up and overwritten instead of circulation pump slots (`Zirkulation_MoSo_...`).
+    - Improved time string conversions and state restoration robustness.
+- **COP Calculation & Virtual States:**
+    - Fixed a UTC timezone offset in daily rollovers so COP snapshots trigger precisely at local midnight.
+    - Included defrosting cycles (`WP_BZ_akt = 4`) into the heating COP calculations and added clamping protection against negative energy deltas.
+    - Added an in-memory object cache (`ensuredObjects`) to drastically reduce redundant database write calls.
+    - Added a raw value fallback for total energy and thermal energy calculations if individual states are disabled in the object tree.
+- **Modbus & Raw Communication Stability:**
+    - Implemented a strict serial operation queue (mutex) with a 50ms release delay in `ModbusManager` to prevent TCP port 502 connection collisions.
+    - Added a 30-second request timeout (`AbortSignal.timeout`) to DTA backups and corrected file naming for fallback paths (`dta_history`).
+    - Expanded firmware version regex in `updateManager` to support `F1.`, `WWB`, and `smo` firmware formats.
+    - Added socket `close` event listeners and safe number roundings for raw write operations.
+- **Repository Compliance & Maintenance:**
+    - Added complete multi-language translations (i18n) for all configuration dropdown menus to meet strict ioBroker stable repository requirements.
+    - Cleaned up unpublished ghost versions from the `io-package.json` news section.
+    - Standardized the README changelog header format (`## Changelog`).
+
+    - **Repository Compliance:** Added missing multi-language translations (i18n) for all configuration dropdown menus (e.g. COP sources, PV modes) to meet strict ioBroker stable repository requirements.
+
 ### 0.22.1 (2026-10-28)
 
 **🔧 Maintenance & Compatibility**
 
 - **Repository Compliance:** Added missing multi-language translations (i18n) for all configuration dropdown menus (e.g. COP sources, PV modes) to meet strict ioBroker stable repository requirements.
 - **Cleanup:** Removed unpublished ghost versions from the `io-package.json` news section and fixed markdown formatting for the changelog header in the README.
-
-### 0.22.0 (2026-10-26)
-
-**🐛 Performance & Tweaks**
-
-- **Modbus Queue & Socket Protection:** Added a sequential operation queue (mutex) with a 50ms socket release delay in `ModbusManager` to prevent TCP port 502 connection collisions when polling and event-driven writes occur simultaneously.
-- **COP Database Optimization:** Added an in-memory object cache (`ensuredObjects`) to `copManager`, eliminating redundant `setObjectNotExistsAsync` database calls during every polling cycle.
-- **DTA Backup & Firmware Check Improvements:** Added a 30-second request timeout (`AbortSignal.timeout`) and proper `dta_history` file naming on fallback to `backupManager`, and expanded the version regex in `updateManager` to support `F1.`, `WWB`, and `smo` firmware strings.
-
-### 0.21.1 (2026-10-26)
-
-**🐛 Bugfixes & Tweaks**
-
-- **PV Manager Target & Offset Fixes:** Fixed remaining references to the read-only `Wamwassertemperatur_Soll` datapoint in `activateBoost` and `deactivateBoost` (now consistently targeting `temperature_hot_water_target`). Resolved a baseline mix-up where `fusspunkt` was mistakenly applied to the parallel offset (`heating_temperature`), and fixed the heating saturation check (`isHzFull`) to compare actual return temperature against target return + hysteresis without prematurely revoking active boosts.
-- **Cycle Optimization & Heating Limit:** Replaced the language-dependent `'Heating limit'` string check during idle with a reliable numerical evaluation of the heating limit parameters. Added a `!pvIsBoostActive` guard to prevent forced hot water triggers from overwriting active solar boosts, and included a baseline reset (`0 K`) for `heating_temperature` in `setIdleDefaults`.
-- **ZIP Controller Timer Fix:** Fixed a bug in `zipManager` (internal controller mode) where hot water timer slots (`WW_MoSo_...`) were backed up and overwritten instead of the circulation pump timer slots (`Zirkulation_MoSo_...`), and improved time string restoration.
-- **COP Calculation Accuracy:** Fixed a UTC timezone offset in the daily rollover check so COP snapshots occur accurately at local midnight (00:00). Included defrosting cycles (`WP_BZ_akt = 4`) in the heating COP bucket and added clamping against negative deltas if external energy meters are reset.
-- **Object Management & Virtual States:** Removed a redundant loop in `onReady` that recreated disabled virtual datapoints on startup, and fixed `PREFIX_MAPPING` for weekend timer tables (`SaSo`) to properly reference the `52SatSun` configuration flags.
-
-### 0.21.0 (2026-10-26)
-
-**🚀 New Features**
-
-- **PV Surplus Management (PV-Ready):** Introduced a fully integrated, automated PV surplus control system.
-- **PV Hysteresis Control:** Added a dedicated stop threshold (`pv_threshold_stop`) to the PV surplus manager. This prevents the heat pump from cancelling its own boost cycle by consuming the solar surplus (feedback loop). The system now supports independent start and stop boundaries (Schmitt trigger logic).
-- **Dynamic Setpoint Boost:** Automatically raises hot water and heating setpoints (wear-free via Modbus RAM) based on your current grid feed-in.
-- **Smart Timers:** Includes customizable start and stop delay timers to prevent compressor short-cycling during variable cloud cover.
-- **Cycle Protection:** Added a "finish cycle" safety feature. If the solar surplus drops, the adapter intelligently waits for an active heating or hot water cycle to finish before reverting the setpoints, protecting the compressor hardware.
-- **PV Telemetry:** Added three new virtual datapoints under `Information.17_PV_Surplus` (`pv_boost_active`, `pv_boost_active_since`, and `pv_boost_last_activation`) to make the current surplus control status transparently available for external ioBroker visualizations.
-- **Battery Prioritization (PV):** Added an optional feature to include your home battery's charging power into the PV surplus calculation. This allows you to treat the heat pump as the primary thermal battery, intercepting the solar power to heat up the house or hot water _before_ it flows into your chemical battery.
-
-**🐛 Bugfixes & Tweaks**
-
-- **Cycle Optimization vs. PV Logic:** Fixed an edge-case bug where a temporary high target temperature from the cycle optimization module leaked into the PV surplus manager if the heat pump skipped the standby/idle state. The adapter now explicitly resets cross-cycle targets and forces the PV manager to reference the secure baseline configuration limits.
-- **Modbus Stability:** Fixed a critical race condition in the Modbus manager. Concurrent read and write operations no longer share a single global client, preventing connection collisions and adapter crashes during hybrid mode operations.
-- **API Modernization:** Replaced deprecated `setStateAsync` calls in the PV manager with the modern Promise-based `setState` API to comply with the latest ioBroker adapter guidelines and resolve TypeScript warnings.
-- **Unit Conversion:** The PV feed-in datapoint now natively supports kilowatts (kW) via a new toggle in the configuration UI, automatically converting it to Watts internally.
-- **Admin UI Polish:** Replaced HTML-based information blocks in the configuration UI with native ioBroker JSON components to bypass React XSS-filtering issues and ensure clean rendering.
-
-### 0.20.4 (2026-10-24)
-
-**🔧 Maintenance & Compatibility**
-
-- **Node.js Requirement:** Updated minimum Node.js requirement to `>= 22` in `package.json` and `io-package.json` to meet current adapter standards.
 
 ## License
 

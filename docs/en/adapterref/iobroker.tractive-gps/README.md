@@ -200,6 +200,9 @@ To use the command switches, assign the corresponding `trackers.<tracker-id>.com
 Information for contributors is available in [Developer documentation](/#/docs/adapterref/iobroker.tractive-gps/docs/DEVELOPMENT.md).
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 ### 4.0.0 (2026-10-12)
 
 - (xXBJXx) BREAKING: the native VIS 2 widget now requires VIS 2 >=2.15.2 for React 19/MUI 9 support; backend-only and classic VIS 1 installations remain supported.

@@ -1,6 +1,6 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/backitup-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.backitup.svg
+BADGE-Number of Installations: https://iobroker.live/badges/backitup-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.backitup.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.backitup.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/simatec/ioBroker.backitup/badge.svg
 BADGE-Test and Release: https://github.com/simatec/ioBroker.backitup/workflows/Test%20and%20Release/badge.svg

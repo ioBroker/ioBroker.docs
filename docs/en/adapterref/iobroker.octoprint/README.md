@@ -10,8 +10,8 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobr
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.octoprint?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.octoprint/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.octoprint.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/octoprint-stable.svg
-BADGE-Installed: http://iobroker.live/badges/octoprint-installed.svg
+BADGE-Stable: https://iobroker.live/badges/octoprint-stable.svg
+BADGE-Installed: https://iobroker.live/badges/octoprint-installed.svg
 ---
 ![Logo](../../admin/octoprint.png)
 

@@ -321,6 +321,10 @@ All longer examples are maintained in [docs/EXAMPLES.md](/#/docs/adapterref/iobr
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 6.2.1 (2026-10-29)
+
+- fix problem with loading channel logos while paging
+
 ### 6.2.0 (2026-10-28)
 
 - Configurable paging mechanism in the channel select dialog
@@ -342,11 +346,6 @@ All longer examples are maintained in [docs/EXAMPLES.md](/#/docs/adapterref/iobr
 ### 5.0.1 (2026-09-23)
 
 - fix tests
-
-### 5.0.0 (2026-09-23)
-
-- Comprehensive revision
-- New data source added
 
 ## License
 

@@ -131,6 +131,10 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Web components of other adapters (`common.webComponents`, see `@iobroker/web-components`) can be added as tiles: the palette lists them, the settings dialog shows their settings next to the size of the tile, and their dialogs open as dialogs of devices. The list and the settings come from the manifests of the components; the module of a component is loaded when its first tile is shown
+* (@GermanBluefox) Plugins may bring background services (`common.deviceWidgets.services`): the app renders them once next to the category, with the widgets of the adapter in all categories the user may control, whichever category is shown - e.g. so that a phone stays registered and rings in every category
+
 ### 4.2.7 (2026-10-25)
 * (@GermanBluefox) Added widget for the device type `tv` with a remote control dialog
 
@@ -154,6 +158,23 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 * (@GermanBluefox) Copied or renamed devices no longer keep the old names in their states (#684)
 * (@GermanBluefox) States of a new device are named consistently (#696)
 * (@GermanBluefox) Blind widget: added setting to invert the position (#713)
+
+### 4.2.2 (2026-09-17)
+* (@GermanBluefox) Sliders, dials and swipeable tiles in the widget GUI no longer change their value when a finger only scrolls the page across them. A touch becomes a drag when it starts sideways or after the finger has rested for a moment; a touch the browser takes over for scrolling changes nothing
+* (@GermanBluefox) Tooltips no longer catch the mouse: they close as soon as the pointer leaves the control and do not block clicks on what lies underneath
+* (@krobipd) Cancel in the editor that opens right after creating a device now removes the new device again, together with its states and its room and function assignments. Save is enabled right away, so a new device can be kept without changing anything
+* (@krobipd) Fixed the devices tab staying on its loading spinner when a device without mandatory states (e.g. a chart of the echarts adapter) is assigned to a room or function
+* (@krobipd) Fixed the import grouped by room or function stopping halfway when a room or function object is not found
+* (@krobipd) Fixed the value list editor: "+" no longer adds a "NaN" row to a list of text values, dragging a row moves it instead of swapping two rows, and OK is only enabled after a change
+* (@krobipd) The search now finds a device by its name regardless of upper and lower case
+* (@krobipd) Fixed device icons that are stored as a bare file name not being shown in the device list
+* (@krobipd) The folders are expanded when the device list is opened for the first time, instead of all being collapsed
+* (@krobipd) The warning about the web instance configuration is no longer logged when no web instance is installed
+* (@krobipd) The widget notification timer is cleared when the adapter stops, so it does not stay behind in compact mode
+* (@GermanBluefox) The build takes the version of the GUI packages from the adapter's `package.json`, and `common.welcomeScreen` is written as the array the current io-package schema expects
+
+### 4.2.1 (2026-09-09)
+* (@GermanBluefox) Fixed layout
 
 ## License
 MIT License

@@ -152,7 +152,20 @@ A media player card: title, artist, cover, play/pause, previous/next, shuffle, m
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.5.7 (2026-11-04)
+* (bluefox) Copying a submenu gives its items new IDs, so the copied pages no longer take the settings (e.g., included or excluded scenes) of the original pages
+* (bluefox) Menu items with the same ID are repaired when the layout settings are opened or imported from JSON
+
+### 1.5.6 (2026-11-03)
+* (bluefox) Scene widgets placed in a page no longer get a too big font and save button on mobile phones
+
+### 1.5.5 (2026-11-03)
+* (bluefox) Dimmer: the popup shows the value in percent on the bar (can be hidden in the widget settings)
+* (bluefox) Pages with "Include scenes" or "Include actions" show only the scenes and actions of the current floor, the same as with "Exclude"
+* (bluefox) Menu settings: "Include scenes/actions" offers only the items assigned to floors and shows which ones are visible on every floor
+* (bluefox) Updated packages
+
+### 1.5.4 (2026-10-28)
 * (bluefox) Home page shows the info even if no scenes and no actions are defined
 * (bluefox) Info groups wrap instead of pushing the right side out of the screen; the width of info lines is configurable
 * (bluefox) State widget: for display-only numbers the color does not depend on the max value of the object anymore
@@ -161,19 +174,6 @@ A media player card: title, artist, cover, play/pause, previous/next, shuffle, m
 
 ### 1.5.2 (2026-10-27)
 * (bluefox) Shutter and dimmer popups: percent and memory buttons have the widget height on mobile devices
-
-### 1.5.1 (2026-10-27)
-* (bluefox) Corrected the layout of the thermostat dialog on mobile devices
-* (bluefox) Thermostat dialog shows humidity and valve position even if no actual temperature is configured
-
-### 1.5.0 (2026-10-17)
-* (bluefox) Migrated to React 19 and vis-2 2.20.0
-
-### 1.4.20 (2026-04-27)
-* (bluefox) Hide the menu on mobile devices if no scenes or actions are defined
-
-### 1.4.19 (2026-03-13)
-* (bluefox) Corrected possible error with invalid theme name
 
 Older changes can be found in CHANGELOG_OLD.md
 

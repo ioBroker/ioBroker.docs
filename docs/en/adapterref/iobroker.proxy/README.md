@@ -3,43 +3,55 @@
 
 ![Number of Installations](http://iobroker.live/badges/proxy-installed.svg) ![Number of Installations](http://iobroker.live/badges/proxy-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.proxy.svg)](https://www.npmjs.com/package/iobroker.proxy)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.proxy.svg)](https://www.npmjs.com/package/iobroker.proxy)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.proxy.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.proxy)
+[![Test and Release](https://github.com/ioBroker/ioBroker.proxy/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ioBroker/ioBroker.proxy/actions/workflows/test-and-release.yml)
 
 [![NPM](https://nodei.co/npm/iobroker.proxy.png?downloads=true)](https://nodei.co/npm/iobroker.proxy/)
 
 ## Usage
-Allows to access defined URLs or local files via one web server.
+Allows accessing defined URLs or local files via one web server.
 
-Specified routes will be available under `http://ip:8082/proxy.0/context/...`. Of course port, protocol, `proxy.0`, can variate depends on settings.
+The configured routes are available under `http://ip:8082/proxy.0/context/...`. Port, protocol and `proxy.0` vary depending on the settings.
 
 ## Configuration
-- Extend WEB adapter: For which web instance will active this proxy.
-- Route path: Path for proxy. If "/proxy.0", so the routes will be available under `http://webIP:8082/proxy.0/...`
-- Error timeout(ms): Minimal interval between retries if the requested resource was unavailable or returned error.
-- Use simple proxy: in this case the very simple but robust method will be used. It is not suitable for web sockets or POST request. Use this method if you have some issues with WEB Instance or socket.io communication.  
+- Use as web adapter extension: the web instance that this proxy extends.
+- Route path: path for the proxy. If it is `/proxy.0`, the routes are available under `http://webIP:8082/proxy.0/...`.
+  Empty means `proxy.<instance>/`. Set it to `/` to install the routes directly below the root of the web server, e.g. a context `.well-known/acme-challenge/` is then available under `http://webIP:8082/.well-known/acme-challenge/...`
+- Use simple proxy (no sockets): a very simple but robust method is used. It is not suitable for web sockets or POST requests. Use it if you have issues with the web instance or with the socket.io communication.
+- Error timeout (ms): minimal interval between retries if the requested resource was unavailable or returned an error.
+- Maximum Parallel Requests: default for all paths, how many requests may be in progress at the same time (not used by the simple proxy).
 
 ## Sample settings
-| Context        |      URL                                           |      Description                                   |
-|----------------|:---------------------------------------------------|:---------------------------------------------------|
-| admin/         | http://localhost:8081                              | access to admin page                               |
-| router/        | http://192.168.1.1                                 | access to local router                             |
-| cam/           | http://user:pass@192.168.1.123                     | access to webcam (e.g. call http://ip:8082/proxy.0/cam/web/snapshot.jpg) |
-| dir/           | /tmp/                                              | access to local directory "/tmp/"                  |
-| dir/           | tmp/                                               | access to local directory "/opt/iobroker/tmp"      |
-| file.jpg       | /tmp/picture.jpg                                   | access to local file "/tmp/picture.jpg"            |
+| Context  | URL                            | Description                                                              |
+|----------|--------------------------------|--------------------------------------------------------------------------|
+| admin/   | http://localhost:8081          | access to admin page                                                     |
+| router/  | http://192.168.1.1             | access to local router                                                   |
+| cam/     | http://user:pass@192.168.1.123 | access to webcam (e.g. call http://ip:8082/proxy.0/cam/web/snapshot.jpg) |
+| dir/     | /tmp/                          | access to local directory "/tmp/"                                        |
+| dir/     | tmp/                           | access to local directory "/opt/iobroker/node_modules/tmp"               |
+| file.jpg | /tmp/picture.jpg               | access to local file "/tmp/picture.jpg"                                  |
 
-**Not all devices can be accessed via proxy.** 
+Relative paths of local files and directories are relative to the `node_modules` directory of ioBroker (e.g. `/opt/iobroker/node_modules`).
 
-Some devices wants to be located in the root `http://ip/` and cannot run under `http://ip/proxy.0/context/`.
+Every rule can have its own timeout and maximum number of parallel requests. If they are empty, the error timeout and the maximum parallel requests of the main settings are used.
 
-You can read more about context [here](https://www.npmjs.com/package/http-proxy-middleware#context-matching)
+**Not all devices can be accessed via proxy.**
 
-Additionally the user can define the route path for proxy requests.
+Some devices want to be located in the root `http://ip/` and cannot run under `http://ip/proxy.0/context/`.
 
+You can read more about context [here](https://www.npmjs.com/package/http-proxy-middleware#context-matching).
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 2.0.1 (2026-11-02)
+- (bluefox) **Breaking change:** Node.js >= 22.19 and admin >= 7.6.20 are required now
+- (bluefox) The adapter was refactored to TypeScript and JsonConfig; `request` was replaced by `axios` and `mime` by `mime-types`
+- (bluefox) Fixed: files outside of a configured local directory could be read via ".." in the path
+- (bluefox) Fixed: the timeout check was not stopped when web unloaded the extension
+- (bluefox) Documented how to install the routes directly below the root of the web server (route path `/`) (#133)
 - (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+- (ipod86) Credentials are masked in all log lines (`user:pass@` and query parameters like `password`, `user`, `token`, `apikey`); the proxy options are logged at debug level only (#276)
 
 ### 1.3.2 (2022-10-01)
 * (Apollon77) Allow to also proxy files directly
@@ -54,34 +66,6 @@ Additionally the user can define the route path for proxy requests.
 ### 1.2.2 (2021-03-07)
 * (Apollon77) Fallback to "application/octet-stream" when mime type for a file could not be determined
 * (Apollon77) Cut filenames when looking them up in the filesystem if "?" or "#" are included
-
-### 1.2.1 (2020-04-14)
-* (bluefox) Corrected error with access to local files
-
-### 1.2.0 (2020-03-08)
-* (Apollon77) update dependencies
-
-### 1.1.1 (2019-07-02)
-* (bluefox) Implemented simple proxy to eliminate socket.io problem
-
-### 1.0.3 (2018-07-14)
-* (bluefox) Newer mime version used
-
-### 1.0.2 (2018-06-30)
-* (bluefox) URI was decoded for usage of special chars in password and login
-
-### 1.0.1 (2018-03-01)
-* (bluefox) Fixed error: after 10 timeouts the web cam was never reachable
-* (bluefox) Ready for Admin3
-
-### 1.0.0 (2017-10-09)
-* (bluefox) do not allow the error generation to fast
-
-### 0.2.0 (2017-03-13)
-* (bluefox) fix run-mode
-
-### 0.0.1 (2017-01-09)
-* (bluefox) initial commit
 
 ## License
 The MIT License (MIT)

@@ -1,11 +1,11 @@
 ---
 BADGE-NPM: https://nodei.co/npm/iobroker.fullybrowser.png?downloads=true
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.fullybrowser.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.fullybrowser.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.fullybrowser.svg
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/arteck/ioBroker.fullybrowser
 BADGE-GitHub issues: https://img.shields.io/github/issues/arteck/ioBroker.fullybrowser
 BADGE-License: https://img.shields.io/badge/License-MIT-blue.svg
-BADGE-Number of Installations: http://iobroker.live/badges/fullybrowser-installed.svg
+BADGE-Number of Installations: https://iobroker.live/badges/fullybrowser-installed.svg
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.fullybrowser.svg?color=red&label=beta
 BADGE-Stable: https://iobroker.live/badges/fullybrowser-stable.svg
 ---

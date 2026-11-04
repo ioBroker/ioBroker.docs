@@ -64,6 +64,12 @@ In the tile view, the tiles are sorted in ascending order, that is, from dry to 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.10 (2026-11-03)
+* (BenAhrdt) Serialize per-device measurement updates to prevent duplicate output writes when source states change concurrently.
+
+### 0.1.9 (2026-11-03)
+* (BenAhrdt) Accept Unicode temperature units (`℃`/`℉`) and common relative humidity units (`% rF`/`% rH`) for source states.
+
 ### 0.1.8 (2026-10-14)
 * (BenAhrdt) Ensure that the interactive preview card labels always use the language selected in Admin, even when browser and system languages differ.
 
@@ -74,12 +80,6 @@ In the tile view, the tiles are sorted in ascending order, that is, from dry to 
 ### 0.1.6 (2026-09-28)
 * Rename the visible Device Manager references to Config Manager in the adapter configuration and translations.
 * Add delayed device configuration backups with manual restore and startup recovery when no device configuration exists.
-
-### 0.1.5 (2026-09-27)
-* Update the repository-check dependencies and test the adapter on Node.js 26.
-
-### 0.1.4 (2026-09-21)
-* Keep long Device Manager measurements readable with a smaller value font and at most two decimal places.
 
 ## Collaboration
 The adapter was developed in collaboration with Joerg Froehner

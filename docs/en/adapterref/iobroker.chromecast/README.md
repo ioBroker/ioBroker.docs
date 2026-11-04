@@ -62,6 +62,7 @@ Build on top of the following projects:
 ## Changelog
 
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (raintonr) Move castv2-player 'info' logging to 'debug' [#550]
 
 ### 4.2.0 (2026-05-04)

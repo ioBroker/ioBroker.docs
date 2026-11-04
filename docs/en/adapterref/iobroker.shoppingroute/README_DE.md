@@ -170,6 +170,14 @@ ShoppingRoute wird unter der **[MIT-Lizenz](https://github.com/RaviniZib/ioBroke
 
 ## Changelog
 
+### 0.6.1 (27.10.2026)
+
+- **Bring! ↔ Alexa:** Bestätigte Schreibvorgänge einer offenen Transaktion werden auch dann anerkannt, wenn zwischenzeitlich andere Artikel erledigt oder hinzugefügt wurden. Anschließende Änderungen werden in einer neuen Transaktion sicher abgeglichen, ohne erledigte Artikel in Bring! wiederherzustellen.
+- **Sicherheitslogik:** Nicht bestätigte Schreibvorgänge bleiben weiterhin gesperrt. Das Transaktionsjournal wird nicht blind zurückgesetzt.
+- **Protokollierung:** Bei mehr als drei Minuten ausstehender Bestätigung wird einmalig eine Warnung, beim Timeout eine Fehlermeldung und nach erfolgreicher Wiederherstellung eine Entwarnung im normalen ioBroker-Log ausgegeben. Wiederholte Polls erzeugen keine Logflut.
+- **Tests und Dokumentation:** Automatische Regressionstests für konkurrierende Erledigungen, vollständige Bestätigung und ausstehende Schreibvorgänge; deutsche und englische Anleitungen aktualisiert.
+- **Geschwindigkeit:** Ereignisgesteuerte Aktualisierung nach Bring!- und Alexa-Statusänderungen, 30-Sekunden-Rückfallprüfung und verkürzte Bestätigungsprüfung. **Externe Grenze:** Der eigenständige Bring!-Adapter 1.9.1 fragt seine Cloud ungefähr alle **90 Sekunden** ab. **ShoppingRoute kann dieses Intervall nicht einstellen, verkürzen oder vorzeitig auslösen**; der schnelle ShoppingRoute-Abgleich beginnt erst nach dem aktualisierten Bring!-Datenpunkt.
+
 ### 0.6.0 (26.10.2026)
 
 - Explizite Marktnamen werden als vollständige Begriffe an beliebiger Position im Artikel erkannt und haben stets Vorrang vor dem Standardmarkt; mehrdeutige Mehrfachnennungen werden nicht geraten.

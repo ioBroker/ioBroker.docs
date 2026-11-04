@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.omron-fins/README.md":{"title":{"en":"ioBroker.omron-fins"},"content":"en/adapterref/iobroker.omron-fins/README.md"},"en/adapterref/iobroker.omron-fins/READMEde.md":{"title":{"en":"ioBroker.omron-fins"},"content":"en/adapterref/iobroker.omron-fins/READMEde.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.omron-fins/README.md":{"title":{"en":"ioBroker.omron-fins"},"content":"en/adapterref/iobroker.omron-fins/README.md"},"en/adapterref/iobroker.omron-fins/READMEde.md":{"title":{"en":"ioBroker.omron-fins"},"content":"en/adapterref/iobroker.omron-fins/READMEde.md"},"en/adapterref/iobroker.omron-fins/SECURITY.md":{"title":{"en":"Dependency security status"},"content":"en/adapterref/iobroker.omron-fins/SECURITY.md"}}}
 ---
 ![Logo](admin/omron-fins.png)
 
@@ -32,6 +32,12 @@ Export the symbol table from CX-Programmer as CSV or tab-separated text and past
 - If automatic node addressing fails, configure DA1 and SA1 explicitly.
 
 ## Changelog
+
+### Unreleased
+
+- Updated vulnerable dependencies and the lockfile to resolve the 23 open Dependabot alerts from 2026-11-03.
+- Updated additional development dependencies and corrected test commands and Mocha type declarations.
+- Documented remaining development-tool advisories in [SECURITY.md](/#/docs/adapterref/iobroker.omron-fins/SECURITY.md).
 
 ### 0.1.0
 

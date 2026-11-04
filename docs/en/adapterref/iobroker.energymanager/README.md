@@ -26,6 +26,7 @@ This adapter would not have been possible without the great work of Michael Schu
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (copilot) Adapter requires node.js >= 22 now
 
 ### 2.0.1 (2026-03-05)

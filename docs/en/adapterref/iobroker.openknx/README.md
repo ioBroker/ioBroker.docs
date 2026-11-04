@@ -10,8 +10,8 @@ BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-com
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.openknx?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.openknx/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.openknx.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/openknx-stable.svg
-BADGE-Installed: http://iobroker.live/badges/openknx-installed.svg
+BADGE-Stable: https://iobroker.live/badges/openknx-stable.svg
+BADGE-Installed: https://iobroker.live/badges/openknx-installed.svg
 ---
 ![Logo](../../admin/openknx.png)
 
@@ -331,6 +331,9 @@ Increase the minimum send delay between two frames.
 Yes. KNX IP Secure tunneling is supported via .knxkeys keyfile or password.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 
 <!--
   Placeholder for the next version (at the beginning of the line):

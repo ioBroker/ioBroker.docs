@@ -20,6 +20,13 @@ This adapter helps users discover and control UPnP-compatible devices in their n
 ## Changelog
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22 now
+### 1.1.16 (2026-11-03)
+* chore(deps): bump follow-redirects from 1.16.1 to 1.16.2
+* chore(deps-dev): bump @types/node from 25.9.8 to 25.9.9
+* chore(deps-dev): bump fast-uri from 3.1.7 to 3.1.9
+* chore(deps): bump follow-redirects from 1.16.0 to 1.16.1
+* chore(deps-dev): bump proxy-addr from 2.0.7 to 2.0.8
+
 ### 1.1.15 (2026-10-03)
 * chore(deps-dev): bump brace-expansion from 1.1.18 to 1.1.21
 * chore(deps-dev): bump @grpc/grpc-js from 1.14.3 to 1.14.5

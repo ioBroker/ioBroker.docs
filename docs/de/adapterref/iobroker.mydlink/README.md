@@ -89,6 +89,9 @@ der Adapter holt sich (über den offenen telnet Port) alle Informationen von dem
 Gerät, die er braucht.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!-- 
 	Placeholder for next versions (this needs to be indented):
 	### **WORK IN PROGRESS**

@@ -301,6 +301,7 @@ Diagnostic states are available under `tesla-motors.0.info.*`:
 
 ## Changelog
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 
 ### 3.2.2 (2026-07-27)
 

@@ -4,7 +4,7 @@ lastChanged: 15.09.2024
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/cloud/editor.md
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: 5DkjDh1DBhv/Vbkj01xkxXmS0ZFwjv3fxKKZJC3Pez8=
+hash: wqHftkK4PHM+ooG3MfoZ7+9j4SxRbn7VB9yM04bbjY8=
 ---
 # Администрация и редакторы
 

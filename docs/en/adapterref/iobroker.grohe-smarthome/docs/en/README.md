@@ -183,11 +183,19 @@ Grohe notification categories: `0` Advertisement · `10` Information · `20` War
 <applianceId>.consumption.averageDaily           l
 <applianceId>.consumption.averageMonthly         l
 <applianceId>.consumption.totalWaterConsumption  l   (calculated, see note)
+<applianceId>.consumption.totalWaterConsumptionSync  (internal sync data, JSON)
 <applianceId>.consumption.lastWaterConsumption   l
 <applianceId>.consumption.lastMaxFlowRate        l/min
 ```
 
-> **`totalWaterConsumption`:** The Grohe dashboard API does not provide a reliable total. The adapter calculates it from `/data/aggregated`: once per day the historical total (installation date → today, grouped by year) is fetched; every 5th poll the current day's consumption is added on top.
+> **`totalWaterConsumption`:** The Grohe dashboard API does not provide a reliable total. The adapter calculates it from `/data/aggregated`:
+>
+> - The history since the installation date is fetched **only once**, in calendar-year chunks (a timeout only costs one chunk; the next attempt continues from there). The result is stored in `totalWaterConsumptionSync` and survives adapter restarts.
+> - After that, only the current and the previous month are fetched, **once per day** (late uploads from the device are picked up this way).
+> - Every 5th poll the current day's consumption is added on top.
+> - If a request fails, the state keeps its last value – it is never set to 0.
+>
+> The first calculation after installing or updating the adapter can take a few polls for older devices. To recalculate the total from scratch, delete `totalWaterConsumptionSync`.
 
 ### Pressure measurement channel
 
@@ -333,7 +341,8 @@ To minimize API calls and avoid rate-limiting (HTTP 403), different endpoints ar
 | `/details` (verify) | up to 3× after refresh | Blue | Background poll for fresh data (10 s intervals, max 30 s) |
 | `/details` (config) | every 10th poll | Sense Guard | Only if the dashboard has no `config`; sprinkler schedule, withdrawal limit |
 | `/data/aggregated` (today) | every 5th poll | Sense Guard | Today's consumption for `totalWaterConsumption` |
-| `/data/aggregated` (historical) | once per day | Sense Guard | Historical base for `totalWaterConsumption` |
+| `/data/aggregated` (history) | once | Sense Guard | Complete history in calendar-year chunks, stored in `totalWaterConsumptionSync` |
+| `/data/aggregated` (recent months) | once per day | Sense Guard | Current and previous month for `totalWaterConsumption` |
 | `/pressuremeasurement` | every 10th poll | Sense Guard | Only changes after a pipe check |
 
 > **Tip:** If HTTP 403 errors occur, increase the poll interval. The Grohe cloud API has rate limits.
@@ -355,12 +364,19 @@ On startup:
 
 1. The saved refresh token is read from `auth.refreshToken`.
 2. If available, the adapter refreshes tokens automatically.
-3. If refresh fails or no token exists, a full login is performed with email / password.
+3. If the refresh token is rejected or no token exists, a full login is performed with email / password.
 4. The new refresh token is stored **encrypted** (`enc:<...>`) in `auth.refreshToken`.
+
+If login fails on startup (e.g. no network yet, Grohe temporarily denying requests), the adapter does **not** stop: it retries with the regular [exponential backoff](#exponential-backoff).
 
 Unencrypted tokens from older versions are migrated automatically to encrypted storage.
 
-On **HTTP 401**, the request is retried once after a token refresh.
+During runtime:
+
+- On **HTTP 401** (or an expired access token), the tokens are refreshed and the request is retried once.
+- If Grohe rejects the refresh token itself, the adapter **logs in again** with email / password – no restart needed.
+- Network errors, HTTP 429 and server errors (5xx) during the refresh do not trigger a new login; the next poll tries again.
+- Renewed refresh tokens are stored in `auth.refreshToken`.
 
 ---
 
@@ -381,7 +397,8 @@ Fallback mode is detected once on startup and maintained for the lifetime of the
 | Situation | Behaviour |
 |---|---|
 | Polling failure | `info.connection` → `false`; exponential backoff |
-| HTTP 401 | Token refreshed, request retried once |
+| Login fails on startup | Retried with exponential backoff |
+| HTTP 401 | Token refreshed, request retried once; if the refresh token is rejected, new login with email / password |
 | HTTP 403 | Warning logged; suggests checking Grohe account / app |
 | HTTP 404 on `/pressuremeasurement` | Debug log only (no measurement data yet is normal) |
 | HTTP 404 on `/dashboard` | Switches to fallback discovery |
@@ -394,7 +411,8 @@ Fallback mode is detected once on startup and maintained for the lifetime of the
 |---|---|
 | `main.js` | Adapter core: polling, state management, command handling, Device Manager messages |
 | `lib/device-manager.js` | Device Manager integration: tiles, info/controls tabs, per-device templates |
-| `lib/groheClient.js` | Grohe API client: authenticated requests, auto-refresh on 401 |
+| `lib/groheClient.js` | Grohe API client: authenticated requests, token renewal / re-login on 401 |
+| `lib/waterConsumptionTracker.js` | Persistent total water consumption of the Sense Guard |
 | `lib/auth.js` | OAuth / Keycloak login and token refresh |
 | `lib/notificationManager.js` | Dispatches push notifications to configured providers |
 | `lib/notificationMessages.js` | Localized message templates and Grohe notification type texts (11 languages) |

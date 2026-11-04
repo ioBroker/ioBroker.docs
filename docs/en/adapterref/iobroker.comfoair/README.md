@@ -70,6 +70,7 @@ Tested on comfoair CA350.
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (copilot) Adapter requires node.js >= 22 now
 
 ### 1.3.0 (2026-02-23)

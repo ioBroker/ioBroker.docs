@@ -748,6 +748,28 @@ void loop() {
 получать от нее данные через облачный сервис!
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (@Schimi1983) Server mode: objects of clients that have not been connected for 7 days are removed (setting "Remove client objects after", 0 = never), so devices with a new client ID per connection no longer leave one object behind each time. A connect or disconnect only writes the client states that change instead of all of them (#518)
+
+### 9.1.0 (2026-11-03)
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (@Schimi1983) Server mode: a client with many unacknowledged messages no longer slows the broker down. Since 8.1.5, every new message to such a client searched the whole queue again for each packet ID still in use, which took up to half a second per message and could drive the CPU load to 100 %
+- (@Schimi1983) Server mode: connections are handled as the MQTT specifications require (#687). A new connection with the client ID of a connected client closes the old one (MQTT 5: "session taken over"); a rejected login no longer ends the session of the connected client. Clients without client ID get a unique ID (`auto-…`) instead of sharing one; this is refused for MQTT 3.1 and for MQTT 3.1.1 with "clean session" off. An unsupported protocol version is answered with "unacceptable protocol version". A second CONNECT or any packet before CONNECT closes the connection
+- (@GermanBluefox) Server mode: a client without client ID keeps one object `info.clients.<IP address>` instead of leaving a new `info.clients.auto-…` object behind on every connection. A takeover of a client ID from another IP address is logged as a warning (two devices with the same client ID). If the instance forces clean sessions, an empty client ID with "clean session" off is accepted
+
+### 9.0.2 (2026-10-30)
+* (@Schimi1983) Server mode: a client ID with characters that are not allowed in an object ID (e.g. binary data or `*`) no longer fails with "Cannot update client objects: Error: Invalid ID"; such characters become `_` in `info.clients.<clientId>` (#493)
+* (@Schimi1983) Log level of messages that come for every subscription or published state is debug instead of info: `subscribes on`, `unsubscribes on`, `publishOnSubscribe` (server) and `send2Server`, `Publishing state` (client) (#481)
+* (@Schimi1983) State roles as defined by ioBroker: new states created from topics get `state` instead of the undefined role `variable`, binary topics `text.url` instead of `url`, `info.lastSession` `json`, and `info.connection` in io-package `indicator.connected`. Existing objects keep their role
+
+### 9.0.1 (2026-10-30)
+* (@Schimi1983) **Breaking change** - Ignored topics and binary topics: entries are trimmed, so a space after the comma no longer breaks an entry, and a `*` in the middle of an entry (e.g. `evcc.loadpoints.*.planSoc`) matches any levels. An entry has to match the whole ID: an entry without wildcard matches this ID and everything below it, but no longer every ID that contains it (`alarm` no longer matches `instar.all.alarm.motion`, write `*.alarm.*`). Please check both settings after the update (#429)
+* (@GermanBluefox) Ignored topics and binary topics: a MQTT topic filter (e.g. `homeassistant/#`) also matches the ID with namespace when "Replace dots in topic names with underscore" is enabled. Dots at the start or the end of an ID entry are removed with a warning in the log. The help text in the settings describes the syntax
+* (@GermanBluefox) User name and password can be taken from the central credential storage of ioBroker (Settings → Credentials), so the same credentials can be used by several instances. Requires admin 7.9.0 or newer (#673)
+* (@GermanBluefox) Client mode: "Test connection" passes user name and password as options, so special characters in them no longer break the connection URL
+* (@Schimi1983) Server mode: a client ID with characters that are not allowed in an object ID (e.g. binary data or `*`) no longer fails with "Cannot update client objects: Error: Invalid ID"; such characters become `_` in `info.clients.<clientId>` (#493)
+* (@Schimi1983) Log level of messages that come for every subscription or published state is debug instead of info: `subscribes on`, `unsubscribes on`, `publishOnSubscribe` (server) and `send2Server`, `Publishing state` (client) (#481)
+
 ### 8.1.5 (2026-10-27)
 * (@Schimi1983) Server mode: every QoS 1/2 message sent to a client now gets its own packet identifier. Before, all messages used the same ID, so acknowledgements could not be matched and messages were retransmitted endlessly
 * (@GermanBluefox) Server mode: the packet identifiers of a client and of the broker are kept apart. A QoS 2 message of a client was dropped as duplicate when the broker had a message with the same identifier in flight to it. After the counter wrapped, an identifier still in flight is not handed out again, and an unacknowledged message keeps its identifier when it is sent again after a reconnect
@@ -757,15 +779,6 @@ void loop() {
 
 ### 8.1.4 (2026-10-27)
 * (@GermanBluefox) Fixed: after the object of a topic was deleted while the instance was running, the next messages wrote the state without object - the object is created again now
-
-### 8.1.3 (2026-10-14)
-* (@GermanBluefox) In server mode the occupied TCP ports are reported to js-controller 8 (`registerUsedResource`)
-
-### 8.1.2 (2026-10-13)
-* (@GermanBluefox) Adapted the integration tests to @iobroker/testing 6, which encrypts the password itself
-
-### 8.1.1 (2026-10-13)
-* (@GermanBluefox) Admin 7.6.20+ is required. Added missing translations. Compact mode no longer can exit the whole host process
 
 ## License
 

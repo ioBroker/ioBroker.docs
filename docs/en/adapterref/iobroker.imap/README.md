@@ -70,17 +70,17 @@ chapters: {"pages":{"en/adapterref/iobroker.imap/README.md":{"title":{"en":"ioBr
 - `Activ`: Enable IMAP connection
 - `Host`: Host - e.g. imap.gmail.com
 - `Inbox`: Default INBOX - Box to be monitored - Possible selection see imap.0.xxx.remote.change_folder
-example: INBOX.subfolder (point as separator)
+  example: INBOX.subfolder (point as separator)
 - `Port`: Port - Default 993
 - `Username`: Username - Instance must be activated!!!
 - `Password`: Password - Instance must be activated!!!
     - [gmail login](https://support.google.com/mail/answer/185833?hl=de)
     - [outlook Oauth2 authentication](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate)
-
-![imap_create_1.png](img/imap_create_1.png)
-
 - `max.`: Create maximum as States - email_01...email_02... (1-99)
 - `max. HTML`: Maximum number of emails as HTML. Should be greater than max States (1-99)
+- `Interval (in seconds)`: This is the interval at which NOOPs are sent and the interval at which idleInterval is checked. (in seconds)
+- `IdleInterval (in seconds)`: This is the interval at which an IDLE command (for servers that support IDLE) is re-sent. (in seconds)
+- `Set to true to force use of NOOP.`: Set to true to force use of NOOP keepalive on servers also support IDLE.
 - `TLS`: Use TLS-Connection - Default true
 - `Flags`: Flags for the query - Possible flags:
 
@@ -108,13 +108,12 @@ UNSEEN - Messages that do not have the Seen flag set.
 - `tls Option`: Default {"rejectUnauthorized": false}
 - `auto tls`: Set to `always` to always attempt connection upgrades via STARTTLS, `required` only if upgrading is required, or `never` to never attempt upgrading. Default: `never`
   **[For more information](https://www.npmjs.com/package/node-imap)**
-
-![imap_create_2.png](img/imap_create_2.png)
-
 - `Att.`: In order to fill the HTML field, attachments must also be loaded. Very high RAM consumption!!! Default `false`
 - `Mail option`: Mailparser-Option (Create under TAB `MAILPARSER OPTIONEN`)
 - `Token`: Token [first create](#instance-settings-tab---oauth2)
 
+![imap_create_1.png](img/imap_create_1.png)
+![imap_create_2.png](img/imap_create_2.png)
 ![imap_create_3.png](img/imap_create_3.png)
 
 - `max. MEMRSS-Limit:` From when the actions listed below should be triggered. Default 400 MB
@@ -628,6 +627,16 @@ Old folder names can be viewed in the imap.0.xxx.remote.change_folder object
 ```
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+- (Lucky-ESA) Adapter requires node.js >= 22.19.0 now
+- (Lucky-ESA) JS-Controller 7.2.5 required
+- (Lucky-ESA) Added keepalive settings
+- (Lucky-ESA) Changed to accordion view
+- (ipod86) Fixed accounts being skipped with "No password entered" (JS-Controller >= 7.2.4)
+- (ipod86) Fixed doubly encrypted passwords from 0.4.0
+
 ### 0.4.1 (2026-10-08)
 
 - (Lucky-ESA) Admin 7.6.20 required

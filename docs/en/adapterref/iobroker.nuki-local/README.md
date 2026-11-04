@@ -140,7 +140,16 @@ To permanently remove an old lock and its retained MQTT data:
 1. Disconnect the old lock from MQTT or switch it off.
 2. If the Web API is enabled, remove the old lock from Nuki Web.
 3. In ioBroker Admin, open Objects and identify the old device by its Nuki ID.
-4. Set `nuki-local.0.<OLD-NUKI-ID>.commands.removeDevice` to `true` with `ack=false`.
+4. Open the selected device's `maintenance` channel.
+5. Set `maintenance.confirmRemoval` to `true` with `ack=false`.
+6. Within 30 seconds, set `maintenance.removeDevice` to `true` with `ack=false`.
+
+The confirmation permits one deletion only. It resets after use, after 30 seconds,
+when explicitly set to false, or when the adapter restarts.
+Without a valid confirmation, deletion is rejected.
+
+The previous `commands.removeDevice` object is removed during device initialization.
+The old command path no longer executes a deletion.
 
 This immediately deletes the selected device's object tree and retained MQTT topics.
 Other devices are preserved. The action cannot be undone.
@@ -412,6 +421,13 @@ iobroker restart nuki-local.0
 ```
 
 ## Changelog
+
+### 0.1.6 (2026-10-30)
+
+- (helfi9999) Moved device removal to a separate maintenance channel.
+- (helfi9999) Required a one-time confirmation valid for 30 seconds before deletion.
+- (helfi9999) Removed the legacy deletion button and disabled its command path.
+- (helfi9999) Added tests for missing, expired and revoked confirmations and the disabled legacy command.
 
 ### 0.1.5 (2026-10-28)
 

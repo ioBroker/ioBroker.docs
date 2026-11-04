@@ -62,6 +62,13 @@ Get the SurveillanceStation info is a getInfo method with no additional paramete
 * play_track - Play track by its id (e.g. ``music_120847``)
 * current_play - Control and status of the current track by its number in the playlist (e.g. ``14``)
 
+***HyperBackup***:
+* taskCount - number of configured Hyper Backup tasks
+* listTasks - JSON array containing each task's ID, name, current status/state and progress, plus last/next backup times, last result, and error details when available
+* tasks.{DSM ID} - read-only channel per task, named after the task on the NAS, with its ID and separate states for the available task values. Numeric IDs are used directly (for example, `tasks.3`); non-numeric IDs map to safe `id_<hex>` channel segments, while the original ID remains in the `id` state. State display names are `Task ID`, `Task name`, `Backup status`, `Task state`, `Current backup progress`, `Last backup time`, `Next scheduled backup`, `Last backup result`, `Last backup error`, `Last backup error code`, and `Last backup progress details`; `last_bkp_time` and `next_bkp_time` use the `date` role for date-aware ioBroker display.
+
+Hyper Backup status is read-only. The adapter queries the DSM `SYNO.Backup.Task` API; the summary states are maintained alongside the dynamic task channels. Channels synchronize after each valid task-list response, including an empty list; malformed lists do not trigger cleanup. Temporary per-task status failures preserve existing status values. The last-progress field is decoded from DSM's JSON-encoded value when possible.
+
 ***DownloadStation***:
 * activeTask - number of incomplete downloads
 * listTasks - an array with incomplete downloads
@@ -79,6 +86,11 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+### 4.1.0 (2026-10-31)
+- (Voodoo2man) Reduced 2FA first-start delays by reusing station sessions and skipping disabled or unavailable optional APIs.
+- (Voodoo2man) Added Hyper Backup
+- (Voodoo2man) Corrected object state defaults and sendMethod input handling.
+
 ### 4.0.0 (2026-10-24)
 - (Voodoo2man) Added remaining free capacity for each storage volume.
 - (Voodoo2man) Corrected Surveillance Station camera status mapping.
@@ -101,9 +113,6 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 - (Voodoo2man) Added a guarded FFmpeg fallback for H.265 camera snapshots.
 - (Voodoo2man) Added optional SMART attribute polling over SSH.
 - (Voodoo2man) Changed SSH error logging from debug to warn.
-
-### 3.2.1 (2026-10-16)
-- (Voodoo2man) Rebuild the snapshot link immediately when a camera ID changes.
 
 [Older changelogs can be found there](https://github.com/iobroker-community-adapters/ioBroker.synology/blob/master/CHANGELOG_OLD.md)
 

@@ -7,7 +7,7 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/io
 BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.logparser/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.logparser
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.logparser
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.logparser.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.logparser.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/logparser-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/logparser-installed.svg
 BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.logparser/actions/workflows/test-and-release.yml/badge.svg
@@ -95,6 +95,9 @@ Add the following to the log line: `##{"date":"", "severity":"", "from":"", "mes
 Individual parameters can be removed, e.g. just to change the log text (message), take `##{"message": "text comes here."}##`
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 
 <!--
     Placeholder for the next version (at the beginning of the line):

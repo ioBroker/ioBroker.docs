@@ -69,6 +69,9 @@ With version 3.3.0 the group states `anyOn` and `allOn` became controllable, not
 when controlled. In some cases, it may be desirable to have a controllable `anyOn` state in your visualization.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__

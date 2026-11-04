@@ -220,6 +220,9 @@ You cannot send a POST request to commands via GUI.
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 ### 4.1.2 (2026-10-13)
 - (@GermanBluefox) Added `PATCH /v1/states` to write many states with one request (bulk update)
 - (@GermanBluefox) Fixed `413 Payload Too Large` for request bodies larger than 100kB when authentication is enabled

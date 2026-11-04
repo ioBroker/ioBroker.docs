@@ -142,6 +142,9 @@ Then restart the adapter. `pkg-config` is required: without it, the build assume
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
+
 <!--
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**

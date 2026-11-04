@@ -1,3 +1,10 @@
+---
+BADGE-Number of Installations: https://iobroker.live/badges/mihome-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.mihome.svg
+BADGE-Test and Release: https://github.com/ioBroker/ioBroker.mihome/workflows/Test%20and%20Release/badge.svg
+BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/mihome/svg-badge.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mihome.svg
+---
 ![Logo](admin/mihome.png)
 # mihome Gateway
 

@@ -7,7 +7,7 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/io
 BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.beckhoff/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.beckhoff
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.beckhoff
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.beckhoff.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.beckhoff.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/beckhoff-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/beckhoff-installed.svg
 BADGE-Test and Release: https://github.com/iobroker-community-adapters/ioBroker.beckhoff/actions/workflows/test-and-release.yml/badge.svg
@@ -108,6 +108,9 @@ Die Symbolversion ist ein 8-Bit-Zähler. Bei einem während der Unterbrechung un
 Für TwinCAT 2 <= v2.11.2240 kann eine `.tpy`-Datei hochgeladen und ausgewählt werden. Die Dateien liegen im ioBroker-Dateispeicher unter `beckhoff.<Instanz>.tpy`. Der Adapter liest die Auswahl beim Start. Ohne Dateiauswahl wird der bisherige Inhalt von `xmlTpyData` verwendet, der weiterhin bearbeitet werden kann. Eine ausgewählte Datei hat Vorrang. Nach Änderungen der SPS-Symboldefinitionen muss die TPY-Datei aktualisiert werden.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**

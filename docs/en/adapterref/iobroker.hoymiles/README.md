@@ -152,9 +152,12 @@ Cloud stations create aggregated device nodes (e.g. `hoymiles.0.station-12345.*`
 ## Changelog
 ### **WORK IN PROGRESS**
 
-- (@Eistee82) **Commands work again on DTUs with firmware V01.01.01.** Power limit, on/off, reboot, lock and settings changes were sent to such a DTU unencrypted. The DTU answered, but could not decrypt the command and carried it out with an empty content, so nothing happened even though the log looked fine
-- (@Eistee82) **New runtime power limit in watts for the HMS-800W-2T family** (`inverter.powerLimitWatt`, local TCP only). It takes effect immediately and writes neither the DTU's flash nor the inverter's memory, so a zero-export control can set it as often as it needs to. It is gone when the inverter restarts (every night); then the percentage in `inverter.powerLimit` applies again. The WB series does not have this command. Both power limits are now confirmed only when the DTU reports them back, so the state shows what the DTU actually took over
-- (@Eistee82) **Removed `config.limitPowerMyPower`:** setting it only changed a value inside the DTU that never reached the inverter and was gone after a restart. Use `inverter.powerLimit` (percent, kept across restarts) or `inverter.powerLimitWatt`. The state disappears from existing installations by itself
+- (@Eistee82) **Commands work again on DTUs with firmware V01.01.01** — they were sent unencrypted, so the DTU answered but did nothing
+- (@Eistee82) **New runtime power limit in watts for the HMS-800W-2T family** (`inverter.powerLimitWatt`, runtime only — unlike `inverter.powerLimit` the command itself writes no flash); `config.limitPowerMyPower` is removed, it never reached the inverter
+- (@Eistee82) **WB series over Bluetooth:** on/off, reboots, lock and warnings work, answers are no longer lost, pairing is more robust and requests use the DTU's clock
+- (@Eistee82) **Power limit, power factor and reactive power share one memory cell in the DTU:** the flash protection counts across all three, the settings dialog sends one change at a time, reactive power is in % instead of °
+- (@Eistee82) **Energy meter (WB series):** the first meter can be bound from the dialog, values come only from the meter and are marked not current when it stops delivering, a refused binding is reported, an unchanged dialog no longer rewrites flash
+- (@Eistee82) **Configuration and cloud:** `config.serverSendTime` takes 5–15 min and is confirmed by the device without disturbing other settings, the cloud poll works again (also with Bluetooth devices only), several states show correct units and values (`dtu.stepTime` in minutes, no "DHCP: 0")
 
 ### 0.5.0 (2026-09-25)
 

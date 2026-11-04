@@ -2,13 +2,15 @@
 
 # ioBroker.max
 
+![Stable](https://iobroker.live/badges/max-stable.svg)
 [![NPM version](https://img.shields.io/npm/v/iobroker.max.svg)](https://www.npmjs.com/package/iobroker.max)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.max.svg)](https://www.npmjs.com/package/iobroker.max)
 [![License](https://img.shields.io/github/license/sadam6752-tech/ioBroker.max.svg)](LICENSE)
 
 [![NPM](https://nodei.co/npm/iobroker.max.png?downloads=true)](https://nodei.co/npm/iobroker.max/)
 
-![Test and Release](https://github.com/sadam6752-tech/ioBroker.max/workflows/Test%20and%20Release/badge.svg)
+[![Test and Release](https://github.com/sadam6752-tech/ioBroker.max/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/sadam6752-tech/ioBroker.max/actions/workflows/test-and-release.yml)
+![Number of Installations](https://iobroker.live/badges/max-installed.svg)
 
 **ioBroker adapter for MAX messenger bot integration**
 
@@ -26,6 +28,12 @@ Analog to ioBroker.telegram — send notifications, receive commands, control de
 - Answer commands only to the user (or group chat) that sent them — `communicate.request` / `communicate.response`
   as in the Telegram adapter
 - Group chats: send to a group the bot is a member of and receive its messages
+- Text formatting (Markdown or HTML), message ids, editing and deleting sent messages
+- Questions with answer buttons that wait for the answer (`ask`)
+- ioBroker notifications (notification-manager) and Blockly blocks for the JavaScript adapter
+- Voice messages are saved as files and announced in `communicate.pathFile`, like in the Telegram adapter (e.g. for
+  speech recognition by another adapter)
+- Received photos are saved as files and announced in `communicate.pathFile` as well (e.g. for an AI agent)
 - `sendTo()` support for use in scripts
 
 ## Installation
@@ -97,9 +105,103 @@ sendTo('max.0', 'send', 'Hello everyone!');
 sendTo('max.0', 'send', { userId: '123456', text: 'Hello!' }, res => {
     if (res.error) {
         log(`MAX: ${res.error}`, 'warn');
+    } else {
+        log(`MAX: sent as ${res.messageId}`);
     }
 });
 ```
+
+### Text formatting
+
+`format: 'markdown'` or `format: 'html'` formats the text with the markup of MAX. For scripts written for the Telegram
+adapter `parse_mode` is accepted as well: `'HTML'` becomes `html`, `'Markdown'` and `'MarkdownV2'` become `markdown`.
+Without both the text is sent as plain text, as before. The format works together with attachments and buttons, in
+`sendTo()`, in JSON state values (`message.send`, `users.<userId>.send`, `chats.<chatId>.send`) and in `editMessage`.
+
+```javascript
+sendTo('max.0', 'send', { userId: 123456, text: '<b>Alarm</b> in the <i>garage</i>', format: 'html' });
+sendTo('max.0', 'send', { userId: 123456, text: '**Alarm** in the garage', format: 'markdown' });
+sendTo('max.0', 'send', { userId: 123456, text: '<b>Alarm</b>', parse_mode: 'HTML' }); // Telegram style
+```
+
+The markup is the one of MAX, not the one of Telegram: a text escaped for Telegram MarkdownV2 (`\.`, `\!`) may look
+different in MAX — remove the escaping when you port such a script. Which tags and Markdown elements MAX renders is
+described in the documentation of the MAX Bot API (<https://dev.max.ru/docs-api>).
+
+### Message ids, editing and deleting
+
+Every `send` answers with the id of the sent message (`messageId`, like `returnMessageIds: true` of the Telegram
+adapter):
+
+| Recipient | Answer |
+| --- | --- |
+| one user / one group chat | `{ result: 'sent', messageId: 'mid.…' }` |
+| broadcast | `{ result: 'sent', sent, failed, skipped, messages: [{ userId, messageId }], failures: [{ userId, error }] }` |
+
+With the id a message can be changed or removed later:
+
+```javascript
+sendTo('max.0', 'send', { userId: 123456, text: 'Washing machine: 10 min left' }, res => {
+    if (res.messageId) {
+        // later: change the text (and the buttons)
+        sendTo('max.0', 'editMessage', { messageId: res.messageId, text: 'Washing machine: <b>done</b>', format: 'html' });
+        // or remove the message
+        // sendTo('max.0', 'deleteMessage', { messageId: res.messageId });
+    }
+});
+```
+
+- `editMessage` `{ messageId, text?, format?, keyboard? }` answers `{ result: 'edited', messageId }`. Without
+  `keyboard` the buttons stay as they are, `keyboard: null` removes them, a new `keyboard` replaces them.
+- `deleteMessage` `{ messageId }` answers `{ result: 'deleted', messageId }`.
+- Errors come back as `{ error }` (see [Troubleshooting](#answers-of-sendto)).
+
+### Questions with answer buttons (ask)
+
+`ask` sends a question with one button per answer and waits for the answer of the asked user (or of any member of the
+asked group chat). The callback receives the answer:
+
+```javascript
+sendTo('max.0', 'ask', {
+    userId: 123456,                        // or chatId: -987654321
+    text: 'Open the gate?',
+    answers: ['Yes', 'No'],
+    timeout: 60,                           // seconds, default 60, at most 3600
+}, answer => {
+    if (answer.data === '0') {             // index of the pressed answer
+        setState('0_userdata.0.gate', true);
+    }
+    // answer = { data: '0', text: 'Yes', userId, chatId, messageId }, or { timeout: true } without an answer
+});
+```
+
+The pressed button is confirmed in MAX with the text of the answer. Answers are not written to `communicate.request`.
+Open questions end with `{ error: 'Adapter stopped' }` when the instance stops.
+
+### ioBroker notifications
+
+The adapter receives notifications of ioBroker (`supportedMessages.notifications`), like the Telegram adapter: select
+`max.0` in the settings of the **notification-manager** adapter. A notification is sent, as HTML and without sound,
+with its category, the host and the newest message of every instance:
+
+- to every user in **Allowed User IDs** — also to users who are not known yet (they must have pressed **Start** in
+  the bot, otherwise MAX refuses the message);
+- without that list to every known user.
+
+The setting **Send to all known users** does **not** apply to notifications. The adapter answers
+`{ sent: true }` when at least one user got the notification, otherwise `{ sent: false }`, so that the
+notification-manager can try the next messenger.
+
+### Blockly
+
+The adapter adds two blocks to the category **sendTo** of the JavaScript adapter:
+
+| Block | Generates |
+| --- | --- |
+| **MAX** — instance, message, user ID or group chat ID (both empty = all known users), format, without notification, attachment (image, file, video, audio: path or URL), log level | `sendTo('max.0', 'send', { ... })` |
+| **ask via MAX** — instance, question, user ID or group chat ID, format, log level, answers (gear icon: add answers), one branch per answer | `sendTo('max.0', 'ask', { ..., answers: [...] }, async (msg) => { if (msg.data == '0') { ... } })` |
+
+With **all instances** the call goes to every instance of the adapter (`sendTo('max', ...)`).
 
 ### Messages without notification
 
@@ -137,8 +239,8 @@ sendTo('max.0', 'send', { userId: 123456, audio: '/tmp/doorbell.mp3' });
   MAX; files above 100 MB are refused.
 - A broadcast uploads every attachment only once and sends it to all users.
 
-The callback receives `{ result: 'sent' }` for a single user, `{ result: 'sent', sent, failed, skipped }` for a
-broadcast, or `{ error: '...' }` when nothing was delivered (no text or attachment, bot not running,
+The callback receives `{ result: 'sent', messageId }` for a single user, `{ result: 'sent', sent, failed, skipped,
+messages, failures }` for a broadcast, or `{ error: '...' }` when nothing was delivered (no text or attachment, bot not running,
 `sendToAllUsers` disabled, no known users, attachment not readable or upload failed, delivery failed).
 
 Broadcasts only reach users who contacted the bot before and who are allowed by **Allowed User IDs**.
@@ -154,6 +256,7 @@ Every message (and every button press) is published like `telegram.0.communicate
 | `max.0.communicate.requestChatId` | group chat ID, `0` for a private dialog |
 | `max.0.communicate.requestMessageId` | MAX message ID |
 | `max.0.communicate.response` | write a text or a JSON object here: it goes to the same group chat, or privately to the sender |
+| `max.0.communicate.pathFile` | full path of the last received voice message or photo file (see [Voice messages](#voice-messages), [Photos](#photos)) |
 
 The IDs are written before the request, so a script triggered by `communicate.request` reads the matching values. A
 script written for the Telegram adapter needs only small changes:
@@ -249,6 +352,100 @@ Via state: `max.0.message.send` = `-987654321|Washing machine is done` (a negati
 chat, never a broadcast), or `max.0.chats.-987654321.send` = `Washing machine is done`. A negative `userId` in
 `sendTo()` is taken as `chatId` as well.
 
+### Voice messages
+
+A voice message from an allowed user (see **Allowed User IDs**) is downloaded and saved in the data folder of ioBroker:
+
+```
+<iobroker-data>/max_<instance>/voice/<message id>.<ext>
+```
+
+for example `/opt/iobroker/iobroker-data/max_0/voice/mid.0000abc.ogg`. The extension comes from the content type of the
+download (or the URL), `.ogg` by default. The newest 20 files are kept, older ones are deleted.
+
+The adapter then writes, in this order:
+
+1. `max.0.communicate.requestChatId`, `max.0.communicate.requestUserId`, `max.0.communicate.requestMessageId` — the
+   sender of the voice message;
+2. `max.0.communicate.pathFile` — the full path of the file (always with `/` as separator).
+
+This is the same contract as `telegram.0.communicate.pathFile` of the Telegram adapter, so an adapter or script that
+transcribes Telegram voice messages can be pointed at `max.0` as well. A message that contains only a voice message
+does not write `communicate.request`, `message.received` or `users.<userId>.last_message` with an empty text; a voice
+message with a caption writes both the text and the file.
+
+```javascript
+on({ id: 'max.0.communicate.pathFile', ack: true, change: 'any' }, obj => {
+    const file = String(obj.state.val);
+    if (!file.includes('/voice/')) {
+        return;
+    }
+    const userId = getState('max.0.communicate.requestUserId').val;
+    const chatId = getState('max.0.communicate.requestChatId').val;   // 0 = private dialog
+    log(`Voice message from ${userId}${chatId ? ` in chat ${chatId}` : ''}: ${file}`);
+    // e.g. hand the file to a speech recognition, then answer with
+    // sendTo('max.0', 'send', chatId ? { chatId, text } : { userId, text });
+});
+```
+
+The file lies on the ioBroker host of the `max` instance; a consumer on another host of a multihost system cannot read
+it. With log level `debug` the adapter logs the attachment types of every incoming message
+(`Attachments of message …: audio{payload:url,token}`) and the path of every saved voice message.
+
+### Photos
+
+Photos from an allowed user (attachments of type `image`) are downloaded and saved like voice messages, always and
+without a setting:
+
+```
+<iobroker-data>/max_<instance>/photo/<message id>.<ext>          one photo in the message
+<iobroker-data>/max_<instance>/photo/<message id>_<n>.<ext>      several photos: _1, _2, ...
+```
+
+for example `/opt/iobroker/iobroker-data/max_0/photo/mid.0000abc.jpg`. The extension (`.jpg`, `.png`, `.webp`,
+`.gif`) comes from the content type of the download, else from the first bytes of the file, else from the URL; `.jpg`
+by default. Files larger than 20 MB are not downloaded. The newest **50 files** of the photo folder are kept, older
+ones are deleted when a new photo is saved (the voice folder keeps its own newest 20 files).
+
+The adapter writes, in this order:
+
+1. `max.0.communicate.requestChatId`, `max.0.communicate.requestUserId`, `max.0.communicate.requestMessageId` — the
+   sender of the message;
+2. `max.0.communicate.pathFile` — once for every photo, with the full path of the file (always with `/` as separator);
+3. only if the message has a caption: `max.0.communicate.request` (`[Name]caption`), like a text message.
+
+Photos and caption of one message carry the same `communicate.requestMessageId`, so a consumer can put them together.
+A photo without caption writes only `communicate.pathFile`; `communicate.request`, `message.received` and
+`users.<userId>.last_message` stay untouched. Photos of users that are not allowed are not downloaded. A photo whose
+download fails is logged as warning (`Photo 1 of 2 from … could not be saved: …`); the other photos and the caption are
+published anyway.
+
+```javascript
+const photos = {};   // message id -> list of files
+
+on({ id: 'max.0.communicate.pathFile', ack: true, change: 'any' }, obj => {
+    const file = String(obj.state.val);
+    if (!file.includes('/photo/')) {
+        return;                                  // a voice message
+    }
+    const messageId = getState('max.0.communicate.requestMessageId').val;
+    (photos[messageId] = photos[messageId] || []).push(file);
+    log(`Photo ${file} from ${getState('max.0.communicate.requestUserId').val}`);
+});
+
+on({ id: 'max.0.communicate.request', ack: true, change: 'any' }, obj => {
+    const messageId = getState('max.0.communicate.requestMessageId').val;
+    const files = photos[messageId];
+    if (files) {
+        delete photos[messageId];
+        log(`Caption ${obj.state.val} belongs to ${files.join(', ')}`);
+    }
+});
+```
+
+MAX delivers one download URL per photo; there is no choice of sizes, so the adapter saves the photo as MAX offers it.
+As with voice messages, the file lies on the ioBroker host of the `max` instance.
+
 ### Connection state
 
 `max.0.info.connection` is `true` while the adapter receives updates from the MAX API. A lost connection is logged
@@ -293,7 +490,7 @@ sendTo('max.0', 'send', { chatId: -987654321, text: 'Test' }, res => {
 | --- | --- | --- |
 | no answer at all | adapter version below 0.1.6 (no `messagebox`), or the instance is not running | update the adapter, check that `max.0` is running |
 | `No text or attachment given` | neither `text` nor `image` / `video` / `audio` / `file` given (a `keyboard` alone is not enough) | add a text |
-| `Unknown command: …` | `sendTo('max.0', '<command>', …)` with a command other than `send` or `answerCallback` | use `send` |
+| `Unknown command: …` | `sendTo('max.0', '<command>', …)` with a command other than `send`, `editMessage`, `deleteMessage`, `ask`, `answerCallback` or `sendNotification` | use one of these commands |
 | `Bot not initialized` | the bot is not running: no token, or the token was rejected at start | check the log of `max.0` at start |
 | `sendToAllUsers is disabled` | a broadcast (no `userId` / `chatId`, or plain text in `message.send`) while **Send to all known users** is off | enable the option or give `userId` / `chatId`. Adapter versions below 0.1.9 do not know `chatId` and treat such a call as a broadcast |
 | `No known users` | broadcast, but no user has written to the bot yet (or none is in **Allowed User IDs**) | let the users press **Start** in the bot |
@@ -307,6 +504,14 @@ sendTo('max.0', 'send', { chatId: -987654321, text: 'Test' }, res => {
 | `Cannot attach …: Download of … failed: HTTP 401` / `404` | the URL needs credentials or does not exist | `http://user:password@host/…`, check the URL in a browser |
 | `Cannot attach …: Upload of … failed: HTTP …` | MAX rejected the upload (e.g. file type or size) | try another format |
 | `answerCallback needs userId and text` / `No button press of user … to answer` | `answerCallback` without data, or the button press was already answered | answer each button press once |
+| `Invalid format: …` / `Invalid parse_mode: …` | `format` is not `markdown` / `html`, `parse_mode` not `HTML` / `Markdown` / `MarkdownV2` | use one of these values or leave it out |
+| `editMessage needs messageId` / `deleteMessage needs messageId` | no `messageId` given | take it from the answer of `send` |
+| `editMessage needs text or keyboard` | `editMessage` with nothing to change | give `text` and/or `keyboard` |
+| `Edit failed: …` / `Delete failed: …` | MAX refused the change (the reason follows, e.g. the message is too old or not from this bot) | check the `messageId` |
+| `404: …` on `editMessage` / `deleteMessage` | the message does not exist (already deleted, wrong id) | check the `messageId` |
+| `ask needs userId or chatId` / `ask needs a text` / `ask needs 1 to 30 answers` / `ask: every answer needs a text` | incomplete `ask` | give one recipient, a question and 1–30 answers |
+| `{ timeout: true }` (answer of `ask`) | nobody answered in time | raise `timeout` (seconds, up to 3600) |
+| `Adapter stopped` (answer of `ask`) | the instance stopped while the question was open | ask again |
 
 ### Errors of the MAX API
 
@@ -325,6 +530,7 @@ Errors returned by MAX have the form `<HTTP status>: <text>`.
 | Log entry | Cause | Solution |
 | --- | --- | --- |
 | `fetch failed (UNABLE_TO_GET_ISSUER_CERT_LOCALLY …)` | adapter below 0.1.7: Node.js does not trust the certificate of the MAX API | update the adapter (see [Certificate of the MAX API](#certificate-of-the-max-api)) |
+| `Voice message from <userId> could not be saved: …` | the download of a voice message failed (cause in the message) | check the connection; the next voice message is tried again |
 | `fetch failed (ENOTFOUND …)` / `(EAI_AGAIN …)` | DNS: the host cannot resolve `platform-api2.max.ru` | check DNS / internet access of the ioBroker host |
 | `fetch failed (ECONNREFUSED …)` / `(ETIMEDOUT …)` | no connection (firewall, proxy, no internet) | allow outgoing HTTPS to `platform-api2.max.ru` |
 | `Connection to the MAX API lost: …` | short outage; `info.connection` turns false | nothing — the adapter reconnects and logs `Connected to the MAX API` |
@@ -341,6 +547,31 @@ logged as `Message from <userId> in chat <chatId>: …`.
 
 ## Changelog
 
+### 0.2.1 (2026-11-04)
+- (sadam6752-tech) Received photos are saved in `<iobroker-data>/max_<instance>/photo/` (several photos of one message
+  as `<mid>_1`, `<mid>_2`, ...) and announced in `communicate.pathFile`: request ids first, then one path per photo,
+  then the caption in `communicate.request` — all with the same `requestMessageId`; the newest 50 photos are kept
+
+### 0.2.0 (2026-11-04)
+- (sadam6752-tech) Text formatting: `format: 'markdown' | 'html'` in `sendTo()`, JSON state values and `editMessage`;
+  `parse_mode` of the Telegram adapter is accepted (`HTML` → html, `Markdown` / `MarkdownV2` → markdown)
+- (sadam6752-tech) `send` answers with the message id (`messageId`), a broadcast with `messages` and `failures`;
+  new commands `editMessage` and `deleteMessage`
+- (sadam6752-tech) New command `ask`: question with answer buttons, the callback receives the pressed answer or
+  `{ timeout: true }`
+- (sadam6752-tech) ioBroker notifications (notification-manager, `supportedMessages.notifications`): sent to the
+  allowed users, or to all known users; answered with `{ sent: true | false }`
+- (sadam6752-tech) Blockly blocks "MAX" and "ask via MAX" for the JavaScript adapter, in eleven languages
+
+### 0.1.13 (2026-11-03)
+- (sadam6752-tech) Voice messages: a voice message from an allowed user is saved in
+  `<iobroker-data>/max_<instance>/voice/` (newest 20 files) and its path is written to the new state
+  `communicate.pathFile`, after `communicate.requestChatId` / `requestUserId` / `requestMessageId` — the contract of
+  the Telegram adapter
+- (sadam6752-tech) A message without text (e.g. a pure voice message) no longer writes empty text into
+  `communicate.request`, `message.received` and `users.<userId>.last_message`
+- (sadam6752-tech) Debug log of the attachment types of incoming messages
+
 ### 0.1.12 (2026-10-13)
 - (sadam6752-tech) The bot token is stored encrypted (`encryptedNative`, checker W1074). A token stored as plain text by
   an earlier version is moved into encrypted storage automatically on the first start (one restart); the stored plain
@@ -351,30 +582,6 @@ logged as `Message from <userId> in chat <chatId>: …`.
 - (sadam6752-tech) Remove "ioBroker" from `common.keywords` of `io-package.json` (checker W1068); it stays in
   `package.json`
 - (sadam6752-tech) Update `@iobroker/testing` to 6.3.0 (checker W0037)
-
-### 0.1.10 (2026-10-13)
-- (sadam6752-tech) Messages without notification: `notify: false` in `sendTo()` and JSON state values;
-  `disable_notification: true` of the Telegram adapter is accepted as well
-- (sadam6752-tech) README: section Troubleshooting with all answers of `sendTo()`, errors of the MAX API, connection
-  problems and an example call that shows the cause
-
-### 0.1.9 (2026-10-12)
-- (sadam6752-tech) Requests like the Telegram adapter: `communicate.request` (`[Name]text`, also button presses),
-  `communicate.requestUserId`, `communicate.requestChatId`, `communicate.requestMessageId`; `communicate.response`
-  answers the sender (or the group chat) of the last request
-- (sadam6752-tech) Buttons below a message: `keyboard` in `sendTo()` and in JSON state values (message, callback and
-  link buttons); `sendTo('max.0', 'answerCallback', { userId, text })` confirms a button press
-- (sadam6752-tech) Group chats: `chatId` in `sendTo()` and JSON, `-chatId|text` in `message.send`, states
-  `chats.<chatId>.*` with `send`; group messages set `message.chatId`. Before, `-chatId|text` was sent as a broadcast
-  to all users
-- (sadam6752-tech) Fix: `message.userId` is written before `message.received`, so a script triggered by the text reads
-  the right sender
-
-### 0.1.8 (2026-10-12)
-- (sadam6752-tech) Send images, videos, audio and files: `sendTo()` with `image`, `video`, `audio`, `file` (local path
-  or http(s) URL, also several per message), and JSON in `message.send` and `users.<id>.send`. The adapter downloads
-  URLs itself (basic auth from the URL) and uploads the file to MAX with its own HTTP client, so the root certificate of
-  the MAX API applies to uploads as well; a broadcast uploads each attachment once
 
 Older changelog entries can be found in CHANGELOG_OLD.md.
 

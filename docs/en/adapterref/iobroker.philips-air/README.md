@@ -92,6 +92,9 @@ Tested CX7550/01 functions:
 More details are documented in [docs/CX7550.md](/#/docs/adapterref/iobroker.philips-air/docs/CX7550.md).
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**

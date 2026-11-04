@@ -156,6 +156,8 @@ The adapter exposes the following configuration fields:
 - `vinKey`
 - `vinIv`
 - `pollingInterval`
+- `drivePollingInterval` (seconds, min 30 — fast poll while the car moves)
+- `storeTripPositions` (boolean, opt-in: start/end coordinates in the own logbook, rounded; default off)
 - `vehicleFilter`
 - `vehicleModel` (optional, shown as `details.model` — the API exposes no model name)
 - `abrpEnabled`, `abrpApiKey`, `abrpUserTokens` (see “ABRP upload” below)
@@ -171,7 +173,17 @@ The adapter exposes the following configuration fields:
 
 ### Shared account trade-off
 
-Using a second (shared) account for the adapter avoids 079021 session fights with the app — recommended. But the server restricts some endpoints to the owner account: OTA update checks fail on shared keys (openzeekr #23 pattern), and the journey log likely does too (`trips.count` stays 0 while the app shows drives). If trips stay empty, that is the probable cause, not a mapping bug.
+Using a second (shared) account for the adapter avoids 079021 session fights with the app — recommended. But the server restricts some endpoints to the owner account. Concretely:
+
+| Function | Owner account | Shared (2nd) account |
+|---|---|---|
+| Live status, SoC, GPS, odometer, charging state | yes | yes |
+| Charging/plans/remote commands | yes | yes |
+| API journey log (`trips.*`, trackpoints, `ms-vehicle-trail`) | yes | **no** — stays empty/`total: 0` (`trips.fetchJson`) even when the app shows drives |
+| Own logbook (`trips.own*`, adapter-side) | yes | yes |
+| Charge sessions (`energy.*`, adapter-side) | yes | yes |
+
+If `trips.count` stays 0 while the app shows drives, that is the probable cause (owner-only endpoint), not a mapping bug.
 
 ## Datapoints
 
@@ -179,11 +191,20 @@ The adapter creates a vehicle channel for each discovered vehicle with the follo
 
 - `status`: battery, range, odometer, charging power, speed, plug state, charging state, lock state, climate state, charge limit, tire pressures, GPS, 12V battery, central locking, doors/trunk open states, consumption, engine/maintenance states, and timestamps
 - `control`: command payload, service ID, send button, typed buttons (lock, climate, charge, windows, sunshade, lights), writable charge limit, climate temp/duration, charge/travel plan inputs, last command, and last result
-- `trips`: trip count, last trip distance/start/end/duration/average speed/consumption, recent trip list (logbook, last 5 without coordinates), and fetch status (`trips.fetchJson`: ok/total/payload keys — empty when the server sends nothing, e.g. on shared accounts, see above)
+- `trips`: API trip count, last trip distance/start/end/duration/average speed/consumption, recent trip list (logbook, last 5 without coordinates), fetch status (`trips.fetchJson`: ok/total/payload keys — empty when the server sends nothing, e.g. on shared accounts, see above), plus the adapter-side logbook below
 - `raw`: raw payloads from the bridge
 - `details`: additional metadata; `details.model` shows the configured vehicle model (Advanced tab) because the API exposes no model name
 
-Polling is adaptive: charging or driving vehicles are polled every 60s (min 30s), idle ones at the configured interval. Unexpected charging stops and newly opened doors trigger the alert webhook (rate-limited).
+Polling is adaptive: driving vehicles use `drivePollingInterval` (default 30s, min 30s, with hysteresis so short stops don't flap the timer), charging vehicles poll every 60s, idle ones at the configured interval. Unexpected charging stops and newly opened doors trigger the alert webhook (rate-limited).
+
+### Own logbook (works with any account)
+
+The API journey log is owner-only, so the adapter keeps its own logbook from poll data (`trips.own*`) — independent of `trips.*`:
+
+- Trip start on movement (`currentSpeed > 0`, running engine, or odometer jump ≥ 0.1 km); trip end after 3 parked polls. Noise (no distance, < 1 min) is discarded.
+- `trips.ownList` (last 20), `trips.ownCount`, last-trip distance/start/end/duration/avg speed/consumption/energy, `trips.ownMonthKm`/`trips.ownMonthCount`. Survives restarts (instance data dir).
+- No coordinates by default; enable `storeTripPositions` to also store rounded start/end positions.
+- Consumption/energy come from SoC delta × `batteryCapacityKwh` — set your real net capacity (e.g. 100 kWh for the 100 kWh pack, less for smaller packs), otherwise energy figures are wrong.
 
 ## Energy, costs and smart charging
 
@@ -319,6 +340,14 @@ Unofficial community project. Not affiliated with Zeekr or Geely.
 - [wysie](https://github.com/wysie) for the [Zeekr key extractor](https://github.com/wysie/zeekr_key_extractor)
 
 ## Changelog
+
+### 0.1.77
+
+- Own trip logbook (`trips.own*`): trips detected from speed/odometer/engine, restart-proof storage, monthly distance/count, optional position storage (`storeTripPositions`); works with shared accounts where the API journey log stays empty. Faster polling while driving (`drivePollingInterval`, hysteresis)
+
+### 0.1.76
+
+- Charge evaluation for roaming: session samples survive restarts/updates, missed short charges are reconstructed from SoC jumps, per-session price override (`energy.nextSessionPrice/Name`, auto-reset) beats geo tariffs, journey-log errors surface in `trips.fetchJson` for diagnosis
 
 ### 0.1.75
 

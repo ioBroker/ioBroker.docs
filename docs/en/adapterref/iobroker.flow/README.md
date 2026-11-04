@@ -188,6 +188,20 @@ stored diagram can be shown in vis-2 and in the device manager at the same time.
 > The devices side needs `ioBroker.devices` with the widget manager and `@iobroker/json-config` 10 —
 > older versions do not know the plugin mechanism this uses.
 
+### As a web component (preview)
+
+The adapter also brings `<iob-flow-diagram>`, a web component of
+[`@iobroker/web-components`](https://github.com/ioBroker/web-components): one module
+(`admin/webcomponents/flow-diagram.js`) with its manifest next to it (`flow-diagram.json`, declared in
+`common.webComponents`), which every host of that contract shows the same way - vis-2, ioBroker.devices,
+and pages of other apps. A host reads the manifest for its palette and the settings, and loads the module
+only when it shows the diagram. It shows a **stored**
+diagram (`flow.0.diagrams.*`); drawing one is the job of the Flow tab in admin. Settings: the diagram,
+a title, without labels, no animation, and whether a click opens the diagram big. The detail chart and
+the big view are dialogs of the host; the click action "view" asks the host to show that view.
+
+The module loads React from `/lib/esm/react-19.js`, which web and admin serve.
+
 ### In another adapter's admin configuration
 
 The designer is a `jsonConfig` custom component, and an adapter's configuration page is rendered by the
@@ -307,6 +321,9 @@ translated yet" where a copy of the English would claim otherwise. Contributions
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added the web component `<iob-flow-diagram>` (`common.webComponents`)
+
 ### 0.1.0 (2026-10-09)
 * (@GermanBluefox) Corrections devices widget
 

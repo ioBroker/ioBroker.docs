@@ -80,6 +80,10 @@ All settings are available in the Admin UI (JSON config):
     ### **WORK IN PROGRESS**
 -->
 
+### 0.12.9 (2026-11-02)
+
+- (ssbingo) **Compliance self-review against the official ioBroker adapter-review instructions** ([`iobroker-bot-orga/myClaude`](https://github.com/iobroker-bot-orga/myClaude/tree/main/CLAUDE-instructions)), now adopted as a baseline rule set for this adapter. The English-language findings were fixed: the **default actuator name** — shown in the scheduler widget and stored in `pumps.<n>.schedule.actuators` when you leave an actuator unnamed — is now **English**, `"Actuator N"` instead of the German `"Aktor N"`; the widget's English-only `Power` label and two admin labels (German `Power %`, Italian on/off) are now translated into all languages. While translating, a pre-existing bug surfaced and was fixed: the widget's `Consumption` value (watts) showed the **same word as `Power`** in every non-English language — it is now labelled correctly (e.g. German `Verbrauch` vs `Leistung`). **No functional change** — your own actuator names are untouched and the repository checker stays green
+
 ### 0.12.8 (2026-10-26)
 
 - (ssbingo) **Fix: ship the widget set's module-federation manifest.** vis-2 **≥ 2.20** loads a widget set through its **`mf-manifest.json`** (module-federation manifest) rather than the bare `customWidgets.js`. The widget build task copied `customWidgets.js`, `assets`, `img` and `icon-set.json` into `widgets/pondpump/` but **not** `mf-manifest.json` / `mf-stats.json` (the admin build already copied its manifest) — so vis-2 2.20.5 got a **404 on `/vis-2/widgets/pondpump/mf-manifest.json`** and skipped the set. The task now copies both manifests; after updating and an adapter upload the widgets load again

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
-hash: MW8HIa5iqY/aUO3afpjNEGAv/oODnqPCkSMVSPt2NsM=
+hash: Kq0SAJTQahSjSWGZIyUu1Tqi28nFXdoQ0cbbPeWCPTY=
 ---
 # IoBroker JSON-Konfiguration: Ein Leitfaden für Anfänger
 Diese Anleitung erklärt, wie Sie Konfigurationsoptionen für Ihren ioBroker-Adapter mithilfe von JSON definieren. Dieser Ansatz bietet eine benutzerfreundlichere und flexiblere Möglichkeit, die Adaptereinstellungen innerhalb der ioBroker-Administrationsoberfläche zu verwalten.
@@ -616,7 +616,7 @@ Der Benutzer kann das Wort eingeben, und es wird hinzugefügt (siehe Cloud => Di
 | `delimiter` | Wenn diese Option definiert ist, wird sie als Zeichenkette mit Trennzeichen anstelle eines Arrays gespeichert. Beispiel: Aus `delimiter=;` wird `a;b;c` anstelle von `['a', 'b', 'c']` |
 
 ### `alive`
-Dient lediglich als Indikator dafür, ob die Instanz aktiv ist, und kann im "ausgeblendeten" und "deaktivierten" Zustand verwendet werden (wird nicht in der Konfiguration gespeichert).
+Es handelt sich lediglich um einen Indikator dafür, ob die Instanz aktiv ist, und er kann im "ausgeblendeten" und "deaktivierten" Zustand verwendet werden (wird nicht in der Konfiguration gespeichert).
 
 Nur Text: Instanz läuft, Instanz läuft nicht
 
@@ -662,7 +662,7 @@ Schaltfläche zum Festlegen des Instanzstatus
 | Objekt | Beschreibung |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------|
 | `id` | `system.adapter.myAdapter.%INSTANCE%.test`, Sie können den Platzhalter `%INSTANCE%` verwenden, um ihn durch den aktuellen Instanznamen zu ersetzen |
-| `val` | `${data.myText}\_test` oder Zahl. Der Typ wird automatisch anhand des Zustandstyps erkannt und die Konvertierung ebenfalls durchgeführt. |
+| `val` | `${data.myText}\_test` oder Zahl. Der Typ wird automatisch anhand des Status erkannt und die Konvertierung ebenfalls durchgeführt. |
 | `okText` | Warnmeldung, die durch Drücken der Schaltfläche angezeigt wird |
 | `variant` | `contained`, `outlined`, '' |
 | `Variante` | `enthalten`, `umrandet`, '' |
@@ -715,6 +715,7 @@ Tabelle mit Elementen, die gelöscht, hinzugefügt, nach oben oder nach unten ve
 | Objekt | Beschreibung |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | `items` | `[{"type": see above, "width": px or %, "title": {"en": "header"}, "attr": "name", "filter": false, "sort": true, "default": ""}]` |
+| `allowReorder` | [optional] - Wenn `noDelete` wahr ist, werden die Schaltflächen zum Verschieben nach oben/unten weiterhin angezeigt, sodass die Zeilen neu angeordnet, aber nicht hinzugefügt oder gelöscht werden können. |
 | `objKeyName` | (Veraltete Einstellung, nicht verwenden!) - Name des Schlüssels in `{"192.168.1.1": {delay: 1000, enabled: true}, "192.168.1.2": {delay: 2000, enabled: false}}` |
 | `objValueName` | (Veraltete Einstellung, nicht verwenden!) - Name des Werts in `{"192.168.1.1": "value1", "192.168.1.2": "value2"}` |
 | `allowAddByFilter` | Hinzufügen erlaubt, auch wenn ein Filter gesetzt ist |
@@ -897,7 +898,7 @@ nur Admin6
 | Objekt | Beschreibung |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pattern` | Dateierweiterungsmuster. Zulässig sind `**/*.ext`, um auch alle Dateien aus Unterordnern anzuzeigen, `*.ext`, um alle Dateien aus dem Stammverzeichnis anzuzeigen, oder `folderName/*.ext`, um alle Dateien im Unterordner `folderName` anzuzeigen. Standardwert: `**/*.*`. |
-| `objectID` | Objekt-ID vom Typ `meta`. Sie können den speziellen Platzhalter `%INSTANCE%` verwenden: wie `myAdapter.%INSTANCE%.files` |
+| `objectID` | Objekt-ID vom Typ `meta`. Sie können den speziellen Platzhalter `%INSTANCE%` verwenden: wie z. B. `myAdapter.%INSTANCE%.files` |
 | `upload` | Pfad, unter dem die hochgeladenen Dateien gespeichert werden. Ähnlich wie `folderName`. Wenn nicht definiert, wird kein Upload-Feld angezeigt. Um im Stammverzeichnis hochzuladen, setzen Sie dieses Feld auf `/`. |
 | `refresh` | Aktualisierungsschaltfläche neben dem Auswahlfeld anzeigen. |
 | `maxSize` | Maximale Dateigröße (Standard 2 MB) |
@@ -1271,7 +1272,7 @@ In den Einstellungen der Webentwicklertools können Sie bei Bedarf eigene Gerät
 | `style` | CSS-Stil in ReactJS-Notation: `radiusBorder` und nicht `radius-border`. |
 | `darkStyle` | CSS-Stil für den Dunkelmodus |
 | `validator` | JS-Funktion: true - kein Fehler, false - Fehler |
-| `validatorErrorText` | Text, der angezeigt wird, wenn die Validierung fehlschlägt |
+| `validatorErrorText` | Text, der angezeigt wird, wenn die Validierung fehlschlägt. Er wird anstelle des Hilfetextes unterhalb des Elements angezeigt, auch in den Zellen einer Tabelle. |
 | `validatorNoSaveOnError` | Speichern-Schaltfläche bei Fehler deaktivieren |
 | `tooltip` | optionaler Tooltip |
 | `default` | Standardwert |
@@ -1738,6 +1739,25 @@ Das Schema wird hier verwendet: https://github.com/SchemaStore/schemastore/blob/
 ### **IN BEARBEITUNG** -->
 
 ## Changelog
+### 10.1.12 (2026-11-03)
+- (@GermanBluefox) Docs: `checkDocker` checks the Docker connection the instance uses (`iobDockerApi`), also on the host of admin (ioBroker/ioBroker.admin#3715)
+- (@GermanBluefox) Added: `noCheckbox` for `checkDocker`: shows only the state of Docker, for adapters that choose Docker with another control
+
+### 10.1.11 (2026-10-29)
+- (@GermanBluefox) Fixed: `validatorErrorText` was not shown, only the field was marked red. The text is shown now instead of the help text below the element, also in the cells of a table (ioBroker/ioBroker.admin#1911)
+- (@GermanBluefox) Fixed: a `text` with `minRows` showed an empty red line instead of the help text when the validator failed
+
+### 10.1.10 (2026-10-29)
+- (@GermanBluefox) Added: `allowReorder` for `table`. With `noDelete: true` the rows can still be moved up and down, but not added or deleted (ioBroker/ioBroker.admin#3707)
+- (@GermanBluefox) Fixed: in the cards mode of `table`, `noDelete` did not hide the add button and, with `titleAttribute`, the delete and clone buttons
+- (@GermanBluefox) Fixed: the export/import buttons of the instance settings covered the last tabs and the right scroll button of the tab bar, so these tabs could not be reached (ioBroker/ioBroker.admin#3613, ioBroker/ioBroker.admin#3657)
+
+### 10.1.9 (2026-10-27)
+- (@GermanBluefox) Fixed: `checkDocker` showed the Docker of the host admin runs on, also for an instance on another host. The control sends the host of the instance now, and admin asks that host. If Docker cannot be checked there, the checkbox stays usable and the reason is shown
+
+### 10.1.8 (2026-10-26)
+- (@GermanBluefox) Fixed: a slider (`slider` or `state`) crashed the page if the value was not a number, e.g. a string
+
 ### 10.1.7 (2026-10-22)
 - (@BenAhrdt) Fixed: the `autocomplete` does not translate the values entered as free text
 - (@GermanBluefox) Added: `noTranslation` for single options of `autocomplete`, `autocompleteSendTo`, `selectSendTo` and `state` and for the groups of `select`
@@ -1997,9 +2017,30 @@ It shows the license information if not already accepted. One of attributes `tex
 Special component to check if Docker is installed and running.
 If docker is installed, a checkbox will be shown to allow the usage of docker.
 
+Docker is checked on the host the instance runs on, which is not necessarily the host of admin. Admin asks the
+js-controller of that host, which needs the feature `CONTROLLER_CHECK_DOCKER`; the check is then done by the
+`@iobroker/plugin-docker` of the adapter. So the Docker the instance uses is checked: if the adapter names a Docker
+connection in `iobDockerApi` of its plugin config (`common.plugins.docker` in `io-package.json`), e.g. one of
+`system.docker` on a NAS, that connection is checked. A template like `"iobDockerApi": "${config.dockerApi}"`, which
+lets the user choose the connection in the instance settings, is resolved as when the instance starts (with
+`@iobroker/plugin-docker` 1.3.0 or later in the adapter). The control checks once, when it is shown, with the saved
+settings of the instance: a connection that was just chosen but not saved yet is not the one that is checked.
+
+If the js-controller of the admin host cannot check it - an older js-controller, or an adapter without the plugin -
+admin checks the Docker of its host itself, as an older admin always does. If Docker cannot be checked on another
+host - e.g. the host is not running or its js-controller is too old - the checkbox stays usable and the reason is
+shown, as Docker is unknown there and not necessarily missing.
+
+An adapter that lets the user choose Docker with another control, e.g. a `select` between Docker and an external
+server, sets `noCheckbox`: then only the label and the state are shown, e.g. `frigate: Docker version 29.9.2, api
+version: 1.56`, or in orange why Docker is not available or cannot be checked. The value of `attr` is not used then,
+so an attribute starting with `_` is enough, which is not saved. An older admin ignores `noCheckbox` and shows the
+checkbox; set `disabled: true` as well, so it cannot be clicked there.
+
 | Property      | Description                                                                                                                                                    |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `hideVersion` | If the information about docker version or error should be hidden (e.g. if used more than one such element on the page the error or version will be shown once |
+| `noCheckbox`  | Show only the state of Docker, without the checkbox. `hideVersion` is ignored then                                                                             |
 
 ### `checkLicense`
 

@@ -1,6 +1,6 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/tvspielfilm-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.tvspielfilm.svg
+BADGE-Number of Installations: https://iobroker.live/badges/tvspielfilm-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.tvspielfilm.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.tvspielfilm.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true
 ---

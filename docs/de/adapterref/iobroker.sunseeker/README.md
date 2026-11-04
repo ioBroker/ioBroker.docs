@@ -992,6 +992,7 @@ Wenn Einstellungen fehlen, dann bitte ein Issue anlegen oder im Forum anfragen.
 
 ### **WORK IN PROGRESS**
 
+- (copilot) Adapter requires node.js >= 22.19.0 now
 - (Lucky-ESA) Adaptation for the S5-Gen-2 mower
 
 ### 0.0.5 (2026-10-24)

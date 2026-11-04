@@ -124,6 +124,9 @@ After sucessful advanced setup the following channels will _additionally_ be cre
 This adapter would not have been possible without the great work of @Zefau (https://github.com/Zefau), who create and maintained it until 2021 .
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**

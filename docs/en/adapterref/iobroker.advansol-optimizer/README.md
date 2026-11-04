@@ -12,7 +12,8 @@ The adapter is based on the original ioBroker JavaScript script `Advinsol Optimi
 
 - Connects to a TCP RS485 bridge.
 - Reads the controller serial number.
-- Discovers connected optimizer modules automatically.
+- Discovers connected optimizer modules across all controller device-list pages.
+- Checks for added optimizers every five minutes during daytime operation; no restart is required.
 - Polls module values cyclically.
 - Switches each optimizer MOS through `module_X.switch`.
 - Skips polling during a configurable night window.
@@ -84,6 +85,12 @@ Each optimizer gets a channel named `module_1`, `module_2`, `module_3` and so on
 | `module_X.raw` | Raw response as hex string |  |
 | `module_X.last_update` | Last module update |  |
 
+## Device Discovery
+
+The controller returns its device list in pages, normally containing up to ten optimizers each. The adapter reads every page reported by the controller and creates `module_X` objects using each device's controller address. There is no ten-device or two-page limit.
+
+Discovery runs at startup and every five minutes outside the configured night window. Newly registered optimizers are added automatically. Invalid or incomplete lists are rejected; an unsuccessful refresh keeps the previous device list and polling continues. Existing objects are retained when a device is no longer listed.
+
 ## Switching Optimizers
 
 The state `module_X.switch` is writable. Setting it to `true` sends the MOS-on command for the module serial number. Setting it to `false` sends the MOS-off command.
@@ -102,7 +109,12 @@ The adapter repeats the command according to `Switch retries` and waits `Switch 
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.1.13
+
+- Read all controller device-list pages so optimizers beyond the first ten are discovered.
+- Refresh the device list every five minutes to pick up newly added optimizers.
+- Validate page headers, checksums and device addresses; retain the previous list on refresh errors.
+- Recover the request queue after failed exchanges and reject measurements with a wrong serial number or checksum.
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
 
 ### 0.1.12

@@ -1,6 +1,6 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/history-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.history.svg
+BADGE-Number of Installations: https://iobroker.live/badges/history-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.history.svg
 BADGE-Test and Release: https://github.com/ioBroker/iobroker.history/workflows/Test%20and%20Release/badge.svg
 BADGE-Translation status: https://weblate.iobroker.net/widgets/adapters/-/history/svg-badge.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.history.svg
@@ -55,6 +55,9 @@ Defines, if the "from" attribute will be stored, too.
 **Store acknowledge of value**
 
 **Write NULL values on start/stop boundaries**
+
+**Maximum parallel queries**
+Aggregated history queries (e.g. for charts) are calculated in separate processes. This setting limits how many of these processes may run at the same time (default: 3). Further queries wait in a queue until a process becomes free, so they may take longer under heavy load, but the memory consumption stays predictable. `0` disables the limit.
 
 ### Default settings for states
 
@@ -202,6 +205,35 @@ enable the logging for many states at once. The following process is just an exa
 
 ![State-Settings](img/object-settings-multiple.png)
 
+## Data browser and export
+
+The **Data browser** tab of the instance configuration shows the values stored for a datapoint exactly as
+they are in the files (together with the values that are still in RAM), and lets you insert, edit and
+delete single values.
+
+The export button in its toolbar writes all values of the selected datapoint in the selected time range
+into a file, oldest first:
+
+- **CSV** with the columns `ts` (milliseconds since 1970, UTC), `time` (local time), `val`, `ack`, `q` and
+  `from`. Column and decimal separator can be chosen; the preselection (`;` and `,` for most languages,
+  `,` and `.` for English and Chinese) is what Excel usually expects with the language of the admin.
+  `ack` and `from` are only filled if "Store acknowledge of value" and "Store origin of value" are enabled.
+- **JSON** as an array of `{ts, val, ack, q, from}` (plus `user` and `c`, if a value has them) - the
+  format [`storeState`](#storestate) accepts, so the values can be written back, e.g. to another datapoint:
+
+```javascript
+const fs = require('fs');
+const values = JSON.parse(fs.readFileSync('/opt/export/hm-rpc.0.ABC123.1.TEMPERATURE.json', 'utf8'));
+sendTo('history.0', 'storeState', { id: 'javascript.0.temperatureCopy', state: values }, result =>
+    console.log(JSON.stringify(result)),
+);
+```
+
+The export reads the range in time windows of a few thousand values each, so the adapter only reads the
+day files of one window at a time and never holds millions of values in memory. With more than 100000
+values in the range the adapter stops counting them, and the progress follows the time instead. A very
+large export still takes a while and needs the memory of the browser for the whole file.
+
 ## Access values from Javascript adapter
 
 The values can be accessed from the installed JavaScript adapter. Examples:
@@ -244,7 +276,7 @@ sendTo('history.0', 'getHistory', {
 
 Available options:
 
-- **start** - (optional) time in ms - *Date.now()*'
+- **start** - (optional) time in ms - *Date.now()*'. `0` is handled like "not set": then the newest entries are returned. To get the oldest stored entries use `start: 1`
 - **end** - (optional) time in ms - *Date.now()*', by default is (now + 5000 seconds)
 - **step** - (optional) used in aggregate (max, min, average, total, ...) step in ms of intervals
 - **count** - number of values if aggregate is 'onchange' or number of intervals if other aggregate method. Count will be ignored if step is set, else default is 500 if not set
@@ -596,6 +628,18 @@ Possible options and parameters:
 - **--simulate**: With this parameter you enable the simulation mode, means that no real write happens and also the analyze-datafiles will not be updated on exit.
 
 ## Changelog
+### 5.3.0 (2026-11-04)
+* (@GermanBluefox) Data browser: the values of a datapoint can be exported as CSV (e.g. for Excel) or as JSON (the format of `storeState`) for the selected time range
+* (@GermanBluefox) Data browser: with "Oldest first" and more than 100000 values in the range, the table shows now the oldest values. Before, it showed the oldest of the newest 100000 values
+- (copilot) Adapter requires node.js >= 22.19.0 now
+
+### 5.2.0 (2026-10-29)
+* (@GermanBluefox) Fixed the crash `Cannot read properties of undefined (reading 'val'/'ts')` in `getHistory` (#575, #490, #470, #396)
+* (@GermanBluefox) `getHistory` with `aggregate: 'none'` and `count`/`limit` returns now the oldest entries from the files, if `returnNewestEntries` is not set (#530, #331, #210)
+* (@GermanBluefox) `getHistory` accepts `intervalBorders`: the client can send the borders of the intervals itself, e.g. the local days of a chart. With `count` or `step` every interval after a switch of the daylight saving time ended an hour away from the midnight, so a value written at 23:59:59 was shown on the next day (ioBroker/ioBroker.echarts#1311)
+* (@GermanBluefox) The number of parallel history queries can be limited now (default: 3). Further queries are queued (#536)
+* (@GermanBluefox) Updated packages
+
 ### 5.1.2 (2026-10-23)
 * (@GermanBluefox) The timed relog (`changesRelogInterval`) starts right after the adapter start also when "Write NULL values on start/stop boundaries" (`writeNulls`) is off, not only with the first update of the state
 
@@ -606,17 +650,6 @@ Possible options and parameters:
 * (@GermanBluefox) Admin 7.6.20+ is required. Added Ukrainian translation. Removed the obsolete "subscribe" attribute
 * (@GermanBluefox) Added the "Statistics" tab: values, size on disk, files and status of every datapoint, and a cleanup of the data of datapoints that are not logged any more
 * (@GermanBluefox) The data browser shows now if a value to edit or delete was not found, and the error of a failed save is no longer hidden by the reload of the table
-
-### 5.0.1 (2026-08-26)
-* (@joltcoke) Fixed average and total returning null for every interval that contains a null value: parseFloat(null) is NaN and poisoned the sum of the whole interval (thanks to @joltcoke, ioBroker/ioBroker.sql#526). As the result was NaN and not null, ignoreNull could not act on it either
-* (@joltcoke) Fixed min returning a wrong value if the interval contains a null, minmax losing the minimum if the interval starts with a null, and percentile/quantile counting a null as 0
-
-### 5.0.0 (2026-08-26)
-* (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
-* (simatec) Responsive Design added
-* (@GermanBluefox) Adapter requires node.js >= 22 now.
-* (@GermanBluefox) Added the data browser to the configuration, so the stored values can be viewed, edited and deleted.
-* (@GermanBluefox) The aggregation is used now from `@iobroker/aggregate` and is shared with the SQL and InfluxDB adapters.
 
 ## License
 

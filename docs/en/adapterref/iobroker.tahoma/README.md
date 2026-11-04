@@ -102,13 +102,16 @@ These states contain current status of the devices as follows. Some of the state
 | _tahoma.X.devices.*.states.moving_                          |          | States if the device is currently moving. `0 = stopped`, `1 = up/undeploy`, `2 = down/deploy`, `3 = unknown direction` <br/> **Remark:** <br/>This only works reliable if connected to the Tahoma (not Local) API, since the Local API does not provide enough action-event updates to compute this state correctly. `core:MovingState` should work in both cases though.
 
 ## Changelog
-See Changelog.
-
 <!--
-	Placeholder for the next version (add instead of version-number-headline below):
-	## __WORK IN PROGRESS__
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
 -->
-### __WORK IN PROGRESS__
+### **WORK IN PROGRESS**
+- (Breaking) Adapter requires admin >= 7.6.20 now
+- Removed the outdated admin UI files. The settings were already shown with jsonConfig
+- Local API token and gateway PIN are now protected from other adapters (`protectedNative`)
+
+### 0.12.0 (2026-10-29)
 - (Breaking) Adapter requires js-controller >= 6.0.11 and admin >= 7.6.17 now
 - (Breaking) Node.js 22 or newer is required now. Tested with Node.js 22, 24 and 26 (https://github.com/Excodibur/ioBroker.tahoma/issues/467)
 - Fixed: Adapter registers a new event listener when the Tahoma box was restarted or not reachable, instead of failing until the adapter is restarted (https://github.com/Excodibur/ioBroker.tahoma/issues/243)
@@ -145,7 +148,7 @@ See Changelog.
 
 The MIT License (MIT)
 
-Copyright (c) 2020-2025 Marius Burkard & Excodibur
+Copyright (c) 2020-2026 Marius Burkard & Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

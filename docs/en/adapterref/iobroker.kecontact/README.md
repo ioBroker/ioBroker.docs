@@ -124,7 +124,8 @@ A german description of how the adapter works can be found [here](/#/docs/adapte
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.9.0 (2026-11-03)
+* (copilot) Adapter requires node.js >= 22.19.0 now
 * (FernetMenta) skip the regulation loop when PV automatics is active but no vehicle is plugged, so the wallbox is no longer repeatedly stopped/disabled while nothing is connected
 * (GermanBluefox) timestamp of phase switch is now also stored when switching via state, so minimum time between phase switches is respected [[#588](https://github.com/iobroker-community-adapters/ioBroker.kecontact/issues/588)]
 * (Sneak-L8) fix 1p/3p switch can deadlock in state 5 [[#591](https://github.com/iobroker-community-adapters/ioBroker.kecontact/issues/591)]
@@ -152,12 +153,6 @@ A german description of how the adapter works can be found [here](/#/docs/adapte
 * (copilot) Adapter requires admin >= 7.7.22 now
 * (Sneak-L8) checking of firmware version is back
 * (Sneak-L8) updated dependencies
-
-### 3.4.0 (2026-01-17)
-* (Sneak-L8) new options to charge vehicle up to a specified SoC
-* (Sneak-L8) new option to stop charging at a certain SoC
-* (Sneak-L8) raise adapter-dev version from 1.4 to 1.5
-* (Sneak-L8) drop dependencies to chai, sinon and mocha
 
 ## Legal
 

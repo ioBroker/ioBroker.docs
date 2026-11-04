@@ -21,6 +21,9 @@ The following data types are supported:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 ### 3.0.0 (2026-08-13)
 * (@GermanBluefox) The adapter no longer terminates the host process in compact mode
 * (@GermanBluefox) Added the missing admin dependency and the role of `info.event`

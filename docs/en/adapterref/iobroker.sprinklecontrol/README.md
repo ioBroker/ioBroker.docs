@@ -1,6 +1,6 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/sprinklecontrol-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sprinklecontrol.svg
+BADGE-Number of Installations: https://iobroker.live/badges/sprinklecontrol-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.sprinklecontrol.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sprinklecontrol.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Dirk-Peter-md/ioBroker.sprinklecontrol/badge.svg
 BADGE-Test and Release: https://github.com/Dirk-Peter-md/ioBroker.sprinklecontrol/workflows/Test%20and%20Release/badge.svg

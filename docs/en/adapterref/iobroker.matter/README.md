@@ -142,6 +142,7 @@ Tests are located in the `test/` directory and use ts-node for direct TypeScript
 
 ## Changelog
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 * (@Apollon77) **IMPORTANT:** Node.js 22 is now the minimum required version
 * (@Apollon77) Matter robotic vacuum cleaners are now mapped to the ioBroker vacuumCleaner device type in controller mode, including run mode, cleaning mode, operational state and phase, cleaning progress and the pause and go-home commands
 * (@Apollon77) ioBroker vacuum cleaners can now be exposed to Matter as a robotic vacuum cleaner in bridge and device mode, with the run mode, cleaning mode, operational state and the pause and go-home commands. The cleaning phase and progress are not exposed in this direction, because Matter reports them per cleaning area and an ioBroker vacuum cleaner does not know its areas

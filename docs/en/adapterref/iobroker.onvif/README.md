@@ -305,6 +305,7 @@ on('onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion', (ob
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22.19.0 now
 
 - (rug1024) Fixed HTTP 500 for concurrent snapshot requests to the same camera
 - (GermanBluefox) Added ignore list for camera IPs (#391)
