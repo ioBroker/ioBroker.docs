@@ -4210,6 +4210,13 @@ The google-sharedlocations2 adapter shares locations with ioBroker via Google Ma
 - Fixed several login issues: only Google cookies are stored, the faked user agent matches the real Chrome version, login pages are no longer logged to the console (0.5.0).
 - Fixed automatic Chrome download failing with "require is not defined" (0.5.0).
 - Fixed starting main.ts directly from an IDE debug configuration (0.5.0).
+
+## sevenio (4.11.2026) – new adapter at stable repository
+https://github.com/ipod86/ioBroker.sevenio
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.sevenio/main/admin/sevenio.png" width="100" height="100" />
+
+The sevenio adapter integrates the seven.io API into ioBroker, enabling SMS sending, phone number lookups, and contact management directly from ioBroker.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
