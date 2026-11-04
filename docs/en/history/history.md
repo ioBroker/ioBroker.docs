@@ -4190,6 +4190,26 @@ The life360ng adapter reads location and status data from the Life360 app; versi
 - Added handling for Cloudflare HTTP 429 / error 1015 rate limits: immediate retries are stopped, the current poll cycle is aborted, and the next poll is delayed (1.11.5).
 - The backoff delay now uses the `Retry-After` header from Cloudflare 429 responses instead of a fixed 10 minutes (1.11.6).
 - `Retry-After` values below 60 seconds (including 0) are ignored and fall back to the default 10-minute backoff to avoid rapid re-polls (1.11.7).
+
+## google-sharedlocations2 (4.11.2026) – new stable release 0.5.1
+https://github.com/Garfonso/ioBroker.google-sharedlocations2
+
+<img src="https://raw.githubusercontent.com/Garfonso/ioBroker.google-sharedlocations2/main/admin/google-sharedlocations2.png" width="100" height="100" />
+
+The google-sharedlocations2 adapter shares locations with ioBroker via Google Maps; versions 0.4.0 through 0.5.1 add login reliability improvements, Chrome/Puppeteer fixes, and self-healing for wrong Chrome versions.
+
+**New features**
+- Added settings for the Google login confirmation timeout and remote debugging of the login browser (0.5.0).
+- Added self-heal if the wrong Chrome version is installed, e.g. after a Puppeteer update (0.4.0).
+- The adapter is now compiled to JavaScript instead of running TypeScript sources directly, avoiding a class of module-loading problems (0.5.0).
+
+**Bug fixes**
+- Fixed: after one failed login the adapter never retried; login attempts are now retried with a growing delay (0.5.1).
+- Fixed: a login confirmation not answered in time no longer overwrites working cookies (0.5.1).
+- Fixed: a network outage (ERR_NAME_NOT_RESOLVED, "fetch failed") no longer triggers a login attempt — the adapter retries later instead (0.5.1).
+- Fixed several login issues: only Google cookies are stored, the faked user agent matches the real Chrome version, login pages are no longer logged to the console (0.5.0).
+- Fixed automatic Chrome download failing with "require is not defined" (0.5.0).
+- Fixed starting main.ts directly from an IDE debug configuration (0.5.0).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
