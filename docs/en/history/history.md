@@ -4217,6 +4217,22 @@ https://github.com/ipod86/ioBroker.sevenio
 <img src="https://raw.githubusercontent.com/ipod86/ioBroker.sevenio/main/admin/sevenio.png" width="100" height="100" />
 
 The sevenio adapter integrates the seven.io API into ioBroker, enabling SMS sending, phone number lookups, and contact management directly from ioBroker.
+
+## tractive-gps (4.11.2026) – new stable release 4.0.0
+https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.tractive-gps/master/admin/tractive-gps.png" width="100" height="100" />
+
+The tractive-gps adapter connects ioBroker to Tractive GPS trackers for pets; versions 3.1.0 and 4.0.0 add a classic VIS 1 pet tracker card and migrate the VIS 2 widget to React 19/MUI 9.
+
+**Breaking changes**
+- The native VIS 2 widget now requires VIS 2 >= 2.15.2 (React 19/MUI 9); backend-only installations and the classic VIS 1 widget remain supported (4.0.0).
+
+**New features**
+- Added a classic VIS 1 `PetTrackerCard` with pet image, Leaflet map, location and tracker details, automatic theme colors, and tracker command controls (3.1.0).
+
+**Bug fixes**
+- Fixed theme compatibility and map marker/range circle updates in the VIS 2 widget (4.0.0).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
