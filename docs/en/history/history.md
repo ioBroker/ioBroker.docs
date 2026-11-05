@@ -4217,6 +4217,13 @@ https://github.com/ipod86/ioBroker.sevenio
 <img src="https://raw.githubusercontent.com/ipod86/ioBroker.sevenio/main/admin/sevenio.png" width="100" height="100" />
 
 The sevenio adapter integrates the seven.io API into ioBroker, enabling SMS sending, phone number lookups, and contact management directly from ioBroker.
+
+## liebherr (5.11.2026) – new adapter at stable repository
+https://github.com/Gaspode69/ioBroker.liebherr
+
+<img src="https://raw.githubusercontent.com/Gaspode69/ioBroker.liebherr/main/admin/liebherr.png" width="100" height="100" />
+
+The liebherr adapter connects ioBroker to Liebherr home appliances via the official Liebherr SmartDevice HomeAPI, enabling monitoring and control of compatible refrigerators and other devices.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
