@@ -4262,6 +4262,13 @@ The elgato-key-light adapter controls Elgato lamps (Key Light, Key Light Air, Li
 **Bug fixes**
 - Fixed excessive log output during device outages: only one warning is logged per outage, repeated failures use debug level (2.0.1).
 - Updated locked Moment dependency to 2.31.0, fixing a locale path-traversal vulnerability (GHSA-4p3w-j4w9-5jqw) (2.0.1).
+
+## duofernstick (5.11.2026) – new adapter at beta (latest) repository
+https://github.com/FreeProgrammer1/ioBroker.duofernstick
+
+<img src="https://raw.githubusercontent.com/FreeProgrammer1/ioBroker.duofernstick/main/admin/duofernstick.svg" width="100" height="100" />
+
+The duofernstick adapter integrates the Rademacher DuoFern USB stick into ioBroker, enabling control and monitoring of DuoFern wireless devices with persistent state handling.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
