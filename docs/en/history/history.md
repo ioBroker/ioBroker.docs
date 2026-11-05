@@ -4224,6 +4224,28 @@ https://github.com/Gaspode69/ioBroker.liebherr
 <img src="https://raw.githubusercontent.com/Gaspode69/ioBroker.liebherr/main/admin/liebherr.png" width="100" height="100" />
 
 The liebherr adapter connects ioBroker to Liebherr home appliances via the official Liebherr SmartDevice HomeAPI, enabling monitoring and control of compatible refrigerators and other devices.
+
+## openmeteo-notify (5.11.2026) – new stable release 0.4.1
+https://github.com/ipod86/ioBroker.openmeteo-notify
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.openmeteo-notify/main/admin/openmeteo-notify.png" width="100" height="100" />
+
+The openmeteo-notify adapter provides free weather forecasts from the Open-Meteo API with HTML widgets, notifications, and an animated wallpaper; versions 0.3.0 through 0.4.1 add a chart widget variant, an optional 15-minute short-range forecast with "precipitation starts soon" notifications, convective precipitation data, and wallpaper fixes.
+
+**New features**
+- Added a "chart" widget variant displaying daily/hourly forecast charts with selectable values (0.3.0).
+- Added an optional 15-minute short-range forecast for the next 1–4 hours with its own fetch interval and a "precipitation starts soon" notification (0.4.0).
+- Added showers (convective precipitation) for current and hourly data; sunshine minutes per hour; lightning potential in the 15-minute forecast (0.4.0).
+- Added a short-range forecast text line, precipitation strip, and "15 min" chart view in all widgets, plus `minutely.text` data point — widget size unchanged (0.4.1).
+
+**Bug fixes**
+- Fixed moon phase calculation and moonrise/moonset assignment to the correct local calendar day (suncalc 2.1.1) (0.4.0).
+- Fixed moonrise/moonset reported in UTC instead of the location's local time (0.4.0).
+- Fixed wallpaper URL data points of removed web instances not being deleted (0.4.0).
+- Fixed wallpaper day/night brightness calculated in the host system's timezone instead of the location's timezone (0.2.1).
+- Fixed wallpaper brightness ramping over the full-day curve instead of a short dawn/dusk transition (0.2.1).
+- Fixed broken `npm install` in the admin UI due to react/mui version drift (0.2.1).
+- Widget data points are only written when the HTML actually changed, avoiding unnecessary re-renders on every warning check (0.3.0).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
