@@ -4246,6 +4246,22 @@ The openmeteo-notify adapter provides free weather forecasts from the Open-Meteo
 - Fixed wallpaper brightness ramping over the full-day curve instead of a short dawn/dusk transition (0.2.1).
 - Fixed broken `npm install` in the admin UI due to react/mui version drift (0.2.1).
 - Widget data points are only written when the HTML actually changed, avoiding unnecessary re-renders on every warning check (0.3.0).
+
+## elgato-key-light (5.11.2026) – new stable release 2.0.1
+https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.elgato-key-light/master/admin/elgato-key-light.png" width="100" height="100" />
+
+The elgato-key-light adapter controls Elgato lamps (Key Light, Key Light Air, Light Strip, Ring Light) via the local API; version 2.0.0 is a major rewrite with capability detection, resilient polling, RGB/temperature/battery support and a new dashboard UI, while 2.0.1 reduces log noise and updates dependencies.
+
+**New features**
+- Reworked backend with validated HTTP client, capability detection, resilient polling, and bounded Bonjour/mDNS discovery (2.0.0).
+- Added reliable controls for RGB, color temperature, battery state, and studio mode with strict instance isolation and clean device removal (2.0.0).
+- Modernized configuration and dashboard UIs with responsive device cards, health data, diagnostics, and device/API details (2.0.0).
+
+**Bug fixes**
+- Fixed excessive log output during device outages: only one warning is logged per outage, repeated failures use debug level (2.0.1).
+- Updated locked Moment dependency to 2.31.0, fixing a locale path-traversal vulnerability (GHSA-4p3w-j4w9-5jqw) (2.0.1).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
