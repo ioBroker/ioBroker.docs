@@ -4269,6 +4269,29 @@ https://github.com/FreeProgrammer1/ioBroker.duofernstick
 <img src="https://raw.githubusercontent.com/FreeProgrammer1/ioBroker.duofernstick/main/admin/duofernstick.svg" width="100" height="100" />
 
 The duofernstick adapter integrates the Rademacher DuoFern USB stick into ioBroker, enabling control and monitoring of DuoFern wireless devices with persistent state handling.
+
+## nspanel-lovelace-ui (6.11.2026) – new stable release 1.7.0
+https://github.com/ticaki/ioBroker.nspanel-lovelace-ui
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.nspanel-lovelace-ui/main/admin/nspanel-lovelace-ui.png" width="100" height="100" />
+
+The nspanel-lovelace-ui adapter controls Sonoff NSPanel displays using custom firmware; versions 1.5.0 through 1.7.0 add web panel support for browser-based panel access, centralized credentials, screensaver notification management, and various bug fixes.
+
+**New features**
+- Added web panels: the panel UI is now accessible in a web browser (port 8090) either as a clone of a real panel or standalone without hardware; supports optional PIN, HTTPS, and FIDO2 security key (1.7.0).
+- Added a new "Web panels" tab in the Admin UI with buttons to open web panels (1.7.0).
+- Added screensaver notifications with headline, text, conditional states, priority, dismiss groups, and buzzer — one list shared by all screensavers (1.6.0).
+- MQTT login, Tasmota WebUI password, and QR Wi-Fi password can now come from central credentials (1.5.0).
+
+**Bug fixes**
+- Fixed screensaver indicator buttons not working when screensaver is used as the first page (1.7.0).
+- Fixed offline panels no longer being offered the startup page every 5 seconds (1.7.0).
+- Fixed `fontSize: 0` on a grid item being ignored in script config (1.7.0).
+- Fixed tapping the screensaver multiple times leading to a black page (1.6.0).
+- Fixed battery template `text.battery.bydhvs` not showing the charging icon while charging (1.6.0).
+- Fixed weather forecast items losing icon and weekday at 0° temperature (1.5.0).
+- Fixed overlapping MQTT subscriptions causing messages to arrive multiple times (1.5.0).
+- Fixed repeated Tasmota acknowledgements dropping the next message (1.5.0).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
