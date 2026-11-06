@@ -4292,6 +4292,13 @@ The nspanel-lovelace-ui adapter controls Sonoff NSPanel displays using custom fi
 - Fixed weather forecast items losing icon and weekday at 0° temperature (1.5.0).
 - Fixed overlapping MQTT subscriptions causing messages to arrive multiple times (1.5.0).
 - Fixed repeated Tasmota acknowledgements dropping the next message (1.5.0).
+
+## kitchenowl (6.11.2026) – new adapter at beta (latest) repository
+https://github.com/n1tr0-5urf3r/ioBroker.kitchenowl
+
+<img src="https://raw.githubusercontent.com/n1tr0-5urf3r/ioBroker.kitchenowl/main/admin/kitchenowl.png" width="100" height="100" />
+
+The kitchenowl adapter connects ioBroker to a self-hosted KitchenOwl instance, providing access to shopping lists, recipes, meal planning, and expense tracking from within ioBroker.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
