@@ -4299,6 +4299,13 @@ https://github.com/n1tr0-5urf3r/ioBroker.kitchenowl
 <img src="https://raw.githubusercontent.com/n1tr0-5urf3r/ioBroker.kitchenowl/main/admin/kitchenowl.png" width="100" height="100" />
 
 The kitchenowl adapter connects ioBroker to a self-hosted KitchenOwl instance, providing access to shopping lists, recipes, meal planning, and expense tracking from within ioBroker.
+
+## cam-recorder (6.11.2026) – new adapter at beta (latest) repository
+https://github.com/sadam6752-tech/ioBroker.cam-recorder
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.cam-recorder/main/admin/cam-recorder.png" width="100" height="100" />
+
+The cam-recorder adapter records short MP4/GIF video clips and JPEG snapshots from RTSP cameras (e.g. DoorBird) directly within ioBroker.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
