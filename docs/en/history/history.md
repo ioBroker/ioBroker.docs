@@ -4357,6 +4357,13 @@ The fritzbox adapter reads status and call data from AVM Fritz!Box routers; vers
 - Fixed after a lost connection the adapter only tried to reconnect once (1.0.0).
 - Fixed `tel:` links written to `telLinks.*` instead of `calls.telLinks.*` (1.0.0).
 - Fixed answering-machine audio file cleanup looking in the working directory instead of the instance directory (1.0.0).
+
+## mg-saic (7.11.2026) – new adapter at beta (latest) repository
+https://github.com/Voodoo2man/ioBroker.mg-saic
+
+<img src="https://raw.githubusercontent.com/Voodoo2man/ioBroker.mg-saic/main/admin/mg-saic.png" width="100" height="100" />
+
+The mg-saic adapter connects MG and SAIC vehicles to ioBroker through the regional iSmart cloud APIs, enabling remote monitoring and control of supported vehicles.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
