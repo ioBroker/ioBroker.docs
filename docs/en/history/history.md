@@ -4380,6 +4380,13 @@ The alarm adapter provides a small alarm system for ioBroker; versions 5.1.0 thr
 **Bug fixes**
 - Fixed today's log in the alarm panel showing as one line with visible `<br>` tags instead of a list (5.1.1).
 - Fixed the size dialog in the devices tile showing 2×2 while the tile was stored as 1×1; panel buttons now adapt to 1×1 and 2×½ tiles (5.1.1).
+
+## e-invoices (7.11.2026) – new adapter at beta (latest) repository
+https://github.com/sadam6752-tech/ioBroker.e-invoices
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.e-invoices/main/admin/e-invoices.png" width="100" height="100" />
+
+The e-invoices adapter allows issuing ZUGFeRD e-invoices (EN 16931 standard) directly from ioBroker as a PWA, with PDF/A and Excel export and e-mail sending capabilities.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
