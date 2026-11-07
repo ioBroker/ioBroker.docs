@@ -4364,6 +4364,22 @@ https://github.com/Voodoo2man/ioBroker.mg-saic
 <img src="https://raw.githubusercontent.com/Voodoo2man/ioBroker.mg-saic/main/admin/mg-saic.png" width="100" height="100" />
 
 The mg-saic adapter connects MG and SAIC vehicles to ioBroker through the regional iSmart cloud APIs, enabling remote monitoring and control of supported vehicles.
+
+## alarm (7.11.2026) – new stable release 5.1.2
+https://github.com/misanorot/ioBroker.alarm
+
+<img src="https://raw.githubusercontent.com/misanorot/ioBroker.alarm/master/admin/alarm.png" width="100" height="100" />
+
+The alarm adapter provides a small alarm system for ioBroker; versions 5.1.0 through 5.1.2 add an alarm panel widget for vis-2 and the devices adapter, with several UI improvements.
+
+**New features**
+- Added an alarm panel widget for vis-2 and for the ioBroker devices adapter (5.1.0).
+- Panel remembers whether the details section was expanded or collapsed (5.1.2).
+- States referencing objects that no longer exist are no longer written but reported once as a warning (5.1.0).
+
+**Bug fixes**
+- Fixed today's log in the alarm panel showing as one line with visible `<br>` tags instead of a list (5.1.1).
+- Fixed the size dialog in the devices tile showing 2×2 while the tile was stored as 1×1; panel buttons now adapt to 1×1 and 2×½ tiles (5.1.1).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
