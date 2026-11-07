@@ -4306,6 +4306,27 @@ https://github.com/sadam6752-tech/ioBroker.cam-recorder
 <img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.cam-recorder/main/admin/cam-recorder.png" width="100" height="100" />
 
 The cam-recorder adapter records short MP4/GIF video clips and JPEG snapshots from RTSP cameras (e.g. DoorBird) directly within ioBroker.
+
+## solectrus-influxdb (7.11.2026) – new stable release 2.3.0
+https://github.com/patricknitsch/ioBroker.solectrus-influxdb
+
+<img src="https://raw.githubusercontent.com/patricknitsch/ioBroker.solectrus-influxdb/main/admin/solectrus-influxdb.png" width="100" height="100" />
+
+The solectrus-influxdb adapter sends ioBroker states to InfluxDB for use with the SOLECTRUS solar power monitoring dashboard; versions 2.1.0 through 2.3.0 add multi-vehicle car sensors, ioBroker secrets support for the InfluxDB connection, formula engine improvements, and UI fixes.
+
+**Breaking changes**
+- Requires ioBroker.admin 8 or newer due to the React 19/MUI 9 GUI API change; Admin 6/7 can no longer load the Sensors, Data Values, and Backup tabs (2.0.1).
+
+**New features**
+- Added ioBroker secrets support: a credential from Admin settings can supply the InfluxDB URL and token; the InfluxDB port now has its own dedicated field (default 8086) (2.3.0).
+- Added new SOLECTRUS car sensors for up to five vehicles: `CAR_BATTERY_SOC`, `CAR_ODOMETER`, `CAR_RANGE`, `CAR_CONNECTED`, `CAR_LATITUDE`, `CAR_LONGITUDE` (suffix `_1`–`_5`) (2.1.0).
+- Added "Write only on change" sensor option: the value is written when the source changes, with the timestamp of the change (2.1.0).
+- Formula engine: values used only internally can now have their own alive timeout; stale inputs are shown in the overview tab (2.2.0).
+- Formula engine: alive monitoring can be disabled per input for values written only on change (2.2.0).
+
+**Bug fixes**
+- Fixed DS warning "Tick time budget exceeded" — the budget now covers only the evaluation, not snapshot reads (2.1.0).
+- Fixed sensor overview format and missing unit in the Formula Engine (2.0.1).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
