@@ -4387,6 +4387,13 @@ https://github.com/sadam6752-tech/ioBroker.e-invoices
 <img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.e-invoices/main/admin/e-invoices.png" width="100" height="100" />
 
 The e-invoices adapter allows issuing ZUGFeRD e-invoices (EN 16931 standard) directly from ioBroker as a PWA, with PDF/A and Excel export and e-mail sending capabilities.
+
+## violet (7.11.2026) – new adapter at beta (latest) repository
+https://github.com/AlPi-BRV/ioBroker.violet
+
+<img src="https://raw.githubusercontent.com/AlPi-BRV/ioBroker.violet/main/admin/violet.png" width="100" height="100" />
+
+The violet adapter enables integration of the PoolDigital Violet pool controller into ioBroker, allowing monitoring and control of pool parameters and devices.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
