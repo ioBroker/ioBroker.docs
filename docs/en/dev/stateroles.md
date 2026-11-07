@@ -1,3 +1,9 @@
+---
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/stateroles.md
+title: State roles
+lastChanged: "07.11.2026"
+---
+
 # State roles
 
 Objects from type `state` need their `common.role` property set to one of the roles defined in the list below. 
@@ -150,17 +156,17 @@ Button events triggering onChange on an adapter should be confirmed with ACK = T
 * `value.gps.radius`      - radius of current gps measurement
 * ~~`value.power.consumption` - energy consumption (unit=Wh or KWh)~~
 * ~~`value.power.production` - energy production (unit=Wh or KWh)~~
-* `value.energy`          - energy (unit=Wh, kWh or m3 for gasoline) 
+* `value.energy`          - energy (unit=Wh, kWh or m³ for gas)
 * `value.energy.active`   - active energy (unit=Ws, Wh, kWh)
 * `value.energy.reactive` - reactive energy (unit=vars, kVarh)
 * `value.energy.consumed` - energy consumed (unit=Ws, Wh, kWh)
-* `value.energy.produced` - power produced (unit=Ws, Wh or kWh)
+* `value.energy.produced` - energy produced (unit=Ws, Wh or kWh)
 * `value.power`           - energy power (unit=W or kW)
 * `value.power.active`    - active power (unit=W, kW)
 * `value.power.reactive`  - reactive power (unit=var, kVar)
 * `value.power.consumed`  - power consumed (unit=W or kW)
 * `value.power.produced`  - power produced (unit=W or kW)
-* `value.direction`       - (common.type=number, indicates up/down, left/right, 4-way switches, wind-direction, ... 0 - nothig, 1 - up/opening, 2 - down/closing, 3 - undefined)
+* `value.direction`       - (common.type=number, indicates up/down, left/right, 4-way switches, wind-direction, ... 0 - nothing, 1 - up/opening, 2 - down/closing, 3 - undefined)
 * `value.curtain`         - actual position of curtain
 * `value.blind`           - actual position of the blind (`max = fully open, min = fully closed`)
 * `value.tilt`            - actual tilt position (`max = fully open, min = fully closed`)
@@ -298,17 +304,20 @@ Switch controls a boolean device (`true = ON, false = OFF`)
 * `level.mode.airflow`    - airflow direction: `FORWARD, REVERSE`
 * `switch.mode.swing`     - boolean variant of `level.mode.swing` for devices that can only switch the swing on and off
 * `value.mode.thermostat` - what the device is actually doing, read-only: `OFF, HEAT, COOL`. The read-only counterpart of `level.mode.thermostat`
-* `value.mode.airconditioner` - current device state: `IDLE`, `HEAT, `COOL`  (0,1,2 in apple home) 
- Additionally to these states normally the `level.temperature` and `switch.power` required to map the air conditioner.
+* `value.mode.airconditioner` - current device state: `IDLE`, `HEAT`, `COOL` (0,1,2 in Apple Home)
 
-TODO: Think about ionization` and oscillation. 
+Additionally to these states, an air conditioner normally needs `level.temperature` and `switch.power`
+to be detected as a device.
+
+?> There are no defined roles for ionization and oscillation yet. If you need them, propose them in the
+[type detector](https://github.com/ioBroker/ioBroker.type-detector).
 
 ### Vacuum cleaner
 * `level.mode.cleanup`    - Enumeration of `AUTO, ECO, EXPRESS, NORMAL, QUIET`. Only `AUTO` and `NORMAL` are required. 
 * `level.mode.work`       - Enumeration of `AUTO, FAST, MEDIUM, SLOW, TURBO`. Optional state.
 * `value.water`           - 0-100% water level.
 * `value.waste`           - 0-100% waste bin level. (0% - empty, 100% - full)
-* `indicator.maintenance.waste` - Waste bin is fool.
+* `indicator.maintenance.waste` - the waste bin is full
 * `value.state`           - `HOME, CLEANING, PAUSE` and so on.
 * `vacuum.map.base64`     - map of the cleaned area as a base64 encoded image (`common.type=string`)
 * `value.usage.filter`    - remaining life of the filter in %
@@ -322,7 +331,7 @@ TODO: Think about ionization` and oscillation.
 * `value.vacuum.phase`    - current phase reported by the device (`common.type=string`)
 
 Additionally, to these states normally the `switch.power` required to map the vacuum cleaner. `switch.power` in this case works as: `true` - clean, `false` - back to home.
-Optionally `value.battery` and  
+Optionally `value.battery`.
 
 ### Gate
 * `switch.gate`           - closes(false) or opens(true) the gate (required)
@@ -348,8 +357,8 @@ Special roles for media players
 * `button.volume.up`
 * `button.volume.down`
 * `media.seek`            - (`common.type=number`) %
-* `media.mode.shuffle`    - (`common.type=number`) 0 - none, 1 - all, 2 - one
-* `media.mode.repeat`     - (`common.type=boolean`)
+* `media.mode.shuffle`    - (`common.type=boolean`)
+* `media.mode.repeat`     - (`common.type=number`) 0 - none, 1 - all, 2 - one
 * `media.state`           - `['play','stop','pause']` or `[0 - pause, 1 - play, 2 - stop]` or `[true - playing/false - pause]`
 * `media.artist`
 * `media.album`
@@ -513,7 +522,7 @@ Special roles for media players
 * `weather.state.forecast.0`        - Weather description for today
 * `weather.state.forecast.1`        - tomorrow weather state
 * `weather.title`               - Very short description
-* `weather.title.forecast.0`        - Very short description for tomorrow
+* `weather.title.forecast.0`        - Very short description for today
 * `weather.title.short`         - Very, very short description (One word)
 * `weather.type`                - Type of weather information
 

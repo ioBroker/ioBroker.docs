@@ -1,7 +1,7 @@
 ---
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/stateroles.md
 title: Zustandsrollen
-lastChanged: "09.09.2026"
+lastChanged: "07.11.2026"
 ---
 # Zustandsrollen
 Objekte des Typs `state` benötigen eine Eigenschaft `common.role`, die auf eine der unten definierten Rollen gesetzt ist.
@@ -65,7 +65,7 @@ Falls keine passende Rolle gefunden werden kann oder der Anwendungsfall nicht sp
 * `sensor.lock` - Aktueller Status des Schlosses: entriegelt - `true` oder verriegelt - `false`
 * `sensor.motion` - Bewegungssensor
 * `sensor.rain` - Regen erkannt
-* `sensor.noise` - Rauschen erkannt
+* `sensor.noise` - Geräusch erkannt
 * `sensor.switch` - Schalterstatus: ein - `true` oder aus - `false`
 
 ### button (boolean, nur schreibend)
@@ -139,8 +139,8 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `value.flow` - Durchflussrate einer Flüssigkeit oder eines Gases (Einheit: m³/h)
 * `value.rssi` - Empfangssignalstärke eines Funkgeräts (Einheit: dBm)
 * `value.time` - getTime() des Date()-Objekts
-* `value.timer` - Dauer in Sekunden (entspricht im Lese-/Schreibmodus `level.timer`)
-* `value.interval` (common.unit='sec') - Intervall in Sekunden (kann 0,1 oder weniger sein)
+* `value.timer` - Dauer in `s` (oder einer anderen üblichen Zeiteinheit) (nur lesendes Gegenstück zu `level.timer`)
+* `value.interval` (common.unit=`s`, `m`, `h`, `ms` oder `d`) - Intervall in Sekunden (oder einer anderen üblichen Zeiteinheit) (kann 0,1 oder weniger sein)
 * ~~value.date (common.type=string) - Datum im Format 2015.01.01 (ohne Uhrzeit)~~
 * ~~value.datetime (common.type=string) - Datum und Uhrzeit im Systemformat~~
 * `value.gps.longitude` - GPS-Längenkoordinaten
@@ -151,11 +151,11 @@ Benutzeroberflächen sollten den Wert dieses Zustands weder auslesen noch erwart
 * `value.gps.radius` - Radius der aktuellen GPS-Messung
 * ~~`value.power.consumption` - Energieverbrauch (Einheit=Wh oder kWh)~~
 * ~~`value.power.production` - Energieproduktion (Einheit=Wh oder kWh)~~
-* `value.energy` - Energie (Einheit=Wh, kWh oder m³ für Benzin)
+* `value.energy` - Energie (Einheit=Wh, kWh oder m³ für Gas)
 * `value.energy.active` - Wirkenergie (Einheit=Ws, Wh, kWh)
 * `value.energy.reactive` - reaktive Energie (Einheit=vars, kVarh)
 * `value.energy.consumed` - verbrauchte Energie (Einheit=Ws, Wh, kWh)
-* `value.energy.produced` - erzeugte Leistung (Einheit=Ws, Wh oder kWh)
+* `value.energy.produced` - erzeugte Energie (Einheit=Ws, Wh oder kWh)
 * `value.power` - Energieleistung (Einheit=W oder kW)
 * `value.power.active` - Wirkleistung (Einheit=W, kW)
 * `value.power.reactive` - Blindleistung (Einheit=var, kVar)
@@ -193,7 +193,7 @@ Daher kann ein Indikator nicht allein im Kanal vorkommen. Er muss Teil eines and
 * `indicator.working.test`: Ein Selbsttest des Geräts wird durchgeführt
 * `indicator.reachable` - Gibt an, ob ein Gerät online ist
 * `indicator.connected`: wird nur für Instanzen verwendet. Verwenden Sie `indicator.reachable` für Geräte.
-* `indicator.direction` - `true` - Aufwärts/Eröffnung, `false` - Abwärts/Schluss. Verwenden Sie besser `value.direction`.
+* `indicator.direction` - `true` - aufwärts/öffnen, `false` - abwärts/schließen. Verwenden Sie besser `value.direction`.
 * `indicator.error` - true, wenn ein Fehlerzustand vorliegt
 * `indicator.maintenance` - zeigt Systemwarnungen/-fehler, Alarme, Servicemeldungen, leeren Akku oder ähnliches an
 * `indicator.maintenance.lowbat`
@@ -236,7 +236,7 @@ Mit **Levels** können Sie einen Zahlenwert steuern oder festlegen.
 * `level.min` - Mindeststufe zulässig
 * `level.max` - maximal zulässige Stufe
 * `level.default` - Standardstufe
-* `level.dimmer` - Die Helligkeit ist ebenfalls geringer.
+* `level.dimmer` - Dimmwert, also ebenfalls die Helligkeit
 * `level.blind` - Jalousieposition festlegen (max = vollständig geöffnet, min = vollständig geschlossen)
 * `level.temperature` - gewünschte Temperatur einstellen
 * `level.temperature.heating` - gewünschte Heiztemperatur für Geräte, die gleichzeitig einen Heiz- und einen Kühlsollwert halten.
@@ -256,7 +256,7 @@ Mit **Levels** können Sie einen Zahlenwert steuern oder festlegen.
 * `level.effect` - Effekt, üblicherweise für Lichter. Sollte eine Liste möglicher Effekte in `common.states` enthalten. (`common.type=string`).
 * `level.timer`
 * `level.timer.sleep`: Schlaftimer. `0` bedeutet aus, sonst Minuten.
-* `level.timer.off`: Zeit in Sekunden, nach der sich das Gerät wieder ausschaltet, z. B. die Einschaltdauer einer Lampe oder einer Steckdose.
+* `level.timer.off`: Zeit in Sekunden (oder einer anderen üblichen Zeiteinheit), nach der sich das Gerät wieder ausschaltet, z. B. die Einschaltdauer einer Lampe oder einer Steckdose.
 * ...
 * `level.volume` - (`min=0, max=100`) - Lautstärke, wobei min und max unterschiedlich sein können. min < max
 * `level.volume.group` - (`min=0, max=100`) - Lautstärke für die Gerätegruppe
@@ -314,7 +314,7 @@ sie braucht, bringt das als Vorschlag im
 * `level.mode.work` - Aufzählung von `AUTO, FAST, MEDIUM, SLOW, TURBO`. Optionaler Status.
 * `value.water` - 0-100% Wasserstand.
 * `value.waste` - Füllstand des Abfallbehälters (0-100%). (0% - leer, 100% - voll)
-* `indicator.maintenance.waste` - Der Papierkorb ist ein Idiot.
+* `indicator.maintenance.waste` - Der Abfallbehälter ist voll.
 * `value.state` - `HOME, CLEANING, PAUSE` und so weiter.
 * `vacuum.map.base64` - Karte des gereinigten Bereichs als Base64-kodiertes Bild (`common.type=string`)
 * `value.usage.filter` - verbleibende Lebensdauer des Filters in %
@@ -328,7 +328,7 @@ sie braucht, bringt das als Vorschlag im
 * `value.vacuum.phase` - die vom Gerät gemeldete aktuelle Phase (`common.type=string`)
 
 Zusätzlich zu diesen Zuständen ist normalerweise `switch.power` erforderlich, um den Staubsauger zu lokalisieren. `switch.power` funktioniert in diesem Fall wie folgt: `true` bedeutet reinigen, `false` zurück zum Startpunkt.
-Optional `value.battery` und
+Optional `value.battery`.
 
 ### Tor
 * `switch.gate` - schließt (false) oder öffnet (true) das Tor (erforderlich)
@@ -354,8 +354,8 @@ Besondere Rollen für Mediaplayer
 * `button.volume.up`
 * `button.volume.down`
 * `media.seek` - (`common.type=number`) %
-* `media.mode.shuffle` - (`common.type=number`) 0 - keine, 1 - alle, 2 - eins
-* `media.mode.repeat` - (`common.type=boolean`)
+* `media.mode.shuffle` - (`common.type=boolean`)
+* `media.mode.repeat` - (`common.type=number`) 0 - keine, 1 - alle, 2 - eins
 * `media.state` - `['play','stop','pause']` oder `[0 - pause, 1 - play, 2 - stop]` oder `[true - playing/false - pause]`
 * `media.artist`
 * `media.album`
@@ -365,14 +365,14 @@ Besondere Rollen für Mediaplayer
 * `media.cover.big` - URL für großes Cover
 * `media.cover.small` - URL für winziges Cover
 * `media.duration.text` - z.B. "2:35"
-* `media.duration` - (`common.type=number`) Sekunden
+* `media.duration` - (`common.type=number`) Sekunden (oder eine andere übliche Zeiteinheit)
 * `media.elapsed.text` - z.B. "1:30"
-* `media.elapsed` - (`common.type=number`) Sekunden
+* `media.elapsed` - (`common.type=number`) Sekunden (oder eine andere übliche Zeiteinheit)
 * `media.broadcastDate` - (`common.type=string`) Sendedatum
 * `media.mute` - (`common.type=boolean`) true bedeutet stummgeschaltet
 * `media.player.name` - Name des Players (`common.type=string`)
 * `media.player.type` - Typ des Players, z. B. das Modell (`common.type=string`)
-* `media.season` - (`common.type=string`) Saisonnummer (wichtig: Der Typ ist tatsächlich "string", um das Fehlen einer Saison mit "") angeben zu können.
+* `media.season` - (`common.type=string`) Staffelnummer (wichtig: Der Typ ist tatsächlich "string", um das Fehlen einer Staffel mit "" anzeigen zu können).
 * `media.episode` - (`common.type=string`) Episodennummer (wichtig: Der Typ ist tatsächlich "string", um das Fehlen einer Episode mit "") anzeigen zu können.
 * `media.mute.group` - (`common.type=boolean`) Stummschaltung einer Gruppe von Geräten
 * `media.tts` - Text-zu-Sprache
@@ -388,10 +388,10 @@ Besondere Rollen für Mediaplayer
 * `media.url.announcement` - URL zum Abspielen einer Ankündigung
 * `media.jump` - Anzahl der Elemente, zu denen in der Wiedergabeliste gesprungen werden soll (kann negativ sein)
 * `media.content` - Art des wiedergegebenen Mediums, z. B. Audio/MP3
-* `media.link` - Status der aktuellen Datei
-* `media.input` - Zahl oder Zeichenkette des Eingangs (AUX, AV, TV, SAT, ...). Bei einem `tv` eine Zeichenkette, deren `common.states`-Schlüssel aus `TV_INPUTS` des type-detector stammen, z. B. `HDMI1`
-* `media.key` - (`common.type=string`, nur schreibbar) zu sendende Taste einer Fernbedienung, z. B. `UP`, `SELECT`, `BACK`, `HOME`. `common.states` listet die Tasten, die das Gerät versteht; die Namen folgen den CEC-Tastencodes des Matter-Clusters KeypadInput (Gerätetyp `tv`). Bei einem `tv` stammen die Schlüssel von `common.states` aus `TV_KEYS` des type-detector
-* `media.app` - (`common.type=string`) zu startende App, z. B. `YOUTUBE`, `NETFLIX`, `DISNEY_PLUS`. Die Schlüssel von `common.states` stammen aus `TV_APPS` des type-detector, das Gerät listet nur die Apps, die es unterstützt (Gerätetyp `tv`)
+* `media.link` - Zustand mit der aktuellen Datei
+* `media.input` - Zahl oder Zeichenkette des Eingangs (AUX, AV, TV, SAT, ...)
+* `media.key` - (`common.type=string`, nur schreibbar) zu sendende Taste einer Fernbedienung, z. B. `UP`, `SELECT`, `BACK`, `HOME`. `common.states` listet die Tasten, die das Gerät versteht; die Namen folgen den CEC-Tastencodes des Matter-Clusters KeypadInput (Gerätetyp `tv`)
+* `media.app` - (`common.type=string`) zu startende App; `common.states` ordnet der App-ID ihren Namen zu (Gerätetyp `tv`)
 * `level.bass` - Basspegel
 * `level.treble` - Höhenpegel
 * `switch.power.zone` - Stromzone
@@ -519,7 +519,7 @@ Besondere Rollen für Mediaplayer
 * `weather.state.forecast.0` - Wetterbeschreibung für heute
 * `weather.state.forecast.1` - Wetterzustand von morgen
 * `weather.title` - Sehr kurze Beschreibung
-* `weather.title.forecast.0` - Sehr kurze Beschreibung für morgen
+* `weather.title.forecast.0` - Sehr kurze Beschreibung für heute
 * `weather.title.short` - Sehr, sehr kurze Beschreibung (Ein Wort)
 * `weather.type` - Art der Wetterinformationen
 
@@ -569,8 +569,8 @@ Rolle eines Bildes (Gerätetyp `image`):
 * `url.same` - URL in diesem Fenster öffnen
 * `url.audio` - URL für eine Audiodatei
 * `text.phone` - Telefonnummer
-* `time.span`: Zeitdifferenz in Millisekunden (common.type=number), d. h. Zeit seit der letzten Aktualisierung, Dauer der Operation, Zeit bis zum nächsten Versuch, ...
-* `time.interval` - Intervallwert in ms (common.type=number), d. h. ein Abfrageintervall
+* `time.span`: Zeitdifferenz in Millisekunden (oder einer anderen üblichen Zeiteinheit) (common.type=number), d. h. Zeit seit der letzten Aktualisierung, Dauer der Operation, Zeit bis zum nächsten Versuch, ...
+* `time.interval` - Intervallwert in ms (oder einer anderen üblichen Zeiteinheit) (common.type=number), d. h. ein Abfrageintervall
 * `time.timeout` - Timeout-Wert in Millisekunden (common.type=number), d. h. Timeouts für Kommunikationsanfragen
 * `chart` - JSON-Array mit Diagrammdaten, z. B. `[{ts: 1678575600000, val: 1}, {ts: 1678579200000, val: 2}]`
 
@@ -578,7 +578,7 @@ Rolle eines Bildes (Gerätetyp `image`):
 * `adapter.wakeup` (`common.type=boolean, common.write=true`) Adapter aus dem Ruhezustand aufwecken
 
 ## Veraltete Rollenaliase
-Der [Detektortyp](https://github.com/ioBroker/ioBroker.type-detector) akzeptiert weiterhin die unten aufgeführten Rollen, damit bestehende Adapter weiterhin funktionieren. Diese Rollen sind jedoch **veraltet**. Verwenden Sie sie nicht in neuen Adaptern und migrieren Sie sie, wenn Sie einen alten Adapter ändern. Für jeden Alias gibt es eine dokumentierte Alternative in den folgenden Tabellen.
+Der [Typ-Detektor](https://github.com/ioBroker/ioBroker.type-detector) akzeptiert weiterhin die unten aufgeführten Rollen, damit bestehende Adapter weiterhin funktionieren. Diese Rollen sind jedoch **veraltet**. Verwenden Sie sie nicht in neuen Adaptern und migrieren Sie sie, wenn Sie einen alten Adapter ändern. Für jeden Alias gibt es eine dokumentierte Alternative in den folgenden Tabellen.
 
 ### button: der Namensraum `action.*`
 Der gesamte Namensraum `action.*` ist eine alte Schreibweise von `button.*`. Der Detektor erkennt `button` und `action` gleichermaßen.
@@ -586,22 +586,22 @@ Der gesamte Namensraum `action.*` ist eine alte Schreibweise von `button.*`. Der
 | Veraltet | Verwenden Sie stattdessen |
 |----------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | `action.play`, `action.pause`, `action.stop`, `action.next`, `action.prev` | `button.play`, `button.pause`, `button.stop`, `button.next`, `button.prev` |
+| `action.home` | `button.home` |
 | `action.open`, `action.open.blind` | `button.open.blind` |
 | `action.close`, `action.close.blind` | `button.close.blind` |
 | `action.open.tilt`, `action.close.tilt`, `action.stop.tilt` | `button.open.tilt`, `button.close.tilt`, `button.stop.tilt` |
-| `action.stop.blind` | `button.stop.blind` |
 | `action.stop.blind` | `button.stop.blind` |
 
 ### Sensoren und Alarme mit dem Präfix `state.` oder ohne `.alarm`
 | Veraltet | Verwenden Sie stattdessen |
 |-----------------------------------------------------------------------|-----------------------------------------------------------|
 | `state.window` | `sensor.window` |
+| `state.door` | `sensor.door` |
 | `state.fire`, `state.alarm.fire`, `sensor.fire`, `indicator.fire` | `sensor.alarm.fire` |
 | `state.flood`, `state.alarm.flood`, `sensor.flood`, `indicator.flood` | `sensor.alarm.flood` |
 | `state.co`, `state.alarm.co`, `sensor.co` | `sensor.alarm.co` |
 | `motion`, `state.motion` | `sensor.motion` |
 | `state.light` | `sensor.light` (nur lesbar) oder `switch.light` (lesen/schreiben) |
-| `state.active` | `sensor.switch` |
 | `state.active` | `sensor.switch` |
 
 ### indicator
@@ -614,19 +614,19 @@ Der gesamte Namensraum `action.*` ist eine alte Schreibweise von `button.*`. Der
 | Veraltet | Verwenden Sie stattdessen |
 |---------------------------|----------------------------------|
 | `switch.active` | `switch` |
+| `switch.party` | `switch.mode.party` |
 | `switch.boost` | `switch.mode.boost` |
 | `switch.autofocus` | `switch.camera.autofocus` |
 | `switch.autowhitebalance` | `switch.camera.autowhitebalance` |
 | `switch.brightness` | `switch.camera.brightness` |
-| `switch.nightmode` | `switch.camera.nightmode` |
 | `switch.nightmode` | `switch.camera.nightmode` |
 
 ### level und value
 | Veraltet | Verwenden Sie stattdessen |
 |--------------------------------------------------------|----------------------------------------------------------------------|
 | `level.thermostat` | `level.mode.thermostat` |
+| `value.latitude`, `value.longitude`, `value.elevation` | `value.gps.latitude`, `value.gps.longitude`, `value.gps.elevation` |
 | `value.radius`, `value.accuracy` | `value.gps.radius`, `value.gps.accuracy` |
-| `value.brush`, `value.brush.side`, `value.sensors` | `value.usage.brush`, `value.usage.brush.side`, `value.usage.sensors` |
 | `value.brush`, `value.brush.side`, `value.sensors` | `value.usage.brush`, `value.usage.brush.side`, `value.usage.sensors` |
 
 ### media
