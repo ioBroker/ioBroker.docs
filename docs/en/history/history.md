@@ -4327,6 +4327,13 @@ The solectrus-influxdb adapter sends ioBroker states to InfluxDB for use with th
 **Bug fixes**
 - Fixed DS warning "Tick time budget exceeded" — the budget now covers only the evaluation, not snapshot reads (2.1.0).
 - Fixed sensor overview format and missing unit in the Formula Engine (2.0.1).
+
+## ewelink (7.11.2026) – new adapter at beta (latest) repository
+https://github.com/AlanSRU/ioBroker.ewelink
+
+<img src="https://raw.githubusercontent.com/AlanSRU/ioBroker.ewelink/main/admin/ewelink.png" width="100" height="100" />
+
+The ewelink adapter controls Sonoff/eWeLink switches on the local network using the eWeLink LAN control mode, enabling local control without cloud dependency.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
