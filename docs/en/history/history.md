@@ -4334,6 +4334,29 @@ https://github.com/AlanSRU/ioBroker.ewelink
 <img src="https://raw.githubusercontent.com/AlanSRU/ioBroker.ewelink/main/admin/ewelink.png" width="100" height="100" />
 
 The ewelink adapter controls Sonoff/eWeLink switches on the local network using the eWeLink LAN control mode, enabling local control without cloud dependency.
+
+## fritzbox (7.11.2026) – new stable release 1.1.1
+https://github.com/iobroker-community-adapters/ioBroker.fritzbox
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.fritzbox/master/admin/fritzbox.png" width="100" height="100" />
+
+The fritzbox adapter reads status and call data from AVM Fritz!Box routers; version 1.0.0 is a major rewrite in TypeScript with a new admin UI, English documentation, and several bug fixes, while 1.1.1 addresses repository checker findings.
+
+**Breaking changes**
+- Requires Node.js >= 22 (1.0.0).
+
+**New features**
+- Adapter fully rewritten in TypeScript; sources moved to `src/`, compiled to `build/` (1.0.0).
+- Admin configuration migrated from an HTML page to JsonConfig with translated `admin/i18n/` files (1.0.0).
+- README translated from German to English; inline docs merged into a single file (1.0.0).
+- `request` replaced by `axios` (1.0.0).
+- Compact mode support added (1.0.0).
+
+**Bug fixes**
+- Fixed state roles, responsive config, JSON state types, `calls.missedCount` role, and copyright notices (1.1.1).
+- Fixed after a lost connection the adapter only tried to reconnect once (1.0.0).
+- Fixed `tel:` links written to `telLinks.*` instead of `calls.telLinks.*` (1.0.0).
+- Fixed answering-machine audio file cleanup looking in the working directory instead of the instance directory (1.0.0).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
