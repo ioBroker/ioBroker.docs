@@ -4394,6 +4394,25 @@ https://github.com/AlPi-BRV/ioBroker.violet
 <img src="https://raw.githubusercontent.com/AlPi-BRV/ioBroker.violet/main/admin/violet.png" width="100" height="100" />
 
 The violet adapter enables integration of the PoolDigital Violet pool controller into ioBroker, allowing monitoring and control of pool parameters and devices.
+
+## tedee (8.11.2026) – new stable release 1.0.1
+https://github.com/TA2k/ioBroker.tedee
+
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.tedee/main/admin/tedee.png" width="100" height="100" />
+
+**New features and fixes since 0.3.2:**
+
+- (Schimi1983) Breaking: `remote.lock` replaced by `remote.open` with ioBroker role `switch.lock` (`true` = unlock, `false` = lock)
+- (Schimi1983) All states get ioBroker roles, units and names; 0/1 values are booleans now
+- (Schimi1983) Locks, keypads and the bridge are devices; lock is detected by the type-detector (Alexa, HomeKit, Material)
+- (Schimi1983) New: PIN management for keypad PINs (show, create, change, delete)
+- (Schimi1983) New: channel `lastAction` shows who and how the lock was operated, including the PIN name
+- (Schimi1983) New: optional setting "Callback host" for webhooks (Docker, multiple network interfaces, IPv6)
+- (Schimi1983) Fix: webhooks of other systems (e.g. Home Assistant) are no longer deleted
+- (Schimi1983) Fix: lock commands are no longer repeated on errors
+- (Schimi1983) Fix: lock states 3 (partially open) and 255 (unpulling)
+- (Schimi1983) README and instance settings rewritten for beginners: setup in 3 steps, daily use, troubleshooting
+- (Schimi1983) Node.js >= 22, js-controller >= 6.0.11 and admin >= 7.8.23 required
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
