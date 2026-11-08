@@ -4413,6 +4413,13 @@ https://github.com/TA2k/ioBroker.tedee
 - (Schimi1983) Fix: lock states 3 (partially open) and 255 (unpulling)
 - (Schimi1983) README and instance settings rewritten for beginners: setup in 3 steps, daily use, troubleshooting
 - (Schimi1983) Node.js >= 22, js-controller >= 6.0.11 and admin >= 7.8.23 required
+
+## sky-remote (8.11.2026) – new adapter at stable repository
+https://github.com/AlanSRU/ioBroker.sky-remote
+
+<img src="https://raw.githubusercontent.com/AlanSRU/ioBroker.sky-remote/main/admin/sky-remote.png" width="100" height="100" />
+
+The sky-remote adapter enables network control of Sky Q set-top boxes via HTTP commands from ioBroker.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
