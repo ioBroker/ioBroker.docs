@@ -4434,6 +4434,13 @@ https://github.com/H5N1v2/ioBroker.open-meteo-weather
 - (H5N1v2) New: added `diffuse_radiation` to 15-minute weather forecast
 - (H5N1v2) Fix: "Error Timeout is smaller than 0" occurring during the transition to/from daylight saving time
 - (H5N1v2) Update dependencies
+
+## blackmagic-atem (9.11.2026) – new adapter at stable repository
+https://github.com/AlanSRU/ioBroker.blackmagic-atem
+
+<img src="https://raw.githubusercontent.com/AlanSRU/ioBroker.blackmagic-atem/main/admin/blackmagic-atem.png" width="100" height="100" />
+
+The blackmagic-atem adapter enables integration and control of Blackmagic Atem video mixers from ioBroker.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
