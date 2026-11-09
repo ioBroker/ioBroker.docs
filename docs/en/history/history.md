@@ -4441,6 +4441,19 @@ https://github.com/AlanSRU/ioBroker.blackmagic-atem
 <img src="https://raw.githubusercontent.com/AlanSRU/ioBroker.blackmagic-atem/main/admin/blackmagic-atem.png" width="100" height="100" />
 
 The blackmagic-atem adapter enables integration and control of Blackmagic Atem video mixers from ioBroker.
+
+## bmw (9.11.2026) – new stable release 5.0.5
+https://github.com/TA2k/ioBroker.bmw
+
+<img src="https://raw.githubusercontent.com/TA2k/ioBroker.bmw/master/admin/bmw.png" width="100" height="100" />
+
+**New features and fixes since 5.0.2:**
+
+- (TA2k) Fixed unnecessary container cleanup that used up the daily API request limit
+- (TA2k) Fixed telematic data fetching (CU-400): the container now uses only the data keys BMW accepts
+- (TA2k) Container now includes non-streaming data keys again (e.g. charging level), so the adapter shows more values
+- (TA2k) Existing installations update to the new container automatically
+- (hombach) Fixed repochecker error, fixed translations, updated dependencies
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
