@@ -1,10 +1,7 @@
 ---
 title: objects
 lastChanged: 07.09.2026
-translatedFrom: de
-translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/objects.md
-hash: KG7h+tTI7RmaTbs4YuohGxZxhwh+TYLgQbR2abQie6c=
 ---
 # Objects tab
 
@@ -22,9 +19,9 @@ The most important commands are located at the top. Each icon has a tooltip; sim
 | --- | -------------------------------------------------------------------------------------------------- |
 | 1   | **Update tree.** If newly created objects are not yet visible, click here.                         |
 | 2   | **Configure.** Determines which columns the table displays and how wide they are.                  |
-| 3   | **Open or close all knots.**                                                                       |
+| 3   | **Expand or collapse all nodes.**                                                                  |
 | 4   | **Expand one level.**                                                                              |
-| 5   | **Fold one level down.**                                                                           |
+| 5   | **Collapse one level.**                                                                            |
 | 6   | **Switch status view** (see below).                                                                |
 | 7   | **Show/hide object descriptions.** Displays the object's description text in addition to its name. |
 | 8   | **Add new object** (see below).                                                                    |
@@ -41,16 +38,16 @@ The objects are listed in a table. The input fields and selection menus below th
 
 <img src="media/admin_objekte_spalten.png" alt="Die Spalten der Objekttabelle" width="900" />
 
-| No. | Split        | Meaning                                                                                                                                                               |
+| No. | Column       | Meaning                                                                                                                                                               |
 | --- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1   | **ID**       | The object hierarchy. At the top are the namespaces, below them devices, channels, and data points. The filter field may contain...`*` They are used as placeholders. |
 | 2   | **name**     | The object's name, preceded by a symbol indicating its hierarchy level. The name can be edited directly.                                                              |
 | 3   | **type**     | Device, channel, state, or directory. The selection menu can be used, for example, to restrict the search to specific states.                                         |
 | 4   | **role**     | Tells surfaces like vis what the data point represents (`switch.lock` ,`indicator.alarm` ,`button` …). Editable, with a suggestion list; free text input is allowed.  |
-| 5   | **Space**    | The assigned room. Clicking on the field opens the list of created rooms.                                                                                             |
+| 5   | **Room**     | The assigned room. Clicking on the field opens the list of created rooms.                                                                                             |
 | 6   | **function** | The assigned trade, for example lighting or heating.                                                                                                                  |
 | 7   | **Value**    | The current value is shown for data points. **Red** means: not yet confirmed by the device (`ack = false` ).                                                          |
-| 8   | **right**    | The object's access rights are expressed as an octal number, similar to Linux file permissions.                                                                       |
+| 8   | **Rights**   | The object's access rights are expressed as an octal number, similar to Linux file permissions.                                                                       |
 | 9   |              | The buttons in the row (see below).                                                                                                                                   |
 
 Rooms and trades are created in the [Categories](/docs/admin/enums.md) tab.
@@ -63,7 +60,23 @@ Symbol **6** displays additional columns for each state: who last set it, its qu
 
 ?>`0x00 - good` This means the value is valid. Other values indicate a problem, for example...`0x20 - substitute` for a replacement value.
 
-## Create a new object
+## How do you create a new data point (state)?
+
+A data point in ioBroker is an object of type **State**. Your own data points belong in `0_userdata.0`, aliases in `alias.0` (see [Alias](/docs/basics/alias.md)). In the Objects tab:
+
+1. Select the entry below which the data point should be created, for example `0_userdata.0`.
+2. Click symbol **8** (Add new object).
+3. In the dialog, choose the type **State**, the state type (logic value, number, string ...) and enter the name.
+
+From a script, `createState` of the JavaScript adapter creates a data point if it does not exist yet:
+
+```js
+createState('0_userdata.0.Temperatur', 0, { name: 'Temperatur', type: 'number', unit: '°C', read: true, write: true });
+```
+
+All parameters of `createState` are described in the documentation of the [JavaScript adapter](/adapters/javascript).
+
+## The dialog Add new object
 
 Symbol **8** creates an object below the currently selected entry.
 

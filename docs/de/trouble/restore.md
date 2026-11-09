@@ -19,7 +19,7 @@ zurückzuholen.
 | **Die Objektdatenbank** | Nach einem Absturz sind Objekte weg oder unbrauchbar. | Die automatischen Sicherungen im Datenverzeichnis |
 | **Die ganze Installation** | Hardwarewechsel, defekte Karte, misslungenes Update. | `iobroker restore` oder BackItUp |
 
-## Ein einzelnes Objekt
+## Wie stellt man ein einzelnes gelöschtes Objekt oder einen Datenpunkt wieder her?
 
 Im Reiter [Objekte](/docs/admin/objects.md)
 lässt sich ein Objekt als JSON ansehen und bearbeiten. Wer den vorherigen Stand
@@ -47,7 +47,7 @@ ihrer Zuordnungen zu Räumen und Funktionen.
 darunter hängt. Aufgezeichnete Werte in `history`, `influxdb` oder `sql` sind
 davon nicht betroffen, die liegen außerhalb.
 
-## Die automatischen Sicherungen der Datenbank
+## Wo liegen die automatischen Sicherungen der Objektdatenbank?
 
 ioBroker legt selbständig Kopien der Objektdatenbank an, unabhängig von jedem
 Sicherungsadapter. Sie liegen unter:

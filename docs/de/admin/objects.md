@@ -75,7 +75,23 @@ wurde, seine Qualität, der Zeitstempel und der Zeitpunkt der letzten Änderung.
 ?> `0x00 - good` heißt: der Wert ist gültig. Andere Werte weisen auf ein Problem hin,
 zum Beispiel `0x20 - substitute` für einen Ersatzwert.
 
-## Ein neues Objekt anlegen
+## Wie legt man einen Datenpunkt (Zustand) neu an?
+
+Ein Datenpunkt ist in ioBroker ein Objekt vom Typ **Zustand**. Eigene Datenpunkte gehören nach `0_userdata.0`, Aliase nach `alias.0` (siehe [Alias](/docs/basics/alias.md)). So geht es im Reiter Objekte:
+
+1. Den Eintrag auswählen, unter dem der Datenpunkt liegen soll, zum Beispiel `0_userdata.0`.
+2. Symbol **8** (Neues Objekt hinzufügen) anklicken.
+3. Im Dialog den Typ **Zustand** und den Zustandstyp wählen (Logikwert, Zahl, Zeichenkette ...) und den Namen eintragen.
+
+Aus einem Skript heraus legt `createState` des JavaScript-Adapters einen Datenpunkt an, falls er noch nicht existiert:
+
+```js
+createState('0_userdata.0.Temperatur', 0, { name: 'Temperatur', type: 'number', unit: '°C', read: true, write: true });
+```
+
+Alle Parameter von `createState` stehen in der Beschreibung des [JavaScript-Adapters](/adapters/javascript).
+
+## Das Dialogfenster Neues Objekt
 
 Symbol **8** legt ein Objekt unterhalb des gerade ausgewählten Eintrags an.
 

@@ -5,13 +5,16 @@ lastChanged: "08.09.2026"
 
 # Datensicherung
 
+Diese Seite erklärt, wie man ioBroker sichert (Backup erstellen), was dabei gesichert wird,
+wie man regelmäßige Backups einrichtet und wie man eine Sicherung zurückspielt.
+
 Eine ioBroker-Installation wächst über Monate: Instanzen, Objekte, Skripte,
 Visualisierungen, aufgezeichnete Werte. Eine defekte SD-Karte oder ein
 missglücktes Update wirft das alles weg. Die Frage ist deshalb nicht **ob**
 gesichert wird, sondern **wann die erste Sicherung angelegt wird**, und die
 Antwort lautet: bevor etwas passiert.
 
-## Was in eine Sicherung gehört
+## Was wird bei einem ioBroker-Backup gesichert?
 
 Ein ioBroker-Backup enthält die beiden Datenbanken, also alle **Objekte** und
 **Zustände**, die Liste der installierten Adapter mit ihrer Konfiguration sowie
@@ -29,7 +32,7 @@ vollständig eingerichtetes System wieder her, in dem alle Diagramme leer sind,
 wenn der passende Schalter fehlte. Was wo liegt, steht unter
 [Datenaufzeichnung](/docs/config/history.md).
 
-## BackItUp
+## Wie erstellt man ein Backup mit BackItUp?
 
 Der übliche Weg ist der Adapter
 [BackItUp](/adapters/backitup).
@@ -41,7 +44,7 @@ Oben stehen der Zeitpunkt der letzten und der nächsten Sicherung sowie die
 aktiven Backup- und Speicheroptionen. Darunter lassen sich Sicherungen von Hand
 anstoßen und die Historie einsehen, ganz unten wird zurückgespielt.
 
-### Einrichten
+### Backup einrichten: Zeitplan, Speicherort und Aufbewahrung
 
 In der Konfiguration der Instanz `backitup.0` steht im Reiter
 **Haupteinstellungen** unter *Was soll gesichert werden?* die Liste der
@@ -74,9 +77,9 @@ CRON-Job** ein.
 ?> Die vollständige Beschreibung aller Backup-Typen und Speicherziele steht in
 der [Dokumentation des Adapters](/adapters/backitup).
 
-## Ohne Adapter, über die Kommandozeile
+## Wie sichert und stellt man ioBroker ohne Adapter über die Kommandozeile wieder her?
 
-ioBroker kann auch ohne Zusatzadapter sichern:
+ioBroker kann auch ohne Zusatzadapter sichern (`iobroker backup`) und wieder herstellen (`iobroker restore`):
 
 ```bash
 iobroker stop
@@ -98,7 +101,7 @@ auf.
 !> ioBroker muss für beide Befehle gestoppt sein. Eine Sicherung im laufenden
 Betrieb kann unvollständig sein.
 
-## Was eine Sicherung erst zu einer Sicherung macht
+## Wie testet man, ob ein Backup funktioniert?
 
 Ein Backup, das noch nie zurückgespielt wurde, ist eine Vermutung. Es lohnt
 sich, den Ernstfall einmal in Ruhe zu üben, auf einem zweiten Rechner oder in

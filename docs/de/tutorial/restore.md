@@ -5,6 +5,9 @@ lastChanged: "08.09.2026"
 
 # Eine Installation wiederherstellen
 
+Diese Anleitung zeigt, wie man ein ioBroker-Backup zurückspielt (Restore), mit
+BackItUp oder über die Konsole mit `iobroker restore`.
+
 Nach einem Hardwarewechsel, einer defekten Speicherkarte oder einem misslungenen
 Update wird die Installation aus einer Sicherung zurückgespielt. Das klingt
 größer, als es ist: bei richtiger Reihenfolge ist die Sache in einer knappen
@@ -67,7 +70,7 @@ Installation bereits an.
 wiederherstellen. Die lokale Datei ist der Weg mit den wenigsten
 Fehlerquellen und deshalb der, den diese Anleitung beschreibt.
 
-## Weg 1: mit BackItUp
+## Weg 1: Restore mit BackItUp (grafisch im Admin)
 
 Der bequemere Weg, ohne einen einzigen Konsolenbefehl.
 
@@ -111,7 +114,7 @@ zurückgespielt. In der Liste stehen sie als eigene Einträge:
 
 ![Alle Sicherungstypen in der Liste](media/restore/1575362131512-fullliste.jpg)
 
-## Weg 2: über die Konsole
+## Weg 2: Restore über die Konsole mit iobroker restore
 
 Wer sehen will, was gerade passiert, nimmt den direkten Weg.
 
@@ -135,7 +138,7 @@ sich per Nummer wählen lässt.
 Redis-, Zigbee-, MySQL- oder History-Backup kommt aus BackItUp und wird auch
 nur dort wieder eingespielt.
 
-## Nach der Wiederherstellung
+## Was passiert nach dem Restore? Die Adapter werden neu installiert
 
 Im Reiter *Log* ist zu sehen, wie ioBroker alle Adapter der alten Installation
 nacheinander über npm neu installiert. Das ist der langwierige Teil: je nach

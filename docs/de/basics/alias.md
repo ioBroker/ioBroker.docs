@@ -3,9 +3,11 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/basics/a
 title: Alias
 ---
 # Alias
-Alias (Pseudonym) ist ein virtueller Datenpunkt, der mit einem realen Datenpunkt verknüpft ist.
+Ein Alias (Pseudonym) ist ein virtueller Datenpunkt im Namensraum `alias.0`, der mit einem realen Datenpunkt verknüpft ist. Er liefert den Wert des realen Datenpunkts und gibt geschriebene Werte an ihn weiter, wahlweise mit Umrechnung (zum Beispiel Fahrenheit nach Celsius oder Skala 0 bis 255 nach 0 bis 100).
 
-## Anwendungsfälle
+Diese Seite beantwortet: Wozu braucht man einen Alias, wie legt man einen Alias an, wie tauscht man ein Gerät aus, ohne vis, Skripte und Szenen anzupassen, und wie rechnet ein Alias Werte, Einheiten und Typen um.
+
+## Wozu braucht man einen Alias?
 Oft sind die realen Geräte defekt und der Benutzer muss dieses Gerät austauschen.
 Zusätzlich dazu, dass die Hardware ausgetauscht wird, wird die Adresse dieses Geräts geändert. Z.B. von `hm-rpc.0.ABC123` in `hm-rpc.0.QJU978`.
 
@@ -22,7 +24,26 @@ Mit Hilfe von Aliasen kann die erforderliche Statusstruktur erstellt werden, die
 *Der Alias steht zwischen dem realen Datenpunkt und allem, was ihn benutzt. Beim
 Lesen und beim Schreiben rechnet er um.*
 
-## Erklärung
+## Wie legt man einen Alias an?
+Ein Alias ist ein gewöhnliches Objekt vom Typ Zustand unterhalb von `alias.0`. Es gibt zwei Wege, ihn anzulegen.
+
+**Im Reiter Objekte.** Das Objekt wird dort wie jeder andere Datenpunkt von Hand angelegt (siehe [Reiter Objekte](/docs/admin/objects.md)), und zwar unterhalb von `alias.0`. Das ist auch ohne Expertenmodus erlaubt. Danach wird das Objekt mit dem Bleistift geöffnet und die ID des realen Datenpunkts in `common.alias.id` eingetragen. Name, Typ, Rolle und Einheit des Alias stehen wie bei jedem Datenpunkt in `common`.
+
+**Per Skript mit dem JavaScript-Adapter.** Die Funktion `createAlias` legt den Alias an, falls er noch nicht existiert. Der Namensraum `alias.0.` wird automatisch vorangestellt:
+
+```js
+// legt alias.0.Wohnzimmer.Licht an und verweist auf den realen Datenpunkt
+createAlias('Wohnzimmer.Licht', 'hm-rpc.0.ABC123.STATE');
+
+// getrennte Datenpunkte zum Lesen und zum Schreiben
+createAlias('Wohnzimmer.Licht', { id: { read: 'hm-rpc.0.ABC123.STATE', write: 'hm-rpc.0.ABC123.LEVEL' } });
+```
+
+Die Beschreibung (`common`, also Typ, Rolle, Einheit) wird vom gelesenen Datenpunkt übernommen. Eigene Angaben haben Vorrang. Alle Parameter stehen in der Beschreibung des [JavaScript-Adapters](/adapters/javascript).
+
+**Ein Gerät austauschen.** Hat das neue Gerät eine andere Adresse, wird nur `common.alias.id` des Alias auf die neue ID geändert. vis, Skripte und Szenen, die den Alias benutzen, bleiben unverändert.
+
+## Wie funktioniert ein Alias?
 Alle Datenpunkte, die im Objektnamensraum `alias.0` angelegt werden, werden als Alias-Datenpunkte verwaltet.
 
 Der Wert des Alias wird aus dem verknüpften Datenpunkt (Ziel) gelesen, aber Objekteigenschaften (wie common, native) werden selbst aus dem Alias-Datenpunkt gelesen.
@@ -53,6 +74,7 @@ Hier ist ein Beispiel für ein solches Objekt:
 
 In der `common.alias.id` ist die ID des Datenpunktes gespeichert, dessen Wert eingelesen oder eingeschrieben werden muss.
 
+## Wie rechnet ein Alias Werte, Einheiten und Typen um?
 Alias konvertiert den Wert automatisch, wenn Min / Max-Einstellungen für beide Objekte (Alias und Ziel) definiert sind.
 
 Z.B. Wenn der Alias `min=0,max=100` und das Ziel `min=0,max=255` hat, wird beim Lesen der Wert 10 aus dem Zielstatus in 3,9215686274509802 konvertiert und der in den Alias 10 geschriebene Wert wird in 25,5 konvertiert.
@@ -69,7 +91,7 @@ Zusätzlich können Schreib- und Lesefunktionen in `common.alias` definiert werd
     "alias": {
       "id": "knx.0.6786878.value",
       "write": "(val * 9/5) + 32",
-      "read": "(val − 32) * 5/9"
+      "read": "(val - 32) * 5/9"
     },
     "unit": "°C",
     "name": "Temperature",
@@ -138,6 +160,7 @@ Die Abonnements werden automatisch verwaltet. Wenn ein Alias abonniert wird, wir
 
 Die ID des Zielgeräts kann dynamisch (über den Administrator) geändert werden, und das Abonnement wird für eine neue Ziel-ID aktualisiert.
 
+## Wie liest und schreibt ein Alias über zwei getrennte Datenpunkte?
 Seit Version 3.0 des js-controllers können getrennte Status- und Kommando-Datenpunkte im Alias zusammengeführt werden:
 * alias.id.write enthält die ID des Datenpunktes, der gesetzt wird, wenn der Alias geschrieben wird
 * alias.id.read enthält die ID des Datenpunktes, der durch den Alias gespiegelt wird
@@ -154,7 +177,7 @@ Seit Version 3.0 des js-controllers können getrennte Status- und Kommando-Daten
             id: {
                 read: 'state.id.to.read.from',
                 write: 'state.id.to.write.to'
-            }
+            },
             read: 'val * 10 + 1',
             write: '(val - 1) / 10'
         }

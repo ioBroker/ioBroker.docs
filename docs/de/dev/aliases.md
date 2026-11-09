@@ -18,7 +18,7 @@ verwendet wurde, müsste der Benutzer nun alle diese Stellen finden und dort
 ersetzen.
 
 Die Alias Funktion ermöglicht es nun dem Benutzer, einen Alias für den Datenpunkt
-eines physischen Gerätes zuzuweisen und diesen Alias in allen Stellen vie vis,
+eines physischen Gerätes zuzuweisen und diesen Alias an allen Stellen wie vis,
 javascript usw. zu verwenden. Beim Geräte Tausch muss dann nur die ID im Alias 
 geändert werden.
 
@@ -84,7 +84,7 @@ Zusätzlich können Schreib- und Lesefunktionen in `common.alias` definiert werd
     "alias": {
       "id": "knx.0.6786878.value",
       "write": "(val * 9/5) + 32",
-      "read": "(val − 32) * 5/9"
+      "read": "(val - 32) * 5/9"
     },
     "unit": "°C",
     "name": "Temperature",

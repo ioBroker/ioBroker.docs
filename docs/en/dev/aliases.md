@@ -62,7 +62,7 @@ Additionally the write and read functions could be defined in `common.alias`:
     "alias": {
       "id": "knx.0.6786878.value",
       "write": "(val * 9/5) + 32",
-      "read": "(val − 32) * 5/9"
+      "read": "(val - 32) * 5/9"
     },
     "unit": "°C",
     "name": "Temperature",

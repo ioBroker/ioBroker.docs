@@ -1,10 +1,7 @@
 ---
 title: Restore
 lastChanged: 08.09.2026
-translatedFrom: de
-translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/restore.md
-hash: 78zr7S56B2Whg5zN+7hWJNlmh03BXAyuzO3xD+Xr5Xs=
 ---
 # Restore an installation
 
@@ -12,7 +9,7 @@ After a hardware change, a faulty memory card, or a failed update, the installat
 
 This page describes the complete process for setting up a **newly configured** system. For minor issues, such as an accidentally deleted item, there are faster methods: [Restore configuration](/docs/trouble/restore.md) .
 
-## What's included in the fuse and what isn't
+## What does a backup contain and what does it not contain?
 
 **An ioBroker backup does not include the recorded measurements.** It backs up objects, states, configurations, scripts, and visualizations. The data from`history` InfluxDB and SQL are **separate** backup types in BackItUp and must be enabled there separately. The same applies to the Zigbee database and Redis. See [Data Backup](/docs/config/backup.md) for details.
 
@@ -50,7 +47,7 @@ sudo reboot
 
 BackItUp can also restore directly from NAS, Dropbox, or Google Drive. However, restoring from a local file is the method with the fewest potential errors and is therefore the one described in this guide.
 
-## Option 1: with BackItUp
+## Option 1: Restore with BackItUp (graphical, in the Admin)
 
 The more convenient way, without using a single console command.
 
@@ -84,7 +81,7 @@ Depending on the device and the size of the installation, this takes about 10 to
 
 ![All backup types in the list](../../de/tutorial/media/restore/1575362131512-fullliste.jpg)
 
-## Method 2: via the console
+## Option 2: Restore on the console with iobroker restore
 
 Those who want to see what's happening right now take the direct route.
 
@@ -105,7 +102,7 @@ Lists without names`iobroker restore` The existing fuses can be selected by numb
 
 **Only ioBroker backups** can be restored this way. Redis, Zigbee, MySQL, or history backups come from BackItUp and can only be restored there.
 
-## After the restoration
+## What happens after the restore? The adapters are reinstalled
 
 The _Log_ tab shows how ioBroker reinstalls all adapters from the old installation one after the other via npm. This is the time-consuming part: depending on the size of the installation, the device's performance, and the internet connection, it can take two to three hours.
 
@@ -119,7 +116,7 @@ iobroker start
 
 Once all instances have their icon, the system is complete again: with all settings, scripts, visualizations, and mappings.
 
-## Which way
+## Which option should you choose?
 
 Both methods lead to the same result. Those who are uncomfortable using the console should choose BackItUp and are less likely to make mistakes. Those who want to see exactly what is happening on the system should take the second method.
 
