@@ -4454,6 +4454,26 @@ https://github.com/TA2k/ioBroker.bmw
 - (TA2k) Container now includes non-streaming data keys again (e.g. charging level), so the adapter shows more values
 - (TA2k) Existing installations update to the new container automatically
 - (hombach) Fixed repochecker error, fixed translations, updated dependencies
+
+## go-e-charger (9.11.2026) – new stable release 1.10.2
+https://github.com/hombach/ioBroker.go-e-charger
+
+<img src="https://raw.githubusercontent.com/hombach/ioBroker.go-e-charger/main/admin/go-eCharger.png" width="100" height="100" />
+
+**New features and fixes since 1.8.1:**
+
+- (solar0x) New states `Wallbox_X.Power.VoltageL1/L2/L3` show the voltage on each grid phase, in V; all hardware generations
+- (typhosj) New state `Wallbox_X.Power.GridFrequency` shows the grid frequency, in Hz; hardware gen 3+ with API v2
+- (typhosj) New state `Wallbox_X.info.chargeState` explains why the charger is charging or not, logged once on each change
+- (typhosj) ChargeManager: new `Settings.PhaseMode` state to switch between fixed one-phase, fixed three-phase and automatic phase switching at runtime
+- (typhosj) ChargeManager: new per-wallbox option to withdraw charge release when vehicle draws no power for 5 minutes
+- (typhosj) ChargeNOW and ChargeManager are now exclusive: switching one on switches the other off
+- (typhosj) ChargeNOW switches itself off when the vehicle is unplugged
+- (HombachC) Unreachable charger now shown offline: `info.connection` turns false, live readings cleared
+- (HombachC) Added read-only state `info.ipAddress` with the configured IP address of each charger
+- (HombachC) Fixed RFID card energy (`statistics.RFID<n>.chargedEnergy`) freezing at adapter-start value on gen 3+
+- (HombachC) Added migration guide from the go-e adapter (ioBroker.go-e) in English and German
+- (HombachC) Fixed maxAmpTotal config defaults and various other fixes
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
