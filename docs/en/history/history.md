@@ -4474,6 +4474,24 @@ https://github.com/hombach/ioBroker.go-e-charger
 - (HombachC) Fixed RFID card energy (`statistics.RFID<n>.chargedEnergy`) freezing at adapter-start value on gen 3+
 - (HombachC) Added migration guide from the go-e adapter (ioBroker.go-e) in English and German
 - (HombachC) Fixed maxAmpTotal config defaults and various other fixes
+
+## rpi2 (9.11.2026) – new stable release 4.0.0
+https://github.com/iobroker-community-adapters/ioBroker.rpi2
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.rpi2/master/admin/rpi2.png" width="100" height="100" />
+
+**New features and fixes since 3.0.2:**
+
+- (copilot) Breaking: adapter requires node.js >= 22 and admin >= 7.7.22
+- (Garfonso/Claude) Breaking: GPIO and DHT sensor handling changed in several places — please check your GPIO setup after updating
+- (copilot) Enhanced: added `temperature.fan_activity` object to monitor fan RPM via sysfs; falls back to 0 when unavailable
+- (Garfonso/Claude) New: DHT sensors are read through the Linux dht11 kernel driver if enabled, making them work on Raspberry Pi 5 without rebuilding node-dht-sensor
+- (Garfonso/Claude) Enhanced: DHT sensor problems logged with cause and fix hints; startup log shows how each sensor is read
+- (Garfonso/Claude) Fixed: GPIO outputs no longer switch off and on again during adapter start
+- (Garfonso/Claude) Fixed: DHT sensors now respect the configured poll interval
+- (Garfonso/Claude) Fixed: Raspberry Pi 500 and Compute Module 5 recognised as Raspberry Pi 5 boards
+- (Garfonso/Claude) Fixed: humidity object of a DHT sensor was incorrectly named "temperature"
+- (mcm1957) Dependencies updated
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
