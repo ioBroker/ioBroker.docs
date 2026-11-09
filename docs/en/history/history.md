@@ -4420,6 +4420,20 @@ https://github.com/AlanSRU/ioBroker.sky-remote
 <img src="https://raw.githubusercontent.com/AlanSRU/ioBroker.sky-remote/main/admin/sky-remote.png" width="100" height="100" />
 
 The sky-remote adapter enables network control of Sky Q set-top boxes via HTTP commands from ioBroker.
+
+## open-meteo-weather (9.11.2026) – new stable release 3.3.2
+https://github.com/H5N1v2/ioBroker.open-meteo-weather
+
+<img src="https://raw.githubusercontent.com/H5N1v2/ioBroker.open-meteo-weather/main/admin/open-meteo.png" width="100" height="100" />
+
+**New features and fixes since 3.1.4:**
+
+- (H5N1v2) New: added `showers` datapoint to 15-minute forecast
+- (H5N1v2) New: added weather keys – hourly: `showers`; daily: `showers_sum`; current: `rain`, `showers`, `snowfall`
+- (H5N1v2) New: automatic role migration – when `role_mapping.ts` is updated, existing ioBroker objects are automatically updated on the next adapter start
+- (H5N1v2) New: added `diffuse_radiation` to 15-minute weather forecast
+- (H5N1v2) Fix: "Error Timeout is smaller than 0" occurring during the transition to/from daylight saving time
+- (H5N1v2) Update dependencies
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
