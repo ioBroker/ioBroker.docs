@@ -4748,6 +4748,21 @@ https://github.com/ioBroker/ioBroker.opensmartcity
 - (@GermanBluefox) Fixed: city selector in settings showed nothing
 - (@GermanBluefox) Added web component `<iob-opensmartcity-map>` for Aura, admin and other hosts
 - (@GermanBluefox) vis-2 widget: "Zoom level" setting now works (0 = all stations fit into the map)
+
+## nmea (10.11.2026) – new stable release 3.1.1
+https://github.com/ioBroker/ioBroker.nmea
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.nmea/main/admin/nmea.png" width="100" height="100" />
+
+**New features and fixes since 2.0.0:**
+
+- (@GermanBluefox) Breaking: migrated widgets to React 19; requires Node.js >= 22.19.0
+- (@GermanBluefox) Deleted stale states without objects at start (e.g. AIS data of old vessels left by versions before 1.0.0); requires js-controller 7.2.3 or newer
+- (@GermanBluefox) AIS radar and anchor position maps work again (switched from CARTO to Esri Dark Gray and OpenStreetMap)
+- (@GermanBluefox) Added web components `iob-nmea-wind`, `iob-nmea-history-chart`, `iob-nmea-autopilot`, `iob-nmea-ais-radar`, `iob-nmea-anchor-position`, `iob-nmea-instrument`, `iob-nmea-compass` and `iob-nmea-rudder` for Aura and other hosts
+- (@GermanBluefox) Anchor watch widget: switch now arms the anchor watch instead of showing the alarm; chain length and depth at drop configurable for swing circle; full multi-language support
+- (@GermanBluefox) Wind and autopilot widgets: "split view" and "sail trim" settings translated into all languages
+- (@GermanBluefox) Wind display: heading no longer covers a compass label; AIS radar outer ring label no longer sits on "N"
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
