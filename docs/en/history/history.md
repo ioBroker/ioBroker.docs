@@ -4645,6 +4645,23 @@ https://github.com/oweitman/ioBroker.rssfeed
 
 - (oweitman) Breaking: widgets migrated to React 19 – vis-2 >= 2.20.0 is required now; version 5.0.3 is the last valid version for vis-2 with React 18 (vis-2 <= 2.15.4)
 - (oweitman) Minimum browser versions increased to Chrome 89, Edge 89, Firefox 89, Safari 15
+
+## vis-2-widgets-material (10.11.2026) – new stable release 2.0.4
+https://github.com/ioBroker/ioBroker.vis-2-widgets-material
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.vis-2-widgets-material/main/admin/vis-2-widgets-material.png" width="100" height="100" />
+
+**New features and fixes since 1.6.1:**
+
+- (@GermanBluefox) Breaking: migrated to React 19 and vis-2 >= 2.20.0 is required
+- (@GermanBluefox) RGB light: auto-detection no longer overwrites the selected state; takes the first matching state
+- (@GermanBluefox) Switches: brightness and white sliders use the maximum of the object; color temperature limits can be below 500
+- (@GermanBluefox) Switches: boolean states with `read: false` or role `button` are detected as button; touch support
+- (@GermanBluefox) Switches: `common.states` in format "0:off;1:on" and numeric states supported in the select
+- (@GermanBluefox) Charts: read aggregated (min/max) values for periods over 30 minutes instead of raw data
+- (@GermanBluefox) Lock: added options to invert the lock state and the door sensor
+- (@GermanBluefox) Blinds: clear labels for sash type; touch support for the slider
+- (@GermanBluefox) Fixed crashes of charts (React error #130) and endless re-rendering (React error #185)
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
