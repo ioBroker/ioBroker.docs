@@ -4534,6 +4534,32 @@ https://github.com/Flyor/ioBroker.fb-guard
 <img src="https://raw.githubusercontent.com/Flyor/ioBroker.fb-guard/main/admin/fb-guard.png" width="100" height="100" />
 
 The fb-guard adapter acts as a security guard for FRITZ!Box routers, reporting failed logins, open ports, pending security advisories and other security-relevant events to ioBroker.
+
+## vis-2 (10.11.2026) – new stable release 2.20.8
+https://github.com/ioBroker/ioBroker.vis-2
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.vis-2/master/packages/iobroker.vis-2/admin/vis-2.png" width="100" height="100" />
+
+**New features and fixes since 2.15.8:**
+
+- (@GermanBluefox) New: AI assistant integrated into the editor, using the system-wide AI settings from admin; OpenRouter support added
+- (@GermanBluefox) New: wizard for quick project setup and many new widgets added
+- (@GermanBluefox) New: web components of adapters (`common.webComponents`) are offered as widgets with their settings as attributes
+- (@GermanBluefox) New: a section of the grid layout can show the values of up to two states in its header
+- (@GermanBluefox) New: binding operation `states` – shows the text of a value from `common.states` instead of the raw value
+- (@GermanBluefox) New: widgets of an adapter installed on another host are shown; vis-2 fetches the `widgets` folder from that host (requires js-controller 8.0+)
+- (@typhosj) New: `chargeState` and `PhaseMode` improvements for ChargeManager; scheduled scan and navigation menu visibility conditions
+- (@typhosj) New: jQui "States control" option "Values from the object" – list follows `common.states` dynamically
+- (@typhosj) New: jQui "Input Time" can include date with "With date" option
+- (@typhosj) New: app bar height configurable per view (24–120 px)
+- (@typhosj) New: button in the palette header to hide vis-1 legacy widgets
+- (@typhosj) New: view navigation entry can be hidden by state condition
+- (@typhosj) Fixed: GPIO outputs no longer switch off/on during adapter start
+- (@typhosj) Fixed: bindings in view CSS are now evaluated and followed in runtime and editor
+- (@typhosj) Fixed: scripts in HTML widgets run again on binding changes and after view switches
+- (@typhosj) Fixed: vis-1 widgets re-render when a binding changes, as in vis-1
+- (@typhosj) Fixed: after switching views, bindings no longer briefly show "undefined"
+- (@GermanBluefox) Load optimizations; upload reliability improvements
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
