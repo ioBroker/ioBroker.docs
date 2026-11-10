@@ -4615,6 +4615,17 @@ https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink
 - (ssbingo) Widget texts are now translated in eleven languages through the vis-2 i18n system; German users see the same text as before
 - (ssbingo) Fixed: widgets could not be loaded in vis-2 since 0.4.12 (`e.forEach is not a function`)
 - (ssbingo) Updated dev dependencies (React 19, Vite 8, @module-federation/vite); added Node.js 26 to CI test matrix
+
+## squeezeboxrpc (10.11.2026) – new stable release 4.1.0
+https://github.com/oweitman/ioBroker.squeezeboxrpc
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.squeezeboxrpc/main/admin/squeezeboxrpc.png" width="100" height="100" />
+
+**New features and fixes since 3.0.1:**
+
+- (@oweitman) Breaking: migrated to React 19 and vis-2 >= 2.20.0 is required now
+- (@oweitman) Optimized restoration of status following an announcement
+- (@oweitman) Added a delay for announcements for slower LMS instances
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
