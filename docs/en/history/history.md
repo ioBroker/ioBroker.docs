@@ -4732,6 +4732,22 @@ https://github.com/ioBroker/ioBroker.scheduler
 - (@GermanBluefox) Fixed: changes in one widget were overwritten by other widgets of the same instance
 - (@GermanBluefox) Added web component `iob-scheduler-profile` for Aura and other hosts; changes are saved via the new `setProfile` message
 - (@GermanBluefox) Web component: holiday button shows its full name; decimal values follow the system number format
+
+## opensmartcity (10.11.2026) – new stable release 0.4.0
+https://github.com/ioBroker/ioBroker.opensmartcity
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.opensmartcity/main/admin/opensmartcity.png" width="100" height="100" />
+
+**New features and fixes since 0.2.3:**
+
+- (@GermanBluefox) Breaking: vis-2 widgets rebuilt for React 19 and MUI 9 — requires vis-2 >= 2.20.2; adapter requires Node.js >= 22.19.0
+- (@GermanBluefox) Adapter refactored to TypeScript; gulp replaced by `tasks.ts`; settings dialog migrated to Vite/React 19/MUI 9
+- (@GermanBluefox) Adapter can be installed from npm only, not directly from GitHub
+- (@GermanBluefox) Fixed: `status` state of a station was never created
+- (@GermanBluefox) Fixed: station list in settings stayed empty until restart when FROST server was unreachable at start
+- (@GermanBluefox) Fixed: city selector in settings showed nothing
+- (@GermanBluefox) Added web component `<iob-opensmartcity-map>` for Aura, admin and other hosts
+- (@GermanBluefox) vis-2 widget: "Zoom level" setting now works (0 = all stations fit into the map)
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
