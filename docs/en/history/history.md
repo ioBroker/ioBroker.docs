@@ -4816,6 +4816,13 @@ https://github.com/ioBroker/ioBroker.echarts
 - (@GermanBluefox) Bars per day/week/month show correct values across DST changes (requires sql/history/influxdb with @iobroker/aggregate 1.1)
 - (@GermanBluefox) Bars and lines can be combined; bars can be stacked, side-by-side or overlapping; tooltip can show only the nearest line
 - (@GermanBluefox) Added web component `<iob-echarts-chart>` for Aura and other hosts; fixed chart ignoring time range changes when drawn without iframe
+
+## dreo-cloud (10.11.2026) – new adapter at beta (latest) repository
+https://github.com/mehrwiedu/ioBroker.dreo-cloud
+
+<img src="https://raw.githubusercontent.com/mehrwiedu/ioBroker.dreo-cloud/main/admin/dreo-cloud.png" width="100" height="100" />
+
+ioBroker adapter for controlling and monitoring DREO cloud-connected smart home devices.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
