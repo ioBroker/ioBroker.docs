@@ -4683,28 +4683,23 @@ https://github.com/ioBroker/ioBroker.vis-2-widgets-jaeger-design
 - (@bluefox) Scene widgets in a page no longer get oversized font and save button on mobile
 - (@bluefox) Copying a submenu gives items new IDs to avoid sharing settings with the original
 - (@bluefox) Menu items with duplicate IDs are repaired when layout settings are opened or imported
+## vis-2-widgets-gauges (10.11.2026) – new stable release 3.0.1
+https://github.com/ioBroker/ioBroker.vis-2-widgets-gauges
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.vis-2-widgets-gauges/main/admin/vis-2-widgets-gauges.svg" width="100" height="100" />
+
+**New features and fixes since 2.0.2:**
+
+- (@bluefox) Updated packages
+- (@bluefox) Breaking: rewrote color, water and battery gauge as plain SVG — no more react-gauge-chart, react-liquid-gauge, react-battery-gauge, d3 or MUI; works with React 19 / vis-2 2.20.0; all project settings are kept
+- (@bluefox) Added 7 new widgets: radial gauge, arc gauge, linear gauge, thermometer, compass, tank and rings
+- (@bluefox) Color gauge: value shown below the needle, min/max can be shown, needle length works, 0 for corner radius/padding/margin is really 0
+- (@bluefox) Water gauge: configurable digits after comma and liquid color; value counts up during rise animation
+- (@bluefox) Battery gauge: optional medium level, stroke width, percent sign can be hidden, text stays horizontal in a vertical battery
+- (@bluefox) Non-numeric values shown as text; missing value shown as –
+- (@bluefox) All widgets follow the dark theme of vis-2
+- (@bluefox) Added documentation with screenshots (English and German)
+- (@bluefox) Scale labels show no more digits after the comma than the value itself
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
