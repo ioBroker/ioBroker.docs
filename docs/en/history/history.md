@@ -4798,6 +4798,24 @@ https://github.com/ioBroker/ioBroker.fullcalendar
 - (bluefox) Added messages `getEvent`, `getCommands`, `updateEvent` and `setEventObject`
 - (@GermanBluefox) Added translated admin tab name and uk translations
 - (bluefox) Added web component `<iob-fullcalendar>` for Aura, devices and other hosts; event time always shows minutes; long titles end with "..."
+
+## echarts (10.11.2026) – new stable release 6.3.0
+https://github.com/ioBroker/ioBroker.echarts
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.echarts/master/admin/echarts.png" width="100" height="100" />
+
+**New features and fixes since 5.1.1:**
+
+- (@GermanBluefox) Many GUI fixes
+- (@GermanBluefox) Added chart modes "Gauge" (rings or pointers) and "Donut"; "One bar per line" and "polar" lines are migrated
+- (@GermanBluefox) Added vis-2 widget "E-Charts time range"; vis-2 and devices widgets can draw charts without iframe
+- (@GermanBluefox) Time range can be passed in the URL hash; settings without effect in the current mode are hidden
+- (@GermanBluefox) Every chart color (background, title, labels, etc.) can have a separate dark theme value
+- (@GermanBluefox) Build scripts migrated to TypeScript; numerous chart rendering fixes
+- (@GermanBluefox) Ask before unsaved preset changes are lost; copying an older preset no longer breaks the editor
+- (@GermanBluefox) Bars per day/week/month show correct values across DST changes (requires sql/history/influxdb with @iobroker/aggregate 1.1)
+- (@GermanBluefox) Bars and lines can be combined; bars can be stacked, side-by-side or overlapping; tooltip can show only the nearest line
+- (@GermanBluefox) Added web component `<iob-echarts-chart>` for Aura and other hosts; fixed chart ignoring time range changes when drawn without iframe
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
