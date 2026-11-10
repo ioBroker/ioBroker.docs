@@ -4774,6 +4774,30 @@ https://github.com/ioBroker/ioBroker.kisshome-defender
 - (@GermanBluefox) Breaking: vis-2 widgets rebuilt for React 19 and MUI 9 — requires vis-2 >= 2.20.2; requires Node.js >= 22.19.0
 - (@GermanBluefox) Added web component `iob-kisshome-defender` for Aura and other hosts
 - (@GermanBluefox) Sizes are now written as "30,0 MB" instead of "30,0Mb"
+
+## fullcalendar (10.11.2026) – new stable release 3.4.1
+https://github.com/ioBroker/ioBroker.fullcalendar
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.fullcalendar/master/admin/fullcalendar.png" width="100" height="100" />
+
+**New features and fixes since 2.4.5:**
+
+- (bluefox) Migrated GUI to React 19; requires js-controller >= 6.0.11
+- (bluefox) Migrated GUI to Vite; updated packages
+- (bluefox) Added agenda states `events.list/today/tomorrow/next/count/lastChanged`
+- (bluefox) Added messages `addEvent`, `deleteEvent`, `listEvents`, `getEvents` and `getCalendars` (e.g. for voice assistants)
+- (bluefox) A one-shot event in the past is no longer marked as disabled in memory
+- (@GermanBluefox) Fixed display of recurring events after DST change
+- (bluefox) Fixed white screen when adding an event in the vis-2 widget
+- (bluefox) Fixed: recording of a simulation stopped immediately after start; simulation recorded repeated updates without value change
+- (bluefox) Fixed: subscriptions of a stopped recording were not removed
+- (bluefox) Added: duration of "On/Off" and "Toggle" events can be given in seconds, minutes or hours
+- (bluefox) Added: conditions for events (e.g. do not close the shutter if the door is open)
+- (bluefox) Added: calendars can be switched off/on with the new `enableCalendar` message
+- (bluefox) Added recurring events to `addEvent`; `deleteEvent` can delete a list of IDs or all events by name
+- (bluefox) Added messages `getEvent`, `getCommands`, `updateEvent` and `setEventObject`
+- (@GermanBluefox) Added translated admin tab name and uk translations
+- (bluefox) Added web component `<iob-fullcalendar>` for Aura, devices and other hosts; event time always shows minutes; long titles end with "..."
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
