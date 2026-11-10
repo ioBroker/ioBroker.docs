@@ -4566,6 +4566,19 @@ https://github.com/Voodoo2man/ioBroker.anomaly-detection
 <img src="https://raw.githubusercontent.com/Voodoo2man/ioBroker.anomaly-detection/main/admin/anomaly-detection.png" width="100" height="100" />
 
 The anomaly-detection adapter performs local statistical anomaly detection in ioBroker, learning the normal behavior of data points and alerting when values deviate significantly from the learned pattern.
+
+## vis-2-widgets-inventwo (10.11.2026) – new stable release 2.1.1
+https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.vis-2-widgets-inventwo/main/admin/vis-2-widgets-inventwo.png" width="100" height="100" />
+
+**New features and fixes since 1.10.0:**
+
+- Breaking: requires vis-2 >= 2.20.0 (React 19 / MUI 9) – older vis-2 versions (React 18) are no longer supported
+- Universal Widget: up to 5 additional inner and outer shadows per widget; X/Y offsets of shadows may now be negative
+- Universal Widget (View in dialog): new option "Set value false on close" – closing the dialog writes "Value false" to the object ID
+- Universal Widget: fixed content color of images not being applied for `rgb()` colors and hex colors
+- Updated dependencies to React 19 and MUI 9; removed default React 19 border on universal widget
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
