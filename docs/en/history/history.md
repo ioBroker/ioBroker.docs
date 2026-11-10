@@ -4594,6 +4594,16 @@ https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
 - (xXBJXx) Updated and aligned Admin and widget dependencies; removed duplicate test packages
 - (copilot) Adapter requires node.js >= 22.19.0
 - (mcm1957) The native VIS 2 widget now requires VIS 2 >= 2.20.x due to React 19 / MUI 9
+
+## vis-2-widgets-weather-and-heating (10.11.2026) – new stable release 1.5.0
+https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating
+
+<img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating/master/admin/vis-2-widgets-weather-and-heating.png" width="100" height="100" />
+
+**New features and fixes since 1.4.2:**
+
+- (René) New widget "inform landlord" added, to send messages to the landlord
+- (René) Dependencies updated
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
