@@ -4823,6 +4823,13 @@ https://github.com/mehrwiedu/ioBroker.dreo-cloud
 <img src="https://raw.githubusercontent.com/mehrwiedu/ioBroker.dreo-cloud/main/admin/dreo-cloud.png" width="100" height="100" />
 
 ioBroker adapter for controlling and monitoring DREO cloud-connected smart home devices.
+
+## solinteg (10.11.2026) – new adapter at beta (latest) repository
+https://github.com/bueste/ioBroker.solinteg
+
+<img src="https://raw.githubusercontent.com/bueste/ioBroker.solinteg/main/admin/solinteg.png" width="100" height="100" />
+
+Reads PV, grid/meter and battery data from Solinteg hybrid inverters via local Modbus TCP.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
