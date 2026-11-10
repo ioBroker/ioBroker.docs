@@ -4492,6 +4492,16 @@ https://github.com/iobroker-community-adapters/ioBroker.rpi2
 - (Garfonso/Claude) Fixed: Raspberry Pi 500 and Compute Module 5 recognised as Raspberry Pi 5 boards
 - (Garfonso/Claude) Fixed: humidity object of a DHT sensor was incorrectly named "temperature"
 - (mcm1957) Dependencies updated
+
+## vis-weather (10.11.2026) – new stable release 2.5.14
+https://github.com/rg-engineering/ioBroker.vis-weather
+
+<img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.vis-weather/master/admin/vis-weather.png" width="100" height="100" />
+
+**New features and fixes since 2.5.13:**
+
+- (René) Note: this widget set will become deprecated in the near future – please use the new widget sets for vis-2 instead
+- (René) Dependencies updated
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
