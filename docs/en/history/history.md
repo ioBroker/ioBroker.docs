@@ -4579,6 +4579,21 @@ https://github.com/inventwo/ioBroker.vis-2-widgets-inventwo
 - Universal Widget (View in dialog): new option "Set value false on close" – closing the dialog writes "Value false" to the object ID
 - Universal Widget: fixed content color of images not being applied for `rgb()` colors and hex colors
 - Updated dependencies to React 19 and MUI 9; removed default React 19 border on universal widget
+## tractive-gps (10.11.2026) – new stable release 4.0.1
+https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.tractive-gps/main/admin/tractive-gps.png" width="100" height="100" />
+
+**New features and fixes since 3.1.0:**
+
+- (xXBJXx) Breaking: the native VIS 2 widget now requires VIS 2 >= 2.15.2 (React 19 / MUI 9); backend-only and classic VIS 1 installations remain supported
+- (xXBJXx) Rebuilt the VIS 2 widget for React 19 and MUI 9; replaced React-Leaflet with direct Leaflet integration
+- (xXBJXx) Fixed VIS 2 theme compatibility; updated widget setup instructions
+- (xXBJXx) Pet marker and accuracy circle remain visible when changing map zoom limits or interaction settings
+- (xXBJXx) Updated Moment dependency to 2.31.0 to fix locale path-traversal vulnerability (GHSA-4p3w-j4w9-5jqw)
+- (xXBJXx) Updated and aligned Admin and widget dependencies; removed duplicate test packages
+- (copilot) Adapter requires node.js >= 22.19.0
+- (mcm1957) The native VIS 2 widget now requires VIS 2 >= 2.20.x due to React 19 / MUI 9
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
