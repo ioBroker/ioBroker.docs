@@ -4718,6 +4718,20 @@ https://github.com/ioBroker/ioBroker.vis-2-widgets-energy
 - (@GermanBluefox) Distribution widget: feed-in via separate return OID now shows moving dot from home to grid and green circle
 - (hombach) Distribution widget: circle radii clamped to zero to avoid invalid negative SVG values at small widget sizes
 - (hombach) Updated packages and dependencies
+
+## scheduler (10.11.2026) – new stable release 2.1.1
+https://github.com/ioBroker/ioBroker.scheduler
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.scheduler/master/admin/scheduler.png" width="100" height="100" />
+
+**New features and fixes since 1.5.0:**
+
+- (@GermanBluefox) Breaking: migrated to React 19; minimum Node.js version is 22
+- (@GermanBluefox) Packages updated
+- (@GermanBluefox) Fixed: profiles could not be selected if the first element was a folder
+- (@GermanBluefox) Fixed: changes in one widget were overwritten by other widgets of the same instance
+- (@GermanBluefox) Added web component `iob-scheduler-profile` for Aura and other hosts; changes are saved via the new `setProfile` message
+- (@GermanBluefox) Web component: holiday button shows its full name; decimal values follow the system number format
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
