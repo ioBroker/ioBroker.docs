@@ -4635,6 +4635,16 @@ https://github.com/oweitman/ioBroker.vis-jsontemplate
 **New features and fixes since 4.6.1:**
 
 - (oweitman) Breaking: migrated to React 19 and MUI 9 – vis-2 >= 2.20.0 is required now; version 4.6.3 is the last valid version for vis-2 with React 18 (vis-2 <= 2.15.4)
+
+## rssfeed (10.11.2026) – new stable release 6.0.0
+https://github.com/oweitman/ioBroker.rssfeed
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.rssfeed/main/admin/rssfeed.png" width="100" height="100" />
+
+**New features and fixes since 5.0.2:**
+
+- (oweitman) Breaking: widgets migrated to React 19 – vis-2 >= 2.20.0 is required now; version 5.0.3 is the last valid version for vis-2 with React 18 (vis-2 <= 2.15.4)
+- (oweitman) Minimum browser versions increased to Chrome 89, Edge 89, Firefox 89, Safari 15
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
