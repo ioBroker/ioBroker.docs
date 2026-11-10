@@ -4560,6 +4560,12 @@ https://github.com/ioBroker/ioBroker.vis-2
 - (@typhosj) Fixed: vis-1 widgets re-render when a binding changes, as in vis-1
 - (@typhosj) Fixed: after switching views, bindings no longer briefly show "undefined"
 - (@GermanBluefox) Load optimizations; upload reliability improvements
+## anomaly-detection (10.11.2026) – new adapter at beta (latest) repository
+https://github.com/Voodoo2man/ioBroker.anomaly-detection
+
+<img src="https://raw.githubusercontent.com/Voodoo2man/ioBroker.anomaly-detection/main/admin/anomaly-detection.png" width="100" height="100" />
+
+The anomaly-detection adapter performs local statistical anomaly detection in ioBroker, learning the normal behavior of data points and alerting when values deviate significantly from the learned pattern.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
