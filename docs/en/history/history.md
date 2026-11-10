@@ -4502,6 +4502,13 @@ https://github.com/rg-engineering/ioBroker.vis-weather
 
 - (René) Note: this widget set will become deprecated in the near future – please use the new widget sets for vis-2 instead
 - (René) Dependencies updated
+
+## blustream-mfp (10.11.2026) – new adapter at stable repository
+https://github.com/AlanSRU/ioBroker.blustream-mfp
+
+<img src="https://raw.githubusercontent.com/AlanSRU/ioBroker.blustream-mfp/main/admin/blustream.png" width="100" height="100" />
+
+The blustream-mfp adapter enables integration and control of Blustream Multifunction A/V Switchers from ioBroker.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
