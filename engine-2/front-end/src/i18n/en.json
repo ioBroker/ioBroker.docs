@@ -2,7 +2,7 @@
     "Adapters": "Adapters",
     "Blog": "Blog",
     "Cookies": "Cookies",
-    "Docs": "Docs",
+    "Docs": "Documentation",
     "Follow us:": "Follow us:",
     "HomePage": {
         "title": "Home Page"
@@ -488,7 +488,7 @@
     "menu-blog": "Blog",
     "menu-community": "Community",
     "menu-copyright": "Copyright © 2014-%s by ioBroker GmbH and ioBroker Community",
-    "menu-docs": "Docs",
+    "menu-docs": "Documentation",
     "menu-follow-us": "Follow us:",
     "menu-forum": "Forum",
     "menu-group": "Group",
@@ -505,7 +505,7 @@
     "nav": {
         "adapters": "Adapters",
         "blog": "Blog",
-        "docs": "Docs",
+        "docs": "Documentation",
         "licenses": "Licenses"
     },
     "support.amazon.button": "SHOP ON AMAZON",

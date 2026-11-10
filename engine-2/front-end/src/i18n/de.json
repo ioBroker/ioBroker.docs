@@ -2,7 +2,7 @@
     "Adapters": "Adapter",
     "Blog": "Blog",
     "Cookies": "Cookies",
-    "Docs": "Doku",
+    "Docs": "Dokumentation",
     "Follow us:": "Folgen Sie uns:",
     "HomePage": {
         "title": "Startseite"
@@ -488,7 +488,7 @@
     "menu-blog": "Blog",
     "menu-community": "Community",
     "menu-copyright": "Copyright © 2014-%s von ioBroker GmbH und ioBroker Community",
-    "menu-docs": "Doku",
+    "menu-docs": "Dokumentation",
     "menu-follow-us": "Folgen Sie uns:",
     "menu-forum": "Forum",
     "menu-group": "Gruppe",
