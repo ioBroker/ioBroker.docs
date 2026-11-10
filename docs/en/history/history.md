@@ -4830,6 +4830,13 @@ https://github.com/bueste/ioBroker.solinteg
 <img src="https://raw.githubusercontent.com/bueste/ioBroker.solinteg/main/admin/solinteg.png" width="100" height="100" />
 
 Reads PV, grid/meter and battery data from Solinteg hybrid inverters via local Modbus TCP.
+
+## ntfy-client (10.11.2026) – new adapter at stable repository
+https://github.com/lubepi/ioBroker.ntfy-client
+
+<img src="https://raw.githubusercontent.com/lubepi/ioBroker.ntfy-client/main/admin/ntfy-client.png" width="100" height="100" />
+
+Unofficial ntfy.sh client adapter for ioBroker.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
