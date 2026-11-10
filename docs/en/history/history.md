@@ -4700,6 +4700,24 @@ https://github.com/ioBroker/ioBroker.vis-2-widgets-gauges
 - (@bluefox) All widgets follow the dark theme of vis-2
 - (@bluefox) Added documentation with screenshots (English and German)
 - (@bluefox) Scale labels show no more digits after the comma than the value itself
+
+## vis-2-widgets-energy (10.11.2026) – new stable release 3.0.3
+https://github.com/ioBroker/ioBroker.vis-2-widgets-energy
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.vis-2-widgets-energy/main/admin/vis-2-widgets-energy.png" width="100" height="100" />
+
+**New features and fixes since 2.0.1:**
+
+- (@GermanBluefox) Breaking: built with React 19 and MUI 9 — requires vis-2 2.20.1 or newer
+- (@GermanBluefox) New widgets: self-sufficiency, battery storage, energy costs and dynamic electricity price
+- (@GermanBluefox) Tooltips for all config fields, palette descriptions and new documentation (en/de) with screenshots
+- (@GermanBluefox) Distribution widget: browser-based animation (less CPU); configurable line width, animation and raw values; fixed font size, Wh/kWh unit and house ring segments
+- (@GermanBluefox) Consumption widget: new chart types (line, area), legend, toolbox and decimals; fixed bar count, missing last bar and bucket edges
+- (@GermanBluefox) Comparison widget: sorting, decimals, vertical bars and value labels; fixed mixed-up units
+- (@GermanBluefox) Interval selector: configurable periods, "Now" button and date format
+- (@GermanBluefox) Distribution widget: feed-in via separate return OID now shows moving dot from home to grid and green circle
+- (hombach) Distribution widget: circle radii clamped to zero to avoid invalid negative SVG values at small widget sizes
+- (hombach) Updated packages and dependencies
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
