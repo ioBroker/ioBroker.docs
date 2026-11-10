@@ -4509,6 +4509,24 @@ https://github.com/AlanSRU/ioBroker.blustream-mfp
 <img src="https://raw.githubusercontent.com/AlanSRU/ioBroker.blustream-mfp/main/admin/blustream.png" width="100" height="100" />
 
 The blustream-mfp adapter enables integration and control of Blustream Multifunction A/V Switchers from ioBroker.
+
+## discovery (10.11.2026) – new stable release 5.2.0
+https://github.com/ioBroker/ioBroker.discovery
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.discovery/master/admin/discovery.png" width="100" height="100" />
+
+**New features and fixes since 5.0.0:**
+
+- (bluefox) Adapter refactored to TypeScript; minimum node.js version is 22.19.0
+- (bluefox) The scan can now run on a timer with a selectable set of methods (mDNS, ping, UDP, UPnP by default)
+- (bluefox) Every finished scan writes the devices it found below `discovery.0.devices`
+- (bluefox) The instance has a new settings UI: two tabs with a start button, live scan state and device list
+- (bluefox) The device tab is a real table: sortable, filterable and filled from `system.discovery`
+- (bluefox) A scheduled scan raises a notification when it proposes something not proposed before
+- (bluefox) The ping scan falls back to TCP when this host may not send ICMP
+- (ChrMaass) Detect SIKU / Oxxify Smart fans via read-only UDP broadcast and propose one siku instance for all fans
+- (nograx) Detect Zendure SolarFlow, Hyper and AIO devices via mDNS and propose the zendure-solarflow adapter
+- (GermanBluefox) Added victron-cerbo; removed obsolete squeezebox adapter
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
