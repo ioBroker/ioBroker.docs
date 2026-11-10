@@ -4763,6 +4763,17 @@ https://github.com/ioBroker/ioBroker.nmea
 - (@GermanBluefox) Anchor watch widget: switch now arms the anchor watch instead of showing the alarm; chain length and depth at drop configurable for swing circle; full multi-language support
 - (@GermanBluefox) Wind and autopilot widgets: "split view" and "sail trim" settings translated into all languages
 - (@GermanBluefox) Wind display: heading no longer covers a compass label; AIS radar outer ring label no longer sits on "N"
+
+## kisshome-defender (10.11.2026) – new stable release 4.1.1
+https://github.com/ioBroker/ioBroker.kisshome-defender
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.kisshome-defender/main/admin/kisshome-defender.png" width="100" height="100" />
+
+**New features and fixes since 3.0.1:**
+
+- (@GermanBluefox) Breaking: vis-2 widgets rebuilt for React 19 and MUI 9 — requires vis-2 >= 2.20.2; requires Node.js >= 22.19.0
+- (@GermanBluefox) Added web component `iob-kisshome-defender` for Aura and other hosts
+- (@GermanBluefox) Sizes are now written as "30,0 MB" instead of "30,0Mb"
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
