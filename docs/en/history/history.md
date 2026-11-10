@@ -4604,6 +4604,17 @@ https://github.com/rg-engineering/ioBroker.vis-2-widgets-weather-and-heating
 
 - (René) New widget "inform landlord" added, to send messages to the landlord
 - (René) Dependencies updated
+## vis-2-widgets-tibberlink (10.11.2026) – new stable release 0.6.0
+https://github.com/ssbingo/ioBroker.vis-2-widgets-tibberlink
+
+<img src="https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-tibberlink/main/admin/vis-2-widgets-tibberlink.png" width="100" height="100" />
+
+**New features and fixes since 0.4.11:**
+
+- (ssbingo) Switched widget build to Module Federation 2 (`@module-federation/vite`) – the bundle now shares react and react/jsx-runtime with vis-2 and is confirmed ready for vis-2 on React 19 and MUI 9
+- (ssbingo) Widget texts are now translated in eleven languages through the vis-2 i18n system; German users see the same text as before
+- (ssbingo) Fixed: widgets could not be loaded in vis-2 since 0.4.12 (`e.forEach is not a function`)
+- (ssbingo) Updated dev dependencies (React 19, Vite 8, @module-federation/vite); added Node.js 26 to CI test matrix
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
