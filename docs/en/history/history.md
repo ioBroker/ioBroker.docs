@@ -4662,6 +4662,27 @@ https://github.com/ioBroker/ioBroker.vis-2-widgets-material
 - (@GermanBluefox) Lock: added options to invert the lock state and the door sensor
 - (@GermanBluefox) Blinds: clear labels for sash type; touch support for the slider
 - (@GermanBluefox) Fixed crashes of charts (React error #130) and endless re-rendering (React error #185)
+
+## vis-2-widgets-jaeger-design (10.11.2026) – new stable release 1.5.7
+https://github.com/ioBroker/ioBroker.vis-2-widgets-jaeger-design
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.vis-2-widgets-jaeger-design/main/admin/vis-2-widgets-jaeger-design.png" width="100" height="100" />
+
+**New features and fixes since 1.4.20:**
+
+- (@bluefox) Breaking: migrated to React 19 and vis-2 2.20.0 is required
+- (@bluefox) Shutter and dimmer popups: percent and memory buttons sized for mobile devices
+- (@bluefox) Thermostat dialog shows humidity and valve position even without actual temperature configured; layout corrected on mobile
+- (@bluefox) Home page shows info even if no scenes and no actions are defined
+- (@bluefox) Info groups wrap instead of overflowing; info line width is configurable
+- (@bluefox) State widget: color of display-only numbers no longer depends on the object max value
+- (@bluefox) Thermostat: power button can be inverted (e.g. for HomematicIP control mode)
+- (@bluefox) Cameras: image is replaced only after the next image is fully loaded
+- (@bluefox) Dimmer popup shows the value in percent on the bar (can be hidden)
+- (@bluefox) Pages with "Include scenes/actions" show only items of the current floor
+- (@bluefox) Scene widgets in a page no longer get oversized font and save button on mobile
+- (@bluefox) Copying a submenu gives items new IDs to avoid sharing settings with the original
+- (@bluefox) Menu items with duplicate IDs are repaired when layout settings are opened or imported
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
