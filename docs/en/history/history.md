@@ -4527,6 +4527,13 @@ https://github.com/ioBroker/ioBroker.discovery
 - (ChrMaass) Detect SIKU / Oxxify Smart fans via read-only UDP broadcast and propose one siku instance for all fans
 - (nograx) Detect Zendure SolarFlow, Hyper and AIO devices via mDNS and propose the zendure-solarflow adapter
 - (GermanBluefox) Added victron-cerbo; removed obsolete squeezebox adapter
+
+## fb-guard (10.11.2026) – new adapter at beta (latest) repository
+https://github.com/Flyor/ioBroker.fb-guard
+
+<img src="https://raw.githubusercontent.com/Flyor/ioBroker.fb-guard/main/admin/fb-guard.png" width="100" height="100" />
+
+The fb-guard adapter acts as a security guard for FRITZ!Box routers, reporting failed logins, open ports, pending security advisories and other security-relevant events to ioBroker.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
