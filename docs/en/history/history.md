@@ -4626,6 +4626,15 @@ https://github.com/oweitman/ioBroker.squeezeboxrpc
 - (@oweitman) Breaking: migrated to React 19 and vis-2 >= 2.20.0 is required now
 - (@oweitman) Optimized restoration of status following an announcement
 - (@oweitman) Added a delay for announcements for slower LMS instances
+
+## vis-jsontemplate (10.11.2026) – new stable release 5.0.0
+https://github.com/oweitman/ioBroker.vis-jsontemplate
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-jsontemplate/main/admin/vis-jsontemplate.png" width="100" height="100" />
+
+**New features and fixes since 4.6.1:**
+
+- (oweitman) Breaking: migrated to React 19 and MUI 9 – vis-2 >= 2.20.0 is required now; version 4.6.3 is the last valid version for vis-2 with React 18 (vis-2 <= 2.15.4)
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
