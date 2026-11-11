@@ -4880,6 +4880,13 @@ https://github.com/SmarthomeElektroniker/ioBroker.mill-local
 <img src="https://raw.githubusercontent.com/SmarthomeElektroniker/ioBroker.mill-local/main/admin/mill-local.png" width="100" height="100" />
 
 ioBroker adapter for Mill Generation 3 heaters and Wi-Fi sockets via their local API — no cloud required.
+
+## music-assistant (11.11.2026) – new adapter at beta (latest) repository
+https://github.com/NurPech/ioBroker.music-assistant
+
+<img src="https://raw.githubusercontent.com/NurPech/ioBroker.music-assistant/main/admin/music-assistant.png" width="100" height="100" />
+
+ioBroker adapter to control Music Assistant players and queues.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
