@@ -4837,6 +4837,16 @@ https://github.com/lubepi/ioBroker.ntfy-client
 <img src="https://raw.githubusercontent.com/lubepi/ioBroker.ntfy-client/main/admin/ntfy-client.png" width="100" height="100" />
 
 Unofficial ntfy.sh client adapter for ioBroker.
+
+## simple-proxy-manager (11.11.2026) – new stable release 1.0.2
+https://github.com/lubepi/ioBroker.simple-proxy-manager
+
+<img src="https://raw.githubusercontent.com/lubepi/ioBroker.simple-proxy-manager/main/admin/simple-proxy-manager.png" width="100" height="100" />
+
+**New features and fixes since 1.0.0:**
+
+- (lubepi) Added author email to package metadata
+- (lubepi) Fixed: certificates from ACME adapter >= 5.0.0 can be loaded again (certificate chain joined with line breaks)
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
