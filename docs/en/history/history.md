@@ -4887,6 +4887,13 @@ https://github.com/NurPech/ioBroker.music-assistant
 <img src="https://raw.githubusercontent.com/NurPech/ioBroker.music-assistant/main/admin/music-assistant.png" width="100" height="100" />
 
 ioBroker adapter to control Music Assistant players and queues.
+
+## shelfmate (11.11.2026) – new adapter at beta (latest) repository
+https://github.com/backfisch88/ioBroker.shelfmate
+
+<img src="https://raw.githubusercontent.com/backfisch88/ioBroker.shelfmate/main/admin/shelfmate.png" width="100" height="100" />
+
+Household inventory for ioBroker: scan barcodes and QR codes, track stock per location, best-before dates and automatic shopping list.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
