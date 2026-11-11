@@ -357,8 +357,8 @@ Special roles for media players
 * `button.volume.up`
 * `button.volume.down`
 * `media.seek`            - (`common.type=number`) %
-* `media.mode.repeat`     - (`common.type=boolean`)
-* `media.mode.shuffle`    - (`common.type=number`) 0 - none, 1 - all, 2 - one
+* `media.mode.shuffle`    - (`common.type=boolean`)
+* `media.mode.repeat`     - (`common.type=number`) 0 - none, 1 - all, 2 - one
 * `media.state`           - `['play','stop','pause']` or `[0 - pause, 1 - play, 2 - stop]` or `[true - playing/false - pause]`
 * `media.artist`
 * `media.album`
