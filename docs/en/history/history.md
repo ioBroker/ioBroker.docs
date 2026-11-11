@@ -4863,6 +4863,16 @@ https://github.com/nobl/ioBroker.senec
 - (nobl) Fixed App API month-by-month history being one month off due to UTC vs. local midnight mismatch
 - (nobl) Fixed dashboard showing values from disabled connectors; dashboard now recovers from dropped connections
 - (nobl) Dependency updates
+
+## egigeozone2 (11.11.2026) – new stable release 1.0.11
+https://github.com/obakuhl/ioBroker.egigeozone2
+
+<img src="https://raw.githubusercontent.com/obakuhl/ioBroker.egigeozone2/master/admin/egigeozone.png" width="100" height="100" />
+
+**New features and fixes since 1.0.9:**
+
+- (obakuhl/copilot) Adapter requires Node.js >= 22 now
+- (obakuhl) Dependency updates
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
