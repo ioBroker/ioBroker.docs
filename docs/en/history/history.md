@@ -4847,6 +4847,22 @@ https://github.com/lubepi/ioBroker.simple-proxy-manager
 
 - (lubepi) Added author email to package metadata
 - (lubepi) Fixed: certificates from ACME adapter >= 5.0.0 can be loaded again (certificate chain joined with line breaks)
+
+## senec (11.11.2026) – new stable release 2.16.5
+https://github.com/nobl/ioBroker.senec
+
+<img src="https://raw.githubusercontent.com/nobl/ioBroker.senec/master/admin/senec.png" width="100" height="100" />
+
+**New features and fixes since 2.15.5:**
+
+- (nobl) Fixed: App API login failed when the email address had trailing whitespace; leading/trailing whitespace is now trimmed with a warning
+- (nobl) Added local OpenAPI connector (port 4424) for V2/V3 systems — read-only, off by default; adapter handles registration and approval automatically when SENEC credentials are provided
+- (nobl) Chart colors are configurable per series; colors are stored in the adapter and shared across devices
+- (nobl) Energy totals can look back through history with day/month/year navigation arrows; autarky pill steps through periods
+- (nobl) Self-sufficiency now uses SENEC's own reported figure where available
+- (nobl) Fixed App API month-by-month history being one month off due to UTC vs. local midnight mismatch
+- (nobl) Fixed dashboard showing values from disabled connectors; dashboard now recovers from dropped connections
+- (nobl) Dependency updates
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
