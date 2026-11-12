@@ -4967,6 +4967,27 @@ https://github.com/oweitman/ioBroker.vis-jsontemplate
 **New features and fixes since 5.0.0:**
 
 - (oweitman) Fixed optional vis-2 dependency
+## nspanel-lovelace-ui (12.11.2026) – new stable release 2.1.0
+https://github.com/ticaki/ioBroker.nspanel-lovelace-ui
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.nspanel-lovelace-ui/main/admin/nspanel-lovelace-ui.png" width="100" height="100" />
+
+**New features and fixes since 1.7.0:**
+
+- (ticaki) web panels: browser-based panel UI via http, no Tasmota needed; supports PIN, HTTPS, and FIDO2
+- (ticaki) admin: script-to-admin migration button converts pages, screensaver and hardware buttons; panels can run without a script
+- (ticaki) page configuration: new page types cardMedia, cardThermo, Page link; improved navigation flow editor
+- (ticaki) icons: Material Design Icons 7.4.47 (546 new icons), own window/shutter icons
+- (tt-tom17) panel settings: hardware buttons (relay decoupling and action) now configured in the panel tile
+- (ticaki) screensaver: timer mode replaces the clock; new tiles mode with 5 values and 7 indicators; blind support as element
+- (ticaki) cardPChart: new Pie chart page type (needs TFT 6.0.5+) with up to five slices
+- (ticaki) admin screensaver: page item templates per place, uniform paging arrows
+- (ticaki) admin navigation: improved start-page detection, explicit next no longer overwritten
+- (tt-tom17) cardQR: "No Password" mode no longer leaks the stored Wi-Fi password
+- (tt-tom17) cardThermo: fixed set-temperature multiplication by step width
+- (tt-tom17) cardAlarm: disarm buttons work without an arm button in the same row
+- (ticaki) panel: at most one list update per 2 s for running timers; at least 1 s between page updates
+- (ticaki) admin: various UI improvements (font size labels, dynamic name button, screensaver item dialog)
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
