@@ -4958,6 +4958,15 @@ https://github.com/iobroker-community-adapters/ioBroker.spotify-premium
 - (@GermanBluefox) State roles corrected per ioBroker role definitions; existing objects updated on start
 - (@GermanBluefox) Podcast episodes shown in player states; `player.playUri` accepts episode URIs
 - (@GermanBluefox) Timers and waits use adapter methods for clean shutdown
+
+## vis-jsontemplate (12.11.2026) – new stable release 5.0.1
+https://github.com/oweitman/ioBroker.vis-jsontemplate
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.vis-jsontemplate/main/admin/vis-jsontemplate.png" width="100" height="100" />
+
+**New features and fixes since 5.0.0:**
+
+- (oweitman) Fixed optional vis-2 dependency
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
