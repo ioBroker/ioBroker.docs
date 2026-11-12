@@ -4932,6 +4932,19 @@ https://github.com/FernetMenta/ioBroker.plenticore-g3
 **New features and fixes since 1.0.2:**
 
 - (FernetMenta) Dependency updates
+
+## tuya (12.11.2026) – new stable release 3.18.2
+https://github.com/Apollon77/ioBroker.tuya
+
+<img src="https://raw.githubusercontent.com/Apollon77/ioBroker.tuya/master/admin/tuya.png" width="100" height="100" />
+
+**New features and fixes since 3.17.0:**
+
+- (@Apollon77) Added support for Tuya 3.5 devices
+- (@Apollon77) Fixed initial setting and value correction for special temp values; adjusted timestamps from MQTT
+- (@Apollon77) Updated Tuyapi to latest version to prevent parsing issues
+- (@Apollon77) Removed http-mitm-proxy patching (no longer needed)
+- (@Apollon77) More schema information added/updated
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
