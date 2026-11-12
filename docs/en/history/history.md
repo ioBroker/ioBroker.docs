@@ -4894,6 +4894,18 @@ https://github.com/backfisch88/ioBroker.shelfmate
 <img src="https://raw.githubusercontent.com/backfisch88/ioBroker.shelfmate/main/admin/shelfmate.png" width="100" height="100" />
 
 Household inventory for ioBroker: scan barcodes and QR codes, track stock per location, best-before dates and automatic shopping list.
+
+## goodwe (12.11.2026) – new stable release 1.3.0
+https://github.com/typhosj/ioBroker.goodwe
+
+<img src="https://raw.githubusercontent.com/typhosj/ioBroker.goodwe/main/admin/goodwe.png" width="100" height="100" />
+
+**New features and fixes since 1.2.1:**
+
+- (typhosj) Added Modbus TCP on port 502 as an experimental second connection for GoodWe WiFi/LAN dongle 2.0 (which does not answer UDP on port 8899 via LAN)
+- (typhosj) Depth of discharge (on/off grid) and battery charge current are now writable when inverter control is enabled
+- (typhosj) Added read-only states `Settings.WorkMode` and `Settings.LoadControl.*`
+- (typhosj) Fixed a rejected register read causing the next request to also fail
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
