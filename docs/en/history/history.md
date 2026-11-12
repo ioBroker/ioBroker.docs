@@ -4988,6 +4988,21 @@ https://github.com/ticaki/ioBroker.nspanel-lovelace-ui
 - (tt-tom17) cardAlarm: disarm buttons work without an arm button in the same row
 - (ticaki) panel: at most one list update per 2 s for running timers; at least 1 s between page updates
 - (ticaki) admin: various UI improvements (font size labels, dynamic name button, screensaver item dialog)
+## agent-dvr (12.11.2026) – new stable release 0.7.0
+https://github.com/ipod86/ioBroker.agent-dvr
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.agent-dvr/main/admin/agent-dvr.png" width="100" height="100" />
+
+**New features and fixes since 0.5.5:**
+
+- (ipod86) feat: lertPhotos.url1–3 with fixed http(s) links to each photo for TV/kiosk apps
+- (ipod86) feat: <cam>.events.webhookParams with all parameters of the latest webhook call as JSON
+- (ipod86) feat: webhook with ?oid={ID}&ot={OT} pulses <cam>.events.webhook immediately (20 s cooldown) for fast alerts
+- (ipod86) feat: alert photos stored in file storage on webhook call, last 3 per camera (lertPhotos.grab1–3, 	s1–3)
+- (ipod86) feat: alert photos served for VIS at /agent-dvr.0/photos/<cam>/grab1.jpg
+- (ipod86) feat: lertPhotos.uri1–3 with iobfile:// URI of each photo, sendable directly with Telegram 6
+- (ipod86) fix: events.detected_* now also fires when AgentDVR adds an AI tag to a recording after first listing
+- (ipod86) chore: clearer adapter title ("Agent DVR – Cameras & Recordings")
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
