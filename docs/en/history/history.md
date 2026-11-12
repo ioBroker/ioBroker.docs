@@ -4945,6 +4945,19 @@ https://github.com/Apollon77/ioBroker.tuya
 - (@Apollon77) Updated Tuyapi to latest version to prevent parsing issues
 - (@Apollon77) Removed http-mitm-proxy patching (no longer needed)
 - (@Apollon77) More schema information added/updated
+
+## spotify-premium (12.11.2026) – new stable release 3.1.0
+https://github.com/iobroker-community-adapters/ioBroker.spotify-premium
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.spotify-premium/master/admin/spotify-premium.png" width="100" height="100" />
+
+**New features and fixes since 3.0.1:**
+
+- (@GermanBluefox) Uses /playlists/{id}/items instead of the removed /tracks endpoint (Spotify API change Feb 2026); 403 on single playlists no longer sets the instance to error
+- (@GermanBluefox) Handles expired/revoked refresh tokens (Spotify limits them to 6 months since July 2026): token is discarded, polling stops and user is prompted to re-authorize
+- (@GermanBluefox) State roles corrected per ioBroker role definitions; existing objects updated on start
+- (@GermanBluefox) Podcast episodes shown in player states; `player.playUri` accepts episode URIs
+- (@GermanBluefox) Timers and waits use adapter methods for clean shutdown
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
