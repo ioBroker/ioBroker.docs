@@ -4923,6 +4923,15 @@ https://github.com/konrad2002/ioBroker.melcloudhome
 <img src="https://raw.githubusercontent.com/konrad2002/ioBroker.melcloudhome/master/admin/melcloudhome.png" width="100" height="100" />
 
 Integrates Mitsubishi MEL Cloud Home devices into ioBroker.
+
+## plenticore-g3 (12.11.2026) – new stable release 1.0.3
+https://github.com/FernetMenta/ioBroker.plenticore-g3
+
+<img src="https://raw.githubusercontent.com/FernetMenta/ioBroker.plenticore-g3/main/admin/plenticore-g3.png" width="100" height="100" />
+
+**New features and fixes since 1.0.2:**
+
+- (FernetMenta) Dependency updates
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
