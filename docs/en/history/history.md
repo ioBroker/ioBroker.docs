@@ -4906,6 +4906,16 @@ https://github.com/typhosj/ioBroker.goodwe
 - (typhosj) Depth of discharge (on/off grid) and battery charge current are now writable when inverter control is enabled
 - (typhosj) Added read-only states `Settings.WorkMode` and `Settings.LoadControl.*`
 - (typhosj) Fixed a rejected register read causing the next request to also fail
+
+## meteonomiqs (12.11.2026) – new stable release 0.2.11
+https://github.com/Schimi1983/ioBroker.meteonomiqs
+
+<img src="https://raw.githubusercontent.com/Schimi1983/ioBroker.meteonomiqs/main/admin/meteonomiqs.png" width="100" height="100" />
+
+**New features and fixes since 0.2.9:**
+
+- (Schimi) Settings page redesigned for beginners with "Getting started" box and expert mode for rarely used options; README and German guide rewritten
+- (Schimi) State roles follow the ioBroker role catalogue more closely (official forecast roles, felt temperature, sunrise/sunset, snow, wind, warning level, etc.); existing installations take over new roles automatically on next start
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
