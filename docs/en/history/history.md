@@ -4916,6 +4916,13 @@ https://github.com/Schimi1983/ioBroker.meteonomiqs
 
 - (Schimi) Settings page redesigned for beginners with "Getting started" box and expert mode for rarely used options; README and German guide rewritten
 - (Schimi) State roles follow the ioBroker role catalogue more closely (official forecast roles, felt temperature, sunrise/sunset, snow, wind, warning level, etc.); existing installations take over new roles automatically on next start
+
+## melcloudhome (12.11.2026) – new adapter at beta (latest) repository
+https://github.com/konrad2002/ioBroker.melcloudhome
+
+<img src="https://raw.githubusercontent.com/konrad2002/ioBroker.melcloudhome/master/admin/melcloudhome.png" width="100" height="100" />
+
+Integrates Mitsubishi MEL Cloud Home devices into ioBroker.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
