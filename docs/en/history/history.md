@@ -5015,6 +5015,20 @@ https://github.com/Schimi1983/ioBroker.androidtv
 <img src="https://raw.githubusercontent.com/Schimi1983/ioBroker.androidtv/main/admin/androidtv.png" width="100" height="100" />
 
 Control NVIDIA SHIELD, Android TV / Google TV and Amazon Fire TV devices from ioBroker.
+## kecontact (13.11.2026) – new stable release 3.9.0
+https://github.com/iobroker-community-adapters/ioBroker.kecontact
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.kecontact/master/admin/kecontact.png" width="100" height="100" />
+
+**New features and fixes since 3.8.0:**
+
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (FernetMenta) skip PV regulation loop when no vehicle is plugged to avoid repeated stop/disable cycles
+- (GermanBluefox) timestamp of phase switch now stored when switching via state, so minimum time between phase switches is respected
+- (Sneak-L8) fix 1p/3p switch deadlock in state 5
+- (FernetMenta) fix endless interrupted/charging loop when PV automatics is enabled during an active session without surplus
+- (Sneak-L8) push test script from 6.1.2 to 6.2.1, fix error [S0064]
+- (Sneak-L8) add email address to license information
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
