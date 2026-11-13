@@ -5003,6 +5003,12 @@ https://github.com/ipod86/ioBroker.agent-dvr
 - (ipod86) feat: lertPhotos.uri1–3 with iobfile:// URI of each photo, sendable directly with Telegram 6
 - (ipod86) fix: events.detected_* now also fires when AgentDVR adds an AI tag to a recording after first listing
 - (ipod86) chore: clearer adapter title ("Agent DVR – Cameras & Recordings")
+## ultimate-updater (13.11.2026) – new adapter at beta (latest) repository
+https://github.com/ipod86/ioBroker.ultimate-updater
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.ultimate-updater/main/admin/ultimate-updater.png" width="100" height="100" />
+
+Shows update status of Proxmox hosts, LXC containers and VMs from BassT23's Ultimate Updater and triggers checks/updates.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
