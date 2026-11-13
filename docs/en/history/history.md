@@ -5009,6 +5009,12 @@ https://github.com/ipod86/ioBroker.ultimate-updater
 <img src="https://raw.githubusercontent.com/ipod86/ioBroker.ultimate-updater/main/admin/ultimate-updater.png" width="100" height="100" />
 
 Shows update status of Proxmox hosts, LXC containers and VMs from BassT23's Ultimate Updater and triggers checks/updates.
+## androidtv (13.11.2026) – new adapter at beta (latest) repository
+https://github.com/Schimi1983/ioBroker.androidtv
+
+<img src="https://raw.githubusercontent.com/Schimi1983/ioBroker.androidtv/main/admin/androidtv.png" width="100" height="100" />
+
+Control NVIDIA SHIELD, Android TV / Google TV and Amazon Fire TV devices from ioBroker.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
