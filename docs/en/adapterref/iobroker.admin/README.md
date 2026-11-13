@@ -93,7 +93,35 @@ The repositories and security settings can also be set here.
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+- (@GermanBluefox) Fixed: after "Check adapters for updates" or `iobroker update`, the adapter list shows when the repository was read and not when it was generated (#3729)
+- (@GermanBluefox) Updated @iobroker/json-config to 10.1.20: `cron` in the JSON config does not offer the wizard of schedules anymore, which wrote `{}` into the field
+- (@GermanBluefox) Updated @iobroker/gui-components to 10.4.6: the CRON dialog has the new mode "Hourly" for a fixed minute of every hour, does not overwrite a schedule that the simple mode cannot show and does not accept invalid values
+- (@GermanBluefox) Fixed: the adapter list does not scroll to the top when an adapter is installed
+- (@GermanBluefox) Overview shows a hint when a js-controller update is available (#3722, #1914)
+- (@GermanBluefox) Fixed: the repository time stamp is updated on the first click of "Check adapters for updates" (#3724)
+- (@GermanBluefox) Updated @iobroker/gui-components to 10.4.5: in the JSON config, `customFilter` of `objectId` with `common.role` as a string shows the matching objects and not all others
+- (@GermanBluefox) Updated @iobroker/json-config to 10.1.21: `translate` for `text`, also in tables (#3721)
+- (@GermanBluefox) Fixed: about 70 texts were not translated, e.g. "Invalid version of ... Required ... Current"; missing spaces in the Windows update commands of js-controller
+
+### 8.3.11 (2026-11-07)
+- (@GermanBluefox) Fixed: in the file rights dialog, a "different" permission could not be set for all files
+- (@GermanBluefox) Updated @iobroker/json-config to 10.1.19: added the control `diskSelector` to select a file or a folder on the disk of the host where the instance runs (needs js-controller with `CONTROLLER_READ_DISK_DIR`)
+- (@krobipd) Fixed: saving the instance settings writes only the settings changed in the dialog, so a setting the adapter wrote into its native while the dialog was open (e.g. its device list) is no longer set back (json-config 10.1.19)
+- (@GermanBluefox) Updated @iobroker/socket-classes to 2.10.3: the host commands `readDiskDir` and `deleteDiskFile` need the permission for `cmdExec`
+
+### 8.3.10 (2026-11-06)
+- (@GermanBluefox) Fixed: "REAUTHENTICATE!" log flood (#3110)
+- (@GermanBluefox) Fixed: the "connection lost" overlay appears only after 2 seconds; loading a tab shows a spinner instead of it
+- (@GermanBluefox) Updated `@iobroker/gui-components` to 10.4.3: the loader uses the background of the theme
+- (@GermanBluefox) Updated `@iobroker/json-config` to 10.1.17: `coordinates` shows the position on an OpenStreetMap with `map: true`, a click on the map or dragging the marker sets it, `mapStyle` chooses the colors and `readOnly` only shows it; `custom` shows web components of `@iobroker/web-components` (`webComponent`); the text patterns know `_instance`. Admin provides the map, loaded only when a configuration shows one
+
+### 8.3.9 (2026-11-05)
 - (@GermanBluefox) Changed: the dialog "Update all adapters" shows the overall progress and the result of each adapter
+- (@GermanBluefox) Added: tabs without permission show a lock instead of errors
+- (@GermanBluefox) Added: without write rights, instances, enums, users, files, objects and system settings are read-only
+- (@GermanBluefox) Updated `@iobroker/json-config` to 10.1.13: the configuration dialogs use the animated icons: upload with progress and result, trash cans, copy with a check mark instead of the alert "Copied", `sendTo` and `setState` confirm the result in the button, rows of tables light up and slide out; fixes for `fileSelector`, `image` with `base64` and the CSV import into an empty table
+- (@GermanBluefox) Updated `@iobroker/gui-components` to 10.4.1: animated trash cans, upload, copy and reload symbols in the file and object browser, placeholder rows while the objects are loading, `UploadImage` shows the upload
+- (@GermanBluefox) Added: the rights of each object itself (owner, group, everybody) are checked as well
 
 ### 8.3.8 (2026-11-04)
 - (@GermanBluefox) Added: menu badges jump when their number grows; a ring turns around the adapter icon while it is installed or updated
@@ -113,28 +141,6 @@ The repositories and security settings can also be set here.
 - (@GermanBluefox) Added: animated folders in the object browser; the restart button of an instance turns until the instance is alive again
 - (@GermanBluefox) Changed: the pause button of the log shows the number of new lines as a badge
 - (@GermanBluefox) Fixed: the access control dialog crashed with "Error in GUI" and the owner or group could not be changed, if the children had different owners or groups (#3711)
-
-### 8.3.6 (2026-10-29)
-- (@GermanBluefox) Fixed: the `checkDocker` control of a configuration dialog showed the Docker of the host admin runs on, also for an instance on another host. Admin asks the host of the instance now; that host needs a js-controller with `CONTROLLER_CHECK_DOCKER`. With an older js-controller there, the dialog says that Docker cannot be checked instead of showing the wrong host
-- (@GermanBluefox) Updated `@iobroker/json-config` to 10.1.9: the `checkDocker` control names the host of the instance
-- (@GermanBluefox) Updated `@iobroker/json-config` to 10.1.10: the new option `allowReorder` of `table` lets the rows be reordered with `noDelete: true` (#3707); the export/import buttons of the instance settings do not cover the last tabs any more (#3613, #3657)
-- (@GermanBluefox) Added: OpenRouter as provider in the AI settings of the system settings (`@iobroker/ai-core` 0.0.6, `@iobroker/ai-gui` 0.0.5)
-- (@GermanBluefox) Added: the "Resource usage" chart of the overview can show any recorded data points, not only CPU and RAM - with own name, color and history instance. Each data point is read from the history instance that records it, so values recorded by InfluxDB or SQL are shown too, also CPU and RAM if the default history instance does not record them (#3705)
-
-### 8.3.5 (2026-10-26)
-- (@GermanBluefox) Fixed: after a single sign-on the access and refresh token were put into the address (`?ssoLoginResponse=`), so they ended up in the browser history and in the logs of a reverse proxy. Only a one-time code is there now, admin fetches the tokens with it. The ID token that came back after connecting an identity (`?id_token=`, with name and e-mail) is not kept any more, nothing used it
-- (@GermanBluefox) Fixed: the session cookie of a single sign-on was readable by scripts and sent along cross-site requests, unlike the one of a password login
-- (@GermanBluefox) Fixed: behind a reverse proxy with https the single sign-on sent `http://.../sso-callback` to the identity provider, which did not match the registered redirect URI. The protocol now comes from `X-Forwarded-Proto`, and the external address of admin can be set in the SSO settings
-- (@GermanBluefox) Important for everybody who had the single sign-on switched on with an admin before 8.3.4: an identity that somebody else connected with a user stays connected after the update. Check on the "Users" page that every user with single sign-on is connected with the right account, and disconnect the others
-- (@GermanBluefox) Fixed: the device manager crashed if a slider of a device got a value that is not a number (#3699)
-- (@GermanBluefox) Added: the system settings have an "AI" tab to set up the AI provider, its API key and the model once for the whole system; only one provider can be active
-- (@GermanBluefox) Changed: the tabs of the system settings stand on the left with icons, on a phone on top
-- (@GermanBluefox) Changed: the AI assistant takes provider, key and model from the "AI" tab of the system settings
-
-### 8.3.4 (2026-10-25)
-- (@typhosj) Fixed: the license dialog of a paid adapter stayed empty and could not be accepted, so the adapter could not be installed. The dialog loaded `licenseInformation.link` as the license text, but that link names the page with prices and where to buy, which the browser may not read. The license text comes from the repository of the adapter again, and the link is shown next to it. A license text that cannot be loaded no longer blocks the dialog, and a short Markdown text that needs no scrolling can be accepted (#3311, ioBroker/ioBroker.vis-2#707)
-- (@agross) Improved the English wording of the active repository warning.
-- (@GermanBluefox) Fixed: "Add Single-Sign On" in the user dialog sent the display name of the user instead of the user ID, so connecting failed for every user whose name differs from the ID
 
 ## License
 

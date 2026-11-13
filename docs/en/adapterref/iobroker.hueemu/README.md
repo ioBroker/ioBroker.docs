@@ -32,8 +32,8 @@ knows, from a Zigbee bulb to a KNX dimmer to a relay in a heating controller.
 ## Requirements
 
 - Node.js 22 or newer
-- js-controller 7.2.2 or newer
-- admin 8.0.11 or newer
+- js-controller 7.2.5 or newer
+- admin 8.3.5 or newer
 - The client and the ioBroker host on the **same local network**
 
 ## Setting it up
@@ -88,6 +88,7 @@ field at an ioBroker state with the object browser.
 
 Every light keeps its number for good: deleting or reordering lights changes nothing
 for the others, so Alexa's routines keep pointing at the lamps they were set up with.
+A change in the cards takes effect at once, without a restart.
 A light may point at a datapoint that no device confirms — one from `0_userdata`, a
 script or a visualisation — and the bridge follows every change of it just the same.
 
@@ -135,6 +136,10 @@ datapoint)" is the setting that lets the adapter decide:
   `Native (no conversion)` for mired (roughly 153–500), `Percent (0..100, 0 = cold)` for
   a state that runs from coldest to warmest in percent
 
+A scale you set belongs to the state it was set for: bind another state in the card and
+leave the scale as it is, and it goes back to "Automatic" — pick a scale in the same step
+to keep one.
+
 ## Lights that have no on/off state
 
 Some dimmers offer only a brightness state and no separate switch — a HomeMatic dimmer
@@ -151,8 +156,10 @@ hueemu.0.
 │   └── error      — why it is not (empty while everything works)
 ├── startPairing   — opens the pairing window for 50 seconds (button)
 ├── disableAuth    — accept every request without pairing (switch)
-└── clients/       — one entry per paired client
-    └── <name>     — the key that client uses
+├── clients/       — one entry per paired client
+│   └── <model>-<xxxx> — the device type that client paired with; xxxx are the last four characters of its key, which stays in the instance data folder
+└── lights/        — the lights the bridge offers
+    └── <n>        — one light, named as on its card; n is its Hue light number
 ```
 
 `info.connection` is the quick answer to "is it running at all?". A start can fail for
@@ -164,9 +171,14 @@ and the log carries the explanation.
 A paired client is removed by deleting its entry under `hueemu.0.clients` — its key
 stops working at once.
 
+Hue clients see a light as not reachable while the state that switches it — without one,
+its brightness state — does not exist (deleted, or a typo in the card), and for a light
+bound to no state at all. A missing color state alone leaves it reachable. A light deleted
+under `hueemu.0.lights` is gone from the bridge at once, like one deleted on its card.
+
 `disableAuth` is a maintenance aid, not a setting to leave on: with it every device on
-your network can control your lights without pairing. New clients are limited to 100
-per hour in any case; a single log warning tells you when that limit was reached.
+your network can control your lights without pairing, and every request to pair is
+granted.
 
 ## Ports the adapter uses
 
@@ -195,12 +207,14 @@ written, so the light will show a value and ignore every command.
 
 **A light shows the wrong color or brightness.** See "Value scales" above.
 
-**Going back to a version below 1.18.0** is not supported: the older version no longer
-finds the listen address under its new key and numbers the lights anew, so Alexa sees
-different lamps.
+**Going back to an older version** is not supported. Version 1.19.0 and older keep the
+bridge identity and the lights in the instance settings and find neither in their new
+places: they create a new identity, so every client has to search for the bridge and
+pair again, and they offer no lights until you add them anew. Below 1.18.0 the older version also no longer finds the listen address under its
+new key and numbers the lights anew, so Alexa sees different lamps.
 
 **You come from the old `createLight` setup.** Your lights are converted automatically
-on the first start and the adapter restarts once. Nothing to do by hand. Worth doing
+on the first start, without a restart. Nothing to do by hand. Worth doing
 afterwards: the old approach used adapter-internal states as go-betweens, which needed
 a script to drive the real device. You can now point each light straight at the device
 state and drop that script.
@@ -218,6 +232,30 @@ Error reporting via Sentry is active by default; what it sends and how to switch
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- Changed: The bridge now answers only clients in its own networks, with a chosen address only those in that network.
+- Changed: Saving the settings can no longer reset the bridge identity.
+- Changed: A damaged identity file stops the start with an error.
+- Changed: The lights moved from the settings into the object tree (lights) — a change in the device manager takes effect without a restart.
+- Changed: A paired client's object is now named after its device type, e.g. clients.harmony-hub-ac37; every pairing stays.
+- Improved: The keys of paired clients no longer show in the object tree.
+- Changed: An alias on a paired client's object follows it to the new object.
+- Changed: Going back to 1.19.0 or older is not supported — that version creates a new bridge identity and finds no lights.
+- Changed: The undocumented /health route is gone.
+- Changed: Pairing has no limit any more — every device that asks within the 50 seconds is paired.
+- Fixed: A text switch (e.g. EIN/AUS) that a client switched on is now read back as on.
+- Fixed: A light bound to another datapoint no longer keeps the old datapoint's scale.
+- Fixed: A client's pairing date no longer changes with every rename or object update.
+- Fixed: A UDN or MAC that is not text no longer stops the start.
+- Fixed: A stray write to one of the adapter's read-only datapoints is no longer confirmed.
+- Fixed: Opening the device manager right after the instance started no longer fails.
+- Fixed: A new instance shows "Unknown" as the reason until its first start instead of an empty text.
+- Fixed: A bridge that cannot start, for example on a taken port, now ends with an error and js-controller restarts it.
+- Fixed: A message the adapter does not know (sendTo from a script) now gets an error answer instead of none.
+- Improved: A chosen address the host does not have no longer stops the bridge — it listens on every address and warns once.
+- Improved: The settings always open on the first tab, Configuration.
 
 ### 1.19.0 (2026-09-25) — stable
 

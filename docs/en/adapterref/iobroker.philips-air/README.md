@@ -44,11 +44,12 @@ Over CoAP the device pushes its status on its own, so there is no polling. Some 
 | --- | --- |
 | AC2889 and the other classic purifiers, for example AC1214, AC2729, AC2939, AC3059, AC3829 or AC4236 | `AC2889` |
 | AC3221 | `AC3221` |
+| AC3737/10 2-in-1 purifier/humidifier | `AC3737` |
 | CX3550/01 pedestal fan | `CX3550` |
 | CX7550/01 tower fan | `CX7550` |
 | Anything else, or if you are unsure | `Generic` |
 
-The classic purifiers all report the same plain keys (`pwr`, `om`, `mode` and so on), which is why one entry covers the whole family. Confirmed on real hardware so far: AC2729, AC2889, AC3221, AC3829, AC4236/14, CX3550/01 and CX7550/01.
+The classic purifiers all report the same plain keys (`pwr`, `om`, `mode` and so on), which is why one entry covers the whole family. Confirmed on real hardware so far: AC2729, AC2889, AC3221, AC3829, AC4236/14, CX3550/01 and CX7550/01. The `AC3737` entry was built from a complete status frame of an AC3737/10 (GitHub #407) and then confirmed on that device: the readings match the app, and writing the mode and the humidity target from ioBroker were both followed by the device. Two notes specific to this 2-in-1: all three filter pairs are assigned, but not the way the other new-gen models spell them - the 4800 h pair is the humidifier (wick) filter here and the 2400 h pair is the air filter (`hepaFilter*`), both confirmed against the percentages the app shows. And `status.waterTankPresent` really means "tank seated": with the tank in but empty it stays `true`, while `device.error` switches to `no water`.
 
 The model number on its own tells you nothing about the register set: the AC4236/14 carries a higher number than the AC3221, yet it is a classic device and needs `AC2889`. Pick the entry that matches the keys your device reports, not the one that looks closest to its name.
 
@@ -92,13 +93,14 @@ Tested CX7550/01 functions:
 More details are documented in [docs/CX7550.md](/#/docs/adapterref/iobroker.philips-air/docs/CX7550.md).
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 2.4.0 (2026-11-06)
+- (tt-tom17) New device model "AC3737" for the AC3737/10 2-in-1 purifier/humidifier: readings, all three filter pairs, the humidity target, the water tank state, the "no water" error and the preferred index are now named instead of appearing as raw values; writing the mode and the humidity target is confirmed on the device
 - (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### 2.3.0 (2026-10-26)
 
 - (tt-tom17) A new instance now starts with the device model "Generic" (read-only values, no controls) instead of silently using the AC2889 controls; instances that already have a model keep it
@@ -140,14 +142,6 @@ More details are documented in [docs/CX7550.md](/#/docs/adapterref/iobroker.phil
 ### 1.5.0 (2026-06-24)
 - (tt-tom17) CoAP connection now stays stable instead of disconnecting every few minutes
 - (tt-tom17) Fixed adapter checker warnings
-
-### 1.4.0 (2026-06-17)
-- (tt-tom17) Connection to CoAP and HTTP devices is much more reliable now: several cases that could crash the adapter, freeze the connection or stop it from reconnecting have been fixed
-- (tt-tom17) Air quality, filter and on/off values are now shown with the correct type and update reliably
-- (tt-tom17) Clearer log messages, including a hint to switch to CoAP when a device does not answer on HTTP
-- (tt-tom17) HTTP mode no longer needs the extra "philips-air" package and its outdated dependencies
-- (tt-tom17) The device address field now accepts an IP address or a hostname and warns about invalid input
-- (tt-tom17) Dependencies updated
 
 ## License
 MIT License

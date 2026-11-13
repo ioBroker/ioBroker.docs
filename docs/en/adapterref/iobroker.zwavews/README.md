@@ -40,6 +40,7 @@ Activate WS Server Settings in `zwave-js-ui` we use the Home Assistant Settings 
 
 ## Changelog
 * (arteck) fix https://github.com/arteck/ioBroker.zwavews/issues/123
+* (arteck) fix eventData 
 
 ### 1.1.0 (2026-08-20)
 * (arteck) fix reconnect ws

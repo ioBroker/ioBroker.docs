@@ -4,7 +4,7 @@ lastChanged: 21.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/admin.md
-hash: wuEfkLru9T0fcpEU0WaMI6rfBOO2IVlZwW+2KBpVRNQ=
+hash: 7iaLyoBhEgnt98le9CZ2kW9QlVCTdhbjAp7u88ZJ2Ek=
 ---
 # Tour of the surface
 
@@ -46,7 +46,7 @@ Additional tabs are added with the installed adapters, such as _scripts_ , _cale
 
 ## Expert mode
 
-A head icon is located in the bottom left corner of the menu bar. It toggles **expert mode** on and off, and also indicates the current status: white means off, green means on.
+In the bottom left corner of the menu bar is a graduation cap. It toggles **expert mode** on and off, and also indicates the current status: white means off, green means on.
 
 Important to understand: It doesn't change anything about your system and doesn't allow you to do anything that was previously prohibited. It's like a pair of glasses, not a door. When switched off, the admin panel shows what's needed for everyday use; when switched on, it also shows everything that would otherwise be in the way.
 
@@ -69,7 +69,7 @@ Additional information is added, depending on the rider:
 
 There are two switches, and this regularly causes confusion:
 
-- The **head icon** in the bottom left corner only applies to the current browser session. After closing the window, it reverts to the state defined by the system settings.
+- The **graduation cap icon** in the bottom left corner only applies to the current browser session. After closing the window, it reverts to the state defined by the system settings.
 - In the [system settings,](/docs/admin/settings.md) _expert mode_ determines how the administrator starts when the system is opened.
 
 The admin says exactly that again when the system is first switched on:

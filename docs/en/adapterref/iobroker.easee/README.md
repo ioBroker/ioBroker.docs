@@ -1,40 +1,82 @@
-![Logo](admin/easee.png)
+---
+chapters: {"pages":{"en/adapterref/iobroker.easee/README.md":{"title":{"en":"ioBroker.easee"},"content":"en/adapterref/iobroker.easee/README.md"},"en/adapterref/iobroker.easee/docs/bluetooth.md":{"title":{"en":"Bluetooth connection"},"content":"en/adapterref/iobroker.easee/docs/bluetooth.md"}}}
+---
+<img src="admin/Readme.png" alt="Logo" width="538">
+
 # ioBroker.easee
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.easee.svg)](https://www.npmjs.com/package/iobroker.easee)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.easee.svg)](https://www.npmjs.com/package/iobroker.easee)
 ![Number of Installations (latest)](http://iobroker.live/badges/easee-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/easee-stable.svg)
-[![Dependency Status](https://img.shields.io/david/Newan/iobroker.easee.svg)](https://david-dm.org/Newan/iobroker.easee)
-[![Known Vulnerabilities](https://snyk.io/test/github/Newan/ioBroker.easee/badge.svg)](https://snyk.io/test/github/Newan/ioBroker.easee)
+<!-- ![Number of Installations (stable)](http://iobroker.live/badges/easee-stable.svg) -->
 
 [![NPM](https://nodei.co/npm/iobroker.easee.png?downloads=true)](https://nodei.co/npm/iobroker.easee/)
 
-**Tests:** ![Test and Release](https://github.com/Newan/ioBroker.easee/workflows/Test%20and%20Release/badge.svg)
-
 ## easee adapter for ioBroker
 
-Adapter to connect Easee Wallbox
+Adapter to connect [Easee Wallboxes](https://easee.com/).
+
+## Requirements
+
+- Node.js 22.19.0 or newer
+- ioBroker js-controller 7.2.2 or newer
+- ioBroker Admin 7.7.22 or newer
 
 ## Help
 
-`status.chargerOpMode` reports the charger's operation mode (Easee Observation 109):
+### Connection mode
 
-| Value | Mode | Description |
-| ---: | --- | --- |
-| 0 | Offline | Charger is offline. |
-| 1 | Disconnected | No car is connected. |
-| 2 | Awaiting Start | A car is connected; the charger is waiting for the EV or load balancing. |
-| 3 | Charging | The car is charging. |
-| 4 | Completed | The car has paused or stopped charging. |
-| 5 | Error | The charger has an error. |
-| 6 | Ready to Charge | The charger is waiting for the car to take energy. |
-| 7 | Awaiting Authentication | The charger is waiting for authentication. |
-| 8 | De-authenticating | The charger is de-authenticating. |
+Cloud is the default connection mode. Choose **Easee Cloud** or
+**Bluetooth (local)** in the adapter settings. Cloud mode uses your Easee
+account. Bluetooth mode connects directly to chargers configured in the
+Device Manager on the Connection tab. Use it to add, edit, and remove local
+chargers; Bluetooth mode does not log in to Cloud or switch to Cloud
+automatically. Enter each charger's serial number and Bluetooth PIN (not
+your Easee account password), then save the settings and restart the adapter.
+An optional name is only an ioBroker label. The PIN is stored encrypted in the
+adapter configuration.
 
-dynamicCircuitCurrentPX -> All phases must be set within 500ms (script) otherwise the phase will be set to 0.    
+The charger must be in Bluetooth range and available for a local connection.
+The **Advanced Bluetooth functions** tab shows Bluetooth status and
+connection method and offers an optional manual search. Search results do not configure chargers or
+replace the required serial number and PIN. Bluetooth mode does not provide
+Cloud-only information such as site prices, session history, or authorization
+token details. Only datapoints supported by the selected connection mode are
+exposed; unsupported adapter-created datapoints are removed after switching
+modes. For setup, compatibility, and troubleshooting, see the
+[Bluetooth guide](/#/docs/adapterref/iobroker.easee/docs/bluetooth.md).
 
-Session polling can run automatically at a recommended interval of seven minutes per detected charger, or use a manually selected interval per charger. The Admin configuration shows the detected charger count, recommendation, and effective interval. Manual values below the recommendation are raised automatically to preserve the API rate limit. The last session request time is retained across adapter restarts.
+### Charger status and controls
+
+`<chargerId>.status.chargerOpMode` shows the current charging state:
+
+| Value | State |
+| ---: | --- |
+| 0 | Offline |
+| 1 | Disconnected |
+| 2 | Waiting to start |
+| 3 | Charging |
+| 4 | Paused or completed |
+| 5 | Error |
+| 6 | Ready to charge |
+| 7 | Waiting for authentication |
+| 8 | Ending authentication |
+
+In Cloud mode, Easee may provide an authorization token after a charging
+session in `status.authToken`. When the token matches a key in your Easee account,
+`status.authTokenName` shows the key owner's name; otherwise it shows
+`unknown`. Both states remain empty until a token is available.
+
+In Cloud mode, write a new name to `<chargerId>.name` to rename a charger. Your
+Easee account must have permission to change chargers on the site.
+
+`config.dynamicCircuitCurrentP1`–`P3` set the current limit for each phase. In
+Cloud mode, update all phase values together. Bluetooth mode reads the other
+phase values before applying a change and rejects it if they are unavailable.
+
+Cloud session polling is automatic by default. You can set a separate interval
+per charger in Admin; very short intervals are adjusted to avoid excessive
+requests.
 
 ## Credits
 
@@ -45,28 +87,30 @@ This adapter would not have been possible without the great work of @Newan (http
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (Voodoo2man) Limited the displayed charging power to two decimal places in the Device Manager card.
+
+### 4.0.0 (2026-11-10)
+- (Voodoo2man) Added optional local Bluetooth connectivity alongside Cloud, with charger discovery and setup through the Device Manager.
+- (Voodoo2man) Improved Cloud status and session updates, charger controls, and Bluetooth charger configuration saving.
+
+### 3.2.0 (2026-11-07)
+- (Voodoo2man) Added the ability to change the charger name through the writable `<chargerId>.name` state.
+- (Voodoo2man) Replaced the adapter icon.
+- (Voodoo2man) Added an authorization token datapoint that is cleared when charging starts and set after the session, with a separate owner-name datapoint.
+
 ### 3.1.0 (2026-11-01)
 - (Voodoo2man) Corrected cable-lock status reporting and improved the reliability of charger status updates.
 - (Voodoo2man) Added a readable and adjustable permanent cable-lock setting, kept separate from the actual cable-lock status.
 - (Voodoo2man) Improved recovery of live charger updates after connection interruptions while retaining regular status updates when live updates are disabled.
 
 ### 3.0.0 (2026-10-23)
-- (Voodoo2man) Migrated the adapter to TypeScript; Node.js 22.19.0 or newer is required
-- (Voodoo2man) Updated adapter tooling, Admin configuration, and runtime metadata
+- (Voodoo2man) Raised the minimum Node.js version to 22.19.0.
 
 ### 2.0.0 (2026-10-18)
-- (Voodoo2man) Improved charger status and connectivity handling with the Observations API, SignalR resilience, bounded polling, and API retries, incorporating contributions from @Voodoo2man, @Michaelnorge, @Codibris, and @m1chel87, with earlier Node.js and JSON-config groundwork from @NCIceWolf.
-- (Voodoo2man) Improved circuit-current update reliability and added configurable, rate-limit-aware session polling across chargers.
-- (Voodoo2man) Added configurable net charging prices and VAT with synchronized gross prices.
-
-### 2.0.0-alpha.1 (2026-10-17)
-- (mcm1957) Adapter has been migrated into the iobroker-community-adapter-organisation
-- (iobroker-bot) Adapter requires node.js >= 22 now.
-- (copilot) Adapter requires js-controller >= 7.2.2 now
-- (copilot) Adapter requires admin >= 7.7.22 now
-
-### 1.0.10 (2023-07-27)
-* (Newan) fix version number
+- (Voodoo2man) Improved charger status updates and recovery after connection interruptions, with contributions from @Michaelnorge, @Codibris, and @m1chel87 and earlier compatibility work by @NCIceWolf.
+- (Voodoo2man) Improved circuit-current controls and added configurable session updates across chargers.
+- (Voodoo2man) Added configurable charging costs, including VAT.
 
 ## Donation
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
@@ -75,7 +119,7 @@ This adapter would not have been possible without the great work of @Newan (http
 MIT License
 
 Copyright (c) 2026 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
-Copyright (c) 2025 Newan <iobroker@newan.de>
+Copyright (c) 2025 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

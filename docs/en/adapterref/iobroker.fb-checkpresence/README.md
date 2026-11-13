@@ -263,6 +263,28 @@ Contain the member's arrival and departure information. The state ID `comming` i
 Contain the member's history for the current day.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (afuerhoff) Improved JavaScript type checking and fixed type-safety issues in error handling and timer usage
+* (afuerhoff) Guarded device names before applying string operations
+* (afuerhoff) Added TypeScript definitions for adapter configuration options
+* (afuerhoff) Added explicit checks for missing adapter configuration objects
+* (afuerhoff) Initialized history tables and guarded optional callback and state results
+* (afuerhoff) Added Fritzbox connection and host-list guards for nullable state
+* (afuerhoff) Corrected assignability issues in adapter state, timer, request, and test types
+* (afuerhoff) Added Mocha type definitions for editor and TypeScript support in tests
+* (afuerhoff) Corrected invalid boolean comparisons and adapter status typing
+* (afuerhoff) Fixed group checks to use the family member configuration
+* (afuerhoff) Kept required JSDoc types enabled without redundant-type warnings in JavaScript files
+* (afuerhoff) Used numeric timestamps explicitly for presence and history duration calculations
+* (afuerhoff) Corrected missing-property typing in device caching, QR output, date formatting, and package tests
+* (afuerhoff) Added null-safe history adapter state checks and date-format timezone handling
+* (afuerhoff) Corrected adapter constructor and logger calls to match their argument signatures
+* (afuerhoff) Typed optional AMD loader detection in the date-format library
+* (afuerhoff) Replaced implicit boolean/date arithmetic in date formatting with explicit numeric operations
+* (afuerhoff) Resolved remaining TypeScript errors in adapter calls, request config, and test types
+* (afuerhoff) Replaced broad date-format utility types with explicit input, return, and unknown-value types
+* (afuerhoff) Initialized guest WLAN data before QR creation and handled missing SSID or passphrase explicitly
+
 ### 1.5.0 (2026-10-26)
 * (afuerhoff) Adapter requires node.js >= 22 now
 * (afuerhoff) configuration changed to jsonConfig

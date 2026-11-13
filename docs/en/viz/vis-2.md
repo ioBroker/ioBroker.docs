@@ -4,7 +4,7 @@ lastChanged: 29.10.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/viz/vis-2.md
-hash: xhg2VIrJOYQEaonHHx+vVrO/Tp+1q+GZkWwJK+M7gPQ=
+hash: 33AqPhb9a5sXU6ENgQXr/jYBwDs2fxmmxr3mBFhXIzc=
 ---
 # vis-2
 
@@ -16,7 +16,7 @@ What sets it apart from other interfaces: vis-2 doesn't build anything automatic
 
 <img src="media/vis2_beispiele.webp" width="900" alt="Vier Beispielseiten: Startseite in Glasoptik, Familienseite mit Karte und Uhr, Kameraübersicht und Grundriss mit Live-Werten" />
 
-Ready-made examples to try out are available at <https://iobroker.click> .
+Ready-made examples to try out are available at <https://iobroker.click> . Instructions on how to import such an example into your own system can be found under [Importing a Demo Project](/docs/viz/vis-2-demo-import.md) .
 
 All images on this page are from vis-2 2.20.5 in the **Modern Dark** theme, using the widget sets that vis-2 itself provides, and some of the common widget adapters.
 
@@ -43,7 +43,7 @@ After that, there are two addresses:
 | Display (Runtime) | `http://<server>:8082/vis-2/index.html` |
 | editor            | `http://<server>:8082/vis-2/edit.html`  |
 
-You can reach a specific project and a specific page with `index.html?Projekt#Seitenname`. Both addresses are also listed as references in the **Instances** tab.
+You can reach a specific project and a specific page with `index.html?Projekt#Seitenname`. Both addresses are also listed as references in the **Instances** tab .
 
 On a phone or tablet, the display can be added to the home screen as a shortcut via the browser menu. It then opens the exact project and page from which it was created, and looks almost like a separate app.
 
@@ -146,13 +146,13 @@ With multiple values and a formula, even more is possible:
 
 The name under which the value appears in the formula comes before the colon. The last section is the formula itself, which allows any JavaScript function of the browser.
 
-!> **All values arrive as a string.** Anyone performing calculations then puts them into `parseFloat()`, otherwise vis-2 concatenates the numbers instead of adding them.
+**All values arrive as a string.** Anyone performing calculations then puts them into... `parseFloat()`, otherwise vis-2 concatenates the numbers instead of adding them.
 
 ```
 {h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;Math.max(20, Math.sqrt(Math.pow(parseFloat(h), 2) + Math.pow(parseFloat(w), 2)))}
 ```
 
-A value enclosed in quotation marks, such as JSON from iCal or MQTT like `{"connected":true}`, arrives in the formula as the object that it is.
+A value with quotation marks, such as JSON from iCal or MQTT like `{"connected":true}`, arrives in the formula as the object that it is.
 
 Two subtleties: A colon **within** a formula is called `::` It's written because the simple character separates the names. And a CSS rule like `{style: value}` would be read as a link; therefore, it belongs in double brackets. `{{style: value}}`.
 
@@ -194,7 +194,7 @@ Two things are important to know: A color set within the widget itself is an inl
 
 ## The AI assistant
 
-Since version 2.20, the editor has a wizard that lets you tell it in your own words what you want on the page. It looks at the data points, builds the page, and opens it. If it wasn't what you wanted, a single keystroke undoes everything.
+Since version 2.20, the editor has a wizard that lets you tell it what you want on the page in your own words. It looks at the data points, builds the page, and opens it. If it wasn't what you wanted, a single keystroke undoes everything.
 
 <img src="media/vis2_assistent.webp" width="382" alt="Der Assistent mit Modellauswahl und Vorschlägen wie Bau eine Seite für die Küche mit Licht, Rollladen und Temperatur" />
 

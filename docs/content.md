@@ -65,6 +65,7 @@
   * [en:Devices adapter;de:Devices-Adapter;ru:Адаптер Devices;zh-cn:Devices 适配器](viz/devices)
   * [Lovelace](viz/lovelace)
   * [vis-2](viz/vis-2)
+    * [en:Import a demo project;de:Demo-Projekt importieren;ru:Импорт демо-проекта;zh-cn:导入演示项目](viz/vis-2-demo-import)
   * [vis](viz/vis)
   * [webui](viz/webui)
   * [en:Visu app;de:Visu App;ru:Приложение Visu;zh-cn:Visu 应用](viz/app)

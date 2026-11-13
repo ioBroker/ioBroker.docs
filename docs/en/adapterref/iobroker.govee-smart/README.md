@@ -102,7 +102,7 @@ catalogue grows from user reports, and no hardware needs to change hands.
 ### **WORK IN PROGRESS**
 
 - Fixed: the diagnostics report contains the object tree again
-- Improved: the diagnostics report names the source of a device's reachability and segment count
+- Fixed: older lights such as the H6110 switch again when controlled over the Govee account
 - Fixed: the colour temperature no longer keeps its old value while the light shows a colour, and the colour no longer shows Govee's placeholder in colour-temperature mode
 - New: a colour temperature set in the Govee app as a white colour also shows as colour temperature
 - Fixed: local snapshots and the segment wizard restore a colour as a colour and a colour temperature as a colour temperature
@@ -110,7 +110,18 @@ catalogue grows from user reports, and no hardware needs to change hands.
 - Fixed: a device's IP address is no longer emptied when the adapter starts before it finds the device on the network again
 - Fixed: after a rate-limit answer from Govee, no further call goes to that server until the wait Govee asks for has passed
 - Improved: the adapter settings page loads about 8 MB less and opens faster
-- Changed: needs js-controller 7.2.5 and Admin 8.2.0
+- Fixed: a light whose scene list Govee refused with too many requests at the start gets its scenes in the same run
+- Fixed: the refresh button of a light is confirmed only when Govee sent its scene list
+- Changed: catalog corrections now apply without the experimental switch
+- New: an untested device says so in the log and asks for a diagnostics report
+- Changed: the colour and brightness of each segment carry the segment's number in their name
+- New: each Govee app group shows in info.online whether all its members are reachable
+- Fixed: the brightness of a light and of its segments uses the range Govee reports for that light, for example 1 to 100
+- Changed: scene, snapshot, music and mode lists are now text datapoints
+- Changed: each device shows its test status in info.tier; the separate diag folder is gone
+- Changed: a verification code stays in the settings after use; the adapter no longer clears the field and restarts itself
+- Changed: Govee's Cloud limits are kept as sliding windows per endpoint and device, and every limit counts on across a restart
+- Changed: needs js-controller 7.2.5 and Admin 8.3.5
 
 ### 3.2.1 (2026-10-15)
 

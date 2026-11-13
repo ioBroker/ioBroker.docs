@@ -113,7 +113,13 @@ Google encrypts tracker locations end-to-end. Without this part the adapter
 still lists your trackers by name, but it cannot show real coordinates. Part 2
 unlocks that encryption once, again entirely in your own browser. There is no
 time pressure here - you can do Part 2 in your own time. The configuration
-page shows it as soon as Part 1 is done:
+page shows it as soon as Part 1 is done.
+
+**Before you start, make sure you saved the configuration after Part 1 and the
+instance has restarted (green status).** Part 2 only works after that restart;
+the configuration page reminds you of it as well.
+
+The steps:
 
 1. Click **Open Google's unlock page**. It opens in a new browser tab. (The
    same link is also written to the instance log, level "warn".)
@@ -168,6 +174,31 @@ Device names, manufacturer/model info and pairing date are always kept
 up to date on the regular poll interval regardless of these settings, since
 reading that doesn't touch the tracker itself.
 
+### Named places
+
+Google sometimes reports only a place name such as "Home" instead of
+coordinates. The name is written to `semanticLocation`, and `latitude`,
+`longitude`, `altitude`, `accuracy`, `isOwnReport` and `mapsLink` are cleared,
+because that report has no position. The next GPS report clears
+`semanticLocation` again. So the states always describe one and the same
+report.
+
+If you want a map position for such a place, assign coordinates to its name in
+the table **Named places** of the configuration (shown once Part 2 is done):
+
+- **Place name** - the name exactly as Google reports it (upper and lower case
+  do not matter). New names are added to the table automatically, without
+  coordinates; the instance restarts once when that happens.
+- **Latitude** / **Longitude** - the position of the place. Rows without
+  coordinates are ignored.
+- **Radius (m)** - how far from that point the tracker may be; it is written to
+  `accuracy`.
+
+While the tracker reports that place, `latitude` and `longitude` hold these
+coordinates, `accuracy` the radius, and `mapsLink` the link to them.
+`semanticLocation` keeps the name, so you can tell such a position from a real
+GPS fix.
+
 ## Usage
 
 ### Objects
@@ -185,14 +216,48 @@ Google's identifier of the tracker with unsafe characters replaced by `_`.
 | `<id>.deviceType` | string | Device type |
 | `<id>.pairDate` | number | Pairing date (timestamp in ms) |
 | `<id>.sharedWithCount` | number | Number of people the tracker is shared with |
-| `<id>.latitude` / `<id>.longitude` | number | Coordinates of the last GPS report |
+| `<id>.latitude` / `<id>.longitude` | number | Coordinates of the newest report (empty while it is a named place without assigned coordinates, see "Named places") |
 | `<id>.altitude` | number | Altitude in metres |
-| `<id>.accuracy` | number | Accuracy in metres |
-| `<id>.lastSeen` | number | Time of the last report (timestamp in ms) |
-| `<id>.semanticLocation` | string | Named place such as "Home", if Google reports one instead of coordinates |
+| `<id>.accuracy` | number | Accuracy in metres (the radius of the place for an assigned named place) |
+| `<id>.lastSeen` | number | Time of the newest report (timestamp in ms) |
+| `<id>.semanticLocation` | string | Named place such as "Home", if the newest report is one instead of a GPS position; otherwise empty |
 | `<id>.isOwnReport` | boolean | `true` if the tracker reported directly, `false` if a stranger's device nearby relayed it |
-| `<id>.mapsLink` | string | Google Maps link to the last GPS position |
+| `<id>.mapsLink` | string | Google Maps link to the position |
+| `<id>.locateNow` | button | Requests a fresh location now (see "Buttons") |
+| `<id>.playSound` | button | Makes the tracker play its sound (see "Buttons") |
+| `<id>.stopSound` | button | Stops that sound again (see "Buttons") |
 | `info.connection` | boolean | `true` while the last poll succeeded |
+
+### Buttons
+
+Each tracker has three buttons. Press one by setting it to `true` (for example
+in the Objects view, in a script or a visualization); the adapter sets it back
+to acknowledged when the action is done. Nothing happens for an acknowledged
+value or for `false`.
+
+- **`locateNow`** - requests a fresh location right away, like the scheduled
+  request, but without waiting for the interval. It works for every tracker,
+  also if "Request location" is off in the table. The same cautions apply:
+  every request makes the tracker work over Bluetooth and costs battery. Only
+  one request per tracker runs at a time; a press during a running request is
+  skipped.
+- **`playSound`** - asks Google to make the tracker ring. **Experimental:**
+  Google accepts the request, but the adapter cannot see whether the tracker
+  really rings, and it has not been confirmed on any tracker yet. In the tests
+  for this adapter a Chipolo tracker and a JBL speaker did not ring, and the
+  official Find Hub app could not make them ring either at that moment. Only
+  trackers with a speaker can ring, and a nearby Android device has to reach the
+  tracker; Google may also hold the request back until the tracker is
+  reachable, so a ring can come later. Reports of a working ring (or of none)
+  for a tracker model are welcome as an issue on GitHub.
+- **`stopSound`** - stops the sound again (experimental, like `playSound`).
+  Google matches a stop to the start it belongs to, so the adapter remembers
+  the starts it sent (in memory, until the instance restarts) and sends a stop
+  for each of them. A stop without such a start is still sent, but the tracker
+  may keep ringing until it stops by itself, and the log says so.
+
+Pressing a button for a tracker that is no longer in the Google account only
+writes a warning to the log.
 
 Only devices that Google lists with a tracker identifier appear. Phones and tablets
 have none and are left out on purpose. Some headphones and earbuds are listed
@@ -202,9 +267,14 @@ not appear either. If a device you expect is missing, set the instance's log
 level to *debug*: every skipped device is logged with its manufacturer, model
 and type (without its name), which helps to tell why it was left out.
 
-A report is either a GPS position or a semantic location. For a semantic
-report `accuracy`, `isOwnReport` and `mapsLink` are cleared so they never
-describe an older position; `lastSeen` is always updated.
+A report is either a GPS position or a named place. All position states
+describe the newest report only: an older report never overwrites a newer
+one, and a GPS report and a named place never show up mixed. Reports without
+a time, or with a time far in the future, are ignored. If a report cannot be
+decrypted, the newest one that can be read is used; if none can, the log says
+so once per start, and at *debug* level every skipped report is listed with
+the size of its key part. Relayed reports with a key part other than 20 bytes
+(a second curve the Find Hub specification allows) are not supported yet.
 
 ### Upgrading from 0.0.7 or older
 
@@ -263,6 +333,24 @@ Python library (MIT, (c) 2017 Matthieu Lemoine, (c) 2023 Steven Beth) and the
 
 ## Changelog
 
+### 0.1.8 (2026-11-06)
+
+* (beabel) **NEW**: the button `locateNow` below each tracker requests a fresh location right away.
+* (beabel) **NEW** (experimental): the buttons `playSound` and `stopSound` ask Google to make a tracker ring and to stop it; Google accepts the request, but a ring has not been confirmed on any tracker yet.
+* (beabel) **ENHANCED**: the debug log names the type and origin of the newest report of each answer and how many reports it held.
+* (beabel) **FIXED**: a location report that cannot be decrypted no longer discards the other reports of the same answer; the newest report that can be read is used.
+* (beabel) **FIXED**: `isOwnReport` now follows how a report was really decrypted instead of a flag set by Google.
+* (beabel) **FIXED**: reports without a time or with a time far in the future are ignored, and such a time can no longer block later reports.
+* (beabel) **CHANGED**: a named place such as "Home" now clears latitude, longitude, altitude, accuracy and the maps link, and a GPS report clears the named place, so the states always describe one and the same report.
+* (beabel) **NEW**: the table "Named places" in the configuration assigns coordinates to a place name such as "Home"; new names are added to it automatically, and a change applies right after saving.
+* (beabel) **ENHANCED**: the log says once per tracker when none of its reports can be decrypted, and the debug log shows the size of the key part of every skipped report.
+
+### 0.1.7 (2026-11-05)
+
+* (beabel) **FIXED**: an older location report no longer overwrites a newer one; the "last seen" time could jump back to an older report when Google answered with only part of its data.
+* (beabel) **ENHANCED**: after a location request the adapter now also waits for further answers from Google (up to 25 seconds after the first one) and uses the newest report of all.
+* (beabel) **ENHANCED**: the setup now says in the configuration page and in this README that the configuration has to be saved and the instance restarted before Part 2.
+
 ### 0.1.6 (2026-11-01)
 
 * (beabel) **NEW**: headphones, speakers and other Fast Pair devices that carry a Find Hub key are now listed and located like trackers (experimental; Google only returns a location if one of its devices has seen them recently).
@@ -279,19 +367,6 @@ Python library (MIT, (c) 2017 Matthieu Lemoine, (c) 2023 Steven Beth) and the
 * (beabel) **NEW**: optional BLE identifier (EID) states for trackers (off by default, switch on per tracker in the device table).
 * (beabel) **FIXED**: push messages are now read correctly even if Google adds extra parameters to the encryption headers; if a push message still cannot be decrypted, the debug log says why (sizes and parameter names only).
 * (beabel) **ENHANCED**: the debug log shows the structure of the identifier block of every device (field numbers and sizes only, never names or ids) to help support devices such as headphones.
-
-### 0.1.3 (2026-10-31)
-
-* (beabel) **ENHANCED**: the debug log now lists every device that is left out because Google gives it no tracker
-  identifier (manufacturer, model and type, never its name), and the README explains which devices appear.
-* (beabel) **ENHANCED**: the README says explicitly that saving after "Connect" restarts the instance before Part 2.
-* (beabel) **TESTING**: updated `@iobroker/testing` to 6.3.1.
-
-### 0.1.2 (2026-10-03)
-
-* (beabel) **ENHANCED**: admin translations moved to the short i18n format (`admin/i18n/<lang>.json`); updated
-  `@iobroker/testing` to 6.3.0.
-* (beabel) **ENHANCED**: the Google account's email address is no longer written to the log.
 
 Older changelog entries: CHANGELOG_OLD.md
 

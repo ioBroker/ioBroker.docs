@@ -10,30 +10,39 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.opensmartcity.svg)](https://www.npmjs.com/package/iobroker.opensmartcity)
 
 ## Changelog
-
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22.19.0 now
 <!--
+    Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 0.4.2 (2026-11-11)
+- (@GermanBluefox) Removed the adapter from its own dependencies. It slipped into 0.4.1, which was therefore not published - this release brings its vis-2 widget fix
+
+### 0.4.1 (2026-11-11)
+- (@GermanBluefox) vis-2 widget: the widget set loads again. vis-2 2.20 loaded it as a classic script, which cannot run the ES module that Vite builds
+
+### 0.4.0 (2026-11-08)
+- (@GermanBluefox) Added the web component `<iob-opensmartcity-map>` - the map of the stations with their latest values - for Aura, admin and other hosts of `@iobroker/web-components` (`common.webComponents`)
+- (@GermanBluefox) vis-2 widget: the setting "Zoom level" works now (0 = all stations fit into the map)
+
+### 0.3.0 (2026-11-05)
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (@GermanBluefox) vis-2 widgets moved to Vite and rebuilt for React 19 and MUI 9 (vis-2 >= 2.20.2 needed), see ioBroker/ioBroker.vis-2#689
+- (@GermanBluefox) The adapter was refactored to TypeScript, the gulp build was replaced by `tasks.ts`
+- (@GermanBluefox) The settings dialog was moved to Vite, React 19, MUI 9 and `@iobroker/gui-components`
+- (@GermanBluefox) The adapter can be installed only from npm now, not directly from GitHub
+- (@GermanBluefox) Fixed: the `status` state of a station was never created
+- (@GermanBluefox) Fixed: the list of stations in the settings stayed empty until the adapter restart, when the FROST server was not reachable at the start
+- (@GermanBluefox) Fixed: the city selector in the settings showed nothing
+
 ### 0.2.3 (2026-10-14)
 - (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
 - (@GermanBluefox) Adapter requires node.js >= 22 and admin >= 7.6.17 now
 - (@GermanBluefox) Fixed the crash when the FROST server returns its data in several pages
 - (@GermanBluefox) Updated packages, migrated to ESLint 9, added the standard tests (they run on Windows and macOS too)
-
-### 0.2.2 (2024-03-12)
-* (bluefox) Corrected readme link
-* (bluefox) Packages were updated
-
-### 0.2.1 (2023-11-28)
-* (bluefox) Corrected vis-2 widget
-
-### 0.2.0 (2023-11-24)
-* (bluefox) Changed sensor structure
-
-### 0.1.2 (2023-11-22)
-* (bluefox) Added widget
 
 ## License
 The MIT License (MIT)

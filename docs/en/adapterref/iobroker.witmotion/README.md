@@ -39,11 +39,31 @@ A click on the tile opens a big view.
 ### vis-2
 The widget set **WitMotion** contains the widget **Orientation** with the same views. The layout follows the size of the widget (bar, compact, wide or big view) or can be fixed in the settings. A click on the smaller layouts opens the big view.
 
+### Web components
+The orientation is also a web component (`common.webComponents`, [`@iobroker/web-components`](https://github.com/ioBroker/web-components)), so Aura, admin and every other host of web components can show it:
+
+- `<iob-witmotion-orientation>` (**Wit Motion**) – the same views as the vis-2 widget: a boat, a car or your own picture tilted by the angle of one or two axes, or a compass for the top view, as compact, bar, wide or big view by the size of the box. A click on the smaller views opens the big view in a dialog of the host.
+
+Settings:
+
+- **Adapter instance**, **Value mode** (instant or average), **Name**, **Layout** (automatic or fixed), **Open big view on click**
+- **Icon type** (boat, car or custom; a custom picture is given by its address)
+- **Primary axis**, **Primary view**, **Visual multiplier**, and optionally a **Secondary axis** with its view and multiplier
+
+The devices app offers its own tile **Wit Motion** instead of the web component of the same name.
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 2.2.0 (2026-11-09)
+* (@GermanBluefox) Added the web component `<iob-witmotion-orientation>` for Aura and other hosts (`common.webComponents`)
+
 ### 2.1.2 (2026-10-28)
 * (@GermanBluefox) Fixed the missing translations of the widget set, the widget name and the help in vis-2
 

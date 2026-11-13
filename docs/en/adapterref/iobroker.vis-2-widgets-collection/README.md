@@ -61,14 +61,49 @@
 
 <img src="/img/collection-json-table.png" height="150">
 
+### ECharts
+
+<img src="/img/collection-echarts.png" height="150">
+
 ---
 
-<!--
-	Placeholder for next versions:
-	### __WORK IN PROGRESS__
--->
+## Notes
+
+### ECharts: values from strings
+
+Charts with string-valued states now correctly plot: `'23.5'`, `'23.5 °C'`, `'23,5'` and
+`'true'`/`'false'` all read as numbers at the ONE intake every value source shares (Verlauf,
+JSON series, table columns, bound marking lines). Text that carries no number shows as a gap
+instead of a faked 0 line. One caveat for German-style input: once the string contains a dot,
+it is read as dot-decimal — a thousands separator like in `'1.234,5'` will not round-trip.
+
+**History aggregation on string states**: the server-side aggregates (`average`, `max`, …) may
+not preserve string values. Until empirically verified against a live server, configure string
+OIDs with the `none` or `onchange` aggregation so the raw strings reach the chart — the intake
+reads them from there.
+
+---
 
 ## Changelog
+
+### 3.0.2 (2026-11-11)
+
+- (steiger04) Same content as 3.0.0; the release builds of 3.0.0 and 3.0.1 failed before they reached npm
+
+### 3.0.1 (2026-11-10)
+
+- (steiger04) Same content as 3.0.0, whose release build failed before it reached npm
+
+### 3.0.0 (2026-11-10)
+
+- (steiger04) **BREAKING** vis-2 2.20.0 or newer is required: the widgets now use the MUI 9 shared by the vis-2 host; older hosts are rejected at installation
+- (steiger04) **BREAKING** the collection theme's CSS variables are named `--vis2c-*` instead of `--mui-*`; custom CSS must switch to `--vis2c-palette-*`
+- (steiger04) **BREAKING** Dialog: without an own background color the dialog area is now transparent; set the color to keep an opaque surface
+- (steiger04) New ECharts widget: line, bar, scatter and pie/donut charts from history or JSON data, set up in its own configurator
+- (steiger04) New color picker for all color fields (any CSS color, theme presets, inherited colors visible) and a new state editor for the value rows (search, drag-and-drop, several widgets at once)
+- (steiger04) Theme studio reworked: resizable panel, hex input next to each swatch, rounded corners set per corner in a 2×2 layout, presets in their own section
+- (steiger04) Many fixes across all widgets
+
 ### 2.6.0 (2026-07-24)
 
 - (steiger04) Input widget added (text/number input with inline editing)
@@ -86,15 +121,18 @@
 - (steiger04) JSON Table quick filtering fixed
 
 ### 2.4.2 (2026-07-06)
+
 - (steiger04) JSON Table: bug fixes and improvements (date handling, table state persistence, refactor)
 - (steiger04) ColorPickerField: debouncing for picker drag events and refactor
 - (steiger04) CheckboxCollection: refactor (helpers, memoization, type safety)
 
 ### 2.4.1 (2026-03-11)
+
 - (steiger04) Add HTML rendering support for table cells of Json Table
 - (steiger04) Bug fixing
 
 ### 2.4.0 (2026-03-01)
+
 - (steiger04) JSON Table added
 - (steiger04) Bug fixing
 

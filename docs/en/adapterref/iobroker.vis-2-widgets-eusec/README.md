@@ -3,8 +3,8 @@
 # ioBroker.vis-2-widgets-eusec
 
 Widgets for vis-2 that show the cameras of the [eusec](https://github.com/iobroker-community-adapters/ioBroker.eusec)
-adapter (eufy Security). Requires eusec 3.0.2 or later. The widgets load in vis-2 with React 18 as
-well as in vis-2 with React 19.
+adapter ([eufy Security](https://us.eufylife.com/collections/security)). Requires eusec 3.0.2 or
+later. The widgets load in vis-2 with React 18 as well as in vis-2 with React 19.
 
 **This project is not affiliated with Anker or eufy. eufy and eufy Security are trademarks of their
 respective owners and are used here only to name the cameras the widgets work with.**
@@ -67,9 +67,20 @@ All widgets and their settings stay as they are.
     ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 1.0.0 (2026-11-12)
 
 - (typhosj) The live view no longer opens with a focus ring around the close button; the dialog itself takes the focus, and Tab still reaches the button
+- (typhosj) The live view shows the last event picture uncropped while the stream loads, in the same framing as the video, instead of cutting it to fill the widget
+- (typhosj) A widget no longer stops a livestream that another display had started (eusec before 3.4, or with on-demand streaming switched off)
+- (typhosj) Devices with a compatibility stream are recognised however their serial numbers are written in the eusec settings
+- (typhosj) When the camera of a widget changes at runtime, the new camera starts instead of the widget reporting an ended stream
+- (typhosj) A live widget outside the visible area no longer starts a stream for a moment
+- (typhosj) The 360° button sits in the middle of the direction pad instead of the top left corner
+- (typhosj) A change of the pan and tilt display setting takes effect without reloading the view
+- (typhosj) Pressing a control in a dialog and releasing the mouse outside it no longer closes the dialog
+- (typhosj) Escape closes only the dialog in front when several are open
+- (typhosj) Choosing another camera for the event popup in the editor replaces the triggers that were filled in for the previous camera
+- (typhosj) The age of a snapshot reads "1 minute ago" instead of "60 seconds ago"
 
 ### 0.2.0 (2026-10-18)
 

@@ -54,6 +54,12 @@ and fill in your Airly API key and coordinates.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2026-11-10)
+* (tnowak) First stable release — marks the adapter as production-ready for the ioBroker stable repository (no functional changes since 0.3.8)
+
+### 0.3.8 (2026-11-10)
+* (tnowak) Maintenance: added Node.js 26 to the CI matrix, bumped the ioBroker testing actions to v2 and @iobroker/adapter-core to 3.4.3, raised the admin dependency to 7.8.23, grouped Dependabot updates, and removed the pull_request_target automerge workflow
+
 ### 0.3.7 (2026-08-07)
 * (tnowak) Review feedback: removed the incomplete Sentry plugin configuration, enforced the poll-interval minimum (5 min) in code, and documented that caqi.level/description are API-provided and not translated
 
@@ -62,12 +68,6 @@ and fill in your Airly API key and coordinates.
 
 ### 0.3.5 (2026-07-08)
 * (tnowak) Fixed the jsonConfig schema URL in .vscode/settings.json and bumped @iobroker/adapter-dev
-
-### 0.3.4 (2026-07-08)
-* (tnowak) Addressed repochecker suggestions: short-format i18n, CHANGELOG_OLD.md, .vscode settings, Dependabot automerge + higher PR limit, and @iobroker/adapter-dev
-
-### 0.3.3 (2026-07-08)
-* (tnowak) Removed chai and mocha from devDependencies (provided by @iobroker/testing) to satisfy the repository checker
 
 Older entries are kept in CHANGELOG_OLD.md.
 

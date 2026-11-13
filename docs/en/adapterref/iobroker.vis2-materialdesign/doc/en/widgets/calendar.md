@@ -26,6 +26,11 @@ ioBroker system language, so the screenshots are German.
 
 - **Object ID** – state with the JSON event array.
 - **calendar view** – `month`, `week` or `day`.
+- **object ID on event click** – optional. A tap (or Enter/Space) on an event
+  writes `{"instance": "<vis browser instance>", "event": <the event's row>}`
+  as JSON into this state. The row is passed unchanged, so a script or adapter
+  finds its own fields in it (the ical adapter's `_IDID`, for example). Empty:
+  events cannot be tapped.
 
 **layout**
 

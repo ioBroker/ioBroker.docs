@@ -595,6 +595,15 @@ Sieht es nach einem Fehler aus, bitte ein Issue auf [GitHub](https://github.com/
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+### 2.16.6 (2026-11-11)
+- Change: **The energy totals are grouped by direction.** One column lists where the energy came from — generation, grid draw, battery discharge — and the next where it went: consumption, feed-in and battery charge. The wallbox, when it reports a figure, is indented beneath consumption rather than listed as a destination of its own, because the energy-flow diagram above draws it as a branch off the house. Grouping the figures this way is also what keeps the card readable at any width, because a column is now a whole group rather than a single figure, which is what limits how many columns there can be.
+- Fixed: **The energy totals no longer run off the side of the card.** The *Autarkie* line lists the week, month, year and lifetime figures beside today's, and as one unbreakable cell it widened its column until the columns beside it were pushed out of view — on a tablet the third column was simply gone. That line now sits below the totals, spanning the card and wrapping. The totals themselves also size their columns by the width of the card rather than of the window, which the card is free to be far narrower than, and no longer let a column grow wide enough to strand a figure far from its own label.
+- Fixed: On a screen narrower than about 330 pixels the dashboard card stopped shrinking and reached into the page's side margin. It now follows the width it is given.
+- Fixed: The App API's daily wallbox energy was declared in watts although it is reported in watt-hours, so anything reading the unit — Admin, charts, a history adapter — labelled it as power.
+- Dependency Updates
+
 ### 2.16.5 (2026-10-30)
 - New: **The energy totals can look back.** Each of *Tag*, *Monat* and *Jahr* carries arrows now that step to the day, month or year beside the one shown, and the card's heading names the period on display — *Heute*, *28. Oktober 2026*, *Oktober 2026*, *2026*. The three buttons are named for the span they select rather than for the current one, which is why *Dieser Monat* and *Dieses Jahr* are now simply *Monat* and *Jahr*. How far back the arrows reach is whatever the adapter has stored, and it differs per span: every year the App API's all-time rebuild has filled in — and its month-by-month breakdown reaches exactly as far back, since the rebuild fills in both together — while mein-senec.de keeps a monthly breakdown for the current and previous year only; single days reach the current and previous month, on either source. The arrow stops where the data does, and never offers a period that has not happened yet. Where both sources hold a span, the one that actually recorded it is used, and a recycled month is read only once the month it holds is the month asked for. An installation polling the appliance alone has no history to step through and gets no arrows at all.
 - New: **The *Autarkie* pill on the energy flow steps through periods.** Clicking it moves from the live figure to the day, week, month, year and lifetime one and back again, naming the period it is showing. It offers only what the installation actually has: the week figure comes from mein-senec.de alone, so an installation running only the App API steps from day straight to month, and one polling only the appliance keeps the single live figure and no longer responds to a click at all.
@@ -614,25 +623,6 @@ Sieht es nach einem Fehler aus, bitte ein Issue auf [GitHub](https://github.com/
 
 ### 2.16.2 (2026-10-26)
 - fixed bogus readme
-
-### 2.16.1 (2026-10-26)
-- New: The web dashboard now reads the **local OpenAPI**. Until now its values were polled but nothing on the dashboard looked at them, so an installation running only that connector saw an energy flow with no data in it. The energy flow, the live power chart and its history backfill now take it as a source of their own — selectable beside the diagram, and chosen automatically when `lala.cgi` polling is off. `lala.cgi` still wins where both run, because it polls six times as often.
-- New: A *Battery (now)* card — state of charge, charge or discharge power, voltage, current and capacity — filled from whichever connectors you have enabled. An installation running only the local OpenAPI previously showed no battery readings at all.
-- New: A *Local OpenAPI* card on the system tab, showing where the registration stands (including *not registered*, with what to do about it), whether the appliance is reachable, how long ago it last answered, and the certificate fingerprint. Reachability is reported separately from registration, because an approved registration whose appliance is switched off is still approved.
-- New: The system tab fills in from the OpenAPI nameplate where it has nothing else — model, serial number, manufacturer, rated charge and discharge power, the AC-side readings, and each wallbox slot. Values read this way carry an **O** badge, alongside the existing L, A and W.
-- New: `_openapi.info.lastCompletePoll` records the last cycle in which *every* requested section answered. `_openapi.info.lastPoll` is stamped as soon as one does, which is what the connection state needs, but anything reading several sections as one measurement needs to know they came from the same cycle.
-- Fix: **The dashboard no longer shows values from a connector you have switched off.** Nothing deletes a connector's states when you disable it, so every card went on rendering whatever it last wrote — on one development system that meant an energy flow, an operating-mode badge and an entire battery tab built from readings two months old, presented as current. This applies everywhere, including the *Measurement History* tab, which could even pick a disabled connector as its source. A row that can come from several connectors keeps whichever is still in use, and a connector that is enabled but currently failing keeps its place, so nothing disappears while a connection is merely flapping.
-- Fix: **The dashboard now recovers from a dropped connection.** It never did: the recovery ran only on the very first connect, so after any blip the page stopped noticing deleted states — a wallbox slot that had gone stayed on display — stopped hearing about configuration changes, and left a permanent hole in the live chart.
-- Fix: Several ways the live power chart could stop backfilling and never start again: a history request lost to a dropped connection, a connection lost while it was working out which states are recorded, or panning while disconnected, which marked that stretch as loaded without ever asking for it. Collapsing or pausing the chart also left a permanent hole for the interval it skipped; it is now filled in when you resume.
-- Fix: Switching the chart's data source while history was loading could mix the two sources together and issue several overlapping sets of queries at once.
-- Fix: The live chart no longer empties and reloads its entire history every time the `lala.cgi` connector drops a single poll.
-- Fix: Tabs that your enabled connectors cannot fill are hidden rather than shown empty, and the *Control* tab is no longer hidden when `lala.cgi` polling is off — a command is dispatched to whichever connector can carry it.
-- Fix: The energy flow no longer presents zeros as a measurement when the connector it chose has published no power reading, and today's totals are cleared when no connector supplies them rather than staying on the last figures a cloud connector reported.
-- Fix: A value the appliance reports as unavailable, or as a number too large to represent, is no longer published as `NaN` or `Infinity` on a state declared numeric — which silently breaks recording in InfluxDB — and no longer makes an export read as an import.
-- Fix: A last-update time older than 36 hours now carries its date, instead of showing a time of day that reads as current at a glance.
-- Fix: An external energy source's configured name is escaped where it is drawn into the energy-flow diagram.
-- Fix: A few states could still be written while the adapter was shutting down.
-- Dependency updates
 
 ### Former Updates
 

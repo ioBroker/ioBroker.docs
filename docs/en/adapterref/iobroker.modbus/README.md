@@ -356,29 +356,37 @@ There are some programs in folder `test` to test the TCP communication:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Template library: a template with only one register file shows it checked and disabled
+* (@GermanBluefox) Device detection: each read waits at most 2 seconds, and a device that does not answer a read no longer closes the connection (needs `@iobroker/modbus` 7.11)
+
+### 9.3.2 (2026-11-13)
+* (@ipod86) Added the electrical measurement roles from the state roles list (`value.voltage`, `value.current`, `value.frequency`, `value.power.*`, `value.energy.*`) to the role select box
+
+### 9.3.1 (2026-11-12)
+* (@GermanBluefox) Updated `@iobroker/modbus` to 7.10.1: cyclic write of holding registers works again, for polled and not polled registers (issue #771)
+
+### 9.3.0 (2026-11-12)
+* (@GermanBluefox) Updated `@iobroker/modbus` to 7.10.0:
+  - New option "Keep the connection on a timeout" (TCP, UDP and TCP-SSL master, issue #832): for gateways with several devices behind them, a device that does not answer does not close the connection for the others anymore. The connection is still re-established when no device answers
+  - An error while processing a response fails only this request. Before, the master could stop polling (issue #831)
+  - Characters that are forbidden in object IDs (e.g. `–` or `°` of a copied data sheet) are replaced by `_` in the state ID too, so the object and the state get the same ID (modbus-templates issue #58)
+* (@MMeinhardt1, @GermanBluefox) The option `padAddressInId` (pad the address in state IDs with zeros to 5 digits, issue #317) is now available in the admin UI under "Settings"
+* (@GermanBluefox) Admin: animated icons of `@iobroker/gui-components` (delete, expert mode, folders, copy, upload, refresh, results) and own animations: new rows slide in, deleted rows slide out, unfolded slave ID groups, tab changes, live values
+* (@GermanBluefox) Admin: the status of the instance and of the connection is shown next to the tabs
+* (@GermanBluefox) Admin: a file can be dropped on the editor of the import/export dialog
+* (@GermanBluefox) Admin: import of TSV/CSV/JSON accepts an empty "Sanitize Action" and uses "Keep Last Valid" (issue #835)
+* (@GermanBluefox) Admin: the template library converts the scale factor references in formulas (`sf['40083']`) together with the addresses. Before, a template with scale factors did not work if its addresses were converted (alias template, or "Show aliases" in the instance)
+
+### 9.2.3 (2026-11-08)
+* (@MMeinhardt1) Updated `@iobroker/modbus` to 7.9.0: the new instance parameter `padAddressInId` pads the address in state IDs with zeros to 5 digits, so they sort numerically (issue #317). It is off by default and not yet available in the admin UI
+* (@GermanBluefox) Updated dependencies
+
 ### 9.2.2 (2026-10-23)
 * (@GermanBluefox) A response is taken only for the request it belongs to (issue #829): over TCP, SSL and UDP a response with another transaction ID is dropped, over RTU one from another unit. Before, a stale or duplicated answer - e.g. in the first poll cycle on a fresh connection - shifted every following response by one request, so the registers of another block were stored
 * (@GermanBluefox) New option "Ignore transaction ID of responses" for devices that do not echo the transaction ID
 * (@GermanBluefox) If a device returns fewer registers than requested, the whole block is discarded with a warning instead of storing the registers that fit
 * (@GermanBluefox) The debug check of the scale factor read block works with aliases
-
-### 9.2.1 (2026-10-13)
-* (@GermanBluefox) Admin 7.6.20+ is required. The adapter is tested now also on Windows and macOS
-
-### 9.2.0 (2026-09-25)
-- (@GermanBluefox) The adapter reports the resources it really occupies to js-controller 8, which keeps a per-host registry of them (`system.host.<name>.usedResources`): the serial port in RTU mode - as master and as slave - and the port a TCP slave or the proxy listens on. A master over TCP, UDP or SSL reports nothing, because the endpoint belongs to the device on the other side. Before a port is opened, the log names the other instance that has declared it, instead of only "Resource temporarily unavailable" or EADDRINUSE. The reporting itself lives in `@iobroker/modbus`, so it needs the next release of that package; an older js-controller is unaffected
-
-### 9.1.2 (2026-09-20)
-- (@GermanBluefox) Added explanations of timings in GUI
-- (@GermanBluefox) Corrected proxy mode with multiple DeviceIDs
-- (@GermanBluefox) Added better problem logging
-
-### 9.1.1 (2026-08-27)
-- (@nobl) Fixed stale and overlapping polling cycles after a reconnect (ioBroker.modbus issue #595): a block read error was logged and swallowed, so the polling loop kept running after the request timeout had already trashed the socket and cleared the request FIFO. The next register request was queued after that cleanup and was therefore sent on the reconnected socket, before the fresh cycle started by the connect handler — two polling cycles then ran in parallel. A pending reconnect, a lost connection or a stopping master now aborts the remaining blocks, register types and device IDs of the running cycle
-- (@GermanBluefox) Limited that abort to connection failures: a plain Modbus exception response (illegal data address, illegal function, device busy) leaves the socket intact, so the remaining blocks of that register type are read as before. Otherwise a single register the device rejects would have permanently hidden every block behind it, because the block order is fixed
-- (@GermanBluefox) Fixed a second source of stale requests: the block loops only checked connected, which is still true while a reconnect is pending. A connection that died during the wait between two blocks therefore queued the next request into the already cleared FIFO
-- (@GermanBluefox) A pending reconnect timer is now cancelled when the client reports connect, so the timer of the deliberately dropped socket cannot tear the fresh connection down again
-- (@GermanBluefox) Added a regression test for the polling of the remaining blocks after a device rejects one of them with an exception response
 
 ## License
 The MIT License (MIT)

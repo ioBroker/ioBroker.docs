@@ -259,7 +259,7 @@ state (tracked via the `Mcp-Session-Id` header). Point your MCP client at:
 | `get_states`                | Retrieve the current value of one or multiple states; IDs may contain wildcards (e.g. `hue.0.*.brightness`); an ID without a state is returned with `exists: false` or a hint                                                                      |
 | `wait_for_state`            | Wait until a state has a `value` (or, without `value`, until it is updated), optionally only with `ack`; gives up after `timeout` seconds (default 30, at most 50) with `reached: false`                                                             |
 | `find_orphan_states`        | Find states without object (e.g. `system.adapter.vis.0.alive` of a deleted instance) by an ID `pattern`, except the upload progress `system.adapter.<adapter>.upload`, which has no object on purpose; delete them with `delete_orphan_states` or on the host with `iobroker state del <id>`|
-| `get_object`                | Read a single object by its ID                                                                                                                                                                                                                       |
+| `get_object`                | Read a single object by its ID; an object too large for one answer comes in base64 parts via `offset`, checked with `sha256` (for clients that can run code)                                                                                           |
 | `check_permissions`         | Show the user and groups of the MCP session, the rights of its groups and, for given object IDs, whether it may read/write/delete the object and read/write the state                                                                               |
 | `search_objects`            | Search objects/states by keyword (matched against ID and name); optional filters for object `type`, `role`, `room` and source `adapter` instance                                                                                                     |
 | `list_devices`              | List detected devices grouped by room (uses the ioBroker type-detector to expose functional devices with named controls); optional `language` and `room` filter                                                                                      |
@@ -279,7 +279,7 @@ state (tracked via the `Mcp-Session-Id` header). Point your MCP client at:
 | `list_adapter_updates`      | List installed adapters that have a newer version in the active repository                                                                                                                                                                           |
 | `list_notifications`        | List the system notifications of the hosts (the bell in admin): disk space, crashed adapters, ...                                                                                                                                                    |
 | `list_scripts`              | List the scripts of the javascript adapter (without source)                                                                                                                                                                                          |
-| `get_script`                | Read a script including its source                                                                                                                                                                                                                   |
+| `get_script`                | Read a script including its source; a long source is read in parts via `offset`/`length` — the result carries `size`, `truncated` and `nextOffset`                                                                                                     |
 | `ping_host`                 | Diagnose connectivity to a network device: ICMP ping to `host` plus an optional TCP connect to `port` — useful to investigate adapter `ETIMEDOUT`/connection errors                                                                                  |
 | `set_state`                 | Set the value of a state (value coerced to the state type); with `wait_ack` (seconds) it waits until the device confirms the command (`ack: true`) and returns the confirmed state — requires *Allow setting states*                                 |
 | `set_states`                | Set multiple states in one call (for scenes/group actions like "all lights off") — requires *Allow setting states*                                                                                                                                   |
@@ -320,6 +320,12 @@ MCP clients reject tool results above 1 MiB, and a model cannot pass megabytes o
   `history_query`) return as many entries as fit and add `truncated`, `total`, `nextOffset` and a `hint`; call
   again with `offset` set to `nextOffset` for the next part. `get_logs` keeps the newest lines. Any other result
   that is too large is replaced by a download link, or by an error asking to narrow the request down.
+- **Large scripts and objects in parts**: `get_script` with `offset` (start with `0`) returns the source in parts
+  of at most `length` bytes (default 512 KiB, less if escaping would exceed the limit) with `size`, `truncated` and
+  `nextOffset`, like `read_file`. `get_object` with `offset` returns the whole object JSON in base64 parts, for
+  clients that can run code but get no download links: continue with `offset` set to `nextOffset` and the `sha256`
+  of the first part, then check the SHA-256 of the joined bytes before parsing them. Every part reads the object again
+  with the rights of the session user; if the object changed in between, the call fails and the read starts over.
 - **Download links** (`download_url`): a cut list carries a link to all of its entries as JSON, and `read_file`
   with `download: true` returns a link to the whole file. Clients that can run shell commands (e.g. Claude Code)
   fetch it with `curl -o <file> "<download_url>"`.
@@ -371,6 +377,11 @@ tools rather than as subscribable resources.)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (@GermanBluefox) `get_script` returns a long source in parts (`offset`, `length`), like `read_file` (`@iobroker/mcp-server` 1.10.0)
+* (@MarcoHe85) `get_object` returns an object that is too large for one answer in base64 parts (`offset`, `length`), checked with SHA-256 (`sha256`), for clients that get no download links (`@iobroker/mcp-server` 1.10.0)
+* (@GermanBluefox) `list_devices`: a name (`smartName` without `smartType`) on one state of a detected device names that device instead of splitting the state off as a device of its own, and a room or function hidden from the smart home (`smartName: false`) is still the room or function of its devices (`@iobroker/mcp-server` 1.9.2)
+
 ### 1.8.1 (2026-10-27)
 * (@GermanBluefox) Fixed: js-controller usually killed the instance with SIGKILL when stopping it, because the adapter never closed its server and the connections of the MCP clients
 

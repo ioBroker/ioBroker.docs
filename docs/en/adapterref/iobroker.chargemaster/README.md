@@ -127,9 +127,9 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.16.2 (2026-11-08)
 
-### **WORK IN PROGRESS**
-
+- (HombachC) updated iobroker/testing
 - (HombachC) fixed repochecker warnings
 - (HombachC) switch to iobroker testing 6.x
 - (HombachC) fixed vulnerability
@@ -169,12 +169,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 0.15.0 (2026-05-09)
 
 - (copilot) BREAKING: adapter requires node.js >= 22 now
-- (HombachC) update dependencies
-
-### 0.14.7 (2026-04-16)
-
-- (HombachC) min admin 7.6.20 as recommended (#762)
-- (HombachC) switch to ES2023 code
 - (HombachC) update dependencies
 
 ### Old Changes see CHANGELOG OLD

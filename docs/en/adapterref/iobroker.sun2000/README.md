@@ -36,7 +36,11 @@ Work in progress
 	Add draft entries here while the next release is still being finalized.
 -->
 ### **WORK IN PROGRESS**
+* (bolliy) add states for working status of battery packs ([#307](https://github.com/bolliy/ioBroker.sun2000/issues/307))
+
+### 2.7.5 (2026-11-08)
 * (bolliy) Adapter log have been reduced to the bare essentials. This makes it easier to categorize timeouts and connection issues, particularly those involving the sDongle.
+* (bolliy) update devDependencies
 
 ### 2.7.4 (2026-10-22)
 * (bolliy) enhance error messages for Modbus communication and improve error rate calculations
@@ -51,9 +55,6 @@ Work in progress
 ### 2.7.1 (2026-10-03)
 * (bolliy) update devDependencies to latest versions
 * (bolliy) Allow decimal values for ​​`battery.tou.maximumPowerForChargingFromGrid` and `grid.maximumFeedGridPower`. ([#300](https://github.com/bolliy/ioBroker.sun2000/discussions/300))
-
-### 2.7.0 (2026-08-23)
-* (bolliy) fix: Ensure that unacknowledged control states occurring during startup are correctly processed in the service queues.
 
 ## License
 MIT License

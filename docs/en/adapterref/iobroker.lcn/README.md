@@ -112,6 +112,9 @@ Every found module has the following actions:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (GermanBluefox) Added concurrency configuration to the test-and-release workflow to cancel outdated runs (#118)
+
 ### 4.0.0-beta.3 (2026-11-03)
 - (bluefox) Fixed: `VAR02` and `VAR03` were converted twice, if a role like `value.temperature` was set. Without such a role they are still shown in °C
 - (bluefox) Fixed: the scan wrote the values of the variables without the conversion of their role

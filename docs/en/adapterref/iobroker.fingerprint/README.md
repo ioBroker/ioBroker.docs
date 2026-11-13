@@ -355,6 +355,10 @@ Writing either state applies the ring immediately.
 
 ## Changelog
 
+### 0.8.3
+
+- The webhook port is declared in the used resources registry of js-controller (js-controller 8 and newer), and a warning is logged when another instance already uses it; nothing changes on older controllers
+
 ### 0.8.2
 
 - Admin UI: *Create backup* and *Restore* moved from *Manage Fingers* to the **Backup** tab, so everything about backups is on one page

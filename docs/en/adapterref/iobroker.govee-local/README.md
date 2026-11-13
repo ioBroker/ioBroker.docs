@@ -24,7 +24,8 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.5.1 (2026-11-04)
+### 0.5.2 (2026-11-05)
+- update dependencies: `node-forge` (1.4.3) and `follow-redirects` (1.16.2) to fix security vulnerabilities
 - update dependencies: `@iobroker/testing` (6.3.0)
 - fix states briefly jumping back to the old value after a command, until the device confirms it (#327)
 - acknowledge commanded states once the device confirms them, even if the value did not change
@@ -52,11 +53,6 @@ For **Windows** Users: Please go to the settings and make sure you choose the co
 
 - update dependencies: @types/node (25.5.0), eslint (10.1.0), @alcalzone/release-script (5.1.1), admin (7.6.20)
 - update dependencies: @alcalzone/release-script (5.2.0), @alcalzone/release-script-plugin-iobroker (5.2.0), @alcalzone/release-script-plugin-license (5.2.0), @alcalzone/release-script-plugin-manual-review (5.2.0), @iobroker/eslint-config (2.3.4), @types/node (25.6.2), eslint (10.3.0), prettier (3.8.3), typescript (6.0.3)
-
-### 0.4.5 (2025-11-16)
-
-- fix scan mode inconsistency
-  enhance log output behavior
 
 Older entries are available in CHANGELOG_OLD.md.
 

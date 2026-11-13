@@ -237,6 +237,9 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 ## Änderungsprotokoll (Changelog)
 
 ### **WORK IN PROGRESS**
+* (meistermopper) @iobroker/testing auf 6.3.2 aktualisiert (W0037)
+
+### 1.2.1 (2026-11-05)
 * (meistermopper) Obsoletes Abfrageintervall (pollInterval) aus Instanz-Konfiguration entfernt
 * (meistermopper) Abhaengigkeits-Overrides zur Behebung von Dependabot-Warnungen aktualisiert
 
@@ -259,10 +262,6 @@ on({ id: 'harvia-fenix.0.info.heatingAnomaly', change: 'ne', val: true }, functi
 * (meistermopper) Sicherheits-Erkennung, Alarm-Indikatoren und Ereignisverlauf hinzugefügt
 * (meistermopper) Endpunkt activeProfile auf PATCH /devices/profile korrigiert
 * (meistermopper) Saunaprofile (profiles, activeProfile) in Dokumentation erlaeutert
-
-### 1.0.0 (2026-09-17)
-* (meistermopper) AWS AppSync WebSocket Real-Time Push-Client hinzugefuegt
-* (meistermopper) Token-Aktualisierung ueber /auth/refresh mit refreshToken
 
 ---
 

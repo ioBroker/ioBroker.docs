@@ -37,6 +37,10 @@ Integration of the Plex Media Server in ioBroker (with or without Plex Pass). Fu
 - Retrieve all data from controllable clients
 - Web Interface that shows the recent events from Plex:
   ![Plex Web Interface](img/screenshot_adapter-interface.png)
+- Dashboard tiles (web components) for Aura, vis-2, ioBroker.devices and other hosts, each with the instance as setting:
+  - `iob-plex-now-playing` - what is playing on which player: cover, title, user, progress, and play/pause, skip and stop for players that can be controlled. Settings: only one player, cards or compact list, show paused streams, cover, controls
+  - `iob-plex-activity` - the latest events grouped by day; a click shows the details. Settings: number of events, only playback events, covers
+  - `iob-plex-stats` - top users and libraries by watch time for 24 hours, 7 days, 30 days or all time (only with Tautulli). Settings: period, users and/or libraries, entries per list
 
 ## 2. Setup instructions
 ### 2.1. Basic Setup
@@ -127,10 +131,14 @@ This adapter would not have been possible without the great work of @Zefau (http
 
 ### **WORK IN PROGRESS**
 - (copilot) Adapter requires node.js >= 22.19.0 now
+- (bluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (GermanBluefox) Added dashboard tiles for Aura and other dashboards: now playing with controls, recent activity and Tautulli watch statistics
+
 ### 3.0.0 (2026-08-16)
 - (bluefox) Breaking: Admin 8 or newer is now required — the configuration UI no longer runs under Admin 7.
 - (bluefox) Dependencies have been updated.

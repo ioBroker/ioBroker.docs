@@ -124,6 +124,12 @@ see `.github/workflows/test-and-release.yml`. To get the adapter listed in the i
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.10 (2026-11-09)
+
+- (SeaSpotter) Bumped `axios` to 1.21.0 - reviewed the changelog; the only breaking change (custom
+  class instances no longer treated as header defaults) doesn't affect this adapter, which only
+  ever sets a plain `{ Authorization: ... }` header object.
+
 ### 0.3.9 (2026-11-02)
 
 - (SeaSpotter) Fixed component rows reappearing right after being deleted (e.g. a removed counter)
@@ -158,11 +164,6 @@ see `.github/workflows/test-and-release.yml`. To get the adapter listed in the i
 - (SeaSpotter) Added a minimum 10-second lower bound to the **New-device check interval**
   (Components tab) - a mistyped fractional value could previously poll the device far more often
   than intended.
-
-### 0.3.5 (2026-10-02)
-
-- (SeaSpotter) Added the required `ioBroker` keyword to `package.json`, and trimmed old changelog
-  entries from `io-package.json` so the ioBroker repository builder doesn't truncate them.
 
 Older versions are listed in CHANGELOG_OLD.md.
 

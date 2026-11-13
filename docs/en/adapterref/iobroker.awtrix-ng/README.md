@@ -23,7 +23,7 @@ chapters: {"pages":{"en/adapterref/iobroker.awtrix-ng/README.md":{"title":{"en":
 - nodejs 22 (or later)
 - js-controller 6.0.11 (or later)
 - Admin Adapter 7.6.20 (or later)
-- _Awtrix NG_ device with firmware _1.2.2_ (or later) - e.g. Ulanzi TC001, Ulanzi TC002
+- _Awtrix NG_ device with firmware _1.2.3_ (or later) - e.g. Ulanzi TC001, Ulanzi TC002
 
 - Buy TC001: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001), [Amazon.de](https://haus-auto.com/p/amz/UlanziTC001) or [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) *(Affiliate-Links)*
 - Buy TC002: [Amazon.de](https://haus-auto.com/p/amz/UlanziTC002) or [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC002) *(Affiliate-Links)*
@@ -248,6 +248,7 @@ See [documentation](https://blueforcer.github.io/awtrix-ng/reference/payload/) f
 ### **WORK IN PROGRESS**
 
 * (@klein0r) Added state `display.overlay` to set a global weather overlay for all apps
+* (@klein0r) Updated recommended Awtrix NG firmware version to 1.2.3
 
 ### 0.5.0 (2026-10-12)
 
@@ -257,7 +258,7 @@ See [documentation](https://blueforcer.github.io/awtrix-ng/reference/payload/) f
 
 ### 0.4.0 (2026-10-08)
 
-* (@klein0r) `apps.<name>.enabled` switches just this app on or off (firmware 1.2.2)
+* (@klein0r) `apps.<name>.enabled` switches just this app on or off (firmware 1.1.3)
 * (@klein0r) Updated recommended Awtrix NG firmware version to 1.2.2
 * (@klein0r) Added state `device.usbPower` (device is connected to USB power, e.g. TC002)
 * (@klein0r) **Breaking change:** `sendTo` uses the sound format of firmware 1.2.0: `audio` takes `file` (instead of `sound`, `mp3`, `melody`, ...), notifications take `sound` as name or sound object (`soundRtttl` / `soundLoop` were removed), `textCenter` was replaced by `textAlign`

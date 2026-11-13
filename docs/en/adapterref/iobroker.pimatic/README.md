@@ -9,6 +9,9 @@ This adapter connects ioBroker with [pimatic](https://pimatic.org/).
 It exports devices and groups from pimatic and then monitors updates of variables.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (GermanBluefox) Updated dependencies and fixed repochecker issues (#73)
+
 ### 1.0.1 (2026-10-22)
 * (GermanBluefox) Fixed issues reported by the repository checker: removed the "prepare" script, added `connectionType`, `dataSource` and `nogit`, admin >= 7.6.17 is required now, added Ukrainian translations, added xs/xl sizes in the configuration dialog and concurrency in the workflow (#64)
 

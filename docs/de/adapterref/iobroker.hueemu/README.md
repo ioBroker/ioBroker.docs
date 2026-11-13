@@ -34,8 +34,8 @@ Heizungssteuerung.
 ## Voraussetzungen
 
 - Node.js 22 oder neuer
-- js-controller 7.2.2 oder neuer
-- Admin 8.0.11 oder neuer
+- js-controller 7.2.5 oder neuer
+- Admin 8.3.5 oder neuer
 - Client und ioBroker-Rechner im **selben lokalen Netz**
 
 ## Einrichten
@@ -91,7 +91,7 @@ jedes Feld per Objektauswahl auf einen ioBroker-Datenpunkt zeigen lassen.
 
 Jede Lampe behält ihre Nummer dauerhaft: Lampen löschen oder umsortieren ändert für die
 anderen nichts, Alexas Routinen zeigen weiter auf die Lampen, mit denen sie eingerichtet
-wurden. Eine Lampe darf auch auf einen Datenpunkt zeigen, den kein Gerät bestätigt — aus
+wurden. Eine Änderung in den Karten wirkt sofort, ohne Neustart. Eine Lampe darf auch auf einen Datenpunkt zeigen, den kein Gerät bestätigt — aus
 `0_userdata`, einem Skript oder einer Visualisierung — die Bridge folgt jeder Änderung
 daran genauso.
 
@@ -140,6 +140,10 @@ springt sie auf volle Helligkeit: öffne ihre Karte und stell die Skala von Hand
   bei Mired (etwa 153–500), `Prozent (0..100, 0 = kalt)` bei einem Datenpunkt, der in
   Prozent von kalt nach warm läuft
 
+Eine eingestellte Skala gehört zu dem Datenpunkt, für den sie gilt: Bindest du in der
+Karte einen anderen Datenpunkt an und lässt die Skala stehen, springt sie auf
+„Automatisch" zurück — wähl im selben Schritt eine Skala, um eine zu behalten.
+
 ## Lampen ohne Ein/Aus-Datenpunkt
 
 Manche Dimmer bieten nur einen Helligkeitswert und keinen eigenen Schalter — ein
@@ -157,8 +161,10 @@ hueemu.0.
 │   └── error      — warum nicht (leer, solange alles läuft)
 ├── startPairing   — öffnet das Kopplungsfenster für 50 Sekunden (Taster)
 ├── disableAuth    — jede Anfrage ohne Kopplung annehmen (Schalter)
-└── clients/       — ein Eintrag je gekoppeltem Client
-    └── <Name>     — der Schlüssel, den dieser Client benutzt
+├── clients/       — ein Eintrag je gekoppeltem Client
+│   └── <modell>-<xxxx> — der Gerätetyp, mit dem sich dieser Client gekoppelt hat; xxxx sind die letzten vier Zeichen seines Schlüssels, der im Datenordner der Instanz bleibt
+└── lights/        — die Lampen, die die Bridge anbietet
+    └── <n>        — eine Lampe, benannt wie auf ihrer Karte; n ist ihre Hue-Lampennummer
 ```
 
 `info.connection` ist die schnelle Antwort auf „läuft es überhaupt?". Ein Start kann aus
@@ -170,9 +176,15 @@ der Adapter selbst erkennt (kein Port gesetzt, keine brauchbare Netzwerkadresse)
 Einen gekoppelten Client entfernst du, indem du seinen Eintrag unter `hueemu.0.clients`
 löschst — sein Schlüssel gilt ab sofort nicht mehr.
 
+Hue-Clients sehen eine Lampe als nicht erreichbar, solange der Datenpunkt, der sie
+schaltet — ohne einen solchen ihr Helligkeitsdatenpunkt —, nicht existiert (gelöscht oder
+ein Tippfehler in der Karte), und für eine Lampe ohne jeden gebundenen Datenpunkt. Ein
+fehlender Farbdatenpunkt allein lässt sie erreichbar. Eine unter `hueemu.0.lights`
+gelöschte Lampe ist sofort aus der Bridge verschwunden, wie eine auf ihrer Karte gelöschte.
+
 `disableAuth` ist eine Wartungshilfe, keine Dauereinstellung: damit kann jedes Gerät in
-deinem Netz deine Lampen ohne Kopplung steuern. Neue Clients sind ohnehin auf 100 pro
-Stunde begrenzt; eine einzelne Warnung im Protokoll sagt dir, wann diese Grenze erreicht war.
+deinem Netz deine Lampen ohne Kopplung steuern, und jede Kopplungsanfrage wird
+angenommen.
 
 ## Ports, die der Adapter benutzt
 
@@ -203,13 +215,15 @@ Wert an und ignoriert jeden Befehl.
 
 **Eine Lampe zeigt die falsche Farbe oder Helligkeit.** Siehe „Werteskalen" oben.
 
-**Zurück auf eine Version unter 1.18.0** wird nicht unterstützt: die ältere Version
-findet die Lauschadresse unter ihrem neuen Schlüssel nicht mehr und nummeriert die
-Lampen neu, Alexa sieht dann andere Lampen.
+**Zurück auf eine ältere Version** wird nicht unterstützt. Version 1.19.0 und älter
+halten die Bridge-Identität und die Lampen in den Instanz-Einstellungen und finden beide
+an ihrem neuen Ort nicht: sie legen eine neue Identität an, jeder Client muss die Bridge
+dann neu suchen und koppeln, und sie bieten keine Lampe an, bis du sie neu anlegst. Unter 1.18.0 findet die ältere Version außerdem die Lauschadresse unter
+ihrem neuen Schlüssel nicht mehr und nummeriert die Lampen neu, Alexa sieht dann andere
+Lampen.
 
 **Du kommst vom alten `createLight`-Aufbau.** Deine Lampen werden beim ersten Start
-automatisch umgestellt, der Adapter startet dabei einmal neu. Von Hand ist nichts zu
-tun. Lohnend im Anschluss: der alte Weg nutzte adapter-eigene Datenpunkte als
+automatisch umgestellt, ohne Neustart. Von Hand ist nichts zu tun. Lohnend im Anschluss: der alte Weg nutzte adapter-eigene Datenpunkte als
 Zwischenschritt, wofür ein Skript nötig war, um das echte Gerät zu fahren. Du kannst
 jede Lampe jetzt direkt auf den Gerätedatenpunkt zeigen lassen und dieses Skript weglassen.
 
@@ -226,6 +240,30 @@ Die Fehlermeldung über Sentry ist ab Werk aktiv; was sie sendet und wie man sie
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- Changed: The bridge now answers only clients in its own networks, with a chosen address only those in that network.
+- Changed: Saving the settings can no longer reset the bridge identity.
+- Changed: A damaged identity file stops the start with an error.
+- Changed: The lights moved from the settings into the object tree (lights) — a change in the device manager takes effect without a restart.
+- Changed: A paired client's object is now named after its device type, e.g. clients.harmony-hub-ac37; every pairing stays.
+- Improved: The keys of paired clients no longer show in the object tree.
+- Changed: An alias on a paired client's object follows it to the new object.
+- Changed: Going back to 1.19.0 or older is not supported — that version creates a new bridge identity and finds no lights.
+- Changed: The undocumented /health route is gone.
+- Changed: Pairing has no limit any more — every device that asks within the 50 seconds is paired.
+- Fixed: A text switch (e.g. EIN/AUS) that a client switched on is now read back as on.
+- Fixed: A light bound to another datapoint no longer keeps the old datapoint's scale.
+- Fixed: A client's pairing date no longer changes with every rename or object update.
+- Fixed: A UDN or MAC that is not text no longer stops the start.
+- Fixed: A stray write to one of the adapter's read-only datapoints is no longer confirmed.
+- Fixed: Opening the device manager right after the instance started no longer fails.
+- Fixed: A new instance shows "Unknown" as the reason until its first start instead of an empty text.
+- Fixed: A bridge that cannot start, for example on a taken port, now ends with an error and js-controller restarts it.
+- Fixed: A message the adapter does not know (sendTo from a script) now gets an error answer instead of none.
+- Improved: A chosen address the host does not have no longer stops the bridge — it listens on every address and warns once.
+- Improved: The settings always open on the first tab, Configuration.
 
 ### 1.19.0 (2026-09-25) — stable
 

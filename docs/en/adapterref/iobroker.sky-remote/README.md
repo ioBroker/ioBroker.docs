@@ -19,7 +19,7 @@ This adapter allows you to send remote control commands to Sky Q boxes over your
 
 ## Prerequisites
 
-- ioBroker installation
+- ioBroker installation with js-controller 6.0.11 or newer and Node.js 22 or newer
 - Sky Q box connected to your network
 - IP address of your Sky Q box
 
@@ -140,15 +140,16 @@ setState('sky-remote.0.sendSequence', 'power,1,0,1');
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-
-### **WORK IN PROGRESS**
+### 1.0.7 (2026-11-09)
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+- (Alan Paris) Corrected admin and changelog translations that used the wrong sense of "box", translated the brand name Sky as "sky", or inverted the meaning of write-only
+- (Alan Paris) README now states the minimum Node.js and js-controller versions
 
 ### 1.0.6 (2026-08-19)
 - (Alan Paris) Button states are now write-only (`read: false`) as required for the `button` role; existing installations are migrated on start
 - (Alan Paris) Fixed info.connection latching at a stale value after a failed or successful command; all writers now share one code path
 - (Alan Paris) An unknown command name in sendSequence no longer marks a reachable box as offline
-- (Alan Paris) Stop writing states and drop the in-flight connection check when the instance is unloaded
+- (Alan Paris) Stopped writing states and dropped the in-flight connection check when the instance is unloaded
 - (Alan Paris) Stopped shadowing the adapter base class `host` property, which misrouted js-controller crash notifications
 - (Alan Paris) A command now fails with an error instead of hanging silently when the Sky box closes the connection mid-command
 - (Alan Paris) Corrected the German, Dutch and Chinese admin translations of "Port", which used the harbour sense of the word
@@ -163,13 +164,7 @@ setState('sky-remote.0.sendSequence', 'power,1,0,1');
 - (Alan Paris) Removed the abandoned `sky-remote` third-party dependency; the Sky Q / Sky+HD control protocol is now built in and modernized (node:net, Buffer.from, promise-based, no deprecated APIs)
 
 ### 1.0.3 (2026-07-04)
-- (Alan Paris) Verify automated release publishing via GitHub Actions trusted publishing (no functional changes)
-
-### 1.0.2 (2026-07-04)
-- (Alan Paris) Modernized adapter for community submission: jsonConfig admin UI, updated dependencies, CI/release tooling
-
-### 1.0.0 (2025-05-05)
-- (Alan Paris) Initial release
+- (Alan Paris) Verified automated release publishing via GitHub Actions trusted publishing (no functional changes)
 
 ## License
 

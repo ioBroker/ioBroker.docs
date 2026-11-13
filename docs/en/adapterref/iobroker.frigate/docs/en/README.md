@@ -29,6 +29,7 @@ Adapter for [Frigate NVR](https://frigate.video/) — an open-source, self-hoste
 - [Integration](#integration)
   - [Live view via the web adapter](#live-view-via-the-web-adapter)
   - [Device manager widgets](#device-manager-widgets)
+  - [Web components](#web-components)
   - [vis Integration](#vis-integration)
   - [Scripts & Automation](#scripts--automation)
 - [Requirements](#requirements)
@@ -315,6 +316,27 @@ boxes and the timestamp into the picture.
   requested.
 
 If in doubt use the snapshot widget, it has no such restriction.
+
+### Web components
+
+Both widgets also come as web components (`@iobroker/web-components`) for **Aura** and every other host
+that shows them (vis-2, admin, devices): `<iob-frigate-snapshot>` ("Frigate Snapshot") and
+`<iob-frigate-live>` ("Frigate Live"). They get their pictures exactly like the device manager widgets
+above - the snapshot over the socket, the live view from the camera proxy of the web adapter with the
+same fallback to single pictures. Devices keeps offering its own widgets instead.
+
+| Setting | |
+| --- | --- |
+| Camera | the camera device, e.g. `frigate.0.driveway`; the instance is taken from it |
+| Show name, Name | the name below the picture; empty: the name of the camera |
+| Picture height | the height Frigate scales the picture of the tile to, 240 to 1080 px (480) |
+| Draw detection boxes, Draw timestamp | let Frigate draw them into the picture |
+| Poll interval, tile / fullscreen | only `<iob-frigate-snapshot>`: as in the widget |
+| Web instance, Frames per second | only `<iob-frigate-live>`: as in the widget |
+
+A click shows the camera bigger in a dialog of the host (720 px). Before that the element sends the
+event `frigate-camera-click` with `{ instance, camera }`; a host that calls `preventDefault()` shows the
+camera itself.
 
 ### vis Integration
 

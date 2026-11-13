@@ -26,8 +26,8 @@ The update interval is specified in seconds (default: 120). The adapter also
 continues to process live updates received through the Traccar WebSocket.
 
 ## Changelog
-### 1.2.3 (2026-10-17)
-* (arteck) fix geofence device list
+### 1.2.4 (2026-11-08)
+* (arteck) fix geofence traccar version > 5.8 in some situations
 
 ### 1.2.2 (2026-10-17)
 * (arteck) Dependencies have been updated

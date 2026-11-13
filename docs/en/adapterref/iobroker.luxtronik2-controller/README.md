@@ -16,6 +16,8 @@ chapters: {"pages":{"en/adapterref/iobroker.luxtronik2-controller/README.md":{"t
 
 This ioBroker adapter enables the local control, optimization, and monitoring of heat pumps with [Luxtronik 2.x / 3.x controllers](https://www.alpha-innotec.com/en/products/accessories/control/luxtronik) (e.g., Alpha Innotec, Novelan). The adapter is written entirely in TypeScript.
 
+**If you like this project and want to support its development, feel free to drop a tip here: https://paypal.me/TJahnke**
+
 ## Acknowledgements & History
 
 This project builds upon the preliminary work of existing open-source projects. Special thanks go to:
@@ -24,6 +26,10 @@ This project builds upon the preliminary work of existing open-source projects. 
 - **[Coolchip](https://github.com/coolchip/luxtronik2):** For the fundamental reverse engineering of the Luxtronik network protocol.
 - **[UncleSamSwiss](https://github.com/UncleSamSwiss/ioBroker.luxtronik2):** For the original ioBroker adapter.
 - **[BenPru](https://github.com/BenPru/luxtronik) & rhammen:** A special thanks to BenPru and rhammen for their continuous further development regarding the access and control of the Luxtronik controller. Without their dedication, efforts, and ideas, this adapter would not have reached the advanced state it is in today. _(If you appreciate their work, feel free to buy them a coffee! ☕) [BenPru](https://github.com/sponsors/BenPru) [rhammen](https://github.com/sponsors/rhammen)_
+
+> **💡 No LAN cable near your heat pump? No problem!**
+> If your Luxtronik 2.0 controller only has a free USB port instead of a nearby network socket, you can easily connect it via Wi-Fi using the clever **USB 2.0 powered WiFi/Ethernet Bridge** project by _obermolch_. It powers itself directly from the controller's USB port and bridges the connection wirelessly without extra wall power supplies.
+> Check out the full guide and community discussion here: [ioBroker Forum: USB 2.0 powered WiFi/Ethernet Bridge für Luxtronik 2.0](https://forum.iobroker.net/topic/85773/usb-2-0-powered-wifi-ethernet-bridge-f%C3%BCr-luxtronik-2-0).
 
 **Innovations in this version:**
 The `luxtronik2-controller` natively integrates both classic TCP communication (Port `8888` / `8889`) and modern WebSockets (Port `8214` for firmware > V3.81), combined with an optional **Hybrid Modbus TCP** engine (Port `502`) for wear-free RAM writes. Additionally, it features intelligent cycle optimization, dynamic pump control, hardware flash-wear protection, COP/JAZ efficiency tracking, PV-management and automated datapoint management.
@@ -99,76 +105,45 @@ You might see red error messages in the installation log related to `node-gyp`, 
 //### **WORK IN PROGRESS**
 
 ## Changelog
-### 0.22.5 (2026-11-01)
-
-**🔧 Maintenance & Compatibility**
-
-- **Repository Compliance:** Added missing multi-language translations (i18n) for all configuration dropdown menus (e.g. COP sources, PV modes) to meet strict ioBroker stable repository requirements.
-
-### 0.22.4 (2026-11-01)
+### 0.24.0 (2026-11-09)
 
 **🐛 Bugfixes & Tweaks**
 
-- **PV Surplus Management (`pvManager.ts`):**
-    - **Cycle Completion & Reset Deadlock:** Fixed a critical bug in `initiateDeactivation` when `pv_finish_cycle` was enabled: the inactive operating mode (e.g., hot water while heating is running) is now immediately reset to baseline[cite: 26, 28, 29]. This prevents infinite cycle loops where cycle optimization erroneously triggered forced 60 °C hot water runs at the end of a heating cycle[cite: 25, 28].
-    - **Target Reset vs. PV Max:** Corrected cycle completion behavior so active compressor runs finish at normal baseline setpoints instead of continuing to heat to elevated PV boost targets with grid/battery power[cite: 26, 28, 29]. Added a dynamic timer to enforce the 10-minute minimum compressor run time before final reset[cite: 26].
-    - **Hysteresis Deadband & Timer Protection:** Prevented the deactivation timer (`pvStopTimer`) from being aborted by minor meter/battery balancing fluctuations in the deadband between the stop threshold and start threshold[cite: 26, 27, 29].
-    - **Startup Recovery:** Added baseline recovery during `initPvManagement` to clear orphaned boost targets left behind after an adapter update or reboot.
-    - **Input Parsing:** Added `parseConfigFloat` to safely parse decimal values formatted with commas (e.g., `"1,5"`) in the admin configuration[cite: 26, 29].
-    - **Direct Hardware Sync:** Switched state updates to `syncConfigValue` for immediate, queue-safe synchronization via native TCP and Modbus[cite: 25, 26].
+- **Operating Mode & Write Protection (`jsonConfig.json`, `main.ts`):**
+    - **Explicit Operating Mode Selection:** Added a central "Operating Mode" selector in the Connection tab with color-coded status banners to clearly distinguish between **Read-Only (Monitoring)**, **Read & Write without Modbus (Native via Port 8889)**, and **Read & Write with Modbus TCP (Hybrid RAM access)**.
+    - **Dynamic UI Locking:** When "Read-Only" is selected, all write-related configuration tabs (Modbus, Idle Defaults, Cycle Optimization, HUP, ZIP, and PV Surplus) and their inputs are automatically grayed out and disabled. Selecting native write mode unlocks the optimization tabs while keeping the Modbus tab disabled.
+    - **Strict Backend Write Lock:** Enforced a global hardware write lock in Read-Only mode across `onReady`, `syncConfigValue`, `runOptimizationSchedule`, and `onStateChange` (while keeping diagnostic functions like debug logging, raw dumps, and firmware checks active).
+    - **Automatic Config Migration:** Existing installations are seamlessly migrated on startup to the matching operating mode based on their previously active Modbus and optimization settings.
 
-### 0.22.3 (2026-11-01)
+### 0.23.2 (2026-11-07)
 
-- **Notifications & Alarming:**
-    - Fixed an initialization bug where `lastKnownErrorTimestamp` and `lastKnownOutageTimestamp` were not set on adapter startup if the history remained unchanged, which previously caused the first genuine error or outage after a restart to be silently ignored.
-    - Decoupled the 60-minute flow warning cooldown (`lastFlowNotificationTime`) from critical heat pump malfunctions so genuine fault alarms are never suppressed by preceding flow warnings.
-    - Added language-independent outage code detection (codes 0, 1, 11, 18) alongside text-based fallbacks.
-- **ZIP Circulation Control:**
-    - Added a raw parameter fallback (`currentRawParams`) when backing up `originalZipConfig` to prevent timer schedules from being overwritten with `null` if the corresponding timer states are disabled in the object tree.
-    - Fixed an issue in `stopZipAndDeaeration` where manually disabling `Activate_Zip` did not stop the hardware deaeration program (`runDeaerate`) by checking `Virtual_ZIP_Status` in addition to the trigger state.
-- **Stability & Helpers:**
-    - Wrapped the automated DTA backup cron job initialization (`initAutoBackup`) in a `try/catch` block to prevent startup crashes on malformed cron expressions.
-    - Hardened `safeClose` in `ModbusManager` to cleanly terminate sockets even if a connection timeout occurs before the socket is marked as open.
-    - Improved input validation in `formatTimerSecondsToTime` (guarding against negative values and `NaN`) and `getNumber` (supporting numeric strings).
+- **COP & Efficiency Calculation (`copManager.ts`):**
+    - **Isolated Counter Tracking:** Introduced dedicated reference states for Total, Heating, and Hot Water counters (`last_raw_power_*` and `last_raw_thermal_*`). Each counter is now compared strictly against its own previous value, completely preventing cross-mode "ghost deltas" and astronomical COP spikes during cycle transitions.
+    - **Automatic Total-Delta Fallback:** Added seamless fallback detection for controllers with firmware bugs (e.g., Novelan LAV) where mode-specific counters like `energy_warmwater` remain permanently at `0`. If a specific counter reports a delta of `0` during an active cycle, the adapter automatically uses the live delta of the corresponding total counter (`energy_total` / `thermalenergy_total`) without requiring manual configuration workarounds.
 
-### 0.22.2 (2026-11-01)
+### 0.23.1 (2026-11-07)
+
+- **COP & Efficiency Calculation Fix (`copManager.ts`):**
+    - **Fixed Astronomical COP Values:** Resolved a critical bug where the internal calculation logic switched between specific and total energy counters, causing massive "ghost deltas" and resulting in astronomical COP values (e.g., > 1000).
+    - **Restored Robust Routing:** The adapter now strictly and safely relies on the continuous total counters (`energy_total` and `thermalenergy_total`). It calculates the delta over the polling interval and dynamically routes it into the Heating or Hot Water buckets based on the active operating state.
+    - _Note:_ Users facing the hardware bug where the heat pump does not track DHW power internally should select "External Object ID" in the adapter settings and link their `energy_total` datapoint as a workaround.
+
+### 0.23.0 (2026-11-07)
 
 **🐛 Bugfixes & Tweaks**
 
-- **Cycle Optimization & PV Integration:** Fixed an issue where the cycle optimization was blocked during an active PV boost. The adapter now correctly forces seamless transitions between heating and hot water (without compressor shutdown and anti-cycle delays) even when solar surplus is available. A new handshake mechanism ensures that PV target temperatures are immediately and safely restored after the cycle optimization resets the baseline idle defaults.
+- **Configuration & Baseline Logic:**
+    - **Custom Heating Offset Baseline:** Added a new configuration field in the "Idle Defaults" tab for the default heating target temperature offset (Parallelverschiebung)[cite: 10].
+    - **Preserved Baselines:** The idle reset mechanism (`main.ts`) and the PV surplus manager (`pvManager.ts`) now respect this custom baseline (e.g., +1 K) instead of hard-resetting the offset to `0 K`[cite: 7, 13]. This ensures that your manual baseline heating curve is perfectly preserved when returning from a PV boost or entering standby.
 
-- **PV Surplus Management & Compressor Optimization:**
-    - Fixed read-only datapoint errors in `activateBoost` and `deactivateBoost` (now correctly targeting `temperature_hot_water_target`).
-    - Resolved baseline configuration mix-ups between `fusspunkt` and the heating parallel offset (`heating_temperature`).
-    - Fixed the heating saturation check (`isHzFull`) to prevent premature boost revocation.
-    - Implemented a seamless "PV-Boost Handshake" allowing cycle optimization to force hot water transitions even during active solar surplus without triggering anti-cycle compressor delays.
+### 0.22.8 (2026-11-07)
 
-- **ZIP Circulation & Timer Logic:**
-    - Fixed a bug where hot water timer slots (`WW_MoSo_...`) were mistakenly backed up and overwritten instead of circulation pump slots (`Zirkulation_MoSo_...`).
-    - Improved time string conversions and state restoration robustness.
-- **COP Calculation & Virtual States:**
-    - Fixed a UTC timezone offset in daily rollovers so COP snapshots trigger precisely at local midnight.
-    - Included defrosting cycles (`WP_BZ_akt = 4`) into the heating COP calculations and added clamping protection against negative energy deltas.
-    - Added an in-memory object cache (`ensuredObjects`) to drastically reduce redundant database write calls.
-    - Added a raw value fallback for total energy and thermal energy calculations if individual states are disabled in the object tree.
-- **Modbus & Raw Communication Stability:**
-    - Implemented a strict serial operation queue (mutex) with a 50ms release delay in `ModbusManager` to prevent TCP port 502 connection collisions.
-    - Added a 30-second request timeout (`AbortSignal.timeout`) to DTA backups and corrected file naming for fallback paths (`dta_history`).
-    - Expanded firmware version regex in `updateManager` to support `F1.`, `WWB`, and `smo` firmware formats.
-    - Added socket `close` event listeners and safe number roundings for raw write operations.
-- **Repository Compliance & Maintenance:**
-    - Added complete multi-language translations (i18n) for all configuration dropdown menus to meet strict ioBroker stable repository requirements.
-    - Cleaned up unpublished ghost versions from the `io-package.json` news section.
-    - Standardized the README changelog header format (`## Changelog`).
+**🐛 Bugfixes & Tweaks**
 
-    - **Repository Compliance:** Added missing multi-language translations (i18n) for all configuration dropdown menus (e.g. COP sources, PV modes) to meet strict ioBroker stable repository requirements.
-
-### 0.22.1 (2026-10-28)
-
-**🔧 Maintenance & Compatibility**
-
-- **Repository Compliance:** Added missing multi-language translations (i18n) for all configuration dropdown menus (e.g. COP sources, PV modes) to meet strict ioBroker stable repository requirements.
-- **Cleanup:** Removed unpublished ghost versions from the `io-package.json` news section and fixed markdown formatting for the changelog header in the README.
+- **COP & Efficiency Calculation (`copManager.ts`):**
+    - **Hot Water Hardware Bug Fallback:** Added a dynamic fallback mechanism to bypass a hardware bug present in several Luxtronik and Novelan firmwares where the internal electrical meter for hot water (`energy_warmwater`) permanently reports `0`.
+    - **Smart Delta Routing:** When the heat pump is actively generating hot water (`WP_BZ_akt === 1`), the COP manager now checks if the internal DHW power meter is stuck at zero. If so, it automatically intercepts the delta from the total energy meter (`energy_total`) over the last polling interval and securely routes it into the Hot Water COP bucket.
+    - **Continuous Standby Sync:** Enhanced the database tracking to ensure the total energy fallback counter is continuously synced even during standby or heating modes. This prevents idle power consumption from accumulating in the background and falsely distorting the next hot water efficiency calculation.
 
 ## License
 

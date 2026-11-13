@@ -3,14 +3,15 @@ chapters: {"pages":{"en/adapterref/iobroker.dwd/README.md":{"title":{"en":"ioBro
 ---
 # DWD widgets
 
-The `dwd` adapter ships two front-ends besides the adapter itself:
+The `dwd` adapter ships three front-ends besides the adapter itself:
 
-| Where                | What                                               |
-|----------------------|----------------------------------------------------|
-| **vis / vis-2**      | the `DWD warnings` widget, in the widget set `dwd` |
-| **ioBroker.devices** | the `DWD warning` tile for the dashboard           |
+| Where                      | What                                                                                     |
+|----------------------------|------------------------------------------------------------------------------------------|
+| **vis / vis-2**            | the `DWD warnings` widget, in the widget set `dwd`                                       |
+| **ioBroker.devices**       | the `DWD warning` tile for the dashboard                                                 |
+| **Aura, admin and others** | the web component `<iob-dwd-warnings>`, see Web component |
 
-Both show the same data and are configured the same way: pick the adapter instance and the number of
+All of them show the same data and are configured the same way: pick the adapter instance and the number of
 the warning. Everything else is optional.
 
 The instance settings show the warnings that are currently active as well, see
@@ -167,6 +168,33 @@ accent — so an active warning is visible in the dashboard without reading the 
 
 ---
 
+## Web component: `<iob-dwd-warnings>`
+
+The adapter brings the warning as a [web component](https://github.com/ioBroker/web-components) as well: one
+element that every ioBroker UI with support for `@iobroker/web-components` shows alike - Aura, admin, and vis-2 and
+devices too. It is called **DWD warning**, like the devices tile, so devices offers its own tile instead of it.
+
+It shows one warning of one instance: headline, period, description and, if switched on, the instruction, on the
+severity colour of the warning - or, in the compact layout, one line with the short warning text. Without a warning
+it shows "No warning". A click on the warning shows all of it in a dialog. The element takes the colours and the
+font of the page it is shown in and scales with the size of its box.
+
+| Setting | Meaning |
+| --- | --- |
+| **Instance** | which `dwd` instance to read |
+| **Warnings for** | `Region` - the region of the instance settings (`warning<n>`); `Municipality (warncell)` - the warncell ID of the instance settings (`warncell.warning<n>`) |
+| **Warning** | number of the warning. `0` is the most severe one (channel `warning`), `1` means `warning1` and so on. |
+| **Layout** | `Full warning` or `Compact`, as in the vis-2 widget |
+| **Name** | shown above the warning; empty: nothing |
+| **Show period** | shows begin and end of the warning |
+| **Time format** | how begin and end are printed, same placeholders as above |
+| **Show instruction** | shows the recommendation of the DWD, off by default |
+
+The settings of the vis-2 widget for object IDs set by hand have no counterpart: they exist for views migrated from
+vis-1. The municipality is chosen with **Warnings for** instead.
+
+---
+
 ## The instance settings
 
 Below the configuration, the instance settings list the warnings that are currently active for the
@@ -190,12 +218,15 @@ kind.
 ## Building from source
 
 ```bash
-npm run build            # adapter + both front-ends
+npm run build            # adapter + all front-ends
 npm run build:widgets    # only the vis-2 widget set -> widgets/dwd/
 npm run build:devices    # only the devices tile     -> admin/dm-widgets/
+npm run build:wc         # only the web component    -> admin/webcomponents/
 ```
 
-The sources are in `src-widgets/` (vis-2) and `src-devices/` (devices dashboard). Both are React +
-TypeScript, built with vite and module federation. The component names and the URL are repeated in
+The sources are in `src-widgets/` (vis-2), `src-devices/` (devices dashboard) and `src-webcomponents/` (web
+component). The first two are React + TypeScript, built with vite and module federation. The web component is
+React + TypeScript too, built with vite into one ES module that takes React from the host
+(`lib/esm/react-19.js`). The component names and the URL are repeated in
 `io-package.json` under `common.visWidgets` and `common.deviceWidgets` — adding a widget means
 touching the `exposes` of the vite config **and** that block.

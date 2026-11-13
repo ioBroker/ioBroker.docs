@@ -321,8 +321,17 @@ translated yet" where a copy of the English would claim otherwise. Contributions
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 0.2.1 (2026-11-09)
+* (@GermanBluefox) A line that leaves a node through its label no longer makes the label hard to read
+
+### 0.2.0 (2026-11-06)
 * (@GermanBluefox) Added the web component `<iob-flow-diagram>` (`common.webComponents`)
+* (@GermanBluefox) The web component takes the colors of its host for text, nodes and lines, like the vis-2 widget (`@iobroker/web-components` 0.5.0)
+* (@GermanBluefox) The web component shows its hint "choose a diagram" when the setting names no stored diagram (e.g. `12V` instead of `flow.0.diagrams.12v`), instead of staying empty
 
 ### 0.1.0 (2026-10-09)
 * (@GermanBluefox) Corrections devices widget

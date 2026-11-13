@@ -86,6 +86,9 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ```
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (Voodoo2man) Corrected object state defaults and bound the 2FA delay to the adapter lifecycle.
+
 ### 4.1.0 (2026-10-31)
 - (Voodoo2man) Reduced 2FA first-start delays by reusing station sessions and skipping disabled or unavailable optional APIs.
 - (Voodoo2man) Added Hyper Backup

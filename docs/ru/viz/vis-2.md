@@ -4,7 +4,7 @@ lastChanged: 29.10.2026
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/viz/vis-2.md
-hash: xhg2VIrJOYQEaonHHx+vVrO/Tp+1q+GZkWwJK+M7gPQ=
+hash: 33AqPhb9a5sXU6ENgQXr/jYBwDs2fxmmxr3mBFhXIzc=
 ---
 # вис-2
 
@@ -16,7 +16,7 @@ hash: xhg2VIrJOYQEaonHHx+vVrO/Tp+1q+GZkWwJK+M7gPQ=
 
 <img src="media/vis2_beispiele.webp" width="900" alt="Vier Beispielseiten: Startseite in Glasoptik, Familienseite mit Karte und Uhr, Kameraübersicht und Grundriss mit Live-Werten" />
 
-Готовые примеры для тестирования доступны по адресу <https://iobroker.click> .
+Готовые примеры для тестирования доступны по адресу <https://iobroker.click> . Инструкции по импорту такого примера в вашу систему можно найти в разделе [«Импорт демонстрационного проекта»](/docs/viz/vis-2-demo-import.md) .
 
 Все изображения на этой странице взяты из vis-2 2.20.5 в теме **Modern Dark** , с использованием наборов виджетов, предоставляемых самим vis-2, и некоторых распространенных адаптеров виджетов.
 
@@ -152,7 +152,7 @@ vis-2 — единственная часть ioBroker, требующая ли�
 {h:javascript.0.myCustom.height;w:javascript.0.myCustom.width;Math.max(20, Math.sqrt(Math.pow(parseFloat(h), 2) + Math.pow(parseFloat(w), 2)))}
 ```
 
-Значение в кавычках, например, JSON из iCal или MQTT. `{"connected":true}`, появляется в формуле как тот объект, которым она является.
+Значение в кавычках, например, JSON из iCal или MQTT, например. `{"connected":true}`, появляется в формуле как тот объект, которым она является.
 
 Два нюанса: двоеточие **в** формуле называется `::` Так написано, потому что простой символ разделяет имена. И правило CSS, например: `{style: value}` Это будет воспринято как ссылка; следовательно, это следует заключить в двойные скобки. `{{style: value}}`.
 

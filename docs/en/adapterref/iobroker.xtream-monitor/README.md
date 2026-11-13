@@ -91,6 +91,13 @@ npx @iobroker/repochecker https://github.com/chrvidal/ioBroker.xtream-monitor ma
 
 ## Changelog
 
+### 0.2.12 (2026-11-05)
+
+- Changed server polling from parallel to sequential requests.
+- Added a 1.5-second delay between server checks.
+- Retry HTTP 404 errors once before marking a server offline.
+- Improved monitoring stability.
+
 ### 0.2.11 (2026-09-11)
 
 - Prevented request error states from exposing credentials.

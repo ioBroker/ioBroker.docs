@@ -146,9 +146,10 @@ You can install it via GitHub icon in admin by entering `iobroker.jsonconfig-dem
 - [**`coordinates`:**](#coordinates) Determines current location and used `system.config` coordinates if not possible in form `latitude,longitude`
 - [**`credential`:**](#credential) Selects a credential from the central credential storage (managed in admin settings)
 - [**`cron`:**](#cron) Configures cron expressions for scheduling tasks
-- [**`custom`:**](#custom) Integrates custom components for specific functionalities (Admin 6 only)
+- [**`custom`:**](#custom) Integrates custom components for specific functionalities (Admin 6 only), or web components of `@iobroker/web-components`
 - [**`datePicker`:**](#datepicker) Allows users to select a date
 - [**`deviceManager`:**](#devicemanager) show device manager
+- [**`diskSelector`:**](#diskselector) Selects a file or a folder on the disk of the host where the instance runs (Admin only)
 - [**`divider`:**](#divider) Creates a horizontal line separator
 - [**`file`:**](#file) Input field with file selection and optional upload/download capabilities (Admin 6 only)
 - [**`fileSelector`:**](#fileselector) Allows users to select files from the system (only Admin6)
@@ -359,6 +360,11 @@ Text component
 | `validateJson`    | if true, the text will be validated as JSON                                                            |
 | `allowEmpty`      | if true, the JSON will be validated only if the value is not empty                                     |
 | `time`            | the value is time in ms or a string. Used only with readOnly flag                                      |
+| `translate`       | the value is an i18n key, see below                                                                    |
+
+With `translate: true` the value is a key from the i18n files of the adapter:
+- with `readOnly: true` the key is stored and shown translated in the language of the user (like `staticText`, but in a table too)
+- without `readOnly` the key in `default` is translated once, when the default is written into the configuration, into the language of the user. From then on it is a normal text, which the user can edit, and it is not translated anymore. In a `table` this applies to the `default` of the column (new rows) and to the rows in `default` of the table. The default is only used if the attribute is not in `native` of `io-package.json`, so do not define it there.
 
 ### `number`
 
@@ -664,7 +670,7 @@ User can enter the word, and it will be added (see cloud => services => Whitelis
 
 just indication if the instance is alive, and it could be used in "hidden" and "disabled" (will not be saved in config)
 
-Just text: Instance is running, Instance is not running
+Just text with a status LED in front of it: Instance is running, Instance is not running. The LED pops when the instance starts and shakes when it stops.
 
 | Property       | Description                                                                                                                         |
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -705,6 +711,9 @@ Button that sends a request to the current instance (<https://github.com/iobroke
 | `controlStyle`  | Styles for the button.                                                                                                                                                                                                                       |
 | `instance`      | Instance where to send the request to (e.g. `"admin.0"`). Overrides `oContext.instance`. If not defined, the request is sent to the current adapter instance. You can use `${data.number}` pattern in the text.                              |
 
+The button confirms the answer of the instance for a moment: a check mark draws itself on success, a cross on an error. A success without `result`, `openUrl` or `copyDialog` is not confirmed with an "Ok" alert anymore.
+The named icons `delete`, `refresh`, `upload` and `play` are animated: `refresh` turns, the upload arrow moves up and a ring turns around `play` while the request runs; the lid of `delete` opens on hover and stays open while the confirmation dialog is shown.
+
 ### `setState`
 
 button that sets instance's state
@@ -716,6 +725,8 @@ button that sets instance's state
 | `val`     | `${data.myText}\_test` or number. Type will be detected automatically from the state type and converting done too                 |
 | `okText`  | Alert which will be shown by pressing the button                                                                                  |
 | `variant` | `contained`, `outlined`, ''                                                                                                       |
+
+The button shows a check mark for a moment after the state was written (also without `okText`), and a cross on an error.
 
 ### `staticText`
 
@@ -784,6 +795,26 @@ table with items that could be deleted, added, moved up, moved down
 | `useCardFor`          | [optional] - Breakpoint that will be rendered as cards: ["xs", "sm", "md", "lg", "xl"]                                                          |
 | `titleAttribute`      | [optional] - Define the name of the attribute of the item which should be shown as a title of the item in cards mode.                           |
 | `compact`             | [optional] - if true, the table will be shown in a compact mode                                                                                 |
+
+The cells of a `text` column with `translate: true` are i18n keys: shown translated with `readOnly`, otherwise the keys in `default` are translated once into texts. See [`text`](#text).
+
+```json
+{
+    "type": "table",
+    "attr": "columns",
+    "noDelete": true,
+    "allowReorder": true,
+    "items": [
+        { "type": "checkbox", "attr": "enabled", "title": "Enabled", "width": "20%" },
+        { "type": "text", "attr": "name", "title": "Name", "width": "40%", "translate": true },
+        { "type": "text", "attr": "desc", "title": "Description", "width": "40%" }
+    ],
+    "default": [
+        { "enabled": true, "name": "First_row", "desc": "this is 100" },
+        { "enabled": false, "name": "Second_row", "desc": "this is 200" }
+    ]
+}
+```
 
 ### `accordion`
 
@@ -920,6 +951,15 @@ only Admin6
 | `i18n`        | true if `i18n/xx.json` files are located in the same directory as component, or translation object `{"text1": {"en": Text1"}}` |
 | `bundlerType` | If module written with TypeScript, set it to `module`. From Admin 7.5.x                                                        |
 
+Or a web component of [`@iobroker/web-components`](https://github.com/ioBroker/web-components) - then `name`, `url`,
+`i18n` and `guiApi` are not used, see [Web component](#web-component):
+
+| Property       | Description                                                                                                            |
+|----------------|------------------------------------------------------------------------------------------------------------------------|
+| `webComponent` | The manifest file of the component, like `webcomponents/my-editor.json`. Resolved like `url`                           |
+| `settings`     | optional: the values of the settings of its manifest, like `{ "oid": "${data.stateId}", "decimals": 1 }`               |
+| `height`       | optional: height of the element, a number in px or a CSS length. `size.height` of the manifest if not set, else 200 px |
+
 #### Example for url
 
 - `custom/customComponents.js`: in this case the files will be loaded from `/adapter/ADAPTER_NAME/custom/customComponents.js`
@@ -1003,6 +1043,44 @@ only Admin6.
 | `showToolbar`       | show toolbar (default true)                                                              |
 | `selectOnlyFolders` | user can select only folders (e.g. for upload path)                                      |
 | `trim`              | trim the file name                                                                       |
+
+### `diskSelector`
+Selects a file or a folder on the disk of the host where the instance runs, and stores its absolute path, e.g. `/opt/iobroker/iobroker-data/myAdapter.0/certs/key.pem`.
+It is shown as a text field with a button aside that opens a dialog to browse the folders.
+
+`fileSelector` and `file` select files of the ioBroker file storage; `diskSelector` selects real files on the disk, e.g. certificates, a serial device configuration or a folder for backups.
+
+- The host lists the folders with the rights of the user ioBroker runs as (normally `iobroker`): what this user may not read is not shown, and folders it may not enter neither.
+- It is always the disk of the host of the instance, also if admin runs on another host.
+- Requires a js-controller with the feature `CONTROLLER_READ_DISK_DIR` on that host, and a user with the permission for `cmdExec` (administrators). Otherwise the dialog says why, and the path can still be typed (unless `disableEdit`).
+- With `root` nothing above that folder can be selected, also not through `..` or a symbolic link. The adapter must still check the path it gets, as the configuration can be changed in other ways too.
+
+| Property      | Description                                                                                                                                                                                                                                                        |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `mode`        | `file` (default) or `folder`                                                                                                                                                                                                                                       |
+| `root`        | Folder above which nothing can be selected: an absolute path on the host. It may start with `%DATA_DIR%` (`iobroker-data`), `%INSTANCE_DATA_DIR%` (`iobroker-data/<adapter>.<instance>`), `%IOBROKER_DIR%` (e.g. `/opt/iobroker`) or `%HOME%` (home of the user ioBroker runs as). `%INSTANCE%` is replaced with the number of the instance. Default: the whole disk (on Windows starting with the drives) |
+| `pattern`     | Patterns of the files to show, e.g. `*.pem` or `*.pem;*.crt` (case-insensitive). Only in the `file` mode                                                                                                                                                           |
+| `showHidden`  | Show the files and folders whose names start with a dot                                                                                                                                                                                                            |
+| `disableEdit` | The path can only be selected in the dialog, not typed. Default: `true` if `root` is set, else `false`                                                                                                                                                             |
+| `placeholder` | Placeholder of the text field                                                                                                                                                                                                                                      |
+
+```json
+{
+    "certFile": {
+        "type": "diskSelector",
+        "label": "Certificate",
+        "root": "%INSTANCE_DATA_DIR%",
+        "pattern": "*.pem;*.crt"
+    },
+    "backupFolder": {
+        "type": "diskSelector",
+        "mode": "folder",
+        "label": "Folder for the backups"
+    }
+}
+```
+
+In the dialog a click selects an entry and a double click opens a folder or takes a file; the arrow at a folder opens it with one click.
 
 ### `imageSendTo`
 
@@ -1297,6 +1375,27 @@ Determines current location and used `system.config` coordinates if not possible
 | `longitudeName` | if defined, the longitude will be stored in this attribute, divider will be ignored                                                                                    |
 | `latitudeName`  | if defined, the latitude will be stored in this attribute, divider will be ignored                                                                                     |
 | `useSystemName` | if defined, the checkbox with "Use system settings" will be shown and latitude, longitude will be read from `system.config`, a boolean will be saved to the given name |
+| `map`           | show the position on an OpenStreetMap under the fields. A click on the map or dragging the marker sets the position (From 10.1.16)                                      |
+| `mapHeight`     | height of the map in pixels. Default 300 (From 10.1.16)                                                                                                                 |
+| `mapZoom`       | zoom level the map starts with: 1 - the whole world, 18 - a house. Default 13 (From 10.1.16)                                                                            |
+| `mapStyle`      | colors of the map: `standard` - as on openstreetmap.org (default), `dark` - darkened, `grey` - grey tones, `auto` - darkened only in a dark theme (From 10.1.17)        |
+| `readOnly`      | only show the position: the fields cannot be edited, the buttons are hidden and the map does not change the position. Shows the data as they are now (From 10.1.16)    |
+
+The map does not belong to this library: the host hands it in with the property `OsmMap` of `JsonConfig` /
+`JsonConfigComponent`, best as `React.lazy(() => import('./OsmMap'))`, so that `leaflet` is only loaded when a
+map is really shown. It gets the props `OsmMapProps` (`position`, `center`, `zoom`, `onChange`, `mapStyle`,
+`themeType`, `style`); without `onChange` it is read-only. `test-gui/src/OsmMap.tsx` is an implementation with `leaflet`.
+Without a map from the host, only a link to the position on openstreetmap.org is shown.
+
+```json
+"position": {
+    "type": "coordinates",
+    "label": "Position",
+    "longitudeName": "longitude",
+    "latitudeName": "latitude",
+    "map": true
+}
+```
 
 ### `interface`
 
@@ -1927,6 +2026,64 @@ You can limit the application of the custom settings only to specific states by 
 
 You can find examples in [`telegram`](https://github.com/iobroker-community-adapters/ioBroker.telegram/tree/master/src-admin) or in [`pushbullet`](https://github.com/Jens1809/ioBroker.pushbullet/tree/master/src-admin) adapter.
 
+## Web component
+
+A `custom` item with `webComponent` shows a custom element of
+[`@iobroker/web-components`](https://github.com/ioBroker/web-components) - the same component that vis-2, devices
+and aura show. It is not built against the React and MUI of admin, so it needs no `guiApi` and keeps working when
+admin moves to the next generation.
+
+```json
+"schedule": {
+    "type": "custom",
+    "webComponent": "webcomponents/my-schedule.json",
+    "label": "Schedule",
+    "height": 240,
+    "settings": {
+        "oid": "${data.stateId}",
+        "decimals": 1
+    }
+}
+```
+
+JSON-Config reads the manifest, imports its module once for all items that show it and gives the element what
+every host gives:
+
+| Property   | In JSON-Config                                                                                                                                                                                    |
+|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `socket`   | the connection of admin                                                                                                                                                                           |
+| `settings` | the defaults of the manifest, then `settings` of the item, typed as the manifest declares them; a string with `${data.xxx}` takes the value from the configuration. A new object only on a change |
+| `theme`    | the colors and the font of admin (`getWebComponentTheme()`)                                                                                                                                       |
+| `dialogs`  | MUI dialogs of admin: a form is rendered by JSON-Config itself, an element is framed                                                                                                              |
+| `value`    | the value of the item's attribute, see below                                                                                                                                                      |
+
+`editMode` is not set. `label`, `help`, `hidden`, `disabled`, `validator` and the sizes work as for every item; a
+disabled element is `inert` and greyed out. JSON-Config has no views, so it ignores `iob-navigate`.
+
+The element edits the value of the item's attribute, as the
+[values](https://github.com/ioBroker/web-components#values) of the contract describe: it gets it as the property
+`value` and changes it with the event `iob-change` (`CHANGE_EVENT`), whose `detail` is the new value - JSON, so it
+can be saved. JSON-Config stores it like the value of any other item - with `confirm`, `onChange` and the validator -
+and calls `preventDefault()`, so `changeValue()` of the base class returns `true`. While the item is disabled it
+ignores the event. `value` is set again when the stored value differs from the element's: changed by another item,
+or not stored because the user declined the confirmation.
+
+```js
+class MySchedule extends IobWebComponent {
+    render() {
+        const bars = Array.isArray(this.value) ? this.value : [];
+        // ... draw the bars
+    }
+
+    #onDragEnd(bars) {
+        this.changeValue(bars);
+    }
+}
+```
+
+The element fills a box of `height` (or `size.height` of the manifest) and the width of the item; with
+`size.noResize` it gets `size.width` as well. The same element stays while the item is hidden and shown again.
+
 ## JSON Tab in admin
 From admin version 7.6.x you can define the tab (like `backitup` or `matter`) via JSON config.
 
@@ -2016,6 +2173,47 @@ The schema is used here: https://github.com/SchemaStore/schemastore/blob/6da29cd
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 10.1.21 (2026-11-11)
+- (@GermanBluefox) Added: `translate` for `text`: i18n keys shown translated (`readOnly`) or translated once from `default`, also in tables (ioBroker/ioBroker.admin#3721)
+
+### 10.1.20 (2026-11-08)
+- (@GermanBluefox) Fixed: `cron` does not offer the wizard of schedules anymore: its OK wrote the JSON text `{}` into a field for CRON expressions
+
+### 10.1.19 (2026-11-07)
+- (@krobipd) Fixed: saving the configuration writes only the top-level settings that were changed in the dialog; every other setting keeps the value the instance object holds when saving, so a setting the adapter wrote into its native while the dialog was open (e.g. its device list) is no longer set back to the state of the opening, unless the same setting was changed in the dialog
+
+### 10.1.18 (2026-11-07)
+- (@GermanBluefox) Added the control `diskSelector`: selects a file or a folder on the disk of the host where the instance runs, with only the entries the user ioBroker may read, optionally fixed to a root folder (`mode`, `root`, `pattern`, `showHidden`, `disableEdit`). Needs js-controller with `CONTROLLER_READ_DISK_DIR`
+
+### 10.1.17 (2026-11-05)
+- (@GermanBluefox) Added: `mapStyle` for the map of `coordinates`: `standard` (as on openstreetmap.org), `dark`, `grey` or `auto` (darkened only in a dark theme). Until now the map was always darkened in a dark theme, which changed the colors of the map; now it shows the standard colors unless configured otherwise. The host gets the style as `mapStyle`
+
+### 10.1.16 (2026-11-05)
+- (@GermanBluefox) Added: `coordinates` shows the position on an OpenStreetMap with `map: true` (`mapHeight`, `mapZoom`). A click on the map or dragging the marker sets the position. The host hands the map in with the new property `OsmMap` of `JsonConfig` / `JsonConfigComponent`, lazy loaded, so that `leaflet` does not land in every bundle that uses this library. Without it a link to openstreetmap.org is shown
+- (@GermanBluefox) Added: `readOnly` for `coordinates`, to only show a position: no editing, no buttons, the map does not change the position, and the shown values follow the data
+- (@GermanBluefox) Fixed: the buttons of `coordinates` "Take position from browser" / "from system settings" were active also if the item was disabled
+
+### 10.1.15 (2026-11-05)
+- (@GermanBluefox) Added: `_instance` (the number of the instance) in the text patterns too, not only in the JS functions - e.g. `"settings": {"instance": "my-adapter.${_instance}"}` tells a web component which instance it belongs to
+
+### 10.1.14 (2026-11-05)
+- (@GermanBluefox) Added: `custom` shows web components of `@iobroker/web-components` with the new attribute `webComponent` (the manifest file). The element gets the connection, the theme and the dialogs of admin, the values of `settings` (also from the configuration with `${data.xxx}`) and the value of its attribute as `value`, which it changes with the event `iob-change`
+
+### 10.1.13 (2026-11-05)
+- (@GermanBluefox) Changed: the animated icons of `@iobroker/gui-components` are used everywhere: the trash can for the delete buttons (`table`, `accordion`, `fileSelector`, named icon `delete`), the upload symbol for upload, import and export, the refresh symbol, the funnel with the red cross for the filters of `table`, play/pause and the connection symbol for `state` and `textSendTo`, the menu symbol of the tabs on small displays
+- (@GermanBluefox) Changed: the copy buttons of `text`, `uuid`, `pattern`, `textSendTo`, `staticInfo` and of the copy dialog of `sendTo` confirm the copy with a check mark instead of the alert "Copied"
+- (@GermanBluefox) Changed: `fileSelector` shows the upload: the arrow moves up while the file is uploaded, then a check mark (or a cross) draws itself; the drop area pulses while a file is dragged over it; the refresh button turns while the files are read
+- (@GermanBluefox) Changed: `image` shows the upload of the image in its corner and then a check mark or a cross; its drop area pulses while a file is dragged over it (also over an existing image) and a new image fades in (`UploadImage` of `@iobroker/gui-components` 10.4.1); the drop area of the CSV import of `table` pulses
+- (@GermanBluefox) Changed: `table`: a new, cloned or moved row lights up for a moment, a deleted row slides out
+- (@GermanBluefox) Changed: `sendTo` and `setState` confirm the result in the button with a check mark or a cross; `sendTo` does not show the alert "Ok" anymore. Named icons are animated while the request runs (`refresh` turns, `upload` moves up) or while the confirmation is shown (`delete`)
+- (@GermanBluefox) Changed: the play button of `file` and `fileSelector` turns into pause while the sound plays, a click stops it
+- (@GermanBluefox) Changed: `alive` shows a status LED, `checkDocker` with `noCheckbox` and the license dialog of `checkLicense` draw a check mark or a cross, the OAuth2 success text a check mark; tabs and accordion sections with errors get a red cross that draws itself; the import button of the instance settings confirms the import with a check mark
+- (@GermanBluefox) Fixed: `fileSelector` subscribed to the folder again on unmount instead of unsubscribing, so every remount added one more handler
+- (@GermanBluefox) Fixed: `image` with `base64: true` also wrote the image into a (broken) file of the instance
+- (@GermanBluefox) Fixed: a `state` shown as boolean text used `falseImage` also for `true`
+- (@GermanBluefox) Fixed: `sendTo` to an instance that is not alive kept the button in the running state
+- (@GermanBluefox) Fixed: the CSV import into an empty `table` showed the rows, but did not take them into the settings
+
 ### 10.1.12 (2026-11-03)
 - (@GermanBluefox) Docs: `checkDocker` checks the Docker connection the instance uses (`iobDockerApi`), also on the host of admin (ioBroker/ioBroker.admin#3715)
 - (@GermanBluefox) Added: `noCheckbox` for `checkDocker`: shows only the state of Docker, for adapters that choose Docker with another control

@@ -23,13 +23,14 @@ You can leave port 0 if the default port is desired.
 - **Port**: Port of SQL Server (leave blank if not sure)
 - **Database name**: Database name. Default iobroker
 - **User**: Username for SQL. Must exist in the DB.
-- **Password**: Password for SQL.
+- **Password**: Password for SQL. It is stored encrypted in ioBroker.
 - **Password confirm**: Just repeat password here.
 - **Encrypt**: Some DBs support encryption.
 - **Round real to**: Number of digits after the comma.
 - **Allow parallel requests**: Allow simultaneous SQL requests to DB.
 - **Statistics tab**: lists every ID in the database with its storage type, status (logged / logging off / state deleted), number of values, estimated size and the covered time range. The **Clean up** button first shows what would be deleted and removes it only after confirmation. States that still exist but merely have logging switched off are excluded unless you tick the checkbox, because their history is still reachable and may be wanted.
 - **Do not create database**: Activate this option if a database already created (e.g. by administrator) and the ioBroker-user does not have enough rights to create a DB.
+- **Relax PostgreSQL commit durability**: PostgreSQL only, off by default. Runs the adapter's own connections with `synchronous_commit=off`, so a commit no longer waits until the write-ahead log is flushed to disk. This strongly reduces disk I/O and wear, e.g. on SD cards and consumer SSDs. If the PostgreSQL server crashes, the values stored in the last few hundred milliseconds can be lost; unlike `fsync=off` this setting cannot corrupt the database. Other clients of the same server are not affected.
 
 ## Default Settings
 - **Debounce Time** - Protection against unstable values to make sure that only stable values are logged when the value did not change in the defined amount of Milliseconds. ATTENTION: If values change more often than this setting effectively, no value will be logged (because any value is unstable)
@@ -270,7 +271,7 @@ Possible options:
 - **q** - if *q* field should be included in answer
 - **addId** - if *id* field should be included in answer
 - **limit** - do not return more entries than limit
-- **round** - round result to number of digits after decimal point
+- **round** - round result to number of digits after decimal point. Default: "Round real to" of the datapoint, then of the instance. The stored values are not changed.
 - **ignoreNull** - if null values should be included (false), replaced by last not null value (true) or replaced with 0 (0)
 - **removeBorderValues** - By default, additional border values are returned to optimize charting. Set this option to true if this is not wanted (e.g. for script data processing)
 - **returnNewestEntries** - The returned data are always sorted by timestamp ascending. When using aggregate "none" and also providing "count" or "limit", this means that normally the oldest entries are returned (unless no start data is provided). Set this option to true to get the newest entries instead.
@@ -648,8 +649,21 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 4.5.0 (2026-11-10)
+* (@Schimi1983) The database password is stored encrypted (`encryptedNative`). A password saved with an older version is encrypted once on the first start, the instance then restarts by itself. Note: after going back to 4.4.1 or older, enter the password in the instance settings again (#587)
+* (@DutchmanNL) PostgreSQL: new opt-in setting "Relax PostgreSQL commit durability" runs the adapter's connections with `synchronous_commit=off`, so commits no longer wait for the disk flush. This strongly reduces disk I/O and wear. A crash of the PostgreSQL server can lose the values of the last few hundred milliseconds; the database cannot be corrupted (#516)
 
-### **WORK IN PROGRESS**
+### 4.4.1 (2026-11-08)
+* (@GermanBluefox) `getDpOverview` with an empty `datapoints` table answers again and returns its connection. Before, the request never got an answer and the connection stayed borrowed, which with SQLite (one connection) blocked every further request (#587)
+* (@GermanBluefox) "Round real to" of a datapoint now applies to `getHistory`. Before, the field was shown but had no effect, only the setting of the instance counted. As with the instance setting, the values are rounded when read, the stored values stay as they are (#587)
+* (@GermanBluefox) phpMyAdmin container: new instances listen on `127.0.0.1` by default instead of on all network interfaces. Existing instances keep their setting; to reach phpMyAdmin from another machine, choose the IP in the instance settings (#587)
+* (@Schimi1983) PostgreSQL: text values, datapoint IDs and sources are written as escape string literals (`E'...'`), so a backslash can no longer end a value early when `standard_conforming_strings` is off for the database or the user (#587)
+
+### 4.4.0 (2026-11-05)
+* (@Schimi1983) Booleans are stored the same in all databases: `on`/`yes`/`true`/`1` as true, `off`/`no`/`false`/`0` and an empty text as false, any other text as NULL. Before, PostgreSQL failed the whole batch on such a text or a number, SQLite and MS SQL stored `off` as true. `storeState` says "values are kept, do not send them again" also when its values were written together with others of the same datapoint (#587)
+* (@Schimi1983) Messages are checked before they reach the database: `update`, `delete`, `deleteRange`, `deleteAll`, `storeState`, `getHistory` and `getCounter` refuse an entry without an ID, with a timestamp that is not a point in time, or with a value that does not fit the stored type, and report it in the answer instead of writing it into the SQL. Before, a `deleteRange` with an unparsable `start` deleted the whole history of the datapoint, a `delete` without an ID the history of the first datapoint of the table, a `start` given as a numeric string became `NaN`, and a value with a quote or a quote in a datapoint ID broke the statement (PostgreSQL, SQLite, MSSQL: quotes are now stored as they are instead of being removed, `Infinity` is stored as NULL). `storeState` with a value that is not a number for a numeric datapoint is answered again instead of waiting forever; a list of entries is answered after the last entry was written, with the errors of the entries that failed; a message with an unexpected shape no longer stops the adapter; "Maximum concurrent connections" of 0 no longer blocks every write (#587)
+* (@Schimi1983) MySQL: if the server's `sql_mode` contains `NO_BACKSLASH_ESCAPES`, the adapter removes it for its own connections and says so in the log - with that mode, values with `'` or `\` cannot be stored safely. The server's setting and other clients are not changed. Booleans: `on`/`yes`/`true`/`1` are stored as true, `off`/`no`/`false`/`0` and an empty text as false, any other text as NULL instead of true; a number is true unless it is 0 (#587)
+* (@Schimi1983) Stopping with many datapoints no longer loses values: the buffers of all datapoints are written at once instead of 50 per second, which did not finish within the 10 s stop timeout beyond about 450 datapoints. SQLite: buffered values of more than 100 datapoints no longer hit the task limit ("Cannot queue new requests"), a datapoint has one queued insert that takes further values (#587)
 * (@Schimi1983) MySQL: values, datapoint IDs and sources are passed as bound parameters instead of being inlined. Text values keep their single quotes (`it's` was stored as `its`), a value ending with a backslash no longer makes the whole batch fail, and the `delete`/`update`/`storeState` messages cannot inject SQL any more. `NaN`/`Infinity` are stored as NULL instead of failing the batch (#587)
 * (copilot) Adapter requires node.js >= 22.19.0 now
 * (@GermanBluefox) Fixed: values stored without `from` were missing in `getHistory` with `from: true`, e.g. in the history data of admin
@@ -658,6 +672,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (@GermanBluefox) Data browser: the values of a datapoint can be exported as CSV (e.g. for Excel) or as JSON (the format of `storeState`) for the selected time range. `getRawEntries` returns up to 5000 entries per call and accepts `noTotal` to skip the count
 * (@GermanBluefox) Data browser: PostgreSQL and MS SQL showed the time of a value as a bare number, because `getRawEntries` returned `ts` as string there
 * (@GermanBluefox) MySQL/MariaDB and MS SQL: datapoints whose IDs differ only in case (e.g. `alias.0.Licht` and `alias.0.licht`) or by trailing spaces no longer write into one series with the type of the first one. The second one gets its own row from now on; values that were already mixed stay where they are (#588)
+* (@GermanBluefox) MS SQL: `@azure/msal-node`, a dependency of the driver, was updated to 7.2.0 because of CVE-2026-109461 (GHSA-xcx6-jx8p-x3h5). It concerns the Azure authorization code flow, which the adapter does not use
 
 ### 4.3.0 (2026-10-29)
 * (@GermanBluefox) `getHistory` accepts `intervalBorders`: the client can send the borders of the intervals itself, e.g. the local days of a chart. With `count` or `step` every interval after a switch of the daylight saving time ended an hour away from the midnight, so a value written at 23:59:59 was shown on the next day (ioBroker/ioBroker.echarts#1311)
@@ -677,31 +692,6 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 ### 4.2.1 (2026-10-13)
 * (@GermanBluefox) The error of a failed save or delete in the data browser is no longer hidden by the reload of the table
-
-### 4.2.0 (2026-10-03)
-* (@GermanBluefox) `npm run build:ts` no longer needs the optional `mysql2` and `sqlite3` drivers to be installed
-* (@GermanBluefox) Fixed buffered values being lost when the adapter stops, and unload no longer hangs when there is nothing else to write (#577)
-* (@GermanBluefox) `getCounter` no longer reads the NULL boundary marker that `writeNulls` stores on start and stop as a zero counter value (#577)
-* (@GermanBluefox) Fixed "Test connection" reporting a failure for a working configuration: the request was built as a text template that could produce invalid JSON, and it left out `dbname`, `doNotCreateDatabase` and the docker settings (#355)
-* (@GermanBluefox) "Record changes only" now compares the value instead of the controller's last-change timestamp, so an alias with a read converter no longer stores a row per source change (#295)
-* (@GermanBluefox) Added a statistics tab listing every logged ID with its number of values and estimated size (#247)
-* (@GermanBluefox) Added a cleanup for datapoints that are no longer logged, with a confirmation dialog showing what would be deleted (#247)
-* (@GermanBluefox) The `Counter must have type "number"` error now names the datapoint and is logged once instead of for every value (#320)
-* (@DutchmanNL) PostgreSQL: "do not create database" now connects straight to the configured database instead of opening the maintenance database `postgres` first, so roles without `CONNECT` on it can be used
-* (@GermanBluefox) MySQL can now connect through a unix socket instead of host and port (#104)
-* (@DutchmanNL) Fixed `info.connection` staying `true` while the database was unreachable
-* (@GermanBluefox) Fixed crash (UNCAUGHT_EXCEPTION) when the database server closes the connection: the driver's `error` event had no listener (#527)
-* (@GermanBluefox) A connection that the server dropped is now replaced instead of being handed out again
-
-### 4.1.6 (2026-10-01)
-* (@DutchmanNL) Fixed `getCounter` on PostgreSQL: the queries used MySQL-style backtick quoting
-* (@DutchmanNL) Fixed `getCounter` on SQLite: `ORDER BY`/`LIMIT` is not allowed on a compound-select member
-* (@DutchmanNL) Fixed `getCounter` on MS SQL: the counter subquery filtered on `ts_number` instead of `ts_counter`
-* (@GermanBluefox) `getCounter` now sorts in the outer query on all dialects, so the row order no longer depends on the query plan
-* (@DutchmanNL) Added `getCounter` test coverage for all four dialects
-
-### 4.1.5 (2026-08-28)
-* (@GermanBluefox) Updated packages
 
 ## License
 

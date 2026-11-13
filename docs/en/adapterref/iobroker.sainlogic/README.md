@@ -107,7 +107,7 @@ Station does not answer to scheduler commands, so only listener mode is supporte
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.3.0 (2026-11-10)
 - #331 Added WH51 raw soil moisture AD values (soilad1 - soilad16)
 - #319 Added WH52 / DP110 soil sensor (moisture, temperature, EC, AD values, battery)
 - Added WN20 rain gauge battery voltage (wn20batt)
@@ -135,9 +135,6 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 - #326 Remove .vscode from git
 - #326 update adapter-core dependency
 - #326 change last_update type to number
-
-### 1.2.8 (2026-08-20)
-- Fix #317 last_update type to string (you might need to delete the state manually)
 
 ## Credits
 

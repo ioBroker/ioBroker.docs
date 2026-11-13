@@ -54,6 +54,28 @@ The adapter currently supports Millheat heater generation 3.
 
 The adapter requires the IP address or hostname of the Mill heater.
 
+### One adapter instance per Mill device
+
+**Each `millheater` adapter instance is intended to communicate with exactly one Mill device.**
+The configured host address identifies that single device, and all polling, API requests,
+connection status and data points of the instance belong to it.
+
+If you want to integrate several Mill devices, create a separate adapter instance for each
+device and configure the IP address or hostname of the respective device in that instance.
+For example:
+
+| Instance | Configured device |
+| --- | --- |
+| `millheater.0` | Mill heater in the living room (`192.168.1.101`) |
+| `millheater.1` | Mill heater in the bedroom (`192.168.1.102`) |
+
+This separation is intentional: each device can be configured, monitored, started and stopped
+independently. A connection problem or a configuration change for one device therefore does
+not affect the other devices.
+
+The adapter does **not** manage a list of multiple independent Mill devices within one
+instance. Each instance represents one physical Mill device with its own local API endpoint.
+
 ### Configuration parameters
 
 | Parameter             | Description                                          | Default |
@@ -81,10 +103,10 @@ For reliable communication, use a static IP address, a DHCP reservation, or a ho
 
 The adapter currently supports:
 
-**Convection heaters** 
-**Oil heaters**
-**Panel heaters**
-**Wi-Fi Socket**
+* **Convection heaters** 
+* **Oil heaters**
+* **Panel heaters**
+* **Wi-Fi Socket**
 
 The adapter determines the heater type from the name reported by the Mill API.
 
@@ -134,7 +156,7 @@ The `operation_mode` state supports the following values:
 
 | Value                  | Description                                                                         |
 | ---------------------- | ----------------------------------------------------------------------------------- |
-| `Off`                  | Heater switched off                                                                 |
+| `OFF`                  | Heater switched off                                                                 |
 | `Weekly program`       | Weekly schedule                                                                     |
 | `Independent device`   | Independent device operation                                                        |
 | `Control individually` | Follow the individual target temperature without using timers or the weekly program |
@@ -271,6 +293,7 @@ The exact availability of individual functions depends on the heater type.
 ## Polling
 
 The adapter uses two independent polling intervals.
+Each polling cycle is scheduled using a one-shot timeout after the previous update cycle has completed. The configured interval therefore defines the delay after completion, not a fixed start-to-start interval. If an API update takes longer, the effective time between polling starts increases. This prevents polling cycles from accumulating when API requests are slow.
 
 ### Startup
 
@@ -379,7 +402,42 @@ The source code is written in TypeScript.
 The adapter follows the ioBroker development and coding guidelines.
 For state objects, the adapter uses the official ioBroker state roles.
 
+### State updates
+
+The adapter uses `setStateChanged()` for state updates wherever possible.
+
+This avoids unnecessary database writes and state change events when a value has not changed. This is particularly useful for regularly polled device data.
+
+The adapter follows these principles:
+
+* Device values are only written when their values change.
+* Successfully processed write commands are acknowledged immediately using `ack = true`.
+* Connection status updates are only written when the connection state changes.
+* Invalid or missing API values never overwrite existing states.
+
 ## Changelog
+
+### 0.1.15
+
+- Use `setStateChanged()` for regular state updates to avoid unnecessary database writes and state change events.
+- Keep `setState()` for explicit state reset operations.
+
+### 0.1.14
+
+* Improved API connection handling and connection status updates.
+* Reduced repeated log messages during connection failures and timeouts.
+
+### 0.1.13
+
+* Fixed handling of the `OFF` operation mode.
+* Corrected translations in several languages.
+
+### 0.1.12
+
+* Replaced interval-based polling with timeout-based scheduling.
+* Renamed polling timer properties to match their corresponding update methods.
+* Pin ESLint to version 9 to avoid dependency conflicts with eslint-plugin-import.
+* Dependencies have been updated.
 
 ### 0.1.11
 
@@ -390,15 +448,6 @@ For state objects, the adapter uses the official ioBroker state roles.
 
 * Added support for socket and convection heaters.
 * Fixed reading of the limited heating power for panel heaters.
-
-### 0.1.9
-
-* Added multilingual translations for state names in all supported languages to improve readability and satisfy ioBroker object validation requirements.
-
-### 0.1.8
-
-* Added maximum values for polling intervals to prevent excessively long intervals. The fast polling interval is limited to a maximum of 1 hour, while the slow polling interval is limited to a maximum of 24 hours.
-* Added hostname configuration and made various editorial improvements.
 
 ## License
 

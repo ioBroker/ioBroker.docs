@@ -26,6 +26,7 @@ For more details and for information on how to disable the error reporting, see 
 - Awtrix 3 / Awtrix Light
 - Bambu Lab 3D printers
 - Beckhoff PLC
+- Blackmagic ATEM switchers
 - BleBox
 - Bosch Smart Home
 - Bose Soundtouch
@@ -134,6 +135,7 @@ For more details and for information on how to disable the error reporting, see 
 - Siegenia
 - Sigenergy
 - SIKU / Oxxify Smart ventilation (RV V2 UDP protocol, factory PIN only)
+- Sky Q / Sky+HD set-top boxes (sky-remote)
 - SMA SEMP gateway (Sunny Home Manager)
 - Sma-em
 - Smappee
@@ -250,6 +252,13 @@ in the `system.discovery` object.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.3.0 (2026-11-09)
+* (AlanSRU) Detect Sky Q and Sky+HD boxes from the greeting on their remote-control port 49160 and propose the sky-remote adapter
+* (AlanSRU) Detect Blackmagic ATEM switchers from their `_switcher_ctrl._udp` mDNS announcement and propose the blackmagic-atem adapter
+* (@GermanBluefox) The WLED detection no longer logs an error for every device with a single mDNS PTR record, finds a WLED that announces only its own service, and proposes one instance for all WLEDs, which is how the adapter works
+* (@GermanBluefox) The ping on Windows no longer reads `process.env`, which does not go with compact mode
+* (@GermanBluefox) `npm run test:integration` now runs every test file on Linux and macOS too - the shell had been expanding the pattern to `test/adapters` only
+
 ### 5.2.0 (2026-10-08)
 * (nograx) Detect Zendure SolarFlow, Hyper and AIO devices with the local zenSDK API via mDNS and propose the zendure-solarflow adapter
 * (@GermanBluefox) The Zendure proposal sets `connectionMode: local` - in the default cloud mode the instance stops at the missing cloud key and never looks for devices
@@ -279,11 +288,6 @@ in the `system.discovery` object.
 * (UncleSamSwiss) Remove obsolete squeezebox adapter
 * (GermanBluefox) Packages were updated
 * (GermanBluefox) Added victron-cerbo
-
-### 5.0.0 (2024-07-21)
-* (bluefox) Packages updated
-* (bluefox) Minimum node.js version is 18.x
-* (bluefox) Updated licenses for knx and jarvis
 
 ## License
 

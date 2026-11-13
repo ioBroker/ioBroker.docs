@@ -29,6 +29,21 @@ A click on the tile opens a dialog with everything: health, cells and temperatur
 
 The widget set **WattCycle batteries** contains the widget **Battery**. Select the battery device in its settings. The layout follows the size of the widget (bar, compact, wide or full view) or can be fixed in the settings. A click on the smaller layouts opens the full view.
 
+### Web components
+
+The battery is also a web component (`common.webComponents`, [`@iobroker/web-components`](https://github.com/ioBroker/web-components)), so Aura, admin and every other host of web components can show it:
+
+- `<iob-wattcycle-battery>` (**WattCycle battery**) – the same views as the vis-2 widget: the SOC arc with the charge state, a battery bar, the SOC arc with voltage, current, power and temperature, or everything with health, cells and temperatures. A click on the smaller views opens everything in a dialog of the host.
+
+Settings:
+
+- **Battery** – a battery device (`wattcycle.<n>.batteries.<name>`) or `wattcycle.<n>.total` for the sum of all batteries
+- **Name** – empty: the name of the device
+- **Layout** – automatic (by size), compact, bar, wide or full
+- **Open details on click**
+
+The devices app offers its own tile **WattCycle battery** instead of the web component of the same name.
+
 ### Device manager
 
 The tab **Device manager** in the instance settings (or the device manager of admin) shows all configured batteries and the total.
@@ -113,6 +128,13 @@ sendTo('wattcycle.0', 'scan', { duration: 8000 }, res => console.log(res.devices
    Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 2.1.0 (2026-11-08)
+* (@GermanBluefox) Added the web component `<iob-wattcycle-battery>` for Aura and other hosts (`common.webComponents`)
+
 ### 2.0.4 (2026-11-03)
 * (@GermanBluefox) Restored the restriction of the adapter to Linux and macOS
 
@@ -128,16 +150,6 @@ sendTo('wattcycle.0', 'scan', { duration: 8000 }, res => console.log(res.devices
 ### 2.0.1 (2026-10-14)
 * (@GermanBluefox) Restored the supported platforms (Linux and macOS) in package.json
 * (@GermanBluefox) Added dependabot updates for the GUI parts
-
-### 2.0.0 (2026-10-14)
-* (@GermanBluefox) Added device manager support
-* (@GermanBluefox) Added a battery tile for the devices app
-* (@GermanBluefox) Added a battery widget for vis-2
-* (iobroker-bot) Adapter requires node.js >= 22 now.
-* (@GermanBluefox) Improved total calculations
-* (@GermanBluefox) Updated packages
-* (@GermanBluefox) Fixed the build (tsconfig for node 22), so 1.0.0 was never published
-* (@GermanBluefox) The adapter does not run in compact mode anymore: the BLE stack of noble keeps its state per process
 
 ## License
 

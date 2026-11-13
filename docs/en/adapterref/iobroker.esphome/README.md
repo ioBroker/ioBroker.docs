@@ -451,10 +451,12 @@ If you like my work, please consider a personal donation
 -->
 ### __WORK IN PROGRESS__
 
+- (@DutchmanNL) **FIXED**: A command to a device that is offline is no longer acknowledged. The state stays at `ack: false` and a warning is logged, so other adapters that wait for the acknowledgement see that the command did not reach the device (#541)
+
+### 1.0.1 (2026-11-09)
+
 - (@DutchmanNL) **BREAKING**: ESPHome 2026.1 removed API password authentication, devices updated to ESPHome 2026.1 or later must use an encryption key. The API password option is kept for devices running older ESPHome versions, see README (#410)
-
-### 1.0.1-alpha.0 (2026-10-16)
-
+- (@DutchmanNL) **ENHANCED**: The online state `info._online` of each device has the role `indicator.reachable` (was `state`), so other adapters and visualisations can see whether an ESPHome device is reachable. Existing installations get the new role at the next adapter start
 - (@Garfonso) **FIXED**: Brightness, RGB, white and colour temperature reached no light any more. The ColorMode values in supported_color_modes are the bitmasks from api.proto (RGB = 35), but they were compared against a 0..9 index, so every modern ESPHome light was treated as on/off only
 - (@SimonFischer04) **ENHANCED**: Dependency autopy switched to @simonfischer04/autopy (npm) instead of a GitHub build so dev dependencies do not get installed on user systems #495
 
@@ -484,15 +486,6 @@ If you like my work, please consider a personal donation
 - (@DutchmanNL) **ENHANCED**: Pre-releases are published under the npm "beta" tag instead of "latest"
 - (@DutchmanNL) **ENHANCED**: Removed the obsolete admin/words.js and added prettier formatting scripts
 - (@dependabot) **ENHANCED**: Updated @iobroker/testing to 5.3.0 and the GitHub actions used in CI
-
-### 1.0.0-beta.0 - Stable version release candidate
-
-- (@copilot) **NEW**: Promoted ioBroker.esphome to stable **v1.0.0**
-- (@copilot) **NEW**: Brings ESPHome devices into ioBroker with live state updates and direct control
-- (@copilot) **NEW**: Supports a wide range of device types including lights, switches, sensors, fans, covers, locks, and text entities
-- (@copilot) **ENHANCED**: Includes optional ESPHome Dashboard integration plus built-in helpers for discovery and YAML-based device management
-- (@arteck) **FIXED**: Improved disconnect handling and diagnostics so reconnects recover more cleanly when device connections are destroyed
-- (@copilot) **ENHANCED**: Establishes a stable baseline for future ESPHome adapter development in ioBroker
 
 ## License
 

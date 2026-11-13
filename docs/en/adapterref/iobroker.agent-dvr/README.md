@@ -21,6 +21,23 @@ Connects ioBroker to [AgentDVR](https://www.ispyconnect.com): auto-discovers all
 - ioBroker with `iobroker.web` adapter
 - **AgentDVR ≥ 7.8.0.0** — earlier versions have a regression in the `streamFile.cgi` endpoint (malformed chunked encoding, wrong MIME type) that prevents recording playback in the built-in dashboard. The developer has confirmed the fix is included in 7.8.0.0.
 
+## Highlights
+
+### Web components for AURA, vis-2 and devices
+The recordings gallery, the live tile and the live overview are also available as web components (`@iobroker/web-components`). AURA (0.106.0+, 0.112.0+ recommended), vis-2 (2.20.7+) and the devices adapter (4.3.0+) list them in their widget palette — no HTML binding needed. They draw natively in the browser instead of showing the HTML data points, so a refresh never closes an open player.
+- **Agent DVR recordings** — the recordings gallery of a camera, with search and tag filter, built-in player or external player URL
+- **Agent DVR live camera** — the live tile of one camera; the snapshot refreshes in the browser, a click opens the live stream
+- **Agent DVR live overview** — the live tiles of all cameras of an instance
+- **Source**: either *Widget from the adapter settings* (all settings of the Widget tab of the instance) or *Own settings here* — every widget setting of the instance (mode, count, thumbnail size, tags, sort, search, default tag, compact layout, player, aspect ratio, refresh interval, colors, border radius) per widget
+- optionally takes the colors of the visualization's theme
+- needs no credentials: the images and videos use the same AgentDVR links as the HTML widgets; data comes from `widget_config` and `<cam>.widget_data`
+
+### Recordings in the ioBroker file storage and as Telegram video
+- **Provide the last recordings in the ioBroker file storage** (off by default): every new recording of a camera is downloaded from AgentDVR and kept as `rec1` … `rec3` per camera — with file path, `iobfile://` URI and http URL in `<cam>.recordings.*`, just like the alert photos
+- optionally as **MP4** (lossless remux with ffmpeg, no re-encoding) — plays everywhere, also inline in Telegram
+- **`sendRecording`** sends the last, a stored or any recording straight to Telegram (or another instance) as video; **`getRecording`** makes it available as a file for your own scripts
+- details: [Recordings in the file storage](#recordings-in-the-file-storage)
+
 ## Features
 
 - Auto-discovery of all AgentDVR cameras on startup (microphones excluded)
@@ -77,6 +94,20 @@ Connects ioBroker to [AgentDVR](https://www.ispyconnect.com): auto-discovers all
 | Setting | Description | Default |
 |---------|-------------|---------|
 | Event data points | Mirror recording metadata (latest event, count, tags, …) per camera | `true` |
+| Save alert photos | Store the photo of every webhook alert in the file storage (see [Alert photos](#alert-photos)) | `true` |
+| Web instance for photo links | Web instance used for the `url*` links of alert photos and recordings | automatic |
+
+**Recordings in the file storage** — see [Recordings in the file storage](#recordings-in-the-file-storage)
+
+| Setting | Description | Default |
+|---------|-------------|---------|
+| Provide the last recordings in the ioBroker file storage | Download every new recording and keep it per camera | `false` |
+| Cameras | All cameras or a selection (the list needs a running instance) | all |
+| Number of stored recordings per camera | 1, 2 or 3 (`rec1` = newest) | `1` |
+| Maximum size (MB) | Larger recordings are skipped with an info log; also the limit for `sendRecording`/`getRecording` | `50` |
+| Download timeout (s) | Download and conversion of one recording (10–900) | `120` |
+| Provide as MP4 | Remux MKV to MP4 with ffmpeg (no re-encoding); without ffmpeg the MKV is kept | `true` |
+| ffmpeg path | Empty = automatic search | — |
 
 **Display**
 
@@ -388,8 +419,10 @@ This adapter stores your AgentDVR admin credentials and exposes `system.control.
 | Data point | Type | R/W | Description |
 |-----------|------|-----|-------------|
 | `<cam>.events.*` | various | R | Latest recording metadata — requires "Event data points" |
+| `<cam>.recordings.*` | various | R | Stored recordings (`file1`, `uri1`, `url1`, `name1`, `ts1`, …) — requires "Provide the last recordings in the ioBroker file storage" |
 | `<cam>.widget_recordings` | string | R | HTML recording gallery — requires "Gallery widget" |
 | `<cam>.widget_live` | string | R | HTML single-camera live tile — requires "Gallery widget"; snapshot refreshes on each adapter poll |
+| `<cam>.widget_data` | string | R | Recordings as JSON for the web components (latest 500) — requires "Gallery widget" or "Event data points" |
 
 ## Webhook
 
@@ -437,6 +470,100 @@ Files: `<namespace>/<cam>/grab1.jpg` … `grab3.jpg` (e.g. `agent-dvr.0/cam_8_Re
 | Data point | Type | R/W | Description |
 |-----------|------|-----|-------------|
 | `widget_live_overview` | string | R | HTML tile grid of all cameras — snapshot refreshes on each adapter poll |
+| `widget_config` | string | R | Widget settings, cameras and texts as JSON for the web components (always written, no credentials) |
+
+## Recordings in the file storage
+
+With **Provide the last recordings in the ioBroker file storage** (*Features* tab, off by default) the adapter downloads every new recording of a camera from AgentDVR as soon as it shows up in the recording list (the moment `<cam>.events.new` pulses — so *Event data points* must be on) and stores it in the ioBroker file storage. The download goes into memory, never into a temporary file. Like the alert photos, the last 1, 2 or 3 recordings per camera are kept (setting *Number of stored recordings per camera*, default 1):
+
+| Data point | Content |
+|---|---|
+| `<cam>.recordings.file1` … `file3` | Absolute file path, e.g. `/opt/iobroker/iobroker-data/files/agent-dvr.0/cam_8_Reolink/rec1.mp4` (`1` = newest) |
+| `<cam>.recordings.uri1` … `uri3` | ioBroker file URI, e.g. `iobfile://agent-dvr.0/cam_8_Reolink/rec1.mp4` |
+| `<cam>.recordings.url1` … `url3` | http(s) URL via the web instance, e.g. `http://192.168.1.10:8082/agent-dvr.0/recordings/cam_8_Reolink/rec1.mp4` (supports seeking) |
+| `<cam>.recordings.name1` … `name3` | Original AgentDVR file name, e.g. `8_2026-11-12_15-55-29_931.mkv` |
+| `<cam>.recordings.ts1` … `ts3` | Time of the recording |
+
+Files: `<namespace>/<cam>/rec1.mp4` (or `.mkv`) … `rec3`. On each new recording they rotate (rec1 → rec2 → rec3), the oldest one is deleted. When you lower the number, the surplus files and data points are removed at the next start. The disk space stays fixed: number × maximum size per camera. Recordings larger than *Maximum size* (default 50 MB) are skipped with an info log. `ts1` is written **last**, after the file is complete — use it as trigger.
+
+**Storage limitation:** `file1`–`file3` only contain a path when the ioBroker file storage is on the local disk (default file/jsonl objects DB). With Redis or another non-file objects DB they stay empty — use `uri*` (Telegram 6+, scripts) or `url*` instead, which work with every storage.
+
+### What happens when…
+
+- **…the option is switched on:** at the next start (saving the settings restarts the instance) every selected camera gets its current last recording, if slot 1 is empty or holds an older one — one camera after the other, with the size limit. After that each new recording is stored as it appears.
+- **…a camera is newly selected:** same as above, it gets its current last recording right away.
+- **…a new camera is added in AgentDVR:** it shows up at the next poll (the camera list in the settings is read live from the running instance); with *All cameras* it is filled and stored like the others.
+- **…a camera is deselected:** at the next start its `recordings` data points and its files `rec1`–`rec3` and `send.*` are deleted.
+- **…the option is switched off:** at the next start the `recordings` data points and the `rec*`/`send.*` files of all cameras are deleted.
+- **…a camera is removed from AgentDVR:** its data points are removed as before, and its whole folder in the file storage (`agent-dvr.0/<cam>/` — recordings, `send.*` and alert photos) is deleted. If AgentDVR suddenly reports no camera at all, nothing is deleted (assumed to be a hiccup).
+- **…a selected camera no longer exists:** the settings list it as *"<cam> (no longer in AgentDVR)"* so you can uncheck it; the adapter simply ignores it.
+
+`send.mp4|mkv` (used by `sendRecording`/`getRecording` for recordings that are not in a slot) stays until the camera's recordings are cleaned up — one file per camera, overwritten each time.
+
+### MP4 and ffmpeg
+
+AgentDVR records MKV. With **Provide as MP4** (default on) the adapter remuxes the MKV to MP4 with ffmpeg — only the container changes, video and audio are copied, so it takes well under a second. HEVC (H.265) videos get the `hvc1` tag so Apple devices and Telegram play them. If the audio codec does not fit into MP4, the video is remuxed without audio (logged once). Without ffmpeg the MKV is provided unchanged (one info log).
+
+ffmpeg is **not** bundled. The adapter looks for it at start and on demand: the *ffmpeg path* setting → `ffmpeg` via `PATH` → `/usr/bin/ffmpeg`, `/usr/local/bin/ffmpeg`, `/opt/homebrew/bin/ffmpeg`, `C:\ffmpeg\bin\ffmpeg.exe`, `%ProgramFiles%\ffmpeg\bin\ffmpeg.exe`. The result is in `info.ffmpeg` (e.g. `6.1.1 (/usr/bin/ffmpeg)` or `not found`) and in the settings next to the MP4 option, with a **Search again** button. Install ffmpeg with the package manager of your system:
+
+| System | Command |
+|---|---|
+| Debian, Ubuntu, Raspberry Pi OS | `apt install ffmpeg` |
+| Alpine (Docker) | `apk add ffmpeg` |
+| Fedora | `dnf install ffmpeg` |
+| macOS (Homebrew) | `brew install ffmpeg` |
+| Windows | `winget install ffmpeg` |
+
+Run the command as administrator/root as usual on your system. Afterwards press *Search again* in the settings (or restart the instance).
+
+### Sending recordings: `sendRecording` and `getRecording`
+
+`sendRecording` makes a recording available in the adapter's file storage and sends it to a messenger instance as video. A recording that is already stored (`recordings.*`) is used directly; any other one is downloaded into memory, converted to MP4 if wanted and written to a fixed file per camera, `agent-dvr.0/<cam>/send.mp4` (or `.mkv`), which is overwritten each time — so the space stays fixed:
+
+```js
+sendTo('agent-dvr.0', 'sendRecording', {
+    camera: 'cam_8_Reolink',      // folder id, AgentDVR oid (8) or camera name
+    recording: 'last',            // 'last' (newest in AgentDVR), 1-3 (stored slot) or an AgentDVR file name
+    target: 'telegram.0',         // instance that gets the video
+    caption: 'Motion at the front door',
+    // user: 'Max', chatId: 123, // optional, passed through to Telegram
+    // mp4: true,                 // optional, overrides "Provide as MP4"
+}, res => {
+    if (!res.ok) log(res.error, 'warn'); // e.g. too large for Telegram
+});
+```
+
+The message to the target is `{ text: 'iobfile://agent-dvr.0/<cam>/<file>', type: 'video', fileName: '<name>.mp4', width, height, duration, caption, user, chatId }` — Telegram 6 and newer reads the file itself from the file storage. `width`, `height` and `duration` are read from the video file: Telegram does not detect them itself for larger bot uploads and would otherwise show the video in the chat in a wrong aspect ratio until it is opened. Other targets get the absolute file path instead (or the URI if the file storage is not on the local disk). The answer is `{ ok, error?, fileName, format, mime, size, uri, url, file, width, height, duration }`. A recording AgentDVR is still writing is sent once it is finished. **Telegram bots can only send files up to 50 MB**; larger recordings are rejected with a clear error — before downloading when AgentDVR already lists the size.
+
+> **No video data goes over the ioBroker message bus.** Large messages (tens of MB) can block the states DB and with it the whole ioBroker. That is why the adapter passes only the file reference and refuses to send or answer anything that contains binary data.
+
+Send every new recording to Telegram (no Blockly needed):
+
+```js
+on({ id: 'agent-dvr.0.cam_8_Reolink.events.new', val: true }, () => {
+    sendTo('agent-dvr.0', 'sendRecording', { camera: 'cam_8_Reolink', recording: 'last', target: 'telegram.0', caption: 'New recording' });
+});
+```
+
+With the file storage feature enabled, trigger on `recordings.ts1` and send the stored copy instead (`recording: 1`):
+
+```js
+on({ id: 'agent-dvr.0.cam_8_Reolink.recordings.ts1', change: 'ne', ack: true }, () => {
+    sendTo('agent-dvr.0', 'sendRecording', { camera: 'cam_8_Reolink', recording: 1, target: 'telegram.0', caption: 'New recording' });
+});
+```
+
+> **Tip: the right aspect ratio in the chat.** If you send the video file to Telegram yourself (Telegram Blockly block, `recordings.file1`/`uri1`), Telegram often shows larger videos in the chat preview in a wrong format (e.g. 3:4) until you open them — Telegram does not read the picture size from larger bot uploads itself. `sendRecording` reads width, height and duration from the video file and passes them along, so the video plays in the chat right away in the camera's aspect ratio. Nothing to configure, it simply works when you use `sendRecording`.
+
+`getRecording` takes the same `camera`, `recording` and `mp4`, makes the recording available the same way and returns only where it is: `{ ok, error?, fileName, mime, format, size, uri, url, file, width, height, duration }`. Read the file in your script yourself, e.g.:
+
+```js
+sendTo('agent-dvr.0', 'getRecording', { camera: 'cam_8_Reolink', recording: 'last' }, res => {
+    if (!res.ok) return log(res.error, 'warn');
+    // res.uri = 'iobfile://agent-dvr.0/cam_8_Reolink/send.mp4', res.url = http link, res.file = local path
+    readFile('agent-dvr.0', res.uri.replace('iobfile://agent-dvr.0/', ''), (err, data) => { /* … */ });
+});
+```
 
 ## Getting images for VIS and scripts
 
@@ -461,6 +588,8 @@ The `urls.*` and `events.last.*` URLs point directly to AgentDVR. They work in t
 | `<cam>.events.webhook` | immediately on the webhook call | fetching an image yourself |
 | `<cam>.events.new` | new recording listed | thumbnail of the recording |
 | `<cam>.events.detected_<tag>` | AI tag of a new recording, e.g. `detected_people` — also when AgentDVR adds the tag later | notify on persons only |
+
+> **Do not use `events.webhook` for the stored alert photo.** The webhook pulse comes *before* the new photo is fetched and saved. At that moment `alertPhotos.grab1` / `uri1` / `url1` still point to the photo of the **previous** alert — a TV or Telegram message then shows an old image (possibly hours old). For anything that uses `alertPhotos.*` always trigger on `alertPhotos.ts1`. `events.webhook` is only meant for scripts that fetch an image themselves at that moment (e.g. `urls.photo` or their own camera snapshot).
 
 Use **"greater than previous"** (Blockly) or `change: 'gt'` as condition. The adapter rewrites its states on every poll, so "was updated" fires every poll. `status.alerted` is usually too short to be seen by a poll and is not a reliable trigger.
 
@@ -491,41 +620,33 @@ The alert photos are served by the web instance — the ready-made link is in `<
 http://<iobroker>:<webport>/agent-dvr.0/photos/<cam>/grab1.jpg
 ```
 
-e.g. `http://192.168.1.10:8082/agent-dvr.0/photos/cam_8_Reolink/grab1.jpg` (also `grab2.jpg`, `grab3.jpg`). Use it in an image widget and refresh it on changes of `alertPhotos.ts1`. For a live image use `urls.snapshot` or `urls.photo` with a refresh interval.
+e.g. `http://192.168.1.10:8082/agent-dvr.0/photos/cam_8_Reolink/grab1.jpg` (also `grab2.jpg`, `grab3.jpg`). Use it in an image widget and refresh it on changes of `alertPhotos.ts1`. The same applies when you push the link to a TV or another app: send it on `alertPhotos.ts1`, not on `events.webhook` — otherwise the app loads the previous photo. For a live image use `urls.snapshot` or `urls.photo` with a refresh interval.
 
 ## Changelog
+### 0.9.1 (2026-11-13)
+* (ipod86) fix: recordings were stored while AgentDVR was still writing them (video cut off) — the adapter now waits until the recording is finished
+* (ipod86) fix: `sendRecording` passes width, height and duration to Telegram — larger videos were shown in a wrong aspect ratio in the chat; `sendRecording`/`getRecording` also wait until a recording is finished
+* (ipod86) feat: messages `getCameras` and `getWidgets` for the web components (prepares dropdowns instead of the object browser)
+
+### 0.9.0 (2026-11-12)
+* (ipod86) feat: keep the last 1–3 recordings per camera in the ioBroker file storage (`recordings.file/uri/url/name/ts`), optionally as MP4 via ffmpeg
+* (ipod86) feat: `sendRecording` / `getRecording` send a recording to Telegram as video or provide it as a file for scripts
+* (ipod86) feat: initial fill on enabling; recordings and files are cleaned up when switched off, deselected or the camera is removed
+* (ipod86) feat: ffmpeg detection with status in the settings and `info.ffmpeg`
+* (ipod86) fix: the settings page uses all 11 languages
+
+### 0.8.1 (2026-11-12)
+* (ipod86) fix: live overview web component fits its tiles to the widget size (no scrolling, no empty space); option "Fit to the widget size"
+* (ipod86) chore: description and keywords mention the widgets for vis-2 and AURA
+
+### 0.8.0 (2026-11-12)
+* (ipod86) feat: web components for AURA (0.106.0+), vis-2 (2.20.7+) and devices (4.3.0+) – recordings gallery, live tile and live overview, with the adapter's widget settings or own ones
+
 ### 0.7.0 (2026-10-29)
 * (ipod86) feat: `alertPhotos.url1–3` with a fixed http(s) link to each photo, for TV/kiosk apps that only accept web links; web instance selectable, links follow changes of the web instances
 * (ipod86) feat: `<cam>.events.webhookParams` with all parameters of the latest webhook call as JSON
 
 <!-- markdownlint-disable-next-line MD024 -->
-### 0.6.0 (2026-10-29)
-* (ipod86) chore: clearer adapter title ("Agent DVR – Cameras & Recordings") and keywords
-* (ipod86) fix: `events.detected_*` now also fires when AgentDVR adds the AI tag (e.g. `people`) to a recording after it was first listed
-* (ipod86) feat: webhook with `?oid={ID}&ot={OT}` pulses `<cam>.events.webhook` immediately (20 s cooldown per camera) for the fastest possible alert photo
-* (ipod86) feat: alert photos — on a webhook call with `oid` the full-resolution photo is stored in the file storage, last 3 per camera (`alertPhotos.grab1–3`, `ts1–3`)
-* (ipod86) feat: alert photos served for VIS at `/agent-dvr.0/photos/<cam>/grab1.jpg`; new README section on getting images for VIS and scripts
-* (ipod86) feat: `alertPhotos.uri1–3` with the `iobfile://` URI of each photo, sendable directly with Telegram 6
-
-<!-- markdownlint-disable-next-line MD024 -->
-### 0.5.5 (2026-10-08)
-* (ipod86) fix: live preview video no longer gets stretched/distorted — AgentDVR's live stream squishes the full picture into a fixed container format regardless of the camera's actual aspect ratio; now corrected (`object-fit:fill`) instead of shown distorted
-* (ipod86) feat: configurable live-tile refresh interval (`widgetLiveRefreshSec`) — trade thumbnail freshness against keeping an open video modal open, since rewriting the widget's HTML state resets it
-* (ipod86) feat: optional full-JS live-tile refresh mode (`widgetLiveMode`) — refreshes only the snapshot image via a small embedded script, so an open video modal never closes regardless of refresh frequency (requires script execution, same tradeoff as the existing gallery JS mode)
-* (ipod86) feat: live widgets now share the gallery's theme colors, thumbnail size and compact setting, which previously only applied to the recordings widget
-* (ipod86) refactor: reorganized the Widget settings panel into clearly scoped General / Recordings Widget / Live Widget / Theme sections with a proper two-level heading hierarchy, instead of one long section whose subsections looked like independent categories
-
-<!-- markdownlint-disable-next-line MD024 -->
-
-### 0.5.4 (2026-10-08)
-* (ipod86) fix: single-camera live widget snapshot never refreshed (missing cache-busting timestamp + signature-based dedup skipped rewriting the state)
-* (ipod86) fix: live video element now receives the correct aspect ratio instead of the browser's default placeholder box before playback starts
-* (ipod86) fix: live/recording video no longer gets stretched to fill a mismatched aspect-ratio box — degrades to letterboxing (`object-fit:contain`) instead
-
-<!-- markdownlint-disable-next-line MD024 -->
-
-### 0.5.3 (2026-10-04)
-* (ipod86) fix: clear ensuredFolders cache on object deletion to prevent stale "no existing object" warnings for rediscovered drives/cameras
 
 ## License
 MIT License

@@ -104,8 +104,19 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 7.4.1 (2026-11-11)
 
-### **WORK IN PROGRESS**
+- (HombachC) added optional historical production (grid feed-in) data incl. profit as Homes.<id>.Production.\* (JSON per resolution, current month production and profit) based on tibber-api 6 getProduction - disabled by default
+- (HombachC) added optional price history: hourly prices of the last N days (1-31, default 7) as Homes.<id>.PricesHistory.\* (JSON, average, minimum, maximum) based on tibber-api 6 getEnergyPriceRange - disabled by default
+- (HombachC) updated iobroker/testing
+- (HombachC) updated dependencies
+
+### 7.4.0 (2026-11-06)
+
+- (HombachC) keep polling PricesTomorrow in the afternoon while empty (#973)
+- (HombachC) live feed: added optional states powerReactive and powerProductionReactive (reactive power Q+/Q- in kvar, provided by tibber-api 6) - disabled by default
+
+### 7.3.3 (2026-11-04)
 
 - (HombachC) upgraded tibber-api to 6.0.0 - API query errors are now rejected and handled, imports switched to the tibber-api package root
 - (HombachC) fixed endless live feed reconnect loop on an invalid / rejected Tibber API token - reconnects now stop with a single error log until the adapter is restarted
@@ -123,26 +134,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 7.3.1 (2026-09-26)
 
 - (HombachC) fixed local Pulse poll after Tibber Bridge firmware update (~1794): use /node_data.json and /node_metrics.json with automatic fallback to the legacy paths; during the first probe the fallback now triggers on any error (not only HTTP 404) so uncommon firmware responses are handled too (#947)
-- (HombachC) updated dependencies
-
-### 7.3.0 (2026-09-18)
-
-- (HombachC) BestSingleHours: added optional "Include price ties at the boundary" per channel — after the configured AmountHours it also switches on all following slots sharing the boundary price, so a whole price plateau (e.g. all 0-cent quarters) is covered; disabled by default (#945)
-- (GermanBluefox) Fix docu typo
-- (HombachC) updated dependencies
-
-### 7.2.4 (2026-09-12)
-
-- (HombachC) Tibber Data API: the actual OAuth error response (HTTP status + body, e.g. invalid_grant) is now logged instead of only "Request failed with status code 400", and a failed auth-code exchange re-logs the authorization URL with a hint that codes are single-use and short-lived (#940)
-- (HombachC) switch to iobroker testing 6.x
-- (HombachC) added node 26 tests
-- (HombachC) updated dependencies, axios
-- (HombachC) relicensing
-
-### 7.2.3 (2026-08-29)
-
-- (HombachC) fixed local Pulse boolean states (e.g. usb_power, autolevel_enable) being created as type number, causing recurring log errors (#935)
-- (HombachC) SmartBatteryBuffer: EfficiencyLoss is now validated to the range 0…1; out-of-range values (e.g. 25 instead of 0.25) are clamped with a warning instead of corrupting the calculation, and the state now carries min/max/step (#934)
 - (HombachC) updated dependencies
 
 ### Old Changes see CHANGELOG OLD

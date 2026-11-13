@@ -68,7 +68,7 @@ Für detaillierte Anleitungen und weitere Informationen wird empfohlen, die verl
 
 Der Adapter legt neun Widgets in die vis-2-Palette, im Satz **Jaeger design**. Wenn man in der Palette über ein Widget fährt, steht unter der Vorschau eine kurze Beschreibung.
 
-Alle Widgets teilen sich ein Farbschema. Nur das Layout-Widget trägt das vollständige Schema; jedes andere Widget übernimmt die Farben entweder von ihm (*Palette → Vom Widget*) oder legt eigene fest. Vier Themes sind eingebaut: `green`, `blue`, `green-dark` und `blue-dark`.
+Alle Widgets teilen sich ein Farbschema. Nur das Layout-Widget trägt das vollständige Schema; jedes andere Widget übernimmt die Farben entweder von ihm (*Palette → Vom Widget*) oder legt eigene fest. Fünf Themes sind eingebaut: `green`, `blue`, `green-dark`, `blue-dark` und `aurora` (Nachtblau mit Mint).
 
 ### Layout
 

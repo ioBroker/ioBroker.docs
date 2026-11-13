@@ -625,8 +625,7 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 ```
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 0.5.0 (2026-11-07)
 
 - (Lucky-ESA) Adapter requires node.js >= 22.19.0 now
 - (Lucky-ESA) JS-Controller 7.2.5 required
@@ -660,12 +659,6 @@ Alte Ordnernamen können im Objekt imap.0.xxx.remote.change_folder eingesehen we
 
 - (Lucky-ESA) New design for settings page added
 - (Lucky-ESA) Crash if uid is empty for new emails
-
-### 0.2.1 (2024-09-16)
-
-- (Lucky-ESA) Update dependencies
-- (Lucky-ESA) Changed Log info to debug
-- (Lucky-ESA) Fixed blockly setFlag crash
 
 ## License
 

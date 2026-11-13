@@ -30,9 +30,25 @@ ioBroker system language, so the screenshots are German.
   gives a time entry.
 - **max length** – caps the entry and supplies the number behind the slash in the
   counter.
+- **picker** – for `date` and `time` only. `browser (native)` uses the browser's own
+  field and picker, whose language and 12/24-hour format the browser decides.
+  `Material picker` shows the value in the format of the device language, keeps the
+  field typable with a matching mask (`##.##.####` in German, `##/##/####` in US
+  English) and opens a Material 3 calendar or clock dial from the icon at the end of
+  the field. The state still receives `YYYY-MM-DD` or `HH:MM`.
+- **time format** – for `time` with the Material picker: `locale` (12 or 24 hours
+  as the device language has it), `24 hours` or `12 hours`.
 
 `text`, `number` and `mask` write on leaving the field or on Enter, `date` and
-`time` write right after picking a value.
+`time` write right after picking a value. With the Material picker, typed text is
+written on leaving the field or on Enter and the picker writes on OK; text that is
+no valid date or time is not written.
+
+**picker** (Material picker only)
+
+- **background color, accent color, text color, text color on accent** – colors of
+  the picker dialog. Empty, the Material 3 colors of the theme apply. The calendar or
+  clock icon in the field takes the color of the **text delete icon**.
 
 **layout input**
 

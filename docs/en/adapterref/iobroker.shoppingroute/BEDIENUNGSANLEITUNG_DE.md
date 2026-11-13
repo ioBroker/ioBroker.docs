@@ -3,7 +3,9 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
 ---
 # ShoppingRoute – Bedienungsanleitung
 
-**Bedienungsanleitung für ShoppingRoute 0.6.1 (27.10.2026)**
+**Bedienungsanleitung für ShoppingRoute 0.6.2 (13.11.2026)**
+
+**Wartungsversion 0.6.2:** Die ioBroker-Testabhängigkeit wurde auf 6.3.2 aktualisiert (Repo-Checker W0037, Issue #85). Die bisherigen Alexa-/Bring!-Funktionen und Schutzmechanismen bleiben erhalten.
 
 ShoppingRoute hilft dir dabei, eine Alexa-Einkaufsliste so zu ordnen, wie du tatsächlich einkaufst.
 

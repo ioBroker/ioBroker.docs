@@ -3,14 +3,12 @@
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.fyta.svg)](https://www.npmjs.com/package/iobroker.fyta)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.fyta.svg)](https://www.npmjs.com/package/iobroker.fyta)
-
 ![Number of Installations](https://iobroker.live/badges/fyta-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/fyta-stable.svg)
-<!--
+![Test and Release](https://github.com/muffin142/ioBroker.fyta/workflows/Test%20and%20Release/badge.svg)
+
 [![NPM](https://nodei.co/npm/iobroker.fyta.png?downloads=true)](https://nodei.co/npm/iobroker.fyta/)
 
-**Tests:** ![Test and Release](https://github.com/muffin142/ioBroker.fyta/workflows/Test%20and%20Release/badge.svg)
--->
 ## FYTA adapter for ioBroker
 
 Unofficial Adapter to connect ioBroker to [FYTA plant sensors](https://fyta.de/)
@@ -19,10 +17,11 @@ Sensors can be purchased an the [FYTA Shop](https://fyta.de/collections/all)
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+	### **WORK IN PROGRESS**		
 -->
-### **WORK IN PROGRESS**
--	none
+### 0.2.9 (2026-11-07)	
+-	Enabled automated Releases
+-	Updated Dependencies
 
 ### 0.2.7 (2026-05-17)
 -	repaired error in writing rawValues
@@ -32,17 +31,10 @@ Sensors can be purchased an the [FYTA Shop](https://fyta.de/collections/all)
 -	repaired raw value retrieval
 
 ### 0.2.5 (2026-04-20)
--	Made data retrieval more synchronous and introduced delays to avoid exceeding API limits 
+-	Made data retrieval more synchronous and introduced delays to avoid exceeding API limits
 
 ### 0.2.4 (2025-12-28)
 -	Added additional notifications ans support for airt humidity status
-
-### 0.2.1 (2025-12-08)
--	Error messages corrected and specified
-
-### 0.2.0 (2025-04-28)
--   Added retrieval of raw values
--	Added use of internal notifications
 
 ## License
 MIT License

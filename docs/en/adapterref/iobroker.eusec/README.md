@@ -65,6 +65,13 @@ A detailed description (in German) is available at our forum (https://forum.iobr
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (typhosj) A device or station setting written in ioBroker that is not confirmed within 60 seconds now leaves a warning in the log. Until now, a command that got lost on the way, for example because the P2P connection to the station was set up again at that moment, left no trace at all, and the state simply stayed unconfirmed. A setting that the device already had is now confirmed instead of staying unconfirmed (reported in the forum)
+- (typhosj) Stopping or restarting the adapter no longer ends with "terminated due to SIGKILL" when ioBroker is busy, for example during a restart of the whole system. ioBroker now waits up to 3 seconds for the adapter to shut down instead of 1 second
+
+### 3.6.4 (2026-11-08)
+- (typhosj) Event pictures that a HomeBase sends directly, for example of a Video Doorbell on a HomeBase 3, are now shown correctly. eufy-security-client rebuilt them at a fixed size of 288x176, so a larger picture turned into a grey area with diagonal streaks. The adapter now detects their real size and restores their contrast, which had come out pale and grey as well (reported in the forum)
+
 ### 3.6.3 (2026-10-29)
 - (typhosj) Switching quickly between on-demand cameras of the same station now also works between cameras with different video codecs, e.g. from a SoloCam S340 (H.265) to an Indoor Cam (H.264). The new camera was started right after the old one was stopped, and its livestream began with the last data of the old camera and kept its codec - nothing could be played, and the station stayed blocked for up to five minutes. The next livestream of a station now starts two seconds after a stop at the earliest (reported in the forum)
 - (typhosj) The start no longer logs the error "Check push token - Response code not ok" for an account that has been migrated to the new eufy backend. That rejection is expected and push works over the new backend, so it is now logged once as info. A warning is logged instead when push could not be established on either backend
@@ -83,9 +90,6 @@ A detailed description (in German) is available at our forum (https://forum.iobr
 - (typhosj) The setting "Livestream quality" now also applies to cameras that name their qualities by resolution, such as the SoloCam S340 or the Indoor Cam S350. Low, medium and high stand for the lowest, the second and the third resolution, for example 720P, 1080P and 3K. Until now these cameras stayed at "Auto", where they change the resolution while the livestream runs and the player shows a green or black picture. The SoloCam S340 raises its resolution at the start of every livestream even at a fixed quality; for it, a compatibility stream keeps the resolution steady (reported in the forum)
 - (typhosj) New setting "Excluded devices": the instance ignores the devices and stations listed there. It creates no states for them, receives none of their events and pictures and does not connect to them; excluding a HomeBase excludes every device connected to it. Useful when two ioBroker installations share one Eufy account, for example one at home and one in a motorhome on mobile data (requested in the forum)
 - (typhosj) Compatibility streams play sound in VLC again. The transcoded picture started 2 to 4 seconds ahead of the sound, so VLC dropped the sound, while browsers still played it. The video now keeps the timestamps the camera sent (reported in the forum)
-
-### 3.5.0 (2026-10-11)
-- (hdering) The eufyCam C37 (T814X) is no longer an unknown device without states: the adapter handles it like the eufyCam S4. Livestream, motion, person and vehicle detection, light, pan and tilt and the battery states should work, but are not confirmed on a real camera yet - please report in #198
 
 ## License
 

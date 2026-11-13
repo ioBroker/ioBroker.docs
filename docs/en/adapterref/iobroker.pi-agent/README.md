@@ -130,8 +130,13 @@ sendTo('pi-agent.0', 'ask', {
     instructions: 'Answer in one or two short sentences without Markdown; the answer is spoken.', // optional
     requestId: 'kitchen-1730123456789', // optional: a repeated request with the same id is answered once
     language: 'ru', // optional: language of the user, for the questions to confirm (see below)
-}, result => log(result.answer));
+}, result => log(result.answer, result.language));
 ```
+
+A caller that sends `language` speaks the answers (ioBroker.assistant). Its conversation also gets the rule to mark
+the language of each answer; pi-agent takes the mark out and returns the code as `result.language` (`'ru'`, `'de'`
+…), so the caller can speak a Russian answer with a Russian voice, also when the satellite listens in German. When the
+model leaves the mark out, `language` is missing and the caller decides itself.
 
 The conversations are kept per sending instance (`pi-agent.0.telegram.chats` lists them as
 `sendTo:<instance>/<conversation>`). Changed instructions apply from the next request of the conversation on.
@@ -188,11 +193,18 @@ middle, they continue on the next start. The answer of a request from `chat.inpu
   written, so nothing is asked.
 - **Reminders:** `remind_me` sends a message later (at most 7 days ahead) to the chat of the conversation, or to
   `chat.answer`. The reminder waits in the conversation store and survives restarts.
+- **Reminders on a voice satellite:** ioBroker.assistant 1.4.9 and newer names the satellite a request comes from
+  (`satellite`, `tts` in "ask"). A reminder asked there within the next 24 hours becomes a **timer on that satellite**
+  (sendTo `setTimer`): it counts down on the device, rings, and the text is spoken ("Erinnerung: …"). A later
+  reminder, or one an older assistant cannot set as a timer, is spoken on that satellite when it is due (its `tts`
+  state). Scheduled writes and watches of such a conversation are told there, too. In simulation mode nothing is
+  spoken. Only a `tts` state of the asking instance itself is used.
 - **History:** `get_history` reads past values (up to 31 days, averaged to at most 200 values) from the history
   instance.
 - **Usage:** `pi-agent.0.usage.*` shows input, output and total tokens and the cost in USD over all conversations
   (the cost needs prices in the model catalog; it can stay 0 for a provider without them), `usage.json` per model,
-  `usage.tokensToday` the tokens since midnight in the time zone of the house.
+  `usage.tokensToday` the tokens since midnight in the time zone of the house that count for the daily limit (new
+  input, output and cache writes; not the cache reads, see below).
 
 ### Limits
 
@@ -209,6 +221,13 @@ Two limits stop a request before the model is asked, so a runaway costs no token
   midnight, the log gets one warning, and `usage.limitReached` is `true` until the first request after midnight.
   A request that started before the limit is finished, so the day can end a little above it. Answers to ✅/❌
   questions keep working, they need no model.
+  At 80 %, 90 % and 99 % of the limit the user who asked gets a warning once a day under the answer (in the admin chat
+  as a note, in a messenger, a job or `chat.answer` at the end of the answer), and the log a warning; a `sendTo`
+  caller gets it in the field `warning` of its answer, not in the answer text (a satellite would speak it).
+  Cache reads do not count: every request sends the whole conversation again (instructions, tool descriptions, the
+  messages and tool results so far), and the provider reads the part it has seen from its cache for about a tenth of
+  the price. Counted in full they were over 90 % of the tokens of a day. A new conversation after a change of topic
+  keeps the requests small.
 
 ### Messengers: Telegram and MAX
 
@@ -255,6 +274,26 @@ conversation, same confirmations, same limits.
   misheard words.
 - **Test speech recognition** sends one second of silence with the values of the form: a wrong URL, key or model shows
   up at once.
+
+### Photos (Telegram and MAX)
+
+With the column **Photos** ticked, photos sent to the bot go to the model, together with their caption: "What is
+this?", "How much does the meter show?". The photos of an album are one question (at most 4 pictures). A text sent right
+after photos without caption is their question; photos without any text are a question of their own.
+
+- The telegram adapter saves photos only with **Save files** in its settings and keeps them until **Delete received
+  files after (days)** (telegram 6.3.0 or newer) is set. It sends the caption before the photo; pi-agent tells it is a
+  caption only with **Remember raw request data** (tab Messages) on, else the caption and the photo get two answers.
+  pi-agent warns at the start when one of the two is off. With a quality of the media files set, at least "high" reads
+  text on photos better. The max adapter always saves photos and removes old ones itself.
+- Telegram saves every photo in up to four sizes; only the largest one goes to the model. JPEG, PNG, GIF and WebP of
+  up to about 3.9 MB, as with pictures in `ask`.
+- A photo goes to the model only with its own question: the model writes notes of what it shows, which later questions
+  get instead of the picture (see pictures in `ask`). The user does not see the notes.
+- The prefix does not apply to photos and their caption. Only allowed users are heard.
+- Rows saved before 0.9.6 have **Photos** off, so an update does not start sending photos to the model.
+- Do not also set an assistant instance in the telegram settings: it gets the photos too, and every photo gets two
+  answers.
 
 ### DeepSeek
 
@@ -313,7 +352,8 @@ Select **OpenAI-compatible (own URL)** for any server with the OpenAI chat compl
   one of them.
 - `get_logs` reads the newest lines of the ioBroker log file (filtered by instance, level and a word, at most 50);
   `list_notifications` shows the notifications of ioBroker (the bell in admin). Both only read.
-- A message from a conversation of a `sendTo` caller (e.g. ioBroker.assistant) goes to `chat.answer`.
+- A message from a conversation of a `sendTo` caller (e.g. ioBroker.assistant) goes to `chat.answer`; from a voice
+  satellite of ioBroker.assistant 1.4.9+ it is spoken on that satellite.
 
 ## Background jobs
 
@@ -330,7 +370,8 @@ at 7, tell me the weather and the low batteries".
   conversation is woken up with the task, reads what it needs and tells the user, or stays quiet (a false alarm).
   A job that never fires costs nothing.
 - **Where it reports:** the chat the job was set up in (default), the admin chat, a messenger chat, or **by voice**:
-  the satellite of ioBroker.assistant the job was set up from (`assistant.0.satellites.<id>.tts`), else all of them
+  the satellite of ioBroker.assistant the job was set up from (`assistant.0.satellites.<id>.tts`, named by the
+  assistant since 1.4.9), else all of them
   (`assistant.0.tts.text`). Speaking needs **Write allowed** for that state in "Write permissions"; in simulation mode
   nothing is spoken. Set up by voice, the agent asks where to report.
 - **Actions only with ✅/❌:** every write, restart, command, update or script change of a job is asked in the
@@ -422,6 +463,20 @@ documents.
 - With **Confirmation required** in that row, every command is confirmed with ✅/❌ in the chat first.
 - The agent waits up to 30 seconds for the answer; many adapters do not answer, then the command may still have worked.
   A command is never sent a second time after an interruption. In simulation mode nothing is sent.
+
+## Documentation search (RAG)
+
+Models, local ones above all, invent functions of the script API or settings of adapters. With a server of the
+project [ioBrokerRAG](https://github.com/bloop-herbert-bot/ioBrokerRAG) (REST API v1) the agent searches the ioBroker
+documentation first: the official docs, the source code of the core and the READMEs of the adapters.
+
+- Tab "General", block "Documentation search (RAG)": the URL of the server (e.g. `http://192.168.1.10:8000`) and,
+  only when the server sets `IOB_RAG_TOKEN`, its token (stored encrypted). "Test documentation search" checks both.
+  Empty URL: off, and the model does not get the tool.
+- The tool `search_docs` sends the question of the model to that server and returns up to 10 passages with their
+  source. Only passages of permissively licensed sources (`license_status: allow`) go to the model.
+- The agent searches before it writes a script and when it is asked how an adapter or ioBroker works. The state IDs of
+  the house still come from the objects, not from the documentation.
 
 ## Updates of adapters
 
@@ -517,6 +572,44 @@ the last copy.
     ### **WORK IN PROGRESS**
 -->
 
+### 0.10.1 (2026-11-12)
+
+- (sadam6752-tech) `ask` with `language` (ioBroker.assistant): the answer comes with the language it is written in
+  (`result.language`), so a voice satellite can speak a Russian answer with a Russian voice instead of spelling it.
+  The model marks the language (a reminder goes with each question); without a mark Cyrillic and Chinese letters
+  still tell it. A different language than the caller listens in is logged
+
+### 0.10.0 (2026-11-11)
+
+- Documentation search: with the URL of an ioBrokerRAG server (tab "General") the agent searches the ioBroker
+  documentation, the source code of the core and the READMEs of the adapters before it writes a script or explains an
+  adapter (tool `search_docs`); only permissively licensed passages go to the model
+- Daily token limit: cache reads no longer count (they were over 90 % of the tokens of a day); the count of the
+  day starts anew once after the update
+- Daily token limit: at 80 %, 90 % and 99 % the user gets a warning under the answer, once a day each; the log too
+- Admin chat: a request refused by the daily limit (or failed otherwise) showed "thinking …" for ever; the chat now
+  shows the error
+
+### 0.9.7 (2026-11-11)
+
+- send_to: the model asks an adapter for its commands with "help" first, when it does not know them —
+  e.g. satellite-display 0.2.0, which adds, moves and removes tiles of the displays by chat
+
+### 0.9.6 (2026-11-08)
+
+- Photos sent to the bots of Telegram and MAX go to the model with their caption, the photos of an album as one
+  question (at most 4); a text right after photos without caption is their question. Only the largest size of a
+  Telegram photo is used; the model sees it once and keeps notes of it. New column "Photos" on the tab "Messengers"
+  (off for rows saved before). Telegram saves photos only with "Save files"; "Delete received files after (days)" of
+  telegram 6.3.0 removes old ones
+- A picture whose answer has no picture notes is no longer taken for one that was never sent
+
+### 0.9.5 (2026-11-05)
+
+- Reminders asked on a voice satellite of ioBroker.assistant (1.4.9+) come back there: within 24 hours as a timer on
+  the satellite (countdown, ring, the text spoken), else spoken on the satellite when due. Before, they went to
+  `chat.answer` only. Scheduled writes, watches and background jobs of such a conversation are told on that satellite
+
 ### 0.9.4 (2026-11-04)
 
 - Pictures go to the model only once: the model keeps notes of what a picture shows, later questions get the notes
@@ -534,32 +627,6 @@ the last copy.
 
 - Telegram: a warning in the log when the telegram instance also hands messages to an assistant instance (since
   telegram 6.1.0 also voice messages) or to text2command, because then every message gets two answers
-
-### 0.9.1 (2026-11-03)
-
-- Confirmation by voice: besides the plain yes word, "okay", "klar", "конечно" and the like count as yes, also with
-  "bitte" or "please", and so do "Ya" and "Yup", which Whisper made of a short spoken "Ja". The model no longer tells
-  a voice user to press a button
-
-### 0.9.0 (2026-11-03)
-
-- Voice messages: voice messages of Telegram and MAX (max 0.1.13 or newer) are turned into text by a local server with the transcription API of OpenAI
-  (e.g. speaches with faster-whisper) or by OpenRouter, shown in the chat and answered like a written message. New
-  block "Speech recognition" and column "Voice" on the tab "Messengers"
-
-### 0.8.9 (2026-11-03)
-
-- Updates: `list_updates` with `npm: true` compares every installed adapter with npm in one call, pi-agent included;
-  `check_npm` and `update_adapter` also find an adapter by its title. The agent is told to call the tools again when
-  asked to check, instead of answering from earlier results of the conversation
-
-### 0.8.8 (2026-11-03)
-
-- Limits: at most 10 requests per minute per conversation (setting) stop a loop of a script or another adapter
-  before the model is asked; an optional limit of tokens per day stops all requests until midnight. New states
-  `usage.tokensToday` and `usage.limitReached`
-- OpenRouter: a model outside the catalog gets its prices, context window and answer length from the public model
-  list of OpenRouter, so its cost is counted
 
 Older changelog entries can be found in CHANGELOG_OLD.md.
 

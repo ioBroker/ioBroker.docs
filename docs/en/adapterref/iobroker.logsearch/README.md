@@ -142,6 +142,13 @@ Wait for the generated build commit, then create an annotated `v<version>` tag o
     ### **WORK IN PROGRESS**
 -->
 
+### 1.0.3 (2026-11-07)
+
+- (@disaster123) Replace the default adapter icon with the logsearch logo.
+- (@disaster123) Update Admin UI and development dependencies.
+- (@disaster123) Adapt Dependabot auto-merge to GitHub's pull request security policies.
+- (@disaster123) Keep the seven latest multilingual release news entries.
+
 ### 1.0.2 (2026-10-08)
 
 - (@disaster123) Limit the adapter to a single instance and translate the Admin tab into all supported languages.

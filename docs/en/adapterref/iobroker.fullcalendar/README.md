@@ -37,6 +37,17 @@ How to use:
 - Click the record button and wait 24 hours or 7 days till simulation stops to record events
 - Now you can replay the simulation by clicking on the play button. Additionally, you can define the time when the simulation should be started.
 
+## Web components
+Besides the vis-2 widget, the adapter brings the calendar as a web component for every host of
+[ioBroker web components](https://github.com/ioBroker/web-components), e.g. Aura or devices: `<iob-fullcalendar>`
+(`admin/webcomponents/fullcalendar.js`, described by `fullcalendar.json` in `common.webComponents`).
+
+It shows the events of an instance - or of one of its calendars - as month, week, day or list and, unless it is read only,
+creates, moves, resizes, edits and deletes them like the widget, in the dialog of the host. It reads and writes the
+events through the instance (`sendTo` with `getEventObjects`, `setEventObject`, `deleteEventObject`), so the instance must be running.
+
+Build it with `npm run build-wc` (part of `npm run build`).
+
 ## Agenda states
 The adapter writes what is planned into states, e.g. to ask a chat or voice assistant about it or to show it in a visualization:
 
@@ -73,6 +84,8 @@ sendTo('fullcalendar.0', 'addEvent', {
 sendTo('fullcalendar.0', 'updateEvent', { id: 'fullcalendar.0.event-…', start: '09:30', duration: '2m' }, res => log(JSON.stringify(res)));
 // delete all events with this name
 sendTo('fullcalendar.0', 'deleteEvent', { name: 'Birthday Anna' }, res => log(JSON.stringify(res)));
+// a new calendar; addEvent finds it by its name
+sendTo('fullcalendar.0', 'addCalendar', { name: 'Garden' }, res => log(JSON.stringify(res))); // {id, name, enabled}
 ```
 
 | Command          | Message                                                                                    | Answer                                            |
@@ -84,7 +97,11 @@ sendTo('fullcalendar.0', 'deleteEvent', { name: 'Birthday Anna' }, res => log(JS
 | `getEvents`      | optional `calendar`                                                                        | `{events: [definition, …]}`                       |
 | `listEvents`     | optional `from`, `to` (default now … 7 days, or `days`), `calendar`, `max`                   | `{events: [execution, …]}`                        |
 | `getCalendars`   | –                                                                                          | `{calendars: [{id, name, enabled}, …]}`           |
+| `addCalendar`    | `name` (new); optional `color`, `icon`, `enabled` (default `true`)                         | `{id, name, enabled}`                             |
 | `enableCalendar` | `calendar` (name or ID), `enabled` (`true`/`false`)                                        | `{id, enabled}`                                   |
+| `getEventObjects` | optional `calendar` (`<namespace>.Calendars.<id>`) | `{events: [object, …]}`: the schedule objects, for the web component |
+| `setEventObject` | `event` (a schedule object of this instance) | `{result: "ok"}` |
+| `deleteEventObject` | `id` | `{result: "ok"}` |
 | `getCommands`    | –                                                                                          | `{commands: [{command, params, answer}, …]}`      |
 
 Parameters of `addEvent`:
@@ -120,34 +137,27 @@ Errors come back as `{error}`, an unknown command answers with the list of the c
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.5.1 (2026-11-13)
+* (@GermanBluefox) Calendar (admin, vis-2 widget and web component): "Today" works also when today is in the view; the list scrolls to today (or to the next day with events), and the day lights up briefly - in the month view its tile, in the week and day view its column
+
+### 3.5.0 (2026-11-13)
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+* (@GermanBluefox) vis-2 widget: in a narrow widget the list and the toolbar fit (no scrolling sideways, the buttons wrap), the day of the list is one line, and styles of the page can no longer put frames around its entries
+* (@GermanBluefox) vis-2 widget and web component: in a narrow month view the events are dots, so a daily event no longer looks like a bar over the whole week
+* (@GermanBluefox) vis-2 widget and web component: new option "Only the names of the events" hides the values and the duration ("Watering" instead of "Watering → ON → 20 min. → OFF"); the widget translates ON/OFF, and a repeated double event shows its end
+* (@GermanBluefox) Added the message `addCalendar` to create a calendar
+
+### 3.4.1 (2026-11-09)
+* (bluefox) Web component: the time of an event always has minutes, so a full hour no longer looks different from "19:45", and a long title ends with "..." instead of being cut off
+
+### 3.4.0 (2026-11-09)
+* (bluefox) Added the web component `<iob-fullcalendar>` for Aura, devices and other hosts of web components (`common.webComponents`)
+* (bluefox) Added the messages `getEventObjects`, `setEventObject` and `deleteEventObject` for the web component
+
 ### 3.3.1 (2026-10-29)
 * (@GermanBluefox) Added the admin >= 7.6.17 dependency, the translated name of the admin tab and the uk translations (#557)
 * (@GermanBluefox) The adapter timers (`this.setTimeout`/`this.setInterval`) are used instead of the plain ones (#557)
 * (@GermanBluefox) Added the message `updateEvent`: move or change an event without deleting and creating it again
-
-### 3.3.0 (2026-10-29)
-* (bluefox) Fixed: `addEvent` ignored `type` and `durationSec`, a "double" event was saved as "single"
-* (bluefox) Added recurring events to `addEvent`: `recurring` (daily, weekly, monthly, yearly) or an iCal `rrule`
-* (bluefox) `deleteEvent` deletes a list of events (`ids`) or all events with a name (`name`)
-* (bluefox) Added the messages `getEvent` and `getCommands`, an unknown command answers with the list of the commands
-* (bluefox) Documented all messages and parameters in the README
-
-### 3.2.0 (2026-10-29)
-* (bluefox) Fixed white screen when adding an event in the vis-2 widget (#444)
-* (bluefox) Fixed: the recording of a simulation stopped immediately after the start (#234)
-* (bluefox) Fixed: the simulation recorded repeated status updates without a change of the value, e.g. of Tasmota or Sonoff devices (#285, #235)
-* (bluefox) Fixed: the subscriptions of a stopped recording were not removed
-* (bluefox) Added: the duration of "On/Off" and "Toggle" events can be given in seconds, minutes or hours, e.g. for a push button (#354)
-* (bluefox) Added: conditions for events, e.g. do not close the shutter if the door is open (#257)
-* (bluefox) Added: calendars can be switched off and on, also with the message `enableCalendar` (#236)
-
-### 3.1.1 (2026-10-29)
-* (GermanBluefox) Fixed display of recurring events after DST change (#448)
-
-### 3.1.0 (2026-10-28)
-* (bluefox) Added agenda states `events.list/today/tomorrow/next/count/lastChanged`
-* (bluefox) Added the messages `addEvent`, `deleteEvent`, `listEvents`, `getEvents` and `getCalendars`, e.g. for voice assistants
-* (bluefox) A one-shot event in the past is no longer marked as disabled in memory
 
 ## License
 The MIT License (MIT)

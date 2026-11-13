@@ -11,12 +11,35 @@ technische Arbeitsgrundlage in
 
 ## Aktueller Stand
 
-Stand: 11. Oktober 2026, nach der ersten Stable-Aufnahme.
+Stand: 6. November 2026, nach Veröffentlichung von Version `0.1.12`.
+
+- Version `0.1.12` ist auf [npm](https://www.npmjs.com/package/iobroker.skoda-public-api/v/0.1.12)
+  als `latest` und als [GitHub-Release](https://github.com/tmarthy/ioBroker.skoda-public-api/releases/tag/v0.1.12)
+  veröffentlicht. Der Release-Tag verweist auf Commit `ec59043`. Sie liefert
+  die bereits übernommenen API-1.1.0-Steckerfelder mit Metadatenmigration aus.
+  Bestehende Fallback-Rollen und fehlende Auswahlwerte werden beim nächsten Poll
+  aktualisiert; eigene Namen, Rollen, Labels und History-Konfiguration bleiben
+  erhalten. Unbekannte Ladezustände behalten den letzten Schalterwert mit schlechter
+  Qualität und dürfen keine Stop-Befehle unterdrücken oder bestätigen.
+- Neue Tests prüfen beide Wertepaare, unabhängig fehlende Felder, Wiederkehr und
+  Neustart, zukünftige Werte, bestehende Objekte und unveränderten Requestverbrauch.
+  `vehicle-synth-plugged-unlocked.json` beschreibt ausdrücklich synthetisch den
+  API-Fall „Kabel verbunden, unverriegelt, Ladestatus fehlt“. Echte Fahrzeugaufnahmen
+  wurden nicht verändert.
+- Lokal erfolgreich geprüft: Codegen ohne Änderungen am Generat, TypeScript, Lint,
+  Build, 524 Unit-Tests, 64 Paketprüfungen und 15 Controller-Integrationstests
+  einschließlich Compact Mode (macOS, Node `26.9.0`, js-controller
+  `8.0.0-alpha.14-20261106-c3c2ce2df`). Die vollständige CI-Plattformmatrix mit allen
+  neun Kombinationen aus Ubuntu, Windows, macOS und Node 22, 24, 26 ist für den
+  [Release-Tag einschließlich Deploy](https://github.com/tmarthy/ioBroker.skoda-public-api/actions/runs/42273332479)
+  und [main](https://github.com/tmarthy/ioBroker.skoda-public-api/actions/runs/42273332749)
+  grün. npm bestätigt Version und `latest` mit dem erwarteten `gitHead` `ec59043`.
+  Das lokale npm-Archiv
+  `iobroker.skoda-public-api-0.1.12.tgz` enthält die geprüften kompilierten Dateien.
 
 - Das öffentliche Repository ist
   [`tmarthy/ioBroker.skoda-public-api`](https://github.com/tmarthy/ioBroker.skoda-public-api).
-- Version `0.1.11` wurde über npm und GitHub veröffentlicht und ist in ioBroker
-  `latest` verfügbar. Die Aufnahme derselben Version in `stable` wurde am
+- Version `0.1.11` wurde über npm und GitHub veröffentlicht. Die Aufnahme derselben Version in `stable` wurde am
   11. Oktober 2026 mit
   [Repository-PR #6832](https://github.com/ioBroker/ioBroker.repositories/pull/6832)
   übernommen. `bluefox` und `tmarthy` sind npm-Maintainer.
@@ -51,7 +74,7 @@ Stand: 11. Oktober 2026, nach der ersten Stable-Aufnahme.
   [Checker-Issue #6](https://github.com/tmarthy/ioBroker.skoda-public-api/issues/6)
   ist geschlossen.
 - Die erste Stable-Aufnahme verwendet das unveränderte npm-Paket `0.1.11`.
-  Die danach übernommenen Spec-Metadaten benötigen einen eigenen späteren Release.
+  Die danach übernommenen Spec-Metadaten sind mit Version `0.1.12` veröffentlicht.
 
 ## Offene Themen in empfohlener Reihenfolge
 
@@ -59,9 +82,9 @@ Stand: 11. Oktober 2026, nach der ersten Stable-Aufnahme.
    den Eintrag für `skoda-public-api` mit Version `0.1.11` und die Sichtbarkeit im
    Admin prüfen. Die Aufnahme ist bereits genehmigt; ein neues npm-Release ist dafür
    nicht erforderlich.
-2. **Nächsten Release getrennt vorbereiten.** Die nach `v0.1.11` übernommenen
-   Spec-Metadaten und weitere Änderungen mit eigenem Changelog, Tests und Versions-Tag
-   veröffentlichen.
+2. **Rückmeldungen zu Version `0.1.12` sammeln.** Insbesondere die optionalen
+   Steckerfelder und die Migration bestehender Objekte an weiteren Fahrzeugen prüfen.
+   Veröffentlichung, Release Notes und vollständige Plattformmatrix sind abgeschlossen.
 3. **Weitere Fahrzeugtests begleiten.** Anonymisierte Fixtures für Verbrenner und
    Hybrid fehlen weiterhin; positive Forumberichte ersetzen keine Fixture-Abdeckung.
 

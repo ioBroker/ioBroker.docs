@@ -300,37 +300,24 @@ This is off by default. When enabled:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 9.5.1 (2026-11-09)
+* (@GermanBluefox) The setting "Login timeout" (`ttl`) applies to the OAuth2 access token now. Before, the access token always expired after 1 hour, whatever was set. The refresh token lives at least 30 days, or as long as the access token if that is longer
+* (@GermanBluefox) Updated `@iobroker/socket-classes` to 2.10.4: a logged-in user without the permission `other.sendto` may now send `checkLicense` to vis and `dm:loadItems` to devices, so that widgets with a license and the device tiles work for users who may only look. Also: no more "REAUTHENTICATE!" log flood, and the host commands `readDiskDir` and `deleteDiskFile` need the permission for `cmdExec`
+
+### 9.5.0 (2026-11-06)
+* (@GermanBluefox) web, its socket clients and the web extensions no longer take subscriptions away from each other. js-controller keeps one subscription per pattern, so when an extension like rest-api gave up a state, the socket clients of web and the other extensions got no more changes of it either. web now notes who subscribed what and unsubscribes in the database only when nobody needs the pattern any more. What a stopped extension still holds is given up for it (#196)
+
+### 9.4.0 (2026-11-05)
+* (@GermanBluefox) A changed web extension no longer restarts web every time: a write of its instance object that changes nothing is ignored, and a newly enabled extension is started while web keeps running. An extension that sets `supportsHotReload` is stopped and started again with its new settings, or just stopped when it is disabled - the sessions and socket connections of everybody else stay. A new version of an extension still restarts web. See [WEB-EXTENSIONS-HOWTO.md](/#/docs/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md)
+* (@GermanBluefox) Every web extension gets a router of its own, so web can take all of its routes back when it stops
+* (@GermanBluefox) Updated packages
+
+### 9.3.0 (2026-11-05)
+* (@GermanBluefox) Web extensions can name paths below their adapter name that they protect themselves (`publicRoutes()`, see [WEB-EXTENSIONS-HOWTO.md](/#/docs/adapterref/iobroker.web/WEB-EXTENSIONS-HOWTO.md)). web hands such requests to the extension in front of its login, so a client with credentials of its own, e.g. an MCP client with the token of the adapter, is no longer refused with 401
+
+### 9.2.0 (2026-11-05)
 * (@GermanBluefox) `logo.svg`, `favicon.ico` and `manifest.json` of the start page are revalidated on every load (304 while unchanged) instead of being cached forever, so a new version reaches the browser
 * (@GermanBluefox) Web components written with React (see [`@iobroker/web-components`](https://github.com/ioBroker/web-components)) find React 19 and 18 as one ES module each at `/lib/esm/react-19.js` and `/lib/esm/react-18.js`, as in admin. Before, such a component failed to load under web, e.g. the flow diagram in vis-2
-
-### 9.1.17 (2026-10-30)
-* (@GermanBluefox) Fixed mode of adapter
-* (@GermanBluefox) The package files are now checked with the standard `@iobroker/testing`, including the `io-package.json` schema of js-controller
-* (@GermanBluefox) Admin 7.6.17 or newer is required
-* (@GermanBluefox) Added missing translations of the cookie and OAuth settings
-
-### 9.1.16 (2026-10-21)
-* (@GermanBluefox) The list of applications carries `cloud` from `common.localLinks` of the adapters. Before, only `pro` was taken over as `true`/`false`, so the free cloud could not tell that an entry like the vis-2 runtime works there too and hid it
-
-### 9.1.15 (2026-10-14)
-* (@GermanBluefox) Pages of adapters load from the browser cache and still show a new version at once: the chunks with a content hash in their name (`assets/*-<hash>.js`) are kept for a year, everything else - `index.html`, `config.js`, `remoteEntry.js`, ... - is asked for on every load and answered with 304 while unchanged. Before, every file was kept for 60 seconds, so the chunks were asked for again and again, and a new `index.html` could come late
-* (@GermanBluefox) Files of adapters and instances are compressed once and then kept compressed (up to 64 MB, keyed by their content), instead of being compressed anew on every request. Measured on a desktop: a chunk of 1.8 MB was read in 7 ms and compressed in 100 ms, on every load of every client - on a Raspberry Pi that is seconds of CPU for one cold page load, during which every other request waited. Brotli runs with quality 5 instead of 4 now, which is smaller, since it is paid once
-
-### 9.1.14 (2026-10-11)
-* (@GermanBluefox) Fixed the lost body of `POST /state/...` with authentication enabled: the app's values arrived empty ("Empty body for ...")
-* (@GermanBluefox) Fixed the crash `server.shouldUpgradeCallback is not a function` on WebSocket connections over HTTP/1.1 with HTTP/2 enabled
-
-### 9.1.12 (2026-10-04)
-* (@GermanBluefox) Fixed: with the cache enabled, a file that an adapter writes again under the same name is delivered anew instead of forever in the version that was read first. This is what made `sayit` repeat the same announcement. The cache had no way of learning about a change at all - the adapter never subscribed to the files it had cached. It does now, for those namespaces only, and drops the entry when the file changes
-* (@GermanBluefox) Fixed: an adapter that runs as a web extension is linked to this server on the overview page instead of to a port of its own that nothing listens on. The entry such an adapter supplies through `welcomePage()` was collected after the list had already been cleaned up and its links resolved, so it never got the `localLink` the page reads and was dropped without a word, leaving only the dead link from `common.localLinks` behind
-* (@GermanBluefox) The folder index got the look of the admin: an app bar with the path and the number of entries, icons telling a folder from a file, sizes in a readable unit, and a light and a dark theme the page selects itself from the setting of the system. A folder of 0 bytes says "0 B" instead of nothing, and the way up is no longer offered in the root of an adapter, where it led out of it
-* (@GermanBluefox) An unexpected error while reading a session no longer ends the instance. The session store answers from a task of its own, so an exception in one of its callbacks reached neither express nor a `try/catch` and the controller terminated the whole web server over a single request. The four callbacks are guarded now and answer with a 500 instead. The same went for two promises in `onObjectChange`/`onStateChange` without a `catch`, where a rejected read of the socket URL arrived as an unhandled rejection
-* (@GermanBluefox) Added the option "Allow embedding in other sites": the session cookie is sent with `SameSite=None; Secure`, so a page of this server keeps its session when another site embeds it in an iframe. It requires SSL here or an https reverse proxy with the public URL set, and it is off by default because it gives up the protection `SameSite` provides against requests of foreign pages
-* (@GermanBluefox) Fixed: a call of `/prolongSession` no longer kills the instance. The session was handed to the store without its time to live, the store took the session object itself for it, and the type check of the controller ended the adapter with "Parameter ttl needs to be of type number". The session is also written back under the ID its cookie carries - `req.session.id` is a different one as soon as express-session started a new session for the request, and then the wrong session was prolonged
-* (@GermanBluefox) Fixed: an address without the closing slash - `/vis-2` instead of `/vis-2/` - leads to the application instead of a 404. It is answered with a redirect to the address with the slash, as every other web server does
-* (@GermanBluefox) A 404 names the address that was requested, not the file name left over after the adapter name was cut off, and logs it on the debug level
-* (@hdering) A web instance that restarts to load a changed web extension logs this as info with the reason instead of the warning "Terminated (-100): Without reason"
 
 ## License
 The MIT License (MIT)

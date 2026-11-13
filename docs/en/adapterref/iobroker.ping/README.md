@@ -64,6 +64,10 @@ From version 1.8.0 you can also check TCP ports by specifying the port number af
 
 The adapter will check if the TCP port is reachable instead of using ICMP ping.
 
+For an IPv6 address, put the address in brackets (e.g., `[fd00::1]:80`). An IPv6 address without brackets (e.g., `fd00::1`) is always pinged, and so is one in brackets without a port (`[fd00::1]` is pinged as `fd00::1`). On macOS and FreeBSD, IPv6 addresses are pinged with `ping6`.
+
+The port has to be between 1 and 65535. An address with another port (e.g., `192.168.1.1:0` or `192.168.1.1:99999`) is not checked at all: the adapter logs a warning at start and reports the device as offline.
+
 ## Wake-on-LAN from `javascript` adapter
 
 You can wake up any device by sending a Wake-on-LAN magic packet using its MAC address:
@@ -112,6 +116,20 @@ setState('ping.0.myHost.192_168_1_1', true);
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+- (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 3.2.0 (2026-11-09)
+- (@GermanBluefox) Added the web components `iob-ping-device` and `iob-ping-overview` - the devices widgets "Ping Device" and "Ping Overview" for Aura and other hosts (`common.webComponents`)
+- (@GermanBluefox) Devices widgets "Ping Device" and "Ping Overview": fixed the state IDs for host names with dots, devices shown by name and disabled devices
+- (@GermanBluefox) Devices widget "Ping Device" shows the status of a newly selected device or instance at once instead of only after reloading; "Ping Overview" no longer mixes in devices of the previously selected instance
+- (@GermanBluefox) IPv6 addresses ending in digits (e.g. `fd00::1`) are pinged now instead of being checked as a TCP port. Write the TCP port of an IPv6 address in brackets: `[fd00::1]:80`
+- (@GermanBluefox) An IPv6 address in brackets without a port (e.g. `[fd00::1]`) is pinged now
+- (@GermanBluefox) A TCP port outside 1-65535 (e.g. `192.168.1.1:99999`) no longer stops the adapter: the device is reported as offline and a warning is logged
+- (@GermanBluefox) IPv6 addresses are pinged with `ping6` on macOS and FreeBSD, and on Windows a device that answers over IPv6 is no longer reported as offline
+- (@GermanBluefox) Devices widget "Ping Device" shows the response time as soon as it is switched on in the settings; "Ping Overview" no longer fails when the instance cannot be read or has no device list
+
 ### 3.1.5 (2026-10-30)
 - (@ipod86) Fixed crash "Invalid IP" when a device is configured with a host name (#445)
 
@@ -123,10 +141,6 @@ setState('ping.0.myHost.192_168_1_1', true);
 
 ### 3.1.2 (2026-10-13)
 - (@GermanBluefox) Updated packages and added missing translations
-
-### 3.1.1 (2026-09-01)
-- (@GermanBluefox) Ping says now when this host may not send ICMP at all instead of reporting every device as offline
-- (@GermanBluefox) Added an optional TCP check that keeps the devices monitored on such a host (LXC container)
 
 ## License
 

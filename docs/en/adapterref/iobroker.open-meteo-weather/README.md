@@ -93,9 +93,9 @@ Since version **3.1.0**, the adapter can automatically generate a pre-configured
 
 **How to use:** 
 1. **Enable:** Check the "Create Widget" checkbox in the instance settings for your location.
-2. **Find State:** The adapter will create a state called `htmlWidget` (under `open-meteo-weather.0.yourLocation.htmlWidget`).
+2. **Find State:** The adapter will create a state called `htmlWidget` (under `open-meteo-weather.0.yourLocation.weather.htmlWidget`).
 3. **In VIS/VIS2:** * Drag a standard **"HTML" widget** onto your view.
-   * Set the "HTML" property of that widget to the binding of your state: `{open-meteo-weather.0.yourLocation.htmlWidget}`.
+   * Set the "HTML" property of that widget to the binding of your state: `{open-meteo-weather.0.yourLocation.weather.htmlWidget}`.
    * Adjust the width and height of the widget container to fit the content.
 
 **Customization:** You can only adjust basic settings like font sizes, forecast hours and days directly in the adapter configuration.
@@ -284,6 +284,10 @@ The adapter uses the **Faiman model** to estimate the module temperature. This m
 After a new adapter update, it is recommended to delete the entire directory tree and let it be recreated.
 
 ## Changelog
+### 3.3.3 (2026-11-09)
+* (H5N1v2) fixed: Corrected weather location configuration property names and fixed PV longitude validation to properly handle empty values and trigger the system-coordinate fallback.
+* (H5N1v2) Update dependencies.
+
 ### 3.3.2 (2026-10-25)
 * (H5N1v2) Bug fixed: "Error Timeout (-xxxxx) is smaller than 0" occurring during the transition to or from daylight saving time.
 * (H5N1v2) Update dependencies.
@@ -302,10 +306,6 @@ After a new adapter update, it is recommended to delete the entire directory tre
 ### 3.2.1 (2026-09-12)
 * (H5N1v2) add 'diffuse_radiation' to 15 min weather forecast.
 * (H5N1v2) add node.js 26.x testmatrix
-* (H5N1v2) Update dependencies
-
-### 3.2.0 (2026-09-06)
-* (H5N1v2) Adding configurable 15 minute weather forecast with max. 16 Datasets for the next 4 hours.
 * (H5N1v2) Update dependencies
 
 ## Legal & Copyright

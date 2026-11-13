@@ -4,11 +4,11 @@ lastChanged: 10.09.2026
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/admin/README.md
-hash: uexYbjEOx0tjQj6At9ofIAv5jH1cK+DCpyWWKbzKjwI=
+hash: CJsaasGs5FWpg2nBIalCy0wN0ISzhkOGMJGRq2QMbM0=
 ---
 # The user interface
 
-The **admin** adapter is the basic adapter and is used to manage the entire ioBroker installation. It provides a web interface, which can be found at`http://<IP-Adresse des Servers>:8081` is called up.
+The **admin** adapter is the basic adapter and is used to manage the entire ioBroker installation. It provides a web interface, which can be found at `http://<IP-Adresse des Servers>:8081` is called up.
 
 This adapter is created during the ioBroker installation; manual installation is not necessary.
 
@@ -50,18 +50,18 @@ The menu bar can be toggled using the arrow in the upper left corner. It has thr
 
 The main window displays the content of the currently selected menu item. Details of what is shown there can be found on the pages linked in the table above.
 
-Values are displayed in **red** in the object tree until they have been confirmed by the recipient (`ack = false` ).
+Values are displayed in **red** in the object tree until they have been confirmed by the recipient (`ack = false`).
 
 ## 3 Toolbar
 
 At the bottom of the menu bar are four buttons:
 
-| symbol                      | function                                                                                                                                              |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bell                        | System **notifications** . The number next to it indicates the number of unread messages.                                                             |
-| contrast                    | **Change color theme** : switches between color themes (see below).                                                                                   |
-| Head symbol, white or green | **Switch to expert mode** . Green means it's enabled. It displays additional objects, settings, and columns and only applies to this browser session. |
-| Connected windows           | **Synchronize settings between all open browser windows** .                                                                                           |
+| symbol                         | function                                                                                                                                              |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bell                           | System **notifications** . The number next to it indicates the number of unread messages.                                                             |
+| contrast                       | **Change color theme** : switches between color themes (see below).                                                                                   |
+| Graduation cap, white or green | **Switch to expert mode** . Green means it's enabled. It displays additional objects, settings, and columns and only applies to this browser session. |
+| Connected windows              | **Synchronize settings between all open browser windows** .                                                                                           |
 
 ### Two buttons outside this bar
 

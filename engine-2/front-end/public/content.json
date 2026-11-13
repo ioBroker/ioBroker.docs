@@ -540,7 +540,18 @@
             "de": "vis-2",
             "ru": "Вис-2"
           },
-          "content": "viz/vis-2.md"
+          "content": "viz/vis-2.md",
+          "pages": {
+            "Import a demo project": {
+              "title": {
+                "en": "Import a demo project",
+                "de": "Demo-Projekt importieren",
+                "ru": "Импорт демо-проекта",
+                "zh-cn": "导入演示项目"
+              },
+              "content": "viz/vis-2-demo-import.md"
+            }
+          }
         },
         "vis": {
           "title": {

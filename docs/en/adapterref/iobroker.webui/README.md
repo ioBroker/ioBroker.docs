@@ -31,6 +31,7 @@ It includes features like:
   - split view editing of layout and html code
   - global stylesheet support
   - usage of npm packages containing webcomponents
+  - usage of the ioBroker web components of installed adapters (the same components vis-2, devices and admin show)
   - screens inside of screens
   - use all icon packages from ioBroker
   - use charts from ioBroker
@@ -62,6 +63,40 @@ In Scripts you can also write to Signals defined in Custom Properties.
 You can include Javascript in your CustomControl or Screen.
 In addition, you can export a function `init(instance)` wich will be called when your CustomControl will be instantiated.
 Finally, `connected()` and `disconnected()` functions can be defined to be called when ...
+
+### ioBroker web components
+
+Adapters can bring [ioBroker web components](https://github.com/ioBroker/web-components): custom elements that every ioBroker UI shows alike. Their adapters list them in `common.webComponents`. The designer shows them in the palette under **Controls → Designer → ioBroker web components**; components that edit a value of their own (`editsValue`) are left out, because webui does not store such values.
+
+A placed component is stored like this:
+
+```html
+<iobroker-webui-web-component adapter="flow" component="flow-diagram" setting-oid="flow.0.diagrams.main" theme="dark"></iobroker-webui-web-component>
+```
+
+- Every setting of the component is an attribute `setting-<name>` (`textTrue` becomes `setting-text-true`). Edit it in the property grid or bind it to an ioBroker state like any other attribute. A checkbox setting works like an HTML boolean attribute: present means true.
+- `theme` is `light` (default), `dark` or `auto` (follows the browser). The CSS custom properties `--iob-primary`, `--iob-paper`, `--iob-text`, ... on or above the element override single colors when the component is shown.
+- In the designer the component gets `editMode` and does not write states. At runtime it gets the socket of webui.
+- The event `iob-navigate` opens the webui screen of that name, if there is one.
+- The components are read once when the page loads: reload the designer after installing an adapter.
+
+## AI screen assistant
+
+Open **AI** in the designer toolbar. Configure a provider in **ioBroker Admin → System settings → AI**, then choose its model in the assistant. The adapter uses the same [`@iobroker/ai-core`](https://github.com/ioBroker/ai-core) backend as vis-2; provider credentials stay on the server. A local ai-server/Ollama endpoint can be selected through the system AI configuration. Node.js 22.19 or newer is required; AI chat also needs a current controller/web adapter with instance-message subscriptions.
+
+The assistant starts as a collapsed tab on the right edge. Open it from that tab or the **AI** toolbar command. Its Close button hides the dock without losing drafts or running chats; the toolbar command reopens it.
+
+Type and press **Enter** to create a chat automatically. **Shift+Enter** inserts a new line. Click a chat tab to continue it; click the selected tab again to return to your fresh draft. Right-click a tab to rename or delete that chat. Provider/model selectors sit below the message box; right-click the composer controls to reload them. Chats and the unsent fresh draft are stored in this browser for the current installation and ioBroker user. Reloading interrupts running turns.
+
+While the assistant works, keep typing and send with **Steer** to redirect its next safe step, or select **Queue** to send a follow-up after the current turn. Pending messages can be edited or removed above the composer. **Stop** immediately ends the local turn, skips subsequent tools and clears unsent pending messages; an already-sent provider request may still finish in the background. Running tabs and the conversation show activity indicators.
+
+The microphone button dictates into the message field without submitting it. It uses browser speech recognition and needs microphone permission; availability depends on the browser. Stop dictation with the same button. Closing the AI dock stops dictation.
+
+The assistant can inspect saved screens and controls, unsaved open editors, HTML/CSS/JavaScript, global styles/scripts, installed palette elements, and searchable ioBroker object metadata/current values. It has documentation for bindings, event handlers and the actual generated simple-script command schemas. Object native configuration is excluded, and there is no live-state write tool. Source and object context requested by the assistant is sent to the provider selected in ioBroker.
+
+Use **Attach files** for text/source files and PNG/JPEG/WebP/GIF images, or paste screenshots into the message box. Choose a vision-capable model for images. Limits are eight attachments and 10 MB per message. The current ioBroker Anthropic bridge supports text only; screenshot chats must use an OpenAI-compatible vision provider (for example OpenAI, Gemini, OpenRouter or a suitable local model).
+
+Changes appear as proposals with the original and proposed source. **Apply to editor** updates the screen without saving it. Review it in the designer and use the normal **Save** command to persist it. If the source changed after the assistant read it, Apply refuses to overwrite it; ask the assistant to read it again and make a fresh proposal. New screens are created through the same proposal workflow.
 
 ## Sponsoring
 
@@ -133,9 +168,26 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
-### **WORK IN PROGRESS**
+### 2.4.0 (2026-11-11)
+- Use the ioBroker web components of installed adapters (`common.webComponents`, `@iobroker/web-components`) in screens: palette entries, a settings section in the property grid with every setting as a bindable `setting-*` attribute, theme support and `iob-navigate` to screens.
+- dark mode changed
+- components list
+
+### 2.3.0 (2026-11-10)
+- Expand AI context with current/open editors, selected screen elements, separate CSS/JavaScript, settings and component properties.
+- Add paged discovery of components, installed component APIs, signals, images, icons and chart presets, with on-demand image/icon previews for vision models.
+- Improve AI guidance for CSS bindings, converters and simple scripts, preferring the separate CSS/JavaScript fields.
+- Apply AI proposals as one Undo/Redo step covering HTML, CSS, JavaScript, settings and properties while preserving earlier manual history.
+- Show proposal review and Apply/Discard actions below AI answers, outside collapsed work outputs.
+- Add chat message timestamps, elapsed thinking time and cost totals in the chat list/footer when explicitly reported.
+- Balance the default dock column widths and fix document context-menu colors in light/dark mode.
+- Keep detached screens, AI chats and tool/global-editor windows editable, including component drops, shared models, Save and Undo/Redo. Closing a popup returns its unsaved panel to the main editor.
+- Fix missing script command details, including SetSignalValue signal/target fields, by resolving scalar schema aliases.
+
+### 2.2.0 (2026-11-10)
 - (copilot) Adapter requires node.js >= 22.19.0 now
 * (GermanBluefox) Repochecker warnings fixed (#563)
+- new features, AI, new designer, ...
 
 ### 2.1.0 (2026-09-15)
 - fix blockly scripts
@@ -143,19 +195,6 @@ runtime.html?screenName=screen2
 
 ### 2.0.3 (2026-08-21)
 - fix help dlg pos
-
-### 2.0.2 (2026-08-21)
-- welcome screen array
-
-### 2.0.1 (2026-08-21)
-- fix node version
-
-### 2.0.0 (2026-08-21)
-- package updates
-- code fixes
-- fix of github issue
-- fix monaco workers
-- blockly update
 
 ## License
 

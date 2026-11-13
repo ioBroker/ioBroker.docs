@@ -120,6 +120,11 @@ Delete Device: Click the trash can icon to remove a virtual device. This does no
 
 Organize Devices: Use categories to group devices (e.g., "Lighting", "Heating") for easier management in visualizations.
 
+### Web components of other adapters
+Adapters can bring web components (`common.webComponents`, see [`@iobroker/web-components`](https://github.com/ioBroker/web-components)). In the edit mode, "Add widget" lists them with the widgets of their adapter, and a component becomes a tile like any other widget.
+
+The settings dialog of such a tile shows the size and the color of the tile and then the settings of the component, rendered by JSON-Config. A setting of type `selectSendTo` or `autocompleteSendTo` gets its options from the adapter via `sendTo`, as in JSON-Config. Without `instance` in the setting, devices asks the first instance of the adapter that brings the component (`<adapter>.0`), not `devices.0`. The same applies to the forms a component opens as a dialog.
+
 ## Type of devices
 This adapter is built with the help of `type-detector`. All possible devices could be found [here](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md) 
 
@@ -131,50 +136,37 @@ This adapter is built with the help of `type-detector`. All possible devices cou
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.4.0 (2026-11-13)
+* (@GermanBluefox) Web components: the settings types `selectSendTo` and `autocompleteSendTo` (`@iobroker/web-components` 0.8.0) ask the adapter that brings the component (`<adapter>.0`) when the setting names no `instance`, and not devices itself; also in the forms a component opens as a dialog
+* (@GermanBluefox) Fixed: a setting of type `selectSendTo` no longer spins forever when the instance does not answer - it shows a text field, so the value stays editable (`@iobroker/json-config` 10.1.22)
+
+### 4.3.2 (2026-11-10)
+* (@GermanBluefox) Nested folders under alias.0 keep their place, name and color in the GUI; only folders on the top level are merged with a room of the same name (issue #739)
+* (@GermanBluefox) New widget "Note (Markdown)" for free text like comments or instructions
+* (@GermanBluefox) Updated packages
+* (@GermanBluefox) Animated icons of `@iobroker/gui-components`: the folder buttons "expand/collapse all" show on hover what they will do, the button "clear filter" has the funnel with the cross, the rows of an opened folder slide out, the widget groups open and close animated, and the notices "not active", "no permission" and "could not be loaded" have their own symbol
+* (@GermanBluefox) The switch to hide the config button in the runtime is back in the settings of the root category; users without the edit right still do not see the button
+* (@GermanBluefox) If the devices cannot be loaded, for example because the user may not call `sendTo`, the page says so instead of loading forever
+* (@GermanBluefox) The list of devices only holds what the logged-in user may read according to the ACLs of the objects (js-controller 7.2.5 or newer). A changed ACL counts at once
+
+### 4.3.1 (2026-11-07)
+* (@GermanBluefox) Color light 2×2: the saved colors are shown on the tile and applied with a tap
+* (@GermanBluefox) Saving a device no longer resets the names of its states; only the states that were changed are written (issue #725)
+
+### 4.3.0 (2026-11-05)
 * (@GermanBluefox) Web components of other adapters (`common.webComponents`, see `@iobroker/web-components`) can be added as tiles: the palette lists them, the settings dialog shows their settings next to the size of the tile, and their dialogs open as dialogs of devices. The list and the settings come from the manifests of the components; the module of a component is loaded when its first tile is shown
 * (@GermanBluefox) Plugins may bring background services (`common.deviceWidgets.services`): the app renders them once next to the category, with the widgets of the adapter in all categories the user may control, whichever category is shown - e.g. so that a phone stays registered and rings in every category
+* (@GermanBluefox) The dimmer widget is easier to operate in every size: the 1×1 tile fills up like a glass, a tap switches and dragging up or down dims; the wide tiles and the new 2×2 size have a large slider with quick selection, or a bar to tap or drag with ± buttons instead of the small round knob. Only the power button switches these tiles, and a drag sends only the value it is released at
+* (@GermanBluefox) Color lights with a dimmer are operated like the dimmer: the 1×1 tile fills with the light color, a tap switches, dragging up or down dims and a long press opens the color dialog; the larger tiles (now also 2×2) have the slider or the bar and a button for the color dialog. Their quick selection can show the saved states instead of brightness values, with "+" to save the current state
+* (@GermanBluefox) Dimmer 2×0.5: the slider knob and the status icons no longer touch the power button
+* (@GermanBluefox) A plugin or web component tile that cannot be loaded can be deleted directly in the edit mode
+* (@GermanBluefox) Delete, reload, folder and play/pause buttons use the animated icons of `@iobroker/gui-components`
+* (@GermanBluefox) The "Add widget" dialog is much larger and shows the widgets in sets - the built-in ones by theme, everything an adapter brings (plugin widgets and web components) together - with a search and a filter by set
+* (@GermanBluefox) If an adapter brings a plugin and a web component of the same name, like the "Flow diagram" of flow, "Add widget" offers only the plugin; tiles of the web component keep working
+* (@GermanBluefox) Web components get the colors, the font and the corners of the theme of devices (`@iobroker/web-components` 0.5.0), not only light or dark
 
 ### 4.2.7 (2026-10-25)
 * (@GermanBluefox) Added widget for the device type `tv` with a remote control dialog
-
-### 4.2.6 (2026-10-22)
-* (@GermanBluefox) Better devices detection
-
-### 4.2.5 (2026-10-14)
-* (@GermanBluefox) A changed role of a datapoint is applied to its widget immediately, not only after an adapter restart
-* (@GermanBluefox) Picking a hue for a white RGB lamp sets the full color, instead of staying white until the saturation is moved
-* (@GermanBluefox) The color circle of an RGB lamp tile is larger and no longer covered by the dimmer slider at 0
-
-### 4.2.4 (2026-10-13)
-* (@GermanBluefox) Dragging a plugin widget no longer crashes the widget GUI (React error #185)
-
-### 4.2.3 (2026-10-11)
-* (@GermanBluefox) A read-only temperature in a thermostat setpoint is shown as a readout, not as a dial
-* (@GermanBluefox) One datapoint no longer fills two slots of the same device
-* (@GermanBluefox) All devices are shown in the config manager (#693)
-* (@GermanBluefox) RGB widget: fixed swapped colors with Tasmota and jumping sliders
-* (@GermanBluefox) RGB widget: added quick selection of saved colors
-* (@GermanBluefox) Copied or renamed devices no longer keep the old names in their states (#684)
-* (@GermanBluefox) States of a new device are named consistently (#696)
-* (@GermanBluefox) Blind widget: added setting to invert the position (#713)
-
-### 4.2.2 (2026-09-17)
-* (@GermanBluefox) Sliders, dials and swipeable tiles in the widget GUI no longer change their value when a finger only scrolls the page across them. A touch becomes a drag when it starts sideways or after the finger has rested for a moment; a touch the browser takes over for scrolling changes nothing
-* (@GermanBluefox) Tooltips no longer catch the mouse: they close as soon as the pointer leaves the control and do not block clicks on what lies underneath
-* (@krobipd) Cancel in the editor that opens right after creating a device now removes the new device again, together with its states and its room and function assignments. Save is enabled right away, so a new device can be kept without changing anything
-* (@krobipd) Fixed the devices tab staying on its loading spinner when a device without mandatory states (e.g. a chart of the echarts adapter) is assigned to a room or function
-* (@krobipd) Fixed the import grouped by room or function stopping halfway when a room or function object is not found
-* (@krobipd) Fixed the value list editor: "+" no longer adds a "NaN" row to a list of text values, dragging a row moves it instead of swapping two rows, and OK is only enabled after a change
-* (@krobipd) The search now finds a device by its name regardless of upper and lower case
-* (@krobipd) Fixed device icons that are stored as a bare file name not being shown in the device list
-* (@krobipd) The folders are expanded when the device list is opened for the first time, instead of all being collapsed
-* (@krobipd) The warning about the web instance configuration is no longer logged when no web instance is installed
-* (@krobipd) The widget notification timer is cleared when the adapter stops, so it does not stay behind in compact mode
-* (@GermanBluefox) The build takes the version of the GUI packages from the adapter's `package.json`, and `common.welcomeScreen` is written as the array the current io-package schema expects
-
-### 4.2.1 (2026-09-09)
-* (@GermanBluefox) Fixed layout
 
 ## License
 MIT License

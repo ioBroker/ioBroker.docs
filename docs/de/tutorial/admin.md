@@ -55,7 +55,7 @@ Weitere Reiter kommen mit den installierten Adaptern dazu, etwa *Skripte*,
 
 ## Der Expertenmodus
 
-Unten links in der Menüleiste sitzt ein Kopfsymbol. Es schaltet den
+Unten links in der Menüleiste sitzt ein Doktorhut (die Abschlusskappe). Es schaltet den
 **Expertenmodus** ein und aus, und es zeigt zugleich an, woran man ist: weiß
 bedeutet aus, grün bedeutet an.
 
@@ -85,7 +85,7 @@ Was dazukommt, je nach Reiter:
 
 Es gibt den Schalter zweimal, und das verwirrt regelmäßig:
 
-* Das **Kopfsymbol** unten links gilt nur für die geöffnete Browsersitzung. Nach
+* Der **Doktorhut** unten links gilt nur für die geöffnete Browsersitzung. Nach
   dem Schließen des Fensters ist er wieder in dem Zustand, den die
   Systemeinstellungen vorgeben.
 * In den [Systemeinstellungen](/docs/admin/settings.md)

@@ -28,14 +28,16 @@ Diese Seite ist die ausführliche Anleitung. Die [README](https://github.com/kro
 ## Voraussetzungen
 
 - Node.js 22 oder neuer
-- ioBroker js-controller 7.2.2 oder neuer
-- ioBroker Admin 8.0.11 oder neuer
+- ioBroker js-controller 7.2.5 oder neuer
+- ioBroker Admin 8.3.5 oder neuer
 - Display und ioBroker im selben Netz
 
-Der Adapter lauscht auf Port 8123, weil HA-Clients genau diesen Port erwarten; er ist nicht
-einstellbar. Deshalb läuft je ioBroker-Rechner normalerweise eine Instanz — eine zweite auf
-demselben Rechner geht nur, wenn jede an eine eigene Schnittstelle gebunden ist. Mehrere
-ioBroker-Rechner im Netz dürfen je eine betreiben; die Displays sehen dann getrennte Server.
+Der Adapter lauscht in der Vorgabe auf Port 8123, dem Port von Home Assistant; die
+Home-Assistant-Apps nehmen den Port aus der Adresse, die der Server im Netz ansagt oder die man
+eintippt. Ein anderer Port erlaubt hassemu auf einem Rechner, auf dem 8123 schon belegt ist, und
+eine zweite Instanz auf demselben Rechner braucht einen eigenen Port oder eine eigene
+Schnittstelle. Mehrere ioBroker-Rechner im Netz dürfen je eine betreiben; die Displays sehen
+dann getrennte Server.
 
 ## Shelly Wall Display
 
@@ -72,8 +74,8 @@ Am Display einen Home-Assistant-Server hinzufügen.
 - **Mit mDNS** findet das Display den Server von allein. Er erscheint unter dem Namen aus
   **Service-Name** (Vorgabe `ioBroker`).
 - **Ohne mDNS** — oder wenn das Display nicht sucht — die Adresse von Hand eintragen:
-  `http://<IP-deines-ioBroker>:8123`. Es muss `http` sein, siehe
-  [Anmeldung und dein Netz](#anmeldung-und-dein-netz).
+  `http://<IP-deines-ioBroker>:8123` (mit anderem Port dieser Port). Mit HTTPS ist es
+  `https://<Name im Zertifikat>:8123`, siehe [Anmeldung und dein Netz](#anmeldung-und-dein-netz).
 
 **Android 17 und neuer:** Erlaube der Home-Assistant-App den _Zugriff auf das lokale Netzwerk_,
 wenn sie danach fragt. Ohne ihn findet die App hassemu nicht und erreicht es in deinem Netz
@@ -86,7 +88,7 @@ durch. Ist sie an, gibst du Benutzernamen und Passwort aus den Instanz-Einstellu
 
 Hinter diesem Klick tauschen Display und Adapter ein Zugangsmerkmal aus, und der Adapter
 hinterlegt ein Erkennungsmerkmal (Cookie) auf dem Display. Das ist von da an die Identität
-des Displays: Es übersteht Neustarts, Adresswechsel und Umbenennungen — deshalb behält ein
+des Displays: Es übersteht Neustarts, Adresswechsel und Namensänderungen — deshalb behält ein
 Display seine Seite, ohne neu eingerichtet zu werden.
 
 ### 4. Das Display wartet jetzt
@@ -147,7 +149,7 @@ hassemu.0.
 │   ├── mode            die Seite für alle Displays, die auf Globale URL stehen
 │   └── manualUrl       freie Adresse, genutzt wenn global.mode auf Manuelle URL steht
 └── clients.
-    └── <Kennung>       ein Eintrag je Display, benannt nach Hostname oder Adresse
+    └── <Kennung>       ein Eintrag je Display, benannt nach dem Gerätenamen der App, dem Hostnamen oder der Adresse
         ├── mode        was dieses Display zeigt
         ├── manualUrl   freie Adresse, genutzt wenn mode auf Manuelle URL steht
         ├── resolvedUrl die Adresse, an die dieses Display tatsächlich geschickt wurde
@@ -203,12 +205,22 @@ Der Adapter durchsucht den ioBroker-Rechner nach Seiten, die sich anzubieten loh
 - **VIS und VIS-2** — ein Eintrag je Projekt und einer je Ansicht darin, für jede vorhandene
   `web`-Instanz
 - **Aura** — ein Eintrag je laufender Instanz, mit dem Port, auf den diese Instanz
-  tatsächlich eingestellt ist
-- **Admin-Kacheln** — alles, was ein Adapter für die ioBroker-Startseite anbietet (Grafana,
-  jarvis, material, deine eigene Web-Oberfläche …)
+  tatsächlich eingestellt ist; ein Aura, das eine `web`-Instanz ausliefert, zeigt dorthin
+  (oder auf Auras eigenen Port, solange diese `web`-Instanz nur auf dem eigenen Rechner
+  lauscht), und ein Aura, das nur auf dem eigenen Rechner lauscht, bekommt keinen Eintrag, weil kein
+  Display es erreichen könnte
+- **Admin-Kacheln** — die Kacheln, die die ioBroker-Startseite zeigt: die Geräte-Seite,
+  Grafana, jarvis, material, deine eigene Web-Oberfläche und die Link-Karten, die du auf der
+  Startseite angelegt hast. Eine Kachel, die du auf der Startseite ausgeblendet hast, bleibt
+  aus der Liste, und zwei Kacheln mit derselben Adresse sind ein Eintrag
+
+Eine Adresse, die nur auf dem ioBroker-Rechner selbst gilt (`127.0.0.1`, `::1`, `localhost`),
+wird nie ein Eintrag, egal aus welcher Quelle sie kommt: Ein Display ist immer ein anderes
+Gerät, und von dort aus erreicht eine solche Adresse nichts.
 
 Gesucht wird beim Start und immer dann, wenn eine Adapter-Instanz dazukommt, verschwindet
-oder umkonfiguriert wird. Nach dem Anlegen oder Umbenennen eines VIS-2-Projekts oder einer
+oder umkonfiguriert wird oder sich die Einstellungen der Startseite ändern. Ein Display
+behält seine Seite, auch wenn sie aus der Liste fällt. Nach dem Anlegen oder Umbenennen eines VIS-2-Projekts oder einer
 Ansicht setzt du **info.refreshUrls** auf `true`, um ohne Adapter-Neustart neu zu suchen.
 
 Wird etwas nicht gefunden, ist es nicht verloren: `Manuelle URL` wählen und die Adresse
@@ -217,15 +229,22 @@ keine Seiten, das ist Programmcode.
 
 ## Anmeldung und dein Netz
 
-**Alles auf Port 8123 läuft unverschlüsselt über HTTP.** Das ist keine Abkürzung, sondern
-das, was die HA-Clients auf diesem Weg verlangen; HTTPS machen sie hier nicht mit. Daraus
-folgen zwei Dinge, die man klar sagen sollte:
+**Reines HTTP ist die Vorgabe**, wie bei Home Assistant, und ohne HTTPS läuft alles auf dem
+Port unverschlüsselt. Daraus folgen zwei Dinge, die man klar sagen sollte:
 
-- Behandle Port 8123 als etwas, das nur in dein Heimnetz gehört. Leite ihn nicht aus dem
+- Behandle den Port als etwas, das nur in dein Heimnetz gehört. Leite ihn nicht aus dem
   Internet herein.
 - Ist die Anmeldung an, laufen Benutzername, Passwort und Zugangsmerkmale unverschlüsselt
   durch dein Netz. Die Anmeldung hält andere Geräte in deinem Netz von der HA-Schnittstelle
   fern — sie ist kein Schutz gegen eine Öffnung ins Internet.
+
+**HTTPS verwenden** in den Instanz-Einstellungen verschlüsselt Anmeldung, Passwort und Tokens
+mit einem Zertifikat aus ioBroker. HTTPS hat eigene Regeln:
+
+- Mit HTTPS erreichen die Displays hassemu unter dem Namen im Zertifikat statt unter der IP-Adresse — dieser Name muss auf jedem Display auflösbar sein.
+- Mit dem Standard-Zertifikat von ioBroker (selbst ausgestellt, auf den Rechnernamen) braucht ein Android-Display beides: das Zertifikat als vertrauenswürdig installiert und ein Netz, das den Rechnernamen auflöst.
+- Ein Dashboard über reines HTTP lässt sich in einer HTTPS-Seite nicht anzeigen — wähle dafür eine HTTPS-Adresse.
+- Das Einschalten ändert die Adresse von hassemu: Jedes Display erscheint einmal als neues Gerät und muss auf die neue Adresse eingestellt werden.
 
 **Reverse-Proxy-Header vertrauen** bleibt aus, solange nicht wirklich ein Reverse-Proxy
 davor steht, der die Verschlüsselung beendet und die vom Client mitgeschickten
@@ -240,31 +259,49 @@ deckelt den Schaden — sie macht die Einstellung nicht sicher.
 
 ## Ports
 
-| Port       | Richtung  | Wofür der Adapter ihn braucht                     |
-| ---------- | --------- | ------------------------------------------------- |
-| 8123 / TCP | eingehend | die HA-Schnittstelle, mit der das Display spricht |
-| 5353 / UDP | eingehend | mDNS, damit Displays den Server von allein finden |
+| Port       | Richtung  | Wofür der Adapter ihn braucht                                            |
+| ---------- | --------- | ------------------------------------------------------------------------ |
+| 8123 / TCP | eingehend | die HA-Schnittstelle, mit der das Display spricht (Vorgabe, einstellbar) |
+| 5353 / UDP | eingehend | mDNS, damit Displays den Server von allein finden                        |
 
 Für Uptime-Monitore und Container-Healthchecks `http://<IP-deines-ioBroker>:8123/health`
-nehmen. Diese Adresse antwortet, ohne etwas anzulegen. Ein `GET /` ist das, was ein Display
+nehmen (mit HTTPS `https://`, mit anderem Port dieser Port). Diese Adresse antwortet, ohne etwas anzulegen. Ein `GET /` ist das, was ein Display
 bei seinem ersten Besuch schickt — ein Monitor dort erschiene als neues Display; ein `HEAD /`
 legt nichts an.
 
+## Umstieg von 1.x
+
+Version 2.0.0 gibt jedem Display einmal eine neue Objekt-ID: aus `clients.61c3a1` wird
+`clients.display-c3a1` — `display` und die letzten vier Zeichen der alten ID. Der Umzug passiert
+beim ersten Start von selbst: Werte, Räume, Funktionen und Aliase ziehen mit, aufgezeichnete
+Verläufe laufen in ihrer bisherigen Reihe weiter, und das Display wird weiter erkannt, nichts muss
+neu eingerichtet werden. Das Log nennt jeden Umzug. Skripte und Visualisierungen mit den alten IDs
+müssen angepasst werden. Danach nicht auf 1.x zurückgehen.
+
+Ein Display, das sich zum ersten Mal verbindet, bekommt das Modell, das seine Home-Assistant-App
+meldet, und vier Zeichen, die hassemu selbst wählt, zum Beispiel `clients.pixel-tablet-02b7`;
+meldet das Display kein Modell, beginnt die ID mit `display`. Eine vergebene ID ändert sich nie.
+
+Jedes Display heißt nach dem Gerätenamen seiner App, seinem Hostnamen oder seiner Adresse; ein im
+Objektbaum eingetippter Name weicht dem. Ein Display, das nach seinem Hostnamen hieß, zeigt bis zu
+seiner ersten Verbindung nach dem Update seine Adresse.
+
 ## Häufige Fragen
 
-**Kann ich zwei Instanzen betreiben?** Nicht auf derselben Schnittstelle. Port 8123 ist von
-den HA-Clients vorgegeben, also gehen zwei Instanzen auf einem Rechner nur, wenn jede an eine
-eigene Schnittstelle gebunden ist. Zwei ioBroker-Rechner dürfen je eine betreiben; die
-Displays sehen dann zwei getrennte Server.
+**Kann ich zwei Instanzen betreiben?** Ja, auf einem Rechner jede mit eigenem Port oder
+eigener Schnittstelle. Zwei ioBroker-Rechner dürfen je eine betreiben; die Displays sehen dann
+zwei getrennte Server.
 
 **Muss das Display dauerhaft mit dem Adapter verbunden bleiben?** Ja. Es holt seine Seite
 über den Adapter, und die Offline-Seite wie auch die Ziel-Prüfung hängen daran. Stoppt der
 Adapter, bleibt das Dashboard noch etwa 1,5 Minuten stehen; dann zeigt das Display die
 Offline-Seite und kehrt von selbst zum Dashboard zurück, sobald der Adapter wieder da ist.
 
-**Kann ich ein Display umbenennen?** Ja — das Objekt `clients.<Kennung>` im Objektbaum
-umbenennen. Der Adapter behält deinen Namen und überschreibt ihn nicht, auch nicht, wenn sich
-Adresse oder Hostname des Displays ändern.
+**Kann ich ein Display umbenennen?** Der Name kommt vom Display selbst: der Gerätename aus
+seiner Home-Assistant-App, sonst sein Hostname im Netzwerk, sonst seine Adresse. Zum Ändern das
+Gerät in der App umbenennen oder ihm im Router einen Hostnamen geben. Ein im Objektbaum
+eingetippter Name hält nicht — der Adapter schreibt beim nächsten Start oder bei der nächsten
+Änderung den Namen des Displays zurück.
 
 **Warum gibt es zwei Einträge für dasselbe Display?** Das Display hat sein Erkennungsmerkmal
 nicht zurückgeschickt — meist nach einem Zurücksetzen auf Werkseinstellungen, einem geleerten
@@ -300,6 +337,31 @@ App-Einstellungen erlauben.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- Changed: every display gets a new object ID once — `clients.61c3a1` becomes `clients.display-c3a1`; values, rooms, functions and aliases move along
+- Changed: a new display gets the model its app reports plus four characters as its ID, for example `clients.pixel-tablet-02b7`
+- Changed: a display is named after the device name set in its Home Assistant app, otherwise its host name or address; a name typed into the object browser gives way
+- New: the port is configurable, 8123 stays the default
+- New: optional HTTPS with a certificate from ioBroker
+- New: hassemu reports Home Assistant 2026.8.0 — the apps keep their loading screen until the dashboard is there, and the iPhone app shows it edge to edge
+- Changed: only displays in the host's own networks get an answer, and a chosen address is the only one hassemu listens, announces and connects on
+- Changed: the server ID and each display's cookie and tokens live in a file in the instance data folder; the datapoint `info.serverUuid` is gone
+- Changed: the redirect mode datapoints are of type text
+- New: every display carries a display pictogram in the object tree
+- Changed: a new instance is created disabled
+- Changed: the master switch, the dashboard refresh and the remove button log their result on debug
+- Improved: a start no longer rewrites hassemu's own objects that are current, updates a display's object with one write instead of three, and reads all its values with one request
+- Fixed: an update from 1.0 or 1.1 removes the empty hostname and visUrl datapoints a display kept until now
+- Fixed: the dashboard list takes the page of the devices adapter and other admin tiles it used to drop
+- Changed: the dashboard list follows the admin start page — its link cards come in, a tile hidden there drops out; a display keeps a target that drops out
+- Fixed: aura served by a web instance is listed at that address; an aura that only listens on its own machine is no longer listed
+- Fixed: an address of this machine only (127.x, ::1, localhost) is no longer listed; a display keeps such a target it already chose
+- Fixed: the password of a rejected address with credentials no longer appears in the log
+- Fixed: the sign-in pages show their text in the system language
+- Fixed: an update from 1.0 or 1.1 with several displays keeps the room and function assignments of every display
+- Fixed: known security advisories in bundled libraries are closed
 
 ### 1.46.1 (2026-09-25) — stable
 
@@ -363,5 +425,4 @@ SOFTWARE.
 
 ---
 
-<!-- prettier-ignore -->
-*Developed with assistance from Claude.ai*
+_Developed with assistance from Claude.ai_

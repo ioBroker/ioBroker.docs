@@ -28,7 +28,7 @@ controlling a device, a device controls ioBroker.
 
 ## Requirements
 
-- Node.js 22 or newer
+- Node.js 22.19.0 or newer
 - js-controller 7.2.5 or newer
 - admin 8.3.5 or newer
 - A remote or hub on the **same local network** as your ioBroker host
@@ -224,8 +224,7 @@ Error reporting via Sentry is active by default; what it sends and how to switch
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
-- (copilot) Adapter requires node.js >= 22.19.0 now
+### 1.11.0 (2026-11-05)
 
 - (krobipd) New: every emulated Roku shows in the object tree whether it is a player or a TV.
 - (krobipd) Improved: the documentation describes what happens when the chosen network address is missing on the host.
@@ -233,6 +232,7 @@ Error reporting via Sentry is active by default; what it sends and how to switch
 - (krobipd) Improved: the update notice links to the description of the object tree.
 - (krobipd) Changed: the interface setting is labelled "Network interface".
 - (krobipd) Changed: js-controller 7.2.5 and admin 8.3.5 or newer are required.
+- (copilot) Changed: Node.js 22.19.0 or newer is required.
 
 ### 1.10.0 (2026-10-03)
 
@@ -262,19 +262,6 @@ Error reporting via Sentry is active by default; what it sends and how to switch
 ### 1.8.1 (2026-09-27) — stable
 
 - (krobipd) Improved: the note the Admin shows before an update from 0.x is short now: the apps folder is removed, app launches arrive as launch:<id> in command.
-
-### 1.8.0 (2026-09-25)
-
-- (krobipd) Fixed: Home Assistant and openHAB can set up the emulated Roku again — it now answers the active-app, media-player and TV-channel queries they send.
-- (krobipd) Fixed: keys sent in any upper or lower case (home, POWERON) press the right button, and spaces typed in Home Assistant arrive as spaces.
-- (krobipd) Fixed: an upgrade from the old adapter keeps every object tree with its rooms and history, also for names with an umlaut, a bracket or a double space.
-- (krobipd) Fixed: renaming a device only changes its displayed name; its datapoints and scripts pointing at them stay where they are.
-- (krobipd) Fixed: an instance started before the network is up starts its devices and adds discovery as soon as the host has an address.
-- (krobipd) Fixed: the device dialog greys out OK for a taken name or port and says why.
-- (krobipd) Changed: only devices in the host's own networks are answered; a chosen network interface keeps everything in its network and is never swapped for another.
-- (krobipd) Changed: a chosen network interface that does not exist is waited for up to two minutes at start, then reported, instead of being replaced.
-- (krobipd) New: the TV profile adds the PowerOn, Power, Sleep and InputTuner keys and announces itself the way real Roku TVs do.
-- (krobipd) New: every new emulated Roku gets its own network identity instead of one every installation with the same name would share.
 
 ## License
 

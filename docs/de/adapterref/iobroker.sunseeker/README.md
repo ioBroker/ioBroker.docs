@@ -710,47 +710,46 @@ Wenn Einstellungen fehlen, dann bitte ein Issue anlegen oder im Forum anfragen.
 
 `Hier werden nur einige Objekte beschrieben`
 
-| Objekt-ID                            | Beschreibung                                                |
-| ------------------------------------ | ----------------------------------------------------------- |
-| xxx.mower_raw.blade                  | Klingeneinstellungen (MQTT)                                 |
-| xxx.mower_raw.charge_pos             | Position Ladestation (MQTT)                                 |
-| xxx.mower_raw.consumable_items       | Verbrauchsmaterial (MQTT)                                   |
-| xxx.mower_raw.file_17                | Neue Pfaddatei hochgeladen (MQTT)                           |
-| xxx.mower_raw.file_7                 | Neue Kartendatei hochgeladen (MQTT)                         |
-| xxx.mower_raw.current_work_param     | Aktuelle Arbeitsparameter (MQTT)                            |
-| xxx.mower_raw.mcu_ver                | Mikrocontroller-Einheit (MQTT)                              |
-| xxx.mower_raw.mow_efficiency         | Mähleistung (MQTT)                                          |
-| xxx.mower_raw.current_file           | Aktuelle Pfaddatei (MQTT)                                   |
-| xxx.mower_raw.path_info              | Aktuelle Anzahl der Points vom Mähverlauf (MQTT+GPS)        |
-| xxx.mower_raw.notice                 | Letzte Nachricht (MQTT)                                     |
-| xxx.mower_raw.rain                   | Regeneinstellung (MQTT)                                     |
-| xxx.mower_raw.robot_pos              | Mäherposition (MQTT)                                        |
-| xxx.mower_raw.rtk_pos                | Echtzeitkinematik-Positionierung (MQTT)                     |
-| xxx.mower_raw.schedule_info          | Letzter geänderter Timeslot (MQTT)                          |
-| xxx.mower_raw.support_custom_pattern | Alle möglichen Muster (MQTT)                                |
-| xxx.mower_raw.appUserId              | Benutzer-ID                                                 |
-| xxx.mower_raw.auto_upgrade           | Automatische Firmwareaktualisierung an/aus                  |
-| xxx.mower_raw.backup_map_amount      | Anzahl der Backup-Maps                                      |
-| xxx.mower_raw.base_sn                | Seriennummer der Ladestation                                |
-| xxx.mower_raw.bindAntiTheftId        | ID vom 4G- oder GPS-Modul                                   |
-| xxx.mower_raw.bladeHeight            | Klingenhöhe                                                 |
-| xxx.mower_raw.bladeSpeed             | Klingengeschwindigkeit                                      |
-| xxx.mower_raw.camera_sn              | Seriennummer der Kamera                                     |
-| xxx.mower_raw.camera_temp            | Temperatur der Kamera                                       |
-| xxx.mower_raw.code                   | Antwort Cloud 0=Alles OK >0=Fehler                          |
-| xxx.mower_raw.dev_model              | Mähermodell                                                 |
-| xxx.mower_raw.dev_name               | Name vom Mäher                                              |
-| xxx.mower_raw.deviceId               | Mäher-ID                                                    |
-| xxx.mower_raw.deviceSn               | Seriennummer vom Mäher                                      |
-| xxx.mower_raw.elec                   | Batterielevel                                               |
-| xxx.mower_raw.event_code             | Letztes Event                                               |
-| xxx.mower_raw.id                     | ID Zuordnung der Messages über MQTT                         |
-| xxx.mower_raw.iobroker_sid           | Wird vom Adapter erstellt und wird für die Livemap benötigt |
-| xxx.mower_raw.key                    | Key Zuordnung der Messages über MQTT                        |
-| xxx.mower_raw.net_4g_sig             | 4G-Signalstärke                                             |
-| xxx.mower_raw.path                   | Aktueller Path -> wird für die Livemap benötigt             |
-| xxx.mower_raw.sid                    | SID von der APP für die Livemap                             |
-| xxx.mower_raw.soc_temp               | Ladezustandstemperatur                                      |
+| Objekt-ID                            | Beschreibung                                         |
+| ------------------------------------ | ---------------------------------------------------- |
+| xxx.mower_raw.blade                  | Klingeneinstellungen (MQTT)                          |
+| xxx.mower_raw.charge_pos             | Position Ladestation (MQTT)                          |
+| xxx.mower_raw.consumable_items       | Verbrauchsmaterial (MQTT)                            |
+| xxx.mower_raw.file_17                | Neue Pfaddatei hochgeladen (MQTT)                    |
+| xxx.mower_raw.file_7                 | Neue Kartendatei hochgeladen (MQTT)                  |
+| xxx.mower_raw.current_work_param     | Aktuelle Arbeitsparameter (MQTT)                     |
+| xxx.mower_raw.mcu_ver                | Mikrocontroller-Einheit (MQTT)                       |
+| xxx.mower_raw.mow_efficiency         | Mähleistung (MQTT)                                   |
+| xxx.mower_raw.current_file           | Aktuelle Pfaddatei (MQTT)                            |
+| xxx.mower_raw.path_info              | Aktuelle Anzahl der Points vom Mähverlauf (MQTT+GPS) |
+| xxx.mower_raw.notice                 | Letzte Nachricht (MQTT)                              |
+| xxx.mower_raw.rain                   | Regeneinstellung (MQTT)                              |
+| xxx.mower_raw.robot_pos              | Mäherposition (MQTT)                                 |
+| xxx.mower_raw.rtk_pos                | Echtzeitkinematik-Positionierung (MQTT)              |
+| xxx.mower_raw.schedule_info          | Letzter geänderter Timeslot (MQTT)                   |
+| xxx.mower_raw.support_custom_pattern | Alle möglichen Muster (MQTT)                         |
+| xxx.mower_raw.appUserId              | Benutzer-ID                                          |
+| xxx.mower_raw.auto_upgrade           | Automatische Firmwareaktualisierung an/aus           |
+| xxx.mower_raw.backup_map_amount      | Anzahl der Backup-Maps                               |
+| xxx.mower_raw.base_sn                | Seriennummer der Ladestation                         |
+| xxx.mower_raw.bindAntiTheftId        | ID vom 4G- oder GPS-Modul                            |
+| xxx.mower_raw.bladeHeight            | Klingenhöhe                                          |
+| xxx.mower_raw.bladeSpeed             | Klingengeschwindigkeit                               |
+| xxx.mower_raw.camera_sn              | Seriennummer der Kamera                              |
+| xxx.mower_raw.camera_temp            | Temperatur der Kamera                                |
+| xxx.mower_raw.code                   | Antwort Cloud 0=Alles OK >0=Fehler                   |
+| xxx.mower_raw.dev_model              | Mähermodell                                          |
+| xxx.mower_raw.dev_name               | Name vom Mäher                                       |
+| xxx.mower_raw.deviceId               | Mäher-ID                                             |
+| xxx.mower_raw.deviceSn               | Seriennummer vom Mäher                               |
+| xxx.mower_raw.elec                   | Batterielevel                                        |
+| xxx.mower_raw.event_code             | Letztes Event                                        |
+| xxx.mower_raw.id                     | ID Zuordnung der Messages über MQTT                  |
+| xxx.mower_raw.key                    | Key Zuordnung der Messages über MQTT                 |
+| xxx.mower_raw.net_4g_sig             | 4G-Signalstärke                                      |
+| xxx.mower_raw.path                   | Aktueller Path -> wird für die Livemap benötigt      |
+| xxx.mower_raw.sid                    | SID von der APP für die Livemap                      |
+| xxx.mower_raw.soc_temp               | Ladezustandstemperatur                               |
 
 ![mower_raw_1.png](img/mower_raw_1.png)
 ![mower_raw_2.png](img/mower_raw_2.png)
@@ -832,41 +831,42 @@ Wenn Einstellungen fehlen, dann bitte ein Issue anlegen oder im Forum anfragen.
 
 ### Einstellungen
 
-| State                          | Beschreibung                                                                                                                                           | Range                                                            | Unit | Notes          |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- | ---- | -------------- |
-| `bladeSpeed`                   | Klingengeschwindigkeit                                                                                                                                 | 2800 – 3000 (step 100)                                           | rpm  | New API only   |
-| `bladeHeight`                  | Klingenhöhe                                                                                                                                            | 20 – 100 (step 5)                                                | mm   | New API only   |
-| `rainFlag`                     | Regenverzögerung aktivieren/deaktivieren                                                                                                               | boolean                                                          | —    | Old + New API  |
-| `rainDelayDuration`            | Verzögerungszeit nach dem Regen in Minuten                                                                                                             | 0 – 720 (step 1)                                                 | min  | Old + New API  |
-| `night_work`                   | Nachtarbeit aktivieren/deaktivieren                                                                                                                    | boolean                                                          | —    | New API only   |
-| `recharge_mode`                | Andockweg                                                                                                                                              | 0 = direct path<br>1 = smart<br>2 = along edge                   | —    | New API only   |
-| `work_touch_mode`              | Strategie zur Hindernisvermeidung                                                                                                                      | 0 = no touch<br>1 = slow touch                                   | —    | New API only   |
-| `auto_ride_edge_map_m`         | Automatische Kantenverfolgungskartierung                                                                                                               | 0 = not enabled<br>1 = enabled                                   | —    | New API only   |
-| `dis_along_border`             | Kantenabstand                                                                                                                                          | 0 = close<br>1 = far                                             | —    | New API only   |
-| `first_along_border`           | Mähpräferenz                                                                                                                                           | boolean                                                          | —    | New API only   |
-| `follow_border_freq`           | Kantenschnittfrequenz                                                                                                                                  | 1 = 1 round<br>2 = 2 round<br>3 = 3 round                        | —    | New API only   |
-| `follow_border_laps`           | Kantenmährunden                                                                                                                                        | 1 = everytime<br>2 = every second time<br>3 = every third time   | —    | New API only   |
-| `plan_mode`                    | Schnittrichtung. Bei 4 muss ein Winkel angelegt sein                                                                                                   | 0 = default<br>1 = traceless<br>3 = efficient<br>4 = multi-angle | —    | New API only   |
-| `gap`                          | Schnittabstand                                                                                                                                         | 1 = narrow<br>2 = standard<br>3 = wide                           | —    | New API only   |
-| `workSpeed`                    | Mähgeschwindigkeit                                                                                                                                     | 1 = slow<br>2 = standard<br>3 = fast                             | —    | New API only   |
-| `ai_sensitivity`               | KI-Sensitivität                                                                                                                                        | 0 = low<br>1 = high                                              | —    | New API only   |
-| `dev_name`                     | Gerätename ändern                                                                                                                                      | string                                                           | —    | New API only   |
-| `energy_saving_mode`           | Energiesparmodus                                                                                                                                       | boolean                                                          | —    | New API only   |
-| `pin_old`                      | Alte PIN eintragen                                                                                                                                     | number                                                           | —    | New API only   |
-| `pin_new`                      | Um den PIN zu wechseln, muss hier der neue PIN eintragen werden und<br> unter `pin_old` den Alten PIN                                                  | number                                                           | —    | New API only   |
-| `custom_flag`                  | Unbekannt                                                                                                                                              | boolean                                                          | —    | New API only   |
-| `auto_upgrade`                 | Automatische Firmware-Update aktivieren/deaktivieren                                                                                                   | boolean                                                          | —    | New API only   |
-| `reset_bladeplate`             | Klingenplattenzähler zurücksetzen                                                                                                                      | boolean                                                          | —    | New API only   |
-| `reset_blade`                  | Klingenzähler zurücksetzen                                                                                                                             | boolean                                                          | —    | New API only   |
-| `reset_smal_bladeplate`        | Kleine Klingenplattenzähler zurücksetzen                                                                                                               | boolean                                                          | —    | New API only X |
-| `reset_smal_blade`             | Kleine Klingenzähler zurücksetzen                                                                                                                      | boolean                                                          | —    | New API only X |
-| `firmware_available`           | Aktuelle verfügbare Firmware                                                                                                                           | string                                                           | —    | New API only   |
-| `firmware_description`         | Beschreibung der aktuellen Firmware                                                                                                                    | string                                                           | —    | New API only   |
-| `firmware_update_available`    | Ist ein Update verfügbar true=ja und false=nein                                                                                                        | boolean                                                          | —    | New API only   |
-| `firmware_update_check_manual` | Der Adapter prüft nach jedem Neustart alle 24h.<br>Hiermit kann man manuell prüfen, ob ein Update zur Verfügung steht.                                 | boolean                                                          | —    | New API only   |
-| `firmware_update_start`        | Firmware-Update starten.                                                                                                                               | boolean                                                          | —    | New API only   |
-| `topUp`                        | Nur sichtbar wenn man mehr als einen Mäher in der APP nutzt. Geräte für die Startseite in der App setzen. State `mower_raw.topUp` wird nicht geändert. | boolean                                                          | —    | New API only   |
-| `topUp_array`                  | Nur sichtbar wenn man mehr als einen Mäher in der APP nutzt. Sortierung der Geräte für die Ansicht in der App.                                         | boolean                                                          | —    | New API only   |
+| State                           | Beschreibung                                                                                                                                           | Range                                                            | Unit | Notes          |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- | ---- | -------------- |
+| `bladeSpeed`                    | Klingengeschwindigkeit                                                                                                                                 | 2800 – 3000 (step 100)                                           | rpm  | New API only   |
+| `bladeHeight`                   | Klingenhöhe                                                                                                                                            | 20 – 100 (step 5)                                                | mm   | New API only   |
+| `rainFlag`                      | Regenverzögerung aktivieren/deaktivieren                                                                                                               | boolean                                                          | —    | Old + New API  |
+| `rainDelayDuration`             | Verzögerungszeit nach dem Regen in Minuten                                                                                                             | 0 – 720 (step 1)                                                 | min  | Old + New API  |
+| `night_work`                    | Nachtarbeit aktivieren/deaktivieren                                                                                                                    | boolean                                                          | —    | New API only   |
+| `recharge_mode`                 | Andockweg                                                                                                                                              | 0 = direct path<br>1 = smart<br>2 = along edge                   | —    | New API only   |
+| `work_touch_mode`               | Strategie zur Hindernisvermeidung                                                                                                                      | 0 = no touch<br>1 = slow touch                                   | —    | New API only   |
+| `auto_ride_edge_map_m`          | Automatische Kantenverfolgungskartierung                                                                                                               | 0 = not enabled<br>1 = enabled                                   | —    | New API only   |
+| `dis_along_border`              | Kantenabstand                                                                                                                                          | 0 = close<br>1 = far                                             | —    | New API only   |
+| `first_along_border`            | Mähpräferenz                                                                                                                                           | boolean                                                          | —    | New API only   |
+| `follow_border_freq`            | Kantenschnittfrequenz                                                                                                                                  | 1 = 1 round<br>2 = 2 round<br>3 = 3 round                        | —    | New API only   |
+| `follow_border_laps`            | Kantenmährunden                                                                                                                                        | 1 = everytime<br>2 = every second time<br>3 = every third time   | —    | New API only   |
+| `plan_mode`                     | Schnittrichtung. Bei 4 muss ein Winkel angelegt sein                                                                                                   | 0 = default<br>1 = traceless<br>3 = efficient<br>4 = multi-angle | —    | New API only   |
+| `gap`                           | Schnittabstand                                                                                                                                         | 1 = narrow<br>2 = standard<br>3 = wide                           | —    | New API only   |
+| `workSpeed`                     | Mähgeschwindigkeit                                                                                                                                     | 1 = slow<br>2 = standard<br>3 = fast                             | —    | New API only   |
+| `ai_sensitivity`                | KI-Sensitivität                                                                                                                                        | 0 = low<br>1 = high                                              | —    | New API only   |
+| `dev_name`                      | Gerätename ändern                                                                                                                                      | string                                                           | —    | New API only   |
+| `energy_saving_mode`            | Energiesparmodus                                                                                                                                       | boolean                                                          | —    | New API only   |
+| `pin_old`                       | Alte PIN eintragen                                                                                                                                     | number                                                           | —    | New API only   |
+| `pin_new`                       | Um den PIN zu wechseln, muss hier der neue PIN eintragen werden und<br> unter `pin_old` den Alten PIN                                                  | number                                                           | —    | New API only   |
+| `custom_flag`                   | Unbekannt                                                                                                                                              | boolean                                                          | —    | New API only   |
+| `auto_upgrade`                  | Automatische Firmware-Update aktivieren/deaktivieren                                                                                                   | boolean                                                          | —    | New API only   |
+| `reset_bladeplate`              | Klingenplattenzähler zurücksetzen                                                                                                                      | boolean                                                          | —    | New API only   |
+| `reset_blade`                   | Klingenzähler zurücksetzen                                                                                                                             | boolean                                                          | —    | New API only   |
+| `reset_smal_bladeplate`         | Kleine Klingenplattenzähler zurücksetzen                                                                                                               | boolean                                                          | —    | New API only X |
+| `reset_smal_blade`              | Kleine Klingenzähler zurücksetzen                                                                                                                      | boolean                                                          | —    | New API only X |
+| `firmware_available`            | Aktuelle verfügbare Firmware                                                                                                                           | string                                                           | —    | New API only   |
+| `firmware_description`          | Beschreibung der aktuellen Firmware                                                                                                                    | string                                                           | —    | New API only   |
+| `firmware_update_available`     | Ist ein Update verfügbar true=ja und false=nein                                                                                                        | boolean                                                          | —    | New API only   |
+| `firmware_update_check_manual`  | Der Adapter prüft nach jedem Neustart alle 24h.<br>Hiermit kann man manuell prüfen, ob ein Update zur Verfügung steht.                                 | boolean                                                          | —    | New API only   |
+| `firmware_update_start`         | Firmware-Update starten.                                                                                                                               | boolean                                                          | —    | New API only   |
+| `topUp`                         | Nur sichtbar wenn man mehr als einen Mäher in der APP nutzt. Geräte für die Startseite in der App setzen. State `mower_raw.topUp` wird nicht geändert. | boolean                                                          | —    | New API only   |
+| `topUp_array`                   | Nur sichtbar wenn man mehr als einen Mäher in der APP nutzt. Sortierung der Geräte für die Ansicht in der App.                                         | boolean                                                          | —    | New API only   |
+| `settings.power_off_sleep_mode` | Schlafmodus ein-/ausschalten                                                                                                                           | boolean                                                          | -    | New API only   |
 
 ![settings_1.png](img/settings_1.png)
 ![settings_2.png](img/settings_2.png)
@@ -926,6 +926,7 @@ Wenn Einstellungen fehlen, dann bitte ein Issue anlegen oder im Forum anfragen.
 | auth.mqtt_connected_V1  | Status MQTT-Verbindung für V1 Modell                                          |
 | auth.mqtt_connected_old | Status MQTT-Verbindung für Mäher mit Kabel                                    |
 | auth.mqtt_connection    | Zugangsdaten für die MQTT-Verbindung                                          |
+| auth.mqtt_count         | MQTT-Wiederverbindungen nach einem Adapter-Neustart zählen                    |
 | auth.session            | Zugangsdaten für die Cloud Verbindung                                         |
 
 ![auth.png](img/auth.png)
@@ -994,6 +995,8 @@ Wenn Einstellungen fehlen, dann bitte ein Issue anlegen oder im Forum anfragen.
 
 - (copilot) Adapter requires node.js >= 22.19.0 now
 - (Lucky-ESA) Adaptation for the S5-Gen-2 mower
+- (Lucky-ESA) Mirroring of App version 1.9.0 regarding new mqtt url, AppId register, Topic and clientId
+- (Lucky-ESA) Added Power-off Sleep setting
 
 ### 0.0.5 (2026-10-24)
 

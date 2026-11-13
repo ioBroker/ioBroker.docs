@@ -33,6 +33,7 @@ The following topics are expected:
 - `tele/DeviceNAME/SENSOR`
 - `tele/DeviceNAME/INFOx`
 - `tele/DeviceNAME/ENERGY`
+- `tele/DeviceNAME/SWITCH` (remote controls, see [Auto-creation of objects](#auto-creation-of-objects))
 - `cmnd/DeviceNAME/POWERx`
 - `stat/DeviceNAME/POWERx`
 - `/DeviceNAME/BM280/Temperature`
@@ -90,7 +91,26 @@ The following topics are expected:
 - `/DeviceNAME/SDS0X1/Longitude`
 - `/DeviceNAME/SR04/Distance`
 
-**Note**: The list could be easily extended. Please send `Pull Requests` or *debug data* for unknown states to the developer (via issue).
+**Note**: The list could be easily extended. Please send `Pull Requests` or *debug data* for unknown states to the developer (via issue). Own topics (e.g. of rules or scripts on the device) can be added in the settings, see `Additional topics` below.
+
+## Sending any command (`Backlog`)
+Every device has the state `Backlog`. Its text is sent to `cmnd/<topic>/Backlog`, so it can be any Tasmota command, also commands without an own state, e.g. `POWER1 TOGGLE` or `POWER1 BLINK`. Several commands are separated by `;`: `POWER1 ON; Delay 100; POWER1 OFF`. The device card of the device manager shows it as a text field.
+
+The `POWERx` states stay boolean (on/off), so that visualizations, scripts and histories keep working. Use `Backlog` for `TOGGLE` or `BLINK`.
+
+## Encrypted connections (MQTTS)
+With **Secure (MQTTS)** the built-in server accepts only TLS connections. Usually port `8883` is used for it, so set the port too. The certificates are selected from the certificates of ioBroker (admin: Settings → Certificates), empty fields use the self-signed default certificates of ioBroker. If the certificates cannot be read, the server is not started and the log tells why.
+
+On the Tasmota side:
+
+* TLS is only included in the `tasmota32` and `tasmota-zbbridge` builds. ESP8266 devices need an own build with `USE_MQTT_TLS`, see the [Tasmota TLS documentation](https://tasmota.github.io/docs/TLS/).
+* `SetOption103 1` enables TLS, `MqttPort 8883` sets the port.
+* `SetOption132 1` checks the fingerprint of the server instead of the built-in certificate authorities (Let's Encrypt, Amazon). It is required for self-signed certificates, e.g. the default ones of ioBroker. Tasmota learns the fingerprint on the first connection.
+* The search for devices of the device manager writes `SetOption103 1; SetOption132 1` automatically, if the server (or in bridge mode the external broker, `mqtts://`) uses TLS.
+
+A device without TLS on the MQTTS port is reported once per hour (`TLS connection from <address> failed`), the further attempts are logged as debug.
+
+For the connection to an external broker see [Encrypted connections](#encrypted-connections) of the bridge mode.
 
 ## Bridge mode
 
@@ -145,8 +165,19 @@ In the web config, you can determine which MQTT telegrams create the new objects
 * `TELE_SENSOR` - creates objects from `tele/xxx/SENSOR` telegrams
 * `TELE_STATE` - creates objects from `tele/xxx/STATE` telegrams
 * `STAT_RESULT` - creates objects from `stat/xxx/RESULT` telegrams
+* `TELE_SWITCH` - creates objects from `tele/xxx/SWITCH` telegrams of remote controls (on by default)
 
 Usually TELE_SENSOR should be sufficient for most users.
+
+**Remote controls:** the Berry script [Tasmota-eWeLinkRemote](https://github.com/Flobul/Tasmota-eWeLinkRemote) (eWeLink R5, S-MATE) sends every press as `tele/xxx/SWITCH = {"Button1":{"Action":"single"},"Signal":-61,"DeviceId":"5AC87680",...}`. It is stored in `Button1_Action` (`single`, `double` or `hold`) and `Signal`, `DeviceId`, `DeviceType`, `Sequence`, `Timestamp`. Every press is written, also the same action again. `DeviceId` is written before `ButtonX_Action`, so a script triggered by the button can read which remote was pressed.
+
+**Additional topics:** values on other topics than the ones above are ignored, unless the last part of the topic is listed in `Additional topics` (separated by commas, `*` as wildcard, case is ignored), e.g. `PIR*, Motion`:
+
+* A plain value creates a read-only state with the name of the topic: `stat/xxx/PIR1 = ON` creates `PIR1`. The type is detected from the first value: a number (`1`, `25.4`), on/off (`ON`, `OFF`) or a text. An existing state keeps its type, values which do not fit (e.g. `TOGGLE` for on/off) are ignored.
+* JSON is processed like `tele/xxx/SENSOR`, but under the name of the topic: `tele/xxx/Motion = {"State":"detected"}` creates `Motion_State` (`Motion.State` with `Create object tree`).
+* The Tasmota telegrams (`STATE`, `SENSOR`, `RESULT`, `STATUSx`, ...) keep their own options, even with `*`.
+
+With several remote controls, the Berry script can send every remote on a separate topic, e.g. `EweTopicMode 3 %prefix%/%topic%/Remote_%alias%` with the additional topic `Remote_*`. Then every remote gets its own states (`Remote_kitchen_Button1_Action`, ...).
 
 * `Create object tree` creates objects as tree structure
 
@@ -196,26 +227,29 @@ The device card shows the connection and the Wi-Fi signal (`Wifi_Signal` in dBm)
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.4.0 (2026-11-10)
+* (@GermanBluefox) The built-in MQTT server supports encrypted connections (MQTTS) with the certificates of ioBroker, new option "Secure (MQTTS)". The search for devices enables TLS on the devices then (#529)
+
+### 5.3.0 (2026-11-10)
+* (@GermanBluefox) Presses of remote controls (`tele/<topic>/SWITCH`, e.g. eWeLink R5 with the Berry script Tasmota-eWeLinkRemote) are stored, new option "For tele/SWITCH" (#515)
+* (@GermanBluefox) New option "Additional topics": values of own topics like `stat/<topic>/PIR1` are stored, also with wildcards (`PIR*`) (#281)
+* (@GermanBluefox) Every device has the state `Backlog` to send any Tasmota command, e.g. `POWER1 TOGGLE` (#277)
+
+### 5.2.2 (2026-11-10)
+* (@patricknitsch) The firmware update dialog of the device manager recognizes the new version also with "Create object tree" ("INFO.Info1.Version"), before it waited till the timeout
+* (@patricknitsch) The firmware update from the device manager clears the "Upgrade" command afterwards, so a restart of the external broker (e.g. the ioBroker MQTT adapter) does not start the update again
+* (@patricknitsch) Bridge mode: "INFO.Version" and the IP address are requested again after a device restarted (e.g. after a firmware update)
+* (@GermanBluefox) A device with a wrong MQTT password is reported only once per hour instead of on every connection attempt, the other attempts are logged as debug (#548)
+* (@GermanBluefox) Control characters (e.g. 0x00) of a corrupted payload are escaped in the warning "cannot parse data", so they do not corrupt the log file (#586)
+* (@GermanBluefox) The timers use the adapter functions, so they are cleared when the adapter stops
+
 ### 5.2.1 (2026-10-23)
 * (@GermanBluefox) Firmware with other texts for ON/OFF (e.g. "AN"/"AUS" of a German build) is supported: the texts of every device are requested and recognized automatically
 
 ### 5.2.0 (2026-10-22)
 * (@GermanBluefox) The MQTT login of the built-in server and of the external broker can be taken from the central credential storage of admin (Settings → Credentials), admin 7.9.0+ is required (#629)
 
-### 5.1.1 (2026-10-13)
-* (@GermanBluefox) Admin 7.6.20+ is required. Added missing translations. The tests run on Windows and macOS too
-
-### 5.1.0 (2026-10-13)
-* (@GermanBluefox) Device manager: firmware update of Tasmota devices. The latest release is read from GitHub once a day (option "Check for firmware updates"), devices with an older firmware show the update indicator. The update is started with `Upgrade 1`, so the device downloads the firmware from its own OTA URL
-* (@GermanBluefox) Device manager: search for Tasmota devices in the network and connect them with ioBroker (enables MQTT and writes server, port, user and password)
-* (@GermanBluefox) Device manager: the connection state and the Wi-Fi signal are updated live, the signal is shown in dBm (`Wifi_Signal`) instead of the link quality in percent. Toggles like `Fade` are switches instead of buttons
-* (@GermanBluefox) The devices are linked with their `alive` state (`common.statusStates`), so admin shows in the object tree whether a device is connected
-* (@GermanBluefox) The port of the built-in MQTT server is reported to js-controller 8 as a used resource (`common.declareUsedResources`), so admin shows which ports are occupied. In bridge mode no port is reported. If the port is already used, the log names the instance that occupies it
-
-### 5.0.0 (2026-10-13)
-* (@GermanBluefox) Breaking change: the roles of the objects change, see [Roles of the objects since 5.0](#roles-of-the-objects-since-50)
-* (@GermanBluefox) Better roles for the type-detector: diagnostic values (e.g. `Wifi_Channel`, `Heap`, `MqttPort`) are not detected as dimmer, blind or window anymore, `POWER` is the switch of RGB lights and `switch.power` of the relays is migrated to `switch`, `Scheme` is the light effect. The roles of the existing objects are updated, roles changed by the user are kept
-* (@GermanBluefox) `Switch1`...`Switch28` (inputs of the device) are read-only sensors now
+Older changes can be found in CHANGELOG_OLD.md
 
 ## License
 

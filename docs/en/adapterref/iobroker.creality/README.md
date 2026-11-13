@@ -69,8 +69,12 @@ If you like our work and would like to support us, we appreciate any donation.
 ## Changelog
 
 <!--
+	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1 (2026-11-08)
+- (skvarel) Added `meta.folder` typing and localized title for adapter/instance namespace.
+
 ### 0.5.0 (2026-10-06)
 - (skvarel) Fixed stale `currentJob.progress` after finished print / Moonraker restart (Creality WS fallback)
 - (skvarel) Modified Moonraker fan query to be optional so missing fan objects cannot 404 the whole poll
@@ -89,10 +93,6 @@ If you like our work and would like to support us, we appreciate any donation.
 - (skvarel) Modified CFS temperature/humidity roles to `value.temperature` / `value.humidity`
 - (skvarel) Modified Moonraker poll loop to use `setTimeout` chain instead of `setInterval`
 - (skvarel) Modified `currentJob.finishAt` to include local date (`YYYY-MM-DD HH:MM`)
-
-### 0.2.0 (2026-08-08)
-- (skvarel) Fixed part cooling fan % to match slicer/display (Creality fan0_min remapping)
-- (skvarel) Added `fans.partCoolingPwm` for raw PWM duty cycle
 
 ## License
 MIT License

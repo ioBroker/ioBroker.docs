@@ -44,10 +44,10 @@ The adapter currently provides:
 - Realtime control updates through one reconnecting SSE stream per discovered appliance
 - Current, target, minimum, and maximum temperatures for every reported temperature zone
 - Reported temperature units and temperature-step metadata
-- Validated writes for target temperatures, NightMode, PartyMode, SuperCool, and SuperFrost when the corresponding capability is reported
+- Validated writes for target temperatures, NightMode, PartyMode, SuperCool, SuperFrost, and IceMaker when the corresponding capability is reported
 - Safe handling of malformed, unknown, and future control types without crashing the adapter
 
-`TemperatureControl` and `ToggleControl` are currently mapped. Operational toggle controls are grouped in the device's `controls` channel; any reported zone association is retained in the object's native metadata. Realtime control updates use the official per-device Server-Sent Events (SSE) endpoint, while periodic REST polling remains active as a safety resync and for device discovery.
+`TemperatureControl`, `ToggleControl`, and `IceMakerControl` are currently mapped. Operational controls are grouped in the device's `controls` channel; any reported zone association is retained in the object's native metadata. IceMaker exposes `OFF` and `ON`, plus `MAX_ICE` only when the appliance reports that capability. Realtime control updates use the official per-device Server-Sent Events (SSE) endpoint, while periodic REST polling remains active as a safety resync and for device discovery.
 
 ## Getting a HomeAPI API key
 
@@ -87,7 +87,8 @@ liebherr.0
         |   |-- imageUrl
         |   `-- available
         |-- controls
-        |   `-- <toggle control>
+        |   |-- <toggle control>
+        |   `-- icemaker (if reported)
         `-- zone_<zoneId>
             |-- zoneId
             |-- position
@@ -127,7 +128,9 @@ Please report reproducible problems in the [GitHub issue tracker](https://github
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.0 (2026-11-05)
+
+* (Gaspode69) Added writable IceMaker control with capability-based Max Ice support
 
 ### 0.0.5 (2026-10-21)
 

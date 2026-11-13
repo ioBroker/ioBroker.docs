@@ -13,6 +13,8 @@ This repository contains an ioBroker adapter for [Zeekr electric vehicles](https
 - Optional automatic secret extraction from a `zeekr_secrets.json` file or directly from the Zeekr APKs on the ioBroker host
 - Vehicle discovery and status polling via a Python bridge that uses the Zeekr API client
 - Datapoints for vehicle identity, battery level, range, odometer, charging state, lock state, climate state, and raw payloads
+- Adapter-side driving logbook (`trips.own*`, works with shared accounts), charge session evaluation with roaming tariffs (`energy.*`), day/week/month aggregates and CSV export for VIS and spreadsheets
+- Named geo zones, adaptive polling (fast while driving), and webhook alerts (charge finished/interrupted, service due, tyre warning, low 12V)
 - Health and alert states such as `info.health`, `info.alertCount`, and `info.lastSuccessfulUpdate`
 - Automatic bootstrap of a local Python runtime and Zeekr dependency on first use
 
@@ -158,6 +160,11 @@ The adapter exposes the following configuration fields:
 - `pollingInterval`
 - `drivePollingInterval` (seconds, min 30 — fast poll while the car moves)
 - `storeTripPositions` (boolean, opt-in: start/end coordinates in the own logbook, rounded; default off)
+- `zonesJson` (optional list like `[{"name":"Office","lat":52.5,"lon":13.4,"radiusM":200}]` — shown as `zones.currentZone`)
+- `tariffsJson` (optional charger/time tariffs for session pricing, see “Energy” below)
+- `homeLat` / `homeLon` / `homeRadiusM` (home zone for `isHome` and tariff matching)
+- `batteryCapacityKwh` (default 100 — set your real net capacity), `chargingEfficiencyPct` (default 88), `defaultPricePerKwh` (default 0.3)
+- `smartChargeEnabled`, `smartChargeDeparture` (charge in the cheapest window before departure)
 - `vehicleFilter`
 - `vehicleModel` (optional, shown as `details.model` — the API exposes no model name)
 - `abrpEnabled`, `abrpApiKey`, `abrpUserTokens` (see “ABRP upload” below)
@@ -192,19 +199,33 @@ The adapter creates a vehicle channel for each discovered vehicle with the follo
 - `status`: battery, range, odometer, charging power, speed, plug state, charging state, lock state, climate state, charge limit, tire pressures, GPS, 12V battery, central locking, doors/trunk open states, consumption, engine/maintenance states, and timestamps
 - `control`: command payload, service ID, send button, typed buttons (lock, climate, charge, windows, sunshade, lights), writable charge limit, climate temp/duration, charge/travel plan inputs, last command, and last result
 - `trips`: API trip count, last trip distance/start/end/duration/average speed/consumption, recent trip list (logbook, last 5 without coordinates), fetch status (`trips.fetchJson`: ok/total/payload keys — empty when the server sends nothing, e.g. on shared accounts, see above), plus the adapter-side logbook below
+- `energy`: last session, running month totals, standby drain, day/week aggregates, charge session history (`sessionsList`), per-session price override inputs (`nextSessionPrice`/`nextSessionName`, auto-reset after settle)
+- `smartCharge`: cheapest-window decision state
+- `zones`: current named geo zone (`currentZone`) and last change time; `isHome` reflects the configured home zone
+- `batteryLog`: monthly odometer/range/SoC snapshots
 - `raw`: raw payloads from the bridge
 - `details`: additional metadata; `details.model` shows the configured vehicle model (Advanced tab) because the API exposes no model name
 
-Polling is adaptive: driving vehicles use `drivePollingInterval` (default 30s, min 30s, with hysteresis so short stops don't flap the timer), charging vehicles poll every 60s, idle ones at the configured interval. Unexpected charging stops and newly opened doors trigger the alert webhook (rate-limited).
+Polling is adaptive: driving vehicles use `drivePollingInterval` (default 30s, min 30s, with hysteresis so short stops don't flap the timer), charging vehicles poll every 60s, idle ones at the configured interval. The alert webhook (rate-limited, 15 min cooldown, edge-triggered) fires on unexpected charging stops, finished charges, newly opened doors/lids, service due (≤ 30 days or ≤ 2000 km), tyre warnings and low 12V battery (< 12.0 V).
 
 ### Own logbook (works with any account)
 
 The API journey log is owner-only, so the adapter keeps its own logbook from poll data (`trips.own*`) — independent of `trips.*`:
 
-- Trip start on movement (`currentSpeed > 0`, running engine, or odometer jump ≥ 0.1 km); trip end after 3 parked polls. Noise (no distance, < 1 min) is discarded.
-- `trips.ownList` (last 20), `trips.ownCount`, last-trip distance/start/end/duration/avg speed/consumption/energy, `trips.ownMonthKm`/`trips.ownMonthCount`. Survives restarts (instance data dir).
+- Trip start on movement (`currentSpeed > 0`, running engine, or odometer jump ≥ 0.1 km); trip end after 3 parked polls. Engine-on idle without distance (< 0.2 km) is discarded, not logged.
+- `trips.ownList` (last 20), `trips.ownCount`, last-trip distance/start/end/duration/avg speed/consumption/energy/cost, `trips.ownMonthKm`/`trips.ownMonthCount`/`trips.ownMonthUsedKwh`/`trips.ownMonthCost`, month consumption and cost per 100 km. Survives restarts (instance data dir).
 - No coordinates by default; enable `storeTripPositions` to also store rounded start/end positions.
 - Consumption/energy come from SoC delta × `batteryCapacityKwh` — set your real net capacity (e.g. 100 kWh for the 100 kWh pack, less for smaller packs), otherwise energy figures are wrong.
+
+### Display in VIS (and other visualisations)
+
+All display values are plain states — no VIS widgets are shipped (the adapter stays view-agnostic):
+
+- **Today/week at a glance:** `energy.todayKwh`/`todayCost`/`todayLossKwh`, `energy.weekKwh`/`weekCost`, `trips.ownTodayKm`/`ownTodayCount`, `trips.ownWeekKm`. Single numbers, ideal for info widgets or ECharts bars.
+- **Month:** `energy.monthKwh`/`monthCost`/`monthLossKwh`, `trips.ownMonthKm`/`ownMonthCount`/`ownMonthUsedKwh`/`ownMonthCost`, `trips.ownMonthConsumptionKwh100km`, `trips.ownMonthCostPer100km`.
+- **Tables:** `trips.ownList` and `energy.sessionsList` are JSON arrays (last 20) for table widgets (e.g. vis-inventwo table, Jarvis, or ECharts dataset). Trip entries carry start/end, distance, duration, energy, consumption and cost; sessions carry kWh, cost, tariff and price.
+- **History:** log `status.batteryLevel`, `all.chargePower`, `status.isCharging`, `status.pluggedIn` (already history-enabled on typical installs) for charge curves; `status.batterySoh` appears once the API delivers a plausible value (0 = unsupported, shown as empty).
+- **CSV export:** the APK page (“6. Download logbook CSV”) downloads `zeekr-trips.csv` + `zeekr-sessions.csv` for spreadsheets — same content as the JSON lists, semicolon-separated.
 
 ## Energy, costs and smart charging
 
@@ -222,6 +243,8 @@ Tariffs in the `tariffsJson` config decide the price per session by **location a
 ```
 
 Entries without location match everywhere; entries without `from`/`to` match any time. Without a match the default price applies. Set `batteryCapacityKwh` (default 100) and `chargingEfficiencyPct` (default 88) for correct loss math.
+
+For one-off roaming prices, write `energy.nextSessionPrice` (€/kWh) and optionally `energy.nextSessionName` before/during the charge (VIS, script or Admin): the next settle uses the override instead of geo tariff/default and resets both states afterwards. The used price is stored per session in `lastSession`/`sessionsList`.
 
 `isHome` reflects the configured home zone. With `smartChargeEnabled` and a departure time, the adapter starts/pauses charging via `RCS` so the car charges in the cheapest matching window before departure (`smartCharge.state` shows `charge`/`wait`/`idle`).
 
@@ -245,14 +268,14 @@ The adapter can push the battery SoC (plus position, speed and range when known)
 
 - No `abrpLast*` states appear at all: upload disabled, API key empty, or the tokens field is not valid JSON / has no entry for this VIN — the adapter then skips silently (debug log only).
 - Server error or HTTP 401: API key or user token wrong — recreate both and re-paste them.
-- ABRP shows stale data: telemetry older than a few minutes counts as stale; while driving the adapter polls every 60 s automatically.
+- ABRP shows stale data: telemetry older than a few minutes counts as stale; while driving the adapter polls every `drivePollingInterval` (default 30s) automatically.
 - Privacy: while enabled, SoC, position and speed go to the ABRP cloud on every poll.
 
 Sent payload details: `utc`, `soc`, `power` (negative while charging), `speed`, `lat`/`lon`, `is_charging`, `is_parked`, `odometer`, `est_battery_range`, `capacity`. Diagnosis via `info.abrpLastSend`, `info.abrpLastResult`, `info.abrpLastError`; a `sendAbrpTelemetry` message triggers an immediate upload.
 
 ## History recommendation
 
-Log these states in InfluxDB/SQL for charts and long-term statistics: `status.batteryLevel`, `status.rangeKm`, `status.odometerKm`, `status.chargePower`, `energy.monthKwh`, `energy.monthCost`, `trips.count`.
+Log these states in InfluxDB/SQL for charts and long-term statistics: `status.batteryLevel`, `status.rangeKm`, `status.odometerKm`, `status.chargePower`, `status.isCharging`, `status.pluggedIn`, `energy.monthKwh`, `energy.monthCost`, `trips.ownTodayKm`, `trips.count`, `status.batterySoh` (once the API delivers it).
 
 The adapter also exposes root states under `info` for connection status, health, errors, logs, and the last successful update.
 
@@ -283,7 +306,7 @@ Confirmed since the last update (openzeekr moved to the same values, conflicts r
 Known caveats:
 
 - powered tailgate open/close (`RDU_2`/`RDL_2`) need the ecarx telematics transport (`PUT /remote-control/vehicle/telematics/{vin}`), which the `zeekr_ev_api` client does not speak — expect no effect via this adapter. Plain trunk unlock (`RDU`) uses the standard transport.
-- sentry mode needs the lowercase `rsm` key (uppercase is ignored by the car).
+- sentry mode needs the lowercase `rsm` key (uppercase is ignored by the car). The car must also be **locked** for Sentry-on (openzeekr #41: unlocked = silent no-op despite cloud 200) — the adapter refuses `sentryOn` while positively unlocked and reports it in `control.lastResult`.
 - glovebox/visitor/locker commands need a physical PIN (`0000` placeholder) and are intentionally **not** exposed as one-click buttons.
 - charge current (`control.chargeCurrent`, 6–32 A via `RCS`/`rcs.ac.current`) is experimental.
 
@@ -310,6 +333,9 @@ For each open pair, try the listed variant and report whether the car executes i
 - [x] extended datapoints (VTM/tire pressure/GPS/12V, charge limit, charge/travel plans, recent trips)
 - [x] typed controls (lock/unlock, climate start/stop, charge start/stop via RCS, charge/travel plan)
 - [x] live validation without account (mock mode + `testConnection` message)
+- [x] adapter-side driving logbook with trip costs (works with shared accounts)
+- [x] charge session evaluation with roaming tariffs and day/week/month aggregates
+- [x] alerting (charge finished/interrupted, service, tyre, 12V) and named geo zones
 - [ ] live validation against a real account (verify command defaults per model)
 - [ ] more datapoints as needed
 
@@ -341,6 +367,14 @@ Unofficial community project. Not affiliated with Zeekr or Geely.
 
 ## Changelog
 
+### 0.1.79
+
+- VIS data layer: today/week aggregates for charging and trips, charge session history (`energy.sessionsList`), per-trip and month costs, month consumption/cost per 100 km; new alerts (service due, tyre warning, low 12V, charge finished); battery SoH state; named geo zones (`zones.currentZone`); logbook CSV export on the APK page
+
+### 0.1.78
+
+- Own logbook: engine-on idle without distance is discarded instead of logged (trips require 0.2 km; unknown odometer still settles after a sustained run)
+
 ### 0.1.77
 
 - Own trip logbook (`trips.own*`): trips detected from speed/odometer/engine, restart-proof storage, monthly distance/count, optional position storage (`storeTripPositions`); works with shared accounts where the API journey log stays empty. Faster polling while driving (`drivePollingInterval`, hysteresis)
@@ -361,28 +395,12 @@ Unofficial community project. Not affiliated with Zeekr or Geely.
 
 - Review follow-up: no runtime code downloads (vendored `lib/get-pip.py`, pinned extractor script in `lib/extractor/` with MIT license, staged into the instance dir without git)
 
-### 0.1.72
-
-- Review fixes: raw layer never creates states with children (type flips are cleaned up), avg consumption uses non-deprecated `value.power`
-
-### 0.1.71
-
-- Self-sufficient venv bootstrap: venv is created without system pip, pip comes via official get-pip.py — no OS packages needed (only the `venv` module itself, if missing)
-
-### 0.1.70
-
-- Journey fetch status (`trips.fetchJson`: ok/total/keys, no sensitive values) to diagnose empty trip logs
-
-### 0.1.69
-
-- Trips: journey payload shapes (`list`/`data`/`trips`) mapped to count, recent trips and last-trip distance/start/end/duration/speed/consumption (no coordinates); `details.model` shows the configured vehicle model (API exposes none)
-
 Older entries moved to CHANGELOG_OLD.md.
 
 See [GitHub releases](https://github.com/solderer-de/ioBroker.zeekr/releases) for the full history. Releases are created automatically with release-please.
 
 ## License
 
-Copyright (c) 2026 solderer-de <npm@schoebel-online.net>
+Copyright (c) 2026 solderer-de <hagen_sc@web.de>
 
 MIT — see [LICENSE](https://github.com/solderer-de/ioBroker.zeekr/blob/main/LICENSE). This is an unofficial community project, not affiliated with Zeekr or Geely.

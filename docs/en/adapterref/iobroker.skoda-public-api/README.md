@@ -198,6 +198,12 @@ Use `charging.status.plugConnectionState` for the reported cable connection and
 `charging.status.plugLockState` for its lock status when those optional fields are
 available. If a previously reported field disappears, its last value remains with
 a bad quality flag; do not treat that value as the current vehicle state.
+Both plug states are read-only strings; future values are retained unchanged.
+Existing automatically created plug states receive their role and missing selection
+values on the next poll after upgrading, preserving custom names, labels and history.
+If the charging state is missing or unknown, `charging.enabled` retains its last
+reported value with bad quality. Such a state cannot suppress a stop request or confirm
+a command. Plug connection and lock state alone do not indicate active charging.
 
 ## Controlling the vehicle
 
@@ -514,6 +520,12 @@ themselves. The adapter icon is original, brand-neutral project artwork and does
 reproduce the official Škoda logo; it is distributed under this project's MIT license.
 
 ## Changelog
+
+### 0.1.12 (2026-11-06)
+
+- Add API 1.1.0 plug connection and lock states with translated names and metadata migration for existing objects.
+- Preserve unknown charging activity instead of reporting it as stopped or suppressing stop commands; use the existing polls without additional requests.
+- Cover optional plug fields, future values, missing data, restarts and upgrades in unit and controller integration tests.
 
 ### 0.1.11 (2026-09-20)
 

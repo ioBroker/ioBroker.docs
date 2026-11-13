@@ -42,7 +42,9 @@ noted in the log.
 Objects are grouped per device:
 
 - `<device>.control.*` — writable: power, mode, target temperature, fan, swing, preset, demand,
-  econo, powerful, comfort, streamer, sensor, LED, quiet, humidify
+  econo, powerful, comfort, streamer, sensor, LED, quiet, humidify. `selectedMode` is the operating mode
+  without "off": while the unit runs it equals `mode`, while it is off it keeps the mode set last (taken
+  from the module's native status). Writing it sends the mode and switches the unit on.
 - `<device>.status.*` — readings: temperatures, humidity, energy, power, compressor and fan speed
 - `<device>.info.*` — device diagnostics: IP, WiFi signal, uptime, firmware
 
@@ -92,6 +94,23 @@ Out of the box a module reports its state every 60 seconds (`reporting` setting)
 is only confirmed with the next report — expect up to a minute. Enabling `livestatus` in the
 module's **Extra** settings makes it report immediately.
 
+### Settings the air conditioner does not accept
+
+A module sends a setting to the air conditioner and reads it back. If the unit still reports its old
+value after several rounds (`s21.tries`, 10 by default), the module drops the change, shows the value
+of the unit again and publishes the rejected fields on `error/<name>/failed-set`. Until then the module
+already shows the requested value, so it looks as if something had reset it.
+
+The adapter logs this as a warning (`… the air conditioner did not accept demand=90 …`) and stores the
+last rejection in `<device>.info.failedSet` as JSON with the requested values and the time:
+`{"time":"2026-11-05T14:40:51.085Z","settings":{"demand":90}}`. The adapter itself does not send
+anything in this situation.
+
+Known case: **demand control** (`control.demand`). Some units acknowledge the command but keep
+reporting 100 % — seen on units that still have Daikin's own WiFi adapter fitted. The module can only
+pass on the percentage; the modes of Daikin's app (off / automatic / fixed) are not part of what is
+known about the S21 interface. Econo is only taken over while the unit is running.
+
 ## Visualisation (vis templates)
 
 The folder [`vis-templates/`](https://github.com/SmarthomeElektroniker/ioBroker.faikout/blob/main/vis-templates/) contains ready-made **vis 1** views for two units: overview,
@@ -105,6 +124,27 @@ one detail page per unit with controls, energy history and a phone view. They us
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.0 (2026-11-12)
+- Device manager support (`@iobroker/dm-utils`): one card per air conditioner in the admin tab "Devices"
+  with the running operation (mode, current action, room/target/outside temperature, fan speed, humidity,
+  power, energy today), one WiFi symbol for connection and signal (four levels plus dBm, crossed out
+  when the module is disconnected), warning when the unit does not respond.
+  On/off is a toggle in the status line that follows the state live and asks for confirmation. Mode (without
+  "off", shows the last mode while the unit is off), target temperature (slider) and fan speed (Auto, Quiet and
+  five level bars) can be changed directly on the card, also while the unit is off; choosing a mode switches the
+  unit on. Everything is on the card itself, there is no separate control dialog. All controls write the
+  `control.*` states, so commands take the usual path. No configuration actions on the cards.
+- New state `control.selectedMode` (see above). German name of the outside temperature with "ß".
+
+### 0.0.19 (2026-11-10)
+- A setting the air conditioner does not accept (module message `error/<name>/failed-set`, e.g. demand control) is
+  logged as a clear warning instead of the bare payload, and the last rejection is stored in the new state
+  `info.failedSet` (requested values and time). Other module errors are logged with their topic (`comms`, …).
+- Much lower CPU and database load (issue #5): states are only written when their value changes (unchanged values are
+  refreshed every 5 minutes so their timestamp stays current), the hourly JSON series only at the change of hour, the
+  daily/monthly series only when their content changes, and the meter readings in the device object at the change of
+  hour, after a rebase, every 10 minutes at most and on shutdown – instead of everything on every module message.
+
 ### 0.0.18 (2026-10-25)
 - VIS widgets: fixed rendering in the vis runtime – the widgets showed nothing and logged `missing ) after argument list`.
   They now subscribe the data points of their device themselves (vis only subscribed the device object), so values
@@ -130,16 +170,6 @@ one detail page per unit with controls, energy history and a phone view. They us
 
 ### 0.0.15
 - The MQTT broker's shutdown timeout uses the adapter's `setTimeout` (repository checker E5005).
-
-### 0.0.14
-- **Breaking:** the consumption subtree uses English IDs: `consumption.{total|heating|cooling}.{currentHour|lastHour|today|yesterday|thisMonth|lastMonth}`
-  and `hoursJson`/`daysJson`/`monthsJson` (entries keyed `hour`/`day`/`month`). On start the adapter copies the last values of the
-  old `verbrauch.*` states to the new IDs and deletes the old objects. Data recorded by the history adapter stays under the old IDs.
-- Config keys renamed to `historyRegister` / `historyInstance`; an existing configuration keeps working until it is saved again.
-- `status.autoe` is now subscribed - writes were silently dropped before.
-- Admin texts translated into all eleven languages; VIS widgets: English names, English select values (`light`/`dark`,
-  `day`/`month`/`year`, reading keys) and a dictionary for all eleven languages. Values saved by older views are still understood.
-- Names of states for unknown fields carry all eleven languages.
 
 ## Trademark and relationship to the hardware project
 

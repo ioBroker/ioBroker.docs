@@ -76,6 +76,7 @@ Jedes Gerät wird ein Objekt mit seiner Seriennummer als Kennung. Darunter:
 | `remainingMinutes`, `elapsedMinutes`, `startInMinutes` | Zeiten in Minuten |
 | `remainingSeconds`, `elapsedSeconds` | sekundengenau, wenn eingeschaltet |
 | `estimatedEndTime` / `estimatedEndTimeText` | voraussichtliches Ende (Zeitstempel in ms / `HH:MM`) |
+| `progress` | Programmfortschritt in % (verstrichen / (verstrichen + Rest)), 0, solange nichts läuft |
 | `temperature`, `targetTemperature` (dazu Zone 2 und 3) | Temperaturen |
 | `signalDoor`, `signalInfo`, `signalFailure` | Tür- und Signalmerker |
 | `mobileStart` | ob das Gerät gerade Fernsteuerung annimmt |
@@ -84,6 +85,27 @@ Jedes Gerät wird ein Objekt mit seiner Seriennummer als Kennung. Darunter:
 Rohwert und `…Text` stehen mit Absicht nebeneinander: Mit der Zahl rechnet und zeichnet man, den
 Text zeigt man an. Seit 0.3.37 trägt der Rohwert die Klartextliste selbst, der Textdatenpunkt
 wird damit an den meisten Stellen entbehrlich.
+
+**Sprache der Texte.** Die `…Text`-Datenpunkte stehen auf Deutsch, bei abgeschalteter Option
+„Datenpunkt-Namen auf Deutsch“ auf Englisch – daran ändert sich nichts, Skripte vergleichen damit.
+Die Gerätekarten im Device-Manager nutzen sie nicht: Seit 0.5.1 zeigt eine Karte den Rohwert mit
+einer Wertetabelle in der **Systemsprache** des ioBroker (alle elf Admin-Sprachen). Status,
+Programmart, Trockenstufe und Phase sind in jeder Sprache vollständig. Programmnamen stammen aus
+der Community-Übersetzung von Home Assistant; wo eine Sprache dort keine hat (Ukrainisch ganz,
+Polnisch fast ganz, Russisch und Niederländisch teilweise), zeigt die Karte den englischen Namen –
+geraten wird nicht. Ein unbekannter Rohwert erscheint als Zahl.
+
+Ist „Datenpunkt-Namen auf Deutsch“ aus, bleiben Namen und Beschreibungen mit Absicht schlichter
+englischer Text: Ein mehrsprachiger Name brächte im deutschen Admin wieder den deutschen Namen
+und machte die Option sinnlos.
+
+### `control` – Befehle (nur mit freigegebener Gerätesteuerung)
+
+`start`, `stop`, `pause`, `powerOn`, `powerOff`, `lightOn`, `lightOff`: `true` schreiben sendet
+den Befehl; der Adapter bestätigt jeden Befehl, den Grund eines Fehlschlags nennt der Kommentar
+des Datenpunkts. `canStart`, `canStop`, `canPause`, `canPowerOn`, `canPowerOff` (nur lesen) sagen,
+ob der Befehl im jetzigen Zustand sinnvoll ist und das Gerät ihn kann – die Gerätekarten blenden
+ihre Knöpfe damit ein und aus, VIS kann das genauso.
 
 ### `info` – was das Gerät ist
 
@@ -111,6 +133,17 @@ lässt sich nicht rückwirkend füllen. In `history.cyclesJson` stehen die letzt
 `start`, `stop`, `pause`, `powerOn`, `powerOff`, `lightOn`, `lightOff`. Ein `true` löst aus, der
 Datenpunkt setzt sich selbst zurück. Befehle wirken nur, solange am Gerät **MobileStart /
 Fernsteuerung** freigegeben ist; manche Firmwares lehnen DOP2-Schreibbefehle grundsätzlich ab.
+
+`powerOn` und `powerOff` schalten seit 0.4.3 wie die Miele-App: Sie schreiben den Gerätezustand in
+den DOP2-Leaf `2/1586` (4 = ein, 1 = aus). Schläft das Gerät und antwortet mit HTTP 500, wird es mit
+`{"DeviceAction":2}` geweckt und der Befehl wiederholt, höchstens zweimal. Erst danach kommt der ältere
+UserRequest `2/1583` an die Reihe. Kaffeevollautomaten mit Protokollversion 2 schaltet der Adapter über
+Dop1. Danach liest er den Status nach; der Kommentar `c` des Datenpunkts sagt, welcher Weg gegriffen
+hat und ob sich der Status geändert hat. Scheitert es, erklärt `c` den HTTP-Status: **404** = das
+Kommunikationsmodul bietet keine DOP2-Steuerung (z. B. XKM EK057), **403** = Fernsteuerung am Gerät
+aus, **500** = das Gerät nimmt den Befehl im aktuellen Zustand nicht an. Mit der Protokollstufe
+**debug** der Instanz steht jeder Schritt mit Ressource, HTTP-Status und Antwort als Hex im Log
+(ohne Schlüssel).
 
 ## Einstellungen
 
@@ -316,6 +349,27 @@ Reverse-Engineering-Arbeit der Projekte `MieleRESTServer` (akappner),
 	### **WORK IN PROGRESS**
 -->
 
+### 0.5.2 (2026-11-12)
+- (SmarthomeElektroniker) Fehlerbehebung: Eine Karte konnte „nicht verbunden“ zeigen und trotzdem den Ein-Knopf (oder das Licht) anbieten. Nach Stopp oder Neustart des Adapters behielten die `control.can*`-Datenpunkte ihren letzten Wert, ebenso bei Geräten, die beim Start nicht gefunden wurden. Jetzt setzt der Adapter sie beim Beenden und für jedes beim Start nicht gefundene Gerät zurück; ein nicht erreichbares Gerät oder eines mit Status 255 („nicht verbunden“) bekommt gar keinen Knopf
+- (SmarthomeElektroniker) Der Lichtknopf hängt jetzt ebenfalls an zwei Nur-Lese-Datenpunkten, `control.canLightOn` und `control.canLightOff` (genau einer ist true, solange das Gerät erreichbar ist). Die Karte sieht aus wie bisher
+- (SmarthomeElektroniker) Deutsche Texte: `fan_plus` heißt jetzt „Heißluft plus“ (bisher „Umluft“, auch in den Kombinationen mit Feuchtigkeit plus und Mikrowelle), `eco_fan_heat` „Eco-Heißluft“, Programm `automatic` „Automatik“ (bisher „Automatic“), Trockenstufen 4–7 berichtigt (standen falsch) zu „Handbügelfeucht 1/2“, „Maschinenbügelfeucht“, „Glätten“. **Sichtbare Änderung:** die deutschen `state.programText` und `state.dryingStepText` ändern sich entsprechend – Skripte, die auf den alten deutschen Text vergleichen, müssen angepasst werden
+- (SmarthomeElektroniker) Französisch: der Aus-Knopf heißt „Éteindre“ (bisher „Arrêt“) und Ein „Allumer“, damit Aus und Stopp („Arrêter“) klar unterscheidbar sind
+
+### 0.5.1 (2026-11-12)
+- (SmarthomeElektroniker) Gerätekarten im Device-Manager zeigen Status, Programm, Phase, Programmart und Trockenstufe in der Systemsprache des ioBroker, in allen elf Admin-Sprachen. Bisher standen auf der Karte die `…Text`-Datenpunkte, die der Adapter nur auf Deutsch oder Englisch schreibt. Jetzt nutzt die Karte die Rohwerte (`state.status`, `programId`, `programPhase`, `programType`, `dryingStep`) mit einer Wertetabelle in der Systemsprache; die `…Text`-Datenpunkte bleiben unverändert, Skripte, die damit vergleichen, laufen weiter
+- (SmarthomeElektroniker) Übersetzungen: die Community-Übersetzungen der Miele-Integration von Home Assistant, eigene Übersetzungen, wo dort eine Sprache fehlt (Ukrainisch, Polnisch, große Teile von Russisch und Niederländisch, Status 144/145), und einige Berichtigungen. Programmnamen nur aus Home Assistant, sonst Englisch – nichts geraten
+- (SmarthomeElektroniker) Beschreibungen von `control.can*` und `state.progress` in allen elf Sprachen
+
+### 0.5.0 (2026-11-12)
+- (SmarthomeElektroniker) Device-Manager (`@iobroker/dm-utils`, Issue #22, Anregung von mcm1957): je Gerät eine Karte für den laufenden Betrieb. Im Kopf stehen Name und Modell, die Seriennummer einmal darunter. Status, Programm, Phase, Startzeit, Restzeit und voraussichtliches Ende (groß) sowie ein Fortschrittsbalken; leere Werte werden ausgeblendet statt als leere Zeile zu erscheinen. Störung, offene Tür, Hinweise im Gerätedisplay und ein gesperrter Fernstart (MobileStart) erscheinen als farbige Zeile, solange sie anstehen. Aufgeklappt zeigt die Karte weitere Werte (Temperaturen, verstrichene Zeit, Schleuderdrehzahl, Licht, MobileStart, EcoFeedback, Betriebsstunden). Bewusst keine Konfigurationsaktionen auf den Karten
+- (SmarthomeElektroniker) Mit freigegebener Steuerung zeigt die Karte nur die Befehle, die gerade sinnvoll sind und die das Gerät kann: aus → Ein; bereit/programmiert → Start, Aus; läuft → Pause, Stopp; pausiert → Start, Stopp; Ende/Störung → Aus. Start nur mit MobileStart, Pause nur bei Waschmaschinen und Trocknern, kein Schalten von Kühlgeräten und Kochfeldern. Die Knöpfe folgen dem Zustand live; jeder Befehl außer Licht fragt nach und schreibt die vorhandenen `control.*`-Datenpunkte
+- (SmarthomeElektroniker) Das Licht ist ein einziger Umschalter: Symbol, Beschriftung und Tooltip zeigen den aktuellen Zustand, ein Klick schaltet ins Gegenteil, ohne Rückfrage. Die Prozentzahl steht direkt am Fortschrittsbalken
+- (SmarthomeElektroniker) Fehlerbehebung: Handeingaben, Scan-Schalter und Feinaufzeichnung der Datensammlung (`collection.*`) wirkten nicht, seit der Kanal in 0.3.38 von `sammlung` umbenannt wurde
+- (SmarthomeElektroniker) Neue Datenpunkte `control.canPowerOn`, `canPowerOff`, `canStart`, `canPause`, `canStop` (nur lesen, auch für VIS) und `state.progress` (Programmfortschritt in %)
+
+### 0.4.3 (2026-11-10)
+- `control.powerOn`/`powerOff` schalten jetzt wie die Miele-App: DOP2-Leaf `2/1586` (Gerätezustand 4 = ein, 1 = aus), bei HTTP 500 wecken mit `{"DeviceAction":2}` und wiederholen (höchstens zwei Runden), der bisherige UserRequest `2/1583` nur noch als Rückfall; Kaffeevollautomaten mit Protokollversion 2 über Dop1-Objekt 1101. Die Wirkung wird durch Nachlesen des Status geprüft, Fehler werden nach HTTP-Status erklärt (403/404/500), RemoteEnable wird nur protokolliert, jeder Schritt steht im Debug-Log.
+
 ### 0.4.2
 - (SmarthomeElektroniker) Pflege: Versionshinweise im `io-package.json` gekürzt (Repository-Checker W1032/W2004), keine funktionale Änderung
 
@@ -461,6 +515,11 @@ Authors), übernommen über [ha-miele-at-lan](https://github.com/tiehfood/ha-mie
 tiehfood) und abgeglichen mit
 [ioBroker.miele-unbound](https://github.com/meistermopper/ioBroker.miele-unbound) (MIT, ©
 meistermopper). Danke an alle drei Projekte.
+
+Die Übersetzungen von Status, Phasen und Programmnamen in `lib/werte_ha.js` (für die Gerätekarten
+im Device-Manager) sind die Community-Übersetzungen der Miele-Integration von Home Assistant
+(Apache License 2.0, © Home Assistant Authors), ausgelesen mit `tools/werte-uebersetzungen.js`;
+Lücken und einige Berichtigungen stehen in `lib/werte_eigen.js`.
 
 ## Lizenz
 

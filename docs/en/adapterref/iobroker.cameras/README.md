@@ -50,6 +50,26 @@ higher resolution.
 
 ![vis-2 widgets](img/vis2-widget-cameras.jpg)
 
+### Web components
+For Aura, admin and every other host of [ioBroker web components](https://github.com/ioBroker/web-components),
+the adapter brings both pictures as web components too (`common.webComponents`, files in `admin/webcomponents/`).
+They carry the names of the ioBroker.devices widgets, so vis-2 and devices show their own widget instead where it has
+the same name.
+
+| Tag                    | Name            | Shows                                                                                                                                                         |
+|------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `iob-cameras-rtsp`     | RTSP Camera     | the picture of the camera, asked for again as soon as it arrived: the newest frame while the adapter streams the camera anyway, else a new snapshot each time |
+| `iob-cameras-snapshot` | Snapshot Camera | a new picture in the given interval                                                                                                                           |
+
+Settings of both: the camera (a state of it, e.g. `cameras.0.cam1.running`), a name shown above the picture, the
+width the adapter scales the picture to (640 by default, 0 for the size of the camera; the dialog asks for at least
+1280) and the rotation. The snapshot camera also has the polling interval, "Bypass cache", another camera for the
+dialog (e.g. the same one in a higher resolution) and the polling interval in the dialog. A click on the picture
+opens it big in a dialog of the host.
+
+Both get the picture with the `image` message over the connection of the host, so they work in pages of admin as
+well as of web, and ask for pictures only while they are visible.
+
 ### Sending the image to a messenger
 `result.data` is the JPEG as a base64 string, so it can not be passed to a messenger directly. Turn it into a
 `Buffer` or a file first. In a script of the javascript adapter (also usable from Blockly via the
@@ -238,6 +258,16 @@ If the binary cannot be found or does not start, the adapter transparently falls
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 3.4.0 (2026-11-08)
+* (@GermanBluefox) Added web components `iob-cameras-rtsp` and `iob-cameras-snapshot` for Aura and other hosts (`common.webComponents`)
+
+### 3.3.1 (2026-11-05)
+* (@GermanBluefox) ioBroker.web can stop the web extension and start it again with new settings instead of restarting itself (`supportsHotReload`, with a version of web that supports it). When it is stopped, the web extension now also closes the live streams and WebRTC connections of the browsers and removes its web socket routes
+
 ### 3.3.0 (2026-10-16)
 * (@GermanBluefox) Migrated widgets to React 19 - vis-2 >= 2.20.0 is required, if installed
 
@@ -259,32 +289,6 @@ If the binary cannot be found or does not start, the adapter transparently falls
 * (@hdering) Fixed: switching the Eufy dialog between `eusec` and IP address was not saved
 * (@GermanBluefox) Fixed: opening or closing the full screen dialog of an RTSP camera asks for the stream in the size it is shown in right away; until now the big view showed the small picture enlarged for up to 14 seconds
 * (@GermanBluefox) Fixed: the dialog of the RTSP camera widget for ioBroker.devices never asked for a bigger picture at all
-
-### 3.2.0 (2026-10-01)
-* (@hdering) Added: UniFi Protect cameras, with the stream token from the Protect API or entered by hand (#133)
-* (@hdering) Added: RTSPS for UniFi Protect, also through go2rtc
-* (@GermanBluefox) Fixed: the stderr of a failed `ffmpeg` call was passed on unmasked, so a camera password could end up in the log
-* (@hdering) Fixed: the web URL of a camera in the admin was always shown with `http://`, also for a web instance with https; the MJPEG stream URL is shown when go2rtc is enabled
-* (@GermanBluefox) Fixed: a request for the MJPEG stream of a camera was left hanging when go2rtc was switched on but not reachable
-* (@hdering) Fixed: all camera URLs of the web extension answered 404 when the native WebRTC binary was missing (#321)
-* (@GermanBluefox) Removed the unfinished `rtsp2WebRTC` experiment and the `@roamhq/wrtc` dependency with it - WebRTC runs through go2rtc
-
-### 3.1.0 (2026-09-29)
-* (@GermanBluefox) Fixed: after a single failed request a camera stayed broken until the adapter was restarted
-* (@GermanBluefox) Fixed: after a live stream had ended, every snapshot kept showing its last frame
-* (@GermanBluefox) Fixed: an RTSP camera with "original width/height" never delivered a picture, because the scale filter was passed to `ffmpeg` without `-vf`
-* (@GermanBluefox) Fixed: the first picture of a live stream appeared only after a delay of 10 seconds
-* (@GermanBluefox) Fixed: closing the view of one camera also unsubscribed the other cameras of the same browser
-* (@GermanBluefox) Fixed: a camera that failed to start could throw when a GUI client unsubscribed from it
-* (@GermanBluefox) Fixed: two cameras with the same IP address overwrote each other's snapshot
-* (@GermanBluefox) Fixed: a password containing `!` appeared in the log in clear text
-* (@GermanBluefox) Pictures are cached per requested size, so the web adapter and a widget no longer evict each other
-* (@GermanBluefox) A browser that leaves the page no longer produces warnings in the log
-* (@GermanBluefox) The universal camera type has a port field now - the port from the model table is only a suggestion
-* (@GermanBluefox) Fixed: the model table of the universal type offered the port of somebody's port forwarding as the default for 226 URLs
-* (@GermanBluefox) Fixed: `[WIDTH]`, `[HEIGHT]` and `[AUTH]` in the URL of a universal camera were never replaced, and a placeholder was only replaced once per URL
-* (@GermanBluefox) Added the `VIVOTEK` H9161
-* (@GermanBluefox) Updated packages
 
 ## License
 MIT License

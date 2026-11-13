@@ -67,8 +67,50 @@ To install this adapter in your ioBroker environment:
 
 Once configured, the adapter handles the rest! It periodically syncs the last 30 days of data according to the configured update interval. Data manifests under the `octopus-energy-monitor.0.history.YYYY.MM.DD` path.
 
+### Historical pricing
+
+Newly fetched days use the agreement and dated gross prices applicable to each interval. Missing or ambiguous prices do not discard consumption: costs become `null`, with `totalCostAvailable=false` and daily `costStatus=missing_historical_price`. Dynamic tariffs identified by forecasts or product names remain unpriced until actual historical interval prices are supported; forecasts and current prices are not substituted.
+
+Gross monthly standing charges are prorated by calendar day using each month's length and the applicable agreement/price period. `totalCostWithStandingChargeAvailable` indicates whether the combined amount is available. This is an estimate, not a supplier invoice.
+
+Existing positive days remain cached. Enable **Recalculate legacy days with historical prices** to correct them once within the configured sync/retention range, only when complete historical consumption prices and standing charges are available. Per-source version markers resume unfinished work after API limits or restarts. Existing database intervals are not exported again. Uncorrected JSON entries carry `costStatus=legacy_unverified`; their previous amounts are preserved. Disabling the option stops further legacy corrections.
+
+### Sync diagnostics
+
+`info.sync` exposes `running`, `currentDay` (last processed day) and the estimated `nextRun` timestamp. `info.api.octopus` and `info.api.inexogy` expose the last successful response timestamp, a sanitized error code, and rate-limit/cooldown status. Octopus cooldowns honor Retry-After; no automatic Inexogy retry policy is applied. These describe API responses, not guaranteed complete days.
+
+Newly fetched interval days expose `quality` below each daily source: expected/received distinct quarter hours, missing intervals, duplicates, conflicts, invalid intervals and `complete`. Berlin daylight-saving days expect 92 or 100 intervals instead of 96. Daily-only responses have no interval-quality assessment. Missing intervals are diagnostic only: positive cached days are not fetched again because of this flag. Zero-consumption days continue to be retried.
+
+### Automatic §14a grid fees
+
+Enable **Automatic Octopus Module 3 grid fees** only alongside the existing §14a calculation. It requires Octopus credentials, an account and a grid-operator code from the selected meter location. Inexogy-only operation continues to use manual settings. Keep valid manual fees and time windows configured: they remain the fallback and are never overwritten.
+
+The adapter requests the German OE backend's `variableGridFees` for each required Berlin calendar date. Only Module 3 responses with a complete, unambiguous quarter-hour schedule, matching operator, explicit timestamp validity and a unique standard-fee baseline are used. API amounts are treated as **net cents/kWh**, consistent with the Germany Home Assistant integration; automatic gross adjustments use the historical agreement's VAT. Overnight windows and daylight-saving days are supported. Unsupported schedules or failed requests fall back to manual settings with a warning.
+
+The in-memory cache is scoped by account, operator and date (24 hours for valid responses, 15 minutes for fallback results; at most 400 entries). The backend has its own retry/cooldown diagnostics under `info.api.gridFees`. Daily source objects record `gridFeeSource` (`api`, `manual`, `manual_fallback`), `gridFeeFallbackReason` and the applied `gridFeeSchedule`. These fields describe that day's calculation, not live tariffs.
+
+Changing §14a settings recalculates days within the configured sync/retention range. Per-source configuration markers resume unfinished recalculations after restarts or API limits without re-exporting cached database intervals. Positive days calculated with manual fallback remain cached; a later API recovery alone does not trigger another consumption download. Automatic fees are covered by simulated API tests but still require validation against a real Module 3 account and bill before release. Calculated costs remain estimates.
+
+The latest grid-fee lookup is inspectable under `info.api.gridFees`: `rawResponse` contains the API's `module` and `gridFees` fields before validation, `responseDate` is the requested Berlin day, `httpStatus` is the returned status (0 if no response), and `responseTimestamp` dates the diagnostic attempt. `rejectionReason` distinguishes missing data/module, a module other than Module 3, empty fees, invalid entries, validity errors, gaps and overlaps; entry indexes are zero-based. An empty reason means validation succeeded. Cache hits do not update these fields, and no additional requests are triggered for diagnostics. Failed attempts clear the response to JSON `null`. Authentication headers, tokens and account details are not included. These diagnostics report what the API says, not an independent confirmation of module enrollment.
+
 ## Changelog
-### WORK IN PROGRESS
+### 1.2.0 (2026-11-09)
+* (tipp88) Expose raw Module 3 response fields, request date, HTTP status and precise grid-fee rejection reasons.
+* (tipp88) Add opt-in, date-specific Module 3 grid fees with validated schedules, scoped caching and manual fallback.
+* (tipp88) Record applied grid-fee sources and resume interrupted EnWG recalculations per source without duplicate interval exports.
+* (tipp88) Expose sync/API diagnostics and DST-aware daily interval completeness without refetching positive cached days.
+* (tipp88) Add bounded API retries, Retry-After cooldowns, expiry-aware JWT refresh and cancellable requests.
+* (tipp88) Paginate bounded, meter-scoped Octopus measurements with duplicate and cursor checks.
+* (tipp88) Resolve historical consumption prices and monthly standing charges by agreement and gross-price validity.
+* (tipp88) Preserve consumption when historical prices are missing; expose unavailable costs as null with availability indicators.
+* (tipp88) Add opt-in, versioned historical repricing within sync/retention limits without repeated interval exports.
+* (tipp88) Use Europe/Berlin calendar-day boundaries and tariff times, including 23/25-hour daylight-saving days.
+* (tipp88) Exclude out-of-day intervals while retaining the final Inexogy interval ending at midnight.
+* (tipp88) Updated axios from 1.20.0 to 1.21.0.
+* (tipp88) Updated development dependencies: @iobroker/testing 6.1.0 → 6.3.1, @iobroker/types 7.2.2 → 7.2.5, and @types/node 22.20.1 → 22.20.5.
+* (tipp88) Handle all Octopus tariff windows for consumption and cost calculations, including Inexogy comparisons.
+* (tipp88) Reject unmatched tariff intervals instead of assigning them to the first tariff.
+* (tipp88) Recalculate affected multi-window tariff days once within the sync/retention range, resuming after API limits without re-exporting cached intervals.
 * (tipp88) Compare only finite, positive daily consumption values while continuing to refetch zero-consumption days.
 * (tipp88) Log discrepancies only when a day's stored comparison changes to a discrepancy.
 * (tipp88) Mark unavailable comparisons explicitly and clear outdated daily and tariff-slot differences.
@@ -96,11 +138,6 @@ Once configured, the adapter handles the rest! It periodically syncs the last 30
 * (tipp88) Fixed strict ioBroker JSON schema compliance bugs in `admin/jsonConfig.json` regarding dropdown instance filtering.
 * (tipp88) Fixed calculated meter reading (`octopus.info.meterReading`) state missing `kWh` unit
 * (tipp88) Fixed permissions in Dependabot auto-merge workflow (`issues: write`)
-
-### 0.6.8 (2026-07-06)
-* (tipp88) Fixed `rate.name` from external API being used unsanitized in ioBroker object IDs.
-* (tipp88) Fixed `setSmartChargeStatus()` sending the sanitized device ID to Octopus API instead of original ID.
-* (tipp88) Optimized database interval sync by consolidating all object scans into a single pre-fetch.
 
 ## License
 MIT License

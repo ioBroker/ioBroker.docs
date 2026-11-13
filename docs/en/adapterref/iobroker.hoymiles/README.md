@@ -150,7 +150,7 @@ Each DTU creates a device node using its serial number as ID (e.g. `hoymiles.0.4
 Cloud stations create aggregated device nodes (e.g. `hoymiles.0.station-12345.*`).
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.5.1 (2026-11-12)
 
 - (@Eistee82) **Commands work again on DTUs with firmware V01.01.01** — they were sent unencrypted, so the DTU answered but did nothing
 - (@Eistee82) **New runtime power limit in watts for the HMS-800W-2T family** (`inverter.powerLimitWatt`, runtime only — unlike `inverter.powerLimit` the command itself writes no flash); `config.limitPowerMyPower` is removed, it never reached the inverter
@@ -191,10 +191,6 @@ Cloud stations create aggregated device nodes (e.g. `hoymiles.0.station-12345.*`
 - (@Eistee82) Add a "Test cloud login" diagnostic button to the admin UI with per-phase results (`region_c`, `pre-insp`, `login`, `probe`) for forum bug reports
 - (@Eistee82) Bump `protobufjs` to 8.2.0 to address seven security advisories (4 high, 3 medium — code injection, prototype pollution, DoS variants) affecting 8.0.0–8.0.1
 - (dependabot) Bump dev-only transitive `follow-redirects` to 1.16.0 (security: leaked auth headers on cross-domain redirects) and `deepl-node` to 1.27.0 (drops the unused `uuid` dependency)
-
-### 0.3.4 (2026-04-08)
-- (@Eistee82) Fix disabled property type in jsonConfig table items (string, not boolean)
-- (@Eistee82) Add local repochecker script (`npm run test:repo`)
 
 Older entries: see CHANGELOG_OLD.md.
 

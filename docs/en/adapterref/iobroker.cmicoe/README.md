@@ -57,6 +57,10 @@ If checked, the adapter also sends an output once it changes.
 
 
 ## Changelog
+### 1.3.2 (2026-11-05)
+* fix timeout detector
+* update dependencies
+
 ### 1.3.1 (2026-07-06)
 * update dependencies
 
@@ -73,9 +77,6 @@ If checked, the adapter also sends an output once it changes.
 * bump glob
 * bump actions/checkout to 6
 * more dependency updates
-
-### 1.2.3 (2025-10-25)
-* migrate to npm trusted publishing
 
 ## License
 MIT License

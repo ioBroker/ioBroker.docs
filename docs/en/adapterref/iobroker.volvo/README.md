@@ -17,6 +17,7 @@ This adapter connects your Volvo car to ioBroker using the [Volvo Connected Vehi
 - 📍 GPS location
 - 🔧 Diagnostics (service warnings, brake fluid, oil, tyres, lights)
 - 🔑 Remote commands (lock/unlock, honk, flash, climatization)
+- 🔌 Volvo wallbox (Energy Device API): wallbox info, charging sessions, start/pause charging, charging/discharging current limit
 - 🔄 Automatic data refresh at configurable intervals
 - 🔐 Token persistence — survives adapter restarts without re-login
 
@@ -46,9 +47,9 @@ The Volvo API uses a two-factor authentication flow with a one-time password (OT
 1. Click **"Start Login (Send OTP)"** in the adapter settings.
 2. Check your email for the OTP code from Volvo.
 3. Enter the code and click **"Submit OTP"**.
-4. The adapter will store the refresh token so you won't need to repeat this unless the token expires (typically weeks/months).
+4. The adapter stores the login and renews it automatically. You only need to repeat the OTP login if the adapter was stopped for about 90 days or Volvo ends the session (e.g. after a password change).
 
-> **Note:** If the refresh token expires, the adapter will show a warning in the log. Simply repeat the OTP login from the adapter settings.
+> **Note:** If the login is no longer valid, the adapter logs one error and pauses updates. Simply repeat the OTP login from the adapter settings.
 
 ---
 
@@ -83,9 +84,39 @@ Use the buttons under `volvo.0.<VIN>.remote` to control your vehicle:
 - `lock-reduced-guard` — Lock with reduced guard
 - `refresh` — Manually refresh all data
 
+## Volvo Wallbox (optional)
+
+Only Volvo wallboxes are supported (Energy Device API). Volvo's API cannot list your wallboxes, so enter the **EVSE ID** from the document Volvo provided with the wallbox in the adapter settings (several IDs separated by commas). Leave the field empty if you have no Volvo wallbox — the adapter then makes no wallbox requests.
+
+If you add a wallbox after your last login, log in again once with the OTP so the adapter gets the wallbox permissions.
+
+Data points under `volvo.0.wallbox.<EVSE ID>` (characters like `*` are replaced by `_`):
+
+| Path | Description |
+|---|---|
+| `info.*` | Wallbox information from the API |
+| `chargingSessions.count` / `totalEnergy` / `json` | Charging sessions of the last 7 days |
+| `chargingSessions.last.*` | Latest charging session |
+| `remote.start` / `remote.pause` | Start or pause charging |
+| `remote.chargingAmpLimit` / `remote.dischargingAmpLimit` | Write a current limit in A |
+| `remote.refresh` | Refresh the wallbox data |
+| `remote.lastCommandStatus` | Result of the last command (JSON) |
+
+> **Note:** The wallbox support was built from Volvo's API documentation without a device to test with. Please report problems in a GitHub issue.
+
 ---
 
 ## Changelog
+
+### 4.0.1
+- Fix: remote commands (lock, unlock, climatization, …) failed with error 415, Volvo now requires a JSON body for commands
+
+### 4.0.0
+- **Breaking:** Volvo ID moves to a new login system (Keycloak) and the old one stops working after January 2027. The adapter now logs in like the current Volvo Cars app. **Please log in again once:** click "Start Login (Send OTP)" in the adapter settings and submit the OTP from the email
+- Change: the login stays valid as long as the adapter runs; a new OTP login is only needed after about 90 days without the adapter running
+- New: Volvo wallbox support via the Energy Device API (wallbox info, charging sessions, start/pause, current limits); enter the EVSE ID in the settings. Built from the documentation without a test device
+- Removed: the warning before the fixed 180-day login limit, Volvo no longer has such a limit
+- Fix: when a car is removed from the Volvo ID (e.g. replaced by a new one), the adapter logs one warning and reloads the vehicle list instead of logging 403 errors every few minutes until a restart
 
 ### 3.1.0
 - New: login method of the Volvo Cars app (Authorization Code with PKCE, DPoP-bound tokens). Volvo disabled the client the adapter used before, see [#155](https://github.com/TA2k/ioBroker.volvo/issues/155). **Please log in again once:** click "Start Login (Send OTP)" in the adapter settings and submit the OTP from the email
@@ -121,116 +152,7 @@ Use the buttons under `volvo.0.<VIN>.remote` to control your vehicle:
   - All `setInterval`/`setTimeout` migrated to `this.setInterval`/`this.setTimeout`
   - i18n migrated to short format (`{lang}.json`)
 
-### 3.0.0
-- Adapter now requires node.js >= 22
-
-### 2.0.1
-- Update dependencies
-
-### 2.0.0
-- BREAKING CHANGE: API key now stored encrypted, reenter of API key **required**
-
-### 1.0.5
-- Fix: restart-resilient OTP login flow — auth state persists across adapter restarts
-
-### 1.0.4
-- Fix: 404 errors for location/energy/vehicle endpoints handled gracefully (GPS off, non-EV vehicles)
-
-### 1.0.3
-- Fix: adapter no longer terminates on first start without stored token
-- Fix: removed manual password decrypt (now handled by `encryptedNative`)
-- Fix: full try-catch in `onReady()` prevents crashes on startup errors
-
-### 1.0.2
-- Fix: adapter stays alive waiting for OTP login when no token stored
-- Fix: better startup log messages explaining next steps
-- Fix: CI deploy job upgraded to Node 24 (resolves `promise-retry` error)
-
-### 1.0.1
-- Fix: multi-language support (ru, pt, nl, fr, it, es, pl, uk, zh-cn)
-- Fix: jsonConfig admin UI size attributes for all breakpoints
-- Fix: `protectedNative` / `encryptedNative` for sensitive fields
-- Fix: OTP/sendTo message handlers null-safe
-- Chore: added dependabot, `@iobroker/adapter-dev`, `@iobroker/eslint-config`
-- Chore: CI `adapter-tests` now runs after linting
-- Chore: migrated `.npmignore` to `package.json` `files`
-
-### 1.0.0 🎉
-
-First stable release — complete rewrite of the Volvo ioBroker adapter.
-
-**New Features:**
-- **Vehicle Details**: Model, year, color and images fetched from API
-- **Retry Logic**: Automatic retry with exponential backoff on API errors (429/5xx)
-- **Command Status Tracking**: Polls async command results (up to 5x) and stores status in `lastCommandStatus`
-- **Auto-Refresh after Commands**: Doors auto-refresh after lock/unlock, engine-status after climatization
-- **Last Update Timestamp**: `lastUpdate` state per vehicle shows last successful data fetch
-- **Admin UI: jsonConfig Migration**: Modern React-based settings UI (Admin5) with i18n support
-- **Admin UI: Connection Test**: Test API connection directly from adapter settings
-- **Admin UI: Vehicle Info**: Display vehicle details from settings page
-
-**Versioning Policy (SemVer):**
-- MAJOR: Breaking changes (config changes, removed states, new minimum Node.js)
-- MINOR: New features (new data points, commands, UI features)
-- PATCH: Bug fixes, dependency updates, cleanup
-
-### 0.2.7
-
-- Extracted inline JavaScript from `admin/index_m.html` into separate `admin/index_m.js`
-- Added ESLint config for admin browser JS (jQuery/browser globals)
-
-### 0.2.6
-
-- Removed obsolete files: `.create-adapter.json` (wrong adapter name), `lib/tools.js` (unused), `.prettierrc.js`/`.prettierignore` (Prettier not installed)
-- Updated `.npmignore` (removed references to deleted `.eslintrc.json`)
-- Updated CI workflow: dropped Node 18 (EOL), testing on Node 20 + 22
-
-### 0.2.5
-
-- Updated all dependencies to latest major versions
-- @alcalzone/release-script 3.7 → 5.1, eslint 9 → 10, @iobroker/testing 5.0 → 5.2
-
-### 0.2.4
-
-- Migrated from ESLint 8 to ESLint 9 (flat config) — fixes CVE-2025-50537
-- Removed deprecated `.eslintrc.json` and `.eslintignore`
-
-### 0.2.3
-
-- Fixed all npm audit vulnerabilities (0 remaining)
-- Added npm overrides for serialize-javascript, diff, esbuild
-
-### 0.2.2
-
-- Fixed ESLint lint error (single quotes)
-- Removed credentials and IPs from AGENTS.md, added discovery instructions
-- Updated devDependencies: @iobroker/testing 5.2, @types/node 25.5, eslint 8.57
-
-### 0.2.1
-
-- Fixed refresh token not being preserved across token refreshes (caused 401 errors after ~25 minutes)
-- Removed dead legacy code: old VOC API (`vocapi.wirelesscar.net`), `request` module, `uuid`, `json-bigint`
-- Updated dependencies: axios 1.14, qs 6.15, json2iob 2.6.22, @iobroker/adapter-core 3.3
-- Added update migration notice for users upgrading from pre-0.2.0 versions
-- Removed unused `newApi` config option from io-package.json
-
-### 0.2.0
-
-- **Complete rewrite of authentication**: Replaced dead `grant_type: password` OAuth flow with new multi-step OTP (one-time password) login via PingFederate
-- **All API endpoints updated to v2**: Vehicle list (`connected-vehicle/v2`), Energy (`energy/v2`), Commands (`connected-vehicle/v2/commands`)
-- **Fixed remote commands**: Changed `Content-Type` from deprecated vendor-specific format to `application/json` (was causing HTTP 415 errors)
-- **Fixed refresh button**: Now triggers a data re-fetch instead of sending an invalid API command (was causing HTTP 404)
-- **Buttons are now proper buttons**: Remote controls use `role: button` with auto-reset instead of toggle booleans
-- **Fixed Energy API parsing**: `batteryChargeLevel`, `electricRange`, `chargingStatus` etc. now update correctly (v2 response format differs from v1)
-- **Added OTP login UI** in adapter settings with step-by-step flow
-- **Added token persistence**: Refresh token stored in ioBroker state, survives adapter restarts
-- **Removed dead code**: Old VOC API (`vocapi.wirelesscar.net`), `extended-vehicle/v1`, `energy/v1`, `newApi` checkbox — all removed
-- **Admin UI localized**: English + German via `words.js`
-- **Updated README** with new setup guide
-
-### 0.1.2 (2024-05-02)
-
-- Added support for v2 API
+Older changes: CHANGELOG_OLD.md
 
 ## License
 

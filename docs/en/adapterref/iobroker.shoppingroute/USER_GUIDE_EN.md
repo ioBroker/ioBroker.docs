@@ -3,7 +3,9 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
 ---
 # ShoppingRoute – User Guide
 
-**Guide for ShoppingRoute 0.6.1 (27 October 2026)**
+**Guide for ShoppingRoute 0.6.2 (13 November 2026)**
+
+**Maintenance release 0.6.2:** Updated the ioBroker testing development dependency to 6.3.2 (repository checker W0037, Issue #85). Existing Alexa and Bring! runtime features and safeguards are retained.
 
 **Faster Bring! synchronization (0.6.1):** ShoppingRoute now reacts to confirmed Bring! adapter list updates and Alexa list events without waiting for its old 90-second bridge timer. Fallback checks run every 30 seconds; confirmations can be checked sooner on an event without disabling Amazon's write-rate protection. A user completing another item during an older transaction no longer blocks subsequent changes when the original writes have been verified. A stalled bridge produces one warning after three minutes, an error after timeout, and one recovery notice instead of log spam. Check `shoppingroute.0.info.bringSyncStatus` and `shoppingroute.0.data.bringSyncJournal` if changes stop propagating; never reset the journal without backing up and checking both lists.
 

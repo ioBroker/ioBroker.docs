@@ -1,16 +1,17 @@
 ---
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
+title: Государственные роли
+lastChanged: 07.11.2026
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
-title: Роли состояний
-hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
+hash: HidnZhV7rR9mW/MfHXcKyreNfUwY9mde7tnxIKWWYN4=
 ---
-# Роли состояний
+# Государственные роли
 Для объектов типа `state` свойство `common.role` должно быть установлено на одну из ролей, определенных в списке ниже.
 Информация о роли очень важна и позволяет адаптерам визуализации и интеллектуального помощника определять функцию объекта, а также то, как/если он связан с другими объектами в том же канале, устройстве или папке.
 
-## Типы ролей состояний
-Существуют следующие типы ролей:
+## Типы ролей в штате
+Существуют следующие типы ролей в государстве:
 
 ### Действующие состояния
 Рабочие состояния используются для управления нормальной функциональностью устройства. RGB-лампа может содержать следующие три (или более) объекта с различными ролями, которые относятся друг к другу:
@@ -27,7 +28,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 Различные шаблоны устройств, используемые для обнаружения с обязательными и необязательными объектами и их ролями, можно найти в [Репозиторий детектора типов](https://github.com/ioBroker/ioBroker.type-detector/blob/master/DEVICES.md).
 
 ### Состояния конфигурации/настроек
-Состояния, которые настраивают дополнительные «нерабочие» параметры устройств, также могут использовать приведенные ниже базовые определения ролей, чтобы предоставить больше контекста о типе и использовании предоставленного значения, **но добавьте ".setting." в качестве второго уровня имени роли**. Например:
+Штаты, которые настраивают дополнительные «нерабочие» параметры устройств, также могут использовать приведенные ниже базовые определения ролей, чтобы предоставить больше контекста о типе и использовании предоставленного значения, **но добавьте ".setting." в качестве второго уровня имени роли**. Например:
 
 * Параметр `level.setting.color.temperature` со значением от 0 до 100% можно использовать для установки "Цветовой температуры при запуске" лампочки.
 * Параметр `switch.setting` (Вкл./Выкл.) можно использовать для определения параметра, который можно включить или выключить (например, функция блокировки от детей).
@@ -39,10 +40,10 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 ### Общие состояния
 Если не удается найти подходящую роль или сценарий использования не является специфическим, вы можете воспользоваться описанными ниже **общими** ролями.
 
-## Категории ролей состояний
+## Категории ролей в штате
 ### Общий
-* `state` - очень распространенное значение. Если вы не знаете, какую роль играет состояние, используйте это значение.
-* `text` `common.type = string`
+* `state` - очень распространенное значение. Если вы не знаете, какую роль играет государство, используйте это значение.
+* `текст` `common.type = string`
 * `text.url` `common.type = string` Значение состояния содержит URL-адрес для использования в якоре, iframe или img
 * `html` `common.type = string`
 * `json` `common.type = string`
@@ -61,7 +62,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `sensor.alarm.flood` - утечка воды
 * `sensor.alarm.fire` - датчик пожара
 * `sensor.alarm.co` - обнаружен угарный газ
-* `sensor.alarm.secure` - открыта дверь, открыто окно или обнаружено движение при включённой сигнализации.
+* `sensor.alarm.secure` - если дверь открыта, окно открыто или обнаружено движение во время срабатывания сигнализации, сигнализация включена.
 * `sensor.alarm.power` - Нет питания (`voltage = 0`)
 * `sensor.light` - сигнал от лампы о том, что она включена.
 * `sensor.lock` - фактическое положение замка: разблокирован - `true` или заблокирован - `false`
@@ -77,7 +78,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 Пользовательские интерфейсы не должны считывать значение этого состояния и не должны ожидать его сброса в "FALSE" после выполнения действия или чего-либо подобного.
 События кнопок, запускающие onChange в адаптере, должны подтверждаться с помощью ACK = TRUE, чтобы показать, что событие было распознано и обработано.
 
-* `button`
+* `кнопка`
 * `button.long`
 * `button.stop` - например, rollo stop,
 * `button.stop.blind` - останавливает движение жалюзи (типы устройств `blind`, `blindButtons`)
@@ -92,7 +93,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `button.close.tilt`
 * `button.open` - открывает жалюзи. Детектор типов принимает это как эквивалент `button.open.blind`, но предпочтительнее использовать более детальную роль.
 * `button.close` - закрывает жалюзи. Детектор типов принимает это как эквивалент `button.close.blind`, но предпочтительнее использовать более детальную роль.
-* `button.mode.`*
+* `button.mode.` *
 * `button.mode.auto`
 * `button.mode.manual`
 * `button.mode.silent`
@@ -107,13 +108,13 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 ### Значения (числа, только для чтения)
 `common.type=number, common.write=false` (`common.type=string, common.write=false`, если указано явно)
 
-* `value`
+* `значение`
 * `value.window` (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) Важно иметь (`CLOSED/TILTED/OPEN`). Значения могут отличаться.
 * `value.temperature` (`common.unit='°C' or '°F' or 'K'`)
 * `value.temperature.dewpoint` (`common.unit='°C' or '°F')
 * `value.humidity` - относительная влажность, то же самое, что и `value.humidity.relative` (единица измерения: %)
-* `value.humidity.relative` - (единица измерения: %)
-* `value.humidity.absolute` - (единица измерения: г/м³, мг/м³)
+* `значение.влажность.относительная` - (единица измерения: %)
+* `значение.абсолютная.влажность` - (единица измерения: г/м³, мг/м³)
 * `value.co` - Оксид углерода (единица измерения: ppm)
 * `value.co2` - Углекислый газ (единица измерения: ppm)
 * `value.no` - Оксид азота (единица измерения: мкг/м³ или ppm)
@@ -127,7 +128,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `value.tvoc` - Общее содержание летучих органических соединений (единица измерения: мкг/м³ или ppb)
 * `value.airquality` - Индекс качества воздуха (AQI)
 * `value.so2` - Диоксид серы (единица измерения: мкг/м³ или ppm)
-* `value.co.level`, `value.co2.level`, `value.no2.level`, `value.o3.level`, `value.ch2o.level`, `value.pm1.level`, `value.pm25.level`, `value.pm10.level`, `value.rn.level`, `value.tvoc.level`, `value.so2.level` - качественный уровень концентрации с тем же названием (`common.states={"0": "UNKNOWN", "1": "LOW", "2": "MEDIUM", "3": "HIGH", "4": "CRITICAL"}`)
+* `value.co.level`, `value.co2.level`, `value.no2.level`, `value.o3.level`, `value.ch2o.level`, `value.pm1.level`, `value.pm25.level`, `value.pm10.level`, `value.rn.level`, `value.tvoc.level`, `value.so2.level` - качественный уровень концентрации с тем же названием (`common.states={"0": "НЕИЗВЕСТНО", "1": "НИЗКИЙ", "2": "СРЕДНИЙ", "3": "ВЫСОКИЙ", "4": "КРИТИЧЕСКИ ОПАСНЫЙ"}`)
 * `value.brightness` - уровень яркости (единица измерения: люкс)
 * `value.dimmer` - фактический уровень затемнения в % (тип устройства `dimmer`)
 * `value.volume` - фактическая громкость звука в % (типы устройств `media`, `volume`)
@@ -142,7 +143,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `value.flow` - расход жидкости или газа (единица измерения: м³/ч)
 * `value.rssi` - уровень принимаемого сигнала радиоустройства (единица измерения: дБм)
 * `value.time` - метод getTime() для объекта Date()
-* `value.timer` - длительность в секундах (или другой распространенной единице времени) (аналог `level.timer` только для чтения)
+* `value.timer` - длительность в секундах (или другой распространенной единице времени) (эквивалент `level.timer`)
 * `value.interval` (common.unit=`s`, `m`, `h`, `ms` или `d`) - Интервал в секундах (или другой распространенной единице времени) (может быть 0,1 или меньше)
 * ~~value.date (common.type=string) - Дата в формате 2015.01.01 (без времени)~~
 * ~~value.datetime (common.type=string) - Дата и время в системном формате~~
@@ -160,7 +161,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `value.energy.consumed` - потребленная энергия (единица измерения: Вт·с, Вт·ч, кВт·ч)
 * `value.energy.produced` - произведенная энергия (единица измерения: Вт·с, Вт·ч или кВт·ч)
 * `value.power` - энергетическая мощность (единица измерения = Вт или кВт)
-* `value.power.active` - активная мощность (единица измерения: Вт, кВт)
+* `value.power.active` - активная мощность (единица измерения = Вт, кВт)
 * `value.power.reactive` - реактивная мощность (единица измерения: вар, кВар)
 * `value.power.consumed` - потребляемая мощность (единица измерения = Вт или кВт)
 * `value.power.produced` - произведенная мощность (единица измерения = Вт или кВт)
@@ -190,7 +191,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 Разница между *индикаторами* и *датчиками* заключается в том, что индикаторы отображаются в виде маленьких значков, а датчики - в виде реальных значений.
 Таким образом, индикатор может быть не единственным в канале. Он должен представлять собой какое-либо другое основное состояние внутри канала.
 
-* `indicator`
+* `индикатор`
 * `indicator.working` - указывает, что целевая система выполняет какое-либо действие, например, открывает жалюзи или замок.
 * `indicator.working.test` - выполняется самотестирование устройства.
 * `indicator.reachable` - Если устройство находится в сети
@@ -215,7 +216,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 
 С помощью **уровней** вы можете контролировать или устанавливать определенное числовое значение.
 
-* `level`
+* `уровень`
 * `level.humidity` - заданное значение влажности, например, для увлажнителей/систем климат-контроля.
 * `level.battery` - целевое напряжение/емкость батареи, т.е. для зарядки
 * `level.battery.min` - минимальное напряжение/емкость батареи
@@ -238,7 +239,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `level.min` - минимально допустимый уровень
 * `level.max` - максимально допустимый уровень
 * `level.default` - уровень по умолчанию
-* `level.dimmer` - уровень диммирования, то есть тоже яркость
+* `level.dimmer` - яркость также уменьшается.
 * `level.blind` - установить положение жалюзи (макс. = полностью открыты, мин. = полностью закрыты)
 * `level.temperature` - установить желаемую температуру
 * `level.temperature.heating` - желаемая температура для нагрева, для устройств, которые одновременно поддерживают заданные значения температуры нагрева и охлаждения.
@@ -284,7 +285,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `switch.light`
 * `switch.comfort` - комфортный режим
 * `switch.enable`
-* `switch.mode.`*
+* `switch.mode.` *
 * `switch.mode.auto` - включение/выключение автоматического режима
 * `switch.mode.manual` - включение/выключение ручного режима
 * `switch.mode.silent` - включение/выключение бесшумного режима
@@ -299,28 +300,26 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `level.mode.swing` - `AUTO, HORIZONTAL, STATIONARY, VERTICAL`
 * `level.mode.airconditioner` - кондиционер: `AUTO, COOL, DRY, ECO, FAN_ONLY, HEAT, OFF`, термостат отопления: `AUTO, MANUAL, VACATION`,
 * `level.mode.thermostat` - термостат: `AUTO, MANUAL, VACATION`,
-* `level.mode.airflow` - направление воздушного потока: `FORWARD, REVERSE`
-* `switch.mode.swing` - логический вариант `level.mode.swing` для устройств, которые могут только включать и выключать качание.
-* `value.mode.thermostat` - фактическое состояние устройства, только для чтения: `OFF, HEAT, COOL`. Аналог `level.mode.thermostat`, доступный только для чтения.
+* `level.mode.airflow` - направление воздушного потока: `ВПЕРЕД, НАЗАД`
+* `switch.mode.swing` - логический вариант `level.mode.swing` для устройств, которые могут только включать и выключать качели.
+* `value.mode.thermostat` - фактическое состояние устройства, только для чтения: `ВЫКЛ., НАГРЕВ., ОХЛАЖДЕНИЕ`. Аналог `level.mode.thermostat`, доступный только для чтения.
 * `value.mode.airconditioner` - текущее состояние устройства: `IDLE`, `HEAT`, `COOL` (0,1,2 в Apple Home)
 
-В дополнение к этим состояниям кондиционеру обычно нужны `level.temperature` и `switch.power`,
-чтобы он был распознан как устройство.
+Помимо этих состояний, для того чтобы кондиционер был распознан как устройство, ему обычно необходимы состояния `level.temperature` и `switch.power`.
 
-?> Для ионизации и осцилляции пока нет определённых ролей. Если они нужны, предложите их в
-[детекторе типов](https://github.com/ioBroker/ioBroker.type-detector).
+Пока что роли ионизации и осцилляции не определены. Если они вам понадобятся, предложите их в разделе [детектор типа](https://github.com/ioBroker/ioBroker.type-detector).
 
 ### Пылесос
 * `level.mode.cleanup` - перечисление значений `AUTO, ECO, EXPRESS, NORMAL, QUIET`. Требуются только значения `AUTO` и `NORMAL`.
 * `level.mode.work` - Перечисление значений `AUTO, FAST, MEDIUM, SLOW, TURBO`. Необязательное состояние.
 * `value.water` - уровень воды от 0 до 100%.
 * `value.waste` - Уровень заполнения мусорного ведра от 0 до 100%. (0% - пусто, 100% - заполнено)
-* `indicator.maintenance.waste` - Мусорное ведро - это глупость.
+* `indicator.maintenance.waste` - мусорное ведро заполнено
 * `value.state` - `HOME, CLEANING, PAUSE` и так далее.
 * `vacuum.map.base64` - карта очищенной области в виде изображения, закодированного в base64 (`common.type=string`)
 * `value.usage.filter` - оставшийся срок действия фильтра в %
-* `value.usage.brush` - оставшийся срок службы основной щётки в %
-* `value.usage.brush.side` - оставшийся срок службы боковой щётки в %
+* `value.usage.brush` - оставшийся срок службы основной кисти в %
+* `value.usage.brush.side` - оставшийся срок службы боковой кисти в %
 * `value.usage.sensors` - оставшееся время в % до необходимости очистки датчиков.
 * `indicator.maintenance.water` - резервуар для воды необходимо заполнить
 * `level.mode.vacuum` - режим работы робота-пылесоса: `IDLE, CLEANING, MAPPING` и режимы производителя. Интенсивность уборки - `level.mode.cleanup`.
@@ -328,8 +327,8 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `value.progress` - прогресс выполнения задачи (единица измерения: %)
 * `value.vacuum.phase` - текущая фаза, сообщаемая устройством (`common.type=string`)
 
-Кроме того, к этим состояниям обычно требуется `switch.power`, чтобы пылесос был распознан. `switch.power` в этом случае работает следующим образом: `true` - уборка, `false` - возвращение домой.
-Опционально `value.battery`.
+Кроме того, для этих состояний обычно требуется `switch.power` для построения карты пылесоса. `switch.power` в этом случае работает следующим образом: `true` - уборка, `false` - возвращение домой.
+В качестве опции `value.battery`.
 
 ### Ворота
 * `switch.gate` - закрывает (false) или открывает (true) ворота (обязательно)
@@ -340,7 +339,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `indicator.closed` - конечный контакт: ворота полностью закрыты. Оба контакта существуют отдельно, поскольку ворота могут находиться в состоянии между полностью открытым и полностью закрытым положением.
 
 ### Медиа
-Особые роли для медиаплееров
+Особые роли для участников медиа-рынка
 
 * `button.stop`
 * `button.play`
@@ -390,9 +389,9 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `media.jump` - Количество элементов для перехода в плейлисте (может быть отрицательным)
 * `media.content` - Тип воспроизводимого медиафайла, например, аудио/mp3
 * `media.link` - Состояние с текущим файлом
-* `media.input` - число или строка входного сигнала (AUX, AV, TV, SAT, ...)
-* `media.key` - клавиша пульта дистанционного управления (`common.type=string`, только для записи), которую необходимо отправить, например, `UP`, `SELECT`, `BACK`, `HOME`. `common.states` перечисляет клавиши, которые понимает устройство; их названия соответствуют кодам клавиш CEC кластера Matter KeypadInput (тип устройства `tv`).
-* `media.app` - (`common.type=string`) приложение для запуска; `common.states` сопоставляет идентификатор приложения с его именем (тип устройства `tv`)
+* `media.input` - число или строка входного сигнала (AUX, AV, TV, SAT и т. д.). Для `tv` - строка, ключи `common.states` которой берутся из `TV_INPUTS` детектора типов, например, `HDMI1`.
+* `media.key` - клавиша пульта дистанционного управления (`common.type=string`, только для записи), которую необходимо отправить, например, `UP`, `SELECT`, `BACK`, `HOME`. `common.states` перечисляет клавиши, которые понимает устройство; их имена соответствуют кодам клавиш CEC кластера Matter KeypadInput (тип устройства `tv`). Для устройства типа `tv` клавиши из `common.states` берутся из `TV_KEYS` детектора типов.
+* `media.app` - (`common.type=string`) приложение для запуска, например, `YOUTUBE`, `NETFLIX`, `DISNEY_PLUS`. Ключи `common.states` берутся из `TV_APPS` детектора типов, устройство отображает только поддерживаемые им приложения (тип устройства `tv`).
 * `level.bass` - Уровень баса
 * `level.treble` - Уровень высоких частот
 * `switch.power.zone` - зона питания
@@ -440,7 +439,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 ```
 
 ### Погода
-* `date` - фактическая дата или дата последнего прочтения информации
+* `date` - фактическая дата или дата последнего прочтения информации.
 * `date.forecast.1` - дата завтра
 * `date.forecast.0` - сегодняшняя дата
 * `dayofweek.forecast.0` - день недели сегодня в текстовом формате
@@ -476,7 +475,7 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `value.precipitation.hour` - Фактический уровень осадков за последний час
 * `value.precipitation.night.forecast.0` - Прогноз осадков на ночное время
 * `value.precipitation.today` - Фактический уровень осадков за сегодня (до 0:00)
-* `value.precipitation.type` - Фактический тип осадков на сегодня. (`type: number`) Состояния: 0 - НЕТ, 1 - ДОЖДЬ, 2 - СНЕГ, 3 - ГРАД
+* `value.precipitation.type` - Фактический тип осадков на сегодня. (`type: number`) Штаты: 0 - НЕТ, 1 - ДОЖДЬ, 2 - СНЕГ, 3 - ГРАД
 * `value.pressure.forecast.0` - прогноз давления на сегодня
 * `value.pressure.forecast.1`
 * `value.radiation` - Фактический уровень солнечной радиации
@@ -503,14 +502,14 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `value.temperature.min.forecast.0` - Минимальная прогнозируемая температура на сегодня
 * `value.temperature.min.forecast.1` - Минимальная прогнозируемая температура на завтра
 * `value.temperature.windchill` - Фактическое значение ветрового охлаждения
-* `value.uv` - Фактический УФ-индекс
+* `value.uv` - Фактический уровень UV-координат
 * `weather.chart.url` - URL-адрес графика с историей погоды
 * `weather.chart.url.forecast` - URL-адрес графика прогноза погоды
 * `weather.direction.wind` - фактическое или среднее направление ветра в текстовом виде, например, NNW
 * `weather.direction.wind.forecast.0` - прогноз направления ветра на сегодня в текстовом формате
 * `weather.html` - HTML-объект с описанием погоды
 * `weather.icon` - Фактический URL-адрес значка состояния на данный момент
-* `weather.icon.forecast.0` - URL-адрес значка состояния с прогнозом погоды на сегодня
+* `weather.icon.forecast.0` - URL-адрес значка штата с прогнозом погоды на сегодня
 * `weather.icon.wind.forecast.0` - URL-адрес значка ветра для прогноза погоды на сегодня
 * `weather.icon.forecast.1` - иконка завтрашнего дня
 * `weather.icon.name` - Фактическое название значка состояния на данный момент
@@ -550,14 +549,14 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `value.health.steps` - выполнено шагов
 * `value.health.bpm` - частота сердечных сокращений в минуту
 
-### Другие
+Другие
 Роли камеры (тип устройства `camera`):
 
 * `link.camera` - URL изображения с камеры (`common.type=string`)
 * `level.camera.position` - положение камеры при панорамировании, наклоне и масштабировании.
-* `switch.camera.autofocus` - включение/выключение автофокуса
-* `switch.camera.autowhitebalance` - автоматическая настройка баланса белого (вкл/выкл)
-* `switch.camera.brightness` - коррекция яркости включена/выключена
+* `switch.cam.autofocus` - включение/выключение автофокуса
+* `switch.cam.autowhitebalance` - автоматическая настройка баланса белого (вкл/выкл)
+* `switch.cam.brightness` - коррекция яркости включена/выключена
 * `switch.camera.nightmode` - включение/выключение ночного режима
 
 Роль изображения (тип устройства `image`):
@@ -579,33 +578,33 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 * `adapter.wakeup` (`common.type=boolean, common.write=true`) пробуждает адаптер из приостановленного режима
 
 ## Устаревшие псевдонимы ролей
-[Детектор типов](https://github.com/ioBroker/ioBroker.type-detector) по-прежнему принимает роли, перечисленные ниже, чтобы существующие адаптеры продолжали работать, но они **устарели**. Не используйте их в новых адаптерах и переносите их при работе со старым адаптером. Для каждого псевдонима есть документированная замена в таблицах ниже.
+[детектор типа](https://github.com/ioBroker/ioBroker.type-detector) по-прежнему принимает роли, перечисленные ниже, чтобы существующие адаптеры продолжали работать, но они **устарели**. Не используйте их в новых адаптерах и переносите их при работе со старым адаптером. Для каждого псевдонима есть документированная замена в таблицах ниже.
 
 ### Кнопки: пространство имен `action.*`
-Всё пространство имён `action.*` - это старое написание `button.*`. Детектор одинаково распознаёт `button` и `action`.
+Всё пространство имён `action.*` - это старое написание `button.*`. Детектор совпадает с `button` и `action`.
 
 | Устарело | Используйте вместо |
 |----------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | `action.play`, `action.pause`, `action.stop`, `action.next`, `action.prev` | `button.play`, `button.pause`, `button.stop`, `button.next`, `button.prev` |
-| `action.home` | `button.home` |
 | `action.open`, `action.open.blind` | `button.open.blind` |
 | `action.close`, `action.close.blind` | `button.close.blind` |
 | `action.open.tilt`, `action.close.tilt`, `action.stop.tilt` | `button.open.tilt`, `button.close.tilt`, `button.stop.tilt` |
+| `action.stop.blind` | `button.stop.blind` |
 | `action.stop.blind` | `button.stop.blind` |
 
 ### Датчики и сигналы тревоги с префиксом `state.` или без префикса `.alarm`
 | Устарело | Используйте вместо |
 |-----------------------------------------------------------------------|-----------------------------------------------------------|
 | `state.window` | `sensor.window` |
-| `state.door` | `sensor.door` |
 | `state.fire`, `state.alarm.fire`, `sensor.fire`, `indicator.fire` | `sensor.alarm.fire` |
 | `state.flood`, `state.alarm.flood`, `sensor.flood`, `indicator.flood` | `sensor.alarm.flood` |
 | `state.co`, `state.alarm.co`, `sensor.co` | `sensor.alarm.co` |
 | `motion`, `state.motion` | `sensor.motion` |
 | `state.light` | `sensor.light` (только для чтения) или `switch.light` (чтение-запись) |
 | `state.active` | `sensor.switch` |
+| `state.active` | `sensor.switch` |
 
-### Индикаторы
+Индикаторы
 | Устарело | Используйте вместо |
 |------------------------------------------------------|---------------------------------|
 | `indicator.battery`, `indicator.maintenance.battery` | `indicator.maintenance.lowbat` |
@@ -615,19 +614,19 @@ hash: /eNNbWtIK2rONZqKapLHvJQnvfFy81/3jBfpJ26Y3bw=
 | Устарело | Используйте вместо |
 |---------------------------|----------------------------------|
 | `switch.active` | `switch` |
-| `switch.party` | `switch.mode.party` |
 | `switch.boost` | `switch.mode.boost` |
 | `switch.autofocus` | `switch.camera.autofocus` |
 | `switch.autowhitebalance` | `switch.camera.autowhitebalance` |
 | `switch.brightness` | `switch.camera.brightness` |
+| `switch.nightmode` | `switch.camera.nightmode` |
 | `switch.nightmode` | `switch.camera.nightmode` |
 
 ### Уровни и значения
 | Устарело | Используйте вместо |
 |--------------------------------------------------------|----------------------------------------------------------------------|
 | `level.thermostat` | `level.mode.thermostat` |
-| `value.latitude`, `value.longitude`, `value.elevation` | `value.gps.latitude`, `value.gps.longitude`, `value.gps.elevation` |
 | `value.radius`, `value.accuracy` | `value.gps.radius`, `value.gps.accuracy` |
+| `value.brush`, `value.brush.side`, `value.sensors` | `value.usage.brush`, `value.usage.brush.side`, `value.usage.sensors` |
 | `value.brush`, `value.brush.side`, `value.sensors` | `value.usage.brush`, `value.usage.brush.side`, `value.usage.sensors` |
 
 ### Медиа

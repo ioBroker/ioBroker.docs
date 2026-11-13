@@ -20,7 +20,7 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a>
 </p>
 
-> **Current version: 0.6.1 (2026-10-27).**
+> **Current version: 0.6.2 (2026-11-13).**
 > ShoppingRoute releases appear through the ioBroker **latest** repository after index refresh.
 
 **0.6.1 – faster, safer Bring!/Alexa synchronization:** Once a new acknowledged Bring! list state or an Alexa list change is observed, ShoppingRoute starts a short debounced bridge check instead of waiting for another 90-second bridge poll. It retains a 30-second fallback check and reschedules busy transactions after three seconds; verification checks are rate-conscious and provider updates can wake them early. Original completed writes are confirmed independently from unrelated concurrent user changes, preventing a stale transaction from blocking later completions. The adapter reports delayed confirmations once as warnings, hard failures as errors, and a successful recovery once as informational output.
@@ -230,6 +230,13 @@ ShoppingRoute is still young, so real-world feedback is especially valuable.
 Please use the [ioBroker tester thread](https://forum.iobroker.net/topic/85510/test-adapter-shoppingroute-v0.4.4) for general testing feedback and the [GitHub issue tracker](https://github.com/RaviniZib/ioBroker.shoppingroute/issues) for reproducible bugs or feature requests.
 
 ## Changelog
+
+### 0.6.2 (2026-11-13)
+- Updated @iobroker/testing to 6.3.2 to resolve repository checker warning W0037 (Issue #85).
+- Includes unpublished repository checker cleanup from #86: README changelog entries, old changelog files and excessive io-package news were corrected.
+- Includes the bilingual clarification that the separate Bring! adapter refreshes its cloud data on its own approximately 90-second schedule (#84).
+- Includes previously merged Vite 8.3.5 and @module-federation/vite 1.23.7 build-tool updates (#87, #88).
+- Aligned runtime and package version metadata; retained the established Alexa and Bring! safety mechanisms and behavior.
 
 ### 0.6.1 (2026-10-27)
 

@@ -640,6 +640,32 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen (sofern vo
 ---
 
 ## Changelog
+### 5.0.1 (2026-11-09)
+* (simatec) Fix download of backups from a NAS ("Copy" mode, and CIFS / NFS when the file is not in the mounted directory)
+* (simatec) CCU backups in an own NAS directory (CIFS / NFS) are listed and can be downloaded
+* (simatec) Fix Discord notification ("Cannot read properties of undefined (reading 'sendTo')")
+* (simatec) Tab: restore console, restore log, backup log and loading the BackItUp settings in the new design
+* (simatec) Tab: the restore console shows the result of restores without ioBroker restart
+* (simatec) Tab: the JSON file is checked before the BackItUp settings are loaded
+* (simatec) Tab: missing translations added
+
+### 5.0.0 (2026-11-08)
+* (simatec) many small Fixes
+* (simatec) Added InfluxDB Warning before Restore 
+* (simatec) Added Download from all Backups Types from Backup Tab
+* (simatec) Fix MySQL Backup
+* (simatec) Fix Webdav
+* (simatec) Fix Grafana Backup
+* (simatec) Tab History redesigned
+* (bluefox) Tab redesigned, new logo and adapter icon
+* (bluefox) Existing backups can be downloaded from the tab
+* (bluefox) Upload accepts plain ioBroker backups (`iobroker backup`), also renamed ones
+* (bluefox) A click on the status of the last backup opens the log of that run
+* (bluefox) Failed backup runs save their log too
+* (bluefox) Clear error message if the InfluxDB program (`influx`/`influxd`) is not installed
+* (bluefox) The Homematic tile is only shown if the CCU backup is enabled
+* (bluefox) Updated `@iobroker/gui-components` to 10.4.0
+
 ### 4.0.4 (2026-09-13)
 * (bluefox) Fix path
 * (simatec) dependencies updated
@@ -653,20 +679,6 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen (sofern vo
 ### 4.0.2 (2026-08-18)
 * (simatec) Fix Backitup Tab
 * (simatec) dependencies updated
-
-### 4.0.1 (2026-08-07)
-* (simatec) Fix Backitup Tab
-
-### 4.0.0 (2026-08-04)
-* (simatec) dependencies updated
-* (simatec) Fix Translation
-* (simatec) small Fixes
-* (simatec) Integrated token encryption
-* (simatec) Fix Yahka Backup
-* (@GermanBluefox) Updated GUI packages und removed linter errors
-* (simatec) Update Node Engine
-* (@GermanBluefox) Migrated to Admin 8
-* (simatec) Redesign Backitup Tab
 
 ## License
 

@@ -5,6 +5,11 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.scheduler.svg)](https://www.npmjs.com/package/iobroker.scheduler)
 [![NPM](https://nodei.co/npm/iobroker.scheduler.png?downloads=true)](https://nodei.co/npm/iobroker.scheduler/)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see
+[Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+Sentry reporting is used starting with js-controller 3.0.
+
 This adapter is designed to control devices on a schedule. For example, heating or watering control.
 
 You can create the profiles with different priority: normal (e.g., workdays), high (e.g., weekends) and highest (e.g., for holidays).
@@ -24,107 +29,90 @@ Every bar is one hour and is set by dragging it. On the right the weekdays and h
 
 ![vis-2 widget, dark theme](img/vis2-widget-dark.png)
 
+## Profile types and data points
+The type of the profile decides which data points can be added to it and which value is written into them.
+
+| Type        | Required data point                                        | Written value                                                                               |
+|-------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| Percent     | `number` with `min` and `max`                              | The value is scaled linearly between `min` and `max`: `min + round((max - min) * value / 100)` |
+| Percent     | unit `%`                                                   | The value 0-100 unchanged                                                                   |
+| Temperature | `number`                                                   | The value unchanged                                                                         |
+| On/Off      | `boolean`                                                  | `true` or `false`                                                                           |
+| Custom      | `number`                                                   | The value unchanged                                                                         |
+| Custom with value list | `number`, `string` or `boolean`                 | The value of the chosen entry, converted to the type of the data point                       |
+
+Data points with `common.type` `mixed` are accepted for all types.
+The dialog to select the data points offers only the data points that match the type of the profile.
+Do not set `common.type` of a data point to `custom`: this is not a valid type of ioBroker, use `number`.
+
+## Values: own range and value list
+Profiles of type Temperature and Custom have the card **Values**:
+
+- **Own range** (min, max, step): replaces the range of the bars, which is otherwise taken from `min`/`max` of the
+  first data point (Custom also from its `states`) or is 0-28° for Temperature and 0-100 for Custom.
+  E.g. 30-60° for hot water. Empty fields keep the automatic value.
+- **Value list** (Custom only): the bars choose one of the entries instead of a number. Every entry has a label and
+  either a fixed value or a state:
+  - a fixed value is written as text and converted to the type of the data point: a number for `number`,
+    `true` for `true`/`1`/`on` and `false` otherwise for `boolean`, the text for `string`.
+    E.g. `"on"`/`"off"` for a device that expects text, or the levels 0-3 of a ventilation.
+  - a state: its current value is written, e.g. a comfort and an eco temperature that are changed in vis.
+    If the state changes while its entry is active, the new value is written at once.
+
+The vis-2 widget and the web component show the labels of the value list at the bars.
+
+## Web components
+The adapter brings the profile view as a web component too (`common.webComponents`, `@iobroker/web-components`), so
+that Aura, `ioBroker.devices`, admin and every other host can show it. vis-2 keeps showing its own widget.
+
+| Tag                     | Shows                                                                                  |
+|-------------------------|----------------------------------------------------------------------------------------|
+| `iob-scheduler-profile` | One profile: a bar per interval of the day, the days of the week and the holiday flag |
+
+Settings:
+- **Profile** - a state of the profile, e.g. `scheduler.0.Heating.Living room_active`; the instance is taken from the ID
+- **Title** - shown above the profile, nothing if empty
+- **Read only**
+- **Hide days of week**
+
+Drag a bar up or down to set its value, or across several bars to set them all. Tap the time below a bar to select it:
+a change then applies to all selected intervals. On/off intervals switch with a tap.
+
+A web component may not write objects, so it sends its changes to the instance with the message `setProfile`
+(`{ id, intervals?, dow?, holiday? }`), which writes them into the instance object on behalf of the user of the
+connection. The instance must run for that, and it restarts after every change, like after saving the settings in admin.
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 2.2.0 (2026-11-12)
+* (@GermanBluefox) The adapter declares the versions it needs: js-controller 6.0.11 and admin 7.6.20 or newer. It cannot be installed from GitHub, because the build is not part of the repository
+* (@GermanBluefox) Fixed profiles of type Custom: the adapter rejected the data points accepted by admin and did not write the value. Documented which data points every profile type needs (#448)
+* (@GermanBluefox) The configuration explains itself: a help dialog (question mark above the bars) describes profiles, intervals, days, holidays, priority, types, activation state and the advanced options. The type, the priority, the activation state and the advanced options show a short hint, and a data point of the wrong type tells which data point the profile type needs
+* (@GermanBluefox) The configuration is animated: folders open and close, the menu symbol turns into an arrow, the trash can opens its lid, the clock of a profile turns on hover, new data points pop in, the days of week bounce and the line of the current time breathes. No animation runs if the system asks for less motion
+* (@GermanBluefox) Fixed: the values of a profile changed every time the configuration was opened, if the first data point has its own `min`/`max` (#309)
+* (@GermanBluefox) Temperature and Custom profiles can have their own range of the bars, e.g. 30-60° for hot water (#308)
+* (@GermanBluefox) Custom profiles can have a value list: the bars choose an entry, which writes a fixed value (also text like `"on"`/`"off"`) or the value of a state, e.g. a comfort temperature changed in vis (#268, #181, #33)
+* (@GermanBluefox) Added the Ukrainian title and description, the Sentry notice and the dependabot entries of all frontend packages
+
+### 2.1.1 (2026-11-09)
+* (@GermanBluefox) Web component: the holiday button shows its whole name, and decimal values follow the number format of the system
+
+### 2.1.0 (2026-11-08)
+* (@GermanBluefox) Added the web component `iob-scheduler-profile` for Aura and other hosts (`common.webComponents`); it saves its changes through the new message `setProfile`
+
 ### 2.0.3 (2026-11-02)
 * (@GermanBluefox) Corrected the widget: changes in one widget were overwritten by other widgets of the same instance
 
 ### 2.0.2 (2026-10-18)
 * (@GermanBluefox) Fixed: profiles could not be selected if the first element in the list was a folder (e.g. after deleting profiles)
-
-### 2.0.1 (2026-10-17)
-* (@GermanBluefox) Packages were updated
-
-### 2.0.0 (2026-08-07)
-* (@GermanBluefox) Migrated to React 19
-* (@GermanBluefox) Breaking: Minimum Node.js version is 22
-
-### 1.5.0 (2025-05-21)
-* (bluefox) Corrected widgets for vis-2
-* (bluefox) Packages were updated
-
-### 1.4.3 (2024-12-16)
-* (bluefox) Corrected states selection
-
-### 1.4.2 (2024-12-06)
-* (bluefox) Allowed selection of mixed states
-
-### 1.4.1 (2024-07-25)
-* (bluefox) Packages of the widget were updated
-
-### 1.4.0 (2024-07-07)
-* (bluefox) Removed `withStyles` from the widget
-
-### 1.3.12 (2024-04-27)
-* (bluefox) Corrected widget
-
-### 1.3.8 (2024-04-11)
-* (bluefox) Small GUI changes done
-
-### 1.3.7 (2024-04-06)
-* (bluefox) Corrected widget errors
-* (bluefox) Implemented custom types
-* (bluefox) Added possibility to control devices on holidays
-
-### 1.2.1 (2024-04-03)
-* (bluefox) Added two options: "Ignore values if same as previous" and "Do not control if device already in desired state"
-* (bluefox) Corrected 15-minute intervals
-* (bluefox) GUI improvements for mobile view
-
-### 1.1.14 (2024-04-02)
-* (bluefox) Corrected widget and profile
-
-### 1.1.12 (2024-03-13)
-* (bluefox) Packages updated
-
-### 1.1.10 (2023-10-19)
-* (bluefox) Packages updated
-
-### 1.1.9 (2023-06-28)
-* (bluefox) Packages updated
-
-### 1.1.7 (2023-03-24)
-* (bluefox) Worked on the build process
-
-### 1.1.6 (2023-03-14)
-* (bluefox) update packages
-
-### 1.1.4 (2023-03-06)
-* (bluefox) Tried to fix vis-2 widget
-
-### 1.1.3 (2023-03-06)
-* (bluefox) Added widget for vis-2
-
-### 1.0.4 (2022-12-23)
-* (bluefox) Updated GUI packages
-
-### 1.0.3 (2022-06-22)
-* (bluefox) Made it work with ioBroker cloud
-
-### 1.0.2 (2022-06-20)
-* (bluefox) Corrected the problem with `socket.io`
-
-### 1.0.1 (2022-06-20)
-* (bluefox) Allowed working behind reverse proxy
-
-### 1.0.0 (2022-03-22)
-* (bluefox) GUI migrated to material@5
-
-### 0.1.3 (2022-03-22)
-* (bluefox) Just the packages were updated
-
-### 0.1.2 (2021-09-14)
-* (bluefox) "Sentry" was added
-
-### 0.1.1 (2021-09-13)
-* (bluefox) Initial release
-
-### 0.1.0 (2021-05-19)
-* (bluefox) Initial commit
 
 ## License
 The MIT License (MIT)

@@ -28,7 +28,7 @@ Documentation in other languages: [Deutsch](https://github.com/seaspotter/ioBrok
 
 - A running VictoriaMetrics instance (single-node), reachable via HTTP(S) – see
   [Installing VictoriaMetrics](#installing-victoriametrics) below
-- ioBroker js-controller >= 6.0.11, Admin >= 7.0.23
+- ioBroker js-controller >= 6.0.11, Admin >= 7.7.2
 
 ## Installing VictoriaMetrics
 
@@ -53,6 +53,39 @@ VictoriaMetrics is then reachable at `http://<docker-host>:8428` (health check:
 Docker image: [victoriametrics/victoria-metrics on Docker Hub](https://hub.docker.com/r/victoriametrics/victoria-metrics/).
 For persistent operation, use a volume/bind mount for `-storageDataPath` (see above) and,
 depending on your environment, a `docker-compose.yml` with `restart: unless-stopped`.
+
+### Docker managed by the adapter
+
+The adapter can start and maintain its own VictoriaMetrics container, like the InfluxDB and SQL
+adapters do. Docker must be installed on the ioBroker host and the `iobroker` user must be
+allowed to use it (run `iob fix` if it is not).
+
+1. Open the instance settings and enable **Use self-hosted VictoriaMetrics in Docker** on the
+   "Connection" tab. The connection fields (protocol, host, port, authentication) are hidden
+   then, because the adapter configures the connection itself.
+2. Adjust the panel **VictoriaMetrics Docker** if needed, then save. The adapter creates and starts
+   the container.
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| Start container on IP | `127.0.0.1` | The container is reachable on this host only. Set `0.0.0.0` or the host's IP to reach VictoriaMetrics (VMUI, other tools) from another computer – **only in a trusted network**, VictoriaMetrics has no access restriction here. |
+| Port | `8428` | Port on which the container is published on the host |
+| Retention period | `100y` | Passed as `-retentionPeriod`. A plain number means months, otherwise add a unit `h`, `d`, `w` or `y` (e.g. `12`, `90d`, `100y`). Changing it re-creates the container; the data is kept. |
+| Stop container when instance stops | off | Leave it off if other tools use the same VictoriaMetrics |
+| Auto-update Docker image | on | Pulls the latest `victoriametrics/victoria-metrics` image when the adapter starts |
+
+- The data lives in the Docker volume `victoriametrics_data` (prefixed with the instance, e.g.
+  `iob_victoriametrics_0_victoriametrics_data`) and survives updates and re-creation of the container.
+  The volume is included in ioBroker backups.
+- Docker is **off by default**; nothing is created for existing installations.
+- Disabling the option does not delete the container or the data.
+- The "Test connection" button is hidden while Docker is enabled, because the container does not
+  exist before the first start. The state `info.connection` shows whether VictoriaMetrics is reachable.
+- The VMUI link in the Admin sidebar works with the Docker option, too: while it is enabled, the adapter
+  keeps the (hidden) connection settings in sync with the container, so Admin can build the link from
+  them. With **Start container on IP** `0.0.0.0` the host name of the ioBroker host is used. A change
+  restarts the instance once. When you disable the Docker option later, these values stay in the
+  connection settings - set them to your own server then.
 
 ### Without Docker
 
@@ -372,7 +405,11 @@ The current retention is visible in three places (all read-only, read once from 
 | `npm run release` | Cuts a release (version bump, changelog/news sync, git tag) via [`@alcalzone/release-script`](https://github.com/AlCalzone/release-script) |
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.6.1 (2026-11-08)
+* (SeaSpotter) Raised the minimum Node.js version to 22.19.0, as required by `@iobroker/plugin-docker` (flagged by the repository checker, W0069)
+
+### 0.6.0 (2026-11-05)
+* (SeaSpotter) New: optional self-hosted VictoriaMetrics in Docker, managed by the adapter like in the InfluxDB and SQL adapters (retention period configurable, default `100y`); Admin >= 7.7.2 required (feature request #26)
 * (SeaSpotter) Set `common.nogit` in `io-package.json`: the compiled `build/` directory is not committed, so the adapter is installable from npm only (flagged by the repository checker, E5019)
 
 ### 0.5.0 (2026-11-04)
@@ -385,14 +422,6 @@ The current retention is visible in three places (all read-only, read once from 
 ### 0.4.4 (2026-09-11)
 * (SeaSpotter) Addressed maintainer review findings: translated all remaining German log/error messages to English, fixed the `cache` object's German-only name to a full i18n object, replaced the German `"zeitreihe"` keyword with `"timeseries"`, added code-level validation for `writeInterval`/`requestTimeout` against Node.js' timer maximum
 * (SeaSpotter) CI: added Node.js 26.x to the test matrix; upgraded `@iobroker/testing` to 6.2.1
-
-### 0.4.3 (2026-08-29)
-* (SeaSpotter) Completed `info.retention`'s `common.name` translations to all 11 languages (flagged by the official repo review's object-structure check)
-
-### 0.4.2 (2026-08-28)
-* (SeaSpotter) Fixed official ioBroker repo-checker findings: moved `encryptedNative`/`protectedNative` to the top level of `io-package.json` (were incorrectly nested under `common`), removed `common.docs` (redundant with the English README), fixed `info.retention`'s role, bumped `engines.node`/admin dependency minimums, added full responsive breakpoints to all admin config fields
-* (SeaSpotter) Added `CHANGELOG_OLD.md`, `.github/dependabot.yml`, and dependabot auto-merge workflow
-* (SeaSpotter) Releases now auto-publish to npm via trusted publishing (OIDC) and auto-create the GitHub release when a version tag is pushed
 
 Older changelog entries can be found in CHANGELOG_OLD.md.
 

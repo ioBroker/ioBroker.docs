@@ -99,6 +99,13 @@ den abgeschlossenen Status nicht nachträglich.
 `<vin>.charging.start` / `.stop` (`role: button`) erzwingen einen Aufruf.
 Boolean-Abbildung: `true` genau bei `charging.status.state === 'CHARGING'`.
 `CONNECT_CABLE`, `READY_FOR_CHARGING`, `CONSERVING` sind `false`.
+Das gilt ebenfalls für die bekannten inaktiven Werte `DISCHARGING` und
+`CHARGING_INTERRUPTED`. Fehlende und unbekannte Werte bleiben unbekannt: Der
+Schalter behält den letzten Wert mit schlechter Qualität; die Queue darf damit
+keinen Stop-Befehl als bereits erfüllt verwerfen oder bestätigen. Die optionalen
+Steckerzustände `plugConnectionState` und `plugLockState` werden separat gelesen
+und erlauben keine Ableitung, ob das Fahrzeug lädt. Anzeige, Coalescing und
+Bestätigung verwenden dieselbe Zuordnung bekannter aktiver und inaktiver Werte.
 **Begründung:** Coalescing auf einem Soll-Zustand ist ein trivialer Vergleich;
 auf Buttons wäre es eine Heuristik.
 `ack=true` bedeutet **"an die API übergeben"**, nicht "das Auto hat es getan" —

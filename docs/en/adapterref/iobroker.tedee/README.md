@@ -307,6 +307,11 @@ Webhooks: the adapter starts a small web server (port 29170 or the next free por
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.2 (2026-11-08)
+
+- (Schimi1983) Fix: requests to the bridge are sent one after another (the bridge rejects parallel connections), lock commands are served first
+- (Schimi1983) Fix: lock commands and PIN changes are repeated when the bridge is busy (503), so they are no longer lost
+
 ### 1.0.1 (2026-10-31)
 
 - (Schimi1983) README and instance settings rewritten for beginners: setup in 3 steps, daily use, troubleshooting; technical details collapsed, smaller logo

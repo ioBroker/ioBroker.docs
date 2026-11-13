@@ -71,7 +71,7 @@ For detailed instructions and more information, it is recommended to watch the l
 
 The adapter adds nine widgets to the vis-2 palette, in the set **Jaeger design**. Hovering over a widget in the palette shows a short description under its preview.
 
-All widgets share one color theme. Only the layout widget carries the complete theme; every other widget either picks its colors up from it (*Palette → From widget*) or defines its own. Four themes are built in: `green`, `blue`, `green-dark` and `blue-dark`.
+All widgets share one color theme. Only the layout widget carries the complete theme; every other widget either picks its colors up from it (*Palette → From widget*) or defines its own. Five themes are built in: `green`, `blue`, `green-dark`, `blue-dark` and `aurora` (night blue with mint).
 
 ### Layout
 
@@ -152,6 +152,16 @@ A media player card: title, artist, cover, play/pause, previous/next, shuffle, m
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.5.9 (2026-11-11)
+* (bluefox) Info entries can show a symbol in front of the name or instead of it
+
+### 1.5.8 (2026-11-10)
+* (bluefox) The background of a floor or page view now reaches to the end when the view is scrolled
+* (bluefox) Scenes and actions with "No active state" are shown pressed for a moment after a click
+* (bluefox) Redesigned the layout editor: grouped navigation, lists with search, drag & drop, duplicate and delete, fields in cards, theme previews, undo/redo (Ctrl+Z/Ctrl+Y) and animated icons
+* (bluefox) Added the dark theme "Aurora" (night blue with mint)
+* (bluefox) Dark themes: popovers of dimmer and shutter, the thermostat mode menu and the player sliders take the theme colors; a custom theme with a dark background is detected as dark
+
 ### 1.5.7 (2026-11-04)
 * (bluefox) Copying a submenu gives its items new IDs, so the copied pages no longer take the settings (e.g., included or excluded scenes) of the original pages
 * (bluefox) Menu items with the same ID are repaired when the layout settings are opened or imported from JSON
@@ -164,16 +174,6 @@ A media player card: title, artist, cover, play/pause, previous/next, shuffle, m
 * (bluefox) Pages with "Include scenes" or "Include actions" show only the scenes and actions of the current floor, the same as with "Exclude"
 * (bluefox) Menu settings: "Include scenes/actions" offers only the items assigned to floors and shows which ones are visible on every floor
 * (bluefox) Updated packages
-
-### 1.5.4 (2026-10-28)
-* (bluefox) Home page shows the info even if no scenes and no actions are defined
-* (bluefox) Info groups wrap instead of pushing the right side out of the screen; the width of info lines is configurable
-* (bluefox) State widget: for display-only numbers the color does not depend on the max value of the object anymore
-* (bluefox) Thermostat: the power button can be inverted (e.g., for HomematicIP control mode)
-* (bluefox) Cameras: the image is replaced only after the next image was loaded completely, so it does not disappear anymore
-
-### 1.5.2 (2026-10-27)
-* (bluefox) Shutter and dimmer popups: percent and memory buttons have the widget height on mobile devices
 
 Older changes can be found in CHANGELOG_OLD.md
 

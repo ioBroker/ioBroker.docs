@@ -5,7 +5,7 @@ chapters: {"pages":{"en/adapterref/iobroker.shoppingroute/README.md":{"title":{"
 
 ![ShoppingRoute](admin/shoppingroute.png)
 
-**Aktuelle Version: 0.6.1 (27.10.2026).**
+**Aktuelle Version: 0.6.2 (13.11.2026).**
 
 **Neu in 0.6.1 – schnellerer und robusterer Bring!-/Alexa-Abgleich:** Sobald der Bring!-Adapter einen bestätigten Listenstand oder Alexa eine Listenänderung meldet, wird ShoppingRoute ereignisgesteuert aktiv. Es entfällt die zusätzliche Wartezeit von bis zu 90 Sekunden im ShoppingRoute-Intervall. Eine 30-Sekunden-Rückfallprüfung, kurze Wiederholungsversuche bei laufenden Sortierungen und zeitnahe Bestätigungen bleiben aktiv. Bereits ausgeführte Schreibvorgänge werden unabhängig von zwischenzeitlich erledigten anderen Artikeln erkannt. Dadurch blockieren solche Erledigungen den nächsten Abgleich nicht mehr. Nach drei Minuten ohne Bestätigung erscheint einmalig eine Warnung im ioBroker-Log, bei Timeout ein Fehler und nach Wiederherstellung eine Entwarnung – keine Logflut.
 
@@ -169,6 +169,13 @@ Die Optimierung ist optional und abhängig von der eingestellten Mindestartikelz
 ShoppingRoute wird unter der **[MIT-Lizenz](https://github.com/RaviniZib/ioBroker.shoppingroute/blob/main/LICENSE)** veröffentlicht. Frühere bereits veröffentlichte Versionen bleiben unter der jeweils damals gültigen Lizenz.
 
 ## Changelog
+
+### 0.6.2 (13.11.2026)
+- @iobroker/testing auf 6.3.2 aktualisiert (Repo-Checker-Warnung W0037, Issue #85).
+- Bisher unveröffentlichte Repo-Checker-Korrekturen aus #86 übernommen: README-Changelog, veraltete Changelog-Dateien und zu viele Versionsmeldungen bereinigt.
+- Zweisprachigen Hinweis zur eigenständigen, ungefähr 90-sekündigen Bring!-Cloud-Abfrage übernommen (#84).
+- Bereits zusammengeführte Aktualisierungen auf Vite 8.3.5 und @module-federation/vite 1.23.7 enthalten (#87, #88).
+- Versionsangaben im Laufzeitcode und in den Paketdateien abgeglichen; bewährte Alexa-/Bring!-Schutzmechanismen und Funktionen beibehalten.
 
 ### 0.6.1 (27.10.2026)
 

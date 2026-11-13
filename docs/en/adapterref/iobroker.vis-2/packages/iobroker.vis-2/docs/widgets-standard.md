@@ -10,7 +10,7 @@ Two widget sets come with vis-2 for the devices of a house:
 | **relative** | Cards for a page with sections — every widget fills whole cells of a grid and follows the width of the screen |
 | **absolute** | Markers for a floor plan — every widget is a coin or a capsule at the place it was dragged to                 |
 
-Both are the same twenty-seven devices. A device is described once in the source
+Both are the same twenty-nine devices. A device is described once in the source
 (`src-vis/src/Vis/Widgets/Standard/devices/`) and comes out twice, so a thermostat is the same thermostat on
 a tablet in the hall and on the plan of the ground floor: the same states, the same attributes, the same
 words, two shapes.
@@ -27,8 +27,10 @@ and follows the language of the installation.
 - [Measured value](#measured-value)
 - [Input](#input)
 - [Fill level](#fill-level)
+- [Energy flow](#energy-flow)
 - [Sensor](#sensor)
 - [Window or door](#window-or-door)
+- [Status count](#status-count)
 - [Weather](#weather)
 - [Alarm system](#alarm-system)
 - [Blind](#blind)
@@ -66,12 +68,23 @@ level stand as full as the device does.
 
 Besides its own states, every widget of both sets carries these:
 
-| Attribute     | Takes    | What it does                                                                                            |
-| ------------- | -------- | ------------------------------------------------------------------------------------------------------- |
-| `layout`      | select   | Layout — `default` Name above, value below, `compact` One row, `card` Coloured tile (default `default`) |
-| `widgetTitle` | text     | Name                                                                                                    |
-| `icon`        | icon     | Icon                                                                                                    |
-| `noCard`      | checkbox | Without frame                                                                                           |
+| Attribute     | Takes    | What it does                                                                                                                                          |
+| ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `layout`      | select   | Layout — `default` Name above, value below, `compact` One row, `card` Coloured tile (default `default`)                                               |
+| `widgetTitle` | text     | Name                                                                                                                                                  |
+| `icon`        | icon     | Icon                                                                                                                                                  |
+| `iconSize`    | text     | Size of the icon: a number is px, `60%` a share - of the shorter side of the card, of the marker, for the photo of a person of the room the photo has |
+| `noCard`      | checkbox | Without frame                                                                                                                                         |
+| `header`      | select   | Header — `full` Icon and name, `name` Only the name, `icon` Only the icon, `none` Nothing (default `full`; set relative only)                         |
+| `valueSize`   | number   | Size of the value in px; empty takes the size of the set (set relative only)                                                                          |
+
+What the header leaves out makes room for the content: without the name the icon moves in front of the value and
+that row moves up, so a tile one row high still shows the icon, the value and the switch; without the name and the
+icon the content starts at the top edge. Above a drawing - a blind, a dial - the icon keeps a row of its own. The
+name can still be set: the chart of the card and the editor use it. `name` leaves out only the icon, for a card whose
+picture says what it is already.
+
+A name too long for one line takes a second one and is cut after that; the whole name is in its tooltip.
 
 The values of `layout` differ between the sets, because the shapes do:
 
@@ -302,6 +315,33 @@ A cistern, an oil tank, a pellet store, a battery: a bar with a scale beside it,
 
 The assistant picks this widget for the device types `fillLevel`.
 
+## Energy flow
+
+`tplRelEnergyFlow` (set _relative_) · `tplAbsEnergyFlow` (set _absolute_) · default tile 6 columns × 4 rows
+
+Where the power of the house comes from and where it goes: the panels, the grid, the battery and the house, with
+moving dots on the lines between them - the more power, the faster. Three states are enough: what the panels
+make, what goes over the meter and what goes over the battery. The flows between them are worked out the way
+inverter apps do it (the sun first into the house, then into the battery, the rest into the grid), and so is the
+consumption of the house unless a state says it. The ring of the house shows in its colours where its power comes
+from.
+
+A circle whose state is not given is left out with its lines. A state in kW is read as kW - the unit of its object
+decides - and a meter or a battery that counts the other way round gets its box ticked.
+
+| Attribute         | Takes    | What it does                                               |
+| ----------------- | -------- | ---------------------------------------------------------- |
+| `oidSolar`        | state    | Solar power                                                |
+| `oidGrid`         | state    | Grid power — positive is bought, negative is fed in        |
+| `gridInverted`    | checkbox | Counts the other way round                                 |
+| `oidBattery`      | state    | Battery power — positive is taken out, negative is charged |
+| `batteryInverted` | checkbox | Counts the other way round                                 |
+| `oidBatterySoc`   | state    | Battery charge (%)                                         |
+| `oidHome`         | state    | House consumption; empty works it out                      |
+
+`compact`, `card` and the marker of the set _absolute_ show what the house uses; the marker opens the card on a
+click.
+
 ## Sensor
 
 `tplRelSensor` (set _relative_) · `tplAbsSensor` (set _absolute_) · default tile 6 columns × 2 rows
@@ -310,18 +350,27 @@ The assistant picks this widget for the device types `fillLevel`.
 
 A state that is only ever one of two things: a window, a door, motion, smoke, water. Say what it watches and it finds its symbol and its words; mark it as an alarm and it turns red when it goes off.
 
-| Attribute  | Takes    | What it does                                                                                                                                                                         |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `oid`      | state    | Object ID                                                                                                                                                                            |
-| `kind`     | select   | What it watches — `contact` Contact, `window` Window, `door` Door, `motion` Motion, `smoke` Smoke or fire, `water` Water, `light` Light, `generic` Anything else (default `contact`) |
-| `alarm`    | checkbox | Treat as an alarm                                                                                                                                                                    |
-| `inverted` | checkbox | Inverted                                                                                                                                                                             |
-| `textOn`   | text     | Word while true                                                                                                                                                                      |
-| `textOff`  | text     | Word while false                                                                                                                                                                     |
-| `iconOn`   | icon     | Icon when active                                                                                                                                                                     |
-| `iconOff`  | icon     | Icon when inactive                                                                                                                                                                   |
-| `colorOn`  | color    | Colour when active                                                                                                                                                                   |
-| `colorOff` | color    | Colour when inactive                                                                                                                                                                 |
+| Attribute   | Takes    | What it does                                                                                                                                                                                                     |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `oid`       | state    | Object ID                                                                                                                                                                                                        |
+| `kind`      | select   | What it watches — `contact` Contact, `window` Window, `door` Door, `motion` Motion, `smoke` Smoke or fire, `water` Water, `light` Light, `person` Person (presence), `generic` Anything else (default `contact`) |
+| `iconPhoto` | image    | Photo (only with `kind` = `person`)                                                                                                                                                                              |
+| `alarm`     | checkbox | Treat as an alarm                                                                                                                                                                                                |
+| `inverted`  | checkbox | Inverted                                                                                                                                                                                                         |
+| `textOn`    | text     | Word while true                                                                                                                                                                                                  |
+| `textOff`   | text     | Word while false                                                                                                                                                                                                 |
+| `iconOn`    | icon     | Icon when active                                                                                                                                                                                                 |
+| `iconOff`   | icon     | Icon when inactive                                                                                                                                                                                               |
+| `colorOn`   | color    | Colour when active                                                                                                                                                                                               |
+| `colorOff`  | color    | Colour when inactive                                                                                                                                                                                             |
+
+With `kind` = `person` the sensor is the presence of somebody: their photo in a big circle, in colour while
+they are at home and grey while they are away. Without a photo the own symbol of the widget (`iconOn` /
+`iconOff`) stands in the circle, and without that the initials of the name. A narrow card shows the circle
+between the name and the value; a card at least half again as wide as it is high shows it beside them, over its
+whole height. `compact` and `card`, which have no body, show it in place of the icon, and a marker of the set
+_absolute_ is the face itself. `iconSize` makes the circle smaller: in px up to the room it has, with % a share
+of that room.
 
 The assistant picks this widget for the device types `window`, `windowTilt`, `door`, `motion`, `fireAlarm`, `floodAlarm`, `coAlarm`, `contact`, `buttonSensor`.
 
@@ -342,6 +391,32 @@ A window or a door drawn as one: closed, tilted or standing open. The shape is r
 | `inverted`  | checkbox | Inverted                                                          |
 
 The assistant picks this widget for the device types `window`, `windowTilt`, `door`.
+
+## Status count
+
+`tplRelCount` (set _relative_) · `tplAbsCount` (set _absolute_) · default tile 6 columns × 3 rows
+
+How many of a group of states are on, and which: _3 windows open_, _2 lights on_, _1 battery low_. The sentence
+with the number in it, another sentence for none, a colour while some are on, and the names of those that are on
+as small chips under it. A state counts as on when it is `true`, a number other than 0, or a text other than
+`false`, `off` or `closed` - so a window handle with 0, 1 and 2 counts tilted and open alike.
+
+| Attribute    | Takes    | What it does                                                                           |
+| ------------ | -------- | -------------------------------------------------------------------------------------- |
+| `states`     | number   | States (default `3`)                                                                   |
+| `countText`  | text     | Text — `%s` stands for the number: `%s windows open`                                   |
+| `zeroText`   | text     | Text for none, like `All windows closed`; empty shows 0                                |
+| `countColor` | color    | Colour while some are on (default yellow)                                              |
+| `alarm`      | checkbox | Treat as an alarm — red while some are on; the `card` layout and the marker are filled |
+| `showList`   | checkbox | Show the names (default `true`)                                                        |
+
+**Counted states** — these fields exist once per row, numbered: `oidCount1`, `oidCount2`, …
+
+| Attribute       | Takes    | What it does                                      |
+| --------------- | -------- | ------------------------------------------------- |
+| `oidCount`      | state    | Object ID; the name is taken over from the object |
+| `countName`     | text     | Name                                              |
+| `countInverted` | checkbox | Inverted                                          |
 
 ## Weather
 
@@ -388,16 +463,19 @@ The assistant picks this widget for the device types `weatherCurrent`, `weatherF
 
 Armed, disarmed, or going off — three states and nothing else is the honest shape of it. What arming means (everybody out, or somebody asleep upstairs) is the system’s own business: where it says so in its object, the card shows those as buttons; where it does not, the buttons it was given do. Like the lock it asks on both ways by default, and a PIN can be set for it. Disarming a house from a tablet in the hall is exactly the move that should cost one.
 
-| Attribute    | Takes    | What it does           |
-| ------------ | -------- | ---------------------- |
-| `oid`        | state    | Armed                  |
-| `oidAlarm`   | state    | Going off              |
-| `oidArmAway` | state    | Arm — everybody out    |
-| `oidArmHome` | state    | Arm — somebody at home |
-| `oidDisarm`  | state    | Disarm                 |
-| `oidDelay`   | state    | Arm with delay         |
-| `inverted`   | checkbox | Inverted               |
-| `zones`      | number   | Zones (default `0`)    |
+| Attribute     | Takes    | What it does                       |
+| ------------- | -------- | ---------------------------------- |
+| `oid`         | state    | Armed                              |
+| `oidAlarm`    | state    | Going off                          |
+| `oidArmAway`  | state    | Arm — everybody out                |
+| `oidArmHome`  | state    | Arm — somebody at home             |
+| `oidDisarm`   | state    | Disarm                             |
+| `oidDelay`    | state    | Arm with delay                     |
+| `inverted`    | checkbox | Inverted                           |
+| `zones`       | number   | Zones (default `0`)                |
+| `zoneOpen`    | checkbox | Zones are contacts (open / closed) |
+| `zoneOnText`  | text     | Text of a zone that is on          |
+| `zoneOffText` | text     | Text of a zone that is off         |
 
 **Zones** — these fields exist once per row, numbered: `oidZone1`, `oidZone2`, …
 
@@ -405,6 +483,11 @@ Armed, disarmed, or going off — three states and nothing else is the honest sh
 | ---------- | ----- | ---------------- |
 | `oidZone`  | state | Zone             |
 | `zoneName` | text  | Name of the zone |
+
+A zone shows its name over the whole width of its tile, on two lines if it needs them, and what it is doing
+under it. What it says is, in this order: `zoneOnText` / `zoneOffText`, the word the state's object has for the
+value, and otherwise on and off. With `zoneOpen` a zone is a window or a door: it says open and closed, and one
+that is open is yellow rather than green.
 
 ## Blind
 
@@ -598,30 +681,45 @@ Several states in one card, a row each: switches, sliders and readings together.
 
 The rows a state holds as JSON: the next departures, the open alarms, the devices of a gateway. Which columns are shown can be left to the data or named one by one, with a heading, a width, an alignment and what is written in front of and behind every cell.
 
-| Attribute        | Takes    | What it does                             |
-| ---------------- | -------- | ---------------------------------------- |
-| `oid`            | state    | State with the rows                      |
-| `withHead`       | checkbox | Heading row (default `true`)             |
-| `zebra`          | checkbox | Every second row shaded (default `true`) |
-| `headColor`      | color    | Colour of the heading                    |
-| `headBackground` | color    | Background of the heading                |
-| `maxRows`        | number   | At most this many rows                   |
-| `columns`        | number   | Described columns (default `3`)          |
+| Attribute        | Takes    | What it does                                                                                               |
+| ---------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| `oid`            | state    | State with the rows                                                                                        |
+| `withHead`       | checkbox | Heading row (default `true`)                                                                               |
+| `zebra`          | checkbox | Every second row shaded (default `true`)                                                                   |
+| `headColor`      | color    | Colour of the heading                                                                                      |
+| `headBackground` | color    | Background of the heading                                                                                  |
+| `maxRows`        | number   | At most this many rows                                                                                     |
+| `rowFilter`      | select   | Show rows — `""` All, `upcoming` Not over yet, `today` Today, `todayUpcoming` Rest of today (default `""`) |
+| `filterKey`      | custom   | Start in the data                                                                                          |
+| `filterEndKey`   | custom   | End in the data                                                                                            |
+| `columns`        | number   | Described columns (default `3`)                                                                            |
 
 **Columns** — these fields exist once per row, numbered: `columnKey1`, `columnKey2`, …
 
-| Attribute          | Takes  | What it does                                                              |
-| ------------------ | ------ | ------------------------------------------------------------------------- |
-| `columnKey`        | custom | Key in the data                                                           |
-| `columnTitle`      | text   | Heading                                                                   |
-| `columnAlign`      | select | Alignment — `left` Left, `center` Centred, `right` Right (default `left`) |
-| `columnWidth`      | text   | Width                                                                     |
-| `columnPrefix`     | text   | In front of the value                                                     |
-| `columnSuffix`     | text   | Behind the value                                                          |
-| `columnWords`      | text   | A word per value                                                          |
-| `columnColor`      | color  | Colour                                                                    |
-| `columnBackground` | color  | Background                                                                |
-| `columnRules`      | custom | Colour by value                                                           |
+| Attribute          | Takes  | What it does                                                                                                                                                                                                     |
+| ------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `columnKey`        | custom | Key in the data                                                                                                                                                                                                  |
+| `columnTitle`      | text   | Heading                                                                                                                                                                                                          |
+| `columnAlign`      | select | Alignment — `left` Left, `center` Centred, `right` Right (default `left`)                                                                                                                                        |
+| `columnWidth`      | text   | Width                                                                                                                                                                                                            |
+| `columnPrefix`     | text   | In front of the value                                                                                                                                                                                            |
+| `columnSuffix`     | text   | Behind the value                                                                                                                                                                                                 |
+| `columnFormat`     | select | Write as — `""` As it is, `time` Time, `date` Date, `dateShort` Day and month, `datetime` Date and time, `weekdayTime` Weekday and time, `relative` Today / tomorrow / date, `custom` Own pattern (default `""`) |
+| `columnPattern`    | text   | Pattern (only with `columnFormat` = `custom`)                                                                                                                                                                    |
+| `columnWords`      | text   | A word per value                                                                                                                                                                                                 |
+| `columnColor`      | color  | Colour                                                                                                                                                                                                           |
+| `columnBackground` | color  | Background                                                                                                                                                                                                       |
+| `columnRules`      | custom | Colour by value                                                                                                                                                                                                  |
+
+A column that holds a time - as text like `2026-11-11T14:30:00` or as a unix time - can be written as one:
+`columnFormat` offers the usual forms, `relative` says _Today 14:30_ and _Tomorrow 09:00_, and `custom` takes the
+letters of a binding (`YYYY`, `MM`, `DD`, `hh`, `mm`, `ss`) plus `WW` and `W` for the weekday, long and short.
+
+`rowFilter` keeps only the rows whose time fits: what is not over yet, what starts today, or the rest of today. The
+start is looked for by itself - first a column with a time format, then names like `start`, `time` or `date` - and
+`filterKey` / `filterEndKey` name it where that guess is wrong. A row without an end is over when it starts; a row
+without any time is always kept. The table looks again every minute, so an appointment leaves the list once it is
+over.
 
 ## Chart
 
@@ -656,7 +754,7 @@ _digits, with the date_
 
 _hands_
 
-The one thing on a dashboard that is not a device. A tablet on a wall is a clock for most of the day, and one that has to be read off the corner of the system bar is no clock. With hands or in digits, with the date under it.
+The one thing on a dashboard that is not a device. A tablet on a wall is a clock for most of the day, and one that has to be read off the corner of the system bar is no clock. With hands or in digits, with the date under it. The card carries no symbol of its own — the face says what it is — unless one is set under `icon`.
 
 | Attribute     | Takes    | What it does                                                          |
 | ------------- | -------- | --------------------------------------------------------------------- |
@@ -724,7 +822,8 @@ A web page inside a widget: a camera, a chart of another adapter, a timetable, a
 
 A dashboard in a hallway is read in daylight and at night, and which theme it should be in is nothing the project can know. The switch changes the runtime itself, so every card, every marker and the menu change with it, and the choice is remembered in the browser. A view that must always be dark sets one theme instead, and one that should look like the rest of the device follows the browser.
 
-| Attribute   | Takes  | What it does                                                                                                          |
-| ----------- | ------ | --------------------------------------------------------------------------------------------------------------------- |
-| `mode`      | select | What it does — `toggle` Switch, `fixed` Always this theme, `system` Follow the browser (default `toggle`)             |
-| `themeName` | select | Theme — `light` Light, `dark` Dark, `modernLight` Light (new design), `modernDark` Dark (new design) (default `dark`) |
+| Attribute   | Takes    | What it does                                                                                                          |
+| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
+| `mode`      | select   | What it does — `toggle` Switch, `fixed` Always this theme, `system` Follow the browser (default `toggle`)             |
+| `themeName` | select   | Theme — `light` Light, `dark` Dark, `modernLight` Light (new design), `modernDark` Dark (new design) (default `dark`) |
+| `hideText`  | checkbox | Without the word Light / Dark: only the symbol and the switch                                                         |

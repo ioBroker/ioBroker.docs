@@ -143,7 +143,8 @@ Hosts with an unknown hostname are rejected at the TLS level – no fallback cer
 Certificate loading details are available in the debug log.
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.2 (2026-11-10)
+- (lubepi) **FIXED**: Certificates issued by ACME adapter >= 5.0.0 can be loaded again – the certificate chain is now joined with line breaks (fixes #73)
 
 ### 1.0.1 (2026-10-16)
 - (lubepi) **ENHANCED**: Added author email address to package metadata (fixes repository checker E4048)
@@ -163,11 +164,6 @@ Certificate loading details are available in the debug log.
 ...
 - Harden certificate handling: hosts with configured but unavailable certificates now fail closed for HTTPS/WSS instead of falling back silently
 - Improve `info.connection` state handling: state is now true only when both HTTP and HTTPS listeners are active
-
-### 0.1.8 (2026-03-26)
-- Update GitHub Actions test matrix (Node.js 20, 22, 24)
-- Address reviewer suggestions (use `node:` prefix, specific state roles, interval limiting)
-- Fix linting errors
 
 ## License
 

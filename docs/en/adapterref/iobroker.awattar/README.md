@@ -36,7 +36,8 @@ In the adapter settings you will find 5 fields (each pre-filled with default val
 <br>
 The results are then available in the adapter's object tree (awattar.0).
 The folder "prices" contains one entry per hour of the day with the electricity price for that hour.
-The folder "prices_ordered" contains -sorted by hourly price- one entry for each hour of the period configured in the settings, with the electricity price for that hour.
+The folder "pricesOrdered" contains -sorted by hourly price- one entry for each hour of the period configured in the settings, with the electricity price for that hour.
+The folder "pricesOrderedTomorrow" contains -sorted by hourly price- one entry for each hour of tomorrow (the whole day, independent of the configured period), e.g. to plan the discharge of a home storage in the most expensive hours. It is filled as soon as tomorrow's prices are available (see below); until then it is empty.
 <br><br>
 By default the adapter is configured to fetch the values for the next 24 hours at 15:00.
 This schedule can of course be adjusted.
@@ -47,6 +48,11 @@ According to the <a href="https://www.awattar.de/services/api" target="_blank">a
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 1.5.0
+* New: the folder `pricesOrderedTomorrow` contains all hours of tomorrow sorted by price (independent of the configured period, 23-25 entries depending on daylight saving time); outdated entries are removed on every run
+* Fixed: the last hour of the configured period was missing in `pricesOrdered` (the hour ending exactly at the configured end time was left out, e.g. 05:00-06:00 for an end time of 06:00); it is now included. Periods now contain one more hour than before
+* (repository maintenance) Pinned `@types/node` to 22.x
 
 ### 1.4.0
 * Migrated the Admin UI from the legacy Materialize HTML page to jsonConfig (same fields, existing settings are kept unchanged)

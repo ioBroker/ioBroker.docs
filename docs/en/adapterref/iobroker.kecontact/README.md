@@ -124,6 +124,11 @@ A german description of how the adapter works can be found [here](/#/docs/adapte
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (Sneak-L8) fix host name issue [[#642](https://github.com/iobroker-community-adapters/ioBroker.kecontact/issues/642)]
+* (Sneak-L8) use build-in ioBroker messageBox to communicate between adapter instances instead of state internal.message (state can be deleted after update)
+
 ### 3.9.0 (2026-11-03)
 * (copilot) Adapter requires node.js >= 22.19.0 now
 * (FernetMenta) skip the regulation loop when PV automatics is active but no vehicle is plugged, so the wallbox is no longer repeatedly stopped/disabled while nothing is connected

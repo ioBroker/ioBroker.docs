@@ -273,6 +273,12 @@ Please report issues at [GitHub Issues](https://github.com/heresiarch/ioBroker.s
 Developers: see [README_dev.md](/#/docs/adapterref/iobroker.sehybrid/README_dev.md) for build, test and release instructions.
 
 ## Changelog
+### 1.1.4 (2026-11-09)
+* fix GH workflows
+
+### 1.1.3 (2026-11-05)
+fix: tolerate rejected meter presence read on meterless inverters
+
 ### 1.1.2 (2026-10-31)
 * fix log priority for modbus write op
 * fix translation in io-package.json
@@ -284,13 +290,6 @@ Developers: see [README_dev.md](/#/docs/adapterref/iobroker.sehybrid/README_dev.
 * jsonConfig Migration for Admin UI
 * fix Readme.md
 * fix JSDoc warnings
-
-### 1.0.21 (2026-10-15)
-* fix GH workflow lint errors
-
-### 1.0.20 (2026-10-15)
-* Removed the manual connection-test button from the Admin UI configuration
-* Removed static Sunspec Register Tables from Admin UI, added them to doc in Readme.md
 
 ## License
 

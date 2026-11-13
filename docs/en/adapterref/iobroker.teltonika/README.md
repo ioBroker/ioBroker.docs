@@ -199,6 +199,15 @@ The same two views are available as a widget set for **vis-2** (set *Teltonika*)
 
 Switching ports and PoE from the widgets is off by default and has to be enabled in the widget's settings.
 
+### Web components
+The four vis-2 widgets also exist as web components (`@iobroker/web-components`), listed in
+`common.webComponents`, for hosts like Aura, vis-2, admin and ioBroker.devices: `<iob-teltonika-devices>`,
+`<iob-teltonika-ports>`, `<iob-teltonika-person>` and `<iob-teltonika-presence>`. Each one is a single module in
+`admin/webcomponents/` next to its manifest; React comes from the host. They take the colors of the host's theme,
+fit their content to the box they are given, and write nothing while the host is in edit mode. The person is chosen
+as the channel `teltonika.<n>.presence.persons.<name>`, and a click on it shows the comings and goings in a dialog
+of the host. The sources are in `src-webcomponents/` (`npm run build:wc`).
+
 ### Traps
 The adapter can listen for SNMP traps. Enable it under the *SNMP* tab and point the device at this host under
 *Services → SNMP → Trap Settings*. Note that port 162 is privileged on Linux, so a higher port may be needed.
@@ -213,6 +222,13 @@ device, which is where the actual values come from. A TSW202 defines no traps at
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (@GermanBluefox) Added the short form of the web component manifests (tag, name, icon, size) to `common.webComponents`, so that hosts like Aura can list the components before the adapter is installed; the build writes it with `iob-web-components sync-io-package`
+
+### 1.3.0 (2026-11-08)
+* (@GermanBluefox) Added the web components `<iob-teltonika-devices>`, `<iob-teltonika-ports>`, `<iob-teltonika-person>` and `<iob-teltonika-presence>` (`@iobroker/web-components`) for Aura, vis-2, admin and other hosts
+
 ### 1.2.0 (2026-11-02)
 * (@GermanBluefox) Added the LAN address of every SNMP device as `<device>.lan`, and all its IPv4 addresses per interface under `<device>.addresses`, read from the IP-MIB
 * (@GermanBluefox) Added switching PoE per port (`<device>.ports.<name>.poe`) over the Web API of the device, with whether a device draws power (`poeActive`) and how much (`poePower`), for devices with a web password configured (the user defaults to `admin`)
@@ -235,23 +251,6 @@ device, which is where the actual values come from. A TSW202 defines no traps at
 * (iobroker-bot) Adapter requires node.js >= 22 now.
 * (@GermanBluefox) Added vis-2 widgets: overview of all devices and front panel of one device
 * (@GermanBluefox) Fixed the device manager widgets failing to load now and then with React error #527
-
-### 1.0.0 (2026-08-10)
-* (bluefox) Added SNMP support for devices without an MQTT publisher, such as the TSW switches
-* (bluefox) Added a network scan that finds Teltonika devices and fills the device table
-* (bluefox) Split the configuration into an MQTT and an SNMP tab
-* (bluefox) Added optional SNMP branches for GPS, Wi-Fi and hotspot sessions, switched off by default
-* (bluefox) Removed the router type setting, which was never evaluated
-* (bluefox) Split the modem address: `wan` keeps the IPv4 address, `wanIPv6` is added where the device has one
-* (bluefox) Added an SNMP trap receiver that records notifications and polls the device that sent one
-* (bluefox) Community strings and SNMPv3 keys are now stored encrypted
-* (bluefox) Ports can be switched through `ports.<name>.enabled` when a write community is configured
-* (bluefox) Added two device manager widgets: an overview of all devices and a front panel view of the ports
-* (bluefox) `info.connection` now also lists the devices polled over SNMP, so an instance without MQTT clients
-  no longer appears disconnected
-* (bluefox) Added the WAN interfaces of a router under `interfaces.<name>`: status, enabled and uptime
-* (bluefox) A port state created before a write community was configured now becomes writable instead of
-  staying read-only forever
 
 ## License
 

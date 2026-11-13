@@ -54,6 +54,15 @@ For older ioBroker versions, install version 0.3.1
     * Don´t forget to set the Checkbox to activate the monitoring
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (mcdhrts) Node.js 26 is now tested and supported (#123)
+* (mcdhrts) Update dependencies: @iobroker/adapter-core ^3.4.3, @iobroker/testing ^6.3.1 (#133)
+* (mcdhrts) Dependabot auto-merge workflow uses `pull_request` instead of `pull_request_target` (#135)
+* (mcdhrts) Add email address to io-package.json author
 
 ### 1.0.7 (2026-07-07)
 * (mcdhrts) Resolve all remaining repository checker issues (#106)

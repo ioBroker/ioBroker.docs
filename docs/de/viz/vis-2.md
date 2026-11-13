@@ -22,7 +22,9 @@ jedes Mal etwas ganz anderes.
 
 <img src="media/vis2_beispiele.webp" width="900" alt="Vier Beispielseiten: Startseite in Glasoptik, Familienseite mit Karte und Uhr, Kameraübersicht und Grundriss mit Live-Werten" />
 
-Fertige Beispiele zum Ausprobieren stehen unter <https://iobroker.click>.
+Fertige Beispiele zum Ausprobieren stehen unter <https://iobroker.click>. Wie man ein
+solches Beispiel in die eigene Anlage holt, steht unter
+[Demo-Projekt importieren](/docs/viz/vis-2-demo-import.md).
 
 ?> Alle Bilder auf dieser Seite stammen aus vis-2 2.20.5 im Thema **Modern Dark**, mit den Widgetsätzen,
 die vis-2 selbst mitbringt, und einigen der verbreiteten Widget-Adapter.

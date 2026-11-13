@@ -100,9 +100,21 @@ Instead of `text2command` you can select an [assistant](https://github.com/ioBro
 - **Text** is the question.
 - **Voice messages** are recognised by the assistant (it needs voice enabled, a speech recognition engine and ffmpeg); the answer starts with the recognised text (🎤 …).
 - **Photos** go along as pictures, the caption is the question (without one the assistant describes the picture). The photos of an album go as one question, at most 4 of them. The assistant needs a cloud model that can see pictures.
-- **Videos** are not sent along: they are stored in the file storage of this instance (folder `assistant`, the newest 20 are kept) and the assistant only learns where. It does not look at videos yet. Telegram lets bots download files up to 20 MB only.
+- **Videos** are not sent along: they are stored in the folder `assistant` of this instance (the newest 20 are kept) and the assistant only learns where - with js-controller 8.0+ in the data directory (`iobroker-data/telegram_0/assistant`) as `iobdisk://` URL, which the assistant reads from any host, with an older js-controller in the file storage. It does not look at videos yet. Telegram lets bots download files up to 20 MB only.
 
 Photos and videos can be switched off with "Photos and videos to the assistant". The assistant gets 2 minutes for an answer; after that the user is told that it did not answer in time.
+
+### Voice messages as text (ai-parakeet)
+
+With an [ai-parakeet](https://github.com/ioBroker/ioBroker.ai-parakeet) instance ("Speech recognition instance" in the settings), voice messages are converted to text locally, and this text is processed like a typed message: it goes to `communicate.request`, and the commands of this adapter, `text2command` and the assistant get it. The recognised text is also written to `communicate.requestVoiceText`.
+
+- With "Show the recognised text in the chat" (default: on) the bot answers first with what it understood (🎤 …).
+- A full stop or exclamation mark at the end of the recognised text is removed, so that e.g. "Light on" matches a command.
+- The names of the commands of this adapter go along as `prompt`, so that they are written as configured (if this is enabled in ai-parakeet).
+- For OGG/Opus, ai-parakeet needs ffmpeg (it can be downloaded on the tab **Recognition** of ai-parakeet).
+- The speech recognition gets 90 seconds. If it fails, the user gets "The voice message could not be recognised."
+- If an assistant instance is selected too, ai-parakeet recognises the voice message and the assistant gets the text.
+- A voice message with a caption is answered by its caption, as before.
 
 To send a photo, just send a path to file instead of text or URL: `sendTo('telegram', 'absolute/path/file.png')` or `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`.
 
@@ -895,6 +907,15 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 6.4.0 (2026-11-09)
+- (@GermanBluefox) Voice messages can be converted to text by an `ai-parakeet` instance (new setting "Speech recognition instance"); the text is then processed like a typed message (`communicate.request`, commands, `text2command`, assistant) and also written to the new state `communicate.requestVoiceText`. "Show the recognised text in the chat" answers with what was understood (🎤 …)
+
+### 6.3.0 (2026-11-07)
+- (@GermanBluefox) Added "Delete received files after (days)": saved voice messages, photos, videos, audio files and documents older than that are deleted, in the file system or in the file storage, checked every hour. 0 (default) keeps them as before
+
+### 6.2.1 (2026-11-07)
+- (@GermanBluefox) Videos for the `assistant` instance are stored in the data directory of the instance (`iobroker-data/telegram_0/assistant`, the newest 20) and go along as `iobdisk://` URL, which the assistant reads from any host (js-controller 8.0+). With an older js-controller they still go to the file storage
+
 ### 6.2.0 (2026-11-04)
 - (@GermanBluefox) Questions to the `assistant` instance (text and voice) wait at most 2 minutes for the answer; after that the user gets "The assistant did not answer in time." instead of no reply at all (e.g. when the assistant restarted meanwhile)
 - (@GermanBluefox) Photos and videos are forwarded to the `assistant` instance too: photos (an album as one question, at most 4) with their caption as the question, videos are stored in the file storage of the instance (folder `assistant`, the newest 20) and only their place goes along. Can be switched off with "Photos and videos to the assistant"
@@ -905,22 +926,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 - (@GermanBluefox) `send` can return the ids of the sent messages again (`returnMessageIds: true`), to edit or delete the message later; failed recipients come with the reason (#1389)
 - (@GermanBluefox) The Blockly block "telegram" has an optional input for the topic (thread id) of a forum group (#952)
 - (@GermanBluefox) Completed the Blockly translations for Ukrainian and Chinese
-
-### 6.0.2 (2026-09-12)
-- (@GermanBluefox) Updated packages and improved the rules block
-- (@patricknitsch) Retried getUpdates 409 conflicts quickly before falling back to a slow restartart
-
-### 6.0.0 (2026-09-02)
-- (@GermanBluefox) Adapter requires Node.js >= 22.19 now (required by undici 8)
-- (@GermanBluefox) The connection to the telegram servers can be routed through an HTTP(S) or SOCKS5 proxy (new "Use proxy" settings; the old proxy fields had been without function for years)
-- (@GermanBluefox) Migrated to `node-telegram-bot-api` v2. Updates are now received via long polling, so the "Polling interval" setting became obsolete and was removed from the configuration dialog. Errors thrown while processing an update are logged by the adapter instead of ending up on the console
-- (@GermanBluefox) An empty "API URL" field no longer breaks every API call with "EFATAL: Failed to parse URL" - the default `https://api.telegram.org` is used again (#1371)
-- (@GermanBluefox) A `text2command`/`assistant` instance stored in the long form (`system.adapter.text2command.0`, written by the config UI before v1.12.6) is migrated to the short form on startup, so the config dialog shows the selected instance again (#1365)
-- (@GermanBluefox) Added the states `communicate.requestLocationLive` (live location is still being shared), `communicate.requestLocationHeading` and `communicate.requestLocationAccuracy` for received (live) locations
-
-### 5.0.4 (2026-09-01)
-- (@GermanBluefox) Blockly migrated to TypeScript
-- (@bjoernjaeschke87-beep) Live location updates (delivered by Telegram as `edited_message`) now update `communicate.requestLocation` while the location is being shared
 
 ## License
 

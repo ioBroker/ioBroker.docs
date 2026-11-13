@@ -46,6 +46,17 @@ This adapter allows for detailed monitoring of your Nextcloud instance via the o
 * **Skip Apps:** Disables the detailed list of installed apps to reduce API load.
 * **Skip Update Check:** Disables checking for new Nextcloud versions.
 
+### 3. Requirements
+* **js-controller >= 7.2.4** – needed to decrypt the OCS tokens, which are stored inside the server table (`servers.token`), when the adapter starts.
+* **Admin >= 8.1.0** – needed because the JSON config of admin encrypts and decrypts password columns of a table only since this version (see `@iobroker/json-config` 10.1.0).
+
+### 4. Token storage and access protection
+* The OCS token of every server in the table is stored **encrypted** in the instance object (`encryptedNative: ["servers.token"]`).
+* The token is **protected** against being read by other adapters (`protectedNative: ["servers.token"]`).
+* The adapter itself gets the decrypted token when it starts. Tokens are never written to the log.
+* Tokens of existing installations are kept - they are neither deleted nor reset. A token that was still stored as plain text (by an admin version that could not encrypt password columns of a table) is encrypted by the adapter on the next start, so the token does not have to be entered again.
+* Saving other settings does not write the tokens back as plain text.
+
 ---
 
 ## How-To: Create & Set Token
@@ -134,6 +145,15 @@ Verify if the token was correctly saved in Nextcloud using:
 If your Nextcloud is in maintenance mode, the adapter will not be able to fetch data and will log an info. This is normal behavior as the API is disabled during maintenance.
 
 ## Changelog
+### 3.0.1 (2026-11-09)
+* (H5N1v2) fix: [W1095] remove the unused legacy key `token` from `protectedNative` and from `native`; the adapter stores and protects the OCS token of the server table only (`servers.token`)
+* (H5N1v2) fix: [S5054] datapoints are created with `setObjectNotExistsAsync()` instead of `setObject()`
+
+### 3.0.0 (2026-11-08)
+* (H5N1v2) fix: OCS tokens of all servers are now stored encrypted (`encryptedNative: servers.token`) and are protected against access by other adapters (`protectedNative`). Tokens of existing installations are kept and are encrypted automatically if they were still stored as plain text, so they do not have to be entered again
+* (H5N1v2) fix: OPcache hit rate was written as string although the datapoint expects a number; existing datapoints with wrong type or role are now corrected automatically and state values are converted to match their datapoint type
+* (H5N1v2) update dependencies: adapter requires js-controller >= 7.2.4 and admin >= 8.1.0 (needed for encrypted attributes inside a table)
+
 ### 2.1.2 (2026-09-12)
 * (H5N1v2) add node.js 26.x testmatrix
 * (H5N1v2) update dependencies
@@ -147,12 +167,6 @@ If your Nextcloud is in maintenance mode, the adapter will not be able to fetch 
 * (H5N1v2) widget toggleable in the admin area.
 * (H5N1v2) update dependencies.
 * (copilot) Adapter requires node.js >= 22 now.
-
-### 2.0.6 (2026-03-30)
-* (H5N1v2) Update axios dependency to version 1.14.0
-
-### 2.0.5 (2026-03-26)
-* (H5N1v2) add sentry plugin to automatically report errors to developer
 
 ## Support & Feedback
 

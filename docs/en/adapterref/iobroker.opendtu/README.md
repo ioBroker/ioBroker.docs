@@ -163,6 +163,9 @@ Please use [GitHub issues](https://github.com/iobroker-community-adapters/ioBrok
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (Schimi1983) Translations of the settings page moved to the short file format, obsolete workflow file removed (repository checker #413)
+
 ### 4.1.1 (2026-11-04)
 - (GermanBluefox) Fixed: a limit of 0 % that was not set by the adapter (e.g. in the OpenDTU web UI or via MQTT) was not shown
 

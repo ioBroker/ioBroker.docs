@@ -50,6 +50,10 @@ of its own, the components stand beside them in that set; otherwise the set is l
 `common.icon` of the adapter. The runtime loads the components only when the project shows one, and does not load
 the widgets of the adapter for that.
 
+If the adapter brings a vis-2 widget of the same name as well - the same set, the same name in the palette, like
+the "Flow diagram" of flow - the palette offers only the vis-2 widget. Widgets of the component already placed stay
+as they are.
+
 An `objectId` setting with `root` offers only that object and the objects below it, e.g. `"types": "config",
 "root": "flow.0.diagrams"`.
 
@@ -59,7 +63,7 @@ The element gets these properties:
 |------------|-------------------------------------------------------------------------------------------------|
 | `socket`   | the connection of vis-2                                                                         |
 | `settings` | the values of the attributes, typed as the manifest declares them; a new object only on a change |
-| `theme`    | `dark` or `light`, after the theme of vis-2                                                      |
+| `theme`    | the colors, the font and the corners of the theme of vis-2 (`getWebComponentTheme`)              |
 | `editMode` | true in the editor - the element then writes nothing and opens no dialogs                       |
 | `dialogs`  | MUI dialogs of vis-2, see below                                                                 |
 
@@ -69,25 +73,51 @@ Bindings work in every field: the widget hands over the values after vis-2 resol
 
 vis-2 does not render JSON-Config. It maps the settings of the manifest onto fields of its attributes panel:
 
-| JSON-Config  | vis-2 field   | Notes                                                                    |
-|--------------|---------------|--------------------------------------------------------------------------|
-| `text`       | `text`        | `minRows > 1` gives a multi-line editor                                  |
-| `password`   | `password`    |                                                                          |
-| `number`     | `number`      | `min`, `max`, `step`                                                     |
-| `slider`     | `slider`      | `min`, `max`, `step`                                                     |
-| `checkbox`   | `checkbox`    |                                                                          |
-| `color`      | `color`       |                                                                          |
-| `select`     | `select`      | `options: [{ value, label }]`                                            |
-| `objectId`   | `id`          | `types` limits the object browser (e.g. `config`); `root` is ignored     |
-| `instance`   | `instance`    | `adapter`                                                                |
-| `header`     | `help` (bold) | `text`, no value                                                         |
-| `staticText` | `help`        | `text`, no value                                                         |
-| `divider`    | `delimiter`   | no value                                                                 |
+| JSON-Config          | vis-2 field   | Notes                                                                      |
+|----------------------|---------------|----------------------------------------------------------------------------|
+| `text`               | `text`        | `minRows > 1` gives a multi-line editor                                    |
+| `password`           | `password`    |                                                                            |
+| `number`             | `number`      | `min`, `max`, `step`                                                       |
+| `slider`             | `slider`      | `min`, `max`, `step`                                                       |
+| `checkbox`           | `checkbox`    |                                                                            |
+| `color`              | `color`       |                                                                            |
+| `select`             | `select`      | `options: [{ value, label }]`                                              |
+| `selectSendTo`       | `custom`      | options asked from the adapter, see below                                  |
+| `autocompleteSendTo` | `custom`      | text with suggestions from the adapter; `freeSolo`, `maxLength`, `options` |
+| `objectId`           | `id`          | `types` limits the object browser (e.g. `config`), `root` the branch       |
+| `instance`           | `instance`    | `adapter`                                                                  |
+| `header`             | `help` (bold) | `text`, no value                                                           |
+| `staticText`         | `help`        | `text`, no value                                                           |
+| `divider`            | `delimiter`   | no value                                                                   |
 
 Tabs become groups of the attributes panel. `hidden` and `disabled` are JS expressions over `data`, as in
 JSON-Config. Any other type is shown as a text field. vis-2 leaves out a setting whose name it uses for every
 widget itself (`name`, `class`, `comment`, `filterkey`, `locked`, `multi-views`, `visibility*`, `signals-*`,
 `lc-*`, `g_*`).
+
+### Options from the adapter: `selectSendTo` and `autocompleteSendTo`
+
+The options of these settings only the adapter knows at runtime - its locations, devices, diagrams. vis-2 asks
+an instance with `sendTo(instance, command, message)` over its own connection and shows the answer
+`[{ value, label }]` as the options (`label` a string or `{ en, de, ... }`; a plain value is its own label).
+`getSendToRequest(setting, data, adapter)` and `toSendToOptions(answer)` of the package (0.8) do the work:
+
+- The instance is `instance` of the setting, a pattern like `${data.instance}`; without it vis-2 asks
+  `<adapter>.0` of the adapter that brings the component. The message is `data` as it is, or `jsonData`, a
+  pattern over the values of all settings - typed as the component gets them - that gives JSON. `command` is
+  `send` if missing.
+- vis-2 asks again when the instance, the command, the message or a setting in `alsoDependsOn` changes - 300 ms
+  after the last change, so typing into a setting asks once. It waits 10 s for the answer.
+- `selectSendTo` is a select. A value that is not in the answer stays and is marked "Not in the list".
+- `autocompleteSendTo` is a text field with the answer, then the `options` of the manifest, as suggestions;
+  `maxLength` limits the text. Typing the label of an option stores its value. Without `freeSolo`, a text
+  that is no option is marked "Not in the list" - stored all the same, so nothing typed is lost.
+- No instance to ask yet (`${data.instance}` with no instance chosen), no answer, an error, a timeout or an
+  empty list: the field is a plain text field with the reason below it, so the value stays editable.
+
+The value is stored as text, like every value in vis-2, and handed to the component as a string. In the attributes
+panel these settings are `custom` fields; the field is loaded only when the editor shows one. A form of
+`dialogs.open()` shows them the same way, with the values of the form as `data`.
 
 ## Events and dialogs
 

@@ -25,6 +25,17 @@ This is application key that the user can get on [https://iobroker.net](https://
 ### Instance
 All requests from cloud adapter will be routed to specific WEB Instance. User must specify here the WEB instance; that will be shown to user, when he logs in https://iobroker.net site.
 
+### Rights
+The account on iobroker.net or iobroker.pro does not decide what can be accessed in ioBroker. The rights come from the "access as" user (`defaultUser`) of the instances:
+
+- Pages and files of web, admin and lovelace are requested with the user of the corresponding instance.
+- Lovelace states are read and written with the user of the lovelace instance.
+- Objects, states and files requested by the pages of web and admin run as the user of the WEB instance. Web and admin share this connection, so there is only one user for both. Without a WEB instance, the user of the admin instance is taken, and otherwise that of the lovelace instance.
+
+If you allow admin access and the WEB instance has another user than the admin instance, admin will have only the rights of the WEB user. The adapter writes a warning to the log in this case.
+
+Restricted users are not checked for each single change event: if such a user may subscribe to states or objects, it receives the changes of everything matching the pattern, as on any other ioBroker web socket.
+
 ### Allow self-signed certificates
 If you use standard iobroker.net cloud, you can deactivate it. This option is only important if your own cloud is used.
 
@@ -115,6 +126,9 @@ Now they could be found in `cloud.X.devices.NAME`:
 -->
 
 ## Changelog
+### 6.3.0 (2026-11-09)
+* (@GermanBluefox) Commands from the cloud run as the "access as" user of the web instance and no longer always as admin. If this user is restricted, the pages of web and admin only have its rights via cloud
+
 ### 6.2.11 (2026-10-16)
 * (@GermanBluefox) The adapter is stopped with `terminate()` only, `process.exit()` is no longer used (compact mode)
 * (@GermanBluefox) Added the missing translations and the Ukrainian words for the blockly block
@@ -129,9 +143,6 @@ Now they could be found in `cloud.X.devices.NAME`:
 
 ### 6.2.7 (2026-10-10)
 * (@GermanBluefox) Added buttons to check if the applications are running and reachable
-
-### 6.2.6 (2026-09-28)
-* (@GermanBluefox) Added new App state: onScreen
 
 ## License
 The MIT License (MIT)
