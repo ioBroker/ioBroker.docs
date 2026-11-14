@@ -5029,6 +5029,15 @@ https://github.com/iobroker-community-adapters/ioBroker.kecontact
 - (FernetMenta) fix endless interrupted/charging loop when PV automatics is enabled during an active session without surplus
 - (Sneak-L8) push test script from 6.1.2 to 6.2.1, fix error [S0064]
 - (Sneak-L8) add email address to license information
+## tvprogram (14.11.2026) – new stable release 6.2.1
+https://github.com/oweitman/ioBroker.tvprogram
+
+<img src="https://raw.githubusercontent.com/oweitman/ioBroker.tvprogram/master/admin/tvprogram.png" width="100" height="100" />
+
+**New features and fixes since 6.1.0:**
+
+- (oweitman) Configurable paging mechanism in the channel select dialog
+- (oweitman) Fix problem with loading channel logos while paging
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
