@@ -5044,6 +5044,26 @@ https://github.com/TbsJah/ioBroker.luxtronik2-controller
 <img src="https://raw.githubusercontent.com/TbsJah/ioBroker.luxtronik2-controller/main/admin/luxtronik2-controller.png" width="100" height="100" />
 
 Local control, optimization, and monitoring of heat pumps with Luxtronik 2.x / 3.x controllers (e.g., Alpha Innotec, Novelan).
+## vis-2-widgets-collection (15.11.2026) – new stable release 3.1.0
+https://github.com/Steiger04/ioBroker.vis-2-widgets-collection
+
+<img src="https://raw.githubusercontent.com/Steiger04/ioBroker.vis-2-widgets-collection/main/admin/vis-2-widgets-collection.png" width="100" height="100" />
+
+**New features and fixes since 1.8.1:**
+
+- (steiger04) Switch to Vite and TypeScript; widget optimizations and bug fixes
+- (steiger04) Slider, RadioButtonGroup and RadioGroup widgets optimized
+- (steiger04) CollectionWidgets optimized and expanded
+- (steiger04) ButtonGroupCollection long-press and other bug fixes
+- (steiger04) ignoreCommonStates attribute added
+- (steiger04) JSON Table widget added with HTML rendering, image columns, quick filtering, and date handling
+- (steiger04) Input widget added (text/number input with inline editing)
+- (steiger04) Theme wizard with presets, live preview, custom fonts and widget sizing
+- (steiger04) JSON Table: image column type rendering URLs, data-URIs and icon glyphs as avatar cells
+- (steiger04) vis-2 AI assistant can now build pages with these widgets and change the theme
+- (steiger04) Every widget shows a short tooltip in the palette
+- (steiger04) Grid layout: widgets keep the height of their grid rows
+- (steiger04) Many fixes across all widgets
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
