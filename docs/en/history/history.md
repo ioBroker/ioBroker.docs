@@ -5038,6 +5038,12 @@ https://github.com/oweitman/ioBroker.tvprogram
 
 - (oweitman) Configurable paging mechanism in the channel select dialog
 - (oweitman) Fix problem with loading channel logos while paging
+## luxtronik2-controller (15.11.2026) – new adapter at stable repository
+https://github.com/TbsJah/ioBroker.luxtronik2-controller
+
+<img src="https://raw.githubusercontent.com/TbsJah/ioBroker.luxtronik2-controller/main/admin/luxtronik2-controller.png" width="100" height="100" />
+
+Local control, optimization, and monitoring of heat pumps with Luxtronik 2.x / 3.x controllers (e.g., Alpha Innotec, Novelan).
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
