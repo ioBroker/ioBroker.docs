@@ -5179,6 +5179,19 @@ https://github.com/Schimi1983/ioBroker.jellyfin
 <img src="https://raw.githubusercontent.com/Schimi1983/ioBroker.jellyfin/main/admin/jellyfin.png" width="100" height="100" />
 
 Monitor and control Jellyfin media server sessions including playback control, remote control, and message sending.
+## fb-checkpresence (16.11.2026) – new stable release 1.5.0
+https://github.com/afuerhoff/ioBroker.fb-checkpresence
+
+<img src="https://raw.githubusercontent.com/afuerhoff/ioBroker.fb-checkpresence/master/admin/fb-checkpresence.png" width="100" height="100" />
+
+**New features and fixes since 1.4.2:**
+
+- (afuerhoff) Configuration migrated to jsonConfig
+- (afuerhoff) New cyclic sync option for FB devices
+- (afuerhoff) SSL certificate validation added; self-signed certificates remain compatible when validation is disabled
+- (softwarecrash) Fix crash in newfilter mode
+- (afuerhoff) Adapter requires node.js >= 22 now
+- (afuerhoff) Updated dependencies
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
