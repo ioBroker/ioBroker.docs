@@ -5136,6 +5136,25 @@ https://github.com/BenAhrdt/ioBroker.paperless-ngx
 - (BenAhrdt) Encode search parameters safely; acknowledge requests when Paperless is unavailable; retry connections on the configured cycle
 - (arteck) Add dark mode support
 - (BenAhrdt) Updated @iobroker/testing to version 6.3.1
+## yamaha (16.11.2026) – new stable release 3.0.1
+https://github.com/iobroker-community-adapters/ioBroker.yamaha
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.yamaha/master/admin/yamaha.svg" width="100" height="100" />
+
+**New features and fixes since 2.11.0:**
+
+- (krobipd) New: A device is known by its serial number — receiver with a new IP or name keeps its objects and reconnects within seconds
+- (krobipd) New: Excluded devices list lets the network search re-admit deleted devices
+- (krobipd) Improved: A receiver that lost power is offline in ~90 s instead of up to 15 minutes
+- (krobipd) Fixed: MusicCast values stay current in Docker or next to a second MusicCast app; missing events are noticed and polled
+- (krobipd) New: MusicCast devices write every setting the specification provides a setter for (dialogue level, tone mode, dimmer, group name, etc.)
+- (krobipd) Fixed: MusicCast Link groups built and left as Yamaha specifies; multiroom.group.status shows progress
+- (krobipd) Fixed: Names of inputs, sound programs and zones show up at next connection instead of staying frozen
+- (krobipd) Fixed: When one protocol drops, a live one takes over every datapoint it serves
+- (krobipd) New: Menus on 2008 XML receivers (RX-V3900 generation)
+- (krobipd) Changed: Every device gets a new stable object ID based on model and serial number, e.g. wx-030-2b3c; values, aliases and history are carried over
+- (krobipd) Fixed: A second device of the same model is no longer skipped
+- (krobipd) Fixed: After restart, YNCA input list shows only sources the receiver actually has
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
