@@ -5125,6 +5125,17 @@ https://github.com/BenAhrdt/ioBroker.lorawan
 - (BenAhrdt) Do not add a self-referencing ia_device to the internal bridge device when its identifier equals the adapter namespace
 - (BenAhrdt) Tolerate foreign bridge states without an existing discovery entry when removing a bridged channel
 - (BenAhrdt) Automatically discover newly created states below already bridged channels
+## paperless-ngx (16.11.2026) – new stable release 1.0.4
+https://github.com/BenAhrdt/ioBroker.paperless-ngx
+
+<img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.paperless-ngx/main/admin/paperless-ngx.png" width="100" height="100" />
+
+**New features and fixes since 1.0.2:**
+
+- (BenAhrdt) Added a Paperless-styled admin tab with global and document search, tag filters, metadata browsing, refresh controls and a direct Paperless link
+- (BenAhrdt) Encode search parameters safely; acknowledge requests when Paperless is unavailable; retry connections on the configured cycle
+- (arteck) Add dark mode support
+- (BenAhrdt) Updated @iobroker/testing to version 6.3.1
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
