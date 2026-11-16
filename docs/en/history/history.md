@@ -5109,6 +5109,22 @@ https://github.com/iobroker-community-adapters/ioBroker.sony-bravia
 - (bluefox) Added channel 	v for type-detector device type 	v to enable visualization control
 - (bluefox) Added remote control to instance settings (tab "Remote control", requires admin 8)
 - (copilot) Adapter requires node.js >= 22 now
+## lorawan (16.11.2026) – new stable release 1.22.41
+https://github.com/BenAhrdt/ioBroker.lorawan
+
+<img src="https://raw.githubusercontent.com/BenAhrdt/ioBroker.lorawan/main/admin/lorawan.png" width="100" height="100" />
+
+**New features and fixes since 1.22.33:**
+
+- (BenAhrdt) Process bridge entity availability on discovery and normal messages; keep existing state types for incompatible values
+- (codex) Updated adapter-core and test dependencies to current recommended versions
+- (BenAhrdt) Add Home Assistant json_attributes_topic discovery attribute for states with role json
+- (BenAhrdt) Keep bridge configurations when referenced foreign objects are deleted; report missing IDs with device and attribute context
+- (BenAhrdt) Ignore adapter-internal and generated virtual bridge IDs when reporting missing foreign objects
+- (BenAhrdt) Add utton.mode.getInfo role for GetInfos downlink states and display them as buttons in device manager cards
+- (BenAhrdt) Do not add a self-referencing ia_device to the internal bridge device when its identifier equals the adapter namespace
+- (BenAhrdt) Tolerate foreign bridge states without an existing discovery entry when removing a bridged channel
+- (BenAhrdt) Automatically discover newly created states below already bridged channels
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
