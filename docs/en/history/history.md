@@ -5167,6 +5167,12 @@ https://github.com/inventwo/ioBroker.snapmaker
 <img src="https://raw.githubusercontent.com/inventwo/ioBroker.snapmaker/main/admin/snapmaker.svg" width="100" height="100" />
 
 Integrates Snapmaker 2.0 machines (e.g. A350) into ioBroker and exposes job status such as filename and remaining time.
+## satellite-display (16.11.2026) – new adapter at beta (latest) repository
+https://github.com/sadam6752-tech/ioBroker.satellite-display
+
+<img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.satellite-display/main/admin/satellite-display.png" width="100" height="100" />
+
+Shows tile pages on the touch display of ESPHome voice satellites: values, gauges, charts, switches, dimmers, buttons and thermostats bound to ioBroker states.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
