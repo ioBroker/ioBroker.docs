@@ -5216,6 +5216,22 @@ https://github.com/heresiarch/ioBroker.sehybrid
 <img src="https://raw.githubusercontent.com/heresiarch/ioBroker.sehybrid/main/admin/sehybrid.png" width="100" height="100" />
 
 Monitors and controls SolarEdge hybrid inverters: access to PV, battery and operational data, with export power limitation and Storage Control modes.
+## panasonic-viera (16.11.2026) – new stable release 2.2.0
+https://github.com/iobroker-community-adapters/ioBroker.panasonic-viera
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.panasonic-viera/master/admin/panasonic-viera.png" width="100" height="100" />
+
+**New features and fixes since 2.1.0:**
+
+- (bluefox) Adapter refactored to TypeScript and JsonConfig
+- (bluefox) Fixed buttons basic.VOLUP, basic.VOLDOWN and basic.LEFT which sent invalid keys
+- (bluefox) Adapter no longer restarts when TV answers ping but not the mute request
+- (bluefox) IP field now offers TVs found in the network
+- (bluefox) Newer (encrypted) TVs can be paired with a PIN directly in the settings
+- (bluefox) Added remote control to instance settings (tab "Remote control", requires admin 8)
+- (bluefox) Added channel 	v for type-detector device type 	v to enable visualization and devices-adapter control
+- (bluefox) Apps like YouTube and Netflix can be started via 	v.app and remote control buttons
+- (copilot) Adapter requires node.js >= 22 now
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
