@@ -5078,6 +5078,14 @@ https://github.com/iobroker-community-adapters/ioBroker.samsung_tizen
 - (GermanBluefox) Added scenes: named sequences of keys, apps and pauses configured in a table, each with a button scenes.<name>
 - (GermanBluefox) Added buttons for installed apps (YouTube, Netflix, Disney+, Prime Video, Apple TV, Max, Spotify and more)
 - (GermanBluefox) Added "Remote control" tab in settings for immediate connection testing (requires admin 8)
+## kostal-piko-ba (16.11.2026) – new stable release 7.0.8
+https://github.com/hombach/ioBroker.kostal-piko-ba
+
+<img src="https://raw.githubusercontent.com/hombach/ioBroker.kostal-piko-ba/master/admin/picoba.png" width="100" height="100" />
+
+**New features and fixes since 7.0.7:**
+
+- (HombachC) updated dependencies
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
