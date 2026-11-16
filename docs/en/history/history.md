@@ -5200,6 +5200,16 @@ https://github.com/HGlab01/ioBroker.followthesun
 **New features and fixes since 0.5.3:**
 
 - (HGlab01) Improved sun position accuracy by updating suncalc to v2.0.2
+## apg-info (16.11.2026) – new stable release 0.1.36
+https://github.com/HGlab01/ioBroker.apg-info
+
+<img src="https://raw.githubusercontent.com/HGlab01/ioBroker.apg-info/main/admin/apg-info.png" width="100" height="100" />
+
+**New features and fixes since 0.1.35:**
+
+- (SimonFischer04) Add raw chart data states
+- (HGlab01) Updated axios to 1.20.0
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
