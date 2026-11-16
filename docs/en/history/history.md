@@ -5155,6 +5155,12 @@ https://github.com/iobroker-community-adapters/ioBroker.yamaha
 - (krobipd) Changed: Every device gets a new stable object ID based on model and serial number, e.g. wx-030-2b3c; values, aliases and history are carried over
 - (krobipd) Fixed: A second device of the same model is no longer skipped
 - (krobipd) Fixed: After restart, YNCA input list shows only sources the receiver actually has
+## sungrow-local (16.11.2026) – new adapter at beta (latest) repository
+https://github.com/SmarthomeElektroniker/ioBroker.sungrow-local
+
+<img src="https://raw.githubusercontent.com/SmarthomeElektroniker/ioBroker.sungrow-local/main/admin/sungrow-local.png" width="100" height="100" />
+
+Reads Sungrow hybrid inverter and battery data via WiNet-S2 Modbus TCP with one connection and a configurable poll interval per register group.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
