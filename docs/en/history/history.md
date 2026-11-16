@@ -5086,6 +5086,15 @@ https://github.com/hombach/ioBroker.kostal-piko-ba
 **New features and fixes since 7.0.7:**
 
 - (HombachC) updated dependencies
+## sainlogic (16.11.2026) – new stable release 1.2.12
+https://github.com/phifogg/ioBroker.sainlogic
+
+<img src="https://raw.githubusercontent.com/phifogg/ioBroker.sainlogic/master/admin/sainlogic.png" width="100" height="100" />
+
+**New features and fixes since 1.2.11:**
+
+- (phifogg) Change type of info states
+- (phifogg) Updated dependencies
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
