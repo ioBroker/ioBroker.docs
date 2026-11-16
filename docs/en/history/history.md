@@ -5161,6 +5161,12 @@ https://github.com/SmarthomeElektroniker/ioBroker.sungrow-local
 <img src="https://raw.githubusercontent.com/SmarthomeElektroniker/ioBroker.sungrow-local/main/admin/sungrow-local.png" width="100" height="100" />
 
 Reads Sungrow hybrid inverter and battery data via WiNet-S2 Modbus TCP with one connection and a configurable poll interval per register group.
+## snapmaker (16.11.2026) – new adapter at beta (latest) repository
+https://github.com/inventwo/ioBroker.snapmaker
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.snapmaker/main/admin/snapmaker.svg" width="100" height="100" />
+
+Integrates Snapmaker 2.0 machines (e.g. A350) into ioBroker and exposes job status such as filename and remaining time.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
