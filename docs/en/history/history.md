@@ -5064,6 +5064,20 @@ https://github.com/Steiger04/ioBroker.vis-2-widgets-collection
 - (steiger04) Every widget shows a short tooltip in the palette
 - (steiger04) Grid layout: widgets keep the height of their grid rows
 - (steiger04) Many fixes across all widgets
+## samsung_tizen (16.11.2026) – new stable release 2.1.0
+https://github.com/iobroker-community-adapters/ioBroker.samsung_tizen
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.samsung_tizen/master/admin/samsung.png" width="100" height="100" />
+
+**New features and fixes since 2.0.2:**
+
+- (GermanBluefox) Added "Search TV" button: finds the TV in the network and fills in IP address, MAC address, protocol and port
+- (GermanBluefox) Added button to read the MAC address for Wake-on-LAN from the TV
+- (GermanBluefox) Added setup assistant (tab "Setup"): search, pairing, Wake-on-LAN, test key and save in one go
+- (GermanBluefox) Added powerOn state to switch the TV on (Wake-on-LAN + KEY_POWER) or off; power state is polled until reached
+- (GermanBluefox) Added scenes: named sequences of keys, apps and pauses configured in a table, each with a button scenes.<name>
+- (GermanBluefox) Added buttons for installed apps (YouTube, Netflix, Disney+, Prime Video, Apple TV, Max, Spotify and more)
+- (GermanBluefox) Added "Remote control" tab in settings for immediate connection testing (requires admin 8)
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
