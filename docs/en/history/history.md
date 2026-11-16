@@ -5192,6 +5192,14 @@ https://github.com/afuerhoff/ioBroker.fb-checkpresence
 - (softwarecrash) Fix crash in newfilter mode
 - (afuerhoff) Adapter requires node.js >= 22 now
 - (afuerhoff) Updated dependencies
+## followthesun (16.11.2026) – new stable release 0.5.4
+https://github.com/HGlab01/ioBroker.followthesun
+
+<img src="https://raw.githubusercontent.com/HGlab01/ioBroker.followthesun/main/admin/followthesun.png" width="100" height="100" />
+
+**New features and fixes since 0.5.3:**
+
+- (HGlab01) Improved sun position accuracy by updating suncalc to v2.0.2
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
