@@ -5095,6 +5095,20 @@ https://github.com/phifogg/ioBroker.sainlogic
 
 - (phifogg) Change type of info states
 - (phifogg) Updated dependencies
+## sony-bravia (16.11.2026) – new stable release 1.2.0
+https://github.com/iobroker-community-adapters/ioBroker.sony-bravia
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.sony-bravia/master/admin/sony-bravia.png" width="100" height="100" />
+
+**New features and fixes since 1.1.0:**
+
+- (bluefox) Adapter refactored to TypeScript and JsonConfig; replaced deprecated equest library with xios
+- (bluefox) Fixed buttons PicOff, PictureOff, Teletext and WirelessSubwoofer (IRCC codes with + or /)
+- (bluefox) Apps and channels with non-latin titles no longer abort creation of remaining objects
+- (bluefox) IP field now offers TVs found in the network
+- (bluefox) Added channel 	v for type-detector device type 	v to enable visualization control
+- (bluefox) Added remote control to instance settings (tab "Remote control", requires admin 8)
+- (copilot) Adapter requires node.js >= 22 now
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
