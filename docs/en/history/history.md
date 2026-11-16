@@ -5210,6 +5210,12 @@ https://github.com/HGlab01/ioBroker.apg-info
 - (SimonFischer04) Add raw chart data states
 - (HGlab01) Updated axios to 1.20.0
 - (ioBroker-Bot) Adapter requires admin >= 7.8.23 now
+## sehybrid (16.11.2026) – new adapter at stable repository
+https://github.com/heresiarch/ioBroker.sehybrid
+
+<img src="https://raw.githubusercontent.com/heresiarch/ioBroker.sehybrid/main/admin/sehybrid.png" width="100" height="100" />
+
+Monitors and controls SolarEdge hybrid inverters: access to PV, battery and operational data, with export power limitation and Storage Control modes.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
