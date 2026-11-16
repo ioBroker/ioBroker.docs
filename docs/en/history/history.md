@@ -5173,6 +5173,12 @@ https://github.com/sadam6752-tech/ioBroker.satellite-display
 <img src="https://raw.githubusercontent.com/sadam6752-tech/ioBroker.satellite-display/main/admin/satellite-display.png" width="100" height="100" />
 
 Shows tile pages on the touch display of ESPHome voice satellites: values, gauges, charts, switches, dimmers, buttons and thermostats bound to ioBroker states.
+## jellyfin (16.11.2026) – new adapter at beta (latest) repository
+https://github.com/Schimi1983/ioBroker.jellyfin
+
+<img src="https://raw.githubusercontent.com/Schimi1983/ioBroker.jellyfin/main/admin/jellyfin.png" width="100" height="100" />
+
+Monitor and control Jellyfin media server sessions including playback control, remote control, and message sending.
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
