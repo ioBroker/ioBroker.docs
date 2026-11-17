@@ -5380,6 +5380,13 @@ https://github.com/SmarthomeElektroniker/ioBroker.miele-local
 
 Local ioBroker adapter for Miele@Home appliances that connects modern Miele@Home devices without the internet using the MieleH256/DOP2 protocol.
 
+## mtec (17.11.2026) – new adapter at beta (latest) repository
+https://github.com/derDennis99/ioBroker.mtec
+
+<img src="https://raw.githubusercontent.com/derDennis99/ioBroker.mtec/main/admin/mtec.svg" width="100" height="100" />
+
+ioBroker adapter for M-TEC Energy Butler and heat pump data received via MQTT (JSON or MTECmqtt format), with energy analysis capabilities.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
