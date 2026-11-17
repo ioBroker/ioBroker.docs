@@ -5373,6 +5373,13 @@ https://github.com/oelison/ioBroker.matrix-org
 - (oelison) Dependency updates
 - (oelison) Bugfix: self-sent messages are now correctly ignored
 
+## miele-local (17.11.2026) – new adapter at stable repository
+https://github.com/SmarthomeElektroniker/ioBroker.miele-local
+
+<img src="https://raw.githubusercontent.com/SmarthomeElektroniker/ioBroker.miele-local/main/admin/miele-local.png" width="100" height="100" />
+
+Local ioBroker adapter for Miele@Home appliances that connects modern Miele@Home devices without the internet using the MieleH256/DOP2 protocol.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
