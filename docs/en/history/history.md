@@ -5303,6 +5303,30 @@ https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy
 - (ssbingo) CI: package tests now run on Node.js 22, 24 and 26; `@iobroker/testing` updated to 6.2.1
 - (ssbingo) Removed `admin` from `globalDependencies` (widget set has no admin UI)
 
+## emby (17.11.2026) – new stable release 3.1.1
+https://github.com/iobroker-community-adapters/ioBroker.emby
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.emby/master/admin/emby.png" width="100" height="100" />
+
+**New features and fixes since 1.3.0:**
+
+- (copilot) Adapter requires node.js >= 22.19.0 now
+- (Schimi1983) Connection is re-established after the server closes it (e.g. server restart); KeepAlive sent; `info.connection` reflects real state
+- (Schimi1983) Fixed `command.volume` (always failed); `command.unmute` created for clients reporting "Unmute"
+- (Schimi1983) Messages and dialogs with quotes or line breaks work now
+- (Schimi1983) Commands use HTTPS if SSL is enabled; API key sent as header and no longer logged
+- (Schimi1983) API key is stored encrypted; existing key converted automatically on first restart
+- (Schimi1983) New states `info.online` and `info.lastActivity` per session; disappearing sessions are reset to idle
+- (Schimi1983) **BREAKING:** Clients are now identified by Emby device ID instead of session ID — object IDs no longer change on reconnect; existing objects migrated automatically
+- (Schimi1983) New states `info.deviceId` and `info.sessionId`; multiple sessions of one client shown as one device
+- (Schimi1983) Objects created by older versions for ioBroker connections are removed and no longer created
+- (Schimi1983) Integration test against a mock Emby server added
+- (GermanBluefox) Repository maintenance: added email to copyright line in README and LICENSE
+- (Schimi1983) New commands: stop, next, previous, seek (in %), generalCommand; new states `media.elapsed` and `media.duration`
+- (Schimi1983) New server states (name, version, update available, restart pending) and button to scan all libraries
+- (Schimi1983) Messages can be sent from scripts with `sendTo('emby.0', 'message', {...})`
+- (Schimi1983) Roles of existing states corrected to official ioBroker state roles (e.g. button.play, media.genre, media.cover, text)
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
