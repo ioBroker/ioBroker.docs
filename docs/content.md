@@ -171,6 +171,7 @@
   * [Debugging](dev/adapterdebug)
   * [en:Debugging VIS widgets;de:VIS-Widgets debuggen;ru:Отладка VIS-виджетов;zh-cn:调试 VIS 小部件](dev/adaptervis)
   * [Publish](dev/adapterpublish)
+  * [en:npm & Trusted Publishing;de:npm & Trusted Publishing;ru:npm и Trusted Publishing;zh-cn:npm 与可信发布](dev/adapternpm)
   * [JS-Controller](dev/controller)
   * [Add new device](dev/adddevice)
   * [en:Development FAQ;de:Häufige Fragen;ru:Частые вопросы;zh-cn:常见问题](dev/adapter-dev-faq)
