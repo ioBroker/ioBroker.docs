@@ -5253,6 +5253,15 @@ https://github.com/iobroker-community-adapters/ioBroker.yamaha
 - (krobipd) Fixed: Scene, tuner and playback commands work on more receivers; switches no longer show On/Standby list on 2008–2017 receivers
 - (krobipd) Fixed: MusicCast link groups, favourites, volume after power-on, and CD datapoints on hybrid receivers work reliably
 - (krobipd) Fixed: A powered-off XML receiver goes offline in seconds; MusicCast-only device without power goes offline within 3 minutes
+## autodarts (17.11.2026) – new stable release 1.2.0
+https://github.com/inventwo/ioBroker.autodarts
+
+<img src="https://raw.githubusercontent.com/inventwo/ioBroker.autodarts/main/admin/autodarts.svg" width="100" height="100" />
+
+**New features and fixes since 1.1.1:**
+
+- (skvarel) Added `system.cams.calibrate` button to start auto camera calibration via local Board Manager API
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
