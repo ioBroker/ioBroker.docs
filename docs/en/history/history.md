@@ -5345,6 +5345,16 @@ https://github.com/arteck/ioBroker.fullybrowser
 - (arteck) Refactoring
 - (arteck) Fix aedes
 
+## harvia-fenix (17.11.2026) – new stable release 1.2.1
+https://github.com/meistermopper/ioBroker.harvia-fenix
+
+<img src="https://raw.githubusercontent.com/meistermopper/ioBroker.harvia-fenix/main/admin/fenix.png" width="100" height="100" />
+
+**New features and fixes since 1.2.0:**
+
+- (meistermopper) Remove obsolete pollInterval setting from instance configuration
+- (meistermopper) Update dependency overrides to resolve Dependabot security alerts
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
