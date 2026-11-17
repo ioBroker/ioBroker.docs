@@ -5334,6 +5334,17 @@ https://github.com/backfisch88/ioBroker.telegrammenu2
 
 Self-contained Telegram menu system for ioBroker with a visual React Flow node editor to build menus, buttons and notifications without code.
 
+## fullybrowser (17.11.2026) – new stable release 3.1.5
+https://github.com/arteck/ioBroker.fullybrowser
+
+<img src="https://raw.githubusercontent.com/arteck/ioBroker.fullybrowser/master/admin/fully.png" width="100" height="100" />
+
+**New features and fixes since 3.1.2:**
+
+- (arteck) Dependencies have been updated
+- (arteck) Refactoring
+- (arteck) Fix aedes
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
