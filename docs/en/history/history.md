@@ -5394,6 +5394,13 @@ https://github.com/bloop16/ioBroker.prometheus
 
 ioBroker adapter that polls Prometheus HTTP APIs and stores aggregated query results as ioBroker states, with a visual query builder so no PromQL knowledge is required.
 
+## desktop-control (17.11.2026) – new adapter at beta (latest) repository
+https://github.com/ipod86/ioBroker.desktop-control
+
+<img src="https://raw.githubusercontent.com/ipod86/ioBroker.desktop-control/main/admin/desktop-control.png" width="100" height="100" />
+
+ioBroker adapter to control Windows PCs (popups, programs, audio, screenshots, and more) via the WinCtl agent over MQTT.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
