@@ -5387,6 +5387,13 @@ https://github.com/derDennis99/ioBroker.mtec
 
 ioBroker adapter for M-TEC Energy Butler and heat pump data received via MQTT (JSON or MTECmqtt format), with energy analysis capabilities.
 
+## prometheus (17.11.2026) – new adapter at beta (latest) repository
+https://github.com/bloop16/ioBroker.prometheus
+
+<img src="https://raw.githubusercontent.com/bloop16/ioBroker.prometheus/main/admin/prometheus.png" width="100" height="100" />
+
+ioBroker adapter that polls Prometheus HTTP APIs and stores aggregated query results as ioBroker states, with a visual query builder so no PromQL knowledge is required.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
