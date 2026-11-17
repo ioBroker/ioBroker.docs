@@ -5232,6 +5232,27 @@ https://github.com/iobroker-community-adapters/ioBroker.panasonic-viera
 - (bluefox) Added channel 	v for type-detector device type 	v to enable visualization and devices-adapter control
 - (bluefox) Apps like YouTube and Netflix can be started via 	v.app and remote control buttons
 - (copilot) Adapter requires node.js >= 22 now
+## yamaha (17.11.2026) – new stable release 3.3.0
+https://github.com/iobroker-community-adapters/ioBroker.yamaha
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.yamaha/master/admin/yamaha.svg" width="100" height="100" />
+
+**New features and fixes since 3.0.1:**
+
+- (krobipd) Changed: player.playback follows ioBroker standard (0=pause, 1=play, 2=stop); repeat and shuffle settable directly
+- (krobipd) New: Receivers from before 2010 show artist, album, track, station and cover; every favourite, playlist item and scene title is a datapoint of its own
+- (krobipd) New: Volume up/down keys, mute level, tuner preset storage, station search, and settable clock/alarm on MusicCast clock radios
+- (krobipd) New: Commands refused over one protocol are sent over another; firmware updates are detected and the adapter re-reads the receiver
+- (krobipd) Fixed: Dropdown lists (sound program, sleep timer, Adaptive DRC) no longer go empty when receiver loses power
+- (krobipd) Changed: Datapoints stay as-is while the adapter runs and change only after adapter or firmware update
+- (krobipd) Fixed: Sleep timer lists the receiver's own values again instead of MusicCast minutes
+- (krobipd) Fixed: Menu lines fill after source switch; menus in ioBroker language; more menu sources on older receivers
+- (krobipd) New: Diagnostics report on Expert tab with "Report a device" issue form
+- (krobipd) New: Receiver/app name changes reach input, scene and sound program dropdowns while adapter runs
+- (krobipd) Changed: YNCA, MusicCast and XML datapoints share names, roles and value lists; YNCA input dropdown shows your input names
+- (krobipd) Fixed: Scene, tuner and playback commands work on more receivers; switches no longer show On/Standby list on 2008–2017 receivers
+- (krobipd) Fixed: MusicCast link groups, favourites, volume after power-on, and CD datapoints on hybrid receivers work reliably
+- (krobipd) Fixed: A powered-off XML receiver goes offline in seconds; MusicCast-only device without power goes offline within 3 minutes
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
