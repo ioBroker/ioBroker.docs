@@ -5362,6 +5362,17 @@ https://github.com/krobipd/ioBroker.dl-manager
 
 ioBroker adapter to monitor and control download managers including JDownloader, qBittorrent, Transmission, Deluge, SABnzbd, NZBGet, aria2 and pyLoad.
 
+## matrix-org (17.11.2026) – new stable release 1.3.1
+https://github.com/oelison/ioBroker.matrix-org
+
+<img src="https://raw.githubusercontent.com/oelison/ioBroker.matrix-org/main/admin/matrix-logo.png" width="100" height="100" />
+
+**New features and fixes since 1.2.2:**
+
+- (oelison) Reuse of matrix device/credentials (#127)
+- (oelison) Dependency updates
+- (oelison) Bugfix: self-sent messages are now correctly ignored
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
