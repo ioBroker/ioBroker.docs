@@ -5355,6 +5355,13 @@ https://github.com/meistermopper/ioBroker.harvia-fenix
 - (meistermopper) Remove obsolete pollInterval setting from instance configuration
 - (meistermopper) Update dependency overrides to resolve Dependabot security alerts
 
+## dl-manager (17.11.2026) – new adapter at beta (latest) repository
+https://github.com/krobipd/ioBroker.dl-manager
+
+<img src="https://raw.githubusercontent.com/krobipd/ioBroker.dl-manager/main/admin/dl-manager.svg" width="100" height="100" />
+
+ioBroker adapter to monitor and control download managers including JDownloader, qBittorrent, Transmission, Deluge, SABnzbd, NZBGet, aria2 and pyLoad.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
