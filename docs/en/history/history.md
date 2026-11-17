@@ -5282,6 +5282,27 @@ https://github.com/iobroker-community-adapters/ioBroker.eusec
 - (typhosj) New setting "Excluded devices": instance ignores listed devices/stations (useful when two ioBroker installations share one Eufy account)
 - (typhosj) Compatibility streams play sound in VLC again; video timestamps preserved to avoid audio/video desync
 
+## vis-2-widgets-sigenergy (17.11.2026) – new stable release 1.8.11
+https://github.com/ssbingo/ioBroker.vis-2-widgets-sigenergy
+
+<img src="https://raw.githubusercontent.com/ssbingo/ioBroker.vis-2-widgets-sigenergy/main/admin/vis-2-widgets-sigenergy.png" width="100" height="100" />
+
+**New features and fixes since 1.8.4:**
+
+- (ssbingo) AC charger: charging current slider is now limited to the charger's rated current; new setting `sig_maxCurrent` for a manual upper limit
+- (ssbingo) AC charger: system state now covers all IEC 61851-1 states (0–7) with detailed tooltip on hover
+- (ssbingo) AC charger: state badge tooltip is now a separate popup with fixed font size and opaque background, readable at any widget size
+- (ssbingo) AC charger: Start button is locked and Stop button is highlighted while charging is active
+- (ssbingo) Widget set now reports the correct version in the browser console
+- (ssbingo) DC charger: new state OID `dcCharger.runningState` – badge shows operating state (free, connected, charging, discharging, ended, warning, fault) with tooltip; negative output power shown in purple
+- (ssbingo) DC charger: Start button locked and Stop button highlighted while charging or discharging is active
+- (ssbingo) DC charger: missing state OID is derived from output power OID automatically for widgets placed before 1.8.7
+- (ssbingo) DC charger: improved tooltip explains missing operating state depending on protocol version detected by the adapter
+- (ssbingo) DC charger: stations that mark register 31513 as not valid no longer show a red "Unbekannt" badge; badge is derived from output power instead
+- (ssbingo) DC charger: new OID setting `oid_protocol` fixes protocol version detection in VIS (previously not subscribed)
+- (ssbingo) CI: package tests now run on Node.js 22, 24 and 26; `@iobroker/testing` updated to 6.2.1
+- (ssbingo) Removed `admin` from `globalDependencies` (widget set has no admin UI)
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
