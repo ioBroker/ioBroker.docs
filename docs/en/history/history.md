@@ -5262,6 +5262,26 @@ https://github.com/inventwo/ioBroker.autodarts
 
 - (skvarel) Added `system.cams.calibrate` button to start auto camera calibration via local Board Manager API
 
+## eusec (17.11.2026) – new stable release 3.6.4
+https://github.com/iobroker-community-adapters/ioBroker.eusec
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.eusec/master/admin/eusec.png" width="100" height="100" />
+
+**New features and fixes since 3.5.0:**
+
+- (typhosj) Event pictures sent directly by a HomeBase (e.g. Video Doorbell on HomeBase 3) are now shown correctly with proper size and contrast restored
+- (typhosj) Switching quickly between on-demand cameras of the same station now also works between cameras with different video codecs; next livestream of a station starts two seconds after a stop at the earliest
+- (typhosj) Start no longer logs spurious "Check push token - Response code not ok" error for accounts migrated to the new eufy backend
+- (typhosj) Switching quickly between on-demand cameras of the same station works now; closed camera's livestream is stopped right away before the next starts
+- (typhosj) A talkback now keeps other cameras of its station from starting, like a watched livestream does
+- (typhosj) On-demand streams no longer hang for five minutes when a player reopens the stream shortly after the last viewer left
+- (typhosj) Compatibility streams of on-demand cameras now also start when the camera takes more than 5 seconds to deliver the first picture
+- (typhosj) eufyCam C37: removed always-true `enabled` state and unsupported `dualCamWatchViewMode` state
+- (typhosj) Bundled go2rtc updated to 1.9.14 (downloaded once, verified by checksum); fixes lock-up on transcoded stream end
+- (typhosj) "Livestream quality" setting now applies to cameras that name qualities by resolution (e.g. SoloCam S340, Indoor Cam S350)
+- (typhosj) New setting "Excluded devices": instance ignores listed devices/stations (useful when two ioBroker installations share one Eufy account)
+- (typhosj) Compatibility streams play sound in VLC again; video timestamps preserved to avoid audio/video desync
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
