@@ -5327,6 +5327,13 @@ https://github.com/iobroker-community-adapters/ioBroker.emby
 - (Schimi1983) Messages can be sent from scripts with `sendTo('emby.0', 'message', {...})`
 - (Schimi1983) Roles of existing states corrected to official ioBroker state roles (e.g. button.play, media.genre, media.cover, text)
 
+## telegrammenu2 (17.11.2026) – new adapter at beta (latest) repository
+https://github.com/backfisch88/ioBroker.telegrammenu2
+
+<img src="https://raw.githubusercontent.com/backfisch88/ioBroker.telegrammenu2/main/admin/telegrammenu2.png" width="100" height="100" />
+
+Self-contained Telegram menu system for ioBroker with a visual React Flow node editor to build menus, buttons and notifications without code.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
