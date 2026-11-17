@@ -98,6 +98,7 @@ npm-Token mehr im Repository. npm unterstützt inzwischen **Trusted Publishing**
 Das Paket wird auf npm mit dem GitHub-Repository verknüpft, und der Arbeitsablauf
 weist sich über OpenID Connect aus. Damit liegt kein dauerhaft gültiges
 Geheimnis mehr in den Repository-Einstellungen.
+Die Einrichtung Schritt für Schritt, mit Screenshots: [Auf npm veröffentlichen (Trusted Publishing)](/docs/dev/adapternpm.md).
 
 !> Nach dem Veröffentlichen ist die Version endgültig. Eine Version auf npm
 lässt sich nicht überschreiben, und ein `npm unpublish` ist nur in den ersten 72
