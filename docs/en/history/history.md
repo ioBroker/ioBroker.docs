@@ -5439,6 +5439,13 @@ https://github.com/iobroker-community-adapters/ioBroker.weatherunderground
 - (reloxx13) Use adapter-managed timers and controller-managed startup delay; end failed initialization reliably
 - (reloxx13) Use the controller-managed startup delay instead of a custom wait function
 
+## wiim (18.11.2026) – new adapter at stable repository
+https://github.com/KaiIOB/ioBroker.wiim
+
+<img src="https://raw.githubusercontent.com/KaiIOB/ioBroker.wiim/main/admin/wiim.png" width="100" height="100" />
+
+ioBroker adapter to monitor and control Wiim and Arylic audio streamers.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
