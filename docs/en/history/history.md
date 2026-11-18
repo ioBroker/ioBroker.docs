@@ -5408,6 +5408,13 @@ https://github.com/Negalein/ioBroker.snapmaker-u1
 
 ioBroker adapter for Snapmaker U1 3D printers integrating Moonraker monitoring, top-cover fans, AFC/Spoolman metadata, cameras and print preview.
 
+## idm-modbus (18.11.2026) – new adapter at beta (latest) repository
+https://github.com/seaspotter/ioBroker.idm-modbus
+
+<img src="https://raw.githubusercontent.com/seaspotter/ioBroker.idm-modbus/main/admin/idm-modbus.png" width="100" height="100" />
+
+ioBroker adapter that connects IDM heat pumps with Navigator control (Navigator 2.0, 1.7, 10) locally via Modbus TCP to read, control and feed room, PV and building-automation values.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
