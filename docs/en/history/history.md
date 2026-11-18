@@ -5401,6 +5401,13 @@ https://github.com/ipod86/ioBroker.desktop-control
 
 ioBroker adapter to control Windows PCs (popups, programs, audio, screenshots, and more) via the WinCtl agent over MQTT.
 
+## snapmaker-u1 (18.11.2026) – new adapter at beta (latest) repository
+https://github.com/Negalein/ioBroker.snapmaker-u1
+
+<img src="https://raw.githubusercontent.com/Negalein/ioBroker.snapmaker-u1/main/admin/snapmaker-u1.png" width="100" height="100" />
+
+ioBroker adapter for Snapmaker U1 3D printers integrating Moonraker monitoring, top-cover fans, AFC/Spoolman metadata, cameras and print preview.
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
