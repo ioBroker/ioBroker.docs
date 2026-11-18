@@ -5465,6 +5465,26 @@ https://github.com/tipp88/ioBroker.octopus-energy-monitor
 - (tipp88) Add missing responsive layout sizes for historical repricing and automatic grid-fee checkboxes
 - (tipp88) Dependency updates
 
+## ocpp (18.11.2026) – new stable release 1.0.0
+https://github.com/iobroker-community-adapters/ioBroker.ocpp
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.ocpp/main/admin/ocpp.png" width="100" height="100" />
+
+**New features and fixes since 0.12.5:**
+
+- (mcm1957) Adapter migrated to iobroker-community-adapters organisation
+- (mcm1957/copilot) Adapter requires Node.js >= 22.19.0, Admin >= 8.3.5 and js-controller >= 7.2.5 now
+- (meistermopper) Legacy `@ampeco/ocpp-eliftech` replaced with native TypeScript OCPP 1.6J server
+- (meistermopper) `TxProfile` used for `RemoteStartTransaction`; `transactionId` tracked (#24, #65)
+- (meistermopper) SmartCharging removal fixed when `GetConfigurationMaxKeys` truncates response (#65)
+- (meistermopper) Zombie sockets on reconnect prevented (#20); outgoing OCPP commands serialized
+- (meistermopper) `DiagnosticsStatusNotification` and `FirmwareStatusNotification` supported (#32)
+- (meistermopper) `stripLeadingSlash` option added; responsive `jsonConfig` with i18n (#30, #60)
+- (meistermopper) Migrated to ESLint 9 and `@iobroker/eslint-config` (#33)
+- (meistermopper) Fix TxProfile schedule kind; add `ClearChargingProfile` on null `chargeLimit`
+- (meistermopper) Fix repochecker findings: nogit, `info.connection` role, unused deps (#117)
+- (meistermopper) Align workflow concurrency and timer wrappers with repochecker (#121)
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
