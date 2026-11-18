@@ -5415,6 +5415,30 @@ https://github.com/seaspotter/ioBroker.idm-modbus
 
 ioBroker adapter that connects IDM heat pumps with Navigator control (Navigator 2.0, 1.7, 10) locally via Modbus TCP to read, control and feed room, PV and building-automation values.
 
+## weatherunderground (18.11.2026) – new stable release 4.0.1
+https://github.com/iobroker-community-adapters/ioBroker.weatherunderground
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.weatherunderground/master/admin/wu.png" width="100" height="100" />
+
+**New features and fixes since 3.7.0:**
+
+- (mcm1957) Adapter requires Node.js >= 22, Admin >= 8.2.0 and js-controller >= 6.0.11 now
+- (reloxx13) Website API key read automatically from Weather Underground page configuration (#509)
+- (reloxx13) Daily forecasts requested using station coordinates and website key when no owner key is configured (#509)
+- (reloxx13) Opt-in regional weather descriptions, icons, visibility and detailed EPA air quality added without replacing station measurements (#220, #388)
+- (reloxx13) Hourly gust, dew point, wind chill, weather text and precipitation type added; daily sun/moon events and PWS quality status
+- (reloxx13) Short daily descriptions added while preserving full narratives (#388)
+- (reloxx13) API keys automatically migrated to encrypted and protected storage
+- (reloxx13) Legacy settings dialog replaced with JSON Config; labels, help texts and field grouping improved
+- (reloxx13) Fix hourly forecast requests, station coordinates and metric/non-metric provider paths (#497)
+- (reloxx13) Fix numeric icon URLs and previews; correct existing icon URL object types (#216)
+- (reloxx13) Correct weather state roles without changing IDs, types, units or user metadata (#328)
+- (reloxx13) Use calendar-day minimum and maximum forecast temperatures (#500)
+- (reloxx13) Populate hourly weather codes, including zero (#499)
+- (reloxx13) Skip the unused PWS dashboard request (#498)
+- (reloxx13) Use adapter-managed timers and controller-managed startup delay; end failed initialization reliably
+- (reloxx13) Use the controller-managed startup delay instead of a custom wait function
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
