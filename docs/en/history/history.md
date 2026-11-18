@@ -5446,6 +5446,25 @@ https://github.com/KaiIOB/ioBroker.wiim
 
 ioBroker adapter to monitor and control Wiim and Arylic audio streamers.
 
+## octopus-energy-monitor (18.11.2026) – new stable release 1.2.1
+https://github.com/tipp88/ioBroker.octopus-energy-monitor
+
+<img src="https://raw.githubusercontent.com/tipp88/ioBroker.octopus-energy-monitor/master/admin/octopus-energy-monitor.svg" width="100" height="100" />
+
+**New features and fixes since 1.1.0:**
+
+- (tipp88) Opt-in, date-specific Module 3 grid fees with validated schedules, scoped caching and manual fallback
+- (tipp88) Raw Module 3 response fields, request date, HTTP status and precise grid-fee rejection reasons exposed
+- (tipp88) Bounded API retries, Retry-After cooldowns, expiry-aware JWT refresh and cancellable requests
+- (tipp88) Opt-in, versioned historical repricing within sync/retention limits
+- (tipp88) Paginate bounded, meter-scoped Octopus measurements with duplicate and cursor checks
+- (tipp88) Resolve historical consumption prices and monthly standing charges by agreement and gross-price validity
+- (tipp88) Europe/Berlin calendar-day boundaries and tariff times, including 23/25-hour daylight-saving days
+- (tipp88) Sync/API diagnostics and DST-aware daily interval completeness exposed
+- (tipp88) Use adapter-managed timers for API retry and pagination delays with cancellation on unload
+- (tipp88) Add missing responsive layout sizes for historical repricing and automatic grid-fee checkboxes
+- (tipp88) Dependency updates
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
