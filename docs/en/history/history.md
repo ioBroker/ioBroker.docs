@@ -5485,6 +5485,19 @@ https://github.com/iobroker-community-adapters/ioBroker.ocpp
 - (meistermopper) Fix repochecker findings: nogit, `info.connection` role, unused deps (#117)
 - (meistermopper) Align workflow concurrency and timer wrappers with repochecker (#121)
 
+## aurora-nowcast (19.11.2026) – new stable release 2.3.2
+https://github.com/chrmenne/ioBroker.aurora-nowcast
+
+<img src="https://raw.githubusercontent.com/chrmenne/ioBroker.aurora-nowcast/main/admin/aurora-nowcast.png" width="100" height="100" />
+
+**New features and fixes since 2.3.0:**
+
+- (chrmenne) Fixed repository checker findings (#37, #38, #41)
+- (chrmenne) Compatibility with Node.js 26 verified (#39)
+- (chrmenne) Dependabot auto-merge set up (#44)
+- (chrmenne) Fixed various vulnerabilities
+- (chrmenne) Re-release with provenance attestation (no code changes)
+
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
 <!--  #####   ATTENTION: use https://raw.githubusercontent.com/... address for icons !            ### -->
 <!--  ######################## keep these lines at end of file as a reminder ######################## -->
