@@ -67,6 +67,7 @@ Optional können auch für npm mehrere Autoren hinterlegt werden, indem in der p
 3. Eine Discovery Funktion sollte implementiert werden. Hierbei handelt es sich um eine Funktion im [Discovery Adapter](https://github.com/ioBroker/ioBroker.discovery),
    um automatisch zu erkennen, ob der Nutzer eine Instanz des Adapters gebrauchen kann. 
    Hierzu ist ein Pull Request auf dem Repository des [Discovery Adapters](https://github.com/ioBroker/ioBroker.discovery) zu stellen.
+   Wie das geht, steht in der [Anleitung zum Erweitern von Discovery](https://github.com/ioBroker/ioBroker.discovery/blob/master/DEVELOPMENT.md) (englisch).
 
 ## Auf npm veröffentlichen
 

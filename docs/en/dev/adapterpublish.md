@@ -66,7 +66,7 @@ The developer is welcome to expand the scope of the test.
 
 1. The adapter has been successfully added to the Latest Repository.
 2. There is a [forum test thread](https://forum.iobroker.net/category/91/tester) for the adapter, in which user feedback has already been given.
-3. A discovery function should be implemented. This is a function within the [Discovery Adapter](https://github.com/ioBroker/ioBroker.discovery) to automatically detect whether a user can use an instance of the adapter. A pull request for this should be submitted to the [Discovery Adapter](https://github.com/ioBroker/ioBroker.discovery) repository.
+3. A discovery function should be implemented. This is a function within the [Discovery Adapter](https://github.com/ioBroker/ioBroker.discovery) to automatically detect whether a user can use an instance of the adapter. A pull request for this should be submitted to the [Discovery Adapter](https://github.com/ioBroker/ioBroker.discovery) repository. How to do it is described in the [guide to extending discovery](https://github.com/ioBroker/ioBroker.discovery/blob/master/DEVELOPMENT.md).
 
 ## Publish on npm
 
