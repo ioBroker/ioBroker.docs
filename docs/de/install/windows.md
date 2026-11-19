@@ -119,19 +119,65 @@ Der Expertenmodus bietet folgende zusätzlichen Funktionen:
 ## Fehlersuche
 
 **Problem:**
+
 Die Installation kann nicht durchgeführt werden, da Port 9001 von einem Prozess mit dem Namen "System" belegt ist.
 
 **Mögliche Lösung:**
+
 Der Intel® Graphics Command Center ist bekannt dafür, Port 9001 zu blockieren.
 Überprüfe, ob es einen Windows Service mit dem Namen "Graphics Command Center" o.ä. auf deinem PC gibt. Wenn ja, beende und deaktiviere diesen Dienst.
 Anschließend sollte die Installation von ioBroker möglich sein.
 
+---
+
 **Problem:**
+
 Git wurde währen der ioBroker Installation nicht installiert. Im Logfile gibt es eine entsprechende Fehlermeldung:
 `Fehler beim Durchsuchen der Quelle: winget
 Unerwarteter Fehler beim Ausführen des Befehls:
 0x8a15000f : Data required by the source is missing`  
 
 **Mögliche Lösung:**
+
 Im ioBroker Command Fenster (aus dem Startmenü) den folgenden Befehl eingeben, anschließend den Installer neu starten und "Reparieren" auswählen.
 `powershell -command " Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.Winget.Source_8wekyb3d8bbwe"`
+
+---
+
+**Problem:**
+
+Die Installation von ioBroker oder das Update des JS-Controllers bricht mit folgender Fehlermeldung ab:
+
+```text
+npm error code EALLOWSCRIPTS
+npm error --allow-scripts is not allowed in project-scoped installs.
+```
+
+**Mögliche Lösung:**
+
+Bei bestimmten npm-Versionen kann die Konfiguration `allow-scripts=true` zu diesem Fehler führen, wenn sie als Umgebungsvariable an einen weiteren npm-Prozess weitergegeben wird.
+
+Eine Windows-Eingabeaufforderung (CMD) als Administrator öffnen, unter demselben Benutzerkonto, mit dem auch der ioBroker-Installer ausgeführt wird.
+
+Zunächst die npm-Konfiguration prüfen:
+
+```cmd
+npm config get allow-scripts
+```
+
+Wird `true` zurückgegeben, kann die Einstellung mit folgendem Befehl entfernt werden:
+
+```cmd
+npm config delete allow-scripts
+```
+
+Anschließend die Installation beziehungsweise das Controller-Update erneut starten.
+
+**Hinweis:** Der Befehl verändert normalerweise die npm-Konfiguration des aktuellen Windows-Benutzers dauerhaft und kann sich daher auch auf andere npm-Projekte auswirken. Ein Downgrade von Node.js oder npm ist zur Behebung dieses Fehlers in der Regel nicht erforderlich.
+
+Weitere Informationen:
+- [Bekannter npm-Bug](https://github.com/npm/cli/issues/9968)
+
+---
+
+
