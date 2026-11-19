@@ -24,7 +24,7 @@ _**Further current requirements can be found here:**_ <https://github.com/ioBrok
 
 3. The`title` The attribute in the io-package.json (common) is the short name of the adapter in English. During`titleLang` the translations of the`title` Attributes are included. (The extension "Lang" stands for languages.)
 
-4. The adapter should include instructions in the form of a README.md file. These should be available in English at a minimum. Additional languages are welcome. This [example](https://github.com/foxriver76/ioBroker.denon) can serve as inspiration.
+4. The adapter must include instructions in the form of a README.md file. The README.md is English only; other languages go into `doc/<lang>/`. What belongs in a good README.md is described in [Adapter documentation](/docs/dev/adapterdocs.md). This [example](https://github.com/foxriver76/ioBroker.denon) can serve as inspiration.
 
 5. The adapter requires a license. This is specified both in the io-package.json file and in a separate [file](https://github.com/foxriver76/ioBroker.denon/blob/master/LICENSE) in the GitHub repository.
 
@@ -111,7 +111,7 @@ The lists are located in the [ioBroker.repositories](https://github.com/ioBroker
 
 4. When adding a project to the stable repository, a version number must be declared. This number must be updated as the adapter is further developed.
 
-5. The adapter should have a list attribute in the io-package.json file.`docs` Specify where to find instructions in the respective language. The language is specified as the key, and the path to the Markdown file as the value. English instructions are mandatory (in case of emergency, the standard README can be referenced). German instructions are also desirable, as a large proportion of users speak German, but this is optional. Comprehensive instructions can save the developer a lot of time in the forum. An example can be found [here](https://github.com/foxriver76/ioBroker.denon/blob/master/docs/de/README.md) .
+5. The adapter should have a list attribute in the io-package.json file.`docs` Specify where to find instructions in the respective language. The language is specified as the key, and the path to the Markdown file as the value. English instructions are mandatory (in case of emergency, the standard README can be referenced). German instructions are also desirable, as a large proportion of users speak German, but this is optional. Comprehensive instructions can save the developer a lot of time in the forum. An example can be found [here](https://github.com/foxriver76/ioBroker.denon/blob/master/docs/de/README.md) . Details in [Adapter documentation](/docs/dev/adapterdocs.md).
 
    Example:
 
@@ -119,7 +119,8 @@ The lists are located in the [ioBroker.repositories](https://github.com/ioBroker
    {
      "common": {
         "docs": {
-            "de": "docs/de/README.md"
+            "en": "doc/en/README.md",
+            "de": "doc/de/README.md"
         }
      }
    }

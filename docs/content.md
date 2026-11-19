@@ -165,6 +165,7 @@
   * [Aliases](dev/aliases)
   * [Template](dev/adaptertemplate)
   * [Adapter tests](dev/adaptertesting)
+  * [en:Adapter documentation;de:Adapter-Dokumentation;ru:Документация адаптера;zh-cn:适配器文档](dev/adapterdocs)
   * [Adapter doc template](dev/adapterdoctemplate)
   * [Style Guide Adapter-Doc](dev/adapterdocstyleguide)
   * [Style Guide GUI](dev/styleguideui)

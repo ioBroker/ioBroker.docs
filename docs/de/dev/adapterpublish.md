@@ -21,7 +21,7 @@ Sollte der Adapter auf einer bestimmten Versionsnummer stabil laufen, darf diese
 
 3. Das ``title`` Attribut in der io-package.json (common) ist der Kurzname des Adapters auf Englisch. Während ``titleLang`` die Übersetzungen des ``title`` Attributes enthalten. (die Erweiterung Lang steht für languages)
 
-4. Der Adapter sollte eine Anleitung in Form einer README.md Datei enthalten. Diese sollte mindestens in der englischen Sprache verfügbar sein. Ergänzend sind andere Sprachen willkommen. Als Anregung kann dieses [Beispiel](https://github.com/foxriver76/ioBroker.denon) dienen.
+4. Der Adapter muss eine Anleitung in Form einer README.md Datei enthalten. Die README.md ist ausschließlich englisch, andere Sprachen gehören nach `doc/<sprache>/`. Was in eine gute README.md gehört, steht unter [Adapter-Dokumentation](/docs/dev/adapterdocs.md). Als Anregung kann dieses [Beispiel](https://github.com/foxriver76/ioBroker.denon) dienen.
 
 5. Der Adapter benötigt eine Lizenz. Sowohl in der io-package.json als auch eine separate [Datei](https://github.com/foxriver76/ioBroker.denon/blob/master/LICENSE) im Github Repository.
 
@@ -134,13 +134,15 @@ Eintrag an die richtige Stelle setzen und gleich prüfen.
    Anleitung wünschenswert, da ein Großteil der Nutzer Deutsch spricht, jedoch ist dies optional. 
    Eine ausführliche Anleitung kann dem Entwickler viel Zeit im Forum ersparen. 
    Ein Beispiel kann [hier](https://github.com/foxriver76/ioBroker.denon/blob/master/docs/de/README.md) gefunden werden.
+   Details unter [Adapter-Dokumentation](/docs/dev/adapterdocs.md).
 
    Beispiel:
    ```json
    {
      "common": {
         "docs": {
-            "de": "docs/de/README.md"
+            "en": "doc/en/README.md",
+            "de": "doc/de/README.md"
         }
      }
    }
