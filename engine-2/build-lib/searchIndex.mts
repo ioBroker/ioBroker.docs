@@ -59,10 +59,11 @@ export function indexUid(prefix: string, lang: string): string {
     return `${prefix}_${lang}`.replace(/[^a-zA-Z0-9_-]/g, '_');
 }
 
-/** The two legal texts are pages of their own, everything else below `public/<lang>` is documentation */
+/** The legal texts are pages of their own, everything else below `public/<lang>` is documentation */
 const LEGAL_ROUTES: Record<string, string> = {
     'imprint.md': '/imprint',
     'privacy.md': '/policy',
+    'privacy-google-photos.md': '/policy/google-photos',
 };
 
 /**

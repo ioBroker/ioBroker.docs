@@ -65,6 +65,7 @@ export function siteRoutes(publicDir: string): SiteRoute[] {
     );
     add({ route: '/imprint', file: 'imprint.md' });
     add({ route: '/policy', file: 'privacy.md' });
+    add({ route: '/policy/google-photos', file: 'privacy-google-photos.md' });
 
     walk(readJson<JsonPage>(path.join(publicDir, 'adapters.json')), (key, page) => {
         if (page.content) {

@@ -89,6 +89,11 @@ export const useRoutes = (): React.ReactElement => {
                     path="/policy"
                     element={<LegalPage document="privacy" />}
                 />
+                {/* what Google asks of the apps that use its APIs: a policy of their own for that data */}
+                <Route
+                    path="/policy/google-photos"
+                    element={<LegalPage document="privacy-google-photos" />}
+                />
                 {/*
                  * Everything else. The server answers such an address with 404 and the shell of the
                  * app, so what the reader gets is a page of the site and not the bare line of the

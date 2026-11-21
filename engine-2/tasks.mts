@@ -360,6 +360,7 @@ function _9_createSitemap(): void {
         '/productoverview',
         '/imprint',
         '/policy',
+        '/policy/google-photos',
     ];
 
     fs.readdirSync(`${base}/blog`)

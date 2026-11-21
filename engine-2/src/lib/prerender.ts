@@ -362,6 +362,11 @@ const PLAIN_PAGES: Record<string, Translated> = {
     '/productoverview': { en: 'Licenses', de: 'Lizenzen', ru: 'Лицензии' },
     '/imprint': { en: 'Imprint', de: 'Impressum', ru: 'О компании' },
     '/policy': { en: 'Privacy', de: 'Datenschutz', ru: 'Политика конфиденциальности' },
+    '/policy/google-photos': {
+        en: 'Privacy: Google Photos',
+        de: 'Datenschutz: Google Fotos',
+        ru: 'Конфиденциальность: Google Фото',
+    },
     '/search': { en: 'Search', de: 'Suche', ru: 'Поиск' },
 };
 
@@ -369,6 +374,7 @@ const PLAIN_PAGES: Record<string, Translated> = {
 const LEGAL_DOCUMENTS: Record<string, string> = {
     '/imprint': 'imprint.md',
     '/policy': 'privacy.md',
+    '/policy/google-photos': 'privacy-google-photos.md',
 };
 
 /**

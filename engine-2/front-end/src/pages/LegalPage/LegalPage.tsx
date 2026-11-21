@@ -13,8 +13,12 @@ import { useStyles } from './LegalPage.styles';
 /**
  * Imprint and privacy policy. The texts are maintained in ioBroker.docs and end
  * up in public/<lang>/imprint.md and privacy.md - this page only renders them.
+ * `privacy-google-photos` is the policy of one function (Google Photos in the adapter screensaver),
+ * which Google wants on a page of its own; its title is the one of the document.
  */
-const LegalPage = ({ document: doc }: { document: 'imprint' | 'privacy' }): React.ReactNode => {
+export type LegalDocument = 'imprint' | 'privacy' | 'privacy-google-photos';
+
+const LegalPage = ({ document: doc }: { document: LegalDocument }): React.ReactNode => {
     const { classes } = useStyles();
     const [language, setLanguage] = useState(I18n.getLanguage());
 
@@ -67,7 +71,13 @@ const LegalPage = ({ document: doc }: { document: 'imprint' | 'privacy' }): Reac
     return (
         <Box className={classes.pageWrapper}>
             <PageMeta
-                title={doc === 'imprint' ? I18n.t('Imprint') : I18n.t('Privacy')}
+                title={
+                    doc === 'imprint'
+                        ? I18n.t('Imprint')
+                        : doc === 'privacy'
+                          ? I18n.t('Privacy')
+                          : title || I18n.t('Privacy')
+                }
                 description={summariseMarkdown(content)}
             />
             <Box className={classes.pageContainer}>

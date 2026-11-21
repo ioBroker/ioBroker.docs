@@ -578,6 +578,15 @@
           },
           "content": "viz/app.md"
         },
+        "Photo frame and screensaver": {
+          "title": {
+            "en": "Photo frame and screensaver",
+            "de": "Bilderrahmen und Bildschirmschoner",
+            "ru": "Фоторамка и заставка",
+            "zh-cn": "相框和屏保"
+          },
+          "content": "viz/screensaver.md"
+        },
         "Widgets for vis and vis-2": {
           "title": {
             "en": "Widgets for vis and vis-2",
@@ -1384,6 +1393,15 @@
           },
           "content": "dev/adaptertesting.md"
         },
+        "Adapter documentation": {
+          "title": {
+            "en": "Adapter documentation",
+            "de": "Adapter-Dokumentation",
+            "ru": "Документация адаптера",
+            "zh-cn": "适配器文档"
+          },
+          "content": "dev/adapterdocs.md"
+        },
         "Adapter doc template": {
           "title": {
             "en": "Adapter doc template",
@@ -1432,6 +1450,15 @@
             "ru": "Публиковать"
           },
           "content": "dev/adapterpublish.md"
+        },
+        "npm & Trusted Publishing": {
+          "title": {
+            "en": "npm & Trusted Publishing",
+            "de": "npm & Trusted Publishing",
+            "ru": "Npm и Trusted Publishing",
+            "zh-cn": "npm 与可信发布"
+          },
+          "content": "dev/adapternpm.md"
         },
         "JS-Controller": {
           "title": {
