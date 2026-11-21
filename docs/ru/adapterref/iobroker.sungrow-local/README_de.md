@@ -1,0 +1,41 @@
+---
+chapters: {"pages":{"en/adapterref/iobroker.sungrow-local/README.md":{"title":{"en":"ioBroker.sungrow-local"},"content":"en/adapterref/iobroker.sungrow-local/README.md"},"en/adapterref/iobroker.sungrow-local/README_de.md":{"title":{"en":"ioBroker.sungrow-local – Kurzbeschreibung auf Deutsch"},"content":"en/adapterref/iobroker.sungrow-local/README_de.md"},"en/adapterref/iobroker.sungrow-local/vis-templates/README.md":{"title":{"en":"vis templates for ioBroker.sungrow-local"},"content":"en/adapterref/iobroker.sungrow-local/vis-templates/README.md"}}}
+translatedFrom: en
+translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sungrow-local/README_de.md
+title: ioBroker.sungrow-local - Kurzbeschreibung auf Deutsch
+hash: zKTlvQuyEvd1Qfeyyrabi/9vlSoahpzCuHnLgcDV1Qs=
+---
+![Логотип](../../../en/adapterref/iobroker.sungrow-local/admin/sungrow-local.png)
+
+# ioBroker.sungrow-local – Kurzbeschreibung auf Deutsch
+
+Дополнительная документация находится на английском языке [README](/#/adapters/sungrow-local) .
+
+Привязка адаптера **Sungrow-Hybridwechselrichter** (соединена с SH20T) и **аккумулятором** (SBH-Serie, z. B. SBH400) с коммуникационным модулем **WiNet-S2** для **Modbus TCP** — локально, без iSolarCloud. Er ersetzt eine Generische `ioBroker.modbus` -Instanz und behält deren Datenpunkt-IDs bei.
+
+Hersteller: [Sungrow Power Supply Co., Ltd.](https://www.sungrowpower.com/en) – Hybridwechselrichter der SH-Serie (z. B. SH-RT), Batterien und das Kommunikationsmodul WiNet-S2: [Produktübersicht](https://en.sungrowpower.com/products) . Адаптер — это уникальный проект и ключ к использованию для выращивания растений.
+
+- **Если вы используете TCP-подключение** для WiNet, все важные запросы начинаются с паузы в памяти.
+- **Abfragegruppen** mit eigenem Takt, Timeout и необязательно Pause nach jer Anfrage (Возможно, один из следующих вариантов: `live` 5 с, `energy` 60 с, `control` 60 с, `battery` 120 с, время ожидания 15 000 мс и пауза 5 000 мс). Kürzere Werte markiert die Admin-Seite rot (nur Warnung).
+- **Ein Timeout betrifft nur seinen Block** ; neu verbunden wird erst nach N Fehlern в Folge (Vorgabe 3) или когда Gateway die Verbindung schließt.
+- **Schreiben mit Vorrang** vor der nächsten Leseanfrage, danach sofortige Rücklesung; `ack=true` сначала mit dem bestätigten Wert. Опционально Нур-Лезе-Модус.
+- **Diagnose je Gruppe** unter `info.groups.<gruppe>.*` мит Герцшлаг `lastRound` – alte Zeitstempel an Registern sind Normal (geschrieben wird nur bei Änderung), ein hängender Bus zeigt sich an `lastRound`.
+- **Neue Einstellungsseite (0.4.0, Admin ≥ 8.2):** Reiter _Übersicht_ (Ampeln, Live-Kacheln, Einrichtungs- Assistent mit Verbindungstest und Modellerkennung), _Register_ (Katalog nach Themen mit Muche, aktivieren per Klick or Drag & Drop in eine Abfragegruppe, Busauslastung) je Gruppe und gesamt mit Begründung jeder zusätzlichen Anfrage, eigene Register in jeder Adressschreibweise mit Testlesen), _Steuerung_ (Schreiben je Register freigeben, Wertebereich, Protokoll der letzten Schreibbefehle), _Verbindung_ (mit aufklappbarem «Erweitert»), _Werkzeuge_ (Umrechnungshilfe, Diagnose) und _Experte_ (die bisherigen Tabellen).
+- **Время работы:** общая скорость передачи данных 1,25/с для WiNet-S2 (режим: работа 5 с + энергия 60 с + управление 60 с + батарея 120 с стабильно, работа 3 с в режиме ожидания, время ожидания батареи 60 с); Pausen langsamer Geräte (SBH: 5 с) когда-нибудь. Grün < 80 %, гельб до 100 %, гниль.
+- **Umstieg von ioBroker.modbus:** идентификаторы, Namen, Einheiten, Faktoren, Typen und Rollen – Textersatz `modbus.N.` →`sungrow-local.0.`. Альтернативный Modbus-Instanz не работает: WiNet будет использоваться для просмотра только одного клиента. Ausnahme seit 0.4.3: Zeichen außerhalb `[A-Za-z0-9_-]` (на английском языке 0.5.0) в Namensspalte werden zu `_` (Umlaute umschrieben), wie ioBroker es for Object-IDs empfiehlt – z. Б. `53051_Charge/discharge_command` →`53051_Charge_discharge_command`. Удостоверения личности могут быть отправлены в Textersatz mit ändern.
+- **Falle Weißliste:** WiNet-S2 содержит IP-Weißliste для Modbus TCP. Nicht eingetragene Absender bekommen sofort `ECONNRESET` – IP-адрес ioBroker-Rechners (на NAT) в сети WiNet.
+- Die Vorgabetabellen на английском языке; Namen, Klartexte, Einheiten und Grenzen lassen sich in den Registertabellen ändern, ohne dass ich die IDers ändern.
+- **Форма регистрации:** Необходимо зарегистрироваться в 206 строках регистрации Sungrow в каталоге (120 входов, 86 удержаний, неактивно; имя в 11 языке; введите 0.6.0 в Wallbox, экспериментируйте): Gerätetyp, Seriennummer, Firmware, MPPT 4, Akkuleistung und -strom mit Vorzeichen, Zähler des Energiezählers, Monatserträge, Fehlercodes, Akkustrom/-temperatur des SBH, Uhr, Einspeisebegrenzung, Lade-/Entladegrenzung, Zwangsladung ua Häkchen setzen und speichern – das Register wird im Leseblock seiner Gruppe mitgelesen. Quellen: Home-Assistant-Integration von mkaiser (MIT) и Registerliste der Referenzanlage. Abhaken eines bisher gelesenen Registers löscht dessen Datenpunkt – außer er Hat eigene Einstellungen (History, InfluxDB, SQL …, версия 0.6.0): dann bleibt er mit `native.orphaned = true` stehen, und eine Warnung im Log nennt ihn bei jedem Start.
+- **Gleiche Werte nicht schreiben** (0.6.0, ab Werk an): Ein Befehl mit dem Wert, den das Gerät bereits meldet, geht nicht über den WiNet; der Datenpunkt wird trotzdem mit `ack=true` bestätigt. **Шрайбцалер должен зарегистрироваться** `info.write.registers.*` и eine Warnung je Register und Tag ab N Befehlen (Vorgabe 50).
+- **Аккустирование** (0.6.0, эксперимент, ab Werk **aus** ): `control.battery.mode` = нормальный / остановленный / загруженный с Zeitlimit und Rückkehr zu Normal (auch nach einem Neustart), Mindestpause und Tageslimit; Laden über das Zwangsladefenster des Wechselrichters statt Dauerbefehlen. Nur gegen eine Attrappe getestet. Подробности в [README](/#/adapters/sungrow-local#battery-control-experimental) .
+- **Wallbox** (0.6.0, эксперимент): Сообщение о Weiterleitung des WiNet (Unit = Weiterleitungs-ID) и EMS-регистре 33539–33549 des Wechselrichters; Schreiben braucht zusätzlich den Schalter «Wallbox-EMS-Register». Формат времени «Frist/Start/Ende» неактивен (Rohwerte).
+- **Umrechnungshilfe** (собственное имя): Адрес во всех шрайбвайзенах (Sungrow-Doku ab 1 wie SunGather/openHAB; Protokolladresse ab 0 wie Excel-/Registerlisten, Home Assistant, evcc, ioBroker.modbus без псевдонима; Spalte «Adresse» = Protokoll + 30001/40001; Modicon 6-stellig), автоматический Erkennung wo eindeutig, bekanntes Register an der Adresse und die Nachbarn bei Verzähler um eins (43022 = Мощность аккумулятора, 43023 = Уровень заряда аккумулятора), Datentyp, Vorzeichen, Wortreihenfolge (Sungrow: niederwertiges Wort zuerst =`…sw`) и фактор erklärt; Мы рекомендуем вам ознакомиться со всеми предлагаемыми художественными работами, с предупреждениями и рекомендациями по проведению тестового обучения (нур уроков).
+
+## Werte in evcc nutzen
+
+evcc принесет вам свой собственный Sungrow-Vorlage с возможностью **подключения к Modbus-клиенту** в WiNet-S2 – этот WiNet-клиент может быть поврежден только один раз (соединенный RS485-Bus, длинный аккум). Лучше всего использовать адаптер, а также ioBroker: для **простого API** (`http://<iobroker>:8087/getPlainValue/<ID>`) заказ через **MQTT-адаптер** (`source: mqtt`). Выберите конфигурацию, указанную в [README](/#/adapters/sungrow-local#using-the-values-in-evcc-or-other-software) . Strompreise lifert der Adaptor nicht – das übernehmen evcc, tibberlink, ein Börsenpreis-Adapter или ein Skript.
+
+## Visualisierung (vis-Vorlagen)
+
+В Орднере[`vis-templates/`](https://github.com/SmarthomeElektroniker/ioBroker.sungrow-local/blob/main/vis-templates/) Ligen Fertige **vis-1** -Ansichten (Animierter Energiefluss, Akku, Wechselrichter & Netz, Adaptor-Diagnose) и значок Akku-Symbol в качестве виджета в zwei Farben. Sie nutzen nur Datenpunkte von `sungrow-local.0` – Кейне Скрипт, Кейне Андерен Адаптер. Импортируйте файлы [vis-templates/README.md](/#/docs/adapterref/iobroker.sungrow-local/vis-templates/README.md) .
